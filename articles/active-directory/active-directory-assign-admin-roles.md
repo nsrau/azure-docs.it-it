@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="02/11/2016"
 	ms.author="curtand"/>
 
 # Assegnazione dei ruoli di amministratore in Azure Active Directory (Azure AD)
@@ -25,10 +25,12 @@ A seconda delle dimensioni della società, potrebbe essere opportuno designare p
 Sono disponibili i ruoli di amministratore seguenti:
 
 - **Amministratore fatturazione**: effettua acquisti, gestisce le sottoscrizioni, gestisce i ticket di supporto e monitora l'integrità del servizio.
-- **Amministratore globale**: dispone di accesso a tutte le funzionalità amministrative. La persona che effettua l'iscrizione per l'account di Azure diventa amministratore globale. Solo gli amministratori globali possono assegnare altri ruoli di amministratore. In una società possono essere presenti più amministratori globali.
-- **Amministratore password**: reimposta le password, gestisce le richieste di servizio e monitora l'integrità del servizio. Gli amministratori password possono reimpostare le password solo per gli utenti e gli altri amministratori password.
-- **Amministratore del servizio**: gestisce le richieste di servizio e monitora l'integrità del servizio.
 
+- **Amministratore globale**: dispone di accesso a tutte le funzionalità amministrative. La persona che effettua l'iscrizione per l'account di Azure diventa amministratore globale. Solo gli amministratori globali possono assegnare altri ruoli di amministratore. In una società possono essere presenti più amministratori globali.
+
+- **Amministratore password**: reimposta le password, gestisce le richieste di servizio e monitora l'integrità del servizio. Gli amministratori password possono reimpostare le password solo per gli utenti e gli altri amministratori password.
+
+- **Amministratore del servizio**: gestisce le richieste di servizio e monitora l'integrità del servizio.
 > [AZURE.NOTE]
 > Per assegnare il ruolo di amministratore del servizio a un utente, è prima necessario che l’amministratore globale assegni le autorizzazioni amministrative all’utente nel servizio, come Exchange Online, e poi che assegni il ruolo di amministratore del servizio all’utente nel portale di Azure classico.
 
@@ -72,19 +74,32 @@ L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per
 
 ## Assegnare o rimuovere ruoli di amministratore
 
-
 1. Nel portale di Azure classico, fare clic su **Active Directory** e poi sul nome della directory dell'organizzazione.
+
 2. Nella pagina **Utenti** fare clic sul nome visualizzato dell'utente da modificare.
+
 3. Nell’elenco **Ruolo aziendale**, scegliere il ruolo di amministratore da assegnare all'utente, oppure selezionare **Utente** per rimuovere un ruolo di amministratore esistente.
+
 4. Nella casella **Indirizzo di posta elettronica alternativo** digitare un indirizzo di posta elettronica. Questo indirizzo viene usato per notifiche importanti, inclusa la reimpostazione self-service della password, pertanto l'utente deve poter accedere all'account di posta elettronica indipendentemente dal fatto di poter accedere o meno ad Azure.
+
 5. Selezionare **Consenti** o **Blocca** per specificare se l'utente è autorizzato o meno a effettuare l'accesso e ad accedere ai servizi.
+
 6. Specificare una località nell'elenco a discesa **Località di utilizzo**.
+
 7. Al termine, fare clic su **Salva**.
 
 ## Passaggi successivi
 
-- [Gestire gli utenti](../active-directory-create-users.md)
+- Per altre informazioni su come cambiare gli amministratori per una sottoscrizione di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../billing-add-change-azure-subscription-administrator.md).
+
+- Per altre informazioni sul modo in cui l'accesso alle risorse viene controllato in Microsoft Azure, vedere [Informazioni sull'accesso alle risorse in Azure](active-directory-understanding-resource-access.md).
+
+- Per altre informazioni sul modo in cui Azure Active Directory è correlato alla sottoscrizione di Azure, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory-how-subscriptions-associated directory.md).
+
+- [Gestire gli utenti](active-directory-create-users.md)
+
 - [Gestire le password](active-directory-manage-passwords.md)
+
 - [Gestire i gruppi](active-directory-manage-groups.md)
 
-<!------HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

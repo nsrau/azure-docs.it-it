@@ -71,7 +71,7 @@ Più processi WebHCat, inclusi Hive, MapReduce, lo streaming Hadoop e Pig, posso
 L’archiviazione BLOB può essere usata per i dati strutturati e non strutturati. I contenitori di archiviazione BLOB archiviano i dati come coppie chiave-valore e non esiste una gerarchia di directory. È tuttavia possibile usare il carattere barra ( / ) all'interno del nome della chiave per far sembrare che un file sia archiviato in una struttura di directory. Ad esempio, la chiave di un BLOB potrebbe essere *input/log1.txt*. Non esiste realmente una directory *input* ma, grazie alla presenza del carattere barra, il nome della chiave ha l'aspetto di un percorso di file.
 
 ###<a id="benefits"></a>Vantaggi dell'archiviazione BLOB
-I costi impliciti in termini di prestazioni associati alla mancata disponibilità di cluster di elaborazione e risorse di archiviazione in ambiente condiviso sono mitigati dalla modalità di creazione dei cluster di calcolo, in prossimità delle risorse degli account di archiviazione nel data center di Azure. Qui, grazie alla rete ad alta velocità, l'accesso ai dati nell'archiviazione BLOB di Azure da parte dei nodi di calcolo è estremamente efficiente.
+I costi impliciti in termini di prestazioni associati alla mancata disponibilità di cluster di elaborazione e risorse di archiviazione in ambiente condiviso sono mitigati dalla modalità di creazione dei cluster di calcolo, in prossimità delle risorse degli account di archiviazione nell'area di Azure. Qui, grazie alla rete ad alta velocità, l'accesso ai dati nell'archivio BLOB di Azure da parte dei nodi di calcolo è estremamente efficiente.
 
 L'archiviazione dei dati nell'archiviazione BLOB di Azure anziché in HDFS offre numerosi vantaggi:
 
@@ -87,7 +87,7 @@ Alcuni pacchetti e processi MapReduce possono creare risultati intermedi che non
 
 ## Creare dei contenitori BLOB
 
-Per usare i BLOB, è necessario creare innanzitutto un [account di archiviazione di Azure][azure-storage-create]. Nel corso di questa procedura si specifica il data center di Azure in cui verranno archiviati gli oggetti creati usando questo account. L'account di archiviazione deve trovarsi nello stesso data center del cluster. Il database SQL Server del metastore Hive, inoltre, deve trovarsi nello stesso data center del database SQL Server del metastore Oozie.
+Per usare i BLOB, è necessario creare innanzitutto un [account di archiviazione di Azure][azure-storage-create]. Nel corso di questa procedura si specifica un'area di Azure in cui verranno archiviati gli oggetti creati usando questo account. L'account di archiviazione deve trovarsi nella stessa area del cluster. Il database SQL Server del metastore Hive, inoltre, deve trovarsi nella stessa area del database SQL Server del metastore Oozie.
 
 Ovunque si trovi, ogni oggetto BLOB creato appartiene a un contenitore presente nell'account di archiviazione di Azure. Può trattarsi di un contenitore BLOB esistente, creato all'esterno di HDInsight, oppure di un contenitore creato per un cluster HDInsight.
 
@@ -155,7 +155,7 @@ Lo schema URI per l'accesso ai file nell'archiviazione BLOB da HDInsight è il s
 
 
 
-Lo schema URI offre l'accesso non crittografato con il prefisso *wasb:* e l'accesso con crittografia SSL con il prefisso *wasbs*. Se possibile, è consigliabile usare *wasbs* anche per accedere ai dati presenti nello stesso data center di Azure.
+Lo schema URI offre l'accesso non crittografato con il prefisso *wasb:* e l'accesso con crittografia SSL con il prefisso *wasbs*. Se possibile, è consigliabile usare *wasbs* anche per accedere ai dati presenti nella stessa area di Azure.
 
 &lt;BlobStorageContainerName&gt; identifica il nome del contenitore nell'archiviazione BLOB di Azure. &lt;StorageAccountName&gt; identifica il nome dell'account di archiviazione di Azure. È necessario specificare un nome di dominio completo (FQDN).
 
@@ -286,7 +286,7 @@ Per altre informazioni, vedere:
 * [Usare le firme di accesso condiviso di Archiviazione di Azure per limitare l'accesso ai dati con HDInsight][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: powershell-install-configure.md
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -300,4 +300,4 @@ Per altre informazioni, vedere:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

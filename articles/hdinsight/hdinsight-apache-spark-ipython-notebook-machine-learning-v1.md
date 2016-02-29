@@ -41,7 +41,7 @@ In questo articolo, si utilizza l'esempio file dati **HVAC.csv** disponibile in 
 
 I dati illustrano la temperatura di destinazione e la temperatura effettiva di un edificio con sistemi HVAC installati. Si supponga che la colonna **sistema** rappresenti l'ID del sistema e la colonna **SystemAge** rappresenti il numero di anni in cui il sistema HVAC è stato in luogo presso l’edificio.
 
-Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base alla temperatura di destinazione, in base a un ID di sistema e all'età di sistema.
+Questi dati sono usati per stimare se un edificio è caldo o freddo in base alla temperatura di destinazione, in base a un ID di sistema e all'età di sistema.
 
 ##<a name="app"></a>Scrivere un'applicazione di formazione machine utilizzando MLlib Spark
 
@@ -61,7 +61,7 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
 
 	![Specificare un nome per il notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/hdispark.note.jupyter.notebook.name.png "Specificare un nome per il notebook")
 
-3. Iniziare a creare l'applicazione di apprendimento automatico. In questa applicazione viene utilizzata una pipeline di Spark ML per eseguire una classificazione di documento. Nella pipeline si è suddiviso il documento in parole, convertite le parole in un vettore di funzionalità numerico e infine creato un modello di stima utilizzando i vettori di funzionalità e le etichette.
+3. Iniziare a creare l'applicazione di apprendimento automatico. In questa applicazione viene usata una pipeline di Spark ML per eseguire una classificazione di documento. Nella pipeline si è suddiviso il documento in parole, convertite le parole in un vettore di funzionalità numerico e infine creato un modello di stima usando i vettori di funzionalità e le etichette.
 
 	Per avviare la compilazione dell'applicazione, importare i moduli necessari e assegnare risorse all'applicazione. Nella cella vuota nel nuovo notebook, incollare il seguente frammento e premere **MAIUSC + INVIO**.
 
@@ -96,7 +96,7 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
 
 	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
  
-4. È ora necessario caricare i dati (hvac.csv), da analizzare e utilizzare per eseguire il training del modello. A tale scopo, è possibile definire una funzione che controlla se la temperatura effettiva dell'edificio è maggiore della temperatura di destinazione. Se la temperatura effettiva è maggiore, l’edificio è caldo ed è contrassegnato dal valore **1.0**. Se la temperatura effettiva è inferiore, l’edificio è freddo ed è contrassegnato dal valore **0.0**.
+4. È ora necessario caricare i dati (hvac.csv), da analizzare e usare per eseguire il training del modello. A tale scopo, è possibile definire una funzione che controlla se la temperatura effettiva dell'edificio è maggiore della temperatura di destinazione. Se la temperatura effettiva è maggiore, l’edificio è caldo ed è contrassegnato dal valore **1.0**. Se la temperatura effettiva è inferiore, l’edificio è freddo ed è contrassegnato dal valore **0.0**.
 
 	Incollare il seguente frammento di codice in una cella vuota e premere **MAIUSC + INVIO**.
 
@@ -176,11 +176,11 @@ Questi dati sono utilizzati per stimare se un edificio è caldo o freddo in base
 		4          8 22       0.0  
 		7          17 5       0.0
 
-	Tornare indietro e verificare l'output nel file CSV non elaborato. Ad esempio, la prima riga del file CSV ha dati:
+	Tornare indietro e verificare l'output nel file con estensione csv non elaborato. Ad esempio, la prima riga del file con estensione csv ha dati:
 
 	![Snapshot dati HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/hdispark.ml.show.data.first.row.png "Snapshot dei dati HVAC")
 
-	Si noti come la temperatura effettiva è inferiore alla temperatura destinazione suggerendo che edificio è freddo. Pertanto nella formazione di output, il valore per **etichetta** nella prima riga è **0.0**, che indica l’edificio non è caldo.
+	Si noti come la temperatura effettiva è inferiore alla temperatura di destinazione. Questo dato indica che l'edificio è freddo. Pertanto nella formazione di output, il valore per **etichetta** nella prima riga è **0.0**, che indica l’edificio non è caldo.
 
 8.  Preparazione per l'esecuzione del training modello rispetto a un set di dati. A tale scopo, si passa a un ID di sistema e all'età di sistema (indicati come **SystemInfo** nell'output di formazione), e il modello potrebbe prevedere se la compilazione con tale ID di sistema ed età di sistema sarebbe più calda (contrassegnata da 1.0) o fredda (contrassegnata da 0.0).
 
@@ -233,20 +233,16 @@ I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager-v1.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-
-
-[hdinsight-weblogs-sample]: ../hdinsight-hive-analyze-website-log/
-[hdinsight-sensor-data-sample]: ../hdinsight-hive-analyze-sensor-data/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-weblogs-sample]: hdinsight-hive-analyze-website-log.md
+[hdinsight-sensor-data-sample]: hdinsight-hive-analyze-sensor-data.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

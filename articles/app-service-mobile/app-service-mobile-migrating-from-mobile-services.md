@@ -210,7 +210,7 @@ Nota: l'impostazione **MS\_AadTenants** viene archiviata come elenco delimitato 
 
 > [AZURE.WARNING] **Non usare i meccanismi di autenticazione nel menu Impostazioni**
 >
-> Il servizio app di Azure fornisce un sistema di autenticazione e autorizzazione senza codice a parte nel menu Impostazioni di _Autenticazione/Autorizzazione_ e l'opzione _Autenticazione per dispositivi mobili_ (deprecata) nel menu Impostazioni. Queste opzioni non sono compatibili con un servizio mobile di Azure di cui è stata eseguita la migrazione. È possibile aggiornare il sito per sfruttare i vantaggi dell'autenticazione del servizio app di Azure.
+> Il servizio app di Azure fornisce un sistema di autenticazione e autorizzazione senza codice a parte nel menu Impostazioni di _Autenticazione/Autorizzazione_ e l'opzione _Autenticazione per dispositivi mobili_ (deprecata) nel menu Impostazioni. Queste opzioni non sono compatibili con un servizio mobile di Azure di cui è stata eseguita la migrazione. È possibile [aggiornare il sito](app-service-mobile-net-upgrading-from-mobile-services.md) per sfruttare i vantaggi dell'autenticazione del servizio app di Azure.
 
 ### <a name="easytables"></a>Dati
 
@@ -393,4 +393,4 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [reti virtuali]: ../app-service-web/web-sites-integrate-with-vnet.md
 [Processi Web]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

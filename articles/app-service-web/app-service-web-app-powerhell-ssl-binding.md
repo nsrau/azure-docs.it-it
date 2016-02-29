@@ -23,6 +23,7 @@ Con il rilascio di Microsoft Azure PowerShell versione 1.1.0 è stato aggiunto u
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 
+
 ## Caricamento e binding di un nuovo certificato SSL ##
 
 Scenario: l'utente vuole associare un certificato SSL a una delle proprie app Web.
@@ -30,6 +31,15 @@ Scenario: l'utente vuole associare un certificato SSL a una delle proprie app We
 Conoscendo il nome del gruppo di risorse che contiene l'app Web, il nome dell'app Web, il percorso del file PFX del certificato nel computer dell'utente, la password per il certificato e il nome host personalizzato, è possibile usare il comando di PowerShell seguente per creare il binding SSL:
 
     New-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -CertificateFilePath PathToPfxFile -CertificatePassword PlainTextPwd -Name www.contoso.com
+
+Si noti che prima di aggiungere un binding SSL a un'app Web, è necessario avere un nome host (dominio personalizzato) già configurato. Se il nome host non è configurato, durante l'esecuzione di New-AzureRmWebAppSSLBinding verrà visualizzato un errore per indicare che "nomehost" non esiste. È possibile aggiungere un nome host direttamente dal portale o con Azure PowerShell. Per configurare il nome host prima di eseguire New-AzureRmWebAppSSLBinding, è possibile usare il frammento di PowerShell seguente.
+  
+    $webApp = Get-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup  
+    $hostNames = $webApp.HostNames  
+    $HostNames.Add("www.contoso.com")  
+    Set-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup -HostNames $HostNames   
+  
+È importante tenere presente che il cmdlet Set-AzureRmWebApp sovrascrive i nomi host per l'app Web. Perciò il frammento di PowerShell precedente aggiunge una voce all'elenco di nomi host per l'app Web esistente.
 
 ## Caricamento e binding di un certificato SSL esistente ##
 
@@ -61,4 +71,4 @@ Si noti che se il binding SSL rimosso era l'ultimo binding che usava quel certif
 - [Introduzione all'ambiente del servizio app](app-service-app-service-environment-intro.md)
 - [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

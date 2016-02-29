@@ -52,9 +52,9 @@ Verificare che SQL Server sia raggiungibile dal computer in cui è installato il
 2. Provare a connettersi all'istanza di SQL Server con le credenziali specificate nel portale di Azure classico usando SQL Server Management Studio (SSMS).
 
 
-## Problema: le sezioni di input sono sempre nello stato PendingExecution o PendingValidation
+## Problema: le sezioni di input rimangono nello stato Waiting
 
-Le sezioni potrebbero essere nello stato **PendingExecution** o **PendingValidation** a causa di una serie di motivi: uno dei più comuni è che la proprietà **external** non viene impostata su **true**. Qualsiasi set di dati che viene generato all'esterno dell'ambito di Data factory di Azure deve essere contrassegnato con la proprietà **external**. Ciò indica che i dati sono esterni e non sono supportati da alcuna pipeline all'interno della data factory. Le sezioni di dati vengono contrassegnate con **Pronto** quando i dati sono disponibili nel rispettivo archivio.
+Le sezioni potrebbero essere nello stato **Waiting** a causa di una serie di motivi, uno dei più comuni è che la proprietà **external** non è impostata su **true**. Qualsiasi set di dati che viene generato all'esterno dell'ambito di Data factory di Azure deve essere contrassegnato con la proprietà **external**. Ciò indica che i dati sono esterni e non sono supportati da alcuna pipeline all'interno della data factory. Le sezioni di dati vengono contrassegnate con **Pronto** quando i dati sono disponibili nel rispettivo archivio.
 
 Per l'uso della proprietà **external**, vedere l'esempio seguente. È possibile specificare facoltativamente**externalData*** quando si imposta external su true.
 
@@ -374,4 +374,4 @@ In questo scenario, il set di dati è in stato di errore a causa di un errore ne
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

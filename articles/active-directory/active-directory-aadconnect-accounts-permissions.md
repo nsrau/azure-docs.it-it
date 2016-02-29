@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell;billmath"/>
 
 
-# Autorizzazioni e account necessari per Azure AD Connect
+# Azure AD Connect: account e autorizzazioni
 
 L'installazione guidata di Azure AD Connect offre due percorsi diversi:
 
@@ -36,7 +36,7 @@ Se non è stata letta la documentazione in [Integrazione delle identità locali 
 
 
 ## Installazione mediante le impostazioni rapide
-Nell'installazione guidata mediante le impostazioni rapide vengono richieste le credenziali di amministratore dell'organizzazione, in modo che l'istanza locale di Active Directory possa essere configurata con le autorizzazioni richieste per Azure AD Connect. Se si esegue l'aggiornamento da DirSync, le credenziali di amministratore dell'organizzazione vengono usate per reimpostare la password per l'account usato da DirSync.
+Nell'installazione guidata mediante le impostazioni rapide vengono richieste le credenziali di amministratore dell'organizzazione di Servizi di dominio Active Directory, in modo che l'istanza locale di Active Directory possa essere configurata con le autorizzazioni richieste per Azure AD Connect. Se si esegue l'aggiornamento da DirSync, le credenziali di amministratore dell'organizzazione di Servizi di dominio Active Directory vengono usate per reimpostare la password per l'account usato da DirSync. Saranno necessarie anche le credenziali di amministratore globale di Azure AD.
 
 Pagina della procedura guidata | Credenziali raccolte | Autorizzazioni necessarie| Utilizzo
 ------------- | ------------- |------------- |------------- |
@@ -48,10 +48,22 @@ Connessione ad AD DS | Credenziali Active Directory locali | Membro del gruppo E
 Queste credenziali vengono usate solo durante l'installazione e non dopo il completamento di quest'ultima. È l'amministratore dell'organizzazione, non l'amministratore di dominio, a garantire che le autorizzazioni in Active Directory possano essere impostate in tutti i domini.
 
 ### Credenziali di amministratore globale
-Queste credenziali vengono usate solo durante l'installazione e non dopo il completamento di quest'ultima. Vengono usate per creare l'[account Azure AD](#azure-ad-service-account) utile per sincronizzare le modifiche apportate ad Azure AD e per abilitare la sincronizzazione come funzionalità in Azure AD. Nell'account in uso non è possibile abilitare l'autenticazione a più fattori.
+Queste credenziali vengono usate solo durante l'installazione e non dopo il completamento di quest'ultima. Vengono usate per creare l'[account Azure AD](#azure-ad-service-account) utile per sincronizzare le modifiche apportate ad Azure AD e per abilitare la sincronizzazione come funzionalità in Azure AD.
+
+### Autorizzazioni per gli account creati di Servizi di dominio Active Directory per le impostazioni rapide
+L'[account](#active-directory-account) creato per la lettura e la scrittura in Servizi di dominio Active Directory avrà le autorizzazioni seguenti se creato tramite impostazioni rapide:
+
+| Autorizzazione | Usato per |
+| ---- | ---- |
+| <li>Replica delle modifiche della directory</li><li>Replica di tutte le modifiche della directory | Sincronizzazione delle password |
+| Lettura/scrittura di tutte le proprietà - Utente | Importazione ed Exchange ibrido |
+| Lettura/scrittura di tutte le proprietà - iNetOrgPerson | Importazione ed Exchange ibrido |
+| Lettura/scrittura di tutte le proprietà - Gruppo | Importazione ed Exchange ibrido |
+| Lettura/scrittura di tutte le proprietà - Contatto | Importazione ed Exchange ibrido |
+| Reimpostazione delle password | Preparazione per l'abilitazione del writeback delle password |
 
 ## Installazione mediante le impostazioni personalizzate
-Quando si usano le impostazioni personalizzate, l'account usato per connettersi ad Active Directory deve essere creato prima dell'installazione.
+Quando si usano le impostazioni personalizzate, l'account usato per connettersi ad Active Directory deve essere creato prima dell'installazione. Per informazioni sulle autorizzazioni da concedere a questo account, vedere [Creare l'account di Servizi di dominio Active Directory](#create-the-ad-ds-account).
 
 Pagina della procedura guidata | Credenziali raccolte | Autorizzazioni necessarie| Utilizzo
 ------------- | ------------- |------------- |-------------
@@ -74,7 +86,7 @@ Le autorizzazioni necessarie dipendono dalle funzionalità facoltative abilitate
 | Sincronizzazione delle password | <li>Replica delle modifiche della directory</li> <li>Replica di tutte le modifiche della directory |
 | Distribuzione ibrida di Exchange | Autorizzazioni di scrittura per gli attributi documentati in [Writeback della distribuzione ibrida Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) per utenti, gruppi e contatti. |
 | Writeback delle password | Autorizzazioni di scrittura per gli attributi documentati in [Introduzione alla gestione delle password](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) per gli utenti. |
-| Writeback dei dispositivi | Autorizzazioni concesse con uno script di PowerShell come descritto in [Writeback dei dispositivi](active-directory-aadconnect-get-started-custom-device-writeback.md).|
+| Writeback dei dispositivi | Autorizzazioni concesse con uno script di PowerShell come descritto in [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md).|
 | Writeback dei gruppi | Lettura, creazione, aggiornamento ed eliminazione di oggetti di gruppo nell'unità organizzativa in cui devono trovarsi i gruppi di distribuzione.|
 
 ## Aggiornare
@@ -95,20 +107,20 @@ Se si usano le impostazioni rapide, verrà creato un account in Active Directory
 ![Account AD](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 ### Account del servizio di sincronizzazione Azure AD Connect
-Mediante l'installazione guidata vengono creati due account di servizio locale (a meno che non si specifichi l'account da usare nelle impostazioni personalizzate). L'account preceduto da **AAD\_** viene usato per l'esecuzione come servizio di sincronizzazione effettiva. Se si installa Azure AD Connect in un Controller di dominio, gli account vengono creati nel dominio. Se si usa un server SQL su un server remoto, l'account del servizio **AAD\_** deve trovarsi nel dominio. L'account preceduto da **AADSyncSched\_** viene usato per l'attività pianificata che esegue il motore di sincronizzazione.
+Mediante l'installazione guidata viene creato un account di servizio locale (a meno che non si specifichi l'account da usare nelle impostazioni personalizzate). L'account è preceduto da **AAD\_** e viene usato per l'esecuzione come servizio di sincronizzazione effettiva. Se si installa Azure AD Connect in un Controller di dominio, l'account viene creato nel dominio. Se si usa un server remoto che esegue SQL Server, l'account del servizio **AAD\_** deve trovarsi nel dominio.
 
 ![Account del servizio di sincronizzazione](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
-Gli account vengono creati con una password lunga e complessa priva di scadenza.
+L'account viene creato con una password lunga e complessa priva di scadenza.
 
-Per l’account del servizio del motore di sincronizzazione, tale account verrà usato da Windows per archiviare le chiavi di crittografia in modo che le password dell'account non vengano reimpostate né modificate.
+Tale account verrà usato da Windows per archiviare le chiavi di crittografia in modo che le password dell'account non vengano reimpostate né modificate.
 
 Se si usa una versione completa di SQL Server, l'account del servizio sarà il DBO del database creato per il motore di sincronizzazione. Il servizio non funzionerà come previsto con tutte le altre autorizzazioni. Viene inoltre creato un account di accesso SQL.
 
 L'account concede inoltre le autorizzazioni a file, chiavi del Registro di sistema e altri oggetti correlati al motore di sincronizzazione.
 
 ### Account del servizio Azure AD
-In Azure AD verrà creato un account per l'uso con il servizio di sincronizzazione. Questo account può essere identificato con il relativo nome visualizzato.
+In Azure AD verrà creato un account per l'uso con il servizio di sincronizzazione. Questo account può essere identificato in base al relativo nome visualizzato.
 
 ![Account AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
 
@@ -122,4 +134,4 @@ L'account del servizio viene creato con una password lunga e complessa priva di 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

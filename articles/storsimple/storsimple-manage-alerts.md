@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.workload="NA"
+   ms.date="02/09/2016"
    ms.author="v-sharos" />
 
 # Utilizzare il servizio StorSimple Manager per visualizzare e gestire gli avvisi di StorSimple.
@@ -31,7 +31,7 @@ Il dispositivo StorSimple genera avvisi in risposta a una varietà di condizioni
 
 - **Problemi hardware**: questi avvisi offrono informazioni sull'integrità dell'hardware. Consentono di sapere se sono necessari aggiornamenti del firmware, se un'interfaccia di rete presenta problemi oppure se si è verificato un problema con una delle unità dati.
 
-- **Problemi di connettività**: questi avvisi vengono generati in caso di difficoltà di trasferimento dei dati. Possono verificarsi problemi di comunicazione durante il trasferimento dei dati da un account di archiviazione di Azure e viceversa oppure a causa della mancanza di connettività tra i dispositivi e il servizio StorSimple Manager. I problemi di comunicazione sono tra i più difficili da risolvere poiché sono presenti numerosi punti di errore. Verificare sempre che la connettività di rete e l'accesso a Internet siano disponibili prima di proseguire con la risoluzione dei problemi più avanzati. Per informazioni sulla risoluzione dei problemi, vedere [Risoluzione dei problemi con il cmdlet Test-Connection](storsimple-troubleshoot-deployment.md/#troubleshoot-with-the-test-hcsmconnection-cmdlet).
+- **Problemi di connettività**: questi avvisi vengono generati in caso di difficoltà di trasferimento dei dati. Possono verificarsi problemi di comunicazione durante il trasferimento dei dati da un account di archiviazione di Azure e viceversa oppure a causa della mancanza di connettività tra i dispositivi e il servizio StorSimple Manager. I problemi di comunicazione sono tra i più difficili da risolvere poiché sono presenti numerosi punti di errore. Verificare sempre che la connettività di rete e l'accesso a Internet siano disponibili prima di proseguire con la risoluzione dei problemi più avanzati. Per informazioni sulla risoluzione dei problemi, vedere [Risoluzione dei problemi con il cmdlet Test-Connection](storsimple-troubleshoot-deployment.md).
 
 - **Problemi di prestazioni**: questi avvisi vengono generati quando le prestazioni del sistema non sono ottimali, ad esempio in presenza di un forte carico.
 
@@ -49,9 +49,9 @@ Gli avvisi possono avere diversi livelli di gravità, in base all'impatto determ
 
 ## Configurare le impostazioni degli avvisi
 
-È possibile scegliere se si desidera ricevere le notifiche delle condizioni di avviso tramite posta elettronica per ciascun dispositivo StorSimple. È anche possibile identificare altri destinatari delle notifiche di avviso immettendo i relativi indirizzi di posta elettronica nella casella **ALTRI DESTINATARI DI POSTA ELETTRONICA**, separandoli con un punto e virgola.
+È possibile scegliere se si desidera ricevere le notifiche delle condizioni di avviso tramite posta elettronica per ciascun dispositivo StorSimple. È anche possibile identificare altri destinatari delle notifiche di avviso immettendo i relativi indirizzi di posta elettronica nella casella **Altri destinatari di posta elettronica**, separandoli con un punto e virgola.
 
->[AZURE.NOTE]È possibile immettere un massimo di 20 indirizzi di posta elettronica per ogni dispositivo.
+>[AZURE.NOTE] È possibile immettere un massimo di 20 indirizzi di posta elettronica per ogni dispositivo.
 
 Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da **storsimple-alerts-noreply@mail.windowsazure.com* e conterranno una descrizione della condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche di posta elettronica.
 
@@ -61,21 +61,21 @@ Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri
 
 2. In **Impostazioni avvisi** impostare quanto segue:
 
-    1. Nel campo **INVIA NOTIFICA DI POSTA ELETTRONICA** selezionare **SÌ**.
+    1. Nel campo **Invia notifica di posta elettronica** selezionare **Sì**.
 
-    2. Nel campo **INVIA MESSAGGIO DI POSTA ELETTRONICA AGLI AMMINISTRATORI DEL SERVIZIO** selezionare **SÌ** se si vuole che l'amministratore del servizio e tutti i co-amministratori ricevano le notifiche di avviso.
+    2. Nel campo **Invia messaggio di posta elettronica agli amministratori del servizio** selezionare **Sì** se si vuole che l'amministratore del servizio e tutti i co-amministratori ricevano le notifiche di avviso.
 
-    3. Nel campo **ALTRI DESTINATARI DI POSTA ELETTRONICA** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato **someone@somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo.
+    3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato **someone@somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo.
 
         ![Configurazione della notifica degli avvisi](./media/storsimple-manage-alerts/AlertNotify.png)
 
-3. Per inviare una notifica di posta elettronica di prova, fare clic sull'icona della freccia accanto a **INVIA UN MESSAGGIO DI POSTA ELETTRONICA DI PROVA**. Il servizio StorSimple Manager visualizza i messaggi di stato e inoltra la notifica di prova.
+3. Per inviare una notifica di posta elettronica di prova, fare clic sull'icona della freccia accanto a **Invia un messaggio di posta elettronica di prova**. Il servizio StorSimple Manager visualizza i messaggi di stato e inoltra la notifica di prova.
 
 4. Quando viene visualizzato il messaggio seguente, fare clic su **OK**.
 
     ![Messaggio di posta elettronica di prova della notifica di avviso inviato](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
 
-    >[AZURE.NOTE]Se il messaggio di notifica di prova non può essere inviato, il servizio StorSimple Manager visualizza un messaggio appropriato. Fare clic su **OK**, attendere alcuni minuti e provare a inviare nuovamente il messaggio di notifica di prova.
+    >[AZURE.NOTE] Se il messaggio di notifica di prova non può essere inviato, il servizio StorSimple Manager visualizza un messaggio appropriato. Fare clic su **OK**, attendere alcuni minuti e provare a inviare nuovamente il messaggio di notifica di prova.
 
 ## Visualizzare e tenere traccia degli avvisi
 
@@ -91,7 +91,7 @@ Fare clic su un avviso nell'elenco per visualizzare ulteriori dettagli sull'avvi
 
 ![Esempio di avviso hardware](./media/storsimple-manage-alerts/admin_alerts_hardware.png)
 
-Se è necessario inviare le informazioni al supporto tecnico Microsoft, è possibile copiare i dettagli dell'avviso in un file di testo. Dopo avere seguito i suggerimenti e risolto la condizione di avviso in locale, è necessario cancellare l'avviso dal dispositivo, selezionando l'avviso nella scheda **Avvisi** e facendo clic su **Cancella**. Per cancellare più avvisi, premere il tasto CTRL mentre si selezionano gli avvisi e quindi fare clic su **Cancella**. Si noti che alcuni avvisi vengono automaticamente cancellati quando il problema viene risolto oppure quando il sistema aggiorna l'avviso con nuove informazioni.
+Se è necessario inviare le informazioni al supporto tecnico Microsoft, è possibile copiare i dettagli dell'avviso in un file di testo. Dopo avere seguito i suggerimenti e risolto la condizione di avviso in locale, è necessario cancellare l'avviso dal dispositivo, selezionando l'avviso nella scheda **Avvisi** e facendo clic su **Cancella**. Per cancellare più avvisi, fare clic su qualsiasi colonna ad eccezione di **Avviso**, selezionare tutti gli avvisi da cancellare e fare clic su **Cancella**. Si noti che alcuni avvisi vengono automaticamente cancellati quando il problema viene risolto oppure quando il sistema aggiorna l'avviso con nuove informazioni.
 
 Quando si fa clic su **Cancella** si ha la possibilità di fornire commenti sull'avviso e i passaggi eseguiti per risolvere il problema. Alcuni eventi verranno cancellati dal sistema se un altro evento viene attivato con nuove informazioni. In tal caso, viene inviato il messaggio seguente.
 
@@ -191,7 +191,7 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Backup di <*ID gruppo di volumi di origine*> non riuscito.|Il processo di backup non è riuscito.|Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di backup. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il numero massimo di backup consentiti. Eliminare i backup non più necessari e ripetere l'operazione. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.|
+|Backup di <*ID gruppo di volumi di origine*> non riuscita.|Il processo di backup non è riuscito.|Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di backup. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il numero massimo di backup consentiti. Eliminare i backup non più necessari e ripetere l'operazione. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi.|
 |Clonazione di <*ID elemento backup di origine*> a <*numeri di serie volume di destinazione*> non riuscita.|Il processo di clonazione non è riuscito.|Aggiornare l'elenco dei backup per verificare che il backup sia ancora valido. Se il backup è valido è possibile che problemi di connettività cloud impediscano il corretto completamento dell'operazione di clonazione. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il limite di archiviazione. Eliminare i backup non più necessari e ripetere l'operazione. Dopo avere eseguito l'operazione appropriata per risolvere il problema, cancellare questo avviso dalla pagina degli avvisi.|
 |Ripristino di <*ID elementi di backup di origine*> non riuscito.|Il processo di ripristino non è riuscito.|Aggiornare l'elenco dei backup per verificare che il backup sia ancora valido. Se il backup è valido è possibile che problemi di connettività cloud impediscano il corretto completamento dell'operazione di ripristino. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il limite di archiviazione. Eliminare i backup non più necessari e ripetere l'operazione. Dopo avere eseguito l'operazione appropriata per risolvere il problema, cancellare questo avviso dalla pagina degli avvisi.|
 
@@ -254,4 +254,4 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 Altre informazioni su [Errori di StorSimple e risoluzione dei problemi relativi a un dispositivo operativo](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

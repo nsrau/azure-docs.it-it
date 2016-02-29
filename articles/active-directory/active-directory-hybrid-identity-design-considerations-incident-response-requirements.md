@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 # Determinare i requisiti di risposta agli eventi imprevisti per una soluzione di identità ibrida
@@ -54,7 +54,8 @@ Durante le fasi di controllo dei danni e riduzione dei rischi, è importante lim
  - In caso affermativo, sarà possibile integrarli con la soluzione di gestione dell'identità ibrida che si intende adottare?
 - L'azienda desidera poter attivare l'accesso condizionale per gli utenti in quarantena? 
  
->[AZURE.NOTE]Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta alla base. L'articolo sulla [definizione della strategia di protezione dei dati](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) esamina le opzioni disponibili con i relativi vantaggi e svantaggi. Una volta fornite le risposte a queste domande, sarà possibile selezionare l'opzione più adatta in base alle esigenze aziendali.
+>[AZURE.NOTE]
+Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta alla base. L'articolo sulla [definizione della strategia di protezione dei dati](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) esamina le opzioni disponibili con i relativi vantaggi e svantaggi. Una volta fornite le risposte a queste domande, sarà possibile selezionare l'opzione più adatta in base alle esigenze aziendali.
 
 ## Passaggi successivi
 [Definire la strategia di protezione dei dati](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
@@ -62,4 +63,4 @@ Durante le fasi di controllo dei danni e riduzione dei rischi, è importante lim
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

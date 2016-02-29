@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="01/19/2016" 
+ms.date="02/17/2016" 
 ms.author="saurabh"/>
 
 # Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure
@@ -93,7 +93,7 @@ Per scaricare il file RDP, è possibile usare l'operazione REST [Scarica file RD
 
 Questo metodo consente di abilitare Desktop remoto per l'applicazione durante lo sviluppo. Questo approccio richiede l'archiviazione delle password crittografate nel file cscfg ed eventuali aggiornamenti della configurazione di Desktop remoto richiederebbero una ridistribuzione dell'applicazione. Se si desidera evitare questi svantaggi, usare l'approccio basato sull'estensione di Desktop remoto descritto in precedenza.
 
-È possibile usare Visual Studio per [abilitare una connessione Desktop remoto](https://msdn.microsoft.com/library/gg443832.aspx) usando l'approccio del file di definizione del servizio. I passaggi seguenti descrivono le modifiche necessarie da apportare ai file del modello del servizio per abilitare Desktop remoto. Visual Studio eseguirà automaticamente queste modifiche durante la pubblicazione.
+È possibile usare Visual Studio per [abilitare una connessione Desktop remoto](../vs-azure-tools-remote-desktop-roles.md) usando l'approccio del file di definizione del servizio. I passaggi seguenti descrivono le modifiche necessarie da apportare ai file del modello del servizio per abilitare Desktop remoto. Visual Studio eseguirà automaticamente queste modifiche durante la pubblicazione.
 
 ### Configurazione della connessione nel modello del servizio 
 Usare l'elemento **Imports** per importare i moduli **RemoteAccess** e **RemoteForwarder** per il file [ServiceDefinition.csdef](cloud-services-model-and-package.md#csdef).
@@ -121,7 +121,7 @@ Il file di definizione del servizio dovrebbe essere simile all'esempio seguente 
     </WebRole>
 </ServiceDefinition>
 ```
-Il file [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) dovrebbe essere simile all'esempio seguente, si notino gli elementi `<ConfigurationSettings>` e `<Certificates>`. Il certificato specificato deve essere [caricato nel servizio cloud](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service).
+Il file [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) dovrebbe essere simile all'esempio seguente, si notino gli elementi `<ConfigurationSettings>` e `<Certificates>`. Il certificato specificato deve essere [caricato nel servizio cloud](../cloud-services-how-to-create-deploy.md#how-to-upload-a-certificate-for-a-cloud-service).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -147,4 +147,4 @@ Il file [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) 
 
 [Come configurare i servizi cloud](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

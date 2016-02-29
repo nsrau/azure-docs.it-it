@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="Esercitazione: Integrazione di Azure Active Directory con TOPdesk - Secure | Microsoft Azure" description="Informazioni su come usare TOPdesk - Secure con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con TOPdesk - Secure | Microsoft Azure"
+    description="Informazioni su come usare TOPdesk - Secure con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -15,8 +16,7 @@
 
 #Esercitazione: Integrazione di Azure Active Directory con TOPdesk - Secure
   
-Questa esercitazione descrive l'integrazione di Azure e TOPdesk - Secure.  
-Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e TOPdesk - Secure. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Sottoscrizione di TOPdesk - Secure abilitata per l'accesso Single Sign-On
@@ -66,8 +66,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per TOPd
 
 ##Configurazione dell'accesso Single Sign-On
   
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a TOPdesk - Secure tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
-La configurazione dell'accesso Single Sign-On per TOPdesk - Secure richiede il caricamento di un file con l'icona del logo. Per ottenere il file con l'icona, contattare il team di supporto di TOPdesk.
+Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a TOPdesk - Secure tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML. La configurazione dell'accesso Single Sign-On per TOPdesk - Secure richiede il caricamento di un file con l'icona del logo. Per ottenere il file con l'icona, contattare il team di supporto di TOPdesk.
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
@@ -94,7 +93,7 @@ La configurazione dell'accesso Single Sign-On per TOPdesk - Secure richiede il c
         ![AssertionConsumerService](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "AssertionConsumerService")
     3.  Copiare il valore di **AssertionConsumerService**.  
 
-        >[AZURE.NOTE]Questo valore sarà necessario nella sezione **Configure App URL** più avanti in questa esercitazione.
+        >[AZURE.NOTE] Questo valore sarà necessario nella sezione **Configure App URL** più avanti in questa esercitazione.
 
 6.  In un'altra finestra del Web browser accedere al portale di **Azure Active Directory** come amministratore.
 
@@ -151,7 +150,7 @@ La configurazione dell'accesso Single Sign-On per TOPdesk - Secure richiede il c
     2.  Per caricare il file del certificato, in **Certificate (RSA)** fare clic su **Browse**.
     3.  Per caricare il file del logo ottenuto dal team di supporto di TOPdesk, in **Logo icon** fare clic su **Browse**.
     4.  Nella casella di testo **User name attribute** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    5.  Nella casella di testo **Display name** digitare un nome per la configurazione.
+5.  Nella casella di testo **Display name** digitare un nome per la configurazione.
     6.  Fare clic su **Save**.
 
 17. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
@@ -181,7 +180,7 @@ Nel caso di TOPdesk - Secure, il provisioning è un'attività manuale.
     4.  Nella casella di testo **Login Name** della sezione **TOPdesk Login** digitare un nome di accesso per l'utente.
     5.  Fare clic su **Save**.
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da TOPdesk - Secure per eseguire il provisioning degli account utente Azure AD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da TOPdesk - Secure per eseguire il provisioning degli account utente Azure AD.
 
 ##Assegnazione degli utenti
   
@@ -201,4 +200,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

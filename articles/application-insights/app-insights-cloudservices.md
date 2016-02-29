@@ -125,7 +125,7 @@ Vedere i due ruoli di lavoro di esempio instrumentati per segnalare le richieste
 
 ## Diagnostica Azure
 
-I dati di [Diagnostica di Azure](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) includono eventi di gestione dei ruoli, contatori delle prestazioni e registri applicazioni. È possibile inviarli ad Application Insights per poterli visualizzare insieme al resto della telemetria, semplificando così la diagnosi dei problemi.
+I dati di [Diagnostica di Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) includono eventi di gestione dei ruoli, contatori delle prestazioni e registri applicazioni. È possibile inviarli ad Application Insights per poterli visualizzare insieme al resto della telemetria, semplificando così la diagnosi dei problemi.
 
 La diagnostica di Azure è utile soprattutto se un ruolo smette di rispondere inaspettatamente o non si riesce ad avviarlo.
 
@@ -261,7 +261,7 @@ L'operazione è terminata. Le funzionalità del portale sono già collegate per 
 ## Argomenti correlati
 
 * [Configurare l'invio di dati di Diagnostica di Azure ad Application Insights](app-insights-azure-diagnostics.md)
-* [Uso di PowerShell per l'invio dei dati del servizio Diagnostica di Azure ad Application Insights])(app-insights-powershell-azure-diagnostics.md)
+* [Uso di PowerShell per l'invio dei dati del servizio Diagnostica di Azure ad Application Insights](app-insights-powershell-azure-diagnostics.md)
 
 
 
@@ -279,4 +279,4 @@ L'operazione è terminata. Le funzionalità del portale sono già collegate per 
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

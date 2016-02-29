@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="02/16/2016" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso DocumentDB mediante Data factory di Azure
@@ -419,4 +419,4 @@ In caso di attività di copia con origine di tipo **DocumentDbCollectionSource**
 	**Risposta:** No. In questo momento, è possibile specificare solo una raccolta.
      
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0218_2016-->

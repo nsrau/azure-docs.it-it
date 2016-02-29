@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Domande frequenti su Azure Multi-Factor Authentication
@@ -75,7 +75,8 @@ Tutti i costi sono distribuiti nel costo del servizio per utente o per autentica
 
 Azure Multi-Factor Authentication è disponibile come servizio autonomo, con opzioni di fatturazione per utente e per autenticazione o in bundle con Azure Active Directory Premium, Enterprise Mobility Suite ed Enterprise Cloud Suite. Il servizio autonomo è disponibile come opzione basata sull'utilizzo fatturata mensilmente a fronte dell'impegno monetario con Azure oppure come licenza annuale per utente disponibile tramite un contratto Microsoft Enterprise Agreement, il programma Open Volume License, il programma Cloud Solution Provider e Direct.
 
->[AZURE.IMPORTANT]Le aree australiane sono disponibili per i clienti con una presenza commerciale in Australia o Nuova Zelanda.
+>[AZURE.IMPORTANT]
+Le aree australiane sono disponibili per i clienti con una presenza commerciale in Australia o Nuova Zelanda.
 
 Modello di fatturazione | Prezzo
 ------------- | ------------- |
@@ -136,7 +137,7 @@ Se è già stato configurato un telefono di backup, riprovare selezionando tale 
 Per informazioni sulla creazione di password della app vedere [Guida in linea per le password della app](multi-factor-authentication-end-user-app-passwords.md)
 
 
->[AZURE.NOTE]Autenticazione Moderna per i Client di Office 2013
+>[AZURE.NOTE] Autenticazione Moderna per i Client di Office 2013
 >
 > I Client di Office 2013 (tra cui Outlook) ora supportano i nuovi Protocolli di autenticazione e possono essere abilitati per supportare la Multi-Factor Authentication. Ciò significa che una volta attivati, le password della app non vengono richieste per l'utilizzo con i Client di Office 2013. Per altre informazioni, vedere l'[annuncio dell'anteprima pubblica dell'autenticazione moderna di Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
 
@@ -179,4 +180,4 @@ Attualmente, la verifica aggiuntiva di sicurezza può essere utilizzata solo con
 
 Una soluzione alternativa consiste nel disporre di un account utente separato per le operazioni correlate all'amministratore e un altro per le operazioni non correlate all’amministratore. In un secondo momento, è possibile collegare le cassette postali tra l'account amministratore e l'account non amministratore in modo da poter accedere ad outlook utilizzando l'account non amministratore. Per altre informazioni, vedere [Consentire ad un amministratore di aprire e visualizzare il contenuto della cassetta postale di un utente] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

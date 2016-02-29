@@ -13,27 +13,14 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell;billmath"/>
 
 # Altre informazioni sulle funzionalità in anteprima
 In questo argomento viene descritto come usare le funzionalità attualmente in anteprima.
 
-## Estensioni della directory
-Le estensioni della directory consentono di estendere lo schema in Azure AD con attributi personalizzati da Active Directory in locale. Questo consentirà di compilare app line-of-business che utilizzano attributi che si continua a gestire in locale. Questi attributi possono essere utilizzati tramite le [estensioni della directory Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) o [Microsoft Graph](https://graph.microsoft.io/). È possibile visualizzare gli attributi disponibili usando rispettivamente lo [strumento di esplorazione di Azure AD Graph](https://graphexplorer.cloudapp.net) e lo [strumento di esplorazione di Microsoft Graph](https://graphexplorer2.azurewebsites.net/).
-
-Attualmente nessun carico di lavoro di Office 365 utilizza questi attributi.
-
-Durante l'installazione di Azure AD Connect, verrà registrata un'applicazione dove saranno disponibili questi attributi. È possibile visualizzare questa applicazione nel portale di Azure. ![App estensione dello schema](./media/active-directory-aadconnect-feature-preview/extension3.png)
-
-Questi attributi ora saranno disponibili tramite Graph: ![Grafico](./media/active-directory-aadconnect-feature-preview/extension4.png)
-
-Gli attributi sono preceduti da extension\_{AppClientId}\_. AppClientId avrà lo stesso valore per tutti gli attributi della directory Azure AD.
-
-Sono supportati solo gli attributi a valore singolo e il valore negli attributi non può superare i 250 caratteri.
-
 ## Writeback dei gruppi
-L'opzione per il writeback dei gruppi nelle funzionalità facoltative consentirà il writeback dei "gruppi di Office 365" in una foresta in cui è installato Exchange. Si tratta di un gruppo che viene sempre gestito nel cloud. Se Exchange è disponibile in locale, è possibile eseguire il writeback di questi gruppi in locale in modo che gli utenti con una cassetta postale di Exchange locale possano inviare e ricevere messaggi di posta elettronica da questi gruppi.
+L'opzione per il writeback dei gruppi nelle funzionalità facoltative consentirà il writeback dei **gruppi di Office 365** in una foresta in cui è installato Exchange. Si tratta di un gruppo che viene sempre gestito nel cloud. Se Exchange è disponibile in locale, è possibile eseguire il writeback di questi gruppi in locale in modo che gli utenti con una cassetta postale di Exchange locale possano inviare e ricevere messaggi di posta elettronica da questi gruppi.
 
 Altre informazioni sui gruppi di Office 365 e su come usarli sono disponibili [qui](http://aka.ms/O365g).
 
@@ -53,7 +40,7 @@ Questo gruppo verrà rappresentato come gruppo di distribuzione in AD DS locale.
 
 La funzionalità di writeback degli utenti è in una fase iniziale di anteprima. Può essere usata solo quando l'origine per tutti gli oggetti utente è Azure AD e la directory Active Directory locale è vuota prima di abilitare la funzionalità (distribuzione vergine).
 
-> [AZURE.WARNING] Questa funzionalità dovrebbe essere valutata solo in un ambiente di test e non deve essere usata in una directory Azure AD destinata all'utilizzo in produzione.
+>[AZURE.WARNING] Questa funzionalità dovrebbe essere valutata solo in un ambiente di test e non deve essere usata in una directory Azure AD destinata all'utilizzo in produzione.
 
 .
 
@@ -64,4 +51,4 @@ Continuare l'[Installazione personalizzata di Azure AD Connect](active-directory
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

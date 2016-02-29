@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/14/2016" 
 	ms.author="tamram"/>
 
 # Introduzione a Azure Storage in cinque minuti 
@@ -30,7 +30,7 @@ Prima di iniziare, verificare di disporre dei prerequisiti seguenti.
 
 1. Per compilare l'applicazione, è necessario disporre di [Visual Studio](https://www.visualstudio.com/) installato nel computer. 
 
-2. Installare la versione più recente [Azure SDK per .NET](https://azure.microsoft.com/downloads/). il SDK include i progetti di esempio delle Guide rapide di Azure, l'emulatore di archiviazione di Azure e [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
+2. Installare la versione più recente [Azure SDK per .NET](https://azure.microsoft.com/downloads/). il SDK include i progetti di esempio delle Guide rapide di Azure, l'emulatore di archiviazione di Azure e [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 3. Assicurarsi di avere [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) installato nel computer, come richiesto per i progetti di esempio delle Guide rapide di Azure che verrà utilizzato in questa esercitazione.
 
@@ -39,7 +39,7 @@ Prima di iniziare, verificare di disporre dei prerequisiti seguenti.
 4. È necessaria una sottoscrizione di Azure e un account di archiviazione di Azure.
 
     - Per ottenere una sottoscrizione Azure, vedere la versione di [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/) e le [Offerte per i membri](https://azure.microsoft.com/pricing/member-offers/)(per i membri di MSDN, Microsoft Partner Network, BizSpark e altri programmi Microsoft).
-    - Per creare un account di archiviazione Standard in Azure, vedere [Creare, gestire o eliminare un account di archiviazione](storage-create-storage-account.md).
+    - Per creare un account di archiviazione in Azure, vedere l'articolo relativo alla [creazione di un account di archiviazione](storage-create-storage-account.md#create-a-storage-account).
 
 ## Eseguire la prima applicazione di Archiviazione di Azure in Archiviazione di Azure nel cloud
 
@@ -98,15 +98,16 @@ Successivamente, eseguire l'applicazione di esempio nell'emulatore di archiviazi
 Per ulteriori informazioni sull'archiviazione Azure, vedere la risorsa seguente:
 
 * [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md)
-* [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md)
-* [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md)
-* [Come usare l'archiviazione di accodamento da .NET](storage-dotnet-how-to-use-queues.md)
-* [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
+* [Introduzione all'archiviazione BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md)
+* [Introduzione all'archiviazione tabelle di Azure con .NET](storage-dotnet-how-to-use-tables.md)
+* [Introduzione all'archiviazione code di Azure con .NET](storage-dotnet-how-to-use-queues.md)
+* [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md)
+* [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 * [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
-* [Libreria client di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-* [API REST di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Libreria client di archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+* [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="02/09/2016"
 	ms.author="billmath"/>
 
 # Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
@@ -74,15 +74,14 @@ Questa tabella descrive le porte e i protocolli necessari per la comunicazione t
 Le tabelle seguenti descrivono gli endpoint, le porte e i protocolli necessari per la comunicazione tra gli agenti di Azure AD Connect Health e Azure AD
 
 ### Tabella 6a - Agente di Azure AD Connect Health per (AD FS/sincronizzazione) e Azure AD
-Questa tabella descrive le porte e i protocolli necessari per la comunicazione tra gli agenti di Azure AD Connect Health e Azure AD.
+Questa tabella descrive le porte in uscita seguenti e i protocolli necessari per la comunicazione tra gli agenti di Azure AD Connect Health e Azure AD.
 
 | Protocollo |Porte |Descrizione
 | --------- | --------- |--------- |
-| HTTP|80 (TCP/UDP)|
-|HTTPS|443 (TCP/UDP)|
-|Bus di servizio di Azure|5671 (TCP/UDP)|
+|HTTPS|443 (TCP/UDP)| In uscita
+|Bus di servizio di Azure|5671 (TCP/UDP)| In uscita
 
 ### 6b - Endpoint per l'agente di Azure AD Connect Health per (AD FS/sincronizzazione) e Azure AD
 Per un elenco di endpoint vedere [la sezione Requisiti dell'agente di Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

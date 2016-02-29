@@ -1,7 +1,8 @@
 <properties
-	pageTitle="Gestione dei rischi con l'accesso condizionale"
-	description="Consentire l'accesso ovunque a risorse specifiche nell'ambito della rete aziendale da dispositivi noti conformi ai criteri e impedire l'accesso da dispositivi smarriti, rubati o non conformi."
-	services="active-directory, virtual-network"
+	pageTitle="Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory | Microsoft Azure"  
+    description="Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione."  
+    services="active-directory" 
+	keywords="accesso alle app, accesso sicuro alle risorse aziendali, criteri di accesso condizionale" 
 	documentationCenter=""
 	authors="femila"
 	manager="stevenpo"
@@ -13,36 +14,43 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/09/2016"
+	ms.date="02/10/2016"
 	ms.author="femila"/>
 
 
-# Gestione dei rischi con l'accesso condizionale
+# Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory  
+  
+La protezione dell'accesso alle risorse aziendali è importante per ogni organizzazione. Con l'avvento dei servizi cloud e dei dispositivi mobili, le modalità in cui gli utenti accedono alle risorse aziendali sono cambiate significativamente. Sono quindi necessarie modifiche alla strategia di protezione delle risorse aziendali.
+  
+## Vantaggi dell'accesso condizionale  
+ Le funzionalità di controllo dell'accesso condizionale in Azure Active Directory consentono alle società di proteggere con facilità le proprie risorse sul cloud e locali. Azure Active Directory offre la soluzione ottimale per, ad esempio, "impedire l'accesso alle risorse tramite una password rubata" o "richiedere un dispositivo integro e gestito per l'accesso al contenuto aziendale".
 
-Le attuali tendenze riguardo al modo in cui i dipendenti lavorano, come sono produttivi e ai mezzi che usano per svolgere il proprio lavoro stanno cambiando rapidamente. I dipendenti hanno iniziato a portare al lavoro i propri dispositivi personali. Su questi dispositivi personali hanno app che usano nella propria vita digitale personale e sono ormai abituati alla libertà e alle funzionalità offerte da questo approccio. Di conseguenza, vorrebbero poter usare le stesse applicazioni anche al lavoro e avere al lavoro la stessa flessibilità di cui godono nella propria vita digitale personale. I dipendenti aziendali di oggi si aspettano di poter lavorare ovunque, su dispositivi di propria scelta e di connettersi e accedere senza problemi alle applicazioni aziendali.
+## Applicazione del controllo di accesso condizionale  
+ Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche selezionate durante l'autenticazione di un utente e prima di consentire l'accesso a un'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
+   
+![](./media/active-directory-conditional-access/conditionalaccess-overview.png)
 
-Questa flessibilità di poter lavorare dove, quando e come vogliono gli utenti comporta un aumento dei rischi. Dispositivi rubati, smarriti o lasciati incustoditi contengono moltissimi dati. Su molti di questi smartphone e tablet è presente un'incredibile quantità di contenuti sensibili e di dati riservati appartenenti a clienti e aziende. È un equilibrio delicato quello che architetti IT, specialisti della sicurezza e amministratori IT cercano di mantenere, un equilibrio tra la possibilità per gli utenti di essere produttivi su tutti i dispositivi che preferiscono e quella di garantire il livello appropriato di sicurezza e protezione per i contenuti aziendali che si trovano su questi dispositivi.
+## Accesso alle risorse basato sull'utente
+  
+- **Attributi utente**: a livello di attributi utente è possibile applicare criteri per assicurare che solo gli utenti autorizzati possano accedere alle risorse aziendali.   
+- **Appartenenza a gruppi di un utente**: è anche possibile controllare il livello di accesso consentito a un utente in base alla rispettiva appartenenza a uno o più gruppi.   
+- **Multi Factor Authentication (MFA)**: è anche possibile applicare criteri che richiedono all'utente di autenticare la propria identità mediante un sistema di autenticazione a più fattori. Ad esempio, è possibile imporre a un utente di confermare un PIN in un telefono cellulare personale per assicurare un livello aggiuntivo di sicurezza. L'autenticazione MFA protegge le risorse dall'accesso da parte di un utente non autorizzato che ha ottenuto l'accesso al nome utente e alla password di un utente valido. 
 
-Grazie alla diverse funzionalità di accesso condizionale offerte tramite Azure Active Directory, Office 365 e Microsoft Intune, gli amministratori IT possono realizzare gli obiettivi seguenti:
+## Accesso condizionale basato su dispositivo 
 
-- Permettere ai dipendenti l'accesso ovunque, senza dover aprire la porta a chiunque su Internet.
-- Permettere l'accesso ovunque a risorse specifiche da dispositivi noti conformi ai criteri.
-- Impedire l'accesso da dispositivi smarriti, rubati o non conformi.
+- **Dispositivi registrati**: a livello di dispositivo è possibile configurare criteri per fare in modo che solo i dispositivi registrati o noti siano autorizzati all'accesso. È anche possibile usare una soluzione di gestione di dispositivi mobili (MDM, Mobile Device Management), ad esempio Microsoft Intune, per assicurarsi che solo i dispositivi gestiti possano accedere alle risorse. L'accesso condizionale a livello di dispositivo assicura che solo i dispositivi conformi ai criteri definiti, ad esempio l'applicazione di un PIN in un dispositivo, siano autorizzati ad accedere. L'uso di soluzioni MDM consente anche di assicurare che i dati aziendali in un dispositivo perso/rubato possano essere cancellati in modalità remota.  
+- **Criteri dei dispositivi**: è anche possibile configurare criteri per limitare l'accesso solo sulla base di singole applicazioni. Si può anche configurare il livello di accesso in base alla posizione fisica del dispositivo, ovvero al fatto che la richiesta provenga da una rete aziendale nota o dall'esterno.  
 
-![][1]
-
-## Passaggi successivi
-
-Gli argomenti seguenti descrivono ognuno dei diversi meccanismi disponibili per l'impostazione di criteri di accesso condizionale nell'organizzazione.
-
-- [Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
-- [Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-on-premises-setup.md)
-- [Criteri di accesso condizionale dei dispositivi per i servizi di Office 365](active-directory-conditional-access-device-policies.md)
-- [Anteprima dell'accesso condizionale di Azure per app SaaS](active-directory-conditional-access-azuread-connected-apps.md)
-- [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+Il livello di accesso configurabile mediante questi criteri può essere applicato a risorse sul cloud o locali. Le risorse sul cloud possono essere app come Office 365 e app SaaS di terze parti. Possono anche essere app line-of-business ospitate sul cloud.
+  
+## Accesso condizionale - Mappa dei contenuti  
+La mappa dei contenuti seguente elenca i documenti a cui è necessario fare riferimento per ottenere altre informazioni sull'abilitazione dell'accesso condizionale nella distribuzione corrente.
 
 
-<!--Image references-->
-[1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
+| Scenario | Articoli |
+|------------------------------------------------------|----------|
+| Protezione delle risorse aziendali da attacchi di phishing |[Introduzione all'accesso condizionale alle app SaaS di AAD con MFA e la Extranet](active-directory-conditional-access-azuread-connected-apps.md)<br><br>[Accesso condizionale alle app di Azure AD](active-directory-conditional-access-technical-reference.md)<br><br>[Come configurare MFA](multi-factor-authentication-get-started-cloud.md)<br><br>[Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS](https://technet.microsoft.com/library/dn758113.aspx)<br><br>[Considerazioni su MFA per i singoli utenti](multi-factor-authentication-end-user-manage-settings.md)<br><br>[MFA dalla Extranet](multi-factor-authentication-get-started-adfs-cloud.md)|
+| Protezione dei dati aziendali su dispositivi persi/rubati |[Servizio Registrazione dispositivo](active-directory-conditional-access-device-registration-overview.md)<br><br> [Registrazione di dispositivi aggiunti al dominio](active-directory-azureadjoin-setup.md)<br><br> [Uso di dispositivi registrati in Azure AD per l'accesso condizionale locale](active-directory-conditional-access-on-premises-setup.md) <br><br>[Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md) <br><br>[Configurare la registrazione automatica per i dispositivi Windows 8.1 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows8_1.md) <br><br>[Criteri di accesso condizionale dei dispositivi per i servizi di Office 365](active-directory-conditional-access-device-policies.md)|
+| Informazioni aggiuntive |[Domande frequenti sull'accesso condizionale](active-directory-conditional-faqs.md)|
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

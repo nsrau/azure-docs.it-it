@@ -72,9 +72,8 @@ Questa pagina illustra come configurare un cluster di Azure Service Fabric. È n
 
 	b. Aggiungere tutte le porte, separate da virgole, nel campo **Endpoint di input dell'applicazione**. Per impostazione predefinita, l'endpoint di connessione client TCP è 19000 e non è necessario specificarlo. Per l'applicazione di esempio WordCount, è necessario aprire la porta 83. Questo valore è disponibile nel file servicemanifest.xml nel pacchetto dell'applicazione (è possibile che siano presenti più file servicemanifest.xml).
 
-    c. Poiché la maggior parte delle applicazioni di esempio usa le porte 80 e 8081, aggiungerle se si prevede di distribuire gli esempi nel cluster. 
+    c. Poiché la maggior parte delle applicazioni di esempio usa le porte 80 e 8081, aggiungerle se si prevede di distribuire gli esempi nel cluster. ![Porte][Ports]
 
-![Porte][Ports]
 10. Non è necessario configurare le proprietà relative alla posizione, perché una proprietà relativa alla posizione predefinita "NodeTypeName" viene aggiunta automaticamente dal sistema. Se necessario, è possibile aggiungerne altre.
 
 ## Configurare la sicurezza
@@ -113,13 +112,13 @@ Al termine del processo di distribuzione è possibile esaminare il cluster nel p
 
 1. Selezionare **Sfoglia** e fare clic sulla risorsa **Cluster di Service Fabric**.
 
-2. Trovare e fare clic sul cluster. 
+2. Trovare e fare clic sul cluster. ![Schermata della ricerca del cluster nel portale.][BrowseCluster]
 
-![Schermata della ricerca del cluster nel portale.][BrowseCluster]
-3. È ora possibile visualizzare i dettagli del cluster nel dashboard, incluso l'indirizzo IP pubblico del cluster. Passando il puntatore su **Indirizzo IP pubblico del cluster** verranno visualizzati gli Appunti su cui è possibile fare clic per copiare l'indirizzo. 
+3. È ora possibile visualizzare i dettagli del cluster nel dashboard, incluso l'indirizzo IP pubblico del cluster. Passando il puntatore su **Indirizzo IP pubblico del cluster** verranno visualizzati gli Appunti su cui è possibile fare clic per copiare l'indirizzo. ![Schermata dei dettagli del cluster nel dashboard.][ClusterDashboard]
 
- ![Schermata dei dettagli del cluster nel dashboard.][ClusterDashboard]
   La sezione relativa al monitoraggio dei nodi nel pannello del dashboard del cluster indica il numero di VM integre e non integre. È possibile trovare altri dettagli sull'integrità del cluster nell'articolo [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md).
+
+>[AZURE.NOTE] I cluster di Service Fabric richiedono che un certo numero di nodi sia attivo in ogni momento allo scopo di mantenere la disponibilità e lo stato, ossia per "mantenere il quorum". Di conseguenza, in genere non è consigliabile spegnere tutti i computer nel cluster a meno che non sia stato prima eseguito un [backup completo dello stato](service-fabric-reliable-services-backup-restore.md).
 
 ## Connettersi al cluster e distribuire un'applicazione
 
@@ -172,7 +171,7 @@ La connessione è stata stabilita. Eseguire quindi i comandi seguenti per distri
     ```powershell
     Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -ApplicationPackagePathInImageStore "WordCount" -ImageStoreConnectionString fabric:ImageStore
     ```
-2. Registrare il tipo di applicazione con l'infrastruttura di servizi.
+2. Registrare il tipo di applicazione con Service Fabric.
 
     ```powershell
     Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
@@ -192,9 +191,9 @@ La connessione è stata stabilita. Eseguire quindi i comandi seguenti per distri
 
 ## Passaggi successivi
 
-- [Gestione delle applicazioni di Infrastruttura di servizi in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
-- [Sicurezza di un cluster di Infrastruttura di servizi](service-fabric-cluster-security.md)
-- [Introduzione al monitoraggio dell'integrità di Infrastruttura di servizi](service-fabric-health-introduction.md)
+- [Gestione delle applicazioni di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+- [Sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md)
+- [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
@@ -208,4 +207,4 @@ La connessione è stata stabilita. Eseguire quindi i comandi seguenti per distri
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

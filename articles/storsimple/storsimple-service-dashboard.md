@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="02/01/2016"
    ms.author="v-sharos" />
 
 # Utilizzare il dashboard del servizio StorSimple Manager
@@ -22,8 +22,6 @@
 La pagina dashboard del servizio StorSimple Manager fornisce una visualizzazione di riepilogo di tutti i dispositivi connessi al servizio StorSimple Manager, evidenziando quelli che richiedono attenzione da parte dell'amministratore di sistema. Questa esercitazione introduce la pagina dashboard, illustra il contenuto e la funzione del dashboard e descrive le attività che si possono eseguire da questa pagina.
 
 ![Dashboard del servizio](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
-
-**Figura 1: utilizzare il dashboard del servizio StorSimple Manager**
 
 Nel dashboard del servizio StorSimple Manager sono visualizzate le informazioni seguenti:
 
@@ -78,4 +76,4 @@ I passaggi seguenti descrivono il processo di rollover per la chiave DEK del ser
 
 - Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

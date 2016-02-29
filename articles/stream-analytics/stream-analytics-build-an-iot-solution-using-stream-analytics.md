@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="02/16/2016" 
 	ms.author="jeffstok"
 />
 
@@ -37,7 +37,7 @@ Dopo aver completato questa esercitazione, si sarà in grado di:
 
 Sono necessari i prerequisiti seguenti per svolgere correttamente questa esercitazione.
 
--   La versione più recente di [Azure PowerShell](../install-configure-powershell.md)
+-   La versione più recente di [Azure PowerShell](../powershell-install-configure.md)
 -   Visual Studio 2015 o la versione gratuita [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 -   [Sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/)
 -   Privilegi di amministratore nel computer
@@ -150,7 +150,7 @@ Lo script Setup.ps1 nella cartella TollApp in GitHub può essere usato per crear
 
 Scaricare e salvare la cartella e i file di supporto [TollApp](https://github.com/streamanalytics/samples/releases). Verificare di aver scaricato la versione più recente.
 
-Aprire una finestra di "Microsoft Azure PowerShell" **COME AMMINISTRATORE**. Se non si dispone ancora di Azure PowerShell, seguire qui le istruzioni per installarlo: [Come installare e configurare Azure PowerShell](../install-configure-powershell.md)
+Aprire una finestra di "Microsoft Azure PowerShell" **COME AMMINISTRATORE**. Se non si ha ancora Azure PowerShell, seguire le istruzioni per installarlo in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 Windows blocca automaticamente i file ps1, dll ed exe scaricati da Internet. È necessario impostare i criteri di esecuzione prima di eseguire lo script. Assicurarsi che la finestra di Azure PowerShell sia in esecuzione come amministratore. Eseguire "Set-ExecutionPolicy unrestricted". Quando richiesto, digitare "Y".
 
@@ -534,4 +534,4 @@ Tenere presente che le risorse possono essere identificate in base al nome. Assi
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

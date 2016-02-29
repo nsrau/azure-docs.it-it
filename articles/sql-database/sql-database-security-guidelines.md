@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/24/2015"
+   ms.date="02/16/2016"
    ms.author="rickbyh"/>
 
 # Linee guida e limitazioni per la sicurezza per il database SQL di Azure
@@ -37,7 +37,7 @@ Per convalidare i certificati con il codice dell'applicazione ADO.NET, impostare
 
 SQL Server Management Studio supporta inoltre la convalida dei certificati. Nella finestra di dialogo **Connetti al Server**, fare clic su **Crittografa connessione** sulla scheda **Proprietà di connessione**.
 
-> [AZURE.NOTE]Nelle versioni precedenti a SQL Server 2008 R2, SQL Server Management Studio non supporta connessioni al Database SQL.
+> [AZURE.NOTE] Nelle versioni precedenti a SQL Server 2008 R2, SQL Server Management Studio non supporta connessioni al Database SQL.
 
 Benché SQLCMD supporti il Database SQL a partire da SQL Server 2008, esso non supporta la convalida dei certificati nelle versioni precedenti a SQL Server 2008 R2. Per convalidare i certificati con SQLCMD a partire da SQL Server 2008 R2, utilizzare ``-N`` l’opzione della riga di comando e non utilizzare l’opzione ``-C``. Utilizzando l'opzione -N, SQLCMD richiede una connessione crittografata. Se non si utilizza l’opzione ``-C``, SQLCMD non considera attendibile il certificato del server in modo implicito e è costretto a convalidare il certificato.
 
@@ -49,7 +49,7 @@ L’autenticazione di Active Directory (sicurezza integrata) è disponibile come
 
 [SQL Database versione 12](sql-database-v12-whats-new.md) consente agli utenti di autenticarsi nel database utilizzando utenti del database indipendente. Per ulteriori informazioni, vedere [Utenti del database indipendente - rendere un database portabile](https://msdn.microsoft.com/library/ff929188.aspx), [CREA UTENTE (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx), e [Database indipendenti](https://technet.microsoft.com/library/ff929071.aspx).
 
-> [AZURE.NOTE]Microsoft consiglia di utilizzare gli utenti del database indipendente per migliorare la scalabilità.
+> [AZURE.NOTE] Microsoft consiglia di utilizzare gli utenti del database indipendente per migliorare la scalabilità.
 
 Il motore di Database chiude le connessioni che rimangono inattive per più di 30 minuti. La connessione deve accedere nuovamente prima di poter essere utilizzata.
 
@@ -64,7 +64,7 @@ Per l'account di accesso dell’entità di livello server, si applicano le restr
 - L'utente del database nel database master corrispondente per l'account di accesso dell’entità di livello server non può essere modificato o eliminato. 
 - Anche se l'account di accesso dell’entità di livello server non è un membro dei due ruoli del database **dbmanager** e **loginmanager** nel database **master**, dispone di tutte le autorizzazioni concesse a questi due ruoli.
 
-> [AZURE.NOTE]Questo account di accesso viene creato durante il provisioning del server ed è simile all’account di accesso **sa** in un'istanza di SQL Server.
+> [AZURE.NOTE] Questo account di accesso viene creato durante il provisioning del server ed è simile all’account di accesso **sa** in un'istanza di SQL Server.
 
 Per tutti gli account di accesso, si applicano le restrizioni seguenti:
 
@@ -111,4 +111,4 @@ Considerare i seguenti punti per rendere le applicazioni del Database SQL di Azu
 
 [Centro sicurezza per il motore di Database di SQL Server e il Database SQL di Azure](https://msdn.microsoft.com/library/bb510589)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

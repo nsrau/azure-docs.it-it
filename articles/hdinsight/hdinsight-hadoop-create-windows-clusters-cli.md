@@ -36,7 +36,7 @@ Usare il comando seguente per collegarsi ad Azure:
 
 	azure login
 
-Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere l'argomento relativo alla [connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](xplat-cli-connect.md).
+Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere l'argomento relativo alla [connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 	
 Usare il comando seguente per passare alla modalità di Gestione risorse di Azure:
 
@@ -129,9 +129,9 @@ Per informazioni generali sull'azione di script, vedere [Personalizzare cluster 
 
 ## Vedere anche
 
-- [Introduzione all'uso di Azure HDInsight](hdinsight-get-started.md) - Informazioni su come iniziare a usare il cluster HDInsight
+- [Introduzione all'uso di Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - Informazioni su come iniziare a usare il cluster HDInsight
 - [Inviare processi Hadoop a livello di codice](hdinsight-submit-hadoop-jobs-programmatically.md) - Informazioni su come inviare processi a HDInsight a livello di codice
 - [Gestire cluster Hadoop in HDInsight tramite la CLI di Azure](hdinsight-administer-use-command-line.md)
-- [Uso dell’interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure](virtual-machines-command-line-tools.md)
+- [Uso dell’interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure](../virtual-machines/virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

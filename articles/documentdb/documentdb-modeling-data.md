@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="ryancraw"/>
 
 #Modellazione dei dati in DocumentDB#
@@ -393,4 +393,4 @@ Per sapere come condividere i dati in più partizioni, fare riferimento a [Parti
 E infine, per informazioni aggiuntive sulla modellazione di dati e il partizionamento orizzontale per le applicazioni multi-tenant, consultare [Scalabilità di un'applicazione multi-tenant con Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

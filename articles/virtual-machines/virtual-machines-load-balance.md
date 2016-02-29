@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter=""
 	authors="joaoma"
-	manager="adinah"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="02/02/2016"
 	ms.author="joaoma"/>
 
 
@@ -77,12 +77,17 @@ Nel diagramma seguente viene illustrato un esempio di endpoint con carico bilanc
 
 ![bilanciamento del carico](./media/virtual-machines-load-balance/LOBServers.png)
 
+## Considerazioni sul bilanciamento del carico
+
+Per terminare una sessione inattiva in 4 minuti, è configurato per impostazione predefinita un bilanciamento del carico. Se l'applicazione con bilanciamento del carico lascia una connessione inattiva per più di 4 minuti e non ha una configurazione keep-alive, la connessione viene eliminata. È possibile modificare il comportamento del bilanciamento del carico per consentire un'[impostazione di timeout più lunga per il bilanciamento del carico di Azure](../load-balancer/load-balancer-tcp-idle-timeout.md).
+
+Un'altra considerazione riguarda il tipo di modalità di distribuzione supportata dal bilanciamento del carico di Azure. È possibile configurare l'affinità IP di origine (IP di origine, IP di destinazione) o il protocollo IP di origine (IP di origine, IP di destinazione e protocollo). Per altre informazioni, vedere l'articolo relativo alla [modalità di distribuzione del bilanciamento del carico di Azure (affinità IP di origine)](../load-balancer/load-balancer-distribution-mode.md).
+
+
 ## Passaggi successivi
 
 Per i passaggi da eseguire per creare un set con carico bilanciato, vedere [Configurare un set con carico bilanciato interno](../load-balancer/load-balancer-internal-getstarted.md).
 
 Per altre informazioni sul bilanciamento del carico, vedere [Bilanciamento del carico interno](../load-balancer/load-balancer-internal-overview.md).
 
-<!-- LINKS -->
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

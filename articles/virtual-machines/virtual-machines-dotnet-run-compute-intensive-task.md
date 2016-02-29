@@ -3,9 +3,9 @@
 	description="Informazioni su come distribuire ed eseguire un'app .NET a elevato utilizzo di calcolo in una macchina virtuale di Azure e usare le code del service bus di Azure per monitorare lo stato in remoto."
 	services="virtual-machines"
 	documentationCenter=".net"
-	authors="wadepickett"
-	manager="wpickett"
-	editor="mollybos"
+	authors="davidmu1"
+	manager="timlt"
+	editor=""
 	tags=“azure-service-management"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="06/25/2015"
-	ms.author="wpickett"/>
+	ms.author="davidmu"/>
 
 # Come eseguire un'attività a elevato utilizzo di calcolo in .NET su una macchina virtuale Azure
 
@@ -551,4 +551,4 @@ Per creare o eliminare la coda, è possibile utilizzare il [Portale di Azure cla
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

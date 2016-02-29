@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi"/>
 
 
@@ -536,7 +536,7 @@ Usata per determinare se CGuid() riuscirà.
 
 **Osservazioni:** <br> Per un attributo, verrà restituito True se l'attributo è assente oppure se è presente, ma è una stringa vuota.<br> La funzione inversa di questa funzione è denominata IsPresent.
 
-**Esempio:** <br> `IsNull([displayName])` <br> Restituisce True se l'attributo non è presente oppure è una stringa vuota in CS o MV.
+**Esempio:** <br> `IsNullOrEmpty([displayName])` <br> Restituisce True se l'attributo non è presente oppure è una stringa vuota in CS o MV.
 
 
 
@@ -1058,4 +1058,4 @@ Se la stringa contiene meno delle parole specificate in number o se non contiene
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

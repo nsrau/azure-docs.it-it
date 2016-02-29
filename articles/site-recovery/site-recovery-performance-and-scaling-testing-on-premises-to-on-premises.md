@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Test di prestazioni e risultati di scalabilità per la replica Hyper-V da sito locale a sito locale con Site Recovery | Microsoft Azure"
 	description="Questo articolo fornisce informazioni sul test di prestazioni eseguito durante un processo di replica da locale a locale usando Azure Site Recovery."
-	services="site-recovery" 
+	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
 	manager="jwhit"
@@ -10,7 +10,7 @@
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
 	ms.date="12/14/2015"
@@ -196,18 +196,16 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 |Metrica|Contatore|
 |---|---|
 |CPU|\\Processore (\_Totale) \\ % tempo del processore|
-|Memoria disponibile|\\MByte della memoria disponibile|
-|IOPS|\\DiscoFisico (\_Totale)\\Trasferimentisudisco/sec|
-| Lettura VM (IOPS) operazioni/sec|\\Hyper-V dispositivo di archiviazione virtuale (<VHD>)\\Lettura operazioni/Sec|
-| Scrittura VM (IOPS)operazioni/sec|\\Hyper-V dispositivo di archiviazione virtuale (<VHD>)\\Operazioni di scrittura/S|
-| Produttività di lettura delle VM|\\Hyper-V dispositivo di archiviazione virtuale(<VHD>) \\Byte di lettura/sec|
-| produttività di scrittura delle VM|\\Hyper-V dispositivo di archiviazione virtuale(<VHD>)\\Byte di scrittura/sec|
+|Memoria disponibile|\\Memoria\\MByte disponibili|
+|IOPS|\\DiscoFisico (\_Totale)\\Trasferimenti su disco/sec|
+| Operazioni lettura MV (IOPS)/sec|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Operazioni lettura/sec|
+| Operazioni scrittura MV (IOPS)/sec|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Operazioni scrittura/S|
+| Produttività lettura MV|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Byte lettura/sec|
+| Produttività scrittura MV|\\Dispositivo archiviazione virtuale Hyper-V(<VHD>)\\Byte scrittura/sec|
 
 
 ## Passaggi successivi
 
 - [Configurare la protezione tra due siti VMM locali](site-recovery-vmm-to-vmm.md)
 
- 
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

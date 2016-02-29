@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="02/16/2016"
 	ms.author="jeffstok"/>
 
 # Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva dell'elaborazione dei flussi di dati
@@ -24,7 +24,7 @@ Informazioni su come ottimizzare i processi di analisi e calcolare le *unità di
 ## Quali sono le parti di un processo di Analisi di flusso?
 Una definizione del processo di Analisi di flusso include input, query e output. Gli input sono l'origine da cui il processo legge il flusso di dati, la query viene usata per trasformare il flusso di input dei dati e l'output è la destinazione a cui il processo invia i risultati.
 
-Un processo richiede almeno un'origine di input per il flusso dei dati. L'origine di input del flusso di dati può essere archiviata in un hub eventi del bus di servizio di Azure o un archivio BLOB di Azure. Per altre informazioni, vedere [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md), [Introduzione all’uso di Analisi dei flussi di Azure](stream-analytics-get-started.md) e [Guida per gli sviluppatori di Analisi dei flussi di Azure](../stream-analytics-developer-guide.md).
+Un processo richiede almeno un'origine di input per il flusso dei dati. L'origine di input del flusso di dati può essere archiviata in un hub eventi del bus di servizio di Azure o un archivio BLOB di Azure. Per altre informazioni, vedere [Introduzione ad Analisi di flusso di Azure](stream-analytics-introduction.md) e [Introduzione all'uso di Analisi di flusso di Azure](stream-analytics-get-started.md).
 
 ## Configurazione delle unità di streaming
 Le unità di streaming rappresentano le risorse e le funzionalità dedicate all'esecuzione di un processo di Analisi di flusso di Azure. Le unità di streaming descrivono la capacità relativa di elaborazione di eventi in base a una misurazione combinata di CPU, memoria e frequenze di lettura e scrittura. Ogni unità di streaming corrisponde a circa 1 MB al secondo di velocità effettiva.
@@ -41,7 +41,7 @@ In questo articolo viene illustrato come calcolare e ottimizzare la query per in
 Il processo perfettamente parallelo è lo scenario più scalabile che può presentarsi in Analisi di flusso di Azure. Connette una partizione dell'input inviato a un'istanza della query a una partizione dell'output. Per ottenere un tale livello di parallelismo, è necessario che siano soddisfate alcune condizioni:
 
 1.  Se la logica di query richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è necessario verificare che gli eventi siano diretti alla stessa partizione dell'input. Per Hub eventi, questo significa che per i dati di evento è necessario che sia impostata la proprietà **PartitionKey**. In alternativa, è possibile usare mittenti partizionati. Per BLOB, questo significa che gli eventi vengono inviati alla stessa cartella di partizione. Se la logica di query non richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è possibile ignorare questo requisito. Un esempio di questo requisito è costituito dalla query select/project/filter.  
-2.	Quando i dati sono disposti correttamente a livello di input, è necessario verificare che la query sia partizionata. A questo scopo, sarà necessario usare la clausola **Partition By** in ogni passaggio. È possibile eseguire più passaggi, ma è necessario che tutti siano partizionati con la stessa chiave. Un'altra cosa di cui tenere conto è che, al momento, per ottenere un processo perfettamente parallelo, la chiave di partizionamento deve essere impostata su **PartitionId**.  
+2.	Quando i dati sono disposti correttamente a livello di input, è necessario verificare che la query sia partizionata. A questo scopo, sarà necessario usare la clausola **Partition By** in ogni passaggio. È possibile eseguire più passaggi, ma è necessario che tutti siano partizionati con la stessa chiave. Un altro aspetto da tenere in considerazione è che, al momento, per ottenere un processo perfettamente parallelo, la chiave di partizionamento deve essere impostata su **PartitionId**.  
 3.	Solo Hub eventi e BLOB supportano attualmente l'output partizionato. Per l'output di Hub eventi, è necessario configurare il campo **PartitionKey** su **PartitionId**. Per BLOB, non è necessario eseguire alcuna operazione.  
 4.	Un'altra cosa di cui tenere conto è che il numero di partizioni di input deve essere uguale al numero di partizioni di output. L'output di BLOB attualmente non supporta le partizioni, ma questo non comporta alcun problema, perché lo schema di partizionamento viene ereditato dalla query a monte. Esempi di valori di partizione che consentono un processo perfettamente parallelo:  
 	1.	8 partizioni di input di Hub eventi e 8 partizioni di output di Hub eventi
@@ -71,7 +71,7 @@ Input: Hub eventi con 8 partizioni. Output: BLOB
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-Questa query contiene una chiave di raggruppamento e, di conseguenza, è necessario che la stessa chiave venga elaborata dalla stessa istanza di query. Gli eventi dovranno quindi essere inviati a Hub eventi in modo partizionato. Di quale chiave è necessario occuparsi? **PartitionId** è un concetto della logica di processo; la chiave effettiva di cui è necessario occuparsi è **TollBoothId**. Questo significa che è necessario impostare il parametro **PartitionKey** dei dati evento da inviare a Hub eventi in modo che corrisponda al valore **TollBoothId** dell'evento. Nella query è presente la clausola **Partition By** di **PartitionId**. Questo requisito, quindi, è soddisfatto. A livello di output, poiché si tratta di BLOB, non occorre preoccuparsi della configurazione di **PartitionKey**. Per lo stesso motivo non è necessario preoccuparsi neanche del requisito 4. Questa topologia è perfettamente parallela.
+Questa query contiene una chiave di raggruppamento e, di conseguenza, è necessario che la stessa chiave venga elaborata dalla stessa istanza di query. Gli eventi dovranno quindi essere inviati a Hub eventi in modo partizionato. Di quale chiave è necessario occuparsi? **PartitionId** è un concetto della logica del processo; la chiave effettiva di cui è necessario occuparsi è **TollBoothId**. Questo significa che è necessario impostare il parametro **PartitionKey** dei dati evento da inviare a Hub eventi in modo che corrisponda al valore **TollBoothId** dell'evento. Nella query è presente la clausola **Partition By** di **PartitionId**. Questo requisito, quindi, è soddisfatto. A livello di output, poiché si tratta di BLOB, non occorre preoccuparsi della configurazione di **PartitionKey**. Per lo stesso motivo non è necessario preoccuparsi neanche del requisito 4. Questa topologia è perfettamente parallela.
 
 ### Query a più passaggi con chiave di raggruppamento ###
 Input: Hub eventi con 8 partizioni. Output: Hub eventi con 8 partizioni
@@ -88,7 +88,7 @@ Input: Hub eventi con 8 partizioni. Output: Hub eventi con 8 partizioni
     FROM Step1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-Questa query contiene una chiave di raggruppamento e, di conseguenza, è necessario che la stessa chiave venga elaborata dalla stessa istanza di query. È possibile adottare la stessa strategia usata per la query precedente. La query è articolata in più passaggi. Per ogni passaggio è presenta la clausola **Partition By** di **PartitionId**? Sì, quindi questo requisito è soddisfatto. A livello di output, è necessario impostare il parametro **PartitionKey** su **PartitionId**, come illustrato in precedenza, ed è anche possibile osservare come sia presente lo stesso numero di partizioni dell'input. Questa topologia è perfettamente parallela.
+Questa query contiene una chiave di raggruppamento e, di conseguenza, è necessario che la stessa chiave venga elaborata dalla stessa istanza di query. È possibile adottare la stessa strategia usata per la query precedente. La query è articolata in più passaggi. Per ogni passaggio è presenta laclausola **Partition By** di **PartitionId**? Sì, quindi questo requisito è soddisfatto. A livello di output, è necessario impostare il parametro **PartitionKey** su **PartitionId**, come illustrato in precedenza, ed è anche possibile osservare come sia presente lo stesso numero di partizioni dell'input. Questa topologia è perfettamente parallela.
 
 
 ## Esempi di scenari NON perfettamente paralleli
@@ -148,7 +148,7 @@ La query precedente include due passaggi.
 
 Il partizionamento di un passaggio richiede le condizioni seguenti:
 
-- L'origine di input deve essere partizionata. Per ulteriori informazioni, vedere [Guida per sviluppatori di Analisi dei flussi di Azure](../stream-analytics-developer-guide.md) e [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md).
+- L'origine di input deve essere partizionata. Per altre informazioni, vedere [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md).
 - L'istruzione **SELECT** della query deve leggere da un'origine di input partizionata.
 - Nella query all’interno del passaggio deve essere presente la parola chiave **Partition By**
 
@@ -345,11 +345,10 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

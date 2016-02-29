@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""
     authors="carlrabeler"
-    manager="jeffreyg"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="01/25/2015"
+    ms.date="02/12/2016"
     ms.author="carlrab"/>
 
 # Configurare la replica geografica per il database SQL di Azure con Transact-SQL
@@ -233,4 +233,4 @@ Usare la procedura seguente per monitorare una relazione di replica geografica.
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

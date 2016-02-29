@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Distribuzione del portale utenti per il server Azure Multi-Factor Authentication
@@ -80,7 +80,7 @@ Se l'SDK del servizio Web Azure Multi-Factor Authentication non è già installa
 Prima di installare il portale utenti in un server separato, tenere presente quanto segue:
 
 - È utile aprire un browser Web nel server Web connesso a Internet e andare all'URL dell'SDK servizio Web riportato nel file web.config. Se il browser è in grado di accedere al servizio Web, chiederà le credenziali. Immettere il nome utente e la password immessi nel file web.config esattamente come visualizzati nel file. Assicurarsi che non vengano visualizzati errori o avvisi relativi al certificato.
-- Se un proxy inverso o un firewall si trova prima del server Web del portale utenti ed esegue l'offload SSL, è possibile modificare il file web.config del portale utenti e aggiungere la chiave seguente alla sezione <appSettings>, in modo che il portale utenti possa usare il protocollo http invece di https. <add key="SSL_REQUIRED" value="false"/>
+- Se un proxy inverso o un firewall si trova prima del server Web del portale utenti ed esegue l'offload SSL, è possibile modificare il file web.config del servizio del portale utenti e aggiungere la chiave seguente alla sezione <appSettings> in modo che il portale utenti possa utilizzare il protocollo http anziché https. <add key="SSL_REQUIRED" value="false"/>
 
 #### Per installare il portale utenti
 
@@ -189,4 +189,4 @@ A questo punto la registrazione automatica è stata completata e l'utente è con
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

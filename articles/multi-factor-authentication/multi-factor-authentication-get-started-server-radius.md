@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 
@@ -21,6 +21,10 @@
 # Autenticazione RADIUS e Azure Server Multi-Factor Authentication
 
 La sezione autenticazione RADIUS consente di abilitare e configurare l'autenticazione RADIUS per il Server Azure Multi-Factor Authentication. RADIUS è un protocollo standard per accettare le richieste di autenticazione e per elaborare le richieste. Il Server Azure Multi-Factor Authentication funge da server RADIUS e viene inserito tra il client RADIUS (ad esempio un accessorio VPN) e la destinazione di autenticazione, che potrebbe essere Active Directory (AD), una directory LDAP o un altro server RADIUS, allo scopo di aggiungere Azure Multi-Factor Authentication. Per far funzionare Azure Multi-Factor Authentication, è necessario configurare il Server Azure Multi-Factor Authentication in modo che possa comunicare con i server client e la destinazione di autenticazione. Il Server Azure Multi-Factor Authentication accetta richieste da un client RADIUS, convalida le credenziali rispetto alla destinazione di autenticazione, aggiunge Azure Multi-Factor Authentication e invia una risposta al client RADIUS. L'intera autenticazione avrà esito positivo solo se l'autenticazione principale e Azure Multi-Factor Authentication hanno esito positivo.
+
+>[AZURE.NOTE]
+Il server MFA supporta solo i protocolli RADIUS PAP (Password Authentication Protocol) e MSCHAPv2 (Microsoft Challenge Handshake Authentication Protocol) quando agisce da server RADIUS. Quando il server MFA agisce come proxy RADIUS per un altro server RADIUS che supporta tale protocollo, ad esempio Microsoft NPS, è possibile usare altri protocolli, ad esempio EAP (Extensible Authentication Protocol). </br> Quando si usano altri protocolli in questa configurazione, i token OATH e SMS unidirezionali non funzioneranno perché il server MFA non è in grado di avviare una risposta RADIUS Challenge corretta tramite tale protocollo.
+
 
 ![Autenticazione RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
@@ -56,4 +60,4 @@ Per configurare il client RADIUS, utilizzare le linee guida:
 - Utilizzare lo stesso segreto condiviso configurato in precedenza. 
 - Impostare il timeout di RADIUS su un valore compreso tra 30 e 60 secondi in modo da rendere disponibile una quantità di tempo sufficiente per convalidare le credenziali dell'utente, eseguire l'autenticazione a più fattori, ricevere la risposta e quindi rispondere alla richiesta di accesso RADIUS.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 
@@ -35,9 +35,9 @@ Le funzioni finestra sono classificate come segue:
 
 - Eseguire le due esercitazioni seguenti:
 
-    - [Introduzione all'uso di Azure Data Lake Tools per Visual Studio](data-lake-analytics-use-data-lake-tools.md).
+    - [Introduzione all'uso di Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
     - [Introduzione all'uso di U-SQL per i processi di Analisi Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
-- Creare un account Analisi Data Lake come indicato in [Introduzione all'uso di Azure Data Lake Tools per Visual Studio](data-lake-analytics-use-data-lake-tools.md).
+- Creare un account Analisi Data Lake come indicato in [Introduzione all'uso di Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Creare un progetto U-SQL di Visual Studio, come indicato in [Introduzione all'uso di U-SQL per i processi di Analisi Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 
 ## Set di dati di esempio
@@ -136,7 +136,7 @@ La query seguente usa un'aggregazione per calcolare le retribuzioni totali per t
             SUM(Salary) AS TotalSalary
         FROM @employees;
     
->[AZURE.NOTE]Per istruzioni relative a test e controllo dell'output, vedere [Introduzione all'uso di U-SQL per i processi di Analisi Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
+>[AZURE.NOTE] Per istruzioni relative a test e controllo dell'output, vedere [Introduzione all'uso di U-SQL per i processi di Analisi Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 
 Il risultato è una singola riga con una singola colonna. $ 165000 è la somma del valore Salary dell'intera tabella.
 
@@ -144,7 +144,7 @@ Il risultato è una singola riga con una singola colonna. $ 165000 è la somma d
 |-----------
 |165000
 
->[AZURE.NOTE]Se non si ha familiarità con le funzioni finestra, è utile ricordare i numeri presenti nell'output.
+>[AZURE.NOTE] Se non si ha familiarità con le funzioni finestra, è utile ricordare i numeri presenti nell'output.
 
 L'istruzione seguente usa la clausola GROUP BY per calcolare la retribuzione totale per ogni reparto:
 
@@ -198,7 +198,7 @@ A differenza di GROUP BY sono presenti tante righe di output quante sono quelle 
 
 Il valore 165000 (il totale di tutte le retribuzioni) viene inserito in ogni riga di output. Il totale deriva dalla "finestra" di tutte le righe, che include quindi tutte le retribuzioni.
 
-L'esempio successivo illustra come limitare la "finestra" in modo da elencare tutti i dipendenti, il reparto e la retribuzione totale per il reparto. PARTITION BY viene aggiunta alla clausola OVER.
+L'esempio successivo illustra come affinare la "finestra" per elencare tutti i dipendenti, il reparto e la retribuzione totale per il reparto. PARTITION BY viene aggiunta alla clausola OVER.
 
     @result=
     SELECT
@@ -248,7 +248,7 @@ Nota:
 
 ### Usare SUM
 
-l'esempio seguente aggiunge una retribuzione totale per reparto a ogni riga di input:
+L'esempio seguente aggiunge una retribuzione totale per reparto a ogni riga di input:
  
     @result=
         SELECT 
@@ -739,8 +739,8 @@ PERCENTILE\_DISC non esegue l'interpolazione dei valori, quindi il valore median
 - [Usare le esercitazioni interattive di Analisi Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
 - [Analizzare i log dei siti Web con Analisi Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
 - [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
-- [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-use-portal.md)
-- [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-use-powershell.md)
+- [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
+- [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

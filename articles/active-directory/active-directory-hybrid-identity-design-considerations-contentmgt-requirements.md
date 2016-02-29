@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 # Determinare i requisiti di gestione dei contenuti per una soluzione di identità ibrida
@@ -32,7 +32,8 @@ In generale, i requisiti di gestione dei contenuti interessano il sistema di ges
 - Classificazione dei dati: identificare l'utente o il gruppo e il livello di accesso a un oggetto in base a una classificazione prestabilita. 
 - Protezione contro la perdita di dati: per poter convalidare l'identità degli utenti, il sistema di gestione delle identità deve poter interagire con i controlli di protezione adottati per evitare perdite di dati. Questo aspetto è importante anche per eventuali esigenze di auditing.
 
->[AZURE.NOTE]Leggere l'articolo sulla [classificazione dei dati per la conformità al cloud](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) per maggiori informazioni sulle linee guida e le procedure consigliate per la classificazione dei dati.
+>[AZURE.NOTE]
+Leggere l'articolo sulla [classificazione dei dati per la conformità al cloud](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) per maggiori informazioni sulle linee guida e le procedure consigliate per la classificazione dei dati.
 
 Quando si pianifica una soluzione di identità ibrida, assicurarsi che venga fornita una risposta alle domande seguenti, in base ai requisiti aziendali:
 
@@ -50,7 +51,8 @@ Quando si pianifica una soluzione di identità ibrida, assicurarsi che venga for
 - L'azienda desidera crittografare tutti i documenti e i contenuti condivisi con partner commerciali esterni?
 - L'azienda intende applicare criteri specifici su determinati tipi di e-mail ("non rispondere a tutti", "non inoltrare" e così via)?
  
->[AZURE.NOTE]Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta alla base. L'articolo sulla [definizione della strategia di protezione dei dati](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) esamina le opzioni disponibili con i relativi vantaggi e svantaggi. Una volta fornite le risposte a queste domande, sarà possibile selezionare l'opzione più adatta in base alle esigenze aziendali.
+>[AZURE.NOTE]
+Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta alla base. L'articolo sulla [definizione della strategia di protezione dei dati](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) esamina le opzioni disponibili con i relativi vantaggi e svantaggi. Una volta fornite le risposte a queste domande, sarà possibile selezionare l'opzione più adatta in base alle esigenze aziendali.
 
 
 ## Passaggi successivi
@@ -59,4 +61,4 @@ Quando si pianifica una soluzione di identità ibrida, assicurarsi che venga for
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

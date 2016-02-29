@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configurare la protezione tra siti VMware locali"
-	description="Utilizzare questo articolo per configurare la protezione tra due siti VMware usando Azure Site Recovery."
+	pageTitle="Eseguire la replica di macchine virtuali VMware locali o server fisici in un sito secondario | Microsoft Azure"
+	description="Usare questo articolo per eseguire la replica di VM VMware o server fisici Windows/Linux in un sito secondario con Azure Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 
-# Configurare la protezione tra siti VMware locali
+# Eseguire la replica di macchine virtuali VMware locali o server fisici in un sito secondario
 
 
 ## Panoramica
@@ -27,7 +27,7 @@ In Azure Site Recovery, InMage Scout fornisce la replica in tempo reale tra più
 
 ## Prerequisiti
 
-- **Account Azure**: sarà necessario disporre di un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](pricing/free-trial/).
+- **Account Azure**: sarà necessario disporre di un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). [Altre informazioni](https://azure.microsoft.com/pricing/details/site-recovery/) sui prezzi di Site Recovery.
 
 
 ## Passaggio 1: Creare un insieme di credenziali
@@ -36,7 +36,7 @@ In Azure Site Recovery, InMage Scout fornisce la replica in tempo reale tra più
 2. Espandere **Servizi dati** > **Servizi di ripristino** > **Insieme di credenziali di Site Recovery**.
 3. Fare clic su **Crea nuovo** > **Creazione rapida**.
 4. In **Nome** immettere un nome descrittivo per identificare l'insieme di credenziali.
-5. In **Area** selezionare l'area geografica per l'insieme di credenziali. Per verificare le aree geografiche supportate, vedere la sezione Disponibilità a livello geografico in [Prezzi di Azure Site Recovery](pricing/details/site-recovery/).
+5. In **Area** selezionare l'area geografica per l'insieme di credenziali. Per verificare le aree geografiche supportate, vedere la sezione Disponibilità a livello geografico in [Prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 Controllare la barra di stato per verificare che l'insieme di credenziali sia stato creato correttamente. L'insieme di credenziali verrà elencato come **Attivo** nella pagina principale di Servizi di ripristino.
 
@@ -130,4 +130,4 @@ L'aggiornamento più recente include correzioni di bug e nuove funzionalità:
 
 In caso di domande, è possibile pubblicarle nel [forum relativo ai Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -31,9 +31,13 @@ I report sono disponibili 45 giorni dopo la chiusura del trimestre e vengono cal
 ### Accedere ai report sui proventi in Dev Center
 
 1. Accedere a Dev Center all'indirizzo https://dev.windows.com/it-IT.
-2. Fare clic su **Dashboard**. ![LandingPageDashboardHighlight][1]
+2. Fare clic su **Dashboard**.
 
-3. Fare clic su **Riepilogo proventi**. ![DashboardPayoutSummary][2]
+    ![LandingPageDashboardHighlight][1]
+
+3. Fare clic su **Riepilogo proventi**.
+
+    ![DashboardPayoutSummary][2]
 
 
 ## Visualizzare i report sui proventi in Dev Center
@@ -58,7 +62,9 @@ Il rapporto dei proventi per ogni trimestre registra tutte le transazioni che si
 
 1. Passare al portale di pubblicazione all'indirizzo https://publish.windowsazure.com.
 2. Dalla sezione **Editori** fare clic su **Rapporto dei proventi**.
-3. Fare clic sul menu a discesa per visualizzare tutti i report sui proventi trimestrali disponibili. ![accessingpayoutreport][5]
+3. Fare clic sul menu a discesa per visualizzare tutti i rapporti dei proventi trimestrali disponibili.
+
+    ![accessingpayoutreport][5]
 
 
 ### Leggere i report sui proventi
@@ -94,7 +100,7 @@ In caso di domande relative ai proventi, contattare il team di supporto.
 
 ## Passaggi successivi
 
-Per altre query di supporto, registrare un problema in https://portal.azure.com.
+Per altre query di supporto, registrare un problema in <https://portal.azure.com>.
 
 [1]: ./media/marketplace-publishing-report-payout/LandingPage-DashboardHighlight.png
 [2]: ./media/marketplace-publishing-report-payout/Dashboard-PayoutSummary.png
@@ -106,4 +112,4 @@ Per altre query di supporto, registrare un problema in https://portal.azure.com.
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

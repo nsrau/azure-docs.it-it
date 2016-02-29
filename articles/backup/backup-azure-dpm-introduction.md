@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="giridharreddy"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="System Center Data Protection Manager, data protection manager, backup di dpm"/>
 
 <tags
 	ms.service="backup"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/12/2016"
 	ms.author="giridham;jimpark"/>
 
 # Preparazione del backup dei carichi di lavoro in Azure con DPM
@@ -92,4 +93,4 @@ Questi tipi di file non sono supportati:
 
 >[AZURE.NOTE] A partire dalla versione di System Center 2012 DPM con SP1, è possibile eseguire il backup su carichi di lavoro (protetti da DPM) in Azure usando il servizio Backup di Microsoft Azure.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Servizio di sincronizzazione Azure AD Connect: Concetti tecnici
+Questo articolo è un riepilogo dell'argomento [Informazioni sull'architettura](active-directory-aadconnectsync-technical-concepts.md).
 
 Il servizio di sincronizzazione Azure AD Connect si basa su una solida piattaforma di sincronizzazione di metadirectory. Le sezioni seguenti presentano i concetti relativi alla sincronizzazione di metadirectory. Basandosi su MIIS, ILM e FIM, i servizi di sincronizzazione di Azure Active Directory offrono una piattaforma innovativa per la connessione a origini dati, la sincronizzazione di dati tra origini dati e il provisioning e l'annullamento del provisioning delle identità.
 
@@ -89,4 +90,4 @@ Quando una regola determina che è necessario creare un nuovo oggetto spazio con
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

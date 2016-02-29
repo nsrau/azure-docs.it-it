@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/25/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Problemi di Azure Multi-Factor Authentication
@@ -25,13 +25,13 @@ Le informazioni seguenti sono utili per risolvere alcuni problemi comuni che si 
 
 
 - [Errori relativi all'ID di correlazione](#correlation-id-errors)
-- [Il telefono è stato perso o rubato](#i-have-lost-my-phone-or-it-was-stolen?)
+- [Il telefono è stato perso o rubato](#i-have-lost-my-phone-or-it-was-stolen)
 - [Si vuole cambiare il numero di telefono](#i-want-to-change-my-phone-number)
 - [È necessario cambiare il numero di telefono per usare un nuovo telefono](#i-have-a-new-phone-and-need-to-change-my-phone-number)
-- [Non si riceve alcun codice sul telefono](#i-am-not-receiving-a-code-on-my-phone)
+- [Non si riceve alcun codice sul telefono](#i-am-not-receiving-a-code-or-a-call-on-my-phone)
 - [Le password dell'app non funzionano](#app-passwords-are-not-working)
 - [Come si rimuove Azure Authenticator dal dispositivo precedente per passare a un nuovo dispositivo?](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
-- [Nessuna risposta al problema riscontrato](#i-didn't-find-an-answer-to-my-problem)
+- [Nessuna risposta al problema riscontrato](#i-didnt-find-an-answer-to-my-problem)
 
 ##Errori relativi all'ID di correlazione
 Se dopo aver eseguito i passaggi seguenti i problemi non vengono risolti, è possibile pubblicare una domanda nei [forum di Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [cercare nella Microsoft Knowledge Base (KB)](https://www.microsoft.com/it-IT/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) o [contattare il personale del supporto tecnico](https://support.microsoft.com/it-IT), che analizzerà il problema nel più breve tempo possibile.
@@ -147,7 +147,7 @@ Il secondo consiste nel contattare l'amministratore o la persona che ha configur
 - Se si è scelto di ricevere codici di verifica tramite messaggio di testo nel telefono cellulare, assicurarsi che il piano di servizio e il dispositivo supportino il recapito di messaggi di testo. La velocità e la disponibilità del recapito possono variare in base alla posizione e al provider di servizi. Assicurarsi anche che il segnale cellulare sia adeguato quando si prova a ricevere questi codici.
 - Se si è scelto di ricevere una verifica tramite l'app per dispositivi mobili, assicurarsi che il segnale cellulare sia buono. Si noti anche che la velocità e la disponibilità del recapito possono variare in base alla posizione e al provider di servizi. 
 
-Se si usa uno smartphone, è consigliabile usare l'[app Azure Authenticator](multi-factor-authentication-azure-authenticator).
+Se si usa uno smartphone, è consigliabile usare l'[app Azure Authenticator](multi-factor-authentication-azure-authenticator.md).
 
 È possibile cambiare la modalità di ricezione dei codici di verifica tramite messaggi di testo e l'app per dispositivi mobili scegliendo **Usa un'opzione di verifica diversa** all'accesso.
 
@@ -172,4 +172,4 @@ Se non si trova una risposta al problema in questa pagina, è possibile inserire
 
 Lasciando commenti e suggerimenti dettagliati su questa pagina sarà possibile aggiornarla e continuare a migliorarla con altre informazioni.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

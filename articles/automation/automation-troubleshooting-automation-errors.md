@@ -139,11 +139,47 @@ Questo articolo illustra alcuni degli errori più comuni che possono verificarsi
 
   <br/>
 
+## Risolvere gli errori comuni quando si utilizza Desired State Configuration (DSC)  
+
+### Scenario: Lo stato di Node risulta non riuscito con un errore "Non trovato"
+
+**Errore:** il nodo presenta un report sullo stato "Non riuscito" che contiene l'errore "Impossibile recuperare l'azione dal server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction perché non è stata trovata alcuna configurazione valida <guid>".
+
+**Motivo dell'errore:** questo errore si verifica in genere perché al nodo viene assegnato un nome di configurazione, ad esempio, ABC, invece di un nome di configurazione del nodo, ad esempio, ABC.WebServer.
+
+**Suggerimenti sulla risoluzione dei problemi:** verificare che venga usato il nome di configurazione del nodo e non il nome della configurazione. È possibile usare il pulsante di "Assegna configurazione nodo" nel pannello del nodo nel portale o il cmdlet Set-AzureRMAutomationDscNode per eseguire il mapping del nodo a una configurazione di nodo valida.
+
+### Scenario: Non sono state prodotte configurazioni di nodo (file con estensione mof) durante l'esecuzione di una compilazione di configurazione
+
+**Errore:** il processo di compilazione di DSC è stato sospeso con un errore simile a: "Compilazione completata, ma non sono stati generati file con estensione mof di configurazione del nodo".
+
+**Motivo dell'errore:** quando l'espressione accanto a "Node" nella configurazione di DSC restituisce $null, non vengono prodotte configurazioni nodo.
+
+**Suggerimenti sulla risoluzione dei problemi:** verificare che non valuta l'espressione accanto a Node sia $null. Se si passa ConfigurationData, assicurarsi di passare i valori previsti richiesti dalla configurazione rilevati dai dati di configurazione. Dall'esempio, "$AllNodes. Per altre informazioni, vedere https://azure.microsoft.com/it-IT/documentation/articles/automation-dsc-compile/#configurationdata.
+
+### Scenario: Il report relativo al nodo DSC rimane bloccato nello stato "in corso"
+
+**Errore:** l'agente DSC restituisce "Nessuna istanza trovata con i valori di proprietà specificati".
+
+**Motivo dell'errore:** è stato eseguito l'aggiornamento alla versione WMF e WMI è stato danneggiato.
+
+**Suggerimenti sulla risoluzione dei problemi:** seguire le istruzioni in questo post per risolvere il problema: https://msdn.microsoft.com/it-IT/powershell/wmf/limitation_dsc
+
+### Scenario: Non è possibile usare le credenziali in una configurazione DSC 
+
+**Errore:** il processo di compilazione di DSC è stato sospeso con il seguente errore: "Errore System.InvalidOperationException durante l'elaborazione della proprietà 'Credential' DI TIPO '<some resource name>': La conversione e l'archiviazione di una password crittografata come testo non crittografato sono consentite solo se PSDscAllowPlainTextPassword è impostato su true".
+
+**Motivo dell'errore:** si è tentato di usare credenziali in una configurazione, ma non è stato passato l'oggetto ConfigurationData corretto per impostare PSAllowPlainTextPassword su true per ogni configurazione di nodo.
+
+**Suggerimenti sulla risoluzione dei problemi:** assicurarsi di passare l'oggetto ConfigurationData corretto per impostare PSAllowPlainTextPassword su true per ogni configurazione del nodo indicato nella configurazione. Per altre informazioni, vedere https://azure.microsoft.com/it-IT/documentation/articles/automation-dsc-compile/#assets.
+
+  <br/>
+
 ## Passaggi successivi
 
 Se sono state seguite le procedure precedenti per la risoluzione dei problemi e in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile:
 
-- Ottenere assistenza dagli esperti di Azure. Inviare il problema ai [forum MSDN e Stack Overflow dedicati ad Azure](https://azure.microsoft.com/support/forums/).
+- Ottenere assistenza dagli esperti di Azure. Inviare il problema ai [forum MSDN o Stack Overflow dedicati ad Azure](https://azure.microsoft.com/support/forums/).
 
 - Archiviare un incidente del supporto tecnico di Azure. Aprire il [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottieni supporto** in **Supporto tecnico e alla fatturazione**.
 
@@ -151,4 +187,4 @@ Se sono state seguite le procedure precedenti per la risoluzione dei problemi e 
 
 - Inviare commenti o suggerimenti oppure richieste di funzionalità per Automazione di Azure al forum di [suggerimenti degli utenti](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

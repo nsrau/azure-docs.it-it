@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -52,7 +52,9 @@ Esistono due modi per creare un modello di Gestione risorse personalizzato:
 
 ## Distribuire il modello di Gestione risorse in Azure usando Azure PowerShell
 
-Per istruzioni dettagliate su come distribuire il modello mediante PowerShell, vedere l'articolo relativo alla [distribuzione di modelli di Gestione risorse usando PowerShell](resource-group-template-deploy.md).
+Per istruzioni dettagliate su come distribuire il modello mediante PowerShell, vedere l'articolo relativo alla [distribuzione di modelli di Gestione risorse usando PowerShell](../resource-group-template-deploy.md).
+
+>[AZURE.NOTE] I cluster di Service Fabric richiedono che un certo numero di nodi sia attivo in ogni momento allo scopo di mantenere la disponibilità e lo stato, ossia per "mantenere il quorum". Di conseguenza, in genere non è consigliabile spegnere tutti i computer nel cluster a meno che non sia stato prima eseguito un [backup completo dello stato](service-fabric-reliable-services-backup-restore.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
@@ -63,4 +65,4 @@ Per istruzioni dettagliate su come distribuire il modello mediante PowerShell, v
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

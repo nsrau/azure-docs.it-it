@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/10/2016" 
 	ms.author="femila"/>
 
 # Scenari di utilizzo e considerazioni sulla distribuzione per Aggiunta di Azure AD 
@@ -24,9 +24,7 @@ Scenario 1: Aziende che operano prevalentemente nel cloud
 --------------------------------------------------------
 La funzionalità di aggiunta ad Azure AD può risultare utile per le aziende che già operano e gestiscono le identità nel cloud o che prevedono di eseguire la migrazione al cloud a breve. È possibile usare gli account creati in Azure AD per accedere a Windows 10. Gli utenti possono aggiungere i propri computer e dispositivi ad Azure AD tramite la [procedura di configurazione iniziale guidata](active-directory-azureadjoin-user-frx.md) o tramite l'[esperienza Impostazioni](active-directory-azureadjoin-user-upgrade.md) e usufruire dell'accesso Single Sign-On per accedere alle proprie risorse cloud, ad esempio Office 365, sia dal browser che dalle applicazioni Office.
 
-Scenario 2: Istituti di istruzione
-----------------------------------------------------------------------------------
-Gli istituti di istruzione hanno in genere due tipi di utenti: docenti e studenti. I docenti sono considerati membri dell'organizzazione a più lungo termine, quindi è consigliabile creare e assegnare loro account locali. Gli studenti invece sono membri dell'organizzazione a più breve termine e possono quindi essere gestiti in Azure AD, con un livello di directory esteso nel cloud anziché in locale. Gli studenti possono accedere a Windows usando l'account Azure AD e accedere alle risorse di Office 365 nelle applicazioni Office.
+Scenario 2: Istituti di istruzione ---------------------------------------------------------------------------------- Gli istituti di istruzione hanno in genere due tipi di utenti: docenti e studenti. I docenti sono considerati membri dell'organizzazione a più lungo termine, quindi è consigliabile creare e assegnare loro account locali. Gli studenti invece sono membri dell'organizzazione a più breve termine e possono quindi essere gestiti in Azure AD, con un livello di directory esteso nel cloud anziché in locale. Gli studenti possono accedere a Windows usando l'account Azure AD e accedere alle risorse di Office 365 nelle applicazioni Office.
 
 Scenario 3: Negozi
 ---------------------------------------------------------------------------------------
@@ -92,4 +90,4 @@ Le aziende possono fornire account di tipo solo cloud a organizzazioni e societ�
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

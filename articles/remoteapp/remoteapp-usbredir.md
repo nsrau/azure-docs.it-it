@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/05/2016" 
+    ms.date="02/11/2016" 
     ms.author="elizapo" />
 
 
@@ -48,11 +48,11 @@ Un modo migliore o la seconda opzione, consiste nel seguire questi passaggi per 
 
 Ad esempio:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
+		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "usbdevicestoredirect:s:<Class Guid value>"
 
 È possibile combinare più operazioni di reindirizzamento del dispositivo nello stesso cmdlet. Ad esempio, per reindirizzare l'archiviazione locale e una webcam USB, il cmdlet è simile al seguente:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
+		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`usbdevicestoredirect:s:<Class Guid value>"
 
 Quando si imposta il reindirizzamento del dispositivo tramite il GUID classe, vengono reindirizzati tutti i dispositivi che corrispondono a tale GUID classe nella raccolta specificata. Ad esempio, se nella rete locale sono presenti più computer con le stesse webcam USB, è possibile eseguire un singolo cmdlet per reindirizzare tutte le webcam.
 
@@ -70,11 +70,11 @@ La parte più difficile di questo metodo è trovare l'ID istanza del dispositivo
 
 A questo punto, è possibile usare l'ID istanza nel cmdlet seguente:
 
-	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB<Device InstanceID value>"
+	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "usbdevicestoredirect:s: USB<Device InstanceID value>"
 
 
 
 ### Come contribuire al miglioramento 
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

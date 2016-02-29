@@ -21,7 +21,7 @@
 
 ## Panoramica
 
-Questa guida illustra i diversi scenari comuni di uso del servizio di archiviazione BLOB di Microsoft Azure. Gli esempi sono scritti in Objective-C e usano la [libreria iOS di Archiviazione di Azure](https://github.com/Azure/azure-storage-ios). Gli scenari presentati includono **caricamento**, **visualizzazione dell'elenco**, **download** ed **eliminazione** di BLOB. Per ulteriori informazioni sui BLOB, vedere la sezione [Passaggi successivi](#next-steps). È possibile scaricare l'[app di esempio](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) per visualizzare rapidamente l'uso di Archiviazione di Azure in un'applicazione iOS.
+Questa guida illustra i diversi scenari comuni di uso del servizio di archiviazione BLOB di Microsoft Azure. Gli esempi sono scritti in Objective-C e usano la [libreria del client di archiviazione di Azure per iOS](https://github.com/Azure/azure-storage-ios). Gli scenari presentati includono **caricamento**, **visualizzazione dell'elenco**, **download** ed **eliminazione** di BLOB. Per ulteriori informazioni sui BLOB, vedere la sezione [Passaggi successivi](#next-steps). È possibile scaricare l'[app di esempio](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) per visualizzare rapidamente l'uso di Archiviazione di Azure in un'applicazione iOS.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -88,7 +88,7 @@ Per un'applicazione iOS, il metodo consigliato per autenticare una richiesta da 
 
 L'esempio seguente mostra come usare l'interfaccia della riga di comando di Azure per generare un Token di firma di accesso condiviso che concede le autorizzazioni di lettura e scrittura per il contenitore, *sascontainer*, fino alle 00.00 (UTC) del 5 settembre 2015.
 
-1. Seguire innanzitutto questa [guida](../xplat-cli/#how-to-install-the-azure-cli) per informazioni su come installare l'interfaccia della riga di comando di Azure e connettersi alla sottoscrizione di Azure.
+1. Per informazioni su come installare l'interfaccia della riga di comando di Azure e connettersi alla sottoscrizione di Azure, vedere innanzitutto [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 2. Digitare quindi il comando seguente nell'interfaccia della riga di comando di Azure per ottenere la stringa di connessione per l'account:
 
@@ -111,7 +111,7 @@ L'esempio seguente mostra come usare l'interfaccia della riga di comando di Azur
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-Come si può osservare, quando si usa un token di firma di accesso condiviso, non si espongono il nome account e la chiave dell'account nell'applicazione iOS. Vedere l'[esercitazione sulla firma di accesso condiviso](../storage-dotnet-shared-access-signature-part-1) per altre informazioni sull'argomento.
+Come si può osservare, quando si usa un token di firma di accesso condiviso, non si espongono il nome account e la chiave dell'account nell'applicazione iOS. Per altre informazioni sulla firma di accesso condiviso, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](../storage-dotnet-shared-access-signature-part-1).
 
 ##Operazioni asincrone
 > [AZURE.NOTE] Tutti i metodi che eseguono una richiesta al servizio sono operazioni asincrone. Negli esempi di codice si noterà che questi metodi hanno un gestore completamento. Il codice nel gestore completamento verrà eseguito **dopo** il completamento della richiesta. Il codice dopo il gestore completamento verrà eseguito **mentre** la richiesta è in corso.
@@ -348,15 +348,11 @@ L'esempio seguente mostra come eliminare un contenitore.
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
-- [Libreria iOS di Archiviazione di Azure]
-- [API REST di Archiviazione di Azure]
-- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
-- [Blog del team di Archiviazione di Azure]
+- [Libreria client di archiviazione di Azure per iOS](https://github.com/azure/azure-storage-ios)
+- [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
+- [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage)
 
 In caso di domande su questa libreria, è possibile pubblicare un post nel [forum di Azure su MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o in [Overflow dello stack](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Per inviare suggerimenti per Archiviazione di Azure, pubblicare un post nella pagina dei [commenti e suggerimenti per Archiviazione di Azure](https://feedback.azure.com/forums/217298-storage/).
 
-[Libreria iOS di Archiviazione di Azure]: https://github.com/azure/azure-storage-ios
-[API REST di Archiviazione di Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

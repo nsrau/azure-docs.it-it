@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="02/12/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Configurare un cluster di Service Fabric tramite Visual Studio
@@ -45,7 +45,7 @@ Prima di distribuire il modello per la creazione del cluster, è necessario spec
 |sourceVaultValue |*ID risorsa* dell'insieme di credenziali delle chiavi in cui viene memorizzato il certificato che garantisce la sicurezza del cluster.|
 |certificateUrlValue |URL del certificato di protezione del cluster.|
 
-Il modello di Gestione risorse di Service Fabric in Visual Studio crea un cluster sicuro, protetto da un certificato, identificato dagli ultimi tre parametri del modello (`certificateThumbprint`, `sourceVaultValue` e `certificateUrlValue`) e incluso in un **insieme di credenziali delle chiavi di Azure**. Per altre informazioni su come creare il certificato di sicurezza del cluster, vedere l'articolo [Proteggere un cluster di Service Fabric](service-fabric-cluster-security.md).
+Il modello di Gestione risorse di Service Fabric in Visual Studio crea un cluster sicuro, protetto da un certificato, identificato dagli ultimi tre parametri del modello (`certificateThumbprint`, `sourceVaultValue` e `certificateUrlValue`) e incluso in un **insieme di credenziali delle chiavi di Azure**. Per altre informazioni su come creare il certificato di sicurezza del cluster, vedere l'articolo relativo a [come proteggere un cluster di Service Fabric con i certificati](service-fabric-cluster-security.md#secure-a-service-fabric-cluster-by-using-certificates).
 
 ## Facoltativo: Aggiungere le porte pubbliche dell'applicazione
 Prima di distribuire il cluster, è possibile anche modificare le porte pubbliche delle applicazioni. Per impostazione predefinita, il modello apre solo due porte TCP pubbliche: 80 e 8081. Se per le applicazioni sono necessarie più porte, modificare la definizione del servizio di bilanciamento del carico di Azure nel modello. La definizione viene archiviata nel file del modello principale (`SecureFabricCluster.json`). Aprire il file e cercare `loadBalancedAppPort`. Si noterà che ogni porta è associata a tre elementi:
@@ -106,6 +106,8 @@ Dopo aver premuto il pulsante Distribuisci, Visual Studio chiederà di confermar
 
 Se sono presenti errori, passare al [portale di Azure](https://portal.azure.com/) e controllare la sezione **Notifiche**. Nel caso in cui la distribuzione del gruppo di risorse non sia riuscita, in questa sezione saranno presenti informazioni di diagnostica dettagliate.
 
+>[AZURE.NOTE] I cluster di Service Fabric richiedono che un certo numero di nodi sia attivo in ogni momento allo scopo di mantenere la disponibilità e lo stato, ossia per "mantenere il quorum". Di conseguenza, in genere non è consigliabile spegnere tutti i computer nel cluster a meno che non sia stato prima eseguito un [backup completo dello stato](service-fabric-reliable-services-backup-restore.md).
+
 ## Passaggi successivi
 - [Informazioni sulla configurazione di cluster di Service Fabric dal portale di Azure](service-fabric-cluster-creation-via-portal.md)
 - [Informazioni sulla gestione e la distribuzione di applicazioni di Service Fabric mediante Visual Studio](service-fabric-manage-application-in-visual-studio.md)
@@ -115,4 +117,4 @@ Se sono presenti errori, passare al [portale di Azure](https://portal.azure.com/
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

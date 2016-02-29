@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/17/2016"
 	ms.author="jeedes"/>
 
 
@@ -35,13 +35,13 @@ Per configurare l'integrazione di Azure AD con UserEcho, sono necessari gli elem
 - Sottoscrizione di UserEcho abilitata per l'accesso Single Sign-On
 
 
-> [AZURE.NOTE]Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Descrizione dello scenario
@@ -94,7 +94,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_04.png) <br>
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione UserEcho (ad esempio **https://fabrikam.UserEcho.com/*).
+    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione UserEcho, ad esempio **https://fabrikam.UserEcho.com/*).
 
     b. Fare clic su **Avanti**.
  
@@ -110,7 +110,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 1. Sulla barra degli strumenti in alto, fare clic sul nome utente per espandere il menu e quindi fare clic su **Setup**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png) <br>
 
-1. Fare clic su **Integrazioni**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_07.png) <br>
+1. Fare clic su **Integrations**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_07.png) <br>
 
 
 1. Fare clic su **Sito web** e quindi su **Single sign-on (SAML2)**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_08.png) <br>
@@ -126,12 +126,12 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     d. Aprire il certificato scaricato nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **X.509 Certificate**.
 
-    e. Fare clic su **Save**.
+    e. Fare clic su **Salva**.
 
 
 6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
 
-7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
+7. Nella pagina **Conferma Single Sign-On** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
 
 
 
@@ -145,7 +145,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, nel menu in alto fare clic su **Utenti**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_03.png) <br>
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_03.png) <br>
  
 4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_04.png) <br>
 
@@ -157,7 +157,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Fare clic su **Avanti**.
 
-6.  Nella pagina **Profilo utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_06.png) <br>
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_06.png) <br>
  
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -167,9 +167,9 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     d. Nell'elenco **Ruolo** selezionare **Utente**. e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea**, fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_07.png) <br>
+7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_07.png) <br>
  
-8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_08.png) <br>
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_08.png) <br>
   
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
@@ -189,14 +189,14 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in UserEcho.
 
 1. Fare clic su **Utenti** per espandere la sezione **Utenti**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_10.png) <br>
 
-1. Fare clic su **Utenti**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_11.png) <br>
+1. Fare clic su **Users**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_11.png) <br>
 
-1. Fare clic su **Invita un nuovo utente**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_12.png) <br>
+1. Fare clic su **Invite a new user**. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_12.png) <br>
 
 
 1. Nella finestra di dialogo **Invita un nuovo utente** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_13.png) <br>
 
-    a. Nella casella di testo **Nome** digitare **Britta Simon**.
+    a. Nella casella di testo **Name** digitare **Britta Simon**.
 
     b. Nella casella di testo **Posta elettronica** digitare l'indirizzo di posta elettronica di Britta Simon nel portale di Azure classico.
 
@@ -218,7 +218,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 1. Nel menu in alto fare clic su **Utenti**. <br><br>![Assegna utente][203] <br>
 
-1. Nell'elenco di utenti, selezionare **Britta Simon**.
+1. Nell'elenco di utenti selezionare **Britta Simon**.
 
 2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
 
@@ -253,4 +253,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

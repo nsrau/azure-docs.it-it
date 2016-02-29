@@ -112,14 +112,14 @@ Con l'assegnazione di utenti/gruppi di sicurezza al file system di Azure Data La
 	![Assegnare autorizzazioni a un gruppo](./media/data-lake-store-secure-data/adl.acl.4.png "Assegnare autorizzazioni a un gruppo")
 
 
-	>[AZURE.NOTE]L'autorizzazione di esecuzione è sempre necessaria per l'enumerazione delle directory e, spesso, anche per concedere a un utente o un gruppo l'accesso in sola lettura ai dati.
+	>[AZURE.NOTE] L'autorizzazione di esecuzione è sempre necessaria per l'enumerazione delle directory e, spesso, anche per concedere a un utente o un gruppo l'accesso in sola lettura ai dati.
 
 
 6. Nel pannello **Aggiungi accesso personalizzato** fare clic su **OK**. Il gruppo appena aggiunto, con le autorizzazioni associate, risulterà ora elencato nel pannello di **accesso**.
 
 	![Assegnare autorizzazioni a un gruppo](./media/data-lake-store-secure-data/adl.acl.5.png "Assegnare autorizzazioni a un gruppo")
 
-	> [AZURE.IMPORTANT]Nella versione corrente, l'elenco **Accesso personalizzato** non può contenere più di 12 voci. Se si desidera aggiungere più di 12 utenti, è possibile creare dei gruppi di sicurezza ed aggiungere ad essi gli utenti desiderati, nonché fornire ai gruppi di sicurezza creati i diritti di accesso all'account di Archivio Data Lake.
+	> [AZURE.IMPORTANT] Nella versione corrente, l'elenco **Accesso personalizzato** non può contenere più di 9 voci. Per aggiungere più di 9 utenti, è necessario creare gruppi di sicurezza, aggiungere utenti a tali gruppi e fornire ai gruppi di sicurezza creati accesso all'account di Archivio Data Lake.
 
 7. Se necessario, è possibile modificare le autorizzazioni di accesso anche dopo aver aggiunto il gruppo. Selezionare o deselezionare la casella di controllo per ogni tipo di autorizzazione (lettura, scrittura, esecuzione), in modo da aggiungerla o rimuoverla dal gruppo di sicurezza. Fare clic su **Salva** per salvare le modifiche o su **Ignora** per annullare le modifiche.
 
@@ -165,4 +165,4 @@ Quando si rimuovono gli elenchi di controllo di accesso dei gruppi di sicurezza 
 - [Introduzione ad Archivio Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
 - [Introduzione ad Archivio Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -36,7 +36,7 @@ Azure SDK per .NET installa i prodotti seguenti:
 - [Emulatore di archiviazione di Microsoft Azure](#stgemulator)
 - [Strumenti di archiviazione di Microsoft Azure](#stgtools)
 - [Librerie di Microsoft Azure per .NET](#libraries)
-- [HDInsight Tools per Visual Studio](#hdinsight) e [Microsoft Hive ODBC Driver](#hdinsight)
+- [Strumenti HDInsight per Visual Studio e Microsoft Hive ODBC Driver](#hdinsight)
 - [SDK di App per dispositivi mobili di Microsoft Azure V1.0](#mobile)
 - [Microsoft Azure PowerShell](#ps)
 
@@ -101,7 +101,7 @@ Sono inclusi i componenti seguenti:
 
 Gli strumenti HDInsight in Esplora Server consentono di esplorare i database Hive e gli account di archiviazione collegati per i cluster HDInsight, di creare tabelle e di creare e inviare query Hive. Per altre informazioni, vedere [Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-###<a id="mobile">SDK di App per dispositivi mobili di Microsoft Azure
+###<a id="mobile"></a>Microsoft Azure Mobile App SDK 1.0
 
 Strumenti per lavorare con le [app per dispositivi mobili in Azure App Service](app-service-mobile/app-service-mobile-value-prop.md).
 
@@ -186,4 +186,4 @@ Per il codice sorgente di Azure SDK per .NET, comprese le librerie client, veder
 
 Per la documentazione di riferimento sulle librerie client di Azure, vedere [Informazioni di riferimento su .NET per Azure](/documentation/api/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

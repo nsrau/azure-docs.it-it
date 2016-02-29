@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="02/11/2016"
 	ms.author="jodebrui"/>
 
 
@@ -318,6 +318,12 @@ EXECUTE Demo.usp_DemoReset;
 I test delle funzionalità in memoria hanno mostrato un miglioramento delle prestazioni pari a **9 volte** per questo semplice carico di lavoro, con ostress in esecuzione in una VM di Azure nella stessa area di Azure del database.
 
 
+
+<a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
+
+&nbsp;
+
+
 ## B. Installare l'esempio di analisi in memoria
 
 
@@ -523,4 +529,4 @@ Se un database contiene uno dei tipi di oggetti o tipi OLTP in memoria seguenti,
 
 - [Monitoraggio dell'archiviazione in memoria](sql-database-in-memory-oltp-monitoring.md) per OLTP in memoria.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

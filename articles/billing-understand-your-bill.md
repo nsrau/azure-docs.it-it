@@ -3,8 +3,8 @@
    description="Comprendere la fattura di Azure"
    services=""
    documentationCenter="Azure"
-   authors="kareni"
-   manager="jocho"
+   authors="erihur"
+   manager="kareni"
    editor=""
    tags="billing"/>
 
@@ -14,38 +14,39 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/22/2015"
-   ms.author="kareni"/>
+   ms.date="02/04/2016"
+   ms.author="erihur"/>
 
 
 # Comprendere la fattura per Microsoft Azure
 
-Gli addebiti per le sottoscrizioni di Microsoft Azure dipendono dal piano tariffario. Alcuni piani tariffari, ad esempio Visual Studio Ultimate con MSDN, includono crediti mensili che possono essere usati in qualsiasi servizio di Azure in base alle proprie esigenze.
+Gli addebiti per le sottoscrizioni di Microsoft Azure dipendono dal piano tariffario. Alcuni piani tariffari, ad esempio le sottoscrizioni di Visual Studio Enterprise (MPN), includono crediti mensili che possono essere usati in qualsiasi servizio di Azure in base alle proprie esigenze.
 
 Si noti che è possibile che fino a 24 ore di utilizzo latente dal periodo di fatturazione precedente vengano segnalati nel periodo di fatturazione corrente.
 
 Per altre informazioni sul consumo e sui piani tariffari, vedere la [pagina relativa alle opzioni di acquisto di Microsoft Azure](https://azure.microsoft.com/pricing/purchase-options/).
 
-I collegamenti riportati di seguito riguardano un elenco completo di tutti i servizi di Microsoft Azure.
+<!-- The below links cover a complete list of all Microsoft Azure services.
 
-- [Elenco dei dettagli sul servizio (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
-- [Elenco dei dettagli sul servizio (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
+<!-- - [Service Details list (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+<!-- - [Service Details list (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
 
-*NOTA: il collegamento **csv1** fa riferimento ai nomi dell’intestazione di colonna per la versione csv 1 e il collegamento **csv2** fa riferimento ai nuovi nomi dell’intestazione di colonna per la versione csv 2. Questi file vengono aggiornati ogni mese.*
+<!-- *NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*-->
 
+<!-- Below section commented out as a new "right nav" floating bar is created for each article and is no longer necessary to have this section.
 
-## Contenuto:
+## Content:
 
-Questo argomento semplifica le operazioni seguenti durante la lettura della fattura.
+This topic helps you with the following tasks when reading your bill.
 
--  Visualizzare o scaricare una fattura per Azure
--  Informazioni sul cliente
--  Comprendere il riepilogo della fattura
--  Comprendere gli addebiti attuali
--  Informazioni del piè di pagina
--  Comprendere le informazioni aggiuntive
--  Comprendere gli addebiti basati sui dati sull'utilizzo dettagliati
--  Analizzare i dati di utilizzo giornaliero
+-  View or Download a Bill for Azure
+-  Customer Information
+-  Understand the Invoice Summary
+-  Understand the Current Charges
+-  Footer Information
+-  Understand the Additional Information
+-  Understand Detailed Usage Charges
+-  Analyze Daily Usage Data -->
 
 ### Visualizzare o scaricare una fattura per Microsoft Azure:
 
@@ -77,8 +78,10 @@ Per visualizzare o scaricare una fattura:
     ![Riepilogo - cronologia fatturazione 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
 
 
+***Importante:*** *gli addebiti elencati negli estratti conto per i clienti internazionali sono solo a scopo di valutazione, perché le banche hanno costi diversi per i tassi di conversione.*
 
-**Di seguito sono fornite alcune istruzioni di esempio per due differenti offerte disponibili in Microsoft Azure.**
+
+Di seguito sono fornite alcune istruzioni di esempio per due differenti offerte disponibili in Microsoft Azure.
 
  **TIPO DI OFFERTA** | **DESCRIZIONE** | **DOWNLOAD** |
  :--------- |:-------- | :-------|
@@ -107,7 +110,7 @@ Tipo di pagamento usato per l'account (fattura o carta di credito).
 Indirizzo per i pagamenti per Microsoft Azure.
 
 ### Offerta di sottoscrizione
-Tipo di offerta di sottoscrizione che è stato acquistato (vale a dire pagamento in base al consumo, MSDN Vidual Studio Ultimate, ecc.)
+Tipo di offerta di sottoscrizione acquistata, ad esempio con pagamento in base al consumo, Visual Studio Enterprise con MSDN e così via.
 
 ### Indirizzo di posta elettronica proprietario account
 Indirizzo di posta elettronica dell'account associato all'account Microsoft Azure.
@@ -141,7 +144,7 @@ Gli addebiti per l'utilizzo corrispondono agli addebiti mensili totali per una s
 Gli eventuali sconti sull'utilizzo del servizio applicati all'attuale fattura sono indicati in corrispondenza di questa voce.
 
 ### Rettifiche
-Le rettifiche varie sono crediti di diverso tipo o addebiti in sospeso applicati alla fattura corrente. Ad esempio, se è stata attivata l'offerta Visual Studio Ultimate con MSDN, in questa voce verrà visualizzato un credito mensile. Se la sottoscrizione viene annullata, i costi di utilizzo mensili in eccesso rispetto al credito mensile incluso nell'offerta sono visualizzati a partire dal periodo di fatturazione corrente fino alla data di annullamento della sottoscrizione.
+Le rettifiche varie sono crediti di diverso tipo o addebiti in sospeso applicati alla fattura corrente. Ad esempio, se è stata attivata l'offerta Visual Studio Enterprise con MSDN, in questa voce verrà visualizzato un credito mensile. Se la sottoscrizione viene annullata, i costi di utilizzo mensili in eccesso rispetto al credito mensile incluso nell'offerta sono visualizzati a partire dal periodo di fatturazione corrente fino alla data di annullamento della sottoscrizione.
 
 ## Informazioni del piè di pagina
 ![piè di pagina](./media/billing-understand-your-bill/footerinformation.png)
@@ -256,10 +259,10 @@ Passare alla sezione **Gestire account, sottoscrizioni e ruoli amministrativi** 
 
 - [Modificare la carta di credito per l'account di Microsoft Azure](https://msdn.microsoft.com/library/azure/dn736050.aspx)
 
-- [Operazioni da eseguire se la sottoscrizione di Azure viene disabilitata](https://msdn.microsoft.com/library/azure/dn736049.aspx)
+<!-- - [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)-->
 
 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

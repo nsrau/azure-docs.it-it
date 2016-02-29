@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/22/2016"
+   ms.date="02/12/2016"
    ms.author="alkohli" />
 
-# Distribuire e gestire un dispositivo virtuale StorSimple in Azure (Aggiornamento 2)
+# Distribuire e gestire un dispositivo virtuale StorSimple in Azure (Update 2)
 
 > [AZURE.SELECTOR]
 - [Aggiornamento 2](../articles/storsimple/storsimple-virtual-device-u2.md)
@@ -28,7 +28,7 @@ Il dispositivo virtuale StorSimple rappresenta una funzionalità aggiuntiva forn
 
 #### Confronto tra modelli di dispositivi virtuali
 
-Il dispositivo virtuale StorSimple è disponibile in due modelli, un modello Standard 8010 e un modello Premium 8020 (introdotto nella versione Update 2). La tabella seguente illustra un confronto tra i due modelli.
+Il dispositivo virtuale StorSimple è disponibile in due modelli, Standard 8010 (in precedenza noto come 1100) e Premium 8020 (introdotto nell'aggiornamento 2). La tabella seguente illustra un confronto tra i due modelli.
 
 
 | Modello del dispositivo | 8010<sup>1</sup> | 8020 |
@@ -36,12 +36,33 @@ Il dispositivo virtuale StorSimple è disponibile in due modelli, un modello Sta
 | **Capacità massima** | 30 TB | 64 TB |
 | **Macchina virtuale di Azure** | Standard\_A3 (4 core, 7 GB di memoria) | Standard\_DS3 (4 core, 14 GB di memoria) |
 | **Compatibilità tra le versioni** | Versioni con aggiornamenti precedenti a Update 2 o successivi | Versioni con aggiornamenti Update 2 o successivi |
-| **Aree di disponibilità** | Tutte le aree di Azure | Aree di Azure che supportano l'Archiviazione Premium<br></br>Per un elenco delle aree che attualmente supportano l'Archiviazione Premium, vedere [Servizi di Azure in base all'area](https://azure.microsoft.com/regions/#services) |
-| **Tipo di archiviazione** | Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard]() | Usa l'Archiviazione Premium di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Premium](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Aree di disponibilità** | Tutte le aree di Azure | Aree di Azure che supportano l'archiviazione Premium<br></br>Per un elenco delle aree, vedere [Aree supportate per il modello 8020](#supported-regions-for-8020) |
+| **Tipo di archiviazione** | Usa l'archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard]() | Usa l'archiviazione Premium di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Premium](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Indicazioni relative al carico di lavoro** | Recupero a livello di elemento per i file dai backup | Scenari di sviluppo e test cloud, bassa latenza, carichi di lavoro a prestazioni superiori <br></br>Dispositivo secondario per il ripristino di emergenza |
  
 <sup>1</sup> *precedentemente noto come 1100*.
 
+#### Aree supportate per il modello 8020
+
+Le aree di archiviazione Premium attualmente supportate per il modello 8020 sono elencate nella tabella seguente. L'elenco verrà aggiornato in base all'aumento delle aree in cui è disponibile l'archiviazione Premium.
+
+| N. | Attualmente supportato nelle aree |
+|---------------------------------------------------------|--------------------------------|
+| 1 | Stati Uniti centrali |
+| 2 | Stati Uniti Orientali |
+| 3 | Stati Uniti orientali 2 |
+| 4 | Stati Uniti occidentali |
+| 5 | Europa settentrionale |
+| 6 | Europa occidentale |
+| 7 | Asia sudorientale |
+| 8 | Giappone orientale |
+| 9 | Giappone occidentale |
+| 10 | Australia orientale |
+| 11 | Australia sud-orientale* |
+| 12 | Asia orientale* |
+| 13 | Stati Uniti centro-meridionali* |
+
+**L'archiviazione Premium è stata lanciata di recente in queste aree geografiche.
 
 Questo articolo illustra il processo dettagliato per la distribuzione di un dispositivo virtuale StorSimple in Azure. Dopo avere letto l'articolo, si sarà in grado di:
 
@@ -79,7 +100,7 @@ Le sezioni seguenti illustrano i prerequisiti di configurazione per il dispositi
 
 Prima di eseguire il provisioning del dispositivo virtuale, è necessario effettuare le seguenti operazioni preliminari in Azure:
 
-- Nel caso del dispositivo virtuale, [configurare una rete virtuale in Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Se si usa l'Archiviazione Premium, sarà necessario creare una rete virtuale in un'area di Azure che supporta l'Archiviazione Premium. Altre informazioni sulle [aree che attualmente supportano l'Archiviazione Premium](https://azure.microsoft.com/regions/#services).
+- Nel caso del dispositivo virtuale, [configurare una rete virtuale in Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Se si usa l'archiviazione Premium, sarà necessario creare una rete virtuale in un'area di Azure che supporta l'archiviazione Premium. Altre informazioni sulle [aree attualmente supportate per il modello 8020](#supported-regions-for-8020).
 - È consigliabile utilizzare il server DNS predefinito fornito da Azure invece di specificare il nome del proprio server DNS. Se il nome del server DNS non è valido o se il server DNS non riesce a risolvere correttamente l'indirizzo IP, non sarà possibile creare il dispositivo virtuale.
 - Le opzioni point-to-site e da sito a sito non sono obbligatorie, ma facoltative. Se si desidera, è possibile configurarle per scenari più avanzati. 
 - È possibile creare[Macchine virtuali di Azure](../virtual-machines/virtual-machines-about.md)(server host) nella rete virtuale che possono usare i volumi esposti dal dispositivo virtuale. Tali server devono soddisfare i seguenti requisiti: 							
@@ -247,11 +268,13 @@ Per una procedura dettagliata, vedere [Failover su un dispositivo virtuale StorS
 
 Se in precedenza è stato configurato e utilizzato un dispositivo virtuale StorSimple, ma si desidera arrestare l'addebito dei costi di calcolo relativi all'utilizzo, è possibile arrestare il dispositivo virtuale. Se si arresta il dispositivo virtuale, non viene eliminato il sistema operativo o i dischi dati nell'archiviazione. Inoltre, viene interrotto l'addebito di costi di sottoscrizione, ma non quello dei costi per il sistema operativo e per i dischi dati.
 
-Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualizzato come **Offline** nella pagina Dispositivi del servizio StorSimple Manager. È possibile disattivare o eliminare il dispositivo se si vogliono eliminare anche i backup creati dal dispositivo virtuale. Per ulteriori informazioni, vedere [Disattivare ed eliminare un dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
+Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualizzato come **Offline** nella pagina Dispositivi del servizio StorSimple Manager. È possibile disattivare o eliminare il dispositivo se si vogliono eliminare anche i backup creati dal dispositivo virtuale. Per altre informazioni, vedere [Disattivare ed eliminare un dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
 [AZURE.INCLUDE [Arrestare un dispositivo virtuale](../../includes/storsimple-shutdown-virtual-device.md)]
 
 [AZURE.INCLUDE [Eliminare un dispositivo virtuale](../../includes/storsimple-delete-virtual-device.md)]
+
+   
 
 ## Passaggi successivi
 
@@ -259,4 +282,4 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
  
 - Ottenere informazioni su come [Ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

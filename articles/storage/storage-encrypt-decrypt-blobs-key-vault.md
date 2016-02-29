@@ -24,9 +24,9 @@ Questa esercitazione illustra come usare la crittografia di archiviazione lato c
 
 **Tempo previsto per il completamento:** 20 minuti
 
-Per informazioni generali sull'insieme di credenziali delle chiavi di Azure, vedere [Cos'è l'insieme di credenziali chiave di Azure?](key-vault/key-vault-whatis.md).
+Per informazioni generali sull'insieme di credenziali delle chiavi di Azure, vedere [Cos'è l'insieme di credenziali chiave di Azure?](../key-vault/key-vault-whatis.md)
 
-Per informazioni generali sulla crittografia lato client per Archiviazione di Azure, vedere [Crittografia lato client e Insieme di credenziali chiave Azure per Archiviazione di Microsoft Azure](storage-client-side-encryption.md).
+Per informazioni generali sulla crittografia lato client per Archiviazione di Azure, vedere l'articolo relativo alla [crittografia lato client e all'insieme di credenziali delle chiavi di Azure per Archiviazione di Microsoft Azure](storage-client-side-encryption.md).
 
 
 ## Prerequisiti
@@ -40,7 +40,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ## Panoramica della crittografia lato client
 
-Per una panoramica della crittografia lato client per Archiviazione di Azure, vedere l'articolo di [introduzione alla crittografia lato client per Archiviazione di Microsoft Azure](storage-client-side-encryption.md).
+Per una panoramica sulla crittografia lato client per Archiviazione di Azure, vedere l'articolo relativo alla [crittografia lato client e all'insieme di credenziali delle chiavi di Azure per Archiviazione di Microsoft Azure](storage-client-side-encryption.md).
 
 Ecco una breve descrizione del funzionamento della crittografia lato client:
 
@@ -51,7 +51,7 @@ Ecco una breve descrizione del funzionamento della crittografia lato client:
 
 
 ## Impostare l'insieme di credenziali delle chiavi di Azure
-Per procedere con questa esercitazione, è necessario effettuare le operazioni seguenti, descritte nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault/key-vault-get-started.md).
+Per procedere con questa esercitazione, è necessario effettuare le operazioni seguenti, descritte nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md).
 
 - Creare un insieme di credenziali delle chiavi.
 - Aggiungere una chiave o un segreto all'insieme di credenziali delle chiavi.
@@ -235,4 +235,4 @@ Per le informazioni più recenti su Archiviazione di Microsoft Azure, visitare i
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

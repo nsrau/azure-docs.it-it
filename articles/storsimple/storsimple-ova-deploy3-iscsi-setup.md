@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Installazione del server iSCSI di StorSimple Virtual Array | Microsoft Azure"
+   pageTitle="Installazione del server iSCSI dell'array virtuale StorSimple | Microsoft Azure"
    description="Viene illustrato come eseguire l'installazione iniziale, registrare il server iSCSI StorSimple e completare l'installazione del dispositivo."
    services="storsimple"
    documentationCenter="NA"
@@ -12,34 +12,34 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/20/2016"
+   ms.date="02/08/2016"
    ms.author="alkohli" />
 
 
-# Distribuire StorSimple Virtual Array: configurare il dispositivo virtuale come server iSCSI (anteprima)
+# Distribuire l'array virtuale StorSimple: configurare il dispositivo virtuale come server iSCSI (anteprima)
 
 ![flusso del processo di installazione di iSCSI](./media/storsimple-ova-deploy3-iscsi-setup/iscsi4.png)
 
 ## Panoramica
 
-Questa esercitazione sulla distribuzione si applica a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione in anteprima pubblica 1.1.1.0. Questa esercitazione illustra come eseguire l'installazione iniziale, registrare il server iSCSI StorSimple, completare l'installazione del dispositivo, quindi creare, montare, inizializzare e formattare i volumi nel server iSCSI del dispositivo virtuale StorSimple. Le informazioni sull'installazione di StorSimple in questo articolo si applicano solo a StorSimple Virtual Array.
+Questa esercitazione sulla distribuzione si applica all'array virtuale Microsoft Azure StorSimple (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione in anteprima pubblica 1.1.1.0. Questa esercitazione illustra come eseguire l'installazione iniziale, registrare il server iSCSI StorSimple, completare l'installazione del dispositivo, quindi creare, montare, inizializzare e formattare i volumi nel server iSCSI del dispositivo virtuale StorSimple. Le informazioni sull'installazione di StorSimple in questo articolo si applicano solo all'array virtuale StorSimple.
 
-Il completamento delle procedure descritte di seguito richiede approssimativamente da 30 minuti a 1 ora. Le informazioni pubblicate in questo articolo si applicano solo a StorSimple Virtual Array.
+Il completamento delle procedure descritte di seguito richiede approssimativamente da 30 minuti a 1 ora. Le informazioni pubblicate in questo articolo si applicano solo all'array virtuale StorSimple.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
->- StorSimple Virtual Array è disponibile in anteprima ed è destinato a scopi di valutazione e pianificazione della distribuzione. L'installazione di questa versione di anteprima in un ambiente di produzione non è supportata. 
->- Se si riscontrano problemi con StorSimple Virtual Array, pubblicare un post al riguardo nel [forum MSDN per StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
+>- L'array virtuale StorSimple è disponibile in anteprima ed è destinato a scopi di valutazione e pianificazione della distribuzione. L'installazione di questa versione di anteprima in un ambiente di produzione non è supportata. 
+>- Se si riscontrano problemi con l'array virtuale StorSimple, pubblicare un post al riguardo nel [forum MSDN per StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
 
 ## Prerequisiti di installazione
 
 Prima di configurare e installare il dispositivo virtuale StorSimple, si deve:
 
-- Eseguire il provisioning di un dispositivo virtuale e connettersi come illustrato in [Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o in [Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in VMware](storsimple-ova-deploy2-provision-vmware.md).
+- Eseguire il provisioning di un dispositivo virtuale e connettersi come illustrato in [Distribuire l'array virtuale StorSimple: eseguire il provisioning di un array virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o in [Distribuire l'array virtuale StorSimple: eseguire il provisioning di un array virtuale in VMware](storsimple-ova-deploy2-provision-vmware.md).
 
-- Avere ottenuto la chiave di registrazione del servizio dal servizio StorSimple Manager creato per gestire i dispositivi virtuali StorSimple. Per ulteriori informazioni, vedere **Passaggio 2: Ottenere la chiave di registrazione del servizio** in [Distribuire StorSimple Virtual Array: preparare il portale](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+- Avere ottenuto la chiave di registrazione del servizio dal servizio StorSimple Manager creato per gestire i dispositivi virtuali StorSimple. Per ulteriori informazioni, vedere **Passaggio 2: Ottenere la chiave di registrazione del servizio** in [Distribuire l'array virtuale StorSimple: preparare il portale](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
-- Se questo è il secondo dispositivo virtuale o l'ulteriore dispositivo registrato con un servizio StorSimple Manager esistente, è necessario disporre della chiave DEK del servizio. Questa chiave viene generata nel momento in cui avviene la corretta registrazione del primo dispositivo con questo servizio. Se si smarrisce la chiave, vedere come **ottenere la chiave DEK del servizio** nell'articolo relativo a come [usare l'interfaccia utente Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
+- Se questo è il secondo dispositivo virtuale o l'ulteriore dispositivo registrato con un servizio StorSimple Manager esistente, è necessario disporre della chiave DEK del servizio. Questa chiave viene generata nel momento in cui avviene la corretta registrazione del primo dispositivo con questo servizio. Se si smarrisce la chiave, vedere come **ottenere la chiave DEK del servizio** nell'articolo relativo a come [usare l'interfaccia utente Web per amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
 
 ## Installazione passo per passo 
 
@@ -62,7 +62,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     ![errore di certificato di sicurezza](./media/storsimple-ova-deploy3-iscsi-setup/image3.png)
 
-2. Accedere all'interfaccia utente Web del dispositivo virtuale come **StorSimpleAdmin**. Immettere la password amministratore del dispositivo modificata in Passaggio 3: Avviare il dispositivo virtuale nell'articolo relativo alla [distribuzione di StorSimple Virtual Array e provisioning di un dispositivo virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o alla [distribuzione di StorSimple Virtual Array e provisioning di un dispositivo virtuale in VMware](storsimple-ova-deploy2-provision-vmware.md).
+2. Accedere all'interfaccia utente Web del dispositivo virtuale come **StorSimpleAdmin**. Immettere la password amministratore del dispositivo modificata in Passaggio 3: Avviare il dispositivo virtuale nell'articolo relativo alla [distribuzione dell'array virtuale StorSimple e provisioning di un dispositivo virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o alla [distribuzione dell'array virtuale StorSimple e provisioning di un dispositivo virtuale in VMware](storsimple-ova-deploy2-provision-vmware.md).
 
     ![Pagina di accesso](./media/storsimple-ova-deploy3-iscsi-setup/image4.png)
 
@@ -99,6 +99,11 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
     5. Viene visualizzata una finestra di dialogo. Immettere le credenziali di dominio nel formato specificato. Fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-ova-deploy3-iscsi-setup/image15.png). Le credenziali di dominio vengono verificate. Se le credenziali non sono valide, viene visualizzato un messaggio di errore.
 
         ![credentials](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
+        
+           > [AZURE.NOTE]
+	   > 
+	   > Se si aggiunge il server iSCSI a un dominio, assicurarsi che l'array virtuale si trovi nella propria unità organizzativa (OU) per Microsoft Azure Active Directory e che ad esso non siano applicati oggetti Criteri di gruppo (GPO).
+	   
 
     6. Fare clic su **Apply**. Si applicano e convalidano così le impostazioni del dispositivo.
  
@@ -112,7 +117,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     2. Specificare **Autenticazione** come **Basic**, **NTLM** o **Nessuna**.
 
-    3. Se si usa l'autenticazione, è necessario anche fornire **Nome utente** e **Password**.
+    3. Se si usa l'autenticazione, è necessario fornire anche **Nome utente** e **Password**.
 
     4. Fare clic su **Apply**. Le impostazioni proxy Web configurate vengono così convalidate e applicate.
  
@@ -122,7 +127,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     Nella pagina **Impostazioni ora**:
 
-    1. Nell'elenco a discesa, selezionare il **fuso orario** in base alla posizione geografica in cui viene distribuito il dispositivo. Il fuso orario predefinito per il dispositivo è PST. Il dispositivo utilizzerà questo fuso orario per tutte le operazioni pianificate.
+    1. Selezionare dall'elenco a discesa il **fuso orario** in base alla posizione geografica in cui viene distribuito il dispositivo. Il fuso orario predefinito per il dispositivo è PST. Il dispositivo utilizzerà questo fuso orario per tutte le operazioni pianificate.
 
     2. Specificare un **server NTP primario** per il dispositivo o accettare il valore predefinito di time.windows.com. Assicurarsi che la rete consenta il traffico NTP dal data center a Internet.
 
@@ -132,9 +137,9 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
 9. Configurare le impostazioni del cloud per il dispositivo. In questo passaggio, viene completata la configurazione del dispositivo locale, quindi si registra il dispositivo con il servizio StorSimple Manager.
 
-    1. Immettere la **chiave di registrazione del servizio** ottenuta in **Passaggio 2: Ottenere la chiave di registrazione del servizio** in [Distribuire StorSimple Virtual Array: preparare il portale](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+    1. Immettere la **chiave di registrazione del servizio** ottenuta al **Passaggio 2: Ottenere la chiave di registrazione del servizio** di [Distribuire l'array virtuale StorSimple: preparare il portale](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
-    2. Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per ulteriori informazioni, fare riferimento a [come ottenere la chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
+    2. Se questo non è il primo dispositivo che si registra con tale servizio, è necessario fornire la **chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per altre informazioni, fare riferimento all'esercitazione [Ottenere la chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
 
     3. Fare clic su **Register**. Il dispositivo viene così riavviato. È necessario attendere 2-3 minuti per la corretta registrazione del dispositivo. Dopo avere riavviato il dispositivo, si passa alla pagina di accesso.
 
@@ -156,7 +161,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per completare l'inst
 
 #### Per completare l'installazione minima del dispositivo
 
-1. Nella pagina **Dispositivi**, selezionare il dispositivo appena creato. Il dispositivo viene visualizzato come **Attivo**. Fare clic sulla freccia accanto al nome del dispositivo, quindi su **Avvio rapido**.
+1. Nella pagina **Dispositivi** selezionare il dispositivo appena creato. Il dispositivo viene visualizzato come **Attivo**. Fare clic sulla freccia accanto al nome del dispositivo e quindi fare clic su **Avvio rapido**.
 
     ![Pagina Dispositivi](./media/storsimple-ova-deploy3-iscsi-setup/image13.png)
 
@@ -164,11 +169,11 @@ Eseguire i passaggi seguenti nel portale di Azure classico per completare l'inst
 
     ![Configurazione guidata del dispositivo](./media/storsimple-ova-deploy3-iscsi-setup/image14.png)
 
-3. Nella configurazione guidata del dispositivo, nella pagina **Impostazioni di base**, eseguire le seguenti operazioni:
+3. Nella pagina **Impostazioni di base** della configurazione guidata del dispositivo eseguire le operazioni seguenti:
 
-   1. Specificare un account di archiviazione da usare con il dispositivo. In questa sottoscrizione, è possibile selezionare un account di archiviazione esistente nell'elenco a discesa o specificare **Aggiungi altro** per scegliere un account da una sottoscrizione diversa.
+   1. Specificare un account di archiviazione da usare con il dispositivo. In questa sottoscrizione è possibile selezionare un account di archiviazione esistente dall'elenco a discesa o specificare **Aggiungi altro** per scegliere un account da una sottoscrizione diversa.
 
-   2. Definire le impostazioni di crittografia per tutti i dati inattivi da inviare al cloud. (StorSimple usa la crittografia AES-256.) Per crittografare i dati, selezionare la casella di controllo per **abilitare la chiave di crittografia di archiviazione cloud**. Immettere una crittografia di archiviazione cloud di 32 caratteri. Immettere nuovamente la chiave per confermarla.
+   2. Definire le impostazioni di crittografia per tutti i dati inattivi da inviare al cloud. (StorSimple usa la crittografia AES-256.) Per crittografare i dati, selezionare la casella di controllo **Abilitare la crittografia per l'archiviazione cloud**. Immettere una crittografia di archiviazione cloud di 32 caratteri. Immettere nuovamente la chiave per confermarla.
 
    3. Fare clic sull’icona del segno di spunta ![icona del segno di spunta](./media/storsimple-ova-deploy3-iscsi-setup/image15.png).
 
@@ -208,7 +213,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un volume.
 
     1. Fornire un **Nome** per l'ACR.
 
-    2. In **Nome iniziatore iSCSI**, fornire il nome qualificato iSCSI (IQN) dell'host di Windows. Se non si dispone di IQN, andare a [Appendice A: Ottenere il nome qualificato iSCSI di un host di Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
+    2. In **Nome iniziatore iSCSI**, fornire il nome qualificato iSCSI (IQN) dell'host di Windows. Se non si dispone di un nome qualificato iSCSI, passare all'[Appendice A: Ottenere il nome qualificato iSCSI di un host di Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
 
     3. È consigliabile abilitare un backup predefinito tramite la selezione della casella di controllo **Abilita un criterio di backup predefinito per questo volume**. Il backup predefinito creerà un criterio eseguito alle 22:30 di ogni giorno (ora del dispositivo) e creerà uno spapshot nel cloud del volume.
 
@@ -220,7 +225,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un volume.
 
         Verrà creato un volume con le impostazioni specificate. Per impostazione predefinita, il monitoraggio e il backup vengono abilitati per il volume.
 
-    5. Per confermare la corretta creazione del volume, andare alla pagina **Volumi**. Il volume deve essere visualizzato nell'elenco.
+    5. Per confermare la corretta creazione del volume, passare alla pagina **Volumi**. Il volume deve essere visualizzato nell'elenco.
 
         ![](./media/storsimple-ova-deploy3-iscsi-setup/image21.png)
 
@@ -244,7 +249,7 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 
     ![destinazioni individuate](./media/storsimple-ova-deploy3-iscsi-setup/image24.png)
 
-5. Selezionare il dispositivo di destinazione, quindi fare clic su **Connetti**. Dopo aver connesso il dispositivo, lo stato deve essere modificato in **Connesso**. Per ulteriori informazioni sull'uso dell'iniziatore iSCSI di Microsoft, vedere [Installare e configurare l'iniziatore iSCSI Microsoft][1].
+5. Selezionare il dispositivo di destinazione e quindi fare clic su **Connetti**. Dopo aver connesso il dispositivo, lo stato deve essere modificato in **Connesso**. Per altre informazioni sull'utilizzo dell'iniziatore iSCSI di Microsoft, vedere [Installazione e configurazione dell’iniziatore iSCSI di Microsoft][1].
 
     ![selezionare il dispositivo di destinazione](./media/storsimple-ova-deploy3-iscsi-setup/image25.png)
 
@@ -260,15 +265,15 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 
     ![inizializzare disco 1](./media/storsimple-ova-deploy3-iscsi-setup/image27.png)
 
-10. Nella finestra di dialogo, selezionare il disco o i dischi da inizializzare, quindi fare clic su **OK**.
+10. Nella finestra di dialogo selezionare il disco o i dischi da inizializzare e quindi fare clic su **OK**.
 
     ![inizializzare disco 2](./media/storsimple-ova-deploy3-iscsi-setup/image28.png)
 
-11. Si avvia così la creazione guidata nuovo volume semplice. Selezionare una dimensione disco, quindi fare clic su **Avanti**.
+11. Si avvia così la creazione guidata nuovo volume semplice. Selezionare una dimensione disco e quindi fare clic su **Avanti**.
 
     ![procedura guidata nuovo volume 1](./media/storsimple-ova-deploy3-iscsi-setup/image29.png)
 
-12. Assegnare una lettera di unità al volume, quindi fare clic su **Avanti**.
+12. Assegnare una lettera di unità al volume e quindi fare clic su **Avanti**.
 
     ![procedura guidata nuovo volume 2](./media/storsimple-ova-deploy3-iscsi-setup/image30.png)
 
@@ -276,7 +281,7 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 
     ![procedura guidata nuovo volume 3](./media/storsimple-ova-deploy3-iscsi-setup/image31.png)
 
-14. Controllare i valori del volume, quindi fare clic su **Fine**.
+14. Controllare i valori del volume e quindi fare clic su **Fine**.
 
     ![procedura guidata nuovo volume 4](./media/storsimple-ova-deploy3-iscsi-setup/image32.png)
 
@@ -286,7 +291,7 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 
 ## Passaggi successivi
 
-Scoprire come usare l'interfaccia utente Web locale per [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Altre informazioni su come usare l'interfaccia utente Web locale per [amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
 
 ## Appendice A: Ottenere il nome qualificato iSCSI di un host di Windows Server
 
@@ -305,4 +310,4 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un 
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

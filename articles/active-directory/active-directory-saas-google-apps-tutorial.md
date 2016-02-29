@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="02/17/2016"
     ms.author="liviodlc"/>
 
 #Esercitazione: Come integrare Google Apps ad Azure Active Directory
@@ -22,7 +22,7 @@ Questa esercitazione illustrerà come connettere l'ambiente di Google Apps ad Az
 
 ##Prerequisiti
 
-1. Per accedere ad Azure Active Directory tramite il [portale di gestione di Azure](https://manage.windowsazure.com) è necessario innanzitutto disporre di una sottoscrizione Azure valida.
+1. Per accedere ad Azure Active Directory tramite il [portale di Azure classico ](https://manage.windowsazure.com), prima di tutto è necessario avere una sottoscrizione di Azure valida.
 
 2. È necessario disporre di un tenant valido per [Google Apps per il lavoro](https://www.google.com/work/apps/) o [Google Apps per la didattica](https://www.google.com/edu/products/productivity-tools/). È possibile usare un account della versione di valutazione gratuita per entrambi i servizi.
 
@@ -32,9 +32,27 @@ Come abilitare Single Sign-On in Google Apps in 2 minuti:
 
 > [AZURE.VIDEO enable-single-sign-on-to-google-apps-in-2-minutes-with-azure-ad]
 
+##Domande frequenti
+
+1. **D: I dispositivi Chromebooks e altri dispositivi Chrome sono compatibili con Single Sign-On di Azure AD?**
+
+	R: Sì, gli utenti possono accedere ai dispositivi Chromebook con le credenziali di Azure AD. Per informazioni sui motivi per cui agli utenti può essere richiesto di immettere le credenziali due volte, vedere questo [articolo del supporto tecnico di Google Apps](https://support.google.com/chrome/a/answer/6060880).
+
+2. **D: Se si abilita il Single Sign-On, gli utenti potranno usare le credenziali di Azure AD per accedere a qualsiasi prodotto di Google, ad esempio Google Classroom, GMail, Google Drive, YouTube e così via?**
+
+	R: Sì, a seconda delle [Google Apps](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) che si sceglie di abilitare o disabilitare per la propria organizzazione.
+
+3. **D: È possibile abilitare il Single Sign-On solo per un sottoinsieme di utenti di Google Apps?**
+
+	R: No, l'attivazione del Single Sign-On richiederà immediatamente a tutti gli utenti di Google Apps di autenticarsi con le proprie credenziali di Azure AD. Poiché Google Apps non supporta più provider di identità, il provider di identità per l'ambiente di Google Apps può essere AD Azure o Google, ma non entrambi contemporaneamente.
+
+4. **D: Se un utente ha eseguito l'accesso tramite Windows, verrà autenticano automaticamente in Google Apps senza che venga richiesta una password?**
+
+	R: Sono disponibili due opzioni per l'abilitazione di questo scenario. Nel primo caso gli utenti possono accedere ai dispositivi Windows 10 tramite [Aggiunta ad Azure Active Directory](active-directory-azureadjoin-overview.md). In alternativa, gli utenti possono accedere ai dispositivi Windows appartenenti a un dominio di Active Directory locale abilitato per il Single Sign-On in Azure AD tramite una distribuzione di [Active Directory Federation Services (AD FS)](active-directory-aadconnect-user-signin.md). Naturalmente, entrambe le opzioni richiedono di seguire l'esercitazione indicata di seguito per abilitare il Single Sign-On tra Azure AD e Google Apps.
+
 ##Passaggio 1: Aggiungere Google Apps a una Directory
 
-1. Nel [portale di gestione di Azure](https://manage.windowsazure.com) fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
 	![Selezionare Active Directory dal riquadro di spostamento a sinistra.][0]
 
@@ -176,7 +194,7 @@ Se si preferisce impostare manualmente l'accesso Single Sign-On, completare i pa
 
 4. Se ancora non è stato aggiunto un nome di dominio personalizzato per Azure Active Directory, attenersi alla procedura seguente:
 
-	- Nel [portale di gestione di Azure](https://manage.windowsazure.com) fare clic su **Active Directory** nel pannello di navigazione sinistro. Nell'elenco visualizzato, selezionare la directory. 
+	- Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Active Directory** nel riquadro di spostamento sinistro. Nell'elenco visualizzato, selezionare la directory. 
 
 	- Fare clic su **Domini** dal menu principale in alto e quindi fare clic su **Aggiungere un dominio personalizzato**.
 
@@ -295,4 +313,4 @@ Se si preferisce impostare manualmente l'accesso Single Sign-On, completare i pa
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

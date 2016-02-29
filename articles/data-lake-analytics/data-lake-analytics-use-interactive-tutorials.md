@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 
@@ -22,7 +22,7 @@
 Il portale di Azure fornisce un'esercitazione interattiva che consente di iniziare a usare Data Lake Analytics. In questo articolo viene illustrato come completare l'esercitazione per analizzare i log del sito Web.
 
 
->[AZURE.NOTE]Se si desidera eseguire la stessa esercitazione usando Visual Studio, vedere [Analizzare i log del sito Web mediante Data Lake Analytics](data-lake-analytics-analyze-weblogs.md). Al portale verranno aggiunte altre esercitazioni interattive.
+>[AZURE.NOTE] Se si desidera eseguire la stessa esercitazione usando Visual Studio, vedere [Analizzare i log del sito Web mediante Data Lake Analytics](data-lake-analytics-analyze-weblogs.md). Al portale verranno aggiunte altre esercitazioni interattive.
 
 
 Per altre esercitazioni, vedere:
@@ -42,7 +42,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 È necessario disporre di un account di Analisi Data Lake prima di poter eseguire qualsiasi processo.
 
-Ogni account di Data Lake Analytics dispone di una dipendenza a livello di account di [Azure Data Lake Store](data-lake-store-overview.md). Questo account viene definito account di Data Lake Store predefinito. È possibile creare l'account di Data Lake Store anticipatamente o quando si crea l'account di Data Lake Analytics. In questa esercitazione si creerà l'account di Data Lake Store con l'account di Analytics.
+Ogni account di Analisi Data Lake presenta una dipendenza sull'account di [Archivio Data Lake di Azure](../data-lake-store/data-lake-store-overview.md). Questo account viene definito account di Data Lake Store predefinito. È possibile creare l'account di Data Lake Store anticipatamente o quando si crea l'account di Data Lake Analytics. In questa esercitazione si creerà l'account di Data Lake Store con l'account di Analytics.
 
 **Per creare un account di Analisi Data Lake**
 
@@ -56,11 +56,11 @@ Ogni account di Data Lake Analytics dispone di una dipendenza a livello di accou
 
     ![Pannello del portale di Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
-	- **Nome**: nome dell'account di Analytics.
-	- **Data Lake Store**: ogni account di Data Lake dispone di un account di Data Lake Store dipendente. L'account di Data Lake Analytics e l'account di Data Lake Store dipendente devono trovarsi nello stesso data center di Azure. Seguire le istruzioni per creare un nuovo account di Data Lake Store o selezionarne uno esistente.
-	- **Sottoscrizione**: scegliere la sottoscrizione di Azure usata per l'account di Analytics.
-	- **Gruppo di risorse**. Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo. Le applicazioni sono in genere costituite da molti componenti, ad esempio app Web, database, server di database, risorsa di archiviazione e servizi di terze parti. Gestione risorse di Azure (ARM) consente di usare le risorse dell'applicazione come gruppo, detto Gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione con una singola operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, staging e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md). 
-	- **Percorso**. Selezionare un data center di Azure per l'account di Data Lake Analytics. 
+	- **Nome**: nome dell'account di Analisi.
+	- **Archivio Data Lake**: ogni account di Analisi Data Lake dispone di un account di Archivio Data Lake dipendente. L'account di Data Lake Analytics e l'account di Data Lake Store dipendente devono trovarsi nello stesso data center di Azure. Seguire le istruzioni per creare un nuovo account di Data Lake Store o selezionarne uno esistente.
+	- **Sottoscrizione**: scegliere la sottoscrizione di Azure usata per l'account di Analisi.
+	- **Gruppo di risorse** Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo. Le applicazioni sono in genere costituite da molti componenti, ad esempio app Web, database, server di database, risorsa di archiviazione e servizi di terze parti. Gestione risorse di Azure (ARM) consente di usare le risorse dell'applicazione come gruppo, detto Gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione con una singola operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, staging e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md). 
+	- **Località**. Selezionare un data center di Azure per l'account di Data Lake Analytics. 
 7. Selezionare **Aggiungi alla Schermata iniziale**. Questa impostazione è necessaria per l'esecuzione di questa esercitazione.
 8. Fare clic su **Crea**. Viene visualizzata la Schermata iniziale del portale. Alla home page viene aggiunto un nuovo riquadro con l'etichetta "Deploying Azure Data Lake Analytics". Il processo di creazione di un account di Data Lake Analytics richiede alcuni istanti. Al termine del processo, il portale aprirà l'account in un nuovo pannello.
 
@@ -88,4 +88,4 @@ Ogni account di Data Lake Analytics dispone di una dipendenza a livello di accou
 - [Sviluppare script U-SQL mediante Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Analizzare i log dei siti Web mediante Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

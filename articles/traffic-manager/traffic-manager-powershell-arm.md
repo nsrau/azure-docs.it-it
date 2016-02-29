@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/25/2016"
+   ms.date="02/02/2016"
    ms.author="joaoma" />
 
 # Supporto di Gestione risorse di Azure per la versione di anteprima di Gestione traffico di Azure
@@ -136,15 +136,23 @@ Ad esempio, per modificare il valore TTL del profilo:
 	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 ## Aggiungere endpoint di Gestione traffico
-Sono disponibili tre tipi di endpoint di Gestione traffico: 1. Endpoint di Azure: rappresentano i servizi ospitati in Azure. 2. Endpoint esterni: rappresentano i servizi ospitati all'esterno di Azure. 3. Endpoint annidati: usati per costruire gerarchie annidate di profili di Gestione traffico, per abilitare configurazioni avanzate dell'indirizzamento del traffico per applicazioni più complesse. Non sono ancora supportati tramite l'API ARM.
+Sono disponibili tre tipi di endpoint di Gestione traffico:
 
-In tutti e tre i casi è possibile aggiungere gli endpoint in due modi: 1. Mediante un processo in tre passaggi simile a quello descritto in [Aggiornare un profilo di Gestione traffico](#update-traffic-manager-profile): recupero dell'oggetto profilo mediante Get-AzureRmTrafficManagerProfile, aggiornamento dell'oggetto offline per aggiungere un endpoint mediante Add-AzureRmTrafficManagerEndpointConfig e caricamento delle modifiche in Gestione traffico di Azure mediante Set-AzureRmTrafficManagerProfile. Il vantaggio di questo metodo consiste nel fatto che è possibile apportare alcune modifiche agli endpoint in un singolo aggiornamento. 2. Mediante il cmdlet New-AzureRmTrafficManagerEndpoint. Questo metodo aggiunge un endpoint a un profilo di Gestione traffico esistente in una singola operazione.
+1. Endpoint di Azure: rappresentano i servizi ospitati in Azure.<BR>
+2. Endpoint esterni: rappresentano i servizi ospitati all'esterno di Azure.<BR>
+3. Endpoint annidati: usati per costruire gerarchie annidate di profili di Gestione traffico, per abilitare configurazioni avanzate dell'indirizzamento del traffico per applicazioni più complesse. Non sono ancora supportati tramite l'API ARM.<BR>
+
+In tutti e tre i casi è possibile aggiungere gli endpoint in due modi:<BR>
+
+1. Mediante un processo in tre passaggi simile a quello descritto in [Aggiornare un profilo di Gestione traffico](#update-traffic-manager-profile): recupero dell'oggetto profilo mediante Get-AzureRmTrafficManagerProfile, aggiornamento dell'oggetto offline per aggiungere un endpoint mediante Add-AzureRmTrafficManagerEndpointConfig e caricamento delle modifiche in Gestione traffico di Azure mediante Set-AzureRmTrafficManagerProfile. Il vantaggio di questo metodo consiste nel fatto che è possibile apportare alcune modifiche agli endpoint in un singolo aggiornamento.<BR>
+
+2. Mediante il cmdlet New-AzureRmTrafficManagerEndpoint. Questo metodo aggiunge un endpoint a un profilo di Gestione traffico esistente in una singola operazione.
 
 ### Aggiunta di endpoint di Azure
 
-Gli endpoint di Azure fanno riferimento ad altri servizi ospitati in Azure. Sono attualmente supportati tre tipi di endpoint di Azure: 1. App Web di Azure 2. Servizi cloud "classici" (che possono includere un servizio PaaS o macchine virtuali IaaS) 3. Risorse di tipo Microsoft.Network/publicIpAddress ARM (che possono essere associate a un servizio di bilanciamento del carico o a una NIC di macchina virtuale). Si noti che è necessario che al valore publicIpAddress sia assegnato un nome DNS, da usare in Gestione traffico.
+Gli endpoint di Azure fanno riferimento ad altri servizi ospitati in Azure. Sono attualmente supportati tre tipi di endpoint di Azure:<BR> 1. App Web di Azure <BR> 2. Servizi cloud "classici" (che possono includere un servizio PaaS o macchine virtuali IaaS)<BR> 3. Risorse di tipo Microsoft.Network/publicIpAddress ARM (che possono essere associate a un servizio di bilanciamento del carico o a una NIC di macchina virtuale). Si noti che è necessario che al valore publicIpAddress sia assegnato un nome DNS, da usare in Gestione traffico.
 
-In ogni caso: - Il servizio viene specificato mediante il parametro 'targetResourceId' di Add-AzureRmTrafficManagerEndpointConfig o New-AzureRmTrafficManagerEndpoint. - I valori 'Target' e 'EndpointLocation' non devono essere specificati, perché sono impliciti nel valore TargetResourceId specificato in precedenza. - Il valore per 'Weight' è facoltativo. I pesi vengono usati solo se il profilo è configurato per l'uso del metodo di indirizzamento del traffico 'Weighted'. In caso contrario, vengono ignorati. Se specificato, questo valore deve essere incluso nell'intervallo 1...1000. Il valore predefinito è '1'. - Il valore 'Priority' è facoltativo. Le priorità vengono usate solo se il profilo è configurato per l'uso del metodo di indirizzamento del traffico 'Priority'. In caso contrario, vengono ignorate. I valori validi sono compresi tra 1 e 1000. I valori più bassi corrispondono a una priorità maggiore. Se si specifica questo valore per un endpoint, sarà necessario specificarlo per tutti gli endpoint. Se questo valore viene omesso, verranno applicati i valori predefiniti a partire da 1, 2, 3 e così via nell'ordine in cui vengono forniti gli endpoint.
+In ogni caso: - Il servizio viene specificato mediante il parametro 'targetResourceId' di Add-AzureRmTrafficManagerEndpointConfig o New-AzureRmTrafficManagerEndpoint.<BR> - I valori 'Target' e 'EndpointLocation' non devono essere specificati, perché sono impliciti nel valore TargetResourceId specificato in precedenza<BR> - Il valore per 'Weight' è facoltativo. I pesi vengono usati solo se il profilo è configurato per l'uso del metodo di indirizzamento del traffico 'Weighted'. In caso contrario, vengono ignorati. Se specificato, questo valore deve essere incluso nell'intervallo 1...1000. Il valore predefinito è '1'.<BR> - Il valore 'Priority' è facoltativo. Le priorità vengono usate solo se il profilo è configurato per l'uso del metodo di indirizzamento del traffico 'Priority'. In caso contrario, vengono ignorate. I valori validi sono compresi tra 1 e 1000. I valori più bassi corrispondono a una priorità maggiore. Se si specifica questo valore per un endpoint, sarà necessario specificarlo per tutti gli endpoint. Se questo valore viene omesso, verranno applicati i valori predefiniti a partire da 1, 2, 3 e così via nell'ordine in cui vengono forniti gli endpoint.
 
 #### Esempio 1: Aggiunta di endpoint di app Web mediante Add-AzureRmTrafficManagerEndpointConfig
 In questo esempio viene creato un nuovo profilo di Gestione traffico e vengono aggiunti due endpoint di app Web mediante il cmdlet Add-AzureRmTrafficManagerEndpointConfig. Viene quindi eseguito il commit del profilo aggiornato in Gestione traffico di Azure mediante Set-AzureRmTrafficManagerProfile.
@@ -171,7 +179,8 @@ In questo esempio viene aggiunta una risorsa indirizzo IP pubblico ARM al profil
 ### Aggiunta di endpoint esterni
 Gestione traffico usa endpoint esterni per indirizzare il traffico ai servizi ospitati all'esterno di Azure. Analogamente agli endpoint di Azure, gli endpoint esterni possono essere aggiunti mediante Add-AzureRmTrafficManagerEndpointConfig seguito da Set-AzureRmTrafficManagerProfile o New-AzureRMTrafficManagerEndpoint.
 
-Quando si specificano endpoint esterni: - Il nome di dominio dell'endpoint deve essere specificato mediante il parametro 'Target'. - Il valore 'EndpointLocation' è obbligatorio se si usa il metodo di indirizzamento del traffico 'Performance'. In caso contrario, è facoltativo. Il valore deve essere un [nome di area di Azure valido](https://azure.microsoft.com/regions/). - I valori 'Weight' e 'Priority' sono facoltativi, analogamente agli endpoint di Azure.
+Quando si specificano endpoint esterni: - Il nome di dominio dell'endpoint deve essere specificato mediante il parametro 'Target'<BR> - Il valore 'EndpointLocation' è obbligatorio se si usa il metodo di indirizzamento del traffico 'Performance'. In caso contrario, è facoltativo. Il valore deve essere un [nome di area di Azure valido](https://azure.microsoft.com/regions/).<BR> - I valori 'Weight' e 'Priority' sono facoltativi, analogamente agli endpoint di Azure.<BR>
+ 
 
 #### Esempio 1: Aggiunta di endpoint esterni mediante Add-AzureRmTrafficManagerEndpointConfig e Set-AzureRmTrafficManagerProfile
 In questo esempio viene creato un nuovo profilo di Gestione traffico, vengono aggiunti due endpoint esterni e viene eseguito il commit delle modifiche.
@@ -192,12 +201,12 @@ Gestione traffico consente di configurare un profilo di Gestione traffico (che c
 
 Gestione traffico di annidamento consente la creazione di routing del traffico e schemi di failover più flessibili e potenti per supportare le esigenze di distribuzioni più grandi e complesse. [Questo post di blog](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/) illustra diversi esempi.
 
-Endpoint annidati vengono configurati nel profilo padre tramite un tipo di endpoint specifico, 'NestedEndpoints'. Quando si specificano gli endpoint annidati: l'endpoint, ovvero il profilo figlio, deve essere specificato mediante il parametro 'targetResourceId'; 'EndpointLocation' è obbligatorio se si usa il metodo di routing del traffico 'Performance', altrimenti è facoltativo. Il valore deve essere un [nome area di Azure valido](http://azure.microsoft.com/regions/): 'Weight' e 'Priority' sono facoltativi, come per gli endpoint di Azure; il parametro 'MinChildEndpoints' è facoltativo con valore predefinito '1'. Se il numero degli endpoint disponibili nel profilo figlio scende sotto questa soglia, il profilo padre considera il profilo figlio 'degradato' con conseguente deviazione del traffico agli altri endpoint del profilo padre.
+Endpoint annidati vengono configurati nel profilo padre tramite un tipo di endpoint specifico, 'NestedEndpoints'. Quando si specificano endpoint annidati: - L'endpoint, ovvero il profilo figlio, deve essere specificato mediante il parametro 'targetResourceId' <BR> - Il valore 'EndpointLocation' è obbligatorio se si usa il metodo di indirizzamento del traffico 'Performance'. In caso contrario, è facoltativo. Il valore deve essere un [nome di area di Azure valido](http://azure.microsoft.com/regions/).<BR> I valori 'Weight' e 'Priority' sono facoltativi, analogamente agli endpoint di Azure.<BR> - Il parametro 'MinChildEndpoints' è facoltativo con valore predefinito '1'. Se il numero degli endpoint disponibili nel profilo figlio scende sotto questa soglia, il profilo padre considera il profilo figlio 'degradato' con conseguente deviazione del traffico agli altri endpoint del profilo padre.<BR>
 
 
 #### Esempio 1: Aggiunta di endpoint annidati mediante Add-AzureRmTrafficManagerEndpointConfig e Set-AzureRmTrafficManagerProfile
 
-In questo esempio, vengono creati un nuovo profilo padre e un nuovo profilo figlio di Gestione traffico, si aggiunge il profilo figlio come un endpoint annidato nel profilo padre, quindi vengono confermate le modifiche. Per brevità, non vengono aggiunti altri endpoint al profilo figlio o al profilo padre, anche se normalmente sono richiesti anche questi.
+In questo esempio, vengono creati un nuovo profilo padre e un nuovo profilo figlio di Gestione traffico, si aggiunge il profilo figlio come un endpoint annidato nel profilo padre, quindi vengono confermate le modifiche. Per brevità, non vengono aggiunti altri endpoint al profilo figlio o al profilo padre, anche se normalmente sono richiesti anche questi.<BR>
 
 	PS C:\> $child = New-AzureRmTrafficManagerProfile –Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 	PS C:\> $parent = New-AzureRmTrafficManagerProfile –Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
@@ -213,7 +222,10 @@ In questo esempio, viene aggiunto un profilo figlio esistente come endpoint anni
 
 
 ## Aggiornare un endpoint di Gestione traffico
-È possibile aggiornare un endpoint di Gestione traffico esistente in due modi: 1. Ottenere il profilo di Gestione traffico mediante Get-AzureRmTrafficManagerProfile, aggiornare le proprietà dell'endpoint nel profilo ed eseguire il commit delle modifiche mediante Set-AzureRmTrafficManagerProfile. Il vantaggio di questo metodo consiste nella possibilità di aggiornare più endpoint in una singola operazione. 2. Ottenere l'endpoint di Gestione traffico mediante Get-AzureRmTrafficManagerEndpoint, aggiornare le proprietà dell'endpoint ed eseguire il commit delle modifiche mediante Set-AzureRmTrafficManagerEndpoint. Questo metodo è più semplice, perché non richiede l'indicizzazione nella matrice Endpoints nel profilo.
+È possibile aggiornare un endpoint di Gestione traffico esistente in due modi:<BR>
+
+1. Ottenere il profilo di Gestione traffico mediante Get-AzureRmTrafficManagerProfile, aggiornare le proprietà dell'endpoint nel profilo ed eseguire il commit delle modifiche mediante Set-AzureRmTrafficManagerProfile. Il vantaggio di questo metodo consiste nella possibilità di aggiornare più endpoint in una singola operazione.<BR>
+2. Ottenere l'endpoint di Gestione traffico mediante Get-AzureRmTrafficManagerEndpoint, aggiornare le proprietà dell'endpoint ed eseguire il commit delle modifiche mediante Set-AzureRmTrafficManagerEndpoint. Questo metodo è più semplice, perché non richiede l'indicizzazione nella matrice Endpoints nel profilo.<BR>
 
 #### Esempio 1: Aggiornamento degli endpoint mediante Get-AzureRmTrafficManagerProfile e Set-AzureRmTrafficManagerProfile
 In questo esempio viene modificata la priorità di due endpoint in un profilo esistente.
@@ -285,4 +297,4 @@ Questa sequenza può anche essere inoltrata tramite pipe:
 [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

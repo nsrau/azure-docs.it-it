@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="02/12/2016"
    ms.author="jgao"/>
 
 # Creare cluster Hadoop basati su Windows in HDInsight
@@ -51,9 +51,7 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 	
 - **Sistema operativo**
 
-	È possibile creare cluster HDInsight in uno dei due sistemi operativi seguenti: 
-	- **HDInsight su Windows (Windows Server 2012 R2 Datacenter)**:
- 	- **HDInsight su Linux (Ubuntu 12.04 LTS per Linux)**: HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-get-started.md).
+	È possibile creare cluster HDInsight in uno dei due sistemi operativi seguenti: - **HDInsight su Windows (Windows Server 2012 R2 Datacenter)**: - **HDInsight su Linux (Ubuntu 12.04 LTS per Linux)**: HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 - **Tipo di cluster** e **Dimensioni del cluster (definiti anche nodi di dati)**
 
@@ -62,7 +60,7 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 	- Cluster Hadoop: per carichi di lavoro di query e analisi
 	- Cluster HBase: per carichi di lavoro NoSQL
 	- Cluster Storm: per carichi di lavoro di elaborazione di eventi in tempo reale
-	- Cluster Spark (anteprima): per carichi di lavoro di elaborazione in memoria, query interattive, streaming e Machine Learning.
+	- Cluster Spark: per carichi di lavoro di elaborazione in memoria, query interattive, streaming e Machine Learning.
 
 	![Cluster HDInsight](./media/hdinsight-provision-clusters/hdinsight.clusters.png)
 
@@ -79,8 +77,8 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 
 	![Ruoli dei cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	I cluster HBase per HDInsight vengono distribuiti con tre ruoli: 
-	- Server head (2 nodi) 
+	I cluster HBase per HDInsight vengono distribuiti con tre ruoli:
+	- Server head (2 nodi)
 	- Server area (almeno 1 nodo)
 	- Nodi master/Zookeeper (3 nodi)
 
@@ -129,7 +127,7 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 
 	> [AZURE.IMPORTANT] Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 
-	Quando si usa il portale di anteprima di Azure per configurare il cluster, le dimensioni del nodo vengono esposte tramite il pannello __Piano tariffario per il nodo__ e verrà visualizzato anche il costo associato alle diverse dimensioni di nodo.
+	Quando si usa il portale di Azure per configurare il cluster, le dimensioni del nodo vengono esposte tramite il pannello __Piano tariffario per il nodo__ e verrà visualizzato anche il costo associato alle diverse dimensioni di nodo.
 
 	> [AZURE.IMPORTANT] La fatturazione inizia dopo la creazione del nodo e si interrompe solo quando il nodo viene eliminato. Per altre informazioni sui prezzi, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -159,7 +157,7 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 
 	>[AZURE.WARNING] Non condividere un contenitore di archiviazione BLOB tra più cluster. Questa operazione non è supportata.
 
-	Per altre informazioni sull'uso degli archivi BLOB secondari, vedere [Uso dell'archiviazione BLOB di Azure con HDInsight](hdinsight-use-blob-storage.md).
+	Per altre informazioni sull'uso degli archivi BLOB secondari, vedere [Uso dell'archiviazione BLOB di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 - **Metastore Hive/Oozie**
 
@@ -220,4 +218,4 @@ In questo articolo si sono apprese informazioni di base sulla creazione di un cl
 | [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelli di Gestione risorse di Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

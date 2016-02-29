@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/16/2016"
 	ms.author="micurd"/>
 
 # Come usare l'archiviazione di accodamento da Java
@@ -22,7 +22,7 @@
 
 ## Panoramica
 
-Questa guida illustra diversi scenari di utilizzo comuni del servizio di archiviazione code di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][]. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione** ed **eliminazione** di code. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#NextSteps).
+Questa guida illustra diversi scenari di utilizzo comuni del servizio di archiviazione code di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][]. Gli scenari presentati includono l'**inserimento**, la **visualizzazione**, il **recupero** e l'**eliminazione** dei messaggi in coda, oltre alle procedure di **creazione** ed **eliminazione** di code. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#Next-Steps).
 
 Nota: per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][].
 
@@ -381,7 +381,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 
 - [Azure Storage SDK per Java][]
 - [Riferimento all'SDK del client di archiviazione di Azure][]
-- [API REST di Archiviazione di Azure][]
+- [API REST dei servizi di archiviazione di Azure][]
 - [Blog del team di Archiviazione di Azure][]
 
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
@@ -389,7 +389,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 [Azure Storage SDK per Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK per Android]: https://github.com/azure/azure-storage-android
 [Riferimento all'SDK del client di archiviazione di Azure]: http://dl.windowsazure.com/storage/javadoc/
-[API REST di Archiviazione di Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[API REST dei servizi di archiviazione di Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -150,7 +150,7 @@ Un altra tecnica per verificare la versione consiste nell'eseguire l'istruzione 
 Un database versione 12 può essere ospitato solo in un server logico della versione 12. Un server versione 12 può ospitare solo database della versione 12.
 
 
-Se ancora non si usa la versione 12, è possibile aggiornare il server logico seguendo i passaggi descritti nell'articolo relativo all'[aggiornamento sul posto alla versione 12 del database SQL](sql-database-v12-upgrade.md).
+Se ancora non si usa la versione 12, è possibile aggiornare il server logico seguendo i passaggi descritti nell'articolo relativo all'[aggiornamento sul posto alla versione 12 del database SQL](sql-database-v12-plan-prepare-upgrade.md).
 
 
 ## <a name="V12AzureSqlDbPreviewGaTable"></a>Aree generali di disponibilità
@@ -161,4 +161,4 @@ Se ancora non si usa la versione 12, è possibile aggiornare il server logico se
 
 [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

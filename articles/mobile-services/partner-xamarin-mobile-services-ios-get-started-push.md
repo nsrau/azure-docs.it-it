@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/11/2016"
 	ms.author="yuaxu"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
@@ -36,7 +36,7 @@ Per completare questa esercitazione, è necessario disporre di:
 + [Xamarin.iOS Studio]
 + [Componente Servizi mobili di Azure]
 
->[AZURE.IMPORTANT]Considerati i requisiti di configurazione del servizio APN, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un emulatore.
+>[AZURE.IMPORTANT] Considerati i requisiti di configurazione del servizio APN, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un emulatore.
 
 Il servizio APN usa i certificati per autenticare il servizio mobile. Seguire le istruzioni fornite per creare i certificati necessari e caricarli nel servizio mobile. Per la documentazione ufficiale del servizio APN, vedere [Apple Push Notification Service].
 
@@ -310,7 +310,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 
     Verrà registrato un nuovo script insert, che usa l'[oggetto apns] per inviare una notifica push (il testo inserito) al dispositivo specificato nella richiesta insert.
 
-   >[AZURE.NOTE]Questo script ritarda l'invio della notifica per dare all'utente il tempo di chiudere l'app per ricevere una notifica di tipo avviso popup.
+   >[AZURE.NOTE] Questo script ritarda l'invio della notifica per dare all'utente il tempo di chiudere l'app per ricevere una notifica di tipo avviso popup.
 
 ## <a name="test"></a>Testare le notifiche push nell'app
 
@@ -318,7 +318,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
 
     ![][23]
 
-   >[AZURE.NOTE]È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
+   >[AZURE.NOTE] È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
 2. Digitare testo significativo nell'app, ad esempio _Nuova attività di Servizi mobili_, quindi fare clic sull'icona con il segno più (**+**).
 
@@ -403,4 +403,4 @@ L'esercitazione è stata completata.
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

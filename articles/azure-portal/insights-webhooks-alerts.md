@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Come configurare gli avvisi di Azure per l'invio ad altri sistemi"
 	description="Reindirizzare gli avvisi di Azure ad altri sistemi non Azure"
-	authors="rboucher"
-	manager="ronmart"
+	authors="kamathashwin"
+	manager=""
 	editor=""
 	services="azure-portal"
 	documentationCenter="na"/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/25/2015"
-	ms.author="robb"/>
+	ms.date="02/16/2016"
+	ms.author="ashwink"/>
 
 # Come configurare i webhook per gli avvisi
 
@@ -73,7 +73,7 @@ L'operazione POST conterrà il seguente payload e schema JSON per tutti gli avvi
 }
 ```
 
->[AZURE.NOTE]In occasione del prossimo aggiornamento, verrà aggiunto il supporto per gli avvisi relativi agli eventi ("conditionType": "Evento")
+>[AZURE.NOTE] In occasione del prossimo aggiornamento, verrà aggiunto il supporto per gli avvisi relativi agli eventi ("conditionType": "Evento")
 
 
 | Campo | Obbligatorio? | Set fisso di valori? | Note |
@@ -103,7 +103,7 @@ L'operazione POST conterrà il seguente payload e schema JSON per tutti gli avvi
 |properties |N |Facoltativo |È un set di coppie <Key  Value> (ad esempio, Dictionary<String  String>) contenente i dettagli relativi all'evento. Il campo properties è facoltativo. In un flusso di lavoro basato su interfaccia utente personalizzata o app per la logica, gli utenti possono immettere una coppia chiave/valori che può essere passata tramite il payload. Il metodo alternativo per passare le proprietà personalizzate al webhook è rappresentato dall'URI del webhook stesso (sotto forma di parametri di query)|
 
 
->[AZURE.NOTE]Non è possibile usare il campo properties tramite il portale. Nella prossima versione di Insights SDK sarà possibile impostare le proprietà tramite l'API degli avvisi.
+>[AZURE.NOTE] Non è possibile usare il campo properties tramite il portale. Nella prossima versione di Insights SDK sarà possibile impostare le proprietà tramite l'API degli avvisi.
 
 ## Passaggi successivi
 
@@ -123,4 +123,4 @@ Usare gli avvisi di Azure per inviare messaggi ad altri servizi. Usare i seguent
 
 [Usare l'app per la logica per l'invio di messaggi a una coda di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

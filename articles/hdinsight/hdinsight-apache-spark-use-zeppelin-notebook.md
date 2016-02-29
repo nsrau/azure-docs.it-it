@@ -63,7 +63,7 @@ Per istruzioni su come usare HDInsight .NET SDK per eseguire azioni script per i
 
 ### Uso di Azure PowerShell
 
-Usare il frammento di codice PowerShell seguente per creare un cluster Spark in HDInsight Linux con Zeppelin installato. Verificare che PowerShell sia installato prima di procedere. Per istruzioni, vedere [Installare e configurare Azure PowerShell](../install-configure-powershell.md).
+Usare il frammento di codice PowerShell seguente per creare un cluster Spark in HDInsight Linux con Zeppelin installato. Verificare che PowerShell sia installato prima di procedere. Per istruzioni, vedere [Installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 	Login-AzureRMAccount
 	
@@ -322,14 +322,14 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

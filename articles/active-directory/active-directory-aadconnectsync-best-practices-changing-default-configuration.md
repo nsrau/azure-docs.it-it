@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -28,11 +28,7 @@ Il servizio di sincronizzazione Azure AD Connect viene eseguito tramite un accou
 - La modifica o la reimpostazione della password dell'account del servizio **non è supportata**. Questa operazione comporta l'eliminazione delle chiavi di crittografia impedendo così al servizio di accedere al database e di essere avviato.
 
 ## Modifiche apportate all'utilità di pianificazione
-Il servizio di sincronizzazione Azure AD Connect è impostato per sincronizzare i dati relativi alle identità ogni 3 ore. Durante l'installazione viene creata un'attività pianificata che viene eseguita tramite un account del servizio con le autorizzazioni per eseguire operazioni sul server di sincronizzazione.
-
-- La modifica dell'attività pianificata **non è supportata**. La password per l'account del servizio non è nota. Vedere [Modifiche apportate all'account del servizio](#changes-to-the-service-account)
-- La sincronizzazione in base a una frequenza maggiore delle 3 ore predefinite **non è supportata**.
-	- È supportata per l'esecuzione di sincronizzazioni occasionali quando si testa una nuova configurazione, ma non è consigliabile eseguire esportazioni in Azure AD con maggiore frequenza.
+A partire dalle versioni rilasciate con la build 1.1 (febbraio 2016), è possibile configurare l'[utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md) per ottenere un ciclo di sincronizzazione diverso dai 30 minuti predefiniti.
 
 ## Modifiche apportate alle regole di sincronizzazione
 L'installazione guidata fornisce una configurazione valida per gli scenari più comuni. Nel caso in cui sia necessario apportare modifiche alla configurazione, seguire queste regole per disporre ancora di una configurazione supportata.
@@ -113,4 +109,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

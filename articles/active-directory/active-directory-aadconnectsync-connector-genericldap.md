@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
 # Documentazione tecnica sul connettore Generic LDAP
@@ -38,7 +38,7 @@ A livello generale, le funzionalità seguenti sono supportate dalla versione cor
 
 | Funzionalità | Supporto |
 | --- | --- |
-| Origine dati connessa | Il connettore è supportato con i server LDAP v3 (conforme a RFC 4510). È stato testato con quanto segue: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catalogo globale Microsoft Active Directory</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (in precedenza Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>Importanti directory non supportate: <li>Servizi di dominio Microsoft Active Directory (AD DS) [usare invece il connettore Active Directory incorporato]</li><li>Oracle Internet Directory (OID)</li> |
+| Origine dati connessa | Il connettore è supportato con i server LDAP v3 (conforme a RFC 4510). È stato testato con quanto segue: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catalogo globale Microsoft Active Directory</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (in precedenza Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Importanti directory non supportate:** <li>Servizi di dominio Microsoft Active Directory (AD DS) [usare invece il connettore Active Directory incorporato]</li><li>Oracle Internet Directory (OID)</li> |
 | Scenari | <li>Gestione del ciclo di vita degli oggetti</li><li>Gestione dei gruppi</li><li>Gestione delle password</li> |
 | Operazioni |Le operazioni seguenti sono supportate in tutte le directory LDAP: <li>Importazione completa</li><li>Esportazione</li>le operazioni seguenti sono supportate solo in directory specificate:<li>Importazione Delta</li><li>Impostazione password, modifica password</li> |
 | Schema | <li>Lo schema viene rilevato dallo schema LDAP (RFC3673 e RFC4512/4.2)</li><li>Supporta classi strutturali, classi ausiliarie e la classe di oggetti extensibleObject (RFC4512/4.3)</li>
@@ -279,4 +279,4 @@ Per le directory con un log delle modifiche delta basato su data/ora, è consigl
 
 -	Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

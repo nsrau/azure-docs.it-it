@@ -10,7 +10,7 @@
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
 	ms.date="12/01/2015"
@@ -123,4 +123,4 @@ Il mapping di rete di VMNetwork1-Chicago viene modificato | VM-1 verrà connessa
 
 Dopo aver acquisito familiarità con il mapping di rete, è ora possibile [prepararsi alla distribuzione di Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -82,7 +82,7 @@ Il caso di utilizzo tipico per cui è stato creato BigTable, e per estensione HB
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 
 [hbase-get-started]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
 
@@ -94,4 +94,4 @@ Il caso di utilizzo tipico per cui è stato creato BigTable, e per estensione HB
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

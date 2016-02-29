@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ Questa esercitazione illustra come integrare ImageRelay con Azure Active Directo
 
 - È possibile controllare in Azure AD chi può accedere a ImageRelay
 - È possibile abilitare gli utenti per l'accesso automatico a ImageRelay (Single Sign-On) con i propri account Azure AD
-- È possibile gestire gli account in una posizione centrale, il portale di Azure Active Directory
+- È possibile gestire gli account in una posizione centrale, il portale di Azure Active Directory classico.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -57,7 +57,7 @@ Per configurare l'integrazione di ImageRelay in Azure AD, è necessario aggiunge
 
 **Per aggiungere ImageRelay dalla raccolta, seguire questa procedura:**
 
-1. Nel portale di Azure fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br> ![Active Directory][1]<br>
+1. Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br> ![Active Directory][1]<br>
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -65,7 +65,7 @@ Per configurare l'integrazione di ImageRelay in Azure AD, è necessario aggiunge
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **ImageRelay**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_01.png)<br>
-7. Nel riquadro dei risultati selezionare **ImageRelay** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>
+7. Nel riquadro dei risultati selezionare **ImageRelay** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_02.png)<br>
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con ImageRelay con un utente test di nome "Britta Simon".
@@ -82,12 +82,12 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con ImageRelay, �
 
 ### Configurazione dell'accesso Single Sign-On di Azure AD
 
-Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure AD e configurare l'accesso Single Sign-On nell'applicazione ImageRelay.
+Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure AD classico e configurare l'accesso Single Sign-On nell'applicazione ImageRelay.
 
 
 **Per configurare l'accesso Single Sign-On di Azure AD con ImageRelay, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **ImageRelay** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **ImageRelay** del portale di Azure AD classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
      ![Configura accesso Single Sign-On][6] <br>
 
@@ -141,7 +141,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     - Selezionare il gruppo di autorizzazioni (ad esempio, **SSO Basic**) a cui sarà consentito l'accesso solo tramite Single Sign-On.<br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)<br>
 
-6. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
+6. Nel portale di Azure AD classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
 
     ![Accesso Single Sign-On di Azure AD][10]<br>
 
@@ -151,11 +151,11 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 
 ### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test nel portale di Azure denominato Britta Simon.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure AD classico.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di Azure** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png) <br>
+1. Nel **portale di Azure AD classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.<br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png) <br>
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -213,7 +213,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 **Per assegnare Britta Simon a ImageRelay, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Assegna utente][201] <br>
+1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br>![Assegna utente][201] <br>
 
 2. Nell'elenco di applicazioni selezionare **ImageRelay**.<br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_23.png) <br>
 
@@ -253,4 +253,4 @@ In questa sezione viene descritto come testare la configurazione dell'accesso Si
 [204]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

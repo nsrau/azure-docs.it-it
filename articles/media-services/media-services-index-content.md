@@ -3,7 +3,7 @@
 	description="Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. Questo argomento illustra come usare Media Indexer."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako,Asolanki,johndeu"
+	authors="Asolanki"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/15/2015"   
-	ms.author="juliako"/>
+	ms.date="02/17/2016"   
+	ms.author="juliako;adsolank;johndeu"/>
 
 
 # Indicizzazione di file multimediali con Azure Media Indexer
@@ -301,4 +301,4 @@ Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazion
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

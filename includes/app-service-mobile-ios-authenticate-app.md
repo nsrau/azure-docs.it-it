@@ -27,7 +27,7 @@
         
             func loginAndGetData() {
                 
-                guard let client = self.table?.client where client.currentUser != nil else {
+                guard let client = self.table?.client where client.currentUser == nil else {
                     return
                 }
                 
@@ -44,4 +44,4 @@
 
 3. Fare clic su _segui_ per avviare l'app e quindi accedere. Una volta eseguito l'accesso, dovrebbe essere possibile visualizzare l'elenco Todo e apportare modifiche.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

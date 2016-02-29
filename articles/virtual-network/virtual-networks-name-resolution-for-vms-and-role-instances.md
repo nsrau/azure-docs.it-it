@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma" />
 
 # Risoluzione dei nomi per le macchine virtuali e le istanze del ruolo
@@ -158,7 +158,7 @@ Se si prevede di usare una risoluzione dei nomi non fornita da Azure, il server 
 
 ### Impostazione di un server DNS nel portale di gestione
 
-Quando si crea una rete virtuale nel portale di gestione, è possibile specificare l'indirizzo IP e il nome di uno o più server DNS da usare. Una volta creata la rete virtuale, le macchine virtuali e le istanze del ruolo distribuite nella rete virtuale vengono configurate automaticamente con le impostazioni DNS specificate. I server DNS specificati per un determinato servizio cloud (portale di Azure classico) o una scheda di interfaccia rete (distribuzioni basate su ARM) hanno la precedenza su quelli specificati per la rete virtuale. Vedere [Informazioni sulla configurazione di una rete virtuale nel portale di gestione](virtual-networks-settings.md).
+Quando si crea una rete virtuale nel portale di gestione, è possibile specificare l'indirizzo IP e il nome di uno o più server DNS da usare. Una volta creata la rete virtuale, le macchine virtuali e le istanze del ruolo distribuite nella rete virtuale vengono configurate automaticamente con le impostazioni DNS specificate. I server DNS specificati per un determinato servizio cloud (portale di Azure classico) o una scheda di interfaccia rete (distribuzioni basate su ARM) hanno la precedenza su quelli specificati per la rete virtuale.
 
 ### Impostazione di un server DNS usando file di configurazione (portale di Azure classico)
 
@@ -177,8 +177,6 @@ Il file di configurazione del servizio viene creato per ogni servizio cloud aggi
 
 [Schema di configurazione di Rete virtuale](https://msdn.microsoft.com/library/azure/jj157100)
 
-[Informazioni sulle impostazioni della rete virtuale nel portale di gestione](virtual-networks-settings.md)
-
 [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

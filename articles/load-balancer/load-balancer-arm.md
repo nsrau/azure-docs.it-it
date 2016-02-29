@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -63,7 +63,7 @@ Esempi di modelli:
 
 I [cmdlet di rete di Azure](https://msdn.microsoft.com/library/azure/mt163510.aspx) possono essere usati per creare un bilanciamento del carico. Iniziare a usare i cmdlet di Gestione risorse di Azure e le API REST.
 
-- [Come creare un servizio di bilanciamento del carico tramite Gestione risorse di Azure](../load-balancer-arm-powershell)
+- [Come creare un servizio di bilanciamento del carico tramite Gestione risorse di Azure](load-balancer-get-started-internet-arm-ps.md)
 
 - [Uso dell'interfaccia della riga di comando di Azure con Gestione risorse di Azure](../xplat-cli-azure-resource-manager)
 
@@ -76,4 +76,4 @@ I [cmdlet di rete di Azure](https://msdn.microsoft.com/library/azure/mt163510.as
 
 Se l'applicazione deve mantenere attive le connessioni per i server dietro il servizio di bilanciamento del carico, è possibile ottenere altre informazioni sulle [impostazioni di timeout delle connessioni TCP inattive per un bilanciamento del carico](load-balancer-tcp-idle-timeout.md). Ciò consente di ottenere informazioni sul comportamento delle connessioni inattive quando si usa il servizio di bilanciamento del carico di Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

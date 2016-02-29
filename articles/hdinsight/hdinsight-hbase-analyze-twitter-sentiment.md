@@ -74,7 +74,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 - **Un cluster HBase in HDInsight**. Per istruzioni sulla creazione dei cluster, vedere [Introduzione a HBase con Hadoop in HDInsight][hbase-get-started]. Per completare l'esercitazione sono necessari i dati seguenti:
 
 
-<table border="1">
+	<table border="1">
 <tr><th>Proprietà del cluster</th><th>Descrizione</th></tr>
 <tr><td>HBase cluster name</td><td>Nome del cluster HBase in HDInsight. Ad esempio: https://myhbase.azurehdinsight.net/</td></tr>
 <tr><td>Cluster user name</td><td>Nome dell'account utente di Hadoop. Il nome utente predefinito di Hadoop è <strong>admin</strong>.</td></tr>
@@ -600,9 +600,9 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 	- **CLUSTERNAME**: nome del cluster HBase, ad esempio *https://<HBaseClusterName>.azurehdinsight.net/*. 
     - **HADOOPUSERNAME**: nome utente del cluster HBase (Hadoop). Il nome predefinito è *admin*.
     - **HADOOPUSERPASSWORD**: password utente del cluster HBase (Hadoop).
-    - **HBASETABLENAME** = "tweets_by_words";
+    - **HBASETABLENAME** = "tweets\_by\_words";
 
-	Il nome della tabella HBase è **"tweets_by_words"**. Per consentire all'applicazione Web di leggere i dati dalla stessa tabella HBase, i valori devono corrispondere a quelli inviati nel servizio streaming.
+	Il nome della tabella HBase è **"tweets\_by\_words"**. Per consentire all'applicazione Web di leggere i dati dalla stessa tabella HBase, i valori devono corrispondere a quelli inviati nel servizio streaming.
 
 
 
@@ -1099,7 +1099,7 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 
 **Per modificare layout.cshtml**
 
-1. In **Esplora soluzioni** espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Condivise** e fare doppio clic su _**Layout.cshtml**.
+1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Condivise** e fare doppio clic su \__**Layout.cshtml**.
 2. Sostituire il contenuto con i contenuti seguenti:
 
 		<!DOCTYPE html>
@@ -1164,7 +1164,7 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 
 **Per modificare Index.cshtml**
 
-1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Home** e fare doppio clic su _**Index.cshtml**.
+1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Home** e fare doppio clic su \_**Index.cshtml**.
 2. Sostituire il contenuto con i contenuti seguenti:
 
 		@{
@@ -1177,7 +1177,7 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 
 **Per modificare il file site.css**
 
-1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Contenuto** e fare doppio clic su _**Site.css**.
+1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Contenuto** e fare doppio clic su \_**Site.css**.
 2. Aggiungere il seguente codice al file:
 		
 		/* make container, and thus map, 100% width */
@@ -1200,12 +1200,12 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 
 **Per modificare il file global.asax**
 
-1. In **Esplora soluzioni**, espandere **TweetSentimentWeb** e fare doppio clic su _**Global.asax**.
+1. In **Esplora soluzioni**, espandere **TweetSentimentWeb** e fare doppio clic su \_**Global.asax**.
 2. Aggiungere l'istruzione **using** seguente:
 
 		using System.Web.Http;
 
-2. Aggiungere le seguenti righe all'interno della funzione **Application_Start()**:
+2. Aggiungere le seguenti righe all'interno della funzione **Application\_Start()**:
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -1237,7 +1237,7 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 - [Sviluppare programmi MapReduce Java per HDInsight][hdinsight-develop-mapreduce]
 
 
-[hbase-get-started]: ../hdinsight-hbase-get-started.md
+[hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
 [website-get-started]: ../web-sites-dotnet-get-started.md
 
 
@@ -1252,7 +1252,7 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 [hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-analyze-twitter-data]: hdinsight-analyze-twitter-data.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
+[hdinsight-hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
 
 
 
@@ -1266,17 +1266,17 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: powershell-install-configure.md
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-storage-powershell]: ../hdinsight-use-blob-storage.md#powershell
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-storage-powershell]: hdinsight-hadoop-use-blob-storage.md#powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

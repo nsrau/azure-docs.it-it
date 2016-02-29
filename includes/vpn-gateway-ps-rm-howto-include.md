@@ -2,7 +2,7 @@ I moduli possono essere installati in due modi diversi: usando PowerShell Galler
 
 Quando si esegue l'installazione da PowerShell Gallery, il percorso predefinito dei file è *%ProgramFiles%\\WindowsPowerShell\\Modules*. Quando si usa l'Installazione guidata piattaforma Web, il percorso predefinito dei file è *%ProgramFiles%\\Microsoft SDKs\\Azure\\PowerShell*. È opportuno scegliere e mantenere l'uno o l'altro approccio per evitare errori nei successivi aggiornamenti dei cmdlet. L'installazione guidata piattaforma Web riceve i cmdlet aggiornati ogni mese. PowerShell Gallery riceve le versioni aggiornate dei cmdlet quando vengono rilasciate. Per questo motivo, alcuni utenti preferiscono usare PowerShell Gallery.
 
-Per informazioni aggiuntive sull'installazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Per informazioni aggiuntive sull'installazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../articles/powershell-install-configure.md).
 
 **Per installare moduli da PowerShell Gallery**
 
@@ -21,4 +21,4 @@ Per informazioni aggiuntive sull'installazione di Azure PowerShell, vedere [Come
 
 - Se si verificano errori durante l'uso dell'Installazione guidata piattaforma Web, potrebbe essere già stata installata una versione precedente dei cmdlet usando PowerShell Gallery. Vedere questo [post di blog](https://azure.microsoft.com/blog/azps-1-0/), per informazioni su come rimuovere le versioni precedenti dei moduli e tornare operativi. In genere gli errori si verificano quando è stata usata l'Installazione guidata piattaforma Web e si passa a PowerShell Gallery o viceversa. Il problema viene risolto rimuovendo i moduli installati in precedenza. Successivamente è possibile eseguire l'installazione dal nuovo percorso.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

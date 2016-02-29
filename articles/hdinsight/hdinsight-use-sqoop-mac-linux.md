@@ -186,7 +186,7 @@ Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel data
 
 ##Importazione con Sqoop
 
-1. Usare le seguenti informazioni per importare dati dalla tabella **mobiledata** nel database SQL nella directory **wasb:///tutorials/usesqoop/importeddata** in HDInsight:
+1. Usare le seguenti informazioni per importare dati dalla tabella **mobiledata** nel database SQL nella directory ****wasb:///tutorials/usesqoop/importeddata** in HDInsight:
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -247,8 +247,8 @@ In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -258,9 +258,9 @@ In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, 
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: powershell-install-configure.md
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

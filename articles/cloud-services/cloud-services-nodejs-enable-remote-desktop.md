@@ -35,7 +35,7 @@ Per usare Desktop remoto, è necessario aggiornare la definizione del servizio d
 
 Eseguire i passaggi seguenti da un computer che contiene i file di origine per l'app.
 
-1. Eseguire **Azure PowerShell** come amministratore. Dal **menu Start** o dalla **schermata Start** cercare **Azure PowerShell**.
+1. Eseguire **Windows PowerShell** come amministratore. Nel **menu Start** o nella **schermata Start** cercare **Windows PowerShell**.
 
 2.  Passare alla directory che contiene la definizione del servizio (file con estensione csdef) e i file di configurazione del servizio (file con estensione cscfg).
 
@@ -73,7 +73,7 @@ Dopo aver pubblicato la definizione del servizio di aggiornamento, è possibile 
 
     ![Avviso di sicurezza di Windows][5]
 
-4.  Fare clic su **Connect**. Verrà visualizzato un avviso di sicurezza in cui si richiede di immettere le credenziali di accesso all'istanza. Immettere la password creata in [Passaggio 1]\[Passaggio 1: Usare Azure PowerShell per configurare il servizio per Accesso desktop remoto] e quindi fare clic su **OK**.
+4.  Fare clic su **Connect**. Verrà visualizzato un avviso di sicurezza in cui si richiede di immettere le credenziali di accesso all'istanza. Immettere la password creata in [Passaggio 1](Passaggio 1: Usare Azure PowerShell per configurare il servizio per Accesso desktop remoto) e quindi fare clic su **OK**.
 
     ![richiesta di nome utente/password][6]
 
@@ -115,4 +115,4 @@ Quando le connessioni di desktop remoto alle istanze del ruolo nel cloud non son
 [Uso di Desktop remoto con i ruoli Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

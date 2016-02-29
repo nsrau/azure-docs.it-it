@@ -1,40 +1,40 @@
 <properties
-   pageTitle="Distribuire un'applicazione personalizzata in Service Fabric di Azure | Microsoft Azure"
+   pageTitle="Distribuire un eseguibile esistente in Service Fabric di Azure | Microsoft Azure"
    description="Procedura dettagliata su come creare un pacchetto di un'applicazione esistente in modo che possa essere distribuito in un cluster di infrastruttura di servizi di Azure"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
    manager="timlt"
    editor=""/>
-
+   
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/12/2016"
    ms.author="bscholl"/>
 
-# Distribuire un'applicazione personalizzata in Service Fabric
+# Distribuire un eseguibile guest in Service Fabric
 
-In Azure Service Fabric è possibile eseguire qualsiasi tipo di applicazione esistente, ad esempio Node.js, Java o applicazioni native. Service Fabric considera tali applicazioni come servizi senza stato e li inserisce nei nodi di un cluster in base alla disponibilità e ad altre metriche. Questo articolo descrive come creare il pacchetto di un'applicazione esistente e come distribuirla in un cluster dell'infrastruttura di servizi.
+In Azure Service Fabric è possibile eseguire qualsiasi tipo di applicazione, ad esempio Node.js, Java o applicazioni native. La terminologia di Service Fabric fa riferimento a tali tipi di applicazioni come eseguibili guest. Gli eseguibili guest vengono considerati da Service Fabric come servizi senza stato. Di conseguenza verranno inseriti nei nodi in un cluster in base a disponibilità e altre metriche. Questo articolo descrive come creare un pacchetto e distribuire un eseguibile guest in un cluster di Service Fabric.
 
-## Vantaggi dell'esecuzione di un'applicazione personalizzata in Service Fabric
+## Vantaggi dell'esecuzione di un'eseguibile guest in Service Fabric
 
-L'esecuzione dell'applicazione nel cluster di Service Fabric presenta i vantaggi seguenti:
+L'esecuzione di un eseguibile guest in un cluster di Service Fabric presenta numerosi vantaggi:
 
 - Disponibilità elevata. Le applicazioni in esecuzione in Service Fabric sono caratterizzate da disponibilità elevata per impostazione predefinita. Service Fabric garantisce che un'istanza di un'applicazione sia sempre in esecuzione.
 - Monitoraggio dell’integrità. Il monitoraggio predefinito di Service Fabric rileva se un'applicazione è in esecuzione e fornisce informazioni di diagnostica in caso di errore.   
 - Gestione del ciclo di vita delle applicazioni. Oltre a garantire aggiornamenti senza tempi di inattività, Service Fabric consente inoltre di eseguire il rollback alla versione precedente se si verifica un problema durante l'aggiornamento.    
 - Densità. È possibile eseguire più applicazioni in un cluster, eliminando la necessità che ogni applicazione venga eseguita nel proprio hardware.
 
-Questo articolo illustra i passaggi di base per creare il pacchetto di un'applicazione esistente e distribuirla in Service Fabric.
+Questo articolo illustra i passaggi di base per creare il pacchetto di un eseguibile guest e distribuirlo in Service Fabric.
 
 
 ## Breve panoramica dei file manifesto dell'applicazione e del servizio
 
-Prima di esaminare i dettagli della distribuzione di un'applicazione esistente, è utile comprendere il modello di creazione del pacchetto e di distribuzione dell'infrastruttura di servizi. Il modello di creazione del pacchetto e di distribuzione dell'infrastruttura di servizi si basa principalmente su due file:
+Prima di esaminare i dettagli della distribuzione di un eseguibile guest, è utile comprendere il modello di creazione del pacchetto e di distribuzione di Service Fabric. Il modello di creazione del pacchetto e di distribuzione dell'infrastruttura di servizi si basa principalmente su due file:
 
 
 * **Manifesto dell'applicazione**
@@ -44,15 +44,67 @@ Prima di esaminare i dettagli della distribuzione di un'applicazione esistente, 
   Nell’ambito di Service Fabric un'applicazione è "l'unità aggiornabile". Un'applicazione può essere aggiornata come una singola unità in cui i potenziali errori (e i potenziali ripristini) vengono gestiti nella piattaforma in modo da garantire che il processo di aggiornamento abbia un esito completamente positivo o in caso contrario, che non lasci l'applicazione in uno stato sconosciuto/instabile.
 
 
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationManifest ApplicationTypeName="actor2Application"
+                       ApplicationTypeVersion="1.0.0.0"
+                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
+      <ConfigOverrides />
+    </ServiceManifestImport>
+
+    <DefaultServices>
+      <Service Name="actor2">
+        <StatelessService ServiceTypeName="actor2Type">
+          <SingletonPartition />
+        </StatelessService>
+      </Service>
+    </DefaultServices>
+
+  </ApplicationManifest>
+  ```
+
 * **Manifesto del servizio**
 
   Il manifesto del servizio descrive i componenti di un servizio. Include dati, come ad esempio nome e tipo di servizio (informazioni che Service Fabric usa per gestire il servizio), il relativo codice, componenti di dati e di configurazione più alcuni parametri aggiuntivi usati per configurare il servizio una volta distribuito.
 
-  Non esamineremo tutti i diversi parametri disponibili nel manifesto del servizio, ma esamineremo la sotto-categoria necessaria ad eseguire un'applicazione esistente in Service Fabric.
+  Non verranno esaminati tutti i diversi parametri disponibili nel manifesto del servizio, ma verrà esaminata la sotto-categoria necessaria ad eseguire un eseguibile guest in Service Fabric.
 
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <ServiceManifest Name="actor2Pkg"
+                   Version="1.0.0.0"
+                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ServiceTypes>
+      <StatelessServiceType ServiceTypeName="actor2Type" />
+    </ServiceTypes>
 
-## Struttura del file del pacchetto dell'applicazione
-Per distribuire un'applicazione nell'infrastruttura di servizi, l'applicazione deve seguire una struttura di directory predefinita. Di seguito è riportato un esempio di tale struttura.
+    <CodePackage Name="Code" Version="1.0.0.0">
+      <EntryPoint>
+        <ExeHost>
+          <Program>actor2.exe</Program>
+        </ExeHost>
+      </EntryPoint>
+    </CodePackage>
+
+    <ConfigPackage Name="Config" Version="1.0.0.0" />
+
+    <Resources>
+      <Endpoints>
+        <Endpoint Name="ServiceEndpoint" />
+      </Endpoints>
+    </Resources>
+  </ServiceManifest>
+  ```
+
+## Struttura del file del pacchetto dell’applicazione
+Per distribuire un'applicazione utilizzando, ad esempio, i powershell cmdlet, l'applicazione deve seguire una struttura di directory predefinita.
 
 ```
 |-- ApplicationPackage
@@ -75,14 +127,14 @@ Nota: non occorre creare le directory `config` e `data` se non sono necessarie.
 
 ## Processo di creazione di un pacchetto di un'applicazione esistente
 
-Il processo di creazione di un pacchetto di un'applicazione esistente si basa sul procedimento seguente:
+Il processo di creazione di un pacchetto di un eseguibile guest si basa sulla procedura seguente:
 
 1. Creare la struttura di directory del pacchetto.
 2. Aggiungere i file di codice e di configurazione dell'applicazione.
 3. Modificare il file manifesto del servizio.
 4. Modificare il file manifesto dell’applicazione.
 
->[AZURE.NOTE]Viene fornito uno strumento di creazione di pacchetti che consente di creare automaticamente ApplicationPackage. Lo strumento è attualmente in anteprima. È possibile scaricarlo [qui](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE] Viene fornito uno strumento di creazione di pacchetti che consente di creare automaticamente ApplicationPackage. Lo strumento è attualmente in anteprima. È possibile scaricarlo [qui](http://aka.ms/servicefabricpacktool).
 
 ### Creare la struttura di directory del pacchetto
 È possibile iniziare creando la struttura di directory come descritto in precedenza.
@@ -92,7 +144,7 @@ Dopo aver creato la struttura di directory, è possibile aggiungere i file di co
 
 Service Fabric esegue xcopy del contenuto della directory radice dell'applicazione in modo che non esista alcuna struttura predefinita da usare oltre alla creazione delle due directory principali Codice e Impostazioni (ma se si desidera, è possibile scegliere nomi diversi, come illustrato in dettaglio nella sezione successiva).
 
->[AZURE.NOTE]Assicurarsi di includere tutti i file o le dipendenze necessarie all'applicazione. L'infrastruttura di servizi copia il contenuto del pacchetto dell'applicazione in tutti i nodi del cluster in cui i servizi dell'applicazione vengono distribuiti. Il pacchetto deve contenere tutto il codice necessario per eseguire l'applicazione. È consigliabile non presupporre che le dipendenze siano già installate.
+>[AZURE.NOTE] Assicurarsi di includere tutti i file o le dipendenze necessarie all'applicazione. L'infrastruttura di servizi copia il contenuto del pacchetto dell'applicazione in tutti i nodi del cluster in cui i servizi dell'applicazione vengono distribuiti. Il pacchetto deve contenere tutto il codice necessario per eseguire l'applicazione. È consigliabile non presupporre che le dipendenze siano già installate.
 
 ### Modificare il file manifesto del servizio
 Il passaggio successivo consiste nel modificare il file manifesto del servizio per includere le informazioni seguenti:
@@ -105,10 +157,7 @@ Di seguito è riportato un esempio di un file `ServiceManifest.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-		 Name="NodeApp" Version="1.0.0.0" 
-		 xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="NodeApp" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceTypes>
       <StatelessServiceType ServiceTypeName="NodeApp" UseImplicitHost="true"/>
    </ServiceTypes>
@@ -205,12 +254,7 @@ Dopo aver configurato il file `Servicemanifest.xml`, sarà necessario apportare 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest 
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	ApplicationTypeName="NodeAppType" 
-	ApplicationTypeVersion="1.0" 
-	xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="NodeAppType" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="NodeApp" ServiceManifestVersion="1.0.0.0" />
    </ServiceManifestImport>
@@ -228,7 +272,7 @@ Nell'elemento `ServiceManifestImport` è possibile specificare uno o più serviz
 ```
 
 ### Configurare la registrazione
-Per le applicazioni esistenti è molto utile poter visualizzare i registri di console per scoprire se gli script di configurazione e applicazione mostrano eventuali errori. Il reindirizzamento della console può essere configurato nel file `ServiceManifest.xml` tramite l'elemento `ConsoleRedirection`.
+Per gli eseguibili guest è molto utile poter visualizzare i registri di console per scoprire se gli script di configurazione e applicazione mostrano eventuali errori. Il reindirizzamento della console può essere configurato nel file `ServiceManifest.xml` tramite l'elemento `ConsoleRedirection`.
 
 ```xml
 <EntryPoint>
@@ -292,10 +336,10 @@ Se si passa alla directory tramite Esplora server è possibile trovare la direct
 
 
 ## Passaggi successivi
-In questo articolo si è appreso come creare il pacchetto di un'applicazione esistente e come distribuirla in Service Fabric. Come passaggio successivo è possibile consultare altri articoli con contenuti aggiuntivi su questo argomento.
+In questo articolo si è appreso come creare il pacchetto di un eseguibile guest e come distribuirlo in Service Fabric. Come passaggio successivo è possibile consultare altri articoli con contenuti aggiuntivi su questo argomento.
 
-- [Esempio per la creazione del pacchetto e la distribuzione di un'applicazione personalizzata in GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), incluso un collegamento alla versione preliminare dello strumento per la creazione dei pacchetti.
-- [Distribuire più applicazioni personalizzate](service-fabric-deploy-multiple-apps.md)
+- [Esempio per la creazione del pacchetto e la distribuzione di un eseguibile guest in GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), incluso un collegamento alla versione preliminare dello strumento per la creazione dei pacchetti.
+- [Distribuire più eseguibili guest](service-fabric-deploy-multiple-apps.md)
 - [Creare la prima applicazione Service Fabric in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

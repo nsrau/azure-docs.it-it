@@ -3,7 +3,7 @@
 	description="Informazioni sulle espressioni di provisioning dichiarativo."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="andkjell"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo
-
 Il servizio di sincronizzazione Azure AD Connect si basa sul provisioning dichiarativo introdotto per la prima volta in Forefront Identity Manager 2010 per permettere di implementare la logica di business di integrazione completa delle identità senza dovere scrivere codice.
 
 Una parte essenziale del provisioning dichiarativo è il linguaggio delle espressioni usato nei flussi di attributi. Il linguaggio usato è un subset di Microsoft® Visual Basic®, Applications Edition (VBA). Questo linguaggio viene usato in Microsoft Office e verrà riconosciuto anche dagli utenti con esperienza in VBScript. Il linguaggio delle espressioni di provisioning dichiarativo usa solo funzioni e non è un linguaggio strutturato, né include metodi o istruzioni. Le funzioni verranno invece annidate per esprimere flussi di programmi.
 
 Per altre informazioni dettagliate, vedere i [riferimenti per il linguaggio Visual Basic, Applications Edition per Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
 
-Gli attributi sono fortemente tipizzati. Una funzione che prevede di ricevere un attributo String a valore singolo non accetterà attributi multivalore o attributi di tipo diverso. È applicata anche la distinzione maiuscole/minuscole. Se per i nomi delle funzioni e i nomi degli attributi non viene rispettata correttamente la distinzione lettere maiuscole/minuscole, verrà generato un errore.
+Gli attributi sono fortemente tipizzati. Una funzione accetterà solo gli attributi del tipo corretto. È applicata anche la distinzione maiuscole/minuscole. Se per i nomi delle funzioni e i nomi degli attributi non viene rispettata correttamente la distinzione lettere maiuscole/minuscole, verrà generato un errore.
 
 ## Definizioni e identificatori del linguaggio
 
@@ -65,7 +64,7 @@ Il sistema fornisce il seguente parametro, usato per ottenere l'identificatore d
 
 L'esempio seguente popolerà il dominio dell'attributo metaverse con il nome netbios del dominio in cui si trova l'utente:
 
-`domain <- %Domain.Netbios%`
+`domain` <- `%Domain.Netbios%`
 
 ### Operatori
 
@@ -85,13 +84,13 @@ Gli operatori vengono valutati da sinistra a destra e hanno la stessa priorità 
 
 Per impostazione predefinita, gli attributi di stringa sono configurati come indicizzabili e la lunghezza massima è di 448 caratteri. Se si usano attributi di stringa che potrebbero avere una lunghezza maggiore, assicurarsi di includere il codice seguente nel flusso di attributi:
 
-`attributeName <- Left([attributeName],448)`
+`attributeName` <- `Left([attributeName],448)`
 
 ### Modifica di userPrincipalSuffix
 
-L'attributo userPrincipalName in Active Directory non è sempre noto agli utenti e potrebbe non essere adatto come ID di accesso. L'installazione guidata del servizio di sincronizzazione Azure AD Connect consente di scegliere un attributo diverso, ad esempio mail. In alcuni casi è però necessario calcolare l'attributo. Ad esempio, l'azienda Contoso ha due directory Azure AD, una per la produzione e una per i test. L'azienda desidera che gli utenti nel proprio tenant di prova modifichino il suffisso nell'ID di accesso.
+L'attributo userPrincipalName in Active Directory non è sempre noto agli utenti e potrebbe non essere adatto come ID di accesso. L'installazione guidata del servizio di sincronizzazione Azure AD Connect consente di scegliere un attributo diverso, ad esempio mail. In alcuni casi è però necessario calcolare l'attributo. Ad esempio, l'azienda Contoso ha due directory Azure AD, una per la produzione e una per i test. L'azienda vuole che gli utenti nel proprio tenant di prova modifichino il suffisso nell'ID di accesso.
 
-`userPrincipalName <- Word([userPrincipalName],1,"@") & "@contosotest.com"`
+`userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
 necessario selezionare tutti gli elementi dell'espressione che si trovano a sinistra del primo segno @ (Word) e concatenarli con una stringa fissa.
 
@@ -99,7 +98,7 @@ necessario selezionare tutti gli elementi dell'espressione che si trovano a sini
 
 Alcuni attributi in Active Directory sono di tipo multivalore nello schema, anche se compaiono come valore singolo in Utenti e computer di Active Directory, ad esempio l'attributo description.
 
-`description <- IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
+`description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
 Se l'attributo ha un valore in questa espressione, si seleziona il primo elemento (Item) dell'attributo, si rimuovono gli spazi iniziali e finali (Trim) e quindi si mantengono i primi 448 caratteri (Left) della stringa.
 
@@ -111,7 +110,7 @@ Per le regole di sincronizzazione in entrata, è necessario usare sempre la cost
 
 Sono disponibili due costanti diverse da usare per le regole di sincronizzazione in uscita: NULL e IgnoreThisFlow. Entrambe indicano che il flusso di attributi non fornisce alcun valore, ma presentano differenze a livello di ciò che si verifica se nessun'altra regola fornisce valori. Se nella directory connessa è presente un valore esistente, una costante NULL eseguirà in modo temporaneo una eliminazione sull'attributo, rimuovendolo, mentre IgnoreThisFlow manterrà il valore esistente.
 
-#### ImportedValue
+### ImportedValue
 
 La funzione ImportedValues è diversa dalle altre funzioni, poiché il relativo nome di attributo deve essere racchiuso tra virgolette invece che tra parentesi quadre: ImportedValue("proxyAddresses").
 
@@ -119,7 +118,7 @@ In genere, durante la sincronizzazione un attributo userà il valore previsto, a
 
 Un esempio di questa situazione è disponibile nella regola di sincronizzazione in entrata inclusa nelle impostazioni comuni di Active Directory ed Exchange relative agli utenti. Nella configurazione ibrida di Exchange il valore aggiunto da Exchange Online deve essere sincronizzato solo se ne è stata confermata l'esportazione corretta:
 
-`proxyAddresses <- RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
+`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
 
 Per l'elenco completo delle funzioni, vedere [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](active-directory-aadconnectsync-functions-reference.md)
 
@@ -131,4 +130,4 @@ Per l'elenco completo delle funzioni, vedere [Servizio di sincronizzazione Azure
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

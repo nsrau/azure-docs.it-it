@@ -1,6 +1,6 @@
 <properties
    pageTitle="Distribuire un'applicazione Node.js con MongoDB | Microsoft Azure"
-   description="Procedura dettagliata sulla creazione di pacchetti di più applicazioni da distribuire in un cluster di Azure Service Fabric"
+   description="Procedura dettagliata sulla creazione di pacchetti di più eseguibili guest da distribuire in un cluster di Azure Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/12/2016"
    ms.author="bscholl"/>
 
 
-# Distribuire più applicazioni personalizzate
+# Distribuire più eseguibili guest
 
-Questo articolo illustra come creare pacchetti di più applicazioni e distribuirle in Azure Service Fabric usando la versione di anteprima dello strumento per la creazione dei pacchetti di Service Fabric, disponibile all'indirizzo [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+Questo articolo illustra come creare pacchetti di più eseguibili guest e distribuirli in Azure Service Fabric usando la versione di anteprima dello strumento per la creazione di pacchetti di Service Fabric, disponibile all'indirizzo [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
 
-Per la creazione manuale di un pacchetto di Service Fabric, vedere l'articolo [Distribuire un'applicazione personalizzata in Service Fabric](service-fabric-deploy-existing-app.md).
+Per la creazione manuale di un pacchetto di Service Fabric, vedere l'articolo [Distribuire un eseguibile guest in Service Fabric](service-fabric-deploy-existing-app.md).
 
 Questa procedura dettagliata illustra come distribuire un'applicazione con un front-end di Node.js che usa MongoDB come archivio dati, ma può essere adottata per qualsiasi applicazione che presenta dipendenze da un'altra applicazione.
 
@@ -125,7 +125,7 @@ Service Fabric deve avviare MongoDB con un comando simile al seguente ed è quin
 ```
 mongod.exe --dbpath [path to data]
 ```
-> [AZURE.NOTE]Se la directory dei dati di MongoDB viene inserita nella directory locale del nodo e si verifica un errore nel nodo, i dati non vengono mantenuti. È quindi consigliabile usare un'archiviazione durevole o implementare un set di repliche di MongoDB per evitare la perdita di dati.
+> [AZURE.NOTE] Se la directory dei dati di MongoDB viene inserita nella directory locale del nodo e si verifica un errore nel nodo, i dati non vengono mantenuti. È quindi consigliabile usare un'archiviazione durevole o implementare un set di repliche di MongoDB per evitare la perdita di dati.
 
 In PowerShell o nella shell dei comandi verrà eseguito lo strumento di creazione di pacchetti con i parametri seguenti:
 
@@ -182,7 +182,7 @@ L'ultimo passaggio consiste nella pubblicazione dell'applicazione nel cluster lo
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStore' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
 
 Write-Host 'Registering application type...'
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\NodeAppType'
@@ -196,6 +196,6 @@ In questa esercitazione si è appreso come distribuire facilmente due applicazio
 
 ## Passaggi successivi
 
-- Informazioni su come [creare manualmente un pacchetto di una singola applicazione](service-fabric-deploy-existing-app.md).
+- Informazioni su come [creare manualmente un pacchetto di un'applicazione guest](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

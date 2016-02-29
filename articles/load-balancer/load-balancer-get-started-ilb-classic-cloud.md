@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Introduzione alla creazione di un servizio di bilanciamento del carico interno (classico) per i servizi cloud
@@ -32,7 +32,7 @@ Il servizio di bilanciamento del carico interno è supportato sia per le macchin
 
 La configurazione del servizio di bilanciamento del carico interno deve essere impostata durante la creazione della prima distribuzione nel servizio cloud, come illustrato nell'esempio seguente.
 
->[AZURE.IMPORTANT]Come prerequisito per eseguire i passaggi seguenti, è necessario avere già creato una rete virtuale per la distribuzione cloud. Per creare il bilanciamento del carico interno, saranno necessari il nome della rete virtuale e il nome della subnet.
+>[AZURE.IMPORTANT] Come prerequisito per eseguire i passaggi seguenti, è necessario avere già creato una rete virtuale per la distribuzione cloud. Per creare il bilanciamento del carico interno, saranno necessari il nome della rete virtuale e il nome della subnet.
 
 ### Passaggio 1
 
@@ -91,4 +91,4 @@ Il traffico di rete verrà configurato per il bilanciamento del carico tramite i
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

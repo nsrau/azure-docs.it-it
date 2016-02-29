@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [selettore](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
-Informazioni su come creare un cluster Hadoop in HDInsight tramite il portale di Azure. Il [portale di Microsoft Azure](azure-portal-overview.md) è una posizione centrale in cui è possibile effettuare il provisioning delle risorse di Azure e gestirle. Il portale di Azure è uno degli strumenti che è possibile usare per creare cluster Hadoop basati su Linux o Windows in HDInsight. Per altri strumenti e funzionalità per la creazione di cluster, fare clic sulla scheda Seleziona nella parte superiore di questa pagina o vedere [Metodi di creazione di cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
+Informazioni su come creare un cluster Hadoop in HDInsight tramite il portale di Azure. Il [portale di Microsoft Azure](../azure-portal-overview.md) è una posizione centrale in cui è possibile effettuare il provisioning delle risorse di Azure e gestirle. Il portale di Azure è uno degli strumenti che è possibile usare per creare cluster Hadoop basati su Linux o Windows in HDInsight. Per altri strumenti e funzionalità per la creazione di cluster, fare clic sulla scheda Seleziona nella parte superiore di questa pagina o vedere [Metodi di creazione di cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ###Prerequisiti:
 
@@ -73,7 +73,7 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 
 			![Pannello della rete virtuale](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
 
-			>[AZURE.NOTE] Il cluster HDInsight basato su Windows può essere inserito solo in una rete virtuale classica.
+			For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capbilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
   
 
   		
@@ -136,8 +136,8 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 ##Passaggi successivi
 Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:
 
-* [Introduzione all'uso di Azure HDInsight](hdinsight-get-started.md) - Informazioni su come iniziare a usare il cluster HDInsight
+* [Introduzione all'uso di Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - Informazioni su come iniziare a usare il cluster HDInsight
 * [Inviare processi Hadoop a livello di codice](hdinsight-submit-hadoop-jobs-programmatically.md) - Informazioni su come inviare processi a HDInsight a livello di codice
 * [Gestire cluster Hadoop in HDInsight tramite il portale di Azure](hdinsight-administer-use-management-portal.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

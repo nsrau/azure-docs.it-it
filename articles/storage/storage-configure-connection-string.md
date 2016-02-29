@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/17/2016"
 	ms.author="tamram"/>
 
 # Configurare le stringhe di connessione di archiviazione di Azure
@@ -37,7 +37,7 @@ L'applicazione sarà necessario archiviare la stringa di connessione per autenti
 
 Archiviare la stringa di connessione all'interno di un file di configurazione consente di aggiornare la stringa di connessione per alternare l'emulatore di archiviazione e un account di archiviazione di Azure nel cloud. È sufficiente modificare la stringa di connessione in modo che punti all'account di archiviazione.
 
-È possibile utilizzare la classe [CloudConfigurationManager](https://msdn.microsoft.com/library/microsoft.windowsazure.cloudconfigurationmanager.aspx) di Azure per accedere alla stringa di connessione in fase di runtime a prescindere dall'ambiente di esecuzione.
+È possibile usare la classe [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) per accedere alla stringa di connessione in fase di runtime indipendentemente dall'ambiente di esecuzione dell'applicazione.
 
 ## Creare una stringa di connessione nell'emulatore di archiviazione
 
@@ -57,7 +57,7 @@ Ad esempio, la stringa di connessione dovrebbe somigliare all'esempio seguente:
 	AccountName=storagesample;
 	AccountKey=<account-key>
 
-> [AZURE.NOTE]L'archiviazione di Azure supporta sia HTTP che HTTPS in una stringa di connessione. Tuttavia, è consigliabile usare HTTPS.
+> [AZURE.NOTE] L'archiviazione di Azure supporta sia HTTP che HTTPS in una stringa di connessione. Tuttavia, è consigliabile usare HTTPS.
 
 ## Creazione di una stringa di connessione in un endpoint di archiviazione esplicito
 
@@ -119,4 +119,4 @@ Ad esempio, la stringa di connessione dovrebbe avere l'aspetto della stringa di 
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

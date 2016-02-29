@@ -38,7 +38,7 @@ Informazioni su come usare Apache Spark in Azure HDInsight per eseguire le opera
 
 ##<a name="hivetable"></a>Salvare i dati non elaborati come una tabella Hive
 
-In questa sezione viene usato il notebook di [Jupyter](https://jupyter.org) associato a un cluster Apache Spark in HDInsight per eseguire i processi che elaborano i dati di esempio non elaborati e li salvano come tabella Hive. I dati di esempio sono un file CSV (hvac.csv) disponibile in tutti i cluster per impostazione predefinita.
+In questa sezione viene usato il notebook di [Jupyter](https://jupyter.org) associato a un cluster Apache Spark in HDInsight per eseguire i processi che elaborano i dati di esempio non elaborati e li salvano come tabella Hive. I dati di esempio sono un file con estensione csv (hvac.csv) disponibile in tutti i cluster per impostazione predefinita.
 
 Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà effettuata la connessione alla tabella Hive mediante strumenti di Business Intelligence come Power BI e Tableau.
 
@@ -176,7 +176,7 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 
 	![Aggiunta di tabelle a Tableau](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.tableau.drag.table.png "Aggiunta di tabelle a Tableau")
 
-6. Fare clic sulla scheda **Sheet1** nella parte inferiore sinistra. Apportare una visualizzazione che mostra la temperatura effettiva e destinazione media per tutti gli edifici e per ogni data. Trascinare **Date** e **Building ID** su **Columns** e **Actual Temp**/**Target Temp** su **Rows**. In **Marks** selezionare **Area** per usare una visualizzazione del grafico ad aree.
+6. Fare clic sulla scheda **Sheet1** nella parte inferiore sinistra. Apportare una visualizzazione che mostra la temperatura effettiva e di destinazione media per tutti gli edifici e per ogni data. Trascinare **Date** e **Building ID** su **Columns** e **Actual Temp**/**Target Temp** su **Rows**. In **Marks** selezionare **Area** per usare una visualizzazione del grafico ad aree.
 
 	 ![Aggiungere campi per la visualizzazione](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.tableau.drag.fields.png "Aggiungere campi per la visualizzazione")
 
@@ -203,15 +203,15 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager-v1.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

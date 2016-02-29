@@ -25,7 +25,7 @@ Diagnostica e risoluzione dei problemi sono competenze fondamentali per la creaz
 
 In questa esercitazione viene illustrato come identificare alcuni errori che potrebbero influire sulle prestazioni e come risolverli in modo end-to-end usando gli strumenti forniti da Microsoft e Archiviazione di Azure, per ottimizzare l'applicazione client.
 
-Questa esercitazione offre un'esplorazione pratica di uno scenario di risoluzione dei problemi end-to-end. Per una guida approfondita sui concetti relativi alla risoluzione dei problemi delle applicazioni di archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione](storage-monitoring-diagnosing-troubleshooting.md).
+Questa esercitazione offre un'esplorazione pratica di uno scenario di risoluzione dei problemi end-to-end. Per una guida approfondita sui concetti relativi alla risoluzione dei problemi delle applicazioni di archiviazione di Azure, vedere [Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## Strumenti per la risoluzione dei problemi delle applicazioni di archiviazione di Azure
 
@@ -38,9 +38,9 @@ Per risolvere i problemi relativi alle applicazioni client mediante Archiviazion
 
 - **Portale di Azure classico**. Nel [portale di Azure classico](https://manage.windowsazure.com) è possibile configurare le metriche e la registrazione per l'account di archiviazione. È possibile anche visualizzare grafici che mostrano le prestazioni dell'applicazione nel tempo e configurare gli avvisi per ricevere una notifica se le prestazioni dell'applicazione si discostano dal previsto per una determinata metrica.
 	
-	Per informazioni sulla configurazione del monitoraggio nel portale di Azure classico, vedere [Come monitorare un account di archiviazione](storage-monitor-storage-account.md).
+	Per informazioni sulla configurazione del monitoraggio nel portale di Azure, vedere [Monitorare un account di archiviazione nel portale di Azure classico](storage-monitor-storage-account.md).
 
-- **AzCopy**. I log di Archiviazione di Azure vengono memorizzati come BLOB, quindi è possibile usare AzCopy per copiare i BLOB di log in una directory locale per l'analisi mediante Microsoft Message Analyzer. Per altre informazioni su AzCopy, vedere [Come usare AzCopy Archiviazione di Microsoft Azure](storage-use-azcopy.md).
+- **AzCopy**. I log di Archiviazione di Azure vengono memorizzati come BLOB, quindi è possibile usare AzCopy per copiare i BLOB di log in una directory locale per l'analisi mediante Microsoft Message Analyzer. Per altre informazioni su AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
 - **Microsoft Message Analyzer**. Message Analyzer è uno strumento che utilizza i file di log e visualizza i dati di log in un formato visivo che ne semplifica il filtraggio, la ricerca e il raggruppamento in set utili da usare per analizzare gli errori e i problemi di prestazioni. Per altre informazioni su Message Analyzer, vedere [la guida operativa di Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx).
 
@@ -92,7 +92,7 @@ In primo luogo è necessario configurare la registrazione e le metriche di Archi
 
 **Tramite il portale di Azure classico**
 
-Per configurare la registrazione e le metriche per l'account di archiviazione tramite il portale, seguire le istruzioni in [Come monitorare un account di archiviazione](storage-monitor-storage-account.md).
+Per configurare la registrazione e le metriche per l'account di archiviazione tramite il portale, seguire le istruzioni in [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md).
 
 > [AZURE.NOTE] Non è possibile impostare la metrica al minuto mediante il portale di Azure classico. Tuttavia, è consigliabile impostarla ai fini di questa esercitazione e per l'analisi dei problemi di prestazioni relativi all'applicazione. La metrica al minuto può essere impostata tramite PowerShell, come mostrato di seguito, a livello di codice o tramite il portale di Azure classico.
 >
@@ -100,7 +100,7 @@ Per configurare la registrazione e le metriche per l'account di archiviazione tr
 
 **Tramite PowerShell**
 
-Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).
+Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 1. Usare il cmdlet [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) per aggiungere l'account utente di Azure alla finestra di PowerShell:
 
@@ -130,11 +130,9 @@ Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e
 
 ### Configurare la registrazione sul lato client .NET
 
-Per configurare la registrazione sul lato client per un'applicazione .NET, abilitare la diagnostica .NET nel file di configurazione dell'applicazione (web.config o app.config). Per informazioni dettagliate, vedere [Registrazione lato client con la libreria client di archiviazione](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Registrazione lato client con Microsoft Azure Storage SDK per Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) su MSDN.
+Per configurare la registrazione sul lato client per un'applicazione .NET, abilitare la diagnostica .NET nel file di configurazione dell'applicazione (web.config o app.config). Per informazioni dettagliate, vedere l'articolo relativo alla [registrazione sul lato client con la libreria client di archiviazione .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) e l'articolo relativo alla [registrazione sul lato client con Microsoft Azure Storage SDK per Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) su MSDN.
 
 Il log lato client include informazioni dettagliate sul modo in cui il client prepara la richiesta e riceve ed elabora la risposta.
-
-La registrazione lato client viene configurata nel file app.config o web.config nell'applicazione. Per informazioni dettagliate, vedere [Registrazione lato client con la libreria client di archiviazione](http://msdn.microsoft.com/library/azure/dn782839.aspx) su MSDN.
 
 La libreria client di archiviazione archivia i dati di log lato client nel percorso specificato nel file di configurazione dell'applicazione (web.config or app.config).
 
@@ -182,7 +180,7 @@ La metrica **Percentuale di operazioni riuscite** verrà aggiunta al grafico di 
 
 ![Grafico delle metriche nel portale](./media/storage-e2e-troubleshooting-classic-portal/portal-metrics-chart-1.png)
 
-Per maggiori dettagli sull'aggiunta di metriche alla pagina di monitoraggio, vedere [Procedura: aggiungere metriche alla relativa tabella](storage-monitor-storage-account.md#addmonitoringmetrics).
+Per maggiori dettagli sull'aggiunta di metriche alla pagina di monitoraggio, vedere [Procedura: aggiungere metriche alla relativa tabella](storage-monitor-storage-account.md#how-to-add-metrics-to-the-metrics-table).
 
 > [AZURE.NOTE] Dopo avere abilitato la metrica di archiviazione, è possibile che la visualizzazione dei dati corrispondenti nel portale di Azure classico non sia immediata. Questo dipende dal fatto che la metrica oraria per l'ora precedente viene visualizzata nel portale di Azure classico solo allo scadere dell'ora in corso. Inoltre, la metrica oraria non è visualizzata nel portale di Azure classico. Quindi, per visualizzare i dati relativi alla metrica può essere necessaria fino a un'ora, a seconda del momento in cui è stata abilita.
 
@@ -194,9 +192,9 @@ Archiviazione di Azure scrive i dati di log del server nei BLOB, mentre le metri
 
 	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
-AzCopy è disponibile per il download nella pagina [Download di Azure](https://azure.microsoft.com/downloads/). Per altre informazioni sull'uso di AzCopy, vedere [Come usare AzCopy con Archiviazione di Microsoft Azure](storage-use-azcopy.md).
+AzCopy è disponibile per il download nella pagina [Download di Azure](https://azure.microsoft.com/downloads/). Per informazioni dettagliate sull'uso di AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
-Per altre informazioni sul download dei log lato server, vedere [Abilitazione di Registrazione archiviazione e accesso ai dati di log](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+Per altre informazioni sul download dei log lato server, vedere [Download dei dati di log di Registrazione archiviazione](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
 ## Usare Microsoft Message Analyzer per analizzare i dati di log
 
@@ -347,7 +345,7 @@ Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i
 | Per esaminare... | Usare l'espressione di filtro... | Log a cui è applicabile l'espressione (client, server, rete, tutti) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Ritardi imprevisti nel recapito dei messaggi in una coda | AzureStorageClientDotNetV4.Description contains "Retrying failed operation." | Client |
-| Aumento di PercentThrottlingError HTTP | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Rete |
+| Aumento di PercentThrottlingError HTTP | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Rete |
 | Aumento di PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rete |
 | Aumento di PercentTimeoutError (tutti) |    *StatusCode == 500 | All |
 | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
@@ -367,12 +365,12 @@ Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i
 
 Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di archiviazione di Azure, vedere le risorse seguenti:
 
-- [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione](storage-monitoring-diagnosing-troubleshooting.md)
+- [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
 - [Analisi dell'archiviazione](http://msdn.microsoft.com/library/azure/hh343270.aspx)
-- [Come monitorare un account di archiviazione](storage-monitor-storage-account.md)
-- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
+- [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md)
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 - [Guida operativa di Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

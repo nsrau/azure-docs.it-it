@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/12/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Partner di soluzioni per SQL Data Warehouse
@@ -32,7 +32,7 @@ Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tr
 | ![Dundas][7] |**Dundas Software**<br>Dundas Data Visualization è un importante fornitore globale di software per business intelligence e visualizzazione dei dati. I dashboard, i report e le analisi visuali dei dati di Dundas offrono un'integrazione semplificata nelle applicazioni aziendali, permettendo di ottenere decisioni migliori e approfondimenti più rapidi. | [Altro][dundas_software_more] |
 | ![Inbrein][8] |**Inbrein**<br>Inbrein MicroERD offre gli strumenti necessari per creare un modello di dati preciso, ridurre la ridondanza dei dati, migliorare la produttività e rispettare gli standard. L'uso dell'interfaccia utente sviluppata in base a numerose esperienze utente permette a un modeler di lavorare in modo semplice ed efficiente con i modelli di database. I tempestivi miglioramenti funzionali e gli aggiornamenti permettono di ottenere sempre funzioni nuove e migliorate di MicroERD. | [Altro][inbrein_more] |
 | ![Infolibrarian][9] |**Infolibrarian**<br>InfoLibrarian cataloga, archivia e gestisce i metadati per semplificare la risoluzione dei problemi critici della gestione dati. Offre inoltre soluzioni software per la gestione dei metadati, la governance dei dati e la gestione degli asset, per gestire e pubblicare i metadati usando diversi strumenti e tecnologie. | [Altro][infolibrarian_more] |
-| ![Informatica][10] |**Informatica**<br>Informatica è uno dei più noti fornitori indipendenti mondiali di software per l'integrazione dei dati. Informatica Vibe, una delle prime macchine virtuali di dati incorporabili del settore, è alla base delle esclusive capacità "Map Once. Deploy Anywhere." di Informatica Platform. Più di 5.500 aziende in tutto il mondo si affidano a Informatica per sfruttare al massimo i propri asset a livello di informazioni.| [Altro][informatica_more] |
+| ![Informatica][10] |**Informatica**<br>Informatica è uno dei più noti fornitori indipendenti mondiali di software per l'integrazione dei dati. Informatica Vibe, una delle prime macchine virtuali di dati incorporabili del settore, è alla base delle esclusive capacità "Map Once. Deploy Anywhere." di Informatica Platform. Più di 5500 aziende in tutto il mondo si affidano a Informatica per sfruttare al massimo i propri asset a livello di informazioni.| [Altro][informatica_more] |
 | ![Jinfonet][11] |**Jinfonet**<br>JReport è una soluzione di business intelligence incorporabile per le aziende. La soluzione permette agli utenti di creare report, dashboard e analisi di dati sul cloud, Big Data e origini dati transazionali. La visualizzazione dei dati permette agli utenti di creare report personalizzati e individuare personalmente i dati per ottenere un processo decisionale agile e rapido.| [Altro][jinfonet_more] |
 | ![LogiAnalytics][12] |**LogiAnalytics**<br>L'uso combinato di Logi Analytics e Microsoft Azure SQL Data Warehouse permette ora alle organizzazioni di raccogliere, analizzare e prendere decisioni immediate in base ai set di dati più grandi e più diversificati al mondo, essenziali per organizzazioni a prestazioni elevate. | [Altro][logianalytics_more] |
 | ![Looker][13] |**Looker**<br>Looker offre a tutti gli utenti dell'azienda la possibilità di esplorare e comprendere i dati essenziali per l'attività aziendale, fornendo al tempo stesso all'analista dei dati un livello di modellazione flessibile e riutilizzabile per controllare e gestire i dati. Molte aziende hanno trasformato radicalmente la propria cultura usando Looker come catalizzatore. | [Altro][looker_more] |
@@ -96,9 +96,9 @@ Per altre informazioni sull'integrazione con SQL Data Warehouse, vedere [Creare 
 [redpoint_global_more]: http://www.redpoint.net/
 [sisense_more]: http://www.sisense.com/
 [snaplogic_more]: http://www.snaplogic.com/
-[sql_sentry_more]: www.sqlsentry.com/solutions/business-analytics/
+[sql_sentry_more]: http://www.sqlsentry.com/solutions/business-analytics/
 [tableau_more]: http://www.tableau.com/
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

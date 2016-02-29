@@ -57,10 +57,11 @@ Quando si crea un processo di importazione o un processo di esportazione, sarà 
 6.	**Dimensione massima di un processo:** la dimensione di un processo è determinata dalla capacità dei dischi rigidi usati e dalla quantità massima di dati che possono essere archiviati in un account di archiviazione. Ogni processo non può contenere più di 10 dischi rigidi.
 7.  **Sistemi operativi supportati:** i clienti possono usare uno dei seguenti sistemi operativi per preparare il disco rigido tramite lo strumento Importazione/Esportazione di Azure prima della spedizione ad Azure: Windows 7, Windows 8, Windows 8.1, Windows 10*, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2.  
 
-  > [AZURE.IMPORTANT] 
-    - Se per preparare il disco rigido si usa un computer con Windows 10, vedere le istruzioni speciali nella [sezione Domande frequenti](#frequently-asked-questions).
-    
-    - I dischi rigidi esterni forniti con un adattatore USB incorporato non sono supportati da questo servizio. Non preparare un disco rigido esterno. Il disco all'interno del casing esterno non può essere utilizzato anche per l'importazione di dati. Utilizzare un'unità disco rigido **interna** da 3,5" SATA II/III. Se il disco SATA non può essere connesso direttamente al computer, utilizzare un SATA esterno per adattatore USB. Vedere l'elenco degli adattatori consigliati nella sezione Domande frequenti.
+  > [AZURE.IMPORTANT]
+  >  
+  >  - Se per preparare il disco rigido si usa un computer con Windows 10, vedere le istruzioni speciali nella [sezione Domande frequenti](#frequently-asked-questions).
+  >  
+  >  - I dischi rigidi esterni forniti con un adattatore USB incorporato non sono supportati da questo servizio. Non preparare un disco rigido esterno. Il disco all'interno del casing esterno non può essere utilizzato anche per l'importazione di dati. Utilizzare un'unità disco rigido **interna** da 3,5" SATA II/III. Se il disco SATA non può essere connesso direttamente al computer, utilizzare un SATA esterno per adattatore USB. Vedere l'elenco degli adattatori consigliati nella sezione Domande frequenti.
 
 ## Creazione di un processo di importazione nel portale classico##
 
@@ -183,10 +184,10 @@ Per preparare l'unità disco rigido con Windows 10, seguire le istruzioni riport
  
 - Abilitare manualmente la crittografia BitLocker per il disco rigido che si sta preparando per il servizio Importazione/Esportazione di Azure. In Esplora file fare clic con il pulsante destro del mouse sulla lettera corrispondente all'unità disco rigido, selezionare "Attiva BitLocker" e seguire la procedura guidata.  
 - Prendere nota della chiave di ripristino.  
-- Quando viene richiesto di scegliere la modalità di crittografia, scegliere la **modalità di compatibilità (scelta consigliata per le unità che possono essere spostate da questo dispositivo)**  
+- Quando viene richiesto di scegliere la modalità di crittografia, scegliere la **modalità di compatibilità (scelta consigliata per le unità che possono essere spostate da questo dispositivo)**.  
 - Dopo che la crittografia è stata completata, eseguire lo strumento Importazione/Esportazione di Azure per copiare i dati nell'unità disco rigido.   
 - Usare il parametro */bk* assegnando a quest'ultimo la chiave di ripristino come valore.   
-- NON usare i parametri */format* ed */ /encrypt*.  
+- NON usare i parametri */format* ed */encrypt*.  
 
 **Qual è il prezzo per il servizio Importazione/Esportazione?**
 
@@ -237,8 +238,7 @@ Per preparare l'unità disco rigido con Windows 10, seguire le istruzioni riport
 
 - No. Tutte le unità devono essere preparate per BitLocker.
 
-**è necessario eseguire la preparazione del disco durante la creazione di un processo di esportazione?**
-- No, ma alcuni controlli preliminari sono consigliati. Verificare il numero di dischi richiesti utilizzando lo strumento di importazione/esportazione di Azure [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) comando. Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare. Controllare inoltre che possono leggere/ scrivere sul disco rigido che verranno inviati per il processo di esportazione.
+**è necessario eseguire la preparazione del disco durante la creazione di un processo di esportazione?** = No, ma alcuni controlli preliminari sono consigliati. Verificare il numero di dischi richiesti utilizzando lo strumento di importazione/esportazione di Azure [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) comando. Consente di visualizzare l'anteprima dell'utilizzo di unità per il Blob è selezionato, in base alla dimensione delle unità che si desidera utilizzare. Controllare inoltre che possono leggere/ scrivere sul disco rigido che verranno inviati per il processo di esportazione.
 
 ### Spedizione
 
@@ -291,4 +291,4 @@ Per preparare l'unità disco rigido con Windows 10, seguire le istruzioni riport
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

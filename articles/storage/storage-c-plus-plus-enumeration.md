@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="02/14/2016"
     ms.author="dineshm"/>
 
 # Elenco delle risorse di archiviazione di Azure in C++
 
 Elenco operazioni fondamentali per numerosi scenari di sviluppo con la risorsa di archiviazione di Azure. In questo articolo viene descritto come enumerare in modo più efficiente gli oggetti in archiviazione di Azure utilizzando l'elenco interfacce API fornito nella libreria client di archiviazione di Microsoft Azure per C++.
 
->[AZURE.NOTE] Questa guida fa riferimento alla libreria Client di archiviazione Azure per la C++. versione 1.x, disponibile tramite[NuGet](http://www.nuget.org/packages/wastorage)o[GitHub](https://github.com/Azure/azure-storage-cpp).
+>[AZURE.NOTE] Questa guida fa riferimento alla libreria client di Archiviazione di Azure per la versione 2.x di C++, disponibile tramite [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 La libreria Client di archiviazione fornisce un'ampia gamma di metodi per elencare o effettuare una query degli oggetti nel servizio di archiviazione Azure. In questo articolo vengono affrontati i seguenti scenari:
 
@@ -33,7 +33,7 @@ Ognuno di questi metodi viene visualizzato utilizzando diversi overload per scen
 
 ## Asincrono o sincrono
 
-Poiché la libreria Client di archiviazione per C++ viene compilata sopra alla[libreria C++ REST (progetto Casablanca)](http://casablanca.codeplex.com/)le operazioni asincrone sono intrinsecamente supportate tramite[pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Ad esempio:
+Poiché la libreria client di archiviazione per C++ viene compilata sopra la [libreria REST C++](https://github.com/Microsoft/cpprestsdk), le operazioni asincrone sono intrinsecamente supportate tramite [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Ad esempio:
 
 	pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
 
@@ -162,7 +162,7 @@ Si noti che l’elenco lazy è disponibile solo in modalità sincrona.
 
 Un elenco lazy rispetto a un elenco greedy, recupera i dati solo quando necessario. Nascosto, recupera dati dall’archiviazione di Azure solo quando l'iteratore successivo si sposta nel segmento successivo. Pertanto, l'utilizzo della memoria è controllato con una dimensione limitata e l'operazione è veloce.
 
-Le API ad elenco lazy sono incluse nella libreria Client di archiviazione per C++ nella versione 1.0.0.
+Le API ad elenco lazy sono incluse nella libreria client di archiviazione per C++ nella versione 2.2.0.
 
 ## Conclusioni
 
@@ -184,4 +184,4 @@ Per ulteriori informazioni sull'archiviazione di Azure e sulla libreria Client p
 -	[Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

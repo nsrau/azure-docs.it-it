@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="prasannas"/>
+    manager="stevenpo"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="12/04/2015" 
+    ms.date="02/17/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Igloo Software
@@ -51,7 +51,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Iglo
 
     ![Aggiunta di un'applicazione](./media/active-directory-saas-igloo-software-tutorial/IC749321.png "Aggiunta di un'applicazione")
 
-5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.
+5.  Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
 
     ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-igloo-software-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
@@ -126,7 +126,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![User creation on Sign in](./media/active-directory-saas-igloo-software-tutorial/IC783972.png "User creation on Sign in")
 
-    1.  In **Creazione utente all'accesso** selezionare **Crea nuovo utente nel sito quando esegue l'accesso**.
+    1.  In **User creation on Sign in** selezionare **Create a new user in your site when they sign in**.
     2.  In **Impostazioni di accesso** selezionare **Usa pulsante SAML nella schermata di accesso**.
     3.  Fare clic su **Salva**.
 
@@ -154,4 +154,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

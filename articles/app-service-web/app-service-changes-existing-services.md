@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Servizio app di Azure e impatto sui servizi di Azure esistenti" 
-	description="Viene illustrato come il nuovo servizio app di Azure e le relative funzionalità influiscono sui servizi esistenti in Azure." 
-	authors="yochayk" 
-	writer="yochayk" 
-	editor="yochayk" 
-	manager="nirma" 
-	services="app-service" 
+<properties
+	pageTitle="Servizio app di Azure e impatto sui servizi di Azure esistenti"
+	description="Viene illustrato come il nuovo servizio app di Azure e le relative funzionalità influiscono sui servizi esistenti in Azure."
+	authors="yochayk"
+	writer="yochayk"
+	editor="yochayk"
+	manager="nirma"
+	services="app-service"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/24/2015" 
+<tags
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/12/2016"
 	ms.author="yochayk"/>
 
 
@@ -24,7 +24,7 @@ Questo articolo illustra le modifiche ai servizi di Azure esistenti come parte d
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Panoramica 
+## Panoramica
 
 Il [servizio app di Azure](https://azure.microsoft.com/services/app-service/) è un servizio cloud nuovo ed esclusivo che consente agli sviluppatori di creare app per dispositivi mobili e Web per qualsiasi piattaforma e dispositivo. Il servizio app viene offerto come soluzione integrata progettata per snellire le ripetitive procedure di scrittura del codice, integrarsi con i sistemi aziendali e SaaS e automatizzare i processi aziendali, adattandosi al contempo alle esigenze di sicurezza, affidabilità e scalabilità.
 
@@ -60,8 +60,8 @@ La tabella seguente illustra la corrispondenza tra i servizi di Azure esistenti 
 <td align="left">Servizi mobili di Azure</td>
 <td align="left">App per dispositivi mobili</td>
 <td align="left"><p><li>Servizi mobili continua ad essere disponibile come servizio autonomo e rimane completamente supportato.</p>
-<p><li>App per dispositivi mobili è un nuovo tipo di app nel servizio app che integra tutte le funzionalità di Servizi mobili e ne aggiunge di ulteriori. App per dispositivi mobili è disponibile nella versione di anteprima pubblica.</p>
-<p><li>È facile [eseguire la migrazione da Servizi mobili ad App per dispositivi mobili](../app-service-mobile/app-service-mobile-migrating-from-mobile-services.md). Poiché App per dispositivi mobili si trova ancora in versione di anteprima, non è consigliabile usare il servizio per l'esecuzione di app in ambiente di produzione.</p>
+<p><li>App per dispositivi mobili è un tipo di app nel servizio app che integra tutte le funzionalità di Servizi mobili e altre.</p>
+<p><li>La <a href="http://go.microsoft.com/fwlink/?LinkID=724279&clcid=0x409">migrazione da Servizi mobili ad App per dispositivi mobili</a> è molto semplice.</p>
 <p><li>Come parte del servizio app, App per dispositivi mobili offre nuove funzionalità oltre a quelle di Servizi mobili, come l'integrazione con sistemi locali e SaaS, slot di gestione temporanea, Processi Web, opzioni di scalabilità migliorate e altro ancora.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/mobile/">Altre informazioni su App per dispositivi mobili</a>.</p>
 </tr>
@@ -91,6 +91,5 @@ La tabella seguente illustra la corrispondenza tra i servizi di Azure esistenti 
 </table>
 
 Per altre informazioni, vedere la [documentazione relativa al servizio app](https://azure.microsoft.com/documentation/services/app-service/).
- 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

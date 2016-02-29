@@ -21,14 +21,14 @@
 
 [AZURE.INCLUDE [selettore](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
-Informazioni su come creare cluster HDInsight tramite modelli di Gestione risorse di Azure. Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md). Per altri strumenti e funzionalità per la creazione di cluster, fare clic sulla scheda Seleziona nella parte superiore di questa pagina o vedere [Metodi di creazione di cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
+Informazioni su come creare cluster HDInsight tramite modelli di Gestione risorse di Azure. Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](../resource-group-template-deploy.md). Per altri strumenti e funzionalità per la creazione di cluster, fare clic sulla scheda Seleziona nella parte superiore di questa pagina o vedere [Metodi di creazione di cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ###Prerequisiti:
 
 Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre di:
 
 - [Sottoscrizione di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) e/o [interfaccia della riga di comando di Azure](xplat-cli-install.md). 
+- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) e/o [interfaccia della riga di comando di Azure](../xplat-cli-install.md). 
 
 ## Modelli di Gestione risorse di Azure
 
@@ -38,8 +38,8 @@ Nell'[appendice A]() è disponibile un modello di Gestione risorse di Azure per 
 
 Per altre informazioni sul modello di Gestione risorse di Azure, vedere
 
-- [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
-- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
+- [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md)
+- [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../resource-group-template-deploy.md)
 
 
 ## Distribuire con PowerShell
@@ -102,7 +102,7 @@ Con la procedura seguente si creano cluster HDInsight basati su Linux.
 
 	Lo script di PowerShell configura solo il nome del cluster e il nome dell’account di archiviazione. È possibile impostare altri valori del modello ARM.
 	
-Per altre informazioni, vedere [Distribuire con PowerShell](resource-group-template-deploy.md#deploy-with-powershell).
+Per altre informazioni, vedere [Distribuire con PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
 
 ## Distribuire con l'interfaccia della riga di comando di Azure
 
@@ -115,22 +115,22 @@ L'esempio seguente crea un cluster e i relativi account di archiviazione e conte
 
 ## Distribuire con l'API REST
 
-Vedere [Distribuire con l'API REST](resource-group-template-deploy.md#deploy-with-the-rest-api).
+Vedere [Distribuire con l'API REST](../resource-group-template-deploy.md#deploy-with-the-rest-api).
 
 ## Distribuire con Visual Studio
 
 Con Visual Studio, è possibile creare un progetto del gruppo di risorse e distribuirlo in Azure mediante l'interfaccia utente. Selezionare il tipo di risorse da includere nel progetto e le risorse vengono aggiunte automaticamente al modello di Gestione risorse. Il progetto fornisce anche uno script di PowerShell per distribuire il modello.
 
-Per un'introduzione sull'uso di Visual Studio con gruppi di risorse, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Per un'introduzione all'uso di Visual Studio con gruppi di risorse, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ##Passaggi successivi
 Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:
 
-- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](arm-template-deployment.md).
-- Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md).
-- Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
-- Per informazioni sulle sezioni del modello di Gestione risorse di Azure, vedere l'articolo relativo alla [creazione di modelli](resource-group-authoring-templates.md).
-- Per un elenco delle funzioni che è possibile usare in un modello di Gestione risorse di Azure, vedere l'articolo relativo alle [funzioni del modello](resource-group-template-functions.md).
+- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](../virtual-machines/arm-template-deployment.md).
+- Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](../solution-dev-test-environments.md).
+- Per informazioni sulle sezioni del modello di Gestione risorse di Azure, vedere [Creazione di modelli](../resource-group-authoring-templates.md).
+- Per un elenco delle funzioni che è possibile usare in un modello di Gestione risorse di Azure, vedere [Funzioni di modello](../resource-group-template-functions.md).
 
 
 ##Appendice A: Modello di Gestione risorse di Azure
@@ -444,4 +444,4 @@ Il modello di Gestione risorse di Azure seguente crea un cluster Hadoop basato s
 	  }
 	}
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

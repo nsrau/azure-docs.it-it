@@ -214,11 +214,11 @@ Esistono altri metodi di ottimizzazione che è possibile considerare, ad esempio
 ##<a id="nextsteps"></a> Passaggi successivi
 In questo articolo sono stati illustrati vari metodi di ottimizzazione delle query comuni di Hive. Per altre informazioni, vedere gli articoli seguenti:
 
-- [Usare Apache Hive in HDInsight](../hdinsight-using-hive.md)
+- [Usare Apache Hive in HDInsight](hdinsight-use-hive.md)
 - [Analizzare i dati sui ritardi dei voli mediante Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
 - [Analizzare i dati Twitter mediante Hive in HDInsight](hdinsight-analyze-twitter-data.md)
 - [Analizzare i dati dei sensori mediante Hive Query Console su Hadoop in HDInsight](hdinsight-hive-analyze-sensor-data.md)
-- [Usare Hive con HDInsight per analizzare i log dei siti Web](../hdinsight-hive-analyze-web-site-log.md)
+- [Usare Hive con HDInsight per analizzare i log dei siti Web](hdinsight-hive-analyze-website-log.md)
 
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
@@ -226,4 +226,4 @@ In questo articolo sono stati illustrati vari metodi di ottimizzazione delle que
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

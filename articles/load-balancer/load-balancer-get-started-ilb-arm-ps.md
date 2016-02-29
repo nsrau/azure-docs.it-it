@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Introduzione alla creazione di un servizio di bilanciamento del carico interno tramite PowerShell
@@ -316,4 +316,4 @@ Usare il comando Remove-AzureRmLoadBalancer per eliminare un servizio di bilanci
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 
@@ -30,7 +30,7 @@ A questo scopo, sarà necessario innanzitutto completare il processo di registra
 - **Chiamata sul telefono cellulare, messaggio di testo o app per dispositivi mobili**: se si utilizza un telefono cellulare, scegliere se ricevere una chiamata, un messaggio di testo o l'app per dispositivi mobili.
 - **App per dispositivi mobili con codice di notifica o verifica**: se si utilizza l'app per dispositivi mobili, scegliere tra la ricezione di una notifica con risposta da parte dell’utente o un codice di verifica.
 
-> [AZURE.NOTE]Tenere presente che il reparto IT può disabilitare uno o più opzioni elencate in precedenza. In tal caso, è possibile che tali opzioni non siano disponibili durante il processo di registrazione.
+> [AZURE.NOTE]  Tenere presente che il reparto IT può disabilitare uno o più opzioni elencate in precedenza. In tal caso, è possibile che tali opzioni non siano disponibili durante il processo di registrazione.
 
 Una volta scelto il metodo di verifica, procedere con la registrazione. Utilizzare il collegamento [Esperienza di installazione](multi-factor-authentication-end-user-first-time.md) per iniziare il processo di registrazione.
 
@@ -49,4 +49,4 @@ Argomento|Descrizione
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

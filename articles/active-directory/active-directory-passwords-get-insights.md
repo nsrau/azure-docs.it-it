@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Come ottenere informazioni dettagliate con i report di gestione delle password
@@ -64,7 +64,7 @@ Il report relativo alle attività di registrazione per la reimpostazione delle p
 
 - **Intervallo di tempo massimo**: 1 mese
 - **Numero massimo di righe**: illimitato
-- **Scaricabile**: sì, tramite file con estensione csv
+- **Scaricabile**: Sì, tramite file CSV
 
     ![][002]
 
@@ -89,7 +89,7 @@ Questo report illustra tutti i tentativi di reimpostazione delle password che si
 
 - **Intervallo di tempo massimo**: 1 mese
 - **Numero massimo di righe**: illimitato
-- **Scaricabile**: sì, tramite file con estensione csv
+- **Scaricabile**: Sì, tramite file CSV
 
     ![][003]
 
@@ -108,7 +108,7 @@ La tabella seguente descrive i valori consentiti per ogni colonna:
 
 Colonna|Valori consentiti e relativi significati
 ---|---
-Metodi usati|**Indirizzo di posta elettronica alternativo**: l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi <p>**Telefono ufficio**: l'utente ha usato il telefono dell'ufficio per l'autenticazione<p>**Cellulare**: l'utente ha usato un numero di cellulare per l'autenticazione<p>**Domande di sicurezza**: l'utente ha usato domande di sicurezza per l'autenticazione<p>**Qualsiasi combinazione delle precedenti (ad esempio indirizzo di posta elettronica alternativo + cellulare)**: si verifica quando vengono specificati 2 diversi criteri e indica i metodi usati dall'utente nell'autenticazione per richiedere la reimpostazione della password.
+Metodi usati|**Indirizzo di posta elettronica alternativo** - l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi <p>**Telefono ufficio** – l’utente ha utilizzato il telefono ufficio per autenticarsi<p>**Cellulare** - l’utente ha utilizzato un numero di cellulare per l'autenticazione<p>**Domande di sicurezza** – domande di sicurezza usate dall’utente per l'autenticazione<p>**Qualsiasi combinazione delle precedenti (ad esempio posta elettronica alternativo + cellulare)** – si verifica quando vengono specificati 2 diversi criteri e indica i due metodi utilizzati dall’utente nell'autenticazione per richiedere la reimpostazione della password.
 Risultato|**Operazione abbandonata**: l'utente ha iniziato l'operazione di reimpostazione della password, ma l'ha interrotta senza completarla<p>**Operazione bloccata**: è stato impedito all'account utente di usare la pagina di reimpostazione della password poiché ha tentato troppe volte di usare tale pagina o un singolo criterio di reimpostazione password in 24 ore <p>**Operazione annullata**: l'utente ha avviato la reimpostazione della password, ma ha poi annullato la sessione tramite il pulsante Annulla<p>**È stato contattato l'amministratore**: l'utente ha riscontrato problemi durante la sessione che non è stato in grado di risolvere e ha contattato l'amministratore tramite il collegamento "Contatta l'amministratore" invece di terminare la sessione di reimpostazione della password<p>**Operazione non riuscita**: l'utente non è riuscito a reimpostare la password, probabilmente perché non era configurato per usare tale funzionalità (ad esempio, mancanza di licenza o di informazioni di autenticazione, gestione della password locale ma senza writeback).<p>**Operazione riuscita**: la reimpostazione della password è stata eseguita correttamente.
 Dettagli|Vedere la tabella seguente
 
@@ -171,4 +171,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

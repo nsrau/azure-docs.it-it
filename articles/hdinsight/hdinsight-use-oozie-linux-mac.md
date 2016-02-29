@@ -112,7 +112,7 @@ Usare i passaggi seguenti per creare uno script HiveQL che definisca una query, 
 
 2. Premere CTRL+X per uscire dall'editor. Quando richiesto, selezionare **S** per salvare il file, quindi premere **INVIO** per usare il nome di file **useooziewf.hql**.
 
-3. Usare i comandi seguenti per copiare **useooziewf.hql** in**wasb:///tutorials/useoozie/useooziewf.hql**:
+3. Usare i comandi seguenti per copiare **useooziewf.hql** in **wasb:///tutorials/useoozie/useooziewf.hql**:
 
 		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -201,7 +201,7 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL (XM
 
 La procedura seguente crea il database SQL di Azure in cui saranno esportati i dati.
 
-> [AZURE.IMPORTANT] Prima di eseguire questa procedura, è necessario [installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md). È possibile installare l'interfaccia della riga di comando e seguire la procedura per creare un database dal cluster HDInsight o dalla workstation locale.
+> [AZURE.IMPORTANT] Prima di eseguire questa procedura, è necessario [installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md). È possibile installare l'interfaccia della riga di comando e seguire la procedura per creare un database dal cluster HDInsight o dalla workstation locale.
 
 1. Usare il comando seguente per creare un nuovo server di database SQL di Azure:
 
@@ -721,4 +721,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

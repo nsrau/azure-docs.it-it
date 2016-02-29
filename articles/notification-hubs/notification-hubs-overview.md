@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/11/2016"
 	ms.author="wesmc"/>
 
 
@@ -123,7 +123,7 @@ Per favorire un’esperienza lineare e uniforme nei servizi di Azure, [App per d
 Gli sviluppatori di app per dispositivi mobili possono usare gli hub di notifica con il seguente flusso di lavoro:
 
 1. Recuperare la gestione del dispositivo PNS
-2. Registrare il dispositivo e i [modelli] con gli hub di notifica mediante l'API Register di Mobile Apps Client SDK.
+2. Registrare il dispositivo e i [modelli] con gli hub di notifica mediante il pratico API Register SDK client delle app per dispositivi mobili.
     + Si noti che le app per dispositivi mobili consentono di eliminare tutti i tag nelle registrazioni per motivi di sicurezza. Usare le hub di notifica dal back-end direttamente per associare tag ai dispositivi.
 3. Invio di notifiche dal back-end dell'app con hub di notifica
 
@@ -165,4 +165,4 @@ Di seguito sono riportati i riferimenti pertinenti per l'API gestita .NET relati
   [portale di Azure]: https://portal.azure.com
   [tag]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

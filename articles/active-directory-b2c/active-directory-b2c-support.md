@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/16/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: come inviare richieste di supporto per Azure Active Directory B2C
@@ -23,22 +23,43 @@
 È possibile inviare richieste di supporto per Azure Active Directory (AD) B2C nel portale di Azure seguendo questa procedura:
 
 1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Passare dal tenant B2C in un altro tenant a cui è associata una sottoscrizione di Azure. In genere, questa è il tenant di dipendente o il tenant predefinito creato automaticamente quando è stata effettuata l'iscrizione per una sottoscrizione di Azure. Leggere [questo articolo](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad) per ulteriori informazioni sulla relazione tra le sottoscrizioni di Azure e le directory di Azure AD.
+2. Passare dal tenant B2C in un altro tenant a cui è associata una sottoscrizione di Azure. In genere, questa è il tenant di dipendente o il tenant predefinito creato automaticamente quando è stata effettuata l'iscrizione per una sottoscrizione di Azure. Leggere [questo articolo](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad) per altre informazioni sulla relazione tra le sottoscrizioni di Azure e i tenant di Azure AD.
 
-    ![Supporto - Cambio di directory](./media/active-directory-b2c-support/support-switch-dir.png)
+    ![Supporto - Cambio di tenant](./media/active-directory-b2c-support/support-switch-dir.png)
 
-3. Dopo aver cambiato la directory, fare clic su **Guida + supporto**.
+3. Dopo avere cambiato tenant, fare clic su **Guida e supporto**.
 
-    ![Supporto -Supporto](./media/active-directory-b2c-support/support-support.png)
+    ![Supporto - Guida e supporto](./media/active-directory-b2c-support/support-support.png)
 
-4. Seguire i passaggi descritti in [questo articolo](http://blogs.msdn.com/b/mast/archive/2013/10/24/windows-azure-technical-support-for-msdn-technet-or-mpn-users-and-partners.aspx) per inviare una richiesta di supporto per Azure AD B2C. Utilizzare questi dettagli per completare i passaggi:
+4. Fare clic su **Nuova richiesta di supporto **.
 
-    - Il **Tipo di richiesta** è **Tecnica**.
-	- La **Risorsa** è **Active Directory**.
-	- Nel pannello **Categoria del problema**, selezionare **Anteprima B2C** come **Tipo di problema** e la **Categoria** appropriata.
-	- Nel pannello **Descrizione**, descrivere il problema con i dettagli. Nella casella di testo **Risorse** immettere il nome del tenant B2C, ad esempio contosob2c.onmicrosoft.com.
+    ![Supporto - Nuovo](./media/active-directory-b2c-support/support-new.png)
 
-5. Dopo aver inviato la richiesta di supporto, è possibile monitorarla facendo clic su **Guida + supporto** nella schermata iniziale, quindi su **Gestisci le richieste di supporto**.
+5. Nel pannello **Informazioni di base** usare questi dettagli e fare clic su **Avanti**.
+
+    - Il **Tipo di problema** è **Tecnico**.
+	- Scegliere la **Sottoscrizione** appropriata.
+    - Scegliere **Active Directory** in **Servizio**.
+    - Scegliere il **Piano di supporto** appropriato. Se non si ha un piano di supporto, è possibile iscriversi per ottenerne uno [qui](https://azure.microsoft.com/it-IT/support/plans/).
+
+    ![Supporto - Informazioni di base](./media/active-directory-b2c-support/support-basics.png)
+
+6. Nel pannello **Problema** usare questi dettagli e fare clic su **Avanti**.
+
+    - Scegliere il livello di **Gravità** appropriato.
+    - Il **Tipo di problema** è **B2C: Anteprima**
+    - Scegliere la **Categoria** appropriata.
+	- Descrivere il problema nel campo **Dettagli**. Specificare dettagli quali il nome del tenant B2C, la descrizione del problema, i messaggi di errore, gli ID di correlazione (se disponibili) e così via.
+    - Specificare nel campo **Intervallo di tempo** la data e l'ora, incluso il fuso orario, corrispondenti al momento in cui si è verificato il problema.
+    - Caricare in **Caricamento file** tutte le schermate e tutti i file che potrebbero risultare utili per la risoluzione del problema.
+
+    ![Supporto - Problema](./media/active-directory-b2c-support/support-problem.png)
+
+7. Nel pannello **Contatto** aggiungere le proprie informazioni di contatto. Fare clic su **Crea**. *Nota: durante l'anteprima il supporto per Azure AD B2C è disponibile solo in lingua inglese.*
+
+    ![Supporto - Contatto](./media/active-directory-b2c-support/support-contact.png)
+
+8. Dopo aver inviato la richiesta di supporto, è possibile monitorarla facendo clic su **Guida + supporto** nella schermata iniziale, quindi su **Gestisci le richieste di supporto**.
 
 ## Problema noto: invio di una richiesta di supporto nel contesto di un Tenant B2C
 
@@ -49,4 +70,4 @@ Non tentare di effettuare l'iscrizione per una nuova sottoscrizione di Azure nel
 
 ![Supporto - Nessuna sottoscrizione](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

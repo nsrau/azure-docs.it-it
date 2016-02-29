@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="02/17/2016"
 	ms.author="jgao"/>
 
 # Monitorare i cluster Hadoop in HDInsight tramite l'API Ambari
 
 Informazioni sul monitoraggio di cluster HDInsight versioni 3.1 e 2.1 con API Ambari.
 
-> [AZURE.NOTE]Le informazioni contenute in questo articolo sono relative principalmente ai cluster HDInsight basati su Windows, che forniscono una versione in sola lettura dell’API REST Ambari. Per i cluster basati su Linux, vedere [Gestire i cluster Hadoop tramite Ambari](hdinsight-hadoop-manage-ambari.md).
+> [AZURE.NOTE] Le informazioni contenute in questo articolo sono relative principalmente ai cluster HDInsight basati su Windows, che forniscono una versione in sola lettura dell’API REST Ambari. Per i cluster basati su Linux, vedere [Gestire i cluster Hadoop tramite Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## Informazioni su Ambari
 
@@ -40,19 +40,17 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - (Facoltativo) [cURL][curl]. Per installarlo, vedere la pagina relativa alle [versioni e ai download di cURL][curl-download].
 
-	>[AZURE.NOTE]Quando si usa il comando cURL in Windows, per i valori delle opzioni usare le virgolette doppie invece di quelle singole.
+	>[AZURE.NOTE] Quando si usa il comando cURL in Windows, per i valori delle opzioni usare le virgolette doppie invece di quelle singole.
 
 - **Un cluster HDInsight di Azure**. Per istruzioni sul provisioning dei cluster, vedere [Introduzione a HDInsight][hdinsight-get-started] o [Effettuare il provisioning di cluster HDInsight][hdinsight-provision]. Per completare l'esercitazione sono necessari i dati seguenti:
 
-Proprietà del cluster|Nome variabile di Azure PowerShell|Valore|Descrizione
----|---|---|---
-Nome del cluster HDInsight|$clusterName||Il nome del cluster HDInsight.
-Nome utente cluster|$clusterUsername||Nome utente del cluster specificato al momento del provisioning.
-Password cluster|$clusterPassword||Password dell'utente del cluster.
+    Proprietà del cluster|Nome variabile di Azure PowerShell|Valore|Descrizione
+    ---|---|---|---
+    Nome del cluster HDInsight|$clusterName||Il nome del cluster HDInsight.
+    Nome utente cluster|$clusterUsername||Nome utente del cluster specificato al momento del provisioning.
+    Password cluster|$clusterPassword||Password dell'utente del cluster.
 
-	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
-
-
+    >[AZURE.NOTE] Specificare i valori nella tabella. Questa operazione sarà utile per completare l'esercitazione.
 
 ## Avvio rapido
 
@@ -163,16 +161,16 @@ In questa esercitazione si è appreso come utilizzare le chiamate API Ambari di 
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: powershell-install-configure.md
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-documentation]: /documentation/services/hdinsight/
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

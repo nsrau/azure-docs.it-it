@@ -132,9 +132,9 @@ Nell'esempio precedente otherLinkedServiceName1 e otherLinkedServiceName2 rappre
 È possibile rieseguire una sezione in uno dei modi seguenti:
 
 - Fare clic su **Esegui** sulla barra dei comandi nel pannello **SEZIONE DATI** per la sezione nel portale. 
-- Eseguire il cmdlet **Set-AzureRmDataFactorySliceStatus** con lo stato impostato su **PendingExecution** per la sezione.   
+- Eseguire il cmdlet **Set-AzureRmDataFactorySliceStatus** con lo stato impostato su **Waiting** per la sezione.   
 	
-		Set-AzureRmDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
+		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
 Per informazioni dettagliate sul cmdlet, vedere [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status].
 
@@ -174,4 +174,4 @@ L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste n
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

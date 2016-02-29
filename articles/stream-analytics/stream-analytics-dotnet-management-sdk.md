@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="02/16/2016"
 	ms.author="jeffstok"/>
 
 
@@ -32,7 +32,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 
 - Installare Visual Studio 2012 o 2013.
 - Scaricare e installare [Azure .NET SDK](https://azure.microsoft.com/downloads/).
-- Creare un gruppo di risorse di Azure nella sottoscrizione. Di seguito è riportato un esempio di script di Azure PowerShell: Per ulteriori informazioni su Azure PowerShell , vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).  
+- Creare un gruppo di risorse di Azure nella sottoscrizione. Di seguito è riportato un esempio di script di Azure PowerShell: Per ulteriori informazioni su Azure PowerShell , vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).  
 
 
 		# Log in to your Azure account
@@ -151,7 +151,7 @@ Aggiungere il codice seguente all'inizio del metodo **Main**.
 
 Il valore della variabile **resourceGroupName** deve essere lo stesso del nome del gruppo di risorse creato o selezionato nei passaggi preliminari.
 
-Per automatizzare l'aspetto di presentazione delle credenziali della creazione del processo, fare riferimento a [Autenticazione di un'entità servizio con Gestione risorse di Azure](./articles/resource-group-authenticate-service-principal.md).
+Per automatizzare l'aspetto di presentazione delle credenziali della creazione del processo, fare riferimento a [Autenticazione di un'entità servizio con Gestione risorse di Azure](../resource-group-authenticate-service-principal.md).
 
 Nelle sezioni rimanenti di questo articolo si presuppone che il codice sia all'inizio del metodo **Main**.
 
@@ -361,9 +361,9 @@ Sono state fornite le nozioni di base dell'utilizzo di .NET SDK per creare ed es
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
+[stream.analytics.developer.guide]: stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

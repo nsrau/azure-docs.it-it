@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+	ms.date="02/14/2016" 
 	ms.author="juliako"/>
 
 
@@ -38,8 +38,8 @@ Flusso di lavoro Premium del codificatore multimediale|Consente di eseguire atti
 Azure Media Indexer| Consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati.|[Indicizzazione di file multimediali con Azure Media Indexer](media-services-index-content.md)
 Azure Media Hyperlapse (anteprima)|Consente di ridurre le imperfezioni del video con la stabilizzazione video. Consente inoltre di velocizzare il contenuto in una clip utilizzabile.|		[Azure Media Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
 Storage Decryption| Consente di decrittografare asset di file multimediali crittografati mediante la crittografia di archiviazione.|N/D
-Microsoft Azure Media Packager|Consente di convertire asset di file multimediali dal formato MP4 al formato Smooth Streaming. Consente inoltre di convertire asset di file multimediali dal formato Smooth Streaming al formato Apple HTTP Live Streaming (HLS).|[Stringhe di set di impostazioni di attività per Azure Media Packager](http://msdn.microsoft.com/library/hh973635.aspx)
-Microsoft Azure Media Encryptor|Consente di crittografare asset di file multimediali usando PlayReady Protection.|[Stringhe di set di impostazioni di attività per Azure Media Packager](http://msdn.microsoft.com/library/hh973610.aspx)
+Azure Media Packager|Consente di convertire asset di file multimediali dal formato MP4 al formato Smooth Streaming. Consente inoltre di convertire asset di file multimediali dal formato Smooth Streaming al formato Apple HTTP Live Streaming (HLS).|[Stringhe di set di impostazioni di attività per Azure Media Packager](http://msdn.microsoft.com/library/hh973635.aspx)
+Azure Media Encryptor|Consente di crittografare asset di file multimediali usando PlayReady Protection.|[Stringhe di set di impostazioni di attività per Azure Media Packager](http://msdn.microsoft.com/library/hh973610.aspx)
 
 ##Ottenere un'istanza di MediaProcessor
 
@@ -103,4 +103,4 @@ Dopo avere ottenuto un'istanza del processore multimediale, passare all'argoment
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

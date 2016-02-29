@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creazione di set di dati" 
+	pageTitle="Set di dati in Azure Data Factory | Microsoft Azure" 
 	description="Comprendere i set di dati di Data Factory di Azure e come crearli." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
-# Set di dati
+# Set di dati in Azure Data Factory
 
 ## Descrizione
 Un set di dati è una descrizione logica dei dati. I dati descritti possono variare da semplici byte a dati semistrutturati come i CSV fino alle tabelle relazionali o persino ai modelli. Il meccanismo (indirizzo, protocollo, schema di autenticazione) per accedere ai dati è definito nel servizio collegato e citato nella definizione del set di dati.
@@ -208,4 +208,4 @@ Se è necessario eseguire una pipeline su base mensile a una data e ora specific
 	  }
 	}
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

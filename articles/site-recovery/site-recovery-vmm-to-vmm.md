@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Replicare macchine virtuali Hyper-V (in cloud VMM) in un sito VMM secondario | Microsoft Azure"
-	description="Informazioni su come replicare VM Hyper-V in cloud VMM in un sito VMM secondario con Azure Site Recovery."
+	pageTitle="Eseguire la replica di macchine virtuali Hyper-V in cloud VMM in un sito VMM secondario | Microsoft Azure"
+	description="Questo articolo descrive come eseguire la replica di VM Hyper-V in cloud VMM in un sito VMM secondario con Azure Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="02/17/2016"
 	ms.author="raynew"/>
 
-# Replicare macchine virtuali Hyper-V (in cloud VMM) in un sito VMM secondario
+# Eseguire la replica di macchine virtuali Hyper-V in cloud VMM in un sito VMM secondario
 
 Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una panoramica rapida, vedere [Che cos'è Azure Site Recovery?](site-recovery-overview.md).
 
 ## Panoramica
 
-Questo articolo descrive come distribuire Site Recovery per gestire e automatizzare la protezione per macchine virtuali Hyper-V in esecuzione in cloud privati System Center Virtual Machine Manager (VMM). In questo scenario le macchine virtuali vengono replicate da un sito VMM primario a un sito VMM secondario usando Site Recovery e la replica Hyper-V.
+Questo articolo descrive come eseguire la replica di macchine virtuali Hyper-V in server host Hyper-V gestiti in cloud VMM in un sito VMM secondario tramite Azure Site Recovery.
 
 L'articolo include i prerequisiti, mostra come configurare un insieme di credenziali di Site Recovery, installare il provider di Azure Site Recovery sui server VMM di origine e destinazione, registrare i server nell'insieme di credenziali, configurare le impostazioni di protezione per i cloud VMM e abilitare la protezione per le VM Hyper-V. Terminare con il test del failover, per accertarsi che tutti gli elementi funzionino come previsto.
 
-In caso di domande, è possibile pubblicarle nel [forum relativo ai Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Per inviare commenti o domande, è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Architettura
 
@@ -41,10 +41,10 @@ Assicurarsi che siano rispettati i prerequisiti seguenti:
 **Prerequisiti** | **Dettagli** 
 --- | ---
 **Azzurro**| È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). [Altre informazioni](https://azure.microsoft.com/pricing/details/site-recovery/) sui prezzi di Site Recovery. 
-**VMM** | È necessario almeno un server VMM.<br/><br/>Il server VMM deve essere in esecuzione almeno in System Center 2012 SP1 con gli ultimi aggiornamenti cumulativi.<br/><br/>Se si vuole configurare la protezione con un singolo server VMM saranno necessari almeno due cloud configurati sul server.<br/><br/>Se si vuole distribuire la protezione con due server VMM, è necessario configurare su ogni server almeno un cloud nel server VMM primario da proteggere e un cloud nel server VMM secondario da usare per la protezione e il ripristino<br/><br/>Per tutti i cloud VMM è necessario impostare il set di profili di capacità Hyper-V.<br/><br/>Il cloud di origine da proteggere deve contenere uno o più gruppi host VMM.<br/><br/>Per altre informazioni sulla configurazione dei cloud VMM, vedere [Configurazione dell'infrastruttura cloud VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) e [Procedura dettagliata: creazione di cloud privati con System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
-**Hyper-V** | Sono necessari uno o più server host Hyper-V nei gruppi host VMM primari e secondari e una o più macchine virtuali su ogni server host Hyper-V.<br/><br/>I server host e di destinazione Hyper-V devono essere in esecuzione almeno in Windows Server 2012 con il ruolo Hyper-V e gli aggiornamenti più recenti installati.<br/><br/>Qualsiasi server Hyper-V contenente le VM da proteggere deve trovarsi in un cloud VMM.<br/><br/>Se si esegue Hyper-V in un cluster, si noti che il gestore del cluster non viene creato automaticamente se si ha un cluster basato su indirizzi IP statici. Sarà necessario configurare manualmente il broker del cluster. [Altre informazioni](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).
+**VMM** | È necessario almeno un server VMM.<br/><br/>Il server VMM deve essere in esecuzione almeno in System Center 2012 SP1 con gli ultimi aggiornamenti cumulativi.<br/><br/>Se si vuole configurare la protezione con un singolo server VMM saranno necessari almeno due cloud configurati sul server.<br/><br/>Se si vuole distribuire la protezione con due server VMM, è necessario configurare su ogni server almeno un cloud nel server VMM primario da proteggere e un cloud nel server VMM secondario da usare per la protezione e il ripristino<br/><br/>Per tutti i cloud VMM è necessario impostare il set di profili funzionalità Hyper-V.<br/><br/>Il cloud di origine da proteggere deve contenere uno o più gruppi host VMM.<br/><br/>Per altre informazioni sulla configurazione dei cloud VMM, vedere la [procedura dettagliata per la creazione di cloud privati con System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) nel blog di Keith Mayer.
+**Hyper-V** | Sono necessari uno o più server host Hyper-V nei gruppi host VMM primari e secondari e una o più macchine virtuali su ogni server host Hyper-V.<br/><br/>I server host e di destinazione Hyper-V devono essere in esecuzione almeno in Windows Server 2012 con il ruolo Hyper-V e gli aggiornamenti più recenti installati.<br/><br/>Qualsiasi server Hyper-V contenente le VM da proteggere deve trovarsi in un cloud VMM.<br/><br/>Se si esegue Hyper-V in un cluster, si noti che il gestore del cluster non viene creato automaticamente se si ha un cluster basato su indirizzi IP statici. Sarà necessario configurare manualmente il broker del cluster. [Altre informazioni](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) nel post di blog di Aidan Finn.
 **Mapping di rete** | È possibile configurare il mapping di rete per assicurarsi che le macchine virtuali replicate siano correttamente posizionate su server host Hyper-V secondari dopo il failover e che possano essere connesse a reti VM appropriate. Se non si configura la replica del mapping di rete, le VM non si connetteranno ad alcuna rete dopo il failover.<br/><br/>Per configurare il mapping di rete durante la distribuzione, assicurarsi che le macchine virtuali nel server host Hyper-V di origine siano connesse a una rete VM VMM. È necessario che tale rete sia collegata a una rete logica associata al cloud.<br/<br/>Nel cloud di destinazione nel server VMM secondario usato per il ripristino deve essere configurata una rete VM corrispondente e, a sua volta, deve essere collegata a una rete logica corrispondente associata al cloud di destinazione.<br/><br/>[Altre informazioni](site-recovery-network-mapping.md) sul mapping di rete.
-**Mapping dell'archiviazione** | Per impostazione predefinita, quando si replica una macchina virtuale di un server host Hyper-V di origine in un server host Hyper-V di destinazione, i dati replicati vengono archiviati nel percorso predefinito indicato per l'host Hyper-V di destinazione nella Console di gestione di Hyper-V. Per un maggiore controllo sull'archiviazione dei dati replicati, configurare il mapping di archiviazione<br/><br/>Per configurare il mapping di archiviazione è necessario configurare le classificazioni di archiviazione nei server VMM di origine e di destinazione prima di iniziare la distribuzione. [Altre informazioni](site-recovery-storage-mapping.md)
+**Mapping dell'archiviazione** | Per impostazione predefinita, quando si replica una macchina virtuale di un server host Hyper-V di origine in un server host Hyper-V di destinazione, i dati replicati vengono archiviati nel percorso predefinito indicato per l'host Hyper-V di destinazione nella Console di gestione di Hyper-V. Per un maggiore controllo sull'archiviazione dei dati replicati, configurare il mapping di archiviazione<br/><br/> Per configurare il mapping di archiviazione è necessario configurare le classificazioni di archiviazione nei server VMM di origine e di destinazione prima di iniziare la distribuzione. [Altre informazioni](site-recovery-storage-mapping.md)
 
 
 ## Passaggio 1: creare un insieme di credenziali di Ripristino sito
@@ -137,7 +137,7 @@ Il provider di Azure Site Recovery può essere installato anche dalla riga di co
 
 1. Scaricare il file di installazione del provider e il codice di registrazione in una cartella, ad esempio C:\\ASR.
 2. Arrestare il servizio System Center Virtual Machine Manager.
-3. Estrarre il programma di installazione del provider eseguendo i comandi seguenti al prompt dei comandi con privilegi di **amministratore**:
+3. Estrarre il programma di installazione del provider eseguendo i comandi seguenti dal prompt dei comandi con privilegi di **amministratore**:
 
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
@@ -253,7 +253,7 @@ Dopo la configurazione corretta di server, cloud e reti, sarà possibile abilita
 
 	![Processo di protezione delle macchine virtuali](./media/site-recovery-vmm-to-vmm/vm-jobs.png)
 	
->[AZURE.NOTE] È anche possibile abilitare la protezione per le macchine virtuali nella console VMM. Fare clic su **Attiva protezione** nella barra degli strumenti nella scheda **Azure Site Recovery** nelle proprietà della macchina virtuale.
+>[AZURE.NOTE] È anche possibile abilitare la protezione per le macchine virtuali nella console VMM. Fare clic su **Abilita protezione** nella barra degli strumenti nella scheda **Azure Site Recovery** nelle proprietà della macchina virtuale.
 
 ### Caricare le macchine virtuali esistenti
 
@@ -311,7 +311,7 @@ Eseguire il seguente script di esempio per aggiornare il DNS e specificare l'ind
 
 ## Passaggi successivi
 
-Dopo aver eseguito un failover di test per verificare che l'ambiente funzioni come previsto, leggere [altre informazioni](site-recovery-failover.md) sui diversi tipi di failover.
+Dopo aver eseguito un failover di test per verificare che l'ambiente funzioni come previsto, vedere [altre informazioni](site-recovery-failover.md) sui diversi tipi di failover.
 
 
 ## Informativa sulla privacy per Site Recovery
@@ -375,4 +375,4 @@ Il provider nel server VMM riceve la notifica dell'evento dal Servizio ed esegue
 
 - **Scelta**: questa è una parte essenziale del servizio e non può essere disattivata. Se non si vogliono inviare queste informazioni al Servizio, non usare questo Servizio.
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

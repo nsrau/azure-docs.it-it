@@ -21,17 +21,17 @@ Azure Active Directory deve autenticare tutte le attività da eseguire sulle ris
 2. Creare un oggetto **ResourceManagementClient** che utilizza il token aggiungendo il codice seguente alla fine del metodo **Main**:
 
     ```
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
+    var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
+    client.SubscriptionId = subscriptionId;
     ```
 
 3. Creare o ottenere un riferimento al gruppo di risorse in uso:
 
     ```
-    var rgResponse = client.ResourceGroups.CreateOrUpdateAsync(rgName,
-        new ResourceGroup("East US")).Result;
-    if (rgResponse.StatusCode != HttpStatusCode.Created
-        && rgResponse.StatusCode != HttpStatusCode.OK)
+    var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,
+        new ResourceGroup("East US"));
+    if (rgResponse.Properties.ProvisioningState != "Succeeded")
     {
       Console.WriteLine("Problem creating resource group");
       return;
@@ -40,4 +40,4 @@ Azure Active Directory deve autenticare tutte le attività da eseguire sulle ris
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

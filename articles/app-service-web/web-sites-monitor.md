@@ -18,7 +18,7 @@
 
 #<a name="howtomonitor"></a>Monitorare le app Web nel servizio app di Azure
 
-[App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) offre funzionalità di monitoraggio per piani del servizio app Standard e Premium attraverso la pagina di gestione Monitoraggio. La pagina di gestione Monitoraggio offre statistiche sulle prestazioni di un'app Web, come descritto di seguito.
+Il [servizio app per app Web](http://go.microsoft.com/fwlink/?LinkId=529714) offre funzionalità di monitoraggio per piani del servizio app Standard e Premium attraverso la pagina di gestione Monitoraggio. La pagina di gestione Monitoraggio offre statistiche sulle prestazioni di un'app Web, come descritto di seguito.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -171,7 +171,7 @@ Dopo avere abilitato la diagnostica per un sito Web, fare clic sull'icona **Salv
 
 **Azure PowerShell**
 
-1. Dalla **schermata Start** o dal **menu Start** cercare **Azure PowerShell**. Fare clic con il pulsante destro del mouse su **Azure PowerShell** e scegliere **Esegui come amministratore**.
+1. Nella **schermata Start** o nel **menu Start** cercare **Windows PowerShell**. Fare clic con il pulsante destro del mouse su **Windows PowerShell** e scegliere **Esegui come amministratore**.
 
 	> [AZURE.NOTE] Se **Azure PowerShell** non è installato, vedere l'[introduzione ai cmdlet di Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) per informazioni sull'installazione e la configurazione.
 
@@ -289,4 +289,4 @@ Per ulteriori informazioni sul monitoraggio degli endpoint dell'app Web, vedere 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

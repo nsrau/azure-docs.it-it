@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Replica tra macchine virtuali Hyper-V locali e Azure (senza VMM) con Site Recovery | Microsoft Azure"
-	description="Azure Site Recovery coordina la replica, il failover e il ripristino delle macchine virtuali ubicate nei server Hyper-V locali in Azure."
+	description="Questo articolo descrive come eseguire la replica di macchine virtuali Hyper-V in Azure con Azure Site Recovery quando le macchine non sono gestite in cloud VMM."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,24 +13,27 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/10/2015"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 
 # Replica tra macchine virtuali Hyper-V locali e Azure (senza VMM) con Azure Site Recovery
 
-Azure Site Recovery favorisce la strategia di continuità aziendale e ripristino di emergenza (BCDR) gestendo la replica, il failover e il ripristino delle macchine virtuali e dei server fisici in diversi scenari di distribuzione. [Altre informazioni](site-recovery-overview.md) su Site Recovery.
+Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una panoramica rapida, vedere [Che cos'è Azure Site Recovery?](site-recovery-overview.md).
 
 ## Panoramica
 
-Questo articolo descrive come distribuire Site Recovery per la replica di macchine virtuali Hyper-V quando gli host Hyper-V che eseguono Windows Server 2012 R2 non sono gestiti in un cloud di System Center Virtual Machine Manager (VMM).
+Questo articolo descrive come distribuire Site Recovery per la replica di macchine virtuali Hyper-V quando gli host Hyper-V non sono gestiti in cloud di System Center Virtual Machine Manager (VMM).
 
-Nell'articolo sono riepilogati i prerequisiti di distribuzione, sono forniti consigli per la configurazione delle impostazioni di replica e l’abilitazione della protezione per le macchine virtuali. Si conclude con il test del failover, per accertarsi che tutti gli elementi funzionino come previsto. Nel caso di problemi, inviare domande al [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Nell'articolo sono riepilogati i prerequisiti di distribuzione, sono forniti consigli per la configurazione delle impostazioni di replica e l’abilitazione della protezione per le macchine virtuali. Si conclude con il test del failover, per accertarsi che tutti gli elementi funzionino come previsto.
+
+
+Per inviare commenti o domande, è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Prima di iniziare
 
-Prima di iniziare l'esercitazione, accertarsi che i seguenti prerequisiti siano soddisfatti.
+Prima di iniziare l'esercitazione, accertarsi che i prerequisiti seguenti siano soddisfatti.
 
 ### Prerequisiti di Azure
 
@@ -260,7 +263,7 @@ Per eseguire un failover di test senza specificare una rete di Azure non è nece
 Per eseguire un failover di test con una rete di Azure di destinazione, è necessario creare una nuova rete di Azure isolata dalla rete di Azure di produzione, ovvero il comportamento predefinito quando si crea una nuova rete in Azure. Per altre informazioni dettagliate, vedere [Eseguire un failover di test](site-recovery-failover.md#run-a-test-failover).
 
 
-Per testare completamente la replica e la distribuzione di rete è necessario configurare l'infrastruttura in modo che la macchina virtuale replicata funzioni come previsto. Un modo di procedere consiste nel configurare una macchina virtuale come controller di dominio con DNS ed eseguire la replica in Azure usando Site Recovery per crearla nella rete di test eseguendo un failover di test. [Altre informazioni](site-recovery-active-directory.md#considerations-for-test-failover) e considerazioni sul failover di test per Active Directory.
+Per testare completamente la replica e la distribuzione di rete è necessario configurare l'infrastruttura in modo che la macchina virtuale replicata funzioni come previsto. Un modo di procedere consiste nel configurare una macchina virtuale come controller di dominio con DNS ed eseguirne la replica in Azure usando Site Recovery per crearla nella rete di test eseguendo un failover di test. [Altre informazioni](site-recovery-active-directory.md#considerations-for-test-failover) e considerazioni sul failover di test per Active Directory.
 
 Eseguire il failover di test come descritto di seguito:
 
@@ -274,7 +277,7 @@ Eseguire il failover di test come descritto di seguito:
 5. Al termine del processo di failover, nel portale di Azure sarà possibile visualizzare la replica del test eseguito sulla macchina virtuale. Se è stato impostato l'accesso alle macchine virtuali dalla rete locale, è possibile inizializzare una Connessione Desktop remoto alla macchina virtuale.
 
 	1. Verificare che le macchine virtuali vengano avviate correttamente.
-    2. Per eseguire la connessione alla macchina virtuale in Azure tramite Desktop remoto dopo il failover, abilitare Connessione Desktop remoto sulla macchina virtuale prima di eseguire il failover di test. È necessario anche aggiungere un endpoint RDP nella macchina virtuale. A tale scopo, è possibile utilizzare un [Runbook di Automazione di Azure](site-recovery-runbook-automation.md).
+    2. Per eseguire la connessione alla macchina virtuale in Azure tramite Desktop remoto dopo il failover, abilitare Connessione Desktop remoto sulla macchina virtuale prima di eseguire il failover di test. È necessario anche aggiungere un endpoint RDP nella macchina virtuale. A tale scopo, è possibile usare un [Runbook di Automazione di Azure](site-recovery-runbook-automation.md).
     3. Dopo il failover, se si utilizza un indirizzo IP pubblico per connettersi alla macchina virtuale in Azure tramite Desktop remoto, verificare che non siano definiti criteri di dominio che impediscono la connessione a una macchina virtuale utilizzando un indirizzo pubblico.
 
 6. Al completamento del test, procedere come segue:
@@ -292,4 +295,4 @@ Eseguire il failover di test come descritto di seguito:
 
 Dopo aver configurato correttamente la distribuzione, leggere [altre informazioni](site-recovery-failover.md) sul failover.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

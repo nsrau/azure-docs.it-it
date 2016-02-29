@@ -38,13 +38,13 @@ Durante la configurazione, è necessario specificare un account di archiviazione
 
 >[AZURE.NOTE] Non condividere un contenitore di archiviazione BLOB tra più cluster. Questa operazione non è supportata.
 
-Per altre informazioni sull'uso degli archivi BLOB secondari, vedere [Uso dell'archiviazione BLOB di Azure con HDInsight](hdinsight-use-blob-storage.md).
+Per altre informazioni sull'uso degli archivi BLOB secondari, vedere [Uso dell'archiviazione BLOB di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 ### Metastore
 
 Spark consente di definire schema e Hive tabelle su dati non elaborati. È possibile salvare questi schemi e i metadati della tabella in Metastore esterni. Il metastore consente di conservare i propri metadati Hive, in modo da non dover creare nuovamente tabelle Hive alla creazione di un nuovo cluster. Per impostazione predefinita, Hive usa un database incorporato per l'archiviazione di queste informazioni. Se il cluster viene eliminato, tuttavia, i metadati non vengono mantenuti nel database incorporato.
 
-Per istruzioni su come creare un database SQL in Azure, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md).
+Per istruzioni su come creare un database SQL in Azure, vedere [Creare il primo database SQL di Azure](../sql-database/sql-database-get-started.md).
 
 ### Personalizzazione cluster
 
@@ -106,7 +106,7 @@ I cluster Spark in HDInsight usano un contenitore dell'archivio BLOB di Azure co
 
 	- **Seleziona account di archiviazione / Crea nuovo**: fare clic su **Seleziona account di archiviazione** per cercare e selezionare un account di archiviazione esistente da associare al cluster. In alternativa, fare clic su **Crea nuovo** per creare un nuovo account di archiviazione. Utilizzare il campo che viene visualizzato per immettere il nome dell'account di archiviazione. Se il nome è disponibile, verrà visualizzato un segno di spunta verde.
 
-	- **Scegli contenitore predefinito**: utilizzare questa opzione per immettere il nome del contenitore predefinito da utilizzare per il cluster. È possibile immettere qualsiasi nome, è consigliabile utilizzare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene utilizzato per tale cluster specifico.
+	- **Scegli contenitore predefinito**: utilizzare questa opzione per immettere il nome del contenitore predefinito da utilizzare per il cluster. È possibile immettere qualsiasi nome, è consigliabile usare lo stesso nome del cluster in modo che sia facilmente intuibile che il contenitore viene usato per tale cluster specifico.
 
 	- **Percorso**: l'area geografica dove si trova o dove verrà creato l'account di archiviazione.
 
@@ -242,4 +242,4 @@ Specificare il tipo di cluster Spark:
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Usare Sqoop con HDInsight"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

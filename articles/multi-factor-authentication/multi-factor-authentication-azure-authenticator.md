@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 
@@ -33,7 +33,7 @@ L'app Azure Authenticator appena rilasciata, disponibile per [Windows Phone](htt
 
 Assicurarsi prima di tutto di avere a disposizione il codice QR o il codice e l'URL per l'immissione manuale per l'account da aggiungere all'app.
 
-> [AZURE.NOTE]In caso di dubbi su come ottenere il codice QR, Contattare l'help desk per richiedere assistenza.
+> [AZURE.NOTE] In caso di dubbi su come ottenere il codice QR, Contattare l'help desk per richiedere assistenza.
 > 
 > Se non si riesce ad attivare l'account con la nuova app, Contattare l'help desk.
 >
@@ -164,4 +164,4 @@ In questo modo, ogni volta che viene richiesto di verificare i propri dettagli d
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

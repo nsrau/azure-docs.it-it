@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="micurd"/>
+	ms.author="rmcmurray"/>
 
 # Applicazione locale con archiviazione BLOB
 
@@ -366,4 +366,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
   [Riferimento all'SDK del client di archiviazione di Azure]: http://dl.windowsazure.com/storage/javadoc/
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->
