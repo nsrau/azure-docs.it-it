@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Proteggere SQL Server con il ripristino di emergenza di SQL Server e Azure Site Recovery | Microsoft Azure" 
-	description="Azure Site Recovery coordina la replica, il failover e il ripristino di SQL Server in un sito locale secondario o in Azure." 
+	description="Questo articolo descrive come eseguire la replica di SQL Server tramite le funzionalità di ripristino di emergenza di SQL Server e Azure Site Recovery." 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="rayne-wiselman" 
 	manager="jwhit" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="site-recovery" 
@@ -13,36 +13,34 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="02/14/2016" 
 	ms.author="raynew"/>
 
 
 # Proteggere SQL Server con il ripristino di emergenza di SQL Server e Azure Site Recovery 
 
-Site Recovery è un servizio di Azure che favorisce la strategia di continuità aziendale e ripristino di emergenza (BCDR) gestendo la replica, il failover e il ripristino di macchine virtuali e server fisici. Site Recovery supporta una serie di meccanismi di replica per la protezione, la replica e il failover coerenti delle macchine in Azure o in un centro dati secondario. Per una panoramica di tutti gli scenari di distribuzione, vedere [Panoramica di Azure Site Recovery](site-recovery-overview.md).
 
- In questo articolo viene descritto come proteggere il backend SQL Server di un'applicazione usando una combinazione di Site Recovery e tecnologie di continuità aziendale e ripristino di emergenza (BCDR) di SQL Server. Prima di distribuire gli scenari descritti in questo articolo, è necessario avere una buona conoscenza di Site Recovery e delle funzionalità di continuità aziendale e ripristino di emergenza (BCDR) di SQL Server (clustering di failover, gruppi di disponibilità AlwaysOn, mirroring del database, log shipping).
+Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una panoramica rapida, vedere [Che cos'è Azure Site Recovery?](site-recovery-overview.md).
+
+ Questo articolo descrive come proteggere il back-end SQL Server di un'applicazione usando una combinazione di Azure Site Recovery e tecnologie di continuità aziendale e ripristino di emergenza (BCDR) di SQL Server. Prima di distribuire gli scenari descritti in questo articolo, è necessario avere una buona conoscenza delle funzionalità di ripristino di emergenza (clustering di failover, gruppi di disponibilità AlwaysOn, mirroring del database, log shipping) di SQL Server e di Azure Site Recovery.
 
 
 
 ## Panoramica
 
-Molti carichi di lavoro usano SQL Server come base. Applicazioni come SharePoint, Dynamics e SAP usano SQL Server per implementare i servizi di dati. Le funzionalità di disponibilità elevata e ripristino di emergenza di SQL Server come i gruppi di disponibilità di SQL Server vengono usate per proteggere e recuperare i database di SQL Server. Le applicazioni distribuiscono SQL Server nelle configurazioni seguenti
+Molti carichi di lavoro usano SQL Server come base. Applicazioni come SharePoint, Dynamics e SAP usano SQL Server per implementare i servizi di dati. Le applicazioni distribuiscono SQL Server in diversi modi:
+
+- **SQL Server autonomo**: SQL Server e tutti i database sono ospitati in un singolo computer (fisico o una macchina virtuale). Se è virtualizzato, il clustering dell'host viene usato per la disponibilità elevata. Non viene implementata alcuna disponibilità elevata a livello di guest.
+- **Istanze di clustering di failover di SQL Server (AlwaysOn FCI)**: in questa configurazione due o più nodi di istanze di SQL Server con dischi condivisi vengono configurati in un cluster di failover di Windows. Se una delle istanze cluster non è attiva, il cluster può eseguire il failover di SQL Server in un'altra istanza. Questa configurazione in genere viene usata per la disponibilità elevata in un sito primario. Non protegge da errori o da interruzioni nel livello di archiviazione condivisa. Il disco condiviso può essere implementato con iSCSI, Fibre Channel o VHDX condiviso.
+- **Gruppi di disponibilità AlwaysOn di SQL**: in questa configurazione due nodi vengono configurati in un cluster non condiviso con database di SQL Server configurati in un gruppo di disponibilità con replica sincrona e failover automatico.
+
+Nelle edizioni Enterprise, SQL Server fornisce inoltre tecnologie di ripristino di emergenza native per il ripristino dei database in un sito remoto. In questo articolo si userà e si eseguirà l'integrazione di queste tecnologie di ripristino di emergenza SQL native:
+
+- Gruppi di disponibilità AlwaysOn di SQL per il ripristino di emergenza per SQL Server 2012 o 2014 Enterprise.
+- Mirroring del database SQL in modalità protezione elevata per SQL Server Standard (qualsiasi versione) o per SQL Server 2008 R2.
 
 
-1. SQL Server autonomo: SQL Server e tutti i database sono ospitati in un singolo computer (fisico o una macchina virtuale). Se virtualizzato, il clustering degli host è utilizzato per la disponibilità elevata locale (HA) e non esiste alcun livello guest HA implementato. 
-2.	Istanze di clustering di failover di SQL Server (note anche come Always ON FCI): In questa configurazione, 2 o più nodi di istanze di SQL server con dischi condivisi sono configurati in un Cluster di failover di Windows. Se una delle istanze cluster di failover di SQL non è attiva, il cluster può eseguire il failover di SQL in un'altra istanza. Il programma di installazione viene in genere utilizzato per la disponibilità elevata nel sito primario. Questo non protegge da errori o da interruzioni nel livello di archiviazione condivisa. Il disco condiviso può essere implementato con iSCSI, Fibre Channel o VHDX condiviso.
-3.	Gruppi di disponibilità Always ON di SQL: in questa configurazione, 2 nodi sono configurati in un cluster non condiviso con database SQL configurati in un gruppo di disponibilità con replica sincrona e failover automatico.
-
-SQL Server fornisce inoltre tecnologie di ripristino di emergenza native nelle edizioni Enterprise per il ripristino dei database in un sito remoto. Ove applicabile, verranno sfruttate e integrate le seguenti tecnologie SQL di ripristino di emergenza native per la creazione del piano di ripristino di emergenza basato su Azure Site Recovery
-
-
-1. Gruppo di disponibilità Always On di SQL da Ripristino di emergenza per SQL 2012 o 2014 edizione Enterprise 
-2.	Mirroring del Database SQL in modalità protezione elevata per SQL server standard (qualsiasi versione) o SQL server 2008 R2
-
-
-
-Site Recovery può proteggere un'istanza di SQL Server in esecuzione in una macchina virtuale Hyper-V, una macchina virtuale VMware o un server fisico.
+Site Recovery può proteggere SQL Server, come riepilogato nella tabella.
 
  |**Da sito locale a sito locale** | **Da sito locale ad Azure** 
 ---|---|---
@@ -53,7 +51,7 @@ Site Recovery può proteggere un'istanza di SQL Server in esecuzione in una macc
 
 ## Supporto e integrazione
 
-Di seguito sono elencate le versioni ed edizioni di SQL Server che sono applicabili a questo articolo:
+Queste versioni di SQL Server sono supportate dagli scenari in questo articolo:
 
 
 - SQL Server 2014 Enterprise e Standard
@@ -65,37 +63,37 @@ Site Recovery si integra con le tecnologie di continuità aziendale e ripristino
 
 **Funzionalità** |**Dettagli** | **Versione di SQL Server** 
 ---|---|---
-**Gruppo di disponibilità AlwaysOn** | <p>Più istanze autonome di SQL Server eseguite ognuna in un cluster di failover con più nodi.</p> <p>I database possono essere raggruppati in gruppi di failover che possono essere copiati (con mirroring) in istanze di SQL Server in modo che non sia necessaria alcuna archiviazione condivisa.</p> <p>Fornisce il ripristino di emergenza tra un sito primario e uno o più siti secondari. Due nodi possono essere configurati in un cluster non condiviso con i database di SQL Server configurati in un gruppo di disponibilità con replica sincrona e failover automatico.</p> | Edizione SQL Server 2014/2012 Enterprise
-**Clustering di failover (AlwaysOn FCI)** | <p>SQL Server usa il clustering di failover di Windows per l'elevata disponibilità dei carichi di lavoro SQL Server locali.</p><p>I nodi che eseguono le istanze di SQL Server con dischi condivisi sono configurati in un cluster di failover. Se un'istanza non è attiva, il failover del cluster viene eseguito su un'altra istanza.</p> <p>Il cluster non protegge da errori o interruzioni nell'archiviazione condivisa. Il disco condiviso può essere implementato con iSCSI, Fibre Channel o VHDX condiviso.</p> | Edizioni SQL Server Enterprise</p> <p>SQL Server Standard Edition (limitata a soli due nodi)
-**Mirroring del database (modalità di protezione elevata)** | Protegge un singolo database in una singola copia secondaria. Disponibile nelle modalità di replica a protezione elevata (sincrona) e a prestazione elevata (asincrona). Non richiede un cluster di failover. | <p>SQL Server 2008 R2</p><p>Tutte le edizioni di SQL Server Enterprise</p>
+**Gruppo di disponibilità AlwaysOn** | Ognuna delle istanze autonome multiple di SQL Server viene eseguita in un cluster di failover con più nodi.<br/><br/>I database possono essere raggruppati in gruppi di failover che è possibile copiare (con mirroring) in istanze di SQL Server in modo che non sia necessaria alcuna archiviazione condivisa.<br/><br/>Garantisce il ripristino di emergenza tra un sito primario e uno o più siti secondari. Due nodi possono essere configurati in un cluster non condiviso con i database di SQL Server configurati in un gruppo di disponibilità con replica sincrona e failover automatico. | SQL Server 2014 e 2012 Enterprise
+**Clustering di failover (AlwaysOn FCI)** | SQL Server usa il clustering di failover di Windows per l'elevata disponibilità dei carichi di lavoro SQL Server locali.<br/><br/>I nodi che eseguono le istanze di SQL Server con dischi condivisi sono configurati in un cluster di failover. Se un'istanza non è attiva, il cluster esegue il failover in un'altra istanza.<br/><br/>Il cluster non protegge da errori o interruzioni nell'archiviazione condivisa. Il disco condiviso può essere implementato con iSCSI, fibre channel o VHDX condivisi. | Edizioni SQL Server Enterprise<br/><br/>Edizione SQL Server Standard (limitata a soli due nodi)
+**Mirroring del database (modalità di protezione elevata)** | Protegge un singolo database in una singola copia secondaria. Disponibile nelle modalità di replica a protezione elevata (sincrona) e a prestazione elevata (asincrona). Non richiede un cluster di failover. | SQL Server 2008 R2<br/><br/>Tutte le edizioni di SQL Server Enterprise
 **SQL Server autonomo** | SQL Server e il database si trovano in un singolo server (fisico o virtuale). Il clustering dell'host viene usato per la disponibilità elevata se il server è virtuale. Nessuna disponibilità elevata a livello di guest. | Edizione Enterprise o Standard
 
+## Indicazioni di distribuzione
 
 
-
-Nella tabella seguente vengono riepilogati i suggerimenti per l'integrazione delle tecnologie di continuità aziendale e ripristino di emergenza (BCDR) di SQL Server nella distribuzione di Site Recovery.
+Nella tabella seguente vengono riepilogate le indicazioni per l'integrazione delle tecnologie di continuità aziendale e ripristino di emergenza (BCDR) di SQL Server con Site Recovery.
 
 **Versione** |**Edizione** | **Distribuzione** | **Da locale a locale** | **Da locale ad Azure** 
 ---|---|---|---|---
 SQL Server 2014 o 2012 | Enterprise | Istanza del cluster di failover | Gruppi di disponibilità AlwaysOn | Gruppi di disponibilità AlwaysOn
- | Enterprise | Gruppi di disponibilità AlwaysOn per la disponibilità elevata | Gruppi di disponibilità AlwaysOn | Gruppi di disponibilità AlwaysOn
+| Enterprise | Gruppi di disponibilità AlwaysOn per la disponibilità elevata | Gruppi di disponibilità AlwaysOn | Gruppi di disponibilità AlwaysOn
  | Standard | Istanza del cluster di failover (FCI) | Replica di Site Recovery con mirror locale | Replica di Site Recovery con mirror locale
- | Enterprise o Standard | Autonoma | Replica di Site Recovery | Replica di Site Recovery 
+ | Enterprise o Standard | Autonoma | Replica di Site Recovery | Replica di Site Recovery
 SQL Server 2008 R2 | Enterprise o Standard | Istanza del cluster di failover (FCI) | Replica di Site Recovery con mirror locale | Replica di Site Recovery con mirror locale
  | Enterprise o Standard | Autonoma | Replica di Site Recovery | Replica di Site Recovery
 SQL Server (qualsiasi versione) | Enterprise o Standard | Istanza del cluster di failover: applicazione DTC | Replica di Site Recovery | Non supportato
+
 
 ## Prerequisiti di distribuzione
 
 Di seguito sono riportati i prerequisiti necessari per iniziare:
 
-
 - Una distribuzione di SQL Server locale che esegue una versione supportata di SQL Server. In genere è necessario anche un server Active Directory per il server SQL.
-- Prerequisiti per lo scenario che si vuole distribuire. I prerequisiti sono disponibili in ciascun articolo relativo alla distribuzione. Tali prerequisiti sono elencati e collegati nella [Panoramica su Site Recovery](site-recovery-overview.md).
+- Prerequisiti per lo scenario che si vuole distribuire. I prerequisiti sono disponibili in ciascun articolo relativo alla distribuzione. I collegamenti a questi articoli sono disponibili in [Che cos'è Site Recovery?](site-recovery-overview.md).
 - Se si desidera configurare il ripristino in Azure, è necessario eseguire lo strumento [Azure Virtual Machine Readiness Assessment](http://www.microsoft.com/download/details.aspx?id=40898) nelle macchine virtuali di SQL Server per assicurarsi che siano compatibili con Azure e Site Recovery.
 
 
-## Configurare la protezione di AD
+## Configurare Active Directory
 
 Per fare in modo che SQL Server venga eseguito correttamente, è necessario Active Directory nel sito di ripristino secondario. Sono disponibili due opzioni:
 
@@ -103,74 +101,69 @@ Per fare in modo che SQL Server venga eseguito correttamente, è necessario Acti
 
 - **Media o grande impresa**: se si dispone di un numero elevato di applicazioni, si utilizza un insieme di strutture Active Directory e si vuole eseguire il failover dell'applicazione o del carico di lavoro, è consigliabile configurare un controller di dominio aggiuntivo nel centro dati o in Azure. Se si usano gruppi di disponibilità AlwaysOn per ripristinare un sito remoto è consigliabile configurare un altro controller di dominio aggiuntivo nel sito secondario o in Azure, da utilizzare per l'istanza di SQL Server ripristinata.
 
-Le istruzioni riportate in questo documento presuppongono che un controller di dominio sia disponibile nella posizione secondaria. È possibile fare riferimento alla guida alla soluzione di ripristino di emergenza (DR) di Active Directory (AD) [qui](http://aka.ms/asr-ad).
+Le istruzioni riportate in questo documento presuppongono che un controller di dominio sia disponibile nella posizione secondaria. [Altre informazioni](site-recovery-active-directory.md) sulla protezione di Active Directory con Site Recovery.
 
-## Integrazione con SQL AlwaysOn in Azure
+## Integrare la protezione con SQL Server AlwaysOn (in locale in Azure)
 
-### Da sito locale ad Azure
+### Protezione delle VM Hyper-V in cloud VMM
 
-Azure Site Recovery (ASR) supporta in modo nativo SQL AlwaysOn. Se è stato creato un gruppo di disponibilità SQL con una macchina virtuale di Azure impostato come database 'secondario', è possibile utilizzare ASR per gestire il failover dei gruppi di disponibilità.
+Site Recovery supporta in modo nativo SQL AlwaysOn. Se è stato creato un gruppo di disponibilità SQL con una macchina virtuale di Azure impostata come 'secondaria', è possibile usare Site Recovery per gestire il failover dei gruppi di disponibilità.
 
-Questa funzionalità è attualmente in anteprima ed è disponibile quando il datacenter principale è gestito da System Center Virtual Machine Manager (VMM).
+>[AZURE.NOTE] Questa funzionalità è attualmente in anteprima ed è disponibile quando i server host Hyper-V nel data center principale sono gestiti in cloud VMM.
 
-#### Ambienti gestiti da un server VMM
-Se si passa all'interno di un insieme di credenziali di ASR, si nota una scheda per i server SQL sotto la scheda Elementi protetti.
+#### Prerequisiti
 
-![Elementi protetti](./media/site-recovery-sql/protected-items.png)
+Elementi necessari per integrare SQL AlwaysOn con Site Recovery quando si esegue la replica da VMM:
 
-Di seguito sono riportati i passaggi per integrare SQL AlwaysOn con ASR.
-
-##### Prerequisiti
-- Un server SQL locale nel server autonomo o un cluster di failover 
+- Un'istanza di SQL Server locale (server autonomo o cluster di failover).
 - Una o più macchine virtuali di Azure con SQL Server installato.
-- Impostazione del gruppo di disponibilità di SQL tra server SQL Server locale e server SQL in esecuzione in Azure
-- La comunicazione remota di PowerShell deve essere abilitata sul server SQL locale. Il server VMM deve essere in grado di effettuare chiamate remote di PowerShell a SQL Server
-- Nel server SQL locale è necessario aggiungere un account utente ai gruppi di utenti SQL con almeno le seguenti autorizzazioni
-	- ALTER AVAILABILITY GROUP: [riferimento 1](https://msdn.microsoft.com/library/hh231018.aspx), [riferimento 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE: [riferimento 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
+- Un gruppo di disponibilità di SQL configurato tra un'istanza di SQL Server locale e SQL Server in esecuzione in Azure
+- La comunicazione remota di PowerShell deve essere abilitata nel computer SQL Server locale. Il server VMM deve essere in grado di effettuare chiamate remote di PowerShell a SQL Server.
+- Nell'istanza di SQL Server locale è necessario aggiungere un account utente ai gruppi di utenti SQL con almeno le autorizzazioni seguenti:
+	- ALTER AVAILABILITY GROUP: [qui](https://msdn.microsoft.com/library/hh231018.aspx) e [qui](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE: [qui](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 - È necessario creare un account RunAs nel server VMM per l'account nel passaggio precedente
-- Il modulo SQL PS deve essere installato sui server SQL in esecuzione in locale e sulle macchine virtuali di Azure
-- VM Agent deve essere installato nelle macchine virtuali in esecuzione in Azure
-- NTAUTHORITY\\System deve disporre delle autorizzazioni seguenti in SQL Server in esecuzione su macchine virtuali in Azure
-	- ALTER AVAILABILITY GROUP: [riferimento 1](https://msdn.microsoft.com/library/hh231018.aspx), [riferimento 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE: [riferimento 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
+- Il modulo SQL PS deve essere installato in istanze di SQL Server in esecuzione in locale e nelle macchine virtuali di Azure
+- L'agente VM deve essere installato nelle macchine virtuali in esecuzione in Azure
+- NTAUTHORITY\\System deve disporre delle autorizzazioni seguenti in SQL Server in esecuzione su macchine virtuali in Azure:
+	- ALTER AVAILABILITY GROUP: [qui](https://msdn.microsoft.com/library/hh231018.aspx) e [qui](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE: [qui](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 
-##### 1\. Aggiunta di un server SQL
+####  Passaggio 1: Aggiungere un'istanza di SQL Server
 
-Fare clic su Aggiungi SQL per aggiungere un nuovo server SQL.
 
-![Aggiungi SQL](./media/site-recovery-sql/add-sql.png)
+1. Fare clic su **Aggiungi applicazione SQL** per aggiungere una nuova istanza di SQL Server. 
 
-Fornire dettagli del server SQL, VMM e credenziali da utilizzare per la gestione del server SQL.
+	![Aggiungi SQL](./media/site-recovery-sql/add-sql.png)
 
-![Finestra di dialogo Aggiungi SQL](./media/site-recovery-sql/add-sql-dialog.png)
+2. In **Configura impostazioni SQL** > **Nome** specificare un nome descrittivo che faccia riferimento a SQL Server.
+3. **In SQL Server (nome di dominio completo)** specificare il nome di dominio completo (FQDN) dell'istanza di SQL Server di origine da aggiungere. Nel caso in cui il server SQL sia installato in un cluster di failover, fornire l’FQDN del cluster e non di uno dei nodi del cluster.  
+4. In **Istanza di SQL Server** scegliere l'istanza predefinita o specificare il nome dell'istanza personalizzata.
+5. In **Server VMM** selezionare un server VMM registrato nell'insieme di credenziali di Site Recovery. Site Recovery usa questo server VMM per comunicare con SQL Server.
+6. In **Account RunAs** specificare il nome di un account RunAs creato nel server VMM specificato. Questo account viene usato per accedere a SQL Server e deve avere autorizzazioni di lettura e failover nei gruppi di disponibilità nel computer SQL Server.
 
-###### Parametri
- - Nome: nome descrittivo che si desidera fornire per fare riferimento a questo server SQL
- - Server SQL (FQDN): nome di dominio completo (FQDN) del server SQL di origine che si desidera aggiungere. Nel caso in cui il server SQL sia installato in un cluster di failover, fornire l’FQDN del cluster e non di uno dei nodi del cluster. 
- - Istanza di SQL Server: scegliere l'istanza di SQL predefinita o specificare il nome dell'istanza SQL personalizzata.
- - Server VMM: selezionare uno dei server VMM che è già stato registrato con Azure Site Recovery (ASR). ASR utilizzerà questo server VMM per comunicare con SQL Server
- - ACCOUNT RUNAS: fornire il nome di un account RunAs creato nel server VMM selezionato precedentemente. Questo account RunAs verrà utilizzato per accedere al server SQL e deve disporre di autorizzazioni di lettura e failover nei gruppi di disponibilità nel server SQL. 
+	![Finestra di dialogo Aggiungi SQL](./media/site-recovery-sql/add-sql-dialog.png)
 
-Dopo aver aggiunto il server SQL, esso verrà visualizzato nella scheda Server SQL.
+Dopo aver aggiunto SQL Server, l'istanza verrà visualizzata nella scheda **SQL Server**.
 
 ![Elenco di server SQL](./media/site-recovery-sql/sql-server-list.png)
 
-##### 2\. Aggiunta di un gruppo di disponibilità SQL
 
-Una volta aggiunto il server SQL, il passaggio successivo consiste nell'aggiungere i gruppi di disponibilità ad ASR. A tale scopo, fare clic sui server SQL aggiunti nel passaggio precedente e fare clic su Aggiungi gruppo di disponibilità SQL.
+#### Passaggio 2: Aggiungere un gruppo di disponibilità SQL
 
-![Aggiungi gruppo di disponibilità SQL](./media/site-recovery-sql/add-sqlag.png)
+1. Dopo aver aggiunto il computer SQL Server, il passaggio successivo consiste nell'aggiungere i gruppi di disponibilità a Site Recovery. A tale scopo, fare clic sui server SQL aggiunti nel passaggio precedente e fare clic su Aggiungi gruppo di disponibilità SQL. 
 
-Il gruppo di disponibilità SQL si può replicare in una o più macchine virtuali in Azure. Quando si aggiunge il gruppo di disponibilità sql, è necessario fornire il nome e una sottoscrizione della macchina virtuale di Azure in cui si desidera che venga eseguito il failover da ASR.
+	![Aggiungi gruppo di disponibilità SQL](./media/site-recovery-sql/add-sqlag.png)
 
-![Finestra di dialogo Aggiungi gruppo di disponibilità SQL](./media/site-recovery-sql/add-sqlag-dialog.png)
+2. Il gruppo di disponibilità SQL si può replicare in una o più macchine virtuali in Azure. Quando si aggiunge il gruppo di disponibilità SQL, è necessario specificare il nome e la sottoscrizione della macchina virtuale di Azure in cui si vuole che venga eseguito il failover da Site Recovery.
 
-Nell'esempio precedente Gruppo di disponibilità DB1-AG diventa Primario nella macchina virtuale SQLAGVM2 in esecuzione all'interno della sottoscrizione DevTesting2 in un failover.
+	![Finestra di dialogo Aggiungi gruppo di disponibilità SQL](./media/site-recovery-sql/add-sqlag-dialog.png)
 
->[AZURE.NOTE]Solo i gruppi di disponibilità primari nel server SQL aggiunto nel passaggio precedente sono disponibili per l’aggiunta ad ASR. Se è stato creato un gruppo di disponibilità primario nel server SQL o se sono stati aggiunti ulteriori gruppi di disponibilità al server SQL dopo la sua aggiunta, aggiornarlo utilizzando l'opzione disponibile nel server SQL.
+3. Nell'esempio precedente Gruppo di disponibilità DB1-AG diventa Primario nella macchina virtuale SQLAGVM2 in esecuzione all'interno della sottoscrizione DevTesting2 in un failover.
 
-#### 3\. Creazione di un piano di ripristino
+>[AZURE.NOTE] Solo i gruppi di disponibilità primari nell'istanza di SQL Server aggiunta nel passaggio precedente sono disponibili per l'aggiunta a Site Recovery. Se è stato creato un gruppo di disponibilità primario nel server SQL o se sono stati aggiunti ulteriori gruppi di disponibilità al server SQL dopo la sua aggiunta, aggiornarlo utilizzando l'opzione disponibile nel server SQL.
+
+#### Passaggio 3: Creare un piano di ripristino
 
 Il passaggio successivo consiste nel creare un piano di ripristino utilizzando macchine virtuali e gruppi di disponibilità. Selezionare lo stesso server VMM utilizzato nel passaggio 1 come origine e Microsoft Azure come destinazione.
 
@@ -184,53 +177,37 @@ Nell'esempio l'applicazione di Sharepoint è costituita da 3 macchine virtuali c
 
 ![Personalizzare il piano di ripristino](./media/site-recovery-sql/customize-rp.png)
 
-#### 4\. Failover
+### Passaggio 4: Eseguire il failover
 
 Dopo aver aggiunto un gruppo di disponibilità a un piano di ripristino, sono disponibili diverse opzioni di failover.
 
-##### Failover pianificato
-
-Il failover pianificato implica un failover senza perdita di dati. Per ottenere questo, la modalità di disponibilità del gruppo di disponibilità SQL viene impostata prima su Sincrona e quindi viene attivato un failover per rendere il gruppo di disponibilità primario nella macchina virtuale fornita durante l'aggiunta del gruppo di disponibilità ad ASR. Una volta completato il failover, la modalità di disponibilità viene impostata sullo stesso valore che aveva prima che il failover pianificato venisse attivato.
-
-##### Failover non pianificato
-
-Il failover non pianificato può generare perdite di dati. Durante l’attivazione del failover non pianificato, la modalità di disponibilità del gruppo di disponibilità non viene modificata e il gruppo di disponibilità viene reso primario nella macchina virtuale fornita durante l'aggiunta del gruppo di disponibilità ad ASR. Quando il failover non pianificato è completato e il server locale che esegue SQL Server è nuovamente disponibile, la replica inversa deve essere attivata nel gruppo di disponibilità. Si noti che questa azione non è disponibile nel piano di ripristino e può essere eseguita dal gruppo di disponibilità SQL nella scheda Server SQL
-
-##### Failover di test
-Il failover di test per il gruppo di disponibilità di SQL non è supportato. Se si attiva il failover di test di un piano di ripristino che contiene il gruppo di disponibilità di SQL, il failover viene ignorato per il gruppo di disponibilità.
-
-In alternativa, considerare queste opzioni:
-
-###### Opzione 1
+Failover | Dettagli
+--- | ---
+**Failover pianificato** | Il failover pianificato implica un failover senza perdita di dati. A tale scopo, la modalità di disponibilità del gruppo di disponibilità SQL viene impostata prima su Sincrona e quindi viene attivato un failover per rendere primario il gruppo di disponibilità nella macchina virtuale fornita durante l'aggiunta del gruppo di disponibilità a Site Recovery. Una volta completato il failover, la modalità di disponibilità viene impostata sullo stesso valore che aveva prima che il failover pianificato venisse attivato.
+**Failover non pianificato** | Il failover non pianificato può generare perdite di dati. Durante l'attivazione del failover non pianificato, la modalità Disponibilità del gruppo di disponibilità non viene modificata e il gruppo di disponibilità viene reso primario nella macchina virtuale fornita durante l'aggiunta del gruppo di disponibilità a Site Recovery. Quando il failover non pianificato è completato e il server locale che esegue SQL Server è nuovamente disponibile, la replica inversa deve essere attivata nel gruppo di disponibilità. Si noti che questa azione non è disponibile nel piano di ripristino e può essere eseguita dal gruppo di disponibilità SQL nella scheda Server SQL
+**Failover di test** | Il failover di test per il gruppo di disponibilità di SQL non è supportato. Se si attiva il failover di test di un piano di ripristino che contiene il gruppo di disponibilità di SQL, il failover viene ignorato per il gruppo di disponibilità.
 
 
+Prendere in considerazione queste opzioni di failover.
 
-1. Eseguire un failover di test dei livelli applicazione e front-end.
+Opzione | Dettagli
+--- | ---
+**Opzione 1** | 1\. Eseguire un failover di test dei livelli applicazione e front-end.<br/><br/>2. Aggiornare il livello applicazione per accedere alla copia di replica in modalità sola lettura ed eseguire un test di sola lettura dell'applicazione.
+**Opzione 2** | 1\. Creare una copia dell'istanza della macchina virtuale di SQL Server di replica (usando il clone VMM per il backup da sito a sito o Backup di Azure) e aprirla in una rete di test<br/><br/> 2. Eseguire il failover di test usando il piano di ripristino.
 
-2. Aggiornare il livello applicazione per accedere alla copia di replica in modalità sola lettura ed eseguire un test di sola lettura dell'applicazione.
+Passaggio 5: Eseguire il failback
 
-###### Opzione 2
+Se si vuole rendere nuovamente primario il gruppo di disponibilità nell'istanza locale di Server SQL, attivare il failover pianificato nel piano di ripristino e scegliere la direzione da Microsoft Azure al server VMM locale.
 
-1.	Creare una copia dell'istanza della macchina virtuale di SQL Server di replica (usano il clone VMM per il backup da sito a sito o Azure) e aprirla in una rete di test
-2.	Eseguire il failover di test usando il piano di ripristino.
-
-#### Failback
-
-Se si desidera rendere nuovamente primario il gruppo di disponibilità sul Server SQL locale, è possibile eseguire l’operazione attivando il failover pianificato nel piano di ripristino e scegliendo la direzione da Microsoft Azure al server VMM locale
-
-#### Replica inversa
-
-Dopo un failover non pianificato, è necessario attivare la replica inversa nel gruppo di disponibilità per riprendere la replica. Fino a quando non viene eseguita questa operazione, la replica rimane sospesa.
+>[AZURE.NOTE] Dopo un failover non pianificato, è necessario attivare la replica inversa nel gruppo di disponibilità per riprendere la replica. Fino a quando non viene eseguita questa operazione, la replica rimane sospesa.
 
 
-### Ambienti non gestiti da un server VMM
+
+### Proteggere i computer senza VMM
 
 Per gli ambienti non gestiti da un server VMM, è possibile utilizzare i runbook di automazione di Azure per configurare un failover tramite script dei gruppi di disponibilità SQL. Di seguito sono riportati i passaggi di configurazione per:
 
-
 1.	Creare un file locale per fare in modo che lo script esegua il failover di un gruppo di disponibilità. Questo script di esempio consente di specificare un percorso per il gruppo di disponibilità nella replica di Azure e di eseguire il failover in tale istanza di replica. Questo script viene eseguito nella macchina virtuale di replica di SQL Server con l'estensione di script personalizzato.
-
-
 
     	Param(
     	[string]$SQLAvailabilityGroupPath
@@ -300,9 +277,9 @@ Per gli ambienti non gestiti da un server VMM, è possibile utilizzare i runbook
 
 4.	Quando si crea un piano di ripristino per l'applicazione, aggiungere un passaggio di script "pre-Group 1 boot" che richiami il runbook di automazione per eseguire il failover dei gruppi di disponibilità.
 
-###Da sito locale a sito locale
-Se SQL Server usa gruppi di disponibilità per la disponibilità elevata o un'istanza del cluster di failover, è consigliabile utilizzare gruppi di disponibilità anche nel sito di ripristino. Queste linee guida sono valide per le applicazioni che non usano transazioni distribuite.
+## Integrare la protezione con SQL Server AlwaysOn (da locale a locale)
 
+Se SQL Server usa gruppi di disponibilità per la disponibilità elevata o un'istanza del cluster di failover, è consigliabile utilizzare gruppi di disponibilità anche nel sito di ripristino. Queste linee guida sono valide per le applicazioni che non usano transazioni distribuite.
 
 1. [Configurare i database](https://msdn.microsoft.com/library/hh213078.aspx) in gruppi di disponibilità.
 2. Creare una nuova rete virtuale nel sito secondario.
@@ -312,9 +289,9 @@ Se SQL Server usa gruppi di disponibilità per la disponibilità elevata o un'is
 6. Creare un listener del gruppo di disponibilità o aggiornare il listener esistente per includere la macchina virtuale di replica asincrona.
 7. Assicurarsi che la farm di applicazione sia configurata tramite il listener. Se è configurata tramite il nome del server di database, aggiornarla in modo che utilizzi il listener così che non sia necessario riconfigurarla dopo il failover.
 
-Per le applicazioni che usano transazioni distribuite si consiglia di usare [Site Recovery con la replica SAN](site-recovery-vmm-san.md) o la [replica VMware da sito a sito](site-recovery-vmware-to-vmware.md).
+Per le applicazioni che usano transazioni distribuite si consiglia di usare [Site Recovery con replica SAN](site-recovery-vmm-san.md) o la [replica di server VMware o fisici da sito a sito](site-recovery-vmware-to-vmware.md).
 
-#### Considerazioni sul piano di ripristino
+### Considerazioni sul piano di ripristino
 
 1. Aggiungere questo script di esempio nella libreria VMM nei siti primari e secondari.
 
@@ -328,30 +305,29 @@ Per le applicazioni che usano transazioni distribuite si consiglia di usare [Sit
 
 
 
-## Configurare la protezione per un'istanza di SQL Server autonoma
-
+## Proteggere un'istanza di SQL Server autonoma
 
 In questa configurazione è consigliabile usare la replica di Site Recovery per proteggere il computer SQL Server. La procedura varia a seconda che SQL Server sia configurato come una macchina virtuale o un server fisico e che si voglia eseguire la replica in Azure o in un sito locale secondario. Per istruzioni relative a tutti gli scenari di distribuzione vedere [Panoramica di Site Recovery](site-recovery-overview.md).
 
 
-## Configurare la protezione per il cluster di SQL Server (Standard o 2008 R2)
+## Proteggere un cluster di SQL Server (Standard o 2008 R2)
 
 Per un cluster che esegue l’edizione SQL Server Standard o SQL Server 2008 R2 è consigliabile usare la replica di Site Recovery per proteggere SQL Server.
 
-#### Da sito locale a sito locale
+### Da sito locale a sito locale
 
-- Se l'applicazione usa transazioni distribuite è consigliabile distribuire [Site Recovery con la replica SAN](site-recovery-vmm-san.md) per un ambiente Hyper-V e [VMware a VMware](site-recovery-vmware-to-vmware.md) per gli ambienti VMware.
+- Se l'applicazione usa transazioni distribuite, è consigliabile distribuire [Site Recovery con replica SAN](site-recovery-vmm-san.md) per un ambiente Hyper-V e un [server VMware o fisico a VMware](site-recovery-vmware-to-vmware.md) per gli ambienti VMware.
 
 - Per le applicazioni non DTC, utilizzare l'approccio precedente per ripristinare il cluster come server autonomo utilizzando un mirror del database ad alta protezione locale.
 
-#### Da sito locale ad Azure
+### Da sito locale ad Azure
 
 Site Recovery non fornisce il supporto di cluster guest durante la replica in Azure. Inoltre, SQL Server non fornisce una soluzione di ripristino di emergenza a costo contenuto per l'edizione Standard. È consigliabile proteggere il cluster di SQL Server locale in un SQL Server autonomo e ripristinarlo in Azure.
 
 
 1. Configurare un'istanza di SQL Server autonoma aggiuntiva nel sito locale.
 2. Configurare questa istanza come mirroring per i database che richiedono protezione. Configurare il mirroring in modalità di protezione elevata
-3.	Configurare Site Recovery nel sito locale in base all'ambiente ([Hyper-V](site-recovery-hyper-v-site-to-azure.md) o [VMware](site-recovery-vmware-to-azure.md)).
+3.	Configurare Site Recovery nel sito locale in base all'ambiente ([Hyper-V](site-recovery-hyper-v-site-to-azure.md) o [server VMware o fisico](site-recovery-vmware-to-azure-classic.md)).
 4.	Usare la replica di Site Recovery per eseguire la replica della nuova istanza di SQL Server in Azure. Si tratta di una copia mirror a protezione elevata, per cui verrà sincronizzata con il cluster primario, ma verrà replicata in Azure con la replica di Site Recovery.
 
 Nell'immagine seguente viene illustrata questa configurazione.
@@ -362,6 +338,9 @@ Nell'immagine seguente viene illustrata questa configurazione.
 ### Considerazioni sul failback
 
 Per i cluster SQL standard, il failback dopo un failover non pianificato richiede un backup e ripristino di SQL dall'istanza del mirror al cluster originale e quindi una ridefinizione del mirror.
+
+## Passaggi successivi
+[Altre informazioni](site-recovery-best-practices.md) sulla preparazione alla distribuzione di Site Recovery.
 
 
 
@@ -374,4 +353,4 @@ Per i cluster SQL standard, il failback dopo un failover non pianificato richied
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -6,10 +6,21 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="12/15/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
+<tags
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="02/09/2016"
+   ms.author="jimpark;"/>
 
 # Usare Backup di Azure per sostituire l'infrastruttura basata su nastro
-I clienti di Azure Backup e System Center Data Protection Manager possono: - backup dei dati nelle pianificazioni che sia più adatto alle loro organizzazione - conservare i dati di backup per periodi più lunghi - è necessario rendere Azure necessita di una parte del loro memorizzazione a lungo termine (anziché a nastro).
+I clienti di Backup di Azure e System Center Data Protection Manager possono eseguire le attività seguenti:
+
+- Eseguire il backup dei dati secondo le pianificazioni più adatte alle esigenze dell'organizzazione
+- Mantenere i dati di backup per periodi più lunghi
+- Includere Azure nelle strategie di conservazione dei dati a lungo termine, in alternativa al backup su nastro.
 
 Questo articolo illustra come abilitare i criteri di backup e di conservazione. I clienti che usano i nastri per soddisfare le esigenze di conservazione a lungo termine dispongono ora di un'alternativa efficace e affidabile. Questa funzionalità è abilitata nella versione più recente di Backup di Azure, disponibile [in questa pagina](http://aka.ms/azurebackup_agent). Prima di usare questa funzionalità, i clienti SCDPM dovranno passare a UR5.
 
@@ -60,4 +71,4 @@ Per ulteriori informazioni sul Backup di Azure vedere
 - [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
 - [Valutazione di Backup di Azure](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

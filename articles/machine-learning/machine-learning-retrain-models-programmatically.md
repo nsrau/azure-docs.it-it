@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="02/12/2016"
 	ms.author="raymondl;garye"/>
 
 
@@ -96,6 +96,8 @@ Diagramma 1: panoramica del processo di ripetizione del training
 
 7. *Aggiornare il modello con training dell'endpoint aggiunto* Per completare il processo, è necessario aggiornare il modello con training dell'endpoint predicativo creato nel precedente passaggio 4.
 
+	Se è stato aggiunto il nuovo endpoint tramite il portale di Azure, è possibile fare clic sul nome del nuovo endpoint, quindi sul collegamento UpdateResource per ottenere l'URL necessario per aggiornare il modello dell'endpoint.
+
 	L'output del servizio Esecuzione batch sopra riportato mostra le informazioni relative al risultato della ripetizione del training per "output1", contenente le informazioni sul percorso del modello sottoposto nuovamente a training. A questo punto è necessario aggiornare l'endpoint di assegnazione dei punteggi creato nel precedente passaggio 4. Segue il codice di esempio:
 
 	```C#
@@ -138,7 +140,7 @@ Diagramma 1: panoramica del processo di ripetizione del training
 	}
 	```
 
-	I valori "apiKey" e "endpointUrl" per questa chiamata sono visibili nel dashboard dell'endpoint.
+	I valori "apiKey" e "endpointUrl" per questa chiamata sono visibili nel dashboard dell'endpoint. Il parametro "Name" in Risorse deve corrispondere al nome del modello sottoposto a training e salvato nell'esperimento predittivo.
 
 	Se la chiamata ha esito positivo, il nuovo endpoint verrà avviato entro circa 15 secondi usando un modello sottoposto nuovamente a training.
 
@@ -156,4 +158,4 @@ Mediante le API per la ripetizione del training è possibile aggiornare il model
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

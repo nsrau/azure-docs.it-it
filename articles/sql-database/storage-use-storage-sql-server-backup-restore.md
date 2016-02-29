@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="vm-windows-sql-server"
 	ms.topic="article"
-	ms.date="02/05/2015"
+	ms.date="02/16/2016"
 	ms.author="carlrab"/>
 
 
@@ -72,4 +72,4 @@ Il primo passaggio nel processo consiste nel creare un account Azure. Per una pr
 
 [Procedure consigliate relative al backup e al ripristino (servizio di archiviazione BLOB di Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

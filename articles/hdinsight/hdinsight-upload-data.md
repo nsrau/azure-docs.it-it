@@ -58,7 +58,7 @@ Microsoft fornisce le utilità seguenti da usare con l'archivio BLOB di Azure:
 
 > [AZURE.NOTE] Mentre l'interfaccia della riga di comando di Azure, Azure PowerShell e AzCopy possono tutti essere usati all'esterno di Azure, il comando Hadoop è disponibile solo nei cluster HDInsight e consente solo il caricamento dei dati dal file system locale nell'archivio BLOB di Azure.
 
-###<a id="xplatcli"></a>Interfaccia della riga di comando di Azure
+###<a id="xplatcli">Interfaccia della riga di comando di Azure</a>
 
 L'interfaccia della riga di comando di Azure è uno strumento multipiattaforma che consente di gestire i servizi di Azure. Per caricare dati nell'archivio BLOB di Azure, seguire questa procedura:
 
@@ -96,9 +96,9 @@ L'interfaccia della riga di comando di Azure è uno strumento multipiattaforma c
 
 > [AZURE.NOTE] Se si userà sempre lo stesso account di archiviazione, anziché specificare l'account e la chiave per ogni comando è possibile impostare le variabili di ambiente seguenti:
 >
-> * **AZURE_STORAGE_ACCOUNT**: nome dell'account di archiviazione
+> * **AZURE\_STORAGE\_ACCOUNT**: nome dell'account di archiviazione
 >
-> * **AZURE_STORAGE_ACCESS_KEY**: chiave dell'account di archiviazione
+> * **AZURE\_STORAGE\_ACCESS\_KEY**: chiave dell'account di archiviazione
 
 ###<a id="powershell"></a>Azure PowerShell
 
@@ -263,9 +263,9 @@ Dopo aver appreso come importare dati in HDInsight, leggere gli articoli seguent
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
@@ -284,4 +284,4 @@ Dopo aver appreso come importare dati in HDInsight, leggere gli articoli seguent
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

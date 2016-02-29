@@ -148,15 +148,6 @@ Come alternativa all'infrastruttura PKI, è possibile abilitare Microsoft Passpo
 
 ## Domande frequenti
 
-###Quali prodotti di fornitori MDM di terze parti si integrano con Azure AD?
-
-I prodotti dei fornitori seguenti si integrano con Azure AD per la registrazione unificata e l'accesso condizionale in Windows 10:
-
-- AirWatch di VMware
-- Citrix Xenmobile
-- Lightspeed Mobile Manager
-- MDM locale SOTI
-
 ###Come funziona Aggiunta all'area di lavoro in Windows 10?
 Aggiunta all'area di lavoro in Windows 8.1 viene usato per abilitare BYOD. In Windows 10 BYOD viene abilitato dall'aggiunta di un account aziendale, come spiegato prima in questo documento. Per le organizzazioni che non integrano la gestione di dispositivi mobili con Azure AD, gli utenti possono registrare il dispositivo nella gestione manualmente con **Impostazioni** > **Account** > **Accesso società**.
 
@@ -173,4 +164,4 @@ L'account Microsoft connesso degli utenti che eseguono l'aggiornamento da dispos
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/17/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Ripristinare un database dall’errore dell’utente in SQL Data Warehouse
@@ -25,8 +25,10 @@ SQL Data Warehouse offre due funzionalità principali per il ripristino dall’e
 
 Entrambe queste funzionalità eseguono il ripristino in un nuovo database nello stesso server.
 
+Il ripristino di un database SQL Data Warehouse è supportato da due API differenti: Azure PowerShell e API REST. È possibile usare indifferentemente l'una o l'altra per accedere alla funzionalità di ripristino di SQL Data Warehouse.
+
 ## Ripristinare un database attivo
-Se l’errore dell'utente causa la modifica dei dati non intenzionale, è possibile ripristinare il database a uno dei punti di ripristino entro il periodo di conservazione. Gli snapshot del database per un database attivo si verificano ogni 8 ore e vengono conservati per 7 giorni.
+Se l’errore dell'utente causa la modifica dei dati non intenzionale, è possibile ripristinare il database a uno dei punti di ripristino entro il periodo di conservazione. Gli snapshot del database per un database attivo si verificano almeno ogni 8 ore e vengono conservati per 7 giorni.
 
 ### PowerShell
 
@@ -136,4 +138,4 @@ Per ulteriori informazioni sulle funzionalità di continuità aziendale di altre
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

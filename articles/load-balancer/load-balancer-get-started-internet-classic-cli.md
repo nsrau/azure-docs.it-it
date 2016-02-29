@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/06/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nell’interfaccia della riga di comando di Azure
@@ -130,7 +130,7 @@ L'output sarà:
 	azure vm endpoint delete web1 tcp-80-80
 
 
->[AZURE.NOTE]È possibile esplorare più opzioni per gestire gli endpoint utilizzando il comando `azure vm endpoint --help`
+>[AZURE.NOTE] È possibile esplorare più opzioni per gestire gli endpoint utilizzando il comando `azure vm endpoint --help`
 
 
 ## Passaggi successivi
@@ -143,4 +143,4 @@ L'output sarà:
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

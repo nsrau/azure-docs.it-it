@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/28/2016"
 	ms.author="jgao"/>
 
 
@@ -26,20 +26,19 @@ In Hadoop è disponibile un'API di flusso per MapReduce che consente di scrivere
 
 ![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
-> [AZURE.NOTE]La procedura descritta in questo articolo è valida solo per i cluster Azure HDInsight basati su Windows. Per un esempio di flusso per cluster HDInsight basati su Linux, vedere [Sviluppare programmi per la creazione di flussi Python per HDInsight](hdinsight-hadoop-streaming-python.md).
+> [AZURE.NOTE] La procedura descritta in questo articolo è valida solo per i cluster Azure HDInsight basati su Windows. Per un esempio di flusso per cluster HDInsight basati su Linux, vedere [Sviluppare programmi per la creazione di flussi Python per HDInsight](hdinsight-hadoop-streaming-python.md).
 
 Questa esercitazione illustra come:
 
-- Sviluppare e testare un programma MapReduce per la creazione di flussi Hadoop con C# in HDInsight Emulator per Azure
-- Eseguire lo stesso processo MapReduce in Azure HDInsight
+- Sviluppare programmi MapReduce per la creazione di flussi Hadoop mediante C# 
+- Eseguire il processo MapReduce in Azure HDInsight
 - Recuperare i risultati del processo MapReduce
 
-##Prerequisiti
+###Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario eseguire le operazioni seguenti:
 
-- Installare HDInsight Emulator. Per istruzioni, vedere [Introduzione a HDInsight Emulator][hdinsight-get-started-emulator].
-- Installare Azure PowerShell nel computer dell'emulatore. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][powershell-install].
+- Una workstation con [Azure PowerShell][powershell-install] e [Microsoft Visual Studio](https://www.visualstudio.com/).
 - Ottenere una sottoscrizione di Azure. Per istruzioni, vedere [Opzioni di acquisto][azure-purchase-options], [Offerte per i membri][azure-member-offers] oppure [Versione di valutazione gratuita][azure-free-trial].
 
 
@@ -47,246 +46,92 @@ Prima di iniziare questa esercitazione, è necessario eseguire le operazioni seg
 
 La soluzione per il conteggio delle parole include due progetti di applicazione console: l'applicazione per il mapping (mapper) e quella per la riduzione (reducer). L'applicazione mapper trasmette in flusso ogni parola nella console e l'applicazione reducer conta il numero di parole trasmesse in flusso da un documento. Sia mapper sia reducer leggono i caratteri, riga per riga, dal flusso di input standard (stdin) e scrivono nel flusso di output standard (stdout).
 
-**Per creare un'applicazione console in C#**
-
-1. Aprire Visual Studio 2013.
-2. Fare clic su **FILE**, **Nuovo** e quindi su **Progetto**.
-3. Digitare o selezionare i valori seguenti:
-
-
-Campo|Valore
----|---
-Modello|Visual C#/Windows/Console Application
-Nome|WordCountMapper
-Percorso|C:\\Tutorials
-Nome soluzione|WordCount
-
-
-4. Fare clic su **OK** per creare il progetto.
-
 **Per creare il programma mapper**
 
-5. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Program.cs** e quindi scegliere **Rinomina**.
-6. Rinominare il file in **WordCountMapper.cs** e quindi premere **INVIO**.
-7. Fare clic su **Sì** per confermare l'assegnazione del nuovo nome a tutti i riferimenti.
-8. Fare doppio clic su **WordCountMapper.cs** per aprirlo.
-9. Aggiungere l'istruzione **using** seguente:
+1. Aprire Visual Studio e creare un'applicazione console C# denominata **WordCountMapper**.
+2. In Esplora soluzioni rinominare **Program.cs** in **WordCountMapper.cs**. Fare clic su **Sì** per confermare l'assegnazione del nuovo nome a tutti i riferimenti.
+3. Sostituire il codice in WordCountMapper.cs con quanto segue:
 
-		using System.IO;
+        using System;
+        using System.IO;
 
-10. Sostituire la funzione **Main()** con il codice seguente:
+        namespace WordCountMapper
+        {
+            class WordCountMapper
+            {
+                static void Main(string[] args)
+                {
+                    if (args.Length > 0)
+                    {
+                        Console.SetIn(new StreamReader(args[0]));
+                    }
 
-		static void Main(string[] args)
-		{
-		    if (args.Length > 0)
-		    {
-		        Console.SetIn(new StreamReader(args[0]));
-		    }
+                    string line;
+                    string[] words;
 
-		    string line;
-		    string[] words;
+                    while ((line = Console.ReadLine()) != null)
+                    {
+                        words = line.Split(' ');
 
-		    while ((line = Console.ReadLine()) != null)
-		    {
-		        words = line.Split(' ');
+                        foreach (string word in words)
+                            Console.WriteLine(word.ToLower());
+                    }
+                }
+            }
+        }
 
-		        foreach (string word in words)
-		            Console.WriteLine(word.ToLower());
-		    }
-		}
-
-11. Fare clic su **COMPILA** e quindi su **Compila soluzione** per compilare il mapper.
-
+4. Compilare la soluzione e verificare che non siano presenti errori di compilazione.
 
 **Per creare il programma reducer**
 
-1. In Visual Studio 2013 fare clic su **FILE**, quindi su **Aggiungi** e infine su **Nuovo progetto**.
-2. Digitare o selezionare i valori seguenti:
+1. Aggiungere un'altra applicazione console C# alla soluzione denominata **WordCountReducer**". Percorso|C:\\Tutorials\\WordCount
+2. In Esplora soluzioni rinominare **Program.cs** in **WordCountReducer.cs**. Fare clic su **Sì** per confermare l'assegnazione del nuovo nome a tutti i riferimenti.
+3. Sostituire il codice in WordCountReducer.cs con quanto segue:
+
+        using System;
+        using System.IO;
+
+        namespace WordCountReducer
+        {
+            class WordCountReducer
+            {
+                static void Main(string[] args)
+                {
+                    string word, lastWord = null;
+                    int count = 0;
+
+                    if (args.Length > 0)
+                    {
+                        Console.SetIn(new StreamReader(args[0]));
+                    }
+
+                    while ((word = Console.ReadLine()) != null)
+                    {
+                        if (word != lastWord)
+                        {
+                            if (lastWord != null)
+                                Console.WriteLine("{0}[{1}]", lastWord, count);
+
+                            count = 1;
+                            lastWord = word;
+                        }
+                        else
+                        {
+                            count += 1;
+                        }
+                    }
+                    Console.WriteLine(count);
+                }
+            }
+        }
+
+4. Compilare la soluzione e verificare che non siano presenti errori di compilazione.
+
+Si otterranno i file eseguibili dei programmi di mapping e riduzione.
+
+- ..\\WordCountMapper\\bin\\Debug\\WordCountMapper.exe
+- ..\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
 
-Campo|Valore
----|---
-Modello|Visual C#/Windows/Console Application
-Nome|WordCountReducer
-Percorso|C:\\Tutorials\\WordCount
-
-3. Deselezionare la casella di controllo **Crea directory per soluzione** e quindi fare clic su **OK** per creare il progetto.
-4. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Program.cs** e quindi scegliere **Rinomina**.
-5. Rinominare il file in **WordCountReducer.cs** e quindi premere **INVIO**.
-7. Fare clic su **Sì** per confermare l'assegnazione del nuovo nome a tutti i riferimenti.
-8. Fare doppio clic su **WordCountReducer.cs** per aprirlo.
-9. Aggiungere l'istruzione **using** seguente:
-
-		using System.IO;
-
-10. Sostituire la funzione **Main()** con il codice seguente:
-
-		static void Main(string[] args)
-		{
-		    string word, lastWord = null;
-		    int count = 0;
-
-		    if (args.Length > 0)
-		    {
-		        Console.SetIn(new StreamReader(args[0]));
-		    }
-
-		    while ((word = Console.ReadLine()) != null)
-		    {
-		        if (word != lastWord)
-		        {
-		            if(lastWord != null)
-		                Console.WriteLine("{0}[{1}]", lastWord, count);
-
-		            count = 1;
-		            lastWord = word;
-		        }
-		        else
-		        {
-		            count += 1;
-		        }
-		    }
-		    Console.WriteLine(count);
-		}
-
-11. Fare clic su **COMPILA** e quindi su **Compila soluzione** per compilare il programma reducer.
-
-I file eseguibili di mapper e reducer si trovano nei percorsi seguenti:
-
-- C:\\Tutorials\\WordCount\\WordCountMapper\\bin\\Debug\\WordCountMapper.exe
-- C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
-
-
-##Test del programma sull'emulatore
-
-Eseguire le operazioni seguenti per testare il programma in HDInsight Emulator:
-
-1. Caricare i dati nel file system dell'emulatore
-2. Caricare le applicazioni mapper e reducer nel file system dell'emulatore
-3. Inviare un processo MapReduce per il conteggio delle parole
-4. Verificare lo stato del processo
-5. Recuperare i risultati del processo
-
-Per impostazione predefinita, HDInsight Emulator usa HDFS (Hadoop Distributed File System) come file system. Se si desidera, è possibile configurare HDInsight Emulator per l'uso dell'archivio BLOB di Azure. Per informazioni dettagliate, vedere [Introduzione a HDInsight Emulator][hdinsight-emulator-wasb]. In questa sezione verrà usato il comando **copyFromLocal** di HDFS per il caricamento dei file. Nella sezione successiva viene illustrato come caricare i file usando Azure PowerShell. Per informazioni sugli altri metodi disponibili, vedere [Caricare dati in HDInsight][hdinsight-upload-data].
-
-In questa esercitazione viene utilizzata la struttura di cartelle seguente:
-
-Cartella|Nota
----|---
-\\WordCount|Cartella radice per il progetto per il conteggio delle parole.
-\\WordCount\\Apps|Cartella per i file eseguibili dei programmi di mapping e di riduzione.
-\\WordCount\\Input|Cartella di file di origine di MapReduce.
-\\WordCount\\Output|Cartella di file di output di MapReduce.
-\\WordCount\\MRStatusOutput|Cartella di output del processo.
-
-
-In questa esercitazione vengono utilizzati i file con estensione txt disponibili nella directory %hadoop\_home%.
-
-> [AZURE.NOTE]I comandi HDFS di Hadoop rispettano la distinzione tra maiuscole e minuscole.
-
-**Per copiare i file di testo nel file system dell'emulatore**
-
-1. Nella finestra della riga di comando di Hadoop eseguire il comando seguente per creare una directory per i file di input:
-
-		hadoop fs -mkdir /WordCount/
-		hadoop fs -mkdir /WordCount/Input
-
-	Viene usato il percorso relativo, che equivale al percorso seguente:
-
-		hadoop fs -mkdir hdfs://localhost:8020/WordCount/Input
-
-2. Eseguire il comando seguente per copiare alcuni file di testo nella cartella di input in HDFS:
-
-		hadoop fs -copyFromLocal %hadoop_home%\share\doc\hadoop\common*.txt \WordCount\Input
-
-3. Eseguire il comando seguente per ottenere un elenco dei file caricati:
-
-		hadoop fs -ls \WordCount\Input
-
-
-
-
-**Per distribuire mapper e reducer nel file system dell'emulatore**
-
-1. Aprire la riga di comando di Hadoop dal desktop e creare la cartella /Apps in HDFS:
-
-		hadoop fs -mkdir /WordCount/Apps
-
-2. Eseguire i comandi seguenti:
-
-		hadoop fs -copyFromLocal C:\Tutorials\WordCount\WordCountMapper\bin\Debug\WordCountMapper.exe /WordCount/Apps/WordCountMapper.exe
-		hadoop fs -copyFromLocal C:\Tutorials\WordCount\WordCountReducer\bin\Debug\WordCountReducer.exe /WordCount/Apps/WordCountReducer.exe
-
-3. Eseguire il comando seguente per ottenere un elenco dei file caricati:
-
-		hadoop fs -ls /WordCount/Apps
-
-	Verranno visualizzati due file con estensione exe.
-
-
-**Per eseguire il processo MapReduce tramite Azure PowerShell**
-
-1. Aprire Azure PowerShell. Per istruzioni, vedere [Come installare e configurare Azure PowerShell][powershell-install].
-3. Per impostare le variabili, eseguire i comandi seguenti.
-
-		$clusterName = "http://localhost:50111"
-
-		$mrMapper = "WordCountMapper.exe"
-		$mrReducer = "WordCountReducer.exe"
-		$mrMapperFile = "/WordCount/Apps/WordCountMapper.exe"
-		$mrReducerFile = "/WordCount/Apps/WordCountReducer.exe"
-		$mrInput = "/WordCount/Input/"
-		$mrOutput = "/WordCount/Output"
-		$mrStatusOutput = "/WordCount/MRStatusOutput"
-
-	Il nome del cluster di HDInsight Emulator è "http://localhost:50111".
-
-4. Eseguire i comandi seguenti per definire il processo di streaming:
-
-		$mrJobDef = New-AzureHDInsightStreamingMapReduceJobDefinition -JobName mrWordCountStreamingJob -StatusFolder $mrStatusOutput -Mapper $mrMapper -Reducer $mrReducer -InputPath $mrInput -OutputPath $mrOutput
-		$mrJobDef.Files.Add($mrMapperFile)
-		$mrJobDef.Files.Add($mrReducerFile)
-
-5. Eseguire il comando seguente per creare un oggetto Credential:
-
-		$creds = Get-Credential -Message "Enter password" -UserName "hadoop"
-
-	Verrà richiesta l'immissione della password. Per la password è possibile usare qualsiasi stringa. Il nome utente deve essere "hadoop".
-
-6. Eseguire i comandi seguenti per inviare il processo MapReduce e attendere il completamento del processo:
-
-		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -Credential $creds -JobDefinition $mrJobDef
-		Wait-AzureHDInsightJob -Credential $creds -job $mrJob -WaitTimeoutInSeconds 3600
-
-	Al termine del processo, si otterrà un output analogo al seguente:
-
-		StatusDirectory : /WordCount/MRStatusOutput
-		ExitCode        :
-		Name            : mrWordCountStreamingJob
-		Query           :
-		State           : Completed
-		SubmissionTime  : 11/15/2013 7:18:16 PM
-		Cluster         : http://localhost:50111
-		PercentComplete : map 100%  reduce 100%
-		JobId           : job_201311132317_0034
-
-	È possibile vedere l'ID processo nell'output, ad esempio, *job-201311132317-0034*.
-
-**Per verificare lo stato del processo**
-
-1. Sul desktop fare clic su **Hadoop YARN Status** oppure passare a ****http://localhost:50030/jobtracker.jsp**.
-2. Trovare il processo usando l'ID processo nella categoria **RUNNING** o **FINISHED**.
-3. Se un processo ha avuto esito negativo, sarà possibile trovarlo nella categoria **FAILED**. Sarà anche possibile visualizzare i dettagli relativi al processo e trovare informazioni utili per il debug.
-
-
-**Per visualizzare l'output da HDFS**
-
-1. Aprire la riga di comando di Hadoop.
-2. Eseguire il comando seguente per visualizzare l'output:
-
-		hadoop fs -ls /WordCount/Output/
-		hadoop fs -cat /WordCount/Output/part-00000
-
-	È possibile aggiungere "|more" alla fine del comando per ottenere la visualizzazione della pagina
 
 ##Caricare dati nell'archivio BLOB di Azure
 Azure HDInsight utilizza l'archivio BLOB di Azure come file system predefinito. È possibile configurare un cluster HDInsight per l'utilizzo di archiviazione BLOB aggiuntiva per i file di dati. In questa sezione verrà creato un account di archiviazione di Azure e i file di dati verranno caricati nell'archivio BLOB. I file di dati sono file con estensione txt disponibili nella directory %hadoop\_home%\\share\\doc\\hadoop\\common.
@@ -377,7 +222,7 @@ Azure HDInsight utilizza l'archivio BLOB di Azure come file system predefinito. 
 	Verranno elencati entrambi i file dell'applicazione.
 
 
-##Esecuzione del processo MapReduce in Azure HDInsight
+##Eseguire il processo MapReduce in Azure HDInsight
 
 Questa sezione fornisce uno script di Azure PowerShell che esegue tutte le attività correlate all'esecuzione di un processo MapReduce. L'elenco di attività include:
 
@@ -523,7 +368,7 @@ In questa sezione viene illustrato come scaricare e visualizzare l'output. Per i
 ##Passaggi successivi
 In questa esercitazione si è appreso come sviluppare un processo MapReduce di creazione di flussi Hadoop, come testare l'applicazione in HDInsight Emulator e come scrivere uno script di Azure PowerShell per effettuare il provisioning di un cluster HDInsight ed eseguire un processo MapReduce nel cluster. Per altre informazioni, vedere gli articoli seguenti:
 
-- [Introduzione ad Azure HDInsight](../hdinsight-get-started.md)
+- [Introduzione ad Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Introduzione a HDInsight Emulator][hdinsight-get-started-emulator]
 - [Sviluppare programmi MapReduce Java per HDInsight][hdinsight-develop-mapreduce]
 - [Usare l'archivio BLOB di Azure con HDInsight][hdinsight-storage]
@@ -542,7 +387,7 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce di c
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
 [hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator.md#blobstorage
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -555,4 +400,4 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce di c
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "Flusso dell'applicazione per il conteggio di parole MapReduce"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -18,9 +18,14 @@
 
 # Spostare dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure
 
-Questo articolo illustra come usare l'attività di copia in una data factory per spostare dati in Azure SQL Data Warehouse da un altro archivio dati e spostare dati da un altro archivio dati a SQL Azure. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare dati da Azure SQL Data Warehouse in un altro archivio dati e viceversa. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia nonché delle origini dati e dei sink supportati per SQL Data Warehouse.
 
-Gli esempi seguenti mostrano come copiare dati da e in Azure SQL Data Warehouse e nell'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores) usando l'attività di copia in Data factory di Azure.
+Gli esempi seguenti mostrano come copiare dati da e in Azure SQL Data Warehouse e nell'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in uno qualsiasi dei sink indicati nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md#supported-data-stores), usando l'attività di copia in Azure Data Factory.
+
+> [AZURE.NOTE] 
+Per una panoramica del servizio Azure Data Factory, vedere [Introduzione al servizio Azure Data Factory](data-factory-introduction.md).
+> 
+> Questo articolo fornisce esempi JSON, ma non include istruzioni dettagliate per la creazione di una data factory. Per una procedura con istruzioni dettagliate sull'uso dell'attività di copia in Azure Data Factory, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in database SQL di Azure](data-factory-get-started.md).
 
 
 ## Esempio: Copiare i dati da Azure SQL Data Warehouse al BLOB di Azure
@@ -526,4 +531,4 @@ Il mapping è uguale al [mapping del tipo di dati di SQL Server per ADO.NET](htt
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

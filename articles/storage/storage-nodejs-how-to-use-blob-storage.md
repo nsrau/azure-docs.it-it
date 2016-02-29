@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/17/2016"
 	ms.author="micurd"/>
 
 
@@ -32,7 +32,7 @@ Questo articolo illustra scenari comuni relativi all'uso dell'archiviazione BLOB
 
 ## Creare un'applicazione Node.js
 
-Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure], [di un'applicazione Node.js in un servizio cloud ][Node.js Cloud Service] (con Windows PowerShell) o [di un'app Web con WebMatrix].
+Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare un'app Web Node.js nel servizio app di Azure], [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure] (con Windows PowerShell) o [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix].
 
 ## Configurare l'applicazione per l'accesso all'archiviazione
 
@@ -67,7 +67,7 @@ Usando il Blocco note o un altro editor di testo, aggiungere quanto segue alla p
 
 Il modulo di Azure leggerà le variabili di ambiente `AZURE_STORAGE_ACCOUNT` e `AZURE_STORAGE_ACCESS_KEY` o `AZURE_STORAGE_CONNECTION_STRING` per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **createBlobService**.
 
-Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure](https://portal.azure.com) per un'app Web di Azure, vedere [App Web Node.js con archiviazione]
+Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure](https://portal.azure.com) per un'app Web di Azure, vedere [App Web Node.js con il servizio tabelle di Azure].
 
 ## Creare un contenitore
 
@@ -136,7 +136,7 @@ Sono inclusi due filtri che implementano la logica di ripetizione dei tentativi 
 
 ## Caricare un BLOB in un contenitore
 
-Un BLOB può essere basato su blocchi o su pagine. I BLOB in blocchi consentono di caricare dati di grandi dimensioni in modo più efficiente, mentre i BLOB di pagine sono ottimizzati per le operazioni in lettura e scrittura. Per altre informazioni, vedere [Informazioni sui Blob in blocchi e sui Blob di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Un BLOB può essere basato su blocchi o su pagine. I BLOB in blocchi consentono di caricare dati di grandi dimensioni in modo più efficiente, mentre i BLOB di pagine sono ottimizzati per le operazioni in lettura e scrittura. Per altre informazioni, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ### BLOB in blocchi
 
@@ -364,17 +364,18 @@ Per altre informazioni, vedere le risorse seguenti:
 -   [Blog del team di Archiviazione di Azure][]
 -   Repository [Azure Storage SDK for Node][] su GitHub
 -   [Centro per sviluppatori di Node. js](/develop/nodejs/)
--   [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
+-   [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-[Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
-[Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-[App Web Node.js con archiviazione]: ../storage-nodejs-use-table-storage-web-site.md
-[di un'app Web con WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+
+[Creare un'app Web Node.js nel servizio app di Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[App Web Node.js con il servizio tabelle di Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
+[Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure Portal]: portal.azure.com
-[Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
+[Azure Portal]: https://portal.azure.com
+[Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Riferimento per le API di Azure Storage SDK per Node.js]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

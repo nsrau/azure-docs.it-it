@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/17/2016"
 	ms.author="micurd"/>
 
 
@@ -28,9 +28,9 @@ Questo argomento illustra come eseguire scenari comuni usando il servizio tabell
 
 Negli esempi di codice illustrati in questo argomento si suppone che sia già stata ottenuta un'applicazione Node.js. Per informazioni su come creare un'applicazione Node.js in Azure, vedere uno qualsiasi degli argomenti seguenti:
 
-- [Creare e distribuire un sito Web Node.js in Azure](Creare e distribuire un'applicazione Node.js in un sito Web di Azure)
-- [Creare e distribuire un sito Web Node.js in Azure con WebMatrix](Creare e distribuire un'applicazione Node.js con WebMatrix)
-- [Creare e distribuire un'applicazione Node.js in un servizio cloud di Azure](Servizio cloud Node.js) (usando Windows PowerShell)
+- [Creare un'app Web Node.js nel servizio app di Azure](../app-service-web/web-sites-nodejs-develop-deploy-mac.md)
+- [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
+- [Creare e distribuire un'applicazione Node.js in un servizio cloud di Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (usando Windows PowerShell)
 
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -71,7 +71,7 @@ Aggiungere il codice seguente all'inizio del file **server.js** nell'applicazion
 
 Il modulo di Azure leggerà le variabili di ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **TableService**.
 
-Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure](https://portal.azure.com) per un sito Web di Azure, vedere [Applicazione Web Node.js con archiviazione].
+Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure](https://portal.azure.com) per un sito Web di Azure, vedere [App Web Node.js con il servizio tabelle di Azure].
 
 ## Creare una tabella
 
@@ -445,7 +445,7 @@ Per altre informazioni, vedere le risorse seguenti:
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [Applicazione Web Node.js con archiviazione]: ../storage-nodejs-use-table-storage-web-site.md
+  [App Web Node.js con il servizio tabelle di Azure]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

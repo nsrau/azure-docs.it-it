@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Usare il catalogo di U-SQL
@@ -55,7 +55,7 @@ Vedere [Gestire Data Lake Analytics mediante il portale](data-lake-analytics-use
     - Per aggiungere un nuovo assembly, fare clic con il pulsante destro del mouse su **Assembly** e quindi scegliere **Registra assembly**.
     - Per aggiungere un nuovo schema, fare clic con il pulsante destro del mouse su **Schemi** e quindi scegliere su "Crea schema**.
     - Per aggiungere una nuova tabella, fare clic con il pulsante destro del mouse su **Tabella** e quindi scegliere ""Crea tabella**.
-    - Per aggiungere una nuova funzione con valori di tabella, vedere [Sviluppare operatori U-SQL definiti dall'utente per i processi di Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md).
+    - Per aggiungere una nuova funzione con valori di tabella, vedere [Sviluppare operatori U-SQL definiti dall'utente per i processi di Analisi Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md).
 
 
 ![Sfogliare i cataloghi Visual Studio di U-SQL](./media/data-lake-analytics-use-u-sql-catalog/data-lake-analytics-browse-catalogs.png)
@@ -84,4 +84,4 @@ Vedere [Gestire Data Lake Analytics mediante il portale](data-lake-analytics-use
     - [Usare le esercitazioni interattive di Azure Data Lake Analytics](data-lake-analytics-use-interactive-tutorials.md)
     - [Analizzare i log dei siti Web mediante Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="11/26/2015"
+   ms.date="02/12/2016"
    ms.author="hermannd"/>
 
 # Test di SAP NetWeaver nelle VM SUSE Linux di Microsoft Azure
@@ -75,6 +75,21 @@ L'agente denominato WALinuxAgent fa parte delle immagini SLES in Azure Marketpla
 Non eseguire mai un montaggio di dischi dati di Azure in una VM Linux di Azure tramite ID dispositivo. Usare invece l'UUID. Prestare attenzione quando si usano, ad esempio, gli strumenti grafici per il montaggio dei dischi dati di Azure. Eseguire una doppia verifica delle voci in /etc/fstab.
 
 Il problema dell'ID dispositivo è che potrebbe cambiare e quindi la VM di Azure potrebbe bloccarsi nel processo di avvio. È possibile aggiungere il parametro nofail in /etc/fstab per attenuare il problema. Tuttavia, è necessario prestare attenzione al fatto che nofail potrebbe far sì che le applicazioni usino il punto di montaggio come in precedenza, con il rischio di scrittura nel file system root, nel caso in cui non venga montato un disco dati di Azure esterno durante l'avvio.
+
+L'unica eccezione relativa al montaggio tramite UUID si riferisce a un collegamento di un disco del sistema operativo a scopi di risoluzione dei problemi, come descritto nella sezione seguente.
+
+## Risoluzione dei problemi di una VM SUSE non più accessibile
+
+In alcune situazioni, una VM SUSE in Azure si blocca durante il processo di avvio (ad esempio in caso di errori correlati al montaggio dei dischi). Il problema può essere verificato, ad esempio tramite la funzionalità di diagnostica di avvio nel portale per le VM v2 ([vedere questo blog](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)).
+
+Una delle possibili soluzioni consiste nel collegare il disco del sistema operativo dalla VM danneggiata a un'altra VM SUSE in Azure e quindi apportare le modifiche appropriate, ad esempio la modifica di /etc/fstab o la rimozione delle regole udev di rete, come descritto nella sezione successiva.
+
+Occorre però fare una considerazione importante. La distribuzione di più VM SUSE dalla stessa immagine della raccolta di Azure (ad esempio, SLES 11 SP4) mostra che il disco del sistema operativo verrà sempre montato dallo stesso UUID. Il collegamento di un disco del sistema operativo tramite UUID da una VM diversa distribuita usando la stessa immagine della raccolta di Azure genera di conseguenza due UUID identici. Questo causa problemi e può comportare che la VM di cui è necessario risolvere i problemi venga avviata dal disco del sistema operativo collegato e danneggiato anziché dal disco originale.
+
+Vi sono due modi di evitare questo problema:
+
+* Usare un'immagine della raccolta di Azure diversa per la risoluzione dei problemi della VM (ad esempio, SLES 12 anziché SLES 11 SP4)
+* Non collegare il disco del sistema operativo danneggiato da un'altra VM tramite UUID, ma usare un altro elemento
 
 ## Caricamento di una VM SUSE da locale ad Azure
 
@@ -147,4 +162,4 @@ Se si vuole usare l'ambiente desktop Gnome per l'installazione di un sistema dem
 
 Non esiste alcuna limitazione di supporto da parte di Oracle su Linux in ambienti virtualizzati. Si tratta di un argomento generale, non specifico di Azure. Tuttavia, è importante comprenderlo. SAP non supporterà Oracle su SUSE o RedHat in un cloud pubblico come Azure. I clienti devono contattare Oracle direttamente per discutere di questo argomento.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

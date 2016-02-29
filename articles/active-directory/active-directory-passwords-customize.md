@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Personalizzazione di Gestione delle password in base alle esigenze dell'organizzazione
@@ -30,10 +30,10 @@ Per offrire agli utenti la migliore esperienza possibile, è consigliabile esplo
 | Come è possibile modificare il numero di domande di sicurezza necessarie? | [Impostazione: Numero di domande di sicurezza per la registrazione o la reimpostazione](#number-of-questions-required-to-register) |
 | Come è possibile forzare gli utenti a registrarsi durante la procedura di accesso? | [Implementazione della funzione di reimpostazione della password basata sulla registrazione forzata](#require-users-to-register-when-signing-in) |
 | Come è possibile forzare gli utenti a riconfermare periodicamente la propria registrazione? | [Impostazione: Numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione](#number-of-days-before-users-must-confirm-their-contact-data) |
-| Come è possibile personalizzare le modalità con cui un utente può entrare in contatto con un amministratore? | [Impostazione: Personalizza il collegamento "Contattare l'amministratore](#customize-the-contact-your-administrator-link) |
-| Come è possibile consentire agli utenti di sbloccare account di Active Directory senza reimpostare una password? | [Impostazione: Consenti agli utenti di sbloccare gli account di Active Directory senza reimpostare una password](#allow-users-to-unlock-accounts-without-resetting-their-password) |
-| Come è possibile abilitare le notifiche di reimpostazione della password per gli utenti? | [Impostazione: Avvisa gli utenti quando vengono reimpostate le password personali](#notify-users-and-admins-when-their-own-password-has-been-reset) |
-| Come è possibile abilitare le notifiche di reimpostazione della password per gli amministratori? | [Impostazione: Avvisa gli altri amministratori quando un amministratore reimposta la password personale](#notify-admins-when-other-admins-reset-their-own-passwords) |
+| Come è possibile personalizzare le modalità con cui un utente può entrare in contatto con un amministratore? | [Impostazione: Personalizzare il collegamento "Contattare l'amministratore?"](#customize-the-contact-your-administrator-link) |
+| Come è possibile consentire agli utenti di sbloccare account di Active Directory senza reimpostare una password? | [Impostazione: Consenti agli utenti di sbloccare gli account senza reimpostare la password](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| Come è possibile abilitare le notifiche di reimpostazione della password per gli utenti? | [Impostazione: Notifica a utenti e amministratori quando è stata reimpostata la propria password](#notify-users-and-admins-when-their-own-password-has-been-reset) |
+| Come è possibile abilitare le notifiche di reimpostazione della password per gli amministratori? | [Impostazione: Notifica agli amministratori quando altri amministratori reimpostano le proprie password](#notify-admins-when-other-admins-reset-their-own-passwords) |
 | Come è possibile personalizzare la veste grafica della funzione di reimpostazione della password? | [Impostazione: Nome, marchio e logo dell'azienda](#password-managment-look-and-feel) |
 
 
@@ -130,7 +130,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
 ## Comportamento di Gestione delle password
 Nella tabella seguente viene descritto come ciascun controllo influisce sull'esperienza degli utenti che effettuano la registrazione per la reimpostazione delle password e che reimpostano le proprie password. È possibile configurare queste opzioni nella sezione **Criteri di reimpostazione password dell’utente** della scheda **Configura** della directory nel [portale di gestione di Azure](https://manage.windowsazure.com).
 
-> [AZURE.NOTE]Per visualizzare i controlli dei criteri, all'account amministratore usato deve essere assegnata una licenza AAD Premium.<br><br>I controlli dei criteri si applicano solo agli utenti finali che reimpostano le proprie password e non agli amministratori. **Gli amministratori dispongono di un criterio predefinito di posta elettronica alternativa e/o di telefono cellulare specificato da Microsoft che non può essere modificato.**
+> [AZURE.NOTE] Per visualizzare i controlli dei criteri, all'account amministratore usato deve essere assegnata una licenza AAD Premium.<br><br>I controlli dei criteri si applicano solo agli utenti finali che reimpostano le proprie password e non agli amministratori. **Gli amministratori dispongono di un criterio predefinito di posta elettronica alternativa e/o di telefono cellulare specificato da Microsoft che non può essere modificato.**
 
 <table>
             <tbody><tr>
@@ -762,7 +762,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
                 </p>
                 <ul>
                   <li class="unordered">
-												Per utilizzare questa funzionalità, è necessario installare la versione di agosto 2015 o una versione successiva di Azure AD Connect (v. 1.0.8667.0 o superiore).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Fare clic qui per scaricare la versione più recente di Azure AD Connect</a>.</li>
+												Per utilizzare questa funzionalità, è necessario installare la versione di agosto 2015 o una versione successiva di Azure AD Connect (v. 1.0.8667.0 o superiore).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Fare clic qui per scaricare la versione più recente di Azure AD Connect.</a></li>
                         
                   <li class="unordered">
                     <strong>Nota:</strong> per testare questa funzionalità, è necessario abilitare il writeback delle password e utilizzare un account originato in locale (ad esempio un utente federato o con password sincronizzata) e bloccato. Per gli utenti non locali e che non hanno un account bloccato non verrà visualizzata l'opzione di sblocco del proprio account.</li>
@@ -872,4 +872,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

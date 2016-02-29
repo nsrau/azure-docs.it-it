@@ -3,7 +3,7 @@
 	description="In questo argomento viene illustrato come configurare il codificatore Elemental Live per inviare un flusso a velocità in bit singola a canali AMS abilitati per la codifica live." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
+	authors="cenkdin" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
-	ms.author="juliako"/>
+	ms.date="02/17/2016"
+	ms.author="cenkdin;anilmur;juliako"/>
 
 #Usare il codificatore Elemental Live per inviare un flusso live a velocità in bit singola.
 
@@ -49,22 +49,22 @@ In questa sezione viene illustrato come configurare il codificatore Elemental Li
 
 ### Creare un canale
 
-1.  Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Crea canale** dal menu.
+1.  Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel** dal menu.
 
 ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental1.png)
 
 2. Specificare un nome di canale. Il campo della descrizione è facoltativo. In Impostazioni canale selezionare **Standard** per l'opzione Codifica live con Protocollo di input impostato su **RTP (MPEG-TS)**. È possibile confermare tutte le altre impostazioni predefinite.
 
 
-Assicurarsi che l'opzione **Start the new channel now** sia selezionata.
+Assicurarsi che l'opzione **Avvia ora il nuovo canale** sia selezionata.
 
 3. Fare clic su **Create Channel**. ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
 
->[AZURE.NOTE]Per l'avvio del canale possono essere richiesti fino a 20 minuti.
+>[AZURE.NOTE] Per l'avvio del canale possono essere richiesti fino a 20 minuti.
 
 Durante l'avvio di canale è possibile [configurare il codificatore](media-services-configure-elemental-live-encoder.md#configure_elemental_rtp).
 
->[AZURE.IMPORTANT]Si noti che la fatturazione inizia non appena il canale passa a uno stato di pronto. Per altre informazioni, vedere [Stati del canale](media-services-manage-live-encoder-enabled-channels.md#states).
+>[AZURE.IMPORTANT] Si noti che la fatturazione inizia non appena il canale passa a uno stato di pronto. Per altre informazioni, vedere [Stati del canale](media-services-manage-live-encoder-enabled-channels.md#states).
 
 ###<a id=configure_elemental_rtp></a>Configurare il codificatore Elemental Live 
 
@@ -95,7 +95,7 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 	
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental13.png)
 	
-	>[AZURE.NOTE]È consigliabile che per l'evento Elemental il codice temporale sia impostato sull'orologio di sistema per facilitare la riconnessione del codificatore in caso di un errore di flusso.
+	>[AZURE.NOTE] È consigliabile che per l'evento Elemental il codice temporale sia impostato sull'orologio di sistema per facilitare la riconnessione del codificatore in caso di un errore di flusso.
 
 4. Dopo aver creato l'output, fare clic su **Aggiungi flusso**. È ora possibile configurare le impostazioni di output.
 5. Scorrere verso il basso fino al flusso "Flusso 1" appena creato, fare clic sulla scheda **Video** a sinistra ed espandere la sezione delle impostazioni **Avanzate**. 
@@ -129,7 +129,7 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 	
 7. Fare clic su **Crea** (se è stato creato un nuovo evento) o **Aggiorna** (in caso di modifica di un evento preesistente) e quindi procedere con l'avvio del codificatore.
 
->[AZURE.IMPORTANT]Prima di scegliere **Avvia** nell'interfaccia Web di Elemental Live, è **necessario** verificare che il canale sia pronto. Assicurarsi inoltre di non lasciare il canale in uno stato pronto senza un evento per più di 15 minuti.
+>[AZURE.IMPORTANT] Prima di scegliere **Avvia** nell'interfaccia Web di Elemental Live, è **necessario** verificare che il canale sia pronto. Assicurarsi inoltre di non lasciare il canale in uno stato pronto senza un evento per più di 15 minuti.
 
 Dopo 30 secondi di esecuzione del flusso, tornare allo strumento AMSE e testare la riproduzione.
 
@@ -173,4 +173,4 @@ Vedere l’argomento [risoluzione dei problemi](media-services-troubleshooting-l
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

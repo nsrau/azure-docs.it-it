@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/15/2016" 
 	ms.author="micurd"/>
 
 # Trasferire dati con l'utilità della riga di comando AzCopy
@@ -22,7 +22,7 @@
 
 AzCopy è un'utilità della riga di comando progettata per la copia a prestazioni elevate dei dati in e da servizi di archiviazione BLOB, file e tabelle di Microsoft Azure. Con AzCopy, è possibile eseguire la migrazione dei dati dal file system all'Archiviazione di Azure, o viceversa, utilizzando semplici comandi e con prestazioni ottimali. È inoltre possibile copiare dati da un oggetto a un altro all'interno dell'account di archiviazione o tra account di archiviazione.
 
-> [AZURE.NOTE]In questa guida si presuppone che sia stato installato AzCopy 5.0 o versioni successive.
+> [AZURE.NOTE] In questa guida si presuppone che sia stato installato AzCopy 5.0 o versioni successive.
 
 L’anteprima della libreria per lo spostamento dei dati di Archiviazione di Microsoft Azure è ora disponibile per il download tramite [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement). La libreria per lo spostamento dei dati è la libreria principale sottostante ad AzCopy. Il codice sorgente è disponibile in [GitHub](https://github.com/Azure/azure-storage-net-data-movement). Per ulteriori informazioni, vedere [ Introduzione alla versione di anteprima della libreria per lo spostamento dei dati di Archiviazione di Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
 
@@ -38,7 +38,7 @@ Aprire una finestra di comando e passare alla directory di installazione di AzCo
 
 	AzCopy /Source:<source> /Dest:<destination> /Pattern:<filepattern> [Options]
 
-> [AZURE.NOTE]A partire da AzCopy versione 3.0.0, la sintassi della riga di comando di AzCopy richiede che ogni parametro venga specificato in modo da includere il nome di parametro,*ad esempio *, `/ParameterName:ParameterValue`.
+> [AZURE.NOTE] A partire da AzCopy versione 3.0.0, la sintassi della riga di comando di AzCopy richiede che ogni parametro venga specificato in modo da includere il nome di parametro,*ad esempio *, `/ParameterName:ParameterValue`.
 
 ## Scrivere il primo comando AzCopy
 
@@ -446,7 +446,7 @@ Gli esempi seguenti mostrano vari scenari per la copia di BLOB con AzCopy.
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-Per ulteriori informazioni sull'uso delle chiavi di accesso alle risorse di archiviazione, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage-create-storage-account/#regeneratestoragekeys).
+Per altre informazioni sull'utilizzo delle chiavi di accesso alle risorse di archiviazione, vedere [Gestire le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#manage-your-storage-access-keys).
 
 ### Copiare un BLOB tramite copia sul lato server
 
@@ -936,7 +936,7 @@ Si noti che gli algoritmi conformi a FIPS sono disabilitati per impostazione pre
 
 ## Versioni di AzCopy
 
-> [AZURE.NOTE]È consigliabile installare la versione più recente di AzCopy per ottenere nuove funzionalità e prestazioni migliori.
+> [AZURE.NOTE] È consigliabile installare la versione più recente di AzCopy per ottenere nuove funzionalità e prestazioni migliori.
 
 | Versione | Novità | Versione libreria client .NET a cui viene fatto riferimento | Versione API REST di archiviazione di destinazione |
 |---------|-----------------------------------------------------------------------------------------------------------------|--------|----------|
@@ -964,22 +964,21 @@ Per altre informazioni su Archiviazione di Azure e AzCopy, vedere le risorse seg
 
 ### Documentazione di Archiviazione di Azure
 
-- [Introduzione ad Archiviazione di Azure](storage-introduction.md)
-- [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md)
-- [Come usare l'archiviazione file da .NET](storage-dotnet-how-to-use-files.md)
-- [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md)
-- [Come creare, gestire o eliminare un account di archiviazione](storage-create-storage-account.md)
-- [Utilizzo del servizio Importazione/Esportazione per il trasferimento di dati nell'archiviazione BLOB](storage-import-export-service.md)
+- [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md)
+- [Introduzione all'archiviazione BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md)
+- [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md)
+- [Introduzione all'archiviazione tabelle di Azure con .NET](storage-dotnet-how-to-use-tables.md)
+- [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md)
+- [Usare il servizio di importazione/esportazione di Microsoft Azure per trasferire i dati nell'archivio Blob](storage-import-export-service.md)
 
 ### Post del blog di Archiviazione di Azure:
-- [DML: Introduzione alla versione di anteprima della libreria per lo spostamento dei dati di Archiviazione di Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+- [Introduzione alla versione di anteprima della libreria per lo spostamento dei dati di Archiviazione di Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 - [AzCopy: introduzione alla copia sincrona e al tipo di contenuto personalizzato](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 - [AzCopy: annuncio della disponibilità per tutti di AzCopy 3.0 oltre alla versione di anteprima di AzCopy 4.0 con il supporto di tabelle e file](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-- [AzCopy: ottimizzazione per gli scenari di copia su larga scala](http://go.microsoft.com/fwlink/?LinkId=507682)
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [AzCopy:supporto per l'archiviazione con ridondanza geografica e accesso in lettura](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
 - [AzCopy:trasferimento di dati con modalità riavviabile e token di firma di accesso condiviso](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 - [AzCopy: uso del comando di copia dei BLOB tra account](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Caricamento e download di file per BLOB di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

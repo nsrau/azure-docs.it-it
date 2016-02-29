@@ -11,17 +11,14 @@
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/05/2016"
 	ms.author="glenga"/>
 
 # Creare un servizio mobile back-end .NET che usa l'archiviazione tabelle
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
 
 Questo argomento illustra come usare un archivio dati non relazionale per il servizio mobile back-end .NET. In questa esercitazione verrà modificato il progetto introduttivo dei Servizi mobili di Azure, in modo da usare l'archiviazione tabelle di Azure invece dell'archivio dati predefinito del database SQL di Azure.
 
@@ -39,7 +36,7 @@ Prima di iniziare questa esercitazione, è necessario avere completato l'esercit
 
   	Il supporto per i servizi di archiviazione di Azure verrà aggiunto al progetto del servizio mobile back-end .NET.
 
-3. Se non è ancora stato creato un account di archiviazione, vedere [Come creare un account di archiviazione](../storage-create-storage-account.md).
+3. Se non è ancora stato creato un account di archiviazione, vedere [Come creare un account di archiviazione](../storage/storage-create-storage-account.md).
 
 4. Nel [portale di Azure classico] fare clic su **Archiviazione**, sull'account di archiviazione e quindi su **Gestisci chiavi**.
 
@@ -142,7 +139,7 @@ Vista la semplicità dell'uso dell'archiviazione tabelle con il back-end .NET, �
 
 + [Connettersi a un'istanza di SQL Server locale da un servizio mobile di Azure mediante Connessioni ibride](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br>Connessioni ibride permette al servizio mobile di connettersi in modo sicuro agli asset locali. In questo modo, è possibile rendere accessibili i dati locali ai client mobili mediante Azure. Sono supportate tutte le risorse che usano una porta TCP statica, compresi Microsoft SQL Server, MySQL, le API Web HTTP e la maggior parte dei servizi Web personalizzati.
 
-+ [Caricare immagini in Archiviazione di Azure mediante Servizi mobili](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>Illustra come estendere il progetto di esempio TodoList per permettere di caricare immagini dall'app nell'archivio BLOB di Azure.
++ [Caricare immagini in Archiviazione di Azure mediante Servizi mobili](mobile-services-dotnet-backend-windows-universal-dotnet-upload-data-blob-storage.md)</br>Illustra come estendere il progetto di esempio TodoList per permettere di caricare immagini dall'app nell'archivio BLOB di Azure.
 
 <!-- Anchors. -->
 [Create a non-relational store]: #create-store
@@ -159,4 +156,4 @@ Vista la semplicità dell'uso dell'archiviazione tabelle con il back-end .NET, �
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,10 +13,10 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/23/2015"
+     ms.date="02/12/2016"
      ms.author="dobett"/>
 
-# Esercitazione: Creare un hub IoT tramite un programma C#
+# Esercitazione: Creare un hub IoT tramite un programma C# e l'API REST
 
 [AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
@@ -40,25 +40,24 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Gestisci pacchetti NuGet**.
 
-3. In Gestione pacchetti NuGet cercare **Microsoft.Azure.Management.Resources**. Selezionare la versione **2.18.11-preview**. Fare clic su **Installa**, in **Verificare le modifiche**, fare clic su **OK**, quindi fare clic su **Accetto** per accettare le licenze.
+3. In Gestione pacchetti NuGet selezionare **Includi versione preliminare** e cercare **Microsoft.Azure.Management.Resources**. Fare clic su **Installa**, in **Verificare le modifiche**, fare clic su **OK**, quindi fare clic su **Accetto** per accettare le licenze.
 
-4. In Gestione pacchetti NuGet cercare **Microsoft.IdentityModel.Clients.ActiveDirectory**. Selezionare la versione **2.19.208020213**. Fare clic su **Installa**, in **Verificare le modifiche**, fare clic su **OK**, quindi fare clic su **Accetto** per accettare la licenza.
-
-5. In Gestione pacchetti NuGet cercare **Microsoft.Azure.Common**. Selezionare la versione **2.1.0**. Fare clic su **Installa**, in **Verificare le modifiche**, fare clic su **OK**, quindi fare clic su **Accetto** per accettare le licenze.
+4. In Gestione pacchetti NuGet cercare **Microsoft.IdentityModel.Clients.ActiveDirectory**. Fare clic su **Installa**, in **Verificare le modifiche**, fare clic su **OK**, quindi fare clic su **Accetto** per accettare la licenza.
 
 6. In Program.cs sostituire il codice esistente **usando** le dichiarazioni con quanto segue:
 
     ```
     using System;
-    using System.IO;
-    using System.Net;
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Text;
-    using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
     using Microsoft.Azure.Management.Resources.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Newtonsoft.Json;
+    using Microsoft.Rest;
+    using System.Linq;
+    using System.Threading;
     using Newtonsoft.Json;
     ```
     
@@ -72,29 +71,28 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
     
     static string rgName = "{Resource group name}";
     static string iotHubName = "{IoT Hub name}";
-    static string deploymentName = "{Deployment name}";
     ```
 
 [AZURE.INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
 ## Utilizzare l'API REST per creare un hub IoT
 
-Utilizzare l'API REST del Provider di risorse dell’hub IoT per creare un nuovo hub IoT nel gruppo di risorse. È anche possibile utilizzare l’[API REST][lnk-rest-api] per apportare modifiche a un hub IoT esistente.
+Usare l'[API REST dell'hub IoT][lnk-rest-api] per creare un nuovo hub IoT nel gruppo di risorse. È anche possibile usare l'API REST per apportare modifiche a un hub IoT esistente.
 
 1. Aggiungere il metodo seguente a Program.cs:
     
     ```
-    static bool CreateIoTHub(ResourceManagementClient client, string token)
+    static void CreateIoTHub(string token)
     {
         
     }
     ```
 
-2. Aggiungere il codice seguente al metodo **CreateIoTHub** per aggiungere il token di autenticazione alla richiesta:
+2. Aggiungere il codice seguente al metodo **CreateIoTHub** per creare un oggetto **HttpClient** con il token di autenticazione nelle intestazioni:
 
     ```
-    client.HttpClient.DefaultRequestHeaders.Authorization = 
-      new AuthenticationHeaderValue("Bearer", token);
+    HttpClient client = new HttpClient();
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
 3. Aggiungere il codice seguente al metodo **CreateIoTHub** per descrivere l'hub IoT per creare e generare una rappresentazione JSON:
@@ -112,65 +110,54 @@ Utilizzare l'API REST del Provider di risorse dell’hub IoT per creare un nuovo
       }
     };
     
-    var content = new StringContent(
-      JsonConvert.SerializeObject(description),
-      Encoding.UTF8, "application/json");
+    var json = JsonConvert.SerializeObject(description, Formatting.Indented);
     ```
 
-4. Aggiungere il codice seguente al metodo **CreateIoTHub** per inviare la richiesta REST di Azure e verifica la risposta:
+4. Aggiungere il codice seguente al metodo **CreateIoTHub** per inviare la richiesta REST ad Azure, verificare la risposta e recuperare l'URL da usare per monitorare lo stato dell'attività di distribuzione:
 
     ```
-    var requestUri = string.Format("https://management.azure.com/subscriptions/{0}/resourcegroups/{1}/providers/Microsoft.devices/IotHubs/{2}?api-version=2015-08-15-preview",
-      subscriptionId, rgName, iotHubName);
-    var httpsRepsonse = client.HttpClient.PutAsync(
-      requestUri, content).Result;
-
-    if (!httpsRepsonse.IsSuccessStatusCode)
+    var content = new StringContent(JsonConvert.SerializeObject(description), Encoding.UTF8, "application/json");
+    var requestUri = string.Format("https://management.azure.com/subscriptions/{0}/resourcegroups/{1}/providers/Microsoft.devices/IotHubs/{2}?api-version=2016-02-03", subscriptionId, rgName, iotHubName);
+    var result = client.PutAsync(requestUri, content).Result;
+      
+    if (!result.IsSuccessStatusCode)
     {
-      Console.WriteLine("Failed {0}", httpsRepsonse.Content.ReadAsStringAsync().Result);
-      return false;
+      Console.WriteLine("Failed {0}", result.Content.ReadAsStringAsync().Result);
+      return;
     }
+    
+    var asyncStatusUri = result.Headers.GetValues("Azure-AsyncOperation").First();
     ```
 
-5. Aggiungere il codice seguente alla fine del metodo **CreateIoTHub** per attendere il completamento della distribuzione:
+5. Aggiungere il codice seguente alla fine del metodo **CreateIoTHub** per usare l'indirizzo **asyncStatusUri** recuperato nel passaggio precedente per attendere il completamento della distribuzione:
 
     ```
-    ResourceGetResult resourceGetResult = null;
+    string body;
     do
     {
-    resourceGetResult = client.Resources.GetAsync(
-      rgName,
-      new ResourceIdentity()
-      {
-        ResourceName = iotHubName,
-        ResourceProviderApiVersion = "2015-08-15-preview",
-        ResourceProviderNamespace = "Microsoft.Devices",
-        ResourceType = "IotHubs"
-      }).Result;
-    Console.WriteLine("IoTHub state {0}", 
-      resourceGetResult.Resource.ProvisioningState);
-    } while (resourceGetResult.Resource.ProvisioningState != "Succeeded" 
-          && resourceGetResult.Resource.ProvisioningState != "Failed");
-    
-    if (resourceGetResult.Resource.ProvisioningState != "Succeeded")
-    {
-        Console.WriteLine("Failed to create iothub");
-        return false;
-    }
-    return true;
+      Thread.Sleep(10000);
+      HttpResponseMessage deploymentstatus = client.GetAsync(asyncStatusUri).Result;
+      body = deploymentstatus.Content.ReadAsStringAsync().Result;
+    } while (body == "{"Status":"Running"}");
     ```
 
-[AZURE.INCLUDE [iot-hub-retrieve-keys](../../includes/iot-hub-retrieve-keys.md)]
+6. Aggiungere il codice seguente alla fine del metodo **CreateIoTHub** per recuperare le chiavi dell'hub IoT creato e stamparle nella console:
 
+    ```
+    var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2015-08-15-preview", subscriptionId, rgName, iotHubName);
+    var keysresults = client.PostAsync(listKeysUri, null).Result;
+    
+    Console.WriteLine("Keys: {0}", keysresults.Content.ReadAsStringAsync().Result);
+    ```
+    
 ## Compilare ed eseguire l'applicazione
 
-È ora possibile completare l'applicazione chiamando il metodo **CreateIoTHub** e **ShowIoTHubKeys** prima di compilarla ed eseguirla.
+È ora possibile completare l'applicazione chiamando il metodo **CreateIoTHub** prima di compilarla ed eseguirla.
 
 1. Alla fine del metodo **Main** aggiungere il codice seguente:
 
     ```
-    if (CreateIoTHub(client, token.AccessToken))
-        ShowIoTHubKeys(client, token.AccessToken);
+    CreateIoTHub(token.AccessToken);
     Console.ReadLine();
     ```
     
@@ -184,14 +171,16 @@ Utilizzare l'API REST del Provider di risorse dell’hub IoT per creare un nuovo
 
 ## Passaggi successivi
 
+Dopo aver distribuito un hub IoT mediante l'API REST, può essere opportuno ottenere informazioni più dettagliate:
+
 - Esplorare le funzionalità di [API REST del provider di risorse Hub IoT][lnk-rest-api].
 - Per ulteriori informazioni sulle funzionalità di Gestione risorse di Azure, leggere la [Panoramica su Gestione risorse di Azure][lnk-azure-rm-overview].
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
-[lnk-powershell-install]: https://azure.microsoft.com/it-IT/blog/azps-1-0-pre/
+[lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
+[lnk-azure-rm-overview]: ../resource-group-overview.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

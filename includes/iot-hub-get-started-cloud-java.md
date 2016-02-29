@@ -22,7 +22,7 @@ In questa sezione si scriverà un'app console di Java che consente di creare una
     
 4. Salvare e chiudere il file pom.xml.
 
-5. Usando un editor di testo, aprire il file create-device-identity\src\main\java\com\mycompany\app\App.java.
+5. Usando un editor di testo, aprire il file create-device-identity\\src\\main\\java\\com\\mycompany\\app\\App.java.
 
 6. Aggiungere al file le istruzioni **import** seguenti:
 
@@ -54,7 +54,7 @@ In questa sezione si scriverà un'app console di Java che consente di creare una
     ```
     RegistryManager registryManager = RegistryManager.createFromConnectionString(connectionString);
 
-    Device device = Device.createFromId(deviceId);
+    Device device = Device.createFromId(deviceId, null, null);
     try {
       device = registryManager.addDevice(device);
     } catch (IotHubException iote) {
@@ -110,7 +110,7 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
 
 4. Salvare e chiudere il file pom.xml.
 
-5. Usando un editor di testo, aprire il file read-d2c-messages\src\main\java\com\mycompany\app\App.java.
+5. Usando un editor di testo, aprire il file read-d2c-messages\\src\\main\\java\\com\\mycompany\\app\\App.java.
 
 6. Aggiungere al file le istruzioni **import** seguenti:
 
@@ -228,4 +228,4 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
 [lnk-event-hubs-overview]: event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

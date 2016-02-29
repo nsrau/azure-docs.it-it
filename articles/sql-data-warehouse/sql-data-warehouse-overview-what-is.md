@@ -47,7 +47,7 @@ Questo approccio MPP consente a SQL Data Warehouse di adottare un approccio di t
 
 - Oltre a creare piani di query ottimali, SQL Data Warehouse incorpora tecniche e algoritmi sofisticati in grado di spostare in modo efficiente i dati tra le diverse risorse di calcolo come necessario per eseguire la query. Queste operazioni sono integrate nei servizi di spostamento dati del data warehouse e le ottimizzazioni vengono eseguite automaticamente.
 
-- L'inclusione di indici columnstore cluster nel dispositivo è essenziale anche per velocizzare le prestazioni delle query. Usando un'archiviazione basata su colonne, SQL Data Warehouse può raggiungere una compressione cinque volte superiore all'archiviazione tradizionale basata su righe e prestazioni delle query fino a dieci volte maggiori. Le query del data warehouse funzionano in modo ottimale sugli indici columnstore perché analizzano spesso l'intera tabella o un'intera partizione di una tabella, riducendo al minimo l'impatto dello spostamento dei dati per i passi di query.
+- L'inclusione di indici columnstore cluster in SQL Data Warehouse è essenziale anche per velocizzare le prestazioni delle query. Usando un'archiviazione basata su colonne, SQL Data Warehouse può raggiungere una compressione cinque volte superiore all'archiviazione tradizionale basata su righe e prestazioni delle query fino a dieci volte maggiori. Le query del data warehouse funzionano in modo ottimale sugli indici columnstore perché analizzano spesso l'intera tabella o un'intera partizione di una tabella, riducendo al minimo l'impatto dello spostamento dei dati per i passi di query.
 
 ## Scalabile
 
@@ -140,4 +140,4 @@ Dopo avere appreso alcune nozioni su SQL Data Warehouse, per iniziare, vedere [C
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

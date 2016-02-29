@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/11/2016"
    ms.author="telmos"/>
 
 # Modelli di distribuzione di Azure
@@ -60,12 +60,11 @@ Con [PowerShell](powershell-install-configure.md) è possibile usare una riga di
 - **Cmdlet PowerShell con un modello di Gestione risorse di Azure:** è possibile usare PowerShell per creare risorse di Azure con un modello di Gestione risorse di Azure. È possibile salvare i modelli e controllarne la versione. Per altre informazioni leggere l'articolo [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md). Esistono anche diversi [modelli di Guida introduttiva](https://azure.microsoft.com/documentation/templates/) per soluzioni comuni che è possibile scaricare e modificare.
 
 ## CLI
-È possibile creare e configurare le risorse di Azure da computer Windows, OS X o Linux usando l'interfaccia della riga di comando. Per installare l'interfaccia della riga di comando nel sistema operativo prescelto, leggere l'articolo [Installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md). Come PowerShell, sono disponibili diversi comandi che devono essere usati a seconda che si creino risorse con i modelli di distribuzione [Gestione risorse](xplat-cli-azure-resource-manager.md) o [Classico (Gestione dei servizi)](virtual-machines-command-line-tools.md).
+È possibile creare e configurare le risorse di Azure da computer Windows, OS X o Linux usando l'interfaccia della riga di comando. Per installare l'interfaccia della riga di comando nel sistema operativo prescelto, leggere l'articolo [Installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md). Come PowerShell, sono disponibili diversi comandi che devono essere usati a seconda che si creino risorse con i modelli di distribuzione [Gestione risorse](xplat-cli-azure-resource-manager.md) o [Classico (Gestione dei servizi)](virtual-machines/virtual-machines-command-line-tools.md).
 
 ## Passaggi successivi
 
-- Per altre informazioni, vedere [Gestione risorse](/resource-group-overview.md).
-- Informazioni su come [progettare i modelli](/best-practices-resource-manager-design-templates.md).
-- Usare le [procedure consigliate](/best-practices-resource-manager-examples.md)
+- Per altre informazioni, vedere [Gestione risorse](resource-group-overview.md).
+- Informazioni su come [progettare i modelli](best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

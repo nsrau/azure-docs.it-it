@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Introduzione alla creazione di un servizio di bilanciamento del carico interno tramite l’interfaccia di riga di comando di Azure
@@ -91,7 +91,7 @@ Creare un servizio di bilanciamento del carico interno utilizzando il comando `a
  	
 	azure network lb create -n nrprg -l westus
 
->[AZURE.NOTE]Tutte le risorse per un servizio di bilanciamento del carico interno, ad esempio rete virtuale e subnet della rete virtuale, devono essere nello stesso gruppo di risorse e nella stessa area.
+>[AZURE.NOTE] Tutte le risorse per un servizio di bilanciamento del carico interno, ad esempio rete virtuale e subnet della rete virtuale, devono essere nello stesso gruppo di risorse e nella stessa area.
 
 
 ### Passaggio 2 
@@ -148,7 +148,7 @@ Creare probe di integrità per il servizio di bilanciamento del carico. Un probe
 
 **-g**: gruppo di risorse **-l**: nome del set di bilanciamento del carico interno **-n**: nome del probe di integrità **-p**: protocollo usato dal probe di integrità **-i**: intervallo di probe **-c**: numero di controlli
 
->[AZURE.NOTE]La piattaforma Microsoft Azure usa un indirizzo IPv4 statico e instradabile pubblicamente per un'ampia gamma di scenari di amministrazione. L'indirizzo IP è 168.63.129.16. Questo indirizzo IP non deve essere bloccato da alcun firewall, perché potrebbe causare un comportamento imprevisto. Per quanto riguarda il bilanciamento del carico interno di Azure, questo indirizzo IP viene usato da probe di monitoraggio del servizio di bilanciamento del carico per determinare lo stato di integrità delle macchine virtuali in un set con carico bilanciato. Se si usa un gruppo di sicurezza di rete per limitare il traffico alle macchine virtuali di Azure in un set con carico bilanciato internamente o lo si applica a una subnet di rete virtuale, assicurarsi di aggiungere una regola di sicurezza di rete per consentire il traffico dall'indirizzo 168.63.129.16.
+>[AZURE.NOTE] La piattaforma Microsoft Azure usa un indirizzo IPv4 statico e instradabile pubblicamente per un'ampia gamma di scenari di amministrazione. L'indirizzo IP è 168.63.129.16. Questo indirizzo IP non deve essere bloccato da alcun firewall, perché potrebbe causare un comportamento imprevisto. Per quanto riguarda il bilanciamento del carico interno di Azure, questo indirizzo IP viene usato da probe di monitoraggio del servizio di bilanciamento del carico per determinare lo stato di integrità delle macchine virtuali in un set con carico bilanciato. Se si usa un gruppo di sicurezza di rete per limitare il traffico alle macchine virtuali di Azure in un set con carico bilanciato internamente o lo si applica a una subnet di rete virtuale, assicurarsi di aggiungere una regola di sicurezza di rete per consentire il traffico dall'indirizzo 168.63.129.16.
 
 ## Creare NIC
 
@@ -208,7 +208,7 @@ Creare una macchina virtuale (VM) denominata *DB1* e associarla alla NIC denomin
 
 	azure vm create --resource-group nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
->[AZURE.IMPORTANT]Le macchine virtuali in un servizio di bilanciamento del carico devono trovarsi nello stesso set di disponibilità. Usare `azure availset create` per creare un set di disponibilità.
+>[AZURE.IMPORTANT] Le macchine virtuali in un servizio di bilanciamento del carico devono trovarsi nello stesso set di disponibilità. Usare `azure availset create` per creare un set di disponibilità.
 
 ### Passaggio 4
 
@@ -232,4 +232,4 @@ Dove **nrprg** è il gruppo di risorse e **ilbset** è il nome del servizio di b
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

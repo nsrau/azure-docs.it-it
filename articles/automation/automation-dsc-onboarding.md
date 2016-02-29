@@ -288,18 +288,23 @@ Per caricare in modo generico qualsiasi computer in Automation DSC per Azure, pu
         
         # Create the metaconfigurations
         # TODO: edit the below as needed for your use case
-        DscMetaConfigs `
-            -RegistrationUrl "<fill me in>" `
-            -RegistrationKey "<fill me in>" `
-            -ComputerName "<some VM to onboard>", "<some other VM to onboard>" `
-            -NodeConfigurationName "SimpleConfig.webserver" `
-            -RefreshFrequencyMins 30 `
-            -ConfigurationModeFrequencyMins 15 `
-            -RebootNodeIfNeeded $False `
-            -AllowModuleOverwrite $False `
-            -ConfigurationMode "ApplyAndMonitor" `
-            -ActionAfterReboot "ContinueConfiguration" `
-            -ReportOnly $False # Set to $True to have machines only report to AA DSC but not pull from it
+        $Params = @{
+             RegistrationUrl = '<fill me in>';
+             RegistrationKey = '<fill me in>';
+             ComputerName = @('<some VM to onboard>', '<some other VM to onboard>');
+             NodeConfigurationName = 'SimpleConfig.webserver';
+             RefreshFrequencyMins = 30;
+             ConfigurationModeFrequencyMins = 15;
+             RebootNodeIfNeeded = $False;
+             AllowModuleOverwrite = $False;
+             ConfigurationMode = 'ApplyAndMonitor';
+             ActionAfterReboot = 'ContinueConfiguration';
+             ReportOnly = $False;  # Set to $True to have machines only report to AA DSC but not pull from it
+        }
+        
+        # Use PowerShell splatting to pass parameters to the DSC configuration being invoked
+        # For more info about splatting, run: Get-Help -Name about_Splatting
+        DscMetaConfigs @Params
 
 3.	Specificare il codice di registrazione e l'URL per l'account di automazione, nonché i nomi dei computer da caricare. Tutti gli altri parametri sono facoltativi. Per trovare la chiave e l'URL di registrazione per l'account di automazione, vedere la sezione [**Registrazione sicura**](#secure-registration) di seguito.
 
@@ -316,7 +321,17 @@ Se i valori predefiniti di Gestione configurazione locale per PowerShell DSC cor
 
 3.	Dall'account di automazione in cui si caricheranno i nodi, scaricare le metaconfigurazioni di PowerShell DSC per i computer da caricare:
 
-        Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop
+        # Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
+        $Params = @{
+            ResourceGroupName = 'ContosoResources'; # The name of the ARM Resource Group that contains your Azure Automation Account
+            AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
+            ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
+            OutputFolder = "$env:UserProfile\Desktop";
+        }
+        
+        # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
+        # For more info about splatting, run: Get-Help -Name about_Splatting
+        Get-AzureRmAutomationDscOnboardingMetaconfig @Params
 
 A questo punto sarà disponibile una cartella denominata ***DscMetaConfigs***, contenente le metaconfigurazioni di PowerShell DSC per i computer da caricare.
 
@@ -359,4 +374,4 @@ La ripetizione della registrazione può essere eseguita così' come è stato reg
 * [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Prezzi di Automation DSC per Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

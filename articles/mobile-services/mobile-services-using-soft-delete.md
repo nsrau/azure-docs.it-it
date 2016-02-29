@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/11/2016"
 	ms.author="wesmc"/>
 
 # Uso dell'eliminazione temporanea in Servizi mobili
@@ -36,7 +36,7 @@ Alcuni dei potenziali vantaggi dell'uso dell'eliminazione temporanea:
 
 * Quando si usa la funzionalità di [sincronizzazione dati offline per Servizi mobili], l'SDK del client esegue automaticamente la query dei record eliminati e li rimuove dal database locale. Senza l'eliminazione temporanea abilitata, è necessario scrivere codice aggiuntivo nel back-end in modo che l'SDK del client sappia quali record rimuovere dall'archivio locale; in caso contrario, l'archivio e il back-end del client locali non saranno coerenti in relazione a questi record eliminati e dovrà essere chiamato il metodo client `PurgeAsync()` per cancellare l'archivio locale.
 * Per alcune applicazioni esiste un requisito aziendale in base al quale i dati non vengono mai eliminati fisicamente oppure vengono eliminati solo dopo essere stati controllati. La funzionalità di eliminazione temporanea può essere utile in questo scenario.
-* L'eliminazione temporanea può essere usata per implementare una funzionalità di "ripristino", per poter recuperare i dati eliminati per errore. Tuttavia, i record eliminati temporaneamente occupano spazio nel database, quindi è consigliabile creare un processo pianificato per eliminare definitivamente a intervalli regolari i record eliminati temporaneamente. Per un esempio, vedere [Uso dell'eliminazione temporanea con il back-end .NET] e [Uso dell'eliminazione temporanea con il back-end JavaScript]. Il codice client deve anche chiamare periodicamente `PurgeAsync()` in modo che questi record eliminati definitivamente non rimangano nell'archivio dati locale del dispositivo.
+* L'eliminazione temporanea può essere usata per implementare una funzionalità di "ripristino", per poter recuperare i dati eliminati per errore. Tuttavia, i record eliminati temporaneamente occupano spazio nel database, quindi è consigliabile creare un processo pianificato per eliminare definitivamente a intervalli regolari i record eliminati temporaneamente. Per un esempio, vedere [Uso dell'eliminazione temporanea con il back-end .NET](#using-with-dotnet) e [Uso dell'eliminazione temporanea con il back-end JavaScript](#using-with-javascript). Il codice client deve anche chiamare periodicamente `PurgeAsync()` in modo che questi record eliminati definitivamente non rimangano nell'archivio dati locale del dispositivo.
 
 
 
@@ -113,7 +113,7 @@ Per altre informazioni sui processi pianificati con il back-end .NET di Servizi 
 
 
 
-##Uso dell'eliminazione temporanea con il back-end JavaScript
+## <a name="using-with-javascript"></a> Uso dell'eliminazione temporanea con il back-end JavaScript
 
 Gli script delle tabelle vengono usati per aggiungere la logica alla funzionalità di eliminazione temporanea con Servizi mobili per il back-end JavaScript.
 
@@ -165,4 +165,4 @@ Per altre informazioni sui processi pianificati con il back-end JavaScript di Se
 [sincronizzazione dati offline per Servizi mobili]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [portale di Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

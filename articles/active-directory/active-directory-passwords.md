@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 	
 
 # Reimpostazione della password di Azure AD per utenti e amministratori
 
-  >[AZURE.IMPORTANT]Si desidera reimpostare la password di Azure o di O365? Se sì, [passare a questa sezione](#users-how-to-manage-your-own-password).
+  >[AZURE.IMPORTANT] Si desidera reimpostare la password di Azure o di O365? Se sì, [passare a questa sezione](#users-how-to-manage-your-own-password).
   
 Self-Service è stato a lungo un obiettivo chiave per i reparti IT di tutto il mondo come misura di riduzione dei costi e facile utilizzo. In effetti, nel mercato si sono diffusi prodotti che consentono di gestire gruppi locali, password o profili utente dal cloud o in locale. Azure AD si distingue da queste offerte fornendo alcune delle funzionalità self-service più efficaci e semplici da usare disponibili attualmente.
 
@@ -252,4 +252,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 * [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere rapidamente eventuali problemi con il servizio
 * [**Ulteriori informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

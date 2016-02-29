@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/28/2016"   
+	ms.date="02/14/2016"   
 	ms.author="juliako"/>
 
 
 # Utilizzare Azure Media Packager per eseguire attività di creazione statica dei pacchetti
 
->[AZURE.NOTE]La fine della vita per Microsoft Azure Media Packager e Microsoft Azure Media Encryptor è stata estesa al 1 marzo 2017. Prima di tale data, le funzionalità di questi processori verranno aggiunte a Media Encoder Standard (MES). I clienti riceveranno istruzioni per eseguire la migrazione dei flussi di lavoro per inviare processi a MES. Le funzionalità di crittografia e di conversione di formato possono anche essere disponibili tramite la creazione dinamica dei pacchetti e la crittografia dinamica.
+>[AZURE.NOTE]La fine della vita per Microsoft Azure Media Packager e Microsoft Azure Media Encryptor è stata estesa al 1° marzo 2017. Prima di tale data, le funzionalità di questi processori verranno aggiunte a Media Encoder Standard (MES). I clienti riceveranno istruzioni per eseguire la migrazione dei flussi di lavoro per inviare processi a MES. Le funzionalità di crittografia e di conversione di formato possono anche essere disponibili tramite la creazione dinamica dei pacchetti e la crittografia dinamica.
 
 ## Panoramica
 
@@ -166,7 +166,7 @@ L’esempio di codice seguente utilizza le estensioni di Azure Media Services .N
 	
 	            // Get the SDK extension method to  get a reference to the Azure Media Packager.
 	            IMediaProcessor processor = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaPackager);
+	                MediaProcessorNames.WindowsAzureMediaPackager);
 	
 	            // Create a task with the conversion details, using the configuration data. 
 	            ITask task = job.Tasks.AddNew("Mp4 Validation Task",
@@ -1447,4 +1447,4 @@ Assicurarsi di aggiornare il codice seguente in modo che punti alla cartella in 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

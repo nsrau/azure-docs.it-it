@@ -104,7 +104,7 @@ Di seguito è riportato un esempio molto semplice relativo ai film:
             -Container $container `
             -Context $context
     
-    Questo frammento di codice carica il file __u.data__ in __example/data/u.data__ nella risorsa di archiviazione predefinita del cluster. È quindi possibile accedere ai dati usando l'URI __wasb:///example/data/u.data__ dai processi HDInsight.
+    Questo frammento di codice carica il file __u.data__ in __example/data/u.data__ nella risorsa di archiviazione predefinita del cluster. È quindi possibile accedere ai dati usando l'URI \_\___wasb:///example/data/u.data__ dai processi HDInsight.
 
 ###Eseguire il processo
 
@@ -378,7 +378,7 @@ Uno dei metodi di classificazione disponibili con Mahout consiste nel creare una
 
 		hadoop jar c:/apps/dist/mahout-0.9.0.2.2.7.1-37/examples/target/mahout-examples-0.9.0.2.2.7.1-37-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    L'output di questa operazione viene archiviato nella directory __nsl-forest__ che si trova nella risorsa di archiviazione del cluster HDInsight in __wasb://user/&lt;username>/nsl-forest/nsl-forest.seq, dove &lt;nomeutente> è il nome utente usato per la sessione Desktop remoto. Questo file non è in formato leggibile dagli utenti.
+    L'output di questa operazione viene archiviato nella directory __nsl-forest__ che si trova nella risorsa di archiviazione del cluster HDInsight in\_\___wasb://user/&lt;username>/nsl-forest/nsl-forest.seq, dove &lt;nomeutente> è il nome utente usato per la sessione Desktop remoto. Questo file non è in formato leggibile dagli utenti.
 
 5. Testare la foresta classificando il set di dati __KDDTest+.arff__. Usare il comando seguente:
 
@@ -410,7 +410,7 @@ Uno dei metodi di classificazione disponibili con Mahout consiste nel creare una
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  Il processo genera inoltre un file in __wasb:///example/data/predictions/KDDTest+.arff.out__ in un formato non leggibile dagli utenti.
+  Il processo genera inoltre un file in \_\___wasb:///example/data/predictions/KDDTest+.arff.out__ in un formato non leggibile dagli utenti.
 
 > [AZURE.NOTE] I processi Mahout non sovrascrivono i file. Per eseguire di nuovo questi processi, è necessario eliminare prima i file creati dai processi precedenti.
 
@@ -428,9 +428,9 @@ Mahout viene installato nei cluster HDInsight 3.1 e può essere installato manua
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	Al termine della compilazione, il file JAR sarà disponibile in __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
+    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] Dopo il rilascio di Mahout 1.0 dovrebbe essere possibile usare i pacchetti predefiniti con HDInsight 3.0.
+    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
 2. Caricare il file JAR in __example/jars__ nella risorsa di archiviazione predefinita del cluster. Sostituire CLUSTERNAME nello script seguente con il nome del cluster HDInsight, e sostituire FILENAME con il percorso per il file __mahout-coure-0.9-job.jar__.
 
@@ -519,7 +519,7 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 [aps]: ../powershell-install-configure.md
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]: ../hdinsight-get-started.md
+[getstarted]: hdinsight-hadoop-linux-tutorial-get-started.md
 [upload]: hdinsight-upload-data.md
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest
@@ -530,4 +530,4 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

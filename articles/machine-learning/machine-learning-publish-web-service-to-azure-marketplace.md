@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="02/12/2016" 
 	ms.author="bharaths"/>
 
 # Pubblicare il servizio Web di Azure Machine Learning in Azure Marketplace 
@@ -109,4 +109,4 @@ distribuire il servizio in produzione.
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

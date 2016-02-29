@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -39,6 +39,7 @@ Questo argomento fornisce informazioni di base sul **servizio di sincronizzazion
 | **Funzionalità** ||
 | [Implementare la sincronizzazione password](active-directory-aadconnectsync-implement-password-synchronization.md) | Illustra il funzionamento della sincronizzazione password, spiega come implementarla, usarla e risolverne i problemi. |
 | [Impedire eliminazioni accidentali](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) | Illustra la funzionalità per *impedire eliminazioni accidentali* e la relativa configurazione. |
+| [Utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md) | Illustra l'utilità di pianificazione incorporata, che importa, sincronizza ed esporta i dati. |
 | **Operazioni** ||
 | [Attività operative e considerazioni](active-directory-aadconnectsync-operations.md) | Illustra aspetti operativi, ad esempio il ripristino di emergenza. |
 | **Altri riferimenti e informazioni** ||
@@ -50,4 +51,4 @@ Questo argomento fornisce informazioni di base sul **servizio di sincronizzazion
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

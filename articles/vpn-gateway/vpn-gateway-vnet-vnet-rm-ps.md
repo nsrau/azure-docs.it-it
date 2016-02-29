@@ -83,8 +83,8 @@ In questo articolo verrà illustrata la connessione di due reti virtuali, VNet1 
 
 
 - Verificare di possedere una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-
-- Installare i moduli di PowerShell. Per configurare la connessione è necessario usare la versione più recente dei cmdlet di PowerShell per Gestione risorse di Azure.[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
+	
+- È necessario installare i cmdlet di PowerShell per Gestione risorse di Azure. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 
 ## Passaggio 1 - Pianificare gli intervalli di indirizzi IP
@@ -260,4 +260,4 @@ Dopo aver verificato che le subnet del gateway sono configurate correttamente, c
 
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

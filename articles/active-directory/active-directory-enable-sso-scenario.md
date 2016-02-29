@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Gestione di applicazioni con Azure Active Directory | Microsoft Azure"
-   description="Questo articolo illustra i vantaggi dell'integrazione di Azure Active Directory con le applicazioni locali, cloud e SaaS."
-   services="active-directory"
-   documentationCenter=""
-   authors="ihenkel"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Gestione di applicazioni con Azure Active Directory | Microsoft Azure"
+    description="Questo articolo illustra i vantaggi dell'integrazione di Azure Active Directory con le applicazioni locali, cloud e SaaS."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
    <tags
       ms.service="active-directory"
@@ -13,12 +13,10 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/09/2016"
-      ms.author="inhenk"/>
+      ms.date="02/16/2016"
+      ms.author="markvi"/>
 
 # Gestione di applicazioni con Azure Active Directory
-
-## Panoramica
 
 Oltre alla gestione del flusso di lavoro o del contenuto effettivo, in generale le aziende prevedono due requisiti di base per tutte le applicazioni:
 
@@ -30,9 +28,9 @@ Nel mondo delle applicazioni cloud, per controllare "*CHI può fare COSA*" è ne
 
 Detto con la terminologia IT:
 
-- *Chi* è noto come *identità*, ovvero un archivio dati costituito da utenti e gruppi
+- *Chi* corrisponde a *identità*, ovvero la gestione di utenti e gruppi.
 
-- *Cosa* è noto come *gestione degli accessi*, ovvero la gestione degli accessi alle risorse protette
+- *Cosa* corrisponde a *gestione degli accessi*, ovvero la gestione degli accessi alle risorse protette.
 
 La combinazione di questi due componenti è nota come *Gestione delle identità e degli accessi*, definita dal gruppo [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) come "*la disciplina di sicurezza che consente alle persone corrette di accedere alle risorse appropriate, al momento opportuno e per i giusti motivi*".
 
@@ -40,7 +38,7 @@ Allora qual è il problema? Se le identità e gli accessi *non sono gestiti* in 
 
 - Gli amministratori delle identità devono creare e aggiornare i singoli account utente in tutte le applicazioni separatamente, un'attività ridondante dispendiosa in termini di tempo.
 
-- Gli utenti devono memorizzare più credenziali per accedere alle applicazioni necessarie per lavorare, soprattutto perché per motivi di sicurezza sono incoraggiati a non usare la stessa password per tutte le applicazioni. Di conseguenza, gli utenti tendono a prendere nota delle password o a usare soluzioni di gestione delle password che comportano altri rischi per la sicurezza dei dati.
+- Gli utenti devono memorizzare più credenziali per accedere alle app che vogliono usare. Di conseguenza, gli utenti tendono a prendere nota delle password o a usare soluzioni di gestione delle password che comportano altri rischi per la sicurezza dei dati.
 
 - Le attività ridondanti e dispendiose in termini di tempo riducono il tempo utile che gli utenti e gli amministratori possono dedicare ad attività aziendali che incrementano i profitti dell'azienda.
 
@@ -54,13 +52,22 @@ Quali sono i fattori che ostacolano l'adozione di soluzioni di gestione delle id
 
 ## Integrazione di Azure Active Directory con le applicazioni
 
-Azure Active Directory è una soluzione di gestione delle identità distribuita come servizio (Identity as a Service, IDaaS), che offre la gestione delle identità e degli accessi come un servizio cloud e fornisce funzionalità di gestione degli accessi, accesso Single Sign-On (SSO) e creazione di report, [preintegrata con migliaia di applicazioni](https://azure.microsoft.com/marketplace/active-directory/), tra cui Salesforce, Google Apps, Box, Concur e altre ancora. Con Azure AD, le applicazioni pubblicate per partner e clienti (aziende o utenti privati) dispongono delle stesse funzionalità di gestione delle identità e degli accessi, in modo da consentire al personale di concentrarsi sull'attività principale.
+Azure Active Directory è una soluzione IDaaS (Identity as a Service) Microsoft completa che offre i vantaggi seguenti:
 
-Il valore di Azure AD va oltre le "sole" applicazioni cloud. Funziona anche con le applicazioni locali offrendo l'accesso remoto sicuro per evitare l'uso di VPN o altri sistemi di gestione degli accessi tradizionali.
+- Abilitazione della gestione delle identità e degli accessi come servizio cloud. 
+
+- Gestione centrale dell'accesso, accesso Single Sign-On (SSO) e creazione di report.
+
+- Supporto per la gestione integrata degli accessi per [migliaia di applicazioni](https://azure.microsoft.com/marketplace/active-directory/) nella raccolta di applicazioni, ad esempio Salesforce, Google Apps, Box, Concur e così via.
+
+
+Con Azure Active Directory tutte le applicazioni pubblicate per partner e clienti (aziende o utenti privati) hanno le stesse funzionalità di gestione delle identità e degli accessi.<br> Ciò consente una riduzione notevole dei costi operativi.
 
 Che cosa accade se è necessario implementare un'applicazione non ancora pubblicata nella raccolta di applicazioni? Nonostante la procedura risulti leggermente più dispendiosa in termini di tempo rispetto alla configurazione dell'accesso Single Sign-On delle applicazioni disponibili nella raccolta, Azure AD offre una procedura di configurazione guidata.
 
-Poiché fornisce funzionalità di gestione degli accessi centralizzata e di accesso Single Sign-On per tutte le applicazioni aziendali, Azure AD è la soluzione che consente di risolvere i problemi legati alla sicurezza dei dati e alla produttività.
+Il valore di Azure AD va oltre le "sole" applicazioni cloud. È anche possibile usarlo con applicazioni locali, fornendo accesso remoto sicuro, che consente di eliminare la necessità di VPN o altre implementazioni tradizionali di gestione dell'accesso remoto.
+
+Poiché fornisce funzionalità di gestione degli accessi centralizzata e di accesso Single Sign-On per tutte le applicazioni aziendali, Azure AD è la soluzione che consente di risolvere i problemi principali legati alla sicurezza dei dati e alla produttività.
 
 - Gli utenti possono accedere a più applicazioni con le stesse credenziali di accesso e avere più tempo disponibile per generare reddito o svolgere le operazioni aziendali.
 
@@ -128,4 +135,4 @@ Per iniziare a integrare applicazioni con Azure AD, vedere [Guida introduttiva a
 
 [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

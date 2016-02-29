@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="02/14/2016"
     ms.author="micurd"/>
 
 # Utilizzo dell'interfaccia della riga di comando di Azure con archiviazione di Azure
@@ -33,7 +33,7 @@ In questa guida utilizza Ubuntu per gli esempi, ma altre piattaforme del sistema
 
 **Novità in Azure:** ottenere una sottoscrizione di Microsoft Azure e un account Microsoft associato alla sottoscrizione. Per ottenere una sottoscrizione Azure, vedere la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/), le [opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/) e le [offerte per i membri](https://azure.microsoft.com/pricing/member-offers/) (per i membri di MSDN, Microsoft Partner Network, BizSpark e altri programmi Microsoft).
 
-Per altre informazioni sugli account [Azure, vedere Gestire account, sottoscrizioni e ruoli amministrativi](https://msdn.microsoft.com/library/azure/hh531793.aspx).
+Per altre informazioni sulle sottoscrizioni di Azure, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
 **Dopo aver creato una sottoscrizione e un account di Microsoft Azure:**
 
@@ -94,7 +94,7 @@ Dopo l'esecuzione dello script è necessario disporre di una cartella di destina
 
 ### Connettersi alla sottoscrizione di Azure
 
-Sebbene la maggior parte dei comandi di archiviazione funzionerà senza una sottoscrizione di Azure, è consigliabile connettersi alla sottoscrizione di Azure CLI. Per configurare la CLI di Azure per l'utilizzo con la sottoscrizione, seguire i passaggi in [come connettersi alla sottoscrizione di Azure](../xplat-cli-install.md#how-to-connect-to-your-azure-subscription).
+Sebbene la maggior parte dei comandi di archiviazione funzionerà senza una sottoscrizione di Azure, è consigliabile connettersi alla sottoscrizione di Azure CLI. Per configurare l'interfaccia della riga di comando di Azure per l'uso con la sottoscrizione, seguire i passaggi nell'argomento relativo alla [connessione alla sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 
 ### Creare un nuovo account di archiviazione
 
@@ -121,7 +121,7 @@ Quindi copiare la stringa di connessione di output e impostare alla variabile di
 
 ## Creare e gestire gli account di accesso
 
-Archivio BLOB di Azure è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Questa sezione presuppone la conoscenza dei concetti relativi al servizio di archiviazione BLOB di Azure. Per informazioni dettagliate, vedere [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md) e [Concetti relativi al servizio BLOB](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+Archivio BLOB di Azure è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Questa sezione presuppone la conoscenza dei concetti relativi al servizio di archiviazione BLOB di Azure. Per informazioni dettagliate, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md) e [Concetti relativi al servizio BLOB](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### Creare un contenitore
 
@@ -129,11 +129,11 @@ Ogni BLOB nell'archiviazione di Azure deve risiedere in un contenitore. È possi
 
         azure storage container create mycontainer
 
-> [AZURE.NOTE] Esistono tre livelli di accesso in lettura anonimo: **Off**, **Blob**, e **contenitore**. Per impedire l'accesso anonimo ai BLOB, impostare il parametro di autorizzazione su **Disattivato**. Per impostazione predefinita, il nuovo contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico anonimo alle risorse BLOB, ma non ai metadati del contenitore o all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione su **BLOB**. Per consentire l'accesso in lettura pubblico completo alle risorse BLOB, ai metadati del contenitore e all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione **su Contenitore**. Per ulteriori informazioni, vedere [gestione dell'accesso alle risorse di archiviazione Azure](storage-manage-access-to-resources.md).
+> [AZURE.NOTE] Esistono tre livelli di accesso in lettura anonimo: **Off**, **Blob**, e **contenitore**. Per impedire l'accesso anonimo ai BLOB, impostare il parametro di autorizzazione su **Disattivato**. Per impostazione predefinita, il nuovo contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico anonimo alle risorse BLOB, ma non ai metadati del contenitore o all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione su **BLOB**. Per consentire l'accesso in lettura pubblico completo alle risorse BLOB, ai metadati del contenitore e all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione **su Contenitore**. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](storage-manage-access-to-resources.md).
 
 ### Caricare un BLOB in un contenitore
 
-In Archiviazione BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Per altre informazioni, vedere [Informazioni sui Blob in blocchi e sui Blob di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+In Archiviazione BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Per altre informazioni, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 Per caricare BLOB in un contenitore, è possibile utilizzare il `azure storage blob upload`. Per impostazione predefinita, questo comando carica i file locali in un BLOB in blocchi. Per specificare il tipo per il BLOB, è possibile usare il parametro `--blobtype`.
 
@@ -169,7 +169,7 @@ Per eliminare un blob, utilizzare il comando seguente:
 
 ## Creare e gestire condivisioni di file
 
-L'archiviazione file di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo SMB standard. Macchine virtuali di Microsoft Azure e servizi cloud, nonché applicazioni locali, possono condividere i dati di file tra condivisioni montate. È possibile gestire condivisioni di file e dati di file tramite la CLI di Azure. Per ulteriori informazioni sull'archiviazione file di Azure, vedere [Come utilizzare l'archiviazione file di Azure con Windows](storage-dotnet-how-to-use-files) o [Come utilizzare l'archiviazione file di Azure con Linux](storage-how-to-use-files-linux.md).
+L'archiviazione file di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo SMB standard. Macchine virtuali di Microsoft Azure e servizi cloud, nonché applicazioni locali, possono condividere i dati di file tra condivisioni montate. È possibile gestire condivisioni di file e dati di file tramite la CLI di Azure. Per altre informazioni sull'archiviazione file di Azure, vedere [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md) o [Come usare l'archiviazione file di Azure con Linux](storage-how-to-use-files-linux.md).
 
 ### Creare una condivisione file
 
@@ -221,4 +221,4 @@ Per altre informazioni, vedere gli articoli e le risorse correlati seguenti:
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

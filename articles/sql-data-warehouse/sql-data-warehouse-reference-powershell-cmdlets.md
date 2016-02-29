@@ -27,7 +27,7 @@ Allo stesso modo, le API REST per il **database di Azure SQL** possono essere us
 ## Ottenere ed eseguire i cmdlet di Azure PowerShell
 
 1. Per scaricare il modulo di Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
-2. Per eseguire il modulo, nella finestra di avvio digitare **Microsoft Azure PowerShell**.
+2. Per eseguire il modulo, nella finestra di avvio digitare **Windows PowerShell**.
 3. Se non si è ancora provveduto ad aggiungere il proprio account al computer, eseguire il cmdlet seguente. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell]().
 
 	```
@@ -133,4 +133,4 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Cronologia delle versioni
@@ -26,6 +26,34 @@ Collegamenti correlati:
 
 - Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.1.105.0
+Data di rilascio: febbraio 2016
+
+**Nuove funzionalità:**
+
+- Funzionalità di [aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md) per i clienti con impostazioni rapide.
+- Supporto per l'uso di MFA e PIM da parte dell'amministratore globale nell'installazione guidata.
+    - Se si usa MFA, è necessario impostare il proxy in modo che consenta il traffico per https://secure.aadcdn.microsoftonline-p.com.
+    - Per il corretto funzionamento di MFA, è necessario aggiungere https://secure.aadcdn.microsoftonline-p.com all'elenco di siti attendibili.
+- Possibilità di modificare il metodo di accesso dell'utente dopo l'installazione iniziale.
+- Possibilità di usare i [filtri basati su dominio e unità organizzativa](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) nell'installazione guidata. Ciò consente anche la connessione a foreste in cui non sono disponibili tutti i domini.
+- L'[utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md) è incorporata nel motore di sincronizzazione.
+
+**Funzionalità passate dal livello di anteprima al livello di disponibilità generale:**
+
+- [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md)
+- [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md)
+
+**Nuove funzionalità di anteprima:**
+
+- Il nuovo intervallo predefinito per i cicli di sincronizzazione è pari a 30 minuti. In tutte le versioni precedenti è pari a 3 ore. Aggiunge il supporto per la modifica del comportamento dell'[utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md).
+
+**Problemi risolti:**
+
+- La pagina di verifica dei domini DNS non riconosceva sempre i domini.
+- Richiesta di credenziali di amministratore del dominio durante la configurazione di AD FS.
+- Gli account AD locali non vengono riconosciuti dall'installazione guidata se si trovano in un dominio con un albero DNS diverso da quello del dominio radice.
 
 ## 1\.0.9131.0
 Data di rilascio: dicembre 2015
@@ -114,7 +142,7 @@ Il nome è stato modificato da Azure AD Sync ad Azure AD Connect.
 
 - [Writeback degli utenti](active-directory-aadconnect-feature-preview.md#user-writeback)
 - [Writeback dei gruppi](active-directory-aadconnect-feature-preview.md#group-writeback)
-- [Writeback dei dispositivi](active-directory-aadconnect-get-started-custom-device-writeback.md)
+- [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md)
 - [Estensioni della directory](active-directory-aadconnect-feature-preview.md#directory-extensions)
 
 
@@ -209,4 +237,4 @@ Data di rilascio: settembre 2014
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

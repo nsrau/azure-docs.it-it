@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/11/2016"
 	ms.author="ddove; sidneyh"/>
 
 # Creazione e gestione di processi elastici di un Database SQL con il portale (anteprima)
@@ -23,7 +23,7 @@
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
-I **processi elastici di database** consentono una gestione semplice e affidabile di un gruppo di database, semplificando l'esecuzione di operazioni amministrative, ad esempio le modifiche dello schema, la gestione delle credenziali, gli aggiornamenti dei dati di riferimento, la raccolta dei dati delle prestazioni o la raccolta di dati di telemetria dei tenant (clienti). L'opzione relativa ai processi di database elastici è attualmente disponibile tramite il portale di Azure e i cmdlet di PowerShell. Tuttavia, l'area del portale di Azure presenta funzionalità limitate all'esecuzione in tutti i database in un [pool di database elastici (anteprima)](sql-database-elastic-pool.md). Per accedere a funzionalità aggiuntive e all'esecuzione di script in un gruppo di database, compreso un insieme personalizzato o un insieme di partizioni (creato utilizzando la [libreria client di database elastici](sql-database-elastic-scale-introduction.md)), vedere [Creazione e gestione dei processi tramite PowerShell](sql-database-elastic-jobs-powershell.md). Per ulteriori informazioni sui processi, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md).
+I **processi elastici di database** semplificano la gestione di gruppi di database mediante l'esecuzione di operazioni amministrative, ad esempio le modifiche dello schema, la gestione delle credenziali, gli aggiornamenti dei dati di riferimento, la raccolta dei dati delle prestazioni o la raccolta di dati di telemetria dei tenant (clienti). L'opzione relativa ai processi di database elastici è attualmente disponibile tramite il portale di Azure e i cmdlet di PowerShell. Tuttavia, l'area del portale di Azure presenta funzionalità limitate all'esecuzione in tutti i database in un [pool di database elastici (anteprima)](sql-database-elastic-pool.md). Per accedere a funzionalità aggiuntive e all'esecuzione di script in un gruppo di database, compreso un insieme personalizzato o un insieme di partizioni (creato utilizzando la [libreria client di database elastici](sql-database-elastic-scale-introduction.md)), vedere [Creazione e gestione dei processi tramite PowerShell](sql-database-elastic-jobs-powershell.md). Per ulteriori informazioni sui processi, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md).
 
 ## Prerequisiti
 
@@ -115,4 +115,4 @@ Se un processo ha esito negativo, è disponibile un log dell'esecuzione. Fare cl
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

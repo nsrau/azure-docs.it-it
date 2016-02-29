@@ -1,3 +1,3 @@
-> [AZURE.IMPORTANT]Prima di utilizzare risorse di Azure, acquisire familiarità con i modelli di distribuzione: [Gestione risorse e classico](../resource-manager-deployment-model.md).
+> [AZURE.IMPORTANT] Prima di utilizzare risorse di Azure, acquisire familiarità con i modelli di distribuzione: [Gestione risorse e classico](../articles/resource-manager-deployment-model.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

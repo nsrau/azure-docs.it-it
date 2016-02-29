@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -543,9 +543,9 @@ Eseguire l'applicazione console e osservare l'output per verificare le operazion
 
 ## Passaggi successivi
 
-[Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso](../storage-dotnet-shared-access-signature-part-1/)
+[Firme di accesso condiviso, parte 1: informazioni sul modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md)
 
-[Gestire l'accesso alle risorse di archiviazione di Azure](http://msdn.microsoft.com/library/azure/ee393343.aspx)
+[Gestire l'accesso in lettura anonimo a contenitori e BLOB](storage-manage-access-to-resources.md)
 
 [Delega dell'accesso con una firma di accesso condiviso (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 
@@ -554,4 +554,4 @@ Eseguire l'applicazione console e osservare l'output per verificare le operazion
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

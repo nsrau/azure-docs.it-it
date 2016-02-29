@@ -40,7 +40,7 @@ Sono disponibili i pacchetti di programmi di installazione seguenti:
 
 ## Installare e utilizzare Node.js e npm
 
-Se Node.js è già installato nel sistema, usare il comando seguente per installare l'interfaccia della riga di comando di Azure:
+In alternativa, se Node.js è già installato nel sistema, usare il comando seguente per installare l'interfaccia della riga di comando di Azure:
 
 	npm install azure-cli -g
 
@@ -137,7 +137,7 @@ azure --version
 Microsoft rilascia di frequente versioni aggiornate dell'interfaccia della riga di comando di Azure. Reinstallare l'interfaccia della riga di comando con il programma di installazione del sistema operativo oppure, se Node.js e npm sono installati, eseguire l'aggiornamento digitando quanto riportato di seguito. Nelle distribuzioni Linux potrebbe essere necessario usare **sudo**.
 
 ```
-npm upgrade -g azure-cli
+npm update -g azure-cli
 ```
 
 ## Risorse aggiuntive
@@ -158,4 +158,4 @@ npm upgrade -g azure-cli
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

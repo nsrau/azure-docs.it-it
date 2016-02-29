@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="02/14/2016" 
 	ms.author="juliako"/>
 
 #Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure
@@ -32,6 +32,9 @@ A partire dalla versione 2.10 di Servizi multimediali, quando si crea un canale 
 - **Standard** - scegliere questo valore se si prevede di usare Servizi multimediali per codificare il flusso live a velocità in bit singola in un flusso a più velocità in bit. Tenere presente che la codifica live è soggetta a un costo e che se si lascia un canale di codifica live impostato sullo stato "In esecuzione", vengono aggiunti nuovi costi alla fatturazione. Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live.
 
 >[AZURE.NOTE]Questo argomento illustra gli attributi dei canali abilitati per l'esecuzione della codifica live (tipo di codifica **Standard**). Per informazioni sull'uso dei canali non abilitati all'esecuzione della codifica live, vedere [Uso dei canali che ricevono il flusso live a più velocità in bit da codificatori locali](media-services-manage-channels-overview.md).
+>
+>Assicurarsi di esaminare la sezione [Considerazioni](media-services-manage-live-encoder-enabled-channels.md#Considerations).
+
 
 
 ##Implicazioni relative alla fatturazione
@@ -437,6 +440,7 @@ Arrestato|Arrestato|No
 - Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived in Microsoft.com.
 - Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
 - Quando si immettono più tracce di lingua e si esegue la codifica live con Azure, per l'input multilingua è supportato solo RTP. È tuttavia possibile definire fino a otto flussi audio usando MPEG-2 TS su RTP. Non è invece supportato l'inserimento di più tracce audio con RTMP o Smooth Streaming. Quando si esegue la codifica live con [codifiche live locali](media-services-manage-channels-overview.md), non esiste questa limitazione poiché qualsiasi informazione inviata ad AMS passa attraverso un canale senza ulteriori elaborazioni.
+- Il set di impostazioni di codifica usa la nozione di "frequenza fotogrammi massima" di 30 fps. Pertanto, se l'input è 60 fps/59.97 i, i fotogrammi di input vengono eliminati/de-interlacciati a 30/29.97 fps. Se l'input è 50 fps/50 i, i fotogrammi di input vengono eliminati/de-interlacciati a 25 fps. Se l'input è 25 fps, l'output rimane di 25 fps.
 - Non dimenticare di INTERROMPERE I CANALI al termine dell'operazione per evitare il proseguimento della fatturazione. 
 
 ##Problemi noti
@@ -476,4 +480,4 @@ Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire c
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

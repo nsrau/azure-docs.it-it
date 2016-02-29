@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/26/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Introduzione alla configurazione del servizio di bilanciamento del carico Internet con Gestione risorse di Azure
@@ -272,7 +272,7 @@ Utilizzare il comando Remove-AzureLoadBalancer per eliminare un bilanciamento de
 
 	Remove-AzureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 
->[AZURE.NOTE]È possibile utilizzare l’opzione facoltativa - Forzare per evitare la richiesta di eliminazione.
+>[AZURE.NOTE] È possibile utilizzare l’opzione facoltativa - Forzare per evitare la richiesta di eliminazione.
 
 
 ## Vedere anche
@@ -282,4 +282,4 @@ Utilizzare il comando Remove-AzureLoadBalancer per eliminare un bilanciamento de
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

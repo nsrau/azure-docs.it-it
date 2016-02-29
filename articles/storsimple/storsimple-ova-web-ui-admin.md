@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Amministrazione dell'interfaccia utente Web di StorSimple Virtual Array | Microsoft Azure"
-   description="Viene illustrato come eseguire attività di amministrazione di base del dispositivo tramite l'interfaccia utente Web di StorSimple Virtual Array."
+   pageTitle="Amministrazione dell'interfaccia utente Web dell'array virtuale StorSimple | Microsoft Azure"
+   description="Viene illustrato come eseguire attività di amministrazione di base del dispositivo tramite l'interfaccia utente Web dell'array virtuale StorSimple."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,21 +12,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/22/2016"
+   ms.date="02/17/2016"
    ms.author="alkohli" />
 
-# Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array (anteprima)
+# Usare l'interfaccia utente Web per amministrare l'array virtuale StorSimple (anteprima)
 
 ![flusso del processo di installazione](./media/storsimple-ova-web-ui-admin/manage4.png)
 
 ## Panoramica
 
-Le esercitazioni in questo articolo si applicano a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple) che esegue la versione 1.1.1.0 (anteprima). Questo articolo illustra una parte dei flussi di lavoro e delle attività di gestione complessi eseguibili su StorSimple Virtual Array. Sono disponibili due interfacce utente utilizzabili per la gestione di StorSimple Virtual Array: l'interfaccia utente del servizio StorSimple Manager (definito interfaccia utente del portale) e l'interfaccia utente Web locale per il dispositivo. Questo articolo è incentrato sulle attività che è possibile eseguire con l'interfaccia utente Web.
+Le esercitazioni in questo articolo si applicano all'array virtuale Microsoft Azure StorSimple (noto anche come dispositivo virtuale locale StorSimple) che esegue la versione 1.1.1.0 (anteprima). Questo articolo illustra una parte dei flussi di lavoro e delle attività di gestione complessi eseguibili sull'array virtuale StorSimple. Sono disponibili due interfacce utente utilizzabili per la gestione dell'array virtuale StorSimple: l'interfaccia utente del servizio StorSimple Manager (definito interfaccia utente del portale) e l'interfaccia utente Web locale per il dispositivo. Questo articolo è incentrato sulle attività che è possibile eseguire con l'interfaccia utente Web.
 
 >[AZURE.IMPORTANT] 
 >
->- StorSimple Virtual Array è disponibile in anteprima ed è progettato a scopo di valutazione e pianificazione della distribuzione. L'installazione di questa versione di anteprima in un ambiente di produzione non è supportata. 
->- Se si riscontrano problemi con StorSimple Virtual Array, inserire un post al riguardo nel [forum MSDN per StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
+>- L'array virtuale StorSimple è disponibile in anteprima ed è progettato a scopo di valutazione e pianificazione della distribuzione. L'installazione di questa versione di anteprima in un ambiente di produzione non è supportata. 
+>- Se si riscontrano problemi con l'array virtuale StorSimple, inserire un post al riguardo nel [forum MSDN per StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
 
 L'articolo include le esercitazioni seguenti:
 
@@ -94,7 +94,7 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
 
 ## Arrestare e riavviare il dispositivo
 
-È possibile arrestare o riavviare il dispositivo virtuale tramite l'interfaccia utente Web locale.
+È possibile arrestare o riavviare il dispositivo virtuale tramite l'interfaccia utente Web locale. Prima di riavviare, si consiglia di portare offline i volumi o le condivisioni sull'host e quindi sul dispositivo. Questa operazione consente di eliminare qualsiasi rischio di danneggiamento dei dati.
 
 #### Per arrestare il dispositivo virtuale
 
@@ -136,4 +136,4 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
 
 Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

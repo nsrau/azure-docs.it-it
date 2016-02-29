@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Pianificare l'infrastruttura di backup delle macchine virtuali in Azure | Microsoft Azure"
-	description="Considerazioni importanti per la pianificazione dell'infrastruttura di backup delle macchine virtuali in Azure"
+	description="Considerazioni importanti sulla pianificazione del backup di macchine virtuali in Azure"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="backup di vm, backup di macchine virtuali"/>
 
 <tags
 	ms.service="backup"
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/12/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Pianificare l'infrastruttura di backup delle macchine virtuali in Azure
-Questo articolo illustra le considerazioni principali da tenere presenti durante la pianificazione dell'infrastruttura di backup delle macchine virtuali. Se è stato [preparato l'ambiente](backup-azure-vms-prepare.md), questo è il passaggio successivo prima di iniziare a [eseguire il backup delle macchine virtuali](backup-azure-vms.md). Per altre informazioni sulle macchine virtuali di Azure, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Questo articolo descrive gli aspetti principali da considerare quando si pianifica il backup di macchine virtuali in Azure. Se è stato [preparato l'ambiente](backup-azure-vms-prepare.md), questo è il passaggio successivo prima di iniziare a [eseguire il backup delle macchine virtuali](backup-azure-vms.md). Per altre informazioni sulle macchine virtuali di Azure, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## In che modo Azure esegue il backup delle macchine virtuali?
 Quando il servizio Backup di Azure avvia un processo di backup all'ora pianificata, richiede all'estensione per il backup di acquisire uno snapshot temporizzato. Questo snapshot viene acquisito in combinazione con il Servizio Copia Shadow del volume (VSS) per ottenere uno snapshot coerente dei dischi nella macchina virtuale senza che sia necessario spegnerla.
@@ -120,4 +121,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 - [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 - [Risolvere i problemi relativi al backup delle macchine virtuali di Azure](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

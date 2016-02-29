@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="02/17/2016"
    ms.author="tomfitz"/>
 
 # Distribuire un'applicazione con un modello di Gestione risorse di Azure
@@ -107,6 +107,8 @@ Specificare il tipo di distribuzione tramite la proprietà **Modalità**, come i
           Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
           [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+
+     Se il modello include un parametro con un nome corrispondente a uno dei parametri nel comando per la distribuzione del modello, ad esempio un parametro denominato **ResourceGroupName** nel modello che corrisponde al parametro **ResourceGroupName** nel cmdlet [New AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx), verrà richiesto di specificare un valore per un parametro con il suffisso **FromTemplate**, ad esempio **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
 
 6. Per ottenere informazioni sugli errori di distribuzione.
 
@@ -271,7 +273,7 @@ Se si usa un file di parametri per passare i valori di parametro al modello dura
 
 La dimensione del file di parametro non può essere superiore a 64 KB.
 
-Per informazioni su come definire i parametri nel modello, vedere [Creazione di modelli](../resource-group-authoring-templates/#parameters) Per informazioni dettagliate sul riferimento a KeyVault per passare valori sicuri, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md)
+Per informazioni su come definire i parametri nel modello, vedere [Creazione di modelli](../resource-group-authoring-templates/#parameters). Per informazioni dettagliate sul riferimento a KeyVault per passare valori sicuri, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md)
 
 ## Passaggi successivi
 - Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](./virtual-machines/arm-template-deployment.md).
@@ -282,4 +284,4 @@ Per informazioni su come definire i parametri nel modello, vedere [Creazione di 
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

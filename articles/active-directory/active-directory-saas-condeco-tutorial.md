@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/17/2016"
 	ms.author="jeedes"/>
 
 
@@ -36,13 +36,13 @@ Per configurare l'integrazione di Azure AD con Condeco, sono necessari gli eleme
 - Sottoscrizione di Condeco abilitata per l'accesso Single Sign-On
 
 
-> [AZURE.NOTE]Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Descrizione dello scenario
@@ -93,7 +93,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Condeco** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_03.png) <br>
 
-3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_04.png) <br>
+3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_04.png) <br>
 
 
     a. Nella casella di testo URL di accesso, digitare l'URL usato dagli utenti per accedere all'applicazione Condeco adottando il modello seguente: **"https://companyname.condecosoftware.com"**.
@@ -127,11 +127,11 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco di utenti, nel menu in alto fare clic su **Utenti**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_03.png) <br>
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_03.png) <br>
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, sulla barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_04.png) <br>
+4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_04.png) <br>
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_05.png) <br>
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_05.png) <br>
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
@@ -139,7 +139,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Fare clic su **Avanti**.
 
-6.  Nella pagina **Profilo utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_06.png) <br>
+6.  Nella pagina della finestra di dialogo **Profilo utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_06.png) <br>
 
     a. Nella casella di testo **Nome** digitare **Britta**.
 
@@ -147,15 +147,15 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
 
-    d. Nell'elenco **Ruolo** selezionare **Utente**.
+    d. Nell'elenco **Ruolo**, selezionare **Utente**.
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina **Ottieni password temporanea** fare clic su **Crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_07.png) <br>
+7. Nella pagina della finestra di dialogo **Ottieni password temporanea**, fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_07.png) <br>
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_08.png) <br>
 
-    a. Prendere nota del valore di **Nuova password**.
+    a. Prendere nota del valore visualizzato in **Nuova password**.
 
     b. Fare clic su **Complete**.
 
@@ -167,7 +167,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Condeco. 
 
 Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Condeco verrà creato un nuovo utente, se questo non esiste già. [Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on).
 
-> [AZURE.NOTE]Per creare un utente manualmente, è necessario contattare il team di supporto di Condeco.
+> [AZURE.NOTE] Per creare un utente manualmente, è necessario contattare il team di supporto di Condeco.
 
 
 ### Assegnazione dell'utente test di Azure AD
@@ -184,7 +184,7 @@ Questa sezione descrive come abilitare Britta Simon per l'utilizzo dell'accesso 
 
 1. Nell'elenco di utenti selezionare **Britta Simon**.
 
-2. Sulla barra degli strumenti in basso fare clic su **Assegna**. <br><br>![Assegna utente][205]
+2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
 
 
 
@@ -217,4 +217,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

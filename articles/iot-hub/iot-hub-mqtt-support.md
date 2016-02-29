@@ -18,7 +18,7 @@
 
 # Supporto di MQTT nell'hub IoT
 
-L'hub IoT consente ai dispositivi di comunicare con gli endpoint dei dispositivi dell'hub IoT tramite il protocollo [MQTT v3.1.1][lnk-mqtt-org].
+L'hub IoT consente ai dispositivi di comunicare con gli endpoint dei dispositivi dell'hub IoT tramite il protocollo [MQTT v3.1.1][lnk-mqtt-org] sulla porta 8883. L'hub IoT richiede che tutte le comunicazioni del dispositivo siano protette tramite TLS/SSL.
 
 ## Connessione all'hub IoT
 
@@ -81,4 +81,4 @@ Per altre informazioni sul protocollo MQTT, vedere la [documentazione di MQTT][l
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

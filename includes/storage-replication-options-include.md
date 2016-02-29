@@ -1,4 +1,4 @@
-I dati dell'account di archiviazione di Microsoft Azure vengono sempre replicati per assicurarne durabilità e disponibilità elevata, rispettando il [contratto di servizio di Archiviazione di Azure](https://azure.microsoft.com/support/legal/sla/) anche in caso di errori hardware temporanei. Quando si crea un account di archiviazione, è necessario selezionare una delle opzioni di replica seguenti:
+I dati dell'account di archiviazione di Microsoft Azure vengono sempre replicati per assicurarne durabilità e disponibilità elevata, rispettando il [contratto di servizio di Archiviazione](https://azure.microsoft.com/support/legal/sla/storage/) anche in caso di errori hardware temporanei. Quando si crea un account di archiviazione, è necessario selezionare una delle opzioni di replica seguenti:
 
 - **Archiviazione con ridondanza locale (LRS).** Con l'archiviazione con ridondanza locale vengono conservate tre copie dei dati. Tale tipo di archiviazione viene replicato per tre volte all'interno di una singola struttura di una singola area. Questa opzione di replica protegge i dati dai normali errori hardware ma non dagli errori di una singola struttura.  
   
@@ -22,8 +22,8 @@ I dati dell'account di archiviazione di Microsoft Azure vengono sempre replicati
  
 Per altri dettagli sulle opzioni di replica di archiviazione, vedere [Replica di Archiviazione di Azure](../articles/storage/storage-redundancy.md).
 
-Per informazioni sui prezzi per la replica dell'account di archiviazione, vedere [Dettagli prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage/).
+Per informazioni sui prezzi per la replica dell'account di archiviazione, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-Per i dettagli architetturali sulla durabilità con Archiviazione di Azure, vedere il [ documento SOSP su Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+Per i dettagli architetturali sulla durabilità con Archiviazione di Azure, vedere [Paper SOSP - Archiviazione di Microsoft Azure: Un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

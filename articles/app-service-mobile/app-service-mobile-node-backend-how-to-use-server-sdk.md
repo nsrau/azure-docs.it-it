@@ -636,7 +636,7 @@ L'SDK di App per dispositivi mobili di Azure implementa l'autenticazione nello s
 		get: function (req, res, next) {
 			var date = { currentTime: Date.now() };
 			res.status(200).type('application/json').send(date);
-		});
+		}
 	};
 	// The GET methods must be authenticated.
 	api.get.access = 'authenticated';
@@ -671,6 +671,38 @@ Azure Mobile Apps SDK usa il [middleware body-parser](https://github.com/express
 
 Il limite di 50 MB mostrato in precedenza può essere modificato. Si noti che il file ha una codifica base-64 prima della trasmissione, che aumenterà le dimensioni del caricamento effettivo.
 
+### <a name="howto-customapi-sql"></a>Procedura: Eseguire istruzioni SQL personalizzate
+
+Con Azure Mobile App SDK è possibile accedere all'intero contesto tramite l'oggetto request, consentendo di eseguire facilmente istruzioni SQL con parametri sul provider di dati definito:
+
+    var api = {
+        get: function (request, response, next) {
+            // Check for parameters - if not there, pass on to a later API call
+            if (typeof request.params.completed === 'undefined')
+                return next();
+
+            // Define the query - anything that can be handled by the mssql
+            // driver is allowed.
+            var query = {
+                sql: 'UPDATE TodoItem SET complete=@completed',
+                parameters: [{
+                    completed: request.params.completed
+                }]
+            };
+
+            // Execute the query.  The context for Azure Mobile Apps is available through
+            // request.azureMobile - the data object contains the configured data provider.
+            request.azureMobile.data.execute(query)
+            .then(function (results) {
+                response.json(results);
+            });
+        }
+    };
+
+    api.get.access = 'authenticated';
+    module.exports = api;
+
+Questo endpoint è accessibile da s
 ## <a name="Debugging"></a>Debug e risoluzione dei problemi
 
 Il Servizio app di Azure offre diverse tecniche di debug e risoluzione dei problemi per le applicazioni Node.js. Sono disponibili tutte le tecniche seguenti:
@@ -771,4 +803,4 @@ Nell'editor è anche possibile eseguire il codice nel sito.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

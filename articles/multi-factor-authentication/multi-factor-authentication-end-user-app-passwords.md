@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 
@@ -22,7 +22,7 @@
 
 Alcune applicazioni non basate su browser, come il client di posta elettronica di Apple, utilizzano Exchange Active Sync e attualmente non supportano l'autenticazione a più fattori. L’autenticazione a più fattori viene abilitata per singolo utente. Questo implica che, se un utente è stato abilitato per l'autenticazione a più fattori e tenta di utilizzare applicazioni non basate su browser, non potrà farlo. La password dell’app consente tale operazione.
 
->[AZURE.NOTE]Autenticazione moderna per i client di Office 2013
+>[AZURE.NOTE] Autenticazione moderna per i client di Office 2013
 >
 > I Client di Office 2013 (tra cui Outlook) ora supportano i nuovi Protocolli di autenticazione e possono essere abilitati per supportare la Multi-Factor Authentication. Ciò significa che una volta attivati, le password della app non vengono richieste per l'utilizzo con i Client di Office 2013. Per ulteriori informazioni, vedere l’[anteprima dell’annuncio pubblico per l’autenticazione moderna di Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
  
@@ -129,4 +129,4 @@ Se si usa Multi-Factor Authentication con Azure, è consigliabile creare passwor
 5. Confermare l'eliminazione facendo clic su **Sì**.
 6. Una volta che la password dell’app viene eliminata, è possibile fare clic su **Chiudi**. ![Chiudi](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

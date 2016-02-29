@@ -13,26 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 
 # Considerazioni sulle prestazioni per Gestione traffico
 
-
-Un quesito frequente relativo a Gestione traffico di Azure riguarda i potenziali problemi di prestazioni che potrebbe causare. Le domande che vengono poste in genere sono del tipo "Quanta latenza verrà aggiunta da Gestione traffico al sito Web?", "Il sito di monitoraggio indica che il sito Web si è rallentato per alcune ore ieri. Si sono verificati problemi con Gestione traffico in tale periodo?", "Dove si trovano i server di Gestione traffico? Voglio essere certo che si trovino nello stesso data center del mio sito Web per evitare rallentamenti delle prestazioni".
-
-Questa pagina illustrerà l'impatto diretto sulle prestazioni causato da Gestione traffico in un sito Web. Se si dispone di un sito Web negli Stati Uniti orientali e uno in Asia e il sito Web degli Stati Uniti orientali non supera i probe di Gestione traffico, tutti gli utenti verranno indirizzati al sito Web dell'Asia con un impatto sulle prestazioni. Tale impatto però non è imputabile a Gestione traffico.
+Questa pagina illustrati alcune considerazioni sulle prestazioni di Gestione traffico. Scenario di esempio: si han sito Web nell'area Stati Uniti e uno in Asia. Uno di essi non supera il controllo di integrità per i probe di Gestione traffico. Tutti gli utenti saranno indirizzati all'area integra e il comportamento viene visualizzato come problema di prestazioni, ma si tratta di un comportamento previsto in base alla distanza per la richiesta dell'utente.
 
   
 
 ## Nota importante sul funzionamento di Gestione traffico
 
-[Panoramica di Gestione traffico](traffic-manager-overview.md) è un'eccellente risorsa per ottenere informazioni su come funziona Gestione traffico, ma la pagina contiene numerose informazioni e può essere difficile individuare i dati chiave relativi alle prestazioni. I punti importanti da esaminare nella documentazione MSDN sono i passaggi 5 e 6 della figura 3, che vengono illustrati più in dettaglio qui di seguito:
-
 - Gestione traffico essenzialmente esegue solo un'azione, ovvero la risoluzione DNS. Questo significa che l'unico impatto sulle prestazioni prodotto da Gestione traffico in un sito Web è la ricerca DNS iniziale.
 - Segue una spiegazione della ricerca DNS di Gestione traffico. Gestione traffico inserisce dati e aggiorna regolarmente i server radice DNS Microsoft normali in base ai criteri e ai risultati dei probe. Anche durante la ricerca DNS iniziale non esiste quindi alcun coinvolgimento da parte di Gestione traffico, poiché la richiesta DNS viene gestita dai normali server radice DNS Microsoft. In caso di inattività di Gestione traffico, ad esempio per un errore nelle macchine virtuali che eseguono il probe dei criteri e l'aggiornamento DNS, non si verificherà alcun impatto sul nome DNS di Gestione traffico poiché queste voci nei server DNS Microsoft continueranno a essere mantenute. Come unico effetto non verranno eseguiti il probe e l'aggiornamento in base ai criteri, ovvero se il sito primario diventa inattivo, Gestione traffico non sarà in grado di aggiornare il DNS in modo che punti al sito di failover.
-- Il traffico non attraversa Gestione traffico. Non esistono server di Gestione traffico che agiscono come intermediari tra i client e il servizio ospitato in Azure. Al termine della ricerca DNS, Gestione traffico viene rimosso completamente dalle comunicazioni tra client e server.
+- Il traffico NON attraversa Gestione traffico. Non esistono server di Gestione traffico che agiscono come intermediari tra i client e il servizio ospitato in Azure. Al termine della ricerca DNS, Gestione traffico viene rimosso completamente dalle comunicazioni tra client e server.
 - La ricerca DNS è molto rapida e viene memorizzata nella cache. La ricerca DNS iniziale dipenderà dal client e dai server DNS configurati. Un client in genere può eseguire una ricerca DNS in ~50 ms (vedere http://www.solvedns.com/dns-comparison/). Al termine della prima ricerca, i risultati vengono memorizzati nella cache per la durata TTL DNS, che per impostazione predefinita è impostata su 300 secondi per Gestione traffico.
 - I criteri di Gestione traffico scelti (prestazioni, failover, round robin) non producono alcun effetto sulle prestazioni DNS. I criteri di prestazioni possono influire negativamente sull'esperienza utente, ad esempio qualora si inviino utenti USA a un servizio ospitato in Asia, ma questo problema di prestazioni non è causato da Gestione traffico.
 
@@ -77,11 +72,6 @@ http://www.whatsmydns.net/ - Questo sito eseguirà una ricerca DNS da 20 aree ge
 
 http://www.digwebinterface.com - Analogo al sito Watchmouse, ma con informazioni più dettagliate sul DNS, inclusi i record A e CNAME. Assicurarsi di selezionare "Colorize output" e "Stats" in Options e di selezionare "All" in Nameservers.
 
-## Conclusioni
-
-Sulla base delle informazioni precedenti, l'unico impatto sulle prestazioni prodotto da Gestione traffico in un sito Web si verifica con la prima ricerca DNS (i tempi variano, ma la media è di ~50 ms). Successivamente l'impatto sulle prestazioni è pari a 0 per la durata TTL DNS (300 secondi per impostazione predefinita). Si verifica infine un aggiornamento della cache DNS dopo la scadenza della durata TTL. La risposta alla domanda "Quanta latenza verrà aggiunta da Gestione traffico al sito Web?" pertanto è essenzialmente zero.
-
-
 ## Passaggi successivi
 
 
@@ -94,4 +84,4 @@ Sulla base delle informazioni precedenti, l'unico impatto sulle prestazioni prod
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

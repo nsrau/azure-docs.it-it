@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/30/2015" 
+	ms.date="02/11/2016" 
 	ms.author="donnam"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili
@@ -78,7 +78,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
     In questo modo viene creato un nuovo metodo per gestire il processo di autenticazione. L'utente viene autenticato tramite un account di accesso Microsoft. Viene visualizzata una finestra di dialogo che riporta l'ID dell'utente autenticato. Senza un'autenticazione positiva non è possibile procedere.
 
-    > [AZURE.NOTE]Se si usa un provider di identità diverso da Microsoft, sostituire il valore passato al metodo **login** riportato in precedenza con uno dei seguenti: _Facebook_, _Google_, _Twitter_ o _WindowsAzureActiveDirectory_.
+    > [AZURE.NOTE] Se si usa un provider di identità diverso da Microsoft, sostituire il valore passato al metodo **login** riportato in precedenza con uno dei seguenti: _Facebook_, _Google_, _Twitter_ o _WindowsAzureActiveDirectory_.
 
 3. Nel metodo **OnCreate** aggiungere la riga di codice seguente dopo il codice che crea un'istanza dell'oggetto `MobileServiceClient`.
 
@@ -142,4 +142,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [Autorizzazione di utenti con script]: mobile-services-javascript-backend-service-side-authorization.md
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -5,7 +5,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="09/25/2015"
+	ms.date="02/16/2016"
 	ms.author="paulettm"/>
 # Partner delle applicazioni HDInsight
 
@@ -37,8 +37,8 @@ Per altre informazioni, vedere le risorse elencate sul lato destro di questa pag
 
 RedPoint ha ottenuto il massimo punteggio possibile nei sondaggi di valutazione rivolti agli utenti per quanto riguarda velocità, qualità di rilevamento delle corrispondenze e facilità d'uso nella gestione dei dati di clienti e terze parti. [Contattare RedPoint](http://www.redpoint.net/Products/BigData.aspx) per scoprire in che modo il prodotto è in grado di semplificare e velocizzare la gestione della qualità e dell'integrazione dei dati, riducendone i costi e ottimizzandole l'efficacia.
 
-![](media/hdinsight-application-partners/cask7.png) Cask è una società di software Big Data open source concentrata principalmente sugli sviluppatori. Cask Data Application Platform (CDAP), prodotto di punta della società, consente agli sviluppatori Java di sviluppare, eseguire il debug e il testing, scalare e gestire le applicazioni Apache Hadoop in modo semplice e ottimale, nonché distribuirle immediatamente su un cluster Hadoop per Hortonworks Data Platform. CDAP include un framework di sviluppo e servizi di runtime che coprono l'intero ciclo di vita di sviluppo ed esecuzione di applicazioni Big Data sia locali che nel cloud. Con sede a Palo Alto (California), la società annovera investitori di rilievo, tra cui Battery Ventures, Andreessen Horowitz e Ignition Partners. Il team ha sviluppato e distribuito alcune delle più grandi applicazioni Big Data al mondo.
+![](media/hdinsight-application-partners/cask7.png) Cask è una società di software Big Data open source concentrata principalmente sugli sviluppatori. Cask Data Application Platform (CDAP), prodotto di punta della società, consente agli sviluppatori Java di sviluppare, eseguire il debug e il testing, scalare e gestire le applicazioni Apache Hadoop in modo semplice e ottimale, nonché distribuirle immediatamente su un cluster Hadoop per Hortonworks Data Platform. CDAP include un framework di sviluppo e servizi di runtime che coprono l'intero ciclo di vita di sviluppo ed esecuzione di applicazioni Big Data sia locali che nel cloud. Con sede a Palo Alto (California), la società annovera investitori di rilievo, tra cui Battery Ventures, Andreessen Horowitz e Ignition Partners. Il team ha compilato e gestito alcune delle più grandi applicazioni Big Data al mondo.
 
 ![](media/hdinsight-application-partners/kyvos8.png) Kyvos è impegnata a sfruttare tutte le potenzialità dell'analisi Big Data grazie a una tecnologia unica al mondo, ovvero "OLAP su Hadoop". Questa tecnologia consente di creare cubi a livello locale in Hadoop con scalabilità lineare, eliminando le limitazioni delle soluzioni OLAP tradizionali e consentendo di eseguire analisi multidimensionali interattive sui Big Data. Gli utenti possono visualizzare, esplorare e analizzare i dati in modo interattivo in Hadoop senza alcun bisogno di programmazione.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

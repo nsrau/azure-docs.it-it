@@ -87,7 +87,7 @@ Scenario: l'utente vuole clonare un'app Web in un'altra area mentre configura un
 
 ### Aggiunta di una nuova app Web clonata a un profilo di Gestione traffico esistente ###
 
-Scenario: l'utente ha già un profilo di Gestione traffico di ARM a cui vorrebbe aggiungere entrambe le app Web come endpoint. A questo scopo, è necessario assemblare prima di tutto l'ID del profilo di Gestione traffico esistente, per cui saranno necessari l'ID sottoscrizione, il nome del gruppo di risorse e il nome del profilo di Gestione traffico esistente.
+Scenario: L'utente ha già un profilo di Gestione traffico di ARM a cui vorrebbe aggiungere entrambe le app Web come endpoint. A questo scopo, è necessario assemblare prima di tutto l'ID del profilo di Gestione traffico esistente, per cui saranno necessari l'ID sottoscrizione, il nome del gruppo di risorse e il nome del profilo di Gestione traffico esistente.
 
     $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
 
@@ -114,4 +114,4 @@ Questa funzionalità è attualmente in anteprima e sono allo studio nuove funzio
 - [Introduzione all'ambiente del servizio app](app-service-app-service-environment-intro.md)
 - [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

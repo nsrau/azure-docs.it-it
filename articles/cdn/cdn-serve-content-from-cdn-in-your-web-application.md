@@ -151,8 +151,8 @@ In questa sezione si è appreso come creare un endpoint della rete CDN, caricarv
 
 Se si vuole caricare facilmente tutto il contenuto statico dell'applicazione Web ASP.NET nell'endpoint della rete CDN o se si distribuisce l'applicazione Web con il recapito continuo (per un esempio, vedere [Recapito continuo per Servizi cloud in Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md)), è possibile usare Azure PowerShell per automatizzare la sincronizzazione dei file di contenuto più recenti nei BLOB di Azure ogni volta che si distribuisce l'applicazione Web. Ad esempio, è possibile eseguire lo script presente nella pagina relativa al [caricamento dei file di contenuto dall'applicazione ASP.NET nei BLOB di Azure](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) per caricare tutti i file di contenuto di un'applicazione ASP.NET. Per usare questo script:
 
-4. Dal menu **Start** eseguire **Microsoft Azure PowerShell**.
-5. Nella finestra Azure PowerShell eseguire `Get-AzurePublishSettingsFile` per scaricare un file di impostazioni di pubblicazione per l'account Azure.
+4. Dal menu **Start** eseguire **Windows PowerShell**.
+5. Nella finestra di PowerShell eseguire `Get-AzurePublishSettingsFile` per scaricare un file di impostazioni di pubblicazione per l'account Azure.
 6. Dopo aver scaricato il file di impostazioni di pubblicazione, eseguire il comando seguente: 
 
 		Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
@@ -273,4 +273,4 @@ Senza l'integrazione con app Web in Azure App Service o Servizi cloud di Azure �
 - [Uso della rete CDN per Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

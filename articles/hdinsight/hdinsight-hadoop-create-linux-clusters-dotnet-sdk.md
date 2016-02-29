@@ -341,13 +341,13 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 
 ###Cluster HBase
 
-* [Introduzione a HBase in HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
+* [Introduzione a HBase in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
 * [Sviluppare applicazioni Java per HBase in HDInsight](hdinsight-hbase-build-java-maven-linux)
 
 ###Cluster Storm
 
 * [Sviluppare topologie Java per Storm in HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python.md)
+* [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ###Cluster Spark
@@ -358,4 +358,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

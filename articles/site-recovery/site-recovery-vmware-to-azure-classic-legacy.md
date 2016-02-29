@@ -1,11 +1,4 @@
-<properties
-	pageTitle="Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery (legacy) | Microsoft Azure" 
-	description="Descrive una distribuzione legacy per la configurazione di Azure Site Recovery per orchestrare le operazioni di replica, failover e ripristino delle macchine virtuali VMware locali e dei server fisici Windows o Linux in Azure." " 
-	services="site-recovery"
-	documentationCenter=""
-	authors="rayne-wiselman"
-	manager="jwhit"
-	editor=""/>
+<properties pageTitle="Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery (legacy) | Microsoft Azure" description="Descrive una distribuzione legacy per la configurazione di Azure Site Recovery per orchestrare le operazioni di replica, failover e ripristino delle macchine virtuali VMware locali e dei server fisici Windows o Linux in Azure." " services="site-recovery" documentationCenter="" authors="rayne-wiselman" manager="jwhit" editor=""/>
 
 <tags
 	ms.service="site-recovery"
@@ -107,8 +100,6 @@ Sono necessari gli elementi seguenti:
 **Insieme di credenziali di Azure Site Recovery** | Viene configurato dopo avere eseguito la sottoscrizione al servizio Site Recovery. | I server vengono registrati in un insieme di credenziali di Site Recovery. L'insieme di credenziali coordina e orchestra la replica, il failover e il ripristino dei dati tra il sito locale e Azure.
 **Meccanismo di replica** | <p>**Tramite Internet**: comunica e replica i dati dai server locali protetti e Azure mediante un canale di comunicazione SSL/TLS sicuro tramite una connessione Internet pubblica. Questa è l'opzione predefinita.</p><p>**VPN/ExpressRoute**: comunica e replica i dati tra i server locali e Azure tramite una connessione VPN. È necessario configurare una VPN da sito a sito o una connessione ExpressRoute tra il sito locale e la rete di Azure.</p><p>La modalità di replica verrà selezionata durante la distribuzione di Site Recovery. Non è possibile modificare il meccanismo dopo averlo configurato senza influire sulla protezione dei server già protetti.| <p>Nessuna delle due opzioni richiede l'apertura delle porte di rete in ingresso sui computer protetti. Tutte le comunicazioni di rete vengono avviate dal sito locale.</p> 
 
-Altre informazioni su componenti, i provider e gli agenti di Site Recovery sono disponibili in [Componenti di Site Recovery](site-recovery-components.md).
-
 ## Pianificazione della capacità
 
 Le aree principali da considerare sono:
@@ -123,8 +114,8 @@ Le aree principali da considerare sono:
 - **Numero di origini per ogni server di destinazione master** - È possibile proteggere più computer di origine con un singolo server di destinazione master. Tuttavia, non è possibile proteggere un singolo computer di origine in più server di destinazione master. Infatti, quando i dischi vengono replicati, nell'archivio BLOB di Azure viene creato un VHD che rispecchia le dimensioni del disco e che viene collegato come disco dati al server di destinazione master.  
 - **Frequenza di modifica giornaliera massima per ogni origine** - Esistono tre fattori da considerare quando si valuta la frequenza di modifica consigliata per ogni origine. Per le considerazioni relative alla destinazione, sono necessarie due operazioni IOPS sul disco di destinazione per ogni operazione nell'origine. Questo avviene perché vengono eseguite un'operazione di lettura dei dati precedenti e un'operazione di scrittura dei nuovi dati sul disco di destinazione. 
 	- **Frequenza di modifica giornaliera supportata dal server di elaborazione** - Un computer di origine non può estendersi su più server di elaborazione. Un singolo server di elaborazione può supportare fino a 1 TB di frequenza di modifica giornaliera. Pertanto 1 TB è la frequenza massima di modifica giornaliera dei dati supportata per una macchina di origine. 
-	- **Velocità effettiva massima supportata dal disco di destinazione** - La varianza massima per ogni disco di origine non può essere superiore a 144 GB al giorno (con una dimensione di scrittura di 8 K). Vedere la tabella nella sezione relativa al server di destinazione master per la velocità effettiva e gli IOPS della destinazione per le varie dimensioni di scrittura. Questo numero deve essere diviso per due, perché ogni operazione IOP di origine genera 2 IOPS sul disco di destinazione. Fare riferimento a [Obiettivi di scalabilità e prestazioni durante l'uso di Archiviazione Premium](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) durante la configurazione della destinazione per l'account di archiviazione Premium.
-	- **Velocità effettiva massima supportata dall'account di archiviazione** - Un'origine non può estendersi su più account di archiviazione. Dato che un account di archiviazione accetta al massimo 20.000 richieste al secondo e che ogni IOP di origine genera 2 IOPS nel server di destinazione master, è consigliabile mantenere il numero di IOPS nell'origine su 10.000. Fare riferimento a [Obiettivi di scalabilità e prestazioni durante l'uso di Archiviazione Premium](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) durante la configurazione dell'origine per l'account di archiviazione Premium.
+	- **Velocità effettiva massima supportata dal disco di destinazione** - La varianza massima per ogni disco di origine non può essere superiore a 144 GB al giorno (con una dimensione di scrittura di 8 K). Vedere la tabella nella sezione relativa al server di destinazione master per la velocità effettiva e gli IOPS della destinazione per le varie dimensioni di scrittura. Questo numero deve essere diviso per due, perché ogni operazione IOP di origine genera 2 IOPS sul disco di destinazione. Fare riferimento a [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) durante la configurazione della destinazione per l'account di archiviazione Premium.
+	- **Velocità effettiva massima supportata dall'account di archiviazione** - Un'origine non può estendersi su più account di archiviazione. Dato che un account di archiviazione accetta al massimo 20.000 richieste al secondo e che ogni IOP di origine genera 2 IOPS nel server di destinazione master, è consigliabile mantenere il numero di IOPS nell'origine su 10.000. Fare riferimento a [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) durante la configurazione dell'origine per l'account di archiviazione Premium.
 
 ### Considerazioni relative ai server dei componenti
 
@@ -185,7 +176,7 @@ DS4 standard | 1 disco (1 * 1023 GB) | 1 disco (1 * 1023 GB) | 15 dischi (15 * 1
 La pianificazione della capacità per il server di destinazione master dipende da:
 
 - Limitazioni e prestazioni dell'archiviazione di Azure
-	- Il numero massimo di dischi a utilizzo elevato per una VM di livello Standard è di circa 40 (20.000/500 IOPS per disco) in un singolo account di archiviazione. Fare riferimento a [Obiettivi di scalabilità per account di archiviazione standard](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts) per ulteriori informazioni. In modo analogo, fare riferimento a [Obiettivi di scalabilità per gli account di archiviazione Premium](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) per ulteriori informazioni sull'account di archiviazione Premium.
+	- Il numero massimo di dischi a utilizzo elevato per una VM di livello Standard è di circa 40 (20.000/500 IOPS per disco) in un singolo account di archiviazione. Informazioni sugli [obiettivi di scalabilità per account di archiviazione Standard](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts) e [account di archiviazione Premium](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts).
 -	Frequenza di modifica giornaliera 
 -	Archiviazione del volume di conservazione.
 
@@ -226,13 +217,13 @@ Nel grafico vengono riepilogati i passaggi di distribuzione.
 
 ## Connettività di rete
 
-Sono disponibili due opzioni per configurare la connettività di rete tra il sito locale e la rete virtuale di Azure in cui vengono distribuiti i componenti dell'infrastruttura (server di configurazione, server di destinazione master). È necessario decidere quale opzione di connettività di rete utilizzare prima di distribuire il server di configurazione. Questa è un’opzione del momento della distribuzione e non può essere modificata successivamente.
+Sono disponibili due opzioni quando si configura la connettività di rete tra il sito locale e la rete virtuale di Azure in cui vengono distribuiti i componenti dell'infrastruttura (server di configurazione, server di destinazione master). È necessario decidere quale opzione di connettività di rete usare prima di distribuire il server di configurazione. È necessario scegliere questa impostazione in fase di distribuzione. L'impostazione non può essere modificata in seguito.
 
-**Internet pubblico:** la comunicazione e la replica dei dati tra i server locali (server di elaborazione, server protetti) e i server dei componenti dell'infrastruttura di Azure (server di configurazione, server di destinazione master) avvengono tramite una connessione SSL/TLS sicura da endpoint locali a endpoint pubblici nel server di configurazione e nel server di destinazione master. (L'unica eccezione è la connessione tra il server di elaborazione e il server di destinazione master sulla porta TCP 9080 che è non crittografata. Solo le informazioni di controllo relative al protocollo di replica correlato utilizzate per la configurazione della replica vengono scambiate tramite questa connessione).
+**Internet pubblico:** la comunicazione e la replica dei dati tra i server locali (server di elaborazione, computer protetti) e i server dei componenti dell'infrastruttura di Azure (server di configurazione, server di destinazione master) avvengono tramite una connessione SSL/TLS sicura da endpoint locali a endpoint pubblici nel server di configurazione e nel server di destinazione master. L'unica eccezione è la connessione tra il server di elaborazione e il server di destinazione master sulla porta TCP 9080 che è non crittografata. Solo le informazioni di controllo relative al protocollo di replica per la configurazione della replica vengono scambiate tramite questa connessione.
 
 ![Diagramma di distribuzione Internet](./media/site-recovery-vmware-to-azure-classic-legacy/internet-deployment.png)
 
-**VPN:** la comunicazione e la replica dei dati tra i server locali (server di elaborazione, server protetti) e i server dei componenti dell'infrastruttura di Azure (server di configurazione, server di destinazione master) avvengono tramite una connessione VPN tra la rete locale e la rete virtuale di Azure su cui vengono distribuiti il server di configurazione e i server di destinazione master. Assicurarsi che la rete locale sia connessa alla rete virtuale di Azure tramite una connessione ExpressRoute o una connessione VPN da sito a sito.
+**VPN:** la comunicazione e la replica dei dati tra i server locali (server di elaborazione, computer protetti) e i server dei componenti dell'infrastruttura di Azure (server di configurazione, server di destinazione master) avvengono tramite una connessione VPN tra la rete locale e la rete virtuale di Azure su cui vengono distribuiti il server di configurazione e i server di destinazione master. Assicurarsi che la rete locale sia connessa alla rete virtuale di Azure tramite una connessione ExpressRoute o una connessione VPN da sito a sito.
 
 ![Diagramma di distribuzione VPN](./media/site-recovery-vmware-to-azure-classic-legacy/vpn-deployment.png)
 
@@ -813,4 +804,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

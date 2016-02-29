@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,8 @@ Questa esercitazione illustra come integrare LearnUpon con Azure Active Director
 
 - È possibile controllare in Azure AD chi può accedere a LearnUpon
 - È possibile abilitare gli utenti per l'accesso automatico a LearnUpon (Single Sign-On) con i propri account Azure AD
-- È possibile gestire gli account in una posizione centrale, il portale di Azure Active Directory classico.
+- È possibile gestire gli account in una posizione centrale, il portale di Azure Active Directory classico. 
+- 
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -64,8 +65,7 @@ Per configurare l'integrazione di LearnUpon in Azure AD, è necessario aggiunger
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **LearnUpon**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_01.png)<br>
-7. Nel riquadro dei risultati selezionare **LearnUpon** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>
-
+7. Nel riquadro dei risultati selezionare **LearnUpon** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_02.png)<br>
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con LearnUpon con un utente test di nome "Britta Simon".
 
@@ -94,7 +94,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_04.png) <br>
 
 
-    a. Nella casella di testo URL di risposta immettere l'URL relativo al servizio consumer di asserzione (ACS) usando il modello seguente:**“https://<companyname>.learnupon.com/saml/consumer”**.
+    a. Nella casella di testo URL di risposta immettere l'URL relativo al servizio consumer di asserzione usando il modello seguente:**"https://<nomeazienda>.learnupon.com/saml/consumer"**.
 
 
 4. Nella pagina **Configura accesso Single Sign-On in LearnUpon** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_05.png) <br>
@@ -104,9 +104,9 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     b. Fare clic su **Avanti**.
 
 
-5. Aprire un altro accesso di istanza del browser nell'istanza LearnUpon con l'utente amministratore per impostare **SAML SSO** sul lato LearnUpon. Dopo aver eseguito l'accesso a LearnUpon verrà visualizzata una schermata simile alla seguente. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_06.png) <br>
+5. Aprire un altro accesso dell'istanza del browser nell'istanza di LearnUpon con l'utente amministratore impostato su **SAML SSO** sul lato LearnUpon. Dopo aver eseguito l'accesso a LearnUpon, verrà visualizzata una schermata simile alla seguente. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_06.png) <br>
 
-	a. Fare clic sulla scheda **settings** per aprire la finestra delle impostazioni.<br> b. Fare clic su **Single Sign On - SAML**<br> c. Fare clic su **General Settings** per configurare le impostazioni SAML. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_07.png) <br> d. Compilare il modulo **General Settings** come indicato di seguito: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_08.png) <br> d1. Selezionare la casella di controllo **Enabled** per abilitare SAML nel portale<br> d2. Scegliere **version 2.0**<br> d3. Scegliere **No Skip conditions**<br> d4. **SAML Token POST param name** è il nome del parametro post di richiesta all'URL consumer SAML indicato sopra contenente l'asserzione SAML da verificare e autenticare, ad esempio **SAMLResponse** <br> d5. **Name Identifier Format** indica la posizione dell'identificatore degli utenti (indirizzo di posta elettronica) nell'asserzione SAML, ad esempio **urn:oasis:names:tc:SAML:1.1:nameid- format:emailAddress**.<br> d6. **Identify Provider Location** è il percorso a cui verranno indirizzati gli utenti quando fanno clic sull'icona caricata dalla schermata di accesso del portale.<br> d7. Copiare l'**URL servizio Single Sign-On** della schermata di configurazione di Azure in **Sign out URL**. <br>![Configura accesso Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_09.png) <br> d8. Fare clic sul collegamento **Manage finger prints** in Certificate Finger Print per caricare le impronte digitali del certificato. <br>![Configura accesso Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_10.png) <br> d9. Fare clic sul pulsante Save e. Fare clic su **User Settings** per configurare le impostazioni utente di SAML. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_11.png) <br> e1. **First Name Identifier Format** indica il punto in cui si trovano i nomi degli utenti nell'asserzione SAML, ad esempio **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ givenname**. e2. **Last Name Identifier Format** indica il punto in cui si trovano i cognomi degli utenti nell'asserzione SAML, ad esempio **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ surname**
+	a. Fare clic sulla scheda **settings** per aprire la finestra delle impostazioni.<br> b. Fare clic su **Single Sign On - SAML**<br> c. Fare clic su **General Settings** per configurare le impostazioni SAML. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_07.png) <br> d. Compilare il modulo **General Settings** come indicato di seguito: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_08.png) <br> d1. Selezionare la casella di controllo **Enabled** per abilitare SAML nel portale<br> d2. Scegliere **Version 2.0**<br> d3. Scegliere **Skip conditions - No**<br> d4. **SAML Token POST param name** è il nome del parametro post di richiesta all'URL del consumer SAML indicato sopra che contiene l'asserzione SAML da verificare e autenticare, ad esempio **SAMLResponse** <br> d5. **Name Identifier Format** indica la posizione dell'identificatore degli utenti (indirizzo di posta elettronica) nell'asserzione SAML, ad esempio **urn:oasis:names:tc:SAML:1.1:nameid- format:emailAddress**.<br> d6. **Identify Provider Location** è il percorso a cui verranno indirizzati gli utenti quando fanno clic sull'icona caricata dalla schermata di accesso del portale.<br> d7. Copiare l'**URL servizio Single Sign-Out** della schermata di configurazione di Azure in **Sign out URL**. <br>![Configura accesso Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_09.png) <br> d8. Fare clic sul collegamento **Manage finger prints** in Certificate Finger Print per caricare le impronte digitali del certificato. <br>![Configura accesso Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_10.png) <br> d9. Fare clic sul pulsante Save e. Fare clic su **User Settings** per configurare le impostazioni utente di SAML. <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_11.png) <br> e1. **First Name Identifier Format** indica il punto in cui si trovano i nomi degli utenti nell'asserzione SAML, ad esempio **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ givenname**. e2. **Last Name Identifier Format** indica il punto in cui si trovano i cognomi degli utenti nell'asserzione SAML, ad esempio **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ surname**
 
 
 6. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
@@ -215,4 +215,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-learnupon-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-learnupon-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

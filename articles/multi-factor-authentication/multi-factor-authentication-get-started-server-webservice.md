@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Introduzione al servizio Web app per dispositivi mobili del server MFA:
@@ -89,4 +89,4 @@ Il servizio Web app per dispositivi mobili è ora installato. È necessario conf
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

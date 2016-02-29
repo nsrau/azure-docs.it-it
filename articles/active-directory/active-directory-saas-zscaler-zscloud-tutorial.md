@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Zscaler ZSCloud| Microsoft Azure" description="Informazioni su come usare Zscaler ZSCloud con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
+    pageTitle="Esercitazione: Integrazione di Azure Active Directory con Zscaler ZSCloud| Microsoft Azure"
+    description="Informazioni su come usare Zscaler ZSCloud con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -83,7 +84,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura URL app](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800280.png "Configura URL app")
 
-    >[AZURE.NOTE]Se necessario, è possibile ottenere il valore effettivo per l'ambiente in uso dal team di supporto Zscaler ZSCloud.
+    >[AZURE.NOTE] Se necessario, è possibile ottenere il valore effettivo per l'ambiente in uso dal team di supporto Zscaler ZSCloud.
 
 4.  Nella pagina **Configura accesso Single Sign-On in Zscaler ZSCloud** fare clic su **Scarica certificato** e quindi salvare il file di certificato sul computer.
 
@@ -181,7 +182,7 @@ Per consentire agli utenti di Azure AD di accedere a Zscaler ZSCloud, è necessa
     1.  Digitare **UserID**, **User Display Name**, **Password** e **Confirm Password** e quindi selezionare **Groups** e **Department** di un account Azure AD valido di cui si vuole eseguire il provisioning.
     2.  Fare clic su **Salva**.
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Zscaler ZSCloud per eseguire il provisioning degli account utente Azure AD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Zscaler ZSCloud per eseguire il provisioning degli account utente Azure AD.
 
 ##Assegnazione degli utenti
   
@@ -201,4 +202,4 @@ Per testare la configurazione, è necessario assegnare l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

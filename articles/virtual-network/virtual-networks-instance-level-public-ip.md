@@ -12,13 +12,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/10/2016"
    ms.author="telmos" />
 
 # Panoramica sugli indirizzi IP pubblici a livello di istanza
 Un indirizzo IP pubblico a livello di istanza (ILPIP) è un indirizzo IP pubblico che è possibile assegnare direttamente all’istanza della macchina virtuale o del ruolo anziché al servizio cloud in cui risiede l'istanza della macchina virtuale o del ruolo. Tale indirizzo non sostituisce l'indirizzo VIP (Virtual IP) assegnato al servizio cloud. Piuttosto, si tratta di un indirizzo IP aggiuntivo che è possibile usare per connettersi direttamente all'istanza della macchina virtuale o del ruolo.
 
->[AZURE.NOTE]In passato, un ILPIP veniva definito PIP, acronimo di Public IP.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-ip-addresses-overview-arm.md).
+
+Verificare di comprendere il [funzionamento degli indirizzi IP](virtual-network-ip-addresses-overview-classic.md) in Azure.
+
+>[AZURE.NOTE] In passato, un ILPIP veniva definito PIP, acronimo di Public IP.
 
 ![Differenza tra ILPIP e VIP](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
@@ -29,7 +33,7 @@ Quando si crea un servizio cloud in Azure, i record A DNS corrispondenti vengono
 - contosoweb\_IN\_0.contosoadservice.cloudapp.net
 - contosoweb\_IN\_1.contosoadservice.cloudapp.net 
 
->[AZURE.NOTE]È possibile assegnare un solo ILPIP per ogni istanza di macchina virtuale o ruolo. È possibile usare fino a 5 ILPIP per ogni sottoscrizione. Attualmente, ILPIP non è supportato per le macchine virtuali a più NIC.
+>[AZURE.NOTE] È possibile assegnare un solo ILPIP per ogni istanza di macchina virtuale o ruolo. È possibile usare fino a 5 ILPIP per ogni sottoscrizione. Attualmente, ILPIP non è supportato per le macchine virtuali a più NIC.
 
 ## Perché è necessario richiedere un ILPIP?
 Se si desidera essere in grado di connettersi all'istanza della macchina virtuale o del ruolo da un indirizzo IP assegnato direttamente, anziché utilizzare l’indirizzo VIP:&lt;numero porta&gt; del servizio cloud, richiedere un ILPIP per l’istanza della macchina virtuale o per l'istanza del ruolo. - **FTP passivo**: con un ILPIP sulla macchina virtuale, è possibile ricevere traffico su qualsiasi porta, non sarà necessario aprire un endpoint per ricevere il traffico. Questa operazione consente scenari quali FTP passivo dove le porte vengono scelte in modo dinamico. - **IP in uscita**: il traffico in uscita proveniente dalla macchina virtuale viene trasmesso con l’ILPIP come origine e identifica in modo univoco la macchina virtuale sulle entità esterne.
@@ -118,9 +122,9 @@ Per aggiungere un ILPIP alla macchina virtuale creata usando lo script precedent
 
 ## Passaggi successivi
 
-[IP riservato](../virtual-networks-reserved-public-ip)
+- Comprendere come funzionano [gli indirizzi IP](virtual-network-ip-addresses-overview-classic.md) nel modello di distribuzione classico.
 
-[API REST di IP riservati](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+- Informazioni sugli [indirizzi IP riservati](../virtual-networks-reserved-public-ip).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

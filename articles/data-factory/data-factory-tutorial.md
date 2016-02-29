@@ -390,7 +390,7 @@ In questo passaggio si creeranno le pipeline seguenti:
 
 	![Pannello SEZIONE DATI RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	Se si è verificato un errore, viene visualizzato lo stato **Operazione non riuscita**. È anche possibile che entrambe le sezioni abbiano lo stato **Pronto** o **PendingValidation**, a seconda della velocità di elaborazione delle sezioni.
+	Se si è verificato un errore, viene visualizzato lo stato **Operazione non riuscita**. È anche possibile che entrambe le sezioni abbiano lo stato **Ready** o **Waiting**, a seconda della velocità di elaborazione delle sezioni.
 
 	Se lo stato della sezione non è **Pronto**, sarà possibile visualizzare le sezioni upstream che non sono pronte e bloccano l'esecuzione della sezione corrente nell'elenco **Sezioni upstream non pronte**.
  
@@ -483,4 +483,4 @@ Eseguire la [Procedura dettagliata: copiare i dati dell'efficacia di una campagn
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

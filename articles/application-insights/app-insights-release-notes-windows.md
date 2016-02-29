@@ -11,8 +11,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/18/2015" 
-	ms.author="sergkanz"/>
+	ms.date="02/12/2016" 
+	ms.author="joshweb"/>
  
 # Note sulla versione per Application Insights SDK per Windows Phone e Store
 
@@ -95,4 +95,4 @@ Anteprima del 28/04/2015
 
 Per le versioni precedenti non sono disponibili le note sulla versione.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

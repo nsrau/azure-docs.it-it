@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="02/11/2016"
    ms.author="kgremban"/>
 
 # Azure Privileged Identity Management: Come attivare o disattivare un ruolo
@@ -31,13 +31,10 @@
 9. Fare clic su **OK**. A questo punto il ruolo verrà attivato.
 10. Una volta attivato un ruolo, è anche possibile disattivare un ruolo facendo clic su **Disattiva**. Inoltre, è possibile rimuovere il ruolo dall'utente utilizzando i passaggi descritti in [Aggiunta o rimozione di un ruolo](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
 
-
-Per altre informazioni sulle impostazioni di attivazione del ruolo, vedere [Come configurare l'attivazione ruolo](active-directory-privileged-identity-management-how-to-configure-role-activation.md).
-
-Per ulteriori informazioni sugli avvisi relativi alla sicurezza specifici per le impostazioni di attivazione ruolo [Come configurare gli avvisi di protezione](active-directory-privileged-identity-management-how-to-configure-security-alerts).
+Per ulteriori informazioni sugli avvisi relativi alla sicurezza specifici per le impostazioni di attivazione ruolo [Come configurare gli avvisi di protezione](active-directory-privileged-identity-management-how-to-configure-security-alerts.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="02/04/2016"
+	ms.date="02/17/2016"
 	ms.author="jroth" />
 
 
@@ -75,4 +75,4 @@ Il database SQL di Azure prevede una quota di DTU (unità elaborate nel database
 
 [Messaggi di errore per programmi client di Database SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

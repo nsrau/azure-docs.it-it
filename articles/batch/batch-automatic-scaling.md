@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch | Microsoft Azure"
 	description="Abilitare il ridimensionamento automatico in un pool cloud per adeguare dinamicamente il numero di nodi di calcolo nel pool."
@@ -51,7 +50,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 Le sezioni successive dell'articolo illustrano le diverse entità che costituiranno le formule di ridimensionamento automatico, ad esempio variabili, operatori, operazioni e funzioni. Si scoprirà come ottenere varie metriche relative ad attività e a risorse di calcolo all'interno di Batch. È possibile usare queste metriche adeguare in modo intelligente il numero di nodi del pool in base all'utilizzo delle risorse e allo stato delle attività. Verrà quindi illustrato come costruire una formula e abilitare il ridimensionamento automatico in un pool con le API Batch REST e Batch .NET, concludendo con alcune formule di esempio.
 
-> [AZURE.NOTE]Ogni account Azure Batch è limitato a un numero massimo di nodi di calcolo che può essere usato per l'elaborazione. Il servizio Batch crea nodi solo fino al raggiungimento di questo limite e quindi potrebbe non raggiungere il numero di destinazione specificato da una formula. Per istruzioni su come visualizzare e aumentare le quote dell'account, vedere [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
+> [AZURE.NOTE] Ogni account Azure Batch è limitato a un numero massimo di nodi di calcolo che può essere usato per l'elaborazione. Il servizio Batch crea nodi solo fino al raggiungimento di questo limite e quindi potrebbe non raggiungere il numero di destinazione specificato da una formula. Per istruzioni su come visualizzare e aumentare le quote dell'account, vedere [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
 
 ## <a name="variables"></a>Variabili
 
@@ -153,7 +152,7 @@ Nelle formule di ridimensionamento automatico si possono usare variabili definit
   </tr>
 </table>
 
-> [AZURE.TIP]Le variabili di sola lettura definite dal sistema illustrate sopra sono *oggetti* che forniscono vari metodi per accedere ai dati associati a ognuno. Per altre informazioni, vedere [Ottenere dati di esempio](#getsampledata) di seguito.
+> [AZURE.TIP] Le variabili di sola lettura definite dal sistema illustrate sopra sono *oggetti* che forniscono vari metodi per accedere ai dati associati a ognuno. Per altre informazioni, vedere [Ottenere dati di esempio](#getsampledata) di seguito.
 
 ## Types
 
@@ -433,7 +432,7 @@ Per maggiore sicurezza, è possibile fare in modo che la valutazione di una form
 
 A causa del ritardo nella disponibilità dei campioni citato in precedenza, è anche importante specificare sempre un intervallo di tempo con un'ora di inizio antecedente di almeno un minuto. La propagazione dei campioni attraverso il sistema richiede infatti un minuto circa, quindi i campioni nell'intervallo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` spesso non saranno disponibili. Anche in questo caso, è possibile usare il parametro percentuale di `GetSample()` per imporre uno specifico requisito di percentuale dei campioni.
 
-> [AZURE.IMPORTANT]È **consigliabile** **evitare di basarsi *solo* su `GetSample(1)` nelle formule di ridimensionamento automatico**. Infatti `GetSample(1)` indica essenzialmente al servizio Batch, di rendere disponibile l'ultimo campione disponibile, indipendentemente da quanto tempo fa è stato ottenuto. Essendo solo un singolo campione, che potrebbe anche non essere recente, potrebbe non essere rappresentativo dell'immagine più ampia dello stato recente di attività o risorse. Se si usa `GetSample(1)`, accertarsi che faccia parte di un'istruzione di dimensioni maggiori e non sia il solo punto dati su cui si basa la formula.
+> [AZURE.IMPORTANT] È **consigliabile** **evitare di basarsi *solo* su `GetSample(1)` nelle formule di ridimensionamento automatico**. Infatti `GetSample(1)` indica essenzialmente al servizio Batch, di rendere disponibile l'ultimo campione disponibile, indipendentemente da quanto tempo fa è stato ottenuto. Essendo solo un singolo campione, che potrebbe anche non essere recente, potrebbe non essere rappresentativo dell'immagine più ampia dello stato recente di attività o risorse. Se si usa `GetSample(1)`, accertarsi che faccia parte di un'istruzione di dimensioni maggiori e non sia il solo punto dati su cui si basa la formula.
 
 ## Metrica
 
@@ -506,7 +505,7 @@ $TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($Cur
 $TargetDedicated = min(400, $TotalNodes)
 ```
 
-> [AZURE.NOTE]Una formula di ridimensionamento automatico è composta da variabili, tipi, operazioni e funzioni dell'API [Batch REST][rest_api]. Questi elementi vengono usati nelle stringhe della formula anche quando si usa la libreria [Batch .NET][net_api].
+> [AZURE.NOTE] Una formula di ridimensionamento automatico è composta da variabili, tipi, operazioni e funzioni dell'API [Batch REST][rest_api]. Questi elementi vengono usati nelle stringhe della formula anche quando si usa la libreria [Batch .NET][net_api].
 
 ## Creare un pool con il ridimensionamento automatico abilitato
 
@@ -516,7 +515,7 @@ Per abilitare il ridimensionamento automatico durante la creazione di un pool, u
 - [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx): dopo la chiamata di questo metodo .NET per creare un pool, vengono impostate le proprietà [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) e [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) del pool per abilitare il ridimensionamento automatico.
 - [Aggiungere un pool a un account](https://msdn.microsoft.com/library/azure/dn820174.aspx): gli elementi enableAutoScale e autoScaleFormula vengono usati in questa richiesta dell'API REST per impostare il ridimensionamento automatico del pool quando viene creato.
 
-> [AZURE.IMPORTANT]Se si crea un pool abilitato per il ridimensionamento automatico usando una delle tecniche descritte sopra, il parametro *targetDedicated* per il pool **non** deve essere specificato. Si noti anche che per ridimensionare manualmente un pool abilitato per il ridimensionamento automatico, ad esempio con [BatchClient.PoolOperations.ResizePool,][net_poolops_resizepool] è necessario **disabilitare** prima di tutto il ridimensionamento automatico nel pool e quindi ridimensionarlo.
+> [AZURE.IMPORTANT] Se si crea un pool abilitato per il ridimensionamento automatico usando una delle tecniche descritte sopra, il parametro *targetDedicated* per il pool **non** deve essere specificato. Si noti anche che per ridimensionare manualmente un pool abilitato per il ridimensionamento automatico, ad esempio con [BatchClient.PoolOperations.ResizePool,][net_poolops_resizepool] è necessario **disabilitare** prima di tutto il ridimensionamento automatico nel pool e quindi ridimensionarlo.
 
 Il frammento di codice seguente illustra la creazione di un pool abilitato per il ridimensionamento automatico ([CloudPool][net_cloudpool]) usando la libreria [Batch .NET][net_api]. La formula di ridimensionamento automatico del pool imposta il numero di destinazione dei nodi su 5 il lunedì e su 1 per tutti gli altri giorni della settimana. Inoltre, l'intervallo per il ridimensionamento automatico è impostato su 30 minuti. Vedere [Intervallo di ridimensionamento automatico](#interval) di seguito. In questo e in altri frammenti di codice C# in questo articolo "myBatchClient" è un'istanza correttamente inizializzata di [BatchClient][net_batchclient].
 
@@ -537,7 +536,7 @@ Per impostazione predefinita, il servizio Batch adegua le dimensioni di un pool 
 
 L'intervallo minimo è di 5 minuti e il massimo di 168 ore. Se viene specificato un intervallo che non rientra in questi valori, il servizio Batch restituisce un errore di richiesta non valida (400).
 
-> [AZURE.NOTE]La funzionalità di ridimensionamento automatico non è attualmente concepita come risposta alle modifiche in meno di un minuto, ma piuttosto per l'adeguamento graduale delle dimensioni del pool durante l'esecuzione di un carico di lavoro.
+> [AZURE.NOTE] La funzionalità di ridimensionamento automatico non è attualmente concepita come risposta alle modifiche in meno di un minuto, ma piuttosto per l'adeguamento graduale delle dimensioni del pool durante l'esecuzione di un carico di lavoro.
 
 ## Abilitare il ridimensionamento automatico dopo la creazione di un pool
 
@@ -546,7 +545,7 @@ Se è già stato configurato un pool con un numero specificato di nodi di calcol
 - [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale]\: questo metodo .NET richiede l'ID di un pool esistente e la formula di ridimensionamento automatico da applicare al pool.
 - [Abilitare il ridimensionamento automatico in un pool][rest_enableautoscale]\: questa richiesta dell'API REST richiede la presenza dell'ID del pool esistente nell'URI e della formula di ridimensionamento automatico nel corpo della richiesta.
 
-> [AZURE.NOTE]Se è stato specificato un valore per il parametro *targetDedicated* durante la creazione del pool, questo verrà ignorato quando viene valutata la formula di ridimensionamento automatico.
+> [AZURE.NOTE] Se è stato specificato un valore per il parametro *targetDedicated* durante la creazione del pool, questo verrà ignorato quando viene valutata la formula di ridimensionamento automatico.
 
 Questo frammento di codice illustra come abilitare il ridimensionamento automatico in un pool esistente con la libreria [Batch .NET][net_api]. Si noti che per l'abilitazione e l'aggiornamento della formula in un pool esistente viene usato lo stesso metodo. Di conseguenza, se il ridimensionamento automatico è già stato abilitato, questa tecnica *aggiornerà* la formula nel pool specificato. Nel frammento di codice si presuppone che "mypool" sia l'ID di un pool [CloudPool][net_cloudpool] esistente.
 
@@ -565,7 +564,7 @@ Questo frammento di codice illustra come abilitare il ridimensionamento automati
 - [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) o [BatchClient.PoolOperations.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx): questi metodi .NET richiedono l'ID di un pool esistente e la stringa che contiene la formula di ridimensionamento automatico. I risultati della chiamata sono contenuti in un'istanza della classe [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx).
 - [Valutare una formula di ridimensionamento automatico](https://msdn.microsoft.com/library/azure/dn820183.aspx): in questa richiesta dell'API REST, l'ID del pool è specificato nell'URI. La formula di ridimensionamento automatico è specificata nell'elemento *autoScaleFormula* del corpo della richiesta. La risposta dell'operazione contiene eventuali informazioni sugli errori che potrebbero essere correlate alla formula.
 
-> [AZURE.NOTE]Per valutare una formula di ridimensionamento automatico, è necessario avere abilitato prima il ridimensionamento automatico del pool usando una formula valida.
+> [AZURE.NOTE] Per valutare una formula di ridimensionamento automatico, è necessario avere abilitato prima il ridimensionamento automatico del pool usando una formula valida.
 
 Questo frammento di codice che usa la libreria [Batch .NET][net_api] consente di valutare una formula prima di applicarla al pool [CloudPool][net_cloudpool].
 
@@ -729,4 +728,4 @@ La formula nel frammento di codice precedente:
 [rest_autoscaleinterval]: https://msdn.microsoft.com/it-IT/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

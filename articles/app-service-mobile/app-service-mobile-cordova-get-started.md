@@ -4,13 +4,15 @@
     services="app-service\mobile"
     documentationCenter="javascript"
     authors="adrianhall"
-    manager="glenga"
-    editor=""/>
+    manager="ggailey777"
+    editor=""
+    tags=""
+    keywords="cordova,javascript,dispositivi mobili,client" />
 
 <tags
     ms.service="app-service-mobile"
     ms.workload="na"
-    ms.tgt_pltfrm="mobile-javascript"
+    ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="article"
     ms.date="02/09/2016"
@@ -30,7 +32,7 @@ Il completamento di questa esercitazione è un prerequisito per tutte le altre e
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un PC in cui sia installato [Visual Studio Community 2015] o versioni successive.
+* Un PC con installato [Visual Studio Community 2015] o versione successiva.
 * [Strumenti di Visual Studio per Apache Cordova].
 * Un [account Azure attivo](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -48,6 +50,22 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 [AZURE.INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
 
+## Passaggi successivi
+
+Ora che l'esercitazione introduttiva è stata completata, passare a una delle esercitazioni seguenti:
+
+* [Aggiungere l'autenticazione] all'app Apache Cordova.
+* [Aggiungere notifiche push] all'app Apache Cordova.
+
+Altre informazioni sui concetti chiave del servizio app di Azure.
+
+* [Autenticazione]
+* [Notifiche push]
+
+Informazioni su come usare gli SDK.
+
+* [ASP.NET Server SDK]
+* [Node.js Server SDK]
 
 <!-- Images. -->
 
@@ -55,5 +73,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Strumenti di Visual Studio per Apache Cordova]: https://www.visualstudio.com/it-IT/features/cordova-vs.aspx
+[Aggiungere l'autenticazione]: app-service-mobile-cordova-get-started-users.md
+[Aggiungere notifiche push]: app-service-mobile-cordova-get-started-push.md
+[Autenticazione]: app-service-mobile-auth.md
+[Notifiche push]: ../notification-hubs/notification-hubs-overview.md
+[ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

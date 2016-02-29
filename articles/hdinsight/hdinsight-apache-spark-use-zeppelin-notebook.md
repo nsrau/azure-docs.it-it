@@ -39,13 +39,13 @@ Informazioni su come installare i notebook di Zeppelin in cluster Spark e su com
 
 ## Installare Zeppelin come parte della creazione del cluster
 
-È possibile installare Zeppelin in un cluster Spark tramite l'azione script. L'azione script usa script personalizzati per installare nel cluster i componenti che non sono disponibili per impostazione predefinita. Lo script personalizzato per installare Zeppelin in un cluster Spark è disponibile all'indirizzo **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+È possibile installare Zeppelin in un cluster Spark tramite l'azione script. L'azione script usa script personalizzati per installare nel cluster i componenti che non sono disponibili per impostazione predefinita. Lo script personalizzato per installare Zeppelin in un cluster Spark è disponibile all'indirizzo ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 ### Uso del portale di Azure
 
 Per istruzioni su come usare HDInsight .NET SDK per eseguire azioni di script per installare Zeppelin, leggere l'articolo [Personalizzare cluster HDInsight mediante Azione script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). È necessario apportare alcune modifiche alle istruzioni riportate in questo articolo.
 
-* È necessario usare lo script per installare Zeppelin. Lo script da usare è **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+* È necessario usare lo script per installare Zeppelin. Lo script da usare è ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 * È necessario eseguire l'azione script solo sul nodo head.
 
@@ -55,7 +55,7 @@ Per istruzioni su come usare HDInsight .NET SDK per eseguire azioni di script pe
 
 Per istruzioni su come usare HDInsight .NET SDK per eseguire azioni script per installare Zeppelin, leggere l'articolo [Personalizzare cluster HDInsight mediante Azione script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-hdinsight-net-sdk). È necessario apportare alcune modifiche alle istruzioni riportate in questo articolo.
 
-* È necessario usare lo script per installare Zeppelin. Lo script da usare è **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+* È necessario usare lo script per installare Zeppelin. Lo script da usare è ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 * Per lo script non sono necessari parametri.
 
@@ -63,7 +63,7 @@ Per istruzioni su come usare HDInsight .NET SDK per eseguire azioni script per i
 
 ### Uso di Azure PowerShell
 
-Usare il frammento di codice PowerShell seguente per creare un cluster Spark in HDInsight Linux con Zeppelin installato. Verificare che PowerShell sia installato prima di procedere. Per istruzioni, vedere [Installare e configurare Azure PowerShell](../install-configure-powershell.md).
+Usare il frammento di codice PowerShell seguente per creare un cluster Spark in HDInsight Linux con Zeppelin installato. Verificare che PowerShell sia installato prima di procedere. Per istruzioni, vedere [Installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 	Login-AzureRMAccount
 	
@@ -322,14 +322,14 @@ Dopo aver configurato il tunneling SSH, è possibile usare la procedura seguente
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

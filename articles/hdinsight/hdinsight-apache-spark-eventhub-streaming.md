@@ -35,7 +35,7 @@ In questa esercitazione si apprenderà come creare un Hub eventi di Azure, come 
 - Oracle Java Development Kit. Per installarlo, fare clic [qui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - Ambiente IDE Java. Questo articolo usa IntelliJ IDEA 15.0.1. Per installarlo, fare clic [qui](https://www.jetbrains.com/idea/download/).
 - Microsoft JDBC Driver per SQL Server v4.1 o successiva. È necessario scrivere dati eventi in un database SQL Server. Per installarlo, fare clic [qui](https://msdn.microsoft.com/sqlserver/aa937724.aspx).
-- un database SQL di Azure. Per istruzioni, vedere [Creare un database SQL in pochi minuti](sql-database/sql-database-get-started.md)
+- un database SQL di Azure. Per istruzioni, vedere [Creare un database SQL in pochi minuti](../sql-database/sql-database-get-started.md)
 
 ## Scopo di questa soluzione
 
@@ -187,7 +187,7 @@ Per eseguire l'applicazione di streaming in modalità remota in un cluster Spark
 
 		java -cp EventhubsSampleEventProducer.jar com.microsoft.eventhubs.client.example.EventhubsClientDriver --eventhubs-namespace "mysbnamespace" --eventhubs-name "myeventhub" --policy-name "mysendpolicy" --policy-key "<policy key>" --message-length 32 --thread-count 32 --message-count -1
 
-2. Copiare il file con estensione jar di streaming (**microsoft-spark-streaming-examples.jar**) nell'archivio BLOB di Azure associato al cluster. Questa operazione rende il file con estensione jar accessibile a Livy. A questo scopo è possibile usare [**AzCopy**](storage/storage-use-azcopy.md), un'utilità della riga di comando. È possibile usare molti altri client per caricare i dati. Altre informazioni su questi client sono disponibili in [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md).
+2. Copiare il file con estensione jar di streaming (**microsoft-spark-streaming-examples.jar**) nell'archivio BLOB di Azure associato al cluster. Questa operazione rende il file con estensione jar accessibile a Livy. A questo scopo è possibile usare [**AzCopy**](../storage/storage-use-azcopy.md), un'utilità della riga di comando. È possibile usare molti altri client per caricare i dati. Altre informazioni su questi client sono disponibili in [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md).
 
 3. Installare CURL nel computer in cui si eseguono tali applicazioni. CURL viene usato per richiamare gli endpoint Livy per eseguire i processi in modalità remota.
 
@@ -362,9 +362,9 @@ L'output dovrebbe essere simile al seguente:
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -372,4 +372,4 @@ L'output dovrebbe essere simile al seguente:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

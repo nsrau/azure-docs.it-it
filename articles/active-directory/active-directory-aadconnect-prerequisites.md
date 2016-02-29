@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell;billmath"/>
 
 # Prerequisiti di Azure AD Connect
@@ -37,6 +37,7 @@ Prima di installare Azure AD Connect, sono necessari alcuni elementi.
 - Nel server Azure AD Connect devono essere installati [.NET Framework 4.5.1](#component-prerequisites) o versione successiva e [Microsoft PowerShell 3.0](#component-prerequisites) o versione successiva.
 - Se viene distribuito Active Directory Federation Services, i server in cui verrà installato ADFS o il proxy dell'applicazione Web devono essere Windows Server 2012 R2 o versione successiva. In tali server per l'installazione remota è necessario che sia abilitata [Gestione remota Windows](#windows-remote-management).
 - Se viene distribuito Active Directory Federation Services, sono necessari i [Certificati SSL](#ssl-certificate-requirements).
+- Se viene distribuito Active Directory Federation Services, è necessario configurare la [risoluzione dei nomi](#name-resolution-for-federation-servers).
 - Per archiviare i dati sull'identità, Azure AD Connect richiede un database SQL. Per impostazione predefinita, viene installato SQL Server 2012 Express LocalDB (una versione ridotta di SQL Server Express) e viene creato l'account del servizio nel computer locale. SQL Server Express ha un limite di dimensioni di 10 GB che consente di gestire circa 100.000 oggetti. Se è necessario gestire un numero di oggetti directory maggiore, si dovrà installare una versione di SQL Server diversa. Azure AD Connect supporta tutte le versioni di Microsoft SQL Server da SQL Server 2008 (con SP4) a SQL Server 2014. Il database SQL di Microsoft Azure **non è supportato** come database.
 
 ### Account
@@ -44,7 +45,11 @@ Prima di installare Azure AD Connect, sono necessari alcuni elementi.
 - Un account amministratore dell'organizzazione per Active Directory locale se si usano le impostazioni rapide o l’aggiornamento da DirSync.
 - L’[Account è Active Directory](active-directory-aadconnect-accounts-permissions.md) se si usa il percorso di installazione delle impostazioni personalizzate.
 
+### Configurazione del server Azure AD Connect
+- Se gli amministratori globali hanno abilitato MFA, l'URL ****https://secure.aadcdn.microsoftonline-p.com** deve essere incluso nell'elenco di siti attendibili. Se non è incluso, ne verrà richiesta l'aggiunta all'elenco di siti attendibili prima che venga effettuata una richiesta di verifica MFA. È possibile usare Internet Explorer per aggiungerlo ai siti attendibili.
+
 ### Connettività
+- Il server Azure AD Connect necessita della risoluzione DNS per Intranet e Internet. Il server DNS deve essere in grado di risolvere i nomi per l'istanza locale di Active Directory e per gli endpoint di Azure AD.
 - Se sono presenti firewall nella rete Intranet ed è necessario aprire alcune porte tra il server Azure AD Connect e controller di dominio, per altre informazioni, vedere [Porte di Azure AD Connect](active-directory-aadconnect-ports.md).
 - Se il proxy limita gli URL a cui è possibile accedere, gli URL documentati in [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) devono essere aperti nel proxy.
 - Se si usa un proxy in uscita per la connessione a Internet, è necessario aggiungere l'impostazione seguente al file **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** in modo che l'Installazione guidata e il servizio di sincronizzazione Azure AD Connect possano connettersi a Internet e ad Azure AD. Questo testo deve essere immesso alla fine del file. In questo codice &lt;PROXYADRESS&gt; rappresenta l'indirizzo IP del proxy effettivo o nome host.
@@ -76,14 +81,6 @@ Se il server proxy richiede l'autenticazione, la sezione dovrebbe essere simile 
 ```
 
 Con questa modifica nel file machine.config l'installazione guidata e il motore di sincronizzazione risponderanno alle richieste di autenticazione dal server proxy. In tutte le pagine dell’istallazione guidata, esclusa la pagina **Configura** vengono utilizzate le credenziali dell’utente che ha effettuato l’accesso. Nella pagina **Configura** alla fine dell'installazione guidata, il contesto è commutato nell’[account del servizio](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) che è stato creato. Per altre informazioni sull’[Elemento proxy predefinito](https://msdn.microsoft.com/library/kd3cf2ex.aspx)vedere MSDN.
-
-- È anche necessario configurare winhttp. Avviare un prompt dei comandi e immettere:
-
-```
-C:\>netsh
-netsh>winhttp
-netsh winhttp>set proxy <PROXYADDRESS>:<PROXYPORT>
-```
 
 Nel caso di problemi relativi alla connettività, vedere [Risolvere i problemi di connettività con Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md).
 
@@ -127,21 +124,26 @@ Quando si utilizza Azure AD Connect per distribuire Active Directory Federation 
 - Il certificato deve essere un certificato X509.
 - È possibile utilizzare un certificato autofirmato su server federativi in un ambiente di testing. Tuttavia, per un ambiente di produzione, si consiglia di ottenere il certificato da una CA pubblica.
     - Se si utilizza un certificato non attendibile pubblicamente, assicurarsi che il certificato installato su ciascun server Proxy applicazione Web sia attendibile nel server locale e in tutti i server federativi
-- L'identità del certificato deve corrispondere al nome del servizio federativo (ad esempio, fs.contoso.com).
+- L'identità del certificato deve corrispondere al nome del servizio federativo (ad esempio, sts.contoso.com).
     - L'identità è un'estensione nome alternativo del soggetto (SAN) di tipo dNSName o, se non sono presenti voci SAN, il nome del soggetto specificato come nome comune.  
     - Nel certificato possono essere presenti più voci SAN, purché una di esse corrisponda al nome del servizio federativo.
     - Se si pianifica di utilizzare l’aggiunta alla rete aziendale, è necessario un SAN aggiuntivo con il valore **enterpriseregistration.** seguito dal suffisso nome dell’entità utente (UPN) dell'organizzazione, ad **esempio, enterpriseregistration.contoso.com**.
 - I certificati basati su chiavi CNG (CryptoAPI next generation) chiavi e i provider di archiviazione chiavi non sono supportati. Ciò significa che è necessario utilizzare un certificato basato su un provider del servizio di crittografia e non su un provider di archiviazione chiavi.
 - I certificati con caratteri jolly sono supportati.
 
+### Risoluzione dei nomi per i server federativi
+- Configurare i record DNS per il nome di servizio della federazione AD FS (ad esempio, sts.contoso.com) sia per la rete Intranet (il server DNS interno), sia per la rete Extranet (DNS pubblico attraverso il registrar di dominio). Per il record DNS Intranet, accertarsi di utilizzare record A e non record CNAME. Tale operazione è necessaria affinché l'autenticazione di Windows funzioni correttamente dal computer unito al dominio.
+- Se si distribuiscono più server AD FS o server Proxy applicazione Web, assicurarsi di aver configurato il servizio di bilanciamento del carico e che i record DNS per il nome del servizio federativo AD FS (ad esempio, sts.contoso.com) puntino al bilanciamento del carico.
+- Perché l'autenticazione integrata di Windows funzioni correttamente per le applicazioni browser con Internet Explorer nella rete Intranet, verificare che il nome del servizio federativo AD FS (ad esempio, adfs.contoso.com) venga aggiunto all'area Intranet in Internet Explorer. Tale operazione può essere controllata tramite criteri di gruppo e distribuita a tutti i computer appartenenti al dominio.
+
 ## Componenti di supporto di Azure AD Connect
 Di seguito è riportato un elenco di componenti che verranno installati da Azure AD Connect nel server in cui è installato Azure AD Connect. L'elenco riguarda un'istallazione di SQL Express di base. Se si sceglie di usare una versione diversa di SQL Server nella pagina Installazione dei servizi di sincronizzazione, SQL Express LocalDB non viene installato in locale.
 
+- Azure AD Connect Health
+- Assistente per l'accesso a Microsoft Online Services per professionisti IT (installato ma senza dipendenze)
 - Utilità della riga di comando di Microsoft SQL Server 2012
-- Client nativo di Microsoft SQL Server 2012
 - Microsoft SQL Server 2012 Express LocalDB
-- Modulo di Azure Active Directory per Windows PowerShell
-- Assistente per l'accesso a Microsoft Online Services per professionisti IT
+- Client nativo di Microsoft SQL Server 2012
 - Microsoft Visual C++ 2013 Redistribution Package
 
 ## Requisiti hardware per Azure AD Connect
@@ -166,4 +168,4 @@ I requisiti minimi per i computer che eseguono ADFS o i server applicazioni Web 
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

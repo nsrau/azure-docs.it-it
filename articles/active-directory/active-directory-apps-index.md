@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ogni articolo sulla gestione delle applicazioni in Azure Active Directory | Microsoft Azure"
+	pageTitle="Indice di articoli per la gestione di applicazioni in Azure Active Directory | Microsoft Azure"
 	description="Informazioni su come personalizzare la data di scadenza per i certificati di federazione e su come rinnovare i certificati con scadenza imminente."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/16/2016"
 	ms.author="markvi;liviodlc"/>
 
 #Indice di articoli per la gestione di applicazioni in Azure Active Directory
@@ -24,7 +24,7 @@ Include anche una breve introduzione per ogni area relativa a una funzionalità 
 
 ##Articoli generali
 
-Gli articoli seguenti sono un ottimo punto di partenza per chi vuole semplicemente una breve spiegazione delle funzionalità di gestione delle applicazioni di Azure AD. Questi argomenti vengono esaminati nel dettaglio nel resto della Guida.
+Gli articoli seguenti sono un ottimo punto di partenza per chi vuole semplicemente una breve spiegazione delle funzionalità di gestione delle applicazioni di Azure AD.
 
 | Guida agli articoli | |
 | :---: | --- |
@@ -32,6 +32,18 @@ Gli articoli seguenti sono un ottimo punto di partenza per chi vuole semplicemen
 | Panoramica delle diverse funzionalità di Azure AD correlate all'abilitazione dell'accesso Single Sign-On, alla definizione degli utenti autorizzati ad accedere alle app e al modo in cui gli utenti avviano le app. | [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md) |
 | Panoramica delle diverse procedure necessarie per l'integrazione di app in Azure AD. | [Integrazione di Azure Active Directory con le applicazioni](active-directory-integrating-applications-getting-started.md)<br /><br />[Abilitazione dell'accesso Single Sign-On alle app SaaS](active-directory-sso-integrate-saas-apps.md)<br /><br />[Gestione dell'accesso alle app](active-directory-managing-access-to-apps.md) |
 | Spiegazione tecnica del modo in cui le app vengono rappresentate in Azure AD. | [Come vengono aggiunte le applicazioni in Azure AD e perché](active-directory-how-applications-are-added.md) |
+
+##Articoli sulla risoluzione dei problemi
+
+Questa sezione fornisce un accesso rapido alle guide rilevanti per la risoluzione dei problemi. Altre informazioni su ogni area di funzionalità sono disponibili nel resto della pagina.
+
+| Area di funzionalità | |
+| :---: | --- |
+| Single Sign-On federato | [Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](active-directory-saml-debugging.md) |
+| Single Sign-On basato su password | [Risoluzione dei problemi dell’estensione del pannello di accesso per Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Proxy dell'applicazione | [Guida alla risoluzione dei problemi del proxy di applicazione](active-directory-application-proxy-troubleshoot.md) |
+| Single Sign-On tra AD locale e Azure AD | [Risoluzione dei problemi di sincronizzazione delle password](active-directory-aadconnectsync-implement-password-synchronization.md#managing-password-synchronization)<br /><br />[Risoluzione dei problemi di writeback delle password](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) | 
+| Appartenenze dinamiche a gruppi | [Risoluzione dei problemi di appartenenza dinamica ai gruppi](active-directory-accessmanagement-troubleshooting.md) |
 
 ##Accesso Single Sign-On (SSO)
 
@@ -77,7 +89,7 @@ Se nella rete privata sono presenti applicazioni a cui devono accedere utenti e 
 
 Il proxy di applicazione è disponibile per tutte le edizioni di Azure AD fino a un massimo di dieci app per utente. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supporta un numero illimitato di applicazioni. Se l'organizzazione ha [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), è possibile [usare i gruppi per assegnare l'accesso alle applicazioni](#how-to-manage-who-has-access-to-which-apps).
 
-È possibile che si sia interessati anche a [Servizi di dominio Azure AD](active-directory-ds-overview.md), che consente di eseguire la migrazione delle applicazioni locali in Azure, continuando comunque a soddisfare le esigenze relative alle identità per queste applicazioni.
+È possibile che si sia interessati anche a [Servizi di dominio Azure AD](../active-directory-domain-services/active-directory-ds-overview.md), che consente di eseguire la migrazione delle applicazioni locali in Azure, continuando comunque a soddisfare le esigenze relative alle identità per queste applicazioni.
 
 ###Abilitazione dell'accesso Single Sign-On tra Azure AD e l'istanza locale di AD
 
@@ -87,7 +99,9 @@ Se l'organizzazione ha un'istanza locale di Windows Server Active Directory oltr
 | :---: | --- |
 | Panoramica delle opzioni relative all'accesso Single Sign-On disponibili in Azure AD Connect, oltre a informazioni sulla gestione di ambienti ibridi. | [Opzioni di accesso utente di Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Indicazioni generali per la gestione di ambienti con Active Directory locale e Azure Active Directory. | [Considerazioni di progettazione dell'identità ibrida di Azure Active Directory](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md) |
-| Indicazioni sull'uso della sincronizzazione password per abilitare l'accesso Single Sign-On e sull'uso del writeback delle password con la Reimpostazione password self-service di Azure AD | [Implementare la sincronizzazione password con Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Introduzione alla gestione delle password in Azure AD](active-directory-passwords-getting-started.md) |
+| Indicazioni sull'uso della sincronizzazione delle password per abilitare l'accesso Single Sign-On | [Implementare la sincronizzazione password con Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Risolvere i problemi di sincronizzazione delle password](https://support.microsoft.com/it-IT/kb/2855271) |
+| Indicazioni sull'uso del writeback delle password per abilitare l'accesso Single Sign-On | [Introduzione alla gestione delle password in Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Risolvere i problemi relativi al writeback delle password](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Indicazioni sull'uso di provider di identità di terze parti per abilitare l'accesso Single Sign-On | [Elenco di provider di identità di terze parti compatibili che possono essere usati per abilitare l'accesso Single Sign-On](https://aka.ms/ssoproviders) | 
 | Informazioni su come gli utenti di Windows 10 possono sfruttare i vantaggi dell'accesso Single Sign-On tramite l'aggiunta ad Azure AD. | [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite l'aggiunta ad Azure Active Directory](active-directory-azureadjoin-overview.md) |
 
 Azure AD Connect è disponibile per [tutte le edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Reimpostazione password self-service di Azure AD è disponibile per [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) e [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Il writeback delle password per le istanze locali di AD è una funzionalità di [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -128,7 +142,7 @@ Automatizzazione delle operazioni di creazione, gestione e rimozione delle ident
 
 | Guida agli articoli | |
 | :---: | --- |
-| Altre informazioni sul funzionamento e risposte alle domande comuni. | [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md) |
+| Altre informazioni sul funzionamento e risposte alle domande comuni. | [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](active-directory-saas-app-provisioning.md) |
 | Configurare il mapping delle informazioni tra Azure AD e l'app SaaS. | [Personalizzazione dei mapping degli attributi](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Scrittura di espressioni per il mapping degli attributi](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Come abilitare il provisioning automatico per le app che supportano il protocollo SCIM. | [Configurare il provisioning utenti automatico per le app abilitate a SCIM](active-directory-scim-provisioning.md) |
 | Ottenere notifiche per gli errori di provisioning. | [Notifiche relative al provisioning](active-directory-saas-account-provisioning-notifications.md) |
@@ -214,4 +228,4 @@ Per visualizzare i report inclusi nelle diverse edizioni di Azure Active Directo
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

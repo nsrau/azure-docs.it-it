@@ -20,7 +20,7 @@
 
 # Gestire le risorse del cluster Apache Spark in Azure HDInsight (Windows)
 
-> [AZURE.NOTE]HDInsight offre ora cluster Spark su Linux. Per informazioni su come gestire le risorse per un cluster Spark in HDInsight Linux, vedere [Gestire le risorse del cluster Apache Spark in HDInsight di Azure (Linux)](hdinsight-apache-spark-resource-manager.md).
+> [AZURE.NOTE] HDInsight offre ora cluster Spark su Linux. Per informazioni su come gestire le risorse per un cluster Spark in HDInsight Linux, vedere [Gestire le risorse del cluster Apache Spark in HDInsight di Azure (Linux)](hdinsight-apache-spark-resource-manager.md).
 
 Gestione risorse è un componente del dashboard cluster Spark che consente di gestire risorse, ad esempio core e RAM utilizzate da ogni applicazione in esecuzione nel cluster.
 
@@ -73,15 +73,15 @@ Specificare il conteggio del core del server Thrift e la memoria esecutore del s
 * [Usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

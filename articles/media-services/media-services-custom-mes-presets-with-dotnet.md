@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"    
+	ms.date="02/16/2016"    
 	ms.author="juliako"/>
 
 
@@ -353,7 +353,6 @@ Assicurarsi di esaminare la sezione [Considerazioni](media-services-custom-mes-p
 	          <MaxBitrate>4500</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <AACAudio>
 	      <Profile>AACLC</Profile>
@@ -425,8 +424,8 @@ Si applicano le considerazioni seguenti:
 
 Questa sezione descrive la modifica di set di impostazioni del codificatore per tagliare o ritagliare il video di input quando l'input è un file in formato intermedio o su richiesta. Il codificatore può anche essere usato per ritagliare o tagliare un asset che viene acquisito o archiviato da un flusso live. Per informazioni dettagliate in proposito, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Per tagliare i video, è possibile eseguire uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** come illustrato di seguito. Si noti che **Sources** deve essere posizionato nella parte superiore dello schema.
-
+Per tagliare i video, è possibile eseguire uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** come illustrato di seguito. Il valore di StartTime deve corrispondere ai timestamp assoluti del video di input. Ad esempio, se il primo fotogramma del video di input ha un timestamp di 12:00:10.000, il valore di StartTime deve essere di almeno 12:00:10.000 o superiore. Nell'esempio seguente, si presuppone che il video di input abbia un timestamp iniziale pari a zero. Si noti che **Sources** deve essere posizionato nella parte superiore dello schema.
+ 
 ###<a id="json"></a>Set di impostazioni JSON
 	
 	{
@@ -651,7 +650,6 @@ Per tagliare i video, è possibile eseguire uno dei set di impostazioni per MES 
 	          <MaxBitrate>400</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <AACAudio>
 	      <Profile>AACLC</Profile>
@@ -736,7 +734,6 @@ Oltre che definire un file del set di impostazioni, è necessario anche indicare
 	          "FrameRate": "0/1"
 	        }
 	      ],
-	      "Chapters": [],
 	      "Type": "H264Video"
 	    },
 	    {
@@ -806,7 +803,6 @@ Oltre che definire un file del set di impostazioni, è necessario anche indicare
 	          <MaxBitrate>1045</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <CopyAudio />
 	  </Encoding>
@@ -888,4 +884,4 @@ I clienti non devono eseguire alcuna operazione se desiderano che il contenuto i
 
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

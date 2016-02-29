@@ -1,9 +1,11 @@
-A VNet-to-VNet connection can be configured in both deployment models and by using several different tools. See the table below for more information. We update this table as new articles, new deployment models and tools become available for this configuration. When an article is available, we link directly to it from the table.
+È possibile configurare una connessione tra reti virtuali in entrambi i modelli di distribuzione e tramite numerosi strumenti. Per altre informazioni, vedere la tabella seguente. La tabella verrà aggiornata man mano che per questa configurazione risultano disponibili nuovi articoli, modelli di distribuzione e strumenti. Quando un articolo risulterà disponibile, nella tabella sarà presente un collegamento diretto.
 
-| **Deployment Model / Tool**    | **Classic Portal** | **Azure Portal** | **PowerShell** |
+| **Modello di distribuzione/Strumento** | **Portale classico** | **Portale di Azure** | **PowerShell** |
 |--------------------------------|----|------|------------|
-|**Classic**                     | No | No  |    [Article](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)     |
-|**Resource Manager**            | No | Yes+   | [Article](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)  |
-|**Classic to Resource Manager** | No | No   | [Article](../articles/virtual-network/virtual-networks-arm-asm-s2s.md) |
+|**Classico** | No | No | [Articolo](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) |
+|**Gestione risorse** | No | Sì+ | [Articolo](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) |
+|**Classico a Gestione risorse** | No | No | [Articolo](../articles/virtual-network/virtual-networks-arm-asm-s2s.md) |
 
-"+" denotes this deployment method is available only for VNets in the same subscription.
+"+" indica che questo metodo di distribuzione è disponibile solo per le reti virtuali nella stessa sottoscrizione.
+
+<!---HONumber=AcomDC_0218_2016-->

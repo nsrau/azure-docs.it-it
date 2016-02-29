@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -426,6 +426,27 @@ Se si sceglie di abilitare la distribuzione ibrida di Exchange, per questi attri
 | msExchUserHoldPolicies| X| | | Blocco per controversia legale: consente ai servizi cloud di determinare gli utenti per i quali è attivato un blocco per controversia legale.|
 | proxyAddresses| X| X| X| Viene inserito solo l'indirizzo x500 da Exchange Online.|
 
+## Writeback dei dispositivi
+Gli oggetti dispositivo vengono creati in Active Directory. Possono essere dispositivi aggiunti ad Azure AD o computer Windows 10 aggiunti al dominio.
+
+| Nome attributo| Dispositivo| Commento |
+| --- | :-: | --- |
+| altSecurityIdentities | X| |
+| displayName | X| |
+| dn | X| |
+| msDS-CloudAnchor | X| |
+| msDS-DeviceID | X| |
+| msDS-DeviceObjectVersion | X| |
+| msDS-DeviceOSType | X| |
+| msDS-DeviceOSVersion | X| |
+| msDS-DevicePhysicalIDs | X| |
+| msDS-KeyCredentialLink | X| Solo con lo schema di AD Windows Server 2016 |
+| msDS-IsCompliant | X| |
+| msDS-IsEnabled | X| |
+| msDS-IsManaged | X| |
+| msDS-RegisteredOwner | X| |
+
+
 ## Note sugli attributi
 - Quando si usa un ID alternativo, l'attributo locale userPrincipalName verrà sincronizzato con l'attributo di Azure AD onPremisesUserPrincipalName. L'attributo dell'ID alternativo, ad esempio quello per la posta elettronica, verrà sincronizzato con l'attributo di Azure AD userPrincipalName.
 
@@ -435,4 +456,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

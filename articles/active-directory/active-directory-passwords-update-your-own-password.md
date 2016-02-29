@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Come aggiornare la password
@@ -48,7 +48,7 @@ Il modo più rapido per registrarsi per la reimpostazione della password è anda
  
     ![][015]
 
- >[AZURE.IMPORTANT]Se l'amministratore consente di registrarsi per più di una opzione, è consigliabile registrare anche un'opzione di backup nel caso in cui si perda il telefono o non sia possibile accedere alla posta elettronica.
+ >[AZURE.IMPORTANT] Se l'amministratore consente di registrarsi per più di una opzione, è consigliabile registrare anche un'opzione di backup nel caso in cui si perda il telefono o non sia possibile accedere alla posta elettronica.
 
 ## Come modificare la password da O365
 Seguire questa procedura per modificare la password dell'account aziendale o dell'istituto di istruzione in Office 365. Per reimpostare la password dimenticata, seguire la procedura riportata [qui](#how-to-reset-your-password).
@@ -76,7 +76,7 @@ Seguire questa procedura per modificare la password dell'account aziendale o del
 
 Seguire questa procedura per reimpostare la password dell'account aziendale o dell'istituto di istruzione da qualsiasi schermata di accesso dell'account.
 
- >[AZURE.IMPORTANT]Questa funzionalità è disponibile solo se abilitata dall'amministratore. Se l'account non è abilitato per questa funzionalità, viene visualizzato un messaggio di avviso. È possibile contattare l'amministratore usando l'apposito collegamento, in questo caso per chiedere di sbloccare l'account.<br><br>Se questa funzionalità è stata abilitata dall'amministratore, per usarla è necessario prima di tutto effettuare l'iscrizione. A questo scopo, accedere a: http://aka.ms/ssprsetup.
+ >[AZURE.IMPORTANT] Questa funzionalità è disponibile solo se abilitata dall'amministratore. Se l'account non è abilitato per questa funzionalità, viene visualizzato un messaggio di avviso. È possibile contattare l'amministratore usando l'apposito collegamento, in questo caso per chiedere di sbloccare l'account.<br><br>Se questa funzionalità è stata abilitata dall'amministratore, per usarla è necessario prima di tutto effettuare l'iscrizione. A questo scopo, accedere a: http://aka.ms/ssprsetup.
  
 
  1. In una qualsiasi pagina di accesso dell'account aziendale o dell'istituto di istruzione fare clic sul collegamento "Problemi di accesso all'account?" o "Password dimenticata?" oppure passare direttamente a https://passwordreset.microsoftonline.com.
@@ -123,7 +123,7 @@ In caso di problemi nella reimpostazione della password, vedere la sezione [Prob
 ## Come sbloccare l'account
 Seguire questa procedura per sbloccare l'account locale da qualsiasi schermata di accesso dell'account aziendale o dell'istituto di istruzione. **Nota: è possibile sbloccare l'account solo se è stato bloccato a livello locale.**
 
- >[AZURE.IMPORTANT]Questa funzionalità è disponibile solo se abilitata dall'amministratore. Se l'account non è abilitato per questa funzionalità, viene visualizzato un messaggio di avviso. È possibile contattare l'amministratore usando l'apposito collegamento, in questo caso per chiedere di sbloccare l'account.<br><br>Se questa funzionalità è stata abilitata dall'amministratore, per usarla è necessario prima di tutto effettuare l'iscrizione. A questo scopo, accedere a: http://aka.ms/ssprsetup.
+ >[AZURE.IMPORTANT] Questa funzionalità è disponibile solo se abilitata dall'amministratore. Se l'account non è abilitato per questa funzionalità, viene visualizzato un messaggio di avviso. È possibile contattare l'amministratore usando l'apposito collegamento, in questo caso per chiedere di sbloccare l'account.<br><br>Se questa funzionalità è stata abilitata dall'amministratore, per usarla è necessario prima di tutto effettuare l'iscrizione. A questo scopo, accedere a: http://aka.ms/ssprsetup.
 
 
  1. In una qualsiasi pagina di accesso dell'account aziendale o dell'istituto di istruzione fare clic sul collegamento "Problemi di accesso all'account?" o "Password dimenticata?" oppure passare direttamente a https://passwordreset.microsoftonline.com.
@@ -162,7 +162,7 @@ Seguire questa procedura per sbloccare l'account locale da qualsiasi schermata d
  
     ![][010]
   
- >[AZURE.IMPORTANT]Tenere sempre aggiornati tutti i dispositivi con la password più recente. Accade spesso, infatti, che la causa del problema sia un'app con una password vecchia (ad esempio il client di posta elettronica del telefono) che ha provocato il blocco dell'account.
+ >[AZURE.IMPORTANT] Tenere sempre aggiornati tutti i dispositivi con la password più recente. Accade spesso, infatti, che la causa del problema sia un'app con una password vecchia (ad esempio il client di posta elettronica del telefono) che ha provocato il blocco dell'account.
  
 In caso di problemi nello sblocco dell'account, vedere la sezione [Problemi frequenti e relative soluzioni](#common-problems-and-their-solutions).
 
@@ -252,4 +252,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

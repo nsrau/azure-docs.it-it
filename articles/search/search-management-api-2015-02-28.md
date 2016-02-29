@@ -1,6 +1,20 @@
-<properties pageTitle="API REST di gestione di Ricerca di Azure versione 28/02/2015 | Microsoft Azure | Servizio di ricerca cloud ospitato" description="API REST di gestione di Ricerca di Azure versione 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties
+	pageTitle="API REST di gestione di Ricerca di Azure versione 28/02/2015 | Microsoft Azure | Servizio di ricerca cloud ospitato"
+	description="API REST di gestione di Ricerca di Azure versione 2015-02-28"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
+	editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.date="11/04/2015"
+	ms.author="heidist" />
 
 # API di gestione: versione 2015-02-28
 
@@ -39,7 +53,7 @@ Si noti che se il codice dell'applicazione gestisce le *operazioni di gestione d
 
 Nell'applicazione di esempio documentata in [Introduzione all'API REST di gestione di Ricerca di Azure](http://go.microsoft.com/fwlink/p/?linkID=516968) vengono illustrate le tecniche di autenticazione per ogni tipo di operazione. Nella Guida introduttiva sono incluse le istruzioni per configurare un'applicazione client all’uso di Active Directory.
 
-Controllo di accesso per Gestione risorse di Azure utilizza i ruoli predefiniti Proprietario, Collaboratore e Lettore. Per impostazione predefinita, tutti gli amministratori dei servizi sono membri del ruolo Proprietario. Per informazioni dettagliate, vedere [Controllo di accesso basato sui ruoli nel portale di Azure classico](../role-based-access-control-configure.md).
+Controllo di accesso per Gestione risorse di Azure utilizza i ruoli predefiniti Proprietario, Collaboratore e Lettore. Per impostazione predefinita, tutti gli amministratori dei servizi sono membri del ruolo Proprietario. Per informazioni dettagliate, vedere [Controllo di accesso basato sui ruoli nel portale di Azure classico](../active-directory/role-based-access-control-configure.md).
 
 
 ### Riepilogo delle API ##
@@ -812,4 +826,4 @@ Se l’operazione ha esito positivo, il codice di stato della risposta è HTTP 2
 
 Nessuna.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

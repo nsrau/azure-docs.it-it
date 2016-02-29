@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="sdanie"/>
 
 # Riferimento ai criteri di Gestione API di Azure
@@ -42,6 +42,7 @@ Le espressioni di criteri possono essere usate come valori di attributo o valori
 	-	[Imposta metodo di richiesta](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod): consente di modificare il metodo HTTP per una richiesta.
 	-	[Imposta stato](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus): modifica il codice di stato HTTP per il valore specificato.
 	-	[set-variable][]\: rende persistente un valore in una variabile [context][] denominata e consente di accedervi successivamente.
+	-	[Attesa](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) -attende il completamento dei criteri inclusi per l'invio della richiesta, il recupero del valore dalla cache o il flusso di controllo prima di procedere.
 -	[Criteri di autenticazione][]
 	-	[authentication-basic][]\: consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.
 	-	[authentication-certificate][]\: consente di eseguire l'autenticazione con un servizio back-end tramite certificati client.
@@ -118,4 +119,4 @@ Per altre informazioni sulle espressioni di criteri, vedere il video seguente.
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

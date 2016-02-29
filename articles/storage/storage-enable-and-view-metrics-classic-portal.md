@@ -3,7 +3,7 @@
 	description="Come abilitare le metriche di archiviazione per i servizi BLOB, di accodamento, di tabelle e file" 
 	services="storage" 
 	documentationCenter="" 
-	authors="tamram" 
+	authors="robinsh" 
 	manager="carmonm" 
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="02/14/2016" 
+	ms.author="robinsh"/>
 
 # Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica
 
@@ -59,7 +59,7 @@ Il seguente comando recupera il livello delle metriche orarie corrente e i giorn
 
 `Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob`
 
-Per informazioni su come configurare i cmdlet di Azure PowerShell per usare la sottoscrizione di Azure e su come selezionare l'account di archiviazione predefinito da utilizzare, vedere: [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).
+Per informazioni su come configurare i cmdlet di Azure PowerShell per usare la sottoscrizione di Azure e su come selezionare l'account di archiviazione predefinito da utilizzare, vedere: [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 ## Come abilitare Metriche di archiviazione a livello di codice
 
@@ -211,4 +211,4 @@ Anche la capacità usata dalle tabelle di metrica è fatturabile: è possibile u
 [Abilitazione della registrazione di Analisi archiviazione e accesso ai dati di log](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

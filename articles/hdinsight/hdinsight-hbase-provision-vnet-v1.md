@@ -36,7 +36,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../install-configure-powershell.md). Per eseguire script di Azure PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Vedere [Uso del cmdlet Set-ExecutionPolicy][2].
+- **Workstation con Azure PowerShell**. Vedere [Installare e usare Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Per eseguire script di Azure PowerShell, è necessario eseguire Azure PowerShell come amministratore e impostare i criteri di esecuzione su *RemoteSigned*. Vedere [Uso del cmdlet Set-ExecutionPolicy][2].
 
 	Prima di eseguire script PowerShell, assicurarsi di essere connessi alla sottoscrizione di Azure usando il seguente cmdlet:
 
@@ -84,7 +84,7 @@ Sebbene il server DNS sia generalmente facoltativo, in alcuni casi risulta neces
 
 **Per creare un account di archiviazione di Azure e un contenitore di archiviazione BLOB che potranno essere usati dal cluster:**
 
-> [AZURE.NOTE] I cluster HDInsight usano l'archiviazione BLOB di Azure per l'archiviazione dei dati. Per altre informazioni, vedere [Usare l'archiviazione BLOB di Azure con Hadoop in HDInsight](../hdinsight-use-blob-storage.md). Saranno necessari un account di archiviazione e un contenitore di archiviazione BLOB. Il percorso dell'account di archiviazione deve corrispondere al percorso della rete virtuale e al percorso del cluster.
+> [AZURE.NOTE] I cluster HDInsight usano l'archiviazione BLOB di Azure per l'archiviazione dei dati. Per altre informazioni, vedere [Usare l'archiviazione BLOB di Azure con Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). Saranno necessari un account di archiviazione e un contenitore di archiviazione BLOB. Il percorso dell'account di archiviazione deve corrispondere al percorso della rete virtuale e al percorso del cluster.
 
 Come altri cluster HDInsight, anche il cluster HBase richiede un account di archiviazione di Azure e un contenitore di archiviazione BLOB come file system predefinito. Il percorso dell'account di archiviazione deve corrispondere al percorso della rete virtuale e al percorso del cluster. Per altre informazioni, vedere [Usare l'archiviazione BLOB di Azure con Hadoop in HDInsight][hdinsight-storage]. Quando si effettua il provisioning di un cluster HBase, è possibile scegliere se crearne di nuovi o usarne di esistenti. Questa procedura mostra come creare un account di archiviazione e un contenitore di archiviazione BLOB tramite il portale di Azure classico.
 
@@ -133,8 +133,7 @@ Come altri cluster HDInsight, anche il cluster HBase richiede un account di arch
 	<tr><td>Dimensione nodo head</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo head.</p></td></tr>
 	<tr><td>Dimensione nodo dati</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo dati.</p></td></tr>
 	<tr><td>Dimensione Zookeeper</td><td><p>Selezionare una dimensione di macchina virtuale per il nodo Zookeeper.</p></td></tr>
-	</table>
-	>[AZURE.NOTE] Il costo può variare in base alla scelta delle macchine virtuali. HDInsight usa tutte macchine virtuali di livello standard per i nodi del cluster. Per informazioni sul modo in cui le dimensioni delle macchine virtuali influiscono sui prezzi, vedere <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Prezzi di HDInsight</a>.
+</table>>[AZURE.NOTE] Il costo può variare in base alla scelta delle macchine virtuali. HDInsight usa tutte macchine virtuali di livello standard per i nodi del cluster. Per informazioni sul modo in cui le dimensioni delle macchine virtuali influiscono sui prezzi, vedere <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Prezzi di HDInsight</a>.
 
 	Fare clic sul pulsante a destra.
 
@@ -178,8 +177,7 @@ Come altri cluster HDInsight, anche il cluster HBase richiede un account di arch
         <p>Se si è scelto di creare una nuova risorsa di archiviazione da un'altra sottoscrizione di Azure è necessario specificare il nome del contenitore predefinito.</p>
     </td></tr>
 	<tr><td>Account di archiviazione aggiuntivi</td>
-			<td>Se necessario, specificare account di archiviazione aggiuntivi per il cluster. HDInsight supporta più account di archiviazione. Un cluster può usare un numero illimitato di account di archiviazione aggiuntivi. Se tuttavia si crea un cluster tramite il portale di Azure, esiste un limite di sette dovuto ai vincoli dell'interfaccia utente. Per ogni nuovo account di archiviazione specificato viene aggiunta un'altra pagina <strong>Account di archiviazione</strong> alla procedura guidata, in cui è possibile specificare le informazioni sull'account. Nella schermata precedente, ad esempio, non è stato selezionato un account di archiviazione aggiuntivo e, quindi, alla procedura guidata non è stata aggiunta alcuna nuova pagina.</td></tr>
-	</table>
+		<td>Se necessario, specificare account di archiviazione aggiuntivi per il cluster. HDInsight supporta più account di archiviazione. Un cluster può usare un numero illimitato di account di archiviazione aggiuntivi. Se tuttavia si crea un cluster tramite il portale di Azure classico, esiste un limite di sette dovuto ai vincoli dell'interfaccia utente. Per ogni nuovo account di archiviazione specificato viene aggiunta un'altra pagina <strong>Account di archiviazione</strong> alla procedura guidata, in cui è possibile specificare le informazioni sull'account. Nella schermata precedente, ad esempio, non è stato selezionato un account di archiviazione aggiuntivo e, quindi, alla procedura guidata non è stata aggiunta alcuna nuova pagina.</td></tr>
 </table>Fare clic sulla freccia destra.
 
 7. Nella pagina **Azioni script** selezionare il segno di spunta nell'angolo inferiore destro. Non fare clic sul pulsante che consente di **aggiungere azioni di script**, poiché questa esercitazione non richiede una configurazione cluster personalizzata.
@@ -188,11 +186,11 @@ Come altri cluster HDInsight, anche il cluster HBase richiede un account di arch
 
 	> [AZURE.NOTE] Questa pagina consente di personalizzare il cluster durante la procedura di configurazione. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster.md).
 
-Per iniziare a lavorare con il nuovo cluster HBase, è possibile usare le procedure disponibili in [Introduzione a HBase con Hadoop in HDInsight](../hdinsight-hbase-get-started.md).
+Per iniziare a lavorare con il nuovo cluster HBase, è possibile usare le procedure disponibili in [Introduzione a HBase con Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started.md).
 
 ##Eseguire la connessione al cluster HBase con provisioning nella rete virtuale tramite le API RPC Java di HBase
 
-1.	Effettuare il provisioning di una macchina virtuale IaaS (Infrastructure as a Service ) nella stessa rete virtuale di Azure e nella stessa subnet. In questo modo, sia la macchina virtuale che il cluster HBase useranno lo stesso server DNS interno per risolvere i nomi degli host. Per ottenere questo risultato, è necessario scegliere l'opzione **Da raccolta** e selezionare la rete virtuale anziché un data center. Per istruzioni, vedere [Creazione di una macchina virtuale che esegue Windows Server](../virtual-machines-windows-tutorial.md). È sufficiente un'immagine standard di Windows Server 2012 con una VM di dimensioni ridotte.
+1.	Effettuare il provisioning di una macchina virtuale IaaS (Infrastructure as a Service ) nella stessa rete virtuale di Azure e nella stessa subnet. In questo modo, sia la macchina virtuale che il cluster HBase useranno lo stesso server DNS interno per risolvere i nomi degli host. Per ottenere questo risultato, è necessario scegliere l'opzione **Da raccolta** e selezionare la rete virtuale anziché un data center. Per istruzioni, vedere [Creazione di una macchina virtuale che esegue Windows Server](../virtual-machines/virtual-machines-windows-tutorial.md). È sufficiente un'immagine standard di Windows Server 2012 con una VM di dimensioni ridotte.
 
 2.	Quando si usa un'applicazione Java per connettersi a HBase da remoto, è necessario usare il nome di dominio completo (FQDN). Per determinare quest'ultimo, è necessario ottenere il suffisso DNS specifico della connessione del cluster HBase. A questo scopo, usare Curl per eseguire query in Ambari oppure Desktop remoto per connettersi al cluster.
 
@@ -380,11 +378,11 @@ Per usare queste informazioni in un'applicazione Java e creare un'applicazione, 
 
 In questa esercitazione si è appreso come effettuare il provisioning di un cluster HBase. Per ulteriori informazioni, vedere:
 
-- [Introduzione all'uso di HDInsight](../hdinsight-get-started.md)
+- [Introduzione all'uso di HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Configurare la replica di HBase in HDInsight](hdinsight-hbase-geo-replication.md)
 - [Effettuare il provisioning di cluster Hadoop in HDInsight](hdinsight-provision-clusters.md)
-- [Introduzione all'uso di HBase con Hadoop in HDInsight](../hdinsight-hbase-get-started.md)
-- [Analizzare i sentimenti Twitter con HBase in HDInsight](../hdinsight-hbase-twitter-sentiment.md)
+- [Introduzione all'uso di HBase con Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started.md)
+- [Analizzare i sentimenti Twitter con HBase in HDInsight](hdinsight-hbase-analyze-twitter-sentiment.md)
 - [Panoramica di Rete virtuale.][vnet-overview]
 
 
@@ -392,10 +390,10 @@ In questa esercitazione si è appreso come effettuare il provisioning di un clus
 [2]: http://technet.microsoft.com/library/ee176961.aspx
 [3]: http://technet.microsoft.com/library/hh847889.aspx
 
-[hbase-get-started]: ../hdinsight-hbase-get-started.md
-[hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment.md
+[hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
+[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [vnet-overview]: ../virtual-network/virtual-networks-overview.md
-[vm-create]: ../virtual-machines-windows-tutorial.md
+[vm-create]: ../virtual-machines/virtual-machines-windows-tutorial.md
 
 [azure-portal]: https://management.windowsazure.com
 [azure-create-storageaccount]: ../storage-create-storage-account.md
@@ -413,15 +411,15 @@ In questa esercitazione si è appreso come effettuare il provisioning di un clus
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: ../powershell-install-configure.md
 
 
 [hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-storage-powershell]: ../hdinsight-use-blob-storage.md#powershell
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-storage-powershell]: hdinsight-hadoop-use-blob-storage.md#powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
@@ -432,4 +430,4 @@ In questa esercitazione si è appreso come effettuare il provisioning di un clus
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Dettagli di provisioning per il nuovo cluster HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usare azioni di script per personalizzare un cluster?"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

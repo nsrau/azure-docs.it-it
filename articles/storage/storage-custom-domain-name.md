@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2015"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -24,7 +24,7 @@
 È possibile configurare un nome di dominio personalizzato per l'accesso ai dati BLOB nell'account di archiviazione di Azure. L'endpoint predefinito per l'archiviazione BLOB è https://<*mystorageaccount*>.blob.core.windows.net. Se si esegue il mapping di un dominio personalizzato e di un sottodominio come **www.contoso.com** all'endpoint BLOB per l'account di archiviazione, anche gli utenti potranno accedere ai dati BLOB dell'account di archiviazione usando tale dominio.
 
 
-> [AZURE.NOTE]	Le procedure in questa attività si applicano agli account di archiviazione di Azure. Per i servizi cloud, vedere <a href = "/develop/net/common-tasks/custom-dns/">Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure</a>. Per i siti Web, vedere <a href="/develop/net/common-tasks/custom-dns-web-site/">Configurazione di un nome di dominio personalizzato per un sito Web di Azure</a>.
+> [AZURE.NOTE]	Le procedure in questa attività si applicano agli account di archiviazione di Azure. Per i servizi cloud, vedere <a href = "/develop/net/common-tasks/custom-dns/"> Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure</a>. Per i siti Web, vedere <a href="/develop/net/common-tasks/custom-dns-web-site/">Configurazione di un nome di dominio personalizzato in Servizio app di Azure</a>.
 
 Esistono due modi per puntare il dominio personalizzato all'endpoint BLOB per l'account di archiviazione. Il modo più semplice consiste nel creare un record CNAME per eseguire il mapping del dominio personalizzato e del sottodominio all'endpoint BLOB. Un record CNAME è una funzionalità DNS tramite cui viene eseguito il mapping di un dominio di origine a uno di destinazione. In questo caso, il dominio di origine è rappresentato dal dominio personalizzato e dal relativo sottodominio. Si noti che il sottodominio è sempre obbligatorio. Il dominio di destinazione è l'endpoint del servizio BLOB.
 
@@ -42,7 +42,7 @@ Contenitore radice|**URL predefinito:** http://mystorageaccount.blob.core.window
 
 Eseguire questa procedura per registrare il dominio personalizzato se il fatto che il dominio sia temporaneamente non disponibile per gli utenti non costituisce un problema oppure se il dominio personalizzato al momento non ospita un'applicazione.
 
-Se invece il dominio personalizzato supporta un'applicazione per cui non sono consentiti tempi di inattività, eseguire la procedura descritta in <a href="#register-asverify">Registrazione di un dominio personalizzato per l'account di archiviazione usando il sottodominio intermedio asverify</a>.
+Se invece il dominio personalizzato supporta un'applicazione per cui non sono consentiti tempi di inattività, eseguire la procedura descritta in <a href="#register-a-custom-domain-for-your-storage-account-using-the-intermediary-asverify-subdomain">Registrazione di un dominio personalizzato per l'account di archiviazione usando il sottodominio intermedio asverify</a>.
 
 Per configurare un nome di dominio personalizzato, è necessario creare un nuovo record CNAME con il proprio registrar. Il record CNAME specifica un alias per un nome di dominio. In questo caso, viene usato per eseguire il mapping dell'indirizzo del dominio personalizzato all'endpoint dell'archiviazione BLOB per l'account di archiviazione.
 
@@ -114,6 +114,6 @@ Ad esempio, è possibile utilizzare l'URI seguente per accedere a un Web Form tr
 
 ## Risorse aggiuntive
 
--   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato</a>
+-   [Come eseguire il mapping di un dominio personalizzato all'endpoint della rete per la distribuzione di contenuti (rete CDN)](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

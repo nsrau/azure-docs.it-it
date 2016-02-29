@@ -50,11 +50,9 @@ Per questa configurazione si useranno i valori seguenti:
 
 ## Prima di iniziare
 
-Verificare di avere una sottoscrizione di Azure e avere installato il cmdlet di Azure PowerShell richiesto per questa configurazione (versione 1.0.2 o successiva). Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Verificare di possedere una sottoscrizione di Azure. Se non si dispone già di una sottoscrizione di Azure, è possibile attivare i [benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 	
-**Informazioni sull'installazione dei moduli dei cmdlet PowerShell**
-
-	[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
+- È necessario installare i cmdlet di PowerShell per Gestione risorse di Azure (1.0.2 o versione successiva). Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 ## Configurare una connessione da punto a sito per Azure
 
@@ -114,7 +112,7 @@ Verificare di avere una sottoscrizione di Azure e avere installato il cmdlet di 
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Caricare il file CER del certificato radice in Azure. È possibile usare un certificato radice dall'ambiente aziendale per la creazione di certificati oppure è possibile usare un certificato autofirmato. È possibile caricare fino a 20 certificati radice. Per istruzioni sulla creazione di un certificato radice autofirmato con *makecert*, vedere l'articolo su come [usare i certificati radice autofirmati per le configurazioni da punto a sito](vpn-gateway-certificates-point-to-site.md). Si noti che il file con estensione CER non contiene la chiave privata del certificato radice.
+10. Caricare il file CER del certificato radice in Azure. È possibile usare un certificato radice dall'ambiente aziendale per la creazione di certificati oppure è possibile usare un certificato autofirmato. È possibile caricare fino a 20 certificati radice. Per istruzioni sulla creazione di un certificato radice autofirmato con *makecert*, vedere [Usare i certificati radice autofirmati per le configurazioni da punto a sito](vpn-gateway-certificates-point-to-site.md). Si noti che il file con estensione CER non contiene la chiave privata del certificato radice.
 	
 	Di seguito è riportato un esempio dell'aspetto che avrà il file. La parte difficile nel caricare i dati del certificato pubblico riguarda la necessità di copiare e incollare l'intera stringa senza spazi. In caso contrario, il caricamento non funzionerà. Per questo passaggio è necessario usare il proprio file del certificato con estensione cer. Non provare a copiare e incollare il codice di esempio seguente.
 
@@ -127,7 +125,7 @@ Verificare di avere una sottoscrizione di Azure e avere installato il cmdlet di 
 
 ## Configurazione del client
 
-Ogni client che si connette ad Azure tramite una connessione da punto a sito deve rispettare due requisiti: il client VPN deve essere configurato per la connessione e deve avere un certificato client installato. I pacchetti di configurazione del client VPN sono disponibili per i client Windows. Vedere [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) per ulteriori informazioni.
+Ogni client che si connette ad Azure tramite una connessione da punto a sito deve rispettare due requisiti: il client VPN deve essere configurato per la connessione e deve avere un certificato client installato. I pacchetti di configurazione del client VPN sono disponibili per i client Windows. Per altre informazioni, vedere [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md#point-to-site-connections).
 
 1. Scaricare il pacchetto di configurazione del client VPN. In questo passaggio usare l'esempio seguente per scaricare il pacchetto di configurazione del client.
 
@@ -137,9 +135,9 @@ Ogni client che si connette ad Azure tramite una connessione da punto a sito dev
 
     	"https://mdsbrketwprodsn1prod.blob.core.windows.net/cmakexe/4a431aa7-b5c2-45d9-97a0-859940069d3f/amd64/4a431aa7-b5c2-45d9-97a0-859940069d3f.exe?sv=2014-02-14&sr=b&sig=jSNCNQ9aUKkCiEokdo%2BqvfjAfyhSXGnRG0vYAv4efg0%3D&st=2016-01-08T07%3A10%3A08Z&se=2016-01-08T08%3A10%3A08Z&sp=r&fileExtension=.exe"
 	
-2. Generare e installare i certificati client (*.pfx) creati dal certificato radice nei computer client. È possibile usare qualsiasi metodo di installazione con cui si ha maggiore familiarità. Se si usa un certificato radice autofirmato e la familiarità con le procedure per eseguire questa operazione è limitata, è possibile fare riferimento all'articolo su come [usare i certificati radice autofirmati per le configurazioni da punto a sito](vpn-gateway-certificates-point-to-site.md).
+2. Generare e installare i certificati client (*.pfx) creati dal certificato radice nei computer client. È possibile usare qualsiasi metodo di installazione con cui si ha maggiore familiarità. Se si usa un certificato radice autofirmato e la familiarità con le procedure per eseguire questa operazione è limitata, è possibile fare riferimento all'articolo [Usare i certificati radice autofirmati per le configurazioni da punto a sito](vpn-gateway-certificates-point-to-site.md).
 
-3. Per connettersi alla rete virtuale, nel computer client passare alle connessioni VPN e individuare quella appena creata. Avrà lo stesso nome della rete virtuale. Fare clic su **Connect**. È possibile che venga visualizzato un messaggio popup che fa riferimento all'uso del certificato. In questo caso, fare clic su **Continua** per usare privilegi elevati.
+3. Per connettersi alla rete virtuale, nel computer client passare alle connessioni VPN e individuare quella appena creata. Avrà lo stesso nome della rete virtuale. Fare clic su **Connect**. È possibile che venga visualizzato un messaggio popup che fa riferimento all'uso del certificato. In questo caso, fare clic su **Continue** per usare privilegi elevati.
 
 4. Nel **connessione** pagina di stato, fare clic su **Connect** per avviare la connessione. Se viene visualizzato un **Seleziona certificato** dello schermo, verificare che il certificato client visualizzato sia quello che si desidera utilizzare per la connessione. In caso contrario, usare la freccia a discesa per selezionare il certificato corretto e quindi fare clic su **OK**.
 
@@ -231,4 +229,4 @@ I certificati vengono usati per autenticare client VPN per VPN da punto a sito. 
 
 È possibile aggiungere una macchina virtuale alla rete virtuale. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

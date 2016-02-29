@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/11/2016"
 	ms.author="donnam"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili
@@ -78,7 +78,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
             }
         }
 
-	> [AZURE.NOTE]Se si usa un provider di identità diverso da un account Microsoft, sostituire il valore passato a **LoginAsync** riportato in precedenza con uno dei seguenti: _Facebook_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
+	> [AZURE.NOTE] Se si usa un provider di identità diverso da un account Microsoft, sostituire il valore passato a **LoginAsync** riportato in precedenza con uno dei seguenti: _Facebook_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
 3. Spostare la richiesta per la tabella **ToDoItem** dal costruttore **ToDoService** a un nuovo metodo denominato **CreateTable**:
 
@@ -155,4 +155,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

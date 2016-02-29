@@ -17,15 +17,15 @@
 	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
-#Generare raccomandazioni di film mediante Apache Mahout con Hadoop basato su Linux in HDInsight (anteprima)
+#Generare raccomandazioni di film mediante Apache Mahout con Hadoop basato su Linux in HDInsight
 
-[AZURE.INCLUDE [selettore di mahout](../../includes/hdinsight-selector-mahout.md)]
+[AZURE.INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
 Informazioni su come usare la libreria di Machine Learning [Apache Mahout](http://mahout.apache.org) con Azure HDInsight per generare raccomandazioni di film.
 
 Mahout è una libreria di [Machine Learning][ml] per Apache Hadoop. Mahout contiene gli algoritmi per l'elaborazione dei dati, ad esempio applicazione di filtri, classificazione e clustering. In questo articolo si userà un motore di raccomandazione per generare raccomandazioni di film in base ai film visti dai propri amici.
 
-> [AZURE.NOTE] I passaggi descritti in questo documento richiedono un cluster Hadoop basato su Linux in HDInsight (anteprima). Per informazioni sull'uso di Mahout con un cluster basato su Windows, vedere [Generare raccomandazioni di film mediante Apache Mahout con Hadoop basato su Windows in HDInsight](hdinsight-mahout.md)
+> [AZURE.NOTE] I passaggi descritti in questo documento richiedono un cluster Hadoop basato su Linux in HDInsight. Per informazioni sull'uso di Mahout con un cluster basato su Windows, vedere [Generare raccomandazioni di film mediante Apache Mahout con Hadoop basato su Windows in HDInsight](hdinsight-mahout.md)
 
 ##Prerequisiti
 
@@ -57,7 +57,7 @@ Di seguito è riportato un esempio molto semplice relativo ai film:
 
 1. Usare SSH per connettersi al cluster HDInsight basato su Linux. L'indirizzo da usare durante la connessione è `CLUSTERNAME-ssh.azurehdinsight.net` e la porta è `22`.
 
-	Per ulteriori informazioni sull'utilizzo di SSH per connettersi a HDInsight, vedere i seguenti documenti:
+	Per altre informazioni sull'uso di SSH per connettersi a HDInsight, vedere i seguenti documenti:
 
     * **Client Linux, Unix o OS X**: vedere [Connettersi a un cluster HDInsight basato su Linux, Unix e OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
 
@@ -267,4 +267,4 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

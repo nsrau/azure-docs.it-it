@@ -126,4 +126,4 @@ Nota: è possibile caricare un logo icona dell'applicazione usando il pulsante *
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Gestire Analisi Data Lake di Azure tramite il portale di Azure
@@ -26,7 +26,7 @@ Informazioni su come gestire gli account, le origini dati, gli utenti e i proces
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- Una **sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
 
@@ -102,8 +102,8 @@ L'eliminazione di un account di Analisi non comporta l'eliminazione dell'account
 
 Analisi Data Lake supporta attualmente le seguenti origini dati:
 
-- [Archivio Data Lake di Azure](data-lake-store-overview.md)
-- [Archiviazione BLOB di Azure](storage-introduction.md)
+- [Archivio Data Lake di Azure](../data-lake-store/data-lake-store-overview.md)
+- [Archiviazione di Azure](../storage/storage-introduction.md)
 
 Quando si crea un account di Analisi Data Lake, è necessario impostare un account di Archivio Data Lake di Azure come account di archiviazione predefinito. L'account di Archivio Data Lake predefinito viene usato per archiviare i metadati e i log di controllo dei processi. Dopo aver creato un account di Analisi Data Lake, è possibile aggiungere altri account di Archivio Data Lake e/o account di Archiviazione di Azure.
 
@@ -154,7 +154,7 @@ Quando si crea un account di Analisi Data Lake, è necessario impostare un accou
 
 <a name="upload-data-to-wasb"></a> **Per caricare file in un account di archiviazione BLOB di Azure**
 
-Vedere [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md). Queste informazioni sono valide per Analisi Data Lake.
+Vedere [Caricare dati per processi Hadoop in HDInsight](../hdinsight/hdinsight-upload-data.md). Queste informazioni sono valide per Analisi Data Lake.
 
 
 ## Gestire gli utenti
@@ -170,7 +170,7 @@ Analisi Data Lake usa il controllo degli accessi in base al ruolo con Azure Acti
 |Utente DevTest Lab|Consente di visualizzare tutti gli elementi, nonché connettere, avviare, riavviare e arrestare macchine virtuali.|  
 |Amministratore accessi utente|Consente di gestire gli accessi utente alle risorse di Azure.|  
 
-Per informazioni sulla creazione di utenti e gruppi di sicurezza di Azure Active Directory , vedere [Informazioni su Azure Active Directory](active-directory-whatis.md).
+Per informazioni sulla creazione di utenti e gruppi di sicurezza di Azure Active Directory , vedere [Informazioni su Azure Active Directory](../active-directory/active-directory-whatis.md).
 
 **Per aggiungere utenti o gruppi di sicurezza a un account di Analisi**
 
@@ -181,7 +181,7 @@ Per informazioni sulla creazione di utenti e gruppi di sicurezza di Azure Active
 3. Nel pannello **Utente** fare clic su **Aggiungi**.
 4. Selezionare un ruolo e aggiungere un utente, quindi fare clic su **OK**.
 
-**Nota: se l'utente o il gruppo di sicurezza deve inviare dei processi, sarà necessario che gli venga concessa anche l'autorizzazione di accesso ad Archivio Data Lake. Per altre informazioni, vedere [Protezione dei dati presenti in Archivio Data Lake](data-lake-store-secure-data.md).**
+**Nota: se l'utente o il gruppo di sicurezza deve inviare dei processi, sarà necessario che gli venga concessa anche l'autorizzazione di accesso ad Archivio Data Lake. Per altre informazioni, vedere [Protezione dei dati presenti in Archivio Data Lake](../data-lake-store/data-lake-store-secure-data.md).**
 
 
 
@@ -244,8 +244,6 @@ Vedere [Monitorare processi di Analisi Data Lake](#monitor-jobs).
 
 ##Monitorare l'utilizzo dell'account
 
-[introduzione - è necessario spiegare i termini e collegare le parti.]
-
 **Per monitorare l'utilizzo dell'account**
 
 1. Aprire l'account di Analisi che si desidera gestire. Per istruzioni, vedere la sezione relativa all'[accesso a un account di Analisi Data Lake](#access-adla-account). Il pannello Utilizzo mostra informazioni relative al modo in cui viene usato l'account:
@@ -271,7 +269,7 @@ Il [catalogo di U-SQL](data-lake-analytics-use-u-sql-catalog.md) permette di def
 <!-- ################################ -->
 ## Usare i gruppi Gestione risorse di Azure
 
-Le applicazioni sono in genere costituite da molti componenti, ad esempio app Web, database, server di database, risorsa di archiviazione e servizi di terze parti. Gestione risorse di Azure (ARM) consente di usare le risorse dell'applicazione come gruppo, detto Gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione con una singola operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, staging e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
+Le applicazioni sono in genere costituite da molti componenti, ad esempio app Web, database, server di database, risorsa di archiviazione e servizi di terze parti. Gestione risorse di Azure (ARM) consente di usare le risorse dell'applicazione come gruppo, detto Gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione con una singola operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, staging e produzione. È possibile chiarire la fatturazione per l'organizzazione visualizzando i costi per l'intero gruppo. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md).
 
 Un servizio di Analisi Data Lake può includere i componenti seguenti:
 
@@ -292,7 +290,7 @@ Un account di Analisi Data Lake e gli account di archiviazione dipendenti devono
 
 - [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 - [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
-- [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-use-powershell.md)
+- [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

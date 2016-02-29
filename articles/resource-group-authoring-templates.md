@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/08/2016"
+   ms.date="02/17/2016"
    ms.author="tomfitz"/>
 
 # Creazione di modelli di Gestione risorse di Azure
@@ -131,6 +131,8 @@ I valori e i tipi consentiti sono:
 
 Per specificare un parametro come facoltativo, impostare il suo valore predefinito su una stringa vuota.
 
+Se si specifica un nome di parametro corrispondente a uno dei parametri nel comando per la distribuzione del modello, ad esempio un parametro denominato **ResourceGroupName** nel modello che corrisponde al parametro **ResourceGroupName** nel cmdlet [New AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx), verrà richiesto di specificare un valore per un parametro con il suffisso **FromTemplate**, ad esempio **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
+
 >[AZURE.NOTE] Per tutte le password, le chiavi e altre informazioni riservate si consiglia di usare il tipo **secureString**. Non è possibile leggere i parametri di modello di tipo secureString dopo la distribuzione delle risorse.
 
 Il seguente esempio mostra come definire i parametri:
@@ -227,7 +229,7 @@ Nell'esempio successivo viene illustrata una variabile che rappresenta un tipo J
 
 ## Risorse
 
-Nella sezione delle risorse è possibile definire le risorse che vengono distribuite o aggiornate. È qui che il modello può diventare più complicato, perché per fornire i valori corretti è necessario conoscere i tipi da distribuire. Per informazioni che è necessario conoscere sui provider di risorse, vedere [Provider, aree, versioni API e schemi di Gestione risorse](resource-manager-supported-services.md).
+Nella sezione delle risorse è possibile definire le risorse che vengono distribuite o aggiornate. È qui che il modello può diventare più complicato, perché per fornire i valori corretti è necessario conoscere i tipi da distribuire. Per informazioni utili sui provider di risorse, vedere [Provider, aree, versioni API e schemi di Gestione risorse](resource-manager-supported-services.md).
 
 Le risorse vengono definite con la struttura seguente:
 
@@ -293,7 +295,7 @@ La sezione resources contiene una matrice delle risorse da distribuire. All'inte
 
 
 
-L'esempio seguente illustra una risorsa **Microsoft.Web/serverfarms** e una risorsa **Microsoft.Web/sites** con una risorsa figlio **Extensions**: Si noti che il sito è contrassegnato come dipendente nella server farm perché per poter distribuire il sito deve esistere la server farm. Si noti anche che la risorsa **Extensions** è un elemento figlio del sito.
+L'esempio seguente illustra una risorsa **Microsoft.Web/serverfarms** e una risorsa **Microsoft.Web/sites** con una risorsa figlio **Extensions**. Si noti che il sito è contrassegnato come dipendente nella server farm perché per poter distribuire il sito deve esistere la server farm. Si noti anche che la risorsa **Extensions** è un elemento figlio del sito.
 
     "resources": [
         {
@@ -472,4 +474,4 @@ Il modello seguente distribuisce un'app Web e fornisce il codice da un file con 
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per visualizzare gli schemi disponibili, vedere [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

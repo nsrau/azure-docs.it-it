@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Risolvere i problemi dei processi di Analisi di Azure Data Lake mediante il portale di Azure
@@ -26,9 +26,9 @@ In questa esercitazione verrà impostato un problema relativo a un file di origi
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-- **Conoscenza di base dell'elaborazione dei processi di Data Lake Analytics**. Vedere [Introduzione ad Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-get-started-use-portal.md).
-- **Un account di Data Lake Analytics**. Vedere [Introduzione ad Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account).
-- **Copiare i dati di esempio nell'account di Data Lake Store predefinito**. Vedere [Preparare i dati di origine](data-lake-analytics-get-started-use-portal.md.md#prepare-source-data).
+- **Conoscenza di base dell'elaborazione dei processi di Data Lake Analytics**. Vedere [Introduzione ad Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md).
+- **Un account di Data Lake Analytics**. Vedere [Introduzione ad Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md#create-adl-analytics-account).
+- **Copiare i dati di esempio nell'account di Data Lake Store predefinito**. Vedere [Preparare i dati di origine](data-lake-analytics-get-started-portal.md#prepare-source-data).
 
 ##Inviare un processo di Data Lake Analytics
 
@@ -107,7 +107,7 @@ Nella sezione precedente il processo è stato inviato e la sua esecuzione ha avu
 
 - [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-- [Introduzione ad Azure Data Lake Analytics e U-SQL con Visual Studio](data-lake-analytics-get-started-u-sql-studio.md)
+- [Introduzione ad Azure Data Lake Analytics e U-SQL con Visual Studio](data-lake-analytics-u-sql-get-started.md)
 - [Gestire Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

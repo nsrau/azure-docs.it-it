@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/13/2016"
+    ms.date="02/11/2016"
     ms.author="elizapo" />
 
 
@@ -32,26 +32,14 @@ Se viene visualizzato un messaggio del tipo "GoldImageInvalid" quando si è in a
 
 
 ## Per la rete virtuale sono definiti gruppi di protezione di rete? ##
-Se sono stati definiti gruppi di protezione di rete nella subnet utilizzata per la raccolta, assicurarsi che gli URL seguenti siano accessibili dalla subnet:
-
-	https://management.remoteapp.windowsazure.com  
-	https://opsapi.mohoro.com  
-	https://telemetry.remoteapp.windowsazure.com  
-	https://*.remoteapp.windowsazure.com  
-	https://login.windows.net (if you have Active Directory)  
-	https://login.microsoftonline.com  
-	Azure storage *.remoteapp.windowsazure.com  
-	*.core.windows.net  
-	https://www.remoteapp.windowsazure.com  
-	https://www.remoteapp.windowsazure.com  
-
-Aprire le porte seguenti nella subnet di rete virtuale:
-
-In ingresso - TCP: 3030, TCP: 443 In uscita - TCP: 443
+Se sono stati definiti gruppi di sicurezza di rete nella subnet usata per la raccolta, assicurarsi che gli [URL e le porte](remoteapp-ports.md) siano accessibili dalla subnet.
 
 È possibile aggiungere gruppi di protezione di rete aggiuntivi alle macchine virtuali distribuite nella subnet per un maggiore controllo.
 
 ## Si utilizzano propri server DNS? Sono accessibili dalla subnet di rete virtuale? ##
+>[AZURE.NOTE] È necessario verificare che i server DNS nella rete virtuale siano sempre attivi e sempre in grado di risolvere le macchine virtuali ospitate nella rete virtuale. Non usare Google DNS a questo scopo.
+
+
 Per le raccolte ibride è possibile utilizzare i propri server DNS. Specificarli nello schema di configurazione di rete o tramite il portale di gestione quando si crea la rete virtuale. I server DNS vengono utilizzati nell'ordine in cui vengono specificati in modo failover (anziché round robin).
 
 Verificare che i server DNS per la raccolta siano accessibili e disponibili dalla subnet di rete virtuale specificata per questa raccolta.
@@ -79,4 +67,4 @@ Assicurarsi che i dettagli del dominio forniti siano validi e che il controller 
 
 Il nome di dominio creato o aggiunto deve essere un nome di dominio interno (non il nome di dominio Active Directory di Azure) e deve essere nel formato DNS risolvibile (contoso.local). Ad esempio, si dispone di un nome interno di Active Directory (contoso.local) e di un UPN di Directory Active (contoso.com): è necessario utilizzare il nome interno quando si crea la raccolta.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

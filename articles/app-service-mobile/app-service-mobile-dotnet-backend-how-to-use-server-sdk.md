@@ -138,7 +138,7 @@ I pacchetti di estensione basati su NuGet seguenti forniscono diverse funzionali
 
 ## <a name="publish-server-project"></a>Procedura: Pubblicare il progetto server
 
-Questa sezione illustra come pubblicare il progetto back-end .NET da Visual Studio. È anche possibile distribuire il progetto back-end usando Git o uno degli altri metodi illustrati nella [documentazione sulla distribuzione del servizio app di Azure](../app-service-web/web-site-deploy.md).
+Questa sezione illustra come pubblicare il progetto back-end .NET da Visual Studio. È anche possibile distribuire il progetto back-end usando Git o uno degli altri metodi illustrati nella [documentazione sulla distribuzione del servizio app di Azure](../app-service-web/web-sites-deploy.md).
 
 1. In Visual Studio compilare nuovamente il progetto per ripristinare i pacchetti NuGet.
 
@@ -444,4 +444,4 @@ Il server eseguito in locale ora è in grado di convalidare i token che il clien
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

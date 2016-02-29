@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="02/16/2016" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso DocumentDB mediante Data factory di Azure
@@ -411,7 +411,7 @@ In caso di attività di copia con origine di tipo **DocumentDbCollectionSource**
 
 	**Risposta:** se i record dispongono di un campo "ID" e l'operazione di copia tenta di inserire un record con lo stesso ID, l'operazione di copia genera un errore.
  
-3. **Domanda:** Il Data Factory supporta [il partizionamento dei dati basato su hash o sull’intervallo]( https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
+3. **Domanda:** Il Data Factory supporta [il partizionamento dei dati basato su hash o sull’intervallo](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
 
 	**Risposta:** No. 
 4. **Domanda:** è possibile specificare più di una raccolta di DocumentDB per una tabella?
@@ -419,4 +419,4 @@ In caso di attività di copia con origine di tipo **DocumentDbCollectionSource**
 	**Risposta:** No. In questo momento, è possibile specificare solo una raccolta.
      
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -17,9 +17,9 @@
  ms.date="01/08/2016"
  ms.author="larryfr"/>
 
-# Usare Power BI (anteprima) per visualizzare i dati provenienti da una topologia Apache Storm
+# Usare Power BI per visualizzare i dati provenienti da una topologia Apache Storm
 
-L'anteprima di Power BI permette di mostrare visivamente i dati sotto forma di report o dashboard. L'API REST di Power BI permette di usare con facilità i dati da una topologia in esecuzione su Apache Storm in un cluster HDInsight in Power BI.
+Power BI consente di mostrare visivamente i dati sotto forma di report o dashboard. L'API REST di Power BI permette di usare con facilità i dati da una topologia in esecuzione su Apache Storm in un cluster HDInsight in Power BI.
 
 In questo documento verrà illustrato come usare Power BI per creare un report e un dashboard dai dati creati da una topologia Storm.
 
@@ -139,4 +139,4 @@ In questo documento è stato illustrato come inviare dati da una topologia Storm
 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

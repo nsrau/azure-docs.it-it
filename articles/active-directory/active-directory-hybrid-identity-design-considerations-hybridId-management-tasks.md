@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/10/2016"
 	ms.author="femila"/>
 
 # Pianificare il ciclo di vita dell’identità ibrida 
@@ -64,4 +64,4 @@ Uno dei principali obiettivi della gestione delle identità è quello di raccogl
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

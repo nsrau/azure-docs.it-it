@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Copiare i dati di output in un database SQL Server locale (Portale di Azure classico)" 
+	pageTitle="Procedura dettagliata: Copiare i dati di output in un database SQL Server (portale di Azure classico)" 
 	description="Questa procedura dettagliata estende l'esercitazione utilizzando Data Factory Editor nel portale di Azure classico in modo che le copie della pipeline producano dei dati in un database SQL Server."
 	services="data-factory" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 
-# Procedura dettagliata: copiare i dati dell'efficacia di una campagna in un database SQL Server locale 
+# Procedura dettagliata: Copiare i dati di output in un database SQL Server locale (portale di Azure classico) 
 In questa procedura dettagliata si imparerà a configurare l'ambiente per consentire alla pipeline di usare i dati locali.
  
 Nell'ultimo passaggio dello scenario di elaborazione dei log dalla prima procedura dettagliata con flusso di lavoro Partizione -> Arricchimento -> Analisi, l'output dell'efficacia della campagna di marketing è stato copiato in un database SQL di Azure. È anche possibile spostare questi dati in SQL Server locale per l'analisi nell'organizzazione.
@@ -169,4 +169,4 @@ Congratulazioni. È stata completata la procedura dettagliata per usare l'origin
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

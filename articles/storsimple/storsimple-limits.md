@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/27/2016"
+   ms.date="02/17/2016"
    ms.author="alkohli" />
 
 # Limiti di sistema StorSimple
@@ -34,7 +34,7 @@ StorSimple fornisce una risorsa di archiviazione scalabile e flessibile per il d
 | Numero massimo di connessioni iSCSI dagli iniziatori | 512 | |
 | Numero massimo di record di controllo di accesso per dispositivo | 64 | |
 | Numero massimo di volumi per criteri di backup | 24 | |
-| Numero massimo di backup mantenuti per criteri di backup | 64 | |
+| Numero massimo di backup mantenuti per pianificazione (in un criterio di backup) | 64 | |
 | Numero massimo di pianificazioni per criteri di backup | 10 | |
 | Numero massimo di snapshot di qualsiasi tipo che è possibile mantenere per volume | 256 | Sono inclusi gli snapshot locali e quelli cloud. |
 | Numero massimo di snapshot che possono essere presenti in qualsiasi dispositivo | 10\.000 | |
@@ -52,4 +52,4 @@ StorSimple fornisce una risorsa di archiviazione scalabile e flessibile per il d
 
 Consultare i [requisiti di sistema di StorSimple](storsimple-system-requirements.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

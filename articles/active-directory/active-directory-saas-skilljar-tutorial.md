@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/17/2016"
 	ms.author="jeedes"/>
 
 
@@ -35,13 +35,13 @@ Per configurare l'integrazione di Azure AD con Skilljar, sono necessari gli elem
 - Sottoscrizione di Skilljar abilitata per l'accesso Single Sign-On
 
 
-> [AZURE.NOTE]Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Descrizione dello scenario
@@ -113,29 +113,29 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
 
-7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
+7. Nella pagina **Conferma Single Sign-On** fare clic su **Completa**. <br><br>![Accesso Single Sign-On di Azure AD][11]
 
 
 
 
 ### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.<br> Nell'elenco utenti, selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di Azure classico**, nel riquadro di spostamento sinistro fare clic su **Active Directory**. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_09.png) <br>
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_09.png) <br>
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per visualizzare l'elenco utenti, nel menu in alto fare clic su **Utenti**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_03.png) <br>
+3. Per visualizzare l'elenco di utenti, fare clic su **Utenti** nel menu in alto. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_03.png) <br>
 
 4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_04.png) <br>
 
-5. Nella pagina della finestra di dialogo **Informazioni sull'utente**, seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_05.png) <br>
+5. Nella pagina della finestra di dialogo **Informazioni sull'utente** seguire questa procedura: <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_05.png) <br>
 
     a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
 
-    b. Nella **casella di testo** Nome utente digitare **BrittaSimon**.
+    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
 
     c. Fare clic su **Avanti**.
 
@@ -147,15 +147,15 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
 
-    d. Nell'elenco **Ruolo** selezionare **Utente**.
+    d. Nell'elenco **Ruolo**, selezionare **Utente**.
     
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_07.png) <br>
+7. Nella pagina della finestra di dialogo **Ottieni password temporanea**, fare clic su **crea**. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_07.png) <br>
 
-8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_08.png) <br>
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_08.png) <br>
 
-    a. Prendere nota del valore in **Nuova password**.
+    a. Prendere nota del valore visualizzato in **Nuova password**.
 
     b. Fare clic su **Complete**.
 
@@ -167,7 +167,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Skilljar.
 
 Non è necessario alcun intervento dell'utente in questa sezione. Durante il tentativo di accesso a Skilljar verrà creato un nuovo utente, se questo non esiste già.
 
-> [AZURE.NOTE]Per creare un utente manualmente, è necessario contattare il team di supporto di Skilljar.
+> [AZURE.NOTE] Per creare un utente manualmente, è necessario contattare il team di supporto di Skilljar.
 
 
 ### Assegnazione dell'utente test di Azure AD
@@ -182,7 +182,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 1. Nel menu in alto fare clic su **Utenti**. <br><br>![Assegna utente][203] <br>
 
-1. Nell'elenco utenti, selezionare **Britta Simon**.
+1. Nell'elenco di utenti selezionare **Britta Simon**.
 
 2. Fare clic su **Assegna** sulla barra degli strumenti in basso. <br><br>![Assegna utente][205]
 
@@ -217,4 +217,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-skilljar-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-skilljar-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

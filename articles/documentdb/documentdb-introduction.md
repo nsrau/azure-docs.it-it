@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/16/2016" 
 	ms.author="mimig"/>
 
 # Introduzione a DocumentDB: un Database NoSQL JSON
@@ -77,11 +77,11 @@ Azure DocumentDB espone risorse tramite un'API REST che può essere chiamata da 
 Scaricare | Documentazione
 --- | ---
 [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) | [Libreria .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)
-[Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) | [Libreria Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)
-[SDK per Java](http://go.microsoft.com/fwlink/?LinkID=402380) | [Libreria Java](http://dl.windowsazure.com/documentdb/javadoc/)
-[JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) | [Libreria JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/)
-N/D | [JavaScript SDK lato server](http://dl.windowsazure.com/documentDB/jsserverdocs/)
-[Python SDK](https://pypi.python.org/pypi/pydocumentdb) | [Libreria di Python](http://dl.windowsazure.com/documentDB/pythondocs/)
+[Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) | [Libreria Node.js](http://azure.github.io/azure-documentdb-node/)
+[SDK per Java](http://go.microsoft.com/fwlink/?LinkID=402380) | [Libreria Java](http://azure.github.io/azure-documentdb-java/)
+[JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) | [Libreria JavaScript](http://azure.github.io/azure-documentdb-js/)
+N/D | [JavaScript SDK lato server](http://azure.github.io/azure-documentdb-js-server/)
+[Python SDK](https://pypi.python.org/pypi/pydocumentdb) | [Libreria di Python](http://azure.github.io/azure-documentdb-python/)
 
 Oltre alle operazioni di base di creazione, lettura, aggiornamento ed eliminazione, DocumentDB offre un'interfaccia di query SQL query avanzata per il recupero di documenti JSON e supporto lato server per l'esecuzione transazionale di logica dell'applicazione JavaScript. Le interfacce di esecuzione di query e script sono disponibili tramite tutte le librerie delle piattaforme, oltre alle API REST.
 
@@ -111,4 +111,4 @@ Quindi, quando si è pronti per ulteriori informazioni, visitare il [percorso di
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

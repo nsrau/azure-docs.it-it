@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/17/2016"
 	ms.author="micurd"/>
 
 
@@ -31,7 +31,7 @@ In questa guida viene illustrato come eseguire scenari comuni del Servizio di ac
 
 ## Creare un'applicazione Node.js
 
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure], [Servizio cloud Node.js][Node.js Cloud Service] (usando Windows PowerShell) o [Sito Web con WebMatrix].
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare un'app Web Node.js nel servizio app di Azure], [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure] (con Windows PowerShell) o [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix].
 
 ## Configurare l'applicazione per l'accesso all'archiviazione
 
@@ -66,7 +66,7 @@ Utilizzando il Blocco note o un altro editor di testo, aggiungere quanto segue a
 
 Il modulo di Azure leggerà le variabili di ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **createQueueService**.
 
-Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure](https://portal.azure.com) per un sito Web di Azure, vedere [App Web Node.js con Archiviazione].
+Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure](https://portal.azure.com) per un sito Web di Azure, vedere [App Web Node.js con il servizio tabelle di Azure].
 
 ## Procedura: creare una coda
 
@@ -315,10 +315,10 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 
   [Azure SDK for Node]: https://github.com/Azure/azure-storage-node
   [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Portal]: portal.azure.com
-  [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure]: ../web-sites-nodejs-develop-deploy-mac.md
-  [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [App Web Node.js con Archiviazione]: ../storage-nodejs-use-table-storage-web-site.md
+  [Azure Portal]: https://portal.azure.com
+  [Creare un'app Web Node.js nel servizio app di Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+  [Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+  [App Web Node.js con il servizio tabelle di Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 
 
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -327,8 +327,8 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 
 
 
-  [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
+  [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Sito Web con WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+  [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

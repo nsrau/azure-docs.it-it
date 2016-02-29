@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Distribuire il servizio StorSimple Manager per StorSimple Virtual Array | Microsoft Azure"
+   pageTitle="Distribuire il servizio StorSimple Manager perl'array virtuale StorSimple | Microsoft Azure"
    description="Descrizione delle procedure per creare ed eliminare il servizio StorSimple Manager nel portale di Azure classico e per gestire la chiave di registrazione del servizio."
    services="storsimple"
    documentationCenter=""
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli" />
 
-# Distribuire il servizio StorSimple Manager per StorSimple Virtual Array
+# Distribuire il servizio StorSimple Manager per l'array virtuale StorSimple
 
 ## Panoramica
 
-Il servizio StorSimple Manager viene eseguito in Microsoft Azure ed è connesso a più dispositivi di archiviazione StorSimple. Dopo aver creato il servizio, è possibile usarlo per gestire i dispositivi tramite il portale di Microsoft Azure classico in esecuzione in un browser. che consente di monitorare tutti i dispositivi connessi al servizio StorSimple Manager da un'unica posizione centrale, con una conseguente riduzione del carico amministrativo.
+Il servizio StorSimple Manager viene eseguito in Microsoft Azure ed è connesso a più dispositivi di archiviazione StorSimple. Dopo aver creato il servizio, è possibile usarlo per gestire i dispositivi tramite il portale di Microsoft Azure classico in esecuzione in un browser. Questo consente di monitorare tutti i dispositivi connessi al servizio StorSimple Manager da un'unica posizione centrale, con una conseguente riduzione del carico amministrativo.
 
 Nella pagina di destinazione di StorSimple Manager vengono elencate tutte le istanze di StorSimple Manager che è possibile usare per gestire i dispositivi di archiviazione StorSimple. Per ogni servizio, nella pagina di StorSimple Manager vengono visualizzate le informazioni seguenti:
 
@@ -105,10 +105,10 @@ Per rigenerare una chiave di registrazione del servizio, attenersi alla procedur
 
 ## Passaggi successivi
 
-- Altre informazioni su come [iniziare](storsimple-ova-deploy1-portal-prep.md) a distribuire StorSimple Virtual Array.
+- Informazioni su come [iniziare a usare](storsimple-ova-deploy1-portal-prep.md) un array virtuale StorSimple.
 	
-- Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-ova-manager-service-administration.md).
+- Informazioni su come [amministrare il dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

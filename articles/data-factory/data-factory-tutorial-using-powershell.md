@@ -391,7 +391,7 @@ Per specificare il periodo attivo per la pipeline, è possibile usare il cmdlet 
 
 	![Pannello SEZIONE DATI RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	Se si è verificato un errore, viene visualizzato lo stato **Operazione non riuscita**. È anche possibile che entrambe le sezioni abbiano lo stato **Ready** o **PendingValidation**, a seconda della velocità di elaborazione delle sezioni.
+	Se si è verificato un errore, viene visualizzato lo stato **Operazione non riuscita**. È anche possibile che entrambe le sezioni abbiano lo stato **Ready** o **Waiting**, a seconda della velocità di elaborazione delle sezioni.
  
 	Per conoscere tutti i possibili stati delle sezioni, vedere la [Guida di riferimento per gli sviluppatori di Data factory di Azure][developer-reference].
 
@@ -503,4 +503,4 @@ Eseguire la [Procedura dettagliata: copiare i dati dell'efficacia di una campagn
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/23/2015"
+   ms.date="02/16/2016"
    ms.author="chackdan"/>
 
 # Aggiornare un cluster di Service Fabric
@@ -37,8 +37,6 @@ Se i criteri di integrità del cluster non vengono soddisfatti, viene eseguito i
 Si tenta di eseguire più volte lo stesso aggiornamento nel caso in cui non sia riuscito a causa di problemi di infrastruttura. Dopo che gli n giorni dalla data di invio del messaggio di posta elettronica sono trascorsi, si passa alla fase 2.
 
 Se i criteri di integrità del cluster sono soddisfatti, l'aggiornamento si considera riuscito e viene contrassegnato come completato. Questa situazione può verificarsi durante l'aggiornamento iniziale o in una delle repliche previste in questa fase. Non viene inviato alcun messaggio di posta elettronica di conferma in caso di esecuzione riuscita, in modo da evitare l'invio di troppi messaggi e per far sì che la ricezione di un messaggio rappresenti un'eccezione alla norma. Si prevede che la maggior parte degli aggiornamenti del cluster abbia esito positivo, senza alcun impatto sulla disponibilità dell'applicazione.
-
-Per informazioni dettagliate sull'impostazione di criteri di integrità personalizzati per il cluster, vedere l'articolo relativo all'[aggiornamento del cluster e ai parametri di integrità](service-fabric-cluster-health-parameters.md).
 
 ### Fase 2: L'aggiornamento viene eseguito usando solo i criteri di integrità predefiniti
 
@@ -76,7 +74,7 @@ Di seguito sono riportate le configurazioni che è possibile modificare in un cl
 
 ![Schermata che illustra le identificazioni personali del certificato nel portale di Azure.][CertificateUpgrade]
 
->[AZURE.NOTE]Prima di identificare il certificato da usare per le risorse del cluster, è necessario completare la procedura seguente. In caso contrario, i nuovi certificati non verranno usati: 1. Caricare il nuovo certificato nell'insieme di credenziali delle chiavi. Per istruzioni, vedere [Protezione di un Service Fabric Cluster](service-fabric-cluster-security.md). Iniziare dal passaggio 2 di questo articolo. 2. Aggiornare tutte le macchine virtuali che costituiscono il cluster, in modo che il certificato venga distribuito in ognuna di esse. A tale scopo, fare riferimento al [blog del team assegnato all'insieme di credenziali delle chiavi di Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
+>[AZURE.NOTE] Prima di identificare il certificato da usare per le risorse del cluster, è necessario completare la procedura seguente. In caso contrario, i nuovi certificati non verranno usati: 1. Caricare il nuovo certificato nell'insieme di credenziali delle chiavi. Per istruzioni, vedere [Proteggere un cluster di Service Fabric](service-fabric-cluster-security.md). Iniziare dal passaggio 2 di questo articolo. 2. Aggiornare tutte le macchine virtuali che costituiscono il cluster, in modo che il certificato venga distribuito in ognuna di esse. A tale scopo, fare riferimento al [blog del team assegnato all'insieme di credenziali delle chiavi di Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 ### Porte dell'applicazione
 
@@ -101,7 +99,7 @@ Per aprire una nuova porta in tutte le VM di un tipo di nodo, seguire questa pro
 
 Per ogni tipo di nodo è possibile aggiungere proprietà di posizionamento personalizzate da usare nelle applicazioni. NodeType è una proprietà predefinita che è possibile usare senza aggiungerla in modo esplicito.
 
->[AZURE.NOTE]Per informazioni dettagliate sull'utso delle proprietà di posizionamento, vedere [Panoramica dei vincoli di posizionamento](service-fabric-placement-constraint.md).
+>[AZURE.NOTE] Per informazioni dettagliate sull'uso delle proprietà di posizionamento, vedere [Panoramica dei vincoli di posizionamento](service-fabric-placement-constraint.md).
 
 ### Metriche della capacità
 
@@ -125,4 +123,4 @@ Se è necessario aggiornare l'immagine del sistema operativo nelle macchine virt
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

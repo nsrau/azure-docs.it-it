@@ -14,44 +14,145 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="02/16/2016"
 	ms.author="jgao"/>
 
-# Eseguire il debug di Hadoop in HDInsight: visualizzare i log e interpretare i messaggi di errore
+# Analizzare i log di HDInsight
 
-I messaggi di errore indicati in questo argomento sono forniti allo scopo di aiutare gli utenti di Hadoop in Azure HDInsight a comprendere le possibili condizioni di errore che possono verificarsi quando il servizio viene amministrato mediante Azure PowerShell e di indicare le procedure di ripristino appropriate.
+Ogni cluster Hadoop in Azure HDInsight ha un account di archiviazione di Azure usato come file system predefinito. L'account di archiviazione viene definito account di archiviazione predefinito. Il cluster usa l'archivio tabelle e l'archivio BLOB di Azure nell'account di archiviazione predefinito per archiviare i log. Per trovare l'account di archiviazione predefinito per il cluster, vedere [Gestire cluster Hadoop in HDInsight](hdinsight-administer-use-management-portal.md#find-the-default-storage-account). I log vengono conservati nell'account di archiviazione anche dopo l'eliminazione del cluster.
 
-Alcuni di questi messaggi di errore possono essere visualizzati anche nel portale di Azure quando viene usato per la gestione dei cluster HDInsight. Altri messaggi di errore, invece, sono meno granulari a causa dei vincoli relativi alle azioni di correzione possibili in questo contesto. Altri messaggi di errore vengono visualizzati in contesti in cui la soluzione correttiva è ovvia.
+##Log scritti tabelle di Azure
 
-In situazioni in cui l'errore è specifico di Azure HDInsight, è consigliabile capire la causa dell'errore. Per informazioni sui diversi codici di errore e su come correggere gli errori, vedere la sezione [Codici di errore di HDInsight](#hdinsight-error-codes). In alcuni casi è possibile accedere direttamente ai log di Hadoop. A tale scopo, è possibile usare il portale di Azure.
+I log scritti nelle tabelle di Azure offrono un livello di informazioni relative a ciò che accade in un cluster HDInsight.
 
+Quando si crea un cluster HDInsight, vengono automaticamente create 6 tabelle per i cluster basati su Linux nell'archivio tabelle predefinito:
+
+- hdinsightagentlog
+- syslog
+- daemonlog
+- hadoopservicelog
+- ambariserverlog
+- ambariagentlog
+
+Per i cluster basati su Windows vengono create 3 tabelle:
+
+- setuplog: log di eventi/eccezioni rilevati durante il provisioning o la configurazione dei cluster HDInsight.
+- hadoopinstalllog: log di eventi/eccezioni rilevati durante l'installazione di Hadoop nel cluster. Questa tabella può essere utile per i problemi di debug relativi ai cluster creati con parametri personalizzati.
+- hadoopservicelog: log di eventi/eccezioni registrati da tutti i servizi Hadoop. Questa tabella può essere utile per i problemi di debug relativi agli errori di processo nei cluster HDInsight.
+
+I nomi file delle tabelle sono **u<ClusterName>GGMesAAAAatHHMMSSsss<TableName>**.
+
+Queste tabelle contengono i campi seguenti:
+
+- ClusterDnsName
+- ComponentName
+- EventTimestamp
+- Host
+- MALoggingHash
+- Message
+- N
+- PreciseTimeStamp
+- Ruolo
+- RowIndex
+- Tenant
+- TIMESTAMP
+- TraceLevel
+
+### Strumenti per accedere ai log
+
+Sono disponibili diversi strumenti per accedere ai dati in queste tabelle:
+
+-  Visual Studio
+-  Esplora archivi Azure
+-  Power Query per Excel
+
+#### Usare Power Query per Excel
+
+Power Query può essere installato da [www.microsoft.com/it-it/download/details.aspx?id=39379](http://www.microsoft.com/it-IT/download/details.aspx?id=39379). Per i requisiti di sistema, vedere la pagina di download.
+
+**Per usare Power Query per aprire e analizzare il log del servizio**
+
+1. Aprire **Microsoft Excel**.
+2. Scegliere **Da Azure** dal menu **Power Query** e quindi fare clic su **Da Archiviazione tabelle di Microsoft Azure**.
+ 
+	![Hadoop in HDInsight - PowerQuery per Excel - Aprire l'archivio tabelle di Azure](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-open.png)
+3. Immettere il nome dell'account di archiviazione, che può corrispondere al nome breve o al nome FQDN.
+4. Immettere la chiave dell'account di archiviazione. Verrà visualizzato un elenco di tabelle:
+
+	![Hadoop in HDInsight - Log archiviati nell'archivio tabelle di Azure](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
+5. Fare clic con il pulsante destro del mouse sulla tabella hadoopservicelog nel riquadro **Strumento di navigazione** e scegliere **Modifica**. Verranno visualizzate 4 colonne. Eliminare facoltativamente le colonne **Chiave di partizione**, **Chiave di riga** e **Timestamp** selezionandole, quindi facendo clic su **Rimuovi colonne** tra le opzioni della barra multifunzione.
+6. Fare clic sull'icona di espansione nella colonna Contenuto per scegliere le colonne da importare nel foglio di lavoro di Excel. Per questa dimostrazione, sono state scelte TraceLevel e ComponentName che contengono alcune informazioni di base sui componenti con problemi.
+
+	![Log di Hadoop in HDInsight - Scegliere le colonne](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
+7. Fare clic su **OK** per importare i dati.
+8. Selezionare le colonne **TraceLevel**, Role e **ComponentName** e quindi fare clic sul controllo **Raggruppa per** nella barra multifunzione.
+9. Fare clic su **OK** nella finestra di dialogo Raggruppa per.
+10. Fare clic su **Applica e chiudi**.
+ 
+Ora è possibile usare Excel per filtrare e ordinare in base alle esigenze. Ovviamente è possibile includere altre colonne (ad esempio, Message) per ottenere informazioni più dettagliate sui problemi quando si verificano, ma selezionando e raggruppando le colonne descritte sopra si ottiene una panoramica discreta di ciò che accade nei servizi Hadoop. Lo stesso concetto può essere applicato alle tabelle setuplog e hadoopinstalllog.
+
+#### Usare Visual Studio
+
+**Per usare Visual Studio**
+
+1. Aprire Visual Studio.
+2. Scegliere **Cloud Explorer** dal menu **Visualizza** oppure fare semplicemente clic su **CTRL+\\, CTRL+X**.
+3. In **Cloud Explorer** selezionare **Tipi di risorse**. L'altra opzione disponibile è **Gruppi di risorse**.
+4. Espandere **Account di archiviazione**, l'account di archiviazione predefinito per il cluster e quindi **Tabelle**.
+5. Fare doppio clic su hadoopservicelog.
+6. Aggiungere un filtro. Ad esempio:
+	
+		TraceLevel eq 'ERROR'
+
+	![Log di Hadoop in HDInsight - Scegliere le colonne](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
+
+	Per altre informazioni sulla costruzione di filtri, vedere [Creazione di stringhe di filtro per Progettazione tabelle](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+ 
+##Log scritti nell'archivio BLOB di Azure
+
+[I log scritti nelle tabelle di Azure](#log-written-to-azure-tables) offrono un livello di informazioni relative a ciò che accade in un cluster HDInsight. Queste tabelle non offrono tuttavia log a livello di attività, che possono essere utili per approfondire i problemi quando si verificano. Per fornire questo livello successivo di dettaglio, i cluster HDInsight sono configurati per scrivere log sulle attività nell'account di archiviazione BLOB per qualsiasi processo inviato con Templeton. In pratica ad accedere al cluster sono i processi inviati usando i cmdlet di Microsoft Azure PowerShell o le API di invio processi di .NET e non i processi inviati tramite RDP/riga di comando.
+
+Per visualizzare i log, vedere [Accedere ai log delle applicazioni YARN in HDInsight basato su Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md).
+
+Per altre informazioni sui registri applicazioni, vedere la pagina che illustra come [semplificare la gestione e l'accesso ai log utenti in YARN](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+ 
+ 
 ## Visualizzare i log di integrità e dei processi del cluster
 
-* **Accedere all'interfaccia utente di Hadoop**. Dal portale di Azure fare clic sul nome di un cluster HDInsight per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**.
+###Accedere all'interfaccia utente di Hadoop
 
-	![Avviare il dashboard del cluster](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
-  
-	Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente Hadoop**.
+Dal portale di Azure fare clic sul nome di un cluster HDInsight per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**.
 
-	![Avviare l'interfaccia utente di Hadoop](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
+![Avviare il dashboard del cluster](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
 
-* **Accedere all'interfaccia utente Yarn**. Dal portale di Azure fare clic sul nome di un cluster HDInsight per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**. Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente YARN**.
+Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente Hadoop**.
 
-	È possibile usare l'interfaccia utente YARN per eseguire queste operazioni:
+![Avviare l'interfaccia utente di Hadoop](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
 
-	* **Ottenere lo stato del cluster**. Nel riquadro sinistro espandere **Cluster** e fare clic su **Informazioni**. Verranno visualizzate informazioni sullo stato del cluster, ad esempio la memoria totale allocata, i core usati, lo stato della gestione delle risorse del cluster, la versione del cluster e così via.
 
-		![Avviare il dashboard del cluster](./media/hdinsight-debug-jobs/hdi-debug-yarn-cluster-state.png)
+###Accedere all'interfaccia utente di Yarn
 
-	* **Ottenere lo stato del nodo**. Nel riquadro sinistro espandere **Cluster** e fare clic su **Nodi**. Verranno elencati tutti i nodi del cluster, l'indirizzo HTTP di ogni nodo, le risorse allocate per ogni nodo e così via.
+Dal portale di Azure fare clic sul nome di un cluster HDInsight per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**. Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente YARN**.
 
-	* **Monitorare lo stato dei processi**. Nel riquadro sinistro espandere **Cluster** e quindi fare clic su **Applicazioni** per elencare tutti i processi del cluster. Se si desidera esaminare i processi con uno stato specifico (ad esempio processi nuovi, inviati, in esecuzione e così via), fare clic sul collegamento appropriato in **Applicazioni**. È possibile fare clic sul nome del processo per ottenere altre informazioni, ad esempio l'output, i log e così via.
+È possibile usare l'interfaccia utente YARN per eseguire queste operazioni:
 
-* **Accedere all'interfaccia utente HBase**. Dal portale di Azure fare clic sul nome di un cluster HDInsight HBase per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**. Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente HBase**.
+* **Ottenere lo stato del cluster**. Nel riquadro sinistro espandere **Cluster** e fare clic su **Informazioni**. Verranno visualizzate informazioni sullo stato del cluster, ad esempio la memoria totale allocata, i core usati, lo stato della gestione delle risorse del cluster, la versione del cluster e così via.
+
+    ![Avviare il dashboard del cluster](./media/hdinsight-debug-jobs/hdi-debug-yarn-cluster-state.png)
+
+* **Ottenere lo stato del nodo**. Nel riquadro sinistro espandere **Cluster** e fare clic su **Nodi**. Verranno elencati tutti i nodi del cluster, l'indirizzo HTTP di ogni nodo, le risorse allocate per ogni nodo e così via.
+
+* **Monitorare lo stato dei processi**. Nel riquadro sinistro espandere **Cluster** e quindi fare clic su **Applicazioni** per elencare tutti i processi del cluster. Se si desidera esaminare i processi con uno stato specifico (ad esempio processi nuovi, inviati, in esecuzione e così via), fare clic sul collegamento appropriato in **Applicazioni**. È possibile fare clic sul nome del processo per ottenere altre informazioni, ad esempio l'output, i log e così via.
+
+###Accedere all'interfaccia utente di HBase
+
+Dal portale di Azure fare clic sul nome di un cluster HDInsight HBase per aprire il relativo pannello. Dal pannello del cluster fare clic su **Dashboard**. Quando richiesto, immettere le credenziali per l'amministratore del cluster. Nella console di query visualizzata fare clic su **Interfaccia utente HBase**.
 
 ## Codici di errore di HDInsight
 
-Di seguito sono elencati per nome in ordine alfabetico gli errori che possono verificarsi in Azure PowerShell o nel portale di Azure:
+I messaggi di errore indicati in questa sezione sono forniti allo scopo di aiutare gli utenti di Hadoop in Azure HDInsight a comprendere le possibili condizioni di errore che possono verificarsi quando il servizio viene amministrato mediante Azure PowerShell e di indicare le procedure di ripristino appropriate.
+
+Alcuni di questi messaggi di errore possono essere visualizzati anche nel portale di Azure quando viene usato per la gestione dei cluster HDInsight. Altri messaggi di errore, invece, sono meno granulari a causa dei vincoli relativi alle azioni di correzione possibili in questo contesto. Altri messaggi di errore vengono visualizzati in contesti in cui la soluzione correttiva è ovvia.
 
 ### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
 - **Descrizione**:per usare le impostazioni personalizzate per i metastore Hive e Oozie, è necessario specificare i dettagli del database SQL di Azure per almeno un componente.
@@ -234,12 +335,8 @@ Di seguito sono elencati per nome in ordine alfabetico gli errori che possono ve
 - **Descrizione**: configurazione del cluster non valida. Impossibile trovare la configurazione dell'account WASB negli account esterni.  
 - **Soluzione**: verificare che l'account sia esistente e specificato correttamente nella configurazione, quindi riprovare.
 
-## <a id="resources"></a>Risorse di debug aggiuntive
+## Passaggi successivi
 
-* [Documentazione di Azure HDInsight SDK][hdinsight-sdk-documentation]
+[Usare le visualizzazioni di Ambari per il debug dei processi Tez in HDInsight](hdinsight-debug-ambari-tez-view.md) [Abilitare i dump dell'heap per i servizi Hadoop in HDInsight basato su Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md) [Gestire i cluster HDInsight usando l'interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md)
 
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn469975.aspx
-
-[image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

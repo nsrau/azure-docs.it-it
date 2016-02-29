@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/09/2016"  
+ 	ms.date="02/11/2016"  
 	ms.author="juliako"/>
 
 #Gestione di entità di Servizi multimediali con l'API REST
@@ -175,4 +175,4 @@ Il seguente esempio illustra come eliminare un localizzatore usato per caricare 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->
