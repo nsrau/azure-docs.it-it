@@ -57,9 +57,11 @@ La figura 1 mostra gli aspetti essenziali di un cluster Elasticsearch costituito
 
 ![](media/guidance-elasticsearch-general-cluster1.png)
 
-**Figura 1.** Cluster Elasticsearch semplice costituito da due nodi primari e due set di repliche
+**Figura 1.**
+Cluster Elasticsearch semplice costituito da due nodi primari e due set di repliche
 
-In questo cluster la partizione primaria 1 e la partizione primaria 2 si trovano in nodi distinti per bilanciare il carico tra di essi. Le repliche sono distribuite in modo analogo. In caso di errore di un singolo nodo, i nodi rimanenti hanno informazioni sufficienti per consentire al sistema di continuare a funzionare normalmente. Se necessario, Elasticsearch promuoverà una partizione di replica a partizione primaria, se la partizione primaria corrispondente non è disponibile. Quando viene avviata l'esecuzione di un nodo, questo può avviare un nuovo cluster, se si tratta del primo nodo del cluster, o unirsi a un cluster esistente. Il cluster a cui appartiene un nodo è determinato dall'impostazione *cluster.name* nel file elasticsearch.yml.
+In questo cluster la partizione primaria 1 e la partizione primaria 2 si trovano in nodi distinti per bilanciare il carico tra di essi. Le repliche sono distribuite in modo analogo. In caso di errore di un singolo nodo, i nodi rimanenti hanno informazioni sufficienti per consentire al sistema di continuare a funzionare normalmente. Se necessario, Elasticsearch promuoverà una partizione di replica a partizione primaria, se la partizione primaria corrispondente non è disponibile.
+Quando viene avviata l'esecuzione di un nodo, questo può avviare un nuovo cluster, se si tratta del primo nodo del cluster, o unirsi a un cluster esistente. Il cluster a cui appartiene un nodo è determinato dall'impostazione *cluster.name* nel file elasticsearch.yml.
 
 ### Ruoli dei nodi
 
@@ -104,7 +106,8 @@ I nodi dati possono comunque comunicare con altri nodi dati, nodi client e nodi 
 
 ![](media/guidance-elasticsearch-general-cluster2.png)
 
-**Figura 2.** Cluster Elasticsearch con diversi tipi di nodi
+**Figura 2.**
+Cluster Elasticsearch con diversi tipi di nodi
 
 ### Costi e vantaggi legati all'uso dei nodi client
 
@@ -145,7 +148,8 @@ var client = new ElasticsearchClient(config);
 
 ![](media/guidance-elasticsearch-general-clientappinstances.png)
 
-**Figura 3.** Istanze dell'applicazione client che si connettono a un cluster Elasticsearch tramite il servizio di bilanciamento del carico di Azure
+**Figura 3.**
+Istanze dell'applicazione client che si connettono a un cluster Elasticsearch tramite il servizio di bilanciamento del carico di Azure
 
 **Bilanciamento del carico personalizzato**: è possibile usare [nginx][] come server proxy inverso anziché il servizio di bilanciamento del carico di Azure. nginx offre diversi metodi di bilanciamento del carico, inclusi round robin, hash in base all'indirizzo IP del client e instradamento delle richieste alla destinazione con il minor numero di connessioni correnti.
 
@@ -174,7 +178,8 @@ Se si ospita un cluster Elasticsearch all'interno di una rete virtuale di Azure,
 
 > [AZURE.NOTE] La versione corrente del plug-in Azure Cloud richiede l'installazione del certificato di gestione per la sottoscrizione di Azure nell'archivio chiavi Java nel nodo Elasticsearch, nonché il percorso e le credenziali per l'accesso all'archivio chiavi nel file elasticsearch.yml. Questo file viene mantenuto in testo non crittografato, è quindi estremamente importante fare in modo che sia accessibile unicamente per l'account che esegue il servizio Elasticsearch. Questo approccio potrebbe non essere compatibile con le distribuzioni di Gestione risorse di Azure. Per questi motivi, è consigliabile usare indirizzi IP statici per i nodi master e usare questi nodi per implementare la messaggistica unicast dell'individuazione Zen all'interno del cluster. Nella configurazione seguente, tratta dal file elasticsearch.yml per un nodo dati di esempio, gli indirizzi IP host fanno riferimento a nodi master nel cluster:
 
->`discovery.zen.ping.multicast.enabled: false` `discovery.zen.ping.unicast.hosts: ["10.0.0.10","10.0.0.11","10.0.0.12"]`
+>`discovery.zen.ping.multicast.enabled: false`  
+`discovery.zen.ping.unicast.hosts: ["10.0.0.10","10.0.0.11","10.0.0.12"]`
 
 ## Indicazioni generali di sistema
 
@@ -239,7 +244,9 @@ Si noti che la larghezza di banda di rete nelle macchine virtuali di Azure è li
 
 ### Distribuzione di Elasticsearch in Azure
 
-Anche se non è difficile distribuire una singola istanza di Elasticsearch, la creazione di vari nodi e l'installazione e configurazione di Elasticsearch in ogni nodo richiedono molto tempo e sono soggette a errori. Se si intende eseguire Elasticsearch in macchine virtuali di Azure, sono disponibili due opzioni che permettono di ridurre le probabilità di errore. - La prima è l'uso del [modello di Gestione risorse di Azure](http://azure.microsoft.com/documentation/templates/elasticsearch/) per la creazione del cluster. I parametri di questo modello consentono di specificare il livello di prestazioni e le dimensioni delle macchine virtuali che implementano i nodi, il numero di dischi da usare e altri fattori comuni. Il modello può creare un cluster basato su Windows Server 2012 o Ubuntu Linux 14.0.4. - La seconda è l'uso di script che possono essere automatizzati o eseguiti in modo automatico. Gli script che possono creare e distribuire un cluster Elasticsearch sono disponibili sul sito [Modelli di avvio rapido di Azure][].
+Anche se non è difficile distribuire una singola istanza di Elasticsearch, la creazione di vari nodi e l'installazione e configurazione di Elasticsearch in ogni nodo richiedono molto tempo e sono soggette a errori. Se si intende eseguire Elasticsearch in macchine virtuali di Azure, sono disponibili due opzioni che permettono di ridurre le probabilità di errore.
+- La prima è l'uso del [modello di Gestione risorse di Azure](http://azure.microsoft.com/documentation/templates/elasticsearch/) per la creazione del cluster. I parametri di questo modello consentono di specificare il livello di prestazioni e le dimensioni delle macchine virtuali che implementano i nodi, il numero di dischi da usare e altri fattori comuni. Il modello può creare un cluster basato su Windows Server 2012 o Ubuntu Linux 14.0.4.
+- La seconda è l'uso di script che possono essere automatizzati o eseguiti in modo automatico. Gli script che possono creare e distribuire un cluster Elasticsearch sono disponibili sul sito [Modelli di avvio rapido di Azure][].
 
 ## Considerazioni su cluster, ridimensionamento di nodi e scalabilità
 
@@ -251,7 +258,8 @@ La figura 4 illustra un punto di partenza per la progettazione di una topologia 
 
 ![](media/guidance-elasticsearch-general-startingpoint.png)
 
-**Figura 4.** Punto di partenza suggerito per la compilazione di un cluster Elasticsearch con Azure
+**Figura 4.**
+Punto di partenza suggerito per la compilazione di un cluster Elasticsearch con Azure
 
 Questa topologia è costituita da sei nodi dati con tre nodi client e tre nodi master. Un solo nodo master viene eletto, mentre gli altri due rimangono disponibili per l'elezione in caso di errore del master eletto. Ogni nodo viene implementato come una macchina virtuale separata. Le applicazioni Web di Azure vengono indirizzate ai nodi client attraverso un servizio di bilanciamento del carico. In questo esempio tutti i nodi e le applicazioni Web si trovano nella stessa rete virtuale di Azure, che li isola dal tutto il resto. Se il cluster deve essere disponibile all'esterno, ad esempio nell'ambito di una soluzione ibrida che include client locali, è possibile usare il servizio di bilanciamento del carico di Azure per fornire un indirizzo IP pubblico, ma è necessario adottare precauzioni di sicurezza aggiuntive per impedire accessi non autorizzati al cluster. Il "jumpbox" facoltativo è una macchina virtuale disponibile solo per gli amministratori. Questa macchina virtuale ha una connessione di rete alla rete virtuale di Azure, ma ha anche una connessione di rete esterna per consentire l'accesso come amministratore. Questo accesso deve essere protetto con una password complessa o un certificato. Un amministratore può accedere al jumpbox e connettersi direttamente a uno dei nodi del cluster. In alternativa è possibile usare una VPN da sito a sito tra l'azienda e la rete virtuale o circuiti [ExpressRoute][] per la connessione alla rete virtuale. Questi meccanismi consentono l'accesso amministrativo al cluster senza esporlo a Internet pubblico.
 
@@ -269,7 +277,8 @@ Usando questo meccanismo, ogni cluster può contenere i dati a cui probabilmente
 
 ![](media/guidance-elasticsearch-general-tribenode.png)
 
-**Figura 5.** Applicazione client che accede a più cluster attraverso un nodo tribe
+**Figura 5.**
+Applicazione client che accede a più cluster attraverso un nodo tribe
 
 In questo esempio l'applicazione client si connette al nodo tribe nel cluster 1, situato nella stessa area, ma questo nodo è configurato per accedere al cluster 2 e al cluster 3, che potrebbero trovarsi in aree diverse. L'applicazione client può inviare richieste per il recupero o la modifica di dati in tutti i cluster.
 
@@ -284,13 +293,15 @@ Le topologie su larga scala con cluster composti da nodi master, nodi client e n
 
 ![](media/guidance-elasticsearch-general-threenodecluster.png)
 
-**Figura 6.** Cluster a tre nodi con tre partizioni e repliche
+**Figura 6.**
+Cluster a tre nodi con tre partizioni e repliche
 
 Se si esegue un'installazione di sviluppo in un computer autonomo è possibile configurare un cluster con un singolo nodo che funge da master, client e risorsa di archiviazione dati. In alternativa, è possibile avviare più nodi in esecuzione come un cluster nello stesso computer avviando più di un'istanza di Elasticsearch. La figura 7 mostra un esempio.
 
 ![](media/guidance-elasticsearch-general-developmentconfiguration.png)
 
-**Figura 7.** Configurazione di sviluppo con più nodi Elasticsearch in esecuzione nello stesso computer
+**Figura 7.**
+Configurazione di sviluppo con più nodi Elasticsearch in esecuzione nello stesso computer
 
 Si noti che nessuna di queste configurazioni autonome è consigliata per un ambiente di produzione, perché possono causare conflitti, a meno che il computer di sviluppo non abbia a disposizione una notevole quantità di memoria e diversi dischi veloci. Non forniscono alcuna garanzia di disponibilità elevata. In caso di errore del computer, tutti i nodi vengono persi.
 
@@ -300,11 +311,18 @@ Elasticsearch può eseguire il ridimensionamento in base a due fattori: vertical
 
 **Scalabilità verticale dei nodi dati di Elasticsearch**
 
-Se si ospita un cluster Elasticsearch in macchine virtuali di Azure, ogni nodo può corrispondere a una macchina virtuale. Il limite di scalabilità verticale per un nodo dipende in gran parte dallo SKU della macchina virtuale e dalle restrizioni generali applicate ai singoli account di archiviazione e alle sottoscrizioni di Azure. La pagina [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](azure-subscription-service-limits/) descrive in dettaglio questi limiti, ma per quanto riguarda la compilazione di un cluster Elasticsearch sono più rilevanti gli elementi nell'elenco seguente. È anche consigliabile evitare l'uso di macchine virtuali quando sono disponibili meno di 64 GB di memoria, in assenza di un motivo concreto. Come descritto nella sezione [Requisiti di memoria][], non si devono allocare più di 30 GB di RAM per ogni macchina virtuale nella JVM ed è necessario consentire al sistema operativo di utilizzare la memoria rimanente per il buffering di I/O. Ogni account di archiviazione ha un limite in relazione ai punti elencati di seguito: - 20.000 IOPS. Usare lo stesso account di archiviazione per mantenere vari dischi rigidi virtuali può limitarne le prestazioni. - Numero di nodi dati in una rete virtuale. Se non si usa Gestione risorse di Azure, è previsto un limite di 2048 istanze della macchina virtuale per ogni rete virtuale. In molti casi ciò risulta sufficiente, ma con una configurazione molto grande con migliaia di nodi potrebbe rappresentare una limitazione. - Numero di account di archiviazione per sottoscrizione per ogni area. È possibile creare fino a 100 account di archiviazione per sottoscrizione di Azure in ogni area. Gli account di archiviazione vengono usati per contenere i dischi virtuali e ogni account di archiviazione ha un limite di 500 TB di spazio disponibile. - Numero di core per sottoscrizione. Il limite predefinito è 20 core per sottoscrizione, ma può essere aumentato da Microsoft fino a 10.000 core. Tenere presente che alcune dimensioni della macchina virtuale, ad esempio A9, A11, D14 e DS14, possono contenere 16 core, mentre una macchina virtuale G5 contiene 32 core. - Quantità di memoria per dimensioni della macchina virtuale. Macchine virtuali di dimensioni più piccole hanno una quantità limitata di memoria disponibile, ad esempio i computer D1 hanno 3,5 GB e i computer D2 hanno 7 GB. Queste macchine virtuali potrebbero non essere adatte per scenari che richiedono la memorizzazione nella cache di grandi quantità di dati da parte di Elasticsearch per raggiungere prestazioni ottimali, ad esempio nell'aggregazione dei dati o nell'analisi di un numero elevato di documenti durante l'inserimento di dati. - Numero massimo di dischi per dimensioni della macchina virtuale. Questa limitazione può vincolare le dimensioni e le prestazioni di un cluster. Un numero inferiore di dischi permette di contenere meno dati e può ridurre le prestazioni a causa del minor numero di dischi disponibili per lo striping. - Numero di domini di aggiornamento/domini di errore per set di disponibilità. Se si creano macchine virtuali con Gestione risorse di Azure, è possibile allocare fino a tre domini di errore e 20 domini di aggiornamento per ogni set di disponibilità. Questa limitazione può influire sulla resilienza di un cluster di grandi dimensioni sottoposto di frequente ad aggiornamenti in sequenza.
+Se si ospita un cluster Elasticsearch in macchine virtuali di Azure, ogni nodo può corrispondere a una macchina virtuale. Il limite di scalabilità verticale per un nodo dipende in gran parte dallo SKU della macchina virtuale e dalle restrizioni generali applicate ai singoli account di archiviazione e alle sottoscrizioni di Azure. La pagina [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](azure-subscription-service-limits/) descrive in dettaglio questi limiti, ma per quanto riguarda la compilazione di un cluster Elasticsearch sono più rilevanti gli elementi nell'elenco seguente. È anche consigliabile evitare l'uso di macchine virtuali quando sono disponibili meno di 64 GB di memoria, in assenza di un motivo concreto. Come descritto nella sezione [Requisiti di memoria][], non si devono allocare più di 30 GB di RAM per ogni macchina virtuale nella JVM ed è necessario consentire al sistema operativo di utilizzare la memoria rimanente per il buffering di I/O. Ogni account di archiviazione ha un limite in relazione ai punti elencati di seguito:
+- 20.000 IOPS. Usare lo stesso account di archiviazione per mantenere vari dischi rigidi virtuali può limitarne le prestazioni.
+- Numero di nodi dati in una rete virtuale. Se non si usa Gestione risorse di Azure, è previsto un limite di 2048 istanze della macchina virtuale per ogni rete virtuale. In molti casi ciò risulta sufficiente, ma con una configurazione molto grande con migliaia di nodi potrebbe rappresentare una limitazione.
+- Numero di account di archiviazione per sottoscrizione per ogni area. È possibile creare fino a 100 account di archiviazione per sottoscrizione di Azure in ogni area. Gli account di archiviazione vengono usati per contenere i dischi virtuali e ogni account di archiviazione ha un limite di 500 TB di spazio disponibile.
+- Numero di core per sottoscrizione. Il limite predefinito è 20 core per sottoscrizione, ma può essere aumentato da Microsoft fino a 10.000 core. Tenere presente che alcune dimensioni della macchina virtuale, ad esempio A9, A11, D14 e DS14, possono contenere 16 core, mentre una macchina virtuale G5 contiene 32 core.
+- Quantità di memoria per dimensioni della macchina virtuale. Macchine virtuali di dimensioni più piccole hanno una quantità limitata di memoria disponibile, ad esempio i computer D1 hanno 3,5 GB e i computer D2 hanno 7 GB. Queste macchine virtuali potrebbero non essere adatte per scenari che richiedono la memorizzazione nella cache di grandi quantità di dati da parte di Elasticsearch per raggiungere prestazioni ottimali, ad esempio nell'aggregazione dei dati o nell'analisi di un numero elevato di documenti durante l'inserimento di dati.
+- Numero massimo di dischi per dimensioni della macchina virtuale. Questa limitazione può vincolare le dimensioni e le prestazioni di un cluster. Un numero inferiore di dischi permette di contenere meno dati e può ridurre le prestazioni a causa del minor numero di dischi disponibili per lo striping.
+- Numero di domini di aggiornamento/domini di errore per set di disponibilità. Se si creano macchine virtuali con Gestione risorse di Azure, è possibile allocare fino a tre domini di errore e 20 domini di aggiornamento per ogni set di disponibilità. Questa limitazione può influire sulla resilienza di un cluster di grandi dimensioni sottoposto di frequente ad aggiornamenti in sequenza.
 
 Tenendo presenti queste restrizioni, è sempre consigliabile distribuire i dischi virtuali per le macchine virtuali di un cluster tra gli account di archiviazione, per ridurre le probabilità di limitazione delle operazioni di I/O. Nel caso di un cluster di dimensioni molto grandi potrebbe essere necessario riprogettare l'infrastruttura logica e suddividerlo in partizioni funzionali separate. Ad esempio, potrebbe essere necessario suddividere il cluster tra le sottoscrizioni, anche se questo processo può portare ad altre complicazioni a causa della necessità di connettere le reti virtuali.
 
->	[AZURE.NOTE] Be aware that with Azure, storage accounts are pinned to a specific storage stamp. This is an internal mechanism used to maintain consistency and availability. The paper [A Highly Available Cloud Storage Service with Strong Consistency][] provides more details on how this works. If you have a storage outage loca]lized to a specific stamp, you will get errors on all drives created using that account. When this occurs, any VMs using these drives may fail. Using multiple storage accounts to host the different drives for a VM can therefore increase the risk of failure for that VM. For this reason, it is recommended that you use a single storage account per node, and store the system drive and all data drives in that account.
+>	[AZURE.NOTE] Tenere presente che con Azure gli account di archiviazione vengono aggiunti a uno stamp di archiviazione specifico. Si tratta di un meccanismo interno usato per mantenere la coerenza e la disponibilità. Per informazioni dettagliate sul funzionamento, vedere il documento [A Highly Available Cloud Storage Service with Strong Consistency][] che descrive il servizio di archiviazione cloud a disponibilità elevata con coerenza assoluta. Nel caso di un'interruzione dell'archiviazione individuata in uno stamp specifico, si verificheranno errori in tutte le unità create con tale account. In questo caso, è possibile che tutte le VM che usano queste unità siano interessate dall'errore. L'uso di più account di archiviazione per ospitare le diverse unità di una VM può quindi aumentare il rischio di errore per tale VM. Per questo motivo, è consigliabile usare un singolo account di archiviazione per ogni nodo e archiviare l'unità di sistema e tutte le unità dati in quell'account.
 
 **Scalabilità orizzontale di un cluster Elasticsearch**
 
@@ -378,11 +396,19 @@ Elasticsearch è un servizio di rete. I nodi di un cluster Elasticsearch rimango
 
 Tutte le richieste inviate dai client al cluster devono essere autenticate. È anche preferibile impedire l'accesso al cluster da parte di nodi non autorizzati, perché potrebbero fornire una backdoor nel sistema che ignora l'autenticazione.
 
-Sono disponibili plug-in di Elasticsearch per eseguire diversi tipi di autenticazione, tra cui: - Autenticazione di base HTTP. Nomi utente e password sono sempre inclusi. Tutte le richieste devono essere crittografate tramite SSL/TLS o un livello di protezione equivalente. - Integrazione tra LDAP e Active Directory. Questo approccio richiede l'assegnazione di ruoli ai client in gruppi Active Directory o LDAP. - Autenticazione nativa per mezzo di identità definite all'interno del cluster Elasticsearch stesso. - Autenticazione TLS all'interno di un cluster per l'autenticazione di tutti i nodi. - Filtro IP, per impedire ai client di subnet non autorizzate di connettersi e impedire ai nodi di tali subnet di accedere al cluster.
+Sono disponibili plug-in di Elasticsearch per eseguire diversi tipi di autenticazione, tra cui:
+- Autenticazione di base HTTP. Nomi utente e password sono sempre inclusi. Tutte le richieste devono essere crittografate tramite SSL/TLS o un livello di protezione equivalente.
+- Integrazione tra LDAP e Active Directory. Questo approccio richiede l'assegnazione di ruoli ai client in gruppi Active Directory o LDAP.
+- Autenticazione nativa per mezzo di identità definite all'interno del cluster Elasticsearch stesso.
+- Autenticazione TLS all'interno di un cluster per l'autenticazione di tutti i nodi.
+- Filtro IP, per impedire ai client di subnet non autorizzate di connettersi e impedire ai nodi di tali subnet di accedere al cluster.
 
 ### Autorizzazione delle richieste client
 
-L'autorizzazione dipende dal plug-in di Elasticsearch usato per fornire il servizio. Ad esempio, un plug-in che fornisce l'autenticazione di base in genere fornisce funzionalità che definiscono il livello di autenticazione, mentre un plug-in che usa Active Directory o LDAP in genere associa i client ai ruoli e poi assegna diritti di accesso a tali ruoli. Quando si usa un plug-in specifico, valutare i punti seguenti: - È necessario limitare le operazioni che un client può eseguire? Ad esempio, un client deve poter monitorare lo stato del cluster oppure creare ed eliminare gli indici? - È necessario limitare l'accesso del client a indici specifici? Questo risulta utile in una situazione multi-tenant in cui ai tenant potrebbero essere assegnati set di indici specifici, a cui altri tenant non devono avere accesso. - Il client deve poter leggere e scrivere dati in un indice? Ad esempio, è possibile permettere a un client di eseguire ricerche che recuperano dati tramite un indice ma è necessario impedire che aggiunga o elimini dati da tale indice.
+L'autorizzazione dipende dal plug-in di Elasticsearch usato per fornire il servizio. Ad esempio, un plug-in che fornisce l'autenticazione di base in genere fornisce funzionalità che definiscono il livello di autenticazione, mentre un plug-in che usa Active Directory o LDAP in genere associa i client ai ruoli e poi assegna diritti di accesso a tali ruoli. Quando si usa un plug-in specifico, valutare i punti seguenti:
+- È necessario limitare le operazioni che un client può eseguire? Ad esempio, un client deve poter monitorare lo stato del cluster oppure creare ed eliminare gli indici?
+- È necessario limitare l'accesso del client a indici specifici? Questo risulta utile in una situazione multi-tenant in cui ai tenant potrebbero essere assegnati set di indici specifici, a cui altri tenant non devono avere accesso.
+- Il client deve poter leggere e scrivere dati in un indice? Ad esempio, è possibile permettere a un client di eseguire ricerche che recuperano dati tramite un indice ma è necessario impedire che aggiunga o elimini dati da tale indice.
 
 Attualmente, la maggior parte dei plug-in di sicurezza definisce l'ambito delle operazioni a livello di cluster o di indice e non nei subset di documenti all'interno degli indici. Questo avviene per motivi di efficienza. Non è quindi semplice limitare le richieste a documenti specifici all'interno di un singolo indice. Per ottenere questo livello di granularità, salvare i documenti in indici separati e usare alias per raggruppare gli indici. Prendendo ad esempio un sistema del personale, se l'utente A richiede l'accesso a tutti i documenti che contengono informazioni sui dipendenti nel reparto X, l'utente B richiede l'accesso a tutti i documenti che contengono informazioni sui dipendenti nel reparto Y e l'utente C richiede l'accesso a tutti i documenti che contengono informazioni sui dipendenti in entrambi i reparti, è necessario creare due indici, per il reparto X e per il reparto Y, e un alias che fa riferimento a entrambi gli indici. Concedere all'utente A l'accesso in lettura al primo indice, concedere all'utente B l'accesso in lettura al secondo indice e concedere all'utente C l'accesso in lettura a entrambi gli indici attraverso l'alias. Per altre informazioni, vedere l'articolo relativo alla [simulazione di indici per ogni utente con gli alias][].
 
@@ -415,7 +441,8 @@ Se non è protetto in modo adeguato il cluster può essere soggetto a un uso imp
 
 ### Protezione dei dati
 
-È possibile proteggere i dati in esecuzione tramite SSL/TLS, ma Elasticsearch non fornisce alcuna forma predefinita di crittografia dei dati per le informazioni archiviate su disco. Tenere presente che queste informazioni sono memorizzate in normali file su disco e qualsiasi utente con accesso a tali file potrebbe compromettere i dati in essi contenuti, ad esempio copiandoli nel proprio cluster. Prendere in considerazione quanto segue: - Proteggere i file usati da Elasticsearch per contenere i dati. Non consentire l'accesso arbitrario in lettura o scrittura a identità diverse dal servizio Elasticsearch.
+È possibile proteggere i dati in esecuzione tramite SSL/TLS, ma Elasticsearch non fornisce alcuna forma predefinita di crittografia dei dati per le informazioni archiviate su disco. Tenere presente che queste informazioni sono memorizzate in normali file su disco e qualsiasi utente con accesso a tali file potrebbe compromettere i dati in essi contenuti, ad esempio copiandoli nel proprio cluster. Prendere in considerazione quanto segue:
+- Proteggere i file usati da Elasticsearch per contenere i dati. Non consentire l'accesso arbitrario in lettura o scrittura a identità diverse dal servizio Elasticsearch.
 
 - Crittografare i dati contenuti in questi file usando un file system di crittografia.
 
@@ -482,7 +509,8 @@ L'output di esempio illustrato di seguito è stato generato usando questa API:
 }
 ```
 
-Questo cluster contiene due indici denominati *systwo* e *sysfour*. Le statistiche principali che devono essere monitorate per ogni indice sono status, active\_shards e unassigned\_shards. Il valore di status deve essere "green", il valore di active\_shards deve riflettere i valori di number\_of\_shards e number\_of\_replicas, mentre il valore di unassigned\_shards deve essere zero. Se il valore di status è "red", parte dell'indice è mancante o danneggiata. In tal caso, il valore di *active\_shards* è minore di *number\_of\_shards* - (*number\_of\_replicas* + 1) e il valore di unassigned\_shards è diverso da zero. Se il valore di status è "yellow", un indice è in uno stato di transizione. Ciò può essere dovuto all'aggiunta di più repliche o allo spostamento di partizioni. Al termine della transizione il valore di status deve diventare "green". Se rimane "yellow" per tempo prolungato o diventa "red", è necessario controllare se si sono verificati eventi di I/O significativi, ad esempio un errore di rete o del disco, a livello di sistema operativo. L'API \_nodes/stats genera informazioni dettagliate su ogni nodo del cluster:
+Questo cluster contiene due indici denominati *systwo* e *sysfour*. Le statistiche principali che devono essere monitorate per ogni indice sono status, active\_shards e unassigned\_shards. Il valore di status deve essere "green", il valore di active\_shards deve riflettere i valori di number\_of\_shards e number\_of\_replicas, mentre il valore di unassigned\_shards deve essere zero. Se il valore di status è "red", parte dell'indice è mancante o danneggiata. In tal caso, il valore di *active\_shards* è minore di *number\_of\_shards* - (*number\_of\_replicas* + 1) e il valore di unassigned\_shards è diverso da zero. Se il valore di status è "yellow", un indice è in uno stato di transizione. Ciò può essere dovuto all'aggiunta di più repliche o allo spostamento di partizioni. Al termine della transizione il valore di status deve diventare "green". Se rimane "yellow" per tempo prolungato o diventa "red", è necessario controllare se si sono verificati eventi di I/O significativi, ad esempio un errore di rete o del disco, a livello di sistema operativo.
+L'API \_nodes/stats genera informazioni dettagliate su ogni nodo del cluster:
 
 `GET _nodes/stats`
 
