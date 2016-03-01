@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # Importare i dati in Ricerca di Azure
@@ -22,7 +22,7 @@
 - [Overview](search-what-is-data-import.md)
 - [Portal](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
-- [REST API](search-import-data-rest-api.md)
+- [REST](search-import-data-rest-api.md)
 - [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 In Ricerca di Azure il servizio esegue operazioni su dati persistenti (un indice) che forniscono documenti e informazioni usati per elaborare un indice, eseguire query o formulare risultati della ricerca. Per popolare un indice, è possibile usare un modello push o pull per il caricamento dei dati.
@@ -60,4 +60,4 @@ Il set di dati deve derivare da una singola tabella, visualizzazione, contenitor
 |Aggiornamento dei dati pianificato|Usare un indicizzatore (vedere sopra).|
 |Creazione di prototipi o modifica senza codice|Il portale include una Importazione guidata dati che configura un indicizzatore, generando a volte uno schema preliminare se il database primario include informazioni sufficienti per questo scopo. La procedura guidata include opzioni per la configurazione di un aggiornamento pianificato dei dati. È facoltativamente possibile aggiungere analizzatori di linguaggio oppure opzioni CORS. Alcuni possibili svantaggi consistono nel fatto che non è possibile aggiungere profili di punteggio o esportare uno schema creato nel portale in un file JSON da usare nel codice.| 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

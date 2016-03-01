@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # Importare dati in Ricerca di Azure tramite il portale
@@ -36,6 +36,8 @@ Con la procedura guidata l'importazione dei dati si compone di 3 parti:
 Per usare un indicizzatore o il comando **Importa dati**, l'origine dati primaria deve essere una di quelle supportate: database SQL di Azure, database relazionali di SQL Server in una VM di Azure o Azure DocumentDB.
 
 È possibile eseguire l'importazione solo da una singola tabella, vista o struttura dei dati equivalente. Potrebbe essere necessario creare prima questa struttura dei dati nell'origine dati dell'applicazione per ottenere i metadati e gli input dei dati corretti nell'indice di ricerca.
+
+È possibile provare questo flusso di lavoro con dati di esempio. Per iniziare, vedere [Introduzione a Ricerca di Azure nel portale di Azure](search-get-started-portal.md).
 
 ##Configurare l'importazione dei dati
 
@@ -74,4 +76,4 @@ L'operazione di importazione dei dati appena completata ha creato un indicizzato
 
 Nel dashboard del servizio fare doppio clic sul riquadro Indicizzatore per visualizzare un elenco di tutti gli indicizzatori creati per la sottoscrizione. Fare doppio clic su uno degli indicizzatori per eseguirlo, modificarlo o eliminarlo.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

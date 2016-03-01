@@ -13,13 +13,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="02/22/2016" 
 	ms.author="raynew"/>
 
 #  Che cos'è Site Recovery?
 
-Site Recovery è un servizio di Azure che favorisce la strategia di continuità aziendale e ripristino di emergenza (BCDR) coordinando la replica di macchine virtuali e server locali in un data center locale secondario o in Azure. Site Recovery gestisce il processo di replica e consente di avviare le procedure di failover e ripristino con un semplice clic. Un elenco di domande frequenti è disponibile nella sezione delle [domande frequenti](site-recovery-faq.md)
-
+Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per le domande più comuni, vedere le [domande frequenti](site-recovery-faq.md).
 
 ## Perché usare Site Recovery? 
 
@@ -60,7 +59,7 @@ Site Recovery favorisce la continuità aziendale basata sul riconoscimento delle
 - Una libreria di automazione avanzata, in grado di fornire script generici per l'ambiente di produzione e specifici per ogni applicazione, che possono essere scaricati e integrati con Site Recovery.  
 
 
-Per saperne di più, vedere [Quali carichi di lavoro può proteggere Site Recovery?](site-recovery-workload.md).
+Per altre informazioni, vedere [Quali carichi di lavoro è possibile proteggere con Azure Site Recovery?](site-recovery-workload.md).
 
 
 ## Passaggi successivi
@@ -68,4 +67,4 @@ Per saperne di più, vedere [Quali carichi di lavoro può proteggere Site Recove
 Una volta completata questa panoramica, è possibile [approfondire](site-recovery-components.md) l'architettura di Site Recovery.
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

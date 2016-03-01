@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Creare un indice di Ricerca di Azure con .NET
@@ -66,4 +66,4 @@ Per creare un nuovo indice denominato "hotels", costruire un metodo simile al se
 
 Questo metodo crea un nuovo oggetto `Index` con un elenco di oggetti `Field` che definisce lo schema del nuovo indice. Ogni campo ha un nome, un tipo di dati e diversi attributi che definiscono il comportamento della ricerca. Oltre ai campi, è possibile aggiungere anche profili di punteggio, suggerimenti di alternative o opzioni CORS per l'indice. Per motivi di brevità nell’esempio questi elementi sono stati omessi. È possibile trovare ulteriori informazioni sull'oggetto indice e le relative parti costituenti nel riferimento a SDK su [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), e nel [riferimento all'API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

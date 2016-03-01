@@ -17,10 +17,13 @@
 	ms.author="heidist"/>
 
 # Introduzione alla prima applicazione Ricerca di Azure in .NET
-
+> [AZURE.SELECTOR]
+- [.NET](search-get-started-dotnet.md)
+- [Portal](search-get-started-portal.md)
+ 
 Informazioni su come compilare un'applicazione di ricerca .NET personalizzata in Visual Studio 2013 o versione successiva che usa Ricerca di Azure per l'esperienza di ricerca. Questa esercitazione fa uso di [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) e dell'API REST per il servizio Ricerca di Azure.
 
-Per eseguire questo esempio, è necessario avere un servizio di Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com). Per istruzioni dettagliate, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per eseguire questo esempio è necessario avere un servizio di Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com). Per istruzioni dettagliate, vedere [Creare un servizio di Ricerca di Azure nel portale di Azure](search-create-service-portal.md).
 
 ## Informazioni sui dati
 
@@ -36,7 +39,7 @@ In questa applicazione il programma **DataIndexer** compila e carica l'indice co
 Dopo aver creato il servizio, tornare al portale per ottenere l'URL o `api-key`. Per le connessioni al servizio Ricerca è necessario disporre sia dell'URL che di una `api-key` per l'autenticazione della chiamata.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nella barra di spostamento fare clic su **Servizio di ricerca** per elencare tutti i servizi di Ricerca di Azure con provisioning per la sottoscrizione.
+2. Nella barra di spostamento fare clic su **Servizio di ricerca** per elencare tutti i servizi di Ricerca di Azure di cui è stato eseguito il provisioning per la sottoscrizione.
 3. Selezionare il servizio che si vuole usare.
 4. Nel dashboard del servizio, saranno riportate sezioni per informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
 
@@ -234,7 +237,7 @@ Ogni progetto include file di configurazione che specificano il nome del servizi
 
 Questo programma è un'applicazione console che si connette al servizio di ricerca, come specificato nel file app.config, crea l'indice e lo carica con il set di dati dei servizi geologici degli Stati Uniti in un database SQL di Azure. Per questa parte dell'esercitazione verrà usato un indicizzatore.
 
-Prima di eseguire il programma è necessario sostituire **Program.cs**, usato per creare l'indice e l'indicizzatore, caricare dati e scrivere messaggi.
+Prima di eseguire il programma è necessario sostituire **Program.cs**, usato per creare l'indice, e l'indicizzatore, caricare dati e scrivere messaggi.
 
 ### Aggiornare Program.cs.
 
@@ -671,4 +674,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -35,7 +35,7 @@ Oltre ai prerequisiti elencati nell'argomento di panoramica dell'esercitazione, 
 - **Installare Azure PowerShell**. Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per installare la versione più recente di Azure PowerShell nel computer.
 - Questo articolo non fornisce una panoramica concettuale del servizio Data factory di Azure. Per una panoramica dettagliata del servizio, vedere [Introduzione al servizio Data factory di Azure](data-factory-introduction.md). 
 - Per informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md). 
- 
+
 
 ## Passaggio 1: Creare il modello di Gestione risorse di Azure
 
@@ -223,6 +223,8 @@ Tenere presente quanto segue:
 
 Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
+> [AZURE.NOTE] Un altro esempio di modello di Azure Resource Manager per la creazione di una data factory di Azure è disponibile in [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).
+
 ## Passaggio 2: Distribuire entità della data factory con il modello di Gestione risorse di Azure
 
 1. Aprire Azure PowerShell ed eseguire il comando seguente. Mantenere aperto Azure PowerShell fino alla fine dell'esercitazione. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.
@@ -250,4 +252,4 @@ Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-
 10. Quando lo stato della sezione è **Pronto**, cercare i dati di output nella cartella **partitioneddata** del contenitore **adfgetstarted** nell'archivio BLOB.  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

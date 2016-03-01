@@ -4,13 +4,13 @@
 
 3. Nella casella **Gruppo di risorse** selezionare un gruppo di risorse esistente. Se non sono disponibili gruppi di risorse, immettere lo stesso nome dell'app.
  
-	A questo punto viene selezionato il piano predefinito del servizio app, ovvero il livello gratuito. Le impostazioni del piano del servizio app determinano la posizione, le funzionalità, i costi e le risorse di calcolo associati all'app. È possibile selezionare un altro piano del servizio app o crearne uno nuovo. Per altre informazioni sui piani dei servizi app e su come creare un nuovo piano, vedere [Panoramica approfondita dei piani del servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	A questo punto viene selezionato il piano predefinito del servizio app, ovvero il [livello standard](https://azure.microsoft.com/pricing/details/app-service/). Le impostazioni del piano del servizio app determinano la posizione, le funzionalità, i costi e le risorse di calcolo associati all'app. È possibile selezionare un altro piano del servizio app o crearne uno nuovo. Per altre informazioni sui piani di Servizi app e su come creare un nuovo piano in un piano tariffario diverso e nella posizione preferita, vedere [Panoramica approfondita dei piani del servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 4. Usare il piano predefinito del servizio app, selezionare un piano diverso o [creare un nuovo piano](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan), quindi fare clic su **Crea**.
 	
 	Verrà creato il back-end dell'app per dispositivi mobili. In seguito il progetto server verrà distribuito nel back-end. Il provisioning del back-end dell'app per dispositivi mobili può richiedere alcuni minuti. Il pannello **Impostazioni** per il back-end dell'app per dispositivi mobili viene visualizzato al completamento del provisioning. Prima di potere usare il back-end dell'app per dispositivi mobili, è necessario definire anche una connessione a un archivio dati.
 
-    > [AZURE.NOTE]Nel corso di questa esercitazione verranno creati una nuova istanza e un nuovo server di database SQL. È possibile riutilizzare questo nuovo database e amministrarlo allo stesso modo di qualsiasi altra istanza di database SQL. Se nella stessa posizione del nuovo back-end dell'app per dispositivi mobili è già presente un database, è possibile scegliere **Usare un database esistente** e quindi selezionare questo database. Non è consigliabile usare un database in una posizione diversa, a causa dei costi aggiuntivi di larghezza di banda e di latenze più elevate. Sono disponibili altre opzioni di archiviazione dei dati.
+    > [AZURE.NOTE] Nel corso di questa esercitazione verranno creati una nuova istanza e un nuovo server di database SQL. È possibile riutilizzare questo nuovo database e amministrarlo allo stesso modo di qualsiasi altra istanza di database SQL. Se nella stessa posizione del nuovo back-end dell'app per dispositivi mobili è già presente un database, è possibile scegliere **Usare un database esistente** e quindi selezionare questo database. Non è consigliabile usare un database in una posizione diversa, a causa dei costi aggiuntivi di larghezza di banda e di latenze più elevate. Sono disponibili altre opzioni di archiviazione dei dati.
 
 6. Nel pannello **Impostazioni** relativo al nuovo back-end dell'app per dispositivi mobili, fare clic su **Avvio rapido** > piattaforma dell'app client > **Connetti al database**.
 
@@ -30,4 +30,4 @@
 <!-- URLs. -->
 [portale di Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

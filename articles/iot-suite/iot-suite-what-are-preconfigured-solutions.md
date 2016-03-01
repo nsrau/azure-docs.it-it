@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/30/2015"
+ ms.date="02/19/2016"
  ms.author="dobett"/>
 
 # Informazioni sulle soluzioni preconfigurate di Azure IoT Suite
@@ -47,18 +47,22 @@ Il diagramma seguente illustra gli elementi chiave della soluzione di monitoragg
 
 ## Dispositivi
 
-Quando si distribuisce la soluzione preconfigurata di monitoraggio remoto, la distribuzione include istanze di un simulatore di dispositivi software che simula un dispositivo fisico. I dispositivi simulati inviano dati di telemetria su temperatura e umidità per un endpoint hub IoT. Dispositivi simulati rispondono anche ai seguenti comandi inviati dal portale di soluzioni tramite l'hub IoT:
+Quando si distribuisce la soluzione preconfigurata per il monitoraggio remoto, nella soluzione viene eseguito il pre-provisioning di quattro dispositivi simulati che simulano un dispositivo di raffreddamento. I dispositivi simulati hanno un modello di umidità e temperatura predefinito che genera i dati di telemetria.
 
-- Ping dispositivo
-- Avvia telemetria
-- Arresta telemetria
-- Modifica la temperatura del punto dati impostato
-- Telemetria diagnostica
-- Modifica stato del dispositivo
+Quando un dispositivo si connette per la prima volta all'hub IoT nella soluzione preconfigurata per il monitoraggio remoto, il messaggio di informazioni sul dispositivo inviato all'hub IoT enumera l'elenco di comandi a cui il dispositivo può rispondere. I comandi disponibili nella soluzione preconfigurata per il monitoraggio remoto sono:
+
+- *Ping dispositivo*. Il dispositivo risponde a questo comando con un acknowledgement. Questo comando è utile per verificare che il dispositivo sia ancora attivo e in ascolto.
+- *Avvia telemetria*. Indica al dispositivo di iniziare a inviare i dati di telemetria.
+- *Arresta telemetria*. Indica al dispositivo di smettere di inviare i dati di telemetria.
+- *Modifica la temperatura del punto dati impostato*. Controlla i valori dei dati di telemetria sulla temperatura simulati inviati dal dispositivo. Questo comando è utile per i test.
+- *Telemetria diagnostica*. Controlla se il dispositivo deve inviare la temperatura esterna come dato di telemetria.
+- *Modifica stato del dispositivo*. Imposta la proprietà dei metadati sullo stato del dispositivo segnalata dal dispositivo. Questo comando è utile per i test.
+
+È possibile aggiungere alla soluzione altri dispositivi simulati che generano gli stessi dati di telemetria e rispondono agli stessi comandi.
 
 ## Hub IoT
 
-Un hub IoT riceve i dati di telemetria da più dispositivi in un singolo endpoint. Un hub IoT gestisce anche gli endpoint specifici del dispositivo in cui ogni dispositivo può recuperare i comandi, ad esempio il **Ping dispositivo**, a esso destinati.
+Un hub IoT riceve i dati di telemetria da più dispositivi in un singolo endpoint. Un hub IoT gestisce anche gli endpoint specifici del dispositivo in cui ogni dispositivo può recuperare i comandi a esso destinati.
 
 L'hub IoT espone i dati di telemetria ricevuti tramite l'endpoint di un gruppo di consumer.
 
@@ -68,15 +72,16 @@ L'istanza dell'hub IoT in questa soluzione preconfigurata corrisponde al *gatewa
 
 La soluzione preconfigurata usa tre processi di [Analisi di flusso di Azure][lnk-asa] per filtrare i flussi di dati di telemetria provenienti dai dispositivi di raffreddamento:
 
-- Il processo n. 1 invia tutti i dati di telemetria all'archivio BLOB di Azure per l'archiviazione offline sicura
-- Il processo n. 2 filtra il flusso di dati di telemetria per identificare i messaggi di risposta ai comandi e i messaggi di aggiornamento di stato del dispositivo dai dispositivi e invia questi messaggi specifici a un endpoint dell'Hub eventi di Azure.
-- Il processo n. 3 filtra il flusso di dati di telemetria per i valori che generano avvisi. Quando un valore attiva un allarme, la soluzione visualizza la notifica nella tabella della cronologia di avvisi nella visualizzazione dashboard del portale della soluzione.
 
-In questa soluzione preconfigurata, i processi di Analisi di flusso di Azure fanno parte del *back-end della soluzione IoT* nell'[architettura di una soluzione IoT][lnk-what-is-azure-iot] tipica.
+- *Processo Informazioni sul dispositivo*: invia messaggi specifici di registrazione del dispositivo al registro dei dispositivi della soluzione, un database DocumentDB.
+- *Processo Telemetria*: invia tutti i dati di telemetria non elaborati all'archivio BLOB di Azure per l'archiviazione offline sicura e calcola le aggregazioni dei dati di telemetria visualizzate nel dashboard della soluzione.
+- *Processo Regole*: filtra il flusso dei dati di telemetria in base ai valori che superano qualsiasi soglia delle regole. Quando viene attivata una regola, la visualizzazione dashboard del portale della soluzione visualizza questo evento come una nuova riga nella tabella della cronologia di avvisi e attiva un'azione in base alle impostazioni definite nelle visualizzazioni relative alle regole e alle azioni nel portale della soluzione.
+
+In questa soluzione preconfigurata i processi di Analisi di flusso di Azure fanno parte del *back-end della soluzione IoT* nell'[architettura di una soluzione IoT][lnk-what-is-azure-iot] tipica.
 
 ## Processore di eventi
 
-Un'istanza di [EventPocessorHost][lnk-event-processor] in esecuzione in un [processo Web][lnk-web-job] elabora i messaggi di risposta al comando e sullo stato del dispositivo identificati dal processo di Analisi di flusso di Azure n. 2 e quindi archivia queste informazioni in un database [Azure DocumentDB][lnk-document-db].
+Un'istanza di [EventPocessorHost][lnk-event-processor] in esecuzione in un [processo Web][lnk-web-job] elabora l'output dei processi Informazioni sul dispositivo e Regole.
 
 In questa soluzione preconfigurata il processore di eventi fa parte del *back-end della soluzione IoT* nell'[architettura di una soluzione IoT][lnk-what-is-azure-iot] tipica.
 
@@ -92,7 +97,7 @@ Il portale della soluzione è un'interfaccia utente basata sul Web che viene dis
 - Inviare comandi a dispositivi specifici.
 - Gestire regole e azioni.
 
-> [AZURE.NOTE] Il portale della soluzione mantiene anche il [registro delle identità dei dispositivi][lnk-identity-registry] dell'hub IoT sincronizzato con l'archivio delle informazioni più dettagliate sullo stato dei dispositivi nel database DocumentDB della soluzione.
+> [AZURE.NOTE] La soluzione preconfigurata mantiene anche il [registro delle identità dei dispositivi][lnk-identity-registry] dell'hub IoT sincronizzato con il registro dei dispositivi della soluzione, per database DocumentDB, in cui sono archiviati i metadati avanzati del dispositivo.
 
 In questa soluzione preconfigurata il portale della soluzione fa parte del *back-end della soluzione IoT* ed è incluso nella *connettività aziendale e di elaborazione* nell'[architettura di una soluzione IoT][lnk-what-is-azure-iot] tipica.
 
@@ -116,4 +121,4 @@ Esplorare queste risorse per altre informazioni sulle soluzioni preconfigurate I
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

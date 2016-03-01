@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/09/2016"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
 
 # Application Insights per pagine Web
@@ -170,7 +170,7 @@ Fare clic su una riga per visualizzare i dettagli specifici.
 
 > [AZURE.NOTE] Se si elimina il filtro Browser nel pannello, le dipendenze AJAX e server verranno incluse entrambe in questi grafici. Fare clic su Ripristina impostazioni predefinite per riconfigurare il filtro.
 
-**Per esaminare le chiamate AJAX non riuscite** è possibile trasformare il grafico degli errori in una griglia e quindi fare clic su una riga per visualizzare le istanze specifiche.
+**Per esaminare le chiamate AJAX non riuscite**, scorrere verso il basso fino alla griglia degli errori di dipendenza e quindi fare clic su una riga per visualizzare le istanze specifiche.
 
 ![](./media/app-insights-javascript/37.png)
 
@@ -238,4 +238,4 @@ Per sapere in che modo gli utenti usano l'app,
 * [Metriche ed eventi personalizzati](app-insights-api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

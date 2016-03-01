@@ -40,7 +40,7 @@ Di seguito sono riportati alcuni esempi di carichi di lavoro in genere elaborati
 * Analisi delle sollecitazioni in fase di progettazione
 * Test di software
 
-Batch può anche eseguire calcoli paralleli con un passaggio di riduzione alla fine e altri carichi di lavoro HPC più complessi, ad esempio applicazioni MPI (Message Passing Interface).
+Batch può anche eseguire calcoli paralleli con un passaggio di riduzione alla fine e altri carichi di lavoro HPC più complessi, ad esempio applicazioni [MPI (Message Passing Interface)](batch-mpi.md).
 
 Per un confronto tra Batch e altre soluzioni HPC in Azure, vedere [Soluzioni Batch e HPC nel cloud di Azure](batch-hpc-solutions.md).
 
@@ -56,7 +56,7 @@ La compilazione di soluzioni che usano Azure Batch per l'elaborazione di carichi
 
 Di seguito sono riportati gli account da usare in Microsoft Azure per lo sviluppo di soluzioni Batch.
 
-- **Account e sottoscrizione di Azure**: se non si ha un account di Azure, è possibile attivare i [vantaggi dell'abbonamento a MSDN][msdn_benefits] oppure iscriversi per ottenere una [versione di valutazione gratuita][free_trial]. Quando si crea un account viene creata una sottoscrizione predefinita.
+- **Account e sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi dell'abbonamento a MSDN][msdn_benefits] oppure iscriversi per ottenere un [account Azure gratuito][free_account]. Quando si crea un account viene creata una sottoscrizione predefinita.
 
 - **Account Batch**: quando le applicazioni interagiscono con il servizio Batch, il nome dell'account, l'URL dell'account e una chiave di accesso vengono usati come credenziali. Tutte le risorse di Batch, ad esempio pool, nodi di calcolo, processi e attività, sono associate a un account Batch. È possibile [creare e gestire un account Batch](batch-account-create-portal.md) nel portale di Azure.
 
@@ -127,7 +127,7 @@ Ora che è stato esaminato uno scenario di esempio, è necessario approfondire i
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [data_factory]: https://azure.microsoft.com/documentation/services/data-factory/
-[free_trial]: https://azure.microsoft.com/pricing/free-trial/
+[free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
@@ -136,4 +136,4 @@ Ora che è stato esaminato uno scenario di esempio, è necessario approfondire i
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

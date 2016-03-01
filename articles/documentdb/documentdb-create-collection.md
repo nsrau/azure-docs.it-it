@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/18/2015" 
+	ms.date="02/22/2016" 
 	ms.author="mimig"/>
 
 # Come creare una raccolta DocumentDB usando il portale di Azure
@@ -22,26 +22,30 @@ PPer utilizzare Microsoft Azure DocumentDB, è necessario disporre di un[Documen
 
 Per informazioni sulle raccolte, vedere [Creare una raccolta DocumentDB](#what-is-a-documentdb-collection)
 
-![Schermata che evidenzia gli account di DocumentDB nell'indice, l'account nel pannello Account DocumentDB e il database nel pannello dell’account DocumentDB, nella sezione Database](./media/documentdb-create-collection/docdb-database-creation-1-3.png)
+1.  Nel [portale di Azure](https://portal.azure.com/), nell’indice, fare clic su **Account DocumentDB**. Se **Account DocumentDB** non è visibile, fare clic su **Sfoglia** e quindi su **Account DocumentDB**.
 
-1.  Nel [portale di Azure](https://portal.azure.com/), nell’indice, fare clic su **Account DocumentDB**. 
+    ![Schermata che evidenzia gli account di DocumentDB nell'indice, l'account nel pannello Account DocumentDB e il database nel pannello dell’account DocumentDB, nella sezione Database](./media/documentdb-create-collection/docdb-database-creation-1-2.png)
 
 2.  Nel pannello **Account DocumentDB** selezionare l'account in cui aggiungere una raccolta. Se non è elencato alcun account, sarà necessario [creare un account DocumentDB](documentdb-create-account.md).
 
 3. Nel pannello **Account DocumentDB** per l'account selezionato, scorrere verso il basso alla sezione **Database** e quindi selezionare il database in cui si desidera aggiungere una raccolta.
-    
+
+    ![Schermata che evidenzia gli account di DocumentDB nell'indice, l'account nel pannello Account DocumentDB e il database nel pannello dell’account DocumentDB, nella sezione Database](./media/documentdb-create-collection/docdb-database-creation-3.png)
+
 4. Nel pannello **Database** fare clic su **Aggiungi raccolta**.
 
-	![Cattura di schermata in cui sono evidenziati il pulsante Aggiungi raccolta nel pannello Database, le impostazioni nel pannello Aggiungi raccolta e il pulsante OK. Portale di Azure per DocumentDB. Creatore di database basati su cloud per database JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-4-7.png)
+	![Cattura di schermata in cui sono evidenziati il pulsante Aggiungi raccolta nel pannello Database, le impostazioni nel pannello Aggiungi raccolta e il pulsante OK. Portale di Azure per DocumentDB. Creatore di database basati su cloud per database JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-4.png)
 
-5. Nel pannello **Aggiungi raccolta** immettere l'ID per la nuova raccolta. I nomi delle raccolte devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/ \ # ?` o spazi finali. Quando il nome viene convalidato, appare un segno di spunta verde nella casella ID.
+5. Nel pannello **Aggiungi raccolta** immettere l'ID della nuova raccolta nella casella **ID**. I nomi delle raccolte devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/ \ # ?` o spazi finali. Quando il nome viene convalidato, appare un segno di spunta verde nella casella ID.
+
+	![Cattura di schermata in cui sono evidenziati il pulsante Aggiungi raccolta nel pannello Database, le impostazioni nel pannello Aggiungi raccolta e il pulsante OK. Portale di Azure per DocumentDB. Creatore di database basati su cloud per database JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
 
 6. Selezionare un piano tariffario per la nuova raccolta. Ogni raccolta creata è un'entità fatturabile. Per altre informazioni sui livelli di prestazioni disponibili, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).
 
 7. Selezionare uno dei seguenti **criteri di indicizzazione**.
 
 	- **Default**. Questo criterio usa l'indicizzazione hash per le stringhe e l'indicizzazione intervalli per i numeri. Questo criterio è migliore per query di uguaglianza in presenza di stringhe, ORDER BY e query di uguaglianza e di intervallo in presenza di numeri. Questo criterio ha un overhead di archiviazione dell'indice inferiore e include l'indicizzazione geospaziale.
-	- **Range**. Questo criterio è migliore quando si utilizzano query ORDER BY, di intervallo e di uguaglianza sia in presenza di numeri che di stringhe. Questo criterio ha un overhead di archiviazione dell'indice maggiore rispetto a **Default** e include l'indicizzazione geospaziale.
+	- **Hash**. Questo criterio è migliore quando si utilizzano query ORDER BY, di intervallo e di uguaglianza sia in presenza di numeri che di stringhe. Questo criterio ha un overhead di archiviazione dell'indice maggiore rispetto a **Default** e include l'indicizzazione geospaziale.
 
 	Per altre informazioni sulle regole di indicizzazione, vedere [Criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md).
 
@@ -50,7 +54,7 @@ Per informazioni sulle raccolte, vedere [Creare una raccolta DocumentDB](#what-i
 
 9. La nuova raccolta ora appare nella sezione **Raccolte** del pannello **Database**.
  
-	![Cattura di schermata della nuova raccolta nel pannello Database. Portale di Azure per DocumentDB. Creatore di database basati su cloud per database JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-8.png)
+	![Cattura di schermata della nuova raccolta nel pannello Database. Portale di Azure per DocumentDB. Creatore di database basati su cloud per database JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-9.png)
 
 ## Informazioni sulle raccolte di DocumentDB. 
 
@@ -62,7 +66,7 @@ Le raccolte sono diverse dalle tabelle nei database relazionali. Tramite le racc
 
 ## Altri modi per creare una raccolta di DocumentDB
 
-Le raccolte non possono essere create tramite il portale, ma è possibile crearle usando gli [SDK di DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Per un esempio di codice C# che illustra come creare una raccolta usando l'SDK per .NET di DocumentDB, vedere il file [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/CollectionManagement/Program.cs) nel progetto CollectionManagement, disponibile nell'archivio [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) in [GitHub.com](https://github.com).
+Le raccolte non possono essere create tramite il portale, ma è possibile crearle usando gli [SDK di DocumentDB](documentdb-sdk-dotnet.md). Per esempi di codice C# che illustrano l'uso delle raccolte con DocumentDB .NET SDK, vedere gli [esempi di raccolta C#](documentdb-dotnet-samples.md#collection-examples). Per esempi di codice Node.js che illustrano l'uso delle raccolte con DocumentDB Node.js SDK, vedere gli [esempi di raccolta Node.js](documentdb-nodejs-samples.md#collection-examples).
 
 ## Risoluzione dei problemi
 
@@ -74,8 +78,8 @@ A questo punto, dopo aver creato una raccolta, il passaggio successivo consiste 
 
 - È possibile [aggiungere i documenti](documentdb-view-json-document-explorer.md) usando il riquadro Esplora documenti nel portale.
 - È possibile [importare i documenti e i dati](documentdb-import-data.md) usando lo strumento di migrazione dati di DocumentDB, che consente di importare i file JSON e CSV, oltre ai dati da SQL Server, MongoDB, Archiviazione tabelle di Azure e altre raccolte DocumentDB. 
-- Oppure è possibile aggiungere i documenti usando gli [SDK di DocumentDB](documentdb-sdk-dotnet.md). DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript. Il file [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs) nel progetto DocumentManagement, disponibile nell'archivio [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) in [GitHub.com](https://github.com), illustra le operazioni CRUD sui documenti tramite l'SDK per .NET di DocumentDB.
+- Oppure è possibile aggiungere i documenti usando gli [SDK di DocumentDB](documentdb-sdk-dotnet.md). DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript. Per esempi di codice C# che illustrano l'uso dei documenti con DocumentDB .NET SDK, vedere gli [esempi di documento C#](documentdb-dotnet-samples.md#document-examples). Per esempi di codice Node.js che illustrano l'uso dei documenti con DocumentDB Node.js SDK, vedere gli [esempi di documento Node.js](documentdb-nodejs-samples.md#document-examples).
 
 Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#executing-queries) nei documenti con [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

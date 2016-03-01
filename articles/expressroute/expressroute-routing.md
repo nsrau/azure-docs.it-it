@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/08/2016"
+   ms.date="02/12/2016"
    ms.author="cherylmc"/>
 
 
@@ -118,7 +118,7 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 
 Microsoft contrassegnerà i prefissi annunciati tramite il peering pubblico e il peering Microsoft con i valori della community BGP appropriati indicanti l'area in cui sono ospitati i prefissi. Per prendere le decisioni di routing appropriate e offrire un servizio di routing ottimale ai client, fare riferimento ai valori della community.
 
-| **Area geopolitica** | **Area di Microsoft Azure (si applica anche a Office 365)** | **Valore della community BGP** |
+| **Area geopolitica** | **Area di Microsoft Azure** | **Valore della community BGP** |
 |---|---|---|
 | **America del Nord** | | |
 | | Stati Uniti orientali | 12076:51004 |
@@ -174,4 +174,4 @@ Microsoft non riconosce eventuali valori della community BGP impostati dall'uten
 	- [Configurare il routing per il modello di distribuzione classica](expressroute-howto-routing-classic.md) o [Configurare il routing per il modello di distribuzione Gestione risorse](expressroute-howto-routing-arm.md)
 	- [Collegare una rete virtuale classica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Collegare una rete virtuale di Gestione risorse a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

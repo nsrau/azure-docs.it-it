@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Creare un account database NoSQL- Versione di valutazione gratuita | Microsoft Azure" 
+<properties
+	pageTitle="Creare un account database NoSQL- Versione di valutazione gratuita | Microsoft Azure"
 	description="Informazioni su come creare account di database tramite il portale del servizio in linea per Azure DocumentDB, un database di documenti NoSQL gestito per JSON. Ottenere una versione di valutazione."
 	keywords="versione di valutazione gratuita, servizio di creazione database online, creare database, documentdb, azure, Microsoft azure"
-	services="documentdb" 
-	documentationCenter="" 
-	authors="mimig1" 
-	manager="jhubbard" 
+	services="documentdb"
+	documentationCenter=""
+	authors="mimig1"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="documentdb" 
+<tags
+	ms.service="documentdb"
 	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="12/17/2015" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/23/2016"
 	ms.author="mimig"/>
 
 # Come creare un account database DocumentDB usando il portale di Azure
@@ -36,7 +36,7 @@ Ora che avete un account di DocumentDB, il passaggio successivo consiste nel cre
 - Esempi di C# .NET nel progetto[DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) del repository [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) su GitHub.
 - Portale di Azure, come descritto in [Creare un database DocumentDB usando il portale di Azure](documentdb-create-database.md).
 - Esercitazioni complete: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md) o [Python](documentdb-python-application.md).
-- [DocumentDB SDK](documentdb-sdk-dotnet.md). DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript. 
+- [DocumentDB SDK](documentdb-sdk-dotnet.md). DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript.
 
 
 Dopo avere creato il database, è necessario [aggiungere una o più raccolte](documentdb-create-collection.md) al database e quindi [aggiungere documenti](documentdb-view-json-document-explorer.md) alle raccolte.
@@ -48,6 +48,4 @@ Per ulteriori informazioni su DocumentDB, esplorare queste risorse:
 -	[Percorso di apprendimento per DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Modello di risorse e concetti relativi a DocumentDB](documentdb-resources.md)
 
- 
-
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

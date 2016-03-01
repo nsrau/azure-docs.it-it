@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/09/2016"
 	ms.author="jaime.espinosa"/>
 
@@ -45,7 +45,7 @@ App Web del servizio app di Azure è una piattaforma completamente gestita che c
 - **Slot di distribuzione**: implementare la [distribuzione di gestione temporanea][Slots] e per verificare il codice in un ambiente pre-produzione identico a quello dell'app Web di produzione nel servizio app di Azure. Una volta soddisfatti, rilasciare una nuova versione dell'app con tempo di inattività pari a zero eseguendo un'operazione di scambio. 
 - **Test in produzione**: portare la pre-distribuzione al livello successivo ed eseguire il test A/B per verificare il nuovo codice con una frazione configurabile del proprio traffico live. 
 - **Webjobs**: eseguire qualsiasi programma o script nelle VM del servizio app Web. È possibile eseguire i processi in modo continuo o in base a una pianificazione e ridimensionarli per essere eseguiti in più VM. Usare [WebJobs SDK][Webjobs] di Azure per eseguire l'integrazione con l'archiviazione o con il bus di servizio di Azure.
-- **Connessioni ibride** - - Accedere ai dati locali tramite [connessioni ibride](../integration-hybrid-connection-overview.md) e [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
+- **Connessioni ibride** - - Accedere ai dati locali tramite [connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) e [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
 
 ## Introduzione ##
 Per iniziare a usare App Web, seguire l'esercitazione [Creare un'app Web ASP.NET][create].
@@ -64,4 +64,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->
