@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="02/11/2016"
-	ms.author="bwren;sngun"/>
+	ms.date="02/18/2016"
+	ms.author="magoedte;bwren"/>
 
 # Panoramica di Automazione di Azure
 
@@ -41,7 +41,7 @@ La [raccolta di Runbook](automation-runbook-gallery.md#runbooks-in-runbook-galle
 
 ## Creazione di Runbook con Automazione di Azure 
 
-È possibile [creare Runbook personalizzati](automation-creating-importing-runbook.md) da zero o modificare quelli contenuti nella [raccolta di Runbook](http://msdn.microsoft.com/library/azure/dn781422.aspx) in base alle proprie esigenze. Sono disponibili tre diversi [tipi di runbook](automation-runbook-types.md) tra cui è possibile scegliere in base alle esigenze e all'uso di PowerShell. Se si preferisce lavorare direttamente con il codice di PowerShell, è possibile usare un [runbook di PowerShell](automation-runbook-types.md#powershell-runbooks) o un [runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) da modificare offline o con l'[editor di testo](http://msdn.microsoft.com/library/azure/dn879137.aspx) nel portale di Azure. Se si preferisce modificare un runbook evitando l'interazione con il codice sottostante, è possibile creare un [runbook grafico](automation-runbook-types.md#graphical-runbooks) usando l'[editor grafico](automation-graphical-authoring-intro.md) nel portale di anteprima di Azure.
+È possibile [creare Runbook personalizzati](automation-creating-importing-runbook.md) da zero o modificare quelli contenuti nella [raccolta di Runbook](http://msdn.microsoft.com/library/azure/dn781422.aspx) in base alle proprie esigenze. Sono disponibili tre diversi [tipi di runbook](automation-runbook-types.md) tra cui è possibile scegliere in base alle esigenze e all'uso di PowerShell. Se si preferisce lavorare direttamente con il codice di PowerShell, è possibile usare un [runbook di PowerShell](automation-runbook-types.md#powershell-runbooks) o un [runbook del flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) da modificare offline o con l'[editor di testo](http://msdn.microsoft.com/library/azure/dn879137.aspx) nel portale di Azure. Se si preferisce modificare un runbook evitando l'interazione con il codice sottostante, è possibile creare un [runbook grafico](automation-runbook-types.md#graphical-runbooks) usando l'[editor grafico](automation-graphical-authoring-intro.md) nel portale di Azure.
 
 Si preferisce guardare che leggere? Il video seguente tratto dalla sessione di Microsoft Ignite di maggio 2015 contiene informazioni utili. Nota: le funzionalità e i concetti descritti in questo video sono corretti, ma Automazione di Azure si è evoluto molto da quando il video è stato registrato. Ora ha un'interfaccia utente più estesa nel portale di Azure e supporta funzionalità aggiuntive.
 
@@ -62,7 +62,7 @@ Le [Configurazioni DSC](automation-dsc-overview.md#azure-automation-dsc-terms) s
 
 ## Recupero di moduli e configurazioni 
 
-È possibile ottenere [moduli PowerShell](automation-runbook-gallery.md#modules-in-powershell-gallery) contenenti i cmdlet da usare nei runbook e nelle configurazioni DSC dalla [PowerShell Gallery](http://www.powershellgallery.com/). È possibile avviare questa raccolta dal portale di anteprima di Azure e importare direttamente i moduli in Automazione di Azure oppure è possibile scaricarli e importarli manualmente. Non è possibile installare i moduli direttamente dal portale di Azure, ma è possibile scaricarli e installarli come qualsiasi altro modulo.
+È possibile ottenere [moduli PowerShell](automation-runbook-gallery.md#modules-in-powershell-gallery) contenenti i cmdlet da usare nei runbook e nelle configurazioni DSC dalla [PowerShell Gallery](http://www.powershellgallery.com/). È possibile avviare questa raccolta dal portale di Azure e importare direttamente i moduli in Automazione di Azure oppure è possibile scaricarli e importarli manualmente. Non è possibile installare i moduli direttamente dal portale di Azure, ma è possibile scaricarli e installarli come qualsiasi altro modulo.
 
 
 ## Applicazioni pratiche di esempio di Automazione di Azure 
@@ -101,4 +101,4 @@ Sono disponibili numerose risorse per approfondire la conoscenza di Automazione 
 
 **Gli utenti sono invitati a fornire commenti e suggerimenti.** Se si è in cerca di una soluzione Runbook o di un modulo di integrazione di Automazione di Azure, inviare una richiesta di script in Script Center. In caso di commenti o suggerimenti oppure di richieste di funzionalità per Automazione di Azure, è possibile pubblicarle nell'apposito [forum](http://feedback.windowsazure.com/forums/34192--general-feedback). Grazie.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -28,8 +28,8 @@ Questo documento illustra i passaggi necessari per la distribuzione di un cluste
  
 Selezionare uno dei modelli seguenti per distribuire un cluster Mesos o Docker Swarm. **Nota**: i modelli si equivalgono, differiscono unicamente nella selezione dell'agente di orchestrazione predefinito.
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
  
 Ogni pagina del modello ha un pulsante per la distribuzione in Azure. Facendo clic su questo pulsante viene avviato il portale di Azure con un modulo simile al seguente. <br />
 
@@ -67,8 +67,8 @@ Per creare un'istanza del servizio contenitore di Azure usando la riga di comand
  
 Selezionare uno dei modelli seguenti per distribuire un cluster Mesos o Docker Swarm. **Nota**: i modelli si equivalgono, differiscono unicamente nella selezione dell'agente di orchestrazione predefinito.
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
  
 Successivamente, assicurarsi che l'interfaccia della riga di comando di Azure sia collegata a una sottoscrizione di Azure. A tale scopo, usare il comando seguente.
 
@@ -127,8 +127,8 @@ Per la distribuzione di un cluster ACS è possibile usare anche PowerShell. Ques
 
 Selezionare uno dei modelli seguenti per distribuire un cluster Mesos o Docker Swarm. **Nota**: i modelli si equivalgono, differiscono unicamente nella selezione dell'agente di orchestrazione predefinito.
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Prima di creare un cluster nella sottoscrizione di Azure, verificare che la sessione di PowerShell sia stata registrata in Azure. Questa operazione può essere eseguita con il comando `Get-AzureRMSubscription`.
 
@@ -161,8 +161,7 @@ If you are familiar with PowerShell, you know that you can cycle through the ava
 Below is the full command with parameters included. You can provide your own values for the names of the resources.
 
 ```
-New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-TemplateURI TEMPLATE\_URI -adminuser value1 -adminpassword value2 ....
-```
+New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-TemplateURI TEMPLATE\_URI -adminuser value1 -adminpassword value2 .... ```
  
 ## Passaggi successivi
  
@@ -173,4 +172,4 @@ Ora che si ha a disposizione un cluster funzionante, vedere i documenti seguenti
 
  
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

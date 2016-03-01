@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="02/10/2016"
 	ms.author="heidist"/>
 
 #Compilare query in Ricerca di Azure con .NET
@@ -63,4 +63,4 @@ Nella prima chiamata, si cercano tutti i documenti che contengono i termini di q
 
 La seconda chiamata usa un'espressione OData $filter, category eq 'Luxury'. Questa chiamata vincola la ricerca alla restituzione solo dei documenti in cui il campo category corrisponde esattamente alla stringa "Luxury". Per altre informazioni sulla sintassi di OData, vedere [Sintassi delle espressioni OData per Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

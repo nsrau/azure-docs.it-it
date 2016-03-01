@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="02/16/2015"
+	ms.date="02/16/2016"
 	ms.author="spelluru"/>
 
 # Introduzione a Data Factory di Azure (Visual Studio)
@@ -418,13 +418,21 @@ Per aggiungere un file di configurazione per ogni ambiente, seguire questa proce
             "value": "String"
         }
 
+### Nomi delle proprietà con spazi
+Se il nome di una proprietà contiene spazi, usare le parentesi quadre come illustrato nell'esempio seguente per il nome del server di database:
+
+     {
+         "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
+         "value": "MyAsqlServer.database.windows.net"
+     }
+
 
 ### Distribuire la soluzione usando una configurazione
 Quando si pubblicano entità di Data factory di Azure in VS, è possibile specificare la configurazione che si vuole usare per tale operazione di pubblicazione.
 
 Per pubblicare entità in un progetto di Data factory di Azure usando il file di configurazione:
 
-1. Fare clic con il pulsante destro del mouse sul progetto di Data factory e scegliere **Pubblica** per visualizzare la finestra di dialogo **Pubblica elementi**. 
+1. Fare clic con il pulsante destro del mouse sul progetto di Data Factory e scegliere **Pubblica** per visualizzare la finestra di dialogo **Pubblica elementi**. 
 2. Selezionare una data factory esistente o specificare i valori per creare una nuova data factory nella pagina **Configura data factory** e fare clic su **Avanti**.   
 3. Nella pagina **Pubblica elementi** sarà presente un elenco a discesa con le configurazioni disponibili per il campo **Seleziona configurazione di distribuzione**.
 
@@ -440,4 +448,4 @@ Quando si esegue la distribuzione, i valori del file di configurazione vengono u
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

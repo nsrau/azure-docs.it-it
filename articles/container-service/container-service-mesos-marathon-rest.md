@@ -1,6 +1,6 @@
 <properties
    pageTitle="Gestione di contenitori ACS con l'API REST | Microsoft Azure"
-   description="Distribuire contenitori in un cluster del servizio contenitore di Azure usando l'API REST di Marathon."
+   description="Distribuire contenitori in un cluster Mesos del servizio contenitore di Azure usando l'API REST di Marathon."
    services="container-service"
    documentationCenter=""
    authors="neilpeterson"
@@ -20,13 +20,15 @@
    
 # Gestione di contenitori con l'API REST
 
-Mesos offre un ambiente di distribuzione e ridimensionamento del carico di lavoro cluster con l'astrazione dell'hardware sottostante. Su Mesos, i framework gestiscono la pianificazione e l'esecuzione del carico di lavoro di calcolo. Sono disponibili framework per molti dei carichi di lavoro più comuni. Questo documento fornisce informazioni dettagliate sulla creazione e il ridimensionamento della distribuzione di contenitori con Marathon. Prima di eseguire questi esempi, è necessario avere a disposizione un cluster Mesos configurato in ACS e la connettività remota al cluster. Per altre informazioni su questi elementi, vedere gli articoli indicati di seguito.
+Mesos offre un ambiente di distribuzione e ridimensionamento del carico di lavoro cluster con l'astrazione dell'hardware sottostante. Su Mesos, i framework gestiscono la pianificazione e l'esecuzione del carico di lavoro di calcolo. Sono disponibili framework per molti dei carichi di lavoro più comuni. Questo documento fornisce informazioni dettagliate sulla creazione e il ridimensionamento della distribuzione di contenitori con Marathon.
+
+Prima di eseguire questi esempi, è necessario avere a disposizione un cluster Mesos configurato in ACS e la connettività remota al cluster. Per altre informazioni su questi elementi, vedere gli articoli indicati di seguito.
 
 - [Distribuire un cluster del servizio contenitore di Azure](./container-service-deployment.md) 
 - [Connessione a un cluster ACS](./container-service-connect.md)
 
 
-Dopo aver configurato il tunnel SSH sarà possibile accedere alle API REST correlate a Mesos attraverso `http://localhost:LOCAL_PORT`. Negli esempi seguenti si presuppone l'uso della porta 80 per il tunnel. Ad esempio, `http://localhost/marathon/v2` sarà l'endpoint per l'API Marathon. Per altre informazioni sulle varie API disponibili, vedere la documentazione di Mesosphere per l'[API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e l'[API Chronos](https://mesos.github.io/chronos/docs/api.html), nonché la documentazione di Apache per l'[API dell'utilità di pianificazione Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+Dopo la connessione al cluster ACS, è possibile accedere a Mesos e alle API REST correlate tramite http://localhost:local-port. Gli esempi riportati in questo documento presuppongono il tunneling sulla porta 80. Ad esempio, l'endpoint Marathon è disponibile in `http://localhost/marathon/v2/`. Per altre informazioni sulle varie API, vedere la documentazione di Mesosphere per l'[API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e l'[API Chronos](https://mesos.github.io/chronos/docs/api.html), nonché la documentazione di Apache per l'[API dell'utilità di pianificazione Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## Raccogliere informazioni da Mesos e Marathon
 
@@ -36,7 +38,7 @@ Prima di distribuire contenitori nel cluster Mesos, è necessario raccogliere in
 curl http://localhost/master/slaves
 ```
 
-A questo punto, usare l'endpoint `/apps` di Marathon per cercare distribuzioni di Marathon correnti nel cluster Mesos. Se si tratta di un nuovo cluster, verrà visualizzata una matrice vuota di app.
+A questo punto, usare l'endpoint `/apps` di Marathon per cercare distribuzioni dell'applicazione correnti nel cluster Mesos. Se si tratta di un nuovo cluster, verrà visualizzata una matrice vuota di app.
 
 ```
 curl localhost/marathon/v2/apps
@@ -79,7 +81,7 @@ L'output sarà simile al seguente:
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-Se ora si esegue una query per le applicazioni in esecuzione in Marathon, la nuova applicazione verrà visualizzata nell'output.
+Se ora si esegue una query per cercare applicazioni in Marathon, la nuova applicazione verrà visualizzata nell'output.
 
 ```
 curl localhost/marathon/v2/apps
@@ -95,19 +97,19 @@ L'API Marathon può anche essere usata per aumentare o ridurre il numero di ista
 
 Eseguire questo comando per aumentare il numero di istanze dell'applicazione.
 
-> Nota: l'URI sarà http://localhost/marathon/v2/apps/ e si tratta dell'ID dell'applicazione da ridimensionare. Se si usa l'esempio di nginx fornito qui, l'URI sarà http://localhost/v2/nginx.
+> Nota: l'URI sarà http://localhost/marathon/v2/apps/ seguito dall'ID dell'applicazione da ridimensionare. Se si usa l'esempio di nginx fornito qui, l'URI sarà http://localhost/v2/nginx.
 
 ```json
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-Infine, eseguire una query per l'istanza dell'applicazione nell'endpoint Marathon. Le istanze ora sono tre.
+Se si esegue una query per cercare applicazioni nell'endpoint Marathon, ora sono presenti tre applicazioni del contenitore nginx.
 
 ```
 curl localhost/marathon/v2/apps
 ```
 
-## API REST di Marathon con PowerShell
+## Interazione dell'API REST di Marathon con PowerShell
 
 La stessa azione può essere eseguita usando PowerShell in un sistema Windows. Questo esercizio rapido illustra attività simili all'esercizio precedente, questa volta con i comandi di PowerShell.
 
@@ -152,10 +154,10 @@ L'API Marathon può anche essere usata per aumentare o ridurre il numero di ista
 
 Eseguire questo comando per aumentare il numero di istanze dell'applicazione.
 
-> Nota: l'URI sarà http://loclahost/marathon/v2/apps/ e si tratta dell'ID dell'applicazione da ridimensionare. Se si usa l'esempio di nginx fornito qui, l'URI sarà http://localhost/v2/nginx.
+> Nota: l'URI sarà http://loclahost/marathon/v2/apps/ seguito dall'ID dell'applicazione da ridimensionare. Se si usa l'esempio di nginx fornito qui, l'URI sarà http://localhost/v2/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

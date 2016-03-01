@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
+	ms.date="02/17/2016"
 	ms.author="heidist"/>
 
 # Importare dati in Ricerca di Azure tramite l'API REST
@@ -84,4 +84,4 @@ Quando si aggiorna l'indice, verrà visualizzato un codice di stato "200 OK" per
 
 Per altre informazioni su azioni sui documenti e risposte di esito positivo/errore, vedere [questa pagina](https://msdn.microsoft.com/library/azure/dn798930.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

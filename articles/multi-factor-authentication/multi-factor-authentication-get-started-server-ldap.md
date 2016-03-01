@@ -12,8 +12,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.topic="get-started-article" 
+	ms.date="02/18/2016" 
 	ms.author="billmath"/>
 
 # Autenticazione LDAP e server Azure Multi-Factor Authentication 
@@ -63,4 +63,4 @@ Per configurare il client LDAP, seguire queste linee guida:
 - Impostare il timeout di LDAP su un valore compreso tra 30 e 60 secondi in modo da rendere disponibile una quantità di tempo sufficiente per convalidare le credenziali dell'utente con la directory LDAP, eseguire l'autenticazione basata su un secondo fattore, ricevere la risposta e quindi rispondere alla richiesta di accesso LDAP. 
 - Se si usa LDAPS, il dispositivo o il server che esegue le query LDAP deve considerare attendibile il certificato SSL installato nel server Azure Multi-Factor Authentication.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

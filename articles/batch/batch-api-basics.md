@@ -192,15 +192,9 @@ Per altre informazioni sulle attività di preparazione e rilascio dei processi, 
 
 #### <a name="multiinstance"></a>Attività a istanze multiple
 
-Un'[attività a istanze multiple][rest_multiinstance] è un'attività configurata per l'esecuzione contemporanea in più nodi di calcolo. Con le attività a istanze multiple è possibile abilitare scenari high performance computing, ad esempio MPI (Message Passing), che richiedono l'allocazione di un gruppo di nodi di calcolo per l'elaborazione di un singolo carico di lavoro.
+Un'[attività a istanze multiple](batch-mpi.md) è un'attività configurata per l'esecuzione contemporanea in più nodi di calcolo. Con le attività a istanze multiple è possibile abilitare scenari high performance computing, ad esempio MPI (Message Passing), che richiedono l'allocazione di un gruppo di nodi di calcolo per l'elaborazione di un singolo carico di lavoro.
 
-In Batch si crea un'attività a istanze multiple specificando questo tipo di impostazioni per una normale [attività](#task). Le impostazioni includono il numero di nodi di calcolo per eseguire l'attività, una riga di comando per l'attività principale (il "comando dell'applicazione"), un comando di coordinamento e un elenco di file di risorse comuni per ogni attività.
-
-Quando si invia un'attività con impostazioni per istanze multiple a un processo, il servizio Batch esegue le operazioni seguenti:
-
-1. Crea automaticamente un'attività primaria e sufficienti sottoattività che saranno eseguite insieme nel numero totale di nodi specificato. Batch pianifica quindi le attività per l'esecuzione nei nodi, che per prima cosa scaricano i file di risorse comuni specificati.
-2. Una volta scaricati i file di risorse comuni, l'attività primaria e le sottoattività eseguono il comando di coordinamento. Questo comando di coordinamento avvia in genere un servizio in background, ad esempio [MS-MPI][msmpi]\: `smpd.exe`, e verifica che i nodi siano pronti per elaborare i messaggi tra i nodi.
-3. Una volta che l'attività primaria e le sottoattività avranno completato il comando di coordinamento, la riga di comando dell'attività (il "comando dell'applicazione") viene eseguita solo dall'attività primaria, che in genere avvia un'applicazione personalizzata abilitata per MPI che elabora il carico di lavoro nei nodi. Ad esempio, in uno scenario Windows MPI si esegue in genere l'applicazione abilitata per MPI con [MS-MPI][msmpi]\: `mpiexec.exe` usando il comando dell'applicazione.
+Per una discussione dettagliata sull'esecuzione di processi MPI in Batch usando la libreria Batch .NET, vedere l'articolo relativo all'[uso di attività a istanze multiple per l'esecuzione di applicazioni MPI (Message Passing Interface) in Azure Batch](batch-mpi.md).
 
 ### <a name="jobschedule"></a>Processi pianificati
 
@@ -372,4 +366,4 @@ A ogni nodo di un pool viene assegnato un ID univoco e il nodo in cui viene eseg
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

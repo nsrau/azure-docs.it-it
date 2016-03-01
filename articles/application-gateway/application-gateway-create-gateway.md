@@ -48,8 +48,7 @@ I valori possibili sono:
 - **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 - **Porta front-end:** porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
 - **Listener**: ha una porta front-end, un protocollo (HTTP o HTTPS che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
-- **Regola**: associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic*. La regola *basic* è una distribuzione del carico di tipo round robin.
-
+- **Regola**: associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico.
 
 
 ## Creare un nuovo gateway applicazione
@@ -60,7 +59,7 @@ Per creare un gateway applicazione:
 2. Creare un file XML di configurazione o un oggetto di configurazione.
 3. Eseguire il commit della configurazione nella risorsa del gateway applicazione appena creata.
 
->[AZURE.NOTE] Se è necessario configurare un probe personalizzato per il gateway applicazione, vedere l'articolo relativo alla [creazione di un gateway applicazione con probe personalizzati tramite PowerShell](application-gateway-create-probe-classic-ps.md). Per altre informazioni, vedere [Probe personalizzati e monitoraggio dello stato](application-gateway-probe-overview.md).
+>[AZURE.NOTE] Se è necessario configurare un probe personalizzato per il gateway applicazione, vedere [Creare un gateway applicazione con probe personalizzati usando PowerShell](application-gateway-create-probe-classic-ps.md). Per altre informazioni, vedere [Probe personalizzati e monitoraggio dello stato](application-gateway-probe-overview.md).
 
 
 ### Creare una risorsa del gateway applicazione
@@ -223,7 +222,7 @@ Configurare ora il gateway applicazione. Usare il cmdlet **Set-AzureApplicationG
 
 ## Configurare il gateway applicazione usando un oggetto di configurazione
 
-L'esempio seguente mostra come configurare il gateway applicazione usando oggetti di configurazione. Tutti gli elementi di configurazione devono essere configurati singolarmente e quindi aggiunti a un oggetto di configurazione del gateway applicazione. Dopo aver creato l'oggetto di configurazione, usare il comando **Set-AzureApplicationGateway** per eseguire il commit della configurazione nella risorsa del gateway applicazione creata in precedenza.
+L'esempio seguente mostra come configurare il gateway applicazione usando oggetti di configurazione. Tutti gli elementi di configurazione devono essere configurati singolarmente e quindi aggiunti a un oggetto di configurazione del gateway applicazione. Dopo avere creato l'oggetto di configurazione, usare il comando **Set-AzureApplicationGateway** per eseguire il commit della configurazione nella risorsa del gateway applicazione creata in precedenza.
 
 >[AZURE.NOTE] Prima di assegnare un valore a ogni oggetto di configurazione, è necessario dichiarare quale tipologia di oggetto verrà usato da PowerShell per l'archiviazione. La prima riga per creare i singoli elementi definisce quale Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nome oggetto) verrà usato.
 
@@ -328,7 +327,7 @@ Eseguire il commit dell'oggetto di configurazione nella risorsa del gateway appl
 
 ## Avviare il gateway
 
-Dopo aver configurato il gateway, usare il cmdlet **Start-AzureApplicationGateway** per avviarlo. La fatturazione per un gateway applicazione verrà applicata a partire dall'avvio corretto del gateway.
+Dopo avere configurato il gateway, usare il cmdlet **Start-AzureApplicationGateway** per avviarlo. La fatturazione per un gateway applicazione verrà applicata a partire dall'avvio corretto del gateway.
 
 
 > [AZURE.NOTE] Il cmdlet **Start-AzureApplicationGateway** potrebbe impiegare fino a 15-20 minuti.
@@ -372,7 +371,7 @@ Per eliminare un gateway applicazione:
 2. Usare il cmdlet **Remove-AzureApplicationGateway** per rimuovere il gateway.
 3. Verificare che il gateway sia stato rimosso usando il cmdlet **Get-AzureApplicationGateway**.
 
-L'esempio mostra il cmdlet **Stop-AzureApplicationGateway** nella prima riga, seguito dall'output.
+L'esempio seguente mostra il cmdlet **Stop-AzureApplicationGateway** nella prima riga, seguito dall'output.
 
 	Stop-AzureApplicationGateway AppGwTest
 
@@ -407,11 +406,11 @@ Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet *
 
 Per configurare l'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
-Per configurare un gateway applicazione da usare con il dispositivo di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
+Per configurare un gateway applicazione da usare con il servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno](application-gateway-ilb.md).
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/25/2015"
+	ms.date="02/18/2016"
 	ms.author="awills"/>
 
 
@@ -196,6 +196,7 @@ Sul lato client Windows 7, 8 e 8.1, con .NET Framework 4.0 e 4.5
 
 Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 
+
 ## <a name="next"></a>Passaggi successivi
 
 * [Creare test Web][availability] per assicurarsi che il sito rimanga attivo.
@@ -220,4 +221,4 @@ Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

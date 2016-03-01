@@ -25,7 +25,13 @@
 
 Archiviazione BLOB di Azure è un servizio che archivia i dati dei file nel cloud. Archiviazione BLOB può archiviare qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. Archiviazione BLOB è talvolta detta archiviazione di oggetti.
 
-Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comuni dell'archiviazione BLOB di Azure. Gli scenari presentati includono caricamento, visualizzazione dell'elenco, download ed eliminazione di BLOB. Il completamento di questa esercitazione richiede non più di un'ora.
+### Informazioni sull'esercitazione
+
+Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comuni dell'archiviazione BLOB di Azure. Gli scenari presentati includono caricamento, visualizzazione dell'elenco, download ed eliminazione di BLOB.
+
+**Tempo previsto per il completamento:** 45 minuti
+
+**Prerequisiti:**
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -353,9 +359,9 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
 - [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md)
 - [Come usare l'archiviazione code da .NET](storage-dotnet-how-to-use-queues.md)
 - [Come usare l'archiviazione file di Azure](storage-dotnet-how-to-use-files.md)
-- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
-- [Come usare il database SQL di Azure in applicazioni .NET](../sql-database/sql-database-dotnet-how-to-use.md)
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 - [Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+- [Uso del database SQL da .NET (C#)](../sql-database/sql-database-dotnet-how-to-use.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -368,4 +374,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

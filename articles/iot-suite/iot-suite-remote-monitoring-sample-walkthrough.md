@@ -78,11 +78,90 @@ Il riconoscimento di comando del dispositivo viene fornito tramite l'hub IoT.
 
 ### Processi di Analisi di flusso di Azure
 
-**Processo 1: Telemetria** agisce sul flusso in entrata dei dati di telemetria del dispositivo usando due comandi. Il primo comando Invia tutti i messaggi di telemetria dai dispositivi all'archivio BLOB permanente. Il secondo comando calcola i valori di umidità media, minima e massima in una finestra temporale scorrevole di cinque minuti. I dati vengono inviati anche all'archivio BLOB.
+**Processo 1: Telemetria** agisce in due modi sul flusso in entrata dei dati di telemetria del dispositivo. Il primo invia tutti i messaggi di telemetria dai dispositivi all'archivio BLOB permanente. Il secondo calcola i valori di umidità media, minima e massima in una finestra temporale scorrevole di cinque minuti. I dati vengono inviati anche all'archivio BLOB. Questo processo usa la definizione di query seguente:
 
-**Processo 2: Informazioni sul dispositivo** filtra i messaggi informativi sul dispositivo dal flusso di messaggi in arrivo e li invia a un endpoint dell'hub eventi. Un dispositivo invia messaggi di informazioni di dispositivo all'avvio e in risposta a un comando **SendDeviceInfo**.
+```
+WITH 
+    [StreamData]
+AS (
+    SELECT
+        *
+    FROM 
+      [IoTHubStream] 
+    WHERE
+        [ObjectType] IS NULL -- Filter out device info and command responses
+) 
 
-**Processo 3: Regole** restituisce valori di telemetria in arrivo relativi a temperatura e umidità rispetto alle soglie per dispositivo. I valori di soglia vengono impostati nell'editor delle regole incluso nella soluzione. Ogni coppia dispositivo/valore viene archiviata in base al timestamp in un BLOB che viene letto in Analisi di flusso come **Dati di riferimento**. Il processo confronta tutti i valori non vuoti rispetto alla soglia impostata per il dispositivo. Se supera la condizione ' >', il processo genera un evento di **allarme** che indica che la soglia è stata superata e fornisce il dispositivo, il valore e i valori di timestamp.
+SELECT
+    *
+INTO
+    [Telemetry]
+FROM
+    [StreamData]
+
+SELECT
+    DeviceId,
+    AVG (Humidity) AS [AverageHumidity], 
+    MIN(Humidity) AS [MinimumHumidity], 
+    MAX(Humidity) AS [MaxHumidity], 
+    5.0 AS TimeframeMinutes 
+INTO
+    [TelemetrySummary]
+FROM
+    [StreamData]
+WHERE
+    [Humidity] IS NOT NULL
+GROUP BY
+    DeviceId, 
+    SlidingWindow (mi, 5)
+```
+
+**Processo 2: Informazioni sul dispositivo** filtra i messaggi informativi sul dispositivo dal flusso di messaggi in arrivo e li invia a un endpoint dell'hub eventi. Un dispositivo invia messaggi di informazioni sul dispositivo all'avvio e in risposta a un comando **SendDeviceInfo**. Questo processo usa la definizione di query seguente:
+
+```
+SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
+```
+
+**Processo 3: Regole** restituisce valori di telemetria in arrivo relativi a temperatura e umidità rispetto alle soglie per dispositivo. I valori di soglia vengono impostati nell'editor delle regole incluso nella soluzione. Ogni coppia dispositivo/valore viene archiviata in base al timestamp in un BLOB che viene letto in Analisi di flusso come **Dati di riferimento**. Il processo confronta tutti i valori non vuoti rispetto alla soglia impostata per il dispositivo. Se supera la condizione ' >', il processo genera un evento di **allarme** che indica che la soglia è stata superata e fornisce il dispositivo, il valore e i valori di timestamp. Questo processo usa la definizione di query seguente:
+
+```
+WITH AlarmsData AS 
+(
+SELECT
+     Stream.DeviceID,
+     'Temperature' as ReadingType,
+     Stream.Temperature as Reading,
+     Ref.Temperature as Threshold,
+     Ref.TemperatureRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+WHERE
+     Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+
+UNION ALL
+
+SELECT
+     Stream.DeviceID,
+     'Humidity' as ReadingType,
+     Stream.Humidity as Reading,
+     Ref.Humidity as Threshold,
+     Ref.HumidityRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+WHERE
+     Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
+)
+
+SELECT *
+INTO DeviceRulesMonitoring
+FROM AlarmsData
+
+SELECT *
+INTO DeviceRulesHub
+FROM AlarmsData
+```
 
 ### Processore di eventi
 
@@ -145,4 +224,4 @@ Tramite il portale della soluzione è possibile cercare i dispositivi con caratt
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

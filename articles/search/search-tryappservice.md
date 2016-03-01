@@ -13,22 +13,23 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="01/13/2016"
+   ms.date="02/21/2016"
    ms.author="heidist"/>
 
 # Prova gratuita della ricerca di Azure con il servizio app di Azure
 
 [Prova Servizio app di Azure](https://tryappservice.azure.com/) è una sessione gratuita di un'ora basata su browser per provare i servizi di Azure, tra cui **Ricerca di Azure**, senza doversi iscrivere ad alcuna sottoscrizione. Il sito offre diversi modelli disponibili. Quando si seleziona il modello ASP.NET che include Ricerca di Azure, si ottiene accesso a un sito Web completamente funzionale, supportato dai servizi selezionati.
 
-All'interno dell'offerta [Prova Servizio app di Azure](https://tryappservice.azure.com/), il servizio di Ricerca di Azure è già configurato e pronto per ricevere query di ricerca. Non è possibile caricare o usare il proprio indice o i propri dati, ma è possibile eseguire query e apportare modifiche al codice per ridefinire l'esperienza utente.
+All'interno dell'offerta **Prova il Servizio app di Azure** il servizio di Ricerca di Azure è già configurato e pronto per ricevere query di ricerca. Non è possibile caricare o usare il proprio indice o i propri dati, ma è possibile eseguire query e apportare modifiche al codice per ridefinire l'esperienza utente.
 
-I dati di ricerca provengono dallo [United States Geological Survey (USG)](http://geonames.usgs.gov/domestic/download_data.htm) e sono costituiti da circa 3 milioni di righe di luoghi di interesse, siti di rilevanza storica, edifici e altri punti di riferimento negli Stati Uniti.
+I dati di ricerca provengono dallo [United States Geological Survey (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) e sono costituiti da circa 3 milioni di righe di luoghi di interesse, siti di rilevanza storica, edifici e altri punti di riferimento negli Stati Uniti.
 
 ## Introduzione
 
 Se è stato avviata la sessione di 1 ora, attenersi alla seguente procedura per iniziare.
 
-1. Visitare l'indirizzo [https://tryappservice.azure.com](https://tryappservice.azure.com/)e scorrere la pagina verso il basso per selezionare **Web App**. 
+1. Fare clic su [https://tryappservice.azure.com](https://tryappservice.azure.com/) per aprire il sito in una nuova finestra del browser.
+2. Scorrere verso il basso e selezionare **App Web**. 
 2. Fare clic su **Avanti**.
 3. Scegliere il modello **ASP.NET + Azure Search Site**.
 
@@ -523,4 +524,4 @@ Nella istantanea video che seguente viene illustrato lo schema utilizzato per cr
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

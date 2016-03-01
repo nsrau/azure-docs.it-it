@@ -28,9 +28,9 @@ Questo articolo presuppone che si sia in grado di usare C# e Visual Studio e di 
 
 ### Account
 
-- **Account Azure**: se non si ha già una sottoscrizione di Azure, è possibile creare un account di valutazione gratuito in pochi minuti nella pagina della [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+- **Account Azure**: se non si ha una sottoscrizione di Azure, è possibile [creare un account Azure gratuito][azure_free_account].
 - **Account Batch**: dopo avere creato una sottoscrizione di Azure, vedere [Creare e gestire un account Azure Batch](batch-account-create-portal.md).
-- **Account di archiviazione**: vedere la sezione "Creare un account di archiviazione" in [Informazioni sugli account di archiviazione di Azure](../storage-create-storage-account.md).
+- **Account di archiviazione**: vedere la sezione "Creare un account di archiviazione" in [Informazioni sugli account di archiviazione di Azure](./../storage/storage-create-storage-account.md).
 
 ### Visual Studio
 
@@ -626,6 +626,7 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 - Una diversa implementazione dell'elaborazione del carico di lavoro di tipo "prime N parole" con Batch è disponibile nell'esempio [TopNWords][github_topnwords].
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
+[azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
 [batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
@@ -680,4 +681,4 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenziali del servizio di archiviazione nel portale"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Flusso di lavoro della soluzione Batch (diagramma minimo)"
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -17,10 +17,13 @@
 	ms.author="heidist"/>
 
 # Introduzione a Ricerca di Azure in Java
+> [AZURE.SELECTOR]
+- [Portal](search-get-started-portal.md)
+- [.NET](search-get-started-dotnet.md)
 
 Informazioni su come compilare un'applicazione di ricerca Java personalizzata che utilizza Ricerca di Azure per l’esperienza di ricerca. L'esercitazione utilizza l’[API REST del servizio Ricerca di Azure](https://msdn.microsoft.com/library/dn798935.aspx) per costruire gli oggetti e le operazioni utilizzati in questo esercizio.
 
-Per eseguire questo esempio, è necessario avere un servizio di Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com). Per istruzioni dettagliate, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per eseguire questo esempio è necessario avere un servizio di Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com). Per istruzioni dettagliate, vedere [Creare un servizio di Ricerca di Azure nel portale di Azure](search-create-service-portal.md).
 
 Per compilare e testare questo esempio è stato utilizzato il seguente software:
 
@@ -56,7 +59,7 @@ Nell'elenco seguente vengono descritti i file che sono rilevanti per questo esem
 Per tutte le chiamate API REST a Ricerca di Azure è necessario specificare l'URL del servizio e una chiave API.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nella barra di spostamento fare clic su **Servizio di ricerca** per elencare tutti i servizi di Ricerca di Azure con provisioning per la sottoscrizione.
+2. Nella barra di spostamento fare clic su **Servizio di ricerca** per elencare tutti i servizi di Ricerca di Azure di cui è stato eseguito il provisioning per la sottoscrizione.
 3. Selezionare il servizio che si vuole usare.
 4. Nel dashboard del servizio saranno presenti i riquadri per le informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
 
@@ -92,7 +95,7 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 
 1. In **Project Explorer**, fare doppio clic su **config.properties** per modificare le impostazioni di configurazione contenenti il nome del server e la chiave dell'api.
 
-2. Vedere i passaggi descritti in precedenza in questo articolo in cui si sono trovati l'URL del servizio e la chiave API nel [portale di Azure](https://portal.azure.com), per ottenere i valori da immettere in **config.properties**.
+2. Vedere i passaggi descritti in precedenza in questo articolo, in cui sono stati trovati l'URL del servizio e la chiave API nel [portale di Azure](https://portal.azure.com), per ottenere i valori da immettere in **config.properties**.
 
 3. In **config.properties**, sostituire "Api Key" con la chiave dell’api appropriata per il servizio. Successivamente, il nome del servizio (il primo componente dell'URL http://servicename.search.windows.net) sostituisce "service name" nello stesso file.
 
@@ -182,7 +185,7 @@ L’immissione di un termine di ricerca fornirà al motore di ricerca un element
 
 Questa è la prima esercitazione di Ricerca di Azure basata su Java e sul set di dati dei servizi geologici degli Stati Uniti. Nel corso del tempo, l’esercitazione sarà ampliata per illustrare le funzionalità di ricerca aggiuntive che potrebbero essere utili nelle soluzioni personalizzate.
 
-Se si dispone già delle nozioni di base di Ricerca di Azure, è possibile utilizzare questo esempio come base per ulteriore sperimentazione, ad esempio ampliando la [pagina di ricerca](search-pagination.md) o implementando l’[esplorazione basata su facet](search-faceted-navigation.md). È inoltre possibile migliorare la pagina dei risultati della ricerca aggiungendo conteggi e raggruppando i documenti in modo che gli utenti possano sfogliare i risultati.
+Se si dispone già delle nozioni di base di Ricerca di Azure, è possibile utilizzare questo esempio come base per ulteriore sperimentazione, ad esempio ampliando la [pagina di ricerca](search-pagination-page-layout.md) o implementando l’[esplorazione basata su facet](search-faceted-navigation.md). È inoltre possibile migliorare la pagina dei risultati della ricerca aggiungendo conteggi e raggruppando i documenti in modo che gli utenti possano sfogliare i risultati.
 
 Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acquisire consapevolezza di ciò che è possibile creare. Visitare la [pagina della documentazione](https://azure.microsoft.com/documentation/services/search/) per trovare ulteriori risorse. È inoltre possibile visualizzare i collegamenti nell'[elenco di video ed esercitazioni](search-video-demo-tutorial-list.md) per accedere a ulteriori informazioni.
 
@@ -200,4 +203,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="01/05/2016" 
 	ms.author="omark"/>
 
@@ -50,7 +50,7 @@ Il servizio app consente di creare i tipi di app seguenti in una singola esperie
 In qualità di singolo servizio integrato, il servizio app semplifica la combinazione dei tipi di app descritti sopra in un'unica soluzione e consente di creare facilmente app indirizzate ai client, sia Web che mobili, usando lo stesso back-end e ottenendo l'integrazione con sistemi locali, nonché con servizi diffusi come Office 365 e salesforce.com.
 
 ### Piani di servizio app
-I piani di servizio app rappresentano un set di funzionalità e capacità che è possibile condividere tra le app. I piani di servizio app supportano alcuni livelli di prezzo, (ad esempio modalità gratuita, condivisa, base, standard e premium), con ciascun livello che presenta funzionalità proprie. È possibile modificare rapidamente il tipo di piano di servizio in cui è ospitata una determinata app senza alcun tempo di inattività. [Informazioni sui piani di servizio app](../web-sites-web-hosting-plan-overview.md).
+I piani di servizio app rappresentano un set di funzionalità e capacità che è possibile condividere tra le app. I piani di servizio app supportano alcuni livelli di prezzo, (ad esempio modalità gratuita, condivisa, base, standard e premium), con ciascun livello che presenta funzionalità proprie. È possibile modificare rapidamente il tipo di piano di servizio in cui è ospitata una determinata app senza alcun tempo di inattività. [Informazioni sui piani di servizio app](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 ##Introduzione al servizio app
 Perché non provarlo? È possibile renderlo operativo in pochi secondi.
@@ -60,4 +60,4 @@ Per l'impostazione del servizio app di Azure è sufficiente selezionare un lingu
 [Creare una nuova app](http://go.microsoft.com/fwlink/?LinkId=523751) immediatamente e in modo totalmente gratuito. Non è necessaria alcuna carta di credito. Nessun impegno, nessun grattacapo.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

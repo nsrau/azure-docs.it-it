@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
+   manager="carmonm"
    editor="" />
 <tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="01/14/2016"
+   ms.workload="NA"
+   ms.date="02/22/2016"
    ms.author="alkohli" />
 
 # Distribuire un dispositivo StorSimple locale
@@ -146,7 +146,7 @@ Prima di iniziare, verificare che:
 | | | |
 | **NTP** | È attiva la sincronizzazione dell'ora non appena il server NTP è di input. Controllare che la porta 123 sia aperta durante l'input`time.windows.com`o server di riferimento ora pubblico). | [Scaricare e utilizzare questo script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **Proxy (facoltativo)** | Si tratta di una porta e URI del proxy validi? </br>La modalità di autenticazione è corretta? | <code>wget http://bing.com &#124; % {$\_.StatusCode}</code></br>Questo comando deve essere eseguito immediatamente dopo la configurazione del proxy Web. Se viene restituito un codice di stato 200, significa che la connessione ha avuto esito positivo. |
+| **Proxy (facoltativo)** | Si tratta di una porta e URI del proxy validi? </br>La modalità di autenticazione è corretta? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>Questo comando deve essere eseguito immediatamente dopo la configurazione del proxy Web. Se viene restituito un codice di stato 200, significa che la connessione ha avuto esito positivo. |
 | | Il traffico è indirizzabile tramite proxy? | Eseguire la convalida di DNS, il controllo NTP o HTTP dopo la configurazione del proxy sul dispositivo. Questo fornirà un quadro preciso se il traffico viene bloccato nel proxy o altrove. |
 | | | |
 | **Registrazione** | Controllare che le porte TCP in uscita 443, 80, 9354 siano aperte. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Ulteriori informazioni per il cmdlet Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -167,8 +167,7 @@ Effettuare i passaggi seguenti per creare una nuova istanza del servizio StorSim
 
 > [AZURE.IMPORTANT] Se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio, sarà necessario creare almeno un account di archiviazione dopo avere creato un servizio. Tale account di archiviazione verrà utilizzato in fase di creazione di un contenitore di volumi.
 >
-> Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#configure-a-new-storage-account-for-the-service) per istruzioni dettagliate. 
-> Se è stata abilitata la creazione automatica di un account di archiviazione, andare al [Passaggio 2: Ottenere la chiave di registrazione del servizio](#step-2:-get-the-service-registration-key).
+> Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#configure-a-new-storage-account-for-the-service) per istruzioni dettagliate. Se è stata abilitata la creazione automatica di un account di archiviazione, andare al [Passaggio 2: Ottenere la chiave di registrazione del servizio](#step-2:-get-the-service-registration-key).
 
 ## Passaggio 2: Ottenere la chiave di registrazione del servizio
 
@@ -294,4 +293,4 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un backup 
 
 - Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

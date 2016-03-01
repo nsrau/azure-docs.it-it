@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
+	ms.date="02/17/2016"
 	ms.author="heidist"/>
 
 # Compilare query in Ricerca di Azure con chiamate REST
@@ -67,4 +67,4 @@ Cercare nell'intero indice e ordinare in base a un campo specifico (lastRenovati
 
 Una richiesta di query riuscita restituirà un codice di stato "200 OK" e i risultati della ricerca saranno riportati in formato JSON nel corpo della risposta. Per altre informazioni, vedere la sezione "Risposta" di [questa pagina](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

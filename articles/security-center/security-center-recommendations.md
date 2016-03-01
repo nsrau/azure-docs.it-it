@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="02/23/2016"
    ms.author="terrylan"/>
 
 # Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure
@@ -38,7 +38,7 @@ In [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](securit
 - Attivare la raccolta dei dati.
 - Scegliere le raccomandazioni da visualizzare nell'ambito dei criteri di sicurezza.
 
-Le raccomandazioni relative ai criteri di sicurezza si basano attualmente su aggiornamenti di sistema, regole della baseline, programmi antimalware, [ACL per gli endpoint](../virtual-machines/virtual-machines-set-up-endpoints.md), [gruppi di sicurezza di rete](../virtual-networks/virtual-networks-nsg.md) per subnet e interfacce di rete, controllo del database SQL, Transparent Data Encryption per il database SQL e Web application firewall. L'articolo [Impostazione dei criteri di sicurezza](security-center-policies.md) fornisce una descrizione di ogni opzione relativa alle raccomandazioni.
+Le raccomandazioni relative ai criteri di sicurezza si basano attualmente su aggiornamenti di sistema, regole della baseline, programmi antimalware, [ACL per gli endpoint](../virtual-machines/virtual-machines-set-up-endpoints.md), [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per subnet e interfacce di rete, controllo del database SQL, Transparent Data Encryption per il database SQL e Web application firewall. L'articolo [Impostazione dei criteri di sicurezza](security-center-policies.md) fornisce una descrizione di ogni opzione relativa alle raccomandazioni.
 
 ### Monitorare le raccomandazioni
 Una volta impostato un criterio di sicurezza, il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificare le potenziali vulnerabilità. Il riquadro **Raccomandazioni** nel pannello **Centro sicurezza** consente di conoscere il numero totale di raccomandazioni identificate dal Centro sicurezza.
@@ -62,17 +62,19 @@ Le raccomandazioni vengono visualizzate sotto forma di tabella, in cui ogni riga
     - **Media**: esiste una vulnerabilità e sono necessari passaggi aggiuntivi o non critici per eliminarla o per completare un processo.
     - **Bassa**: esiste una vulnerabilità che è opportuno risolvere, ma che non richiede attenzione immediata. Per impostazione predefinita, le raccomandazioni con gravità bassa non appaiono, ma è possibile visualizzarle applicando il filtro corrispondente.
 
-Usare la tabella seguente come riferimento per conoscere le raccomandazioni disponibili e gli effetti che producono se si decide di metterle in pratica:
+Usare la tabella seguente come riferimento per conoscere le raccomandazioni disponibili e gli effetti che producono se si decide di metterle in pratica.
+
+> [AZURE.NOTE] È necessario conoscere i [modelli di distribuzione di Azure Resource Manager e classico](../azure-classic-rm.md) per le risorse di Azure.
 
 |Raccomandazione|Descrizione|
 |-----|-----|
 |Abilitare la raccolta dati per le sottoscrizioni/macchine virtuali|È consigliabile attivare la raccolta dei dati nei criteri di sicurezza per ogni sottoscrizione o per le VM selezionate.|
 |Risolvere la mancata corrispondenza alle regole della linea di base|Consiglia di allineare le configurazioni dei sistemi operativi alle linee di base raccomandate, ad esempio non consentire il salvataggio delle password.|
 |Applicare gli aggiornamenti di sistema|Suggerisce di distribuire gli aggiornamenti critici e della sicurezza di sistema mancanti nelle macchine virtuali (solo VM Windows).|
-|Configurare gli elenchi di controllo di accesso per gli endpoint|Suggerisce di configurare elenchi di controllo di accesso per limitare l'accesso in ingresso solo alle macchine virtuali (solo VM classiche).|
-|Aggiungere un Web Application Firewall|Suggerisce di distribuire un Web application firewall (WAF) per gli endpoint Web (solo VM di Gestione risorse).|
+|Configurare gli elenchi di controllo di accesso per gli endpoint|Suggerisce di configurare elenchi di controllo di accesso per limitare l'accesso in ingresso alle macchine virtuali, solo nella versione classica.|
+|[Aggiungere un Web Application Firewall](security-center-add-web-application-firewall.md)|Suggerisce di distribuire un Web application firewall (WAF) per gli endpoint Web. Il processo di provisioning automatico si basa su pacchetti WAF, creati con il modello di distribuzione di Azure Resource Manager, che vengono distribuiti in una rete virtuale separata. L'accesso alle applicazioni Web protette in macchine virtuali (versione classica) viene limitato ai dispositivi WAF solo tramite NSG. In futuro tale supporto verrà esteso a una distribuzione completamente personalizzata di pacchetti WAF (versione classica).|
 |Finalizzare la configurazione del Web Application Firewall|Per completare la configurazione di un Web Application Firewall, il traffico deve essere reindirizzato al dispositivo WAF. Seguendo questa raccomandazione si completeranno le modifiche di configurazione necessarie.|
-|Abilitare il servizio antimalware|Suggerisce di effettuare il provisioning dei programmi antimalware nelle macchine virtuali (solo VM Windows).|
+|[Abilitare il servizio antimalware](security-center-enable-antimalware.md)|Suggerisce di effettuare il provisioning dei programmi antimalware nelle macchine virtuali (solo VM Windows).|
 |Abilitare i gruppi di sicurezza di rete nelle subnet/interfacce di rete|Suggerisce di abilitare i gruppi di sicurezza di rete nelle subnet e nelle interfacce di rete (solo VM di Gestione risorse).|
 |Limitare l'accesso tramite endpoint esterni pubblici|Consiglia di configurare le regole del traffico in ingresso per i gruppi di sicurezza di rete.|
 |Abilitare il servizio di controllo SQL per i server|Suggerisce di attivare il controllo per i server SQL di Azure. Solo il servizio SQL di Azure, non SQL in esecuzione nelle macchine virtuali.|
@@ -92,7 +94,7 @@ Usare la tabella seguente come riferimento per conoscere le raccomandazioni disp
     ![][4]
 
 ### Applicare le raccomandazioni
-Dopo aver esaminato tutte le raccomandazioni, decidere quale applicare per prima. È consigliabile usare la classificazione di gravità come parametro principale per valutare quali raccomandazioni applicare per prime. Prendendo come esempio la raccomandazione per **abilitare un antimalware**, viene illustrata di seguito la procedura da seguire per applicarla:
+Dopo aver esaminato tutte le raccomandazioni, decidere quale applicare per prima. È consigliabile usare la classificazione di gravità come parametro principale per valutare quali raccomandazioni applicare per prime. Prendendo come esempio la raccomandazione per **abilitare un antimalware**, viene illustrata di seguito la procedura da seguire per applicarla.
 
 1. Nel pannello **Raccomandazioni** selezionare **Abilitare antimalware**. ![][5]
 
@@ -101,26 +103,8 @@ Dopo aver esaminato tutte le raccomandazioni, decidere quale applicare per prima
 4. Vengono visualizzate altre informazioni sulla soluzione antimalware selezionata. Selezionare **Create**.
 5. Specificare le impostazioni di configurazione necessarie nel pannello **Aggiungi estensione** e selezionare **OK**. ![][6]
 
-[Microsoft Antimalware](../azure-security/azure-security-antimalware.md) è ora attivo nella macchina virtuale selezionata.
+[Microsoft Antimalware](../azure-security-antimalware.md) è ora attivo nella macchina virtuale selezionata.
 
-### Distribuire soluzioni dei partner raccomandate
-
-Un'altra raccomandazione che può essere visualizzata riguarda la distribuzione di una soluzione di sicurezza integrata di un partner Microsoft. Di seguito è illustrata una procedura di esempio.
-
-1. Tornare al pannello **Raccomandazioni**.
-2.	Selezionare la raccomandazione **Proteggere l'applicazione Web tramite Web Application Firewall**. Verrà visualizzato il pannello **Applicazioni Web non protette**. ![][7]
-3. Selezionare un'applicazione Web: viene visualizzato il pannello **Aggiungere un Web Application Firewall**.
-4. Selezionare **Barracuda Web Application Firewall**. Viene visualizzato un pannello contenente informazioni su **Barracuda Web Application Firewall**.
-5. Nel pannello informativo fare clic su **Crea**. Viene visualizzato il pannello **Nuovo Web Application Firewall**, in cui è possibile eseguire la procedura di **Configurazione macchina virtuale** e fornire i dati richiesti in **Informazioni WAF**.
-6. Selezionare **Configurazione macchina virtuale**. Nel pannello **Configurazione macchina virtuale** immettere le informazioni necessarie per avviare la macchina virtuale che eseguirà il WAF. ![][8]
-7. Tornare al pannello **Nuovo Web Application Firewall** e selezionare **Informazioni WAF**. Nel pannello **Informazioni WAF** è possibile configurare il Web Application Firewall. Il passaggio 6 consente di configurare la macchina virtuale che eseguirà il firewall, mentre con il passaggio 7 si esegue il provisioning del firewall.
-
-8. Tornare al pannello **Raccomandazioni**. Dopo la creazione di WAF viene aggiunta una nuova voce: **Finalizzare la configurazione di Web application firewall**. Questa raccomandazione informa l'utente che è necessario completare il processo di connessione effettiva di WAF all'interno della rete virtuale di Azure in modo da proteggere l'applicazione. ![][9]
-
-9. Selezionare **Finalizzare la configurazione di Web application firewall**. Viene visualizzato un nuovo pannello. Come si può vedere, è presente un'applicazione Web il cui traffico deve essere reindirizzato.
-10. Selezionare l'applicazione Web. Viene visualizzato un pannello in cui è possibile eseguire la procedura per finalizzare la configurazione di Web application firewall. Completare i passaggi e quindi fare clic su **Limita il traffico**. Il Centro sicurezza eseguirà quindi automaticamente la connessione. ![][10]
-
-I log generati dal WAF sono ora completamente integrati. Il Centro sicurezza può avviare automaticamente la raccolta e l'analisi dei log, per mettere in evidenza eventuali avvisi di sicurezza importanti.
 
 ## Passaggi successivi
 Questo documento ha introdotto le raccomandazioni relative alla sicurezza nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
@@ -137,9 +121,5 @@ Questo documento ha introdotto le raccomandazioni relative alla sicurezza nel Ce
 [4]: ./media/security-center-recommendations/dismiss-recommendations.png
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
-[7]: ./media/security-center-recommendations/secure-web-application.png
-[8]: ./media/security-center-recommendations/vm-configuration.png
-[9]: ./media/security-center-recommendations/finalize-waf.png
-[10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

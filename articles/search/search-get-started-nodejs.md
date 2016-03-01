@@ -17,12 +17,15 @@
 	ms.author="heidist"/>
 
 # Introduzione a Ricerca di Azure in NodeJS
+> [AZURE.SELECTOR]
+- [Portal](search-get-started-portal.md)
+- [.NET](search-get-started-dotnet.md)
 
 Informazioni su come compilare un'applicazione di ricerca NodeJS personalizzata che utilizza Ricerca di Azure per l’esperienza di ricerca. L'esercitazione utilizza l’[API REST del servizio Ricerca di Azure](https://msdn.microsoft.com/library/dn798935.aspx) per costruire gli oggetti e le operazioni utilizzati in questo esercizio.
 
 Sono stati utilizzati [NodeJS](https://nodejs.org) e NPM, [Sublime Text 3](http://www.sublimetext.com/3) e Windows PowerShell in Windows 8.1 per sviluppare e testare il codice.
 
-Per eseguire questo esempio, è necessario avere un servizio di Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com). Per istruzioni dettagliate, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+Per eseguire questo esempio è necessario avere un servizio di Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com). Per istruzioni dettagliate, vedere [Creare un servizio di Ricerca di Azure nel portale di Azure](search-create-service-portal.md).
 
 ## Informazioni sui dati
 
@@ -39,7 +42,7 @@ In questa applicazione, il programma **DataIndexer** compila e carica l'indice u
 Dopo aver creato il servizio, tornare al portale per ottenere l'URL o `api-key`. Per le connessioni al servizio Ricerca è necessario disporre sia dell'URL che di una `api-key` per l'autenticazione della chiamata.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nella barra di spostamento fare clic su **Servizio di ricerca** per elencare tutti i servizi di Ricerca di Azure con provisioning per la sottoscrizione.
+2. Nella barra di spostamento fare clic su **Servizio di ricerca** per elencare tutti i servizi di Ricerca di Azure di cui è stato eseguito il provisioning per la sottoscrizione.
 3. Selezionare il servizio che si vuole usare.
 4. Nel dashboard del servizio, saranno riportate sezioni per informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
 
@@ -118,4 +121,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

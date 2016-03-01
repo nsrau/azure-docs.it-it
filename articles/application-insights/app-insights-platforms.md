@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/07/2016"
+	ms.date="02/22/2016"
 	ms.author="awills"/>
 
 # Application Insights: linguaggi, piattaforme e integrazioni
@@ -39,10 +39,11 @@ Si tratta di implementazioni già illustrate, incluse alcune di terze parti.
 + [ASP.NET - per app già attive](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
-+ [App Web e macchine virtuali di Azure](../insights-perf-analytics.md)
++ [App Web e macchine virtuali di Azure](../azure-portal/insights-perf-analytics.md)
 + [Servizi cloud di Azure](app-insights-cloudservices.md)&#151;che includono sia i ruoli Web che i ruoli di lavoro
 + [CRM Online da Microsoft Dynamics](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)
++ [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE - per app già attive](app-insights-java-live.md)
@@ -83,4 +84,4 @@ Si tratta di implementazioni già illustrate, incluse alcune di terze parti.
 
 Se non esiste ancora un SDK per il linguaggio o la piattaforma usata, è possibile crearne uno. A tale scopo, esaminare il codice degli SDK esistenti incluso nel [progetto di Application Insights SDK su GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

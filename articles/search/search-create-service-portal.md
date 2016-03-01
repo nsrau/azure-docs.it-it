@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/05/2016"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Creare un servizio di Ricerca di Azure nel portale di Azure
@@ -25,7 +25,7 @@ Ricerca di Azure è disponibile con piani tariffari che variano da gratuito (con
 
 ## Aggiungere gratuitamente Ricerca di Azure alla sottoscrizione
 
-L'amministratore può aggiungere Ricerca di Azure a una sottoscrizione di Azure esistente, senza costi aggiuntivi se viene scelto il servizio condiviso. Per iniziare a provare il servizio, è possibile iscriversi per la [sottoscrizione di una versione di valutazione gratuita](../includes/free-trial-note.md).
+L'amministratore può aggiungere Ricerca di Azure a una sottoscrizione di Azure esistente, senza costi aggiuntivi se viene scelto il servizio condiviso. Per iniziare a provare il servizio, è possibile iscriversi per ottenere la [sottoscrizione di una versione di valutazione gratuita](../../includes/free-trial-note.md).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -126,4 +126,4 @@ Dopo aver creato il servizio, è possibile eseguire i passaggi successivi: compi
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

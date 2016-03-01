@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="hero-article" 
-	ms.date="11/16/2015"
+	ms.date="02/19/2016"
 	ms.author="huvalo"/>
 
 
@@ -26,7 +26,7 @@ Verrà creata un'applicazione usando il framework Web di Bottle (vedere le versi
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 
 ## Prerequisiti
@@ -57,7 +57,6 @@ Per Git, è consigliabile [Git per Windows] o [GitHub per Windows]. Se si utiliz
 Il primo passaggio per la creazione di un'app consiste nella creazione dell'app Web tramite il [portale di Azure](https://portal.azure.com).
 
 1. Accedere al portale di Azure e scegliere il **nuovo** pulsante nell'angolo inferiore sinistro.
-2. Fare clic su **Web e dispositivi mobili**.
 3. Nella casella di ricerca digitare "python".
 4. Nei risultati della ricerca, selezionare **Django**, quindi fare clic su **Crea**.
 5. Configurare la nuova applicazione Django, come la creazione di un nuovo piano di servizio dell'applicazione e un nuovo gruppo di risorse per esso. Fare quindi clic su **Crea**.
@@ -118,7 +117,7 @@ File di configurazione IIS. Lo script di distribuzione utilizzerà il file appro
 
 ### File facoltativi - Personalizzazione della distribuzione
 
-[AZURE.INCLUDE [web-sites-python-customizing-deployment](../../includes/web-sites-python-customizing-deployment.md)]
+[AZURE.INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
 
 ### File facoltativi - Runtime Python
 
@@ -517,4 +516,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/devel
 [documentazione di Python Tools per Visual Studio]: http://aka.ms/ptvsdocs
 [Documentazione di Django]: https://www.djangoproject.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->
