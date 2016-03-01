@@ -92,7 +92,7 @@ Per creare il servizio collegato per SQL Server locale, fare clic su **Archivio 
 Per creare il servizio collegato per l'account di archiviazione BLOB di Azure, fare clic su **Archivio dati** nella pagina di destinazione ADF del portale di Azure classico, selezionare *Account di archiviazione Azure* e immettere la chiave dell’account e il nome del contenitore di archiviazione BLOB di Azure. Assegnare il nome *adfds* al servizio di collegamento.
 
 ###<a name="adf-linked-service-azure-sql"></a>Servizio collegato per il database SQL Azure
-Per creare il servizio collegato per database SQL Azure, fare clic su **Archivio dati** nella pagina di destinazione ADF del portale di Azure classico, selezionare*SQL* e immettere le credenziali per il *nome utente* e la *password* del database SQL Azure. Il *nome utente* deve essere specificato come **user@servername*.
+Per creare il servizio collegato per database SQL Azure, fare clic su **Archivio dati** nella pagina di destinazione ADF del portale di Azure classico, selezionare*SQL* e immettere le credenziali per il *nome utente* e la *password* del database SQL Azure. Il *nome utente* deve essere specificato come *user@servername*.
 
 
 ##<a name="adf-tables"></a>Definire e creare tabelle per specificare la modalità di accesso al set di dati
@@ -306,4 +306,4 @@ Una volta eseguita la pipeline, si dovrebbe poter visualizzare i dati visualizza
 
 Si noti che non abbiamo utilizzato la funzionalità fornita da ADF per dirigere i dati in modo incrementale. Per ulteriori informazioni su come eseguire questa e altre funzionalità fornite da ADF, vedere la [documentazione ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

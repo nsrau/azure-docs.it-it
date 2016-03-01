@@ -113,7 +113,7 @@ Per creare le tabelle Hive per il set di dati Criteo, aprire la ***riga di coman
 
 **NOTA IMPORTANTE**: **eseguire tutti i comandi di Hive in questa procedura dettagliata dal prompt della directory bin/ Hive indicato sopra. In questo modo, eventuali problemi di percorso verranno risolti automaticamente. I termini "prompt della directory Hive", "prompt della directory bin/ Hive" e "riga di comando di Hadoop" verranno usati in modo intercambiabile in questo documento.**
 
-**NOTA IMPORTANTE 2**: **per eseguire qualsiasi query Hive, è sempre possibile usare il comando ** cd %hive\_home%\\bin hive
+**NOTA IMPORTANTE 2**: **per eseguire qualsiasi query Hive, è sempre possibile usare il comando** cd %hive\_home%\\bin hive
 
 Dopo che viene visualizzata la shell REPL Hive con l'indicazione "hive >", è sufficiente tagliare e incollare la query per eseguirla.
 
@@ -663,4 +663,4 @@ Si noti che per i due esempi di test chiesti (nel framework JSON dello script Py
 
 Con questa osservazione si conclude la procedura dettagliata end-to-end che mostra come gestire set di dati di grandi dimensioni con Azure Machine Learning. Partendo da un terabyte di dati, è stato creato un modello di previsione che è stato quindi distribuito come servizio Web nel cloud.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

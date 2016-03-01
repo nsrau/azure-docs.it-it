@@ -34,7 +34,7 @@ In questo articolo viene fornita una panoramica del servizio Importazione/Esport
 
 ## Introduzione al servizio Importazione/Esportazione ##
 
-Per iniziare il processo di importazione o di esportazione dall'archiviazione BLOB, creare innanzitutto un *processo*, che potrà essere un *processo di importazione* o un *processo di esportazione*:
+Per iniziare il processo di importazione o di esportazione dall'archiviazione BLOB, creare innanzitutto un *processo*, che potrà essere un *processo di importazione* o un *processo di esportazione* :
 
 - Creare un processo di importazione quando si desidera trasferire i dati locali nei BLOB nell'account di archiviazione di Azure.
 - Creare un processo di esportazione quando si desidera trasferire su dischi rigidi spediti all'utente i dati attualmente archiviati come BLOB nell'account di archiviazione.
@@ -291,4 +291,4 @@ Per preparare l'unità disco rigido con Windows 10, seguire le istruzioni riport
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->
