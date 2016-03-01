@@ -114,7 +114,7 @@ Gli utenti possono anche restituire i risultati della query Hive in un BLOB di A
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-Nell'esempio seguente, l'output della query Hive viene scritto in una directory del BLOB `queryoutputdir` nel contenitore predefinito del cluster Hadoop. In questo caso, è necessario fornire solo il nome della directory e non anche quello del BLOB. Verrà generato un errore se si specificano i nomi della directory e del BLOB, ad esempio **wasb:///queryoutputdir/queryoutput.txt*.
+Nell'esempio seguente, l'output della query Hive viene scritto in una directory del BLOB `queryoutputdir` nel contenitore predefinito del cluster Hadoop. In questo caso, è necessario fornire solo il nome della directory e non anche quello del BLOB. Verrà generato un errore se si specificano i nomi della directory e del BLOB, ad esempio *wasb:///queryoutputdir/queryoutput.txt*.
 
 ![Creare un'area di lavoro](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
 
@@ -250,4 +250,4 @@ Al termine della procedura, si disporrà di una tabella con i dati nel formato O
 
 Nella parte finale del documento, vengono descritti i parametri che gli utenti possono impostare per migliorare le prestazioni delle query Hive.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
