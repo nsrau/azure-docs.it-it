@@ -16,7 +16,8 @@
 
 	- Usare **Località** per specificare la posizione geografica in cui verrà ospitato l'account DocumentDB.
 
-4.	Dopo aver configurato le opzioni del nuovo account DocumentDB, fare clic su **Crea**. Può richiedere alcuni minuti per creare l'account DocumentDB. Per verificare lo stato, è possibile monitorare l'avanzamento nella Schermata iniziale ![Schermata del riquadro Creazione sulla Schermata iniziale - creazione di database in linea](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
+4.	Dopo aver configurato le opzioni del nuovo account DocumentDB, fare clic su **Crea**.  Può richiedere alcuni minuti per creare l'account DocumentDB. Per verificare lo stato, è possibile monitorare l'avanzamento nella Schermata iniziale  
+	![Schermata del riquadro Creazione sulla Schermata iniziale - creazione di database in linea](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
 
 	o dall'Hub di notifica.
 

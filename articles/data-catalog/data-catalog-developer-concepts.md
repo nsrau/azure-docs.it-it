@@ -190,7 +190,7 @@ Le richieste di elemento di visualizzazione **PUT** e **POST** possono essere us
 
 > [AZURE.NOTE]
 >
-> **__**\_autorizzazioni** si applica solo a un elemento radice.
+> **\_autorizzazioni** si applica solo a un elemento radice.
 >
 > Il ruolo **Proprietario** si applica solo a un elemento radice.
 >
