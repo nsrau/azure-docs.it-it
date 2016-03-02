@@ -575,9 +575,9 @@ Verrà creata una cartella denominata *Admin* a cui potranno accedere solo gli u
 
 1. In **Esplora soluzioni** aggiungere una sottocartella alla cartella *Contacts* e denominare la sottocartella *Admin*.
 2. Spostare i file seguenti dalla cartella *Contacts* alla cartella *Contacts/Admin*:  
-	- *Delete.aspx * e * Delete.aspx.cs*
-	- *Edit.aspx * e * Edit.aspx.cs*
-	- *Insert.aspx * e * Insert.aspx.cs*
+	- *Delete.aspx * e Delete.aspx.cs*
+	- *Edit.aspx * e Edit.aspx.cs*
+	- *Insert.aspx * e Insert.aspx.cs*
 3. Aggiornare i riferimenti ai collegamenti in *Contacts/Default.aspx* aggiungendo "Admin/" prima dei riferimenti di pagina che indirizzano ai file *Insert.aspx*, *Edit.aspx* e *Delete.aspx* come indicato di seguito:  
 
 		<%@ Page Title="ContactsList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="ContactManager.Contacts.Default" ViewStateMode="Disabled" %>
@@ -757,4 +757,4 @@ Se lo si desidera, inviare commenti e suggerimenti sugli aspetti ritenuti utili 
 
  
 
-<!----HONumber=AcomDC_0211_2016-->
+<!-----HONumber=AcomDC_0211_2016-->

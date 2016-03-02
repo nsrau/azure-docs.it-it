@@ -19,8 +19,8 @@ In questo passaggio si creerà manualmente il listener del gruppo di disponibili
 	 - Selezionare**Indirizzo IP statico**assegnare un indirizzo IP inutilizzato e quindi fare clic su**OK**.
 
 1. Fare clic con il pulsante destro del mouse sulla risorsa indirizzo IP corrispondente alla subnet di Azure e quindi scegliere Proprietà.
-	>[AZURE.NOTE]Se il listener non riesce in un secondo momento a portarsi in linea a causa di un indirizzo IP in conflitto selezionato da DHCP, è possibile configurare un indirizzo IP statico valido in questa finestra Proprietà.
+	>[AZURE.NOTE] Se il listener non riesce in un secondo momento a portarsi in linea a causa di un indirizzo IP in conflitto selezionato da DHCP, è possibile configurare un indirizzo IP statico valido in questa finestra Proprietà.
 
 1. Nella stessa finestra delle proprietà dell’**Indirizzo IP** modificare il**Nome dell’indirizzo IP**. Verrà utilizzato questo nome di indirizzo IP nella variabile **$IPResourceName**dello script di PowerShell. Ripetere questo passaggio per ogni risorsa IP se la soluzione si estende su più reti virtuali di Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!------HONumber=Oct15_HO3-->

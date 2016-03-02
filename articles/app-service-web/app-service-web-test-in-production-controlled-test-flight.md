@@ -375,4 +375,4 @@ Il servizio app di Azure consente alle piccole e medie imprese di testare le pro
 -	[Azure PowerShell](../powershell-install-configure.md)
 -	[Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!----HONumber=AcomDC_0211_2016-->
+<!-----HONumber=AcomDC_0211_2016-->

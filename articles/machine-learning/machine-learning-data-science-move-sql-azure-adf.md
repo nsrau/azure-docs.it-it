@@ -306,4 +306,4 @@ Una volta eseguita la pipeline, si dovrebbe poter visualizzare i dati visualizza
 
 Si noti che non abbiamo utilizzato la funzionalità fornita da ADF per dirigere i dati in modo incrementale. Per ulteriori informazioni su come eseguire questa e altre funzionalità fornite da ADF, vedere la [documentazione ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!----HONumber=AcomDC_0211_2016-->
+<!------HONumber=AcomDC_0211_2016-->

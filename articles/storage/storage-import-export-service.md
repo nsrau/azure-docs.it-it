@@ -34,7 +34,7 @@ In questo articolo viene fornita una panoramica del servizio Importazione/Esport
 
 ## Introduzione al servizio Importazione/Esportazione ##
 
-Per iniziare il processo di importazione o di esportazione dall'archiviazione BLOB, creare innanzitutto un *processo*, che potrà essere un *processo di importazione* o un *processo di esportazione* :
+Per iniziare il processo di importazione o di esportazione dall'archiviazione BLOB, creare innanzitutto un *processo*, che potrà essere un *processo di importazione* o un *processo di esportazione*:
 
 - Creare un processo di importazione quando si desidera trasferire i dati locali nei BLOB nell'account di archiviazione di Azure.
 - Creare un processo di esportazione quando si desidera trasferire su dischi rigidi spediti all'utente i dati attualmente archiviati come BLOB nell'account di archiviazione.
@@ -51,9 +51,9 @@ Quando si crea un processo di importazione o un processo di esportazione, sarà 
 
 1.	**Sottoscrizione e account di archiviazione:** per usare il servizio Importazione/Esportazione, è necessario disporre di una sottoscrizione di Azure esistente e di uno o più account di archiviazione. Ogni processo può essere usato per trasferire dati da o verso un solo account di archiviazione. In altre parole, un processo non può estendersi tra più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-create-storage-account.md).
 2.	**Dischi rigidi:** con il servizio di importazione/esportazione sono supportati solo i dischi rigidi interni SATA II/III da 3,5 pollici. Sono supportati solo dischi rigidi fino a 6TB. Per i processi di importazione, verrà elaborato solo il primo volume di dati sull'unità. Il volume di dati deve essere formattato con NTFS. È possibile collegare un disco SATA II/III esternamente alla maggior parte dei computer mediante una scheda USB SATA esterna II/III.
-3.	**Crittografia BitLocker: **tutti i dati archiviati sui dischi rigidi devono essere crittografati mediante BitLocker con le chiavi di crittografia protette con password numeriche.
+3.	**Crittografia BitLocker:** tutti i dati archiviati sui dischi rigidi devono essere crittografati mediante BitLocker con le chiavi di crittografia protette con password numeriche.
 4.	**Destinazioni di archiviazione BLOB:** i dati possono essere caricati o scaricati da BLOB in blocchi e da BLOB di pagine.
-5.	**Numero di processi: **un cliente può disporre di un massimo di 20 processi attivi per ogni account di archiviazione.
+5.	**Numero di processi:** un cliente può disporre di un massimo di 20 processi attivi per ogni account di archiviazione.
 6.	**Dimensione massima di un processo:** la dimensione di un processo è determinata dalla capacità dei dischi rigidi usati e dalla quantità massima di dati che possono essere archiviati in un account di archiviazione. Ogni processo non può contenere più di 10 dischi rigidi.
 7.  **Sistemi operativi supportati:** i clienti possono usare uno dei seguenti sistemi operativi per preparare il disco rigido tramite lo strumento Importazione/Esportazione di Azure prima della spedizione ad Azure: Windows 7, Windows 8, Windows 8.1, Windows 10*, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2.  
 
@@ -291,4 +291,4 @@ Per preparare l'unità disco rigido con Windows 10, seguire le istruzioni riport
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
 
-<!----HONumber=AcomDC_0218_2016-->
+<!-----HONumber=AcomDC_0218_2016-->
