@@ -60,7 +60,11 @@ Tutte le risorse quali account di database, database, raccolte, utenti, autorizz
 
 Proprietà |Impostabile dall'utente o generata dal sistema?|Scopo
 ---|---|---
-_\_rid|Generato dal sistema|Generato dal sistema, identificativo univoco e gerarchico della risorsa. \_etag|Generato dal sistema|etag della risorsa richiesta per il controllo della concorrenza ottimistica. \_ts|Generato dal sistema|Ultimo timestamp aggiornato della risorsa. \_self|Generato dal sistema|URI indirizzabile univoco della risorsa. id|Impostabile dall'utente|Nome univoco della risorsa definito dall'utente. Se l'utente non specifica un ID, quest'ultimo verrà generato dal sistema.
+\_rid|Generato dal sistema|Generato dal sistema, identificativo univoco e gerarchico della risorsa.
+\_etag|Generato dal sistema|etag della risorsa richiesta per il controllo della concorrenza ottimistica.
+\_ts|Generato dal sistema|Ultimo timestamp aggiornato della risorsa.
+\_self|Generato dal sistema|URI indirizzabile univoco della risorsa.
+id|Impostabile dall'utente|Nome univoco della risorsa definito dall'utente. Se l'utente non specifica un ID, quest'ultimo verrà generato dal sistema.
 
 ### Rappresentazione delle risorse
 DocumentDB non impone estensioni proprietarie o codifiche speciali allo standard JSON e funziona con i documenti JSON conformi a tale standard.
@@ -408,4 +412,4 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

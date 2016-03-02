@@ -250,4 +250,4 @@ Al termine della procedura, si disporrà di una tabella con i dati nel formato O
 
 Nella parte finale del documento, vengono descritti i parametri che gli utenti possono impostare per migliorare le prestazioni delle query Hive.
 
-<!----HONumber=AcomDC_0211_2016-->
+<!-----HONumber=AcomDC_0211_2016-->
