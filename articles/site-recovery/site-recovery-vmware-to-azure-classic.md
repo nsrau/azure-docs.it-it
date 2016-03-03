@@ -236,11 +236,11 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 ## Passaggio 5: Installare il server di gestione
 > [AZURE.TIP] Assicurarsi che questi URL siano accessibili dal server di gestione:
 >
-- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+- *.hypervrecoverymanager.windowsazure.com
+- *.accesscontrol.windows.net
+- *.backup.windowsazure.com
+- *.blob.core.windows.net
+- *.store.core.windows.net
 - http://dev.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
 - http://www.msftncsi.com/ncsi.txt
 
@@ -273,7 +273,9 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 
 	![Prerequisiti](./media/site-recovery-vmware-to-azure-classic/combined-wiz4.png)
 
->[AZURE.WARNING] Se viene visualizzato un avviso per la verifica preliminare **Sincronizzazione ora globale**, verificare che l'ora del clock di sistema corrisponda al fuso orario. + + ![TimeSyncIssue](./media/site-recovery-vmware-to-azure-classic/time-sync-issue.png)
+>[AZURE.WARNING] Se viene visualizzato un avviso per la verifica preliminare **Sincronizzazione ora globale**, verificare che l'ora del clock di sistema corrisponda al fuso orario.
+ +	
+ +	![TimeSyncIssue](./media/site-recovery-vmware-to-azure-classic/time-sync-issue.png)
 
 8. In **Configurazione MySQL** creare le credenziali per l'accesso all'istanza del server MySQL. È possibile usare questi caratteri speciali: '\_', '!', '@', '$', ' \\', '%'.
 
@@ -751,3 +753,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 [Altre informazioni sul failback](site-recovery-failback-azure-to-vmware-classic.md) per rendere nuovamente disponibili nell'ambiente locale i computer sottoposti a failover in esecuzione in Azure.
 
 <!---HONumber=AcomDC_0218_2016-->
+
