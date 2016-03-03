@@ -64,7 +64,7 @@ Utilizziamo il [set di dati NYC Taxi](http://chriswhong.com/open-data/foil_nyc_t
 
 ##<a name="create-adf"></a> Creare un data factory di Azure
 
-Le istruzioni per la creazione di una nuova data factory di Azure e un gruppo di risorse nel [portale di Azure](https://ms.portal.azure.com/) sono disponibili in [Creazione di un’istanza di Data factory di Azure](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Denominare la nuova istanza ADF *adfdsp*e assegnare il nome *adfdsprg* al gruppo di risorse creato.
+Le istruzioni per la creazione di una nuova data factory di Azure e un gruppo di risorse nel [portale di Azure](https://ms.portal.azure.com/) sono disponibili in [Creazione di un’istanza di Data factory di Azure](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Denominare la nuova istanza ADF *adfdsp* e assegnare il nome *adfdsprg* al gruppo di risorse creato.
 
 ## Installare e configurare i Gateway di gestione dati
 
@@ -306,4 +306,4 @@ Una volta eseguita la pipeline, si dovrebbe poter visualizzare i dati visualizza
 
 Si noti che non abbiamo utilizzato la funzionalità fornita da ADF per dirigere i dati in modo incrementale. Per ulteriori informazioni su come eseguire questa e altre funzionalità fornite da ADF, vedere la [documentazione ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!------HONumber=AcomDC_0211_2016-->
+<!-------HONumber=AcomDC_0211_2016-->
