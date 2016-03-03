@@ -30,11 +30,11 @@ Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazi
 <li>Microsoft richiederà un codice di verifica.</li>
 
 
-<center>! [Installazione] (. / media/multi-factor-authentication-end-user-signin-app-verify/verify.png)</center>
+<center>![Installazione](. / media/multi-factor-authentication-end-user-signin-app-verify/verify.png)</center>
 
 <li>Aprire l'app Azure Authenticator sul telefono e immettere il codice nella casella da cui si sta effettuando l’accesso.</li>
 
-<center>! [Installazione] (. / media/multi-factor-authentication-end-user-signin-app-verify/phone.png)</center>
+<center>![Installazione](. / media/multi-factor-authentication-end-user-signin-app-verify/phone.png)</center>
 
 
 <li>Ora dovrebbe essere stato effettuato l’accesso.</li>
