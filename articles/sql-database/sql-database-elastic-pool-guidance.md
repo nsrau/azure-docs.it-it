@@ -110,7 +110,7 @@ L'euristica indicata di seguito consente di stimare se un pool di database elast
 
 1. Stimare le eDTU necessarie per il pool tramite gli elementi seguenti:
     
-    MAX (* numero totale di database* * *utilizzo medio di DTU per DB*, *numero di database in picco contemporaneamente * * *picco di utilizzo di DTU per DB*)
+    MAX(*numero totale di database* * *utilizzo medio di DTU per DB*, *numero di database in picco contemporaneamente* * *picco di utilizzo di DTU per DB*)
 
 2. Selezionare il valore più piccolo di eDTU disponibile per il pool che sia maggiore della stima del passaggio 1. Per le scelte di eDTU disponibili, vedere i valori validi per le eDTU elencati di seguito: [limiti di archiviazione e di eDTU per pool di database elastici e database elastici](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
@@ -435,4 +435,4 @@ Non tutti i singoli database sono candidati ottimali per pool database elastica.
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!-----HONumber=AcomDC_0218_2016-->
