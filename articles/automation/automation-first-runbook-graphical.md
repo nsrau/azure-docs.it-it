@@ -118,7 +118,7 @@ Ora il runbook avvia la macchina virtuale specificata nel cmdlet **Start-AzureVM
 1.	Aprire l'editor grafico facendo clic su **Modifica** nel pannello **MyFirstRunbook**.
 2.	Fare clic su **Input e output** e quindi**Aggiungi input** per aprire il riquadro Parametro di input runbook.<br>![Input e output del runbook](media/automation-first-runbook-graphical/runbook-edit-toolbar-inputoutput.png)
 3.	Specificare *VMName* per **Nome**. Mantenere *stringa* come **Tipo**, ma cambiare **Obbligatorio** in *Sì*. Fare clic su **OK**.
-4.	Creare un secondo parametro di input obbligatorio chiamato *VMServiceName* e poi fare clic su **OK**per chiudere il pannello ** Input e output**.<br>![Parametri di input del runbook](media/automation-first-runbook-graphical/input-parameters.png)
+4.	Creare un secondo parametro di input obbligatorio chiamato *VMServiceName* e poi fare clic su **OK**per chiudere il pannello **Input e output**.<br>![Parametri di input del runbook](media/automation-first-runbook-graphical/input-parameters.png)
 5.	Selezionare l'attività **Start-AzureVM** e poi fare clic su **Parametri**.
 6.	Cambiare **Origine dati** per **Nome** in **Input runbook** e poi selezionare **VMName**.<br> ![Parametro Name di Start-AzureVM](media/automation-first-runbook-graphical/vmname-property.png)
 7.	Cambiare **Origine dati** per **ServiceName** in **Input runbook** e poi selezionare **VMServiceName**.<br>![Parametri Start-AzureVM](media/automation-first-runbook-graphical/start-azurevm-params-inputs.png)
@@ -161,4 +161,4 @@ Ora si modificherà il runbook in modo che provi solo ad avviarsi, se non è gi�
 -	[Il primo runbook di flusso di lavoro PowerShell](automation-first-runbook-textual.md)
 -	[Il primo runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

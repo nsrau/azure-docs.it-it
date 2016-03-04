@@ -154,7 +154,7 @@ Dopo aver creato il gruppo di risorse è possibile creare il cluster con il coma
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
  ```
  
-### Provide template parameters
+### Fornire i parametri del modello
  
 Se si ha familiarità con PowerShell, è possibile cercare un cmdlet tra i parametri disponibili digitando un segno meno (-) e quindi premendo TAB. Questa stessa funzionalità può essere usata anche con i parametri definiti nel modello. Quando si digita il nome del modello, il cmdlet recupera il modello, lo analizza e aggiunge i relativi parametri al comando in modo dinamico. In questo modo è molto semplice specificare i valori dei parametri del modello. Inoltre, se si dimentica un valore per un parametro obbligatorio, PowerShell richiede il valore.
  
@@ -173,4 +173,4 @@ Ora che si ha a disposizione un cluster funzionante, vedere i documenti seguenti
 
  
 
-<!----HONumber=AcomDC_0224_2016-->
+<!-----HONumber=AcomDC_0224_2016-->
