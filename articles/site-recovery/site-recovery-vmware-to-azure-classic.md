@@ -755,5 +755,5 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Altre informazioni sul failback](site-recovery-failback-azure-to-vmware-classic.md) per rendere nuovamente disponibili nell'ambiente locale i computer sottoposti a failover in esecuzione in Azure.
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!-------HONumber=AcomDC_0218_2016-->
 

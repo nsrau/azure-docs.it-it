@@ -100,7 +100,7 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
 2.	Non è più necessaria la riga **Write-Output**, quindi andare avanti ed eliminarla.
 3.	Nel controllo libreria, espandere**Assets**e quindi**Credentials**.
 4.	Fare clic con il pulsante destro sulle credenziali e fare clic su **Aggiungi all'area di disegno**. Questo aggiunge un’attività **Get-AutomationPSCredential** per le credenziali.
-5.	Davanti a **Get-AutomationPSCredential**, digitare *$Credential =*per assegnare le credenziali a una variabile.
+5.	Davanti a **Get-AutomationPSCredential**, digitare *$Credential =* per assegnare le credenziali a una variabile.
 6.	Nella riga successiva, digitare*Add-AzureAccount-Credential $Credential*.  
 	![Credential](media/automation-first-runbook-textual-powershell/automation-get-credential.png)
 7.	Fare clic su **Riquadro di test** per testare il runbook.
@@ -145,4 +145,4 @@ I runbook PowerShell hanno lo stesso ciclo di vita, le stesse funzionalità e la
 -	Per saperne di più sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
 -	Per altre informazioni sulla funzionalità di supporto degli script PowerShell, vedere il blog relativo al [supporto di script PowerShell nativi in Automazione di Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
-<!----HONumber=AcomDC_0224_2016-->
+<!------HONumber=AcomDC_0224_2016-->
