@@ -245,7 +245,7 @@ Archiviazione di Azure supporta due tipi di BLOB: BLOB di *pagine* e BLOB in *bl
 
 Per altre informazioni, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
-##Tables
+##Tabelle
 Oltre alle procedure comprovate per [Tutti i servizi](#allservices) descritte prima, le seguenti procedure comprovate si applicano specificamente al servizio tabelle.
 
 ###<a name="subheading24"></a>Obiettivi di scalabilità specifici per tabelle

@@ -47,13 +47,13 @@ Prima di eseguire lo strumento:
 
 	![Introduzione](./media/site-recovery-capacity-planner/getting-started.png)
 
-3.	Nel foglio di lavoro **Capacity Planner** immettere le informazioni richieste. È necessario compilare tutti i campi contrassegnati con un cerchio rosso nella schermata seguente.
+3.	Nel foglio di lavoro **Strumento di pianificazione della capacità** immettere le informazioni richieste. È necessario compilare tutti i campi contrassegnati con un cerchio rosso nella schermata seguente.
 
-	- In **Select your scenario** scegliere **Hyper-V to Azure** o **VMware/Physical to Azure**.
-	- In **Average daily data change rate (%)** inserire le informazioni raccolte con lo [strumento di pianificazione della capacità di Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o lo [strumento di pianificazione della capacità di vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).  
+	- In **Selezionare uno scenario** scegliere **Hyper-V in Azure** o **VMware/Physical in Azure**.
+	- In **Frequenza media di modifica dei dati giornaliera (%)** inserire le informazioni raccolte con lo [strumento di pianificazione della capacità di Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o lo [strumento di pianificazione della capacità di vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).  
 	- L'impostazione **Compression** si applica solo alla compressione disponibile quando si esegue la replica di macchine virtuali VMware o server fisici in Azure. È stimata una compressione minima del 30%, ma è possibile modificare l'impostazione in base alle esigenze. Per la replica di macchine virtuali Hyper-V in Azure e la compressione è possibile usare uno strumento di terze parti, ad esempio Riverbed. 
 	-  In **Retention Inputs** specificare per quanto tempo devono essere conservate le repliche. Se si esegue la replica di macchine virtuali VMware o server fisici, inserire il valore in giorni. Se si esegue la replica di macchine virtuali Hyper-V, specificare il tempo in ore.
-	-  In **Number of hours in which initial replication for the batch of virtual machines should complete** e in **Number of virtual machines per initial replication batch** inserire le impostazioni usate per calcolare i requisiti di replica iniziale. Quando viene distribuito Site Recovery, è necessario caricare l'intero set di dati iniziale. 
+	-  In **Numero di ore in cui la replica iniziale per il batch delle macchine virtuali deve essere completata** e in **Numero di macchine virtuali per batch di replica iniziale** inserire le impostazioni usate per calcolare i requisiti di replica iniziale. Quando viene distribuito Site Recovery, è necessario caricare l'intero set di dati iniziale. 
 
 	![Input](./media/site-recovery-capacity-planner/inputs.png)
 
@@ -61,12 +61,12 @@ Prima di eseguire lo strumento:
 
 	- **Bandwidth required for delta replication** (MB/secondo): La larghezza di banda di rete per la replica delta viene calcolata in base alla frequenza di modifica giornaliera media dei dati.
 	- **Bandwidth required for initial replication** (MB/secondo): La larghezza di banda di rete per la replica iniziale viene calcolata in base ai valori di replica iniziale inseriti. 
-	- **Storage required (in GBs)**: lo spazio di archiviazione di Azure totale richiesto.
-	- **Total IOPS on standard storage accounts**: valore calcolato in base alla dimensione unitaria di 8.000 operazioni totali di input/output sul totale degli account di archiviazione standard. Per lo strumento Quick Planner il numero viene calcolato in base a tutti i dischi di macchine virtuali di origine e alla frequenza di modifica giornaliera dei dati. Per lo strumento Detailed Planner il numero viene calcolato in base al numero totale di macchine virtuali con mapping a macchine virtuali standard di Azure e alla frequenza di modifica dei dati su tali macchine virtuali. 
-	- **Number of standard storage accounts**: fornisce il numero totale di account di archiviazione standard necessari per proteggere le macchine virtuali. Si noti che un account di archiviazione standard può contenere fino a 20.000 IOPS tra tutte le macchine virtuali in una risorsa di archiviazione standard e supporta un massimo di 500 IOPS per disco. 
-	- **Number of blob disks required**: fornisce il numero di dischi che verranno creati nell'archiviazione di Azure.
-	- **Number of premium storage accounts required**: fornisce il numero totale di account di archiviazione premium necessari per proteggere le macchine virtuali. Si noti che per una macchina virtuale di origine con IOPS elevato (maggiore di 20.000) è necessario un account di archiviazione premium. Un account di archiviazione premium può contenere fino a 80.000 IOPS.
-	- **Total IOPS on premium storage**: valore calcolato in base alla dimensione unitaria di 256.000 operazioni totali di input/output sul totale degli account di archiviazione premium. Per lo strumento Quick Planner il numero viene calcolato in base a tutti i dischi di macchine virtuali di origine e alla frequenza di modifica giornaliera dei dati. Per lo strumento Detailed Planner il numero viene calcolato in base al numero totale di macchine virtuali con mapping a macchine virtuali premium di Azure (serie DS e GS) e alla frequenza di modifica dei dati su tali macchine virtuali. 
+	- **Spazio di archiviazione richiesto (espresso in GB)**: lo spazio di archiviazione di Azure totale richiesto.
+	- **Numero totale di operazioni di I/O sugli account di archiviazione Standard**: valore calcolato in base alla dimensione unitaria di 8.000 operazioni totali di input/output sul totale degli account di archiviazione standard. Per lo strumento Quick Planner il numero viene calcolato in base a tutti i dischi di macchine virtuali di origine e alla frequenza di modifica giornaliera dei dati. Per lo strumento Detailed Planner il numero viene calcolato in base al numero totale di macchine virtuali con mapping a macchine virtuali standard di Azure e alla frequenza di modifica dei dati su tali macchine virtuali. 
+	- **Numero di account di archiviazione Standard**: fornisce il numero totale di account di archiviazione standard necessari per proteggere le macchine virtuali. Si noti che un account di archiviazione standard può contenere fino a 20.000 IOPS tra tutte le macchine virtuali in una risorsa di archiviazione standard e supporta un massimo di 500 IOPS per disco. 
+	- **Numero di dischi BLOB richiesti**: fornisce il numero di dischi che verranno creati nell'archiviazione di Azure.
+	- **Numero di account di archiviazione Premium richiesti**: fornisce il numero totale di account di archiviazione premium necessari per proteggere le macchine virtuali. Si noti che per una macchina virtuale di origine con IOPS elevato (maggiore di 20.000) è necessario un account di archiviazione premium. Un account di archiviazione premium può contenere fino a 80.000 IOPS.
+	- **Numero totale di operazioni di I/O sugli account di archiviazione Premium**: valore calcolato in base alla dimensione unitaria di 256.000 operazioni totali di input/output sul totale degli account di archiviazione premium. Per lo strumento Quick Planner il numero viene calcolato in base a tutti i dischi di macchine virtuali di origine e alla frequenza di modifica giornaliera dei dati. Per lo strumento Detailed Planner il numero viene calcolato in base al numero totale di macchine virtuali con mapping a macchine virtuali premium di Azure (serie DS e GS) e alla frequenza di modifica dei dati su tali macchine virtuali. 
 	- **Number of configuration servers required** mostra il numero di server di configurazione necessari per la distribuzione (1)
 	- **Number of additional process servers required** mostra se sono necessari server di elaborazione aggiuntivi oltre al server di processo configurato nel server di configurazione per impostazione predefinita.
 	- **100% additional storage on the source** mostra se è necessario ulteriore spazio di archiviazione nel percorso di origine.
@@ -83,14 +83,14 @@ Prima di eseguire lo strumento:
 
 3.	Nel foglio di lavoro **Workload Qualification** immettere le informazioni richieste. È necessario compilare tutti i campi contrassegnati.
 
-	- In **Processor Cores** specificare il numero totale di core in un server di origine.
-	- In **Memory allocation (in MBs)** specificare la dimensione della RAM di un server di origine. 
-	- In **Number of NICs** specificare il numero di schede di rete in un server di origine. 
-	-  In **Total Storage (in GB)** specificare lo spazio di archiviazione totale della macchina virtuale. Ad esempio, se il server di origine ha 3 dischi da 500 GB ognuno, lo spazio di archiviazione totale sarà di 1.500 GB.
-	-  In **Number of disks attached** specificare il numero totale dei dischi di un server di origine.
-	-  In **Disk capacity utilization (%)** specificare l'utilizzo medio.
-	-  In **Daily data change rate (%)** specificare la frequenza di modifica giornaliera dei dati di un server di origine.
-	-  In **Mapping Azure VM size** immettere manualmente la dimensione della macchina virtuale di Azure di cui eseguire il mapping. In alternativa, fare clic su **Compute IaaS VMs**. Si noti che, inserendo un'impostazione manuale e facendo clic su Compute IaaS VMs, l'impostazione manuale potrebbe essere sovrascritta perché il processo di calcolo identifica automaticamente la corrispondenza migliore in base alle dimensioni della macchina virtuale.
+	- In **Core del processore** specificare il numero totale di core in un server di origine.
+	- In **Allocazione della memoria (in MB)** specificare la dimensione della RAM di un server di origine. 
+	- In **Numero di schede di interfaccia di rete** specificare il numero di schede di rete in un server di origine. 
+	-  In **Archiviazione totale (in GB)** specificare lo spazio di archiviazione totale della macchina virtuale. Ad esempio, se il server di origine ha 3 dischi da 500 GB ognuno, lo spazio di archiviazione totale sarà di 1.500 GB.
+	-  In **Numero di dischi collegati** specificare il numero totale dei dischi di un server di origine.
+	-  In **Utilizzo della capacità del disco (%)** specificare l'utilizzo medio.
+	-  In **Frequenza di modifica dei dati giornaliera (%)** specificare la frequenza di modifica giornaliera dei dati di un server di origine.
+	-  In **Mapping della dimensione della macchina virtuale di Azure** immettere manualmente la dimensione della macchina virtuale di Azure di cui eseguire il mapping. In alternativa, fare clic su **Compute IaaS VMs**. Si noti che, inserendo un'impostazione manuale e facendo clic su Compute IaaS VMs, l'impostazione manuale potrebbe essere sovrascritta perché il processo di calcolo identifica automaticamente la corrispondenza migliore in base alle dimensioni della macchina virtuale.
 
 	![Qualifica del carico di lavoro](./media/site-recovery-capacity-planner/workload-qualification.png)
 

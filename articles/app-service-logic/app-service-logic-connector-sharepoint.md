@@ -36,9 +36,11 @@ Le app per la logica possono essere attivate in base a diverse origini dati e of
 
 	Nome | Obbligatorio | Descrizione
 --- | --- | ---
-Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: **https://microsoft.sharepoint.com/teams/wabstest*. URL relativi raccolta/elenco documenti | Sì | Specificare gli URL degli elenchi o delle raccolte documenti, relativi all'URL del sito di SharePoint, che possono essere modificati dal connettore. Ad esempio, immettere: *Elenchi/attività, Documenti condivisi*.
+Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: *https://microsoft.sharepoint.com/teams/wabstest*.
+URL relativi raccolta/elenco documenti | Sì | Specificare gli URL degli elenchi o delle raccolte documenti, relativi all'URL del sito di SharePoint, che possono essere modificati dal connettore. Ad esempio, immettere: *Elenchi/attività, Documenti condivisi*.
 
-5. Al termine, l'aspetto di Impostazioni pacchetto è simile al seguente: ![][1]
+5. Al termine, l'aspetto di Impostazioni pacchetto è simile al seguente:  
+![][1]
 
 A questo punto è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore SharePoint Online.
 
@@ -53,13 +55,15 @@ A questo punto è possibile creare un'app per la logica nello stesso gruppo di r
 
 	Nome | Obbligatorio | Descrizione
 --- | --- | ---
-Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: *https://microsoft.sharepoint.com/teams/wabstest*. Modalità di autenticazione | Sì | Specificare la modalità di autenticazione per la connessione al sito di SharePoint. Le opzioni includono:<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Se si sceglie Default, verranno usate le credenziali di esecuzione del connettore SharePoint. Il nome utente e la password non sono richiesti. User Name e Password sono richiesti per altri tipi di autenticazione.<br/><br/>** Nota** L'autenticazione anonima non è supportata.
+Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: *https://microsoft.sharepoint.com/teams/wabstest*.
+Modalità di autenticazione | Sì | Specificare la modalità di autenticazione per la connessione al sito di SharePoint. Le opzioni includono:<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Se si sceglie Default, verranno usate le credenziali di esecuzione del connettore SharePoint. Il nome utente e la password non sono richiesti. User Name e Password sono richiesti per altri tipi di autenticazione.<br/><br/>**Nota** L'autenticazione anonima non è supportata.
 User Name | No | Immettere un nome utente valido per la connessione al sito di SharePoint, se la modalità di autenticazione non è Default.
 Password | No | Immettere una password valida per la connessione al sito di SharePoint, se la modalità di autenticazione non è Predefinito.
 URL relativi raccolta/elenco documenti | Sì | Immettere gli URL degli elenchi o delle raccolte documenti, relativi all'URL del sito di SharePoint, che possono essere modificati dal connettore. Ad esempio, immettere: *Elenchi/attività, Documenti condivisi*.
 Service Bus Connection String | No | Se ci si connette in locale, immettere la stringa di connessione di inoltro del bus di servizio.<br/><br/>[Uso della gestione connessione ibrida](app-service-logic-hybrid-connection-manager.md)<br/>[Prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Al termine, l'aspetto di Impostazioni pacchetto è simile al seguente: ![][2]
+5. Al termine, l'aspetto di Impostazioni pacchetto è simile al seguente:  
+![][2]
 
 A questo punto è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore SharePoint Server.
 
@@ -74,15 +78,20 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SharePoint c
 
 3. Se viene selezionato all'avvio dell'app per la logica, il connettore SharePoint agisce come trigger, in caso contrario sarebbe possibile eseguire azioni sull'account SharePoint con il connettore.
 
-4. Quando si usa il connettore SharePoint Online, per eseguire operazioni per proprio conto è necessario autenticare e autorizzare le app per la logica. Per avviare l'autorizzazione, fare clic su **Authorize** nel connettore SharePoint: ![][3]
+4. Quando si usa il connettore SharePoint Online, per eseguire operazioni per proprio conto è necessario autenticare e autorizzare le app per la logica. Per avviare l'autorizzazione, fare clic su **Authorize** nel connettore SharePoint:  
+![][3]
 
-5. Facendo clic su Authorize, viene visualizzata la finestra di dialogo di autenticazione di SharePoint. Immettere i dettagli di accesso dell'account di SharePoint su cui eseguire le operazioni: ![][4]
+5. Facendo clic su Authorize, viene visualizzata la finestra di dialogo di autenticazione di SharePoint. Immettere i dettagli di accesso dell'account di SharePoint su cui eseguire le operazioni:  
+![][4]
 
-6. Concedere alle app per la logica l'accesso all'account utente per eseguire l'operazione per proprio conto: ![][5]
+6. Concedere alle app per la logica l'accesso all'account utente per eseguire l'operazione per proprio conto:  
+![][5]
 
-7. Se il connettore SharePoint viene configurato come trigger, vengono mostrati i trigger. In caso contrario, viene visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione da eseguire: ![][6]
+7. Se il connettore SharePoint viene configurato come trigger, vengono mostrati i trigger. In caso contrario, viene visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione da eseguire:  
+![][6]
   
-**URL relativo configurato per la raccolta documenti** ![][7]
+**URL relativo configurato per la raccolta documenti**  
+![][7]
 
 **URL relativo configurato per l'elenco documenti**
 

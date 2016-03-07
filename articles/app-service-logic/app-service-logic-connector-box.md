@@ -68,8 +68,9 @@ File Path | Percorso del file completo incluse le cartelle. | Sì
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
 2. Cercare "Connettore Box", selezionarlo e scegliere **Crea**.
-3. Immettere il nome, il piano di servizio app e altre proprietà: ![][1]
-4. Selezionare **Create**.
+3. Immettere il nome, il piano di servizio app e altre proprietà:
+![][1]
+4. Selezionare **Crea**.
 
 
 ## Usare il connettore Box nell'app per la logica
@@ -80,13 +81,17 @@ Dopo aver creato l'app per le API, è possibile usare il connettore Box come azi
 
 	> [AZURE.NOTE] Se il connettore Box viene selezionato all'avvio dell'app per la logica, agisce come trigger. In caso contrario, è possono eseguire azioni su account Box utilizzando il connettore. Il connettore Box non dispone di alcun trigger al momento della pubblicazione di questo articolo.
 
-2. Autenticare e autorizzare le app per la logica in modo che eseguano operazioni per conto dell'utente. Selezionare **Authorize** nel connettore Box: ![][2]
+2. Autenticare e autorizzare le app per la logica in modo che eseguano operazioni per conto dell'utente. Selezionare **Authorize** nel Connettore Box:
+![][2]
 
-3. Immettere i dettagli di accesso dell'account Box su cui eseguire le operazioni: ![][3]
+3. Immettere i dettagli di accesso dell'account Box su cui eseguire le operazioni:
+![][3]
 
-4. Concedere alle app per la logica l'accesso all'account utente per eseguire l'operazione per proprio conto: ![][4]
+4. Concedere alle app per la logica l'accesso al proprio account utente per eseguire l'operazione per proprio conto: 
+![][4]
 
-5. Viene visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione da eseguire: ![][5]
+5. Verrà visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione da eseguire:
+![][5]
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)

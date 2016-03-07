@@ -121,7 +121,10 @@ Vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure]
 
 ## Altre informazioni
 
-[Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)<br/> [Elenco di connettori e app per le API nel servizio app](app-service-logic-connectors-list.md)<br/> [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](../active-directory/role-based-access-control-configure.md)<br/> [Uso di Gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md)
+[Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)<br/>
+[Elenco di connettori e app per le API nel servizio app](app-service-logic-connectors-list.md)<br/>
+[Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md)<br/>
+[Uso di Gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->
