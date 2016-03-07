@@ -1,4 +1,11 @@
-<properties pageTitle="Anteprima Azure AD B2C: chiamata di un’API Web da un’applicazione | Microsoft Azure" descrizione="Questo articolo illustra come creare un’app Android "To-Do List" che chiama un’API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app Android che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti."servizi ="directory-active-b2c"documentationCenter = autori"android"="brandwe"manager ="msmbaldwin"editor =" "/ >
+<properties
+	pageTitle="Anteprima Azure AD B2C: chiamata di un’API Web da un’applicazione | Microsoft Azure"
+	description="Questo articolo illustra come creare un’app Android "To-Do List" che chiama un’API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app Android che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti."
+	services="active-directory-b2c"
+	documentationCenter="android"
+	authors="brandwe"
+	manager="msmbaldwin"
+	editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -8,6 +15,7 @@
 	ms.topic="article"
 	ms.date="02/17/2016"
 	ms.author="brandwe"/>
+
 
 # Anteprima di Azure AD B2C: Chiamata di un'API Web da un'applicazione Android
 
@@ -983,7 +991,9 @@ CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` Altre informazioni sui cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+
+```
+Altre informazioni sui cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
 <!---HONumber=AcomDC_0224_2016-->
