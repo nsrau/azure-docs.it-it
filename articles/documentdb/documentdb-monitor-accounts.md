@@ -13,26 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/18/2016" 
 	ms.author="mimig"/>
 
-# Monitorare un account DocumentDB 
+# Monitorare l'uso di un account DocumentDB nel portale di Azure
 
 È possibile monitorare gli account DocumentDB nel [portale di Microsoft Azure](https://portal.azure.com/). Per ogni account DocumentDB sono disponibili metriche delle prestazioni, quali richieste ed errori del server, e metriche di utilizzo, ad esempio l'utilizzo di risorse di archiviazione.
 
-## Procedura: Visualizzare le metriche delle prestazioni per un account DocumentDB
+## Visualizzare le metriche delle prestazioni per un account DocumentDB
 1.	Nel [portale di Azure](https://portal.azure.com/) fare clic su **Sfoglia**, **Account DocumentDB** e quindi fare clic sul nome dell'account DocumentDB per il quale si vogliono visualizzare le metriche delle prestazioni.
 2.	Per impostazione predefinita, nella sezione **Monitoraggio** è possibile visualizzare:
 	*	Richieste totali per il giorno corrente.
-	*	Media delle richieste al secondo per il giorno corrente. 
+	*	Utilizzo delle risorse di archiviazione per l'account. 
+
+	Se la tabella visualizza **Nessun dato disponibile**, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
 	
-	![Schermata della sezione Monitoraggio](./media/documentdb-monitor-accounts/madocdb1.png)
+	![Schermata della sezione Monitoraggio che mostra le richieste totali del giorno corrente e l'utilizzo delle risorse di archiviazione](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
 
 
-3.	Se si fa clic sulla parte **Richieste totali** o **Media richieste al secondo**, verrà visualizzato il pannello **Metrica** dettagliato.
-4.	Il pannello **Metrica** mostra i dettagli relativi alle metriche selezionate. Nella parte superiore del pannello è riportato un grafico, sotto il quale viene visualizzata una tabella contenente i valori aggregati delle metriche selezionate, ad esempio medio, minimo e massimo. Nel pannello Metrica viene anche visualizzato l'elenco degli avvisi definiti, filtrato in base alle metriche visualizzate nel pannello Metrica corrente. In questo modo, se sono presenti più avvisi, nel pannello verranno presentati solo quelli pertinenti.   
+3.	Se si fa clic sul riquadro **Richieste totali** o **Archiviazione**, verrà visualizzato un pannello **Metrica** dettagliato.
+4.	Il pannello **Metrica** mostra i dettagli relativi alle metriche selezionate. Nella parte superiore del pannello è riportato un grafico, sotto il quale viene visualizzata una tabella contenente i valori aggregati delle metriche selezionate, ad esempio medio, minimo, massimo e totale. Nel pannello Metrica viene anche visualizzato l'elenco degli avvisi definiti, filtrato in base alle metriche visualizzate nel pannello Metrica corrente. In questo modo, se sono presenti più avvisi, nel pannello verranno presentati solo quelli pertinenti.   
 
-	![Schermata del pannello Metrica](./media/documentdb-monitor-accounts/madocdb2.png)
+	![Schermata del pannello Metrica](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
 
 
 ## Personalizzare le visualizzazioni delle metriche delle prestazioni per un account DocumentDB
@@ -86,8 +88,25 @@ Sarà possibile considerare questa parte come tutte le altre parti delle metrich
 	*	Se deve essere inviato un messaggio di posta elettronica all'amministratore del servizio e ai coamministratori quando viene attivata la regola.
 	*	Indirizzi di posta elettronica aggiuntivi per le notifiche degli avvisi. ![Schermata del pannello Aggiungi una regola di avviso](./media/documentdb-monitor-accounts/madocdb12.png)
 
+## Altri modi per monitorare DocumentDB
+Le metriche a livello account disponibili nel portale, ad esempio l'utilizzo delle risorse di archiviazione dell'account e le richieste totali, non sono disponibili tramite le interfacce API di DocumentDB. È tuttavia possibile recuperare dati relativi all'utilizzo a livello di raccolta. Per recuperare i dati a livello di raccolta, eseguire le operazioni seguenti:
+
+- Per usare l'API REST, [eseguire il comando GET sulla raccolta](https://msdn.microsoft.com/library/mt489073.aspx). Nelle intestazioni x-ms-resource-quota e x-ms-resource-usage della risposta verranno restituite le informazioni relative alla quota e all'utilizzo per la raccolta.
+- Con .NET SDK, usare il metodo [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx), che restituisce un oggetto [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) contenente un certo numero di proprietà di utilizzo, ad esempio **CollectionSizeUsage**, **DatabaseUsage** e **DocumentUsage**.
+
+## Risoluzione dei problemi
+Se un riquadro di monitoraggio visualizza il messaggio **Nessun dato disponibile** e recentemente si sono eseguite richieste o si sono aggiunti dati al database, è possibile modificare il riquadro in modo da riflettere l'utilizzo recente.
+
+### Modificare un riquadro per aggiornare i dati correnti
+1.	Per personalizzare le metriche visualizzate in una parte specifica, fare clic con il pulsante destro del mouse sul grafico della metrica e quindi scegliere **Modifica grafico**. ![Schermata del riquadro Richieste totali che indica che non ci sono dati disponibili](./media/documentdb-monitor-accounts/documentdb-no-available-data.png)
+
+2.	Nel pannello **Modifica grafico**, nella sezione **Intervallo di tempo**, fare clic su **ora precedente** e quindi su **Salva**. ![Schermata del pannello Modifica grafico con l'opzione relativa all'ora precedente selezionata](./media/documentdb-monitor-accounts/documentdb-no-available-data-past-hour.png)
+
+
+3.	Il riquadro verrà aggiornato con i dati e l'utilizzo correnti. ![Schermata del riquadro Richieste totali aggiornato all'ora precedente](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
+
 ## Passaggi successivi
 Per altre informazioni sulla capacità di DocumentDB, vedere [Gestire la capacità di DocumentDB](documentdb-manage.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

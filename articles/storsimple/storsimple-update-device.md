@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -34,7 +34,7 @@ Di seguito viene separatamente descritto ogni tipo di aggiornamento.
 
 Gli aggiornamenti regolari sono aggiornamenti senza interruzioni che possono essere installati quando il dispositivo è in modalità normale. Questi aggiornamenti vengono applicati tramite il sito Web Microsoft Update per ogni controller del dispositivo.
 
-> [AZURE.IMPORTANT]Durante il processo di aggiornamento può verificarsi un failover del controller. Tuttavia, questa operazione non modificherà la disponibilità o l'operatività del sistema.
+> [AZURE.IMPORTANT] Durante il processo di aggiornamento può verificarsi un failover del controller. Tuttavia, questa operazione non modificherà la disponibilità o l'operatività del sistema.
 
 - Per informazioni dettagliate su come installare gli aggiornamenti regolari tramite il portale di Azure classico, vedere [installare aggiornamenti regolari tramite il portale di Azure classico(#install-regular-updates-via-the-azure-classic-portal).
 
@@ -46,7 +46,7 @@ Gli aggiornamenti in modalità manutenzione sono aggiornamenti problematici, com
 
 Per informazioni dettagliate su come installare gli aggiornamenti in modalità manutenzione, vedere [Installare gli aggiornamenti in modalità manutenzione tramite Windows PowerShell per StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
-> [AZURE.IMPORTANT]Gli aggiornamenti in modalità manutenzione devono essere applicati separatamente a ogni controller.
+> [AZURE.IMPORTANT] Gli aggiornamenti in modalità manutenzione devono essere applicati separatamente a ogni controller.
 
 ## Installare gli aggiornamenti regolari tramite il portale di Azure classico
 
@@ -58,7 +58,7 @@ Per informazioni dettagliate su come installare gli aggiornamenti in modalità m
 
 In alternativa, è possibile utilizzare Windows PowerShell per StorSimple per applicare gli aggiornamenti regolari (modalità normale).
 
-> [AZURE.IMPORTANT]Sebbene sia possibile installare aggiornamenti regolari tramite Windows PowerShell per StorSimple, è consigliabile installare gli aggiornamenti periodici tramite il portale di Azure classico. A partire dall’aggiornamento 1, verranno eseguiti controlli preliminari prima di installare gli aggiornamenti dal portale. Questi controlli preliminari preverranno errori e garantiranno un'esperienza più uniforme.
+> [AZURE.IMPORTANT] Sebbene sia possibile installare aggiornamenti regolari tramite Windows PowerShell per StorSimple, è consigliabile installare gli aggiornamenti periodici tramite il portale di Azure classico. A partire dall’aggiornamento 1, verranno eseguiti controlli preliminari prima di installare gli aggiornamenti dal portale. Questi controlli preliminari preverranno errori e garantiranno un'esperienza più uniforme.
 
 [AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../../includes/storsimple-install-regular-updates-powershell.md)]
 
@@ -68,7 +68,7 @@ Utilizzare Windows PowerShell per StorSimple per applicare gli aggiornamenti in 
 
 Se è necessario applicare gli aggiornamenti in modalità manutenzione, si riceverà un avviso tramite il portale di Azure classico riguardo gli aggiornamenti che devono essere installati. Questo avviso include le istruzioni sull'utilizzo di Windows PowerShell per StorSimple per installare gli aggiornamenti. Dopo aver aggiornato il dispositivo, utilizzare la stessa procedura per modificare il dispositivo alla modalità normale. Per istruzioni dettagliate, vedere [Passaggio 4: Uscire dalla modalità di manutenzione](#step4).
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 > 
 > - Prima di entrare in modalità manutenzione, verificare che entrambi i controller di dispositivi siano integri controllando lo **Stato Hardware** sulla pagina **Manutenzione** nel portale di Azure classico. Se il controller non è integro, contattare il supporto tecnico Microsoft per i passaggi successivi. Per altre informazioni, contattare il supporto tecnico Microsoft. 
 > - In modalità manutenzione, è necessario applicare l’aggiornamento rapido prima in un controller e poi nell’altro.
@@ -119,4 +119,4 @@ Se il dispositivo viene ripristinato alle impostazioni predefinite, tutti gli ag
 - Altre informazioni sull'[utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo StorSimple](storsimple-windows-powershell-administration.md).
 - Altre informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

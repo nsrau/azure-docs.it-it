@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Introduzione all'Archiviazione di Azure (progetti Azure WebJob)
 
 ## Panoramica
 
-Questo articolo fornisce esempi di codice C# che illustrano come usare Azure WebJobs SDK versione 1.x con il servizio di archiviazione tabelle di Azure. Gli esempi di codice usano [WebJobs SDK](/app-service-web/websites-dotnet-webjobs-sdk.md) versione 1.x.
+Questo articolo fornisce esempi di codice C# che illustrano come usare Azure WebJobs SDK versione 1.x con il servizio di archiviazione tabelle di Azure. Gli esempi di codice usano [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) versione 1.x.
 
-Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali. Per altre informazioni, vedere [Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "Come usare l'archiviazione tabelle da .NET").
+Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali. Per altre informazioni, vedere [Introduzione all'archiviazione tabelle di Azure con .NET](storage-dotnet-how-to-use-tables.md#create-a-table).
 
-
-Alcuni dei frammenti di codice illustrano l'attributo **Tabella** usato nelle funzioni [chiamate manualmente](vs-storage-webjobs-getting-started-blobs.md#manual) e non mediante uno degli attributi del trigger.
+Alcuni dei frammenti di codice illustrano l'attributo **Tabella** usato nelle funzioni chiamate manualmente e non mediante uno degli attributi del trigger.
 
 ## Come aggiungere entità a una tabella
 
@@ -142,16 +141,16 @@ Il seguente esempio di codice usa un oggetto **CloudTable** per aggiungere una s
 		    tableBinding.Execute(insertOperation);
 		}
 
-Per altre informazioni su come usare l'oggetto **CloudTable**, vedere l'argomento relativo [all'uso dell'archiviazione tabelle da .NET](./storage-dotnet-how-to-use-tables.md).
+Per altre informazioni su come usare l'oggetto **CloudTable**, vedere [Introduzione all'archiviazione tabelle di Azure con .NET](storage-dotnet-how-to-use-tables.md).
 
 ## Argomenti correlati trattati nell'articolo delle procedure sulle code
 
-Per informazioni su come gestire l'elaborazione di tabelle attivata da un messaggio di coda o per scenari di WebJobs SDK non specifici dell'elaborazione di tabelle, vedere [Come usare il servizio di archiviazione code di Azure con WebJobs SDK](vs-storage-webjobs-getting-started-queues.md).
+Per informazioni su come gestire l'elaborazione di tabelle attivata da un messaggio di coda o per scenari di WebJobs SDK non legati all'elaborazione di tabelle, vedere [Introduzione all'archiviazione di accodamento di Azure e ai servizi relativi a Visual Studio (progetti WebJob)](vs-storage-webjobs-getting-started-queues.md).
 
 
 
 ## Passaggi successivi
 
-Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare Processi Web di Azure e WebJobs SDK, vedere le [risorse di documentazione di Processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

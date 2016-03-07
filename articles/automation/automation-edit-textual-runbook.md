@@ -12,8 +12,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="01/19/2016"
-	ms.author="bwren" />
+	ms.date="02/18/2016"
+	ms.author="magoedte;bwren" />
 
 # Modifica di runbook testuali in Automazione di Azure
 
@@ -25,7 +25,7 @@ Ogni runbook in Automazione di Azure include due versioni, ovvero una versione b
 
 Per usare i [runbook grafici](automation-runbook-types.md#graphical-runbooks), vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md).
 
-## Per modificare un runbook con il portale di anteprima di Azure
+## Per modificare un runbook con il portale di Azure
 
 Usare la procedura seguente per aprire un runbook per la modifica nell'editor di testo.
 
@@ -144,4 +144,4 @@ I comandi di esempio seguenti mostrano come sostituire il contenuto di un runboo
 - [Pianificazioni](automation-schedules.md)
 - [Variabili](automation-variables.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

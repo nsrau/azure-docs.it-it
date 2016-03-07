@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -27,7 +27,7 @@ In questa esercitazione viene illustrato come:
 - Installare un nuovo modulo della batteria di backup
 - Mantenimento del modulo della batteria di backup
 
->[AZURE.IMPORTANT]Prima di rimuovere e sostituire un modulo della batteria di backup, esaminare le informazioni di sicurezza descritte in [Introduzione alla sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Prima di rimuovere e sostituire un modulo della batteria di backup, esaminare le informazioni di sicurezza descritte in [Introduzione alla sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Rimuovere il modulo della batteria di backup
 
@@ -97,7 +97,7 @@ Nel dispositivo, il modulo della batteria di backup fornisce alimentazione al co
 
 Nel portale di Azure classico, **Stato hardware** nella pagina **Manutenzione** indica se la batteria non funziona correttamente o se si sta avvicinando la fine del ciclo di vita. Lo stato della batteria è indicato da **Batteria in PCM 0** o **Batteria in PCM 1** sotto **Componenti condivisi**. In questa pagina verrà visualizzato uno stato **DANNEGGIATO** per indicare l'avvicinarsi della fine del ciclo di vita e **NON RIUSCITO** per indicare che è stata raggiunta la fine del ciclo di vita.
 
->[AZURE.NOTE]La batteria può segnalare **NON RIUSCITO** quando è semplicemente necessario ricaricarla.
+>[AZURE.NOTE] La batteria può segnalare **NON RIUSCITO** quando è semplicemente necessario ricaricarla.
  
 Se viene visualizzato lo stato **DANNEGGIATO**, è consigliabile adottare la linea di azione seguente:
 
@@ -109,10 +109,10 @@ Se viene visualizzato lo stato **DANNEGGIATO**, è consigliabile adottare la lin
 
 - Se non si è verificata una perdita dell'alimentazione CA associata e il PCM è acceso e connesso all'alimentazione CA, la batteria deve essere sostituita. [Contattare il supporto Microsoft](storsimple-contact-microsoft-support.md) per ordinare un modulo della batteria di backup sostitutivo.
 
->[AZURE.IMPORTANT]Smaltire la batteria guasta in conformità con le normative nazionali e regionali.
+>[AZURE.IMPORTANT] Smaltire la batteria guasta in conformità con le normative nazionali e regionali.
 
 ## Passaggi successivi
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

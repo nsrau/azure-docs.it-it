@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/17/2015"
+   ms.date="02/11/2016"
    ms.author="prkumar"/>
 
 
 # Uso del listener e dell'azione HTTP e aggiunta all'app per la logica
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
 Connettersi direttamente alle risorse HTTP per rimanere in attesa delle richieste HTTP e configurare le richieste Web HTTP. In alcuni scenari può essere necessario usare connessioni HTTP dirette, ad esempio:
 
 1.	Per sviluppare un'app per la logica che supporta un front-end interattivo utente mobile o Web.
@@ -61,7 +63,7 @@ Dopo aver creato l'app per le API, è possibile usare il listener HTTP come trig
 9.	Infine, per inviare una risposta, aggiungere un altro listener HTTP e selezionare l'azione di invio della risposta HTTP. Impostare l'ID richiesta sull'ID ottenuto dal listener HTTP e immettere il corpo della risposta e lo stato HTTP che dovranno essere restituiti: ![][9]
 
 ## Uso dell'azione HTTP
-L'azione HTTP è supportata in modo nativo dalle app per la logica e non è necessario creare prima un'app per le API per poterla usare. È possibile inserire un'azione HTTP in qualsiasi punto dell'app per la logica e scegliere l'URI, le intestazioni e il corpo per la chiamata. L'azione HTTP supporta diverse opzioni per la sicurezza lato client. Vedere le [opzioni per la sicurezza lato client](../scheduler-outbound-authentication.md).
+L'azione HTTP è supportata in modo nativo dalle app per la logica e non è necessario creare prima un'app per le API per poterla usare. È possibile inserire un'azione HTTP in qualsiasi punto dell'app per la logica e scegliere l'URI, le intestazioni e il corpo per la chiamata. L'azione HTTP supporta diverse opzioni per la sicurezza lato client. Vedere le [opzioni per la sicurezza lato client](../scheduler/scheduler-outbound-authentication.md).
 
 L'output dell'azione HTTP sono le intestazioni e il corpo, che possono essere usati nel flusso downstream in modo simile a come viene usato l'output di altre azioni e altri connettori.
 
@@ -72,7 +74,7 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 
 È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md).
 
-> [AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> [AZURE.NOTE] Per iniziare a usare le app per la logica prima di creare un account di Azure, passare alla pagina [Prova l'app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png
@@ -86,4 +88,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

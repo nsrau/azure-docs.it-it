@@ -296,6 +296,8 @@ Gli eventi di Azure forniscono utili informazioni su quanto accade alle risorse 
 
 È possibile creare avvisi per questi eventi utente e configurarli per l'invio di notifiche tramite posta elettronica all'amministratore e ai coamministratori della sottoscrizione. Inoltre, è possibile specificare altri indirizzi di posta elettronica di utenti che devono ricevere notifiche tramite posta elettronica quando vengono soddisfatte le condizioni. Ciò è molto utile quando si desidera ricevere notifiche sugli errori senza monitorare continuamente la data factory.
 
+> [AZURE.NOTE] Il portale attualmente non visualizza gli avvisi relativi agli eventi. Usare l'[app di monitoraggio e gestione](data-factory-monitor-manage-app.md) per visualizzare tutti gli avvisi.
+
 #### Specifica di una definizione di avviso:
 Per specificare una definizione di avviso, creare un file JSON che descrive le operazioni per cui si desidera essere avvisati. Nell'esempio seguente l'avviso invierà una notifica tramite posta elettronica per l'operazione RunFinished. In particolare, viene inviata una notifica tramite posta elettronica quando un'esecuzione nella data factory viene completata, ma l'esito è negativo (stato = FailedExecution).
 
@@ -572,4 +574,13 @@ Dopo il completamento della distribuzione, verrà visualizzato il messaggio segu
 
 È anche possibile usare il cmdlet **Add-AlertRule** per distribuire una regola di avviso. Per informazioni dettagliate ed esempi, vedere l'argomento [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
 
-<!---HONumber=AcomDC_0218_2016-->
+## Spostare una data factory in un gruppo di risorse o una sottoscrizione diversa
+È possibile spostare una data factory in un gruppo di risorse diverso o una sottoscrizione diversa usando il pulsante della barra dei comandi **Sposta** nella home page della data factory.
+
+![Spostare una data factory](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
+
+È inoltre possibile spostare le risorse correlate (ad esempio avvisi associati alla data factory) insieme alla data factory.
+
+![Finestra di dialogo Sposta risorse](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
+
+<!---HONumber=AcomDC_0224_2016-->

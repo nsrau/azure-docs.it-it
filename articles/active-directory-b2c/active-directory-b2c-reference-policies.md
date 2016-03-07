@@ -22,17 +22,17 @@
 
 ## Nozioni di base
 
-Il framework di criteri estendibile di Azure Active Directory (AD) B2C è il punto di forza del servizio. I criteri descrivono completamente le esperienze di identità utente, ad esempio iscrizione, accesso o modifica del profilo. Ad esempio, i criteri di iscrizione consentono di controllare i comportamenti configurando le impostazioni seguenti:
+Il framework di criteri estendibile di Azure Active Directory (Azure AD) B2C è il punto di forza del servizio. I criteri descrivono le esperienze di identità utente, ad esempio iscrizione, accesso o modifica del profilo. Ad esempio, i criteri di iscrizione consentono di controllare i comportamenti configurando le impostazioni seguenti:
 
-- Tipi di account (account dei social network, come ad esempio Facebook e Google e/o account locali come indirizzo di posta elettronica/nome utente e password) che gli utenti possono usare per effettuare l'iscrizione all'applicazione.
-- Attributi (ad esempio nome, codice postale, numero di scarpe e così via) da raccogliere dall'utente durante la procedura di iscrizione. 
-- Uso dell'autenticazione a più fattori.
+- Tipi di account (account di social network come Facebook o account locali come un indirizzo di posta elettronica) che gli utenti possono usare per effettuare l'iscrizione all'applicazione.
+- Attributi (ad esempio nome, codice postale, numero di scarpe) da raccogliere dall'utente durante la procedura di iscrizione.
+- Uso di Multi-Factor Authentication.
 - Aspetto di tutte le pagine di iscrizione.
 - Informazioni (visualizzate come attestazioni in un token) che l'applicazione riceve al termine dell'esecuzione dei criteri.
 
-È possibile creare più criteri di tipi diversi nel proprio tenant e usarli nelle applicazioni in base alle esigenze. I criteri possono essere riutilizzati per più applicazioni. In questo modo, gli sviluppatori possono definire e modificare le esperienze di identità degli utenti con modifiche minime o senza modifiche al codice. Continueremo ad aggiungere tipi di criteri più avanzati al servizio.
+È possibile creare più criteri di tipi diversi nel proprio tenant e usarli nelle applicazioni in base alle esigenze. I criteri possono essere usati per più applicazioni. In questo modo, gli sviluppatori possono definire e modificare le esperienze di identità degli utenti con modifiche minime o senza modifiche al codice.
 
-Per usare i criteri, è disponibile una semplice interfaccia per sviluppatori. L'applicazione attiva i criteri tramite una richiesta di autenticazione HTTP standard (passando i parametri dei criteri nella richiesta) e riceve un token personalizzato come risposta. Ad esempio, l'unica differenza tra richiamare i criteri di iscrizione e i criteri di accesso sta nel nome dei criteri usato nel parametro della stringa di query "p":
+Per usare i criteri, è disponibile una semplice interfaccia per sviluppatori. L'applicazione attiva i criteri tramite una richiesta di autenticazione HTTP standard (passando i parametri dei criteri nella richiesta) e riceve un token personalizzato come risposta. Ad esempio, l'unica differenza tra le richieste che richiamano i criteri di iscrizione e i criteri di accesso risiede nel nome del criterio usato nel parametro della stringa di query "p":
 
 ```
 
@@ -62,11 +62,11 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-Se si è interessati a un approfondimento sul framework dei criteri, leggere questo [post di blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
+Per altre informazioni sul framework di criteri, vedere questo [post di blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
-## Come creare i criteri di iscrizione
+## Creare un criterio di iscrizione
 
-Per abilitare l'iscrizione nell'applicazione, sarà necessario creare i criteri di iscrizione. I criteri descrivono l'esperienza utente durante la procedura di iscrizione e il contenuto dei token che l'applicazione riceverà al completamento dell'iscrizione.
+Per abilitare l'iscrizione nell'applicazione, è necessario creare i criteri di iscrizione. I criteri descrivono l'esperienza utente durante la procedura di iscrizione e il contenuto dei token che l'applicazione riceverà al completamento dell'iscrizione.
 
 1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Fare clic su **Criteri di iscrizione**.
@@ -75,16 +75,17 @@ Per abilitare l'iscrizione nell'applicazione, sarà necessario creare i criteri 
 5. Fare clic su **Provider di identità** e selezionare "Indirizzo di posta elettronica". Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
 6. Fare clic su **Attributi iscrizione**. Qui è possibile scegliere gli attributi che si desidera raccogliere dall'utente durante l'iscrizione. Ad esempio, selezionare "Paese/Area", "Nome visualizzato" e "Codice postale". Fare clic su **OK**.
 7. Fare clic su **Attestazioni applicazione**. Qui si scelgono le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di iscrizione. Selezionare ad esempio "Nome visualizzato", "Provider di identità", "Codice postale", "L'utente è nuovo" e l'"ID oggetto dell'utente".
-8. Fare clic su **Crea**. Si noti che il criterio appena creato è visualizzato come "**B2C\_1\_SiUp**" (il frammento **B2C\_1\_** viene aggiunto automaticamente come prefisso) nel pannello **Criteri di iscrizione**.
+8. Fare clic su **Crea**. Si noti che il criterio appena creato è visualizzato come "**B2C\_1\_SiUp**" (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Criteri di iscrizione**.
 9. Aprire il criterio facendo clic su "**B2C\_1\_SiUp**".
-10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**. Fare clic sul pulsante **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di iscrizione per l'applicazione.
+10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**.
+11. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di iscrizione per l'applicazione.
 
     > [AZURE.NOTE]
     La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
 
-## Come creare i criteri di accesso
+## Creare un criterio di accesso
 
-Per abilitare l'accesso nell'applicazione, sarà necessario creare i criteri di accesso. I criteri descrivono l'esperienza utente durante la procedura di accesso e il contenuto dei token che l'applicazione riceverà al completamento dell'accesso.
+Per abilitare l'accesso nell'applicazione, è necessario creare i criteri di accesso. I criteri descrivono l'esperienza utente durante la procedura di accesso e il contenuto dei token che l'applicazione riceverà al completamento dell'accesso.
 
 1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Fare clic su **Criteri di accesso**.
@@ -94,12 +95,13 @@ Per abilitare l'accesso nell'applicazione, sarà necessario creare i criteri di 
 6. Fare clic su **Attestazioni applicazione**. Qui è possibile scegliere le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di accesso. Selezionare ad esempio "Nome visualizzato", "Provider di identità", "Codice postale" e l'"ID oggetto dell'utente". Fare clic su **OK**.
 7. Fare clic su **Crea**. Si noti che il criterio appena creato è visualizzato come "**B2C\_1\_SiIn**" (il frammento **B2C\_1\_** viene aggiunto automaticamente come prefisso) nel pannello **Criteri di accesso**.
 8. Aprire il criterio facendo clic su "**B2C\_1\_SiIn**".
-9. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**. Fare clic sul pulsante **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di accesso all'applicazione.
+9. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**.
+10. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di accesso all'applicazione.
 
     > [AZURE.NOTE]
     La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
 
-## Come creare i criteri di modifica del profilo
+## Creare i criteri di modifica del profilo
 
 Per abilitare la modifica del profilo nell'applicazione, è necessario creare i criteri di modifica del profilo. Questi criteri descrivono l'esperienza utente durante la procedura di modifica del profilo e il contenuto dei token che l'applicazione riceverà al completamento della procedura.
 
@@ -110,11 +112,12 @@ Per abilitare la modifica del profilo nell'applicazione, è necessario creare i 
 5. Fare clic su **Provider di identità** e selezionare "Indirizzo di posta elettronica". Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
 6. Fare clic su **Attributi profilo**. Qui è possibile scegliere gli attributi che l'utente potrà visualizzare e modificare. Ad esempio, selezionare "Paese/Area", "Nome visualizzato" e "Codice postale". Fare clic su **OK**.
 7. Fare clic su **Attestazioni applicazione**. Qui si scelgono le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di modifica del profilo. Ad esempio, selezionare "Nome visualizzato" e "Codice postale".
-8. Fare clic su **Crea**. Si noti che il criterio appena creato è visualizzato come "**B2C\_1\_SiPe**" (il frammento **B2C\_1\_** viene aggiunto automaticamente come prefisso) nel pannello **Criteri di modifica del profilo**.
+8. Fare clic su **Crea**. Si noti che il criterio appena creato è visualizzato come "**B2C\_1\_SiPe**" (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Criteri di modifica del profilo**.
 9. Aprire il criterio facendo clic su "**B2C\_1\_SiPe**".
-10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**. Fare clic sul pulsante **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di modifica del profilo nell'applicazione.
+10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**.
+11. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di modifica del profilo nell'applicazione.
 
     > [AZURE.NOTE]
     La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -221,7 +221,7 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 
 [4] [Big Data Marketing: coinvolgere i clienti e valorizzare i prodotti in modo più efficace](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modello di varianza Telco] (https://caqs.azure.net/#gallery/telcocustomerchurn) nella raccolta di Cortana Analytics
+[5] [Modello di varianza Telco] (http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5) nella raccolta di Cortana Analytics
 ##Appendice
 
 ![][10]
@@ -240,4 +240,4 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

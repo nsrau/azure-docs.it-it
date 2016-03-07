@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/23/2016"
 	ms.author="asmalser"/>
 
 
@@ -107,4 +107,4 @@ Per fare in modo che gli utenti di AAD di cui è stato effettuato il provisionin
  
 4.	Fare clic sul pulsante **Assegna** nel piè di pagina.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

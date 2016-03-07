@@ -207,6 +207,16 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 	   }
 	}
 
+
+È necessario modificare la stringa di query in base alla configurazione delle date nel database Oracle. Se viene visualizzato il messaggio di errore seguente:
+
+	Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+
+potrebbe essere necessario modificare la query come illustrato di seguito (usando la funzione to\_date):
+
+	"oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+
+
 ## Proprietà del servizio collegato Oracle
 
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato Oracle.
@@ -302,4 +312,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

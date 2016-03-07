@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introduzione a Azure RemoteApp con PowerShell | Microsoft Azure"
-   description="Informazioni su come iniziare a usare Azure RemoteApp con PowerShell"
+   pageTitle="Usare i cmdlet PowerShell con Azure RemoteApp | Microsoft Azure"
+   description="Informazioni su come usare i cmdlet Windows PowerShell in Azure RemoteApp."
    services="remoteapp"
    documentationCenter=""
    authors="guscatalano"
@@ -13,24 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="12/05/2015"
-   ms.author="guscatal;spatnaik;elizapo"/>
+   ms.date="02/23/2016"
+   ms.author="elizapo"/>
 
 
 
-# Introduzione a Azure RemoteApp con PowerShell
+# Usare i cmdlet Windows PowerShell con Azure RemoteApp
 =====================================
 
+ È possibile usare i cmdlet Azure RemoteApp PowerShell per amministrare e gestire le raccolte. Per iniziare, usare le informazioni seguenti.
 
-## Ottenere i cmdlet
+## Ottenere i cmdlet 
 -------------
-Prima di tutto è necessario scaricare i cmdlet di Azure PowerShell [qui](http://go.microsoft.com/?linkid=9811175), inclusi quelli di RemoteApp.
+Prima di tutto scaricare i cmdlet Azure PowerShell [qui](http://go.microsoft.com/?linkid=9811175). I cmdlet RemoteApp sono inclusi.
 
-Consultare la Guida dei cmdlet di Azure RemoteApp [qui](https://msdn.microsoft.com/library/mt428031.aspx).
+Consultare la [guida dei cmdlet Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
 
 ## Configurare i cmdlet di Azure per usare la sottoscrizione
 ------------------
 Seguire [questa guida](../powershell-install-configure.md) per poter usare i cmdlet con la sottoscrizione di Azure.
+
+Per iniziare rapidamente è possibile eseguire questi passaggi:
+
+1.	Scaricare e installare i [cmdlet Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
+2.	Avviare Microsoft Azure PowerShell.
+3.	Eseguire **Add-AzureAccount** per eseguire l'autenticazione alla sottoscrizione Azure. Quando richiesto, immettere il nome utente e la password usati per accedere al portale di Azure.  
+4.	Eseguire **Get-AzureSubscription** per elencare le sottoscrizioni associate all'account utente. 
+5.	Eseguire **Select-AzureSubscription** e specificare il nome o l'ID della sottoscrizione da usare nella console di PowerShell.
+
+La console di Azure PowerShell è configurata e pronta per l'uso. Tenere presente che sarà necessario ripetere i passaggi da 2 a 5 ogni volta che si avvia la console di Azure PowerShell.
 
 ## Creare una raccolta nel cloud
 --------------------
@@ -99,5 +110,6 @@ Altri cmdlet di RemoteApp:
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
+ 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="01/23/2015"
+   ms.date="01/23/2016"
    ms.author="sstein"/>
 
 # Advisor dell’indice del database SQL
@@ -33,7 +33,7 @@ Questo articolo descrive Index Advisor per i server versione 12. Le indicazioni 
 
 ### Autorizzazioni
 
-Per visualizzare e creare indicazioni relative agli indici, sono necessarie le autorizzazioni di [controllo dell'accesso basato sui ruoli](role-based-access-control-configure.md) corrette in Azure.
+Per visualizzare e creare indicazioni relative agli indici, sono necessarie le autorizzazioni di [controllo dell'accesso basato sui ruoli](../active-directory/role-based-access-control-configure.md) corrette in Azure.
 
 - Le autorizzazioni **Lettore** e **Collaboratore DB SQL** sono necessarie per visualizzare le indicazioni.
 - Le autorizzazioni **Proprietario** e **Collaboratore DB SQL** sono necessarie per eseguire qualunque azione, creare o eliminare gli indici e annullare la creazione dell'indice.
@@ -179,4 +179,4 @@ Index Advisor offre indicazioni relative agli indici e un'esperienza automatizza
 
 Monitorare le indicazioni relative agli indici e continuare ad applicarle in modo da migliorare le prestazioni. I carichi di lavoro dei database sono dinamici e cambiano in modo continuo. L’advisor dell’indice continuerà a monitorare e raccomandare indici che potenzialmente possono migliorare le prestazioni del database.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

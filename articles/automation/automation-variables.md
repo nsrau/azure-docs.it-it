@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren" />
 
 # Asset di tipo variabile in Automazione di Azure
 
@@ -67,7 +67,7 @@ Le attività flusso di lavoro incluse nella tabella seguente vengono usate per a
 1. Completare la procedura guidata e selezionare la casella di controllo per salvare la nuova variabile.
 
 
-### Per creare una nuova variabile con il portale di anteprima di Azure
+### Per creare una nuova variabile con il portale di Azure
 
 1. Dall'account di automazione fare clic sulla parte **Asset** per aprire il pannello **Asset**.
 1. Fare clic sulla parte **Variabili** per aprire il pannello **Variabili**.
@@ -188,4 +188,4 @@ La figura seguente illustra come filtrare gli oggetti archiviati in una variabil
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

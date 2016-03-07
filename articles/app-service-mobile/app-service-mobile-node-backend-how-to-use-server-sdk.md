@@ -119,7 +119,7 @@ Visual Studio 2015 richiede un'estensione per lo sviluppo di applicazioni Node.j
         // Azure Mobile Apps Initialization
         var mobile = azureMobileApps();
         mobile.tables.add('TodoItem');
-        app.use('mobile');
+        app.use(mobile);
 
     Salvare il file.
 
@@ -803,4 +803,4 @@ Nell'editor è anche possibile eseguire il codice nel sito.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

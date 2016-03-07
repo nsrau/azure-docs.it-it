@@ -1,10 +1,10 @@
 <properties 
-pageTitle="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview) | Microsoft Azure | Servizio di ricerca cloud ospitato" 
+pageTitle="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview) | API di anteprima di Ricerca di Azure" 
 description="Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
-authors="HeidiSteen" 
-manager="mblythe" 
+authors="chaosrealm" 
+manager="pablocas"
 editor="" />
 
 <tags 
@@ -13,16 +13,16 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="11/04/2015" 
-ms.author="heidist" />
+ms.date="02/18/2016" 
+ms.author="eugenesh" />
 
 #Operazioni sull'indicizzatore (API REST di Ricerca di Azure: 2015-02-28-Preview)#
 
-> [AZURE.NOTE] Questo articolo descrive gli indicizzatori in [2015-02-28-Preview](./search-api-2015-02-28-preview). Attualmente non esiste alcuna differenza tra la versione documentata `2015-02-28` in [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) e la versione `2015-02-28-Preview` descritta di seguito. Questo articolo fornisce il set completo della documentazione di `2015-02-28-Preview`, anche se l'API sembra invariata.
+> [AZURE.NOTE] Questo articolo descrive gli indicizzatori in [2015-02-28-Preview](./search-api-2015-02-28-preview). Questa versione dell'API aggiunge un indicizzatore di archiviazione BLOB di Azure con estrazione di documenti e altri miglioramenti.
 
 ## Panoramica ##
 
-Ricerca di Azure è un servizio di ricerca ospitato sul cloud in Microsoft Azure. Ricerca di Azure può integrarsi direttamente con alcune origini dati comuni, eliminando la necessità di scrivere codice per l'indicizzazione dei dati. Per impostare questo servizio, è possibile chiamare l'API di Ricerca di Azure in modo da creare e gestire **indicizzatori** e **origini dati**.
+Ricerca di Azure può integrarsi direttamente con alcune origini dati comuni, eliminando la necessità di scrivere codice per l'indicizzazione dei dati. Per impostare questo servizio, è possibile chiamare l'API di Ricerca di Azure in modo da creare e gestire **indicizzatori** e **origini dati**.
 
 Un **indicizzatore** è una risorsa che connette le origini dati agli indici di ricerca di destinazione. Un indicizzatore viene usato nei modi seguenti:
 
@@ -36,10 +36,11 @@ Un'**origine dati** specifica i dati da indicizzare, le credenziali per accedere
 
 Sono attualmente supportate le origini dati seguenti:
 
-- il database SQL di Azure e SQL Server in macchine virtuali di Azure
-- Azure DocumentDB 
-
-La possibilità di aggiungere il supporto per altre origini dati è in fase di valutazione. Per contribuire a questa decisione, è possibile fornire commenti e suggerimenti nell'apposito [forum di Ricerca di Azure](https://feedback.azure.com/forums/263029-azure-search/).
+- **Database SQL di Azure** e **SQL Server in macchine virtuali di Azure**. Per una procedura dettagliata, vedere [questo articolo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28/). 
+- **Azure DocumentDB**. Per una procedura dettagliata, vedere [questo articolo](../documentdb/documentdb-search-indexer). 
+- **Archiviazione BLOB di Azure**, inclusi i seguenti formati di documenti: PDF, Microsoft Office (DOCX/DOC, XLS/XSLX, PPTX/PPT, MSG), HTML, XML, ZIP e file di testo normale (incluso JSON). Per una procedura dettagliata, vedere [questo articolo](search-howto-indexing-azure-blob-storage.md).
+	 
+La possibilità di aggiungere il supporto per altre origini dati è in fase di valutazione. Per contribuire a questa decisione, è possibile fornire commenti e suggerimenti nell'apposito [forum di Ricerca di Azure](http://feedback.azure.com/forums/263029-azure-search).
 
 Vedere [Limiti del servizio](search-limits-quotas-capacity.md) per i limiti massimi relativi alle risorse di origine dati e dell'indicizzatore.
 
@@ -93,7 +94,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `Content-Type`: elemento obbligatorio. Impostare il valore su `application/json`.
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **creazione di un'origine dati** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query. 
  
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere sia il nome del servizio sia `api-key` dal dashboard servizi nel [portale di Azure classico](https://portal.azure.com/). Per informazioni, vedere [Creare un servizio di ricerca nel portale](search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel [portale di gestione di Azure](https://portal.azure.com/). Per informazioni, vedere [Creare un servizio di ricerca nel portale](search-create-service-portal.md).
 
 <a name="CreateDataSourceRequestSyntax"></a> **Sintassi del corpo della richiesta**
 
@@ -105,9 +106,9 @@ La sintassi per la strutturazione del payload della richiesta è la seguente: Pi
     { 
 		"name" : "Required for POST, optional for PUT. The name of the data source",
     	"description" : "Optional. Anything you want, or nothing at all",
-    	"type" : "Required. Must be 'azuresql' or 'documentdb'",
+    	"type" : "Required. Must be one of 'azuresql', 'documentdb', or 'azureblob'",
     	"credentials" : { "connectionString" : "Required. Connection string for your data source" },
-    	"container" : { "name" : "Required. The name of the table or collection you wish to index" },
+    	"container" : { "name" : "Required. The name of the table, collection, or blob container you wish to index" },
     	"dataChangeDetectionPolicy" : { Optional. See below for details }, 
     	"dataDeletionDetectionPolicy" : { Optional. See below for details }
 	}
@@ -119,22 +120,28 @@ La richiesta contiene le proprietà seguenti:
 - `type`: elemento obbligatorio. Deve essere uno dei tipi di origine dati supportati:
 	- `azuresql` - database SQL di Azure e SQL Server in macchine virtuali di Azure
 	- `documentdb` - Azure DocumentDB
+	- `azureblob` - Archiviazione BLOB di Azure
 - `credentials`:
 	- La proprietà `connectionString` obbligatoria specifica la stringa di connessione per l'origine dati. Il formato della stringa di connessione dipende dal tipo di origine dati: 
-		- Per SQL Azure, si tratta della solita stringa di connessione di SQL Server. Se si usa il portale di Azure classico per recuperare la stringa di connessione, usare l'opzione `ADO.NET connection string`.
-		- Per DocumentDB, la stringa di connessione deve essere nel formato seguente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Tutti i valori sono obbligatori ed è possibile ottenerli nel [portale di Azure classico](https://portal.azure.com/).   
+		- Per SQL Azure, si tratta della solita stringa di connessione di SQL Server. Se si usa il portale di Azure per recuperare la stringa di connessione, usare l'opzione `ADO.NET connection string`.
+		- Per DocumentDB, la stringa di connessione deve essere nel formato seguente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Tutti i valori sono obbligatori ed è possibile ottenerli nel [portale di Azure](https://portal.azure.com/).  
+		- Per l'archiviazione BLOB di Azure, questa è la stringa di connessione dell'account di archiviazione. Il formato è descritto [qui](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). È richiesto un protocollo HTTPS per l'endpoint.  
 		
-- `container`:
-	- La proprietà `name` obbligatoria specifica la tabella o la visualizzazione (per l'origine dati di SQL Azure) o la raccolta (per l'origine dati di DocumentDB) che sarà indicizzata. 
-	- Per le origini dati SQL, omettere i prefissi dello schema, come ad esempio dbo., in modo che il contenitore sia costituito solo dal nome della tabella o ella visualizzazione.
-	- Le origini dati di DocumentDB supportano una proprietà `query` facoltativa che consente di specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.   
-- I criteri facoltativi `dataChangeDetectionPolicy` e `dataDeletionDetectionPolicy` sono descritti di seguito.
+- `container`, elemento obbligatorio: specifica i dati da indicizzare mediante le proprietà `name` e `query`:
+	- `name`, elemento obbligatorio:
+		- SQL Azure: specifica la tabella o la vista. È possibile usare nomi completi di schema, ad esempio `[dbo].[mytable]`.
+		- DocumentDB: specifica la raccolta. 
+		- Archiviazione BLOB di Azure: specifica il contenitore di archiviazione. 
+	- `query`, elemento facoltativo:
+		- DocumentDB: consente di specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.  
+		- Archiviazione BLOB di Azure: consente di specificare una cartella virtuale all'interno del contenitore BLOB. Ad esempio, per il percorso BLOB `mycontainer/documents/blob.pdf` è possibile usare `documents` come cartella virtuale.
+		- SQL Azure: la query non è supportata. Se questa funzionalità è necessaria, usare [questo suggerimento](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer)
+   
+- Le proprietà facoltative `dataChangeDetectionPolicy` e `dataDeletionDetectionPolicy` sono descritte di seguito.
 
 <a name="DataChangeDetectionPolicies"></a> **Criteri di rilevamento delle modifiche dei dati**
 
 Lo scopo di un criterio di rilevamento delle modifiche dei dati è quello di identificare in modo efficace gli elementi di dati modificati. I criteri supportati variano in base al tipo di origine dati. Le sezioni seguenti descrivono ognuno di questi criteri.
-
-**NOTA:** i criteri di rilevamento dell'eliminazione dei dati possono essere cambiati dopo aver creato l'indicizzatore tramite l'API di [reimpostazione di un indicizzatore](#ResetIndexer).
 
 ***Criteri di rilevamento delle modifiche con limite massimo***
 
@@ -147,14 +154,16 @@ Usare questi criteri quando l'origine dati contiene una colonna o una proprietà
 
 Ad esempio, quando si usano origini dati di SQL Azure, una colonna `rowversion` indicizzata è il candidato ideale da usare per i criteri con limite massimo.
 
-Quando si usano origini dati di DocumentDB, è necessario usare la proprietà `_ts` specificata da DocumentDB.
- 
 Questi criteri possono essere specificati come indicato di seguito:
 
 	{ 
 		"@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
 		"highWaterMarkColumnName" : "[a row version or last_updated column name]" 
 	} 
+
+> [AZURE.NOTE] Quando si usano origini dati di DocumentDB, è necessario usare la proprietà `_ts` specificata da DocumentDB.
+
+> [AZURE.NOTE] Quando si usano le origini dati BLOB di Azure, Ricerca di Azure usa automaticamente criteri di rilevamento modifiche con limite massimo basati sull'ultimo timestamp modificato del BLOB. L'utente non deve quindi specificare personalmente questi criteri.
 
 ***Criteri di rilevamento delle modifiche integrati di SQL***
 
@@ -225,11 +234,19 @@ L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. 
 
 L'elemento `api-key` deve essere una chiave amministratore, invece di una chiave di query Per altre informazioni sulle chiavi, fare riferimento alla sezione sull'autenticazione in [API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). [Creare un servizio di ricerca nel portale ](search-create-service-portal.md) illustra come ottenere l'URL del servizio e le proprietà delle chiavi usati nella richiesta.
 
-**Richiesta** La sintassi del corpo della richiesta è analoga a quella indicata nell'operazione di [creazione di un'origine dati](#CreateDataSourceRequestSyntax).
+**Richiesta**
 
-**Risposta** Se la richiesta ha esito positivo, viene restituito il codice di stato 201 - Creato se è stata creata una nuova origine dati, e il codice di stato 204 - Nessun contenuto se è stata aggiornata un'origine dati esistente.
+La sintassi del corpo della richiesta è analoga a quella indicata nell'operazione di [creazione di un'origine dati](#CreateDataSourceRequestSyntax).
 
-**NOTA:** alcune proprietà non possono essere aggiornate in un'origine dati esistente. Ad esempio, non è possibile modificare il tipo di un'origine dati esistente.
+> [AZURE.NOTE]
+Alcune proprietà non possono essere aggiornate in un'origine dati esistente. Ad esempio, non è possibile modificare il tipo di un'origine dati esistente.
+
+> [AZURE.NOTE]
+Se non si desidera modificare la stringa di connessione per un'origine dati esistente, è possibile specificare il valore letterale `<unchanged>` per la stringa di connessione. Questo accorgimento è utile nelle situazioni in cui è necessario aggiornare un'origine dati ma non si dispone dell'accesso alla stringa di connessione poiché si tratta di dati con esigenze particolari a livello di sicurezza.
+
+**Risposta**
+
+Se la richiesta ha esito positivo, viene restituito il codice di stato 201 - Creato se è stata creata una nuova origine dati, e il codice di stato 204 - Nessun contenuto se è stata aggiornata un'origine dati esistente.
 
 <a name="ListDataSource"></a>
 ## Elencare le origini dati ##
@@ -303,7 +320,7 @@ La risposta è simile agli esempi nell'operazione di [creazione di un'origine da
 			"softDeleteMarkerValue" : "true" }
 	}
 
-**NOTA:** non impostare l'intestazione della richiesta `Accept` su `application/json;odata.metadata=none` quando si chiama questa API, in quanto tale operazione comporterebbe l'omissione dell'attributo `@odata.type` dalla risposta e sarebbe impossibile distinguere tra i criteri di rilevamento dell'eliminazione dei dati e i criteri di rilevamento della modifica dei dati di tipi diversi.
+> [AZURE.NOTE] Non impostare l'intestazione della richiesta `Accept` su `application/json;odata.metadata=none` quando si chiama questa API, in quanto tale operazione comporterebbe l'omissione dell'attributo `@odata.type` dalla risposta e sarebbe impossibile distinguere tra i criteri di rilevamento dell'eliminazione dei dati e i criteri di rilevamento della modifica dei dati di tipi diversi.
 
 <a name="DeleteDataSource"></a>
 ## Eliminare un'origine dati ##
@@ -313,7 +330,7 @@ L'operazione di **eliminazione di un'origine dati** rimuove un'origine dati da R
     DELETE https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
     api-key: [admin key]
 
-**NOTA:** se alcuni indicizzatori fanno riferimento all'origine dati da eliminare, l'operazione di eliminazione continuerà comunque. Questi indicizzatori, tuttavia, effettueranno una transizione a uno stato di errore all'esecuzione successiva.
+> [AZURE.NOTE] Se alcuni indicizzatori fanno riferimento all'origine dati da eliminare, l'operazione di eliminazione continuerà comunque. Questi indicizzatori, tuttavia, effettueranno una transizione a uno stato di errore all'esecuzione successiva.
 
 L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
 
@@ -336,7 +353,7 @@ In alternativa, è possibile usare una richiesta PUT e specificare il nome dell'
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
 
-**Nota**: il numero massimo di indicizzatori consentiti varia in base al livello di prezzo. Nel servizio gratuito sono consentiti fino a 3 indicizzatori. Nel servizio standard sono consentiti 50 indicizzatori. Per informazioni dettagliate, vedere l'articolo relativo ai [limiti del servizio](search-limits-quotas-capacity.md).
+> [AZURE.NOTE] Il numero massimo di indicizzatori consentiti varia in base al piano tariffario. Nel servizio gratuito sono consentiti fino a 3 indicizzatori. Nel servizio standard sono consentiti 50 indicizzatori. Per informazioni dettagliate, vedere l'articolo relativo ai [limiti del servizio](search-limits-quotas-capacity.md).
 
 L'elemento `api-version` è obbligatorio. La versione corrente è `2015-02-28`. In [Controllo delle versioni di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) sono presenti informazioni dettagliate sulle versioni alternative.
 
@@ -365,7 +382,7 @@ La sintassi per la strutturazione del payload della richiesta è la seguente: Pi
 
 Facoltativamente, un indicizzatore può specificare una pianificazione. Se è presente una pianificazione, l'indicizzatore verrà eseguito periodicamente in base alla pianificazione. La pianificazione ha gli attributi seguenti:
 
-- `interval`: elemento obbligatorio. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Il modello è: `P[nD][T[nH][nM]]`. Esempi: `PT15M` per indicare l'esecuzione ogni 15 minuti, `PT2H` per indicare l'esecuzione ogni 2 ore. 
+- `interval`: elemento obbligatorio. Valore di durata che specifica un intervallo o un periodo per l'esecuzione dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Il modello è: `"P[nD][T[nH][nM]]"`. Esempi: `PT15M` per indicare l'esecuzione ogni 15 minuti, `PT2H` per indicare l'esecuzione ogni 2 ore. 
 
 - `startTime`: elemento obbligatorio. Data e ora UTC di inizio dell'esecuzione dell'indicizzatore.
 
@@ -378,6 +395,9 @@ Un indicizzatore può facoltativamente specificare diversi parametri che ne infl
 - `maxFailedItemsPerBatch`: numero di elementi per cui l'indicizzazione può avere esito negativo in ogni batch prima che l'indicizzatore venga considerato in errore. Il valore predefinito è 0.
 
 - `base64EncodeKeys`: specifica se le chiavi del documento saranno codificate in base 64. Ricerca di Azure impone restrizioni sui caratteri che possono essere presenti in una chiave del documento. Tuttavia, i valori nei dati di origine possono contenere caratteri non validi. Se è necessario indicizzare questi valori come chiavi del documento, questo contrassegno può essere impostato su true. Il valore predefinito è `false`.
+
+- `batchSize`: specifica il numero di elementi che vengono letti dall'origine dati e indicizzati in un batch unico per migliorare le prestazioni. Il valore predefinito dipende dal tipo di origine dati: 1000 per SQL Azure e DocumentDB e 10 per archiviazione BLOB di Azure.
+
 
 **Mapping dei campi**
 
@@ -777,4 +797,4 @@ Se la risposta ha esito positivo, viene restituito il codice di stato 204 Nessun
 </tr>
 </table>
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

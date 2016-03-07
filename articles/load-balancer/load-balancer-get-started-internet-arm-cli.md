@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="02/12/2015"
    ms.author="joaoma" />
 
 # Introduzione alla creazione del servizio di bilanciamento del carico Internet tramite l'interfaccia della riga di comando di Azure
@@ -49,7 +49,7 @@ Qui verrà illustrata la sequenza delle singole attività da eseguire per creare
 
 ## Configurare l'interfaccia della riga di comando per l'uso di Gestione risorse
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se non è mai stata usata l'interfaccia da riga di comando di Azure vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../../articles/xplat-cli-install.md) e seguire le istruzioni fino al passaggio in cui si selezionano l'account e la sottoscrizione di Azure.
 
 2. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
@@ -78,7 +78,7 @@ Creare un indirizzo IP pubblico denominato *NRPPublicIP* che dovrà essere usato
 	azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
 
 
->[AZURE.IMPORTANT]Il servizio di bilanciamento del carico userà l'etichetta di dominio dell'indirizzo IP pubblico come nome di dominio completo. Questa è una differenza rispetto alla distribuzione classica, che usa il servizio cloud come nome di dominio completo del servizio di bilanciamento del carico. In questo esempio il nome di dominio completo sarà *loadbalancernrp.eastus.cloudapp.azure.com*.
+>[AZURE.IMPORTANT] Il servizio di bilanciamento del carico userà l'etichetta di dominio dell'indirizzo IP pubblico come nome di dominio completo. Questa è una differenza rispetto alla distribuzione classica, che usa il servizio cloud come nome di dominio completo del servizio di bilanciamento del carico. In questo esempio il nome di dominio completo sarà *loadbalancernrp.eastus.cloudapp.azure.com*.
 
 ## Creare un servizio di bilanciamento del carico
 
@@ -106,19 +106,19 @@ Configurare un pool di indirizzi back-end usato per ricevere il traffico in ingr
 
 Questo esempio seguente crea gli elementi seguenti.
 
-- Regola NAT per la conversione di tutto il traffico in ingresso sulla porta 3441 alla porta 3389<sup>1</sup>
-- Regola NAT per la conversione di tutto il traffico in ingresso sulla porta 3442 alla porta 3389.
+- Regola NAT per la conversione di tutto il traffico in ingresso sulla porta 21 alla porta 22<sup>1</sup>
+- Regola NAT per la conversione di tutto il traffico in ingresso sulla porta 23 alla porta 22.
 - Regola del servizio di bilanciamento del carico per il bilanciamento di tutto il traffico in ingresso sulla porta 80 verso la porta 80 negli indirizzi nel pool back-end.
 - Regola probe per il controllo dello stato di integrità in una pagina denominata *HealthProbe.aspx*.
 
-<sup>1</sup> Le regole NAT vengono associate a un'istanza di macchina virtuale specifica dietro al servizio di bilanciamento del carico. Il traffico di rete in ingresso sulla porta 3341 sarà inviato ad una macchina virtuale specifica sulla porta 3389 associata alla regola NAT nell’esempio seguente. E’ necessario scegliere un protocollo per la regola NAT, UDP o TCP. Entrambi i protocolli non possono essere assegnati alla stessa porta.
+<sup>1</sup> Le regole NAT vengono associate a un'istanza di macchina virtuale specifica dietro al servizio di bilanciamento del carico. Il traffico di rete in ingresso sulla porta 21 sarà inviato ad una macchina virtuale specifica sulla porta 22 associata alla regola NAT nell’esempio seguente. E’ necessario scegliere un protocollo per la regola NAT, UDP o TCP. Entrambi i protocolli non possono essere assegnati alla stessa porta.
 
 ### Passaggio 1
 
 Creare le regole NAT.
 
-	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n rdp1 -p tcp -f 3441 -b 3389
-	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n rdp2 -p tcp -f 3442 -b 3389
+	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh1 -p tcp -f 21 -b 22
+	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh2 -p tcp -f 23 -b 22
 
 Parametri:
 
@@ -184,20 +184,20 @@ Output previsto:
 	data:      Backend address pool          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
 	data:
 	data:    Inbound NAT rules:
-	data:      Name                          : rdp1
+	data:      Name                          : ssh1
 	data:      Provisioning state            : Succeeded
 	data:      Protocol                      : Tcp
-	data:      Frontend port                 : 3441
-	data:      Backend port                  : 3389
+	data:      Frontend port                 : 21
+	data:      Backend port                  : 22
 	data:      Enable floating IP            : false
 	data:      Idle timeout in minutes       : 4
 	data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
 	data:
-	data:      Name                          : rdp2
+	data:      Name                          : ssh2
 	data:      Provisioning state            : Succeeded
 	data:      Protocol                      : Tcp
-	data:      Frontend port                 : 3442
-	data:      Backend port                  : 3389
+	data:      Frontend port                 : 23
+	data:      Backend port                  : 22
 	data:      Enable floating IP            : false
 	data:      Idle timeout in minutes       : 4
 	data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
@@ -270,7 +270,7 @@ Creare una macchina virtuale denominata *web1* e associarla alla NIC denominata 
 
 	azure vm create --resource-group nrprg --name web1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
->[AZURE.IMPORTANT]Le macchine virtuali in un servizio di bilanciamento del carico devono trovarsi nello stesso set di disponibilità. Usare `azure availset create` per creare un set di disponibilità.
+>[AZURE.IMPORTANT] Le macchine virtuali in un servizio di bilanciamento del carico devono trovarsi nello stesso set di disponibilità. Usare `azure availset create` per creare un set di disponibilità.
 
 L'output sarà analogo al seguente:
 
@@ -291,7 +291,7 @@ L'output sarà analogo al seguente:
 	+ Creating VM "web1"
 	info:    vm create command OK
 
->[AZURE.NOTE]Il messaggio informativo **This is a NIC without publicIP configured** è un comportamento previsto, perché la NIC creata per il servizio di bilanciamento del carico si connette a Internet tramite l'indirizzo IP pubblico del servizio di bilanciamento del carico.
+>[AZURE.NOTE] Il messaggio informativo **This is a NIC without publicIP configured** è un comportamento previsto, perché la NIC creata per il servizio di bilanciamento del carico si connette a Internet tramite l'indirizzo IP pubblico del servizio di bilanciamento del carico.
 
 Poiché la NIC *lb-nic1-be* è associata alla regola NAT *rdp1*, è possibile connettersi a *web1* mediante RDP tramite la porta 3441 nel servizio di bilanciamento del carico.
 
@@ -322,10 +322,10 @@ Dove **nrprg** è il gruppo di risorse e **nrplb** è il nome del servizio di bi
 
 ## Passaggi successivi
 
-[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-internal-getstarted.md)
+[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-get-started-ilb-arm-cli.md)
 
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

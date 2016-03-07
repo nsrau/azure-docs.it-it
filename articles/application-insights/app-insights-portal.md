@@ -19,6 +19,18 @@
 
 Dopo aver [impostato Application Insights nel progetto](app-insights-overview.md), i dati di telemetria sull'utilizzo e le prestazioni dell'applicazione verranno visualizzati nella risorsa di Application Insights del progetto nel [portale Azure](https://portal.azure.com).
 
+## Dashboard
+
+Quando si accede al [portale Azure](https://portal.azure.com), viene innanzitutto visualizzato il dashboard. È possibile personalizzarlo o attivare la modalità schermo intero. Nell'esempio il dashboard è stato personalizzato per visualizzare i grafici di interesse per i proprietari.
+
+
+![Un dashboard personalizzato.](./media/app-insights-portal/30.png)
+
+1. Fare clic nell'angolo superiore in qualsiasi momento per tornare al dashboard.
+2. **+ Nuovo** crea una nuova risorsa. Una [risorsa di Application Insights](app-insights-create-new-resource.md) è una posizione in cui è possibile archiviare e analizzare la telemetria dell'app.
+3. La barra di spostamento consente di aprire le risorse esistenti.
+4. Modificare e creare dashboard usando la barra degli strumenti del dashboard.
+
 ## Trovare i dati di telemetria
 
 Nel [portale di Azure](https://portal.azure.com) passare alla risorsa di Application Insights creata per la propria applicazione.
@@ -36,11 +48,11 @@ La pagina della panoramica mostra alcuni dati di telemetria di base e include co
 ![Aprire il pannello Panoramica dell'applicazione nel portale di Azure](./media/app-insights-portal/03-range.png)
 
 
-Se si è in attesa di alcuni dati non ancora visualizzati, fare clic su Aggiorna. I grafici si aggiornano a intervalli, ma gli intervalli sono più lunghi per gli intervalli di tempo maggiori. In modalità di rilascio è possibile che ai dati sia necessario un po' di tempo per superare la pipeline di analisi in un grafico.
+Se si è in attesa di alcuni dati non ancora visualizzati, fare clic su Aggiorna. I grafici si aggiornano a intervalli regolari, ma gli intervalli sono più lunghi per gli intervalli di tempo maggiori. In modalità di rilascio è possibile che ai dati sia necessario un po' di tempo per superare la pipeline di analisi in un grafico.
 
-Per ingrandire una parte di un grafico, trascinare sulla parte e fare clic sul simbolo di lente di ingrandimento:
+Per ingrandire una parte di un grafico, trascinare il puntatore sulla parte specifica e fare clic sul simbolo di lente di ingrandimento:
 
-![Eseguire il trascinamento della parte di un grafico.](./media/app-insights-portal/12-drag.png)
+![Trascinare il puntatore su una parte di un grafico.](./media/app-insights-portal/12-drag.png)
 
 
 
@@ -50,11 +62,11 @@ Posizionare il mouse sul grafico per visualizzare i valori delle metriche in que
 
 ![Posizionare il mouse su un grafico](./media/app-insights-portal/02-focus.png)
 
-Il valore della metrica in un punto particolare è aggregato al sopra dell'intervallo di campionamento precedente.
+Il valore della metrica in un punto particolare viene aggregato in base all'intervallo di campionamento precedente.
 
 L'intervallo di campionamento o "granularità" è visibile nella parte superiore del pannello.
 
-![L'intestazione di un pannello.](./media/app-insights-portal/11-grain.png)
+![Intestazione di un pannello.](./media/app-insights-portal/11-grain.png)
 
 È possibile modificare la granularità nel pannello Intervallo di tempo:
 
@@ -83,14 +95,28 @@ Scegliere gli elementi da visualizzare nella panoramica. In Personalizza è poss
 
 ![Fare clic su Edit. Spostare i grafici e i riquadri. Aggiungere i riquadri dalla raccolta. Fare quindi clic su Fine.](./media/app-insights-portal/020-customize.png)
 
-### Personalizzare il dashboard di Azure
+## Dashboard
+
+Il dashboard del portale di Azure è la home page visualizzata quando si accede per la prima volta al [portale](https://portal.azure.com). Qui è possibile raggruppare grafici e riquadri, ovvero gruppi di grafici, provenienti da più risorse.
+
+![Fare clic su Edit. Spostare i grafici e i riquadri. Aggiungere i riquadri dalla raccolta. Fare quindi clic su Fine.](./media/app-insights-portal/30.png)
+
+I pannelli o i grafici particolarmente interessanti possono essere aggiunti al dashboard. Saranno visibili al successivo accesso.
+
+![Per aggiungere un grafico, passare il mouse su di esso e fare clic su "..." nell'intestazione.](./media/app-insights-portal/33.png)
+
+È possibile salvare più dashboard e passare da un dashboard all'altro. Quando si aggiunge un grafico o un pannello, l'aggiunta viene eseguita nel dashboard corrente.
+
+![Per passare da un dashboard all'altro, fare clic su Dashboard e selezionare un dashboard salvato. Per creare e salvare un nuovo dashboard, fare clic su Nuovo. Per modificare la disposizione, fare clic su Modifica.](./media/app-insights-portal/32.png)
+
+È possibile ad esempio usare un dashboard per la visualizzazione a schermo intero nell'area del team e un altro dashboard per lo sviluppo generale.
 
 
-Il dashboard del portale di Azure è la home page visualizzata quando si accede per la prima volta al portale. Qui è possibile raggruppare i riquadri (gruppi di grafici) da più risorse.
+Nel dashboard i pannelli vengono visualizzati sotto forma di riquadri: fare clic sul riquadro desiderato per passare al pannello. I grafici sono una replica dei grafici che si trovano nel percorso originale.
 
-Per aggiungere un riquadro dal pannello Panoramica di Application Insights al dashboard del portale, selezionare l'intestazione del riquadro e quindi "...".
 
-Per un dashboard più completo, usare [Power BI](https://azure.microsoft.com/blog/application-insights-content-pack-for-power-bi/) per visualizzare la telemetria.
+![](./media/app-insights-portal/35.png)
+
 
 ## Pannelli delle metriche
 
@@ -117,13 +143,13 @@ Se si codificano [metriche personalizzate](app-insights-api-custom-events-metric
 
 ### Segmentare i dati
 
-Selezionare un grafico o una griglia, passare a un raggruppamento e scegliere una proprietà per eseguire il raggruppamento in base a:
+Selezionare un grafico o una griglia, attivare il raggruppamento e scegliere una proprietà in base a cui eseguire il raggruppamento:
 
-![Selezionare Raggruppamento e poi selezionare una proprietà in Raggruppa per](./media/app-insights-portal/15-segment.png)
+![Attivare il raggruppamento e poi selezionare una proprietà in Raggruppa per](./media/app-insights-portal/15-segment.png)
 
 Se si codificano [metriche personalizzate](app-insights-api-custom-events-metrics.md#properties) nell'app e si includono i valori delle proprietà, sarà possibile selezionare la proprietà nell'elenco.
 
-Il grafico è troppo piccolo per dati segmentati? Modificarne l'altezza:
+Il grafico è troppo piccolo per dati segmentati? modificarne l'altezza:
 
 ![Regolare il dispositivo di scorrimento](./media/app-insights-portal/18-height.png)
 
@@ -133,7 +159,7 @@ Per visualizzare solo le metriche per un set di valori di proprietà selezionati
 
 ![Fare clic su Filtro, espandere una proprietà e selezionare alcuni valori](./media/app-insights-portal/19-filter.png)
 
-Se non si seleziona alcun valore per una determinata proprietà, è come se si selezionassero tutti: non sono presenti filtri su quella proprietà.
+Se non si seleziona alcun valore per una determinata proprietà, è come se si selezionassero tutti i valori, ovvero alla proprietà non verrà applicato alcun filtro.
 
 Si noti il numero di eventi vicino a ogni valore della proprietà. Quando si selezionano i valori di una proprietà, i conteggi vicino ad altri valori di proprietà vengono modificati.
 
@@ -151,7 +177,7 @@ Se si è scelto l'intervallo di tempo Relativo al momento del salvataggio, il pa
 
 ### Reimpostare il pannello
 
-Se si modifica un pannello ma poi si desidera tornare a quello impostato salvato in origine, fare clic su Reimposta.
+Se si modifica un pannello ma poi si vuole tornare a quello salvato in origine, fare clic su Reimposta.
 
 ![Nei pulsanti nella parte superiore di Esplora metriche](./media/app-insights-portal/17-reset.png)
 
@@ -159,7 +185,7 @@ Se si modifica un pannello ma poi si desidera tornare a quello impostato salvato
 
 La ricerca visualizza i singoli eventi, ad esempio visualizzazioni pagina, richieste, eccezioni, tracce di log ed eventi personalizzati. Non mostra le metriche aggregate o le istanze della chiamata a TrackMetric().
 
-> [AZURE.NOTE]Se l'app genera molti dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento](app-insights-sampling.md).
+> [AZURE.NOTE] Se l'app genera molti dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento](app-insights-sampling.md).
 
 Aprire la ricerca diagnostica:
 
@@ -179,7 +205,7 @@ Ad esempio, selezionare le richieste con un codice di risposta specifico.
 
 La mancata scelta dei valori di una determinata proprietà ha lo stesso effetto della scelta di tutti i valori. Viene disattivata l'applicazione dei filtri per quella proprietà.
 
-> [AZURE.NOTE]Se l'app genera molti dati di telemetria, il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Gli eventi che fanno parte della stessa operazione verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento](app-insights-sampling.md).
+> [AZURE.NOTE] Se l'app genera molti dati di telemetria, il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Gli eventi che fanno parte della stessa operazione verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento.](app-insights-sampling.md)
 
 
 ### Limitare la ricerca
@@ -205,4 +231,4 @@ Per visualizzare nuovamente la ricerca, **andare al pannello Panoramica** e apri
 
 Se è stato salvato con intervallo di tempo Relativo, il pannello riaperto presenterà i dati più recenti. Se è stato salvato con intervallo di tempo Assoluto,verranno visualizzati gli stessi dati ogni volta.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

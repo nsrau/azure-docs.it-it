@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 
@@ -31,7 +31,7 @@ Questa guida illustra scenari comuni relativi all'uso dell'archiviazione BLOB. G
 
 ## Creare un'applicazione Ruby
 
-Creare un'applicazione Ruby. Per istruzioni, vedere [Creazione di un'applicazione Ruby in Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
+Creare un'applicazione Ruby. Per istruzioni vedere [Applicazione Web Ruby on Rails in una macchina virtuale di Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md)
 
 ## Configurare l'applicazione per l'accesso all'archiviazione
 
@@ -57,12 +57,21 @@ Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT**
 	Azure.config.storage_access_key = "<your azure storage access key>"
 
 
-Per ottenere questi valori:
+Per ottenere questi valori da un account di archiviazione classico o ARM nel portale di Azure:
 
 1. Accedere al [Portale di Azure](https://portal.azure.com).
 2. Passare all'account di archiviazione che si desidera utilizzare.
-3. Fare clic su **MANAGE KEYS** nella parte inferiore del pannello di navigazione.
-4. Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile usare sia la chiave primaria che secondaria.
+3. Nel pannello Impostazioni a destra fare clic su **Chiavi di accesso**.
+4. Nel pannello Chiavi di accesso visualizzato notare la chiave di accesso 1 e la chiave di accesso 2. È possibile usare una di queste indifferentemente. 
+5. Fare clic sull'icona Copia per copiare la chiave negli Appunti. 
+
+Per ottenere questi valori da un account di archiviazione classico nel portale classico:
+
+1. Accedere al [portale classico](https://manage.windowsazure.com).
+2. Passare all'account di archiviazione che si desidera utilizzare.
+3. Fare clic su **GESTISCI CHIAVI DI ACCESSO** nella parte inferiore del riquadro di spostamento.
+4. Nella finestra di dialogo popup saranno visualizzati il nome dell'account di archiviazione, la chiave di accesso primaria e la chiave di accesso secondaria. Per la chiave di accesso è possibile usare sia la chiave primaria che secondaria. 
+5. Fare clic sull'icona Copia per copiare la chiave negli Appunti.
 
 ## Creare un contenitore
 
@@ -144,6 +153,6 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Archivio [Azure SDK per Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
-- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

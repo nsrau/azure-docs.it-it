@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="10/07/2015"
+   ms.date="02/23/2016"
    ms.author="sashan"/>
 
 # Progettare un'applicazione per il ripristino di emergenza cloud mediante la replica geografica nel database SQL
@@ -148,4 +148,4 @@ La strategia di ripristino di emergenza cloud specifica può combinare o estende
 | Distribuzione attiva/attiva per il bilanciamento del carico dell'applicazione | Accesso in lettura/scrittura < 5 sec | Tempo di rilevamento errore + chiamata API di failover + modifica della stringa di connessione SQL + test di verifica dell'applicazione
 | Distribuzione attiva/passiva per la conservazione dei dati | Accesso di sola lettura < 5 sec Accesso di lettura/scrittura = zero | Accesso di sola lettura = tempo di rilevamento errore di connettività + test di verifica dell'applicazione <br>Accesso di lettura/scrittura = tempo di riduzione dell'entità dell'interruzione
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

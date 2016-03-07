@@ -56,8 +56,6 @@ Per prima cosa, impostare il Gateway di gestione dati seguendo le istruzioni con
 	        "type": "OnPremisesTeradata",
 	        "typeProperties": {
 	            "server": "<server>",
-	            "database": "<database>",
-	            "schema": "<schema>",
 	            "authenticationType": "<authentication type>",
 	            "username": "<username>",
 	            "password": "<password>",
@@ -92,7 +90,6 @@ Impostando "external" su true e specificando i criteri externalData si comunica 
 	        "type": "RelationalTable",
 	        "linkedServiceName": "OnPremTeradataLinkedService",
 	        "typeProperties": {
-	            "tableName": "MyTable"
 	        },
 	        "availability": {
 	            "frequency": "Hour",
@@ -228,8 +225,6 @@ Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
 type | La proprietà del tipo deve essere impostata su: **OnPremisesTeradata** | Sì
 server | Nome del server Teradata. | Sì
-database | Nome del database Teradata. | Sì 
-schema | Nome dello schema nel database. | No
 authenticationType | Tipo di autenticazione usato per connettersi al database Teradata. I valori possibili sono: anonima, di base e Windows. | Sì
 username | Specificare il nome utente se si usa l'autenticazione di base o Windows. | No 
 password | Specificare la password per l'account utente specificato per il nome utente. | No 
@@ -241,11 +236,8 @@ Vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (SQL Azure, BLOB di Azure, tabelle di Azure e così via).
 
-La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **RelationalTable** (che comprende il set di dati Teradata) presenta le proprietà seguenti.
+La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. Attualmente non sono disponibili proprietà di tipo supportate per il set di dati Teradata.
 
-Proprietà | Descrizione | Obbligatorio
--------- | ----------- | --------
-tableName | Nome della tabella nell'istanza del database Teradata a cui fa riferimento il servizio collegato. | No (se la **query** di **RelationalSource** è specificata) 
 
 ## Proprietà del tipo di attività di copia Teradata
 
@@ -257,7 +249,7 @@ In caso di attività di copia con origine di tipo **RelationalSource** (che comp
 
 Proprietà | Descrizione | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-query | Usare la query personalizzata per leggere i dati. | Stringa di query SQL. Ad esempio: selezionare * da MyTable. | No (se **tableName** di **set di dati** è specificato)
+query | Usare la query personalizzata per leggere i dati. | Stringa di query SQL. Ad esempio: selezionare * da MyTable. | Sì
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -316,4 +308,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

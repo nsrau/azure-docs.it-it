@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/19/2016"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 # BizTalk Flat File Encoder
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
 Usare il connettore BizTalk Flat File Encoder per l'interoperabilità tra i dati dei file flat (ad esempio file Excel o con estensione csv) e i dati XML. Può convertire un'istanza specifica di file flat in XML e viceversa.
 
@@ -69,4 +71,4 @@ L'azione restituisce l'output sotto forma di stringa - File flat. XML di output 
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

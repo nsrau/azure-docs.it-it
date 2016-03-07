@@ -75,7 +75,7 @@ Per [configurare un runbook grafico](automation-first-runbook-graphical.md) con 
 
 [**Get-AzureVM**](https://msdn.microsoft.com/library/azure/dn495236.aspx) per ottenere tutte le macchine virtuali.
 
-È possibile usare l'attività [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) per restituire i nomi delle macchine virtuali. L'attività **Get-AzureVM** accetta due parametri: il **nome della macchina virtuale** e il **nome dell'account del servizio**. Dal momento che questi parametri potrebbero richiedere valori diversi ogni volta che si avvia il runbook, è possibile aggiungere parametri di input al runbook. Per aggiungere parametri di input, seguire questa procedura:
+È possibile usare l'attività [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) per restituire i nomi delle macchine virtuali. L'attività **Get-AzureVM** accetta due parametri: il **nome della macchina virtuale** e il **nome del servizio**. Dal momento che questi parametri potrebbero richiedere valori diversi ogni volta che si avvia il runbook, è possibile aggiungere parametri di input al runbook. Per aggiungere parametri di input, seguire questa procedura:
 
 1. Selezionare il runbook grafico nel pannello **Runbook** e [modificarlo](automation-graphical-authoring-intro.md).
 
@@ -98,17 +98,9 @@ Per [configurare un runbook grafico](automation-first-runbook-graphical.md) con 
 
 4. Creare due parametri con le proprietà seguenti che verranno usate dall'attività **Get-AzureVM**:
 
-    * **Parametro1:** 
-    Nome: VMName, 
-    Tipo: String, 
-    Obbligatorio: No
+    * **Parametro1:** Nome: VMName, Tipo: String, Obbligatorio: No
 
-    * **Parametro2:** 
-    Nome: VMNameServiceName, 
-    Tipo: String, 
-    Obbligatorio: No, 
-    Valore predefinito: Personalizzato, 
-    Valore predefinito personalizzato: <Nome del servizio predefinito che contiene le macchine virtuali>
+    * **Parametro2:** Nome: ServiceName, Tipo: String, Obbligatorio: No, Valore predefinito: Personalizzato, Valore predefinito personalizzato: <nome del servizio predefinito che contiene le macchine virtuali>
 
 5. Dopo aver aggiunto i parametri, fare clic su **OK**. Ora è possibile visualizzarli nel pannello **Input e output**. Fare nuovamente clic su **OK**, quindi su **Salva** e **pubblicare** il runbook.
 
@@ -139,24 +131,22 @@ Nell'etichetta sotto la casella di input è possibile visualizzare gli attributi
 
     **Esempio:**
 
-      ```
-        $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
+      ``` $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
 
-    - **Cmdlet di Gestione risorse di Azure:** è possibile avviare un runbook di automazione creato in un gruppo di risorse usando [Start-AzureRMAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
+    - **Cmdlet di Gestione risorse di Azure:** è possibile avviare un runbook di automazione creato in un gruppo di risorse usando [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
 
 
     **Esempio:**
 
-      ```
-        $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
+      ``` $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
-        Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
+        Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
 
->[AZURE.NOTE]Quando si avvia un runbook con i cmdlet di PowerShell, viene creato un parametro predefinito, **MicrosoftApplicationManagementStartedBy**, con il valore **PowerShell**. Questo parametro può essere visualizzato nel pannello **Dettagli processo**.
+>[AZURE.NOTE] Quando si avvia un runbook con i cmdlet di PowerShell, viene creato un parametro predefinito, **MicrosoftApplicationManagementStartedBy**, con il valore **PowerShell**. Questo parametro può essere visualizzato nel pannello **Dettagli processo**.
 
 - **Avviare un runbook usando un SDK e assegnare parametri**
 
@@ -224,7 +214,7 @@ Nell'URI della richiesta sostituire i parametri seguenti:
 * **subscription-id:** ID della sottoscrizione di Azure.  
 * **cloud-service-name:** nome del servizio cloud a cui deve essere inviata la richiesta.  
 * **automation-account-name:** nome dell'account di automazione ospitato nel servizio cloud specificato.  
-* **job-id:** GUID del processo. Per creare GUID in PowerShell è possibile usare il cmdlet **[GUID]::NewGuid().ToString()**.
+* **job-id:** GUID del processo. Per creare GUID in PowerShell è possibile usare il comando **[GUID]::NewGuid().ToString()**.
 
 Per passare parametri al processo del runbook, usare il corpo della richiesta. Vengono usate le due proprietà seguenti, specificate in formato JSON:
 
@@ -279,4 +269,4 @@ Quando si esegue un runbook con un webhook, insieme ai parametri di input defini
 - Per modificare un runbook testuale, vedere [Modifica di runbook testuali](automation-edit-textual-runbook.md).
 - Per modificare un runbook grafico, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

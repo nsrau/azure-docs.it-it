@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/22/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ L'obiettivo di questa esercitazione è illustrare come integrare Questetra BPM S
 
 - È possibile controllare in Azure AD chi può accedere a Questetra BPM Suite. 
 - È possibile abilitare gli utenti per l'accesso automatico a Questetra BPM Suite (Single Sign-On) con i propri account Azure AD.
-- È possibile gestire gli account in una posizione centrale, il portale di Azure Active Directory.
+- È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -35,13 +35,13 @@ Per configurare l'integrazione di Azure AD con Questetra BPM Suite, sono necessa
 - Sottoscrizione di [Questetra BPM Suite](https://senbon-imadegawa-988.questetra.net/) abilitata per l'accesso Single Sign-On
 
 
-> [AZURE.NOTE]Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese da [questa pagina](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Descrizione dello scenario
@@ -56,11 +56,11 @@ Per configurare l'integrazione di Questetra BPM Suite in Azure AD, è necessario
 
 **Per aggiungere Questetra BPM Suite dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel pannello di navigazione sinistro. <br><br> ![Active Directory][1]
+1. Nel **portale di Azure classico**, fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br> ![Active Directory][1]
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br> ![Applicazioni][2]
+3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu superiore.<br><br> ![Applicazioni][2]
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungi un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]
 6. Nella casella di ricerca digitare **Questetra BPM Suite**.<br> ![Applicazioni][5]
@@ -83,11 +83,11 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Questetra BPM
 
 ### Configurazione dell'accesso Single Sign-On di Azure AD
 
-Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di Azure AD e configurare l'accesso Single Sign-On nell'applicazione Questetra BPM Suite.<br>
+Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Questetra BPM Suite.<br>
 
 **Per configurare Single Sign-On di Azure AD con Questetra BPM Suite, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **Questetra BPM Suite** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.<br><br> ![Configura accesso Single Sign-On][8]
+1. Nella pagina di integrazione dell'applicazione **Questetra BPM Suite** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.<br><br> ![Configura accesso Single Sign-On][8]
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Questetra BPM Suite** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.<br><br> ![Accesso Single Sign-On di Azure AD][9]
 
@@ -99,7 +99,7 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 5. Per aprire la pagina **SingleSignOnSAML** fare clic su **SSO (SAML)**. <br><br> ![Accesso Single Sign-On di Azure AD][11]
 
 
-6. Nella pagina **Configurare le impostazioni dell'app** del portale di Azure seguire questa procedura: <br><br>![Configurare le impostazioni dell'app][13]
+6. Nella pagina **Configurare le impostazioni dell'app** del portale di Azure classico seguire questa procedura: <br><br>![Configurare le impostazioni dell'app][13]
  
     a. Nella sezione SP Information del sito aziendale di **Questetra BPM Suite** copiare il valore di **ACS URL** e incollarlo nella casella di testo **URL di accesso**.
 
@@ -117,38 +117,38 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
     a. Selezionare **Enable Single Sign-On**.
      
-    b. Nel portale di Azure copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Entity ID**.
+    b. Nel portale di Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Entity ID**.
 
-    c. Nel portale di Azure copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **Sign-in page URL**.
+    c. Nel portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **Sign-in page URL**.
 
-    d. Nel portale di Azure copiare il valore di **URL servizio Single Sign-Out** e incollarlo nella casella di testo **Sign-out page URL**.
+    d. Nel portale di Azure classico copiare il valore di **URL servizio Single Sign-Out** e incollarlo nella casella di testo **Sign-out page URL**.
 
     e. Nella casella di testo **NameID format** digitare **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
 
     f. Creare un file con codifica Base 64 dal certificato scaricato.
 
-    >[AZURE.TIP]Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+    >[AZURE.TIP] Per informazioni dettagliate, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
     g. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **Validation certificate**.
 
-    h. Fare clic su **Save**.
+    h. Fare clic su **Salva**.
 
 
-9. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Cos'è Azure AD Connect][17]
+9. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Cos'è Azure AD Connect][17]
 
 
-10. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**. <br><br>![Cos'è Azure AD Connect][18]
+10. Nella pagina **Conferma Single Sign-On** fare clic su **Completa**. <br><br>![Cos'è Azure AD Connect][18]
 
 
 
 
 ### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test nel portale di Azure chiamato Britta Simon.
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel pannello di navigazione sinistro del **portale di gestione di Azure** fare clic su **Active Directory**. <br><br>![Creare un utente test di Azure AD][100] 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creare un utente test di Azure AD][100] 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -171,15 +171,15 @@ Questa sezione descrive come creare un utente test nel portale di Azure chiamato
 
     c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
 
-    d. Nell'elenco **Ruolo** selezionare **Utente**.
+    d. Nell'elenco **Ruolo**, selezionare **Utente**.
 
     e. Fare clic su **Avanti**.
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **Crea**. <br><br>![Creare un utente test di Azure AD][105]
 
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura: <br><br>![Creare un utente test di Azure AD][106]
+8. Nella pagina **Ottieni password temporanea**, eseguire la procedura seguente: <br><br>![Creare un utente test di Azure AD][106]
   1. Prendere nota del valore in **Nuova password**.
-  2. Fare clic su **Complete**.   
+  2. Fare clic su **Completa**.   
   
  
 ### Creazione di un utente test di Questetra BPM Suite
@@ -208,7 +208,7 @@ Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single 
 
 **Per assegnare Britta Simon a Questetra BPM Suite, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br>![Cos'è Azure AD Connect][201]
+1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Cos'è Azure AD Connect][201]
 2. Nell'elenco delle applicazioni selezionare **Questetra BPM Suite**. <br><br>![Cos'è Azure AD Connect][205]
 1. Nel menu in alto fare clic su **Utenti**.<br> <br>![Cos'è Azure AD Connect][202]
 1. Nell'elenco di utenti selezionare **Britta Simon**. <br><br>![Cos'è Azure AD Connect][203]
@@ -265,4 +265,4 @@ L'obiettivo di questa sezione è testare la configurazione dell'accesso Single S
 
 [300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,8 +13,8 @@
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.topic="article"
+	ms.date="02/23/2016"
 	ms.author="trinadhk; jimpark; markgal"/>
 
 
@@ -141,4 +141,4 @@ Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario inst
 - In caso di domande, vedere [Domande frequenti su Backup di Azure](backup-azure-backup-faq.md).
 - Visitare il [forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

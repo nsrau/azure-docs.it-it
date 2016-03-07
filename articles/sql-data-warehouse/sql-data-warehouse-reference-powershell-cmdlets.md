@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Iniziare a usare i cmdlet in SQL Data Warehouse"
+   pageTitle="Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse"
    description="Sospendere e riavviare SQL Data Warehouse usando i cmdlet di PowerShell"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sidneyh"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/11/2016"
-   ms.author="mausher;sidneyh;barbkess;sonyama"/>
+   ms.date="02/22/2016"
+   ms.author="barbkess;mausher;sonyama"/>
 
-# Iniziare a usare i cmdlet e le API REST per Azure Data Warehouse
+# Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse
 
 SQL Data Warehouse può essere gestito tramite i cmdlet di Azure PowerShell o le API REST.
 
@@ -133,4 +133,4 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

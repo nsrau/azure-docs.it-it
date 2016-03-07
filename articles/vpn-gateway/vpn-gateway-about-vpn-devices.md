@@ -87,7 +87,7 @@ Dopo aver scaricato l'esempio di configurazione di dispositivo VPN fornito, è n
 | &lt;SP\_AzureNetworkSubnetMask&gt; | Specificare la subnet mask. Esempio: 255.255.0.0 |
 | &lt;SP\_OnPremisesNetworkIpRange&gt; | Specificare l'intervallo in locale. Esempio: 10.2.1.0 |
 | &lt;SP\_OnPremisesNetworkSubnetMask&gt; | Specificare la subnet mask locale. Esempio: 255.255.255.0 |
-| &lt;SP\_AzureGatewayIpAddress&gt; | Queste informazioni sono specifiche della rete virtuale e si trovano nel portale di gestione in **Indirizzo IP gateway**. |
+| &lt;SP\_AzureGatewayIpAddress&gt; | Queste informazioni sono specifiche per la rete virtuale e si trovano nel portale di gestione in **Indirizzo IP del gateway**. |
 | &lt;SP\_PresharedKey&gt; | Queste informazioni sono specifiche per la rete virtuale e si trovano nel portale di gestione in chiave di gestione. |
 
 
@@ -144,8 +144,8 @@ Nella tabella seguente sono elencate le offerte di autenticazione e crittografia
 | 18 | - | AH MD5, nessuna durata |
 
 
-- È possibile specificare la crittografia NULL ESP IPsec con gateway VPN basato su route e con prestazioni elevate. È destinata a connessioni tra reti virtuali all’interno delle reti di Azure. 
+- È possibile specificare la crittografia NULL ESP IPsec con gateway VPN basati su route e con prestazioni elevate. La crittografia basata su null non fornisce protezione ai dati in transito e deve essere usata solo quando sono richieste una velocità effettiva massima e una latenza minima. I client possono scegliere di usare questa crittografia in scenari di comunicazione tra reti virtuali oppure quando la crittografia viene applicata in un'altra posizione nella soluzione.
 
 - Per la connettività cross-premises tramite Internet, utilizzare le impostazioni del gateway VPN di Azure predefinite con la crittografia e gli algoritmi di hash elencati nelle tabelle precedenti, per garantire la sicurezza delle comunicazioni critiche.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

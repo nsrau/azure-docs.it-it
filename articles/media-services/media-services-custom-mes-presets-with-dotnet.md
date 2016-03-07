@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016"    
+	ms.date="02/18/2016"    
 	ms.author="juliako"/>
 
 
@@ -135,14 +135,33 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 				    return job.OutputMediaAssets[0];
 				}
 		
-		        static public IAsset EncodeWithOverlay(IAsset assetSource, IAsset assetOverlay, string customPresetFileName)
+		        static public IAsset UploadMediaFilesFromFolder(string folderPath)
+		        {
+		            IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
+		
+		            foreach (var af in asset.AssetFiles)
+		            {
+		                // The following code assumes 
+		                // you have an input folder with one MP4 and one overlay image file.
+		                if (af.Name.Contains(".mp4"))
+		                    af.IsPrimary = true;
+		                else
+		                    af.IsPrimary = false;
+		
+		                af.Update();
+		            }
+		
+		            return asset;
+		        }
+		
+		
+		        static public IAsset EncodeWithOverlay(IAsset assetSource, string customPresetFileName)
 		        {
 		            // Declare a new job.
 		            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
 		            // Get a media processor reference, and pass to it the name of the 
 		            // processor to use for the specific task.
 		            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-		
 		
 		            // Load the XML (or JSON) from the local file.
 		            string configuration = File.ReadAllText(customPresetFileName);
@@ -154,8 +173,8 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 		                TaskOptions.None);
 		
 		            // Specify the input assets to be encoded.
+		            // This asset contains a source file and an overlay file.
 		            task.InputAssets.Add(assetSource);
-		            task.InputAssets.Add(assetOverlay);
 		
 		            // Add an output asset to contain the results of the job. 
 		            task.OutputAssets.AddNew("Output asset",
@@ -167,6 +186,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 		
 		            return job.OutputMediaAssets[0];
 		        }
+		
 
 		        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
 		        {
@@ -669,9 +689,15 @@ Per tagliare i video, è possibile eseguire uno dei set di impostazioni per MES 
 
 Il Media Encoder Standard consente di sovrapporre un'immagine a un video esistente. Attualmente, sono supportati i seguenti formati: png, jpg, gif e bmp. Il set di impostazioni definito di seguito è un esempio di base di una sovrimpressione video.
 
->[AZURE.NOTE]Attualmente, l'impostazione di opacità della sovrimpressione non è supportata.
+Oltre a definire un file del set di impostazioni, è anche necessario indicare a Servizi multimediali quale file dell'asset corrisponde all'immagine da sovrapporre e quale file contiene il video di origine sul quale sovrapporre l'immagine. Il file video deve essere il file **primario**.
 
-Oltre che definire un file del set di impostazioni, è necessario anche indicare a Servizi multimediali quale asset contiene l'immagine da sovrapporre e quale asset contiene il video di origine sul quale sovrapporre l'immagine. Vedere l'esempio per .NET del metodo **EncodeWithOverlay** definito in precedenza.
+Nell'esempio .NET precedente sono definite due funzioni: **UploadMediaFilesFromFolder** ed **EncodeWithOverlay**. La funzione UploadMediaFilesFromFolder carica i file, ad esempio BigBuckBunny.mp4 e Image001.png, da una cartella e imposta il file con estensione mp4 come file primario dell'asset. La funzione **EncodeWithOverlay** usa il file di set di impostazioni personalizzato passato alla funzione stessa, ad esempio il set di impostazioni che segue, per creare l'attività di codifica.
+
+>[AZURE.NOTE]Limitazioni correnti:
+>
+>L'impostazione di opacità della sovrimpressione non è supportata.
+>
+>Il file video di origine e il file della sovrimpressione devono trovarsi nello stesso asset.
 
 ###Set di impostazioni JSON
 	
@@ -699,7 +725,7 @@ Oltre che definire un file del set di impostazioni, è necessario anche indicare
 	              "InputLoop": true
 	            }
 	          ],
-	          "Source": "Image001.jpg",
+	          "Source": "Image001.png",
 	          "Clip": {
 	            "Duration": "00:00:05"
 	          },
@@ -759,7 +785,7 @@ Oltre che definire un file del set di impostazioni, è necessario anche indicare
 	      <Streams />
 	      <Filters>
 	        <VideoOverlay>
-	          <Source>Image001.jpg</Source>
+	          <Source>Image001.png</Source>
 	          <Clip Duration="PT5S" />
 	          <FadeInDuration Duration="PT1S" />
 	          <FadeOutDuration StartTime="PT3S" Duration="PT4S" />
@@ -884,4 +910,4 @@ I clienti non devono eseguire alcuna operazione se desiderano che il contenuto i
 
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

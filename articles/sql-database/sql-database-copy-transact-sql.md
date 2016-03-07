@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -31,7 +31,7 @@
 La procedura seguente illustra come copiare un database SQL con Transact-SQL. L'operazione di copia del database consente di copiare un database SQL in un nuovo database usando l'istruzione [CREATE DATABASE](). La copia è un backup snapshot del database creato nello stesso server o in un server diverso.
 
 
-> [AZURE.NOTE]Il database SQL di Azure crea automaticamente e conserva i backup per ogni database dell'utente che è possibile ripristinare. Per altre informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
+> [AZURE.NOTE] Il database SQL di Azure crea automaticamente e conserva i backup per ogni database dell'utente che è possibile ripristinare. Per altre informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
 
 Al completamento del processo di copia, il nuovo database è completamente funzionante, indipendente dal database di origine. Al completamento della copia, il nuovo database è coerente da un punto di vista transazionale con il database di origine. Il livello di servizio e il livello di prestazioni (piano tariffario) della copia del database sono gli stessi del database di origine. Al termine del processo di copia, la copia diventa un database indipendente e completamente funzionante. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente.
@@ -103,4 +103,4 @@ Monitorare il processo di copia eseguendo una query sulle visualizzazioni sys.da
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

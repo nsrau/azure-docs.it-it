@@ -28,6 +28,7 @@ Altre informazioni su queste funzionalità sono disponibili in questo [post di b
 Il database SQL di Azure viene sempre ripristinato con un nuovo database. Le funzionalità di ripristino vengono offerte a tutti i clienti del database: Basic, Standard e Premium.
 
 ##Ripristino temporizzato
+
 In caso di errore dell'utente o di una modifica imprevista dei dati, il ripristino temporizzato consente di ripristinare un qualsiasi momento del ciclo di vita del database compreso nel relativo periodo di conservazione.
 
 I database Basic dispongono di 7 giorni di conservazione, i database Standard di 14 giorni e i database Premium di 35 giorni. Per altre informazioni sulla conservazione del database, vedere la [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
@@ -35,9 +36,11 @@ I database Basic dispongono di 7 giorni di conservazione, i database Standard di
 > [AZURE.NOTE] Quando si ripristina un database viene creato un nuovo database. È importante assicurarsi che il server in cui si esegue il ripristino abbia una capacità sufficiente DTU per il nuovo database. È possibile richiedere un aumento della quota da [contattare il supporto](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portale di Azure
+> [AZURE.NOTE] Per i database in pool di database elastici, il portale di Azure supporta solo il ripristino temporizzato nello stesso pool. Per eseguire il ripristino temporizzato di un database come database autonomo, usare l'API REST.
+
 Per usare il ripristino temporizzato nel portale di Azure, seguire questa procedura.
 
-1. Accedere al [portale di Azure](https://portal.Azure.com).
+1. Accedere al [Portale di Azure](https://portal.Azure.com).
 2. Sul lato sinistro della schermata fare clic su **SFOGLIA**, quindi su **Database SQL**.
 3. Individuare e selezionare il database.
 4. Nella parte superiore del pannello del database, selezionare **Ripristina**.
@@ -55,13 +58,7 @@ Utilizzare PowerShell per eseguire a livello di codice un ripristino temporizzat
 		 
 
 ###API REST 
-Utilizzare REST per eseguire il ripristino del database a livello di codice.
-
-1. Selezionare il database da ripristinare mediante l'operazione [Get Database](http://msdn.microsoft.com/library/azure/dn505708.aspx).
-
-2.	Creare la richiesta di ripristino tramite l'operazione [Create Database Restore Request](http://msdn.microsoft.com/library/azure/dn509571.aspx).
-	
-3.	Monitorare la richiesta di ripristino tramite l'operazione [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx).
+Utilizzare REST per eseguire il ripristino del database a livello di codice. A tale scopo, creare la richiesta di ripristino usando l'operazione [Crea database](https://msdn.microsoft.com/library/azure/mt163685.aspx) e specificare la **modalità di creazione** **PointInTimeRestore**.
 
 ##Ripristino di un database eliminato
 Nel caso in cui venisse eliminato un database, il database SQL di Azure consente di ripristinare il database eliminato al momento dell'eliminazione. Il database SQL di Azure archivia il backup del database eliminato per il periodo di conservazione del database.
@@ -106,4 +103,4 @@ Utilizzare REST per eseguire il ripristino del database a livello di codice.
 	
 4.	Monitorare lo stato del ripristino mediante l'operazione [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Anteprima Azure AD B2C: chiamata di un’API Web da un’applicazione | Microsoft Azure"
-	description="Questo articolo illustra come creare un’app Android "To-Do List" che chiama un’API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app Android che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti.""
+	description="Questo articolo illustra come creare un’app Android "To-Do List" che chiama un’API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app Android che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti."
 	services="active-directory-b2c"
 	documentationCenter="android"
 	authors="brandwe"
@@ -13,8 +13,9 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="02/17/2016"
 	ms.author="brandwe"/>
+
 
 # Anteprima di Azure AD B2C: Chiamata di un'API Web da un'applicazione Android
 
@@ -23,10 +24,12 @@ Con Azure AD B2C è possibile aggiungere potenti funzionalità di gestione delle
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
  	
-> [AZURE.NOTE]Questa Guida rapida richiede come prerequisito che un'API Web sia protetta da Azure AD con B2C per poter funzionare completamente. È stata creata una da utilizzare sia per .Net che per node. js. Questa procedura dettagliata presuppone che l’API Web Node. js di esempio sia configurata. Consultare l’[esercitazione API Web Azure AD B2Cper Node.js](active-directory-b2c-devquickstarts-api-node.md).
+> [AZURE.NOTE]
+	Questa Guida rapida richiede come prerequisito che un'API Web sia protetta da Azure AD con B2C per poter funzionare completamente. È stata creata una da utilizzare sia per .Net che per node. js. Questa procedura dettagliata presuppone che l’API Web Node. js di esempio sia configurata. Consultare l’[esercitazione API Web Azure AD B2Cper Node.js](active-directory-b2c-devquickstarts-api-node.md).
 
  
-> [AZURE.NOTE]Questo articolo non descrive come implementare l’accesso, l’iscrizione e la gestione del profilo con Azure AD B2C, ma illustra la chiamata delle API Web dopo che l'utente ha già effettuato l'autenticazione. Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
+> [AZURE.NOTE]
+	Questo articolo non descrive come implementare l’accesso, l’iscrizione e la gestione del profilo con Azure AD B2C, ma illustra la chiamata delle API Web dopo che l'utente ha già effettuato l'autenticazione. Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
 
 
 Per i client Android che devono accedere a risorse protette, Azure AD fornisce Active Directory Authentication Library (ADAL). La funzione di ADAL è di permettere all'app di ottenere facilmente i token di accesso. Per far capire quanto è semplice, verrà compilata un'applicazione Android To-Do List che:
@@ -43,11 +46,11 @@ Prima di poter utilizzare Azure AD B2C, è necessario creare una directory, o te
 
 ### Passaggio 2:Creare un'applicazione
 
-A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad Azure AD alcune informazioni necessarie per comunicare in modo sicuro con l'app. Sia l'app Web che l'API Web saranno rappresentate da un singolo **ID applicazione** in questo caso, poiché includono un'app per la logica. Per creare un'app, [seguire questa procedura](active-directory-b2c-app-registration.md): Assicurarsi di
+A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad Azure AD alcune informazioni necessarie per comunicare in modo sicuro con l'app. Sia l'app che l'API Web saranno rappresentate da un singolo **ID applicazione** in questo caso, poiché includono un'app per la logica. Per creare un'app, seguire [questa procedura](active-directory-b2c-app-registration.md): Assicurarsi di
 
 - Includere un'**app Web/API Web** nell'applicazione
-- Immettere `urn:ietf:wg:oauth:2.0:oob` come **URL di risposta**: si tratta dell'URL predefinito per questo esempio di codice.
-- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesta a breve.
+- Specificare `urn:ietf:wg:oauth:2.0:oob` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
+- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve. Si noti che prima di usare questo valore è necessario [inserire un carattere di escape XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape).
 - Copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -76,7 +79,7 @@ Il codice per questa esercitazione è disponibile [in GitHub](https://github.com
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-Android.git
 ```
 
-> [AZURE.NOTE]**Il download dello scheletro è necessario per completare questa esercitazione.** A causa della complessità di implementazione di un'applicazione completamente funzionante in Android, lo **scheletro** contiene il codice dell'esperienza utente che verrà eseguito una volta completata l'esercitazione seguente. Si tratta di una misura che consente di risparmiare tempo per gli sviluppatori. Il codice UX non è pertinente all'argomento di aggiunta B2C a un'applicazione Android.
+> [AZURE.NOTE] **Il download dello scheletro è necessario per completare questa esercitazione.** A causa della complessità di implementazione di un'applicazione completamente funzionante in Android, lo **scheletro** contiene il codice dell'esperienza utente che verrà eseguito una volta completata l'esercitazione seguente. Si tratta di una misura che consente di risparmiare tempo per gli sviluppatori. Il codice UX non è pertinente all'argomento di aggiunta B2C a un'applicazione Android.
 
 L'app completata è anche [disponibile come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip) o nel ramo `complete` dello stesso repository.
 
@@ -196,12 +199,12 @@ public class Constants {
 
 
 ```
-**SCOPES**: ambiti che vengono passati al server e che si desidera richiedere al server per l'accesso dell'utente. Per l'anteprima B2C viene passato il parametro client\_id. Verrà tuttavia modificato per leggere gli ambiti in futuro. Questo documento verrà aggiornato in seguito. **ADDITIONAL\_SCOPES**: sono gli ambiti aggiuntivi che si vuole usare per l'applicazione. Verranno usati in futuro. **CLIENT\_ID**: ID applicazione ottenuto dal portale. **REDIRECT\_URL**: URL di reindirizzamento in cui verrà pubblicato il token. **EXTRA\_QP**: qualsiasi elemento aggiuntivo che si vuole passare al server in formato codificato come URL. **FB\_POLICY**: criteri che vengono richiamati. La parte più importante di questa procedura dettagliata. **EMAIL\_SIGNIN\_POLICY**: criteri che vengono richiamati. La parte più importante di questa procedura dettagliata. **EMAIL\_SIGNUP\_POLICY**: criteri che vengono richiamati. La parte più importante di questa procedura dettagliata.
+**SCOPES**: si tratta degli ambiti che vengono passati al server e da richiedere al server per l'utente che esegue l'accesso. Per l'anteprima B2C viene passato il parametro client\_id. Verrà tuttavia modificato per leggere gli ambiti in futuro. Questo documento verrà aggiornato in seguito. **ADDITIONAL\_SCOPES**: sono gli ambiti aggiuntivi che si vuole usare per l'applicazione. Verranno usati in futuro. **CLIENT\_ID**: ID applicazione ottenuto dal portale. **REDIRECT\_URL**: URL di reindirizzamento in cui verrà pubblicato il token. **EXTRA\_QP**: qualsiasi elemento aggiuntivo che si vuole passare al server in formato codificato come URL. **FB\_POLICY**: criteri che vengono richiamati. La parte più importante di questa procedura dettagliata. **EMAIL\_SIGNIN\_POLICY**: criteri che vengono richiamati. La parte più importante di questa procedura dettagliata. **EMAIL\_SIGNUP\_POLICY**: criteri che vengono richiamati. La parte più importante di questa procedura dettagliata.
 
 ### Passaggio 7: Aggiungere al progetto riferimenti alla libreria Active Directory Authentication Library (ADAL) per Android
 
 
-> [AZURE.NOTE]La libreria ADAL per Android usa un modello basato su intent per richiamare l'autenticazione. Gli intent si basano sull'app per svolgere il lavoro. L'intero esempio e l'uso della libreria ADAL per Android hanno lo scopo di illustrare come vengono gestiti gli intent e come vengono passate le informazioni tra di essi.
+> [AZURE.NOTE]	La libreria ADAL per Android usa un modello basato su intent per richiamare l'autenticazione. Gli intent si basano sull'app per svolgere il lavoro. L'intero esempio e l'uso della libreria ADAL per Android hanno lo scopo di illustrare come vengono gestiti gli intent e come vengono passate le informazioni tra di essi.
 
 
 In primo luogo, è necessario comunicare ad Android il layout dell'applicazione e gli oggetti Intent() che si intende usare. Gli intent verranno spiegati in dettaglio più avanti nel documento.
@@ -751,14 +754,14 @@ Descrizione dei parametri:
 
   Callback avrà un oggetto AuthenticationResult che include informazioni su accesstoken, data di scadenza e idtoken.
 
-> [AZURE.NOTE]L'app del portale aziendale di Microsoft Intune fornisce il componente broker che può essere installato nel dispositivo dell'utente. Gli sviluppatori dovranno prepararsi a consentirne l'uso perché fornisce l'accesso Single Sign-On per tutte le app nel dispositivo. La libreria ADAL per Android userà l'account broker se ne è stato creato uno nell'autenticatore. Per usare il broker, lo sviluppatore deve registrare un URI di reindirizzamento speciale per l'utilizzo del broker. L'URI di reindirizzamento è nel formato msauth://packagename/Base64UrlencodedSignature. È possibile ottenere l'URL di reindirizzamento per l'app usando lo script `brokerRedirectPrint.ps1` o la chiamata API `mContext.getBrokerRedirectUri()`. La firma è relativa ai certificati di firma da Google Play Store.
+> [AZURE.NOTE]	L'app del portale aziendale di Microsoft Intune fornisce il componente broker che può essere installato nel dispositivo dell'utente. Gli sviluppatori dovranno prepararsi a consentirne l'uso perché fornisce l'accesso Single Sign-On per tutte le app nel dispositivo. La libreria ADAL per Android userà l'account broker se ne è stato creato uno nell'autenticatore. Per usare il broker, lo sviluppatore deve registrare un URI di reindirizzamento speciale per l'utilizzo del broker. L'URI di reindirizzamento è nel formato msauth://packagename/Base64UrlencodedSignature. È possibile ottenere l'URL di reindirizzamento per l'app usando lo script `brokerRedirectPrint.ps1` o la chiamata API `mContext.getBrokerRedirectUri()`. La firma è relativa ai certificati di firma da Google Play Store.
 
  Gli sviluppatori possono ignorare l'account broker con:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
     ```
-> [AZURE.NOTE]Per ridurre la complessità di questa esercitazione introduttiva su B2C, per questo esempio è stato dato il consenso per ignorare il broker.
+> [AZURE.NOTE] Per ridurre la complessità di questa esercitazione introduttiva su B2C, per questo esempio è stato dato il consenso per ignorare il broker.
 
 Ora verranno creati alcuni metodi di supporto per ottenere il token durante le chiamate di autenticazione all'API dell'attività.
 
@@ -898,19 +901,9 @@ Scrivere prima `getTask`:
  
  **Nello stesso file** denominato `ToDoActivity.java`
  
-```
-    private void initAppTables() {
-        try {
-            ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
-            listViewToDo.setAdapter(mAdapter);
+ ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
 
-        } catch (Exception e) {
-            createAndShowDialog(new Exception(
-                    "There was an error creating the Mobile Service. Verify the URL"), "Error");
-        }
-    }
-
-```
+ ```
 
 
 Si noti che il token di accesso viene aggiunto alla richiesta nel codice seguente:
@@ -993,15 +986,14 @@ ADAL crittografa i token e li archivia in SharedPreferences per impostazione pre
 
 #### Cookie di sessione in Webview
 
-Webview per Android non cancella i cookie di sessione dopo la chiusura dell'app. È possibile gestire questo aspetto con il codice di esempio seguente:
-```
+Webview per Android non cancella i cookie di sessione dopo la chiusura dell'app. È possibile gestire questo aspetto con il codice di esempio seguente: ```
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-```
 
+```
 Altre informazioni sui cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0224_2016-->

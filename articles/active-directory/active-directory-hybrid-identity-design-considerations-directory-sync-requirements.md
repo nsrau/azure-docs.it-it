@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/02/2016"
+	ms.date="02/23/2016"
 	ms.author="billmath"/>
 
 # Determinare i requisiti di sincronizzazione delle directory
@@ -37,9 +37,11 @@ Accertarsi che venga fornita una risposta alle domande seguenti:
   - Qual è lo stato corrente dei nomi di entità utente (UPN) presenti in azienda? 
   - È presente una directory diversa per l'autenticazione degli utenti?
   - Si usa Microsoft Exchange in azienda?
-    - Si prevede di eseguire una distribuzione ibrida di Exchange? 
+    - Si prevede di eseguire una distribuzione ibrida di Exchange?
+
+Dopo aver determinato i requisiti di sincronizzazione, è necessario ora individuare lo strumento corretto per soddisfare tali requisiti. Microsoft offre diversi strumenti per eseguire la sincronizzazione e l'integrazione di directory. Per altre informazioni, vedere [Confronto degli strumenti di integrazione directory per la soluzione ibrida di gestione delle identità](active-directory-hybrid-identity-design-considerations-tools-comparison.md).
    
-Dopo aver definito i requisiti di sincronizzazione aziendali, è necessario ora valutare le applicazioni che useranno i servizi di directory. Questa valutazione è importante per definire i requisiti tecnici cui attenersi per integrare le applicazioni nel cloud. Accertarsi che venga fornita una risposta alle domande seguenti:
+Dopo aver individuato i requisiti di sincronizzazione e lo strumento corretto per la propria azienda, è necessario ora valutare le applicazioni che useranno i servizi di directory. Questa valutazione è importante per definire i requisiti tecnici cui attenersi per integrare le applicazioni nel cloud. Accertarsi che venga fornita una risposta alle domande seguenti:
 
 - Queste applicazioni verranno migrate nel cloud e useranno la directory?
 - Sono presenti attributi speciali da sincronizzare nel cloud in modo che le applicazioni possano usarli correttamente?
@@ -66,4 +68,4 @@ Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta 
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

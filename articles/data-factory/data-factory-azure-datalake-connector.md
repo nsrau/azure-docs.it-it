@@ -463,7 +463,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce
 | fileName | <p>Nome del file nell'Archivio Azure Data Lake. fileName è facoltativa. </p><p>Se si specifica un nome file, l'attività (inclusa la copia) funziona sul file specifico.</p><p>Quando fileName non è specificato, la copia include tutti i file nella proprietà folderPath per il set di dati di input.</p><p>Quando fileName non è specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: Data.<Guid>.txt (ad esempio, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
 | partitionedBy | partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. Vedere la sezione Uso della proprietà partitionedBy di seguito per informazioni dettagliate ed esempi. | No |
 | format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per altri dettagli, vedere la sezione [Specifica di TextFormat](#specifying-textformat) disponibile di seguito. | No |
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: GZip, Deflate e BZip2 e i livelli supportati sono: Ottimale e Più veloce. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate** e **BZip2** e i livelli supportati sono: **Ottimale** e **Più veloce**. Si noti che le impostazioni di compressione non sono attualmente supportate per i dati **AvroFormat**. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
 
 ### Uso della proprietà partitionedBy
 Come indicato in precedenza, è possibile specificare una proprietà folderPath dinamica e il nome file per i dati di una serie temporale con la sezione **partitionedBy**, macro Data Factory e variabili di sistema: SliceStart e SliceEnd, che indicano l'ora di inizio e fine per una sezione di dati specificata.
@@ -608,4 +608,4 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

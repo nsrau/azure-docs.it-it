@@ -13,15 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/18/2016"
 	ms.author="mandia"/>
 
 
 # Informazioni sui connettori SaaS di sicurezza OAUTH
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
 Molti Software come connettori di Servizio (SaaS), quali Facebook, Twitter, DropBox e così via, richiedono agli utenti di autenticarsi tramite il protocollo OAUTH. Quando si utilizzano questi connettori SaaS dalle App per la logica, si forniscono un'esperienza utente semplificata nella quale si fa clic su "Authorize" nella finestra di progettazione di applicazioni di logica. Quando si fa clic su **Authorize** viene chiesto di accedere in (se non è stato già fatto) e di fornire il consenso per connettersi al servizio SaaS per conto dell'utente. Dopo aver fornito il consenso e l’autorizzazione, le app per la logica possono accedere a questi servizi SaaS.
 
 ## Creare la propria applicazione SaaS
-Questa esperienza semplificata è possibile perché è stata precedentemente creata e registrata l'applicazione in tali servizi SaaS. In alcuni casi, si desidera registrare e utilizzare la propria applicazione. Questo è necessario, ad esempio, quando si desidera utilizzare questi connettori SaaS nelle applicazioni personalizzate, ad esempio in [Distribuire un'app API del connettore SaaS](app-service-api-connnect-your-app-to-saas-connector.md). In questo esempio si utilizza il connettore DropBox, ma il processo è lo stesso per tutti i connettori che si basano su OAUTH.
+Questa esperienza semplificata è possibile perché è stata precedentemente creata e registrata l'applicazione in tali servizi SaaS. In alcuni casi, si desidera registrare e utilizzare la propria applicazione. Questo è necessario, ad esempio, quando si desidera utilizzare questi connettori SaaS nelle applicazioni personalizzate, ad esempio in [Distribuire un'app API del connettore SaaS](../app-service-api/app-service-api-connnect-your-app-to-saas-connector.md). In questo esempio si utilizza il connettore DropBox, ma il processo è lo stesso per tutti i connettori che si basano su OAUTH.
 
 Anche nel contesto dell’app per la logica, è possibile utilizzare la propria applicazione invece di utilizzare l'applicazione predefinita che offriamo. Se il pulsante "Authorize" non riesce a connettersi, è possibile provare a creare la propria app. Di seguito sono elencati questi passaggi per il connettore Twitter:
 
@@ -38,7 +41,7 @@ Anche nel contesto dell’app per la logica, è possibile utilizzare la propria 
 
 A questo punto, sarà possibile utilizzare il connettore delle App per la logica. Quando si utilizza questo connettore dalle App per la logica, si utilizza l’applicazione invece dell’applicazione predefinita.
 
-> [AZURE.NOTE]Se si è autorizzato un'app in precedenza, potrebbe essere necessario autorizzare l'app.
+> [AZURE.NOTE] Se si è autorizzato un'app in precedenza, potrebbe essere necessario autorizzare l'app.
 
 
 <!--Image references-->
@@ -48,4 +51,4 @@ A questo punto, sarà possibile utilizzare il connettore delle App per la logica
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

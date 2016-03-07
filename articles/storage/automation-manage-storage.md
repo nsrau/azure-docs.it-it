@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="02/20/2016"
 	ms.author="jolevy"/>
 
 
@@ -34,20 +34,20 @@ Il servizio permette di ridurre i costi operativi e di liberare risorse dello st
 
 ## Come può Automazione di Azure aiutare nella gestione di Archiviazione di Azure?
 
-Archiviazione di Azure può essere gestito in Automazione di Azure usando i cmdlet di PowerShell disponibili negli [strumenti di Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). I cmdlet di PowerShell per l'Archiviazione sono predefiniti in Automazione di Azure, per consentire l'esecuzione di tutte le attività di gestione di BLOB, tabelle e code dall'interno del servizio. È anche possibile abbinare tali cmdlet in Automazione di Azure ai cmdlet per altri servizi di Azure per automatizzare attività complesse in tutti i servizi di Azure e nei sistemi di terze parti.
+Archiviazione di Azure può essere gestito in Automazione di Azure usando i cmdlet di PowerShell disponibili in [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). I cmdlet di PowerShell per l'Archiviazione sono predefiniti in Automazione di Azure, per consentire l'esecuzione di tutte le attività di gestione di BLOB, tabelle e code dall'interno del servizio. È anche possibile abbinare tali cmdlet in Automazione di Azure ai cmdlet per altri servizi di Azure per automatizzare attività complesse in tutti i servizi di Azure e nei sistemi di terze parti.
 
 La [raccolta di Runbook di Automazione di Azure](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) contiene diversi Runbook del team di prodotto e della community per iniziare ad automatizzare la gestione di Archiviazione di Azure, altri servizi di Azure e sistemi di terze parti. I Runbook della raccolta includono i seguenti:
 
- * [Rimuovere i BLOB di Archiviazione di Azure precedenti a X giorni](https://gallery.technet.microsoft.com/scriptcenter/Remove-Storage-Blobs-that-aae4b761)
- * [Scaricare un BLOB da Archiviazione di Azure ad Automazione di Azure](https://gallery.technet.microsoft.com/scriptcenter/a-Blob-from-Azure-Storage-6bc13745)
- * [Creare copie dei dischi di dati delle macchine virtuali di Azure in un Servizio cloud di Azure](https://gallery.technet.microsoft.com/scriptcenter/Make-copies-of-Azure-VM-065a6394)
+ * [Remove Azure Storage Blobs that are Certain Days Old Using Automation Service (Rimuovere i BLOB di archiviazione di Azure di un determinato numero di giorni usando il servizio di automazione)](https://gallery.technet.microsoft.com/scriptcenter/Remove-Storage-Blobs-that-aae4b761)
+ * [Download a Blob from Azure Storage (Scaricare un BLOB da Archiviazione di Azure)](https://gallery.technet.microsoft.com/scriptcenter/a-Blob-from-Azure-Storage-6bc13745)
+ * [Backup all disks for a single Azure VM or for all VMs in a Cloud Service (Eseguire il backup di tutti i dischi per una singola macchina virtuale di Azure o per tutte le macchine virtuali in un servizio cloud)](https://gallery.technet.microsoft.com/scriptcenter/Backup-all-disks-for-a-ede940d5)
 
 
 ## Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e come può essere usato per gestire BLOB, tabelle e code di Azure, seguire i collegamenti seguenti per altre informazioni su Automazione di Azure.
 
-Vedere l'[esercitazione introduttiva](../automation-create-runbook-from-samples.md) di Automazione di Azure
+Vedere l'esercitazione di Automazione di Azure [Creazione e importazione di un runbook in Automazione di Azure](../automation/automation-creating-importing-runbook.md).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

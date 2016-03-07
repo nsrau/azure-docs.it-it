@@ -1,18 +1,19 @@
-There are 3 VPN Gateway SKUs:
+Sono disponibili 3 SKU del Gateway VPN:
 
 - Basic
 - Standard
-- High Performance
+- Prestazioni elevate
 
-The table below shows the gateway types and the estimated aggregate throughput. 
-Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/). This table applies to both the Resource Manager and classic deployment models.
+La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregata stimata. I prezzi variano a seconda dello SKU del gateway. Per informazioni sui prezzi, vedere [Gateway VPN Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/). La tabella è valida per entrambi i modelli di distribuzione classica e di Gestione risorse.
 
 
-|    | **VPN Gateway throughput** | **VPN Gateway max IPsec tunnels** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist**|
+| | **Velocità effettiva del gateway VPN** | **Tunnel IPsec massimi del gateway VPN** | **Velocità effettiva del gateway di ExpressRoute** | **Coesistenza gateway VPN ed ExpressRoute**|
 |--- |----------------------------|-----------------------------------|-------------------------------------|-----------------------------------------|
-| **Basic SKU**              |  100 Mbps | 10                         |  500 Mbps                           | No   |
-| **Standard SKU**           |  100 Mbps | 10                         | 1000 Mbps                           | Yes  |
-| **High Performance SKU**   | 200 Mbps  | 30                         | 2000 Mbps                           | Yes  |
+| **SKU Basic** | 100 Mbps | 10 | 500 Mbps | No |
+| **SKU standard** | 100 Mbps | 10 | 1000 Mbps | Sì |
+| **SKU con prestazioni elevate** | 200 Mbps | 30 | 2000 Mbps | Sì |
 
 
-**Note:** The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guarantee of what you can get for cross-premises connections across the Internet, but should be used as a maximum possible measure.
+**Nota:** la velocità effettiva della VPN è una stima approssimativa basata sulle misurazioni tra reti virtuali nella stessa area di Azure. Tale dato non costituisce una garanzia di ciò che è possibile ottenere per connessioni cross-premise tramite Internet, ma deve essere considerato come una misurazione massima possibile.
+
+<!---HONumber=AcomDC_0224_2016-->

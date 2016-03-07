@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="sstein"/>
 
 # Gestire il database SQL di Azure con PowerShell
@@ -35,7 +35,7 @@ Per eseguire i cmdlet di PowerShell, è necessario che Azure PowerShell sia inst
 
 Per eseguire i cmdlet PowerShell nella sottoscrizione di Azure, è necessario innanzitutto stabilire l'accesso al proprio account Azure. Eseguire le operazioni seguenti e verrà visualizzata una schermata di accesso per immettere le credenziali. Utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure classico.
 
-	Add-AzureRmAccount
+	Login-AzureRmAccount
 
 Dopo aver effettuato l’accesso, sullo schermo dovrebbero essere visualizzate informazioni tra cui l’ID utilizzato per l’accesso con le sottoscrizioni Azure per le quali si dispone dell’accesso
 
@@ -127,4 +127,4 @@ Combinare i comandi e automatizzare. Ad esempio, sostituire tutto ciò che si tr
 
 - [Cmdlet del database SQL di Azure.](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

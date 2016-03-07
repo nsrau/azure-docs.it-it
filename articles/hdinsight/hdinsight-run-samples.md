@@ -65,7 +65,7 @@ Per la procedura di sviluppo di un programma MapReduce Java, vedere [Sviluppare 
 		$resourceGroupName = "<Resource Group Name>"
 		$clusterName = "<HDInsight cluster name>"             # HDInsight cluster name
 		
-		Select-AzureRmSubscription $subscriptionName
+		Select-AzureRmSubscription -SubscriptionName $subscriptionName
 		
 		# Define the MapReduce job
 		$mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -998,4 +998,4 @@ Il codice per il programma MapReduce TeraSort viene presentato per la verifica i
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

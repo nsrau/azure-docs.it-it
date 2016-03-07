@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Considerazioni per l'implementazione di un piano di test di JMeter per Elasticsearch | Microsoft Azure"
+   pageTitle="Implementazione di un piano di test di JMeter per Elasticsearch | Microsoft Azure"
    description="Come eseguire test delle prestazioni per Elasticsearch con JMeter."
    services=""
    documentationCenter="na"
@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
-   ms.author="mabsimms"/>
+   ms.date="02/18/2016"
+   ms.author="masimms"/>
    
-# Considerazioni per l'implementazione di un piano di test di JMeter per Elasticsearch
+# Implementazione di un piano di test di JMeter per Elasticsearch
 
-Questo articolo fa [parte di una serie](guidance-elasticsearch-introduction.md).
+Questo articolo fa [parte di una serie](guidance-elasticsearch.md).
 
-I test delle prestazioni eseguiti in Elasticsearch sono stati implementati usando i piani di test di JMeter e il codice Java incorporato come test JUnit per l'esecuzione di attività come il caricamento di dati nel cluster. I piani di test e il codice JUnit sono descritti nel documento relativo all'ottimizzazione delle prestazioni di inserimento dati con Elasticsearch in Azure e in quello relativo alle prestazioni delle query con Elasticsearch in Azure.
+I test delle prestazioni eseguiti in Elasticsearch sono stati implementati usando i piani di test di JMeter e il codice Java incorporato come test JUnit per l'esecuzione di attività come il caricamento di dati nel cluster. I piani di test e il codice JUnit sono descritti negli articoli sull'[ottimizzazione delle prestazioni dell'inserimento dati per Elasticsearch in Azure][] e sull'[ottimizzazione delle prestazioni dell'aggregazione dati e delle query per Elasticsearch in Azure][].
 
-Lo scopo di questo documento è riepilogare l'esperienza acquisita durante la creazione e l'esecuzione di questi piani di test. La pagina delle [Procedure consigliate di JMeter](http://jmeter.apache.org/usermanual/best-practices.html) nel sito Web di Apache JMeter contiene consigli più generalizzati sull'uso efficace di JMeter.
+Lo scopo di questo documento è riepilogare l'esperienza acquisita durante la creazione e l'esecuzione di questi piani di test. La pagina sulle [procedure consigliate per JMeter](http://jmeter.apache.org/usermanual/best-practices.html) nel sito Web Apache JMeter contiene indicazioni più generali per un uso efficace di JMeter.
 
 ## Implementazione di un piano di test di JMeter
 
@@ -33,11 +33,13 @@ Nell'elenco seguente vengono riepilogati gli elementi da considerare quando si c
 
 - Evitare di creare troppi thread in un gruppo di thread. Un numero eccessivo di thread provocherà un errore di JMeter con eccezioni di tipo "Memoria insufficiente". È preferibile aggiungere più server JMeter subordinati, in ognuno dei quali verrà eseguito un numero minore di thread, anziché tentare di eseguire un numero elevato di thread in un singolo server JMeter.
 
-![](./media/guidance-elasticsearch-jmeter-testing1.png)
+![](./media/guidance-elasticsearch/jmeter-testing1.png)
 
-- Per valutare le prestazioni del cluster, incorporare il plug-in [Agente di raccolta metriche Perfmon](http://jmeter-plugins.org/wiki/PerfMon/) nel piano di test. Si tratta di un listener di JMeter disponibile come uno dei plug-in standard di JMeter. Salvare i dati non elaborati sulle prestazioni in un set di file in formato csv ed elaborarli al termine del test. Questo metodo è più efficiente e comporta un minore impegno per JMeter rispetto al tentativo di elaborare i dati al momento dell'acquisizione. È possibile usare uno strumento come Excel per importare i dati e generare un intervallo di grafici per scopi analitici.
+- Per valutare le prestazioni del cluster, incorporare il plug-in [Agente di raccolta metriche Perfmon](http://jmeter-plugins.org/wiki/PerfMon/) nel piano di test. Si tratta di un listener di JMeter disponibile come uno dei plug-in standard di JMeter. Salvare i dati non elaborati sulle prestazioni in un set di file in formato csv ed elaborarli al termine del test. Questo metodo è più efficiente e comporta un minore impegno per JMeter rispetto al tentativo di elaborare i dati al momento dell'acquisizione. 
 
-![](./media/guidance-elasticsearch-jmeter-testing2.png)
+È possibile usare uno strumento come Excel per importare i dati e generare un intervallo di grafici per scopi analitici.
+
+![](./media/guidance-elasticsearch/jmeter-testing2.png)
 
 È consigliabile acquisire le informazioni seguenti:
 
@@ -45,7 +47,7 @@ Nell'elenco seguente vengono riepilogati gli elementi da considerare quando si c
 
 - Il numero di byte letti al secondo dal disco per ogni nodo.
 
-- Se possibile, la percentuale di tempo di CPU impiegato in attesa dell'esecuzione delle operazioni di I/O in ciascun nodo. Non è sempre possibile ottenere questo dato per le VM Windows, ma per Linux è possibile creare una metrica personalizzata (una metrica EXEC) che esegue il comando della shell seguente per richiamare *vmstat* in un nodo:
+- Se possibile, la percentuale di tempo di CPU impiegato in attesa dell'esecuzione delle operazioni di I/O in ciascun nodo. Non è sempre possibile ottenere questo dato per le macchine virtuali Windows, ma per Linux è possibile creare una metrica personalizzata (una metrica EXEC) che esegue il comando della shell seguente per richiamare *vmstat* in un nodo:
 
 ```Shell
 sh:-c:vmstat 1 5 | awk 'BEGIN { line=0;total=0;}{line=line+1;if(line&gt;1){total=total+\$16;}}END{print total/4}'
@@ -57,19 +59,19 @@ Il campo 16 nell'output di *vmstat* contiene il tempo di CPU impiegato in attesa
 
 - Usare listener per rapporti di aggregazione separati per registrare le prestazioni e la frequenza delle operazioni riuscite e non riuscite. Acquisire i dati relativi alle operazioni riuscite e non riuscite in file diversi.
 
-![](./media/guidance-elasticsearch-jmeter-testing3.png)
+![](./media/guidance-elasticsearch/jmeter-testing3.png)
 
 - Semplificare ogni test case di JMeter per consentire all'utente di correlare direttamente le prestazioni con azioni di test specifiche. Per i test case che richiedono una logica complessa, incapsulare questa logica in un test JUnit e usare il campionatore di richiesta JUnit in JMeter per eseguire il test.
 
 - Usare il campionatore di richiesta HTTP per eseguire operazioni HTTP, ad esempio GET, POST, PUT o DELETE. È possibile ad esempio eseguire ricerche Elasticsearch tramite una query POST e fornendo i dettagli di query nella casella *Body Data*:
 
-![](./media/guidance-elasticsearch-jmeter-testing4.png)
+![](./media/guidance-elasticsearch/jmeter-testing4.png)
 
 - Per facilitare la ripetibilità e il riutilizzo, impostare i parametri per i piani di test di JMeter. È quindi possibile usare lo scripting per automatizzare l'esecuzione di piani di test.
 
 ## Implementazione di un test JUnit
 
-È possibile incorporare un codice complesso in un piano di test di JMeter mediante la creazione di uno o più test JUnit. È possibile scrivere un test JUnit usando un ambiente IDE Java, ad esempio Eclipse. Il documento relativo alla procedura di creazione e distribuzione di un campionatore JUnit di JMeter per il test delle prestazioni di Elasticsearch contiene informazioni su come configurare un ambiente di sviluppo appropriato.
+È possibile incorporare un codice complesso in un piano di test di JMeter mediante la creazione di uno o più test JUnit. È possibile scrivere un test JUnit usando un ambiente IDE Java, ad esempio Eclipse. L'articolo sulla [distribuzione di un campionatore JUnit di JMeter per il test delle prestazioni di Elasticsearch][] contiene informazioni su come configurare un ambiente di sviluppo appropriato.
 
 Nell'elenco seguente vengono riepilogate alcune procedure consigliate da seguire per scrivere il codice per un test JUnit:
 
@@ -84,7 +86,7 @@ private String clusterName = "";
 private int itemsPerBatch = 0;
 
 /* JUnit test class constructor */
-public ElasticSearchLoadTest2(String params) {
+public ElasticsearchLoadTest2(String params) {
 	/* params is a string containing a set of comma separated values for:
 		hostName
 		indexName
@@ -134,4 +136,9 @@ public void bulkInsertTest() throws IOException {
 }
 ```
 
-<!---HONumber=AcomDC_0211_2016-->
+[Running Elasticsearch on Azure]: guidance-elasticsearch-running-on-azure.md
+[ottimizzazione delle prestazioni dell'inserimento dati per Elasticsearch in Azure]: guidance-elasticsearch-tuning-data-ingestion-performance.md
+[distribuzione di un campionatore JUnit di JMeter per il test delle prestazioni di Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
+[ottimizzazione delle prestazioni dell'aggregazione dati e delle query per Elasticsearch in Azure]: guidance-elasticsearch-tuning-data-aggregation-and-query-performance.md
+
+<!---HONumber=AcomDC_0224_2016-->

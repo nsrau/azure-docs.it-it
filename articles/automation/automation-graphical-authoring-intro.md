@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
-   ms.author="bwren" />
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren" />
 
 # Creazione grafica in Automazione di Azure
 
@@ -30,7 +30,7 @@ Tutti i Runbook in Automazione di Azure sono flussi di lavoro di Windows PowerSh
 
 ## Panoramica dell'editor grafico
 
-È possibile aprire l'editor grafico nel portale di anteprima di Azure creando o modificando un Runbook grafico.
+È possibile aprire l'editor grafico nel portale di Azure creando o modificando un Runbook grafico.
 
 ![Area di lavoro grafica](media/automation-graphical-authoring-intro/graphical-editor.png)
 
@@ -79,7 +79,7 @@ Il controllo Test non viene visualizzato al primo avvio dell'editor grafico. Vie
 
 ### Test di un Runbook grafico
 
-È possibile testare la versione bozza di un Runbook nel portale di anteprima di Azure lasciando la versione pubblicata del Runbook invariata oppure testare un nuovo Runbook prima che venga pubblicato. In questo modo è possibile verificare che il Runbook funzioni correttamente prima di sostituire la versione pubblicata. Quando si testa un Runbook, viene eseguito il Runbook in versione bozza e le azioni eseguite vengono completate. Non viene creata alcuna cronologia dei processi, ma l'output viene visualizzato nel riquadro di output del test.
+È possibile testare la versione bozza di un Runbook nel portale di Azure lasciando la versione pubblicata del Runbook invariata oppure testare un nuovo Runbook prima che venga pubblicato. In questo modo è possibile verificare che il Runbook funzioni correttamente prima di sostituire la versione pubblicata. Quando si testa un Runbook, viene eseguito il Runbook in versione bozza e le azioni eseguite vengono completate. Non viene creata alcuna cronologia dei processi, ma l'output viene visualizzato nel riquadro di output del test.
 
 Per aprire il controllo Test per un Runbook, aprire il Runbook per la modifica e quindi fare clic sul pulsante **Test pane**.
 
@@ -298,9 +298,9 @@ La maggior parte dei Runbook di Automazione di Azure richiede l'autenticazione p
 
 ### Input di Runbook
 
-Un Runbook può richiedere l'input di un utente che avvia il Runbook tramite il portale di anteprima di Azure o di un altro Runbook se quello corrente viene usato come Runbook figlio. Se ad esempio si dispone di un Runbook che crea una macchina virtuale, potrebbe essere necessario specificare informazioni come il nome della macchina virtuale e altre proprietà ogni volta che si avvia il Runbook.
+Un Runbook può richiedere l'input di un utente che avvia il Runbook tramite il portale di Azure o di un altro Runbook se quello corrente viene usato come Runbook figlio. Se ad esempio si dispone di un Runbook che crea una macchina virtuale, potrebbe essere necessario specificare informazioni come il nome della macchina virtuale e altre proprietà ogni volta che si avvia il Runbook.
 
-È possibile accettare l'input per un Runbook definendo uno o più parametri di input. Specificare valori per questi parametri ogni volta che viene avviato il Runbook. Se si avvia un Runbook con il portale di anteprima di Azure, verrà chiesto di specificare valori per ognuno dei parametri di input del Runbook.
+È possibile accettare l'input per un Runbook definendo uno o più parametri di input. Specificare valori per questi parametri ogni volta che viene avviato il Runbook. Se si avvia un Runbook con il portale di Azure, verrà chiesto di specificare valori per ognuno dei parametri di input del Runbook.
 
 È possibile accedere ai parametri di input per un Runbook facendo clic sul pulsante **Input and output** sulla barra degli strumenti del Runbook.
 
@@ -316,8 +316,8 @@ Ogni parametro di input è definito dalle proprietà descritte nella tabella seg
 |:---|:---|
 | Name | Nome univoco del parametro. Può contenere solo caratteri alfanumerici e non può contenere spazi. |
 | Description | Descrizione facoltativa del parametro di input. |
-| Type | Tipo di dati previsto per il valore del parametro. Il portale di anteprima di Azure visualizzerà un controllo appropriato per il tipo di dati per ogni parametro quando viene richiesto l'input. |
-| Mandatory | Specifica se è necessario specificare un valore per il parametro. Non è possibile avviare il Runbook se non si specifica un valore per ogni parametro obbligatorio che non dispone di un valore predefinito. |
+| Type | Tipo di dati previsto per il valore del parametro. Il portale di Azure visualizzerà un controllo appropriato per il tipo di dati per ogni parametro quando viene richiesto l'input. |
+| Obbligatorio | Specifica se è necessario specificare un valore per il parametro. Non è possibile avviare il Runbook se non si specifica un valore per ogni parametro obbligatorio che non dispone di un valore predefinito. |
 | Default Value | Specifica quale valore viene usato per il parametro se non ne viene specificato uno. Può essere Null o un valore specifico. |
 
 
@@ -419,4 +419,4 @@ Nell'esempio seguente viene utilizzato l'output di un'attività denominata *Get 
 - [Operatori](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

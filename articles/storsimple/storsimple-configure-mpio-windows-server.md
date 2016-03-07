@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -23,7 +23,7 @@ Per la disponibilità elevata della soluzione StorSimple, è necessario configur
 
 MPIO è una funzionalità facoltativa in Windows Server, e non è installata per impostazione predefinita. Deve essere installata come funzionalità tramite Server Manager. In questo argomento vengono descritti i passaggi da seguire per installare e utilizzare la funzionalità MPIO in un host che esegue Windows Server 2012 R2 e connesso a un dispositivo fisico StorSimple.
 
->[AZURE.NOTE]**MPIO non è supportato su un dispositivo StorSimple virtuale.**
+>[AZURE.NOTE] **MPIO non è supportato su un dispositivo StorSimple virtuale.**
 
 È necessario attenersi alla seguente procedura per configurare MPIO nel dispositivo StorSimple:
 
@@ -85,7 +85,7 @@ Dopo la configurazione di MPIO in Windows Server, i volumi creati nel dispositiv
 	- Immettere l'indirizzo IP della porta DATA del dispositivo StorSimple (ad esempio, immettere DATA 0).
 	- Fare clic su **OK** per tornare alla finestra di dialogo **Proprietà iniziatore iSCSI**.
 
-	>[AZURE.IMPORTANT]**Se si utilizza una rete privata per le connessioni iSCSI, immettere l'indirizzo IP della porta DATA connessa alla rete privata.**
+	>[AZURE.IMPORTANT] **Se si utilizza una rete privata per le connessioni iSCSI, immettere l'indirizzo IP della porta DATA connessa alla rete privata.**
 
 4. Ripetere i passaggi 2-3 per una seconda interfaccia di rete (ad esempio, DATA 1) sul dispositivo. Tenere presente che queste interfacce devono essere abilitate per iSCSI. Per ulteriori informazioni, andare a [Modificare le interfacce di rete](storsimple-modify-device-config.md#modify-network-interfaces).
 5. Selezionare la scheda **Destinazioni** nella finestra di dialogo **Proprietà iniziatore iSCSI**. Dovrebbe essere visualizzato l'IQN destinazione del dispositivo StorSimple in **Destinazioni individuate**. ![Scheda destinazioni proprietà iniziatore iSCSI](./media/storsimple-configure-mpio-windows-server/IC741007.png)
@@ -122,13 +122,13 @@ Dopo la configurazione di MPIO in Windows Server, i volumi creati nel dispositiv
 	- Verifica percorso attivata = deselezionata.
 
 
->[AZURE.NOTE]**Non modificare i parametri predefiniti.**
+>[AZURE.NOTE] **Non modificare i parametri predefiniti.**
 
 ## Passaggio 4: Configurare MPIO per la disponibilità elevata e il bilanciamento del carico
 
 Per la disponibilità elevata e il bilanciamento del carico basato su percorsi multipli, è necessario aggiungere manualmente più sessioni per dichiarare i diversi percorsi disponibili. Ad esempio, se l'host dispone di due interfacce connesse alla rete SAN e il dispositivo dispone di due interfacce connesse alla rete SAN, è necessario configurare quattro sessioni con permutazioni percorso corrette (se ciascuna interfaccia DATA e ciascuna interfaccia host si trova in una subnet IP diversa e non è instradabile saranno necessarie solo due sessioni).
 
->[AZURE.IMPORTANT]**È consigliabile non combinare interfacce di rete da 1 GbE e da 10 GbE. Se si utilizzano due interfacce di rete, devono essere di tipo identico.**
+>[AZURE.IMPORTANT] **È consigliabile non combinare interfacce di rete da 1 GbE e da 10 GbE. Se si utilizzano due interfacce di rete, devono essere di tipo identico.**
 
 Nella procedura seguente viene descritto come aggiungere le sessioni quando un dispositivo StorSimple con due interfacce di rete viene connesso a un host con due interfacce di rete.
 
@@ -173,4 +173,4 @@ Nella procedura seguente viene descritto come aggiungere le sessioni quando un d
 Ulteriori informazioni in [Utilizzare il servizio StorSimple Manager per modificare la configurazione del dispositivo StorSimple](storsimple-modify-device-config.md).
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

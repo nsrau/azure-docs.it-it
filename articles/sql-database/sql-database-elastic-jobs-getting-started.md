@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sidneyh; ddove" />
 
 # Introduzione ai processi di Database Elastici
@@ -429,10 +429,10 @@ Per sospendere l'esecuzione del processo ricorrente tramite un trigger di proces
 Tutte le righe dalla tabella **Clienti**, archiviate in diverse partizioni sono riportate nel foglio Excel.
 
 ## Passaggi successivi
-È ora possibile utilizzare funzioni avanzata dei dati di Excel. È possibile utilizzare la stringa di connessione con il nome del server, nome del database e credenziali per gli strumenti di integrazione di Business Intelligence e i dati di connettersi al database query elastica. Assicurarsi che SQL Server sia supportato come origine dati per lo strumento. È possibile fare riferimento al database elastica query e tabelle esterne come qualsiasi altro database di SQL Server e tabelle di SQL Server è necessario connettersi allo strumento.
+È ora possibile usare le funzioni dei dati di Excel. Usare la stringa di connessione con il nome del server, il nome del database e le credenziali per connettere gli strumenti di integrazione e di Business Intelligence al database di query elastico. Assicurarsi che SQL Server sia supportato come origine dati per lo strumento. Fare riferimento al database di query elastico e alle tabelle esterne come a qualsiasi database di SQL Server e tabella di SQL Server a cui ci si connette con lo strumento.
 
 ### Costi
-Non esiste senza alcun costo aggiuntivo per utilizzare la funzione elastica Query del Database. In questo momento questa funzionalità è disponibile solo sui database premium come punto finale, tuttavia, le partizioni possono essere di qualsiasi livello di servizio.
+L'uso della funzione di query di database elastico non comporta alcun costo aggiuntivo. In questo momento questa funzionalità è disponibile solo sui database premium come punto finale, tuttavia, le partizioni possono essere di qualsiasi livello di servizio.
 
 Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -447,4 +447,4 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://a
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

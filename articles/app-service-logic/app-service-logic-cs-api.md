@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/19/2016"
+   ms.date="02/22/2016"
    ms.author="jehollan"/>
 
 #App C# API
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
 L'applicazione dell'API C# offre un modo semplice per eseguire semplici espressioni C#*mentre è in esecuzione l'applicazione di logica*.
 
 ##Quando è necessario utilizzare questa applicazione API?
@@ -35,7 +38,7 @@ Per utilizzare l'applicazione dell'API C#, è necessario creare innanzitutto un'
 ###Trigger
 È possibile creare un trigger che attiva il polling, in base a un intervallo definito dall'utente, da parte del servizio app per la logica. Se vengono restituiti valori diversi da `false`, esegue l'app per la logica; in caso contrario, attende fino al successivo intervallo di polling per controllare di nuovo.
 
-Gli input per il trigger sono:-**Espressione C#** - Espressione che verrà valutata. Viene richiamata in una funzione e deve restituire `false` quando non si vuole eseguire l'app per la logica. Può restituire qualsiasi altro valore quando si vuole eseguire l'app per la logica. È possibile usare il contenuto della risposta nelle azioni dell'app per la logica.
+Gli input per il trigger sono: - **Espressione C#** - Espressione che verrà valutata. Viene richiamata in una funzione e deve restituire `false` quando non si vuole eseguire l'app per la logica. Può restituire qualsiasi altro valore quando si vuole eseguire l'app per la logica. È possibile usare il contenuto della risposta nelle azioni dell'app per la logica.
 
 Ad esempio, è possibile avere un semplice trigger che eseguirà l'app per la logica solo tra i valori :15 e :30 dell'ora:
 
@@ -105,4 +108,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Esportare i dati di telemetria da Application Insights
@@ -42,7 +42,7 @@ Nel pannello Panoramica dell'applicazione nel portale di Application Insights ap
 
 ![Scorrere verso il basso e fare clic su Esportazione continua](./media/app-insights-export-telemetry/01-export.png)
 
-Aggiungere un'esportazione e scegliere un [account di archiviazione Azure](../storage-introduction.md) in cui inserire i dati:
+Aggiungere un'esportazione e scegliere un [account di archiviazione Azure](../storage/storage-introduction.md) in cui inserire i dati:
 
 ![Fare clic su Aggiungi, Destinazione di esportazione, Account di archiviazione e quindi creare un nuovo archivio o scegliere un archivio esistente](./media/app-insights-export-telemetry/02-add.png)
 
@@ -170,7 +170,6 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 
     Se l'account è di proprietà dell'organizzazione, è necessario essere un membro del gruppo di proprietari o di collaboratori.
 
-    <!-- Your account has to be either a paid-for account, or in the free trial period. -->
 
 * *È possibile eseguire un'esportazione direttamente al negozio locale?*
 
@@ -210,4 +209,4 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/18/2016"
 	ms.author="dastrock"/>
 
 # Anteprima Azure AD B2C: accesso Web con OpenID Connect
@@ -26,9 +26,9 @@ OpenID Connect è un protocollo di autenticazione basato su OAuth 2.0 utilizzabi
 
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) estende il protocollo di *autorizzazione* OAuth 2.0 da usare come protocollo di *autenticazione* per consentire di eseguire l'accesso single sign-on tramite OAuth. Introduce il concetto di un `id_token`, ovvero un token di sicurezza che consente al client di verificare l'identità dell'utente e ottenere informazioni di base sul profilo dell'utente. Poiché estende OAuth 2.0, consente anche alle applicazioni di acquisire in modo sicuro **access\_token**, utilizzabili per accedere alle risorse protette da un [server di autorizzazione](active-directory-b2c-reference-protocols.md#the-basics). Consigliamo OpenID Connect per la creazione di un'applicazione Web ospitata su un server e accessibile da browser. Per aggiungere la gestione dell’identità per dispositivi mobili o applicazioni desktop utilizzando Azure AD B2C, è necessario utilizzare [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) anziché OpenID Connect.
 
-Azure AD B2C estende il protocollo standard OpenID Connect per non limitarsi esclusivamente a semplici operazioni di autenticazione e autorizzazione. Introduce il [**parametro criteri**](active-directory-b2c-reference-poliices.md), per utilizzare OpenID Connect per aggiungere esperienze utente all'applicazione, come ad esempio, iscrizione, accesso e gestione del profilo. Di seguito viene illustrato come utilizzare OpenID Connect e i criteri per implementare ciascuna di queste esperienze nelle applicazioni Web e ottenere access\_token per l'accesso ad API Web.
+Azure AD B2C estende il protocollo standard OpenID Connect per non limitarsi esclusivamente a semplici operazioni di autenticazione e autorizzazione. Introduce il [**parametro criteri**](active-directory-b2c-reference-policies.md), per utilizzare OpenID Connect per aggiungere esperienze utente all'applicazione, come ad esempio, iscrizione, accesso e gestione del profilo. Di seguito viene illustrato come utilizzare OpenID Connect e i criteri per implementare ciascuna di queste esperienze nelle applicazioni Web e ottenere access\_token per l'accesso ad API Web.
 
-Le richieste HTTP di esempio seguenti utilizzano la directory B2C di esempio, **fabrikamb2c.onmicrosoft.com**, nonché l'applicazione di esempio * ***https://aadb2cplayground.azurewebsites.net** e i criteri. Si possono provare le richieste in totale autonomia utilizzando questi valori oppure è possibile sostituirli con valori personalizzati. Ulteriori informazioni su come [ottenere directory, applicazione e i criteri B2C](#use-your-own-b2c-directory).
+Le richieste HTTP di esempio seguenti utilizzano la directory B2C di esempio, **fabrikamb2c.onmicrosoft.com**, nonché l'applicazione di esempio * ***https://aadb2cplayground.azurewebsites.net** e i criteri. Si possono provare le richieste in totale autonomia utilizzando questi valori oppure è possibile sostituirli con valori personalizzati. Leggere le informazioni su come [ottenere tenant, applicazione e criteri B2C](#use-your-own-b2c-directory).
 
 ## Invio di richieste di autenticazione
 Quando l'app Web deve autenticare l'utente ed eseguire un criterio, può indirizzarlo all'endpoint `/authorize`. Questa è la parte interattiva del flusso, dove l’utente opera effettivamente in base ai criteri. In questa richiesta, il client indica le autorizzazioni da acquisire dall'utente nel parametro `scope` e il criterio da eseguire nel parametro `p`. Di seguito vengono forniti tre esempi (con interruzioni di riga per migliorare la leggibilità), ciascuno dei quali utilizza un criterio diverso. Per apprendere il funzionamento di ogni richiesta, provare a incollare la richiesta in un browser ed eseguirla.
@@ -77,15 +77,15 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com). |
+| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com/). |
 | response\_type | obbligatorio | Deve includere `id_token` per OpenID Connect. Se anche l'applicazione Web richiede token per chiamare un'API Web, è possibile utilizzare `code+id_token`, come illustrato qui. |
 | redirect\_uri | obbligatorio | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. |
-| scope | obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_tokens** (ulteriori informazioni più avanti). L’ambito `offline_access` è facoltativo per le applicazioni Web. Indica che l'applicazione richiede un **refresh\_token** per un accesso prolungato alle risorse. |
-| response\_mode | consigliato | Specifica il metodo che deve essere usato per inviare un codice di autorizzazione all'app. Può essere 'query', 'form\_post' o 'fragment'. |
-| state | consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per evitare gli attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato casualmente. Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina in cui si trovava. |
+| scope | Obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_tokens** (ulteriori informazioni più avanti). L’ambito `offline_access` è facoltativo per le applicazioni Web. Indica che l'applicazione richiede un **refresh\_token** per un accesso prolungato alle risorse. |
+| response\_mode | Consigliato | Specifica il metodo che deve essere usato per inviare un codice di autorizzazione all'app. Può essere 'query', 'form\_post' o 'fragment'. |
+| state | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per evitare gli attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato casualmente. Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina in cui si trovava. |
 | nonce | obbligatorio | Valore incluso nella richiesta, generata dall'app, che verrà incluso nel token ID risultante come attestazione. L'app può verificare questo valore per ridurre gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. |
-| p | obbligatorio | Indica i criteri da eseguire. È il nome di un criterio creato nella directory B2C, il cui valore deve iniziare con "b2c\_1\_". Ulteriori informazioni sui criteri [qui](active-directory-b2c-reference-policies.md). |
-| prompt | facoltativo | Indica il tipo di interazione obbligatoria dell'utente. L'unico valore valido in questa fase è 'login', che impone all'utente di immettere le credenziali per la richiesta. L'accesso Single Sign-On non ha effetto. |
+| p | obbligatorio | Indica i criteri da eseguire. È il nome di un criterio creato nel tenant B2C, il cui valore deve iniziare con "b2c\_1\_". Ulteriori informazioni sui criteri [qui](active-directory-b2c-reference-policies.md). |
+| prompt | Facoltativo | Indica il tipo di interazione obbligatoria dell'utente. L'unico valore valido in questa fase è 'login', che impone all'utente di immettere le credenziali per la richiesta. L'accesso Single Sign-On non ha effetto. |
 
 A questo punto, viene richiesto all'utente di completare il flusso di lavoro del criterio. Potrebbe richiedere all'utente di immettere nome utente e password, accedere con un'identità di social networking, l'iscrizione alla directory o qualsiasi altro numero di passaggi a seconda di come sono definiti i criteri. Dopo che l'utente completa il criterio, Azure AD restituisce una risposta all'app all’`redirect_uri` indicato, utilizzando il metodo specificato nel parametro `response_mode`. La risposta corrisponde esattamente a ciascuno dei casi precedenti, indipendentemente dai criteri eseguiti.
 
@@ -123,7 +123,7 @@ error=access_denied
 ## Convalidare il token ID
 La semplice ricezione di un token ID non è sufficiente per autenticare l'utente. È necessario convalidare la firma del token ID e verificare le attestazioni nel token per i requisiti dell'app. Azure AD B2C utilizza i [token Web JSON](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e la crittografia a chiave pubblica per firmare i token e verificarne la validità. Sono disponibili molte librerie open source per la convalida di JWT, a seconda del linguaggio preferito. È consigliabile prendere in esame tali opzioni anziché implementare una logica di convalida personalizzata. Le presenti informazioni risultano utili per scoprire come utilizzare adeguatamente queste librerie.
 
-Azure AD B2C dispone di un endpoint di metadati OpenID Connect, che consente a un'applicazione di recuperare informazioni su Azure AD B2C in fase di esecuzione. Queste informazioni includono endpoint, contenuti del token e chiavi per la firma dei token. Nella directory B2C, esiste un documento di metadati JSON per ogni criterio. Ad esempio, il documento dei metadati per il criterio in `b2c_1_sign_in` nel `fabrikamb2c.onmicrosoft.com` su:
+Azure AD B2C dispone di un endpoint di metadati OpenID Connect, che consente a un'applicazione di recuperare informazioni su Azure AD B2C in fase di esecuzione. Queste informazioni includono endpoint, contenuti del token e chiavi per la firma dei token. Il tenant B2C include un documento di metadati JSON per ogni criterio. Ad esempio, il documento dei metadati per il criterio in `b2c_1_sign_in` nel `fabrikamb2c.onmicrosoft.com` su:
 
 `https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
@@ -175,12 +175,12 @@ Content-Type: application/json
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | obbligatorio | Il criterio utilizzato per acquisire il codice di autorizzazione. Non è possibile utilizzare un criterio diverso in questa richiesta. **Questo parametro viene aggiunto alla stringa di query**, non al corpo della richiesta POST. |
-| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com). |
-| grant\_type | obbligatorio | Deve essere `authorization_code` per il flusso del codice di autorizzazione. |
-| scope | obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_token**. Utilizzabile per ottenere token sull’API Web di back-end dell’applicazione, rappresentato dallo stesso ID applicazione del client. Lo scopo `offline_access` indica che l'applicazione richiede un **refresh\_token** per un accesso duraturo alle risorse. |
-| code | obbligatorio | Codice di autorizzazione acquisito durante la prima sezione del flusso. |
+| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com/). |
+| grant\_type | Obbligatorio | Deve essere `authorization_code` per il flusso del codice di autorizzazione. |
+| scope | Obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_token**. Utilizzabile per ottenere token sull’API Web di back-end dell’applicazione, rappresentato dallo stesso ID applicazione del client. Lo scopo `offline_access` indica che l'applicazione richiede un **refresh\_token** per un accesso duraturo alle risorse. |
+| code | Obbligatorio | Codice di autorizzazione acquisito durante la prima sezione del flusso. |
 | redirect\_uri | obbligatorio | Il parametro redirect\_uri dell'applicazione, dove è stato ricevuto l’authorization\_code. |
-| client\_secret | obbligatorio | La chiave privata dell’applicazione generata nel [Portale Azure](https://portal.azure.com). La chiave privata dell'applicazione è un importante elemento di sicurezza e deve essere archiviata in modo protetto sul server. Inoltre, è necessario far ruotare periodicamente tale chiave privata del client. |
+| client\_secret | obbligatorio | La chiave privata dell’applicazione generata nel [Portale Azure](https://portal.azure.com/). La chiave privata dell'applicazione è un importante elemento di sicurezza e deve essere archiviata in modo protetto sul server. Inoltre, è necessario far ruotare periodicamente tale chiave privata del client. |
 
 Una risposta token con esito positivo ha un aspetto simile al seguente:
 
@@ -254,12 +254,12 @@ Content-Type: application/json
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | -------- |
 | p | obbligatorio | Il criterio utilizzato per acquisire il token di aggiornamento originale. Non è possibile utilizzare un criterio diverso in questa richiesta. **Questo parametro viene aggiunto alla stringa di query**, non al corpo della richiesta POST. |
-| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com). |
-| grant\_type | obbligatorio | Deve essere `refresh_token` per questa sezione del flusso del codice di autorizzazione. |
-| scope | obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_token**. Utilizzabile per ottenere token sull’API Web di back-end dell’applicazione, rappresentato dallo stesso ID applicazione del client. Lo scopo `offline_access` indica che l'applicazione richiede un **refresh\_token** per un accesso duraturo alle risorse. |
+| client\_id | obbligatorio | L'ID applicazione assegnato all’applicazione dal [Portale di Azure](https://portal.azure.com/). |
+| grant\_type | Obbligatorio | Deve essere `refresh_token` per questa sezione del flusso del codice di autorizzazione. |
+| scope | Obbligatorio | Elenco di ambiti separati da spazi. Un valore per l’ambito indica ad Azure AD che entrambe le autorizzazioni sono richieste. L’ambito `openid` indica un'autorizzazione per l'accesso dell’utente e per ottenere i dati relativi all'utente sotto forma di **id\_token**. Utilizzabile per ottenere token sull’API Web di back-end dell’applicazione, rappresentato dallo stesso ID applicazione del client. Lo scopo `offline_access` indica che l'applicazione richiede un **refresh\_token** per un accesso duraturo alle risorse. |
 | redirect\_uri | obbligatorio | Il parametro redirect\_uri dell'applicazione, dove è stato ricevuto l’authorization\_code. |
 | refresh\_token | obbligatorio | refresh\_token acquisito durante la seconda sezione del flusso. Per ricevere un token di aggiornamento, occorre aver utilizzato l’ambito `offline_access` nelle richieste sia di autorizzazione, sia del token. |
-| client\_secret | obbligatorio | La chiave privata dell’applicazione generata nel [Portale Azure](https://portal.azure.com). La chiave privata dell'applicazione è un importante elemento di sicurezza e deve essere archiviata in modo protetto sul server. Inoltre, è necessario far ruotare periodicamente tale chiave privata del client. |
+| client\_secret | obbligatorio | La chiave privata dell’applicazione generata nel [Portale Azure](https://portal.azure.com/). La chiave privata dell'applicazione è un importante elemento di sicurezza e deve essere archiviata in modo protetto sul server. Inoltre, è necessario far ruotare periodicamente tale chiave privata del client. |
 
 Una risposta token con esito positivo ha un aspetto simile al seguente:
 
@@ -327,13 +327,13 @@ p=b2c_1_sign_in
 | post\_logout\_redirect\_uri | consigliato | L'URL di destinazione al quale l’utente deve essere reindirizzato dopo la disconnessione. Se omesso, l'utente visualizza un messaggio generico da Azure AD B2C. |
 
 > [AZURE.NOTE]
-	Sebbene l'indirizzamento dell'utente sull’`end_session_endpoint` comporti la cancellazione di alcuni stati single sign-on degli utenti con Azure AD, in realtà non disconnette effettivamente l’utente. Infatti, se l'utente seleziona l’IDP al quale accedere, viene ri-autenticato senza dover inserire le credenziali. In caso di IDP di social network, questo è il comportamento previsto. Se un utente desidera disconnettersi dalla directory B2C, non significa necessariamente che intenda disconnettersi del tutto dall’account Facebook. Tuttavia, in caso di account locali, deve essere possibile terminare la sessione dell'utente in modo corretto. Una delle [limitazioni](active-directory-b2c-limitations.md) note dell’anteprima di Azure AD è il funzionamento inadeguato della disconnessione locale dell’account. Una soluzione alternativa immediata è inviare il parametro `&prompt=login` in ogni richiesta di autenticazione, che avrà l'aspetto del comportamento desiderato, ma suddivide la sessione single sign-on tra le applicazioni nella directory B2C.
+	Sebbene l'indirizzamento dell'utente sull’`end_session_endpoint` comporti la cancellazione di una parte dello stato Single Sign-On dell'utente con Azure AD B2C, l'utente non viene disconnesso dalla sessione del provider di identità del social network. Se l'utente seleziona lo stesso provider di identità in un accesso successivo, l'autenticazione viene rieseguita senza immettere le credenziali. Se un utente desidera disconnettersi dall'applicazione B2C, non significa necessariamente che intenda disconnettersi del tutto dall’account Facebook. Tuttavia, in caso di account locali, la sessione dell'utente viene terminata in modo corretto.
 
-## Uso della propria directory B2C
+## Uso del proprio tenant B2C
 
 Per provare queste richieste autonomamente, è innanzitutto necessario eseguire questi tre passaggi, quindi sostituire i valori di esempio con i propri:
 
-- [Creare una directory B2C](active-directory-b2c-get-started.md) e utilizzare il nome della directory nelle richieste.
+- [Creare un tenant B2C](active-directory-b2c-get-started.md) e usare il nome del tenant nelle richieste.
 - [Creare un'applicazione](active-directory-b2c-app-registration.md) per ottenere un ID applicazione e un redirect\_uri. È possibile includere poi un’**app Web/API Web** nell'applicazione e, facoltativamente, creare una **chiave privata dell'applicazione**.
 - [Creare i criteri](active-directory-b2c-reference-policies.md) per ottenere i nomi dei criteri.
 
@@ -347,4 +347,4 @@ image goes here
 
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/19/2015"
+	ms.date="02/15/2016"
 	ms.author="heidist"/>
 
 # Limiti dei servizi in Ricerca di Azure
@@ -112,4 +112,4 @@ Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponi
 
 <sup>1</sup> In Ricerca di Azure, il corpo di una richiesta è soggetto a un limite massimo di 16 MB, che impone un limite pratico ai contenuti di singoli campi o raccolte non vincolate dai limiti teorici. Per altre informazioni sulla composizione dei campi e sulle restrizioni, vedere [Tipi di dati supportati](https://msdn.microsoft.com/library/azure/dn798938.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

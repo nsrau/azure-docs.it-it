@@ -19,7 +19,7 @@
 
 # Creare cluster Hadoop basati su Windows in HDInsight tramite l'interfaccia della riga di comando di Azure
 
-[AZURE.INCLUDE [selettore](../../includes/hdinsight-create-windows-cluster-selector.md)]
+[AZURE.INCLUDE [selettore](../../includes/hdinsight-selector-create-clusters.md)]
 
 Informazioni su come creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure. Per altri strumenti e funzionalità per la creazione di cluster, fare clic sulla scheda Seleziona nella parte superiore di questa pagina o vedere [Metodi di creazione di cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
 
@@ -134,4 +134,4 @@ Per informazioni generali sull'azione di script, vedere [Personalizzare cluster 
 - [Gestire cluster Hadoop in HDInsight tramite la CLI di Azure](hdinsight-administer-use-command-line.md)
 - [Uso dell’interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure](../virtual-machines/virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

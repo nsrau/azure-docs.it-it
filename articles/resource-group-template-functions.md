@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/22/2016"
    ms.author="tomfitz"/>
 
 # Funzioni del modello di Gestione risorse di Azure
@@ -556,6 +556,7 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori delle risorse:
 
 - [listkeys](#listkeys)
+- [list*](#list)
 - [provider](#providers)
 - [reference](#reference)
 - [resourceGroup](#resourcegroup)
@@ -569,11 +570,11 @@ Per ottenere i valori dai parametri, dalle variabili o dalla distribuzione corre
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
 
-Restituisce le chiavi di un account di archiviazione. È possibile specificare resourceId usando la [funzione resourceId](./#resourceid) o il formato **providerNamespace/resourceType/resourceName**. È possibile usare la funzione per ottenere i valori primaryKey e secondaryKey.
+Restituisce le chiavi per qualsiasi tipo di risorsa che supporta l'operazione listKeys. È possibile specificare resourceId usando la [funzione resourceId](./#resourceid) o il formato **providerNamespace/resourceType/resourceName**. È possibile usare la funzione per ottenere i valori primaryKey e secondaryKey.
   
 | Parametro | Obbligatorio | Descrizione
 | :--------------------------------: | :------: | :----------
-| resourceName o resourceIdentifier | Sì | Identificatore univoco di un account di archiviazione.
+| resourceName o resourceIdentifier | Sì | Identificatore univoco della risorsa.
 | apiVersion | Sì | Versione dell'API dello stato di runtime della risorsa.
 
 L'esempio seguente mostra come restituire le chiavi da un account di archiviazione nella sezione outputs.
@@ -584,6 +585,19 @@ L'esempio seguente mostra come restituire le chiavi da un account di archiviazio
         "type" : "object" 
       } 
     } 
+
+<a id="list" />
+### list*
+
+**list* (resourceName or resourceIdentifier, apiVersion)**
+
+Qualsiasi operazione che inizia con **list** può essere usata come funzione nel modello. Fra queste operazioni troviamo **listKeys**, come illustrato in precedenza, e operazioni quali **list**, **listAdminKeys** e **listStatus**. Per chiamare la funzione, usare il nome effettivo della funzione, non list*. Per determinare quali tipi di risorse dispongono di un'operazione list, usare il comando PowerShell seguente.
+
+    PS C:\> Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
+
+In alternativa, è possibile recuperare l'elenco con l'interfaccia della riga di comando di Azure. L'esempio seguente recupera tutte le operazioni per **apiapps**, e usa l'utilità JSON [jq](http://stedolan.github.io/jq/download/) per filtrare solo le operazioni list.
+
+    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains("list"))"
 
 <a id="providers" />
 ### provider
@@ -792,4 +806,4 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

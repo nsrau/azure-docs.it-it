@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 # Case study per gli sviluppatori di Ricerca di Azure
@@ -64,7 +64,7 @@ Guardando le caselle verdi del diagramma precedente, si noterà che la soluzione
 
 - [Ricerca di Azure](https://azure.microsoft.com/services/search/)
 - [Siti Web di Azure con MVC 4](https://azure.microsoft.com/services/websites/)
-- [Azure WebJobs per le attività pianificate](../websites-webjobs-resources.md)
+- [Azure WebJobs per le attività pianificate](../app-service-web/websites-webjobs-resources.md)
 - [Database SQL di Azure](https://azure.microsoft.com/services/sql-database/)
 - [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/)
 - [Recapito della posta elettronica SendGrid](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
@@ -421,4 +421,4 @@ Il codice seguente compila l'indicizzatore menzionato nella sezione sulla compil
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/19/2016"
+   ms.date="02/18/2016"
    ms.author="andalmia"/>
 
 #BizTalk Rules
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
 Le regole di business incapsulano i criteri e le decisioni che controllano i processi di business. Tali criteri possono essere definiti formalmente all'interno di manuali di procedure o contratti oppure possono esistere sotto forma di conoscenze o competenze dei dipendenti. Questi criteri sono dinamici e soggetti a modifiche nel tempo, come conseguenza di modifiche dei piani aziendali oppure delle normative o per altri motivi.
 
@@ -117,7 +119,7 @@ Attualmente sono supportati due tipi di definizioni del vocabolario: Valore lett
   4.	Tipo di dati: consente agli utenti di selezionare il tipo di dati della definizione. Attualmente sono supportati 4 tipi di dati: 
     i.	Stringa: questi valori devono essere immessi tra virgolette ("Stringa di esempio")  
     ii.	Booleano: può essere true o false  
-    iii.	Numero: può essere qualsiasi numero decimale  
+    iii.Numero: può essere qualsiasi numero decimale  
     iv.	DateTime: la definizione è di tipo data. I dati devono essere immessi con il seguente formato: gg/mm/aaaa hh:mm:ss AM\PM  
   5. Input: immettere il valore della definizione in questo campo. I valori immessi devono essere conformi al tipo di dati scelto. È possibile immettere un singolo valore, un set di valori separati da virgole o un intervallo di valori usando la parola chiave *a*. È possibile, ad esempio, immettere il valore univoco 1, un set 1, 2, 3 o un intervallo "da 1 a 5". Si noti che l'intervallo è supportato solo per i numeri.
   6. Selezionare *OK*.
@@ -179,7 +181,7 @@ Poiché BizTalk Rules supporta il concatenamento diretto esplicito, se gli utent
    1.	update <vocabulary definition>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella sua condizione.  
    2.	Halt: questa parola chiave interrompe tutte le esecuzioni di regole
 
-##Abilitazione\disabilitazione di regole
+##Abilitazione\\disabilitazione di regole
 Ogni regola del criterio può essere abilitata o disabilitata. Per impostazione predefinita tutte le regole sono abilitate. Le regole disabilitate non verranno eseguite durante l'esecuzione dei criteri. L'abilitazione/disabilitazione delle regole può essere eseguita direttamente dal pannello delle regole, usando i comandi disponibili nella barra dei comandi nella parte superiore del pannello, o dal criterio; nel menu di scelta rapida (visualizzato facendo clic con il pulsante destro del mouse su una regola) è disponibile l'opzione di abilitazione/disabilitazione.
 
 ##Priorità delle regole
@@ -205,20 +207,20 @@ Di seguito è riportato un esempio di come è possibile usare questa API in C#
 
             JObject input = new JObject();
 
-			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>". 
-			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient". 
-			// This is CASE SENSITIVE. 
+			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>".
+			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient".
+			// This is CASE SENSITIVE.
             input.Add("insuranceclaimschema_Patient", xmlInstance);
             string stringContent = JsonConvert.SerializeObject(input);
 
 
             // Making REST call to Rules API App
             HttpClient httpClient = new HttpClient();
-	
+
 			// The url is the Host URL of the Rules API App
-            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");            
+            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");
             HttpContent httpContent = new StringContent(stringContent);
-            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");            
+            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
 
             // Invoking API "Execute" on policy "InsruranceClaimPolicy" and getting response JSON object. The url can be gotten from the API Definition Lens
             var postReponse = httpClient.PostAsync("api/Policies/InsuranceClaimPolicy?comp=Execute", httpContent).Result;
@@ -243,4 +245,4 @@ Uno dei principali vantaggi offerti dall'uso delle regole di business risiede ne
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

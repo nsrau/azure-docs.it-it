@@ -486,7 +486,7 @@ fileName | Specificare il nome del file in **folderPath** se si vuole che la tab
 partitionedBy | partitionedBy può essere usato per specificare un valore folderPath dinamico, filename per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. | No
 Format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando forAvroFormat corrisponde a TextFormat, è possibile specificare proprietà facoltative per il formato. Vedere la sezione relativa al formato di seguito per ulteriori dettagli. ** La proprietà di formato non è attualmente supportata per i sistemi di file locali. La relativa abilitazione è prevista al più presto, come indicato di seguito.** | No
 fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <p>I valori consentiti sono: * (più caratteri) e ? (carattere singolo).</p><p>Esempio 1: "fileFilter": "*.log"</p>Esempio 2: "fileFilter": 2014-1-?.txt"</p><p>**Nota**: fileFilter è applicabile per un set di dati di input FileShare</p> | No
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: GZip, Deflate e BZip2 e i livelli supportati sono: Ottimale e Più veloce. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate** e **BZip2** e i livelli supportati sono: **Ottimale** e **Più veloce**. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
 
 > [AZURE.NOTE] filename e fileFilter non possono essere usati contemporaneamente.
 
@@ -608,4 +608,4 @@ false | mergeFiles | <p>Per una cartella di origine Cartella1 con la struttura s
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

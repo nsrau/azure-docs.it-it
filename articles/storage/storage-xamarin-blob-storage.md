@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/21/2016"
 	ms.author="micurd"/>
 
 # Come usare l'archivio BLOB da Xamarin (anteprima)
@@ -49,7 +49,7 @@ L'URI della firma di accesso condiviso per il nuovo contenitore deve essere simi
 
 La firma di accesso condiviso creata per il contenitore rimarrà valida per il giorno successivo. La firma concede autorizzazioni complete (*vale a dire* di lettura, scrittura, eliminazione ed elenco) ai BLOB all'interno del contenitore.
 
-Per altre informazioni sulle firme di accesso condiviso, vedere l'[esercitazione sulla firma di accesso condiviso per .NET](storage-dotnet-shared-access-signature-part-2.md).
+Per altre informazioni sulle firme di accesso condiviso, vedere [Firme di accesso condiviso: creare e usare una firma di accesso condiviso con l'archiviazione BLOB](storage-dotnet-shared-access-signature-part-2.md).
 
 ## Creare una nuova applicazione Xamarin
 
@@ -173,10 +173,11 @@ In questa esercitazione, è stato illustrato come utilizzare l'archivio BLOB di 
 
 È possibile ottenere ulteriori informazioni su BLOB, tabelle e code visitando i collegamenti seguenti:
 
-[Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md) 
-[Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md) 
-[Come usare l'archiviazione tabelle da .NET](storage-dotnet-how-to-use-tables.md) 
-[Come usare l'archiviazione code da .NET](storage-dotnet-how-to-use-queues.md)
-[Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
+- [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md)
+- [Introduzione all'archiviazione BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md)
+- [Introduzione all'archiviazione tabelle di Azure con .NET](storage-dotnet-how-to-use-tables.md)
+- [Introduzione all'archiviazione code di Azure con .NET](storage-dotnet-how-to-use-queues.md)
+- [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md)
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Controllare il routing e usare dispositivi virtuali di rete in Gestione risorse mediante un modello | Microsoft Azure"
-   description="Informazioni su come controllare il routing e usare dispositivi virtuali di rete in Azure mediante modelli"
+   pageTitle="Controllare il routing e usare dispositivi virtuali in Gestione risorse mediante un modello | Microsoft Azure"
+   description="Informazioni su come controllare il routing e usare dispositivi virtuali in Gestione risorse mediante un modello"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-#Creare route definite dall'utente (UDR) mediante un modello
+#Creare route definite dall'utente in Gestione risorse mediante un modello
 
 [AZURE.INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
@@ -31,7 +31,7 @@
 
 È possibile visualizzare e scaricare il [modello di esempio](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).
 
-La sezione seguente illustra la definizione di route definita dall'utente front-end nel file azuredeploy-vnet-nsg-udr.json, in base allo scenario precedente.
+La sezione seguente illustra la definizione di route definite dall'utente front-end nel file **azuredeploy-vnet-nsg-udr.json**, in base allo scenario precedente.
 
 	"apiVersion": "2015-06-15",
 	"type": "Microsoft.Network/routeTables",
@@ -108,7 +108,7 @@ Si noti che va effettuata la stessa operazione per l'NSG back-end della subnet b
 
 ## Distribuire il modello ARM tramite clic per la distribuzione
 
-Il modello di esempio disponibile nel repository pubblico usa un file di parametro che contiene i valori predefiniti usati per generare lo scenario descritto in precedenza. Distribuire questo modello tramite clic per la distribuzione, selezionare [questo collegamento](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), fare clic su **Distribuisci in Azure**, sostituire i valori del parametro predefinito se necessario e seguire le istruzioni nel portale.
+Il modello di esempio disponibile nel repository pubblico usa un file di parametro che contiene i valori predefiniti usati per generare lo scenario descritto in precedenza. Distribuire [questo modello](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR) tramite clic per la distribuzione, fare clic su **Distribuisci in Azure**, sostituire i valori del parametro predefinito se necessario e seguire le istruzioni nel portale.
 
 ## Distribuire il modello ARM tramite PowerShell
 
@@ -116,13 +116,17 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
+1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 
-3. Per creare un gruppo di risorse usando il modello, eseguire il cmdlet **New-AzureRmResourceGroup**.
+2. Eseguire il cmdlet `New-AzureRmResourceGroup` per creare un gruppo di risorse.
 
-		New-AzureRmResourceGroup -Name TestRG -Location westus `
-		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json'	
+		New-AzureRmResourceGroup -Name TestRG -Location westus
+
+3. Eseguire il cmdlet `New-AzureRmResourceGroupDeployment` per distribuire il modello.
+
+		New-AzureRmResourceGroupDeployment -Name DeployUDR -ResourceGroupName TestRG `
+		    -TemplateUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json `
+		    -TemplateParameterUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json	    	
 
 	Output previsto:
 
@@ -164,14 +168,14 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 		                    testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
 		                    testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
 		                    
-		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 ## Distribuire il modello ARM tramite l'interfaccia della riga di comando di Azure
 
 Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Azure, seguire la procedura di seguito.
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
-2. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+2. Eseguire il comando `azure config mode` per passare alla modalità Gestione risorse, come illustrato di seguito.
 
 		azure config mode arm
 
@@ -390,6 +394,6 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
 		data:    
 		info:    group show command OK
 
->[AZURE.TIP]Se non è possibile visualizzare tutte le risorse, eseguire il comando **azure group deployment show** per assicurarsi che lo stato di provisioning della distribuzione sia *Riuscito*.
+>[AZURE.TIP] Se non è possibile visualizzare tutte le risorse, eseguire il comando `azure group deployment show` per assicurarsi che lo stato di provisioning della distribuzione sia *Riuscito*.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

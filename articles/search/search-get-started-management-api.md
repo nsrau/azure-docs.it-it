@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 # Introduzione all'API REST di gestione di Ricerca di Azure
@@ -39,11 +39,11 @@ Questa esercitazione si basa su un'applicazione console di Windows scritta in C#
 
 ##Configurare l'applicazione
 
-Prima di poter eseguire l'applicazione di esempio, è necessario abilitare l'autenticazione in modo tale che le richieste inviate dall'applicazione client all'endpoint di gestione risorse possano essere accettate. Il requisito di autenticazione ha origine dalle [Gestione risorse di Azure](http://msdn.microsoft.com/library/azure/dn790568.aspx), che costituisce la base per tutte le operazioni correlate al portale richiesto tramite un'API, inclusi quelli relativi alla gestione del servizio di ricerca. L'API di gestione del servizio per Ricerca di Azure è semplicemente un'estensione di Gestione risorse di Azure e pertanto ne eredita le dipendenze.
+Prima di poter eseguire l'applicazione di esempio, è necessario abilitare l'autenticazione in modo tale che le richieste inviate dall'applicazione client all'endpoint di gestione risorse possano essere accettate. Il requisito di autenticazione ha origine dalle [Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx), che costituisce la base per tutte le operazioni correlate al portale richiesto tramite un'API, inclusi quelli relativi alla gestione del servizio di ricerca. L'API di gestione del servizio per Ricerca di Azure è semplicemente un'estensione di Gestione risorse di Azure e pertanto ne eredita le dipendenze.
 
 Gestione risorse di Azure richiede il servizio Azure Active Directory come provider di identità.
 
-Per ottenere un token di accesso che consentirà alle richieste di raggiungere il servizio Gestione risorse, l'applicazione client include un segmento di codice che chiama Active Directory. Il segmento di codice, nonché le operazioni preliminari all'utilizzo del segmento di codice, sono stati presi in prestito da questo articolo: [richiede l'autenticazione di gestione risorse di Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
+Per ottenere un token di accesso che consentirà alle richieste di raggiungere il servizio Gestione risorse, l'applicazione client include un segmento di codice che chiama Active Directory. Il segmento di codice, nonché le operazioni preliminari all'utilizzo del segmento di codice, sono stati presi in prestito da questo articolo: [richiede l'autenticazione di gestione risorse di Azure]().
 
 È possibile seguire le istruzioni riportate nel collegamento precedente o usare i passaggi presenti in questo documento, se si preferisce completare l'esercitazione dettagliata.
 
@@ -54,7 +54,7 @@ In questa sezione verranno eseguite le attività seguenti:
 1. Configurare l'applicazione di Active Directory registrando i dati dell'applicazione client di esempio scaricata
 1. Caricare l'applicazione client di esempio con i valori che verranno usati per ottenere l'autorizzazione per le richieste
 
-> [AZURE.NOTE]Questi collegamenti forniscono sfondo sull'utilizzo di Azure Active Directory per autenticare le richieste client al gestore di risorse: [Azureresourcemanager](http://msdn.microsoft.com/library/azure/dn790568.aspx), [richiede l'autenticazione di gestione risorse di Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx), e [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx).
+> [AZURE.NOTE] Questi collegamenti forniscono sfondo sull'utilizzo di Azure Active Directory per autenticare le richieste client al gestore di risorse: [Azureresourcemanager](http://msdn.microsoft.com/library/azure/dn790568.aspx), [richiede l'autenticazione di gestione risorse di Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx), e [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx).
 
 ###Creare un servizio Active Directory
 
@@ -204,4 +204,4 @@ Dopo avere completato questa esercitazione, è possibile volere altre informazio
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="sstein"/>
 
 
@@ -35,7 +35,7 @@ In questo articolo vengono fornite istruzioni per l'aggiornamento di database e 
 
 Durante il processo di aggiornamento alla versione 12 verranno aggiornati tutti i database Web e Business a un nuovo livello di servizio in modo che siano incluse le istruzioni per l'aggiornamento dei database Web e Business.
 
-Inoltre, la migrazione a un [pool di database elastici](sql-database-elastic-pool.md) può essere più conveniente rispetto all'aggiornamento a livelli di prestazioni singoli (livelli di prezzi) per singoli database. I pool inoltre semplificano la gestione dei database perché è sufficiente gestire le impostazioni delle prestazioni per il pool anziché gestire separatamente i livelli di prestazione dei singoli database. Se si dispone di database in più server è consigliabile spostarli nello stesso server e usufruire del vantaggio di metterli in un pool. È possibile [migrare automaticamente e facilmente i database dai server V11 direttamente nel pool di database elastici mediante PowerShell](sql-database-upgrade-server.md). Per la migrazione dei database V11 in un pool è anche possibile utilizzare il portale. In questo caso, tuttavia, perché sia possibile creare un pool nel portale deve essere già presente un server V12. Più avanti in questo articolo vengono fornite indicazioni per creare il pool dopo l'aggiornamento del server se si dispone di [database che possono trarre vantaggio da un pool](sql-database-elastic-pool-guidance.md).
+Inoltre, la migrazione a un [pool di database elastici](sql-database-elastic-pool.md) può essere più conveniente rispetto all'aggiornamento a livelli di prestazioni singoli (livelli di prezzi) per singoli database. I pool inoltre semplificano la gestione dei database perché è sufficiente gestire le impostazioni delle prestazioni per il pool anziché gestire separatamente i livelli di prestazione dei singoli database. Se si dispone di database in più server è consigliabile spostarli nello stesso server e usufruire del vantaggio di metterli in un pool. È possibile [migrare automaticamente e facilmente i database dai server V11 direttamente nel pool di database elastici mediante PowerShell](sql-database-upgrade-server-powershell.md). Per la migrazione dei database V11 in un pool è anche possibile utilizzare il portale. In questo caso, tuttavia, perché sia possibile creare un pool nel portale deve essere già presente un server V12. Più avanti in questo articolo vengono fornite indicazioni per creare il pool dopo l'aggiornamento del server se si dispone di [database che possono trarre vantaggio da un pool](sql-database-elastic-pool-guidance.md).
 
 Si noti che i database rimarranno online e continueranno a funzionare durante l'operazione di aggiornamento. Al momento della transizione effettiva al nuovo livello di prestazioni, le connessioni al database possono interrompersi temporaneamente per un periodo molto breve che in genere è di circa 90 secondi fino a un massimo di 5 minuti. Se un'applicazione ha una [gestione degli errori temporanei per le interruzioni di connessione](sql-database-connect-central-recommendations.md), è sufficiente impostare la protezione dalle connessioni interrotte alla fine dell'aggiornamento.
 
@@ -132,7 +132,7 @@ Oltre al monitoraggio dei singoli database, è possibile monitorare i pool di da
 Informazioni di monitoraggio aggiuntive:
 
 - [Indicazioni sulle prestazioni del database SQL di Azure per i singoli database](http://msdn.microsoft.com/library/azure/dn369873.aspx).
-- [Considerazioni di prezzo e prestazioni per un pool di database elastici](sql-database=elastic-pool-guidance.md).
+- [Considerazioni di prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md).
 - [Monitoraggio del database SQL di Azure tramite le visualizzazioni di gestione dinamica](sql-database-monitoring-with-dmvs.md)
 
 
@@ -140,7 +140,7 @@ Informazioni di monitoraggio aggiuntive:
 
 **Avvisi:** configurare gli avvisi nel portale di Azure per ricevere una notifica quando il consumo di DTU per un database aggiornato si avvicina a un livello elevato specifico. Nel portale di Azure si possono configurare avvisi di database per diverse metriche delle prestazioni, come DTU, CPU, IO e log. Individuare il database e selezionare **Regole di avviso** nel pannello **Impostazioni**.
 
-Ad esempio, è possibile impostare un avviso di posta elettronica sulla percentuale DTU se il valore medio della percentuale DTU supera il 75% negli ultimi 5 minuti. Fare riferimento a [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) per altre informazioni sulla configurazione di notifiche di avviso.
+Ad esempio, è possibile impostare un avviso di posta elettronica sulla percentuale DTU se il valore medio della percentuale DTU supera il 75% negli ultimi 5 minuti. Fare riferimento a [Ricevere notifiche di avviso](../azure-portal/insights-receive-alert-notifications.md) per altre informazioni sulla configurazione di notifiche di avviso.
 
 
 
@@ -169,4 +169,4 @@ Ad esempio, è possibile impostare un avviso di posta elettronica sulla percentu
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

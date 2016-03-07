@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Aggiungere una VM con elementi a un lab di sviluppo e test di Azure
+
+> [AZURE.NOTE] Fare clic sul collegamento seguente per visualizzare il video associato a questo articolo, relativo alla [procedura di creazione di macchine virtuali con elementi in un lab di sviluppo/test](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab)
 
 ## Panoramica
 
@@ -96,6 +98,6 @@ Seguire questi passaggi per visualizzare o modificare i parametri degli elementi
 
 ## Passaggi successivi
 
-Informazioni su come [creare elementi personalizzati per la macchina virtuale](devtest-lab-artifact-author.md).
+- Informazioni su come [creare elementi personalizzati per la macchina virtuale](devtest-lab-artifact-author.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

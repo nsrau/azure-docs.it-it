@@ -13,44 +13,74 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/09/2016"
+   ms.date="02/12/2016"
    ms.author="mfussell"/>
 
 # Informazioni tecniche su Infrastruttura di servizi
 
-Service Fabric di Azure è una piattaforma di sistemi distribuiti che consente di compilare applicazioni scalabili, affidabili, a bassa latenza e facilmente gestibili per il cloud. Ciò significa che è possibile concentrarsi sulle esigenze aziendali e fare in modo che Service Fabric si preoccupi di garantire che l'applicazione sia sempre disponibile e scalabile.
+Service Fabric è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili.
 
-## Concetti chiave
+## Concetti di terminologia principali
+Questa sezione illustra la terminologia usata in Service Fabric per agevolare la comprensione dei termini usati altrove nella documentazione.
 
-**Cluster**: un set di macchine fisiche o virtuali connesse tramite rete in cui vengono distribuite le istanze dell'applicazione. I cluster possono supportare migliaia di macchine.
+**Cluster**: un set di computer fisici o macchine virtuali connesse tramite rete in cui vengono distribuiti e gestiti i microservizi. I cluster possono supportare migliaia di macchine.
 
-**Nodo**: un'unità indirizzabile in un cluster. I nodi dispongono di caratteristiche quali, ad esempio, proprietà di posizionamento e ID univoci. I nodi possono unirsi a un cluster e correlarsi a un'istanza del sistema operativo con Fabric.exe in esecuzione.
+**Nodo**: un computer o una macchina virtuale che fa parte di un cluster viene chiamato nodo. A ogni nodo viene assegnato un nome (stringa). I nodi presentano delle caratteristiche, ad esempio le proprietà di posizionamento. Ogni computer o macchina virtuale ha un servizio di Windows ad avvio automatico, `FabricHost.exe`, che viene eseguito all'avvio e che a sua volta avvia due eseguibili: `Fabric.exe` e `FabricGateway.exe`. Questi due eseguibili costituiscono il nodo. Negli scenari di test è possibile ospitare più nodi in un singolo PC o macchina virtuale eseguendo più istanze di `Fabric.exe` e `FabricGateway.exe`.
 
-**Applicazione/Tipo di applicazione**: una raccolta di microservizi. Un tipo di applicazione può essere paragonato a un contenitore per uno o più tipi di servizio. Consultare l'articolo sul [modello di applicazione](service-fabric-application-model.md) per comprendere in che modo un cluster (che a sua volta è costituito da più nodi) può comprendere più tipi di applicazione.
+**Tipo di applicazione**: il nome o la versione assegnata a una raccolta di tipi di servizio. Queste informazioni sono definite in un file `ApplicationManifest.xml`, incorporato in una directory del pacchetto dell'applicazione che viene quindi copiato nell'archivio immagini del cluster di Service Fabric. È quindi possibile creare un'applicazione denominata da questo tipo di applicazione all'interno del cluster.
 
-**Servizio/Tipo di servizio**: codice e configurazione che eseguono una funzione autonoma (può avviarsi e funzionare in modo indipendente), ad esempio, un servizio di accodamento o un servizio di database. Un tipo di applicazione può essere costituito da uno o più tipi di servizio. Esistono due tipi di servizi:
+Per altre informazioni, leggere l'articolo [Modellare un'applicazione](service-fabric-application-model.md).
 
-- Servizio senza stato: un servizio con uno stato dove lo stato è persistente nell'archiviazione esterna, ad esempio l'archiviazione dei database o delle tabelle di Azure. Se un nodo in cui è attiva un'istanza di questo servizio si arresta, un'altra istanza viene avviata automaticamente in un altro nodo.
+**Pacchetto dell'applicazione**: una directory del disco contenente il file `ApplicationManifest.xml` del tipo di applicazione. Questo file fa riferimento ai pacchetti del servizio per ogni servizio che costituisce il tipo di applicazione. I file nella directory del pacchetto dell'applicazione vengono copiati nell'archivio immagini del cluster di Service Fabric. Ad esempio, un pacchetto dell'applicazione per il tipo di applicazione posta elettronica può contenere un pacchetto del servizio di accodamento, un pacchetto del servizio front-end e un pacchetto del servizio di database.
 
-- Servizio con stato: un servizio con stato e che raggiunge l'affidabilità tramite la replica tra le repliche in altri nodi del cluster. I servizi con stato dispongono di repliche primarie e più repliche secondarie. Se un nodo in cui è attiva una replica di questo servizio si arresta, viene avviata una nuova replica in un altro nodo. Se il nodo che si arresta è la replica primaria, una replica secondaria viene promossa automaticamente a primaria.
+**Applicazione denominata**: al termine della copia di un pacchetto dell'applicazione nell'archivio immagini, è possibile creare un'istanza dell'applicazione all'interno del cluster specificando il tipo di applicazione del pacchetto dell'applicazione, usando nome e versione corrispondenti. A ogni istanza del tipo di applicazione viene assegnato un nome URI simile al seguente: `"fabric:/MyNamedApp"`. All'interno di un cluster è possibile creare più applicazioni denominate da un singolo tipo di applicazione. È anche possibile creare applicazioni denominate da tipi di applicazione diversi. L'amministrazione e il controllo delle versioni sono gestiti in modo indipendente per ogni applicazione.
 
-**Istanza dell'applicazione**: in un cluster è possibile creare molte istanze di applicazione di un tipo di applicazione, ognuna delle quali ha un nome specifico. Ogni istanza dell'applicazione può essere gestita e versionata in modo indipendente da altre istanze dell'applicazione dello stesso tipo o di un tipo diverso. Inoltre, definiscono l'isolamento delle risorse e della sicurezza.
+**Tipo di servizio**: il nome o la versione assegnata ai pacchetti di codice, ai pacchetti di dati e ai pacchetti di configurazione del servizio. Queste informazioni sono definite in un file `ServiceManifest.xml`, che è incorporato in una directory del pacchetto del servizio a cui a sua volta fa riferimento un file `ApplicationManifest.xml` del pacchetto dell'applicazione. All'interno del cluster, dopo aver creato un'applicazione denominata, è possibile creare un servizio denominato da uno dei tipi di servizio del tipo di applicazione. Il file `ServiceManifest.xml` del tipo di servizio descrive il servizio.
 
-**Istanza del servizio**: codice istanziato per un tipo di servizio. Ogni istanza del servizio ha un nome univoco che inizia con `fabric:/` ed è associato a un'istanza di applicazione con un nome particolare.
+Per altre informazioni, leggere l'articolo [Modellare un'applicazione](service-fabric-application-model.md).
 
-**Pacchetto dell'applicazione**: la raccolta di pacchetti di codice del servizio e dei file di configurazione combinati per una determinata applicazione. Si tratta di file fisici che vengono distribuiti e che si trovano semplicemente in un layout di formato file e cartelle. Ad esempio, un pacchetto di applicazione per un'applicazione di posta elettronica può contenere un pacchetto del servizio di accodamento, un pacchetto del servizio front-end e un pacchetto del servizio di database.
+Sono disponibili due tipi di servizi:
 
-**Modelli di programmazione**: in Service Fabric esistono due modelli di programmazione per creare applicazioni:
+- **Senza stato:** usare un servizio senza stato quando lo stato permanente del servizio è archiviato in un servizio di archiviazione esterno, ad esempio Archiviazione di Azure, database SQL di Azure o Azure DocumentDB. È consigliabile usare un servizio senza stato anche nei casi in cui il servizio non prevede alcun tipo di archivio permanente. Ad esempio, un servizio di calcolo in cui i valori sono passati al servizio, viene eseguito un calcolo usando tali valori e viene restituito un risultato.
 
-- Servizi affidabili: un'API per compilare servizi con e senza stato basata sulle classi .NET `StatelessService` e `StatefulService` e per archiviare lo stato in raccolte affidabili .NET (dizionario e coda). Hanno inoltre la possibilità di inserire un'ampia gamma di stack di comunicazione, ad esempio API Web e Windows Communication Foundation. Questo modello di programmazione è adatto per applicazioni in cui è necessario eseguire il calcolo in più unità di stato.
+- **Con stato:** usare un servizio con stato quando si vuole che Service Fabric gestisca lo stato del servizio tramite i modelli di programmazione Reliable Collections o Reliable Actors. Durante la creazione di un servizio denominato, è necessario specificare il numero di partizioni su cui si vuole distribuire lo stato (per la scalabilità) e il numero di volte in base a cui replicare lo stato tra i nodi (per l'affidabilità). Ogni servizio denominato ha un'unica replica primaria e più repliche secondarie. È possibile modificare lo stato del servizio denominato tramite la scrittura nella replica primaria. Service Fabric replica quindi lo stato su tutte le repliche secondarie per garantire che tutte le repliche siano sincronizzate. Quando si verifica un errore nella replica primaria, Service Fabric lo rileva automaticamente, alza di livello una delle repliche secondarie rendendola così la replica primaria e quindi crea una nuova replica secondaria.
 
-- Attori affidabili: un'API per creare oggetti con e senza stato tramite il modello di programmazione Actor virtuale adatto per applicazioni con più unità indipendenti di stato e calcolo.
+**Pacchetto del servizio**: una directory del disco contenente il file `ServiceManifest.xml` del tipo di servizio. Questo file fa riferimento al codice, ai dati statici e ai pacchetti di configurazione per il tipo di servizio. Il file `ApplicationManifest.xml` del tipo di applicazione fa riferimento ai file nella directory del pacchetto del servizio. Ad esempio, un pacchetto del servizio può fare riferimento al codice, ai dati statici e ai pacchetti di configurazione che costituiscono un servizio di database.
+
+**Servizio denominato**: dopo aver creato un'applicazione denominata, è possibile creare un'istanza di uno dei relativi tipi di servizio all'interno del cluster specificando il tipo di servizio, usando nome e versione corrispondenti. A ogni istanza del tipo di servizio viene assegnato un nome URI con un ambito definito dall'URI della relativa applicazione denominata. Se ad esempio si crea un servizio denominato "MyDatabase" all'interno di un'applicazione denominata "MyNamedApp", l'URI corrispondente sarà simile al seguente: `"fabric:/MyNamedApp/MyDatabase"`. All'interno di un'applicazione denominata è possibile creare vari servizi denominati. Ogni servizio denominato può avere uno schema di partizione e numeri di istanze/repliche specifici.
+
+**Pacchetto di codice**: directory del disco contenente i file eseguibili del tipo di servizio, in genere file EXE/DLL. Il file `ServiceManifest.xml` del tipo di servizio fa riferimento ai file nella directory del pacchetto di codice. Quando viene creato un servizio denominato, i file nel pacchetto di codice vengono copiati nei nodi che Service Fabric seleziona per eseguire il servizio e quindi viene avviata l'esecuzione del codice. Esistono due tipi di eseguibili di pacchetto di codice:
+
+- **Eseguibili guest**: eseguibili che vengono eseguiti così come sono nel sistema operativo (Windows o Linux) host. Significa che questi eseguibili non indirizzano o non fanno riferimento ad alcun file del runtime di Service Fabric e che di conseguenza non usano i modelli di programmazione di Service Fabric. Questi eseguibili non riescono a usare alcune funzionalità di Service Fabric, ad esempio il servizio Naming per l'individuazione degli endpoint, quindi non possono segnalare le metriche di carico specifiche per ogni istanza del servizio.
+
+- **Eseguibili host del servizio**: si tratta di eseguibili che usano i modelli di programmazione di Service Fabric tramite il collegamento ai file di runtime di Service Fabric. Parti di codice dell'eseguibile vengono quindi associate a Service Fabric per consentire la disponibilità di funzionalità aggiuntive. Un'istanza di servizio denominato può ad esempio registrare gli endpoint con il servizio Naming di Service Fabric e anche segnalare le metriche di carico.
+
+**Pacchetto dati**: una directory del disco contenente file di dati di sola lettura statici, in genere file di foto, audio e video, del tipo di servizio. Il file `ServiceManifest.xml` del tipo di servizio fa riferimento ai file nella directory del pacchetto dati. Quando viene creato un servizio denominato, i file nel pacchetto dati vengono copiati nei nodi che Service Fabric seleziona per eseguire il servizio e quindi viene avviata l'esecuzione del codice. Il codice può ora accedere ai file di dati.
+
+**Pacchetto di configurazione**: una directory del disco contenente file di configurazione di sola lettura statici, in genere file di testo, del tipo di servizio. Il file `ServiceManifest.xml` del tipo di servizio fa riferimento ai file nella directory del pacchetto di configurazione. Quando viene creato un servizio denominato, i file nel pacchetto di configurazione vengono copiati nei nodi che Service Fabric seleziona per eseguire il servizio e quindi viene avviata l'esecuzione del codice. Il codice può ora accedere ai file di configurazione.
+
+**Archivio immagini**: ogni cluster di Service Fabric gestisce un archivio immagini. È necessario copiare il contenuto di un pacchetto dell'applicazione nell'archivio immagini e quindi registrare il tipo dell'applicazione all'interno di quel pacchetto dell'applicazione. Una volta eseguito il provisioning del tipo di applicazione, è possibile creare applicazioni denominate. È possibile annullare la registrazione di un tipo di applicazione dall'archivio immagini solo dopo aver eliminato tutte le relative applicazioni denominate.
+
+Per altre informazioni sulla distribuzione nell'archivio immagini, vedere [Distribuire un'applicazione](service-fabric-deploy-remove-applications.md).
+
+**Schema di partizione**: quando si crea un servizio denominato, è necessario specificare uno schema di partizione. I servizi con grandi quantità di stato suddividono i dati tra partizioni che li distribuiscono nei vari nodi del cluster. In questo modo è possibile ridimensionare lo stato del servizio denominato. All'interno di una partizione, per i servizi denominati senza stato sono presenti istanze mentre per i servizi denominati con stato sono presenti repliche. In genere i servizi denominati senza stato avranno sempre una partizione, dal momento che non hanno stato interno. Le istanze della partizione garantiscono la disponibilità. Se un'istanza presenta un errore, le altre continuano a funzionare normalmente e Service Fabric creerà una nuova istanza. I servizi denominati con stato gestiscono il proprio stato all'interno delle repliche e ogni partizione contiene un set di repliche dedicato con tutti gli stati sincronizzati. Se una replica presenta un errore, Service Fabric ne crea una nuova da quelle esistenti.
+
+Per altre informazioni, vedere [Partizionare Reliable Services di Service Fabric](service-fabric-concepts-partitioning.md).
+
+**Modelli di programmazione**: in Service Fabric sono disponibili due modelli di programmazione di .NET Framework per creare servizi di Service Fabric:
+
+- Reliable Services: un'API che consente di creare servizi con e senza stato. I servizi con stato archiviano il proprio stato in Reliable Collections, ad esempio un dizionario o una coda. È anche possibile collegare un'ampia gamma di stack di comunicazione, ad esempio API Web e Windows Communication Foundation (WCF).
+
+- Reliable Actors: un'API che consente di creare oggetti con e senza stato tramite il modello di programmazione Actor virtuale. Questo modello può risultare utile in presenza di molte unità indipendenti di calcolo/stato. Poiché questo modello usa un modello di threading basato su turni, è consigliabile evitare codice che effettua chiamate ad altri attori o servizi, dal momento che un singolo attore non può elaborare altre richieste in ingresso fino a quando tutte le relative richieste in uscita non sono state completate.
+
+Per altre informazioni, vedere [Scegliere un modello di programmazione per un servizio](service-fabric-choose-framework.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
-Per ulteriori informazioni su Infrastruttura di servizi, vedere:
+Per altre informazioni su Service Fabric, vedere:
 
-- [Modello di applicazione](service-fabric-application-model.md)
+- [Panoramica di Service Fabric](service-fabric-overview.md)
+- [Perché usare un approccio ai microservizi per la compilazione di applicazioni](service-fabric-overview-microservices.md)
 - [Scenari applicativi](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

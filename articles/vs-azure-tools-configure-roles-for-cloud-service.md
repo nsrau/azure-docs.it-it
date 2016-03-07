@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/30/2016"
+   ms.date="02/24/2016"
    ms.author="tarcher" />
 
 # Configurare i ruoli per un servizio cloud di Azure con Visual Studio
@@ -77,7 +77,7 @@ Per migliorare le prestazioni del servizio cloud, è possibile cambiare il numer
 
 È possibile aggiungere, rimuovere o modificare le stringhe di connessione per le configurazioni del servizio. Potrebbero essere necessarie diverse stringhe di connessione per configurazioni del servizio diverse. Ad esempio, è possibile che si voglia creare una stringa di connessione locale per una configurazione del servizio locale con valore `UseDevelopmentStorage=true`. È anche possibile che si voglia definire una configurazione del servizio cloud che usa un account di archiviazione di Azure.
 
->[AZURE.CAUTION] Quando si immettono le informazioni chiave dell'account di archiviazione di Azure per una stringa di connessione dell'account di archiviazione, tali informazioni vengono archiviate localmente nel file di configurazione del servizio. Queste informazioni, tuttavia, non vengono attualmente archiviate come testo crittografato.
+>[AZURE.WARNING] Quando si immettono le informazioni chiave dell'account di archiviazione di Azure per una stringa di connessione dell'account di archiviazione, tali informazioni vengono archiviate localmente nel file di configurazione del servizio. Queste informazioni, tuttavia, non vengono attualmente archiviate come testo crittografato.
 
 Se si usa un valore diverso per ogni configurazione del servizio, non sarà necessario usare stringhe di connessione diverse nel servizio cloud o modificare il codice quando si pubblica il servizio cloud in Azure. È possibile usare lo stesso nome per la stringa di connessione nel codice e il valore sarà diverso in base alla configurazione del servizio selezionata quando si compila il servizio cloud o quando lo si pubblica.
 
@@ -183,7 +183,7 @@ Se si usa un valore diverso per ogni configurazione del servizio, non sarà nece
 
 ## Gestire le risorse di archiviazione locali per ogni istanza del ruolo
 
-È possibile aggiungere una risorsa di archiviazione del file system locale per ogni istanza del ruolo. È possibile archiviare in questa posizione i dati locali a cui non devono accedere altri ruoli. Eventuali dati che non devono essere salvati in una risorsa di archiviazione di tipo tabella, BLOB o database SQL possono essere archiviati qui. Ad esempio, è possibile usare questa risorsa di archiviazione locale per memorizzare nella cache i dati che potrebbe essere necessario usare di nuovo. Le altre istanze di un ruolo non potranno accedere a questi dati memorizzati. Per altre informazioni sulle risorse di archiviazione locale, vedere [Configurare le risorse di archiviazione locale](/cloud-services/cloud-services-configure-local-storage-resources.md).
+È possibile aggiungere una risorsa di archiviazione del file system locale per ogni istanza del ruolo. È possibile archiviare in questa posizione i dati locali a cui non devono accedere altri ruoli. Eventuali dati che non devono essere salvati in una risorsa di archiviazione di tipo tabella, BLOB o database SQL possono essere archiviati qui. Ad esempio, è possibile usare questa risorsa di archiviazione locale per memorizzare nella cache i dati che potrebbe essere necessario usare di nuovo. Le altre istanze di un ruolo non potranno accedere a questi dati memorizzati. Per altre informazioni sulle risorse di archiviazione locale, vedere [Configurare le risorse di archiviazione locale](cloud-services/cloud-services-configure-local-storage-resources.md).
 
 Le impostazioni delle risorse di archiviazione locali vengono applicate a tutte le configurazioni del servizio. È possibile aggiungere, rimuovere o modificare le risorse di archiviazione locali solo per tutte le configurazioni del servizio.
 
@@ -293,7 +293,7 @@ Le impostazioni delle risorse di archiviazione locali vengono applicate a tutte 
 
 ## Modificare le dimensioni della macchina virtuale usata per ogni ruolo
 
-È possibile configurare le dimensioni delle macchine virtuali per ogni ruolo. È possibile configurare le dimensioni solo per tutte le configurazioni del servizio. Se si selezionano le dimensioni minori per le macchine virtuali, verranno allocati meno core di CPU, meno memoria e meno risorse di archiviazione su disco locali. Anche la larghezza di banda allocata sarà ridotta. Per altre informazioni su queste dimensioni e sulle risorse allocate, vedere [Dimensioni dei servizi cloud](/cloud-services/cloud-services-sizes-specs.md).
+È possibile configurare le dimensioni delle macchine virtuali per ogni ruolo. È possibile configurare le dimensioni solo per tutte le configurazioni del servizio. Se si selezionano le dimensioni minori per le macchine virtuali, verranno allocati meno core di CPU, meno memoria e meno risorse di archiviazione su disco locali. Anche la larghezza di banda allocata sarà ridotta. Per altre informazioni su queste dimensioni e sulle risorse allocate, vedere [Dimensioni dei servizi cloud](cloud-services/cloud-services-sizes-specs.md).
 
 Le risorse necessarie per ogni macchina virtuale in Azure influiscono sul costo di esecuzione del servizio cloud di Azure. Per altre informazioni sulla fatturazione di Azure, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md).
 
@@ -376,4 +376,4 @@ Qualsiasi certificato di gestione associato alle configurazioni del servizio vie
 ## Passaggi successivi
 Per altre informazioni sui progetti Azure in Visual Studio, vedere [Configurazione di un progetto Azure](vs-azure-tools-configuring-an-azure-project.md). Per altre informazioni sullo schema del servizio cloud, vedere [Guida di riferimento agli schemi](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

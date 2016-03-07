@@ -14,66 +14,72 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
-   ms.author="mabsimms"/>
+   ms.date="02/18/2016"
+   ms.author="masimms"/>
 
 # Ottimizzazione delle prestazioni di inserimento dei dati con Elasticsearch in Azure
 
-Questo articolo fa [parte di una serie](guidance-elasticsearch-introduction.md).
+Questo articolo fa [parte di una serie](guidance-elasticsearch.md).
 
 ## Panoramica
 
-Determinare il modo migliore per strutturare il sistema in funzione dell'inserimento rapido ed efficiente di dati ricercabili, è un aspetto importante della creazione di un database di ricerca. Le considerazioni riguardanti questo requisito interessano non solo la scelta dell'infrastruttura in cui si implementa il sistema, ma anche le diverse ottimizzazioni che è possibile usare per garantire che il sistema possa supportare i livelli di afflusso di dati previsti. Questo documento descrive le opzioni di distribuzione e configurazione da considerare per l'implementazione di un cluster Elasticsearch che prevede una frequenza di inserimento dei dati elevata. Per fornire dati validi a scopo illustrativo, questo documento descrive anche i risultati del benchmarking di varie configurazioni usando un semplice carico di lavoro di inserimento dei dati con volumi elevati. I dettagli del carico di lavoro sono descritti nell'[Appendice](#appendix-the-bulk-load-data-ingestion-performance-test) alla fine di questo documento.
+Determinare il modo migliore per strutturare il sistema in funzione dell'inserimento rapido ed efficiente di dati ricercabili, è un aspetto importante della creazione di un database di ricerca. Le considerazioni riguardanti questo requisito interessano non solo la scelta dell'infrastruttura in cui si implementa il sistema, ma anche le diverse ottimizzazioni che è possibile usare per garantire che il sistema possa supportare i livelli di afflusso di dati previsti.
 
-Lo scopo dei benchmark non è quello di generare dati assoluti sulle prestazioni per l'esecuzione di Elasticsearch o anche per suggerire una topologia particolare, bensì per illustrare i metodi che è possibile usare per valutare le prestazioni, ridimensionare i nodi dati e implementare cluster che possano soddisfare i requisiti delle prestazioni. Quando si ridimensionano i sistemi, è importante eseguire accuratamente il test delle prestazioni in base ai propri carichi di lavoro. Raccogliere dati di telemetria che consentano di ottenere informazioni sulla configurazione hardware ottimale da usare e i fattori di scalabilità orizzontale da considerare. In particolare, è necessario:
+Questo documento descrive le opzioni di distribuzione e configurazione da considerare per l'implementazione di un cluster Elasticsearch che prevede una frequenza di inserimento dei dati elevata. Per fornire dati validi a scopo illustrativo, questo documento descrive anche i risultati del benchmarking di varie configurazioni usando un semplice carico di lavoro di inserimento dei dati con volumi elevati. I dettagli del carico di lavoro sono descritti nell'[Appendice](#appendix-the-bulk-load-data-ingestion-performance-test) alla fine di questo documento.
 
-* Considerare le dimensioni complessive del payload inviato e non solo il numero di elementi in ogni richiesta di inserimento in blocco. Un numero inferiore di elementi in blocco di grandi dimensioni in ogni richiesta può essere più appropriato di un numero maggiore, a seconda della risorsa disponibile per elaborare ogni richiesta.
+Lo scopo dei benchmark non è quello di generare dati assoluti sulle prestazioni per l'esecuzione di Elasticsearch o anche per suggerire una topologia particolare, bensì per illustrare i metodi che è possibile usare per valutare le prestazioni, ridimensionare i nodi dati e implementare cluster che possano soddisfare i requisiti delle prestazioni.
 
-  > [AZURE.NOTE] È possibile monitorare gli effetti derivanti dalla variazione della richiesta di inserimento in blocco con Marvel, usando i contatori di I/O *readbytes*/*writebytes* con JMeter e strumenti del sistema operativo quali *iostat* e *vmstat* in Ubuntu.
+Quando si ridimensionano i sistemi, è importante eseguire accuratamente il test delle prestazioni in base ai propri carichi di lavoro. Raccogliere dati di telemetria che consentano di ottenere informazioni sulla configurazione hardware ottimale da usare e i fattori di scalabilità orizzontale da considerare. In particolare, è necessario:
 
-* Eseguire il test delle prestazioni e raccogliere dati di telemetria per misurare i tempi di elaborazione della CPU e di attesa di I/O, la latenza del disco, la velocità effettiva e i tempi di risposta. Queste informazioni possono risultare utili per identificare i colli di bottiglia potenziali e valutare i costi e i vantaggi che derivano dall'uso dell'Archiviazione Premium. Tenere presente che l'utilizzo della CPU e del disco potrebbe non essere uniforme tra tutti i nodi, a seconda della modalità di distribuzione di partizioni e repliche nel cluster, ovvero alcuni nodi possono contenere più partizioni di altri.
+- Considerare le dimensioni complessive del payload inviato e non solo il numero di elementi in ogni richiesta di inserimento in blocco. Un numero inferiore di elementi in blocco di grandi dimensioni in ogni richiesta può essere più appropriato di un numero maggiore, a seconda della risorsa disponibile per elaborare ogni richiesta.
 
-* Considerare come verrà distribuito nel cluster il numero di richieste simultanee per il carico di lavoro e valutare l'impatto dell'uso di un numero di nodi diverso per gestire il carico di lavoro.
+È possibile monitorare gli effetti derivanti dalla variazione della richiesta di inserimento in blocco con Marvel, usando i contatori di I/O *readbytes*/*writebytes* con JMeter e strumenti del sistema operativo quali *iostat* e *vmstat* in Ubuntu.
 
-* Considerare come possono aumentare i carichi di lavoro con l'espansione dell'azienda. Valutare l'impatto di tale crescita sui costi delle macchine virtuali e delle risorse di archiviazione usate dai nodi.
+- Eseguire il test delle prestazioni e raccogliere dati di telemetria per misurare i tempi di elaborazione della CPU e di attesa di I/O, la latenza del disco, la velocità effettiva e i tempi di risposta. Queste informazioni possono risultare utili per identificare i colli di bottiglia potenziali e valutare i costi e i vantaggi che derivano dall'uso dell'Archiviazione Premium. Tenere presente che l'utilizzo della CPU e del disco potrebbe non essere uniforme tra tutti i nodi, a seconda della modalità di distribuzione di partizioni e repliche nel cluster, ovvero alcuni nodi possono contenere più partizioni di altri.
 
-* Comprendere che l'uso di un cluster con un maggior numero di nodi con dischi normali può essere più conveniente se il proprio scenario necessita di un numero di richieste elevato e l'infrastruttura dei dischi mantiene una velocità effettiva che soddisfa i contratti di servizio. Tuttavia, l'aumento del numero di nodi può introdurre un sovraccarico sotto forma di comunicazioni tra i nodi e sincronizzazione aggiuntive.
+- Considerare come verrà distribuito nel cluster il numero di richieste simultanee per il carico di lavoro e valutare l'impatto dell'uso di un numero di nodi diverso per gestire il carico di lavoro.
 
-* Comprendere che un maggior numero di core per ogni nodo può generare più traffico su disco, perché possono essere elaborati più documenti. In questo caso, misurare l'utilizzo del disco per verificare se il sottosistema di I/O può diventare un collo di bottiglia e determinare i vantaggi dell'uso dell'Archiviazione Premium.
+- Considerare come possono aumentare i carichi di lavoro con l'espansione dell'azienda. Valutare l'impatto di tale crescita sui costi delle macchine virtuali e delle risorse di archiviazione usate dai nodi.
 
-* Testare e analizzare i compromessi per un numero più elevato di nodi con un minor numero di core, rispetto a meno nodi con più core. Tenere presente che l'aumento del numero di repliche causa un escalation delle richieste al cluster e potrebbe essere necessario aggiungere nodi.
+- Comprendere che l'uso di un cluster con un maggior numero di nodi con dischi normali può essere più conveniente se il proprio scenario necessita di un numero di richieste elevato e l'infrastruttura dei dischi mantiene una velocità effettiva che soddisfa i contratti di servizio. Tuttavia, l'aumento del numero di nodi può introdurre un sovraccarico sotto forma di comunicazioni tra i nodi e sincronizzazione aggiuntive.
 
-* Considerare che l'uso di dischi temporanei può richiedere un recupero più frequente degli indici.
+- Comprendere che un maggior numero di core per ogni nodo può generare più traffico su disco, perché possono essere elaborati più documenti. In questo caso, misurare l'utilizzo del disco per verificare se il sottosistema di I/O può diventare un collo di bottiglia e determinare i vantaggi dell'uso dell'Archiviazione Premium.
 
-* Misurare l'utilizzo del volume di archiviazione per valutare la capacità e il sottoutilizzo della risorsa di archiviazione. Ad esempio, in questo scenario sono stati archiviati 1,5 miliardi di documenti usando una risorsa di archiviazione di 350 GB.
+- Testare e analizzare i compromessi per un numero più elevato di nodi con un minor numero di core, rispetto a meno nodi con più core. Tenere presente che l'aumento del numero di repliche causa un escalation delle richieste al cluster e potrebbe essere necessario aggiungere nodi.
 
-* Misurare le velocità di trasferimento per i carichi di lavoro e considerare qual è la probabilità di raggiungere il limite totale di velocità di trasferimento di I/O per un account di archiviazione specificato in cui sono stati creati dischi virtuali.
+- Considerare che l'uso di dischi temporanei può richiedere un recupero più frequente degli indici.
 
-L'ultima parte di questo documento descrive questi problemi più in dettaglio.
+- Misurare l'utilizzo del volume di archiviazione per valutare la capacità e il sottoutilizzo della risorsa di archiviazione. Ad esempio, in questo scenario sono stati archiviati 1,5 miliardi di documenti usando una risorsa di archiviazione di 350 GB.
 
-## Considerazioni sulla progettazione di indici e nodi
+- Misurare le velocità di trasferimento per i carichi di lavoro e considerare qual è la probabilità di raggiungere il limite totale di velocità di trasferimento di I/O per un account di archiviazione specificato in cui sono stati creati dischi virtuali.
+
+## Progettazione di indici e nodi
 
 In un sistema che deve supportare l'inserimento di dati su larga scala è opportuno porsi le domande seguenti:
 
-* **I dati cambiano rapidamente o sono relativamente statici?** A una maggiore dinamicità dei dati corrisponde un maggiore sovraccarico di manutenzione per Elasticsearch. Se i dati vengono replicati, ogni replica viene gestita in modo sincrono. Per i dati che cambiano rapidamente e hanno solo una durata limitata o che possono essere ricostruiti facilmente, può risultare utile disattivare completamente la replica. Questa opzione è discussa più avanti nella sezione [Considerazioni sull'ottimizzazione dell'inserimento dei dati su larga scala.](#_Considerations_for_Tuning)
+- **I dati cambiano rapidamente o sono relativamente statici?** A una maggiore dinamicità dei dati corrisponde un maggiore sovraccarico di manutenzione per Elasticsearch. Se i dati vengono replicati, ogni replica viene gestita in modo sincrono. Per i dati che cambiano rapidamente e hanno solo una durata limitata o che possono essere ricostruiti facilmente, può risultare utile disattivare completamente la replica. Questa opzione è discussa più avanti nella sezione [Ottimizzazione dell'inserimento dei dati su larga scala](#tuning-large-scale-data-ingestion).
 
-* **Con quale frequenza devono essere aggiornati i dati individuati eseguendo una ricerca?** Per garantire prestazioni ottimali, Elasticsearch memorizza nel buffer quanti più dati possibile. Ciò significa che non tutte le modifiche sono immediatamente disponibili per le richieste di ricerca. Il processo mediante il quale Elasticsearch rende le modifiche persistenti e visibili è illustrato nel documento online che descrive come [rendere persistenti le modifiche](https://www.elastic.co/guide/en/elasticsearch/guide/current/translog.html#translog). La velocità con cui dati diventano visibili è regolata dall'impostazione*refresh\_interval* dell'indice interessato. Per impostazione predefinita, questo intervallo è impostato su 1 secondo. Tuttavia, non tutte le situazioni richiedono che gli aggiornamenti avvengano così rapidamente. Ad esempio, è possibile che gli indici che registrano i dati di log debbano gestire un afflusso rapido e continuo di informazioni che devono essere inserite rapidamente, ma che non devono necessariamente essere subito disponibili per l'esecuzione di query. In questo caso, provare a ridurre la frequenza degli aggiornamenti. Questa funzionalità è descritta anche nella sezione [Considerazioni sull'ottimizzazione dell'inserimento dei dati su larga scala.](#_Considerations_for_Tuning)
+- **Con quale frequenza devono essere aggiornati i dati individuati eseguendo una ricerca?** Per garantire prestazioni ottimali, Elasticsearch memorizza nel buffer quanti più dati possibile. Ciò significa che non tutte le modifiche sono immediatamente disponibili per le richieste di ricerca. Il processo mediante il quale Elasticsearch rende le modifiche persistenti e visibili è illustrato nel documento online che descrive come [rendere persistenti le modifiche](https://www.elastic.co/guide/en/elasticsearch/guide/current/translog.html#translog).
 
-* **Con quale rapidità è prevedibile un aumento dei dati?** La capacità dell'indice è determinata dal numero di partizioni specificato al momento della creazione dell'indice. Per tenere conto della crescita, specificare un numero sufficiente di partizioni. Il valore predefinito è 5. Se l'indice viene creato inizialmente per un singolo nodo, le cinque partizioni si troveranno tutte in quel nodo, ma è possibile che con l'aumento del volume dei dati vengano aggiunti altri nodi. In questo caso, Elasticsearch distribuirà in modo dinamico le partizioni tra i nodi. Ogni partizione è tuttavia sottoposta a un sovraccarico, perché le query per tutte le ricerche in un indice saranno eseguite su tutte le partizioni, quindi la creazione di un numero elevato di partizioni per una piccola quantità di dati può rallentare il recupero dei dati. Evitare lo scenario con un'[enorme quantità di partizioni](https://www.elastic.co/guide/en/elasticsearch/guide/current/kagillion-shards.html).
+    La velocità con cui dati diventano visibili è regolata dall'impostazione*refresh\_interval* dell'indice interessato. Per impostazione predefinita, questo intervallo è impostato su 1 secondo. Tuttavia, non tutte le situazioni richiedono che gli aggiornamenti avvengano così rapidamente. Ad esempio, è possibile che gli indici che registrano i dati di log debbano gestire un afflusso rapido e continuo di informazioni che devono essere inserite rapidamente, ma che non devono necessariamente essere subito disponibili per l'esecuzione di query. In questo caso, provare a ridurre la frequenza degli aggiornamenti. Questa funzionalità è descritta anche nella sezione [Ottimizzazione dell'inserimento dei dati su larga scala](#tuning-large-scale-data-ingestion).
+
+- **Con quale rapidità è prevedibile un aumento dei dati?** La capacità dell'indice è determinata dal numero di partizioni specificato al momento della creazione dell'indice. Per tenere conto della crescita, specificare un numero sufficiente di partizioni. Il valore predefinito è 5. Se l'indice viene creato inizialmente per un singolo nodo, le cinque partizioni si troveranno tutte in quel nodo, ma è possibile che con l'aumento del volume dei dati vengano aggiunti altri nodi. In questo caso, Elasticsearch distribuirà in modo dinamico le partizioni tra i nodi. Ogni partizione è tuttavia sottoposta a un sovraccarico, perché le query per tutte le ricerche in un indice saranno eseguite su tutte le partizioni, quindi la creazione di un numero elevato di partizioni per una piccola quantità di dati può rallentare il recupero dei dati. Evitare lo scenario con un'[enorme quantità di partizioni](https://www.elastic.co/guide/en/elasticsearch/guide/current/kagillion-shards.html).
 
     Alcuni carichi di lavoro, ad esempio la registrazione, possono creare un nuovo indice ogni giorno e se si osserva che il numero di partizioni è insufficiente per il volume di dati, è consigliabile modificarlo prima di creare l'indice successivo. Gli indici esistenti non saranno interessati. Se è necessario distribuire i dati esistenti in più partizioni, è possibile reindicizzare le informazioni. Creare un nuovo indice con la configurazione appropriata e copiarvi i dati. Questo processo può essere reso trasparente alle applicazioni con [alias di indice](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-aliases.html).
 
-* **È necessario partizionare i dati tra gli utenti in uno scenario multi-tenancy?** È possibile creare indici separati per ogni utente, ma questa scelta può risultare costosa se ogni utente ha solo una quantità di dati moderata. Considerare invece la possibilità di creare [indici condivisi ](https://www.elastic.co/guide/en/elasticsearch/guide/current/shared-index.html) e di usare [alias basati su filtri](https://www.elastic.co/guide/en/elasticsearch/guide/current/faking-it.html) per indirizzare le richieste ai dati per ogni utente. Per mantenere insieme i dati di un utente nella stessa partizione, ignorare la configurazione di routing predefinita per l'indice e instradare i dati in base a un attributo di identificazione dell'utente.
+- **È necessario partizionare i dati tra gli utenti in uno scenario multi-tenancy?** È possibile creare indici separati per ogni utente, ma questa scelta può risultare costosa se ogni utente ha solo una quantità di dati moderata. Considerare invece la possibilità di creare [indici condivisi ](https://www.elastic.co/guide/en/elasticsearch/guide/current/shared-index.html) e di usare [alias basati su filtri](https://www.elastic.co/guide/en/elasticsearch/guide/current/faking-it.html) per indirizzare le richieste ai dati per ogni utente. Per mantenere insieme i dati di un utente nella stessa partizione, ignorare la configurazione di routing predefinita per l'indice e instradare i dati in base a un attributo di identificazione dell'utente.
 
-* **I dati sono di lunga o breve durata?** Se si usa un set di macchine virtuali di Azure per implementare un cluster Elasticsearch, è possibile archiviare i dati temporanei in un disco di sistema di risorse locale invece di un'unità collegata. L'uso dello SKU di una VM che utilizza un'unità SSD per il disco di risorse può migliorare le prestazioni di I/O. Tuttavia, le informazioni contenute nel disco di risorse sono temporanee e possono andare perse se la VM viene riavviata. Per altre informazioni, vedere la sezione relativa alla perdita dei dati su un'unità temporanea nel documento di [informazioni sull'unità temporanea in Macchine virtuali di Microsoft Azure](http://blogs.msdn.com/b/mast/archive/2013/12/07/understanding-the-temporary-drive-on-windows-azure-virtual-machines.aspx). Se si vogliono mantenere i dati tra un riavvio e l'altro, creare dischi rigidi virtuali (VHD) persistenti per conservare queste informazioni e collegarli alla macchina virtuale.
+- **I dati sono di lunga o breve durata?** Se si usa un set di macchine virtuali di Azure per implementare un cluster Elasticsearch, è possibile archiviare i dati temporanei in un disco di sistema di risorse locale invece di un'unità collegata. L'uso dello SKU di una VM che utilizza un'unità SSD per il disco di risorse può migliorare le prestazioni di I/O. Tuttavia, le informazioni contenute nel disco di risorse sono temporanee e possono andare perse se la VM viene riavviata. Per altre informazioni, vedere la sezione relativa alla perdita dei dati su un'unità temporanea nel documento di [informazioni sull'unità temporanea in Macchine virtuali di Microsoft Azure](http://blogs.msdn.com/b/mast/archive/2013/12/07/understanding-the-temporary-drive-on-windows-azure-virtual-machines.aspx). Se si vogliono mantenere i dati tra un riavvio e l'altro, creare dischi dati per conservare queste informazioni e collegarli alla macchina virtuale.
 
-* **Qual è il livello di attività dei dati?** I VHD di Azure sono soggetti a limitazione se la quantità di attività di lettura/scrittura supera i parametri specificati. Attualmente 500 IOPS per un disco collegato a una macchina virtuale con un piano Standard e 5000 IOPs per un disco di Archiviazione Premium. Per ridurre le probabilità di limitazione e migliorare le prestazioni di I/O, è consigliabile creare più VHD di dati per ogni macchina virtuale e configurare Elasticsearch per lo striping dei dati tra questi VHD, come descritto nella sezione relativa ai [requisiti del disco e del file system](#disk-and-file-system-requirements) del documento che illustra l'implementazione di Elasticsearch in Azure.
+- **Qual è il livello di attività dei dati?** I VHD di Azure sono soggetti a limitazione se la quantità di attività di lettura/scrittura supera i parametri specificati. Attualmente 500 IOPS per un disco collegato a una macchina virtuale con un piano Standard e 5000 IOPs per un disco di Archiviazione Premium.
 
-    > [AZURE.NOTE] È consigliabile selezionare una configurazione hardware che consenta di ridurre al minimo il numero di operazioni di I/O in lettura, assicurando la disponibilità di memoria sufficiente per memorizzare nella cache i dati a cui si accede di frequente. Questo processo è descritto nella sezione relativa ai [requisiti di memoria](#memory-requirements) del documento che illustra l'implementazione di Elasticsearch in Azure.
+    Per ridurre le probabilità di limitazione e migliorare le prestazioni di I/O, è consigliabile creare più dischi dati per ogni VM e configurare Elasticsearch per lo striping dei dati tra questi dischi, come descritto nella sezione [Requisiti del disco e del file system](guidance-elasticsearch-running-on-azure.md#disk-and-file-system-requirements).
 
-* **Che tipo di carico di lavoro dovrà essere supportato da ogni nodo?** Elasticsearch trae vantaggio dalla disponibilità di memoria per la memorizzazione dei dati nella cache (sotto forma di cache del file system) e per l'heap JVM, come descritto nella sezione relativa ai [requisiti di memoria](#memory-requirements) del documento che illustra l'implementazione di Elasticsearch in Azure. Il modello di threading implementato da Elasticsearch rende anche più efficiente l'uso di CPU multicore rispetto a CPU più potenti con un minor numero di core.
+    È consigliabile selezionare una configurazione hardware che consenta di ridurre al minimo il numero di operazioni di I/O in lettura, assicurando la disponibilità di memoria sufficiente per memorizzare nella cache i dati a cui si accede di frequente. Questo processo è descritto nella sezione [Requisiti di memoria](guidance-elasticsearch-running-on-azure.md#memory-requirements) del documento che illustra l'implementazione di Elasticsearch in Azure.
 
-    > [AZURE.NOTE] La quantità di memoria, il numero di core CPU e la quantità di dischi disponibili sono limitate dallo SKU della macchina virtuale. Per altre informazioni, vedere la pagina [Prezzi di Macchine virtuali](http://azure.microsoft.com/pricing/details/virtual-machines/) sul sito Web di Azure.
+- **Che tipo di carico di lavoro dovrà essere supportato da ogni nodo?** Elasticsearch trae vantaggio dalla disponibilità di memoria per la memorizzazione dei dati nella cache, sotto forma di cache del file system, e per l'heap JVM, come descritto nella sezione [Requisiti di memoria](guidance-elasticsearch-running-on-azure.md#memory-requirements) del documento che illustra l'implementazione di Elasticsearch in Azure.
+
+    La quantità di memoria, il numero di core CPU e la quantità di dischi disponibili sono limitate dallo SKU della macchina virtuale. Per altre informazioni, vedere la pagina [Prezzi di Macchine virtuali](http://azure.microsoft.com/pricing/details/virtual-machines/) nel sito Web di Azure.
 
 ### Opzioni della macchina virtuale
 
@@ -85,73 +91,71 @@ La pagina [Dimensioni delle macchine virtuali](virtual-machines-size-specs/) nel
 
 Per un nodo dati:
 
-* Allocare fino a 30 GB o il 50% della memoria RAM disponibile all'heap Java, usando il valore più basso. Lasciare il resto al sistema operativo da usare per la memorizzazione dei file nella cache. Se si usa Linux, è possibile specificare la quantità di memoria da allocare per l'heap Java, impostando la variabile di ambiente ES\_HEAP\_SIZE prima di eseguire Elasticsearch. In alternativa, se si usa Windows o Linux, si possono stabilire le dimensioni della memoria con i parametri *Xmx* e *Xms* quando si avvia Elasticsearch.
+- Allocare fino a 30 GB o il 50% della memoria RAM disponibile all'heap Java, usando il valore più basso. Lasciare il resto al sistema operativo da usare per la memorizzazione dei file nella cache. Se si usa Linux, è possibile specificare la quantità di memoria da allocare per l'heap Java, impostando la variabile di ambiente ES\_HEAP\_SIZE prima di eseguire Elasticsearch. In alternativa, se si usa Windows o Linux, si possono stabilire le dimensioni della memoria con i parametri *Xmx* e *Xms* quando si avvia Elasticsearch.
 
-    > [AZURE.NOTE]  A seconda del carico di lavoro, un numero inferiore di VM di grandi dimensioni può non essere altrettanto efficace ai fini delle prestazioni rispetto all'uso di un numero maggiore di VM di dimensioni limitate. È consigliabile eseguire test che consentano di valutare i compromessi tra il traffico di rete aggiuntivo e la manutenzione richiesta rispetto ai costi per l'aumento del numero di core disponibili e la minore contesa del disco in ogni nodo.
+    A seconda del carico di lavoro, un numero inferiore di VM di grandi dimensioni può non essere altrettanto efficace ai fini delle prestazioni rispetto all'uso di un numero maggiore di VM di dimensioni limitate. È consigliabile eseguire test che consentano di valutare i compromessi tra il traffico di rete aggiuntivo e la manutenzione richiesta rispetto ai costi per l'aumento del numero di core disponibili e la minore contesa del disco in ogni nodo.
 
-* Usare dischi veloci, idealmente unità SSD con bassa latenza, per l'archiviazione dei dati di Elasticsearch. Questo argomento è discusso più dettagliatamente nella sezione [Opzioni di archiviazione](#storage-options).
+- Usare Archiviazione Premium per l'archiviazione dei dati di Elasticsearch. Questo argomento è discusso più dettagliatamente nella sezione [Opzioni di archiviazione](#storage-options).
 
-* Usare più dischi con le stesse dimensioni ed eseguire lo striping dei dati tra questi dischi. Lo SKU delle VM determinerà il numero massimo di dischi dati che si possono collegare. Per altre informazioni, vedere la sezione relativa ai [requisiti del disco e del file system](#disk-and-file-system-requirements).
+- Usare più dischi con le stesse dimensioni ed eseguire lo striping dei dati tra questi dischi. Lo SKU delle VM determinerà il numero massimo di dischi dati che si possono collegare. Per altre informazioni, vedere la sezione [Requisiti del disco e del file system](guidance-elasticsearch-running-on-azure.md#disk-and-file-system-requirements).
 
-* Usare una CPU multicore, con almeno 2 core, ma preferibilmente 4 o più. Selezionare le CPU in base al numero di core invece che alla potenza di base. Il modello di threading usato da Elasticsearch per gestire richieste simultanee è più efficace se usato con più core, invece che con CPU con una potenza elevata e un minor numero di core.
+- Usare uno SKU con CPU multicore, con almeno 2 core, ma preferibilmente 4 o più.
 
 Per un nodo client:
 
-* Non allocare spazio di archiviazione su disco per i dati di Elasticsearch, perché i client dedicati non archiviano dati su disco.
+- Non allocare spazio di archiviazione su disco per i dati di Elasticsearch, perché i client dedicati non archiviano dati su disco.
 
-* Assicurarsi che sia disponibile una quantità di memoria adeguata per gestire i carichi di lavoro. Le richieste di inserimento in blocco vengono lette in memoria prima dell'invio dei dati ai diversi nodi dati e i risultati delle aggregazioni e delle query vengono accumulati in memoria prima di essere restituiti all'applicazione client. Effettuare un benchmark dei propri carichi di lavoro e monitorare l'uso della memoria con uno strumento come Marvel o le [informazioni su JVM](https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html#_jvm_section) restituite tramite l'API *node/stats* per valutare i requisiti ottimali:
+- Assicurarsi che sia disponibile una quantità di memoria adeguata per gestire i carichi di lavoro. Le richieste di inserimento in blocco vengono lette in memoria prima dell'invio dei dati ai diversi nodi dati e i risultati delle aggregazioni e delle query vengono accumulati in memoria prima di essere restituiti all'applicazione client. Effettuare un benchmark dei propri carichi di lavoro e monitorare l'uso della memoria con uno strumento come Marvel o le [informazioni su JVM](https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html#_jvm_section) restituite tramite l'API *node/stats* (`GET _nodes/stats`) per valutare i requisiti ottimali: In particolare, monitorare la metrica *heap\_used\_percent* per ogni nodo allo scopo di mantenere le dimensioni dell'heap inferiori al 75% dello spazio disponibile.
 
-    ```http
-    GET _nodes/stats
-    ```
+- Assicurarsi che siano disponibili core CPU sufficienti per ricevere ed elaborare il volume di richieste previsto. Le richieste vengono accodate alla ricezione prima dell'elaborazione e il volume degli elementi che possono essere accodati è in funzione del numero di core CPU in ogni nodo. È possibile monitorare la lunghezza della coda usando i dati nelle [informazioni sui pool di thread ](https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html#_threadpool_section) restituite con l'API node/stats.
 
-    In particolare, monitorare la metrica *heap\_used\_percent* per ogni nodo e puntare a mantenere le dimensioni dell'heap inferiori al 75% dello spazio disponibile.
+    Se il numero di elementi *rifiutati* per una coda indica che le richieste vengono rifiutate, ciò significa che nel cluster iniziano a verificarsi colli di bottiglia. Questa condizione potrebbe essere dovuta alla larghezza di banda della CPU, ma anche ad altri fattori, come la mancanza di memoria o la riduzione delle prestazioni di I/O. Usare quindi queste informazioni in combinazione con altre statistiche per determinare la causa radice.
 
-* Assicurarsi che siano disponibili core CPU sufficienti per ricevere ed elaborare il volume di richieste previsto. Le richieste vengono accodate alla ricezione prima dell'elaborazione e il volume degli elementi che possono essere accodati è in funzione del numero di core CPU in ogni nodo. È possibile monitorare la lunghezza della coda usando i dati nelle [informazioni sui pool di thread ](https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html#_threadpool_section) restituite con l'API node/stats. Se il numero di elementi *rifiutati* per una coda indica che le richieste vengono rifiutate, ciò significa che nel cluster iniziano a verificarsi colli di bottiglia. Questa condizione potrebbe essere dovuta alla larghezza di banda della CPU, ma anche ad altri fattori, come la mancanza di memoria o la riduzione delle prestazioni di I/O. Usare quindi queste informazioni in combinazione con altre statistiche per determinare la causa radice.
+    I nodi client possono essere necessari o meno, a seconda dei carichi di lavoro. I carichi di lavoro di inserimento dei dati tendono a non trarre vantaggio dall'uso di client dedicati, dove alcune ricerche e aggregazioni possono essere eseguite più rapidamente. Potrà essere necessario effettuare un benchmark dei propri scenari.
 
-    > [AZURE.NOTE]  I nodi client possono essere necessari o meno, a seconda dei carichi di lavoro. I carichi di lavoro di inserimento dei dati tendono a non trarre vantaggio dall'uso di client dedicati, dove alcune ricerche e aggregazioni possono essere eseguite più rapidamente. Potrà essere necessario effettuare un benchmark dei propri scenari.
-
-    > I nodi client sono sopratutto utili per le applicazioni che usano l'API Transport Client per connettersi al cluster. È anche possibile usare l'API Node Client che crea dinamicamente un client dedicato per l'applicazione usando le risorse dell'ambiente host dell'applicazione. Se le applicazioni usano l'API Node Client, può non essere necessario che il cluster contenga nodi client dedicati preconfigurati. Si tenga però presente che un nodo creato con l'API Client Node è un membro importante del cluster e come tale partecipa alla comunicazione di rete con altri nodi. L'avvio e l'arresto frequenti dei nodi client può creare un inutile disturbo nell'intero cluster.
+    I nodi client sono sopratutto utili per le applicazioni che usano l'API Transport Client per connettersi al cluster. È anche possibile usare l'API Node Client che crea dinamicamente un client dedicato per l'applicazione usando le risorse dell'ambiente host dell'applicazione. Se le applicazioni usano l'API Node Client, può non essere necessario che il cluster contenga nodi client dedicati preconfigurati.
+    
+    Si tenga però presente che un nodo creato con l'API Client Node è un membro importante del cluster e come tale partecipa alla comunicazione di rete con altri nodi. L'avvio e l'arresto frequenti dei nodi client può creare un inutile disturbo nell'intero cluster.
 
 Per un nodo master:
 
-* Non allocare spazio di archiviazione su disco per i dati di Elasticsearch, perché i nodi master dedicati non archiviano dati su disco.
+- Non allocare spazio di archiviazione su disco per i dati di Elasticsearch, perché i nodi master dedicati non archiviano dati su disco.
 
-* I requisiti della CPU dovranno essere minimi.
+- I requisiti della CPU dovranno essere minimi.
 
-* I requisiti di memoria dipendono dalle dimensioni del cluster. Le informazioni sullo stato del cluster vengono mantenute in memoria. Per i cluster di piccole dimensioni la quantità di memoria necessaria è minima, ma per un cluster di grandi dimensioni e molto attivo in cui vengono creati indici frequentemente e le partizioni vengono spostate, la quantità di informazioni sullo stato può aumentare significativamente. Monitorare le dimensioni dell'heap JVM per determinare se è necessario aggiungere altra memoria.
+- I requisiti di memoria dipendono dalle dimensioni del cluster. Le informazioni sullo stato del cluster vengono mantenute in memoria. Per i cluster di piccole dimensioni la quantità di memoria necessaria è minima, ma per un cluster di grandi dimensioni e molto attivo in cui vengono creati indici frequentemente e le partizioni vengono spostate, la quantità di informazioni sullo stato può aumentare significativamente. Monitorare le dimensioni dell'heap JVM per determinare se è necessario aggiungere altra memoria.
 
-    > [AZURE.NOTE]  Per l'affidabilità del cluster, è opportuno creare sempre più nodi master e configurare i nodi rimanenti per evitare la possibilità che si verifichi una condizione split brain. Idealmente, deve essere presente un numero dispari di nodi master. Questo argomento è descritto in dettaglio nel documento su configurazione, test e l'analisi della resilienza e del ripristino di Elasticsearch.
+> [AZURE.NOTE]  Per l'affidabilità del cluster, è opportuno creare sempre più nodi master e configurare i nodi rimanenti per evitare la possibilità che si verifichi una condizione split brain. Idealmente, deve essere presente un numero dispari di nodi master. Questo argomento è descritto in dettaglio nel documento [Configurazione delle opzioni di resilienza e ripristino di Elasticsearch in Azure][].
 
 ### Opzioni di archiviazione
 
 Sono disponibili numerose opzioni di archiviazione nelle VM di Azure, con diversi compromessi che interessano costi, prestazioni, disponibilità e ripristino e che occorre considerare con attenzione.
 
-Si noti che è necessario archiviare i dati di Elasticsearch su dischi diversi da quelli usati dal software del sistema operativo. Si ridurrà così la contesa con il sistema operativo, assicurando che volumi elevati di I/O di Elasticsearch non entrino in conflitto con le funzioni del sistema operativo per le risorse di I/O.
+Si noti che è necessario memorizzare i dati di Elasticsearch su dischi dati dedicati. Si ridurrà così la contesa con il sistema operativo, assicurando che volumi elevati di I/O di Elasticsearch non entrino in conflitto con le funzioni del sistema operativo per le risorse di I/O.
 
 I dischi di Azure sono soggetti a vincoli relativi alle prestazioni. Se si rileva che un cluster è soggetto periodicamente ad aumenti improvvisi di attività, è possibile limitare le richieste di I/O. Per evitare che ciò avvenga, ottimizzare la progettazione per bilanciare le dimensioni dei documenti in Elasticsearch rispetto al volume di richieste che sarà probabilmente ricevuto da ogni disco.
 
-I dischi basati sull'archiviazione Standard supportano una frequenza massima di richieste di 500 IOPS, mentre i dischi basati sull'Archiviazione Premium possono funzionare a un massimo di 5.000 IOPS. L'archiviazione Standard usa supporti "in rotazione", mentre l'Archiviazione Premium usa unità SSD che hanno una latenza più bassa e una velocità effettiva più elevata. I dischi di Archiviazione Premium sono disponibili solo per le VM serie DS e GS. Le frequenze massime di IOPS del disco per le [macchine virtuali di Azure sono documentate online](virtual-machines-size-specs/).
-
-> [AZURE.NOTE] A seconda della quantità di dati restituiti dalle richieste, è possibile che non si ottenga il numero massimo di IOPS annunciato per un disco, perché ogni VM è limitata anche a una larghezza di banda massima del disco, secondo le dimensioni della VM. Ad esempio, un disco dati in una VM Standard\_GS5 può funzionare a un massimo di 5.000 IOPS per disco, ma solo se la larghezza di banda per il trasferimento dei dati totale non supera 2000 MB/s in tutti i dischi collegati alla VM.
+I dischi basati sull'archiviazione Standard supportano una frequenza massima di richieste di 500 IOPS, mentre i dischi basati sull'Archiviazione Premium possono funzionare a un massimo di 5.000 IOPS. I dischi di Archiviazione Premium sono disponibili solo per le VM serie DS e GS. Le frequenze massime di IOPS del disco per le [macchine virtuali di Azure sono documentate online](virtual-machines-size-specs/).
 
 **Dischi dati persistenti**
 
 I dischi dati persistenti sono dischi rigidi virtuali (VHD) supportati da Archiviazione di Azure. Se la VM deve essere ricreata dopo un errore grave, i VHD esistenti possono essere collegati facilmente alla nuova VM. È possibile creare VHD in base all'archiviazione Standard (supporti in rotazione) o all'Archiviazione Premium (unità SSD). Se si vogliono usare unità SSD, è necessario creare macchine virtuali serie DS o più avanzata. Il costo delle macchine virtuali serie DS è lo stesso delle VM serie D, ma viene addebitato un costo aggiuntivo per l'uso dell'Archiviazione Premium.
 
-Nei casi in cui la velocità di trasferimento massima per ogni disco è insufficiente per supportare il carico di lavoro previsto, considerare la possibilità di creare più dischi dati e consentire a Elasticsearch di [eseguire lo striping dei dati tra questi dischi](#disk-and-file-system-requirements) oppure implementare [RAID 0 lo striping con dischi virtuali](virtual-machines-linux-configure-raid/) a livello di sistema.
+Nei casi in cui la velocità di trasferimento massima per ogni disco è insufficiente per supportare il carico di lavoro previsto, considerare la possibilità di creare più dischi dati e consentire a Elasticsearch di [eseguire lo striping dei dati tra questi dischi](guidance-elasticsearch-running-on-azure.md#disk-and-file-system-requirements) oppure implementare [striping RAID 0 con dischi virtuali](virtual-machines-linux-configure-raid/) a livello di sistema.
 
 > [AZURE.NOTE] L'esperienza all'interno di Microsoft ha dimostrato che l'uso di RAID 0 è particolarmente utile per uniformare gli effetti dell'I/O dei carichi di lavoro di *picco* che generano aumenti improvvisi di attività.
 
-Usare repliche con ridondanza locale (o Premium con ridondanza locale) per l'account di archiviazione che contiene i dischi. La replica tra aree geografiche e zone non è necessaria per la disponibilità elevata di Elasticsearch.
+Usare l'Archiviazione Premium con ridondanza locale o l'archiviazione con ridondanza locale per carichi di lavoro di fascia bassa o per il controllo di qualità per l'account di archiviazione che contiene i dischi. La replica tra aree geografiche e zone non è necessaria per la disponibilità elevata di Elasticsearch.
 
 **Dischi temporanei**
 
-L'uso di dischi persistenti basati su unità SSD richiede la creazione di VM che supportano l'Archiviazione Premium. Questa scelta influisce sul prezzo. L'uso del disco temporaneo locale per contenere dati di Elasticsearch può essere una soluzione conveniente per i nodi di dimensioni limitate che richiedono un massimo di circa 800 GB di spazio di archiviazione. Nelle VM serie Standard-D i dischi temporanei vengono implementati con unità SSD che forniscono prestazioni di gran lunga migliori e una latenza molto più bassa rispetto ai dischi normali. Quando si usa Elasticsearch, le prestazioni possono essere equivalenti all'uso dell'Archiviazione Premium senza costi aggiuntivi. Per altre informazioni, vedere la sezione [Risoluzione dei problemi di latenza del disco](#addressing-disk-latency-issues).
+L'uso di dischi persistenti basati su unità SSD richiede la creazione di VM che supportano l'Archiviazione Premium. Questa scelta influisce sul prezzo. L'uso del disco temporaneo locale per contenere dati di Elasticsearch può essere una soluzione conveniente per i nodi di dimensioni limitate che richiedono un massimo di circa 800 GB di spazio di archiviazione. Nelle VM serie Standard-D i dischi temporanei vengono implementati con unità SSD che forniscono prestazioni di gran lunga migliori e una latenza molto più bassa rispetto ai dischi normali.
 
-Le dimensioni della VM limitano la quantità di spazio disponibile nell'archiviazione temporanea, come descritto nel documento relativo alle [aspettative in termini di prestazioni delle VM serie D](https://azure.microsoft.com/blog/d-series-performance-expectations/). Ad esempio, una VM Standard\_D1 fornisce 50 GB di spazio di archiviazione temporaneo, una VM Standard\_D2 ha 100 GB di spazio di archiviazione temporaneo e una VM Standard\_D14 fornisce 800 GB di spazio temporaneo. Per i cluster in cui i nodi richiedono solo questa quantità di spazio, l'uso di una VM serie D con archiviazione temporanea può essere economicamente conveniente. Al momento della scrittura di questo articolo, il costo stimato di una VM D4 che esegue Linux è di 458 USD al mese. La VM DS4 equivalente, che esegue anch'essa Linux, con una singola unità SSD P30 offre 1024 GB di spazio e costa 645 USD al mese (509 USD per la VM e 136 USD per l'unità SSD). Per archiviare 1024 GB di dati nell'archiviazione temporanea sono necessarie 3 VM D4, con un costo di 1374 USD al mese. Tuttavia, i calcoli non devono essere basati solo sulla capacità di archiviazione. Una singola VM DS4 offre 8 core CPU e 28 GB di memoria, mentre 3 VM D4 hanno 24 core CPU e 84 GB di memoria. Se i carichi di lavoro richiedono un uso intensivo del processore, la distribuzione del carico fra 3 VM può fornire un miglioramento delle prestazioni rispetto all'esecuzione in una singola VM. L'uso di una singola VM o di un numero limitato di VM può influire sulla resilienza e sulla capacità di ripristino del cluster.
+Quando si usa Elasticsearch, le prestazioni possono essere equivalenti all'uso dell'Archiviazione Premium senza costi aggiuntivi. Per altre informazioni, vedere la sezione [Risoluzione dei problemi di latenza del disco](#addressing-disk-latency-issues).
 
-> [AZURE.NOTE] Le cifre indicate sopra sono solo a scopo illustrativo. Al momento della lettura di questo documento, i costi potrebbero essere cambiati. Per informazioni sui prezzi correnti, vedere la pagina [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/).
+Le dimensioni della VM limitano la quantità di spazio disponibile nell'archiviazione temporanea, come descritto nel documento relativo alle [aspettative in termini di prestazioni delle VM serie D](https://azure.microsoft.com/blog/d-series-performance-expectations/).
+
+Ad esempio, una VM Standard\_D1 fornisce 50 GB di spazio di archiviazione temporaneo, una VM Standard\_D2 ha 100 GB di spazio di archiviazione temporaneo e una VM Standard\_D14 fornisce 800 GB di spazio temporaneo. Per i cluster in cui i nodi richiedono solo questa quantità di spazio, l'uso di una VM serie D con archiviazione temporanea può essere economicamente conveniente.
 
 È necessario bilanciare la velocità effettiva maggiore disponibile con l'archiviazione temporanea rispetto al tempo e ai costi richiesti per il recupero di dati dopo il riavvio di una macchina virtuale. Il contenuto del disco temporaneo viene perso se si sposta la VM in un server host diverso, se l'host viene aggiornato o se nell'host si verifica un errore hardware. Se i dati stessi hanno una durata limitata, la perdita di dati può essere tollerabile. Per i dati di durata maggiore si potrebbe riuscire a ricompilare un indice o ripristinare le informazioni mancanti da un backup. È possibile ridurre al minimo le possibilità di perdita dei dati usando repliche mantenute in altre VM.
 
@@ -159,7 +163,7 @@ Le dimensioni della VM limitano la quantità di spazio disponibile nell'archivia
 
 **File di Azure**
 
-Il [Servizio File di Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx) fornisce accesso ai file condivisi tramite Archiviazione di Azure. È possibile creare condivisioni file che possono poi essere montate nelle VM di Azure. Più macchine virtuali possono montare la stessa condivisione file, abilitando quindi l'accesso agli stessi dati.
+Il [Servizio File di Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx) fornisce l'accesso ai file condivisi tramite Archiviazione di Azure. È possibile creare condivisioni file che possono poi essere montate nelle VM di Azure. Più macchine virtuali possono montare la stessa condivisione file, abilitando quindi l'accesso agli stessi dati.
 
 Per motivi di prestazioni, non è consigliabile usare condivisioni file per il mantenimento dei dati di Elasticsearch che non devono essere condivisi tra più nodi. I dischi dati normali sono più adatti a questo scopo. È possibile usare condivisioni file per la creazione di [indici di replica shadow](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-shadow-replicas.html) di Elasticsearch. Tuttavia, questa funzionalità è attualmente in fase sperimentale e al momento non deve essere implementata in un ambiente di produzione. Per questo motivo, gli indici shadow non saranno trattati oltre in questo documento.
 
@@ -167,11 +171,13 @@ Per motivi di prestazioni, non è consigliabile usare condivisioni file per il m
 
 Azure implementa uno schema di rete condiviso. Le VM che usano gli stessi rack hardware si contendono le risorse di rete. La larghezza di banda disponibile può quindi variare in base all'ora del giorno e al ciclo di lavoro quotidiano in esecuzione nelle VM che condividono la stessa infrastruttura di rete fisica. Il controllo su questi fattori è molto limitato. È importante comprendere che le prestazioni della rete sono soggette a fluttuazioni nel tempo, quindi è opportuno stabilire di conseguenza le aspettative dell'utente.
 
-## Considerazioni per l'aumento delle prestazioni dei nodi per supportare l'inserimento dei dati su larga scala
+## Aumento delle prestazioni dei nodi per supportare l'inserimento dei dati su larga scala
 
-È possibile creare cluster Elasticsearch con hardware ragionevolmente limitato e quindi aumentare le prestazioni o aumentare le istanze in base alla crescita del volume di dati e all'aumento del numero di richieste. Con Azure è possibile aumentare le prestazioni con l'esecuzione su macchine virtuali più grandi e più costose oppure aumentare le istanze usando altre VM più piccole e più economiche. È anche possibile eseguire una combinazione di entrambe le strategie. Non esiste alcuna soluzione universale per tutti gli scenari, quindi per valutare l'approccio migliore per qualsiasi tipo di situazione, è necessario essere pronti a intraprendere una serie di test delle prestazioni.
+È possibile creare cluster Elasticsearch con hardware ragionevolmente limitato e quindi aumentare le prestazioni o aumentare le istanze in base alla crescita del volume di dati e all'aumento del numero di richieste. Con Azure è possibile aumentare le prestazioni con l'esecuzione su macchine virtuali più grandi e più costose oppure aumentare le istanze usando altre VM più piccole e più economiche.
 
-Questa sezione riguarda l'approccio di aumento delle prestazioni, mentre l'aumento delle istanze è descritto nella sezione [Considerazioni per l'aumento delle istanze dei cluster per supportare l'inserimento di dati su larga scala](#scaling-out-clusters). In questa sezione vengono descritti i risultati di una serie di benchmark eseguiti su un set di cluster Elasticsearch costituito da VM con diverse dimensioni. I cluster sono stati progettati con dimensioni piccole, medie e grandi. La tabella seguente riepiloga le risorse allocate alle VM in ogni cluster.
+È anche possibile eseguire una combinazione di entrambe le strategie. Non esiste alcuna soluzione universale per tutti gli scenari, quindi per valutare l'approccio migliore per qualsiasi tipo di situazione, è necessario essere pronti a intraprendere una serie di test delle prestazioni.
+
+Questa sezione riguarda l'approccio relativo all'aumento delle prestazioni, mentre l'aumento delle istanze è descritto nella sezione [Aumento delle istanze: conclusioni](#scaling-out-conclusions). In questa sezione vengono descritti i risultati di una serie di benchmark eseguiti su un set di cluster Elasticsearch costituito da VM con diverse dimensioni. I cluster sono stati progettati con dimensioni piccole, medie e grandi. La tabella seguente riepiloga le risorse allocate alle VM in ogni cluster.
 
 | Cluster | SKU di VM | Numero di core | Numero di dischi dati | RAM |
 |---------|-------------|-----------------|----------------------|------|
@@ -181,9 +187,7 @@ Questa sezione riguarda l'approccio di aumento delle prestazioni, mentre l'aumen
 
 Ogni cluster Elasticsearch includeva 3 nodi dati. Questi nodi di dati hanno gestito le richieste dei client, nonché l'elaborazione dei dati. Non sono stati usati nodi client distinti, perché offrivano pochi vantaggi per lo scenario di inserimento di dati usato nei test. Il cluster includeva anche tre nodi master, uno dei quali è stato scelto da Elasticsearch per coordinare il cluster.
 
-I test sono stati eseguiti con ElasticSearch 1.7.3. I test sono stati eseguiti inizialmente sui cluster che eseguono Ubuntu Linux 14.0.4 e quindi sono stati ripetuti con Windows Server 2012. I dettagli del carico di lavoro eseguito dai test sono descritti nell'[Appendice](#appendix-the-bulk-load-data-ingestion-performance-test).
-
-> [AZURE.IMPORTANT] Come descritto nella sezione Opzioni di rete, le statistiche sulle prestazioni dei servizi distribuiti eseguiti in un ambiente cloud saranno influenzate in modo significativo dalla larghezza di banda disponibile per trasmettere e ricevere fisicamente i dati da e verso questi servizi. Quando si compila e si distribuisce un sistema, ad esempio un cluster Elasticsearch, si ha un ampio grado di controllo su CPU, memoria e risorse del disco disponibili selezionando semplicemente le dimensioni della VM e lo SKU. Si ha molto meno controllo sulle risorse di rete disponibili, perché sono condivise dalle VM posizionate fisicamente nello stesso rack hardware e anche perché sono condizionate dal volume di traffico in ingresso e in uscita dal data center. Quando si eseguono test comparativi delle prestazioni è quindi importante eseguirli con lo stesso data center e più o meno alla stessa ora del giorno durante la settimana lavorativa. I risultati dei test eseguiti su VM ospitati in data center diversi o eseguiti a orari diversi possono essere sostanzialmente differenti.
+I test sono stati eseguiti con Elasticsearch 1.7.3. I test sono stati eseguiti inizialmente sui cluster che eseguono Ubuntu Linux 14.0.4 e quindi sono stati ripetuti con Windows Server 2012. I dettagli del carico di lavoro eseguito dai test sono descritti nell'[Appendice](#appendix-the-bulk-load-data-ingestion-performance-test).
 
 ### Prestazioni di inserimento dei dati: Ubuntu Linux 14.0.4
 
@@ -201,21 +205,23 @@ La velocità effettiva e il numero di campioni elaborati per le tre configurazio
 
 Elasticsearch è dipendente dalla disponibilità di larghezza di banda sufficiente per supportare l'afflusso di richieste client, nonché il flusso di informazioni di sincronizzazione tra i nodi del cluster. Come evidenziato in precedenza, si ha un controllo limitato della disponibilità di larghezza di banda, che dipende da numerose variabili, ad esempio il data center in uso e l'attuale carico di rete di altre VM che condividono la stessa infrastruttura di rete. Vale comunque la pena esaminare l'attività di rete per ogni cluster anche solo per verificare che il volume di traffico non sia eccessivo. Il grafico seguente mostra un confronto del traffico di rete ricevuto dal nodo 2 in ogni cluster. I volumi per gli altri nodi in ogni cluster erano molto simili.
 
-![](media/guidance-elasticsearch-data-ingestion-image1.png)
+![](media/guidance-elasticsearch/data-ingestion-image1.png)
 
 Ecco la media dei byte ricevuti al secondo per il nodo 2 in ogni configurazione di cluster nel periodo di due ore:
 
 | Configurazione | Numero medio di byte ricevuti/sec |
 |---------------|--------------------------------------|
-| Piccola | 3993640,346 |
-| Media | 7311689,897 |
+| Piccola | 3993640,3 |
+| Media | 7311689,9 |
 | Grande | 11893874,2 |
 
-> [AZURE.NOTE] I test sono stati eseguiti mentre lo stato di esecuzione del sistema era stazionario. Nelle situazioni in cui si verifica un ribilanciamento dell'indice o il ripristino dei nodi, le trasmissioni dei dati tra i nodi che includono partizioni primarie e di replica possono generare un traffico di rete significativo. Gli effetti di questo processo sono descritti anche nel documento su configurazione, test e l'analisi della resilienza e del ripristino di Elasticsearch.
+I test sono stati eseguiti mentre lo stato di esecuzione del sistema era **stazionario**. Nelle situazioni in cui si verifica un ribilanciamento dell'indice o il ripristino dei nodi, le trasmissioni dei dati tra i nodi che includono partizioni primarie e di replica possono generare un traffico di rete significativo. Gli effetti di questo processo sono descritti anche nel documento [Configurazione delle opzioni di resilienza e ripristino di Elasticsearch in Azure][].
 
 ### Determinazione dei fattori limitanti: utilizzo della CPU
 
-La frequenza con cui le richieste vengono gestite è disciplinata almeno in parte dalla capacità di elaborazione disponibile. Elasticsearch accetta le richieste di inserimento in blocco nella coda corrispondente. Ogni nodo ha un set code di inserimento in blocco che dipende dal numero di processori disponibili. Per impostazione predefinita, è disponibile una coda per ogni processore e ogni coda può contenere fino a 50 richieste in attesa prima di iniziare a rifiutarle. Le applicazioni devono inviare le richieste con una frequenza che non causi l'overflow delle code. Il numero di elementi in ogni coda in un momento qualsiasi sarà in funzione della frequenza con cui le richieste vengono inviate dalle applicazioni client e della frequenza con cui le stesse richieste vengono recuperate ed elaborate da Elasticsearch. Per questo motivo, un'importante statistica acquisita riguarda la percentuale di errore riepilogata nella tabella seguente.
+La frequenza con cui le richieste vengono gestite è disciplinata almeno in parte dalla capacità di elaborazione disponibile. Elasticsearch accetta le richieste di inserimento in blocco nella coda corrispondente. Ogni nodo ha un set code di inserimento in blocco che dipende dal numero di processori disponibili. Per impostazione predefinita, è disponibile una coda per ogni processore e ogni coda può contenere fino a 50 richieste in attesa prima di iniziare a rifiutarle.
+
+Le applicazioni devono inviare le richieste con una frequenza che non causi l'overflow delle code. Il numero di elementi in ogni coda in un momento qualsiasi sarà in funzione della frequenza con cui le richieste vengono inviate dalle applicazioni client e della frequenza con cui le stesse richieste vengono recuperate ed elaborate da Elasticsearch. Per questo motivo, un'importante statistica acquisita riguarda la percentuale di errore riepilogata nella tabella seguente.
 
 | Configurazione | Campioni totali | N. di errori | Percentuale di errore |
 |---------------|---------------|-----------|------------|
@@ -232,30 +238,31 @@ org.elasticsearch.action.support.replication.TransportShardReplicationOperationA
 
 L'aumento del numero di code e/o della lunghezza di ogni coda può ridurre il numero di errori, ma questo approccio può supportare solo picchi di breve durata. Procedendo in questo modo durante l'esecuzione di una serie sostenuta di attività di inserimento dei dati ritarderà semplicemente il punto in cui inizieranno a verificarsi errori. Inoltre, questa modifica non migliorerà la velocità effettiva e probabilmente danneggerà il tempo di risposta delle applicazioni client, perché le richieste vengono accodate più a lungo prima di essere elaborate.
 
+La struttura dell'indice predefinito di 5 partizioni con 1 replica (10 partizioni in totale), genera un modesto sbilanciamento del carico tra i nodi in un cluster. Due nodi includeranno 3 partizioni, mentre l'altro nodo ne includerà 4. Il nodo più attivo è probabilmente l'elemento che limita maggiormente la velocità effettiva e questo è il motivo per cui questo nodo è stato selezionato in ogni caso.
+
 Il set di grafici seguente illustra l'utilizzo della CPU per il nodo più attivo in ogni cluster.
 
-> [AZURE.NOTE] La struttura dell'indice predefinito di 5 partizioni con 1 replica (10 partizioni in totale), genera un modesto sbilanciamento del carico tra i nodi in un cluster. Due nodi includeranno 3 partizioni, mentre l'altro nodo ne includerà 4. Il nodo più attivo è probabilmente l'elemento che limita maggiormente la velocità effettiva e questo è il motivo per cui questo nodo è stato selezionato in ogni caso:
+![](media/guidance-elasticsearch/data-ingestion-image2.png)
 
-![](media/guidance-elasticsearch-data-ingestion-image2.png)
+![](media/guidance-elasticsearch/data-ingestion-image3.png)
 
-![](media/guidance-elasticsearch-data-ingestion-image3.png)
-
-![](media/guidance-elasticsearch-data-ingestion-image4.png)
+![](media/guidance-elasticsearch/data-ingestion-image4.png)
 
 Per i cluster piccolo, medio e grande l'utilizzo medio della CPU per questi nodi è stato di 75,01%, 64,93% e 64,64%. Raramente l'utilizzo raggiunge effettivamente il 100% e si riduce con l'aumento delle dimensioni dei nodi e della potenza della CPU disponibile. È quindi improbabile che la potenza della CPU sia un fattore limitante delle prestazioni del cluster di grandi dimensioni.
 
 ### Determinazione dei fattori limitanti: memoria
 
-L'uso della memoria è un altro aspetto importante che può influenzare le prestazioni. Per i test, a Elasticsearch è stato allocato il 50% della memoria disponibile. Questa percentuale è in linea con le [raccomandazioni documentate](https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html#_give_half_your_memory_to_lucene). Durante l'esecuzione dei test è stata monitorata la JVM per un'attività di Garbage Collection eccessiva, un'indicazione che la memoria heap è insufficiente. In tutti i casi, le dimensioni dell'heap erano stabili e l'attività di Garbage Collection delle JVM è risultata limitata. La schermata nella figura 1 mostra uno snapshot di Marvel, che evidenzia le statistiche principali della JVM per un breve periodo durante l'esecuzione del test sul cluster di grandi dimensioni.
+L'uso della memoria è un altro aspetto importante che può influenzare le prestazioni. Per i test, a Elasticsearch è stato allocato il 50% della memoria disponibile. Questa percentuale è in linea con le [raccomandazioni documentate](https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html#_give_half_your_memory_to_lucene). Durante l'esecuzione dei test è stata monitorata la JVM per un'attività di Garbage Collection eccessiva, un'indicazione che la memoria heap è insufficiente. In tutti i casi, le dimensioni dell'heap erano stabili e l'attività di Garbage Collection delle JVM è risultata limitata. La schermata nella figura seguente mostra uno snapshot di Marvel, che evidenzia le statistiche principali della JVM per un breve periodo durante l'esecuzione del test sul cluster di grandi dimensioni.
 
-![](media/guidance-elasticsearch-data-ingestion-image5.png)
+![](media/guidance-elasticsearch/data-ingestion-image5.png)
 
-***Figura 1. Memoria e attività di Garbage Collection della JVM nel cluster di grandi dimensioni.***
+***Memoria e attività di Garbage Collection della JVM nel cluster di grandi dimensioni.***
 
 ### Determinazione dei fattori limitanti: velocità di I/O del disco
+
 La funzionalità fisica rimanente sul lato server che potrebbe vincolare le prestazioni sono le prestazioni del sottosistema di I/O del disco. Il grafico seguente confronta l'attività del disco in termini di byte scritti per i nodi più attivi in ogni cluster.
 
-![](media/guidance-elasticsearch-data-ingestion-image6.png)
+![](media/guidance-elasticsearch/data-ingestion-image6.png)
 
 La tabella seguente mostra la media dei byte scritti al secondo per il nodo 2 in ogni configurazione di cluster nel periodo di due ore:
 
@@ -269,11 +276,11 @@ Il volume dei dati scritti aumenta con il numero di richieste elaborate da un cl
 
 > [AZURE.NOTE] Il tempo di attesa del disco viene misurato monitorando la percentuale di tempo di CPU durante il quale i processori vengono bloccati in attesa del completamento delle operazioni di I/O.
 
-![](media/guidance-elasticsearch-data-ingestion-image7.png)
+![](media/guidance-elasticsearch/data-ingestion-image7.png)
 
-![](media/guidance-elasticsearch-data-ingestion-image8.png)
+![](media/guidance-elasticsearch/data-ingestion-image8.png)
 
-![](media/guidance-elasticsearch-data-ingestion-image9.png)
+![](media/guidance-elasticsearch/data-ingestion-image9.png)
 
 | Configurazione | Tempo di CPU medio di attesa del disco (%) |
 |---------------|--------------------------------|
@@ -283,11 +290,15 @@ Il volume dei dati scritti aumenta con il numero di richieste elaborate da un cl
 
 Questi dati indicano che una percentuale significativa del tempo di CPU (tra circa 16% e 21%) viene impiegata in attesa del completamento dell'I/O del disco. Questo limita la capacità di Elasticsearch di elaborare le richieste e archiviare i dati.
 
-> [AZURE.NOTE]  Durante l'esecuzione dei test il cluster di grandi dimensioni ha inserito oltre 500 milioni di documenti. Consentendo la prosecuzione del test, è risultato che i tempi di attesa sono aumentati in modo significativo quando nel database erano presenti oltre 600 milioni di documenti. Le cause di questo comportamento non sono state esaminate completamente, ma potrebbero essere dovute alla frammentazione del disco che causa l'aumento della latenza del disco. L'aumento delle dimensioni del cluster su più nodi può contribuire a ridurre gli effetti di questo comportamento. In casi estremi potrebbe essere necessario deframmentare un disco che mostra tempi di I/O eccessivi. Tuttavia, la deframmentazione di un disco di grandi dimensioni può richiedere molto tempo, anche più di 48 ore per un'unità VHD di 2 TB. Riformattare semplicemente l'unità e consentire a Elasticsearch di ripristinare i dati mancanti da partizioni di replica possono diventare un approccio più conveniente.
+Durante l'esecuzione dei test il cluster di grandi dimensioni ha inserito oltre **500 milioni di documenti**. Consentendo la prosecuzione del test, è risultato che i tempi di attesa sono aumentati in modo significativo quando nel database erano presenti oltre 600 milioni di documenti. Le cause di questo comportamento non sono state esaminate completamente, ma potrebbero essere dovute alla frammentazione del disco che causa l'aumento della latenza del disco.
+
+L'aumento delle dimensioni del cluster su più nodi può contribuire a ridurre gli effetti di questo comportamento. In casi estremi potrebbe essere necessario deframmentare un disco che mostra tempi di I/O eccessivi. Tuttavia, la deframmentazione di un disco di grandi dimensioni può richiedere molto tempo, anche più di 48 ore per un'unità VHD di 2 TB. Riformattare semplicemente l'unità e consentire a Elasticsearch di ripristinare i dati mancanti da partizioni di replica possono diventare un approccio più conveniente.
 
 ### Risoluzione dei problemi di latenza del disco
 
-I test sono stati eseguiti inizialmente con VM configurate con dischi Standard. Un disco Standard si basa su supporti in rotazione e di conseguenza è soggetto a latenza rotazionale e altri colli di bottiglia che possono vincolare le velocità di I/O. Azure offre anche l'Archiviazione Premium in cui i dischi vengono creati con dispositivi SSD. Questi dispositivi non hanno una latenza rotazionale e di conseguenza forniranno velocità di I/O migliori. La tabella confronta i risultati della sostituzione di dischi Standard con dischi Premium nel cluster di grandi dimensioni. Le VM D4 Standard nel cluster di grandi dimensioni sono state sostituite con VM DS4 Standard. Il numero di core, la memoria e i dischi sono gli stessi in entrambi i casi. L'unica differenza riguarda l'uso di unità SSD con le VM DS4.
+I test sono stati eseguiti inizialmente con VM configurate con dischi Standard. Un disco Standard si basa su supporti in rotazione e di conseguenza è soggetto a latenza rotazionale e altri colli di bottiglia che possono vincolare le velocità di I/O. Azure offre anche l'Archiviazione Premium in cui i dischi vengono creati con dispositivi SSD. Questi dispositivi non hanno una latenza rotazionale e di conseguenza forniranno velocità di I/O migliori.
+
+La tabella confronta i risultati della sostituzione di dischi Standard con dischi Premium nel cluster di grandi dimensioni. Le VM D4 Standard nel cluster di grandi dimensioni sono state sostituite con VM DS4 Standard. Il numero di core, la memoria e i dischi sono gli stessi in entrambi i casi. L'unica differenza riguarda l'uso di unità SSD con le VM DS4.
 
 | Configurazione | N. campioni | Tempo medio di risposta (ms) | Velocità effettiva (operazioni/sec) |
 |------------------|-----------|----------------------------|---------------------------|
@@ -296,11 +307,11 @@ I test sono stati eseguiti inizialmente con VM configurate con dischi Standard. 
 
 I tempi di risposta sono stati decisamente migliori, determinando una velocità effettiva media molto simile a 4 volte quella del cluster di piccole dimensioni. Questo risultato è più in linea con le risorse disponibili in VM DS4 Standard. L'utilizzo medio della CPU nel nodo più attivo del cluster (il nodo 1 in questo caso) è aumentato, avendo impiegato meno tempo in attesa del completamento dell'I/O:
 
-![](media/guidance-elasticsearch-data-ingestion-image10.png)
+![](media/guidance-elasticsearch/data-ingestion-image10.png)
 
 La riduzione del tempo di attesa del disco diventa evidente quando si considera il grafico seguente, che illustra come per il nodo più attivo questa statistica è scesa in media a circa l'1%:
 
-![](media/guidance-elasticsearch-data-ingestion-image11.png)
+![](media/guidance-elasticsearch/data-ingestion-image11.png)
 
 Questo miglioramento ha tuttavia un prezzo. Il numero di errori di inserimento è aumentato di 10 volte a 35797 (12,3%). Anche in questo caso, la maggior parte degli errori è il risultato dell'overflow della coda di inserimenti in blocco. Dato che ora l'esecuzione dell'hardware sembra aver raggiunto quasi il massimo della capacità, potrebbe essere necessario aggiungere altri nodi o limitare di nuovo la frequenza degli inserimenti in blocco per ridurre il volume di errori. Questi problemi sono illustrati più avanti in questo documento.
 
@@ -317,9 +328,9 @@ Anche la percentuale di errore è risultata simile (33862 errori su 289488 richi
 
 I grafici seguenti illustrano le statistiche relative a utilizzo della CPU e attesa del disco per il nodo più attivo del cluster (nodo 2 questa volta):
 
-![](media/guidance-elasticsearch-data-ingestion-image12.png)
+![](media/guidance-elasticsearch/data-ingestion-image12.png)
 
-![](media/guidance-elasticsearch-data-ingestion-image13.png)
+![](media/guidance-elasticsearch/data-ingestion-image13.png)
 
 In questo caso, in soli termini di prestazioni, l'uso dell'archiviazione temporanea può essere considerata una soluzione più conveniente rispetto all'uso dell'Archiviazione Premium.
 
@@ -348,17 +359,21 @@ La velocità effettiva è risultata coerente con quella per i cluster Ubuntu di 
 
 L'utilizzo della CPU segnalato dagli strumenti di monitoraggio di Windows è stato leggermente superiore rispetto a quello di Ubuntu. È tuttavia consigliabile considerare con estrema cautela i confronti diretti delle misurazioni tra sistemi operativi come queste, per il modo in cui i diversi sistemi operativi segnalano queste statistiche. Le informazioni sulla latenza del disco in termini di tempo di CPU trascorso in attesa di I/O non sono inoltre disponibili nello stesso modo di Ubuntu. Il punto importante è che l'utilizzo della CPU è risultato elevato e indica che il tempo trascorso in attesa di I/O era ridotto:
 
-![](media/guidance-elasticsearch-data-ingestion-image14.png)
+![](media/guidance-elasticsearch/data-ingestion-image14.png)
 
 ### Aumento delle prestazioni: conclusioni
 
-Le prestazioni di Elasticsearch per un cluster ottimizzato tendono a essere equivalenti in Windows e Ubuntu e aumentano secondo un modello simile in entrambi i sistemi operativi. Per prestazioni ottimali, usare unità SSD per contenere i dati di Elasticsearch.
+Le prestazioni di Elasticsearch per un cluster ottimizzato tendono a essere equivalenti in Windows e Ubuntu e aumentano secondo un modello simile in entrambi i sistemi operativi. Per prestazioni ottimali, **usare l'Archiviazione Premium per contenere i dati di Elasticsearch**.
 
-## <a name="scaling-out-clusters"></a>Considerazioni per l'aumento delle istanze dei cluster per supportare l'inserimento dei dati su larga scala
+## Aumento delle istanze dei cluster per supportare l'inserimento dei dati su larga scala
 
-L'aumento delle istanze è l'approccio gratuito all'aumento delle prestazioni esaminato nella sezione precedente. Un'importante funzionalità di Elasticsearch è l'intrinseca scalabilità orizzontale incorporata nel software. L'aumento delle dimensioni di un cluster è un'operazione semplice che prevede solo l'aggiunta di più nodi. Non è necessario eseguire operazioni manuali per ridistribuire gli indici o le partizioni, perché queste attività vengono gestite automaticamente, anche se sono disponibili alcune opzioni di configurazione che è possibile usare per influire sul processo. L'aggiunta di più nodi consente di migliorare le prestazioni distribuendo il carico tra più macchine. Quando si aggiungono più nodi, può anche essere necessario prendere in considerazione la reindicizzazione dei dati per aumentare il numero di partizioni disponibili. È possibile intervenire in questo processo in una certa misura con la creazione di indici con più partizioni di quanti sono i nodi disponibili inizialmente. Quando vengono aggiunti altri nodi, le partizioni possono essere distribuite.
+L'aumento delle istanze è l'approccio gratuito all'aumento delle prestazioni esaminato nella sezione precedente. Un'importante funzionalità di Elasticsearch è l'intrinseca scalabilità orizzontale incorporata nel software. L'aumento delle dimensioni di un cluster è un'operazione semplice che prevede solo l'aggiunta di più nodi. Non è necessario eseguire operazioni manuali per ridistribuire gli indici o le partizioni, perché queste attività vengono gestite automaticamente, anche se sono disponibili alcune opzioni di configurazione che è possibile usare per influire sul processo.
 
-Oltre a sfruttare la scalabilità orizzontale di Elasticsearch, esistono altri motivi per l'implementazione di indici con più partizioni che nodi. Ogni partizione viene implementata come una struttura di dati separata, ovvero un indice [Lucene](https://lucene.apache.org/), e ha i propri meccanismi interni per mantenere la coerenza e gestire la concorrenza. La creazione di più partizioni facilita l'aumento del parallelismo all'interno di un nodo, con la possibilità di migliorare le prestazioni. Il mantenimento delle prestazioni durante il ridimensionamento è tuttavia un'azione di bilanciamento. Più sono i nodi e le partizioni presenti in un cluster, maggiore sarà l'impegno richiesto per sincronizzare le operazioni eseguite dal cluster, con una possibile riduzione della velocità effettiva. In qualsiasi carico di lavoro ci sarà una condizione ideale che consente di ottimizzare le prestazioni di inserimento, riducendo al minimo il sovraccarico di manutenzione. Questa condizione ideale dipenderà in larga misura dalla natura del carico di lavoro e dal cluster e, in particolare, dal volume, dalle dimensioni e dal contenuto dei documenti, nonché dalla frequenza con cui si verifica l'inserimento e dall'hardware in cui viene eseguito il sistema.
+L'aggiunta di più nodi consente di migliorare le prestazioni distribuendo il carico tra più macchine. Quando si aggiungono più nodi, può anche essere necessario prendere in considerazione la reindicizzazione dei dati per aumentare il numero di partizioni disponibili. È possibile intervenire in questo processo in una certa misura con la creazione di indici con più partizioni di quanti sono i nodi disponibili inizialmente. Quando vengono aggiunti altri nodi, le partizioni possono essere distribuite.
+
+Oltre a sfruttare la scalabilità orizzontale di Elasticsearch, esistono altri motivi per l'implementazione di indici con più partizioni che nodi. Ogni partizione viene implementata come una struttura di dati separata, ovvero un indice [Lucene](https://lucene.apache.org/), e ha i propri meccanismi interni per mantenere la coerenza e gestire la concorrenza. La creazione di più partizioni facilita l'aumento del parallelismo all'interno di un nodo, con la possibilità di migliorare le prestazioni.
+
+Il mantenimento delle prestazioni durante il ridimensionamento è tuttavia un'azione di bilanciamento. Più sono i nodi e le partizioni presenti in un cluster, maggiore sarà l'impegno richiesto per sincronizzare le operazioni eseguite dal cluster, con una possibile riduzione della velocità effettiva. In qualsiasi carico di lavoro ci sarà una condizione ideale che consente di ottimizzare le prestazioni di inserimento, riducendo al minimo il sovraccarico di manutenzione. Questa condizione ideale dipenderà in larga misura dalla natura del carico di lavoro e dal cluster e, in particolare, dal volume, dalle dimensioni e dal contenuto dei documenti, nonché dalla frequenza con cui si verifica l'inserimento e dall'hardware in cui viene eseguito il sistema.
 
 Questa sezione riepiloga i risultati delle ricerche sul ridimensionamento dei cluster, allo scopo di supportare il carico di lavoro usato dal test delle prestazioni descritti in precedenza. Lo stesso test è stato eseguito in cluster con VM di dimensioni elevate, ovvero D4 Standard con 8 core CPU, 16 dischi dati e 28 GB di RAM, che eseguono Ubuntu Linux 14.0.4, ma configurate con numeri di nodi e partizioni diversi. I risultati non devono essere considerati definitivi, perché si applicano solo a uno scenario specifico, ma possono essere un buon punto di partenza per analizzare la scalabilità orizzontale dei cluster e generare cifre che indicano il rapporto ottimale tra partizioni e nodi che meglio soddisfa le proprie esigenze.
 
@@ -424,11 +439,11 @@ Questi risultati hanno mostrato un modello simile, con un punto critico a circa 
 
 Usando un'estrapolazione rudimentale, i risultati dei test per 6 nodi e 9 nodi indicano che, per questo specifico scenario, il numero ideale di partizioni per ottimizzare le prestazioni è 4n+/-1, dove n è il numero di nodi. Questo *può* essere in funzione del numero di thread di inserimento in blocco disponibili, che a sua volta dipende dal numero di core CPU, la cui spiegazione logica è riportata di seguito. Per altre informazioni, vedere [modello con documenti multipli](https://www.elastic.co/guide/en/elasticsearch/guide/current/distrib-multi-doc.html#distrib-multi-doc):
 
-* Ogni richiesta di inserimento in blocco inviata dall'applicazione client viene ricevuta da un singolo nodo dati.
+- Ogni richiesta di inserimento in blocco inviata dall'applicazione client viene ricevuta da un singolo nodo dati.
 
-* Il nodo dati compila una nuova richiesta di inserimento in blocco per ogni partizione primaria interessata dalla richiesta originale e le inoltra agli altri nodi in parallelo.
+- Il nodo dati compila una nuova richiesta di inserimento in blocco per ogni partizione primaria interessata dalla richiesta originale e le inoltra agli altri nodi in parallelo.
 
-* Durante la scrittura di ogni partizione primaria, un'altra richiesta viene inviata alla replica di tale partizione. La partizione primaria attende il completamento della richiesta inviata alla replica prima di terminare l'operazione.
+- Durante la scrittura di ogni partizione primaria, un'altra richiesta viene inviata alla replica di tale partizione. La partizione primaria attende il completamento della richiesta inviata alla replica prima di terminare l'operazione.
 
 Per impostazione predefinita, Elasticsearch crea un thread di inserimento in blocco per ogni core CPU disponibile in una macchina virtuale. Nel caso delle VM D4 usate da questo test, ogni CPU conteneva 8 core, quindi sono stati creati 8 thread di inserimento in blocco. L'indice ha usato 4 (in un caso 5) partizioni primarie estese in ogni nodo, ma sono presenti anche 4 (5) repliche in ogni nodo. L'inserimento di dati in queste partizioni e repliche può utilizzare fino a 8 thread in ogni nodo per ogni richiesta, corrispondente al numero disponibile. L'aumento o la riduzione del numero di partizioni può causare inefficienze a livello di threading, perché è possibile che i thread rimangano non occupati o le richieste siano accodate. Tuttavia, senza ulteriore sperimentazione questa è semplicemente una teoria e non è possibile trarre conclusioni definitive.
 
@@ -440,8 +455,7 @@ I test hanno illustrato anche un altro punto importante. In questo scenario l'au
 
 > Il punto importante di questo esercizio consiste nel comprendere il metodo usato piuttosto che i risultati ottenuti. È necessario essere pronti a eseguire una valutazione della scalabilità basata sui propri carichi di lavoro per ottenere informazioni applicabili con i migliori risultati al proprio scenario.
 
-<span id="_Considerations_for_Tuning" class="anchor"></span>
-## Considerazioni sull'ottimizzazione dell'inserimento di dati su larga scala
+## Ottimizzazione dell'inserimento dei dati su larga scala
 
 Elasticsearch è ampiamente configurabile, con molte opzioni e impostazioni che è possibile usare per ottimizzare le prestazioni per casi d'uso e scenari specifici. Questa sezione descrive alcuni esempi comuni. Tenere presente che la flessibilità fornita in questo senso da Elasticsearch è accompagnata da un avviso: è molto facile alterare Elasticsearch e causare un degrado delle prestazioni. Durante l'ottimizzazione, apportare una sola modifica alla volta e misurare sempre gli effetti delle modifiche per assicurarsi che non siano dannose per il sistema.
 
@@ -486,11 +500,11 @@ L'elenco seguente descrive alcuni punti che è opportuno considerare quando si o
 	}
 	```
 
-  > [AZURE.IMPORTANT] Una volta completato l'inserimento, reimpostare il tipo di limitazione del cluster su *"merge"*. Si noti anche che la disabilitazione della limitazione può causare l'instabilità del cluster. Assicurarsi quindi che le procedure in atto consentano il ripristino del cluster, se necessario.
+    Una volta completato l'inserimento, reimpostare il tipo di limitazione del cluster su *"merge"*. Si noti anche che la disabilitazione della limitazione può causare l'instabilità del cluster. Assicurarsi quindi che le procedure in atto consentano il ripristino del cluster, se necessario.
 
 * Elasticsearch riserva una percentuale della memoria heap per le operazioni di indicizzazione. Il resto viene usato principalmente da ricerche e query. Lo scopo di questi buffer consiste nel ridurre il numero di operazioni di I/O su disco, allo scopo di eseguire meno scritture più grandi invece di più scritture più piccole. La percentuale predefinita di memoria heap allocata è 10%. Se si indicizza un grande volume di dati, questo valore può risultare insufficiente. Per i sistemi che supportano l'inserimento di volumi elevati di dati, è necessario consentire fino a 512MB di memoria per ogni partizione nel nodo attivo. Ad esempio, se si esegue Elasticsearch in VM D4 (28 GB di RAM) e viene allocato il 50% della memoria disponibile alla JVM (14 GB), saranno disponibili 1,4 GB per l'uso da parte delle operazioni di indicizzazione. Se un nodo contiene 3 partizioni attive, questa configurazione è probabilmente sufficiente. Tuttavia, se un nodo contiene più partizioni di queste, provare ad aumentare il valore del parametro *indices.memory.index\_buffer\_size* nel file di configurazione elasticsearch.yml. Per altre informazioni, vedere il documento relativo alle [considerazioni sulle prestazioni per l'indicizzazione con Elasticsearch](https://www.elastic.co/blog/performance-considerations-elasticsearch-indexing).
 
-  > [AZURE.NOTE] L'allocazione di più di 512 MB per partizione attiva molto probabilmente non migliorerà le prestazioni di indicizzazione, ma può essere effettivamente sfavorevole, perché è disponibile una minore quantità di memoria per l'esecuzione di altre attività. Si consideri anche che allocare più spazio dell'heap per i buffer dell'indice rimuove memoria per altre operazioni, ad esempio ricerca e aggregazione dei dati, e può rallentare le prestazioni delle operazioni di query.
+    L'allocazione di più di 512 MB per partizione attiva molto probabilmente non migliorerà le prestazioni di indicizzazione, ma può essere effettivamente sfavorevole, perché è disponibile una minore quantità di memoria per l'esecuzione di altre attività. Si consideri anche che allocare più spazio dell'heap per i buffer dell'indice rimuove memoria per altre operazioni, ad esempio ricerca e aggregazione dei dati, e può rallentare le prestazioni delle operazioni di query.
 
 * Elasticsearch limita il numero di thread, il valore predefinito è 8, che possono eseguire contemporaneamente operazioni di indicizzazione in una partizione. Se un nodo contiene solo un numero ridotto di partizioni, provare ad aumentare l'impostazione *index\_concurrency* di un indice soggetto a un volume elevato di operazioni di indicizzazione o che è la destinazione di un inserimento in blocco, come indicato di seguito:
 
@@ -503,7 +517,7 @@ L'elenco seguente descrive alcuni punti che è opportuno considerare quando si o
 	}
 	```
 
-* Se si esegue un numero elevato di operazioni in blocco e indicizzazione per un breve periodo di tempo, è possibile aumentare il numero di thread *index* e *bulk* disponibili nel pool di thread ed estendere le dimensioni della coda *bulk insert* per ogni nodo dati. In questo modo più richieste potranno essere accodate invece che eliminate. Per altre informazioni, vedere il documento relativo al [pool di thread](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-threadpool.html). Se si eseguono livelli elevati e continui di inserimento dati, l'aumento del numero di thread in blocco non è consigliato. Creare invece nodi aggiuntivi e usare il partizionamento orizzontale per distribuire il carico di indicizzazione tra questi nodi. In alternativa, prendere in considerazione l'invio di batch di inserimento in blocco in serie piuttosto che in parallelo, perché questa impostazione verrà usata come meccanismo di limitazione naturale che può ridurre le probabilità di errori dovuti a un overflow della coda di inserimenti in blocco.
+* Se si esegue un numero elevato di operazioni in blocco e di indicizzazione per un breve periodo di tempo, è possibile aumentare il numero di thread *index* e *bulk* disponibili nel pool di thread ed estendere le dimensioni della coda *bulk insert* per ogni nodo dati. In questo modo più richieste potranno essere accodate invece che eliminate. Per altre informazioni, vedere il documento relativo al [pool di thread](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-threadpool.html). Se si eseguono livelli elevati e continui di inserimento dati, l'aumento del numero di thread in blocco non è consigliato. Creare invece nodi aggiuntivi e usare il partizionamento orizzontale per distribuire il carico di indicizzazione tra questi nodi. In alternativa, prendere in considerazione l'invio di batch di inserimento in blocco in serie piuttosto che in parallelo, perché questa impostazione verrà usata come meccanismo di limitazione naturale che può ridurre le probabilità di errori dovuti a un overflow della coda di inserimenti in blocco.
 
 ### Impatto della modifica dell'intervallo di aggiornamento dell'indice sulle prestazioni di inserimento dei dati
 
@@ -518,15 +532,17 @@ In questo test la frequenza di aggiornamento è stata impostata sul valore prede
 | 1 secondo | 93755 | 460 | 26,0 |
 | 30 secondi | 117758 | 365 | 32,7 |
 
-In questo test la riduzione della frequenza di aggiornamento ha prodotto un miglioramento del 18% nella velocità effettiva e una riduzione del tempo medio di risposta pari al 21%. I grafici seguenti generati con Marvel illustrano il motivo principale di questa differenza. La figura 2 seguente mostra l'attività di unione dell'indice che si è verificata con l'intervallo di aggiornamento impostato su 1 secondo e la figura 3 illustra il livello di attività con l'intervallo di aggiornamento impostato su 30 secondi. Le unioni dell'indice vengono eseguite per evitare che il numero di segmenti di indice in memoria diventi troppo elevato. Un intervallo di aggiornamento di 1 secondo genera un numero elevato di segmenti di piccole dimensioni che devono essere uniti di frequente, mentre un intervallo di aggiornamento di 30 secondi genera meno segmenti di grandi dimensioni che possono essere uniti in modo ottimale.
+In questo test la riduzione della frequenza di aggiornamento ha prodotto un miglioramento del 18% nella velocità effettiva e una riduzione del tempo medio di risposta pari al 21%. I grafici seguenti generati con Marvel illustrano il motivo principale di questa differenza. Le figure seguenti mostrano l'attività di unione dell'indice che si è verificata con l'intervallo di aggiornamento impostato su 1 secondo e 30 secondi.
 
-![](media/guidance-elasticsearch-data-ingestion-image15.png)
+Le unioni dell'indice vengono eseguite per evitare che il numero di segmenti di indice in memoria diventi troppo elevato. Un intervallo di aggiornamento di 1 secondo genera un numero elevato di segmenti di piccole dimensioni che devono essere uniti di frequente, mentre un intervallo di aggiornamento di 30 secondi genera meno segmenti di grandi dimensioni che possono essere uniti in modo ottimale.
 
-***Figura 2. Attività di unione dell'indice per una frequenza di aggiornamento dell'indice di 1 secondo***
+![](media/guidance-elasticsearch/data-ingestion-image15.png)
 
-![](media/guidance-elasticsearch-data-ingestion-image16.png)
+***Attività di unione dell'indice per una frequenza di aggiornamento dell'indice di 1 secondo***
 
-***Figura 3. Attività di unione dell'indice per una frequenza di aggiornamento dell'indice di 30 secondi***
+![](media/guidance-elasticsearch/data-ingestion-image16.png)
+
+***Attività di unione dell'indice per una frequenza di aggiornamento dell'indice di 30 secondi***
 
 ### Impatto delle repliche sulle prestazioni di inserimento dei dati
 
@@ -553,39 +569,41 @@ La tabella seguente riepiloga i tempi di risposta e la velocità effettiva di og
 
 La riduzione delle prestazioni con l'aumento del numero di repliche è chiara, ma è anche opportuno sottolineare il volume elevato di errori di inserimento dati nel terzo test. I messaggi generati da questi errori indicano che sono dovuti all'overflow della coda di inserimento in blocco che ha causato il rifiuto delle richieste. Questi rifiuti si sono verificati molto rapidamente, determinando il numero elevato.
 
-> [AZURE.NOTE]  I risultati del terzo test sottolineano l'importanza dell'uso di una strategia di ripetizione dei tentativi intelligente quando si verificano errori temporanei come questo, ovvero interruzione per un breve intervallo per consentire lo svuotamento della coda di inserimento in blocco prima di riprovare a eseguire l'operazione.
+> [AZURE.NOTE] I risultati del terzo test sottolineano l'importanza dell'uso di una strategia di ripetizione dei tentativi intelligente quando si verificano errori temporanei come questo, ovvero interruzione per un breve intervallo per consentire lo svuotamento della coda di inserimento in blocco prima di riprovare a eseguire l'operazione.
 
 Il set di grafici successivo confrontano i tempi di risposta durante i test. In ogni caso il primo grafico mostra i tempi di risposta complessivi, mentre il secondo grafico si concentra sui tempi di risposta per le operazioni più veloci. Si noti che la scala del primo grafico è dieci volte quella del secondo. È possibile vedere come il profilo dei tempi di risposta varia nei tre test.
 
 Senza repliche la maggior parte delle operazioni ha richiesto tra 75ms e 750ms, con la risposta più rapida tempi intorno a 25 ms:
 
-![](media/guidance-elasticsearch-data-ingestion-image17.png)
+![](media/guidance-elasticsearch/data-ingestion-image17.png)
 
 Con 1 replica il tempo di risposta operativa più popolato era compreso tra 125ms e 1250ms. Le risposte più rapide hanno impiegato circa 75ms, anche se le risposte rapide erano meno del caso con 0 repliche. Erano anche presenti molte più risposte che hanno richiesto tempi molto più lunghi rispetto ai casi più comuni, oltre 1250ms:
 
-![](media/guidance-elasticsearch-data-ingestion-image18.png)
+![](media/guidance-elasticsearch/data-ingestion-image18.png)
 
 Con 2 repliche l'intervallo di tempo di risposta più popolato è risultato tra 200 ms e 1500 ms, ma con molti meno risultati al di sotto dell'intervallo minimo rispetto al test con 1 replica. Tuttavia, lo schema dei risultati che superano il limite massimo è stato molto simile a quello del test con 1 replica. Ciò è molto probabilmente dovuto agli effetti delll'overflow della coda di inserimento in blocco, con una lunghezza della coda di oltre 50. L'attività aggiuntiva necessaria per gestire 2 repliche fa sì che l'overflow della coda si verifichi più spesso, impedendo le operazioni di inserimento abbiano tempi di risposta eccessivi. Le operazioni vengono rifiutate rapidamente invece di attendere per un lungo intervallo di tempo, causando eventualmente eccezioni di timeout o influenzando la velocità di risposta delle applicazioni client, che corrisponde allo scopo del meccanismo delle code di inserimento in blocco:
 
-![](media/guidance-elasticsearch-data-ingestion-image19.png)
+![](media/guidance-elasticsearch/data-ingestion-image19.png)
 
-<span id="_The_Impact_of_1" class="anchor"><span id="_Impact_of_Increasing" class="anchor"></span></span>Con Marvel è possibile vedere l'effetto del numero di repliche nella coda di inserimento nell'indice in blocco. La figura 4 mostra i dati di Marvel che illustra il riempimento della coda di inserimento in blocco durante il test. La lunghezza media della coda è stata intorno a 40 richieste, ma picchi periodici hanno causato l'overflow e di conseguenza il rifiuto delle richieste:
+<span id="_The_Impact_of_1" class="anchor"><span id="_Impact_of_Increasing" class="anchor"></span></span>Con Marvel è possibile vedere l'effetto del numero di repliche nella coda di inserimento nell'indice in blocco. La figura seguente mostra i dati di Marvel che illustrano il riempimento della coda di inserimento in blocco durante il test. La lunghezza media della coda è stata intorno a 40 richieste, ma picchi periodici hanno causato l'overflow e di conseguenza il rifiuto delle richieste:
 
-![](media/guidance-elasticsearch-data-ingestion-image20.png)
+![](media/guidance-elasticsearch/data-ingestion-image20.png)
 
-***Figura 4. Dimensioni della coda di inserimento nell'indice in blocco e numero di richieste rifiutate con 2 repliche.***
+***Dimensioni della coda di inserimento nell'indice in blocco e numero di richieste rifiutate con 2 repliche.***
 
-È necessario confrontare questi dati con la figura 5 seguente che mostra i risultati per una singola replica. Il motore di Elasticsearch ha potuto elaborare le richieste abbastanza rapidamente per mantenere la lunghezza media della coda a circa 25. La lunghezza della coda non ha mai superato 50 richieste e quindi nessuna attività è stata rifiutata.
+È necessario confrontare questi dati con la figura seguente che mostra i risultati per una singola replica. Il motore di Elasticsearch ha potuto elaborare le richieste abbastanza rapidamente per mantenere la lunghezza media della coda a circa 25. La lunghezza della coda non ha mai superato 50 richieste e quindi nessuna attività è stata rifiutata.
 
-![](media/guidance-elasticsearch-data-ingestion-image21.png)
+![](media/guidance-elasticsearch/data-ingestion-image21.png)
 
-***Figura 5. Dimensioni della coda di inserimento nell'indice in blocco e numero di richieste rifiutate con 1 replica.***
+***Dimensioni della coda di inserimento nell'indice in blocco e numero di richieste rifiutate con 1 replica.***
 
 ## Procedure consigliate per i client che inviano dati a Elasticsearch
 
-Molti aspetti delle prestazioni riguardano non solo il sistema internamente, ma anche per il modo in cui le applicazioni client usano il sistema. Elasticsearch offre molte funzionalità che possono essere utilizzate dal processo di inserimento dati. Ad esempio, generando identificatori univoci per i documenti, eseguendo analisi dei documenti e anche usando script per trasformare i dati quando vengono archiviati. Queste funzioni che concorrono tuttavia al carico sul motore di Elasticsearch e in molti casi possono essere eseguite in modo più efficiente dalle applicazioni client prima della trasmissione. È anche consigliabile prendere in considerazione l'implementazione delle procedure seguenti, nei casi appropriati:
+Molti aspetti delle prestazioni riguardano non solo il sistema internamente, ma anche per il modo in cui le applicazioni client usano il sistema. Elasticsearch offre molte funzionalità che possono essere utilizzate dal processo di inserimento dati. Ad esempio, generando identificatori univoci per i documenti, eseguendo analisi dei documenti e anche usando script per trasformare i dati quando vengono archiviati. Queste funzioni che concorrono tuttavia al carico sul motore di Elasticsearch e in molti casi possono essere eseguite in modo più efficiente dalle applicazioni client prima della trasmissione.
 
 > [AZURE.NOTE] Questo elenco di procedure consigliate riguarda principalmente l'inserimento di nuovi dati, invece della modifica dei dati esistenti già archiviati in un indice. I carichi di lavoro di inserimento vengono eseguiti come operazioni di aggiunta da Elasticsearch, mentre le modifiche dei dati sono eseguite come operazioni di eliminazione/aggiunta. Questo è dovuto al fatto che i documenti in un indice non sono modificabili, quindi la modifica di un documento implica la sostituzione dell'intero documento con una nuova versione. È possibile eseguire una richiesta HTTP PUT per sovrascrivere un documento esistente oppure usare l'API *update* di Elasticsearch che astrae una query per recuperare un documento esistente, unisce le modifiche e quindi esegue un'operazione PUT per archiviare il nuovo documento.
+
+È anche consigliabile prendere in considerazione l'implementazione delle procedure seguenti, nei casi appropriati:
 
 * Disabilitare l'analisi del testo per i campi dell'indice che non è necessario analizzare. Le analisi comportano la tokenizzazione del testo per abilitare query che possano cercare termini specifici. Questa può comunque essere un'attività che implica un uso intensivo della CPU, quindi occorre essere selettivi. Se si usa Elasticsearch per archiviare dati di log, può essere utile procedere alla tokenizzazione dei messaggi di log dettagliati per consentire ricerche complesse. Per altri campi, ad esempio quelli che contengono codici di errore o identificatori, non è probabilmente necessaria la tokenizzazione. Ad esempio, con quale frequenza è probabile che si richiedano i dettagli di tutti i messaggi il cui codice di errore contiene "3"? Il codice seguente disabilita l'analisi per i campi *name* e *hostip* nel tipo *logs* dell'indice *systembase*:
 
@@ -610,7 +628,7 @@ Molti aspetti delle prestazioni riguardano non solo il sistema internamente, ma 
 	}
 	```
 
-* Disabilitare il campo *\_all* di un indice, se non è obbligatorio. Il campo *\_all* concatena i valori degli altri campi nel documento per l'analisi e l'indicizzazione. È utile per l'esecuzione di query che possono trovare una corrispondenza con qualsiasi campo in un documento. Se è previsto che i client trovino una corrispondenza con campi denominati, l'abilitazione di *\_all* comporta semplicemente un sovraccarico di CPU e archiviazione. L'esempio seguente illustra come disabilitare il campo *\_all* per il tipo*logs* nell'indice *systembase*.
+* Disabilitare il campo *\_all* di un indice, se non è obbligatorio. Il campo *\_all* concatena i valori degli altri campi nel documento per l'analisi e l'indicizzazione. È utile per l'esecuzione di query che possono trovare una corrispondenza con qualsiasi campo in un documento. Se è previsto che i client trovino una corrispondenza con campi denominati, l'abilitazione di *\_all* comporta semplicemente un sovraccarico in termini di CPU e archiviazione. L'esempio seguente illustra come disabilitare il campo *\_all* per il tipo*logs* nell'indice *systembase*.
 
 	```http
 	PUT /systembase
@@ -632,7 +650,7 @@ Molti aspetti delle prestazioni riguardano non solo il sistema internamente, ma 
 
 * Evitare i mapping dinamici negli indici. Il mapping dinamico è una funzionalità potente, ma l'aggiunta di nuovi campi a un indice esistente richiede il coordinamento delle modifiche alla struttura dell'indice tra i nodi, cosa che possono causare il blocco temporaneo dell'indice. Il mapping dinamico può anche causare un'esplosione del numero di campi e il conseguente volume di metadati dell'indice, se non viene usato con attenzione. A sua volta, causa un aumento dei requisiti di archiviazione maggiore e I/O, sia per l'inserimento di dati che durante l'esecuzione delle query. Entrambi questi problemi avranno un impatto sulle prestazioni. È consigliabile disabilitare il mapping dinamico e definire le strutture dell'indice in modo esplicito. Per altre informazioni, vedere il documento relativo al [mapping dinamico dei campi](https://www.elastic.co/guide/en/elasticsearch/reference/current/dynamic-field-mapping.html#dynamic-field-mapping).
 
-* Comprendere come bilanciare il carico di lavoro per soddisfare i requisiti in conflitto. È sempre consigliabile considerare che l'inserimento dei dati può avere un impatto significativo sulle prestazioni di altre operazioni simultanee, ad esempio le query eseguite dagli utenti. L'inserimento di dati può essere soggetto a picchi improvvisi e se il sistema prova a utilizzare immediatamente tutti i dati in arrivo, l'afflusso può causare un drastico rallentamento delle frequenze di query. Elasticsearch prova ad evitare che questa situazione di verifichi regolando la frequenza con cui elaborerà le richieste di inserimento tramite la coda di inserimento in blocco. Per altre informazioni, vedere [Determinazione dei fattori limitanti: utilizzo della CPU](#determining-limiting-factors-cpu-utilization). Questo meccanismo deve però essere considerato veramente come ultima risorsa, perché se il codice dell'applicazione non è predisposto per la gestione delle richieste rifiutate, si rischia di perdere dati. È consigliabile usare invece un modello, ad esempio quello descritto nell'articolo sul [livellamento del carico basato sulle code](https://msdn.microsoft.com/library/dn589783.aspx) per controllare la frequenza con cui i dati vengono passati a Elasticsearch.
+* Comprendere come bilanciare il carico di lavoro per soddisfare i requisiti in conflitto. È sempre consigliabile considerare che l'inserimento dei dati può avere un impatto significativo sulle prestazioni di altre operazioni simultanee, ad esempio le query eseguite dagli utenti. L'inserimento di dati può essere soggetto a picchi improvvisi e se il sistema prova a utilizzare immediatamente tutti i dati in arrivo, l'afflusso può causare un drastico rallentamento delle frequenze di query. Elasticsearch prova ad evitare che questa situazione si verifichi regolando la frequenza con cui elaborerà le richieste di inserimento tramite la coda di inserimento in blocco. Per altre informazioni, vedere [Determinazione dei fattori limitanti: utilizzo della CPU](#determining-limiting-factors-cpu-utilization). Questo meccanismo deve però essere considerato veramente come ultima risorsa, perché se il codice dell'applicazione non è predisposto per la gestione delle richieste rifiutate, si rischia di perdere dati. È consigliabile usare invece un modello, ad esempio quello descritto nell'articolo sul [livellamento del carico basato sulle code](https://msdn.microsoft.com/library/dn589783.aspx) per controllare la frequenza con cui i dati vengono passati a Elasticsearch.
 
 * Assicurarsi che il cluster abbia risorse sufficienti per gestire il carico di lavoro, specialmente se gli indici sono configurati con più repliche.
 
@@ -662,7 +680,7 @@ Molti aspetti delle prestazioni riguardano non solo il sistema internamente, ma 
 	}
 	```
 
-	Elasticsearch consente anche di usare i numeri di versione personalizzati [generati esternamente](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html#_version_types).
+	Elasticsearch consente anche di usare numeri di versione personalizzati [generati esternamente](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html#_version_types).
 
 * È possibile disabilitare il campo *\_source* di un indice. Questo campo contiene una copia del documento JSON originale usato quando un documento viene archiviato. Il salvataggio di questo campo comporta operazioni di I/O su disco e costi di archiviazione aggiuntivi. Tuttavia, questi costi possono essere marginali a seconda della struttura del documento. Occorre anche tenere presente che la disattivazione del campo *\_source* impedisce a un client di eseguire le operazioni seguenti:
 
@@ -695,7 +713,7 @@ Di seguito sono illustrati alcuni degli elementi che è necessario considerare q
 
 * I test delle prestazioni sono necessariamente costosi e dispendiosi in termini di tempo. Come minimo, raccogliere le statistiche che misurano la velocità di trasferimento su disco e in rete, l'utilizzo della CPU, i tempi di attesa della CPU e la latenza del disco, se possibile. Queste informazioni consentono di avere rapidamente commenti sull'attività di test, con un buon ritorno sugli investimenti.
 
-* Sfruttare le funzionalità di script fornita dallo strumento di test di carico per raccogliere la metrica che altrimenti non sarebbe disponibile. Ad esempio Linux offre un'ampia gamma di statistiche sulle prestazioni affidabili che è possibile raccogliere con utilità come *vmstat* e *iostat*. È possibile usare script con JMeter per acquisire questi dati come parte di un piano di test.
+* Sfruttare le funzionalità di script fornita dallo strumento di test di carico per raccogliere la metrica che altrimenti non sarebbe disponibile. Ad esempio Linux offre un'ampia gamma di statistiche affidabili sulle prestazioni che è possibile raccogliere con utilità come *vmstat* e *iostat*. È possibile usare script con JMeter per acquisire questi dati come parte di un piano di test.
 
 * La progettazione delle prestazioni verte principalmente sull'analisi delle statistiche in base a dati affidabili e ripetibili. Non fermarsi alla metrica a livello generale che non fornirà le informazioni dettagliate necessarie. Usare i dati come base informativa e fare della progettazione delle prestazioni in un processo di sviluppo con un ciclo di feedback rapido. Esaminare sempre le statistiche che confrontano le tendenze con i risultati e le configurazioni precedenti. Procedendo in questo modo con regolarità, si potranno generare dati comprensibili, ripetibili con i carichi di lavoro e che consentiranno di valutare gli effetti delle modifiche alla configurazione e distribuzione.
 
@@ -729,7 +747,7 @@ Per i carichi di lavoro di inserimento dei dati, le prestazioni del sottosistema
 
 ## Appendice: Test delle prestazioni di inserimento dati con caricamento bulk
 
-Questa appendice descrive il test delle prestazioni eseguito sul cluster Elasticsearch. I test sono stati eseguiti con JMeter in esecuzione in un set di VM separato. Per informazioni dettagliate sull'ambiente di test, vedere il documento relativo alla procedura di creazione di un ambiente di test delle prestazioni per Elasticsearch. Per eseguire il test, è possibile creare manualmente il proprio piano di test con JMeter o usare gli script di test automatici disponibili separatamente. Per altre informazioni, vedere il documento relativo alla procedura di esecuzione di test automatici di inserimento con Elasticsearch.
+Questa appendice descrive il test delle prestazioni eseguito sul cluster Elasticsearch. I test sono stati eseguiti con JMeter in esecuzione in un set di VM separato. Per informazioni dettagliate sull'ambiente di test, vedere il documento [Creazione di un ambiente di test delle prestazioni per Elasticsearch in Azure][]. Per eseguire il test, è possibile creare manualmente il proprio piano di test con JMeter o usare gli script di test automatici disponibili separatamente. Per altre informazioni, vedere [Esecuzione dei test automatizzati delle prestazioni di Elasticsearch][].
 
 Il carico di lavoro di inserimento dati ha eseguito un caricamento su larga scala di documenti tramite l'API di inserimento in blocco. Lo scopo di questo indice è stata la simulazione di un repository che riceve dati di log che rappresentano gli eventi di sistema per la ricerca e l'analisi successive. Ogni documento è stato archiviato in un singolo indice denominato *systembase* con il tipo *logs*. Tutti i documenti ha lo stesso schema predefinito descritto nella tabella seguente:
 
@@ -754,7 +772,7 @@ Il carico di lavoro di inserimento dati ha eseguito un caricamento su larga scal
 | osVersion | string | 4\.1.1 |
 | parameters | [ ] | {key:value,key:value} |
 
-È possibile usare la richiesta seguente per creare l'indice. In molti test le impostazioni *number\_of\_replicas*, *refresh\_interval* e *number\_of\_shards* sono state diverse rispetto ai valori illustrati di seguito.
+È possibile usare la richiesta seguente per creare l'indice. In molti test le impostazioni *number\_of\_replicas*, *refresh\_interval* e *number\_of\_shards* erano diverse rispetto ai valori illustrati di seguito.
 
 > [AZURE.IMPORTANT] L'indice è stato eliminato e ricreato prima di ogni esecuzione di test.
 
@@ -849,9 +867,9 @@ Ogni batch di inserimento in blocco era composto da 1000 documenti. Ogni documen
 
 I dati sono stati generati in modo dinamico usando un campionatore JUnit Request personalizzato che è stato aggiunto a un gruppo di thread in un piano di test di JMeter. Il codice JUnit è stato creato con il modello JUnit Test Case nell'IDE di Eclipse.
 
-> [AZURE.NOTE] Per informazioni su come creare un test JUnit per JMeter, vedere il documento relativo alla procedura di creazione e distribuzione di un campionatore JUnit di JMeter per il test delle prestazioni di Elasticsearch.
+> [AZURE.NOTE] Per informazioni su come creare un test JUnit per JMeter, vedere il documento [Distribuzione di un campionatore JUnit per JMeter per il test delle prestazioni di Elasticsearch][].
 
-Il frammento di codice seguente mostra il codice Java per il test di Elasticsearch 1.7.3. Si noti che la classe di test JUnit in questo esempio è denominata *ElasticSearchLoadTest2*:
+Il frammento di codice seguente mostra il codice Java per il test di Elasticsearch 1.7.3. Si noti che la classe di test JUnit in questo esempio è denominata *ElasticsearchLoadTest2*:
 
 ```java
 /* Java */
@@ -871,7 +889,7 @@ package elasticsearchtest2;
 	import org.elasticsearch.common.settings.*;
 	import org.elasticsearch.common.xcontent.*;
 
-	public class ElasticSearchLoadTest2 {
+	public class ElasticsearchLoadTest2 {
 
 		private String [] names={"checkout","order","search","payment"};
 		private String [] messages={"Incoming request from code","incoming operation succeeded with code","Operation completed time","transaction performed"};
@@ -890,7 +908,7 @@ package elasticsearchtest2;
 		public void setUp() throws Exception {
 		}
 
-		public ElasticSearchLoadTest2(String paras) {
+		public ElasticsearchLoadTest2(String paras) {
 		* Paras is a string containing a set of comma separated values for:
 			hostname
 			indexstr
@@ -1038,10 +1056,15 @@ Il costruttore che accetta il parametro *String* viene richiamato da JMeter e i 
 
 I dati per la stringa del costruttore vengono specificati nella pagina di JUnit Request usata per configurare il campionatore JUnit in JMeter. La figura seguente mostra un esempio:
 
-![](media/guidance-elasticsearch-data-ingestion-image22.png)
+![](media/guidance-elasticsearch/data-ingestion-image22.png)
 
-I metodi *BulkInsertTest* e *BigBulkInsertTest* eseguono l'effettiva operazione di generazione e il caricamento dei dati. Entrambi i metodi sono molto simili, possono connettersi al cluster Elasticsearch e quindi creare un batch di documenti, come determinato dal parametro della stringa del costruttore *ItemsPerInsert*. I documenti vengono aggiunti all'indice tramite l'API Bulk di Elasticsearch. La differenza tra i due metodi è che i campi stringa *data1* e *data2* in ogni documento sono stati omessi dal caricamento nel metodo *BulkInsertTest*, ma sono riempiti con stringhe di 12000 caratteri nel metodo *BigBulkInsertTest*. Si noti che è possibile scegliere quali di questi metodi eseguire tramite la casella *Test Method* nella pagina richiesta JUnit Request in JMeter (evidenziato nella figura precedente).
+I metodi *BulkInsertTest* e *BigBulkInsertTest* eseguono l'effettiva operazione di generazione e caricamento dei dati. Entrambi i metodi sono molto simili, possono connettersi al cluster Elasticsearch e quindi creare un batch di documenti, come determinato dal parametro della stringa del costruttore *ItemsPerInsert*. I documenti vengono aggiunti all'indice tramite l'API Bulk di Elasticsearch. La differenza tra i due metodi è che i campi stringa *data1* e *data2* in ogni documento vengono omessi dal caricamento nel metodo *BulkInsertTest*, ma sono riempiti con stringhe di 12000 caratteri nel metodo *BigBulkInsertTest*. Si noti che è possibile scegliere quali di questi metodi eseguire tramite la casella *Test Method*, evidenziata nella figura precedente, nella pagina JUnit Request in JMeter.
 
 > [AZURE.NOTE] Il codice di esempio presentato qui usa la libreria Transport Client di Elasticsearch 1.7.3. Se si usa Elasticsearch 2.0.0 o versione successiva, è necessario usare la libreria appropriata per la versione selezionata. Per altre informazioni sulla libreria Transport Client di Elasticsearch 2.0.0, vedere la pagina [Transport Client](https://www.elastic.co/guide/en/elasticsearch/client/java-api/2.0/transport-client.html) nel sito Web Elasticsearch.
 
-<!---HONumber=AcomDC_0211_2016-->
+[Configurazione delle opzioni di resilienza e ripristino di Elasticsearch in Azure]: guidance-elasticsearch-configuring-resilience-and-recovery.md
+[Creazione di un ambiente di test delle prestazioni per Elasticsearch in Azure]: guidance-elasticsearch-creating-performance-testing-environment.md
+[Esecuzione dei test automatizzati delle prestazioni di Elasticsearch]: guidance-elasticsearch-running-automated-performance-tests.md
+[Distribuzione di un campionatore JUnit per JMeter per il test delle prestazioni di Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
+
+<!---HONumber=AcomDC_0224_2016-->

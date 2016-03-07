@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori | Microsoft Azure | Servizio di ricerca cloud ospitato" 
+	pageTitle="Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori | Microsoft Azure | Indicizzatori" 
 	description="Informazioni su come estrarre i dati dal database SQL di Azure a un indice di Ricerca di Azure tramite gli indicizzatori." 
 	services="search" 
 	documentationCenter="" 
@@ -275,4 +275,4 @@ A: Sì. Tuttavia, è possibile eseguire un solo indicizzatore per volta in un no
 
 A: Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e le risorse di tale nodo vengono condivise tra l'indicizzazione e la gestione del traffico di query e altre richieste API. Se si eseguono un’indicizzazione e dei carichi di lavoro di query intensivi e si verifica una frequenza elevata di errori 503 o un aumento dei tempi di risposta, considerare il ridimensionamento del servizio di ricerca.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

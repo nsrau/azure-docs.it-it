@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -21,7 +21,7 @@
 
 In questa esercitazione viene illustrato come rimuovere e sostituire uno o entrambi i moduli controller in un dispositivo StorSimple. Viene inoltre illustrata la logica sottostante per gli scenari di sostituzione controller singoli e doppi.
 
->[AZURE.NOTE]Prima di eseguire una sostituzione del controller, è consigliabile aggiornare sempre il firmware del controller alla versione più recente.
+>[AZURE.NOTE] Prima di eseguire una sostituzione del controller, è consigliabile aggiornare sempre il firmware del controller alla versione più recente.
 >
 >Per evitare danni al dispositivo StorSimple, non rimuovere il controller fino a quando non vengono visualizzati i LED come in un uno dei seguenti modi:
 >
@@ -47,7 +47,7 @@ Nella tabella seguente vengono illustrati gli scenari di sostituzione del contro
 - [Aggiungere un controller.](#insert-a-controller)
 - [Identificare il controller attivo sul dispositivo](#identify-the-active-controller-on-your-device)
 
->[AZURE.IMPORTANT]Prima di rimuovere e sostituire un controller, esaminare le informazioni di sicurezza descritte in [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Prima di rimuovere e sostituire un controller, esaminare le informazioni di sicurezza descritte in [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Sostituzione di un singolo controller
 
@@ -71,7 +71,7 @@ In una sostituzione di un controller singolo, è necessario rimuovere prima il c
 
 Completare i passaggi seguenti se uno dei controller del dispositivo Microsoft Azure StorSimple ha esito negativo. (L’altro controller deve essere attivo e in esecuzione. Se entrambi i controller hanno esito negativo o non funzionano, andare alla[Procedura per la sostituzione doppia del controller](#dual-controller-replacement-steps).)
 
->[AZURE.NOTE]Il riavvio e il ripristino completo del controller dalla procedura di sostituzione può richiedere 30 - 45 minuti. Il tempo totale richiesto per l'intera procedura, incluso il collegamento dei cavi, è di circa 2 ore.
+>[AZURE.NOTE] Il riavvio e il ripristino completo del controller dalla procedura di sostituzione può richiedere 30 - 45 minuti. Il tempo totale richiesto per l'intera procedura, incluso il collegamento dei cavi, è di circa 2 ore.
 
 #### Per rimuovere un singolo modulo del controller che ha avuto esito negativo
 
@@ -79,7 +79,7 @@ Completare i passaggi seguenti se uno dei controller del dispositivo Microsoft A
 
 2. Scegliere la scheda **Manutenzione**e quindi passare alla scheda**Stato hardware**. Lo stato del Controller 0 o Controller 1 deve essere rosso, ad indicare un errore.
 
-    >[AZURE.NOTE]Il controller che ha avuto esito negativo in una sostituzione di un singolo controller è sempre un controller in standby.
+    >[AZURE.NOTE] Il controller che ha avuto esito negativo in una sostituzione di un singolo controller è sempre un controller in standby.
 
 3. Usare la figura 1 e la tabella seguente per individuare il modulo del controller che ha avuto esito negativo.
 
@@ -104,7 +104,7 @@ Completare i passaggi seguenti se uno dei controller del dispositivo Microsoft A
 
 8. Dopo aver riavviato il controller, controllare lo**Stato del controller**e lo**Stato del cluster**nel portale di Azure classico per verificare che il controller sia in uno stato integro e in modalità standby.
 
->[AZURE.NOTE]Se si sta monitorando il dispositivo tramite la console seriale, è possibile riscontrare più riavvii mentre il controller effettua il ripristino dalla procedura di sostituzione. Quando viene visualizzato il menu della console seriale, si saprà che la sostituzione è completata. Se il menu non viene visualizzato entro due ore dall’inizio della sostituzione del controller,[contattare il supporto Microsoft](storsimple-contact-microsoft-support.md).
+>[AZURE.NOTE] Se si sta monitorando il dispositivo tramite la console seriale, è possibile riscontrare più riavvii mentre il controller effettua il ripristino dalla procedura di sostituzione. Quando viene visualizzato il menu della console seriale, si saprà che la sostituzione è completata. Se il menu non viene visualizzato entro due ore dall’inizio della sostituzione del controller,[contattare il supporto Microsoft](storsimple-contact-microsoft-support.md).
 
 ## Sostituzione di entrambi i controller
 
@@ -132,13 +132,13 @@ In una doppia sostituzione di controller, rimuovere prima entrambi i controller 
 
 5. Successivamente, verranno eseguiti entrambi i controller e il cluster verrà portato online.
 
->[AZURE.IMPORTANT]Dopo la sostituzione doppia dei controller, dopo aver configurato il dispositivo StorSimple, è essenziale eseguire un backup manuale del dispositivo. I backup giornalieri di configurazione dispositivo non vengono attivati fino a che non sono trascorse 24 ore. Lavorare con[il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)per eseguire un backup manuale del dispositivo.
+>[AZURE.IMPORTANT] Dopo la sostituzione doppia dei controller, dopo aver configurato il dispositivo StorSimple, è essenziale eseguire un backup manuale del dispositivo. I backup giornalieri di configurazione dispositivo non vengono attivati fino a che non sono trascorse 24 ore. Lavorare con[il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md)per eseguire un backup manuale del dispositivo.
 
 ### Procedura per la sostituzione doppia di controller
 
 Questo flusso di lavoro è necessario quando entrambi i controller del dispositivo Microsoft Azure StorSimple hanno avuto esito negativo. Questo problema può verificarsi in un Data Center in cui il sistema di raffreddamento smette di funzionare e di conseguenza, entrambi i controller non riescono in un breve periodo di tempo. A seconda se il dispositivo StorSimple è attivato o disattivato e se si utilizza un modello 8600 o un modello 8100, è necessaria una serie diversa di passaggi.
 
->[AZURE.IMPORTANT]Il riavvio e il ripristino completo del controller dalla procedura di sostituzione può richiedere da 45 minuti fino a 1 ora. Il tempo totale richiesto per l'intera procedura, incluso il collegamento dei cavi, è di circa 2.5 ore.
+>[AZURE.IMPORTANT] Il riavvio e il ripristino completo del controller dalla procedura di sostituzione può richiedere da 45 minuti fino a 1 ora. Il tempo totale richiesto per l'intera procedura, incluso il collegamento dei cavi, è di circa 2.5 ore.
 
 #### Per sostituire entrambi i moduli del controller
 
@@ -166,13 +166,13 @@ Questo flusso di lavoro è necessario quando entrambi i controller del dispositi
 
     4. Dopo che il primo controller viene riavviato e si trova in uno stato integro, il sistema sarà in esecuzione.
 
-    >[AZURE.NOTE]Se si sta monitorando il dispositivo tramite la console seriale, è possibile riscontrare più riavvii mentre il controller effettua il ripristino dalla procedura di sostituzione. Quando viene visualizzato il menu della console seriale, si sa che la sostituzione è completata. Se il menu non viene visualizzato entro 2.5 ore dall’inizio della sostituzione del controller,[contattare il supporto Microsoft](storsimple-contact-microsoft-support.md).
+    >[AZURE.NOTE] Se si sta monitorando il dispositivo tramite la console seriale, è possibile riscontrare più riavvii mentre il controller effettua il ripristino dalla procedura di sostituzione. Quando viene visualizzato il menu della console seriale, si sa che la sostituzione è completata. Se il menu non viene visualizzato entro 2.5 ore dall’inizio della sostituzione del controller,[contattare il supporto Microsoft](storsimple-contact-microsoft-support.md).
 
 ## Rimuovere un controller
 
 Utilizzare la procedura seguente per rimuovere un modulo controller danneggiato dal dispositivo StorSimple.
 
->[AZURE.NOTE]Le illustrazioni seguenti riguardano il controller 0. Per il controller 1, questi potrebbe essere annullati.
+>[AZURE.NOTE] Le illustrazioni seguenti riguardano il controller 0. Per il controller 1, questi potrebbe essere annullati.
 
 #### Per rimuovere un modulo controller
 
@@ -212,7 +212,7 @@ Utilizzare la procedura seguente per installare un modulo controller factory for
 
 4. Quando la linguetta è posizionata correttamente la procedura è terminata. Il LED **OK**dovrebbe ora essere acceso.
 
-    >[AZURE.NOTE]La riattivazione del controller e del LED potrebbe richiedere fino a 5 minuti.
+    >[AZURE.NOTE] La riattivazione del controller e del LED potrebbe richiedere fino a 5 minuti.
 
 5. Per verificare che la sostituzione abbia avuto esito positivo, nel portale di Azure classico, passare a**Dispositivi** > **Manutenzione** > **Stato Hardware**e assicurarsi che sia controller 0 e sia il controller 1 siano integri (lo stato deve essere verde).
 
@@ -266,4 +266,4 @@ Se il LED lampeggia, il controller è attivo e l'altro controller è in modalit�
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 # Come usare l'archiviazione di accodamento da PHP
@@ -42,12 +42,13 @@ In questa guida si useranno le funzionalità del Servizio di accodamento che pos
 
 Per utilizzare le API per l'archiviazione di accodamento di Azure, è necessario:
 
-1. Fare riferimento al file autoloader mediante l'istruzione [require\_once][require_once].
+1. Fare riferimento al file autoloader mediante l'istruzione [require\_once].
 2. Fare riferimento a tutte le eventuali classi utilizzabili.
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServicesBuilder**.
 
-> [AZURE.NOTE]In questo esempio (e in altri esempi in questo articolo) si presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, sarà necessario fare riferimento al file autoloader `WindowsAzure.php`.
+> [AZURE.NOTE]
+In questo esempio (e in altri esempi in questo articolo) si presuppone che siano state installate le librerie client PHP per Azure tramite Composer. Se le librerie sono state installate manualmente o come pacchetto PEAR, sarà necessario fare riferimento al file autoloader `WindowsAzure.php`.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -115,7 +116,7 @@ Un oggetto **QueueRestProxy** consente di creare una coda utilizzando il metodo 
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE]Non basarsi sulla distinzione maiuscole/minuscole nelle chiavi di metadati. Il servizio legge tutte le chiavi come scritte in minuscolo.
+> [AZURE.NOTE] Non basarsi sulla distinzione maiuscole/minuscole nelle chiavi di metadati. Il servizio legge tutte le chiavi come scritte in minuscolo.
 
 
 ## Aggiungere un messaggio a una coda
@@ -380,7 +381,7 @@ A questo punto, dopo aver appreso le nozioni di base sull'archiviazione delle co
 Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/develop/php/).
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[require_once]: http://www.php.net/manual/en/function.require-once.php
-[Azure Portal]: portal.azure.com
+[require\_once]: http://www.php.net/manual/en/function.require-once.php
+[Azure Portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

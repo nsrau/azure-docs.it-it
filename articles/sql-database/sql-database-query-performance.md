@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/03/2015"
+   ms.date="02/03/2016"
    ms.author="sstein"/>
 
 # Query Performance Insight del database SQL di Azure
@@ -33,7 +33,7 @@ La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'
  
 ## Autorizzazioni
 
-Le autorizzazioni di [controllo degli accessi in base al ruolo](role-based-access-control-configure.md) seguenti sono necessarie per usare Query Performance Insight:
+Le autorizzazioni di [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) seguenti sono necessarie per usare Query Performance Insight:
 
 - Le autorizzazioni **Lettore**, **Proprietario**, **Collaboratore**, **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare le query principali che utilizzano le risorse e i grafici. 
 - Le autorizzazioni **Proprietario**, **Collaboratore**, **Collaboratore database SQL** o **Collaboratore SQL Server** sono necessarie per visualizzare il testo della query.
@@ -170,4 +170,4 @@ Per indicazioni aggiuntive sul miglioramento delle prestazioni del database SQL,
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

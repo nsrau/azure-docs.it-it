@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
-	ms.author="yochay"/>
+	ms.date="02/18/2016" 
+	ms.author="stefsch"/>
 
 # Panoramica
 
@@ -32,7 +32,23 @@ Gli ambienti di servizio dell’App sono isolati per eseguire solo le applicazio
 
 Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi Web interni. Le applicazioni in esecuzione in ambienti del servizio app possono accedere alle risorse raggiungibili tramite connessioni VPN [da sito a sito][SiteToSite] e [Azure ExpressRoute][ExpressRoute].
 
+* [Che cos'è un ambiente del servizio app?](../app-service-web/app-service-app-service-environment-intro.md)
+* [Creazione di un ambiente del servizio app](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
+* [Creazione di app in un ambiente del servizio app](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [Configurazione di un ambiente del servizio app](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
+* [Scalabilità di app in un ambiente del servizio app](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+* [Sicurezza di rete e architettura](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
+
+## Procedure
+
 [AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
+
+
+## Video
+[AZURE.VIDEO azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps]
+
+[AZURE.VIDEO microsoft-ignite-2015-running-enterprise-web-and-mobile-apps-on-azure-app-service]
+
 
 <!-- LINKS -->
 [PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
@@ -43,4 +59,4 @@ Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

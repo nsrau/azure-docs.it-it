@@ -32,11 +32,11 @@ Se l’errore dell'utente causa la modifica dei dati non intenzionale, è possib
 
 ### PowerShell
 
-Utilizzare PowerShell di Azure per eseguire un ripristino del database a livello di codice. Per scaricare il modulo di Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
+Utilizzare PowerShell di Azure per eseguire un ripristino del database a livello di codice. Per scaricare il modulo di Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). È possibile controllare la versione in uso eseguendo Get-Module -ListAvailable -Name Azure. Questo articolo si basa su Microsoft Azure PowerShell versione 1.0.4.
 
 Per ripristinare un database, utilizzare il cmdlet [Start-AzureSqlDatabaseRestore][].
 
-1. Aprire Microsoft Azure PowerShell
+1. Aprire Windows PowerShell.
 2. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
 3. Selezionare la sottoscrizione che contiene il database da ripristinare.
 4. Elencare i punti di ripristino per il database (richiede la modalità Gestione risorse di Azure)
@@ -46,23 +46,26 @@ Per ripristinare un database, utilizzare il cmdlet [Start-AzureSqlDatabaseRestor
 
 ```
 
-Add-AzureAccount
-Get-AzureSubscription
-Select-AzureSubscription -SubscriptionName "<Subscription_name>"
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 
-# List database restore points
-Switch-AzureMode AzureResourceManager
-Get-AzureSqlDatabaseRestorePoints -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>" -ResourceGroupName "<YourResourceGroupName>"
+# List the last 10 database restore points
+((Get-AzureRMSqlDatabaseRestorePoints -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>" -ResourceGroupName "<YourResourceGroupName>").RestorePointCreationDate)[-10 .. -1]
+
+	# Or for all restore points
+	Get-AzureRmSqlDatabaseRestorePoints -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>" -ResourceGroupName "<YourResourceGroupName>"
 
 # Pick desired restore point using RestorePointCreationDate
 $PointInTime = "<RestorePointCreationDate>"
 
-# Get the specific database to restore
-Switch-AzureMode AzureServiceManagement
-$Database = Get-AzureSqlDatabase -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>"
+# Get the specific database name to restore
+(Get-AzureRmSqlDatabase -ServerName "<YourServerName>" -ResourceGroupName "<YourResourceGroupName>").DatabaseName | where {$_ -ne "master" }
+#or
+Get-AzureRmSqlDatabase -ServerName "<YourServerName>" –ResourceGroupName "<YourResourceGroupName>"
 
 # Restore database
-$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerName>" -SourceDatabase $Database -TargetDatabaseName "<NewDatabaseName>" -PointInTime $PointInTime
+$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerName>" -SourceDatabaseName "<YourDatabaseName>" -TargetDatabaseName "<NewDatabaseName>" -PointInTime $PointInTime
 
 # Monitor progress of restore operation
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
@@ -138,4 +141,4 @@ Per ulteriori informazioni sulle funzionalità di continuità aziendale di altre
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

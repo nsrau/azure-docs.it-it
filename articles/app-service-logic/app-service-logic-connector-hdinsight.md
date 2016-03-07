@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/12/2016"
+   ms.date="02/10/2016"
    ms.author="sameerch"/>
 
 
 # Uso del connettore HDInsight e aggiunta all'app per la logica
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
 Un connettore HDInsight consente di creare un cluster Hadoop in Azure e di inviare diversi processi Hadoop, ad esempio Hive, Pig, MapReduce e Streaming MapReduce. Il servizio Azure HDInsight distribuisce ed esegue il provisioning dei cluster Apache Hadoop nel cloud, offrendo un framework software progettato per gestire, analizzare e creare report sui Big Data. La memoria centrale di Hadoop fornisce un'archiviazione dei dati affidabile grazie ad Hadoop Distributed File System (HDFS), nonché un modello di programmazione semplice, MapReduce, per elaborare e analizzare in parallelo i dati archiviati nel sistema distribuito. Con il connettore HDInsight è possibile creare o eliminare un cluster, inviare un processo e attenderne il completamento.
 
 I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un flusso. È possibile aggiungere il connettore HDInsight al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
@@ -45,7 +47,7 @@ I connettori possono essere usati nelle app per la logica per operazioni di recu
 
 ## Configurazione dei certificati (facoltativo) ##
 
-> [AZURE.NOTE]questo passaggio è necessario solo se si desidera eseguire operazioni di gestione (creazione ed eliminazione di cluster) nell'app per la logica.
+> [AZURE.NOTE] questo passaggio è necessario solo se si desidera eseguire operazioni di gestione (creazione ed eliminazione di cluster) nell'app per la logica.
 
 Passare all'app per le API del connettore HDInsight appena creata. Nel componente 'Sicurezza' è visualizzato il valore 0, a indicare che non è stato caricato alcun certificato di gestione: ![][2]
 
@@ -58,7 +60,7 @@ Per caricare il certificato di gestione nell'app per le API:
 
 Dopo che il certificato è stato caricato, ne vengono visualizzati i dettagli: ![][3]
 
-> [AZURE.NOTE]Se si vuole cambiare il certificato, è possibile caricarne un altro che sostituirà quello esistente.
+> [AZURE.NOTE] Se si vuole cambiare il certificato, è possibile caricarne un altro che sostituirà quello esistente.
 
 ## Uso del connettore in un'app per la logica ##
 
@@ -87,7 +89,7 @@ Per testare lo scenario, selezionare **Run Now** per avviare l'app per la logica
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -107,4 +109,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.png
 [12]: ./media/app-service-logic-connector-hdinsight/LogicApp8.PNG
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

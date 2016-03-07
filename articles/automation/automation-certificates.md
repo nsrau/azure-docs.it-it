@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren" />
 
 # Asset di tipo certificato in Automazione di Azure
 
@@ -107,4 +107,4 @@ Questo esempio usa il set di parametri **UseConnectionObject** per l'attività *
 
 - [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="02/18/2016" 
 	ms.author="mandia"/>
 
 # Gestire e monitorare le app per le API e i connettori predefiniti
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
 È stata creata un'app per le API predefinita. Come si procede a questo punto?
 
@@ -68,7 +70,7 @@ Gestione connessione ibrida consente di connettersi a un sistema locale, ad esem
 
 Vedere [Uso di Gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md).
 
-> [AZURE.NOTE]Gestione connessione ibrida è necessario solo se ci si connette a una risorsa locale protetta da un firewall. Se non ci si connette a un sistema locale, Gestione connessione ibrida potrebbe non essere presente nel pannello del connettore.
+> [AZURE.NOTE] Gestione connessione ibrida è necessario solo se ci si connette a una risorsa locale protetta da un firewall. Se non ci si connette a un sistema locale, Gestione connessione ibrida potrebbe non essere presente nel pannello del connettore.
 
 ## Monitorare le prestazioni
 La metrica delle prestazioni è costituita da funzionalità predefinite e incluse in ogni app per le API creata. Questa metrica è specifica dell'app per le API ospitata in Azure: Metriche di esempio:
@@ -94,7 +96,7 @@ Collaboratore | Ha l'accesso completo all'esperienza di gestione Non può conced
 Lettore | Può visualizzare tutte le risorse, eccetto i segreti.
 Amministratore accessi utente | Può visualizzare tutte le risorse, creare/gestire i ruoli e creare/gestire i ticket di supporto.
 
-Vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md)
+Vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](../active-directory/role-based-access-control-configure.md)
 
 È possibile aggiungere facilmente utenti e assegnare loro ruoli specifici per l'app per le API. Il portale mostra a quali utenti è consentito l'accesso e il ruolo assegnato:
 
@@ -108,16 +110,14 @@ Vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure]
 - Selezionare **Definizione API** per aprire il file Swagger creato automaticamente per l'app per le API specifica.
 - Selezionare **Dipendenze** per visualizzare i file richiesti dall'app per le API. Se ad esempio si usa SAP Connector, vengono installati alcuni file aggiuntivi in Gestione connessioni ibride in locale. Queste dipendenze sono visualizzate nel pannello dell'app per le API. 
 
-> [AZURE.IMPORTANT]Quando si visualizzano le proprietà dell'app per le API, in **Informazioni di base** sono presenti i collegamenti **Host** e **Gateway** che aprono nuovi pannelli:
+> [AZURE.IMPORTANT] Quando si visualizzano le proprietà dell'app per le API, in **Informazioni di base** sono presenti i collegamenti **Host** e **Gateway** che aprono nuovi pannelli:
 > 
 > ![][host]
 > 
-> Queste proprietà sono specifiche del sito Web che ospita l'app per le API. Quando si usa un'app per le API o un connettore predefinito, la maggior parte di queste proprietà non sono in effetti applicabili ed è consigliabile non aggiornarle. Se è stata creata un'app per le API personalizzata in Visual Studio ed è stata distribuita nella sottoscrizione di Azure, è possibile usare i pannelli Host e Gateway. In [Gestire le app per le API](../app-service-api/app-service-api-manage-in-portal.md) sono disponibili altre informazioni sulle operazioni che è possibile eseguire in questi pannelli con l'app per le API personalizzata. 
+> Queste proprietà sono specifiche del sito Web che ospita l'app per le API. Quando si usa un'app per le API o un connettore predefinito, la maggior parte di queste proprietà non sono in effetti applicabili ed è consigliabile non aggiornarle. Se è stata creata un'app per le API personalizzata in Visual Studio ed è stata distribuita nella sottoscrizione di Azure, è possibile usare i pannelli Host e Gateway. In [Gestire le app per le API](../app-service-api/app-service-api-manage-in-portal.md) sono disponibili altre informazioni sulle operazioni che è possibile eseguire in questi pannelli con l'app per le API personalizzata.
 
 
-
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
-
+>[AZURE.NOTE] Per iniziare a usare le app per la logica prima di creare un account di Azure, passare alla pagina [Prova l'app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Altre informazioni
 
@@ -137,4 +137,4 @@ Vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure]
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

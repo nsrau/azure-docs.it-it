@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -27,7 +27,7 @@ In questa esercitazione viene illustrato come rimuovere e sostituire un'unità d
 
 - Installare l'unità disco sostitutiva
 
->[AZURE.IMPORTANT]Prima di rimuovere e sostituire un'unità disco, esaminare le informazioni di sicurezza descritte in [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Prima di rimuovere e sostituire un'unità disco, esaminare le informazioni di sicurezza descritte in [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Disattivazione del blocco antimanomissione
 
@@ -37,7 +37,7 @@ In questa procedura viene illustrato come i blocchi antimanomissione sul disposi
 
 1. Inserire la chiave di blocco (un cacciavite "a prova di manomissione" T10 fornito da Microsoft) con attenzione nell'apertura del punto di manipolazione e nel relativo socket. 
 
-    >[AZURE.NOTE]Se il blocco antimanomissione è attivato, l'indicatore rosso è visibile nell'apertura.
+    >[AZURE.NOTE] Se il blocco antimanomissione è attivato, l'indicatore rosso è visibile nell'apertura.
 
     ![Unità disco bloccata](./media/storsimple-disk-drive-replacement/IC741056.png)
 
@@ -118,10 +118,10 @@ Dopo aver rimosso un'unità guasta nel dispositivo Microsoft Azure StorSimple, s
 
 5. Verificare che la sostituzione sia stata eseguita correttamente e che l'unità sia funzionante accedendo al portale di Azure classico e passando a **Manutenzione** > **Stato hardware**. Sotto **Componenti condivisi** o **Componenti condivisi dello chassis EBOD**, lo stato dell'unità deve essere verde, ovvero integro.
 
-    >[AZURE.NOTE]Potrebbero essere necessarie diverse ore affinché lo stato del disco diventi verde dopo la sostituzione.
+    >[AZURE.NOTE] Potrebbero essere necessarie diverse ore affinché lo stato del disco diventi verde dopo la sostituzione.
 
 ## Passaggi successivi
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

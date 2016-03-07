@@ -322,14 +322,13 @@ sessionId | ID di sessione dalla sessione di autorizzazione OAuth. Ogni ID di se
 
 Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. Alla **scadenza del token** di autenticazione può essere visualizzato il messaggio di errore seguente: Errore dell'operazione relativa alle credenziali: invalid\_grant - AADSTS70002: Errore di convalida delle credenziali. AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z.
 
- 
 | Tipo di utente | Scade dopo |
 | :-------- | :----------- | 
-| Utente non AAD (@hotmail.com, @live.com e così via) | 12 ore |
-| L'utente AAD e l'origine basata su OAuth si trovano in un [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diverso rispetto al tenant di Data factory. | 12 ore |
-| L'utente AAD e l'origine basata su OAuth si trovano sullo stesso tenant rispetto al tenant di Data factory. | 14 giorni |
+| Utenti NON gestiti da Azure Active Directory (@hotmail.com, @live.com, ecc.) | 12 ore |
+| Utenti gestiti da Azure Active Directory (AAD) | | 14 giorni dopo l'esecuzione dell'ultima sezione, se non vengono eseguite sezioni basate sul servizio collegato OAuth per 14 giorni dall'esecuzione dell'ultima sezione. <p>90 giorni, se viene eseguita una sezione basata sul servizio collegato OAuth almeno una volta ogni 14 giorni.</p> |
 
-Per evitare o risolvere questo problema, è necessario ripetere l'autorizzazione con il pulsante **Autorizza** alla **scadenza del token** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà sessionId e authorization a livello di codice usando il codice riportato nella sezione seguente.
+ 
+Per evitare/risolvere questo problema, alla **scadenza del token** è necessario ripetere l'autorizzazione con il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà sessionId e authorization a livello di codice usando il codice riportato nella sezione seguente.
 
 ### Per generare valori sessionId e authorization a livello di codice 
 Il codice seguente genera valori **sessionId** e **authorization**.
@@ -364,4 +363,4 @@ Per informazioni dettagliate sulle classi di Data factory usate nel codice, vede
 
 Si crea un servizio collegato di Azure SQL e lo si utilizza con l’[Attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una procedura stored da una pipeline Data Factory. Vedere l’articolo [Connettore di Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

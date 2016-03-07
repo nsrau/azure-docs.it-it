@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/10/2016"
    ms.author="sameerch"/>
 
 
 # Uso del connettore Chatter e aggiunta all'app per la logica 
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
 Connettersi a Chatter e inviare un messaggio o cercare un feed. Ad esempio, è possibile cercare un feed Chatter e quando si individua un oggetto specifico, è possibile pubblicare tale messaggio Chatter a un gruppo di vendite.
 
 È possibile aggiungere il connettore Chatter al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
@@ -38,11 +40,12 @@ New Message | <ul><li>Post Message</li><li>Search</li></ul>
 
 1. Nella Schermata iniziale di Azure selezionare **Marketplace**.
 2. Cercare "Chatter Connector", selezionarlo e fare clic su **Crea**.
-3. Immettere il nome, il piano di servizio app e altre proprietà: ![][1]  
+3. Immettere il nome, il piano di servizio app e altre proprietà: 
+	![][1]  
 	- **Location**: scegliere l'area geografica in cui si vuole distribuire il connettore
 	- **Subscription**: scegliere una sottoscrizione in cui si vuole creare questo connettore
 	- **Resource group**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
-	- **Web hosting plan**: selezionare o creare un piano di hosting Web
+	- **Piano di hosting Web**: selezionare o creare un piano di hosting Web
 	- **Pricing tier**: scegliere un livello di prezzo per il connettore
 	- **Name**: assegnare un nome al connettore Chatter
 
@@ -54,22 +57,37 @@ Dopo aver creato l'app per le API, è possibile usare il connettore Chatter come
 
 1. Nell'app per la logica, aprire **Triggers and Actions** per aprire la finestra di progettazione delle app per la logica e configurare il flusso.
 
-2. Il connettore Chatter è elencato nella raccolta: ![][4]
-3. Selezionare il connettore Chatter per aggiungerlo automaticamente alla finestra di progettazione. Selezionare **Authorize**, immettere le credenziali e selezionare **Allow**: ![][5] ![][6] ![][7]
+2. Il connettore Chatter è elencato nella raccolta: 
+	![][4]
+3. Selezionare il connettore Chatter per aggiungerlo automaticamente alla finestra di progettazione. Selezionare **Authorize**, immettere le credenziali e selezionare **Allow**: 
+	![][5] 
+	![][6] 
+	![][7]
 
 È ora possibile usare il connettore Chatter nel flusso. È possibile usare il nuovo messaggio recuperato dal trigger di Chatter ("New Message") in altre azioni del flusso. Configurare le proprietà di input per il trigger Chatter nel modo indicato di seguito:
 
-**Group ID** - Inserire l'ID del gruppo da cui deve essere recuperato il nuovo messaggio. Se l'ID del gruppo non viene specificato, il nuovo messaggio verrà recuperato dal Feed dell'Utente: ![][8] ![][9]
+**Group ID** - Inserire l'ID del gruppo da cui deve essere recuperato il nuovo messaggio. Se l'ID del gruppo non viene specificato, il nuovo messaggio verrà recuperato dal Feed dell'Utente: 
+	![][8] 
+	![][9]
 
 
-Allo stesso modo, è possibile usare l'azione Chatter "Post Message" nel flusso per inviare un messaggio. Configurare le proprietà di input per l'azione "Messaggio Post" nel modo indicato di seguito:-**Message Text**- contenuto di testo del messaggio da inviare -**Group ID**-specificare l'ID del gruppo in cui deve essere inviato il nuovo messaggio. Se l'ID del gruppo non viene specificato, il messaggio verrà inviato al feed dell'utente. - **File Name**- nome del file da allegare a questo messaggio - **Content Data** - Dati di contenuto dell'allegato - **Content Type** - tipo di contenuto dell'allegato - **Content Transfer Encoding** - Codifica transfer del contenuto dell'allegato ("none"|"base64")-**Mentions** - L’array dei nomi dell'utente deve essere contrassegnato in questo messaggio -**Hashtags**- L’array di hashtags deve essere registrato nel messaggio
+Allo stesso modo, è possibile usare l'azione Chatter "Post Message" nel flusso per inviare un messaggio. Configurare le proprietà di input per l'azione "Messaggio Post" nel modo indicato di seguito:  
+	- **Message Text** - contenuto di testo del messaggio da inviare
+	- **Group ID** -specificare l'ID del gruppo in cui deve essere inviato il nuovo messaggio. Se l'ID del gruppo non viene specificato, il messaggio verrà inviato al feed dell'utente.
+	- 	**File Name**- nome del file da allegare a questo messaggio
+	- 	**Content Data** - Dati di contenuto dell'allegato
+	- 	**Content Type** - tipo di contenuto dell'allegato
+	- 	**Content Transfer Encoding** - Codifica transfer del contenuto dell'allegato ("none"|"base64")
+	- 	**Mentions** - L’array dei nomi dell'utente deve essere contrassegnato in questo messaggio
+	- 	**Hashtags**- L’array di hashtags deve essere registrato nel messaggio  
 
-![][10] ![][11]
+![][10]
+![][11]
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -89,4 +107,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

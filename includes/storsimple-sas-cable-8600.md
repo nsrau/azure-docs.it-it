@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 9/23/15-->
+<!--author=alkohli last changed:02/22/16-->
 
 #### Per collegare i cavi SAS
 
@@ -13,7 +13,7 @@
     |1|Enclosure principale|
     |2|Chassis EBOD|
 
-2. Individuare i numeri di serie sulle enclosure principale ed EBOD. L'adesivo con il numero di serie è attaccato alla sporgenza posteriore di ogni enclosure. I due numeri di serie delle enclosure devono essere identici. Se non corrispondono, contattare subito il [Supporto Tecnico Microsoft](storsimple-contact-microsoft-support.md). Per individuare i numeri di serie più facilmente, vedere la seguente figura.
+2. Individuare i numeri di serie sulle enclosure principale ed EBOD. L'adesivo con il numero di serie è attaccato alla sporgenza posteriore di ogni enclosure. I due numeri di serie delle enclosure devono essere identici. Se non corrispondono, contattare subito il [Supporto Tecnico Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md). Per individuare i numeri di serie più facilmente, vedere la seguente figura.
 
     ![Vista posteriore dell’enclosure con la posizione del numero di serie](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
 
@@ -46,4 +46,4 @@
     |5, 6|Porte SAS sull'enclosure principale (contrassegnate con la dicitura EBOD)|
     |7, 8|Porte SAS sull'enclosure EBOD (Porta A)|
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,6 +1,8 @@
 ### Supporto della compressione  
 L'elaborazione di set di dati di grandi dimensioni può causare colli di bottiglia I/O e di rete. Pertanto, i dati compressi negli archivi possono non solo velocizzare il trasferimento dei dati attraverso la rete e risparmiare spazio su disco, ma apportare anche miglioramenti significativi delle prestazioni nell'elaborazione di dati di grandi dimensioni. Attualmente, la compressione è supportata per gli archivi di dati basati su file, ad esempio BLOB di Azure o il file system locale.
 
+> [AZURE.NOTE] Le impostazioni di compressione non sono attualmente supportate per i dati **AvroFormat**.
+
 Per specificare la compressione per un set di dati, usare la proprietà **compression** nel set di dati JSON come illustrato di seguito:
 
 	{  
@@ -23,7 +25,7 @@ Per specificare la compressione per un set di dati, usare la proprietà **compre
 	  	}  
 	}  
  
-Si noti che la sezione **compression** dispone di due proprietà:
+Tenere presente che la sezione **compression** dispone di due proprietà:
   
 - **Type:** il codec di compressione, che può essere **GZIP**, **Deflate** o **BZIP2**.  
 - **Level:** il rapporto di compressione, che può essere **Optimal** o **Fastest**. 
@@ -40,4 +42,4 @@ Quando si specifica una proprietà di compressione in un set di dati di input JS
 - Leggere i dati da un file di testo normale dal file system locale, comprimerli usando il formato GZIP e scrivere i dati compressi in un BLOB di Azure. In questo caso, definire il set di dati di output del BLOB di Azure con la proprietà compression di JSON.  
 - Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli, comprimerli usando BZIP2 e scrivere i dati del risultato in un BLOB di Azure. In questo caso, il set di dati di input del BLOB di Azure viene definito con il tipo di compressione impostato su GZIP e il set di dati di output viene definito con il tipo di compressione impostato BZIP2.   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

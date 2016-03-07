@@ -58,6 +58,8 @@ Una caratteristica unica di SQL Data Warehouse è la possibilità di sospendere 
 
 L'azione di sospensione riporta le risorse di calcolo nel pool delle risorse disponibili all'interno del data center, mentre l'azione di ripresa acquisisce le risorse di calcolo necessarie per le DWU impostate e le assegna all'istanza di Data Warehouse.
 
+> [AZURE.NOTE] Poiché l'archiviazione è separata dal calcolo, la sospensione non ha alcun effetto su di essa.
+
 Per sospendere e riprendere la potenza di calcolo, è possibile usare il [portale di Azure classico][], le API REST oppure Powershell. Con la sospensione vengono annullate tutte le attività in esecuzione o in coda e, al ritorno, è possibile riprendere le risorse di calcolo nel giro di qualche secondo.
 
 Il codice seguente illustra come eseguire una sospensione tramite PowerShell:
@@ -73,9 +75,9 @@ La ripresa del servizio è altrettanto semplice con PowerShell:
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
-Per altri dettagli su come usare PowerShell, vedere l'articolo di [introduzione ai cmdlet di PowerShell][].
+Per altre informazioni sull'uso di PowerShell consultare [Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse][].
 
-> [Azure.Note]Poiché l'archiviazione è separata dal calcolo, la sospensione non ha alcun effetto su di essa.
+
 
 ## Passaggi successivi
 Per qualche cenno preliminare sulle prestazioni, vedere la [panoramica sulle prestazioni][].
@@ -84,7 +86,7 @@ Per qualche cenno preliminare sulle prestazioni, vedere la [panoramica sulle pre
 
 <!--Article references-->
 [panoramica sulle prestazioni]: sql-data-warehouse-overview-performance.md
-[introduzione ai cmdlet di PowerShell]: sql-data-warehouse-get-started-powershell-cmdlets.md
+[Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse]: sql-data-warehouse-reference-powershell-cmdlets.md
 
 <!--MSDN references-->
 
@@ -93,4 +95,4 @@ Per qualche cenno preliminare sulle prestazioni, vedere la [panoramica sulle pre
 
 [portale di Azure classico]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

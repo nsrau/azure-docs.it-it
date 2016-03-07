@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/18/2016" 
 	ms.author="mandia"/>
 
 # Connettersi ai connettori locali in Azure App Service usando Gestione connessione ibrida
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
 Per usare un sistema locale, il servizio app di Azure usa Gestione connessione ibrida. Alcuni connettori possono connettersi a un sistema locale, ad esempio SQL Server, SAP, SharePoint e così via.
 
 Gestione connessione ibrida è un programma di installazione di tipo ClickOnce che viene installato in un server IIS all'interno della rete protetta da un firewall. Con l'inoltro del bus di servizio di Azure, Gestione connessione ibrida autentica il sistema locale con il connettore in Azure.
@@ -106,7 +109,7 @@ Porta di sistema locale | Nel sistema locale aprire la porta usata dal sistema. 
 
 ## Domande frequenti
 
-**Domanda**: esistono due programmi Gestione connessione ibrida. Qual è la differenza?<br/> **Risposta**: esiste la tecnologia [Connessioni ibride](../integration-hybrid-connection-overview.md) usata principalmente dalle app Web (in precedenza siti Web) e dalle app per dispositivi mobili (in precedenza servizi mobili) per connettersi al sistema locale. Questa Gestione connessione ibrida ha un proprio programma di [installazione](../integration-hybrid-connection-create-manage.md) e usa un servizio BizTalk di Azure (in modo invisibile). Supporta solo i protocolli TCP e HTTP.
+**Domanda**: esistono due programmi Gestione connessione ibrida. Qual è la differenza?<br/> **Risposta**: esiste la tecnologia [Connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) usata principalmente dalle app Web (in precedenza siti Web) e dalle app per dispositivi mobili (in precedenza servizi mobili) per connettersi al sistema locale. Questa Gestione connessione ibrida ha un proprio programma di [installazione](../biztalk-services/integration-hybrid-connection-create-manage.md) e usa un servizio BizTalk di Azure (in modo invisibile). Supporta solo i protocolli TCP e HTTP.
 
 Anche con i connettori del servizio app di Azure è presente un programma Gestione connessione ibrida. Questa Gestione connessione ibrida *non* usa un servizio BizTalk di Azure (in modo invisibile) e supporta altri protocolli oltre a TCP e HTTP. Vedere l'[Elenco di connettori e app per le API](app-service-logic-connectors-list.md).
 
@@ -114,7 +117,7 @@ Entrambi usano il bus di servizio di Azure per connettersi al sistema locale.
 
 **Domanda**: quando si crea un'app per le API personalizzata, è possibile usare Gestione connessione ibrida del servizio app per connettersi a un sistema locale? <br/> **Risposta**: non nel senso tradizionale. È possibile usare un connettore incorporato e configurare Gestione connessione ibrida del servizio app per connettersi al sistema locale. Usare quindi questo connettore con l'app per le API personalizzata, eventualmente con un'app per la logica. Non è possibile attualmente sviluppare o creare una propria app per le API ibrida (come il connettore SQL o il connettore File).
 
-Se l'API personalizzata usa una porta TCP o HTTP, è possibile usare [Connessioni ibride](../integration-hybrid-connection-overview.md) e Gestione connessione ibrida. In questo scenario viene usato un servizio BizTalk di Azure. Provare a [connettersi a un'istanza di SQL Server locale da un'app Web](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md).
+Se l'API personalizzata usa una porta TCP o HTTP, è possibile usare [Connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) e Gestione connessione ibrida. In questo scenario viene usato un servizio BizTalk di Azure. Provare a [connettersi a un'istanza di SQL Server locale da un'app Web](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md).
 
 
 ## Altre informazioni
@@ -133,4 +136,4 @@ Se l'API personalizzata usa una porta TCP o HTTP, è possibile usare [Connession
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

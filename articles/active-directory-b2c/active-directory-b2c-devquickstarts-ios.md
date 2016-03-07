@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Anteprima Azure AD B2C: chiamata di un'API Web da un'applicazione iOS | Microsoft Azure" 
+	pageTitle="Anteprima Azure AD B2C: chiamata di un'API Web da un'applicazione iOS | Microsoft Azure"
 	description="Questo articolo illustra come creare un'app iOS "To-Do List" che chiama un'API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app iOS che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti." 
 	services="active-directory-b2c"
 	documentationCenter="ios"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="objectivec"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/17/2016"
 	ms.author="brandwe"/>
 
 # Anteprima di Azure AD B2C: Chiamata di un'API Web da un'applicazione iOS
@@ -40,7 +40,7 @@ A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad
 
 - Includere un'**app Web/API Web** nell'applicazione
 - Specificare `http://localhost:3000/auth/openid/return` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
-- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesta a breve.
+- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve. Si noti che prima di usare questo valore è necessario [inserire un carattere di escape XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape).
 - Copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -624,4 +624,4 @@ Come riferimento, l'esempio completato [è disponibile qui in un file con estens
 
 [Personalizzazione dell’UX del’App B2C>>]()
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0224_2016-->

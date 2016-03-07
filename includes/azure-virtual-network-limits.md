@@ -3,7 +3,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite il mo
 Risorsa| Limite predefinito | Limite massimo
 --- | --- | --- 
 Reti virtuali per sottoscrizione | 50 | 100
-Siti di rete locali per rete virtuale | 20 | Contattare il supporto tecnico
+Siti di reti locali per sottoscrizione | 20 | Contattare il supporto tecnico
 Server DNS per rete virtuale | 20 | 100
 Le macchine virtuali e le istanze del ruolo per ogni rete virtuale | 2048 | 2048
 Connessioni TCP simultanee per un'istanza del ruolo o della macchina virtuale | 500K | 500K 
@@ -43,4 +43,4 @@ Gateway di applicazione | 50 | 50
 
 Nel caso in cui sia necessario aumentare questi limiti rispetto all'impostazione predefinita, contattare il supporto tecnico.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@ Le seguenti sono condizioni di errore e genereranno un'eccezione:
 3.	Il risultato della query SQL non ha un nome colonna specificato nel mapping.
 
 ## Esempi di mapping di colonne
-> [AZURE.NOTE]Gli esempi che seguono sono per SQL Azure e Azure Blob, ma sono applicabili allo stesso modo per qualsiasi archivio dati che supporti le tabelle rettangolari. È necessario modificare i set di dati e le definizioni dei servizi collegati negli esempi riportati di seguito per puntare a dati nell'origine dati pertinente.
+> [AZURE.NOTE] Gli esempi che seguono sono per SQL Azure e Azure Blob, ma sono applicabili per qualsiasi archivio dati che supporti set di dati rettangolari. È necessario modificare i set di dati e le definizioni dei servizi collegati negli esempi riportati di seguito per puntare a dati nell'origine dati pertinente.
 
 ### Esempio 1: mapping di colonne da Azure SQL al BLOB di Azure
 In questo esempio, la tabella di input ha una struttura che punta a una tabella SQL in un database SQL di Azure.
@@ -149,4 +149,4 @@ In questo caso, i risultati della query vengono prima mappati alle colonne speci
 
 ![Flusso del mapping di colonne-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

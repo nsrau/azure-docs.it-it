@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/05/2015"
-   ms.author="kunalds"/>
+   ms.date="02/12/2016"
+   ms.author="toddabel"/>
 
 
 # Creare report e verificare l'integrità dei servizi
@@ -107,4 +107,4 @@ Questo report rimane nello strumento di gestione dell'integrità finché non vie
 ## Passaggi successivi
 [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

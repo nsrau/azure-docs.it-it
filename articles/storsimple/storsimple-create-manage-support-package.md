@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -123,7 +123,7 @@ Nella tabella seguente sono riportati i diversi parametri che possono essere uti
 
 Dopo aver creato un pacchetto per il supporto, potrebbe essere necessario modificare il pacchetto per rimuovere le informazioni specifiche del cliente, ad esempio i nomi dei volumi, gli indirizzi IP dei dispositivi e i nomi di backup dai file di log.
 
-> [AZURE.IMPORTANT]È possibile solo modificare un pacchetto per il supporto che è stato generato tramite Windows PowerShell per StorSimple. Non è possibile modificare un pacchetto creato nel portale di Azure classico con il servizio StorSimple Manager.
+> [AZURE.IMPORTANT] È possibile solo modificare un pacchetto per il supporto che è stato generato tramite Windows PowerShell per StorSimple. Non è possibile modificare un pacchetto creato nel portale di Azure classico con il servizio StorSimple Manager.
 
 Per modificare un pacchetto per il supporto prima di caricarlo nel sito del supporto tecnico Microsoft, è necessario decrittografare il pacchetto per supporto, modificare i file e crittografarlo nuovamente. Per modificare un pacchetto per il supporto, procedere come segue:
 
@@ -200,4 +200,4 @@ Di seguito è riportato un esempio che illustra come decrittografare, modificare
 
 - Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

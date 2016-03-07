@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="02/19/2016" 
 	ms.author="tamram"/>
 
 # Gestire l'accesso in lettura anonimo a contenitori e BLOB
@@ -40,7 +40,7 @@ I contenitori forniscono le seguenti opzioni per la gestione dell'accesso al con
 
 - Dal [portale di Azure](https://portal.azure.com).
 - A livello di programmazione, tramite la libreria client di archiviazione o l'API REST.
-- Con PowerShell. Per informazioni su come impostare le autorizzazioni per il contenitore da Azure PowerShell, vedere [Uso di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full#how-to-manage-azure-blobs)
+- Con PowerShell. Per informazioni su come impostare le autorizzazioni per il contenitore da Azure PowerShell, vedere [Uso di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full.md#how-to-manage-azure-blobs)
 
 ### Impostazione delle autorizzazioni per il contenitore dal portale di Azure
 
@@ -155,4 +155,4 @@ Nella tabella seguente sono riportate le operazioni che possono essere richiamat
 - [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 - [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

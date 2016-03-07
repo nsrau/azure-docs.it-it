@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/23/2016"
 	ms.author="tomfitz"/>
 
 
@@ -50,6 +50,37 @@ L'esempio seguente illustra un account di archiviazione con un tag.
             }
         }
     ]
+
+Attualmente Gestione risorse non supporta l'elaborazione di un oggetto per i nomi e i valori del tag. In alternativa, è possibile passare un oggetto per i valori di tag, ma è comunque necessario specificare i nomi dei tag, come illustrato di seguito.
+
+    {
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "tagvalues": {
+          "type": "object",
+          "defaultValue": {
+            "dept": "Finance",
+            "project": "Test"
+          }
+        }
+      },
+      "resources": [
+      {
+        "apiVersion": "2015-06-15",
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "examplestorage",
+        "tags": {
+          "dept": "[parameters('tagvalues').dept]",
+          "project": "[parameters('tagvalues').project]"
+        },
+        "location": "[resourceGroup().location]",
+        "properties": {
+          "accountType": "Standard_LRS"
+        }
+      }]
+    }
+
 
 ## Tag nel portale
 
@@ -183,4 +214,4 @@ Quando si scarica il CSV di utilizzo per i servizi che supportano i tag di fattu
 - Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure durante la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](./xplat-cli-azure-resource-manager.md).
 - Per un'introduzione all'uso del portale, vedere [Uso del portale di Azure per gestire le risorse di Azure](./azure-portal/resource-group-portal.md)  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

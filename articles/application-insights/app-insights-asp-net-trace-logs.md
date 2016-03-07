@@ -12,21 +12,34 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="02/22/2016" 
 	ms.author="awills"/>
  
 # Esplorare i log di traccia .NET in Application Insights  
 
 Se si usa NLog, log4Net o System.Diagnostics.Trace per l'analisi diagnostica nell'applicazione ASP.NET, è possibile fare in modo che i log vengano inviati a [Visual Studio Application Insights][start], dove è possibile esplorarli ed eseguirvi ricerche. I log verranno uniti con gli altri eventi di telemetria provenienti dall'applicazione, in modo da potere identificare le tracce associate alla gestione di ogni richiesta dell'utente e metterle in correlazione con altri eventi e i report di eccezioni.
 
-> [AZURE.NOTE]Se è necessario un modulo di acquisizione dei log, questo adattatore è utile per i logger terze parti, ma se non si usa già NLog, log4Net o System.Diagnostics.Trace, chiamare direttamente [TrackTrace() di Application Insights](app-insights-api-custom-events-metrics.md#track-trace).
-
-Se non si è ancora [configurato Application Insights per il progetto][start], è possibile farlo ora. Il progetto deve contenere il file `ApplicationInsights.config` e il pacchetto NuGet `Microsoft.ApplicationInsights.Web`.
+> [AZURE.NOTE] Se è necessario un modulo di acquisizione dei log, questo adattatore è utile per i logger terze parti, ma se non si usa già NLog, log4Net o System.Diagnostics.Trace, chiamare direttamente [TrackTrace() di Application Insights](app-insights-api-custom-events-metrics.md#track-trace).
 
 
-##  Installare un adattatore per il framework di registrazione
+## Installare la registrazione nell'applicazione
 
-Se si usa un framework di registrazione, ad esempio log4Net, NLog o System.Diagnostics.Trace, è possibile installare un adattatore che invia questi log ad Application Insights insieme ad altri eventi di telemetria.
+Installare il framework di registrazione scelto nel progetto. Verrà inserita una voce nel file app.config o web.config.
+
+> Se si usa System.Diagnostics.Trace, è necessario aggiungere una voce in web.config.
+
+## Configurare Application Insights per la raccolta dei log
+
+Se l'operazione non è già stata eseguita, **[aggiungere Application Insights al progetto](app-insights-asp-net.md)**. Verrà visualizzata un'opzione per includere la raccolta dei log.
+
+In alternativa, **configurare Application Insights** facendo clic con il pulsante destro del mouse in Esplora soluzioni. Selezionare le opzioni per includere la raccolta dei log.
+
+*Il menu di Application Insights o l'opzione di raccolta non viene visualizzata?* Vedere [Risoluzione dei problemi](#troubleshooting).
+
+
+## Installazione manuale
+
+Usare questo metodo se il tipo di progetto non è supportato dal programma di installazione di Application Insights, ad esempio un progetto Desktop di Windows.
 
 1. Se si intende usare log4Net o NLog, installarlo nel progetto. 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
@@ -41,7 +54,7 @@ Se si usa un framework di registrazione, ad esempio log4Net, NLog o System.Diagn
 
 Il pacchetto NuGet installa gli assembly necessari e modifica inoltre web.config o app.config.
 
-#### Inserire chiamate di log di diagnostica
+## Inserire chiamate di log di diagnostica
 
 Se si usa System.Diagnostics.Trace, una tipica chiamata sarà simile alla seguente:
 
@@ -66,6 +79,8 @@ Un vantaggio di TrackTrace è che è possibile inserire dati relativamente lungh
 
 ## Esplorare i log
 
+Eseguire l'app in modalità debug o distribuirla.
+
 Nel pannello Panoramica dell'app nel [portale di Application Insights][portal] scegliere [Cerca][diagnostic].
 
 ![In Application Insights scegliere Cerca](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
@@ -79,7 +94,7 @@ Ad esempio, è possibile:
 * Trovare altri eventi di telemetria relativi alla stessa richiesta dell'utente (ovvero, con lo stesso valore OperationId) 
 * Salvare la configurazione di questa pagina come preferita
 
-> [AZURE.NOTE]**Campionamento.** Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento.](app-insights-sampling.md)
+> [AZURE.NOTE] **Campionamento.** Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento.](app-insights-sampling.md)
 
 ## Passaggi successivi
 
@@ -90,6 +105,22 @@ Ad esempio, è possibile:
 
 
 ## Risoluzione dei problemi
+
+### Come procedere per Java?
+
+Usare gli [adattatori log Java](app-insights-java-trace-logs.md).
+
+### Non è disponibile alcuna opzione di Application Insights nel menu di scelta rapida del progetto
+
+* Verificare che Strumenti Application Insights sia installato nel computer di sviluppo. In Visual Studio, scegliere Strumenti, Estensioni e Aggiornamenti e cercare Strumenti Application Insights. Se non è visualizzato nella scheda degli elementi installati, aprire la scheda Online e installarlo.
+* Potrebbe trattarsi di un tipo di progetto non supportato da Strumenti Application Insights. Usare l'[installazione manuale](#manual-installation).
+
+### Nello strumento di configurazione non è disponibile alcuna opzione per l'adattatore log
+
+* È necessario installare innanzitutto il framework di registrazione.
+* Se si usa System.Diagnostics.Trace, assicurarsi di [aver eseguito la configurazione in `web.config`](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
+* Si dispone della versione più recente di Strumenti Application Insights? Nel menu **Strumenti** di Visual Studio scegliere **Estensioni e aggiornamenti** e aprire la scheda **Aggiornamenti**. Se Strumenti Application Insights è presente, fare clic per eseguire l'aggiornamento.
+
 
 ### <a name="emptykey"></a>Viene visualizzato l'errore: "La chiave di strumentazione non può essere vuota"
 
@@ -129,4 +160,4 @@ Se l'applicazione invia una grande quantità di dati e si sta utilizzando la ver
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

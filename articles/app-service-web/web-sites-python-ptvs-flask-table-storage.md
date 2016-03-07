@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/18/2015"
+	ms.date="02/20/2016"
 	ms.author="huvalo"/>
 
 
@@ -40,7 +40,7 @@ Vedere il [Centro per sviluppatori Python] per consultare altri articoli che tra
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Creare il progetto
 
@@ -74,9 +74,7 @@ Per effettuare operazioni di archiviazione, è necessario un account di archivia
 
 2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Account di archiviazione**. Fare clic su **Crea** quindi assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../resource-group-overview.md) ad esso correlato.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->
-
-	Quando l'account di archiviazione viene creato, nel pulsante **Notifiche** lampeggia in verde il testo **OPERAZIONE RIUSCITA** e il pannello dell'account di archiviazione si apre per visualizzare che appartiene al nuovo gruppo di risorse creato.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->Quando l'account di archiviazione viene creato, nel pulsante **Notifiche** lampeggia in verde il testo **OPERAZIONE RIUSCITA** e il pannello dell'account di archiviazione si apre per visualizzare che appartiene al nuovo gruppo di risorse creato.
 
 5. Fare clic sulla sezione **Impostazioni** del pannello dell'account di archiviazione. Prendere nota del nome dell'account e della chiave primaria.
 
@@ -104,7 +102,7 @@ In questa sezione verrà configurata l'applicazione per usare l'account di archi
 
 1.  Eseguire l'applicazione con `F5`. I sondaggi creati con **Create Sample Polls** e i dati inviati mediante voto verranno serializzati nell'archiviazione tabelle di Azure.
 
-	> [AZURE.NOTE]L'ambiente virtuale Python 2.7 può causare un'interruzione di eccezioni in Visual Studio. Premere `F5` per continuare il caricamento del progetto web.
+	> [AZURE.NOTE] L'ambiente virtuale Python 2.7 può causare un'interruzione di eccezioni in Visual Studio. Premere `F5` per continuare il caricamento del progetto web.
 
 1.  Passare alla pagina **About** per verificare che l'applicazione usi il repository di **archiviazione tabelle di Azure**.
 
@@ -114,7 +112,7 @@ In questa sezione verrà configurata l'applicazione per usare l'account di archi
 
 È facile visualizzare e modificare le tabelle di archiviazione tramite Esplora server in Visual Studio. In questa sezione si userà Esplora server per visualizzare il contenuto delle tabelle dell'applicazione di sondaggio.
 
-> [AZURE.NOTE]A tale scopo, è necessario che siano installati gli strumenti di Microsoft Azure, disponibili come parte di [Azure SDK per .NET].
+> [AZURE.NOTE] A tale scopo, è necessario che siano installati gli strumenti di Microsoft Azure, disponibili come parte di [Azure SDK per .NET].
 
 1.  Aprire **Esplora server**. Espandere **Azure**, **Archiviazione**, l'account di archiviazione e quindi **Tabelle**.
 
@@ -213,4 +211,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

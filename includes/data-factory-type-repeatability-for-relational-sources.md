@@ -5,8 +5,9 @@ Quando si copiano dati da e in archivi relazionali, è necessario tenere present
 **Nota:**In base ai criteri di ripetizione dei tentativi specificati, è possibile ripetere automaticamente l'esecuzione di una sezione in Data Factory di Azure. È consigliabile impostare un criterio di ripetizione come protezione dagli errori temporanei. Di conseguenza la ripetibilità è un aspetto importante a cui occorre prestare attenzione durante lo spostamento dei dati.
 
 **Come origine:**
+> [AZURE.NOTE] Gli esempi che seguono sono per SQL di Azure, ma sono applicabili per qualsiasi archivio dati che supporti set di dati rettangolari. Potrebbe essere necessario modificare il **tipo** di origine e la proprietà **query** (ad esempio, query anziché sqlReaderQuery) per l'archivio dati.
 
-Nella maggior parte dei casi, durante la lettura da archivi relazionali, si desidera leggere solo i dati corrispondenti a tale sezione. Un modo per eseguire questa operazione è utilizzare le variabili WindowStart e WindowEnd disponibili in Azure Data Factory. Informazioni su variabili e funzioni di Data Factory di Azure nell’articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md)seguente. Esempio:
+Nella maggior parte dei casi, durante la lettura da archivi relazionali, si desidera leggere solo i dati corrispondenti a tale sezione. Un modo per eseguire questa operazione è utilizzare le variabili WindowStart e WindowEnd disponibili in Azure Data Factory. Informazioni su variabili e funzioni di Data Factory di Azure nell’articolo [Pianificazione ed esecuzione](../articles/data-factory/data-factory-scheduling-and-execution.md)seguente. Esempio:
 	
 	  "source": {
 	    "type": "SqlSource",
@@ -24,4 +25,4 @@ In altri casi, si consiglia di leggere l'intera tabella (ad esempio per lo spost
 	          },
 	
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

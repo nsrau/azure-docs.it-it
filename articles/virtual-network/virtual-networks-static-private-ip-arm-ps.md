@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Come impostare un indirizzo IP statico privato in modalità ARM utilizzando PowerShell| Microsoft Azure"
-   description="Informazioni su indirizzi IP statici (DIP) e come gestirli in modalità ARM tramite PowerShell"
+   pageTitle="Come impostare un indirizzo IP statico privato in Azure Resource Manager mediante PowerShell| Microsoft Azure"
+   description="Informazioni sugli indirizzi IP statici privati e sulla gestione in Azure Resource Manager mediante PowerShell"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-# Come impostare un indirizzo IP statico privato in PowerShell
+# Come impostare un indirizzo IP statico privato in Gestione risorse mediante PowerShell
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. È inoltre possibile [gestire un indirizzo IP statico privato nel modello di distribuzione classico](virtual-networks-static-private-ip-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. È anche possibile [gestire un indirizzo IP statico privato nel modello di distribuzione classico](virtual-networks-static-private-ip-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -188,8 +188,8 @@ Per aggiungere un indirizzo IP privato statico alla macchina virtuale creata usa
 
 ## Passaggi successivi
 
-- Informazioni su indirizzi [IP pubblici riservati](../virtual-networks-reserved-public-ip).
-- Informazioni su indirizzi [IP pubblici a livello di istanza (ILPIP)](../virtual-networks-instance-level-public-ip).
+- Informazioni su [indirizzi IP pubblici riservati](../virtual-networks-reserved-public-ip).
+- Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

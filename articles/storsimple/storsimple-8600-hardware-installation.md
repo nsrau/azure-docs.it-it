@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -264,7 +264,7 @@ Da tenere presente per prestazioni e disponibilità elevate:
 
 - Se possibile, collegare le interfacce di rete di ogni controller a due interruttori diversi per assicurare la disponibilità in caso di malfunzionamento di un interruttore. L'immagine illustra le due interfacce di rete 10 GbE, DATA 2 e DATA 3, di ogni controller connesso a due diversi interruttori. Per altre informazioni, consultare le **interfacce di rete** sotto i [requisiti di disponibilità elevata per il dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
->[AZURE.NOTE]Se si usano ricetrasmettitori SFP+ con interfacce di rete 10 GbE, usare le schede QSFP-SFP+ fornite di serie. Per altre informazioni, passare a [Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
+>[AZURE.NOTE] Se si usano ricetrasmettitori SFP+ con interfacce di rete 10 GbE, usare le schede QSFP-SFP+ fornite di serie. Per altre informazioni, passare a [Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
 ### Cablaggio della porta seriale
 
@@ -289,7 +289,7 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 
 6. Verificare che la connessione funzioni premendo INVIO nella console. Deve comparire un menu della console seriale.
 
-> [AZURE.NOTE]**Gestione Lights-Out:** quando il dispositivo è installato in un datacenter remoto o in una sala macchine con accesso limitato, verificare che le connessioni seriali di entrambi i controller siano sempre collegate a un interruttore della console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
+> [AZURE.NOTE] **Gestione Lights-Out:** quando il dispositivo è installato in un datacenter remoto o in una sala macchine con accesso limitato, verificare che le connessioni seriali di entrambi i controller siano sempre collegate a un interruttore della console seriale o ad apparecchiature simili. In questo modo, sono possibili operazioni di supporto e controllo remoto fuori banda in caso di interruzione della connessione di rete o malfunzionamenti imprevisti.
 
 Il cablaggio del dispositivo per l'alimentazione, l'accesso di rete e la connessione seriale sono stati completati. Il passaggio successivo consiste nella configurazione del software sul dispositivo.
 
@@ -298,4 +298,4 @@ Il cablaggio del dispositivo per l'alimentazione, l'accesso di rete e la conness
 A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
+	ms.date="02/19/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -29,6 +29,9 @@
 <table> <tr><td>**Download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr> <tr><td>**Documentazione**</td><td>[Documentazione di riferimento di .NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr> <tr><td>**Esempi**</td><td>[Esempi di codice .NET](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr> <tr><td>**Introduzione**</td><td>[Introduzione a DocumentDB .NET SDK](documentdb-get-started.md)</td></tr> <tr><td>**Framework attualmente supportato**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr> </table></br>
 
 ## Note sulla versione
+
+### <a name="1.5.3"/>[1\.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
+  - **[Corretto]** Se si eseguono query nell'endpoint DocumentDB viene generato il messaggio seguente: 'System.Net.Http.HttpRequestException: Errore durante la copia del contenuto in un flusso.
 
 ### <a name="1.5.2"/>[1\.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
   - Supporto LINQ espanso tra cui nuovi operatori per il paging, espressioni condizionali e confronto di intervalli.
@@ -133,4 +136,4 @@ Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

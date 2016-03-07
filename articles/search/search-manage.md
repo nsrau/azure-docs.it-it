@@ -14,14 +14,14 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 # Gestire il servizio di ricerca in Microsoft Azure
 
 Ricerca di Azure è un servizio basato sul cloud con un'API basata su HTTP che è possibile usare in applicazioni di ricerca personalizzate. Il servizio di ricerca fornisce il motore per l'analisi del testo tramite ricerca full-text, funzionalità avanzate di ricerca, archiviazione di dati di ricerca e una sintassi dei comandi di query.
 
-Questo articolo spiega come amministrare un servizio di ricerca nel [portale di Azure](https://portal.azure.com).
+Questo articolo spiega come amministrare un servizio di ricerca nel [portale di Azure](https://portal.azure.com). È anche possibile usare la nuova funzionalità di analisi del traffico di ricerca per informazioni dettagliate sulle attività a livello di indice. Per iniziare, visitare [Analisi del traffico di ricerca per Ricerca di Azure](search-traffic-analytics.md).
 
 In alternativa, è possibile usare l'API REST di gestione. Per informazioni dettagliate, vedere [Introduzione all'API REST di gestione di Ricerca di Azure](search-get-started-management-api.md) e [API REST di gestione di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn832684.aspx).
 
@@ -66,7 +66,7 @@ Gli sviluppatori che devono creare applicazioni di ricerca dovranno conoscere l'
 
 Per ottenere l'URL del servizio dal Dashboard servizi:
 
-1.	Accedere al [portale di Azure classico](https://portal.azure.com).
+1.	Accedere al [portale di Azure](https://portal.azure.com).
 2.	Fare clic su **Sfoglia** | **Tutto** | **Servizi di ricerca**.
 3.	Fare clic sul nome del servizio di ricerca per aprire il dashboard.
 4.	Fare clic su **PROPRIETÀ** per aprire una pagina delle proprietà con effetto scorrimento. L'URL del servizio è visualizzato nella parte superiore della pagina. È possibile bloccare questa pagina per accedervi facilmente in seguito.
@@ -166,7 +166,7 @@ L'arresto o l'avvio del servizio non determinano la sospensione della fatturazio
 <a id="sub-8"></a>
 ## Impostare i ruoli per il controllo dell'accesso amministrativo
 
-Azure offre un modello di autorizzazione basata sui ruoli globali per tutti i servizi gestiti tramite il portale oppure nell'API di Gestione risorse di Azure, se si usa uno strumento di amministrazione personalizzato. I ruoli Proprietario, Collaboratore e Lettore configurano il livello di amministrazione del servizio per gli utenti, i gruppo e le entità di sicurezza di Active Directory assegnati a ogni ruolo. Per informazioni dettagliate sull'appartenenza ai ruoli, vedere [Controllo di accesso in base al ruolo nel portale di Azure classico](../role-based-access-control-configure.md).
+Azure offre un modello di autorizzazione basata sui ruoli globali per tutti i servizi gestiti tramite il portale oppure nell'API di Gestione risorse di Azure, se si usa uno strumento di amministrazione personalizzato. I ruoli Proprietario, Collaboratore e Lettore configurano il livello di amministrazione del servizio per gli utenti, i gruppo e le entità di sicurezza di Active Directory assegnati a ogni ruolo. Per informazioni dettagliate sull'appartenenza ai ruoli, vedere [Controllo di accesso in base al ruolo nel portale di Azure classico](../active-directory/role-based-access-control-configure.md).
 
 In Ricerca di Azure i controlli degli accessi in base al ruolo determinano le attività amministrative seguenti:
 
@@ -177,7 +177,7 @@ Proprietario|Avviare, arrestare o eliminare il servizio.<p>Generare e visualizza
 Collaboratore|Ha lo stesso livello di accesso del Proprietario, ad eccezione della gestione dei ruoli. Ad esempio, un Collaboratore può visualizzare e rigenerare `api-key`, ma non può modificare le appartenenze ai ruoli.
 Lettore|Può visualizzare lo stato e le chiavi di query. I membri di questo ruolo non possono avviare o arrestare un servizio o visualizzare le chiavi di amministrazione.
 
-Si noti che i ruoli non concedono diritti di accesso all'endpoint del servizio. Le operazioni del servizio di ricerca, ad esempio la gestione e il popolamento degli indici e le query sui dati di ricerca, sono controllate tramite le chiavi API, non tramite i ruoli. Per altre informazioni, vedere "Autorizzazioni per le operazioni di gestione e per le operazioni di dati" in [Controllo di accesso in base al ruolo nel portale di Azure classico](../role-based-access-control-configure.md).
+Si noti che i ruoli non concedono diritti di accesso all'endpoint del servizio. Le operazioni del servizio di ricerca, ad esempio la gestione e il popolamento degli indici e le query sui dati di ricerca, sono controllate tramite le chiavi API, non tramite i ruoli. Per altre informazioni, vedere "Autorizzazioni per le operazioni di gestione e per le operazioni di dati" in [Controllo degli accessi in base al ruolo nel portale di Azure](../active-directory/role-based-access-control-configure.md).
 
 I ruoli forniscono il controllo degli accessi dopo la creazione del servizio. Solo i gestori delle sottoscrizioni possono aggiungere un servizio di ricerca a una sottoscrizione.
 
@@ -200,4 +200,4 @@ I ruoli forniscono il controllo degli accessi dopo la creazione del servizio. So
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 # Creare un'app di ricerca geospaziale mediante Ricerca di Azure
@@ -137,7 +137,7 @@ La demo è terminata. Sono stati descritti i principali aspetti relativi alla co
 
 Durante la compilazione di AdventureWorksWeb, se viene visualizzato il messaggio "Could not load file or assembly 'System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies", provare a risolvere il problema con la seguente procedura.
 
-1. Aprire la Console di gestione pacchetti: **Strumenti** | **Gestione pacchetti NuGet** | **Console di gestione pacchetti**
+1. Aprire la Console di gestione pacchetti: **strumenti** | **Gestione pacchetti NuGet** | **Console di gestione pacchetti**
 2. Nel prompt PM>, immettere "Update-package -reinstall Microsoft.AspNet.Mvc"
 3. Alla richiesta di ricaricare il file, scegliere **Sì a tutti**.
 4. Ricompilare la soluzione e premere nuovamente **F5**.
@@ -167,4 +167,4 @@ Per approfondire l'argomento, è possibile considerare l'aggiunta di ulteriori c
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

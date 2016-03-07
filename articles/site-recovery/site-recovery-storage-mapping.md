@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/14/2015"
+	ms.date="02/22/2016"
 	ms.author="raynew"/>
 
 
 # Preparare il mapping di archiviazione per la replica di macchine virtuali Hyper-V tra due data center locali con Azure Site Recovery
 
 
-Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. Questo articolo descrive il mapping di archiviazione, un processo che consente un utilizzo ottimale dello spazio di archiviazione quando si usa Site Recovery per replicare macchine virtuali Hyper-V tra due data center locali.
+Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. Questo articolo descrive il mapping di archiviazione, un processo che consente un utilizzo ottimale dello spazio di archiviazione quando si usa Site Recovery per replicare macchine virtuali Hyper-V tra due data center VMM locali.
 
-Dopo aver letto questo articolo, è possibile pubblicare eventuali domande nel [forum relativo ai servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Per inviare commenti o domande è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Panoramica
 
@@ -98,4 +98,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | Nessun mapping, per cui viene ut
 
 Dopo aver acquisito familiarità con il mapping di archiviazione, è ora possibile [prepararsi alla distribuzione di Azure Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

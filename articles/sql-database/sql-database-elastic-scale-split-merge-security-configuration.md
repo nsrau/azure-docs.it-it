@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/04/2016" 
+    ms.date="02/23/2016" 
     ms.author="torsteng;sidneyh" />
 
 
@@ -474,4 +474,4 @@ Le credenziali archiviate in questo database vengono crittografate. Come procedu
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

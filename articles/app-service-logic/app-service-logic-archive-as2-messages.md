@@ -13,13 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 
 # Panoramica sull'archiviazione dei messaggi del connettore AS2
 
-Il **connettore AS2** espone la possibilità di archiviare messaggi. L'archiviazione consente di archiviare il messaggio nel **contenitore BLOB di Azure** che fa parte delle impostazioni del pacchetto.
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
+Il [connettore AS2](app-service-logic-connector-as2.md) espone la possibilità di archiviare messaggi. L'archiviazione consente di archiviare il messaggio nel **contenitore BLOB di Azure** che fa parte delle impostazioni del pacchetto.
 
 L'archiviazione è esposta in due punti per i messaggi e gli acknowledgement (MDN):
 
@@ -39,4 +41,4 @@ Usare l'URL recuperato sopra per recuperare il messaggio archiviato dall'archivi
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

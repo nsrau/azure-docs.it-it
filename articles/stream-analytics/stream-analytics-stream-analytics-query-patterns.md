@@ -415,7 +415,7 @@ Ridefinire il problema e trovare la prima auto di una particolare casa automobil
 **Spiegazione**: usare la funzione LAST per recuperare l'ultimo valore di Time quando il tipo di evento presenta il valore 'Start'. Notare che la funzione LAST usa PARTITION BY [user] per indicare che il risultato deve essere calcolato per utente univoco. La query dispone di una soglia massima di 1 ora per la differenza di tempo tra gli eventi 'Start' e 'Stop', ma è configurabile in base alle esigenze: LIMIT DURATION(hour, 1).
 
 ## Esempio di query: Rilevare la durata di una condizione
-**Descrizione**: scoprire per quanto tempo si è verificata una condizione. Ad esempio, si supponga un bug che ha generato un peso errato per tutte le automobili (oltre 20.000 libbre) e si desidera calcolare la durata del bug.
+**Descrizione**: scoprire per quanto tempo si è verificata una condizione. Ad esempio, si supponga che un bug abbia generato un peso errato per tutte le automobili (oltre 20.000 libbre) e che si desideri calcolare la durata di tale bug.
 
 **Input**:
 
@@ -510,4 +510,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

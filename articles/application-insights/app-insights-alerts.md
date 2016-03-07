@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Impostare gli avvisi in Application Insights
@@ -100,6 +100,10 @@ Gli avvisi più diffusi includono:
 * Il **tempo di risposta del server** e le **richieste non riuscite** per il lato server delle applicazioni Web. Oltre a impostare gli avvisi, prestare attenzione a queste metriche per vedere se variano in modo sproporzionato in caso di frequenza elevata delle richieste: questa situazione può indicare che l'app sta esaurendo le risorse.
 * **Eccezioni del server**: per visualizzarle, è necessario effettuare alcuni passaggi di [configurazione aggiuntivi](app-insights-asp-net-exceptions.md).
 
+## Automazione
+
+* [Usare PowerShell per automatizzare la configurazione degli avvisi](app-insights-powershell-alerts.md)
+* [Usare webhook per automatizzare la risposta agli avvisi](../azure-portal/insights-webhooks-alerts.md)
 
 ## Vedere anche
 
@@ -119,4 +123,4 @@ Gli avvisi più diffusi includono:
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

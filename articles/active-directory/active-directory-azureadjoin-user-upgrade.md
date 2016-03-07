@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="Configurazione di un dispositivo Windows 10 con Azure AD da Impostazioni| Microsoft Azure" 
-	description="Illustra come gli utenti possono partecipare ad Azure AD tramite il menu Impostazioni." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Configurazione di un dispositivo Windows 10 con Azure AD da Impostazioni| Microsoft Azure"
+	description="Illustra come gli utenti possono partecipare ad Azure AD tramite il menu Impostazioni."
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="stevenpo"
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/19/2015"
 	ms.author="femila"/>
 
 # Configurazione di un dispositivo Windows 10 con Azure AD da Impostazioni
-Se si sta già utilizzando Windows 7 o 8 e il computer viene aggiornato a Windows 10, è possibile effettuare l’aggiunta ad Azure AD ad tramite il menu Impostazioni.
+Se si sta usando Windows 7 o Windows 8 e il computer o il dispositivo è stato aggiornato a Windows 10, è possibile eseguire le aggiunte ad Azure Active Directory (Azure AD) tramite il menu Impostazioni.
 
-Per aggiungere Azure AD nel menu impostazioni
------------------------------------------------------------------------------------------------
+## Per eseguire le aggiunte ad Azure AD dal menu Impostazioni
+
 
 1. Dal menu Start, fare clic sul charm Impostazioni.
 2. Da Impostazioni->**Sistema**->**Informazioni**->**Aggiungi ad Azure AD**
@@ -44,8 +44,5 @@ Per aggiungere Azure AD nel menu impostazioni
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 * [Autenticazione delle identità senza password con Microsoft Passport](active-directory-azureadjoin-passport.md)
-* [Scenari di utilizzo per Aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
-* [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0224_2016-->

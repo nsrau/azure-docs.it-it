@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="02/22/2016"
 	ms.author="robmcm"/>
 
 # Acquistare e configurare un nome di dominio personalizzato in Servizio app di Azure
@@ -97,5 +97,23 @@ Al termine della configurazione, il nome di dominio personalizzato sarà elencat
 
 A questo punto sarà possibile immettere il nome di dominio personalizzato nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
  
+## Cosa accade al dominio personalizzato acquistato
 
-<!---HONumber=AcomDC_0128_2016-->
+Il dominio personalizzato acquistato nel pannello **Domini personalizzati ed SSL** è associato alla sottoscrizione di Azure. Come risorsa di Azure, questo dominio personalizzato è separato e indipendente dall'app del servizio app per cui è stato prima acquistato il dominio. Ciò significa che:
+
+- All'interno del portale di Azure è possibile usare il dominio personalizzato per più app del servizio app, non soltanto per quella per cui è stato acquistato il dominio personalizzato. 
+- È possibile gestire tutti i domini personalizzati acquistati nella sottoscrizione di Azure usando il pannello **Domini personalizzati ed SSL** di *qualsiasi* app del servizio app presente in tale sottoscrizione.
+- È possibile assegnare qualsiasi applicazione del servizio app dalla stessa sottoscrizione di Azure a un sottodominio all'interno del dominio personalizzato.
+- Se si decide di eliminare un'app del servizio app, è possibile scegliere di non eliminare il dominio personalizzato ad essa associato. In questo modo, è possibile continuare a usare tale dominio per altre app.
+
+## Non è possibile visualizzare il dominio personalizzato acquistato
+
+Se il dominio personalizzato è stato acquistato all'interno del pannello **Domini personalizzati ed SSL** ma non viene visualizzato in **Domini gestiti**, verificare quanto segue:
+
+- È possibile che la creazione del dominio personalizzato non sia stata completata. Selezionare l'icona a forma di campanella nella parte superiore del portale di Azure per verificare lo stato di avanzamento.
+- È possibile che per qualche motivo la creazione del dominio personalizzato non sia riuscita. Selezionare l'icona a forma di campanella nella parte superiore del portale di Azure per verificare lo stato di avanzamento.
+- È possibile che la creazione del dominio personalizzato sia stata completata ma che il pannello non sia ancora stato aggiornato. Cercare di riaprire il pannello **Domini personalizzati ed SSL**.
+- È possibile che a un certo punto il dominio personalizzato sia stato eliminato. Verificare i log di controllo facendo clic su **Impostazioni** > **Log di controllo** nel pannello principale dell'applicazione. 
+- È possibile che il pannello **Domini personalizzati ed SSL** che si sta esaminando appartenga a un'app creata in un'altra sottoscrizione di Azure. Passare a un'altra app in una sottoscrizione differente ed esaminare il relativo pannello **Domini personalizzati ed SSL**. All'interno del portale non sarà possibile visualizzare o gestire domini personalizzati creati in una sottoscrizione di Azure diversa da quella dell'app. Tuttavia, se si fa clic su **Gestione avanzata** nel pannello **Gestisci dominio** del dominio, si verrà reindirizzati al sito Web del provider di dominio, dove sarà possibile [configurare manualmente il dominio personalizzato come qualsiasi dominio personalizzato esterno](web-sites-custom-domain-name.md) per app create in un'altra sottoscrizione di Azure. 
+
+<!---HONumber=AcomDC_0224_2016-->

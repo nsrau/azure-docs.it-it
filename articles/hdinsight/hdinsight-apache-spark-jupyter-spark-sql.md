@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="02/17/2016"
 	ms.author="nitinme"/>
 
 
@@ -110,11 +110,20 @@ In questa sezione viene creato un cluster HDInsight versione 3.3, basato su Spar
 
 10. Dopo aver completato la creazione, fare clic sul riquadro per il cluster Spark dalla Schermata iniziale per avviare il pannello del cluster.
 
-
-
 ## <a name="jupyter"></a>Eseguire query Spark SQL con un notebook di Jupyter
 
-In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL Spark su un cluster Spark.
+In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL Spark su un cluster Spark. Per impostazione predefinita il notebook di Jupyter comprende un kernel **Python2**. I cluster HDInsight Spark offrono due kernel aggiuntivi che è possibile usare con il notebook di Jupyter. Si tratta di:
+
+* **PySpark** (per le applicazioni scritte in Python)
+* **Spark** (per le applicazioni scritte in Scala)
+
+In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) sono descritti in dettaglio i vantaggi dell'uso del kernel PySpark. Ecco, tuttavia, i principali vantaggi dell'uso del kernel PySpark:
+
+* Non è necessario impostare i contesti per Spark, SQL e Hive. Questi vengono impostati automaticamente.
+* È possibile usare magic di cella diversi, ad esempio %%sql o %%hive, per eseguire direttamente query SQL o Hive senza farle precedere da alcun frammento di codice.
+* L'output delle query SQL o Hive viene visualizzato automaticamente.
+
+### Creare un notebook di Jupyter con il kernel PySpark 
 
 1. Dalla Schermata iniziale del [portale di anteprima di Azure](https://portal.azure.com/) fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
 
@@ -124,7 +133,7 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Creare un nuovo notebook. Fare clic su **New** e quindi su **Python2**.
+2. Creare un nuovo notebook. Fare clic su **Nuovo** e quindi su **PySpark**.
 
 	![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Creare un nuovo notebook Jupyter")
 
@@ -132,17 +141,11 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 
 	![Specificare un nome per il notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Specificare un nome per il notebook")
 
-4. Importare i moduli necessari e creare i contesti SQL e Spark. Incollare l'esempio di codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO**.
+4. Poiché il notebook è stato creato tramite il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark, SQL e Hive verranno creati automaticamente quando si esegue la prima cella di codice. È possibile iniziare con l'importazione dei tipi necessari per questo scenario. A tale scopo, incollare il seguente frammento di codice in una cella e premere **MAIUSC + INVIO**.
 
-		from pyspark import SparkContext
-		from pyspark.sql import SQLContext
 		from pyspark.sql.types import *
 		
-		# Create Spark and SQL contexts
-		sc = SparkContext('yarn-client')
-		sqlContext = SQLContext(sc)
-
-	Ogni volta che viene eseguito un processo in Jupyter, il titolo della finestra del Web browser visualizzerà lo stato **(Occupato)** accanto al titolo del notebook. È inoltre possibile notare un cerchio nero accanto al testo **Python2** nell'angolo in alto a destra. Dopo il completamento del processo, viene visualizzato un cerchio vuoto.
+	Ogni volta che viene eseguito un processo in Jupyter, il titolo della finestra del Web browser visualizzerà lo stato **(Occupato)** accanto al titolo del notebook. È anche visibile un cerchio nero accanto al testo **PySpark** nell'angolo in alto a destra. Dopo il completamento del processo, viene visualizzato un cerchio vuoto.
 
 	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
 
@@ -164,37 +167,19 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 		
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
+
+5. Poiché si sta usando un kernel PySpark, è ora possibile eseguire direttamente una query SQL sulla tabella temporanea **hvac** appena creata usando il magic `%%sql`. Per altre informazioni sul magic `%%sql` e sugli altri magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
-		# Run queries against the table and display the data
-		data = sqlContext.sql("select buildingID, (targettemp - actualtemp) as temp_diff, date from hvac where date = "6/1/13"")
-		data.show()
+		%%sql
+		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"")
 
-5. Una volta che il processo viene completato correttamente, viene visualizzato l'output seguente.
+5. Una volta che il processo viene completato correttamente, per impostazione predefinita viene visualizzato l'output tabulare seguente.
 
-		+----------+---------+------+
-		|buildingID|temp_diff|  date|
-		+----------+---------+------+
-		|         4|        8|6/1/13|
-		|         3|        2|6/1/13|
-		|         7|      -10|6/1/13|
-		|        12|        3|6/1/13|
-		|         7|        9|6/1/13|
-		|         7|        5|6/1/13|
-		|         3|       11|6/1/13|
-		|         8|       -7|6/1/13|
-		|        17|       14|6/1/13|
-		|        16|       -3|6/1/13|
-		|         8|       -8|6/1/13|
-		|         1|       -1|6/1/13|
-		|        12|       11|6/1/13|
-		|         3|       14|6/1/13|
-		|         6|       -4|6/1/13|
-		|         1|        4|6/1/13|
-		|        19|        4|6/1/13|
-		|        19|       12|6/1/13|
-		|         9|       -9|6/1/13|
-		|        15|      -10|6/1/13|
-		+----------+---------+------+
+ 	![Output tabulare dei risultati della query](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "Output tabulare dei risultati della query")
+
+	È anche possibile visualizzare i risultati in altri formati. Ad esempio, un grafico ad area per lo stesso output apparirebbe come segue.
+
+	![Grafico ad area dei risultati della query](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "Grafico ad area dei risultati della query")
 
 
 6. Dopo aver eseguito l'applicazione, è consigliabile arrestare il notebook per rilasciare le risorse. A tale scopo, dal menu **File** del notebook fare clic su **Close and Halt**. Questa operazione consente di arrestare e chiudere il notebook.
@@ -209,7 +194,7 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura dell'edificio mediante dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -250,4 +235,4 @@ In questa sezione, è possibile usare un notebook Jupyter per eseguire query SQL
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

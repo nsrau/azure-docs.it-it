@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="ms-prkhad"
     manager=""
-    editor="tysonn"/>
+	editor="tysonn" />
 
 <tags
     ms.service="storage"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/04/2015"
+    ms.date="02/20/2016"
     ms.author="prkhad"/>
 
 # Archiviazione Premium di Azure: progettata per prestazioni elevate
@@ -33,7 +33,7 @@ Questo articolo è utile per rispondere alle domande comuni seguenti sull'ottimi
 
 Queste indicazioni sono specifiche per l'Archiviazione Premium, perché i carichi di lavoro in esecuzione nell'Archiviazione Premium sono influenzati in modo significativo dalle prestazioni. Sono disponibili esempi nei casi appropriati. È anche possibile applicare alcune indicazioni alle applicazioni in esecuzione su VM IaaS con dischi di archiviazione Standard.
 
-Prima di iniziare, se non si ha alcuna esperienza dell'Archiviazione Premium, leggere l'articolo [Introduzione all'Archiviazione Premium](storage-premium-storage-preview-portal.md) e [Obiettivi di scalabilità e prestazioni per Archiviazione Premium di Azure](storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts).
+Prima di iniziare, se non si ha alcuna esperienza dell'Archiviazione Premium, leggere l'articolo [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md) e [Obiettivi di scalabilità e prestazioni per Archiviazione Premium di Azure](storage-scalability-targets.md#premium-storage-accounts).
 
 ## Indicatori di prestazioni dell'applicazione  
 È possibile valutare se le prestazioni di un'applicazione sono adeguate o meno usando indicatori di prestazioni, ad esempio la velocità di elaborazione di una richiesta utente da parte di un'applicazione, la quantità di dati elaborata da un'applicazione per ogni richiesta, il numero di richieste elaborate da un'applicazione in un periodo specifico, la durata dell'attesa da parte di un utente per ottenere una risposta dopo l'invio della richiesta. I termini tecnici per definire questi indicatori di prestazioni sono IOPS, velocità effettiva o larghezza di banda e latenza.
@@ -92,7 +92,7 @@ Nella sezione precedente sono stati illustrati gli indicatori di prestazioni com
 
 Se si ha già un'applicazione e si vuole passare all'Archiviazione Premium, creare prima di tutto l'elenco di controllo precedente per l'applicazione esistente. Creare quindi un prototipo dell'applicazione nell'Archiviazione Premium e progettare l'applicazione in base alle indicazioni disponibili nella sezione *Ottimizzazione delle prestazioni dell'applicazione* più avanti in questo documento. La sezione successiva illustra gli strumenti disponibili per raccogliere le misurazioni relative alle prestazioni.
 
-Creare un elenco di controllo analogo a quello per l'applicazione esistente per il prototipo. Usando gli strumenti di benchmarking è possibile simulare i carichi di lavoro e misurare le prestazioni nel prototipo dell'applicazione. Per altre informazioni, vedere la sezione *Benchmarking*. Sarà quindi possibile determinare se l'Archiviazione Premium può soddisfare o sorpassare i requisiti relativi alle prestazioni per l'applicazione. Si potranno quindi implementare le stesse indicazioni per l'applicazione di produzione.
+Creare un elenco di controllo analogo a quello per l'applicazione esistente per il prototipo. Usando gli strumenti di benchmarking è possibile simulare i carichi di lavoro e misurare le prestazioni nel prototipo dell'applicazione. Per altre informazioni, vedere la sezione [Benchmarking](#benchmarking). Sarà quindi possibile determinare se l'Archiviazione Premium può soddisfare o sorpassare i requisiti relativi alle prestazioni per l'applicazione. Si potranno quindi implementare le stesse indicazioni per l'applicazione di produzione.
 
 ### Contatori per misurare i requisiti relativi alle prestazioni per l'applicazione  
 Il modo migliore per misurare i requisiti relativi alle prestazioni per l'applicazione consiste nell'usare gli strumenti per il monitoraggio delle prestazioni forniti dal sistema operativo del server. È possibile usare PerfMon per Windows e iostat per Linux. Questi strumenti acquisiscono i contatori corrispondenti a ogni misura illustrata nella sezione precedente. È necessario acquisire i valori di questi contatori quando l'applicazione esegue i carichi di lavoro normali, di picco e di orari di minore attività.
@@ -116,7 +116,7 @@ Altre informazioni su [iostat](http://linuxcommand.org/man_pages/iostat1.html) e
 ## Ottimizzazione delle prestazioni dell'applicazione  
 I fattori principali che influenzano le prestazioni di un'applicazione in esecuzione nell'Archiviazione Premium sono costituiti dalla natura delle richieste I/O, dalle dimensioni della VM e del disco, dal numero di dischi, dalla memorizzazione nella cache del disco, dal multithreading e dalla profondità della coda. È possibile controllare alcuni di questi fattori con manopole fornite dal sistema. È possibile che la maggior parte delle applicazioni non consenta di modificare direttamente le dimensioni di I/O e la profondità della coda. Ad esempio, se si usa SQL Server, non sarà possibile scegliere le dimensioni di I/O e la profondità della coda. SQL Server sceglie i valori ottimali per le dimensioni di I/O e la profondità della coda per ottenere le prestazioni migliori possibili. È importante comprendere gli effetti di entrambi i tipi di fattori sulle prestazioni dell'applicazione, in modo da effettuare il provisioning delle risorse appropriate per soddisfare le esigenze relative alle prestazioni.
 
-In questa sezione è consigliabile vedere l'elenco di controllo creato relativo ai requisiti dell'applicazione per identificare le esigenze di ottimizzazione per le prestazioni dell'applicazione. L'elenco di controllo consentirà di determinare i fattori da perfezionare tra quelli illustrati in questa sezione. Per verificare gli effetti di ogni fattore sulle prestazioni dell'applicazione, eseguire gli strumenti di benchmarking sulla configurazione dell'applicazione. Per informazioni sui passaggi necessari per eseguire gli strumenti di benchmarking comuni in VM Windows e Linux, vedere la sezione [Benchmarking](#_Benchmarking) alla fine dell'articolo.
+In questa sezione è consigliabile vedere l'elenco di controllo creato relativo ai requisiti dell'applicazione per identificare le esigenze di ottimizzazione per le prestazioni dell'applicazione. L'elenco di controllo consentirà di determinare i fattori da perfezionare tra quelli illustrati in questa sezione. Per verificare gli effetti di ogni fattore sulle prestazioni dell'applicazione, eseguire gli strumenti di benchmarking sulla configurazione dell'applicazione. Per informazioni sui passaggi necessari per eseguire gli strumenti di benchmarking comuni in VM Windows e Linux, vedere la sezione [Benchmarking](#Benchmarking) alla fine dell'articolo.
 
 ### Breve panoramica sull'ottimizzazione di IOPS, velocità effettiva e latenza  
 Questa tabella riepiloga tutti i fattori relativi alle prestazioni e i passaggi necessari per ottimizzare IOPS, velocità effettiva e latenza. Le sezioni successive al riepilogo illustreranno ogni fattore in modo più dettagliato.
@@ -165,7 +165,7 @@ Per ottenere valori di IOPS e larghezza di banda più elevati rispetto al valore
 
 >**Nota:** poiché se si aumenta il valore di IOPS o di velocità effettiva aumenterà anche l'altro valore, è necessario assicurarsi di non raggiungere i limiti di velocità effettiva o IOPS del disco o della VM in caso di aumento di uno dei valori.
 
-Per verificare gli effetti delle dimensioni di I/O sulle prestazioni dell'applicazione, è possibile eseguire gli strumenti di benchmarking sulle VM e sui dischi. Creare più esecuzioni dei test e usare diverse dimensioni di I/O per ogni esecuzione per verificarne l'impatto. Per altri dettagli, vedere la sezione [Benchmarking](#_Benchmarking) alla fine di questo articolo.
+Per verificare gli effetti delle dimensioni di I/O sulle prestazioni dell'applicazione, è possibile eseguire gli strumenti di benchmarking sulle VM e sui dischi. Creare più esecuzioni dei test e usare diverse dimensioni di I/O per ogni esecuzione per verificarne l'impatto. Per altri dettagli, vedere la sezione [Benchmarking](#Benchmarking) alla fine di questo articolo.
 
 ## Dimensioni di VM a scalabilità elevata  
 Quando si inizia a progettare un'applicazione, uno dei primi passaggi da eseguire consiste nel scegliere una VM in cui ospitare l'applicazione. L'Archiviazione Premium include dimensioni di VM a scalabilità elevata in grado di eseguire applicazioni che richiedono capacità di calcolo elevate e prestazioni di I/O elevate per il disco locale. Queste VM forniscono processori più veloci, un rapporto più elevato tra memoria e core e un'unità SSD (Solid-State Drive) per il disco locale. Esempi di VM a scalabilità elevata che supportano l'Archiviazione Premium sono le VM di serie DS e GS.
@@ -177,7 +177,7 @@ Le VM a scalabilità elevata sono disponibili in dimensioni diverse con un numer
 | Standard\_DS14 | 16 | 112 GB | Sistema operativo = 1023 GB <br> SSD locale = 224 GB | 32 | 576 GB | 50\.000 IOPS <br> 512 MB al secondo | 4\.000 IOPS e 33 MB al secondo |
 | Standard\_GS5 | 32 | 448 GB | Sistema operativo = 1023 GB <br> SSD locale = 896 GB | 64 | 4224 GB | 80\.000 IOPS <br> 2.000 MB al secondo | 5\.000 IOPS e 50 MB al secondo |
 
-Per visualizzare un elenco completo di tutte le dimensioni delle VM di Azure disponibili, vedere [Dimensioni delle macchine virtuali di Azure](virtual-machines-size-specs.md). Scegliere una dimensione di VM in grado di soddisfare e adeguarsi ai requisiti relativi alle prestazioni dell'applicazione. Quando si scelgono le dimensioni delle VM, è inoltre necessario esaminare le importanti considerazioni seguenti.
+Per visualizzare un elenco completo di tutte le dimensioni delle macchine virtuali di Azure disponibili, vedere [Dimensioni delle macchine virtuali di Azure](../virtual-machines/virtual-machines-size-specs.md). Scegliere una dimensione di VM in grado di soddisfare e adeguarsi ai requisiti relativi alle prestazioni dell'applicazione. Quando si scelgono le dimensioni delle VM, è inoltre necessario esaminare le importanti considerazioni seguenti.
 
 *Limiti di scalabilità* I limiti massimi per IOPS per ogni VM e ogni disco sono diversi e indipendenti gli uni dagli altri. Assicurarsi che l'applicazione gestisca i valori di IOPS entro i limiti della VM e dei dischi Premium collegati alla VM. In caso contrario, le prestazioni dell'applicazione verranno limitate.
 
@@ -197,7 +197,7 @@ La tabella seguente riepiloga la scomposizione costi di questo scenario per l'Ar
 | **Costo di dischi al mese** | $ 1.638,40 (32 x dischi da 1 TB) | $ 544,34 (4 x dischi P30) |
 | **Costo complessivo al mese** | $ 3.208,98 | $ 1.544,34 |
 
-*Distribuzioni di Linux* L'Archiviazione Premium di Azure offre lo stesso livello di prestazioni per VM che eseguono Windows e Linux. Sono supportati molti tipi di distribuzioni di Linux. L'elenco completo è disponibile [qui](virtual-machines-linux-endorsed-distributions.md). È importante notare che diverse distribuzioni sono ottimali per diversi tipi di carichi di lavoro. Si otterranno livelli diversi di prestazioni in base alla distribuzione in cui è in esecuzione il carico di lavoro. Testare le distribuzioni di Linux con l'applicazione e scegliere quella migliore per le esigenze specifiche.
+*Distribuzioni di Linux* L'Archiviazione Premium di Azure offre lo stesso livello di prestazioni per VM che eseguono Windows e Linux. Sono supportati molti tipi di distribuzioni di Linux. L'elenco completo è disponibile in [Distribuzioni di Linux supportate da Azure](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). È importante notare che diverse distribuzioni sono ottimali per diversi tipi di carichi di lavoro. Si otterranno livelli diversi di prestazioni in base alla distribuzione in cui è in esecuzione il carico di lavoro. Testare le distribuzioni di Linux con l'applicazione e scegliere quella migliore per le esigenze specifiche.
 
 Quando si esegue Linux con l'Archiviazione Premium, verificare se sono disponibili aggiornamenti recenti per i driver necessari, in modo da assicurare prestazioni elevate.
 
@@ -263,13 +263,13 @@ In Windows è possibile usare gli spazi di archiviazione per lo striping dei dis
 
 Importante: l'uso dell'interfaccia utente di Gestione server consente di impostare il numero totale di colonne fino a un massimo di 8 per un volume con striping. Quando si collegano più di 8 dischi, usare PowerShell per creare il volume. L'uso di PowerShell consente di impostare un numero di colonne uguale al numero di dischi. Ad esempio, se un singolo set di striping include 16 dischi, specificare 16 colonne nel parametro *NumberOfColumns* del cmdlet *New-VirtualDisk* di PowerShell.
 
-In Linux usare l'utilità MDADM per lo striping dei dischi. Per informazioni dettagliate sulla procedura di striping dei dischi su Linux, vedere [Configurare RAID software in Linux](virtual-machines-linux-configure-raid.md).
+In Linux usare l'utilità MDADM per lo striping dei dischi. Per informazioni dettagliate sulla procedura di striping dei dischi su Linux, vedere [Configurare RAID software in Linux](../virtual-machines/virtual-machines-linux-configure-raid.md).
 
 *Dimensione di striping* Un elemento importante della configurazione dello striping del disco è la dimensione di striping. La dimensione di striping o la dimensione del blocco è il blocco più piccolo di dati che l'applicazione può gestire in un volume con striping. La dimensione di striping configurabile dipende dal tipo di applicazione e dal relativo modello di richieste. Se si sceglie la dimensione di striping errata, è possibile che si ottenga un allineamento di I/O non corretto, che porta a prestazioni degradate per l'applicazione.
 
 Ad esempio, se una richiesta I/O generata dall'applicazione è maggiore della dimensione di striping del disco, il sistema di archiviazione la scrive oltre i limiti di unità di striping in più dischi. Quando è necessario accedere ai dati, occorrerà cercarli in più unità di striping per completare la richiesta. L'effetto cumulativo di questo comportamento può portare a una riduzione significativa delle prestazioni. D'altra parte, se la dimensione della richiesta I/O è minore della dimensione di striping ed è di tipo casuale, è possibile che le richieste I/P si concentrino sullo stesso disco, provocando un collo di bottiglia e danneggiando le prestazioni di I/O.
 
-Scegliere una dimensione di striping appropriata in base a tipo di carico di lavoro eseguito dall'applicazione. Per richieste I/O di piccole dimensioni e casuali, usare una dimensione di striping minore. Per richieste I/O di grandi dimensioni e sequenziali, usare una dimensione di striping maggiore. Esaminare le indicazioni relative alle dimensioni di striping per l'applicazione da eseguire nell'Archiviazione Premium. Per SQL Server configurare dimensioni di striping pari a 64 KB per carichi di lavoro OLTP e 256 KB per carichi di lavoro di tipo data warehouse. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-performance-best-practices.md#disks-and-performance-considerations).
+Scegliere una dimensione di striping appropriata in base a tipo di carico di lavoro eseguito dall'applicazione. Per richieste I/O di piccole dimensioni e casuali, usare una dimensione di striping minore. Per richieste I/O di grandi dimensioni e sequenziali, usare una dimensione di striping maggiore. Esaminare le indicazioni relative alle dimensioni di striping per l'applicazione da eseguire nell'Archiviazione Premium. Per SQL Server configurare dimensioni di striping pari a 64 KB per carichi di lavoro OLTP e 256 KB per carichi di lavoro di tipo data warehouse. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure: considerazioni su dischi e prestazioni](virtual-machines-sql-server-performance-best-practices.md#disks-and-performance-considerations).
 
 >**Nota:** è possibile effettuare lo striping di un massimo di 32 dischi di Archiviazione Premium in una VM di serie DS e di 64 dischi di Archiviazione Premium in una VM di serie GS.
 
@@ -315,14 +315,14 @@ Il benchmarking è il processo di simulazione di diversi carichi di lavoro sull'
 
 Sono stati usati gli strumenti di benchmarking comuni Iometer e FIO, rispettivamente per Windows e Linux. Questi strumenti generano più thread che simulano un carico di lavoro analogo a quello di produzione e misurano le prestazioni del sistema. Questi strumenti consentono anche di configurare i parametri quali la dimensione dei blocchi e la profondità della coda, che in genere non possono essere modificati per un'applicazione. Ciò offre maggiore flessibilità per ottenere il livello massimo di prestazioni su una VM a scalabilità elevata con provisioning con dischi Premium per diversi tipi di carichi di lavoro dell'applicazione. Per altre informazioni su ogni strumento di benchmarking, vedere [Iometer](http://www.iometer.org/) e [FIO](http://freecode.com/projects/fio).
 
-Per eseguire gli esempi seguenti, creare una VM DS14 Standard e collegare 11 dischi di Archiviazione Premium alla VM. Degli 11 dischi, configurare 10 dischi con memorizzazione nella cache dell'host impostata su "None" ed effettuarne lo striping in un volume denominato NoCacheWrites. Configurare la memorizzazione nella cache dell'host come "ReadOnly" sul disco rimanente e creare un volume denominato CacheReads con questo disco. Usando questa configurazione, sarà possibile vedere le prestazioni massime di lettura e scrittura da una VM DS14 Standard. Per informazioni dettagliate sulla creazione di una VM DS14 con dischi Premium, vedere [Creare e usare un account di Archiviazione Premium per un disco dati della macchina virtuale](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+Per eseguire gli esempi seguenti, creare una VM DS14 Standard e collegare 11 dischi di Archiviazione Premium alla VM. Degli 11 dischi, configurare 10 dischi con memorizzazione nella cache dell'host impostata su "None" ed effettuarne lo striping in un volume denominato NoCacheWrites. Configurare la memorizzazione nella cache dell'host come "ReadOnly" sul disco rimanente e creare un volume denominato CacheReads con questo disco. Usando questa configurazione, sarà possibile vedere le prestazioni massime di lettura e scrittura da una VM DS14 Standard. Per informazioni dettagliate sulla creazione di una VM DS14 con dischi Premium, vedere [Creare e usare un account di Archiviazione Premium per un disco dati della macchina virtuale](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 *Preparare la cache* Il disco con memorizzazione nella cache dell'host di tipo ReadOnly sarà in grado di ottenere valori di IOPS più elevati rispetto al limite del disco. Per ottenere queste prestazioni di lettura massime dalla cache dell'host, è prima di tutto necessario preparare la cache del disco. Ciò assicura che le operazioni di I/O di lettura che lo strumento di benchmarking eseguirà sul volume CacheReads raggiungano effettivamente la cache e non direttamente il disco. I riscontri nella cache producono IOPS aggiuntivi da un singolo disco abilitato per la cache.
 
 >**Importante:** è necessario preparare la cache prima di eseguire il benchmarking, ogni volta che la VM viene riavviata.
 
 #### Iometer   
-Scaricare lo strumento Iometer nella VM da [questo collegamento](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download).
+[Scaricare lo strumento Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) nella macchina virtuale.
 
 *File di test* Iometer usa un file di test archiviato nel volume in cui eseguire i test di benchmarking. Gestisce le operazioni di lettura e scrittura sul file di test per misurare i valori di IOPS e velocità effettiva del disco. Iometer crea questo file di test se non ne è stato fornito uno. Creare un file di test di 200 GB denominato iobw.tst nei volumi CacheReads e NoCacheWrites.
 
@@ -385,9 +385,9 @@ Le schermate seguenti illustrano i risultati dei test di Iometer per scenari com
 *Velocità effettiva massima di letture e scritture combinate* ![](media/storage-premium-storage-performance/image10.png)
 
 ### FIO  
-FIO è uno strumento popolare per il benchmarking dell'archiviazione sulle VM Linux. Offre la flessibilità necessaria per selezionare diverse dimensioni di I/O e letture e scritture sequenziali o casuali. Genera thread di lavoro o processi per l'esecuzione delle operazioni I/O specificate. È possibile specificare il tipo di operazioni I/O che ogni thread di lavoro deve eseguire usando i file processo. È stato creato un file processo per ogni scenario illustrato negli esempi seguenti. È possibile cambiare le specifiche di questi file processo per il benchmarking di diversi carichi di lavoro in esecuzione sull'Archiviazione Premium. Negli esempi viene usata una VM DS 14 Standard che esegue **Ubuntu**. Usare la stessa configurazione illustrata all'inizio della sezione Benchmarking e preparare la cache prima di eseguire i test di benchmarking.
+FIO è uno strumento popolare per il benchmarking dell'archiviazione sulle VM Linux. Offre la flessibilità necessaria per selezionare diverse dimensioni di I/O e letture e scritture sequenziali o casuali. Genera thread di lavoro o processi per l'esecuzione delle operazioni I/O specificate. È possibile specificare il tipo di operazioni I/O che ogni thread di lavoro deve eseguire usando i file processo. È stato creato un file processo per ogni scenario illustrato negli esempi seguenti. È possibile cambiare le specifiche di questi file processo per il benchmarking di diversi carichi di lavoro in esecuzione sull'Archiviazione Premium. Negli esempi viene usata una VM DS 14 Standard che esegue **Ubuntu**. Usare la stessa configurazione illustrata all'inizio della [sezione Benchmarking](#Benchmarking) e preparare la cache prima di eseguire i test di benchmarking.
 
-Prima di iniziare, installare FIO nella macchina virtuale, scaricandolo da [GitHub](https://github.com/axboe/fio).
+Prima di iniziare, [scaricare FIO](https://github.com/axboe/fio) e installarlo nella macchina virtuale.
 
 Eseguire il comando seguente per Ubuntu:
 
@@ -522,12 +522,11 @@ Durante l'esecuzione del test, sarà possibile visualizzare il numero di operazi
 
 Altre informazioni sull'Archiviazione Premium di Azure:
 
-- [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage-preview-portal.md)  
+- [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md)  
 
 Per gli utenti di SQL Server sono disponibili articoli sulle procedure consigliate per le prestazioni per SQL Server:
 
-- [Procedure consigliate relative alle prestazioni per SQL Server nelle
-- macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx)
-- [L'Archiviazione Premium di Azure offre le prestazioni più elevate per SQL Server in VM di Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)  
+- [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-sql-server-performance-best-practices.md)
+- [L'Archiviazione Premium di Azure offre le prestazioni più elevate per SQL Server in VM di Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

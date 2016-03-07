@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 #Come impaginare i risultati della ricerca in Ricerca di Azure#
@@ -22,7 +22,7 @@ In questo articolo vengono fornite indicazioni su come utilizzare l'API REST del
  
 In ogni caso citato di seguito, le opzioni relative alla pagina che forniscono dati o informazioni per la pagina dei risultati della ricerca vengono specificati tramite richieste [Cerca nel documento](http://msdn.microsoft.com/library/azure/dn798927.aspx) inviate al servizio Ricerca di Azure. Le richieste includono comando GET, percorso e parametri di query che indicano al servizio quali elementi sono richiesti e come formulare la risposta.
 
-> [AZURE.NOTE]Una richiesta valida include diversi elementi, ad esempio URL e percorso del servizio, verbo HTTP, `api-version`, e così via. Per brevità, gli esempi sono stati tagliati in modo da evidenziare solo la sintassi rilevante per l'impaginazione. Vedere la documentazione dell'[API REST del servizio Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) per informazioni dettagliate sulla sintassi della richiesta.
+> [AZURE.NOTE] Una richiesta valida include diversi elementi, ad esempio URL e percorso del servizio, verbo HTTP, `api-version`, e così via. Per brevità, gli esempi sono stati tagliati in modo da evidenziare solo la sintassi rilevante per l'impaginazione. Vedere la documentazione dell'[API REST del servizio Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) per informazioni dettagliate sulla sintassi della richiesta.
 
 ## Corrispondenze totali e conteggi delle pagine ##
 
@@ -82,7 +82,7 @@ Creare un metodo che accetta l'opzione di ordinamento selezionata come input e r
 
  ![][5]
  
-> [AZURE.NOTE]Mentre l'assegnazione del punteggio predefinita è sufficiente per molti scenari, è consigliabile invece basare la pertinenza su un profilo di punteggio personalizzato. Un profilo di punteggio personalizzato offre un modo per favorire gli elementi più vantaggiosi per l'azienda. Vedere [Aggiungere un profilo di punteggio](http://msdn.microsoft.com/library/azure/dn798928.aspx) per ulteriori informazioni.
+> [AZURE.NOTE] Mentre l'assegnazione del punteggio predefinita è sufficiente per molti scenari, è consigliabile invece basare la pertinenza su un profilo di punteggio personalizzato. Un profilo di punteggio personalizzato offre un modo per favorire gli elementi più vantaggiosi per l'azienda. Vedere [Aggiungere un profilo di punteggio](http://msdn.microsoft.com/library/azure/dn798928.aspx) per ulteriori informazioni.
 
 ## Esplorazione in base a facet ##
 
@@ -114,4 +114,4 @@ Vedere [Ricerca nei documenti (API di Ricerca di Azure)](http://msdn.microsoft.c
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

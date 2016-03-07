@@ -18,12 +18,13 @@
 	ms.author="jodebrui"/>
 
 
-# Uso della tecnologia in memoria (anteprima) per migliorare le prestazioni delle applicazioni nel database SQL
+# Uso di OLTP in memoria (anteprima) per migliorare le prestazioni delle applicazioni nel database SQL
 
-Seguire questa procedura per ottimizzare le prestazioni transazionali del database SQL [Premium](sql-database-service-tiers.md) di Azure esistente usando le funzionalità [in memoria](sql-database-in-memory.md).
+[OLTP in memoria](sql-database-in-memory.md) consente di migliorare le prestazioni del carico di lavoro OLTP nei database SQL [Premium](sql-database-service-tiers.md) di Azure senza aumentare il livello di prestazioni.
 
+Seguire i passaggi seguenti per adottare OLTP in memoria nel database esistente.
 
-## Passaggio 1: Verificare che il database Premium supporti la funzionalità in memoria
+## Passaggio 1: Verificare che il database Premium supporti OLTP in memoria
 
 I database Premium creati nel novembre 2015 o versioni successive supportano la funzionalità in memoria. È possibile verificare se il database Premium supporta la funzionalità in memoria eseguendo l'istruzione Transact-SQL seguente. La funzionalità in memoria è supportata se il risultato restituito è 1 (non 0):
 
@@ -42,7 +43,7 @@ Esportare il database di produzione in un file bacpac usando:
 - La funzionalità [Esporta](sql-database-export.md) nel [portale](https://portal.azure.com/).
 
 - La funzionalità **Esporta l'applicazione livello dati** in una versione [aggiornata di SSMS.exe](http://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio).
- 1. In **Esplora oggetti** espandere il nodo **Database**.
+ 1. In **Esplora oggetti ** espandere il nodo **Database**.
  2. Fare clic con il pulsante destro del mouse sul nodo del database.
  3. Fare clic su **Attività** > **Esporta l'applicazione livello dati**.
  4. Usare la finestra della procedura guidata visualizzata.
@@ -58,7 +59,7 @@ Importare il file bacpac in un nuovo database Premium.
  - Selezionare un piano tariffario Premium.
 
 2. Usare SSMS per importare il file bacpac:
- - In **Esplora oggetti** fare clic con il pulsante destro del mouse sul nodo **Database**.
+ - In **Esplora oggetti ** fare clic con il pulsante destro del mouse sul nodo **Database**.
  - Fare clic su **Importa applicazione livello dati**.
  - Usare la finestra della procedura guidata visualizzata.
 
@@ -84,8 +85,7 @@ Per semplificare il test, perfezionare il database di test come segue:
 
 1. Connettersi al database di test usando SSMS.
 
-2. Per evitare di dover usare l'opzione WITH (SNAPSHOT) nelle query, impostare l'opzione di database come illustrato nell'istruzione T-SQL seguente:
-```
+2. Per evitare di dover usare l'opzione WITH (SNAPSHOT) nelle query, impostare l'opzione di database come illustrato nell'istruzione T-SQL seguente: ```
 ALTER DATABASE CURRENT
 	SET
 		MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
@@ -236,4 +236,4 @@ Tenere sotto controllo gli effetti sulle prestazioni delle implementazioni in me
 
 - [Ottimizzazione guidata per la memoria](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

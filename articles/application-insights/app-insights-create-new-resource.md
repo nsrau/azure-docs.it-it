@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="02/16/2016" 
 	ms.author="awills"/>
 
 # Creare una nuova risorsa di Application Insights
@@ -31,7 +31,7 @@ Se non si ha ancora un [account Microsoft, è possibile ottenerne uno ora](http:
 
 È necessaria anche una sottoscrizione di [Microsoft Azure](http://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando Windows Live ID.
 
-In alternativa, è possibile creare una nuova sottoscrizione. La versione di valutazione gratuita consente di provare tutto in Azure. Alla scadenza del periodo di valutazione, l'utente potrebbe trovare appropriata la sottoscrizione con pagamento in base al consumo, perché non si incorre in alcun addebito per i servizi gratuiti.
+In alternativa, è possibile creare una nuova sottoscrizione. L'account gratuito consente di provare tutte le funzionalità in Azure. Alla scadenza del periodo di valutazione, l'utente potrebbe trovare appropriata la sottoscrizione con pagamento in base al consumo, perché non si incorre in alcun addebito per i servizi gratuiti.
 
 Dopo aver ottenuto una sottoscrizione, accedere ad Application Insights all'indirizzo [http://portal.azure.com](https://portal.azure.com) usando il proprio Live ID.
 
@@ -94,4 +94,4 @@ Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

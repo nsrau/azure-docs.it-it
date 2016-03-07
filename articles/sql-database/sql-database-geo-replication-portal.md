@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="sstein"/>
 
 # Configurare la replica geografica per il Database SQL di Azure con il Portale di Azure
@@ -25,7 +25,7 @@
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
-In questo articolo viene illustrato come configurare una replica geografica per il database SQL con il [portale di Azure](https://portal.azure.com).
+In questo articolo viene illustrato come configurare una replica geografica per il database SQL con il [portale di Azure](http://portal.azure.com).
 
 La replica geografica consente di creare un massimo di 4 database di replica (secondari) in località, o aree geografiche, di data center diverse. I database secondari sono disponibili in caso di interruzione di un data center o dell'impossibilità di connettersi al database primario.
 
@@ -56,7 +56,7 @@ Il database secondario avrà lo stesso nome del database primario e avrà, per i
 
 ### Aggiunta del secondario
 
-1. Nel [Portale di Azure](https://portal.azure.com) selezionare il database per cui si desidera installare la replica geografica.
+1. Nel [Portale di Azure](http://portal.azure.com) selezionare il database per cui si desidera installare la replica geografica.
 2. Nel pannello del Database SQL, selezionare **Tutte le impostazioni** > **Replica geografica**.
 3. Selezionare l'area per creare il database secondario. I database Premium possono utilizzare qualsiasi area per un database secondario, quelli Standard devono utilizzare l'area consigliata:
 
@@ -89,7 +89,7 @@ Il database secondario avrà lo stesso nome del database primario e avrà, per i
 
 L'operazione interrompe in modo permanente la replica al database secondario e modifica il ruolo del database secondario in un database di lettura/scrittura normale. Se la connettività al database secondario viene interrotta il comando ha esito positivo ma il database secondario non diventerà un database di lettura-scrittura fino a quando la connettività non verrà ripristinata.
 
-1. Nel [Portale di Azure](https://portal.azure.com) selezionare il database primario nella relazione di replica geografica.
+1. Nel [Portale di Azure](http://portal.azure.com) selezionare il database primario nella relazione di replica geografica.
 2. Nel pannello del Database SQL, selezionare **Tutte le impostazioni** > **Replica geografica**.
 3. Nell’elenco **DATABASE SECONDARI** selezionare il database che si desidera rimuovere della relazione di replica geografica.
 4. Fare clic su **Arresta replica**.
@@ -108,7 +108,7 @@ L'operazione interrompe in modo permanente la replica al database secondario e m
 
 Il database secondario può diventare il database primario.
 
-1. Nel [Portale di Azure](https://portal.azure.com) selezionare il database primario nella relazione di replica geografica.
+1. Nel [Portale di Azure](http://portal.azure.com) selezionare il database primario nella relazione di replica geografica.
 2. Nel pannello del Database SQL, selezionare **Tutte le impostazioni** > **Replica geografica**.
 3. Nell’elenco **DATABASE SECONDARI**, selezionare il database che si desidera utilizzare come nuovo database primario.
 4. Fare clic su **Failover**.
@@ -151,4 +151,4 @@ Per il failover pianificato, questa sequenza garantisce che non si verifichi alc
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="Uso del connettore SFTP nelle app per la logica | Microsoft Azure App Service"
 	description="Come creare e configurare l'app per le API o il connettore SFTP e usarlo in un'app per la logica in Azure App Service"
 	authors="anuragdalmia"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/11/2016"
 	ms.author="sameerch"/>
 
 # Uso del connettore SFTP e aggiunta all'app per la logica
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API SFTP](../connectors/create-api-sftp.md).
+
 Usare il connettore SFTP per spostare dati da e verso un server SFTP. È possibile scaricare, caricare ed elencare file da e verso un server SFTP.
 
 Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. È possibile aggiungere il connettore SFTP al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
@@ -30,7 +32,7 @@ Le app per la logica possono essere attivate in base a diverse origini dati e of
 	- **Location**: scegliere l'area geografica in cui si vuole distribuire il connettore
 	- **Subscription**: scegliere una sottoscrizione in cui si vuole creare questo connettore
 	- **Resource group**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
-	- **Web hosting plan**: selezionare o creare un piano di hosting Web
+	- **Piano di hosting Web**: selezionare o creare un piano di hosting Web
 	- **Pricing tier**: scegliere un livello di prezzo per il connettore
 	- **Name**: assegnare un nome al connettore SFTP
 	- **Impostazioni pacchetto**
@@ -84,7 +86,7 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SFTP come tr
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -105,4 +107,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

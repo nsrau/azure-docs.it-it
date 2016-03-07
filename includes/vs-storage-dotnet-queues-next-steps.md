@@ -1,13 +1,13 @@
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione delle code, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
-- Vedere la documentazione di riferimento del servizio di accodamento nella [libreria Client di archiviazione per .NET](http://go.microsoft.com/fwlink/?LinkID=390731)di riferimento per informazioni dettagliate sulle API disponibili.
-- Ulteriori informazioni sull'utilizzo di archiviazione delle code in[come utilizzare l'archiviazione delle code da .NET](storage-dotnet-how-to-use-queues.md)
-- Per ulteriori informazioni sulle attività avanzate che è possibile eseguire con Archiviazione di Azure, vedere la pagina relativa all'[archiviazione e all'accesso ai dati in Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx).    
-- Per altre informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere [Introduzione ad Azure WebJobs SDK](/app-service-web/websites-dotnet-webjobs-sdk.md).
-- Per altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
-  - Utilizzare[Archiviazione Blob](./storage-dotnet-how-to-use-blobs.md)per archiviare dati strutturati.
-  - Per archiviare dati strutturati, usare [Archiviazione tabelle](./storage-dotnet-how-to-use-tables.md).
-  - Per archiviare dati relazionali, utilizzare [Database SQL](/sql-database/sql-database-dotnet-how-to-use.md).
+- Vedere la documentazione di riferimento del servizio di accodamento nella [libreria client di archiviazione di Azure per .NET](http://go.microsoft.com/fwlink/?LinkID=390731) per informazioni dettagliate sulle API disponibili.
+- Per altre informazioni sull'uso delle code di archiviazione, vedere [Introduzione all'archiviazione code di Azure con .NET](../articles/storage/storage-dotnet-how-to-use-queues.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+- Per altre informazioni su come semplificare il codice scritto da usare con l'archiviazione di Azure, vedere [Informazioni su Azure WebJobs SDK](../articles/app-service-web/websites-dotnet-webjobs-sdk.md).
+- Per altre opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
+  - Per lavorare con le tabelle di archiviazione di Azure, vedere [Introduzione all'archiviazione tabelle di Azure con .NET](../articles/storage/storage-dotnet-how-to-use-tables.md).
+  - Per lavorare con i BLOB di archiviazione di Azure, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../articles/storage/storage-dotnet-how-to-use-blobs.md).
+  - Per archiviare dati relazionali, vedere [Come usare il database SQL di Azure in applicazioni .NET](../articles/sql-database/sql-database-dotnet-how-to-use.md).
+
+<!---HONumber=AcomDC_0224_2016-->

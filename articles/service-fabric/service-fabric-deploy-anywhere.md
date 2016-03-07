@@ -3,7 +3,7 @@
    description="I cluster di Service Fabric verranno eseguiti in Windows Server e Linux, in modo da poter distribuire e ospitare le applicazioni di Service Fabric in qualsiasi ambiente che esegue Windows Server o Linux."
    services="service-fabric"
    documentationCenter=".net"
-   authors="kunalds"
+   authors="Chackdan"
    manager="timlt"
    editor=""/>
 
@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/19/2015"
-   ms.author="kunalds"/>
+   ms.date="02/10/2016"
+   ms.author="chackdan"/>
 
 # "Distribuzione in qualsiasi ambiente" su Windows Server o Linux con Service Fabric
-Con l'aggiunta di "Distribuzione in qualsiasi ambiente", Azure Service Fabric consentirà la creazione di cluster di Service Fabric su qualsiasi macchina virtuale o computer che esegue Windows Server o Linux. In questo modo, sarà possibile distribuire ed eseguire applicazioni di Service Fabric in qualsiasi ambiente in cui è presente un set interconnesso di computer Windows Server o Linux, in locale o con un provider cloud.
+Con l'aggiunta di "Distribuzione in qualsiasi ambiente", Azure Service Fabric consentirà la creazione di cluster di Service Fabric su qualsiasi macchina virtuale o computer che esegue Windows Server o Linux. In questo modo, sarà possibile distribuire ed eseguire applicazioni di Service Fabric in qualsiasi ambiente in cui è presente un set interconnesso di computer Windows Server o Linux, in locale o con qualsiasi provider cloud.
 
  Service Fabric offre un pacchetto di installazione per la creazione di cluster di Service Fabric. Il vantaggio principale della "Distribuzione in qualsiasi ambiente" è che non esiste alcun blocco da parte del fornitore quando si compila un'applicazione usando Service Fabric, dal momento che è possibile scegliere dove eseguire le applicazioni. Questa funzionalità aumenta anche la possibilità di raggiungere una più ampia base di clienti, poiché i requisiti dei clienti possono variare in base agli ambienti in cui si intende eseguire le applicazioni. I clienti del settore sanitario e finanziario, ad esempio, possono avere esigenze diverse rispetto a un produttore di automobili o a un'azienda di viaggi.
 
 L'anteprima tecnica di questa funzionalità dovrebbe essere rilasciata nel primo trimestre del 2016.
 
 ## Sistemi operativi supportati
-Sarà possibile creare cluster in macchine virtuali o in computer che eseguono questi sistemi operativi: * Windows Server 2012 R2 * Windows Server 2016 * Linux
+Sarà possibile creare cluster in macchine virtuali o in computer che eseguono questi sistemi operativi: * Windows Server 2012 * Windows Server 2012 R2 * Windows Server 2016 * Linux
 
 ## Linguaggi di programmazione supportati
 Sarà possibile scrivere applicazioni di Service Fabric in questi linguaggi di programmazione: * C# * Java
 
 ## Creazione e configurazione di cluster
-Service Fabric fornirà un pacchetto di installazione che sarà possibile scaricare dall'Area download Microsoft. Dopo aver scaricato il pacchetto, sarà necessario apportare modifiche a un file di configurazione per specificare le impostazioni del cluster. Dopo aver modificato le impostazioni del cluster, sarà necessario eseguire uno script di installazione per creare il cluster che si estenderà ai computer specificati nelle impostazioni del cluster.
+Service Fabric fornisce un pacchetto di installazione che è possibile scaricare. Dopo aver scaricato il pacchetto, sarà necessario apportare modifiche a un file di configurazione per specificare le impostazioni del cluster. Dopo aver modificato le impostazioni del cluster, sarà necessario eseguire uno script di installazione per creare il cluster che si estenderà ai computer specificati nelle impostazioni del cluster.
 
 I dettagli esatti del processo di installazione saranno condivisi al momento del rilascio dell'anteprima di questa funzionalità nel primo trimestre del 2016.
 
@@ -50,7 +50,8 @@ L'esecuzione di cluster di Service Fabric in Azure offre alcuni vantaggi rispett
 
 * **Portale di Azure:** il portale di Azure semplifica la creazione e la gestione dei cluster.
 * **Gestione risorse di Azure:** l'uso di Gestione risorse di Azure consente di gestire facilmente tutte le risorse usate dal cluster come singola unità e semplifica il tracciamento dei costi e la fatturazione.
+* Il cluster di Service Fabric per le **Risorse di Azure** è una risorsa ARM, quindi è possibile modellarlo in modo analogo ad altre risorse ARM in Azure.
 * **Diagnostica:** in Azure viene offerta l'integrazione con Diagnostica di Azure e Operational Insights.
 * **Scalabilità automatica:** per i cluster eseguiti in Azure vengono fornite funzionalità di scalabilità automatica integrate. In altri ambienti, se si usa la funzionalità Distribuzione in qualsiasi ambiente, sarà necessario creare funzionalità di scalabilità automatica personalizzate oppure scalare manualmente tramite le API esposte da Service Fabric per la scalabilità dei cluster.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

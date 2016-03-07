@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="sstein"/>
 
 # Sviluppo di database in C&#x23;: Creare e configurare un pool di database elastici per database SQL
@@ -27,17 +27,14 @@
 
 Questo articolo illustra come creare un [pool di database elastici](sql-database-elastic-pool.md) per database SQL da un'applicazione che usa tecniche di sviluppo di database C#.
 
-> [AZURE.NOTE]I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12. Se si usa un server di database SQL V11 è possibile [usare PowerShell per eseguire l'aggiornamento a V12 e creare un pool](sql-database-upgrade-server.md) in un unico passaggio.
+> [AZURE.NOTE] I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12. Se si usa un server di database SQL V11 è possibile [usare PowerShell per eseguire l'aggiornamento a V12 e creare un pool](sql-database-upgrade-server-powershell.md) in un unico passaggio.
 
 Negli esempi viene usata la [libreria di database SQL di Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). I singoli frammenti di codice sono suddivisi per maggiore chiarezza e un'applicazione console di esempio riunisce tutti i comandi nella sezione nella parte inferiore di questo articolo.
 
-La libreria di database SQL di Azure per .NET include un'API basata su [Gestione risorse di Azure](resource-group-overview.md) che esegue il wrapping dell'[API REST di database SQL basata su Gestione risorse](https://msdn.microsoft.com/library/azure/mt163571.aspx). La libreria client segue il modello comune per le librerie client basate su Gestione risorse. Gestione risorse richiede gruppi di risorse e l'autenticazione con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
-<br>
+> [AZURE.NOTE] La libreria di database SQL per .NET è attualmente in anteprima.
 
-> [AZURE.NOTE]La libreria di database SQL per .NET è attualmente in anteprima.
 
-<br>
 
 Se non si dispone di una sottoscrizione di Azure, fare clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina e quindi tornare a questo articolo. Per una copia gratuita di Visual Studio, vedere la pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
@@ -86,7 +83,7 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 
     ![Aggiunta di un'applicazione][8]
 
-7. Completare la creazione dell'applicazione, fare clic su **CONFIGURA** e copiare l'**ID CLIENT** (l'ID del client sarà necessario nel codice).
+7. Completare la creazione dell'applicazione, fare clic su **CONFIGURA** e copiare l’**ID CLIENT** (l'ID del client sarà necessario nel codice).
 
     ![Acquisire l'ID client][9]
 
@@ -123,20 +120,15 @@ Altre informazioni sull'uso di Azure Active Directory per l'autenticazione sono 
 L'applicazione client deve recuperare il token di accesso all'applicazione per l'utente corrente. Quando un utente esegue per la prima volta il codice gli verrà richiesto di immettere le credenziali utente e il token risultante viene memorizzato nella cache in locale. Alle successive esecuzioni il token viene recuperato dalla cache e all’utente viene chiesto di effettuare l’accesso solo se il token è scaduto.
 
 
-    /// <summary>
-    /// Prompts for user credentials when first run or if the cached credentials have expired.
-    /// </summary>
-    /// <returns>The access token from AAD.</returns>
     private static AuthenticationResult GetAccessToken()
     {
         AuthenticationContext authContext = new AuthenticationContext
-            ("https://login.windows.net/" /* AAD URI */
-                + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
+            ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
 
         AuthenticationResult token = authContext.AcquireToken
             ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                "aa00a0a0-a0a0-0000-0a00-a0a00000a0aa" /* application client ID from AAD*/,
-        new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
+                clientId,
+        new Uri(redirectUri) /* redirect URI */,
         PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
         return token;
@@ -144,7 +136,7 @@ L'applicazione client deve recuperare il token di accesso all'applicazione per l
 
 
 
-> [AZURE.NOTE]Negli esempi inclusi in questo articolo viene utilizzata una forma asincrona di ogni richiesta di API e blocco fino al completamento della chiamata REST nel servizio sottostante. Sono disponibili metodi asincroni.
+> [AZURE.NOTE] Negli esempi inclusi in questo articolo viene utilizzata una forma asincrona di ogni richiesta di API e blocco fino al completamento della chiamata REST nel servizio sottostante. Sono disponibili metodi asincroni.
 
 
 
@@ -194,7 +186,7 @@ I pool di database elastici sono contenuti all'interno di server di Database SQL
 
 ## Creare una regola del firewall del server per consentire l'accesso al server
 
-Per impostazione predefinita un server non ha regole di firewall perciò non può essere connesso da qualsiasi posizione. Per connettersi a un server o a qualsiasi database nel server, è necessario definire una [regola firewall](sql-database-firewall-configure.md) che consenta l'accesso dall'indirizzo IP del client.
+Per impostazione predefinita un server non ha regole di firewall, quindi non è possibile connettersi al server stesso da qualsiasi posizione. Per connettersi a un server o a qualsiasi database nel server, è necessario definire una [regola firewall](sql-database-firewall-configure.md) che consenta l'accesso dall'indirizzo IP del client.
 
 Nell'esempio seguente viene creata una regola firewall che consente di aprire l'accesso al server da qualsiasi indirizzo IP. È consigliabile creare gli account di accesso SQL e le password appropriati per proteggere il database e non basarsi sulle regole del firewall come difesa primaria contro le intrusioni. Per dettagli, vedere [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md).
 
@@ -388,14 +380,13 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
         private static AuthenticationResult GetAccessToken()
         {
             AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" /* AAD URI */
-                + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
+                ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
 
             AuthenticationResult token = authContext.AcquireToken
                 ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/,
-                new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
-                PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
+                    clientId,
+            new Uri(redirectUri) /* redirect URI */,
+            PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
             return token;
         }
@@ -585,4 +576,4 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

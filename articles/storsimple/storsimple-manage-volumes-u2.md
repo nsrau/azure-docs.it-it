@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.workload="NA"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # Per gestire il volume è possibile usare il servizio StorSimple Manager (aggiornamento 2)
@@ -48,7 +48,7 @@ Quando si crea un volume aggiunto in locale, viene ridotto lo spazio disponibile
 
 I volumi a livelli sono volumi con thin provisioning in cui i dati a cui si accede più spesso rimangono in locale nel dispositivo, mentre quelli usati meno spesso vengono automaticamente disposti su livelli nel cloud. Il thin provisioning è una tecnologia di virtualizzazione in cui le risorse di archiviazione disponibili risultano maggiori delle risorse fisiche. Anziché riservare in anticipo spazio di archiviazione sufficiente, StorSimple usa il thin provisioning per allocare esattamente la quantità di spazio necessaria per soddisfare i requisiti correnti. La natura elastica dell'archiviazione cloud facilita questo approccio, consentendo a StorSimple di aumentare o diminuire lo spazio cloud in base alle variazioni nella domanda.
 
-Per progettare un volume a livelli come volume di archivio, selezionare la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente**. I volumi di archivio usano una dimensione di 512 KB per il blocco di deduplicazione, invece i volumi non di archivio usano una dimensione di 64 KB. La maggiore dimensione del blocco di deduplicazione consente al dispositivo di trasferire nel cloud blocchi di dati più grandi.
+Se si usa il volume a livelli per i dati, selezionando la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente** si modifica la dimensione del blocco di deduplicazione per il volume a 512 KB. Se non si seleziona questa opzione, il volume a livelli corrispondente utilizzerà una dimensione del blocco di 64 KB. Una dimensione maggiore del blocco di deduplicazione consente al dispositivo di accelerare il trasferimento dei dati di archivio di grandi dimensioni nel cloud.
 
 >[AZURE.NOTE] I volumi di archivio creati con una versione precedente all'aggiornamento 2 di StorSimple verranno importati a livelli con la casella di controllo dell'archivio selezionata.
 
@@ -285,4 +285,4 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

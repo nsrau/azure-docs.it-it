@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015" 
+	ms.date="02/21/2016" 
 	ms.author="robinsh"/>
 
 # Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure
@@ -216,10 +216,10 @@ Le copie nello stesso account di archiviazione vengono generalmente completate r
 Per altre informazioni, vedere [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 
 ####<a name="subheading18"></a>Usare AzCopy
-Il tema di archiviazione di Azure ha rilasciato lo strumento da riga di comando “AzCopy” progettato per supportare il trasferimento bulk di più BLOB verso, da e tra account di archiviazione. Questo strumento è ottimizzato per questo scenario e può raggiungere elevate velocità di trasferimento. Se ne consiglia l'uso negli scenari di caricamento, download e copia bulk. Per altre informazioni sullo strumento e per scaricarlo, andare [qui](storage-use-azcopy.md).
+Il tema di archiviazione di Azure ha rilasciato lo strumento da riga di comando “AzCopy” progettato per supportare il trasferimento bulk di più BLOB verso, da e tra account di archiviazione. Questo strumento è ottimizzato per questo scenario e può raggiungere elevate velocità di trasferimento. Se ne consiglia l'uso negli scenari di caricamento, download e copia bulk. Per altre informazioni su AzCopy e il download di questa utilità, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
 ####<a name="subheading19"></a>Servizio di importazione/esportazione di Azure
-Per volumi di dati molto grandi (più di 1 TB), l'archiviazione di Azure offre il servizio di importazione/esportazione che consente di caricare e scaricare dall'archiviazione BLOB tramite l'invio di dischi rigidi. È possibile inserire i dati in un disco rigido e inviarlo a Microsoft per il caricamento oppure inviare un disco rigido vuoto a Microsoft per scaricare i dati. Per altre informazioni, leggere [qui](storage-import-export-service.md). Questo metodo può risultare più efficace rispetto al caricamento/download di elevati volumi di dati tramite rete.
+Per volumi di dati molto grandi (più di 1 TB), l'archiviazione di Azure offre il servizio di importazione/esportazione che consente di caricare e scaricare dall'archiviazione BLOB tramite l'invio di dischi rigidi. È possibile inserire i dati in un disco rigido e inviarlo a Microsoft per il caricamento oppure inviare un disco rigido vuoto a Microsoft per scaricare i dati. Per altre informazioni, vedere [Usare il servizio di Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](storage-import-export-service.md). Questo metodo può risultare più efficace rispetto al caricamento/download di elevati volumi di dati tramite rete.
 
 ###<a name="subheading20"></a>Usare i metadati
 Il servizio BLOB supporta le richieste head che possono includere i metadati relativi al BLOB. Ad esempio, se l'applicazione richiede i dati EXIF inclusi in una foto, può recuperare la foto ed estrarli. Per risparmiare larghezza di banda e migliorare le prestazioni, l'applicazione può archiviare i dati EXIF nei metadati del BLOB quando l'applicazione carica la foto: i dati EXIF possono essere poi recuperati nei metadati usando semplicemente una richiesta HEAD, risparmiando una notevole quantità di larghezza di banda e il tempo di elaborazione necessario a estrarre i dati EXIF a ogni lettura del BLOB. Questa funzionalità è utile in scenari in cui sono necessari solo i metadati e non l'intero contenuto di un BLOB. È possibile archiviare solo 8 KB di metadati per BLOB (il servizio non accetta richieste per valori superiori), quindi se i dati superano queste dimensioni non sarà possibile usare questo approccio.
@@ -235,7 +235,7 @@ Per caricare rapidamente un singolo BLOB di grandi dimensioni, l'applicazione cl
 -	.NET: Impostare ParallelOperationThreadCount in un oggetto BlobRequestOptions da usare.
 -	Java/Android: Usare BlobRequestOptions.setConcurrentRequestCount()
 -	Node.js: Usare parallelOperationThreadCount nelle opzioni della richiesta o nel servizio BLOB.
--	C++: Usare il metodo blob_request_options::set_parallelism_factor.
+-	C++: Usare il metodo blob\_request\_options::set\_parallelism\_factor.
 
 ####<a name="subheading22"></a>Caricamento rapido di più BLOB
 Per caricare rapidamente più BLOB, caricarli in parallelo. È una procedura più rapida rispetto al caricamento dei singoli BLOB con caricamenti di blocchi paralleli perché distribuisce il caricamento su più partizioni del servizio di archiviazione. Un singolo BLOB supporta una velocità effettiva di soli 60 MB/secondo (circa 480 Mbps). Al momento della redazione di questo documento, un account di archiviazione con ridondanza locale (LRS) basato negli Stati Uniti supporta fino a 20 Gbps in ingresso, un valore molto più alto della velocità effettiva supportata da un singolo BLOB. [AzCopy](#subheading18) esegue i caricamenti in parallelo per impostazione predefinita ed è consigliato per questo scenario.
@@ -243,7 +243,7 @@ Per caricare rapidamente più BLOB, caricarli in parallelo. È una procedura pi�
 ###<a name="subheading23"></a>Scelta del tipo di BLOB corretto
 Archiviazione di Azure supporta due tipi di BLOB: BLOB di *pagine* e BLOB in *blocchi*. Per un determinato scenario di utilizzo, la scelta del tipo di BLOB influisce sulle prestazioni e sulla scalabilità della soluzione. I BLOB in blocchi sono appropriati quando si vogliono caricare grandi quantità di dati in modo efficace: ad esempio nel caso di un'applicazione client che necessita di caricare foto o video nell'archiviazione BLOB. I BLOB di pagine sono appropriati quando l'applicazione deve eseguire scritture casuali sui dati: ad esempio, i dischi rigidi virtuali di Azure vengono archiviati come BLOB di pagine.
 
-Per altre informazioni, vedere [Informazioni sui Blob in blocchi e sui Blob di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Per altre informazioni, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ##Tabelle
 Oltre alle procedure comprovate per [Tutti i servizi](#allservices) descritte prima, le seguenti procedure comprovate si applicano specificamente al servizio tabelle.
@@ -370,7 +370,7 @@ Per informazioni aggiornate sui costi, vedere [Prezzi di Archiviazione di Azure]
 ###<a name=subheading44"></a>UpdateMessage
 È possibile usare **UpdateMessage** per aumentare il timeout di invisibilità o aggiornare le informazioni di stato di un messaggio. Si tratta di una funzionalità potente, ma occorre ricordare che ogni operazione **UpdateMessage** viene presa in considerazione per il calcolo dell'obiettivo di scalabilità. Tuttavia, può essere un approccio più efficace rispetto al passaggio di un processo da una coda alla successiva mediante un flusso di lavoro man mano che i singoli passaggi del processo vengono completati. Con l'operazione **UpdateMessage**, l'applicazione può salvare lo stato del processo nel messaggio e continuare il lavoro invece di riaccodare il messaggio per il passaggio successivo del processo ogni volta che viene completato un passaggio.
 
-Per ulteriori informazioni, vedere l'articolo [Procedura: modificare il contenuto di un messaggio in coda](../storage-dotnet-how-to-use-queues/#change-contents).
+Per ulteriori informazioni, vedere l'articolo [Procedura: modificare il contenuto di un messaggio in coda](storage-dotnet-how-to-use-queues#change-the-contents-of-a-queued-message).
 
 ###<a name=subheading45"></a>Architettura dell'applicazione
 Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito vengono elencati alcuni modi in cui le code possono essere usate per rendere più scalabile l'applicazione:
@@ -382,4 +382,4 @@ Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito
 In questo articolo sono state descritte alcune delle procedure comprovate più comuni per l'ottimizzazione delle prestazioni durante l'uso d Archiviazione di Azure. Si consiglia a tutti gli sviluppatori di applicazioni di valutare la propria applicazione in base alle procedure descritte sopra e di prendere in considerazione l'attuazione di alcune misure per migliorare le prestazioni delle applicazioni che usano Archiviazione di Azure.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

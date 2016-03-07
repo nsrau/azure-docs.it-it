@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Come creare gruppi di sicurezza di rete in modalità ARM mediante PowerShell | Microsoft Azure"
-   description="Informazioni su come creare e distribuire gruppi di sicurezza di rete in ARM mediante PowerShell"
+   pageTitle="Come creare gruppi di sicurezza di rete in Azure Resource Manager mediante PowerShell| Microsoft Azure"
+   description="Informazioni su come creare e distribuire gruppi di sicurezza di rete in Azure Resource Manager mediante PowerShell"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-# Come creare gruppi di sicurezza di rete in PowerShell
+# Come creare gruppi di sicurezza di rete in Gestione risorse mediante PowerShell
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. È inoltre possibile [creare NSG nel modello di distribuzione classica](virtual-networks-create-nsg-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Questo articolo illustra il modello di distribuzione Gestione risorse. È anche possibile creare gruppi di sicurezza di rete con il [modello di distribuzione classica](virtual-networks-create-nsg-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -34,7 +34,7 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
+1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 
 3. Creare una regola di sicurezza che consente l'accesso da Internet alla porta 3389.
 
@@ -123,7 +123,7 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo
 		                        "ProvisioningState": "Succeeded"
 		                      }
 
->[AZURE.WARNING]L'output per il comando precedente mostra il contenuto per l'oggetto di configurazione della rete virtuale, che esiste solo nei computer in cui si esegue PowerShell. È necessario eseguire il cmdlet **Set-AzureRmVirtualNetwork** per salvare queste impostazioni in Azure.
+>[AZURE.WARNING] L'output per il comando precedente mostra il contenuto per l'oggetto di configurazione della rete virtuale, che esiste solo nei computer in cui si esegue PowerShell. È necessario eseguire il cmdlet `Set-AzureRmVirtualNetwork` per salvare queste impostazioni in Azure.
 
 7. Salvare le nuove impostazioni di rete virtuale in Azure.
 
@@ -182,4 +182,4 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo 
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->
