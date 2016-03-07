@@ -117,10 +117,10 @@ Come illustrato dalle regole predefinite seguenti, il traffico che origina e ter
 |Documentazione di distribuzione|Classico|Gestione risorse|
 |---|---|---|
 |Portale classico|![No][red]|![No][red]|
-|Portale di Azure|![No][red]|<a href=" h ttps://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal"></a>![Sì][green]|
-|PowerShell|<a href=" h ttps://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Sì][green]</a>|<a href=" h ttps://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps"></a>![Sì][green]|
-|Interfaccia della riga di comando di Azure|<a href=" h ttps://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli"></a>![Sì][green]|<a href=" h ttps://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli"></a>![Sì][green]|
-|Modello ARM|![No][red]|<a href="  h ttps://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template"></a>![Sì][green]|
+|Portale di Azure|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Si][green]</a>|
+|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Si][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Si][green]</a>|
+|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Si][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Si][green]</a>|
+|Modello ARM|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Si][green]</a>|
 
 |**Chiave**|![Sì][green]Supportato. Fare clic per visualizzare l'articolo.|![No][red]Non supportato.|
 |---|---|---|
