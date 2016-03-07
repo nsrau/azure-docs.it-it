@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modifiche al Modello app 2.0 di Azure AD | Microsoft Azure"
+	pageTitle="Modifiche all'endpoint v2.0 di Azure AD | Microsoft Azure"
 	description="Descrizione delle modifiche in corso ai protocolli del Modello app 2.0 disponibili in anteprima pubblica."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 # Aggiornamenti importanti ai protocolli di autenticazione della versione 2.0
@@ -67,12 +67,10 @@ In precedenza, l'endpoint della versione 2.0 restituiva un oggetto JSON con codi
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-La risposta era simile all'oggetto JSON seguente:
-
-```
+La risposta era simile all'oggetto JSON seguente: ```
 { 
 	"token_type": "Bearer",
-	"expires_in": "3599",
+	"expires_in": 3599,
 	"scope": "https://outlook.office.com/mail.read",
 	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
@@ -87,7 +85,7 @@ Il valore `profile_info` è stato rimosso e le informazioni vengono ora fornite 
 ```
 { 
 	"token_type": "Bearer",
-	"expires_in": "3599",
+	"expires_in": 3599,
 	"scope": "https://outlook.office.com/mail.read",
 	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
@@ -113,7 +111,7 @@ O in una risposta del token:
 ```
 { 
 	"token_type": "Bearer",
-	"id_token_expires_in": "3599",
+	"id_token_expires_in": 3599,
 	"scope": "openid",
 	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
@@ -145,7 +143,7 @@ In questo aggiornamento vengono modificate le informazioni a cui l'app ha access
 ```
 { 
 	"aud": "580e250c-8f26-49d0-bee8-1c078add1609",
-	"iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0",
+	"iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0 ",
 	"iat": 1449520283,
 	"nbf": 1449520283,
 	"exp": 1449524183,
@@ -186,7 +184,7 @@ https://login.microsoftonline.com/{some-guid}/v2.0/
 dove guid era l'ID tenant del tenant di Azure AD che aveva emesso il token. Con queste modifiche, il valore dell'autorità di certificazione diventa
 
 ```
-https://login.microsoftonline.com/{some-guid}/v2.0
+https://login.microsoftonline.com/{some-guid}/v2.0 
 ```
 
 sia nei token che nel documento di individuazione di OpenID Connect.
@@ -212,12 +210,10 @@ Per qualsiasi domanda sull'ambito delle modifiche, è possibile contattare @Azur
 ## Frequenza delle modifiche ai protocolli
 Non sono previste altre modifiche di rilievo ai protocolli di autenticazione. Microsoft sta unendo intenzionalmente queste modifiche in un unico rilascio per evitare la necessità di eseguire questo tipo di processo di aggiornamento nel prossimo futuro. Verranno naturalmente aggiunte altre funzionalità al servizio di autenticazione convergente della versione 2.0, ma non comporteranno modifiche di rilievo al codice esistente.
 
-Ciò premesso, l'endpoint della versione 2.0 è ancora in fase di anteprima. Occorre quindi prestare attenzione nel rilascio di app di produzione che dipendono da tale endpoint ed essere pronti ad apportare modifiche quando si verificano situazioni di questo tipo. Solo quando l'endpoint della versione 2.0 avrà raggiunto la disponibilità generale gli sviluppatori potranno sfruttare le dipendenze dallo stato corrente del servizio.
-
-Microsoft ringrazia gli utenti per la disponibilità in questo periodo di anteprima. Le informazioni e l'esperienza dei primi utenti sono state preziose e Microsoft si augura che continueranno a condividere idee e opinioni.
+Microsoft ringrazia gli utenti per la disponibilità nel periodo di anteprima. Le informazioni e l'esperienza dei primi utenti sono state preziose e Microsoft si augura che continueranno a condividere idee e opinioni.
 
 Buon lavoro.
 
 Microsoft Identity Division
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

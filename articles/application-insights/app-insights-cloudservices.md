@@ -258,6 +258,10 @@ L'operazione è terminata. Le funzionalità del portale sono già collegate per 
 
 [L'esempio](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitora un servizio che ha un ruolo Web e due ruoli di lavoro.
 
+## Eccezione "metodo non trovato" durante l'esecuzione dei servizi cloud di Azure
+
+È stata eseguita la compilazione per .NET 4.6? La versione 4.6 non è supportata automaticamente nei ruoli dei servizi cloud di Azure. [Installare la versione 4.6 in ogni ruolo](../cloud-services/cloud-services-dotnet-install-dotnet.md) prima di eseguire l'app.
+
 ## Argomenti correlati
 
 * [Configurare l'invio di dati di Diagnostica di Azure ad Application Insights](app-insights-azure-diagnostics.md)
@@ -279,4 +283,4 @@ L'operazione è terminata. Le funzionalità del portale sono già collegate per 
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

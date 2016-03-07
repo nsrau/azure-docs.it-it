@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Annullare la registrazione di server e disabilitare la protezione | Microsoft Azure" 
-	description="Azure Site Recovery coordina la replica, il failover e il ripristino delle macchine virtuali ubicate nei server locali in Azure o in un data center secondario. Utilizzare questo articolo per annullare la registrazione di server da un insieme di credenziali di Site Recovery e per disabilitare la protezione per le macchine virtuali e i server fisici." 
+	pageTitle="Rimuovere server e disabilitare la protezione | Microsoft Azure" 
+	description="Questo articolo descrive come annullare la registrazione di server da un insieme di credenziali di Site Recovery e per disabilitare la protezione per le macchine virtuali e i server fisici." 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="rayne-wiselman" 
@@ -13,12 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="02/22/2016" 
 	ms.author="raynew"/>
 
-# Annullare la registrazione di server e disabilitare la protezione
+# Rimuovere server e disabilitare la protezione
 
-In questo articolo viene descritto come annullare la registrazione di server dall'insieme di credenziali di Site Recovery e come disabilitare la protezione per le macchine virtuali protette da Site Recovery. In caso di domande dopo la lettura di questo articolo, è possibile pubblicarle nel [forum relativo a Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una rapida panoramica, vedere l'articolo [Che cos'è Azure Site Recovery?](site-recovery-overview.md)
+
+## Panoramica
+
+In questo articolo viene descritto come annullare la registrazione di server dall'insieme di credenziali di Site Recovery e come disabilitare la protezione per le macchine virtuali protette da Site Recovery.
+
+Per inviare commenti o domande, è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Annullare la registrazione di un server VMM
 
@@ -210,6 +216,8 @@ Se si desidera arrestare la protezione di una macchina virtuale VMware o un serv
 			- Non si deve disinstallare il servizio Mobility dalla macchina virtuale.
 	
 	- **Disabilitare la protezione**: se si abilita e si salva questa opzione la macchina virtuale non sarà protetta da Ripristino sito. Le impostazioni di protezione per la macchina virtuale verranno pulite automaticamente.
-	- **Rimuovere dall'insieme di credenziali**: se si seleziona questa opzione la macchina virtuale verrà rimossa solo dall'insieme di credenziali di Ripristino sito. Le impostazioni di protezione locali per la macchina virtuale non saranno interessate. Per rimuovere le impostazioni nel computer e per rimuovere la macchina virtuale dalla sottoscrizione di Azure ed è necessario pulire le impostazioni tramite la disinstallazione del servizio Mobility. ![Rimuovere le opzioni](./media/site-recovery-manage-registration-and-protection/RegistrationProtection_RemoveVM.png)
+	- **Rimuovere dall'insieme di credenziali**: se si seleziona questa opzione la macchina virtuale verrà rimossa solo dall'insieme di credenziali di Ripristino sito. Le impostazioni di protezione locali per la macchina virtuale non saranno interessate. Per rimuovere le impostazioni nel computer e per rimuovere la macchina virtuale dalla sottoscrizione di Azure ed è necessario pulire le impostazioni tramite la disinstallazione del servizio Mobility.
+	
+		![Rimuovere le opzioni](./media/site-recovery-manage-registration-and-protection/remove-vm.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

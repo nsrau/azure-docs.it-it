@@ -11,7 +11,7 @@
 <tags
 	ms.service="stream-analytics"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
 	ms.date="02/04/2016"
@@ -28,15 +28,14 @@ Analisi di flusso è un servizio completamente gestito che consente l'elaborazio
 
 ## Scenario: telecomunicazioni e rilevamento di illecito relativo alle SIM in tempo reale
 
-Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. La società richiede dai dati quanto riportato di seguito: 
-* Diminuire i dati fino a una quantità gestibile e ottenere informazioni sull'utilizzo del cliente nel tempo e per aree geografiche. 
-* Rilevare gli illeciti relativi alle SIM (più chiamate provenienti dalla stessa identità contemporaneamente, ma in luoghi geograficamente diversi) in tempo reale in modo da poter rispondere facilmente tramite notifica ai clienti o arresto del servizio.
+Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. La società richiede dai dati quanto riportato di seguito: * Diminuire i dati fino a una quantità gestibile e ottenere informazioni sull'utilizzo del cliente nel tempo e per aree geografiche. * Rilevare gli illeciti relativi alle SIM (più chiamate provenienti dalla stessa identità contemporaneamente, ma in luoghi geograficamente diversi) in tempo reale in modo da poter rispondere facilmente tramite notifica ai clienti o arresto del servizio.
 
 In scenari di tipo "Internet delle cose" (IoT, Internet of Things) standard viene generata una considerevole quantità di dati di telemetria o sensore e i clienti desiderano effettuarne l'aggregazione o generare avvisi relativi alle anomalie in tempo reale.
 
 ## Prerequisiti
 
-Questo scenario si avvale di un generatore di eventi che si trova su GitHub. Scaricarlo [qui](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator) e attenersi alla procedura nell’esercitazione per configurare la soluzione.
+- Scaricare [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) dall'Area download Microsoft. 
+- Facoltativo: codice sorgente del generatore di eventi da [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator)
 
 ## Creare un input di hub eventi di Azure e un gruppo di consumer
 
@@ -58,16 +57,15 @@ Per creare un hub eventi:
 
 Microsoft ha fornito un'applicazione client per generare i metadati di esempio relativi alle chiamate in ingresso ed eseguirne il push nell’hub eventi. Attenersi alla procedura seguente per configurare questa applicazione.
 
-1.	Scaricare la soluzione TelcoGenerator da [https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator).
-2.	Sostituire i valori Microsoft.ServiceBus.ConnectionString e EventHubName in App.Config con la stringa di connessione hub eventi e il nome.
-3.	Compilare la soluzione per avviare il download dei pacchetti nuget richiesti.
-4.	Avviare l’applicazione. L'utilizzo è il seguente:
+1.	Scaricare il [file TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)
+2.	Sostituire i valori Microsoft.ServiceBus.ConnectionString e EventHubName in **telcodatagen.exe.config** con la stringa di connessione hub eventi e il nome.
+3.	Avviare l’applicazione. L'utilizzo è il seguente:
 
-    	telcodatagen [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
+   telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
 
 Nell'esempio seguente vengono generati 1000 eventi con una probabilità del 20% di frode nel corso di 2 ore.
 
-    TelcoDataGen.exe 1000 .2 2
+    telcodatagen.exe 1000 .2 2
 
 Verranno visualizzati i record inviati all'hub eventi. Di seguito sono definiti alcuni campi chiave che verranno utilizzati in questa applicazione di rilevamento di illecito in tempo reale:
 
@@ -129,7 +127,7 @@ Ora che si dispone di un flusso di eventi di telecomunicazioni, è possibile imp
 Analisi di flusso supporta un semplice modello di query dichiarative per descrivere le trasformazioni per l’elaborazione in tempo reale. Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/dn834998.aspx). Questa esercitazione consente di creare e testare diverse query sul flusso in tempo reale dei dati chiamata.
 
 #### Facoltativo: dati di input di esempio
-Per convalidare la query in base al tipo di dati effettivo del processo, è possibile utilizzare la funzionalità **Dati di esempio** per estrarre gli eventi dal flusso e creare un file JSON di eventi per il test. La procedura seguente illustra come eseguire questa operazione e viene anche fornito un file [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) di esempio a scopo di test.
+Per convalidare la query in base al tipo di dati effettivo del processo, è possibile utilizzare la funzionalità **Dati di esempio** per estrarre gli eventi dal flusso e creare un file JSON di eventi per il test. La procedura seguente illustra come eseguire questa operazione e mette a disposizione un file [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) di esempio a scopo di test.
 
 1.	Selezionare l'input dell'hub eventi e fare clic su **Dati di esempio** nella parte inferiore della pagina.
 2.	Nella finestra di dialogo visualizzata specificare un valore per **Ora di inizio** da cui iniziare a raccogliere dati e un valore per **Durata** per la quantità di dati aggiuntivi da utilizzare.
@@ -149,7 +147,7 @@ Se si desidera archiviare ogni evento, è possibile utilizzare una query passthr
 	> Assicurarsi che il nome dell'origine di input corrisponda al nome dell'input specificato precedentemente.
 
 3.	Fare clic su **Test** nell'editor di query.
-4.	Fornire un file di test, che può essere un file creato con la procedura precedente oppure usare un file [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
+4.	Fornire un file di test, che può essere un file creato con la procedura precedente oppure usare un file [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
 5.	Fare clic sul segno di spunta e vedere i risultati visualizzati sotto la definizione della query.
 
 	![Risultati della definizione della query](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
@@ -259,4 +257,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/23/2016"
 	ms.author="stepsic"/>
 	
 # Usare le funzionalità delle app per la logica
 
-Nell'[argomento precedente][Create a new logic app] è stata creata la prima app per la logica. In questa fase verrà mostrato come creare un processo più completo usando le app per la logica del servizio app. Questo argomento introduce i nuovi concetti relativi alle app per la logica elencati di seguito:
+Nell'[argomento precedente](app-service-logic-create-a-logic-app.md) è stata creata la prima app per la logica. In questa fase verrà mostrato come creare un processo più completo usando le app per la logica del servizio app. Questo argomento introduce i nuovi concetti relativi alle app per la logica elencati di seguito:
 
 - Logica condizionale, che esegue un'azione solo quando viene soddisfatta una determinata condizione.
-- Ripetizione di azioni.
 - Visualizzazione del codice per modificare un'app per la logica esistente.
 - Opzioni per avviare un flusso di lavoro.
 
-Prima di completare questo argomento, completare i passaggi elencati nell'articolo [Creare una nuova app per la logica]. Nel [portale di Azure], passare all'app per la logica e fare clic su **Trigger e azioni** nel riepilogo per modificare la definizione di app per la logica.
+Prima di completare questo argomento, completare i passaggi elencati nell'articolo [Creare una nuova app per la logica](app-service-logic-create-a-logic-app.md). Nel [portale di Azure], passare all'app per la logica e fare clic su **Trigger e azioni** nel riepilogo per modificare la definizione di app per la logica.
 
 ## Materiale di riferimento
 
@@ -34,43 +33,33 @@ I seguenti documenti possono essere utili:
 - [API REST di gestione e di runtime](https://msdn.microsoft.com/library/azure/dn948513.aspx): contiene anche informazioni su come richiamare direttamente le app per la logica
 - [Riferimento al linguaggio](https://msdn.microsoft.com/library/azure/dn948512.aspx): fornisce un elenco completo di tutte le funzioni/espressioni supportate
 - [Tipi di trigger e azioni](https://msdn.microsoft.com/library/azure/dn948511.aspx): descrive i diversi tipi di azioni e gli input che accettano
-- [Panoramica del servizio app](app-service-value-prop-what-is.md): fornisce informazioni sui componenti da scegliere per la creazione di una soluzione
+- [Panoramica del servizio app](../app-service/app-service-value-prop-what-is.md): fornisce informazioni sui componenti da scegliere per la creazione di una soluzione
 
-## Aggiunta di logica condizionale e ripetizione
+## Aggiunta di logica condizionale
 
-Benché il flusso originale funzioni, vi sono alcune aree che è possibile migliorare. Innanzitutto, l'azione invia all'utente solo il primo tweet restituito. Logicamente, l'utente vorrebbe ricevere tutti i tweet contenenti la parola chiave. Per ripetere un'azione per un elenco di voci, ad esempio i tweet restituiti, è necessario usare la proprietà `repeat`.
+Benché il flusso originale funzioni, vi sono alcune aree che è possibile migliorare.
 
-### Ripetizione
-La ripetizione esegue l'azione per ciascun elemento di un elenco di elementi. I passaggi successivi consentono di aggiornare l'azione esistente in modo da usare le ripetizioni, operazione sicuramente consigliabile per un elenco di tweet.
-
-1. Tornare al flusso di lavoro creato e fare clic sul collegamento **Definizione** nelle **Informazioni di base**. 
-
-2. Per modificare l'azione **Connettore Dropbox**, fare clic sull'icona a forma di matita.
-
-3. Fare clic sull'icona a forma di ingranaggio e selezionare **Ripetere in un elenco**.
- 
-2. Accanto alla casella **Repeat** fare clic su `...` e selezionare **Body**. Questa operazione consente di immettere quanto segue:
-
-    	@body('twitterconnector')
-
-	Nella casella di testo. Questa funzione produce un elenco di tweet.
-
-3. Selezionare tutto il testo nella casella di testo **Contenuto** ed eliminarlo. Quindi, fare clic su `...` e selezionare **Testo tweet**. Viene inserita la funzione **repeatItem()**, che restituisce ogni elemento presente in elenco.
-
-Da notare, infine, che gli output delle azioni ripetute sono speciali. Se si intende fare riferimento ai risultati dell'operazione Dropbox, ad esempio, *non* è possibile eseguire la normale funzione `@actions('dropboxconnector').outputs.body`. Viene eseguita invece la funzione `@actions('dropboxconnector').outputs.repeatItems`. Questa funzione restituisce un elenco di tutte le volte in cui è stata eseguita l'operazione, assieme agli output di ciascuna di esse. Ad esempio, `@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath` restituisce il percorso del primo file caricato.
 
 ### Condizionale
-Questa app per la logica implica il caricamento di moltissimi file su Dropbox. I passaggi seguenti consentono di aggiungere un'ulteriore logica per assicurarsi di ricevere un file solo quando il tweet riceve un determinato numero di retweet.
+Questa app per la logica può comportare la ricezione di grandi quantità di messaggi di posta elettronica. I passaggi seguenti consentono di aggiungere un'ulteriore logica per assicurarsi di ricevere un messaggio solo quando il tweet proviene da un utente con un determinato numero di follower.
 
-1. Fare clic sull'icona a forma di ingranaggio nella parte superiore dell'azione e selezionare **Aggiungere una condizione da soddisfare**.
+1. Fare clic sul segno più e trovare l'azione *Get User* per twitter.
 
-2. Nella casella di testo, digitare quanto segue:
+2. Passare al campo **Tweeted by** dal trigger per visualizzare le informazioni sull'utente di twitter.
 
-    	@greater(repeatItem().Retweet_Count , 5)
-    
-	La funzione **greater** confronta due valori e consente di eseguire l'azione solo quando il primo valore è maggiore del secondo. Si accede a una determinata proprietà come un punto (.) seguito dal nome della proprietà, come ad esempio `.Retweet_Count` sopra riportata.
+	![GetUser](./media/app-service-logic-use-logic-app-features/getuser.png)
 
-3. Fare clic sul segno di spunta per salvare l'azione di Dropbox.
+3. Fare di nuovo clic sul segno più e selezionare **Aggiungi condizione**
+
+4. Nella prima casella fare clic su **...** sotto **Get User** per individuare il campo **Followers count**.
+
+5. Nella casella a discesa selezionare **Greater than**
+
+6. Nella seconda casella digitare il numero di follower per gli utenti.
+
+	![Condizionale](./media/app-service-logic-use-logic-app-features/conditional.png)
+
+7.  Infine, trascinare il messaggio di posta elettronica nella casella **If Yes**. In questo modo si riceveranno messaggi di posta elettronica solo quando viene raggiunto il numero di follower.
 
 ## Uso della visualizzazione codice per modificare un'app per la logica
 
@@ -100,11 +89,7 @@ Il codice seguente consente di aggiornare l'app per la logica esistente in modo 
     
 2. Scorrere fino all'azione `twitterconnector`, individuare il valore della query e sostituirlo con `#@{parameters('topic')}`. È anche possibile usare la funzione **concat** per unire due o più stringhe, ad esempio `@concat('#',parameters('topic'))` corrisponde a quanto scritto sopra.
  
-3. Infine, passare all'azione `dropboxconnector` e aggiungere il parametro dell'argomento, come segue:
-
-    	/tweets/@{parameters('topic')}/@{repeatItem().TweetID}.txt
-
-I parametri costituiscono un buon metodo per estrarre valori che probabilmente verranno modificati molto. Sono particolarmente utili quando è necessario eseguire l'override dei parametri in diversi ambienti. Per altre informazioni su come eseguire l'override dei parametri in base all'ambiente, vedere la [documentazione sulle API REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
+I parametri costituiscono un buon metodo per estrarre valori che probabilmente verranno modificati molto. Sono particolarmente utili quando è necessario eseguire l'override dei parametri in diversi ambienti. Per altre informazioni su come eseguire l'override dei parametri in base all'ambiente, vedere la [documentazione sulle API REST](http://msdn.microsoft.com/library/mt643788(Azure.100).aspx).
 
 A questo punto, quando si fa clic su **Save**, ogni ora tutti i nuovi tweet con più di 5 retweet vengono recapitati in una cartella denominata **tweet** nella propria area Dropbox.
 
@@ -117,30 +102,9 @@ Vi sono diverse opzioni per avviare il flusso di lavoro definito nell'app per la
 Un trigger di ricorrenza viene eseguito a un intervallo specificato dall'utente. Quando il trigger è caratterizzato dalla logica condizionale, determina se è necessario o no eseguire il flusso di lavoro. Un trigger indica che deve essere eseguito restituendo un codice di stato `200`. Quando non è necessario eseguirlo, restituisce il codice di stato `202`.
 
 ### Callback tramite le API REST
-I servizi possono chiamare un endpoint dell'app per la logica per avviare un flusso di lavoro. È possibile trovare l'endpoint per accedere passando al pannello **Proprietà** dal pulsante **Impostazioni** sulla barra dei comandi dell'app per la logica.
-
-È possibile usare il callback per richiamare un'app per la logica all'interno dell'applicazione personalizzata. È necessario usare l'autenticazione **di base**. Il nome utente `default` viene creato per l'utente e la password è il campo **Chiave di accesso primaria** nel pannello **Proprietà**. ad esempio:
-
-        POST https://<< your endpoint >>/run?api-version=2015-02-01-preview
-        Content-type: application/json
-        Authorization: Basic << base-64 encoded string of default:<access key> >>
-        {
-            "name" : "nameOfTrigger",
-            "outputs" : { "property" : "value" }
-        }
-
-È possibile passare gli output al flusso di lavoro e farvi riferimento nel flusso di lavoro. Ad esempio, con il trigger sopra riportato, se si include `@triggers().outputs.property` si ottiene `value`.
-
-Per altre informazioni, vedere la [documentazione di REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
-
-### Esecuzione manuale
-È possibile definire un'app per la logica che non ha un trigger. In questo caso, il flusso di lavoro deve essere avviato su richiesta. Questo tipo di app per la logica è più adatto a un processo che necessita di essere eseguito solo a intermittenza. Per creare un'app per la logica senza un trigger, selezionare la casella **Esegui app per la logica manualmente** in **Avvia app per la logica** nella finestra di progettazione.
-
-Per avviare l'app per la logica su richiesta, fare clic sul pulsante **Esegui adesso**sulla barra dei comandi.
+I servizi possono chiamare un endpoint dell'app per la logica per avviare un flusso di lavoro. Per altre informazioni, vedere [App per la logica come endpoint che è possibile chiamare](app-service-logic-connector-http.md). Per avviare quel tipo di app per la logica su richiesta, fare clic sul pulsante **Esegui adesso** sulla barra dei comandi.
 
 <!-- Shared links -->
-[Create a new logic app]: app-service-logic-create-a-logic-app.md
-[Creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

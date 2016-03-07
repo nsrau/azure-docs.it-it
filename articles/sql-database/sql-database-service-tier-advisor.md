@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/08/2015"
+   ms.date="02/08/2016"
    ms.author="sstein"/>
 
 # Indicazioni sui livelli di prezzo del database SQL
@@ -26,7 +26,7 @@
 Ottenere consigli sul livello dei prezzi durante le operazioni seguenti:
 
 - [Modificare il livello di servizio e il livello di prestazioni (livello di prezzo) di un database SQL](sql-database-scale-up.md)
-- [Aggiornare il server SQL Azure a V12](sql-database-v12-upgrade.md)
+- [Aggiornare il server SQL Azure a V12](sql-database-upgrade-server-portal.md)
 - Passare al server V12 - se i database possono [trarre dei vantaggi in un pool di database elastici](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), nel pannello del server verrà visualizzato un messaggio che indica un pool consigliato. Fare clic sul messaggio per creare il pool consigliato.
 - [Creare un pool di database elastici](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
@@ -56,7 +56,7 @@ In base all'utilizzo del database, esistono 2 categorie di indicazioni che posso
 
 ## Ottenere indicazioni sui livelli di prezzo
 
-È possibile ottenere indicazioni sui livelli di prezzo selezionando un database Web o Business esistente e facendo clic su **Tutte le impostazioni** e quindi su **Piano tariffario (piano DTU)**. (I consigli sul livello dei prezzi sono disponibili anche quando si [Esegue l'aggiornamento del server SQL Azure a V12](sql-database-v12-upgrade.md).)
+È possibile ottenere indicazioni sui livelli di prezzo selezionando un database Web o Business esistente e facendo clic su **Tutte le impostazioni** e quindi su **Piano tariffario (piano DTU)**. (I consigli sul livello dei prezzi sono disponibili anche quando si [Esegue l'aggiornamento del server SQL Azure a V12](sql-database-upgrade-server-portal.md).)
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **ESPLORA** > **database SQL**.
@@ -96,4 +96,4 @@ A seconda dei dettagli del database specifico, l'esecuzione di un aggiornamento 
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

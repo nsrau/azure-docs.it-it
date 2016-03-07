@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Introduzione all'archiviazione BLOB di Azure e ai relativi servizi di Visual Studio (ASP.NET 5)
@@ -24,9 +24,7 @@ In questo articolo viene descritto come iniziare a utilizzare l'archiviazione BL
 
 L'archiviazione BLOB di Azure è un servizio per l'archiviazione di quantità elevate di dati non strutturati a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Un singolo BLOB può avere qualsiasi dimensione. I BLOB possono essere costituiti da immagini, file audio e video, dati non elaborati e file di documento. In questo articolo viene descritto come iniziare a utilizzare l'archiviazione BLOB dopo la creazione di un account di archiviazione di Azure usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio in un progetto ASP.NET 5.
 
-I BLOB di archiviazione si trovano nei contenitori esattamente come i file si trovano nelle cartelle. Dopo aver creato una risorsa di archiviazione, è possibile creare uno o più contenitori nello spazio di archiviazione. Ad esempio, in una risorsa di archiviazione denominata "Raccoglitore", è possibile creare contenitori denominati "immagini" per archiviare immagini e un altro contenitore denominato "audio" per archiviare file audio. Dopo la creazione dei contenitori, sarà possibile caricarvi singoli file BLOB. Per altre informazioni sulla modifica dei BLOB a livello di codice, vedere [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md "Come usare l'archiviazione BLOB da .NET").
-
-
+I BLOB di archiviazione si trovano nei contenitori esattamente come i file si trovano nelle cartelle. Dopo aver creato una risorsa di archiviazione, è possibile creare uno o più contenitori nello spazio di archiviazione. Ad esempio, in una risorsa di archiviazione denominata "Raccoglitore", è possibile creare contenitori denominati "immagini" per archiviare immagini e un altro contenitore denominato "audio" per archiviare file audio. Dopo la creazione dei contenitori, sarà possibile caricarvi singoli file BLOB. Per altre informazioni sulla modifica dei BLOB a livello di codice, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md).
 
 ##Accesso ai contenitori BLOB nel codice
 
@@ -99,36 +97,36 @@ Per caricare un file BLOB in un contenitore, ottenere un riferimento a un conten
 Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenitore. Sarà quindi possibile chiamare il metodo **ListBlobsSegmentedAsync** del contenitore per recuperare i BLOB e/o le directory disponibili. Per accedere all'insieme avanzato di proprietà e metodi per un oggetto **IListBlobItem** restituito, è necessario eseguirne il cast in un oggetto **CloudBlockBlob**, **CloudPageBlob** o **CloudBlobDirectory**. Se il tipo del BLOB non è noto, è possibile usare un controllo del tipo per determinare quello in cui viene eseguito il cast. Nel codice seguente viene illustrato come recuperare e visualizzare l'URI di ogni elemento in un contenitore.
 
 	BlobContinuationToken token = null;
-        do
+    do
+    {
+        BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(token);
+        token = resultSegment.ContinuationToken;
+
+        foreach (IListBlobItem item in resultSegment.Results)
         {
-            BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(token);
-            token = resultSegment.ContinuationToken;
-
-            foreach (IListBlobItem item in resultSegment.Results)
+            if (item.GetType() == typeof(CloudBlockBlob))
             {
-                if (item.GetType() == typeof(CloudBlockBlob))
-                {
-                    CloudBlockBlob blob = (CloudBlockBlob)item;
-                    Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
-                }
-
-                else if (item.GetType() == typeof(CloudPageBlob))
-                {
-                    CloudPageBlob pageBlob = (CloudPageBlob)item;
-
-                    Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
-                }
-
-                else if (item.GetType() == typeof(CloudBlobDirectory))
-                {
-                    CloudBlobDirectory directory = (CloudBlobDirectory)item;
-
-                    Console.WriteLine("Directory: {0}", directory.Uri);
-                }
+                CloudBlockBlob blob = (CloudBlockBlob)item;
+                Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
             }
-        } while (token != null);
 
-È possibile elencare i contenuti di un contenitore BLOB in altri modi. Per altre informazioni, vedere [Come utilizzare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
+            else if (item.GetType() == typeof(CloudPageBlob))
+            {
+                CloudPageBlob pageBlob = (CloudPageBlob)item;
+
+                Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
+            }
+
+            else if (item.GetType() == typeof(CloudBlobDirectory))
+            {
+                CloudBlobDirectory directory = (CloudBlobDirectory)item;
+
+                Console.WriteLine("Directory: {0}", directory.Uri);
+            }
+        }
+    } while (token != null);
+
+È possibile elencare i contenuti di un contenitore BLOB in altri modi. Per altre informazioni, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
 
 ##Scaricare un BLOB
 Per scaricare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi chiamare il metodo **DownloadToStreamAsync**. Nell'esempio seguente viene utilizzato il metodo **DownloadToStreamAsync** per trasferire i contenuti del BLOB a un oggetto stream che è quindi possibile salvare come file locale.
@@ -142,7 +140,7 @@ Per scaricare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi ch
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-È possibile salvare i BLOB come file in altri modi. Per altre informazioni, vedere [Come utilizzare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md/#download-blobs).
+È possibile salvare i BLOB come file in altri modi. Per altre informazioni, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md#download-blobs).
 
 ##Eliminare un BLOB
 Per eliminare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi chiamare il metodo **DeleteAsync**.
@@ -157,4 +155,4 @@ Per eliminare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi ch
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -195,7 +195,7 @@ All'esterno della rete aziendale|Per i flussi del browser Multi-Factor Authentic
 6. Nella pagina Impostazioni servizio, in Indirizzi IP attendibili, selezionare:
 
 	- Per le richieste degli utenti federati originate dalla Intranet dell'utente: tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignoreranno Multi-Factor Authentication usando un'attestazione rilasciata da AD FS. 
-	- Per le richieste da un intervallo specifico di IP pubblici: immettere gli indirizzi IP nelle caselle disponibili usando la notazione CIDR. Ad esempio: xxx.xxx.xxx.0/24 per gli indirizzi IP nell'intervallo xxx.xxx.xxx.1 – xxx.xxx.xxx.254 oppure xxx.xxx.xxx.xxx/32 per un singolo indirizzo IP. È possibile immettere fino a 12 intervalli di indirizzi IP.
+	- Per le richieste da un intervallo specifico di IP pubblici: immettere gli indirizzi IP nelle caselle disponibili usando la notazione CIDR. Ad esempio: xxx.xxx.xxx.0/24 per gli indirizzi IP nell'intervallo xxx.xxx.xxx.1 – xxx.xxx.xxx.254 oppure xxx.xxx.xxx.xxx/32 per un singolo indirizzo IP. È possibile immettere fino a 50 intervalli di indirizzi IP.
 
 7. Fare clic su Salva.
 8. Una volta che gli aggiornamenti sono stati applicati, fare clic su Chiudi.
@@ -376,4 +376,4 @@ Metodo|Descrizione
 9. Fare clic su Salva.
 10. Fare clic su Chiudi.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

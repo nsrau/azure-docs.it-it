@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Visualizzare stored procedure, trigger e funzioni definite dall'utente utilizzando Esplora script di DocumentDB | Microsoft Azure"
-	description="Informazioni su Esplora script, uno strumento del portale di Azure che consente di visualizzare elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente."
+	pageTitle="Esplora script di DocumentDB, un editor JavaScript | Microsoft Azure"
+	description="Informazioni su Esplora script, uno strumento del portale di Azure che consente di gestire elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente."
+	keywords="Editor JavaScript"
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -12,46 +13,31 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="12/01/2015"
+	ms.topic="article"
+	ms.date="02/23/2016"
 	ms.author="anhoh"/>
 
-# Visualizzare, modificare e creare stored procedure, trigger e funzioni definite dall'utente utilizzando Esplora script di DocumentDB
+# Creare ed eseguire stored procedure, trigger e funzioni definite dall'utente usando Esplora script di DocumentDB
 
-In questo articolo viene fornita una panoramica di Esplora script di [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), uno strumento del portale di Azure che consente di visualizzare elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente. Ulteriori informazioni sulla programmazione sul lato server di DocumentDB sono disponibili [qui](documentdb-programming.md).
+Questo articolo fornisce una panoramica di Esplora script di [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), un editor JavaScript del portale di Azure che consente di visualizzare elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente. Per altre informazioni sulla programmazione sul lato server di DocumentDB, vedere l'articolo relativo alla [programmazione sul lato server DocumentDB: stored procedure, trigger del database e funzioni definite dall'utente](documentdb-programming.md).
 
-Dopo aver completato questa esercitazione, si potrà rispondere alle domande seguenti:
+## Avviare Esplora script
 
--	Come è possibile visualizzare facilmente stored procedure di DocumentDB tramite un browser Web?
--	Come è possibile visualizzare facilmente trigger di DocumentDB tramite un browser Web?
--	Come è possibile visualizzare facilmente funzioni definite dall’utente di DocumentDB tramite un browser Web?
+1. Nel portale di Azure, nell'indice, fare clic su **Account DocumentDB**. Se **Account DocumentDB** non è visibile, fare clic su **Sfoglia** e quindi su **Account DocumentDB**.
 
-## Avviare e utilizzare Esplora script
-
-Esplora script può essere avviato da qualsiasi pannello di account, database e raccolta di DocumentDB.
-
-1. Nella parte superiore del pannello di database o account di DocumentDB, fare semplicemente clic sul comando **Esplora script**.
+2. Nella parte superiore del pannello **Account DocumentDB** fare clic su **Esplora script**.
 
 	![Schermata del comando Esplora script](./media/documentdb-view-scripts/scriptexplorercommand.png)
  
-2. In alternativa, nella parte inferiore di ogni pannello è presente una sezione **Strumenti di sviluppo** che contiene la parte **Esplora script**.
+    >[AZURE.NOTE] Esplora script viene visualizzato anche nei pannelli di database e raccolte.
 
-	![Schermata della parte Esplora script](./media/documentdb-view-scripts/scriptexplorerpart.png)
-
-2. Selezionare semplicemente il comando o la parte per avviare Esplora script.
-
-	<p>Gli elenchi a discesa **Database** e **Raccolta** vengono precompilati a seconda del contesto in cui viene avviato Esplora script. Ad esempio, se viene avviato da un pannello di database, viene prepopolato il database corrente. Se viene avviato da un pannello della raccolta, viene prepopolata la raccolta corrente.
+    Gli elenchi a discesa **Database** e **Raccolta** vengono precompilati a seconda del contesto in cui viene avviato Esplora script. Ad esempio, se viene avviato da un pannello di database, viene prepopolato il database corrente. Se viene avviato da un pannello della raccolta, viene prepopolata la raccolta corrente.
 
 	![Schermata di Esplora script](./media/documentdb-view-scripts/scriptexplorerinitial.png)
 
+4.  Usare gli elenchi a discesa **Database** e **Raccolta** per modificare facilmente la raccolta da cui sono attualmente visualizzati gli script senza dover chiudere e riavviare Esplora script.
 
-3. Gli elenchi a discesa **Database** e **Raccolta** possono essere usati per modificare facilmente la raccolta da cui sono attualmente visualizzati gli script senza dover chiudere e riavviare Esplora script.
-
-4. Esplora script supporta anche l'applicazione di filtri al set di script attualmente caricato in base alla relativa proprietà ID. È sufficiente digitare nella casella del filtro.
-
-	![Schermata di Esplora script con filtro evidenziato](./media/documentdb-view-scripts/scriptexplorerfilter.png)
-
-	I risultati nell'elenco di Esplora script vengono filtrati in base ai criteri forniti.
+5. Esplora script supporta anche l'applicazione di filtri al set di script attualmente caricato in base alla relativa proprietà ID. Digitare i criteri nella casella di filtro. I risultati presenti nell'elenco di Esplora script verranno filtrati in base ai criteri forniti.
 
 	![Schermata di Esplora script con risultati del filtro](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
@@ -63,13 +49,13 @@ Esplora script può essere avviato da qualsiasi pannello di account, database e 
 	![Schermata del comando di aggiornamento di Esplora script](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
 
-## Visualizzare, modificare, creare ed eliminare stored procedure, trigger e funzioni definite dall'utente con Esplora script
+## Creare, visualizzare e modificare stored procedure, trigger e funzioni definite dall'utente
 
 Esplora script consente di eseguire facilmente operazioni CRUD sugli elementi di programmazione lato server di DocumentDB.
 
-- Per creare uno script, è sufficiente fare clic sul comando di creazione applicabile all'interno di Esplora script, fornire un id, immettere il contenuto dello script e fare clic sul comando **Salva**.
+- Per creare uno script, è sufficiente fare clic sul comando di creazione applicabile all'interno di Esplora script, fornire un ID, immettere il contenuto dello script e fare clic su **Salva**.
 
-	![Schermata dell’opzione di creazione di Esplora script](./media/documentdb-view-scripts/scriptexplorercreatecommand.png)
+	![Schermata dell'opzione di creazione di Esplora script con l'editor JavaScript](./media/documentdb-view-scripts/scriptexplorercreatecommand.png)
 
 - Quando si crea un trigger, è necessario specificare anche il tipo di trigger e l'operazione del trigger
 
@@ -79,7 +65,7 @@ Esplora script consente di eseguire facilmente operazioni CRUD sugli elementi di
 
 	![Schermata dell’esperienza di visualizzazione script di Esplora script](./media/documentdb-view-scripts/scriptexplorerviewscript.png)
 
-- Per modificare uno script, è sufficiente apportare le modifiche desiderate e fare clic sul comando **Salva**.
+- Per modificare uno script, è sufficiente apportare le modifiche desiderate nell'editor JavaScript e fare clic su **Salva**.
 
 	![Schermata dell’esperienza di visualizzazione script di Esplora script](./media/documentdb-view-scripts/scriptexplorereditscript.png)
 
@@ -101,9 +87,34 @@ Esplora script consente di eseguire facilmente operazioni CRUD sugli elementi di
 
 	![Schermata del comando di eliminazione di Esplora script](./media/documentdb-view-scripts/scriptexplorerdeletescript2.png)
 
+## Eseguire una stored procedure
+
+Esplora script consente di eseguire stored procedure lato server dal portale di Azure.
+
+- Quando si apre il pannello di una stored procedure appena creata, verrà fornito uno script predefinito (*prefix*). Per eseguire lo script *prefix* o un proprio script, aggiungere un *ID* e alcuni *input*. Per le stored procedure che accettano più parametri, tutti gli input devono trovarsi all'interno di una matrice, ad esempio *["foo", "bar"]*.
+
+	![Schermata del pannello Stored procedure di Esplora script per l'aggiunta di input e l'esecuzione di una stored procedure](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-input.png)
+
+- Per eseguire una stored procedure, è sufficiente fare clic sul comando **Salva ed esegui** nel riquadro dell'editor di script.
+
+	> [AZURE.NOTE] Il comando **Salva ed esegui** salverà la stored procedure prima dell'esecuzione. Questo significa che le precedenti versioni della stored procedure verranno sovrascritte.
+
+- Le esecuzioni di stored procedure eseguite con esito positivo avranno lo stato *Stored procedure salvata ed eseguita correttamente* e i risultati restituiti verranno visualizzati nel riquadro *Risultati*.
+
+	![Schermata del pannello Stored procedure di Esplora script per l'esecuzione di una stored procedure](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure.png)
+
+- Se l'esecuzione genera un errore, tale errore verrà visualizzato nel riquadro *Risultati*.
+
+	![Schermata della vista delle proprietà dello script di Esplora script Esecuzione di una stored procedure con errori](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-error.png)
+
+## Usare gli script all'esterno del portale
+
+Esplora script del portale di Azure è solo uno dei modi per utilizzare stored procedure, trigger e funzioni definite dall'utente in DocumentDB. È anche possibile usare gli script mediante l'API REST e gli [SDK client](documentdb-sdk-dotnet.md). La documentazione dell'API REST include esempi dell'utilizzo di [stored procedure mediante REST](https://msdn.microsoft.com/library/azure/mt489092.aspx), [funzioni definite dall'utente mediante REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e [trigger mediante REST](https://msdn.microsoft.com/library/azure/mt489116.aspx). Sono inoltre disponibili esempi che mostrano come [utilizzare gli script mediante C#](documentdb-dotnet-samples.md#server-side-programming-examples) e [utilizzare gli script mediante Node.js](documentdb-nodejs-samples.md#server-side-programming-examples).
+
 ## Passaggi successivi
 
-Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
- 
+Altre informazioni sulla programmazione sul lato server di DocumentDB sono disponibili nell'articolo relativo alla [programmazione sul lato server DocumentDB: stored procedure, trigger del database e funzioni definite dall'utente](documentdb-programming.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+Anche il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) è una risorsa utile per l'utente durante l'apprendimento di DocumentDB.
+
+<!---HONumber=AcomDC_0224_2016-->

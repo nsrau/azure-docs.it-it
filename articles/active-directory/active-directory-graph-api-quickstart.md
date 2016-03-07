@@ -15,14 +15,14 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="11/17/2015"
+      ms.date="02/22/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Avvio rapido per l'API Graph di Azure AD
 
-L'API Graph di Azure Active Directory (AD) consente l'accesso a livello di codice ad Azure AD tramite endpoint dell'API REST OData. Le applicazioni possono usare l'API Graph per le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete) su oggetti e dati della directory. Ad esempio, è possibile usare l'API Graph per creare un nuovo utente, visualizzare o aggiornare le proprietà dell'utente, modificare la password utente, verificare l'appartenenza ai gruppi per l'accesso basato sui ruoli e disabilitare o eliminare l'utente. Per altre informazioni sulle funzionalità dell'API Graph e sugli scenari di applicazione, vedere [API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) e [Prerequisiti dell'API Graph di Azure AD](https://msdn.microsoft.com/library/hh974476(Azure.100).aspx).
+L'API Graph di Azure Active Directory (AD) consente l'accesso a livello di codice ad Azure AD tramite endpoint dell'API REST OData. Le applicazioni possono usare l'API Graph per le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete) su oggetti e dati della directory. Ad esempio, è possibile usare l'API Graph per creare un nuovo utente, visualizzare o aggiornare le proprietà dell'utente, modificare la password utente, verificare l'appartenenza ai gruppi per l'accesso basato sui ruoli e disabilitare o eliminare l'utente. Per altre informazioni sulle funzionalità dell'API Graph e sugli scenari di applicazione, vedere [API di Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) e [Prerequisiti dell'API di Azure AD Graph](https://msdn.microsoft.com/library/hh974476(Azure.100).aspx).
 
-> [AZURE.IMPORTANT]L'API Graph di Azure AD è disponibile anche tramite [Microsoft Graph](https://graph.microsoft.io/), un'API unificata composta da API di altri servizi Microsoft, quali Outlook, OneDrive, OneNote, Planner e Office Graph, accessibile tramite un singolo endpoint e con un unico token di accesso.
+> [AZURE.IMPORTANT] L'API Graph di Azure AD è disponibile anche tramite [Microsoft Graph](https://graph.microsoft.io/), un'API unificata composta da API di altri servizi Microsoft, quali Outlook, OneDrive, OneNote, Planner e Office Graph, accessibile tramite un singolo endpoint e con un unico token di accesso.
 
 ## Come creare un URL dell'API Graph
 
@@ -42,7 +42,7 @@ Per l'API Graph sono state rilasciate le versioni seguenti.
 * Versione 2013-11-08
 * Versione 2013-04-05
 
-È possibile specificare la versione per una richiesta all'API Graph nel parametro di query "api-version". Per la versione 1.5, usare un valore di versione numerico: api-version=1.5. Per le versioni precedenti, si usa una stringa di data che rispetta il formato AAAA-MM-GG, ad esempio api-version=2013-11-08. Per le funzionalità di anteprima, usare la stringa "beta", ad esempio api-version=beta. Per altre informazioni sulle differenze tra le versioni dell'API Graph, vedere [Controllo delle versioni dell'API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning).
+È possibile specificare la versione per una richiesta all'API Graph nel parametro di query "api-version". Per la versione 1.5, usare un valore di versione numerico: api-version=1.5. Per le versioni precedenti, si usa una stringa di data che rispetta il formato AAAA-MM-GG, ad esempio api-version=2013-11-08. Per le funzionalità di anteprima, usare la stringa "beta", ad esempio api-version=beta. Per altre informazioni sulle differenze tra le versioni dell'API Graph, vedere [Controllo delle versioni dell'API di Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning).
 
 ## Metadati dell'API Graph
 
@@ -60,7 +60,7 @@ In alternativa, `https://graph.windows.net/contoso.com/users?api-version=1.5` el
 
 È possibile usare Esplora grafico per l'API Graph di Azure AD per eseguire query sui dati di directory durante la creazione dell'applicazione.
 
-> [AZURE.IMPORTANT]Esplora grafico non supporta la scrittura o l'eliminazione dei dati da una directory. Con Esplora grafico è possibile eseguire solo operazioni di lettura nella directory di Azure AD.
+> [AZURE.IMPORTANT] Esplora grafico non supporta la scrittura o l'eliminazione dei dati da una directory. Con Esplora grafico è possibile eseguire solo operazioni di lettura nella directory di Azure AD.
 
 Di seguito è riportato l'output che viene visualizzato se si passa a Esplora grafico. Selezionare Usa società demo e immettere `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.5` per visualizzare tutti gli utenti nella directory demo:
 
@@ -72,7 +72,7 @@ Di seguito è riportato l'output che viene visualizzato se si passa a Esplora gr
 
 Si notino le limitazioni e le funzioni dello strumento Esplora grafico riportate di seguito: - Funzionalità di completamento automatico in set di risorse. Per visualizzarla, fare clic su **Usa società demo** e quindi fare clic sulla casella di richiesta (dove viene visualizzato l'URL della società). È possibile selezionare un set di risorse dall'elenco a discesa.
 
-- Supporta gli alias di indirizzamento "me" e "myorganization". Ad esempio, è possibile usare `https://graph.windows.net/me?api-version=1.5` per restituire l'oggetto utente dell'utente che ha effettuato l'accesso oppure `https://graph.windows.net/myorganization/users?api-version=1.5` per restituire tutti gli utenti presenti nella directory corrente. Tenere presente che usando l'alias "me" viene restituito un errore per la società demo perché nessun utente connesso sta effettuando la richiesta.
+- Supporta gli alias di indirizzamento "me" e "myorganization". Ad esempio, è possibile usare `https://graph.windows.net/me?api-version=1.5` per restituire l'oggetto utente dell'utente che ha effettuato l'accesso oppure `https://graph.windows.net/myorganization/users?api-version=1.5` per restituire tutti gli utenti nella directory corrente. Tenere presente che usando l'alias "me" viene restituito un errore per la società demo perché nessun utente connesso sta effettuando la richiesta.
 
 - Una sezione di intestazioni di risposta. Può essere usata per consentire la risoluzione dei problemi che si verificano durante l'esecuzione di query.
 
@@ -94,7 +94,7 @@ Nell'esempio seguente viene usato il debugger Web Fiddler per creare un nuovo gr
 2. Poiché si desidera creare un nuovo gruppo di sicurezza, scegliere **Post** come metodo HTTP dal menu a discesa. Per altre informazioni sulle operazioni e le autorizzazioni per un oggetto gruppo, vedere [Gruppo](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#GroupEntity) in [ Riferimento all'API REST Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 3. Nel campo accanto a **Post**, come URL della richiesta, digitare: `https://graph.windows.net/mytenantdomain/groups?api-version=1.5`.
 
-    > [AZURE.NOTE]È necessario sostituire mytenantdomain con il nome di dominio della directory di Azure AD.
+    > [AZURE.NOTE] È necessario sostituire mytenantdomain con il nome di dominio della directory di Azure AD.
 
 4. Nel campo appena sotto il menu a discesa Post digitare:
 
@@ -104,7 +104,7 @@ Authorization: your access token
 Content-Type: application/json
 ```
 
-    > [AZURE.NOTE]Sostituire &lt;your access token&gt; con il token di accesso per la directory di Azure AD.
+    > [AZURE.NOTE] Sostituire &lt;your access token&gt; con il token di accesso per la directory di Azure AD.
 
 5. Nel campo del **corpo della richiesta** digitare quanto segue:
 
@@ -123,6 +123,6 @@ Per altre informazioni sulle entità e i tipi di Azure AD esposti da Graph e sul
 
 ## Passaggi successivi
 
-Altre informazioni sull'[API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
+Altre informazioni su [API di Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="02/23/2016"
    ms.author="tomfitz"/>
 
 # Schema del modello di insieme di credenziali chiave
@@ -223,7 +223,6 @@ Nell'esempio seguente vengono distribuiti un insieme di credenziali chiave e una
                 "type": "secrets",
                 "name": "[parameters('secretName')]",
                 "apiVersion": "2015-06-01",
-                "tags": { "displayName": "secret" },
                 "properties": {
                     "value": "[parameters('secretValue')]"
                 },
@@ -246,4 +245,4 @@ Il modello di Guida introduttiva seguente distribuisce un insieme di credenziali
 - Per informazioni generali sugli insiemi di credenziali chiave, vedere [Introduzione all'insieme di credenziali chiave Azure](./key-vault/key-vault-get-started.md).
 - Per un esempio di riferimento a una chiave privata nell’insieme di credenziali chiave durante la distribuzione di modelli, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

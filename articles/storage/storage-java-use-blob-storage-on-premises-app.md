@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/20/2016"
 	ms.author="rmcmurray"/>
 
 # Applicazione locale con archiviazione BLOB
@@ -26,8 +26,9 @@ Nell'esempio seguente viene illustrato come utilizzare Azure per archiviare imma
 
 - È installato Java Developer Kit (JDK) v1.6 o versione successiva.
 - Azure SDK installato.
-- JAR per le librerie di Azure per Java e qualsiasi JAR di dipendenza applicabile installati e presenti nel percorso di compilazione utilizzato dal compilatore Java. Per informazioni sull'installazione delle librerie di Azure per Java, vedere [Download di Azure SDK per Java].
-- Account di Archiviazione di Azure configurato. Il nome account e la chiave dell'account per l'account di archiviazione verranno utilizzati dal codice in questo articolo. Vedere [Come creare un account di archiviazione] per informazioni sulla creazione di un account di archiviazione e [Come gestire gli account di archiviazione][] per informazioni sul recupero della chiave dell'account.
+- JAR per le librerie di Azure per Java e qualsiasi JAR di dipendenza applicabile installati e presenti nel percorso di compilazione utilizzato dal compilatore Java. Per informazioni sull'installazione delle librerie di Azure per Java, vedere [Download di Azure SDK per Java](java-download-azure-sdk.md).
+- Account di Archiviazione di Azure configurato. Il nome account e la chiave dell'account per l'account di archiviazione verranno utilizzati dal codice in questo articolo. Vedere [Come creare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account) per informazioni sulla creazione di un account di archiviazione e [Visualizzare e copiare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-and-copy-storage-access-keys) per informazioni sul recupero della chiave dell'account.
+
 - Aver creato un file di immagine locale denominato archiviato nel percorso c:\\myimages\\image1.jpg. In alternativa, modificare il costruttore **FileInputStream** nell'esempio per utilizzare un percorso e un nome file di immagine diversi.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -347,23 +348,15 @@ Per chiamare il metodo **CloudBlobContainer.delete**, il processo di inizializza
         }
     }
 
-Per una panoramica delle altre classi e degli altri metodi di archiviazione BLOB, vedere [Come utilizzare il servizio di archiviazione BLOB da Java].
+Per una panoramica delle altre classi e degli altri metodi di archiviazione BLOB, vedere [Come usare l'archiviazione BLOB da Java](storage-java-how-to-use-blob-storage.md).
 
 ## Passaggi successivi
 
 Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di archiviazione più complesse.
 
-- [Azure Storage SDK per Java][]
-- [Riferimento all'SDK del client di archiviazione di Azure][]
-- [API REST di Archiviazione di Azure][]
-- [Blog del team di Archiviazione di Azure][]
+- [Azure Storage SDK per Java](https://github.com/azure/azure-storage-java)
+- [Riferimento all'SDK del client di archiviazione di Azure](http://dl.windowsazure.com/storage/javadoc/)
+- [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-  [Download di Azure SDK per Java]: http://go.microsoft.com/fwlink/?LinkID=525671
-  [Come creare un account di archiviazione]: storage-create-storage-account.md#create-a-storage-account
-  [Come gestire gli account di archiviazione]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
-  [Come utilizzare il servizio di archiviazione BLOB da Java]: storage-java-how-to-use-blob-storage.md
-  [Azure Storage SDK per Java]: https://github.com/azure/azure-storage-java
-  [Riferimento all'SDK del client di archiviazione di Azure]: http://dl.windowsazure.com/storage/javadoc/
-  [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

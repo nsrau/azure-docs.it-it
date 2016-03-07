@@ -16,6 +16,7 @@
    ms.date="02/16/2016"
    ms.author="chackdan"/>
 
+
 # Aggiornare un cluster di Service Fabric
 
 Un cluster di Azure Service Fabric è una risorsa di proprietà dell'utente parzialmente gestita da Microsoft. Questo articolo descrive ciò che viene gestito automaticamente e ciò che è possibile configurare manualmente.
@@ -24,11 +25,11 @@ Un cluster di Azure Service Fabric è una risorsa di proprietà dell'utente parz
 
 Microsoft gestisce il codice dell'infrastruttura e la configurazione eseguita in un cluster e, in base alle esigenze, esegue aggiornamenti monitorati del software in modo automatico. Gli aggiornamenti possono interessare il codice, la configurazione o entrambi. Per assicurarsi che gli aggiornamenti abbiano un impatto minimo o nullo sull'applicazione, vengono eseguiti nelle tre fasi descritte di seguito.
 
-### Fase 1: L'aggiornamento viene eseguito usando tutti i criteri di integrità del cluster
+### Fase 1: Un aggiornamento viene eseguito usando tutti i criteri di integrità del cluster
 
 In questa fase gli aggiornamenti interessano un dominio di aggiornamento per volta e le applicazioni in esecuzione sul cluster non subiscono tempi di inattività. I criteri di integrità del cluster (una combinazione dell'integrità del nodo e dell'integrità di tutte le applicazioni in esecuzione sul cluster) vengono rispettati per l'intera durata dell'aggiornamento.
 
-Se i criteri di integrità del cluster non vengono soddisfatti, viene eseguito il rollback dell'aggiornamento e al proprietario della sottoscrizione viene inviato un messaggio di posta elettronica contenente le informazioni seguenti:
+Se i criteri di integrità del cluster non vengono soddisfatti, viene eseguito il rollback dell'aggiornamento. Al proprietario della sottoscrizione verrà quindi inviato un messaggio di posta elettronica contenente le informazioni seguenti:
 
 - Notifica che era necessario eseguire il rollback di un aggiornamento del cluster.
 - Eventuali azioni correttive suggerite.
@@ -38,11 +39,11 @@ Si tenta di eseguire più volte lo stesso aggiornamento nel caso in cui non sia 
 
 Se i criteri di integrità del cluster sono soddisfatti, l'aggiornamento si considera riuscito e viene contrassegnato come completato. Questa situazione può verificarsi durante l'aggiornamento iniziale o in una delle repliche previste in questa fase. Non viene inviato alcun messaggio di posta elettronica di conferma in caso di esecuzione riuscita, in modo da evitare l'invio di troppi messaggi e per far sì che la ricezione di un messaggio rappresenti un'eccezione alla norma. Si prevede che la maggior parte degli aggiornamenti del cluster abbia esito positivo, senza alcun impatto sulla disponibilità dell'applicazione.
 
-### Fase 2: L'aggiornamento viene eseguito usando solo i criteri di integrità predefiniti
+### Fase 2: Un aggiornamento viene eseguito usando solo i criteri di integrità predefiniti
 
-I criteri di integrità vengono impostati in modo che il numero di applicazioni integre all'inizio dell'aggiornamento rimanga invariato per l'intera durata del processo di aggiornamento. Come nella fase 1, in questa fase gli aggiornamenti interessano un dominio di aggiornamento per volta e le applicazioni in esecuzione sul cluster non subiscono tempi di inattività. I criteri di integrità del cluster (una combinazione dell'integrità del nodo e dell'integrità di tutte le applicazioni in esecuzione sul cluster) vengono rispettati per l'intera durata dell'aggiornamento.
+I criteri di integrità in questa fase vengono impostati in modo che il numero di applicazioni integre all'inizio dell'aggiornamento rimanga invariato per l'intera durata del processo di aggiornamento. Come nella fase 1, in questa fase gli aggiornamenti interessano un dominio di aggiornamento per volta e le applicazioni in esecuzione sul cluster non subiscono tempi di inattività. I criteri di integrità del cluster (una combinazione dell'integrità del nodo e dell'integrità di tutte le applicazioni in esecuzione sul cluster) vengono rispettati per l'intera durata dell'aggiornamento.
 
-Se i criteri di integrità del cluster in vigore non vengono soddisfatti, viene eseguito il rollback dell'aggiornamento e al proprietario della sottoscrizione viene inviato un messaggio di posta elettronica contenente le informazioni seguenti:
+Se i criteri di integrità del cluster in vigore non vengono soddisfatti, viene eseguito il rollback dell'aggiornamento. Al proprietario della sottoscrizione verrà quindi inviato un messaggio di posta elettronica contenente le informazioni seguenti:
 
 - Notifica che era necessario eseguire il rollback di un aggiornamento del cluster.
 - Eventuali azioni correttive suggerite.
@@ -52,13 +53,13 @@ Si tenta di eseguire più volte lo stesso aggiornamento nel caso in cui non sia 
 
 Se i criteri di integrità del cluster sono soddisfatti, l'aggiornamento si considera riuscito e viene contrassegnato come completato. Questa situazione può verificarsi durante l'aggiornamento iniziale o in una delle repliche previste in questa fase. Non viene inviato alcun messaggio di posta elettronica di conferma in caso di esecuzione riuscita.
 
-### Fase 3: L'aggiornamento viene eseguito usando criteri di integrità aggressivi
+### Fase 3: Un aggiornamento viene eseguito usando criteri di integrità aggressivi
 
-Questi criteri di integrità sono pensati per il completamento dell'aggiornamento piuttosto che per l'integrità delle applicazioni. In questa fase verranno completati pochi aggiornamenti del cluster. Se il cluster giunge a questa fase, è molto probabile che l'applicazione divenga non integra e/o perda disponibilità.
+Tali criteri di integrità in questa fase sono pensati per il completamento dell'aggiornamento piuttosto che per l'integrità delle applicazioni. In questa fase verranno completati pochi aggiornamenti del cluster. Se il cluster giunge a questa fase, è molto probabile che l'applicazione divenga non integra e/o perda disponibilità.
 
 In modo analogo alle altre due fasi, gli aggiornamenti della fase 3 procedono in base a un dominio di aggiornamento alla volta.
 
-Se i criteri di integrità del cluster in vigore non vengono soddisfatti, viene eseguito il rollback dell'aggiornamento. Si tenta di eseguire più volte lo stesso aggiornamento nel caso in cui non sia riuscito a causa di problemi di infrastruttura. A questo punto, il cluster viene bloccato in modo che non riceva più supporto e/o aggiornamenti.
+Se i criteri di integrità del cluster non vengono soddisfatti, viene eseguito il rollback dell'aggiornamento. Si tenta di eseguire più volte lo stesso aggiornamento nel caso in cui non sia riuscito a causa di problemi di infrastruttura. A questo punto, il cluster viene bloccato in modo che non riceva più supporto e/o aggiornamenti.
 
 Al proprietario della sottoscrizione viene inviato un messaggio di posta elettronica contenente queste informazioni e le azioni correttive. Se la fase 3 ha esito negativo, si prevede che il cluster non venga impostato su alcun tipo di stato.
 
@@ -70,11 +71,11 @@ Di seguito sono riportate le configurazioni che è possibile modificare in un cl
 
 ### Certificati
 
-È possibile aggiornare facilmente il certificato primario o secondario dal portale (illustrato di seguito) o eseguendo un comando PUT sulla risorsa servicefabric.cluster.
+È possibile aggiornare facilmente il certificato primario o secondario dal portale di Azure, come illustrato di seguito, o eseguendo un comando PUT sulla risorsa servicefabric.cluster.
 
 ![Schermata che illustra le identificazioni personali del certificato nel portale di Azure.][CertificateUpgrade]
 
->[AZURE.NOTE] Prima di identificare il certificato da usare per le risorse del cluster, è necessario completare la procedura seguente. In caso contrario, i nuovi certificati non verranno usati: 1. Caricare il nuovo certificato nell'insieme di credenziali delle chiavi. Per istruzioni, vedere [Proteggere un cluster di Service Fabric](service-fabric-cluster-security.md). Iniziare dal passaggio 2 di questo articolo. 2. Aggiornare tutte le macchine virtuali che costituiscono il cluster, in modo che il certificato venga distribuito in ognuna di esse. A tale scopo, fare riferimento al [blog del team assegnato all'insieme di credenziali delle chiavi di Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
+>[AZURE.NOTE] Prima di identificare il certificato da usare per le risorse del cluster, è necessario completare la procedura seguente. In caso contrario, i nuovi certificati non verranno usati: 1. Caricare il nuovo certificato nell'insieme di credenziali delle chiavi di Azure. Per istruzioni, vedere [Proteggere un cluster di Service Fabric](service-fabric-cluster-security.md). Iniziare dal passaggio 2 di questo articolo. 2. Aggiornare tutte le macchine virtuali (VM) che costituiscono il cluster, in modo che il certificato venga distribuito in ognuna di esse. A tale scopo, fare riferimento al [blog del team assegnato all'insieme di credenziali delle chiavi di Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 ### Porte dell'applicazione
 
@@ -107,11 +108,11 @@ Per ogni tipo di nodo è possibile aggiungere metriche di capacità personalizza
 
 ### Patch del sistema operativo nelle VM che costituiscono il cluster
 
-Si tratta di una funzionalità che verrà rilasciata in seguito. Attualmente, l'applicazione di patch alle VM è un'operazione manuale che deve essere eseguita su una VM per volta, in modo da non rendere inattive più macchine virtuali contemporaneamente.
+Questa funzionalità è stata pianificata per il futuro come funzionalità automatizzata. Attualmente, l'applicazione di patch alle VM è un'operazione manuale che deve essere eseguita su una VM per volta, in modo da non rendere inattive più macchine virtuali contemporaneamente.
 
 ### Aggiornamenti del sistema operativo nelle VM che costituiscono il cluster
 
-Se è necessario aggiornare l'immagine del sistema operativo nelle macchine virtuali del cluster, eseguire questa operazione manualmente, su una VM per volta. Non è attualmente possibile eseguire l'operazione in automatico.
+Se è necessario aggiornare l'immagine del sistema operativo nelle macchine virtuali del cluster, eseguire questa operazione su una VM per volta. L'esecuzione dell'aggiornamento è un'operazione manuale, non è attualmente disponibile alcun tipo di automazione.
 
 ## Passaggi successivi
 
@@ -123,4 +124,4 @@ Se è necessario aggiornare l'immagine del sistema operativo nelle macchine virt
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

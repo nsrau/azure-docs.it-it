@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurare un nome di dominio personalizzato nel servizio app di Azure"
+	pageTitle="Configurazione di un nome di dominio personalizzato nel servizio app di Azure"
 	description="Ulteriori informazioni su come usare un nome di dominio personalizzato per un'app Web nel servizio app di Azure."
 	services="app-service"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="02/16/2016"
 	ms.author="cephalin"/>
 
 # Configurare un nome di dominio personalizzato nel servizio app di Azure
@@ -64,7 +64,7 @@ Se l'indirizzo IP cambia, una voce CNAME resta valida, mentre un record A deve e
 > [AZURE.NOTE] L'indirizzo IP può cambiare se si elimina e si crea nuovamente l'app Web oppure se la sua modalità viene reimpostata su gratuita.
 
 
-## Trovare l'indirizzo IP virtuale
+## Individuazione dell'indirizzo IP virtuale
 
 Se si sta creando un record CNAME, ignorare questo passaggio. Per creare un record A, è necessario disporre dell'indirizzo IP virtuale dell'app Web. Per ottenere l'indirizzo IP:
 
@@ -112,7 +112,7 @@ Si supponga che il nome di dominio personalizzato sia contoso.com. In questo cas
 - **contoso.com** associato a 168.62.48.183.
 - **www.contoso.com** associato a **contoso.azurewebsites.net**.
 
->[AZURE.NOTE] È possibile usare il DNS di Azure per ospitare i record di dominio necessari per l'app Web. Per configurare il dominio personalizzato e creare i record in DNS di Azure, vedere [Creare record DNS personalizzati per un'app Web](../dns-web-sites-custom-domain).
+>[AZURE.NOTE] È possibile usare il DNS di Azure per ospitare i record di dominio necessari per l'app Web. Per configurare il dominio personalizzato e creare i record in DNS di Azure, vedere [Creare record DNS personalizzati per un'app Web](../dns/dns-web-sites-custom-domain).
 
 <a name="awverify" />
 ## Creare un record awverify (solo record A)
@@ -124,7 +124,7 @@ Se si crea un record A, l'app web richiede anche uno speciale record CNAME usato
 
 I visitatori che accedono all'app Web dell'utente non vedono il sottodominio awverify, usato soltanto da Azure per la verifica del dominio.
 
-## Abilitare il nome del dominio nell'app Web
+## Abilitazione del nome del dominio nell'app Web
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
@@ -155,4 +155,4 @@ Per altre informazioni, vedere: [Introduzione a DNS di Azure](../dns/dns-getstar
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

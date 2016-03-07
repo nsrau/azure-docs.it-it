@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="11/18/2015"
+   ms.date="02/21/2016"
    ms.author="tomfitz"/>
 
 # Autenticazione di un'entità servizio con Gestione risorse di Azure
@@ -27,7 +27,9 @@ Viene illustrato come eseguire l'autenticazione con un nome utente e password o 
 ## Concetti
 1. Azure Active Directory (AAD): servizio di gestione delle identità e degli accessi per il cloud. Per altre informazioni, vedere [Informazioni su Azure Active Directory](active-directory/active-directory-whatis.md)
 2. Entità servizio: istanza di un'applicazione in una directory che richiede l’accesso ad altre risorse.
-3. Applicazione AD: record di directory che identifica un'applicazione in AAD. Per altre informazioni, vedere [Nozioni di base sull'autenticazione in Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
+3. Applicazione AD: record di directory che identifica un'applicazione in AAD.
+
+Per una spiegazione più dettagliata delle applicazioni e delle entità servizio, vedere [Oggetti applicazione e Oggetti entità servizio](active-directory/active-directory-application-objects.md). Per altre informazioni sull'autenticazione in Active Directory, vedere [Scenari di autenticazione per Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
 ## Autenticazione dell'entità servizio con password - PowerShell
 
@@ -312,4 +314,4 @@ In questa sezione si eseguiranno i passaggi per creare un’entità servizio per
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

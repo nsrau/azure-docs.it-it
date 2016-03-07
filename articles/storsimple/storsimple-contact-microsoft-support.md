@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/14/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli" />
 
 # Contattare il supporto tecnico Microsoft
@@ -30,21 +30,47 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 
 #### Per creare una richiesta di supporto
 
-1. Una richiesta di supporto può essere creata tramite il [portale di Azure classico](https://manage.windowsazure.com/). Nel [portale classico](https://manage.windowsazure.com/) fare clic su **Nome account** e quindi su **Contatta il supporto Microsoft**.
+1. Nell'angolo superiore destro del [portale classico di Azure](https://manage.windowsazure.com/) fare clic sul nome account e quindi su **Contatta il supporto Microsoft**.
 
-	![Contattare il supporto tecnico Microsoft tramite il portale di gestione](./media/storsimple-contact-microsoft-support/IC777286.png)
+	![Contattare il supporto tecnico Microsoft tramite il portale di gestione](./media/storsimple-contact-microsoft-support/Ibiza1.png)
 
-2. Nella finestra di dialogo **Contatta il supporto Microsoft**:
+2. Si verrà reindirizzati al nuovo portale di Azure, ms.portal.azure.com. Fare clic sul riquadro **Nuova richiesta di supporto**.
 
-	1. Nell'elenco a discesa, selezionare la **sottoscrizione** di destinazione associata al servizio StorSimple Manager. Specificare il **Tipo di supporto** come **Tecnico**. È necessario un piano di supporto a pagamento per poter abilitare il supporto tecnico.
+	![Contattare il supporto tecnico Microsoft tramite il nuovo portale](./media/storsimple-contact-microsoft-support/Ibiza2.png)
 
-	2. Fare clic sull'icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-contact-microsoft-support/IC740895.png) per **Crea ticket**.
+    Sul lato destro della schermata verrà visualizzato il riquadro **Nuova richiesta di supporto**.
 
-3. Nella finestra **Supporto Microsoft**, dall’elenco a discesa **Prodotto** scegliere **StorSimple**.
+	![Nuovo riquadro di richiesta di supporto](./media/storsimple-contact-microsoft-support/Ibiza3a.png)
 
-	![Contattare il supporto tecnico Microsoft - Prodotto](./media/storsimple-contact-microsoft-support/IC777288.png)
+3. Nella finestra di dialogo **Generale** eseguire le operazioni seguenti:
+	1. Dall'elenco a discesa **Tipo di problema** selezionare **Tecnico**.
+	2. Selezionare una **Sottoscrizione** dall'elenco a discesa.
+	3. Dall'elenco a discesa **Servizio** selezionare **StorSimple**. 
+	4. Selezionare un **Piano di supporto** dall'elenco a discesa. È necessario un piano di supporto a pagamento per poter abilitare il supporto tecnico.
 
-4. Seguire le istruzioni sullo schermo per classificare la richiesta in modo corretto e fornire una descrizione chiara e specifica del problema.
+4. Fare clic su **Avanti**. Verrà visualizzata la finestra di dialogo **Problema**.
+
+	![Nuovo riquadro di richiesta di supporto](./media/storsimple-contact-microsoft-support/Ibiza5a.png)
+
+5. Nella finestra di dialogo **Problema** eseguire le operazioni seguenti:
+
+    1.  Selezionare un livello di **Gravità** dall'elenco a discesa.
+    2.  Selezionare un **Tipo di problema** dall'elenco a discesa.
+    3.  Selezionare una **Categoria** dall'elenco a discesa. 
+    4.  Nella casella **Dettagli** descrivere brevemente il problema.
+    5.  Nella casella **Intervallo di tempo** indicare la data, l'ora e il fuso orario corrispondenti al momento in cui si è verificato il problema l'ultima volta.
+    6.  In **Caricamento file** fare clic sull'icona della cartella per selezionare il pacchetto di supporto.
+    7.  Selezionare la casella di controllo **Condividi informazioni diagnostica** .
+
+6. Fare clic su **Avanti**. Verrà visualizzata la finestra di dialogo **Informazioni contatto**.
+
+	![Nuovo riquadro di richiesta di supporto](./media/storsimple-contact-microsoft-support/Ibiza6a.png)
+
+7. Immettere le informazioni di contatto e selezionare un metodo di contatto (telefono o posta elettronica).
+
+8. Selezionare la casella di controllo **Salva modifiche di contatto per le richieste di supporto future**.
+
+9. Fare clic su **Create**.
 
 Dopo avere inviato la richiesta, si verrà presto contattati da un tecnico del supporto per procedere con la richiesta.
 
@@ -74,6 +100,6 @@ Per avviare una sessione di supporto, attenersi alla procedura seguente.
 
 7. Salvare la stringa e inviarla in un messaggio di posta elettronica al supporto tecnico Microsoft.
 
-> [AZURE.IMPORTANT]È possibile disabilitare l'accesso del supporto eseguendo `Disable-HcsSupportAccess`. Il dispositivo StorSimple inoltre tenterà di disabilitare l'accesso del supporto dopo 8 ore dall'avvio della sessione. È consigliabile modificare le credenziali del dispositivo StorSimple dopo l'avvio di una sessione di supporto.
+> [AZURE.IMPORTANT] È possibile disabilitare l'accesso del supporto eseguendo `Disable-HcsSupportAccess`. Il dispositivo StorSimple inoltre tenterà di disabilitare l'accesso del supporto dopo 8 ore dall'avvio della sessione. È consigliabile modificare le credenziali del dispositivo StorSimple dopo l'avvio di una sessione di supporto.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

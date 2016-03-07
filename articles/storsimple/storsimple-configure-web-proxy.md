@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -67,7 +67,7 @@ Ognuno di questi metodi è descritto nelle sezioni seguenti.
 
 4. Scegliere il tipo di autenticazione: **NTLM**, **Di base** o **Nessuno**. L'autenticazione di base è quella meno sicura per la configurazione del server proxy. NT LAN Manager (NTLM) è un protocollo di autenticazione altamente protetta e complessa che utilizza un sistema di messaggistica a tre vie (a volte quattro, se è necessaria ulteriore integrità) per autenticare un utente. L'autenticazione predefinita è NTLM. Per ulteriori informazioni, vedere l'autenticazione [di base](http://hc.apache.org/httpclient-3.x/authentication.html) e [NTLM](http://hc.apache.org/httpclient-3.x/authentication.html).
 
-	> [AZURE.IMPORTANT]**Nel servizio StorSimple Manager, i grafici di monitoraggio del dispositivo non funzionano quando l'autenticazione di base o NTLM è abilitata nella configurazione del server proxy per il dispositivo. Per utilizzare i grafici di monitoraggio, è necessario assicurarsi che l'autenticazione sia impostata su NESSUNO.**
+	> [AZURE.IMPORTANT] **Nel servizio StorSimple Manager, i grafici di monitoraggio del dispositivo non funzionano quando l'autenticazione di base o NTLM è abilitata nella configurazione del server proxy per il dispositivo. Per utilizzare i grafici di monitoraggio, è necessario assicurarsi che l'autenticazione sia impostata su NESSUNO.**
 
 5. Se si utilizza l'autenticazione, fornire un **nome utente del proxy Web** e la **password del proxy Web**. È necessario confermare la password.
 
@@ -100,7 +100,7 @@ Il proxy Web è ora configurato e deve essere abilitato.
 
 Il proxy Web è disabilitato per impostazione predefinita. Dopo aver configurato le impostazioni proxy Web sul dispositivo StorSimple, è necessario utilizzare Windows PowerShell per StorSimple per abilitare le impostazioni proxy Web.
 
-> [AZURE.NOTE]**Questo passaggio non è necessario se è stata utilizzata l'installazione guidata per configurare il proxy Web. Il proxy Web viene abilitato automaticamente per impostazione predefinita dopo una sessione dell'installazione guidata.**
+> [AZURE.NOTE] **Questo passaggio non è necessario se è stata utilizzata l'installazione guidata per configurare il proxy Web. Il proxy Web viene abilitato automaticamente per impostazione predefinita dopo una sessione dell'installazione guidata.**
 
 Per abilitare il proxy Web sul dispositivo in Windows PowerShell per StorSimple, procedere come segue:
 
@@ -140,7 +140,7 @@ Se le impostazioni proxy Web sono state configurate in modo non corretto, verran
 |6\.|0x8007138f - Risorsa cluster non trovata|La risorsa cluster del servizio di piattaforma non è stata trovata. Questa situazione può verificarsi in caso di installazione non corretta.|Potrebbe essere necessario eseguire il ripristino delle impostazioni di fabbrica del dispositivo. Potrebbe essere necessario creare una risorsa di piattaforma. Contattare il supporto tecnico Microsoft per i passaggi successivi.|
 |7\.|0x8007138c - Risorsa cluster non online|Le risorse cluster del servizio di percorso dati o piattaforma non sono online.|Contattare il supporto tecnico Microsoft per garantire che la risorsa servizio di percorso dati e piattaforma sia online.|
 
-> [AZURE.NOTE]
+> [AZURE.NOTE] 
 > 
 > -  L'elenco dei messaggi di errore riportato sopra non è esaustivo. 
 > - Gli errori correlati alle impostazioni del proxy Web non vengono visualizzati nel portale di Azure classico del servizio StorSimple Manager. Se si verifica un problema con il proxy Web dopo il completamento della configurazione, lo stato del dispositivo verrà modificato in **Offline** nel portale classico. |
@@ -151,4 +151,4 @@ Se le impostazioni proxy Web sono state configurate in modo non corretto, verran
 
 - Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

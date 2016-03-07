@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 # Analizzare i log in HDInsight Spark usando una libreria personalizzata (Linux)
 
 Questo notebook dimostra come analizzare i dati dei log mediante una libreria personalizzata con Spark in HDInsight. La libreria personalizzata usata è una libreria di Python chiamata **iislogparser.py**.
 
-> [AZURE.TIP] Questa esercitazione è disponibile anche come notebook di Jupyter in un cluster Spark (Linux) creato in HDInsight. L'esperienza offerta dal notebook consente di eseguire i frammenti di codice Python dal notebook stesso. Per eseguire l'esercitazione da un notebook, creare un cluster Spark, avviare un notebook di Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e quindi eseguire il notebook **Analizzare i log con Spark usando una libreria personalizzata .ipynb** nella cartella **Python**.
+> [AZURE.TIP] Questa esercitazione è disponibile anche come notebook di Jupyter in un cluster Spark (Linux) creato in HDInsight. L'esperienza offerta dal notebook consente di eseguire i frammenti di codice Python dal notebook stesso. Per eseguire l'esercitazione da un notebook, creare un cluster Spark, avviare un notebook di Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e quindi eseguire il notebook **Analizzare i log con Spark usando una libreria personalizzata .ipynb** nella cartella **PySpark**.
 
 **Prerequisiti:**
 
@@ -44,7 +44,7 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Creare un nuovo notebook. Fare clic su **New** e quindi su **Python2**.
+2. Creare un nuovo notebook. Fare clic su **Nuovo** e quindi su **PySpark**.
 
 	![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.createnotebook.png "Creare un nuovo notebook Jupyter")
 
@@ -52,21 +52,11 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 
 	![Specificare un nome per il notebook](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.notebook.name.png "Specificare un nome per il notebook")
 
-4. Importare i moduli necessari e creare i contesti SQL e Spark. Incollare il frammento di codice seguente in una cella vuota e quindi premere **MAIUSC+INVIO**.
+4. Poiché il notebook è stato creato tramite il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark, SQL e Hive verranno creati automaticamente quando si esegue la prima cella di codice. È possibile iniziare con l'importazione dei tipi necessari per questo scenario. Incollare il frammento di codice seguente in una cella vuota e quindi premere **MAIUSC+INVIO**.
 
 
-		import pyspark
-		from pyspark import SparkConf
-		from pyspark import SparkContext
-		from pyspark.sql import SQLContext
-		%matplotlib inline
-		import matplotlib.pyplot as plt
 		from pyspark.sql import Row
 		from pyspark.sql.types import *
-		import atexit
-		sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
-		sqlContext = SQLContext(sc)
-		atexit.register(lambda: sc.stop())
 
 
 5. Creare un RDD con i dati di log di esempio già disponibili nel cluster. È possibile accedere ai dati nell'account di archiviazione predefinito associato al cluster al percorso **\\HdiSamples\\HdiSamples\\WebsiteLogSampleData\\SampleLog\\909f2b.log**.
@@ -93,11 +83,9 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 
 ## Analizzare i dati di log usando una libreria personalizzata di Python
 
-7. Nell'output precedente, le prime due righe includono le informazioni di intestazione e ogni riga rimanente corrisponde allo schema descritto nell'intestazione. L'analisi di tali log potrebbe essere complessa. Quindi, viene usata una libreria personalizzata di Python (**iislogparser.py**) che semplifica notevolmente l'analisi di tali log. Per impostazione predefinita, questa libreria è inclusa con il cluster Spark in HDInsight.
+7. Nell'output precedente, le prime due righe includono le informazioni di intestazione e ogni riga rimanente corrisponde allo schema descritto nell'intestazione. L'analisi di tali log potrebbe essere complessa. Quindi, viene usata una libreria personalizzata di Python (**iislogparser.py**) che semplifica notevolmente l'analisi di tali log. Per impostazione predefinita, questa libreria è inclusa con il cluster Spark in HDInsight in **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
 
-	Tuttavia, questa libreria non è in `PYTHONPATH` e quindi non può essere usata tramite un'istruzione di importazione come `import iislogparser`. Per usare questa libreria è necessario distribuirla a tutti i nodi di lavoro.
-
-	È quindi necessario eseguire il frammento di codice seguente per distribuire la libreria a tutti i nodi di lavoro nel cluster Spark.
+	Tuttavia, questa libreria non è in `PYTHONPATH` e quindi non può essere usata tramite un'istruzione di importazione come `import iislogparser`. Per usare questa libreria è necessario distribuirla a tutti i nodi di lavoro. Eseguire il frammento di codice seguente.
 
 
 		sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
@@ -184,12 +172,35 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 		 (u'/blogposts/mvc4/step1.png', 98.0)]
 
 
-13. È anche possibile presentare queste informazioni sotto forma di tracciato. Il tracciato raggruppa i registri in base all'ora per vedere se si sono verificati eventuali picchi di latenza insoliti in un determinato momento.
+13. È anche possibile presentare queste informazioni sotto forma di tracciato. Come primo passaggio per creare un tracciato, creeremo prima di tutto una tabella temporanea, **AverageTime**. La tabella raggruppa i registri in base all'ora per vedere se si sono verificati eventuali picchi di latenza insoliti in un determinato momento.
 
 		avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
-		minutes = avgTimeTakenByMinute.map(lambda pair: pair[0]).collect()
-		time = avgTimeTakenByMinute.map(lambda pair: pair[1]).collect()
-		plt.plot(minutes, time, marker='o', linestyle='--')
+		schema = StructType([StructField('Minutes', IntegerType(), True),
+		                     StructField('Time', FloatType(), True)])
+		                     
+		avgTimeTakenByMinuteDF = sqlContext.createDataFrame(avgTimeTakenByMinute, schema)
+		avgTimeTakenByMinuteDF.registerTempTable('AverageTime')
+
+14. Quindi, per ottenere tutti i record della tabella **AverageTime**, è possibile eseguire la query SQL seguente.
+
+		%%sql -o averagetime
+		SELECT * FROM AverageTime
+
+	Il magic `%%sql` seguito da `-o averagetime` assicura che l'output della query venga mantenuto in locale nel server di Jupyter, di solito il nodo head del cluster. L'output viene mantenuto come frame di dati [Pandas](http://pandas.pydata.org/) con il nome specificato **averagetime**.
+
+	Verrà visualizzato un output simile al seguente:
+
+	![Output della query SQL](./media/hdinsight-apache-spark-custom-library-website-log-analysis/sql.output.png "Output della query SQL")
+
+	Per altre informazioni sul magic `%%sql` e sugli altri magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+
+15. È ora possibile creare un tracciato tramite Matplotlib, una libreria che consente di creare visualizzazioni di dati. Poiché il tracciato deve essere tracciato dal frame di dati **averagetime** mantenuto in locale, il frammento di codice deve iniziare con il magic `%%local`. Ciò garantisce che il codice venga eseguito localmente nel server di Jupyter.
+
+		%%local
+		%matplotlib inline
+		import matplotlib.pyplot as plt
+		
+		plt.plot(averagetime['Minutes'], averagetime['Time'], marker='o', linestyle='--')
 		plt.xlabel('Time (min)')
 		plt.ylabel('Average time taken for request (ms)')
 
@@ -197,7 +208,7 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 
 	![Output Matplotlib](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdi-apache-spark-web-log-analysis-plot.png "Output Matplotlib")
 
-14. Dopo aver eseguito l'applicazione, è consigliabile arrestare il notebook per rilasciare le risorse. A tale scopo, dal menu **File** del notebook fare clic su **Close and Halt**. Questa operazione consente di arrestare e chiudere il notebook.
+16. Dopo aver eseguito l'applicazione, è consigliabile arrestare il notebook per rilasciare le risorse. A tale scopo, dal menu **File** del notebook fare clic su **Close and Halt**. Questa operazione consente di arrestare e chiudere il notebook.
 	
 
 ## <a name="seealso"></a>Vedere anche
@@ -209,7 +220,7 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura dell'edificio mediante dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -233,4 +244,4 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

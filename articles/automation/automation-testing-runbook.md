@@ -12,20 +12,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="bwren" />
+	ms.date="02/18/2016"
+	ms.author="magoedte;bwren" />
 
 # Test di un runbook in Automazione di Azure
 Quando si testa un Runbook, viene eseguita la [Versione bozza](automation-creating-importing-runbook.md#publishing-a-runbook) e le azioni eseguite vengono completate. Non viene creata alcuna cronologia dei processi, ma i flussi di [Output](automation-runbook-output-and-messages.md#output-stream) e di [Avviso ed errore](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati nel pannello output del Test. I messaggi per il [Flusso dettagliato](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati solo se il pannello di Output [$VerbosePreference variabile](automation-runbook-output-and-messages.md#preference-variables) è impostato su Continue.
 
 Anche se si esegue la versione bozza, il runbook ancora esegue normalmente il flusso di lavoro ed realizza qualsiasi azione su risorse nell'ambiente. Per questo motivo, è necessario testare solo runbook a risorse non di produzione.
 
-La procedura per verificare ogni [tipo di runbook](automation-runbook-types.md) è la stessa e non vi è alcuna differenza nel test tra l'editor di testo e dell'editor grafico nel portale di anteprima di Azure.
+La procedura per verificare ogni [tipo di runbook](automation-runbook-types.md) è la stessa e non vi è alcuna differenza nel test tra l'editor di testo e dell'editor grafico nel portale di Azure.
 
 
-## Per testare un runbook nel portale di anteprima di Azure
+## Per testare un runbook nel portale di Azure
 
-È possibile utilizzare qualsiasi [tipo di runbook](automation-runbook-types.md) nel portale di anteprima di Azure.
+È possibile usare qualsiasi [tipo di runbook](automation-runbook-types.md) nel portale di Azure.
 
 1. Aprire la versione bozza del runbook in [editor testuale](automation-editing-a-runbook#Portal) o [editor grafico](automation-graphical-authoring-intro.md).
 2. Far clic sul pulsante **Test** per aprire il pannello del Test.
@@ -55,4 +55,4 @@ La procedura per verificare ogni [tipo di runbook](automation-runbook-types.md) 
 - [Modifica dei runbook testuali di automazione di Azure](automation-edit-textual-runbook.md)
 - [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

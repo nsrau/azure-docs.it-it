@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Limitazioni e restrizioni di Modello app v2.0 | Microsoft Azure"
-	description="Elenco di limitazioni e restrizioni in Modello app 2.0 di Azure AD."
+	pageTitle="Limitazioni e restrizioni dell'endpoint 2.0 | Microsoft Azure"
+	description="Elenco di limitazioni e restrizioni relative all'endpoint 2.0 di Azure AD."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,76 +13,87 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-# Anteprima di Modello app 2.0: Limitazioni e restrizioni
+# Perché usare l'endpoint 2.0 
 
-Nel periodo di anteprima pubblica di Modello app 2.0 molte funzionalità e caratteristiche non sono ancora supportate. Ognuna di queste limitazioni verrà rimossa prima che Modello app 2.0 sia disponibile a livello generale. È tuttavia necessario tenerle presenti, se si creano app durante la fase di anteprima pubblica.
+Nella compilazione di applicazioni che si integrano con Azure Active Directory è necessario stabilire se i protocolli di autenticazione e l'endpoint 2.0 rispondono ai requisiti specifici. Il modello di app Azure AD originale è ancora completamente supportato e, per alcuni aspetti, include più funzionalità della versione 2.0. L'endpoint 2.0, tuttavia, [introduce vantaggi importanti](active-directory-v2-compare.md) per gli sviluppatori che possono convincere a usare il nuovo modello di programmazione. Nel tempo la versione 2.0 crescerà fino a includere tutte le funzionalità di Azure AD e verrà usato solo l'endpoint 2.0.
 
-> [AZURE.NOTE]Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
+Attualmente, l'endpoint 2.0 offre due funzionalità di base:
 
-## Supporto per le app di produzione
-Le app che si integrano con Modello app 2.0 non devono essere rilasciate al pubblico come app di produzione. Modello app 2.0 è attualmente in fase di anteprima pubblica, eventuali modifiche possono essere introdotte in qualsiasi momento e non esiste alcun contratto di servizio garantito. Non verrà fornito alcun supporto per tutti gli eventi imprevisti che si possono verificare. Se si è disposti ad accettare il rischio di usare una dipendenza su un servizio che è ancora in fase di sviluppo, è necessario contattare @AzureAD per discutere l'ambito dell'app o del servizio.
+- Accesso degli utenti con account personali e di lavoro.
+- Chiamata dell'[API Outlook convergente](https://dev.outlook.com).
 
-## Restrizioni sulle app
-I tipi di app seguenti non sono attualmente supportati nell'anteprima pubblica di Modello app 2.0. Per una descrizione dei tipi di app supportati, fare riferimento a [questo articolo](active-directory-v2-flows.md).
+Entrambe queste funzionalità possono essere implementate in applicazioni Web, per dispositivi mobili e per PC. Se queste funzionalità relativamente limitate sono adatte all'applicazione che si sta compilando, è consigliabile usare l'endpoint 2.0. Se l'applicazione richiede funzionalità aggiuntive dei servizi Microsoft, è consigliabile continuare a usare gli endpoint già collaudati di Azure AD e dell'account Microsoft. In futuro l'endpoint 2.0 includerà sia Azure AD che l'account Microsoft e verranno fornite le istruzioni necessarie per la transizione all'endpoint 2.0.
 
-##### App a pagina singola (JavaScript)
-Molte app moderne dispongono di un front-end dell'app a pagina singola scritto principalmente in JavaScript e spesso tramite framework di app a pagina singola, ad esempio AngularJS, Ember.js, Durandal e così via. Il servizio Azure AD disponibile a livello generale supporta queste app mediante il [flusso implicito di OAuth 2.0](active-directory-v2-protocols.md#oauth2-implicit-flow). Questo flusso non è tuttavia ancora disponibile in Modello app 2.0. Sarà disponibile a breve.
+Nel frattempo, questo articolo permette di determinare se l'endpoint 2.0 risponde ai requisiti dell'applicazione. L'articolo verrà aggiornato periodicamente in base allo stato corrente dell'endpoint 2.0. Si consiglia di tornare a consultarlo di quando in quando per valutare le funzionalità della versione 2.0 rispetto ai requisiti specifici.
 
-Se si desidera che un'app a pagina singola usi Modello app 2.0, è possibile implementare l'autenticazione usando il [flusso dell'app Web](active-directory-v2-flows.md#web-apps). Questo, tuttavia, non è l'approccio consigliato e la documentazione per questo scenario è limitata. Se si desidera avere un'idea dello scenario dell'app a pagina singola, consultare l'[esempio di codice dell'app a pagina singola di Azure AD disponibile a livello generale](active-directory-devquickstarts-angular.md).
+Se è disponibile un'app esistente con Azure AD che non usa l'endpoint 2.0, non è necessario iniziare da zero. In futuro verrà fornito un modo per abilitare le applicazioni Azure AD esistente all'uso con l'endpoint 2.0.
 
-##### App daemon e sul lato server
-Anche le app che contengono processi a esecuzione prolungata o che funzionano senza la presenza di un utente necessitano di un modo per accedere alle risorse protette, ad esempio le API Web. Tali app possono autenticarsi e ottenere i token usando l'identità dell'app, anziché un'identità delegata dell'utente, mediante il [flusso delle credenziali client di OAuth 2.0](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow).
-
-Questo flusso non è attualmente supportato da Modello app 2.0, ossia le app possono ottenere i token solo dopo che si è verificato un flusso di accesso utente interattivo. Il flusso delle credenziali client verrà aggiunto in futuro. Se si desidera vedere il flusso delle credenziali client nel modello app di Azure AD disponibile a livello generale, consultare l'[esempio Daemon su GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
-
-##### API Web concatenate (On-Behalf-Of)
-Molte architetture includono un'API Web che deve chiamare un'altra API Web downstream, entrambe protette da Modello app 2.0. Questo scenario è comune nei client nativi che dispongono di un back-end dell'API Web, che a sua volta chiama un servizio Microsoft Online come Office 365 o l'API Graph.
-
-Questo scenario dell'API Web concatenata può essere supportato tramite la concessione delle credenziali di connessione JWT di OAuth 2.0, nota anche come [flusso On-Behalf-Of](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Tuttavia, il flusso On-Behalf-Of non è attualmente implementato nell'anteprima di Modello app 2.0. Per verificare il funzionamento di questo flusso nel servizio Azure AD disponibile a livello generale, consultare l'[esempio di codice On-Behalf-Of su GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
+## Restrizioni relative alle app
+I tipi di app riportati di seguito non sono attualmente supportati dall'endpoint 2.0. Per una descrizione dei tipi di app supportati, fare riferimento a [questo articolo](active-directory-v2-flows.md).
 
 ##### API Web autonome
-Nell'anteprima di Modello app 2.0 è possibile [creare un'API Web protetta mediante token OAuth](active-directory-v2-flows.md#web-apis) dall'endpoint 2.0. Tuttavia, tale API Web sarà in grado di ricevere token solo da un client che condivide lo stesso ID applicazione. La creazione di un servizio Web di terze parti a cui è possibile accedere da diversi client non è supportata.
+L'endpoint 2.0 permette di [compilare un'API Web protetta con OAuth 2.0](active-directory-v2-flows.md#web-apis). Tuttavia, tale API Web potrà ricevere token unicamente da un'applicazione che condivide lo stesso ID applicazione. La compilazione di un'API Web accessibile da un client con un ID applicazione diverso non è supportata. Il client non potrà richiedere o ottenere autorizzazioni per l'API Web.
 
-Per informazioni su come creare un'API Web che accetti token da un client noto con lo stesso ID app, vedere gli esempi di API Web di Modello app 2.0 nella sezione [introduttiva](active-directory-appmodel-v2-overview.md#getting-started).
+Per informazioni su come compilare un'API Web che accetti token da un client con lo stesso ID applicazione, vedere gli esempi di API Web dell'endpoint 2.0 nella sezione [Introduzione](active-directory-appmodel-v2-overview.md#getting-started).
 
-## Restrizioni sugli utenti
-Attualmente, qualsiasi app creata con Modello app 2.0 verrà esposta pubblicamente a tutti gli utenti che dispongono di un account Microsoft o Azure AD. Qualsiasi utente con uno dei due tipi di account sarà in grado di individuare o installare l'app, immettere le credenziali in Modello app 2.0 e fornire il consenso alle autorizzazioni dell'app. È possibile scrivere il codice dell'app in modo da rifiutare l'accesso di alcuni gruppi di utenti, ma questa operazione non impedirà loro di fornire il consenso all'app.
+##### App daemon e sul lato server
+Anche le app che contengono processi a esecuzione prolungata o che funzionano senza la presenza di un utente necessitano di un modo per accedere alle risorse protette, ad esempio le API Web. Tali app possono autenticarsi e ottenere i token usando l'identità dell'app, anziché un'identità delegata dell'utente, mediante il flusso delle credenziali client di OAuth 2.0.
 
-In effetti, le app non sono in grado di limitare i tipi di utenti che possono accedere all'app. Non è possibile creare app line-of-business (limitate agli utenti di un'organizzazione), app disponibili solo per utenti aziendali (con un account Azure AD) o app disponibili solo per utenti consumer (con un account Microsoft).
+Questo flusso non è attualmente supportato dall'endpoint 2.0. Vale a dire che le app possono ottenere i token solo dopo che si è verificato un flusso di accesso utente interattivo. Il flusso delle credenziali client verrà aggiunto in futuro. Per informazioni sul flusso delle credenziali client che usa l'endpoint di Azure AD originale, vedere l'[esempio di daemon in GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
 
-## Restrizioni sulle registrazioni di app
-Attualmente, per tutte le app che si desidera integrare con Modello app 2.0 è necessario creare una nuova registrazione in [apps.dev.microsoft.com](https://apps.dev.microsoft.com). Qualsiasi app esistente con account Azure AD o Microsoft non sarà compatibile con Modello app 2.0, né verrà registrata in un portale diverso dal nuovo portale di registrazione delle app. Non è disponibile alcun percorso di migrazione per un'app dal servizio Azure AD disponibile a livello generale a Modello app 2.0.
+##### Flusso On-Behalf-Of dell'API Web
+Molte architetture includono un'API Web che deve chiamare un'altra API Web downstream, entrambe protette dall'endpoint 2.0. Questo scenario è comune nei client nativi che hanno un back-end dell'API Web, che a sua volta chiama un servizio online Microsoft o un'altra API Web personalizzata che supporta Azure AD.
 
-In modo analogo, le app registrate nel nuovo portale di registrazione potranno essere usate solo con Modello app 2.0. Non è possibile usare il portale di registrazione delle app per creare app che si integrino con i servizi di Azure AD o dell'account Microsoft.
+Questo scenario può essere supportato usando la concessione delle credenziali di connessione JWT di OAuth 2.0, nota anche come flusso On-Behalf-Of. Tuttavia, il flusso On-Behalf-Of non è attualmente supportato per l'endpoint 2.0. Per verificare il funzionamento di questo flusso nel servizio Azure AD disponibile a livello generale, consultare l'[esempio di codice On-Behalf-Of su GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
+
+## Restrizioni relative alle registrazioni di app
+Attualmente, per tutte le app da integrare con l'endpoint 2.0 è necessario creare una nuova registrazione in [apps.dev.microsoft.com](https://apps.dev.microsoft.com). Le eventuali app Azure AD o dell'account Microsoft esistenti non sono compatibili con l'endpoint 2.0, come anche le app registrate in portali diversi dal nuovo portale di registrazione delle app. In futuro verrà fornito un modo per abilitare le applicazioni esistenti all'uso come app della versione 2.0, ma attualmente non è disponibile alcun percorso di migrazione per le app nell'endpoint 2.0.
+
+Analogamente, le app registrate nel nuovo portale di registrazione delle app non funzionano con l'endpoint di autenticazione di Azure AD originale. Tuttavia, è possibile usare le app create nel portale di registrazione delle app per realizzare la piena integrazione con l'endpoint di autenticazione dell'account Microsoft, `https://login.live.com`.
 
 Le app registrate nel nuovo portale di registrazione delle app sono attualmente limitate a un set ristretto di valori di URI di reindirizzamento. L'URI di reindirizzamento per app e servizi Web deve iniziare con lo schema o `https`, mentre l'URI di reindirizzamento per tutte le altre piattaforme deve usare il valore hardcoded `urn:ietf:oauth:2.0:oob`.
 
 Per informazioni su come registrare un'app nel nuovo portale di registrazione delle app, fare riferimento a [questo articolo](active-directory-v2-app-registration.md).
 
-## Restrizioni sui servizi e sulle API
-Modello app 2.0 attualmente supporta l'accesso di qualsiasi app registrata nel nuovo portale di registrazione delle app, purché si trovi nell'elenco dei [flussi di autenticazione supportati](active-directory-v2-flows.md). Tuttavia, queste app saranno in grado di acquisire solo token di accesso di OAuth 2.0 per un set molto limitato di risorse. L'endpoint 2.0 rilascerà token di accesso solo per:
+## Restrizioni relative ai servizi e alle API
+L'endpoint 2.0 attualmente supporta l'accesso di qualsiasi app registrata nel nuovo portale di registrazione delle app, a condizione che rientri nell'elenco dei [flussi di autenticazione supportati](active-directory-v2-flows.md). Tuttavia, queste app saranno in grado di acquisire solo token di accesso di OAuth 2.0 per un set molto limitato di risorse. L'endpoint 2.0 rilascerà token di accesso solo per:
 
 - L'app che ha richiesto il token. Un'app può acquisire un token di accesso per se stessa, se l'app logica è costituita da diversi componenti o livelli. Per vedere questo scenario, consultare le esercitazioni nella sezione [introduttiva](active-directory-appmodel-v2-overview.md#getting-started).
 - Le API REST di Posta, Calendario e Contatti di Outlook che si trovano in https://outlook.office.com. Per informazioni su come scrivere un'app che accede a queste API, fare riferimento alle esercitazioni nella sezione [introduttiva di Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
+- Le API Microsoft Graph. Per informazioni su Microsoft Graph e su tutti i dati disponibili, visitare la pagina [https://graph.microsoft.io](https://graph.microsoft.io).
 
-In futuro verranno aggiunti altri servizi Microsoft Online nonché il supporto per i servizi e le API Web.
+Attualmente non sono supportati altri servizi. In futuro verranno aggiunti altri servizi online Microsoft nonché il supporto per le API Web e i servizi personalizzati.
 
-## Restrizioni sulle librerie e sugli SDK
-Non tutti i linguaggi e le piattaforme dispongono di librerie che supportano l'anteprima di Modello app 2.0. Il set di librerie di autenticazione è attualmente limitato a .NET, iOS, Android, NodeJS e JavaScript. Esempi di codice ed esercitazioni per ogni libreria sono disponibili nella sezione [introduttiva](active-directory-appmodel-v2-overview.md#getting-started).
+## Restrizioni relative alle librerie e agli SDK
+È disponibile una versione sperimentale di Active Directory Authentication Library compatibile con l'endpoint 2.0 e che permette di fare una prova. Tuttavia, questa versione di ADAL è in anteprima, non è supportata e subirà modifiche significative nei prossimi mesi. Per ottenere rapidamente un'app in esecuzione con l'endpoint 2.0, nella sezione [Introduzione](active-directory-appmodel-v2-overview.md#getting-started) sono disponibili esempi di codice che usano ADAL per .NET, iOS, Android e JavaScript.
 
-Se si desidera integrare un'app con Modello app 2.0 usando un linguaggio o una piattaforma differente, vedere il [riferimento ai protocolli OAuth 2.0 e OpenID Connect](active-directory-v2-protocols.md) che contiene informazioni sulla costruzione dei messaggi HTTP necessari per comunicare con l'endpoint 2.0.
+Per usare l'endpoint 2.0 in un'applicazione di produzione, sono disponibili le opzioni seguenti:
 
-## Restrizioni sui protocolli
-Modello app 2.0 supporta i protocolli Open ID Connect e OAuth 2.0. Tuttavia, non tutte le funzionalità e caratteristiche di ciascun protocollo sono state incorporate in Modello app 2.0. Di seguito sono riportati alcuni esempi:
+- Se si compila un'applicazione Web, è possibile usare il middleware lato server disponibile a livello generale per eseguire operazioni di accesso e convalida dei token. È incluso il middleware OpenID Connect OWIN per ASP.NET e il plug-in di Passport per NodeJS. Nella sezione [Introduzione](active-directory-appmodel-v2-overview.md#getting-started) sono disponibili anche esempi di codice che usano tale middleware.
+- Per altre piattaforme e per le applicazioni native e per dispositivi mobili, è possibile realizzare l'integrazione con l'endpoint 2.0 anche con l'invio e la ricezione diretta di messaggi di protocollo nel codice dell'applicazione. I protocolli OAuth e OpenID Connect della versione 2.0 [sono stati documentati in modo esplicito](active-directory-v2-protocols.md) per consentire tale integrazione.
+- Per l'integrazione con l'endpoint 2.0 è anche possibile usare librerie OpenID Connect e OAuth open source. Il protocollo della versione 2.0 dovrebbe essere compatibile con molte librerie di protocollo open source senza modifiche rilevanti. La disponibilità di tali librerie varia in base alla piattaforma e al linguaggio. Nei siti Web di [OpenID Connect](http://openid.net/connect/) e [OAuth 2.0](http://oauth.net/2/) sono disponibili elenchi delle implementazioni più diffuse. Di seguito sono elencate le librerie client open source e gli esempi che sono stati testati con l'endpoint 2.0. Si noti che funzionalità come [OpenID Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html) e gli endpoint di convalida dei token non sono ancora supportate e potrebbe essere necessario disabilitarle nella libreria per poter usare l'endpoint 2.0: 
 
-- Supporto completo per il parametro `prompt` di OpenID Connect
-- Parametro `login_hint` di OpenID Connect
-- Parametro `domain_hint` di OpenID Connect
+  - [Java WSO2 Identity Server](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
+  - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
+  - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
+  - [PHP OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)
+  - [Esempio di OpenID Connect per Android](https://github.com/learning-layers/android-openid-connect)
+
+## Restrizioni relative ai protocolli
+L'endpoint 2.0 supporta unicamente i protocolli OpenID Connect e OAuth 2.0. Tuttavia, non tutte le funzionalità e caratteristiche dei vari protocolli sono state incorporate nell'endpoint 2.0. Di seguito sono riportati alcuni esempi:
+
 - Endpoint `end_sesssion_endpoint` di OpenID Connect
+- Concessione delle credenziali client OAuth 2.0
 
-Per comprendere meglio l'ambito della funzionalità del protocollo supportata in Modello app 2.0, leggere il [riferimento ai protocolli OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
+Per comprendere meglio l'ambito della funzionalità del protocollo supportata nell'endpoint 2.0, vedere il [riferimento ai protocolli OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+## Funzionalità avanzate di Azure AD per sviluppatori
+Nel servizio Azure Active Directory è disponibile un set di funzionalità per sviluppatori non ancora supportate per l'endpoint 2.0, tra cui:
+
+- Attestazioni di gruppo per utenti di Azure AD
+- Ruoli applicazione e attestazioni basate sui ruoli
+
+<!---HONumber=AcomDC_0224_2016-->

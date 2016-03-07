@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Applicare Crittografia dischi | Microsoft Azure"
+   pageTitle="Applicare la crittografia del disco nel Centro sicurezza Azure | Microsoft Azure"
    description="Questo documento illustra come implementare la raccomandazione **Applicare crittografia dischi** del Centro sicurezza di Azure."
    services="security-center"
    documentationCenter="na"
@@ -10,13 +10,13 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="02/23/2016"
    ms.author="terrylan"/>
 
-# Applicare Crittografia dischi
+# Applicare la crittografia del disco nel Centro sicurezza Azure
 
 Centro protezione di Azure suggerisce di applicare la crittografia dischi se sono presenti dischi di VM Windows o Linux che non vengono crittografati con Crittografia dischi di Azure. Crittografia dischi consente di crittografare i dischi delle VM IaaS Windows e Linux. La crittografia è consigliabile sia per il sistema operativo sia per i volumi di dati della macchina virtuale.
 
@@ -54,4 +54,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

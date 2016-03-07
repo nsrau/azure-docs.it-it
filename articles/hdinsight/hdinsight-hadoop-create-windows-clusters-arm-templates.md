@@ -19,7 +19,7 @@
 
 # Creare cluster Hadoop basati su Windows in HDInsight tramite modelli di Gestione risorse di Azure
 
-[AZURE.INCLUDE [selettore](../../includes/hdinsight-create-windows-cluster-selector.md)]
+[AZURE.INCLUDE [selettore](../../includes/hdinsight-selector-create-clusters.md)]
 
 Informazioni su come creare cluster HDInsight tramite modelli di Gestione risorse di Azure. Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](../resource-group-template-deploy.md). Per altri strumenti e funzionalità per la creazione di cluster, fare clic sulla scheda Seleziona nella parte superiore di questa pagina o vedere [Metodi di creazione di cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
 
@@ -444,4 +444,4 @@ Il modello di Gestione risorse di Azure seguente crea un cluster Hadoop basato s
 	  }
 	}
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

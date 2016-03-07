@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli" />
 
 # Gestire i controller del dispositivo StorSimple
@@ -41,7 +41,7 @@ Il riavvio o l'arresto del controller non è richiesto come parte del funzioname
 
 Il riavvio di un dispositivo non è un'operazione problematica per gli iniziatori connessi, supponendo che il controller passivo sia disponibile. Se un controller passivo non è disponibile o è spento, il riavvio del controller attivo potrebbe comportare l'interruzione del servizio e tempi di inattività.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 
 > - **Un controller in esecuzione non deve mai essere fisicamente rimosso poiché potrebbe causare una perdita di ridondanza e un maggior rischio di tempi di inattività.**
 
@@ -63,14 +63,14 @@ Per gestire i controller del dispositivo dal portale di Azure classico, effettua
 
 	![Gestire i controller del dispositivo StorSimple](./media/storsimple-manage-device-controller/IC766018.png)</br>
 
-	>[AZURE.NOTE]Se non è possibile visualizzare **Gestisci controller**, è necessario installare gli aggiornamenti. Per altre informazioni, vedere [Aggiornare il dispositivo StorSimple](storsimple-update-device.md).
+	>[AZURE.NOTE] Se non è possibile visualizzare **Gestisci controller**, è necessario installare gli aggiornamenti. Per altre informazioni, vedere [Aggiornare il dispositivo StorSimple](storsimple-update-device.md).
 
 1. Nella finestra di dialogo **Modifica impostazioni controller**, effettuare le seguenti operazioni:
 
 
 	- Dall'elenco a discesa **Seleziona controller**, selezionare il controller che si desidera gestire. Le opzioni sono Controller 0 e Controller 1. Questi controller vengono identificati anche come attivo o passivo.
 
-		>[AZURE.NOTE]Un controller non può essere gestito se non è disponibile o è spento e quindi non verrà visualizzato nell'elenco a discesa.
+		>[AZURE.NOTE] Un controller non può essere gestito se non è disponibile o è spento e quindi non verrà visualizzato nell'elenco a discesa.
 	
 
 
@@ -121,7 +121,7 @@ Eseguire la procedura seguente per arrestare o riavviare un unico controller nel
 
 In questa sezione viene illustrato come arrestare un dispositivo StorSimple in esecuzione o in errore da un computer remoto. Un dispositivo viene disattivato dopo l'arresto di entrambi i controller del dispositivo. L'arresto di un dispositivo viene eseguito quando il dispositivo viene spostato fisicamente o messo fuori servizio.
 
-> [AZURE.IMPORTANT]Prima di arrestare il dispositivo, verificare l'integrità dei componenti del dispositivo. Passare a **Dispositivi > Manutenzione > Stato hardware** e verificare che lo stato del LED di tutti i componenti sia verde. Solo un dispositivo integro avrà lo stato verde. Se il dispositivo viene arrestato per la sostituzione di un componente che non funziona correttamente, verrà visualizzato lo stato di errore (rosso) o danneggiato (giallo) per i rispettivi componenti.
+> [AZURE.IMPORTANT] Prima di arrestare il dispositivo, verificare l'integrità dei componenti del dispositivo. Passare a **Dispositivi > Manutenzione > Stato hardware** e verificare che lo stato del LED di tutti i componenti sia verde. Solo un dispositivo integro avrà lo stato verde. Se il dispositivo viene arrestato per la sostituzione di un componente che non funziona correttamente, verrà visualizzato lo stato di errore (rosso) o danneggiato (giallo) per i rispettivi componenti.
 
 #### Per arrestare un dispositivo StorSimple
 
@@ -166,10 +166,12 @@ Per ripristinare le impostazioni predefinite di fabbrica del dispositivo StorSim
 
 	Il sistema verrà riavviato più volte. Verrà ricevuta una notifica al termine del processo di ripristino. A seconda del modello di sistema, per completare questo processo possono essere necessari 45-60 minuti per un dispositivo 8100 e 60-90 minuti per un dispositivo 8600.
 
-	> [AZURE.TIP]
+	> [AZURE.TIP] 
 	
 	> - Utilizzare il comando `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` per ignorare il controllo della versione del firmware se il cmdlet del ripristino delle impostazioni predefinite (come sopra) segnala un errore di mancata corrispondenza del firmware indicante che il ripristino delle impostazioni predefinite non può continuare a causa di una mancata corrispondenza tra le versioni del firmware. È necessario ignorare la verifica del firmware (usando l'opzione `–SkipFirmwareCheck`) quando si esegue il ripristino delle impostazioni di fabbrica di un dispositivo che in precedenza è stato aggiornato tramite Microsoft Update o un meccanismo di aggiornamento rapido.
 	
+	> - La procedura di ripristino delle impostazioni predefinite potrebbe non riuscire per i dispositivi StorSimple con l'aggiornamento 1 o 1.1 nel portale di Azure Government e hanno completato una sostituzione singola o doppia di un controller con controller sostitutivi dotati di software precedente all'aggiornamento 1. Ciò accade quando per l'immagine di ripristino delle impostazioni predefinite viene verificata nel controller la presenza di un file SHA1 che non è presente per il software precedente all'aggiornamento 1. Se il ripristino delle impostazioni predefinite non riesce, contattare il Supporto tecnico Microsoft per assistenza nei passaggi successivi. Questo problema non si presenta con i controller sostitutivi dotati in fabbrica dell'aggiornamento 1 o di software successivo.
+
 	> - Per altre informazioni su come usare questo cmdlet, vedere la [documentazione di riferimento dei cmdlet di Windows PowerShell per StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
 
@@ -221,4 +223,4 @@ In questa sezione vengono riportate alcune delle domande frequenti relative alla
 
 - Per altre informazioni sull’utilizzo del servizio StorSimple Manager, passare a[Usare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

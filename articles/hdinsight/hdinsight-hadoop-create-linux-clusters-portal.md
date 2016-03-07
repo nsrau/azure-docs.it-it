@@ -20,7 +20,7 @@
 
 #Creare cluster basati su Linux in HDInsight tramite il portale di anteprima di Azure
 
-[AZURE.INCLUDE [selettore](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[AZURE.INCLUDE [selettore](../../includes/hdinsight-selector-create-clusters.md)]
 
 Il portale di anteprima di Azure è uno strumento di gestione basato sul Web per servizi e risorse ospitati nel cloud di Microsoft Azure. Usare le informazioni in questo documento per creare un nuovo cluster HDInsight basato su Linux tramite il portale di anteprima e il Web browser.
 
@@ -182,4 +182,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

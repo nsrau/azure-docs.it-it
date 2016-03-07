@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Applicazione Web di Node.js di modello app v2.0 | Microsoft Azure"
+	pageTitle="App Web NodeJS v2.0 di Azure AD| Microsoft Azure"
 	description="Come creare un'app Web NodeJS che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell'istituto di istruzione."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -13,30 +13,25 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="brandwe"/>
 
-# Anteprima di Modello app 2.0: Aggiungere l'accesso a un'app Web NodeJS
+# Aggiungere l'accesso a un’app Web nodeJS
 
 
-  >[AZURE.NOTE]
-    Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 
 
 Passport viene usato per:
 
-- Connettere l'utente all'app con Azure AD e Modello app 2.0.
+- Connettere l'utente all'app con Azure AD e l'endpoint v2.0.
 - Visualizzare alcune informazioni relative all'utente.
 - Disconnettere l'utente dall'app.
 
 **Passport** è il middleware di autenticazione per Node.js. Passport, estremamente flessibile e modulare, può essere rilasciato in modo non invadente in qualsiasi applicazione Web basata su Express o Resitify. Una gamma completa di strategie supporta l'autenticazione mediante nome utente e password, Facebook, Twitter e altro ancora. È stata sviluppata una strategia per Microsoft Azure Active Directory. Dopo l'installazione di questo modulo, verrà aggiunto il plug-in `passport-azure-ad` di Microsoft Azure Active Directory.
 
-A questo scopo è necessario:
-
-1. Registrare un'app.
-2. Configurare l'app per l'uso della strategia Passport-azure-ad.
-3. Usare Passport per inviare le richieste di accesso e disconnessione ad Azure AD.
-4. Visualizzare dati relativi all'utente.
+## Scaricare
 
 Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs). Per seguire la procedura è possibile [scaricare la struttura dell'app come file con estensione zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/skeleton.zip) o clonare la struttura:
 
@@ -44,14 +39,14 @@ Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azu
 
 Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
-## 1. Registrare un'app
+## 1\. Registrare un'app
 Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questa [procedura dettagliata](active-directory-v2-app-registration.md). Verificare di:
 
 - Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
 - Aggiungere la piattaforma **Web** per l'app.
 - Immettere l'**URI di reindirizzamento** corretto. L'URI di reindirizzamento indica ad Azure AD dove indirizzare le risposte di autenticazione. Il valore predefinito per questa esercitazione è `http://localhost:3000/auth/openid/return`.
 
-## 2. Aggiungere prerequisiti alla directory
+## 2\. Aggiungere prerequisiti alla directory
 
 Dalla riga di comando passare alla directory della cartella radice, se non è già stato fatto, ed eseguire i comandi seguenti:
 
@@ -68,14 +63,14 @@ Dalla riga di comando passare alla directory della cartella radice, se non è gi
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- È stato anche usato `passport-azure-ad` per l'anteprima nella struttura di avvio rapido.
+- È stato anche usato `passport-azure-ad` nella struttura di avvio rapido.
 
 - `npm install passport-azure-ad`
 
 
 Verranno installate le librerie da cui dipende passport-azure-ad.
 
-## 3. Configurare l'app per l'uso della strategia passport-node-js
+## 3\. Configurare l'app per l'uso della strategia passport-node-js
 In questo caso, verrà configurato il middleware Express per l'uso del protocollo di autenticazione OpenID Connect. Passport verrà usato, tra le altre cose, per inviare le richieste di accesso e disconnessione, gestire la sessione dell'utente e ottenere informazioni sull'utente.
 
 -	Per iniziare, aprire il file `config.js` nella radice del progetto e immettere i valori di configurazione dell'app nella sezione `exports.creds`.
@@ -417,10 +412,10 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-È ora possibile passare ad argomenti più avanzati. È possibile consultare:
+È ora possibile passare ad argomenti più avanzati. È possibile:
 
-[Proteggere un'API Web con Modello app 2.0 in Node.js >>](active-directory-v2-devquickstarts-webapi-nodejs.md)
+[Proteggere l'api Web node.js usando l'endpoint v2.0 >>](active-directory-v2-devquickstarts-node-api.md)
 
-Per altre risorse consultare: - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Per altre risorse consultare: - [la guida per gli sviluppatori versione 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "azure-active-directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

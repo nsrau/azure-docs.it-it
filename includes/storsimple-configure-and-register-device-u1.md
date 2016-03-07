@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 12/01/15-->
+<!--author=alkohli last changed: 02/22/2016-->
 
 
 ### Per configurare e registrare il dispositivo
@@ -27,9 +27,9 @@
    - Gateway
    - Indirizzo IP per il server DNS primario
     
-		Si noti che il sistema convalida le impostazioni di rete dopo ogni passaggio del processo.
-   
-      >[AZURE.NOTE] Potrebbe essere necessario attendere alcuni minuti affinché la subnet mask e le impostazioni DNS vengano applicate. Se viene visualizzato un messaggio di errore "Controllare la connettività di rete a Data 0", controllare la connessione di rete fisica nell’interfaccia di rete DATA 0 del controllore attivo.
+	Si noti che il sistema convalida le impostazioni di rete dopo ogni passaggio del processo.
+		   
+	> [AZURE.NOTE] Potrebbe essere necessario attendere alcuni minuti affinché la subnet mask e le impostazioni DNS vengano applicate. Se viene visualizzato un messaggio di errore "Controllare la connettività di rete a Data 0", controllare la connessione di rete fisica nell’interfaccia di rete DATA 0 del controllore attivo.
 
 8. (Facoltativo) configurare il server proxy Web. Sebbene la configurazione del proxy Web sia facoltativa, **tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui**. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](../articles/storsimple/storsimple-configure-web-proxy.md).
 
@@ -41,7 +41,7 @@
 
 11. Il passaggio finale dell'installazione guidata registra il dispositivo con il servizio StorSimple Manager. A tale scopo, è necessario il codice di registrazione del servizio ottenuto nel passaggio 2. Dopo aver fornito il codice di registrazione, potrebbe essere necessario attendere 2-3 minuti prima che il dispositivo venga registrato.
 
-      >[AZURE.NOTE] È possibile premere Ctrl + C in qualsiasi momento per uscire dall'installazione guidata. Se sono state immesse tutte le impostazioni di rete (indirizzo IP per Data 0, Subnet mask e Gateway), le voci verranno conservate.
+      > [AZURE.NOTE] È possibile premere Ctrl + C in qualsiasi momento per uscire dall'installazione guidata. Se sono state immesse tutte le impostazioni di rete (indirizzo IP per Data 0, Subnet mask e Gateway), le voci verranno conservate.
 
 	![StorSimple registrare il dispositivo 6](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice6_U1-include.png)
 
@@ -49,7 +49,7 @@
 	
 	![StorSimple registrare il dispositivo 7](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice7_U1-include.png)
 
-      >[AZURE.NOTE] Per copiare il testo dalla finestra della console seriale, è sufficiente selezionarlo. È quindi possibile incollarlo negli Appunti o in qualsiasi editor di testo. NON usare CTRL+C per copiare la chiave DEK del servizio. Se si usa CTRL+C l'installazione guidata verrà chiusa. Di conseguenza, la password di amministratore del dispositivo non verrà modificata e verrà ripristinata la password predefinita del dispositivo.
+      > [AZURE.NOTE] Per copiare il testo dalla finestra della console seriale, è sufficiente selezionarlo. È quindi possibile incollarlo negli Appunti o in qualsiasi editor di testo. NON usare CTRL+C per copiare la chiave DEK del servizio. Se si usa CTRL+C l'installazione guidata verrà chiusa. Di conseguenza, la password di amministratore del dispositivo non verrà modificata e verrà ripristinata la password predefinita del dispositivo.
 
 13. Uscire dalla console seriale.
 
@@ -58,14 +58,14 @@
   2. Fare clic su **Visualizza dispositivi connessi**.
   3. Nella pagina **Dispositivi**, verificare che il dispositivo sia connesso correttamente al servizio controllando lo stato. Lo stato del dispositivo deve essere **Online**.
    
-    	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
+	![Pagina Dispositivi StorSimple](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png)
   
 	Se lo stato del dispositivo è **Offline**, attendere qualche minuto che il dispositivo torni in linea.
-	      
+
 	Se il dispositivo è ancora offline dopo alcuni minuti, è necessario assicurarsi che la rete firewall sia stata configurata come descritto nei [requisiti di rete per il dispositivo StorSimple](../articles/storsimple/storsimple-system-requirements.md).
-	
-	Se non si possiede un supporto HTTP 1.1, verificare che la porta 9354 sia aperta alle comunicazioni in uscita. Questa porta viene usata per la comunicazione tra il servizio StorSimple Manager e il dispositivo StorSimple.
+
+	Verificare che la porta 9354 sia aperta per le comunicazioni in uscita, perché viene usata dal bus di servizio per le comunicazioni da servizio a dispositivo di StorSimple Manager.
      
        
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

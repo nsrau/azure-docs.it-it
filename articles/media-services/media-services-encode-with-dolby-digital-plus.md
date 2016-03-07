@@ -3,7 +3,7 @@
 	description="Questo argomento illustra come codificare i file multimediali con Dolby Digital Plus." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="anilmur" 
+	authors="juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/17/2016"   
-	ms.author="anilmur"/>
+	ms.author="juliako"/>
 
 #Codifica di file multimediali con Dolby Digital Plus
 
@@ -659,4 +659,4 @@ Di seguito sono descritti i singoli attributi.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

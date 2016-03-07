@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/17/2016"
 	ms.author="dastrock"/>
 
 # Anteprima di Azure AD B2C: Chiamata di un'API Web da un'app Web .NET
@@ -36,7 +36,7 @@ A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad
 
 - Includere un'**app Web/API Web** nell'applicazione
 - Specificare `https://localhost:44316/` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
-- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesta a breve.
+- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve. Si noti che prima di usare questo valore è necessario [inserire un carattere di escape XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape).
 - Copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -387,4 +387,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

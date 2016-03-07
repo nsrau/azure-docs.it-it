@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Annotazioni sulla distribuzione per Application Insights | Microsoft Azure"
+    pageTitle="Annotazioni sulla versione per Application Insights | Microsoft Azure"
     description="Aggiungere indicatori della distribuzione o della build ai grafici di Esplora metriche in Application Insights."
     services="application-insights"
     documentationCenter=".net"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/22/2016"
     ms.author="awills"/>
 
 # Annotazioni sulla versione in Application Insights
@@ -42,7 +42,7 @@ Questa operazione è necessaria per ogni modello di versione per cui si vogliono
 1. Accedere al [portale di Microsoft Azure](https://portal.azure.com) e aprire la risorsa di Application Insights che monitora l'applicazione o [crearne una nuova](app-insights-overview.md), se necessario.
 2. Aprire **Impostazioni**, **Accesso all'API**, ed eseguire una copia di **ID di Application Insights**.
 
-    ![In portal.azure.com, aprire la risorsa di Application Insights e scegliere Settings. Aprire API Access. Copiare il](./media/app-insights-annotations/20.png)
+    ![In portal.azure.com, aprire la risorsa di Application Insights e scegliere Settings. Aprire API Access. Copiare l'ID applicazione](./media/app-insights-annotations/20.png)
 
 2. In una finestra del browser separata, aprire (o creare) il modello di versione che gestisce le distribuzioni da Visual Studio Team Services.
 
@@ -69,8 +69,13 @@ Questa operazione è necessaria per ogni modello di versione per cui si vogliono
 
 5. Infine fare clic su **Salva** per salvare la definizione della versione.
 
-## Annotazioni di distribuzione
+## Annotazioni sulle versioni
 
 Ora, quando si usa il modello di versione per distribuire una nuova versione, verrà inviata un'annotazione ad Application Insights. Le annotazioni verranno visualizzate nei grafici di Esplora metriche.
 
-<!---HONumber=AcomDC_0121_2016-->
+Fare clic su un marcatore di annotazione per visualizzare i dettagli sulla versione, tra cui richiedente, ramo di controllo del codice sorgente, definizione della versione, ambiente e così via.
+
+
+![Fare clic su un marcatore di annotazione della versione.](./media/app-insights-annotations/60.png)
+
+<!---HONumber=AcomDC_0224_2016-->

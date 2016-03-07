@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/04/2015"
-   ms.author="kunalds"/>
+   ms.date="02/12/2016"
+   ms.author="toddabel"/>
 
 
 # Monitorare e diagnosticare servizi in una configurazione di sviluppo con computer locale
@@ -60,4 +60,4 @@ Dopo aver aggiunto il tracciamento ETW personalizzato al codice del servizio, sa
 ## Passaggi successivi
 Lo stesso codice di traccia aggiunto all'applicazione precedente per la diagnostica locale potrà essere usato con gli stessi strumenti di cui è possibile avvalersi per visualizzare gli eventi quando si esegue l'applicazione in un cluster di Azure. Per altre informazioni, consultare gli articoli seguenti che illustrano le diverse opzioni disponibili per gli strumenti e descrivono le modalità per impostarle. * [Raccolta di log da un cluster di Service Fabric in Azure mediante Diagnostica di Microsoft Azure e Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [Uso di ElasticSearch come archivio di traccia dell'applicazione di Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Aggiungere un archivio elementi Git al Lab di sviluppo e test
+
+> [AZURE.NOTE] Fare clic sul collegamento seguente per visualizzare il video associato a questo articolo, relativo alla [procedura di aggiunta di un archivio privato di elementi in un lab di sviluppo/test](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab)
 
 ## Panoramica
 
@@ -115,4 +117,4 @@ Per aggiungere un archivio elementi Git di Visual Studio al lab, ottenere innanz
     3. Immettere il **Token di accesso personale** salvato nell'archivio elementi.
     4. Toccare **Salva**.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

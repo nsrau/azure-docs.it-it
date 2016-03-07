@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Chi usa Ricerca di Azure: case study e casi di successo dei clienti | Microsoft Azure | Servizio di ricerca cloud ospitato"
+	pageTitle="Chi usa Ricerca di Azure: case study e casi di successo dei clienti | Microsoft Azure | Scenari utente"
 	description="Case study e casi di successo dei clienti sulla Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure."
 	services="search"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="11/13/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Chi usa Ricerca di Azure: case study e casi di successo dei clienti
@@ -61,4 +61,4 @@ Informazioni sul modo in cui una start-up svedese ha creato un portale di inform
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

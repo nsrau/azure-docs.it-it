@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/17/2015"
+   ms.date="01/21/2016"
    ms.author="guayan"/>
 
 # Registrazione di un'API gestita da Microsoft o gestita dal reparto IT
@@ -55,8 +55,8 @@ API | Descrizione | Collegamento ai passaggi
 ![][33] | **Excel**<br/><br/> È possibile ottenere, aggiornare ed eliminare elementi e molto altro. | [**Introduzione**](powerapps-create-api-excel.md)
 ![][34] | **Google Drive**<br/><br/> È possibile ottenere, aggiornare ed eliminare elementi e molto altro. | [**Introduzione**](powerapps-create-api-googledrive.md)
 ![][35] | **Microsoft Translator**<br/><br/>Traduce il testo, rileva le lingue e molto altro. | [**Introduzione**](powerapps-create-api-microsofttranslator.md)
-![][36] | **Office365 Outlook**<br/><br/> Per la gestione della posta elettronica. | [**Introduzione**](powerapps-create-api-office365-outlook.md)
-![][37] | **Utenti di Office365**<br/><br/> Per accedere ai profili utente, i gestori, i report diretti e molto altro. | [**Introduzione**](powerapps-create-api-office365-users.md)
+![][36] | **Office 365 Outlook**<br/><br/> Per la gestione della posta elettronica. | [**Introduzione**](powerapps-create-api-office365-outlook.md)
+![][37] | **Utenti di Office 365**<br/><br/> Per accedere ai profili utente, i gestori, i report diretti e molto altro. | [**Introduzione**](powerapps-create-api-office365-users.md)
 ![][38] | **OneDrive**<br/><br/> È possibile ottenere, aggiornare ed eliminare elementi e molto altro. | [**Introduzione**](powerapps-create-api-onedrive.md)
 ![][39] | **Salesforce**<br/><br/> È possibile ottenere, aggiornare ed eliminare elementi e molto altro. | [**Introduzione**](powerapps-create-api-salesforce.md)
 ![][40] | **SharePoint Online**<br/><br/> È possibile ottenere, aggiornare ed eliminare elementi e molto altro. | [**Introduzione**](powerapps-create-api-sharepointonline.md)
@@ -69,13 +69,13 @@ Le API **gestite dal reparto IT** sono controllate e gestite dall'utente. Non ve
 Fra gli ulteriori vantaggi:
 
 - Le risorse, tra cui rete, memoria o configurazioni di sicurezza, vengono monitorate dall'utente. Ad esempio, se è necessario aggiungere ulteriore memoria per visualizzare i dati di Excel nell'app, è possibile controllare la quantità di memoria da aggiungere all'ambiente. 
-- È l'utente a impostare la relazione di trust e a controllare la sicurezza tra le app e l'API. Ad esempio, l'utente stabilisce se l'API di Office365 può essere gestita da Microsoft (un trust automatico) o se utilizzare l'API di Office365 nel proprio ambiente (creazione del proprio trust). 
-- **Tutte** le API gestite da Microsoft possono essere gestite anche dal reparto IT. Ad esempio, ciò è possibile per creare un'istanza personalizzata di Office365 e avere il controllo completo su di essa. È quindi possibile utilizzare l'API di Office365 gestita dal reparto IT e quella gestita da Microsoft nel medesimo ambiente. Tutto dipende dalle esigenze della propria app.
+- È l'utente a impostare la relazione di trust e a controllare la sicurezza tra le app e l'API. Ad esempio, l'utente stabilisce se l'API di Office 365 può essere gestita da Microsoft (un trust automatico) o se utilizzare l'API di Office 365 nel proprio ambiente (creazione del proprio trust). 
+- **Tutte** le API gestite da Microsoft possono essere gestite anche dal reparto IT. Ad esempio, ciò è possibile per creare un'istanza personalizzata di Office 365 e avere il controllo completo su di essa. È quindi possibile utilizzare l'API di Office 365 gestita dal reparto IT e quella gestita da Microsoft nel medesimo ambiente. Tutto dipende dalle esigenze della propria app.
 - In caso di connessione a sistemi locali o di utilizzo dell'API di ricerca Bing, l'utente ha il controllo di sicurezza, autenticazione, licenze e molto altro.
 
 
 #### API gestite dal reparto IT
-> [AZURE.NOTE]Tenere presente che **tutte** le API gestite di Microsoft possono essere gestite anche dal reparto IT. Le API seguenti sono solo gestite dal reparto IT e non possono essere gestite da Microsoft.
+> [AZURE.NOTE] Tenere presente che **tutte** le API gestite di Microsoft possono essere gestite anche dal reparto IT. Le API seguenti sono solo gestite dal reparto IT e non possono essere gestite da Microsoft.
 
 API | Descrizione | Collegamento ai passaggi
 --- | --- | ---
@@ -107,21 +107,18 @@ Nella tabella seguente vengono confrontate le funzionalità delle API gestite da
 
 ## Registrazione di un'API gestita da Microsoft o gestita dal reparto IT
 
-1. Nel [portale di Azure](https://portal.azure.com/), selezionare **PowerApps**, quindi selezionare **Gestisci API**:  
-![][17]  
-2. In Gestisci API, selezionare **Aggiungi**:  
-![][18]  
-3. In **Aggiungi API**, immettere le proprietà dell'API:  
+1. Nel [portale di Azure](https://portal.azure.com/) accedere con l'account aziendale (*nomeUtente*@*società*.com). Si accederà automaticamente alla sottoscrizione della propria società.
+2. Selezionare **Sfoglia**, quindi **PowerApp** e infine **API gestite**: ![][17]
+3. In Gestisci API, selezionare **Aggiungi**: ![][18]  
+4. In **Aggiungi API**, immettere le proprietà dell'API:  
 
 	- In **Nome**, immettere un nome per l'API. Tenere presente che il nome immesso viene compreso nell'URL di runtime dell'API. Il nome deve essere significativo e univoco all'interno dell'organizzazione.
-	- In **Origine**, selezionare **Da API disponibili**:  
-	![][19]
-4. Selezionare **API** e quindi scegliere l'API da registrare:  
-![][20]
-5. Selezionare l'API specifica e aggiungere tutte le proprietà configurabili.
-6. Selezionare **AGGIUNGI** per completare questi passaggi.
+	- In **Origine**, selezionare **Da API disponibili**: ![][19]
+5. Selezionare **API** e quindi scegliere l'API da registrare: ![][20]
+6. Selezionare l'API specifica e aggiungere tutte le proprietà configurabili.
+7. Selezionare **AGGIUNGI** per completare questi passaggi.
 
-> [AZURE.TIP]Quando si registra un'API, ciò avviene nel proprio ambiente del servizio app. Una volta effettuata tale registrazione, l'API è utilizzabile da altre app presenti nello stesso ambiente del servizio app.
+> [AZURE.TIP] Quando si registra un'API, ciò avviene nel proprio ambiente del servizio app. Una volta effettuata tale registrazione, l'API è utilizzabile da altre app presenti nello stesso ambiente del servizio app.
 
 
 ## Riepilogo e passaggi successivi
@@ -155,4 +152,4 @@ In questo argomento si è visto come registrare un'istanza personalizzata delle 
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

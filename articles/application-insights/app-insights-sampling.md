@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="02/18/2016" 
 	ms.author="awills"/>
 
 #  Campionamento in Application Insights
@@ -22,12 +22,13 @@
 
 Il campionamento è una funzionalità di Application Insights che consente di raccogliere e archiviare un set ridotto di telemetria mantenendo però un'analisi statisticamente corretta dei dati dell'applicazione. Riduce il traffico e consente di evitare la [limitazione della larghezza di banda della rete](app-insights-pricing.md#data-rate). I dati vengono filtrati in modo che gli elementi correlati vengano consentiti e sia quindi possibile spostarsi tra gli elementi quando si conducono indagini diagnostiche. Quando i conteggi delle metriche vengono presentati nel portale, vengono nuovamente normalizzati tenendo in considerazione il campionamento, per ridurre al minimo gli effetti sulle statistiche.
 
-Il campionamento adattivo è abilitato per impostazione predefinita in Application Insights SDK per ASP.NET, versione 2.0.0-beta3 o successiva. Il campionamento attualmente è disponibile nella versione beta e in futuro potrebbe essere soggetto a modifiche.
+Il campionamento attualmente è disponibile nella versione beta e in futuro potrebbe essere soggetto a modifiche.
 
-Esistono due moduli di campionamento alternativi:
+Esistono tre diversi metodi di campionamento:
 
-* Il campionamento adattivo regola automaticamente la percentuale di campionamento per raggiungere un volume specifico di richieste. Attualmente disponibile solo per la telemetria lato server di ASP.NET.  
-* È disponibile anche il campionamento a frequenza fissa. Specificare la percentuale di campionamento. Disponibile per il codice dell'app Web ASP.NET e per le pagine Web JavaScript. Il client e il server sincronizzeranno il rispettivo campionamento in modo che nella ricerca sia possibile spostarsi tra le visualizzazioni pagina e le richieste correlate.
+* Il **campionamento adattivo** regola automaticamente la percentuale di campionamento per raggiungere un volume specifico di richieste. Il campionamento adattivo è abilitato per impostazione predefinita in Application Insights SDK per ASP.NET, versione 2.0.0-beta3 o successiva. 
+* Nell'SDK versione 2 o successiva è disponibile anche il **campionamento a frequenza fissa**. Specificare la percentuale di campionamento. Funziona sia sul client JavaScript che sul server ASP.NET. Il client e il server sincronizzeranno il rispettivo campionamento in modo che nella ricerca sia possibile spostarsi tra le visualizzazioni pagina e le richieste correlate.
+* **Campionamento per inserimento**. Si verifica nel servizio Application Insights. L'SDK invia tutti i dati di telemetria provenienti dal browser e dal server, ma ne conserva solo una percentuale. È un metodo adattivo e funziona solo se l'app invia più di un volume minimo di dati di telemetria e se l'SDK non sta eseguendo uno degli altri tipi di campionamento. È inoltre influenzato dal piano tariffario scelto. Anche se non riduce il traffico, questo metodo consente all'utente di rispettare la quota mensile.
 
 ## Abilitazione del campionamento adattivo
 
@@ -180,7 +181,7 @@ Se si abilita il campionamento a frequenza fissa nel server, i client e il serve
 
     ```
 
-> [AZURE.NOTE]Come percentuale di campionamento, sceglierne una vicina a 100/N dove N è un numero intero. Il campionamento attualmente non supporta altri valori.
+> [AZURE.NOTE] Come percentuale di campionamento, sceglierne una vicina a 100/N dove N è un numero intero. Il campionamento attualmente non supporta altri valori.
 
 
 
@@ -211,7 +212,7 @@ Invece di impostare il parametro di campionamento nel file .config, è possibile
 
 ## Quando usare il campionamento?
 
-Il campionamento adattivo viene automaticamente abilitato se si usa ASP.NET SDK versione 2.0.0-beta3 o successiva.
+Il campionamento adattivo viene automaticamente abilitato se si usa ASP.NET SDK versione 2.0.0-beta3 o successiva. Indipendentemente dalla versione dell'SDK usata, il campionamento per inserimento (sul server) funziona se nell'SDK non è in esecuzione un altro metodo di campionamento.
 
 Per la maggior parte delle applicazioni di piccole e medie dimensioni, il campionamento non è necessario. Le informazioni di diagnostica più utili e le statistiche più accurate si ottengono raccogliendo dati su tutte le attività utente.
 
@@ -224,19 +225,23 @@ I vantaggi principali del campionamento sono:
 
 ### Campionamento fisso o adattivo?
 
+Tutte le forme di campionamento funzionano soltanto sopra una determinata soglia di traffico. Ad esempio, non influiscono sulla maggior parte delle sessioni di debug o sui siti poco usati.
+
 Usare il campionamento a frequenza fissa se:
 
 * È necessario il campionamento sincronizzato tra client e server, in modo che, quando si esaminano gli eventi in [Cerca](app-insights-diagnostic-search.md), sia possibile spostarsi tra gli eventi correlati nel client e nel server, ad esempio visualizzazioni pagina e richieste http.
 * Se è certi della percentuale di campionamento appropriata per l'app. Deve essere abbastanza elevata da ottenere metriche accurate, ma al di sotto della frequenza che fa superare la quota di prezzo e le soglie di limitazione. 
 * Non si deve eseguire il debug dell'app. Quando si preme F5 e si provano alcune pagine dell'app, sarà preferibile visualizzare tutta la telemetria.
 
-In caso contrario, è consigliabile il campionamento adattivo.
+In caso contrario, è consigliabile il campionamento adattivo. Questo tipo di campionamento è abilitato per impostazione predefinita nell'SDK del server ASP.NET.
+
+Se non si esegue un campionamento nell'SDK, ad esempio perché se si sta usando Java o si è disattivato il campionamento nel file ApplicationInsights.config, il campionamento per inserimento funziona a condizione che i dati arrivino al servizio Application Insights. Si tratta di una forma di campionamento adattivo.
 
 ## Come funziona il campionamento?
 
-Dal punto di vista dell'applicazione, il campionamento è una funzionalità di Application Insights SDK. Si specifica la percentuale di tutti i punti dati da inviare al servizio Application Insights. A partire dalla versione 2.0.0 di Application Insights SDK è possibile controllare la percentuale di campionamento dal codice. Le versioni future dell'SDK consentiranno anche di configurare la percentuale di campionamento dal file ApplicationInsights.config.
+Il campionamento a frequenza fissa e il campionamento adattivo sono funzionalità dell'SDK nella versione ASP.NET 2.0.0 o successiva. Il campionamento per inserimento è una funzionalità del servizio Application Insights ed è operativo se l'SDK non sta eseguendo un altro campionamento.
 
-L'SDK decide quali elementi della telemetria rimuovere e quali mantenere. La decisione sul campionamento si basa su alcune regole che hanno lo scopo di lasciare intatti tutti i punti dati correlati, mantenendo in Application Insights un'esperienza di diagnostica sfruttabile e affidabile anche con un set di dati ridotto. Se, ad esempio, per una richiesta non riuscita l'app invia elementi di telemetria aggiuntivi (come eccezioni e tracce registrate da questa richiesta), il campionamento non dividerà la richiesta e il resto della telemetria, ma conserverà o rimuoverà gli elementi tutti insieme. Di conseguenza, quando si osservano i dettagli della richiesta in Application Insights, è sempre possibile visualizzare la richiesta con gli elementi di telemetria associati.
+L'algoritmo di campionamento decide quali elementi di telemetria eliminare e quali mantenere, sia che venga eseguito nell'SDK o nel servizio Application Insights. La decisione sul campionamento si basa su alcune regole che hanno lo scopo di lasciare intatti tutti i punti dati correlati, mantenendo in Application Insights un'esperienza di diagnostica sfruttabile e affidabile anche con un set di dati ridotto. Se, ad esempio, per una richiesta non riuscita l'app invia elementi di telemetria aggiuntivi (come eccezioni e tracce registrate da questa richiesta), il campionamento non dividerà la richiesta e il resto della telemetria, ma conserverà o rimuoverà gli elementi tutti insieme. Di conseguenza, quando si osservano i dettagli della richiesta in Application Insights, è sempre possibile visualizzare la richiesta con gli elementi di telemetria associati.
 
 Per le applicazioni che definiscono "user" (la maggior parte delle normali applicazioni Web), la decisione sul campionamento si basa sull'hash dell'ID utente, vale a dire che tutta la telemetria associata a un particolare utente viene conservata o rimossa. Per i tipi di applicazioni che non definiscono gli utenti (ad esempio, i servizi Web), la decisione sul campionamento si basa sull'ID operazione della richiesta. Infine, per gli elementi della telemetria per cui non è impostato né l'ID utente né l'ID operazione (ad esempio, gli elementi della telemetria segnalati da thread asincroni senza contesto http), il campionamento si limita ad acquisire una percentuale degli elementi della telemetria di ogni tipo.
 
@@ -273,7 +278,7 @@ L'SDK lato client (JavaScript) partecipa al campionamento insieme all'SDK lato s
 
 *È possibile conoscere la frequenza di campionamento usata dal campionamento adattivo?*
 
- * Sì - utilizzare il metodo del codice di configurazione del campionamento adattivo, e sarà possibile fornire un callback che ottiene la frequenza di campionamento.
+ * Sì - utilizzare il metodo del codice di configurazione del campionamento adattivo, e sarà possibile fornire un callback che ottiene la frequenza di campionamento. Se si usa l'esportazione continua, è possibile visualizzare la frequenza di campionamento elencata nei punti dati esportati.
 
 *Se si usa il campionamento a frequenza fissa, come stabilire quale sarà la percentuale di campionamento ideale per l'app?*
 
@@ -291,10 +296,12 @@ L'SDK lato client (JavaScript) partecipa al campionamento insieme all'SDK lato s
 
 *Su quali piattaforme è possibile usare il campionamento?*
 
-* Il campionamento adattivo è attualmente disponibile per il lato server delle app Web ASP.NET (ospitate in Azure o sul proprio server). Il campionamento a frequenza fissa è disponibile per tutte le pagine Web e per i lati client e server delle applicazioni Web .NET.
+* Se nell'SDK non è impostato il campionamento, si verifica automaticamente il campionamento per inserimento per i dati di telemetria superiori a un determinato volume. Si verifica, ad esempio, se l'app usa un server Java o se si esegue una versione precedente dell'SDK ASP.NET.
+
+* Se si usa l'SDK ASP.NET versione 2.0.0 o successiva, ospitato in Azure o sul server in uso, per impostazione predefinita viene eseguito il campionamento adattivo, ma è comunque possibile passare al campionamento a frequenza fissa, come descritto in precedenza. Con il campionamento a frequenza fissa, l'SDK del browser si sincronizza automaticamente con gli eventi correlati al campione.
 
 *Esistono alcuni eventi rari che si vuole visualizzare sempre. Come è possibile passarli al modulo di campionamento?*
 
  * Inizializzare un'istanza separata di TelemetryClient con una nuova TelemetryConfiguration (non con quello predefinito attivo). Usarla per inviare gli eventi rari.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

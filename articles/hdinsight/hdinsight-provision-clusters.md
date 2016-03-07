@@ -19,7 +19,7 @@
 
 # Creare cluster Hadoop basati su Windows in HDInsight
 
-[AZURE.INCLUDE [selettore](../../includes/hdinsight-create-windows-cluster-selector.md)]
+[AZURE.INCLUDE [selettore](../../includes/hdinsight-selector-create-clusters.md)]
 
 Informazioni su come pianificare la creazione di cluster HDInsight.
 
@@ -77,25 +77,16 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 
 	![Ruoli dei cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	I cluster HBase per HDInsight vengono distribuiti con tre ruoli:
-	- Server head (2 nodi)
-	- Server area (almeno 1 nodo)
-	- Nodi master/Zookeeper (3 nodi)
+	I cluster HBase per HDInsight vengono distribuiti con tre ruoli: - Server head (2 nodi) - Server area (almeno 1 nodo) - Nodi master/Zookeeper (3 nodi)
 
 	![Ruoli dei cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	I cluster Storm per HDInsight vengono distribuiti con tre ruoli:
-	- Nodi Nimbus (2 nodi)
-	- Server Supervisor (almeno 1 nodo)
-	- Nodi Zookeeper (3 nodi)
+	I cluster Storm per HDInsight vengono distribuiti con tre ruoli: - Nodi Nimbus (2 nodi) - Server Supervisor (almeno 1 nodo) - Nodi Zookeeper (3 nodi)
 
 
 	![Ruoli dei cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	I cluster Spark per HDInsight vengono distribuiti con tre ruoli:
-	- Nodo head (2 nodi)
-	- Nodo di lavoro (almeno 1 nodo)
-	- Nodi Zookeeper (3 nodi) (gratuiti per Zookeeper A1)
+	I cluster Spark per HDInsight vengono distribuiti con tre ruoli: - Nodo head (2 nodi) - Nodo di lavoro (almeno 1 nodo) - Nodi Zookeeper (3 nodi) (gratuiti per Zookeeper A1)
 
 	L'uso di questi nodi viene addebitato ai clienti per la durata del ciclo di vita del cluster. La fatturazione inizia dopo la creazione di un cluster e si interrompe quando il cluster viene eliminato. Non è possibile deallocare o mettere in attesa i cluster. Le dimensioni del cluster influiscono sul prezzo del cluster. Ai fini dell'apprendimento, è consigliabile usare un nodo di dati. Per altre informazioni sui prezzi di HDInsight, vedere [Prezzi di HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -218,4 +209,4 @@ In questo articolo si sono apprese informazioni di base sulla creazione di un cl
 | [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelli di Gestione risorse di Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/17/2015"
+	ms.date="02/20/2016"
 	ms.author="huvalo"/>
 
 
@@ -26,7 +26,7 @@ Verrà creata un'applicazione usando il framework Web di Flask (vedere le versio
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Prerequisiti
 
@@ -402,4 +402,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Python](
 [Documentazione di Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -264,7 +264,7 @@ folderPath | Percorso della cartella. Esempio: myfolder<p>Usare il carattere di 
 fileName | Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella fa riferimento a tutti i file nella cartella.<p>Quando fileName non è specificato per un set di dati di output, il nome del file generato è nel formato seguente:</p><p>Data.<Guid>.txt (ad esempio: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p>) | No
 partitionedBy | partitionedBy può essere usato per specificare un valore folderPath dinamico, filename per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. | No
 fileFilter | Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <p>I valori consentiti sono: * (più caratteri) e ? (carattere singolo).</p><p>Esempio 1: "fileFilter": "*.log"</p>Esempio 2: "fileFilter": 2014-1-?.txt"</p><p>**Nota**: fileFilter è applicabile per un set di dati di input FileShare</p> | No
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: GZip, Deflate e BZip2 e i livelli supportati sono: Ottimale e Più veloce. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate** e **BZip2** e i livelli supportati sono: **Ottimale** e **Più veloce**. Si noti che le impostazioni di compressione non sono attualmente supportate per i dati **AvroFormat**. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
 | format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per altri dettagli, vedere la sezione [Specifica di TextFormat](#specifying-textformat) disponibile di seguito. | No
 
 
@@ -365,4 +365,4 @@ In caso di attività di copia con origine di tipo **FileSystemSource**, sono dis
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

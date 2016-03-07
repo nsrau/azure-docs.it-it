@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
-	ms.author="robinsh;prkhad"/>
+	ms.date="02/20/2016"
+	ms.author="prkhad"/>
 
 
 # Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure
@@ -35,9 +35,9 @@ Per iniziare a utilizzare Archiviazione Premium di Azure, visitare la pagina per
 
 Di seguito è riportato un elenco di aspetti importanti da considerare prima o durante l'uso di Archiviazione Premium:
 
-- Per usare Archiviazione Premium è necessario disporre di un account di archiviazione Premium. Per informazioni su come creare un account di Archiviazione Premium, vedere [Creazione e utilizzo dell’account di Archiviazione Premium per dischi](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+- Per usare Archiviazione Premium è necessario disporre di un account di archiviazione Premium. Per informazioni su come creare un account di Archiviazione Premium, vedere [Creare e usare un account di Archiviazione Premium per un disco dati della macchina virtuale](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
-- Archiviazione Premium è disponibile nel [portale di Azure](https://portal.azure.com) e accessibile tramite le seguenti librerie SDK: [API REST di archiviazione](http://msdn.microsoft.com//library/azure/dd179355.aspx) (versione 2014-02-14 o successive); [API REST di gestione del servizio](http://msdn.microsoft.com/library/azure/ee460799.aspx) (versione 2014-10-01 o successive), [API del provider di risorse di archiviazione](http://msdn.microsoft.com/library/azure/mt163683.aspx) (distribuzioni ARM) e [Azure PowerShell](../install-configure-powershell.md) (versione 0.8.10 o successive).
+- Archiviazione Premium è disponibile nel [portale di Azure](https://portal.azure.com) e accessibile tramite le seguenti librerie SDK: [API REST di archiviazione](http://msdn.microsoft.com//library/azure/dd179355.aspx) (versione 2014-02-14 o successive); [API REST di gestione del servizio](http://msdn.microsoft.com/library/azure/ee460799.aspx) versione 2014-10-01 o successive (distribuzioni classiche), [Riferimento API REST del provider di risorse di Archiviazione di Azure](http://msdn.microsoft.com/library/azure/mt163683.aspx) (distribuzioni ARM) e [Azure PowerShell](../powershell-install-configure.md) (versione 0.8.10 o successive).
 
 - Per un elenco delle aree che attualmente supportano l'Archiviazione Premium, vedere [Servizi di Azure in base all'area](https://azure.microsoft.com/regions/#services).
 
@@ -63,7 +63,7 @@ Azure usa l'account di archiviazione come un contenitore per il sistema operativ
 
 Per informazioni sulla migrazione di macchine virtuali esistenti ad Archiviazione Premium, vedere [Migrazione ad Archiviazione Premium di Azure](storage-migration-to-premium-storage.md).
 
-Per sfruttare i vantaggi di Archiviazione Premium, creare innanzitutto un account di Archiviazione Premium usando un account di tipo *Premium\_LRS*. A tale scopo, è possibile usare il [portale di Azure](https://portal.azure.com), [Azure PowerShell](../install-configure-powershell.md), [l'API REST di gestione del servizio](http://msdn.microsoft.com/library/azure/ee460799.aspx) (distribuzioni classiche) o l'[API REST del provider di risorse di archiviazione](http://msdn.microsoft.com/library/azure/mt163683.aspx) (distribuzioni ARM). Per istruzioni dettagliate, vedere [Creazione e utilizzo di account di Archiviazione Premium per dischi](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+Per sfruttare i vantaggi di Archiviazione Premium, creare innanzitutto un account di Archiviazione Premium usando un account di tipo *Premium\_LRS*. A tale scopo, è possibile usare il [portale di Azure](https://portal.azure.com), [Azure PowerShell](../powershell-install-configure.md), [l'API REST di gestione del servizio](http://msdn.microsoft.com/library/azure/ee460799.aspx) (distribuzioni classiche) o l'[API REST del provider di risorse di archiviazione](http://msdn.microsoft.com/library/azure/mt163683.aspx) (distribuzioni ARM). Per istruzioni dettagliate, vedere [Creare e usare un account di Archiviazione Premium per un disco dati della macchina virtuale](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 ### Note importanti:
 
@@ -79,7 +79,7 @@ Per sfruttare i vantaggi di Archiviazione Premium, creare innanzitutto un accoun
 
 - Nella stessa macchina virtuale serie DS o serie GS è possibile usare sia dischi di Archiviazione Premium sia dischi di Archiviazione Standard.
 - Con Archiviazione Premium è possibile eseguire il provisioning di una macchina virtuale di serie DS e collegare più dischi dati persistenti a una macchina virtuale. Se necessario, è possibile eseguire lo striping dei dischi per aumentare la capacità e le prestazioni del volume. Se si esegue lo striping dei dischi dati di Archiviazione Premium usando gli [spazi di archiviazione](http://technet.microsoft.com/library/hh831739.aspx), è necessario configurarlo con una colonna per ciascun disco utilizzato. In caso contrario, le prestazioni complessive del volume in cui è stato eseguito lo striping possono essere inferiori al previsto a causa di una distribuzione non uniforme del traffico di dati da un disco a un altro. Per impostazione predefinita, l'interfaccia utente di Server Manager consente di configurare le colonne di un numero massimo di 8 dischi. Se occorre gestire più di 8 dischi, è necessario usare PowerShell per creare il volume e per specificare manualmente il numero di colonne. In caso contrario, l'interfaccia utente di Server Manager continuerà a usare 8 colonne anche se il numero di dischi è maggiore. Ad esempio, se si desidera gestire 32 dischi in un unico striping, è necessario specificare 32 colonne. È possibile utilizzare il parametro *NumberOfColumns* del cmdlet di PowerShell [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) per specificare il numero di colonne usate dal disco virtuale. Per altre informazioni, vedere [ Panoramica sugli spazi di archiviazione](http://technet.microsoft.com/library/hh831739.aspx) e [Domande frequenti sugli spazi di archiviazione](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
-- Evitare di aggiungere macchine virtuali di serie DS a un servizio cloud esistente che include macchine virtuali non di serie DS. Una possibile soluzione alternativa consiste nell'eseguire la migrazione dei dischi rigidi virtuali (VHD) esistenti in un nuovo servizio cloud che esegue solo le macchine virtuali di serie DS. Se si desidera mantenere lo stesso indirizzo IP virtuale (VIP) per il nuovo servizio cloud che ospita le macchine virtuali di serie DS, utilizzare la funzionalità di [indirizzi IP riservati](virtual-networks-configure-vnet-to-vnet-connection.md). È possibile aggiungere macchine virtuali serie GS a un servizio cloud esistente che esegue solo le macchine virtuali serie G.
+- Evitare di aggiungere macchine virtuali di serie DS a un servizio cloud esistente che include macchine virtuali non di serie DS. Una possibile soluzione alternativa consiste nell'eseguire la migrazione dei dischi rigidi virtuali (VHD) esistenti in un nuovo servizio cloud che esegue solo le macchine virtuali di serie DS. Se si desidera mantenere lo stesso indirizzo IP virtuale (VIP) per il nuovo servizio cloud che ospita le macchine virtuali di serie DS, utilizzare la funzionalità di [indirizzi IP riservati](../virtual-network/virtual-networks-instance-level-public-ip.md). È possibile aggiungere macchine virtuali serie GS a un servizio cloud esistente che esegue solo le macchine virtuali serie G.
 - Le macchine virtuali di Azure della serie DS possono essere configurate per utilizzare un disco del sistema operativo (SO) ospitato sia su un account di Archiviazione Standard, sia su un account di Archiviazione Premium. Se si utilizza il disco del sistema operativo solo per l'avvio, è possibile utilizzare un’archiviazione standard basata su disco del sistema operativo. Ciò consente di ottenere vantaggi economici e risultati delle prestazioni di questo tipo simili ad Archiviazione Premium dopo l'avvio. Se si eseguono operazioni aggiuntive sul disco del sistema operativo diverse dall'avvio, utilizzare Archiviazione Premium poiché fornisce prestazioni migliori. Ad esempio, se l’applicazione in uso esegue letture/scritture dal/al disco del sistema operativo, l'utilizzo di Archiviazione Premium basata su disco del sistema operativo offre prestazioni migliori per la macchina virtuale.
 - È possibile utilizzare [Interfaccia della riga di comando di Azure](../xplat-cli-install.md) con Archiviazione Premium. Per modificare i criteri della cache su uno dei dischi tramite l’interfaccia della riga di comando di Azure, eseguire il comando seguente:
 
@@ -191,7 +191,7 @@ Se un disco è collegato a una macchina virtuale, alcune operazioni API sul BLOB
 
 - Il numero massimo di snapshot per singolo BLOB è 100. È possibile creare al massimo uno snapshot ogni 10 minuti.
 - 10 TB è la capacità massima per gli snapshot per ogni account di archiviazione Premium. Si noti che si intende la quantità totale di dati negli snapshot solo la capacità di snapshot e non include i dati contenuti nel BLOB di base.
-- Per conservare copie con ridondanza geografica degli snapshot, è possibile copiare gli snapshot da un account di archiviazione Premium a un account di archiviazione Standard con ridondanza geografica mediante AzCopy o Copy Blob.. Per ulteriori informazioni, vedere [Come usare AzCopy con Archiviazione di Microsoft Azure](storage-use-azcopy.md) e [ Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
+- Per conservare copie con ridondanza geografica degli snapshot, è possibile copiare gli snapshot da un account di archiviazione Premium a un account di archiviazione Standard con ridondanza geografica mediante AzCopy o Copy Blob.. Per altre informazioni, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md) e [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 - Per informazioni dettagliate sull'esecuzione di operazioni REST sui BLOB di pagine negli account di Archiviazione Premium, vedere [Uso delle operazioni del servizio BLOB con Archiviazione Premium di Azure](http://go.microsoft.com/fwlink/?LinkId=521969) in MSDN Library.
 
 ## Uso di macchine virtuali Linux con Archiviazione Premium
@@ -265,12 +265,12 @@ Questa sezione illustra come creare un account di Archiviazione Premium tramite 
 
 5.	Nel pannello **Account di archiviazione** mantenere i valori predefiniti per **Gruppo di risorse**, **Sottoscrizione**, **Percorso** e **Diagnostica**. Fare clic su **Create**.
 
-Per una procedura dettagliata completa in un ambiente Azure, vedere [Creare una macchina virtuale di Windows nel portale di Azure](../virtual-machines-windows-tutorial.md).
+Per una procedura dettagliata completa in un ambiente Azure, vedere [Creare una macchina virtuale di Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-tutorial.md).
 
 ### Creare una macchina virtuale di Azure usando Archiviazione Premium tramite Azure PowerShell
 In questo esempio relativo a PowerShell viene illustrato come creare un nuovo account di Archiviazione Premium e collegare un disco dati che utilizza tale account per una nuova macchina virtuale di Azure.
 
-1. Per configurare l'ambiente PowerShell, attenersi alla procedura riportata in [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).
+1. Per configurare l'ambiente PowerShell, attenersi alla procedura riportata in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 2. Avviare la console di PowerShell, connettersi alla sottoscrizione ed eseguire il cmdlet di PowerShell seguente nella finestra della console. Come illustrato in questa istruzione di PowerShell, quando si crea un account di Archiviazione Premium è necessario specificare il parametro **Type** come **Premium\_LRS**.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
@@ -330,10 +330,10 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 - [Uso delle operazioni del servizio BLOB con Archiviazione Premium di Azure](http://go.microsoft.com/fwlink/?LinkId=521969)
 - [Migrazione ad Archiviazione Premium di Azure](storage-migration-to-premium-storage.md)
-- [Creare una macchina virtuale di Windows nel portale di Azure](../virtual-machines-windows-tutorial.md)
+- [Creare una macchina virtuale di Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-tutorial.md)
 - [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-size-specs.md)
 - [Documentazione di Archiviazione](https://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage/Azure_pricing_tier.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

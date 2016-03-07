@@ -62,11 +62,10 @@ Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scaden
  
 | Tipo di utente | Scade dopo |
 | :-------- | :----------- | 
-| Utente non AAD (@hotmail.com, @live.com e così via) | 12 ore |
-| L'utente AAD e l'origine basata su OAuth si trovano in un [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) diverso rispetto al tenant di Data factory. | 12 ore |
-| L'utente AAD e l'origine basata su OAuth si trovano sullo stesso tenant rispetto al tenant di Data factory. | 14 giorni |
+| Utenti NON gestiti da Azure Active Directory (@hotmail.com, @live.com, ecc.) | 12 ore |
+| Utenti gestiti da Azure Active Directory (AAD) | | 14 giorni dopo l'esecuzione dell'ultima sezione, se non vengono eseguite sezioni basate sul servizio collegato OAuth per 14 giorni dall'esecuzione dell'ultima sezione. <p>90 giorni, se viene eseguita una sezione basata sul servizio collegato OAuth almeno una volta ogni 14 giorni.</p> |
 
-Per evitare o risolvere questo problema, è necessario ripetere l'autorizzazione con il pulsante **Autorizza** alla **scadenza del token** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà **sessionId** e **authorization** a livello di codice usando il codice riportato nella sezione seguente.
+Per evitare/risolvere questo problema, alla **scadenza del token** è necessario ripetere l'autorizzazione con il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà **sessionId** e **authorization** a livello di codice usando il codice riportato nella sezione seguente.
 
   
 ### Per generare valori sessionId e authorization a livello di codice 
@@ -258,4 +257,4 @@ I valori dei parametri **@in** e **@out** nello script U-SQL riportato sopra ven
 
 È possibile specificare anche altre proprietà come degreeOfParallelism, priorità e così via nella definizione della pipeline per i processi in esecuzione sul servizio di Analisi Azure Data Lake.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

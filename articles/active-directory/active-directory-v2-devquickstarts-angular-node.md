@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione ad AngularJS per Azure AD | Microsoft Azure"
+	pageTitle="Introduzione ad AngularJS v2.0 di Azure AD | Microsoft Azure"
 	description="Come creare un'app a pagina singola AngularJS che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell'istituto di istruzione."
 	services="active-directory"
 	documentationCenter=""
@@ -13,22 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 
-# Anteprima di Modello app 2.0: Aggiungere l'accesso a un'app a pagina singola AngularJS - NodeJS
+# Aggiungere l'accesso a un'app a pagina singola AngularJS - NodeJS
 
-In questo articolo verrà aggiunto l'accesso con account Microsoft a un'app AngularJS usando Modello app 2.0 di Azure Active Directory. Modello app 2.0 consente di eseguire una singola integrazione nell'app e di autenticare gli utenti con account sia personali che aziendali o dell'istituto di istruzione.
+In questo articolo si aggiungerà l'accesso con account Microsoft a un'app AngularJS usando l'endpoint v2.0 di Azure Active Directory. L'endpoint v2.0 consente di eseguire un'unica integrazione nell'app e autenticare gli utenti con account personali e aziendali o dell'istituto di istruzione.
 
 Questo esempio è una semplice app a pagina singola To-Do List che archivia le attività in un'API REST back-end, scritta in NodeJS e protetta con i token di connessione OAuth di Azure AD. L'app AngularJS userà la libreria di autenticazione JavaScript open source [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) per gestire l'intero processo di accesso e acquisire i token per chiamare l'API REST. Lo stesso modello può essere applicato per l'autenticazione in altre API REST, ad esempio [Microsoft Graph](https://graph.microsoft.com) o le API di Gestione risorse di Azure.
+
+> [AZURE.NOTE]
+	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 
 ## Scaricare
 
 Per iniziare, sarà necessario scaricare e installare [node.js](https://nodejs.org). Sarà quindi possibile clonare o [scaricare](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/skeleton.zip) lo scheletro di un'app:
 
 ```
-git clone --branch skeleton https://github.com/AzureADQuickStarst/AppModelv2-SinglePageApp-AngularJS-NodeJS.git
+git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS.git
 ```
 
 Lo scheletro di un'app include tutto il codice boilerplate per una semplice app AngularJS, ma non tutte le parti relative all'identità. Se non si vuole proseguire, in alternativa è possibile clonare o [scaricare](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/complete.zip) l'esempio completo.
@@ -231,10 +234,10 @@ node server.js
 
 In un browser passare a `http://localhost:8080`. Accedere con un account Microsoft personale o un account aziendale o dell'istituto di istruzione. Aggiungere attività all'elenco attività dell'utente e disconnettersi. Provare ad accedere con l'altro tipo di account. Se è necessario un tenant di Azure AD per creare utenti aziendali o dell'istituto di istruzione, [qui sono disponibili informazioni per ottenerne uno](active-directory-howto-tenant.md) (è gratuito).
 
-Per altre informazioni sull'anteprima di Modello app 2.0, tornare alla [guida per sviluppatori versione 2.0](active-directory-appmodel-v2-overview.md). Per altre risorse, vedere:
+Per altre informazioni sull'endpoint v2.0, tornare alla [guida per sviluppatori versione 2.0](active-directory-appmodel-v2-overview.md). Per altre risorse, vedere:
 
 - [Esempi di Azure in GitHub >>](https://github.com/Azure-Samples)
 - [Azure AD in Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentazione di Azure AD su [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

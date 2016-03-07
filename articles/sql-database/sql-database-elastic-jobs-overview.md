@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="02/23/2016" 
 	ms.author="ddove;sidneyh" />
 
 # Panoramica dei processi di database elastici
@@ -23,7 +23,7 @@ La funzionalità **processi di database elastici** (in anteprima) consente di es
 * tutti i database in un[pool di database elastici](sql-database-elastic-pool.md)
 * un set di partizioni, creato con la [libreria client dei database elastici](sql-database-elastic-database-client-library.md). 
  
-Per istruzioni sull'installazione, vedere [Installazione dei processi di database elastici](sql-database-elastic-jobs-service-installation.md).
+Per istruzioni sull'installazione, vedere [Installazione dei processi di database elastici](sql-database-elastic-jobs-service-installation.md). Vedere anche [Introduzione ai processi di Database Elastici](sql-database-elastic-jobs-getting-started.md).
 
 **Processi database elastici** è attualmente un servizio cloud di Azure ospitato dal cliente che consente l'esecuzione di attività amministrative ad hoc e pianificate, dette **processi**. Con i processi è possibile gestire facilmente e in modo affidabile gruppi estesi di database SQL di Azure tramite l'esecuzione di script Transact-SQL per eseguire operazioni amministrative.
 
@@ -91,7 +91,7 @@ I seguenti componenti interagiscono per creare un servizio Cloud di Azure che co
 * **Servizio cloud di Azure**: i processi di database elastica (anteprima) vengono recapitati come servizio cloud di Azure ospitato dal cliente per l'esecuzione delle attività richieste. Dal portale, il servizio viene distribuito e ospitato nella sottoscrizione Microsoft Azure. Il servizio predefinito distribuito viene eseguito con un numero minimo di due ruoli di lavoro per la disponibilità elevata. La dimensione predefinita di ogni ruolo di lavoro (ElasticDatabaseJobWorker) viene eseguita in un'istanza A0. Per informazioni sui prezzi, vedere [Servizi cloud Prezzi](https://azure.microsoft.com/pricing/details/cloud-services/). 
 * **Database SQL di Azure**: il servizio usa un database SQL di Azure noto come **database di controllo** per archiviare tutti i metadati del processo. Il livello di servizio predefinito è S0. Per informazioni sui prezzi, vedere [Database SQL Prezzi](https://azure.microsoft.com/pricing/details/sql-database/).
 * **Bus di servizio di Azure**: è destinato alla coordinazione del lavoro all'interno del servizio cloud di Azure. Vedere [Bus di servizio Prezzi](https://azure.microsoft.com/pricing/details/service-bus/).
-* **Archiviazione di Azure**: viene usato un account di Archiviazione di Azure per archiviare la registrazione dell'output di diagnostica nel caso in cui un problema richieda un ulteriore debugging. Vedere [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](../service-fabric/cloud-services-dotnet-diagnostics.md). Per informazioni sui prezzi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+* **Archiviazione di Azure**: viene usato un account di Archiviazione di Azure per archiviare la registrazione dell'output di diagnostica nel caso in cui un problema richieda un ulteriore debugging. Vedere [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). Per informazioni sui prezzi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ## Funzionano dei processi di database elastico
 1.	A un database SQL di Azure viene designato un database di controllo che archivia tutti i dati dello stato e i metadati.
@@ -116,7 +116,7 @@ Sono disponibili più tipi di attività di processo che eseguono l'esecuzione di
 4.	Dopo aver completato tutte le attività di processo, il controller aggiorna i processi nello stato ‘completato’. In qualsiasi momento durante l'esecuzione del processo, l'API di PowerShell può essere utilizzata per visualizzare lo stato corrente dell'esecuzione del processo. Tutte le volte restituite dalle API PowerShell sono rappresentate in formato UTC. Se si desidera, è possibile avviare una richiesta di annullamento per interrompere un processo. 
 
 ## Passaggi successivi
-[Installare i componenti](sql-database-elastic-jobs-service-installation.md), quindi [creare e aggiungere un log a ciascun database nel gruppo di database](sql-database-security.md). Per comprendere la creazione e la gestione del processo, vedere [Creazione e gestione di processi elastici di database](sql-database-elastic-jobs-create-and-manage.md).
+[Installare i componenti](sql-database-elastic-jobs-service-installation.md), quindi [creare e aggiungere un log a ciascun database nel gruppo di database](sql-database-security.md). Per comprendere la creazione e la gestione del processo, vedere [Creazione e gestione di processi elastici di database](sql-database-elastic-jobs-create-and-manage.md). Vedere anche [Introduzione ai processi di Database Elastici](sql-database-elastic-jobs-getting-started.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -124,4 +124,4 @@ Sono disponibili più tipi di attività di processo che eseguono l'esecuzione di
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

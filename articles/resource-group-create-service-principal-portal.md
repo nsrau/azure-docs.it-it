@@ -24,7 +24,7 @@ Quando si ha un processo automatico o un'applicazione che deve accedere alle ris
 Questo argomento spiega come creare una nuova applicazione e un'entità servizio usando il portale classico. Attualmente, è necessario usare il portale classico per creare una nuova applicazione di Active Directory. Questa funzionalità verrà aggiunta al portale di Azure in una versione successiva. È possibile usare il portale per assegnare l'applicazione a un ruolo. È inoltre possibile eseguire questi passaggi tramite Azure PowerShell o l’Interfaccia della riga di comando di Azure. Per altre informazioni sull'uso di PowerShell o dell'interfaccia della riga di comando con l'entità servizio, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md).
 
 ## Concetti
-1. Azure Active Directory (AAD): servizio di gestione delle identità e degli accessi pensato per il cloud. Per altre informazioni, vedere [Informazioni su Azure Active Directory](active-directory/active-directory-whatis.md)
+1. Azure Active Directory (AAD): servizio di gestione delle identità e degli accessi pensato per il cloud. Per altri dettagli, vedere [Informazioni su Azure Active Directory](active-directory/active-directory-whatis.md)
 2. Entità servizio: istanza di un'applicazione in una directory.
 3. Applicazione AD: record di directory in AAD che identifica un'applicazione in AAD. 
 
@@ -229,4 +229,4 @@ Per accedere per conto dell'utente, usare il metodo seguente per recuperare il t
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

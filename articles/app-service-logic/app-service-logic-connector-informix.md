@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/03/2015"
+   ms.date="02/10/2016"
    ms.author="plarsen"/>
 
 # Informix Connector
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
 Microsoft Connector for Informix è un'app per le API per la connessione di applicazioni tramite il servizio app di Azure alle risorse archiviate in un database IBM Informix. Il connettore include un client Microsoft per la connessione a computer server Informix attraverso una connessione di rete TCP/IP, incluse connessioni ibride di Azure a server Informix locali mediante l'inoltro del bus di servizio di Azure. Il connettore supporta le operazioni di database seguenti:
 
@@ -66,7 +67,7 @@ PollToAlterData | No | Istruzione UPDATE o DELETE da usare con un trigger dell'a
 ## App per la logica con azione del connettore Informix per l'aggiunta di dati ##
 È possibile definire un'azione dell'app per la logica per aggiungere dati a una tabella Informix mediante un'operazione OData di tipo API Insert o Post to Entity. Ad esempio, è possibile inserire un nuovo record di ordine cliente elaborando un'istruzione SQL INSERT rispetto a una tabella definita con una colonna Identity e restituendo il valore Identity delle righe interessate all'app per la logica (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-> [AZURE.TIP]L'operazione "*Post to EntitySet*" della connessione Informix restituisce il valore della colonna Identity e l'operazione "*API Insert*" restituisce le righe interessate.
+> [AZURE.TIP] L'operazione "*Post to EntitySet*" della connessione Informix restituisce il valore della colonna Identity e l'operazione "*API Insert*" restituisce le righe interessate.
 
 1. Nella schermata iniziale di Azure selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.
 2. Immettere il nome (ad esempio "NewOrdersInformix"), il piano del servizio app e le altre proprietà, quindi selezionare **Crea**.
@@ -199,7 +200,7 @@ In questo esempio l'app per la logica eseguirà il polling, leggerà, aggiorner�
 **Nota:** la finestra di progettazione dell'app per la logica tronca i nomi delle tabelle. Ad esempio, l'operazione **Conditional delete from NEWORDERS** viene troncata in **Conditional delete from N**.
 
 
-> [AZURE.TIP]Usare le istruzioni SQL seguenti per creare la tabella e le stored procedure di esempio.
+> [AZURE.TIP] Usare le istruzioni SQL seguenti per creare la tabella e le stored procedure di esempio.
 
 È possibile creare la tabella NEWORDERS di esempio usando le istruzioni SQL DDL di Informix seguenti:
  
@@ -242,7 +243,7 @@ In questo esempio l'app per la logica eseguirà il polling, leggerà, aggiorner�
 
 ## Configurazione ibrida (facoltativo)
 
-> [AZURE.NOTE]Questo passaggio è obbligatorio solo se si usa DB2 Connector installato in locale e protetto da firewall.
+> [AZURE.NOTE] Questo passaggio è obbligatorio solo se si usa DB2 Connector installato in locale e protetto da firewall.
 
 Il servizio app usa Gestione connessione ibrida per connettersi in modo sicuro al sistema locale. Se il connettore usa un server IBM DB2 locale per Windows, è richiesta la Gestione connessione ibrida.
 
@@ -273,4 +274,4 @@ Creare app per le API con le API REST. Vedere [Informazioni di riferimento su co
 [13]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_TriggersActions.png
 [14]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Outputs.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

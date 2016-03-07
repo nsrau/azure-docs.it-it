@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"	
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/23/2016"
 	ms.author="stepsic"/>
 	
 # Uso dell'API personalizzata ospitata nel servizio app con App per la logica
@@ -22,28 +22,20 @@ Anche se le app per la logica includono un set completo di oltre 40 connettori p
 
 ## Distribuire l'app Web
 
-Prima di tutto è necessario distribuire l'API come un'app Web nel servizio app. Queste istruzioni riguardano la distribuzione di base: [Creare un'app Web ASP.NET](web-sites-dotnet-get-started.md).
+Prima di tutto è necessario distribuire l'API come un'app Web nel servizio app. Queste istruzioni riguardano la distribuzione di base: [Creare un'app Web ASP.NET](../app-service-web/web-sites-dotnet-get-started.md). Sebbene sia possibile chiamare le API da qualsiasi app per la logica, per un'esperienza ottimale si consiglia di aggiungere metadati Swagger per facilitare l'integrazione con le azioni delle app per la logica. Per informazioni dettagliate, vedere [aggiunta di swagger](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui).
 
-Assicurarsi di ottenere l'**URL** dell'app Web, visualizzato in **Informazioni di base** nella parte superiore dell'app Web.
+### Impostazioni API
+
+Per consentire alla finestra di progettazione delle app per la logica di analizzare Swagger, è importante abilitare CORS e impostare le proprietà APIDefinition dell'applicazione web. La configurazione nel portale di Azure è molto semplice. Aprire il pannello delle impostazioni nell'applicazione Web, nella sezione API impostare 'Definizione API' sull'URL del file swagger.json (in genere https://{name}.azurewebsites.net/swagger/docs/v1) e aggiungere un criterio CORS per '*' per consentire le richieste della finestra di progettazione delle app per la logica.
 
 ## Chiamata all'API
 
-Iniziare dalla creazione di una nuova app per la logica vuota. Dopo aver creato un'app per la logica vuota, fare clic su **Edit** o **Triggers and actions** e selezionare **Create from Scratch**.
+Nel portale delle app per la logica, se CORS e le proprietà di definizione API sono state impostate, sarà possibile aggiungere facilmente le azioni API personalizzate all'interno del flusso. Nella finestra di progettazione è possibile specificare la ricerca dei siti Web di sottoscrizione per visualizzare l'elenco dei siti con URL swagger definito. È inoltre possibile usare l'azione HTTP + Swagger per puntare a uno swagger e visualizzare l'elenco delle azioni e degli input disponibili. Infine, è sempre possibile creare una richiesta usando l'azione HTTP per chiamare un'API, incluse le API che non dispongono o non espongono un documento swagger.
 
-Prima di tutto è opportuno usare un trigger di ricorrenza oppure fare clic su **Esegui app per la logica manualmente**. Si eseguirà quindi la chiamata all'API effettiva. A questo scopo, fare clic sull'azione **HTTP** verde sul lato destro.
+Per proteggere l'API, sono disponibili due metodi:
 
-1. Scegliere il **metodo** definito nel codice dell'API
-2. Nella sezione **URL** incollare l'**URL** dell'app Web distribuita
-3. Se sono richieste eventuali **intestazioni**, includerle nel formato JSON simile al seguente: `{"Content-type" : "application/json", "Accept" : "application/json" }`
-4. Se l'API è pubblica, lasciare vuoto il campo **Authentication**. Se si vuole proteggere le chiamate all'API, vedere le sezioni seguenti.
-5. Infine includere il **Corpo** della domanda definita nell'API.
-
-Fare clic su **Salva** nella barra dei comandi. Se si fa clic su **Esegui adesso**, dovrebbe essere visualizzata la chiamata all'API e la risposta nell'elenco di esecuzione.
-
-Questa configurazione risulta ottimale se l'API è pubblica, ma se si vuole proteggere l'API, esistono altri modi per eseguire questa operazione:
-
-1. *Non è richiesta alcuna modifica del codice*: per proteggere l'API è possibile usare Azure Active Directory senza richiedere modifiche del codice o la ridistribuzione.
-2. Applicare l'autenticazione di base, l'autenticazione AAD o l'autenticazione del certificato nel codice dell'API. 
+1. Non è richiesta alcuna modifica del codice: per proteggere l'API è possibile usare Azure Active Directory senza richiedere modifiche del codice o la ridistribuzione.
+1. Applicare l'autenticazione di base, l'autenticazione AAD o l'autenticazione del certificato nel codice dell'API.
 
 ## Protezione delle chiamate all'API senza modifica del codice 
 
@@ -141,7 +133,7 @@ Questa impostazione è già configurata nel modello precedente, ma se si crea di
 
 ### Autenticazione del certificato
 
-È possibile usare i certificati client per convalidare le richieste in ingresso all'app Web. Per informazioni su come configurare il codice, vedere [Come configurare l'autenticazione reciproca TLS per un'app Web](app-service-web-configure-tls-mutual-auth.md).
+È possibile usare i certificati client per convalidare le richieste in ingresso all'app Web. Per informazioni su come configurare il codice, vedere [Come configurare l'autenticazione reciproca TLS per un'app Web](../app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
 Nella sezione *Autorizzazione* è necessario fornire: `{"type": "clientcertificate","password": "test","pfx": "long-pfx-key"}`.
 
@@ -155,7 +147,7 @@ Nella sezione *Autorizzazione* è necessario fornire: `{"type": "clientcertifica
 
 Per convalidare le richieste in ingresso, è possibile usare l'autenticazione di base, ovvero nome utente e password. L'autenticazione di base è un modello comune ed è possibile eseguirla in qualsiasi linguaggio usato per compilare l'app.
 
-Nella sezione *Autorizzazione* è necessario specificare: `{"type": "basic","username": "test","password": "test"}`.
+Nella sezione *Autorizzazione* è necessario fornire: `{"type": "basic","username": "test","password": "test"}`.
 
 | Elemento | Descrizione |
 |---------|-------------|
@@ -169,8 +161,8 @@ Per impostazione predefinita, l'autenticazione di Azure Active Directory che si 
 
 Se si vuole limitare l'API solo all'app per la logica, ad esempio nel codice, è possibile estrarre l'intestazione che contiene il JWT e verificare chi è il chiamante, rifiutando le richieste che non corrispondono.
 
-Proseguendo, se si vuole implementarla interamente nel codice e sfruttare la funzionalità del portale, è possibile leggere questo articolo: [Usare Active Directory per l'autenticazione nel servizio app di Azure](web-sites-authentication-authorization.md).
+Proseguendo, se si vuole implementarla interamente nel codice e sfruttare la funzionalità del portale, è possibile leggere questo articolo: [Usare Active Directory per l'autenticazione nel servizio app di Azure](../app-service-web/web-sites-authentication-authorization.md).
 
 È comunque necessario seguire la procedura precedente per creare un'identità dell'applicazione per l'app per la logica e usarla per chiamare l'API.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

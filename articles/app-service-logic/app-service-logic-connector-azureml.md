@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,24 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="jehollan"/>
    
 # Panoramica
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
 Il connettore Azure ML per le app per la logica consente di chiamare le API di Azure ML per l'assegnazione del punteggio batch (servizio Esecuzione batch) e la ripetizione del training. Queste funzionalità in combinazione con i trigger delle app per la logica consentono di pianificare processi batch e impostare la ripetizione pianificata del training dei modelli.
 
  ![][1]
  
 ## Introduzione all'uso del connettore Azure Machine Learning e relativa aggiunta all'app per la logica
-Per iniziare, creare un esperimento in Azure ML Studio, quindi configurare e distribuire un servizio Web. È quindi possibile usare l'URL dell'API e la chiave dell'URL del post BES che si trova nella della Guida di Esecuzione batch.[Altre informazioni](https://github.com/Azure/azure-content/blob/master/articles/machine-learning/machine-learning-walkthrough-5-publish-web-service.md).
+Per iniziare, creare un esperimento in Azure ML Studio, quindi configurare e distribuire un servizio Web. È quindi possibile usare l'URL dell'API e la chiave dell'URL del post BES che si trova nella Guida di Esecuzione batch. ([Procedura dettagliata di Machine Learning](../machine-learning/machine-learning-walkthrough-5-publish-web-service.md))
 
-Per eseguire un processo BES tramite il connettore, aggiungere il connettore Azure ML all'app per la logica. Immettere quindi le informazioni necessarie. Vedere di seguito per altre informazioni. Per impostare la ripetizione del training, aggiungere un altro connettore Azure ML e fornire i parametri di input. Vedere [qui](machine-learning-retrain-models-programmatically.md) per altre informazioni sull'impostazione di un modello per la ripetizione del training.
+Per eseguire un processo BES tramite il connettore, aggiungere il connettore Azure ML all'app per la logica. Immettere quindi le informazioni necessarie. Vedere di seguito per altre informazioni. Per impostare la ripetizione del training, aggiungere un altro connettore Azure ML e fornire i parametri di input. Vedere [Configurazione della ripetizione del training](../machine-learning/machine-learning-retrain-models-programmatically.md).
 
 ## Esecuzione di un processo di Esecuzione batch di Azure ML
 Il connettore Azure ML fornisce le quattro opzioni seguenti per l'esecuzione dei processi di Esecuzione batch (BES): 1. Processo batch con input e output: l'esperimento ha moduli di input e output del servizio Web 2. Processo batch senza input e output: l'esperimento non ha un modulo di input o output del servizio Web (ad esempio, usa i moduli Reader e Writer) 3. Processo batch con solo input: l'esperimento ha un modulo di input del servizio Web, ma nessun modulo di output (ad esempio, usa un modulo Writer) 4. Processo batch con solo output: l'esperimento non ha un modulo input del servizio Web, ma ha un modulo di output (ad esempio, usa un modulo Reader) Si noti che BES è una richiesta asincrona il cui completamento può richiedere tempo, a seconda delle dimensioni dei dati e della complessità del modello. Al completamento del processo, il connettore restituisce il risultato di output.
 
 ### Eseguire Esecuzione Batch: con input e output
-Se l'esperimento di Studio ha moduli di input e output del servizio Web, è necessario fornire informazioni sull'account di archiviazione BLOB e il percorso ([altre informazioni](machine-learning-consume-web-services.md)). È anche possibile includere parametri globali (servizio Web) se configurati nell'esperimento ([altre informazioni](machine-learning-web-service-parameters.md)).
+Se l'esperimento di Studio ha moduli di input e output del servizio Web, è necessario [fornire informazioni sull'account di archiviazione BLOB e il percorso](../machine-learning/machine-learning-consume-web-services.md). È anche possibile includere parametri globali (servizio Web) se configurati nell'esperimento ([Parametri del servizio Web di Machine Learning](../machine-learning/machine-learning-web-service-parameters.md)).
 
 ![][2]
 
@@ -77,4 +79,4 @@ Con il connettore Azure ML per le app per la logica è possibile impostare l'ese
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

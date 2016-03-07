@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="02/22/2016"
 	ms.author="raynew"/>
 
 
@@ -23,7 +23,7 @@ Azure Site Recovery favorisce l'attuazione della strategia di continuità aziend
 
 Questo articolo descrive il mapping di rete, che consente di configurare le impostazioni di rete in modo ottimale quando si usa Site Recovery per replicare le macchine virtuali Hyper-V presenti in cloud VMM tra due data center locali o tra un data center locale e Azure. Le informazioni presenti in questo articolo non sono valide se si replicano macchine virtuali Hyper-V senza un cloud VMM o si replicano macchine virtuali VMware o server fisici.
 
-Dopo aver letto questo articolo, è possibile pubblicare eventuali domande nel [forum relativo ai servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
+Per inviare commenti o domande è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Panoramica
@@ -123,4 +123,4 @@ Il mapping di rete di VMNetwork1-Chicago viene modificato | VM-1 verrà connessa
 
 Dopo aver acquisito familiarità con il mapping di rete, è ora possibile [prepararsi alla distribuzione di Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

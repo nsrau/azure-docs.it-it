@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -189,11 +189,16 @@ La connessione è stata stabilita. Eseguire quindi i comandi seguenti per distri
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
+## RDP in un'istanza di un set di scalabilità di macchine virtuali o in un nodo del cluster 
+
+Ognuno dei tipi di nodo specificati nel cluster corrisponde a un set di scalabilità di macchine virtuali configurato. Per i dettagli fare riferimento alla pagina relativa a [come usare RDP in un'istanza di un set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md).
+
 ## Passaggi successivi
 
 - [Gestione delle applicazioni di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 - [Sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md)
 - [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
+- [Come usare RDP nell'istanza di un set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
@@ -207,4 +212,4 @@ La connessione è stata stabilita. Eseguire quindi i comandi seguenti per distri
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

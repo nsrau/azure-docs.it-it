@@ -2,7 +2,7 @@
 	pageTitle="Uso del connettore OneDrive nelle app per la logica | Microsoft Azure App Service"
 	description="Come creare e configurare l'app per le API o il connettore OneDrive e usarlo in un'app per la logica in Azure App Service"
 	authors="rajeshramabathiran"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="02/11/2016"
 	ms.author="rajram"/>
 
 # Uso del connettore OneDrive e aggiunta all'app per la logica
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API di OneDrive](../connectors/create-api-onedrive.md).
+
 Connettersi a OneDrive per caricare, scaricare ed eliminare i file. Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. È possibile aggiungere il connettore OneDrive al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
 
 ## Creare un connettore OneDrive per l'app per la logica ##
@@ -26,13 +28,7 @@ Per usare il connettore OneDrive, è innanzitutto necessario creare un'istanza d
 2.	In "Tutto" cercare "OneDrive Connector".
 3.	Configurare il connettore OneDrive nel modo seguente:
 
-	![][1]
-	- **Nome**: assegnare un nome al connettore
-	- **Piano di servizio app**: selezionare o creare un piano di servizio app
-	- **Piano tariffario**: scegliere un piano tariffario per il connettore
-	- **Gruppo di risorse**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore
-	- **Sottoscrizione**: scegliere una sottoscrizione in cui creare questo connettore
-	- **Località**: scegliere la località geografica in cui si vuole distribuire il connettore
+	![][1] - **Name**: assegnare un nome al connettore OneDrive - **App Service plan**: selezionare o creare un piano di servizio app - **Pricing tier**: scegliere un livello di prezzo per il connettore - **Resource group**: selezionare o creare il gruppo di risorse in cui deve risiedere il connettore - **Subscription**: scegliere una sottoscrizione in cui creare questo connettore - **Location**: scegliere l'area geografica in cui si vuole distribuire il connettore
 
 4. Fare clic su Create. Verrà creato un nuovo connettore OneDrive.
 5. Una volta creata l'istanza dell'app per le API, è possibile creare un'app per la logica nello stesso gruppo di risorse per usare il connettore OneDrive.
@@ -49,8 +45,7 @@ Dopo aver creato l'app per le API, è possibile usare il connettore OneDrive com
 	![][2]
 4.	È possibile trascinare l'app per le API del connettore OneDrive nell'editor facendo clic su "OneDrive Connector". Fare clic sul pulsante Authorize. Fornire le credenziali di Microsoft (se non è stata eseguita la connessione automatica). Fare clic su "Sì" per consentire l'accesso.
 
-	![][3]
-	![][4]
+	![][3] ![][4]
 
 5.	È ora possibile usare il connettore OneDrive nel flusso. Attualmente nel connettore OneDrive non sono disponibili trigger. Le azioni disponibili sono: Get File, Upload File, Delete File e List Files.
 
@@ -78,7 +73,7 @@ Dopo aver creato l'app per le API, è possibile usare il connettore OneDrive com
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -97,4 +92,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
 [definizione dell'API OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

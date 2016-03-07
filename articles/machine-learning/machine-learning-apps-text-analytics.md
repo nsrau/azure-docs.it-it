@@ -1,6 +1,6 @@
 <properties
 	pageTitle="API di Machine Learning: Analisi del testo | Microsoft Azure"
-	description="API di analisi di testo fornite da Azure Machine Learning. L'API può essere usata per analizzare il testo non strutturato per l'analisi di valutazione, estrazione di frasi chiave e rilevamento della lingua."
+	description="Le API di Machine Learning Microsoft per l'analisi del testo possono essere usate per analizzare testo non strutturato per attività quali l'analisi del sentiment, l'estrazione di frasi chiave, il rilevamento della lingua e il rilevamento di argomenti."
 	services="machine-learning"
 	documentationCenter=""
 	authors="onewth"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/22/2016"
 	ms.author="onewth"/>
 
 
-# API di Machine Learning: Analisi del testo per la valutazione, estrazione di frasi chiave e rilevamento della lingua
+# API di Machine Learning: Analisi del testo per analisi del sentiment, estrazione di frasi chiave, rilevamento della lingua e rilevamento di argomenti
 
 ## Panoramica
 
-L'API di analisi del testo è un gruppo di [servizi Web](https://datamarket.azure.com/dataset/amla/text-analytics) per l'analisi del testo creata con Azure Machine Learning. L'API può essere usata per analizzare il testo non strutturato per attività quali l'analisi di valutazione, l'estrazione di frasi chiave e il rilevamento della lingua. Non sono necessari dati di training per usare questa API, è sufficiente inserire dati di testo. L'API usa tecniche di elaborazione avanzata del linguaggio naturale per fornire stime avanzate.
+L'API di analisi del testo è un gruppo di [servizi Web](https://datamarket.azure.com/dataset/amla/text-analytics) per l'analisi del testo creata con Azure Machine Learning. L'API può essere usata per analizzare il testo non strutturato per attività quali l'analisi del sentiment, l'estrazione di frasi chiave, il rilevamento della lingua e il rilevamento di argomenti. Non sono necessari dati di training per usare questa API, è sufficiente inserire dati di testo. L'API usa tecniche di elaborazione avanzata del linguaggio naturale per fornire stime avanzate.
 
 È possibile vedere il funzionamento dell'analisi del testo nel [sito di demo](https://text-analytics-demo.azurewebsites.net/), in cui si trovano anche [esempi](https://text-analytics-demo.azurewebsites.net/Home/SampleCode) sull'implementazione di analisi del testo in C# e Python.
 
@@ -29,7 +29,7 @@ L'API di analisi del testo è un gruppo di [servizi Web](https://datamarket.azur
 
 ---
 
-## Analisi dei sentimenti
+## Analisi del sentiment
 
 L'API restituisce un valore numerico compreso tra 0 e 1. I valori prossimi a 1 indicano una valutazione positiva, mentre i valori prossimi a 0 indicano una valutazione negativa. I valori relativi alla valutazione vengono generati utilizzando tecniche di classificazione. Le funzionalità di input per la funzione di classificazione includono n-grams, funzionalità generate da tag parti del discorso e incorporamenti di parole. Attualmente l'inglese è l'unica lingua supportata.
  
@@ -40,6 +40,10 @@ L'API restituisce un elenco di stringhe che indicano i punti principali di discu
 ## Rilevamento della lingua
 
 L'API restituisce la lingua rilevata e un valore punteggio numerico compreso tra 0 e 1. I punteggi prossimi a 1 indicano con una certezza del 100% che la lingua identificata è true. È supportato un totale di 120 lingue.
+
+## Rilevamento di argomenti
+
+Si tratta di un'API rilasciata di recente che restituisce i primi argomenti rilevati a fronte di un elenco di record di testo inviati. Un argomento viene identificato da una frase chiave, che può essere costituita da una o più parole correlate. Questa API richiede un minimo di 100 record di testo da inviare, ma è progettata per rilevare gli argomenti in centinaia o addirittura migliaia di record. Si noti che con questa API viene addebitata una transazione per ogni record di testo inviato. L'API è progettata per funzionare al meglio con testi brevi in linguaggio naturale, ad esempio recensioni e commenti degli utenti.
 
 ---
 
@@ -68,7 +72,7 @@ Assicurarsi di includere le intestazioni corrette nella richiesta, che dovrebbe 
 
 **Richiesta di esempio**
 
-Nella chiamata seguente viene richiesta l'analisi di valutazione per la frase "Hello World":
+Nella chiamata seguente viene richiesta l'analisi del sentiment per la frase "Hello World":
 
 	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment?Text=hello+world
 
@@ -89,7 +93,7 @@ Restituirà una risposta come la seguente:
 
 **Richiesta di esempio**
 
-Nella chiamata seguente vengono richieste le frasi chiave trovate nel testo "Ottimo hotel in cui alloggiare: splendidi arredi e personale amichevole":
+Nella chiamata seguente vengono richieste le frasi chiave trovate nel testo "It was a wonderful hotel to stay at, with unique decor and friendly staff":
 
 	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
 	Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
@@ -161,14 +165,14 @@ Corpo della richiesta:
 	{"Inputs":
 	[
 	    {"Id":"1","Text":"hello world"},
-    	    {"Id":"2","Text":"hello foo world"},
-    	    {"Id":"3","Text":"hello my world"},
+	    {"Id":"2","Text":"hello foo world"},
+	    {"Id":"3","Text":"hello my world"},
 	]}
 
 Nella risposta di seguito viene ottenuto l'elenco dei punteggi associati agli ID testo:
 
 	{
-	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata", 
+	  "odata.metadata":"<url>", 
 	  "SentimentBatch":
 	  [
 		{"Score":0.9549767,"Id":"1"},
@@ -210,7 +214,7 @@ Corpo della richiesta:
 
 Nella risposta di seguito viene ottenuto l'elenco delle frasi chiave associate agli ID testo:
 
-	{ "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
+	{ "odata.metadata":"<url>",
 	 	"KeyPhrasesBatch":
 		[
 		   {"KeyPhrases":["unique decor","friendly staff","wonderful hotel"],"Id":"1"},
@@ -261,4 +265,122 @@ Restituisce la risposta seguente, in cui inglese viene rilevato nel primo parame
        "Errors": []
     }
 
-<!---HONumber=AcomDC_1125_2015-->
+---
+
+## API per il rilevamento di argomenti
+
+Si tratta di un'API rilasciata di recente che restituisce i primi argomenti rilevati a fronte di un elenco di record di testo inviati. Un argomento viene identificato da una frase chiave, che può essere costituita da una o più parole correlate. Si noti che con questa API viene addebitata una transazione per ogni record di testo inviato.
+
+Questa API richiede un minimo di 100 record di testo da inviare, ma è progettata per rilevare gli argomenti in centinaia o addirittura migliaia di record.
+
+
+### Argomenti: processo di invio
+
+**URL**
+
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection
+
+**Richiesta di esempio**
+
+
+Nella chiamata POST riportata di seguito vengono richiesti gli argomenti per un insieme di 100 articoli. Vengono visualizzati il primo e l'ultimo articolo di input e sono incluse due frasi di stop.
+
+	POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection HTTP/1.1
+
+Corpo della richiesta:
+
+	{"Inputs":[
+		{"Id":"1","Text":"I loved the food at this restaurant"},
+		...,
+		{"Id":"100","Text":"I hated the decor"}
+	],
+	"StopPhrases":[
+		"restaurant", “visitor"
+	]}
+
+Nella risposta seguente si ottiene l'ID processo (JobId) per il processo inviato:
+
+	{
+		"odata.metadata":"<url>",
+		"JobId":"<JobId>"
+	}
+
+Un elenco di parole singole o di frasi costituite da più parole che non dovrebbero essere restituite come argomenti. Può essere usato per filtrare argomenti molto generici. Ad esempio, in un set di dati riguardante recensioni di alberghi, "albergo" e "ostello" possono esser frasi di stop sensibili.
+
+### Argomenti: polling risultati processo
+
+**URL**
+
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult
+
+**Richiesta di esempio**
+
+Passare l'ID processo (JobId) restituito al passaggio relativo al processo di invio per recuperare i risultati. È consigliabile chiamare questo endpoint ogni minuto, fino a quando nella risposta viene visualizzato Status='Complete'. Per completare un processo sono necessari circa 10 minuti. Nel caso di processi con diverse migliaia di record, può essere necessario un periodo di tempo maggiore.
+
+	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult?JobId=<JobId>
+
+
+Durante l'elaborazione, la risposta avrà un aspetto simile al seguente:
+
+	{
+		"odata.metadata":"<url>",
+		"Status":"Running",
+ 		"TopicInfo":[],
+		"TopicAssignment":[],
+		"Errors":[]
+	}
+
+
+L'API restituisce un output in formato JSON, come mostrato di seguito:
+
+	{
+		"odata.metadata":"<url>",
+		"Status":"Finished",
+		"TopicInfo":[
+		{
+			"TopicId":"ed00480e-f0a0-41b3-8fe4-07c1593f4afd",
+			"Score":8.0,
+			"KeyPhrase":"food"
+		},
+		...
+		{
+			"TopicId":"a5ca3f1a-fdb1-4f02-8f1b-89f2f626d692",
+			"Score":6.0,
+			"KeyPhrase":"decor"
+    		}
+  		],
+		"TopicAssignment":[
+		{
+			"Id":"1",
+			"TopicId":"ed00480e-f0a0-41b3-8fe4-07c1593f4afd",
+			"Distance":0.7809
+		},
+		...
+		{
+			"Id":"100",
+			"TopicId":"a5ca3f1a-fdb1-4f02-8f1b-89f2f626d692",
+			"Distance":0.8034
+		}
+		],
+		"Errors":[]
+
+
+Le proprietà di ciascuna parte della risposta sono le seguenti:
+
+**Proprietà TopicInfo**
+
+| Chiave | Descrizione |
+|:-----|:----|
+| TopicId | Identificatore univoco di ciascun argomento. |
+| Score | Numero di record assegnati all'argomento. |
+| KeyPhrase | Parola o frase di riepilogo dell'argomento. Può essere costituita da una o più parole. |
+
+**Proprietà TopicAssignment**
+
+| Chiave | Descrizione |
+|:-----|:----|
+| ID | Identificatore del record. Equivale all'ID incluso nell'input. |
+| TopicId | ID dell'argomento a cui sono stati assegnati i record. |
+| Distance | Probabilità che il record appartenga all'argomento. Un valore vicino a zero indica una probabilità elevata. |
+
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/18/2016"
 	ms.author="anuragdalmia"/>
 
 # BizTalk Transform
 
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
 ## Panoramica
-In parole semplici, l'app per le API BizTalk Transform converte i dati da un formato a un altro. Ad esempio, è possibile ricavare gli indirizzi di spedizione e fatturazione da un ordine di acquisto e inserirli in un documento di fatturazione. Se invece si è ricevuto un messaggio contenente la data corrente nel formato *YearMonthDay*, può essere opportuno riformattarla nel formato *MonthDayYear*.
+L'app per le API BizTalk Transform converte i dati da un formato in un altro formato. Ad esempio, è possibile ricavare gli indirizzi di spedizione e fatturazione da un ordine di acquisto e inserirli in un documento di fatturazione. Se invece si è ricevuto un messaggio contenente la data corrente nel formato *YearMonthDay*, può essere opportuno riformattarla nel formato *MonthDayYear*.
 
 A tale scopo, è possibile usare l'app per le API Transform nel servizio app di Microsoft Azure. Un'app per le API Transform, conosciuta anche come Map, consiste in uno schema XML di origine (input) e in uno schema XML di destinazione (output). È possibile usare diverse funzioni predefinite per contribuire a gestire o controllare i dati, incluse la modifica di stringhe, le operazioni Conditional Assignment, le espressioni aritmetiche, i formattatori di data/ora e persino i costrutti a ciclo continuo.
 
@@ -116,4 +117,4 @@ Una volta che la mappa è stata creata e verificata, è pronta per l'uso.
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="Uso del connettore Dropbox nelle app per la logica | Microsoft Azure App Service"
 	description="Come creare e configurare l'app per le API o il connettore Dropbox e usarlo in un'app per la logica in Azure App Service"
 	authors="anuragdalmia"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/11/2016"
 	ms.author="sameerch"/>
 
 # Uso del connettore Dropbox e aggiunta all'app per la logica
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API Dropbox](../connectors/create-api-dropbox.md).
+
 Connettersi all'account Dropbox per caricare o scaricare i file. Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati. È possibile aggiungere il connettore Dropbox al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
 
 ## Trigger e azioni
@@ -27,7 +29,7 @@ Il connettore Dropbox può essere usato come azione in un'app per la logica e su
 
 Trigger | Azioni
 --- | ---
-Nessuno | <ul><li>Delete File</li><li>Get File</li><li>Upload File</li><li>List Files</li></ul>
+Nessuno | <ul><li>Eliminare il File</li><li>Ottenere il File</li><li>Caricare il File</li><li>Elenco dei File</li></ul>
 
 
 ## Creare il connettore Dropbox per l'app per la logica
@@ -41,7 +43,7 @@ Nessuno | <ul><li>Delete File</li><li>Get File</li><li>Upload File</li><li>List 
 	- **Resource group**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
 	- **App Service plan**: selezionare o creare un piano di hosting Web
 	- **Pricing tier**: scegliere un livello di prezzo per il connettore
-	- **Name**: assegnare un nome al connettore Dropbox  
+	- **Nome** - assegnare un nome a Dropbox Connector  
 4. Selezionare **Create**.
 
 
@@ -64,7 +66,7 @@ Configurare le proprietà di input per l'azione "Upload File" nel modo indicato 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -81,4 +83,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

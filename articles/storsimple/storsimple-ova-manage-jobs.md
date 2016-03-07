@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="02/22/2016"
    ms.author="v-sharos" />
 
 # Usare il servizio StorSimple Manager per visualizzare i processi per l'array virtuale StorSimple (anteprima)
@@ -60,8 +60,16 @@ Eseguire la procedura seguente per visualizzare i dettagli di qualsiasi processo
  
     ![Pagina dettagli del processo](./media/storsimple-ova-manage-jobs/ovajobs2.png)
 
+#### Errori di processo quando la macchina virtuale viene sospesa nell'hypervisor
+
+Se un processo è in corso nell'array virtuale StorSimple e il dispositivo (macchina virtuale con provisioning in hypervisor) viene sospeso per più di 15 minuti, il processo ha esito negativo. Ciò è dovuto al fatto che l'ora dell'array virtuale StorSimple non è più sincronizzata con l'ora di Microsoft Azure. Nella schermata seguente è illustrato un esempio di errore di un processo di ripristino.
+
+![Il processo di ripristino non è riuscito.](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
+
+Questi errori possono verificarsi con processi di backup, ripristino, aggiornamento e failover. Se il provisioning della macchina virtuale viene eseguito in Hyper-V, l'ora della macchina virtuale alla fine si sincronizzerà con l'hypervisor. Quando ciò accade, è possibile riavviare il processo.
+
 ## Passaggi successivi
 
-[Scoprire come usare l'interfaccia utente Web locale per amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
+[Informazioni su come usare l'interfaccia utente Web locale per amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

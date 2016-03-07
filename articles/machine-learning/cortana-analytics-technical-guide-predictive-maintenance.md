@@ -262,7 +262,7 @@ La procedura seguente mostra come visualizzare l'output dei dati in tempo reale 
     -   Passare il puntatore del mouse su questo riquadro nel dashboard e fare clic sull'icona "Modifica" nell'angolo superiore destro per modificarne il titolo in "Fleet View of Sensor 11 vs. Threshold 48.26" e il sottotitolo in "Average across fleet over time".
 
 ## **Come eliminare la soluzione**
-Accertarsi di arrestare il generatore di dati quando non lo si usa in modo attivo, poiché l'esecuzione di questa applicazione può comportare costi elevati. Se non la si usa, è consigliabile eliminarla. Con l'eliminazione di questa soluzione vengono eliminati anche tutti i componenti di cui è stato effettuato il provisioning nella sottoscrizione durante la procedura di distribuzione. Per eliminare la soluzione, fare clic sul nome della soluzione nel riquadro sinistro del modello e fare clic su Elimina.
+Accertarsi di arrestare il generatore di dati quando non lo si usa in modo attivo, poiché l'esecuzione di questa applicazione può comportare costi elevati. Se non la si usa, è consigliabile eliminarla. Con l'eliminazione di questa soluzione vengono eliminati anche tutti i componenti di cui è stato effettuato il provisioning nella sottoscrizione durante la procedura di distribuzione. Per eliminare la soluzione, fare clic sul nome della soluzione nel riquadro sinistro del modello e su Elimina.
 
 ## **Strumenti di stima dei costi**
 
@@ -272,4 +272,4 @@ I due strumenti indicati di seguito permettono di comprendere meglio i costi tot
 
 -   [Microsoft Azure Cost Estimator Tool (PC desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

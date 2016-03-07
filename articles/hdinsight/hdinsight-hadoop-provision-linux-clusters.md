@@ -20,7 +20,7 @@
 
 #Creare cluster Hadoop basati su Linux in HDInsight
 
-[AZURE.INCLUDE [selettore](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[AZURE.INCLUDE [selettore](../../includes/hdinsight-selector-create-clusters.md)]
 
 In questo documento sono disponibili informazioni sui diversi modi per creare un cluster HDInsight basato su Linux in Azure e sulle configurazioni facoltative che possono essere usate con il cluster. HDInsight offre Apache Hadoop, Apache Storm e Apache HBase come servizi nella piattaforma cloud di Azure.
 
@@ -160,7 +160,7 @@ Diversi tipi di cluster hanno diversi tipi, numeri e dimensioni di nodi. Ad esem
 
 > [AZURE.IMPORTANT] Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 
-Quando si usa il portale di anteprima di Azure per configurare il cluster, le dimensioni del nodo vengono esposte tramite il pannello __Piano tariffario per il nodo__ e verrà visualizzato anche il costo associato alle diverse dimensioni di nodo.
+Quando si usa il portale di anteprima di Azure per configurare il cluster, le dimensioni del nodo vengono esposte tramite il pannello __Piano tariffario per il nodo__ e verrà visualizzato anche il costo associato alle diverse dimensioni di nodo.
 
 > [AZURE.IMPORTANT] La fatturazione inizia dopo la creazione del nodo e si interrompe solo quando il nodo viene eliminato. Per altre informazioni sui prezzi, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -268,4 +268,4 @@ In questo articolo sono state fornite informazioni di base sulla creazione di un
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Usare Sqoop con HDInsight"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

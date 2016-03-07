@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="02/22/2016"
    ms.author="larryfr"/>
 
 #Distribuire e gestire topologie Apache Storm in HDInsight basato su Windows
@@ -151,7 +151,7 @@ Eseguire i passaggi seguenti per distribuire una topologia di esempio nel cluste
 
 L'interfaccia utente di Storm si basa sull'API REST. È pertanto possibile eseguire funzionalità di gestione e monitoraggio simili usando l'API REST. L'API REST consente di creare strumenti personalizzati per la gestione e il monitoraggio di topologie Storm.
 
-Per altre informazioni, vedere l'articolo relativo all'[API REST dell'interfaccia utente di Storm](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md). Le seguenti informazioni sono specifiche per l'uso dell'API REST con Apache Storm in HDInsight.
+Per altre informazioni, vedere l'articolo relativo all'[API REST dell'interfaccia utente di Storm](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md). Le seguenti informazioni sono specifiche per l'uso dell'API REST con Apache Storm in HDInsight.
 
 ###URI di base
 
@@ -181,4 +181,4 @@ Per un elenco di altre topologie di esempio, vedere [Esempi di topologie Storm p
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

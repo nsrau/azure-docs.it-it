@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="aliuy" 
 	manager="jhubbard" 
-	editor="cgronlun"/>
+	editor="mimig"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/16/2016" 
 	ms.author="andrl"/>
 
 # Programmazione sul lato server DocumentDB: stored procedure, trigger del database e funzioni definite dall'utente
@@ -50,7 +50,9 @@ Questo approccio di *"JavaScript come nuovo T-SQL"* libera gli sviluppatori di a
 	-	Aggiunge un livello di astrazione al di sopra dei dati non elaborati, consentendo ai responsabili dell'architettura dati di far evolvere le proprie applicazioni indipendentemente dai dati. Si tratta di una caratteristica particolarmente vantaggiosa quando i dati sono privi di schema, a causa dei presupposti transitori che potrebbe essere necessario integrare nell'applicazione qualora fosse necessario gestire i dati direttamente.  
 	-	Questa astrazione consente alle grandi imprese di proteggere i propri dati semplificando l'accesso dagli script.  
 
-La creazione e l'esecuzione di trigger del database, stored procedure e operatori di query personalizzati sono supportate tramite l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e gli [SDK client](https://msdn.microsoft.com/library/azure/dn781482.aspx) in molte piattaforme, tra cui .NET, Node.js e JavaScript. **Questa esercitazione usa [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** per illustrare la sintassi e l'utilizzo di stored procedure, trigger e funzioni definite dall'utente.
+La creazione e l'esecuzione di trigger del database, stored procedure e operatori di query personalizzati sono supportate tramite l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) e gli [SDK client](documentdb-sdk-dotnet.md) in molte piattaforme, tra cui .NET, Node.js e JavaScript.
+
+**Questa esercitazione usa [Node.js SDK con promesse Q](http://azure.github.io/azure-documentdb-node-q/)** per illustrare la sintassi e l'utilizzo di stored procedure, trigger e funzioni definite dall'utente.
 
 ## Stored procedure
 
@@ -92,7 +94,7 @@ Dopo aver registrato la stored procedure è possibile eseguirla a fronte della r
 		});
 
 
-L'oggetto contesto offre l'accesso a tutte le operazioni che è possibile eseguire nelle risorse di archiviazione di DocumentDB, oltre all'accesso agli oggetti richiesta e risposta. In questo caso, è stata usato l'oggetto risposta per impostare il corpo della risposta restituita al client. Per altre informazioni, vedere la [documentazione relativa all'SDK del server JavaScript di DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/).
+L'oggetto contesto offre l'accesso a tutte le operazioni che è possibile eseguire nelle risorse di archiviazione di DocumentDB, oltre all'accesso agli oggetti richiesta e risposta. In questo caso, è stata usato l'oggetto risposta per impostare il corpo della risposta restituita al client. Per altre informazioni, vedere la [documentazione relativa all'SDK del server JavaScript di DocumentDB](http://azure.github.io/azure-documentdb-js-server/).
 
 Elaborando ulteriormente questo esempio, è possibile aggiungere alla stored procedure altre funzionalità relative al database. Le stored procedure possono creare, aggiornare, eseguire query ed eliminare documenti e allegati all'interno della raccolta.
 
@@ -475,7 +477,7 @@ La funzione UDF può in seguito essere usata in query come quella riportata nell
 ## API della Language-Integrated Query di JavaScript
 Oltre a eseguire una query utilizzando la sintassi SQL del DocumentDB, il SDK sul lato server consente di eseguire query ottimizzate tramite un'interfaccia intuitiva JavaScript senza alcuna conoscenza di SQL. L'API della query JavaScript consente di creare query a livello di programmazione passando funzioni predicate in chiamate di funzione concatenabili, con una sintassi familiare alle librerie JavaScript predefinite e diffuse della matrice ECMAScript5 come lodash. Le query vengono analizzate dal runtime JavaScript per essere eseguite in modo efficiente utilizzando gli indici di DocumentDB.
 
-> [AZURE.NOTE]`__` (doppio carattere di sottolineatura) è un alias per `getContext().getCollection()`. <br/> In altre parole, è possibile usare `__` o `getContext().getCollection()` per accedere all'API della query JavaScript.
+> [AZURE.NOTE] `__` (doppio carattere di sottolineatura) è un alias per `getContext().getCollection()`. <br/> In altre parole, è possibile utilizzare `__` o `getContext().getCollection()` per accedere all’API della query JavaScript.
 
 Le funzioni supportate includono: <ul> <li> <b>chain() ... .value([callback] [, options])</b> <ul> <li> Inizia una chiamata concatenata che deve terminare con il valore(). </li> </ul> </li> <li> <b>filter(predicateFunction [, options] [, callback])</b> <ul> <li> Filtra l'input tramite una funzione predicato che restituisce true/false per filtrare i documenti in entrata e in uscita nel set risultante. Tale funzionamento è simile a quello di una clausola WHERE in SQL. </li> </ul> </li> <li> <b>map(transformationFunction [, options] [, callback])</b> <ul> <li> Consente di applicare una proiezione data una funzione di trasformazione che esegue il mapping di ogni elemento di input a un valore o oggetto JavaScript. Tale funzionamento è simile a quello di una clausola SELECT in SQL. </li> </ul> </li> <li> <b>pluck([propertyName] [, options] [, callback])</b> <ul> <li> È un collegamento per una mappa che estrae il valore di una singola proprietà da ogni elemento di input. </li> </ul> </li> <li> <b>flatten([isShallow] [, options] [, callback])</b> <ul> <li> Combina e appiattisce matrici da ogni elemento di input in un'unica matrice. Tale funzionamento è simile a quello di SelectMany in LINQ. </li> </ul> </li> <li> <b>sortBy([predicate] [, options] [, callback])</b> <ul> <li> Produce un nuovo set di documenti ordinandoli nel flusso di documenti di input in ordine crescente tramite il predicato specificato. Tale funzionamento è simile a quello della clausola ORDER BY in SQL. </li> </ul> </li> <li> <b>sortByDescending([predicate] [, options] [, callback])</b> <ul> <li> Produce un nuovo set di documenti ordinandoli nel flusso di documenti di input in ordine decrescente tramite il predicato specificato. Il funzionamento è simile a quello di una clausola ORDER BY x DESC in SQL. </li> </ul> </li> </ul>
 
@@ -491,7 +493,7 @@ I seguenti costrutti JavaScript non vengono ottimizzati per gli indici di Docume
 * Flusso di controllo (ad esempio, se, per, mentre)
 * Chiamate di funzione
 
-Per altre informazioni, vedere [Server-Side JSDocs](http://dl.windowsazure.com/documentDB/jsserverdocs/).
+Per ulteriori informazioni, vedere [Server-Side JSDocs](http://azure.github.io/azure-documentdb-js-server/).
 
 ### Esempio: Scrivere una stored procedure usando l'API di query JavaScript
 
@@ -557,7 +559,7 @@ Come le query SQL, le chiavi di proprietà del documento (ad esempio `doc.id`) f
 <br/> <table border="1" width="100%"> <colgroup> <col span="1" style="width: 40%;"> <col span="1" style="width: 40%;"> <col span="1" style="width: 20%;"> </colgroup> <tbody> <tr> <th>SQL</th> <th>API di query JavaScript</th> <th>Dettagli</th> </tr> <tr> <td> <pre> documenti SELECT * FROM </pre> </td> <td> <pre> \_\_.map(function(doc) { return doc; }); </pre> </td> <td>Restituisce tutti i documenti (impaginati con token di continuità) nello stato in cui sono.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg, docs.actions FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return { id: doc.id, msg: doc.message, actions: doc.actions }; }); </pre> </td> <td>Proietta id, messaggio (con alias msg) e azione da tutti i documenti.</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.filter(function(doc) { return doc.id === "X998\_Y998"; }); </pre> </td> <td>Esegue query per i documenti con il predicato: id = "X998\_Y998".</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE ARRAY\_CONTAINS(docs.Tags, 123) </pre> </td> <td> <pre> \_\_.filter(function(x) { return x.Tags && x.Tags.indexOf(123) > -1; }); </pre> </td> <td>Esegue query per i documenti che hanno proprietà di tag e tag in una matrice che contiene il valore 123.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.id === "X998\_Y998"; }) .map(function(doc) { return { id: doc.id, msg: doc.message }; }) .value(); </pre> </td> <td>Esegue query per i documenti che hanno predicato, id = "X998\_Y998", e proietta id e messaggio (con alias msg).</td> </tr> <tr> <td> <pre> SELECT VALUE tag FROM docs JOIN tag IN docs.Tags ORDER BY docs.\_ts </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.Tags && Array.isArray(doc.Tags); }) .sortBy(function(doc) { return doc.\_ts; }) .pluck("Tags") .flatten() .value() </pre> </td> <td>Filtra i documenti che hanno una proprietà matrice, tag, e ordina i documenti risultanti secondo la proprietà di sistema \_ts timestamp, e in seguito proietta e appiattisce la matrice tag.</td> </tr> </tbody> </table>
 
 ## Supporto di runtime
-L'[SDK lato server JavaScript di DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre supporto per la maggior parte delle principali funzionalità del linguaggio JavaScript, secondo lo standard [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+L'[ SDK lato server JavaScript di DocumentDB](http://azure.github.io/azure-documentdb-js-server/) offre supporto per la maggior parte delle principali funzionalità del linguaggio JavaScript, secondo lo standard [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### Sicurezza
 Le stored procedure e i trigger di JavaScript vengono create in modalità sandbox in modo che gli effetti di un unico script non vengano trasferiti all'altro senza che siano stati prima sottoposti all'isolamento delle transazioni snapshot a livello di database. Gli ambienti di runtime vengono riuniti in pool, ma ripuliti dal contesto dopo ciascuna esecuzione. Di conseguenza è possibile garantirne la sicurezza rispetto a effetti collaterali imprevisti causati l'un l'altro.
@@ -566,7 +568,7 @@ Le stored procedure e i trigger di JavaScript vengono create in modalità sandbo
 Le stored procedure, i trigger e le UDF vengono precompilate implicitamente nel formato di codice byte per evitare i costi di compilazione ad ogni chiamata dello script. Questo garantisce la velocità elevata e il footprint ridotto delle chiamate delle stored procedure.
 
 ## Supporto di client SDK
-Oltre al client [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), DocumentDB supporta [.NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) e gli [SDK Python](http://dl.windowsazure.com/documentDB/pythondocs/). È possibile creare ed eseguire stored procedure, trigger e UDFs usando anche uno qualsiasi di questi SDK. Nell'esempio seguente viene illustrato come creare ed eseguire una stored procedure con il client .NET. Notare il modo in cui i tipi -NET vengono passati nella stored procedure come JSON e poi riletti.
+Oltre al client [Node.js](documentdb-sdk-node.md), DocumentDB supporta [.NET](documentdb-sdk-dotnet.md), [Java](documentdb-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) e gli [SDK Python](documentdb-sdk-python.md). È possibile creare ed eseguire stored procedure, trigger e UDFs usando anche uno qualsiasi di questi SDK. Nell'esempio seguente viene illustrato come creare ed eseguire una stored procedure con il client .NET. Notare il modo in cui i tipi -NET vengono passati nella stored procedure come JSON e poi riletti.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -708,7 +710,7 @@ In questo caso, il pre-trigger da eseguire con la richiesta è specificato nell'
 
 ## Codice di esempio
 
-È possibile trovare altri esempi di codice sul lato server (inclusi [upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js), [eliminazione bulk](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) e [aggiornamento](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) nell'[archivio Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+È possibile trovare altri esempi di codice sul lato server (inclusi [eliminazione di tipo bulk](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) e [aggiornamento](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) nell'[archivio Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 Si desidera condividere la stored procedure awesome? Inviare una richiesta di pull!
 
@@ -719,11 +721,12 @@ Quando si dispone di uno o più stored procedure, trigger e funzioni definite da
 È inoltre possibile trovare i seguenti riferimenti e risorse utili per il percorso per ulteriori informazioni sulla programmazione sul lato server DocumentDB:
 
 - [Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)
+- [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
 - [JSON](http://www.json.org/) 
 - [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
--	[JavaScript - sistema di tipi JSON](http://www.json.org/js.html) 
--	[Estensibilità di Database protette e portatile](http://dl.acm.org/citation.cfm?id=276339) 
--	[Database architettura orientata ai servizi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
--	[Hosting del Runtime .NET in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)  
+- [JavaScript - sistema di tipi JSON](http://www.json.org/js.html) 
+- [Estensibilità di Database protette e portatile](http://dl.acm.org/citation.cfm?id=276339) 
+- [Database architettura orientata ai servizi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+- [Hosting del Runtime .NET in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="02/04/2016"
+	ms.date="02/18/2016"
 	ms.author="jeffstok"/>
 
 
@@ -29,8 +29,9 @@ Gli strumenti di analisi di social media consentono alle organizzazioni di compr
 Un sito Web di notizie è interessato a superare la concorrenza offrendo contenuto del sito immediatamente fruibile dai lettori. Viene utilizzata l’analisi dei social media su argomenti rilevanti per i lettori eseguendo l’analisi del sentimento in tempo reale sui dati di Twitter. In particolare, per identificare gli argomenti che sono di tendenza in tempo reale su Twitter, si necessita di un’analisi in tempo reale sui volumi dei tweet e relativi sentimenti implicati per gli argomenti più importanti. In questo modo, è necessario un motore di analisi dei sentimenti basato su questo feed di social media.
 
 ## Prerequisiti
-1.	Per questa esercitazione è necessario un account Twitter.  
-2.	Per questa procedura dettagliata viene utilizzata un'applicazione client Twitter disponibile su GitHub. Scaricarlo da [qui](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) e attenersi alla procedura seguente per configurare la soluzione.
+1.	Account Twitter e [token di accesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) 
+2.	[TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) dall'Area download Microsoft
+3.	Facoltativo: codice sorgente per client twitter da [Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) 
 
 ## Creare un input dell’hub eventi e un gruppo di consumer
 
@@ -55,16 +56,15 @@ Attenersi alla procedura seguente per creare un hub eventi.
 
 Attenersi alla seguente procedura per configurare l'applicazione:
 
-1.	[Scaricare la soluzione TwitterClient](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)
-2.	Aprire app. config e sostituire oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret con i token di Twitter con i valori.  
+1.	[Scaricare la soluzione TwitterClient](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip)
+2.	Aprire TwitterClient.exe.config e sostituire oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret con i token di Twitter con i propri valori.  
 
 	[Passaggi per generare un token di accesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	Si noti che è necessario eseguire un'applicazione vuota per generare un token.  
-3.	Sostituire i valori EventHubConnectionString ed EventHubName in App. config con la stringa di connessione hub eventi e il nome.
-4.	*Facoltativo:* modificare le parole chiave da cercare. Per impostazione predefinita, questa applicazione cerca le parole chiave "Azure, Skype, XBox, Microsoft, Seattle". È possibile modificare i valori di twitter\_keywords in App. config, se necessario.
-5.	Compilare la soluzione
-6.	Avviare l’applicazione. Gli eventi di Tweet con i valori CreatedAt, Topic e SentimentScore inviati all'hub eventi:
+3.	Sostituire i valori EventHubConnectionString ed EventHubName in TwitterClient.exe.config con la stringa di connessione hub eventi e il nome.
+4.	*Facoltativo:* modificare le parole chiave da cercare. Per impostazione predefinita, questa applicazione cerca le parole chiave "Azure, Skype, XBox, Microsoft, Seattle". È possibile modificare i valori di twitter\_keywords in TwitterClient.exe.config, se necessario.
+5.	Eseguire **TwitterClient.exe** per avviare l'applicazione. Gli eventi di Tweet con i valori CreatedAt, Topic e SentimentScore inviati all'hub eventi:
 
 	![Analisi dei sentimenti: valori SentimentScore inviati a un hub eventi.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
@@ -201,7 +201,7 @@ Se non se ne dispone, attenersi alla procedura seguente per creare un contenitor
 	* **SOTTOSCRIZIONE**: se l'archiviazione BLOB creata nella stessa sottoscrizione del processo di analisi dei flussi, selezionare **Utilizza account di archiviazione dalla sottoscrizione corrente**. Se il dispositivo di archiviazione è in una sottoscrizione diversa, selezionare l’opzione per **utilizzare l’account di archiviazione utilizzato da un'altra sottoscrizione** e immettere manualmente le informazioni relative all’**ACCOUNT DI ARCHIVIAZIONE**, **CHIAVE DELL’ACCOUNT DI ARCHIVIAZIONE**, **CONTENITORE**.
 	* In **Nome account di archiviazione** scegliere l'account di archiviazione da utilizzare.
 	* **CONTENITORE**: selezionare il nome del contenitore
-	* **PREFISSO DEL NOME FILE**: digitare un prefisso di file da usare durante la scrittura dell'output di BLOB
+	* **PREFISSO DEL NOME FILE**: digitare un prefisso di file da usare per la scrittura dell'output di BLOB
 
 4.	Fare clic sul pulsante a destra.
 5.	Specificare i valori seguenti:
@@ -236,4 +236,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

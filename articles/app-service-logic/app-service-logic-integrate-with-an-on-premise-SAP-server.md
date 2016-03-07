@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="02/18/2016"
 	ms.author="sameerch"/>
 
 
 # Integrazione con un server SAP locale
-Usando il connettore SAP è possibile connettere le app Web, mobili e per la logica dei Servizi app di Azure al server SAP esistente. In questo modo è possibile richiamare RFC, BAPI, tRFC nonché inviare IDoc al server SAP, anche se si trova dietro al firewall locale.
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
+Usando il [connettore SAP](app-service-logic-connector-sap.md) è possibile connettere le app Web, mobili e per la logica dei Servizi app di Azure al server SAP esistente. In questo modo è possibile richiamare RFC, BAPI, tRFC nonché inviare IDoc al server SAP, anche se si trova dietro al firewall locale.
 
 Se si dispone di un server SAP locale, utilizzare un listener ibrido per stabilire la connessione con il connettore SAP, come illustrato:
 
@@ -106,7 +109,7 @@ Selezionare **Trigger e azioni**. Viene visualizzata la finestra di progettazion
 
 Selezionare il connettore SAP dal riquadro a destra e selezionare un'azione dalla scheda Azioni.
 
-> [AZURE.NOTE]L'elenco di azioni è basato sulla configurazione immessa quando è stato creato il connettore SAP.
+> [AZURE.NOTE] L'elenco di azioni è basato sulla configurazione immessa quando è stato creato il connettore SAP.
 
 Per l'azione selezionata verranno visualizzati i parametri di input e output. È possibile immettere gli input per l'azione e usare l'output dell'azione corrente in altre app per le API, possibilmente per ulteriori processi decisionali nell'ambito del flusso di lavoro.
 
@@ -121,4 +124,4 @@ Per l'azione selezionata verranno visualizzati i parametri di input e output. È
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://www.microsoft.com/download/details.aspx?id=35552
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

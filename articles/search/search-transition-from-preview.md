@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 #Transizione dalla versione api di anteprima =2014* alla versione api=2015*#
@@ -144,4 +144,4 @@ La versione dell'API `2015-02-28` è nel contratto di servizio. Utilizzare le op
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

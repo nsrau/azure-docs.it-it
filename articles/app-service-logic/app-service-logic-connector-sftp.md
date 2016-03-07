@@ -2,7 +2,7 @@
 	pageTitle="Uso del connettore SFTP nelle app per la logica | Microsoft Azure App Service"
 	description="Come creare e configurare l'app per le API o il connettore SFTP e usarlo in un'app per la logica in Azure App Service"
 	authors="anuragdalmia"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/11/2016"
 	ms.author="sameerch"/>
 
 # Uso del connettore SFTP e aggiunta all'app per la logica
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API SFTP](../connectors/create-api-sftp.md).
+
 Usare il connettore SFTP per spostare dati da e verso un server SFTP. È possibile scaricare, caricare ed elencare file da e verso un server SFTP.
 
 Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. È possibile aggiungere il connettore SFTP al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
@@ -30,7 +32,7 @@ Le app per la logica possono essere attivate in base a diverse origini dati e of
 	- **Location**: scegliere l'area geografica in cui si vuole distribuire il connettore
 	- **Subscription**: scegliere una sottoscrizione in cui si vuole creare questo connettore
 	- **Resource group**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
-	- **Web hosting plan**: selezionare o creare un piano di hosting Web
+	- **Piano di hosting Web**: selezionare o creare un piano di hosting Web
 	- **Pricing tier**: scegliere un livello di prezzo per il connettore
 	- **Name**: assegnare un nome al connettore SFTP
 	- **Impostazioni pacchetto**
@@ -56,18 +58,17 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SFTP come tr
 
 5.	È ora possibile usare il connettore SFTP nel flusso. È possibile usare il file recuperato dal trigger SFTP ("TriggerOnFileAvailable") in altre azioni del flusso.
 
-	> [AZURE.IMPORTANT]Dopo aver elaborato il file recuperato, il trigger SFTP "TriggerOnFileAvailable" lo elimina.
+	> [AZURE.IMPORTANT] Dopo aver elaborato il file recuperato, il trigger SFTP "TriggerOnFileAvailable" lo elimina.
 
 6.	Configurare le proprietà di input per il trigger SFTP nel modo indicato di seguito:
 
 	- **Folder Path**: specificare il percorso della cartella da cui devono essere recuperati i file.
 	- **The type of the file: text or binary**: selezionare il tipo di file.
 	- **File Mask**: specificare il filtro file da applicare per recuperare i file. '*' recupera tutti i file contenuti nella cartella specificata.
-	- **Exclude File Mask**: specificare il filtro file da applicare per escludere i file. Se è impostata anche la proprietà "File Mask", Exclude File Mask verrà applicata per prima.
+- **Exclude File Mask**: specificare il filtro file da applicare per escludere i file. Se è impostata anche la proprietà "File Mask", Exclude File Mask verrà applicata per prima.
 
 
-	![][9]  
-	![][10]
+	![][9] ![][10]
 
 7.	È possibile usare le azioni SFTP nel flusso in modo analogo. È possibile usare l'azione "Upload File" per caricare un file nel server SFTP. Configurare le proprietà di input per l'azione "Upload File" nel modo indicato di seguito:
 
@@ -76,15 +77,14 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SFTP come tr
 	- **File Path**: specificare il percorso del file da caricare.
 	- **Overwrite**: specificare "true" per sovrascrivere il file, se esiste già.
 	- ****Append If Exists**: specificare "true" o "false". Se il parametro è impostato su "true", i dati vengono aggiunti al file, se esistente. Se impostato su "false", il file, se esistente, viene sovrascritto.
-	- **Temporary Folder**: se specificato, l'adattatore caricherà il file in 'Temporary Folder Path'. Al termine del caricamento, il file verrà spostato in 'Folder Path'. Per garantire che l'operazione di spostamento sia atomica, Temporary Folder Path deve trovarsi nello stesso disco fisico di Folder Path. È possibile usare Temporary Folder solo quando la proprietà Aggiungi se esiste è disabilitata.
+- **Temporary Folder**: se specificato, l'adattatore caricherà il file in 'Temporary Folder Path'. Al termine del caricamento, il file verrà spostato in 'Folder Path'. Per garantire che l'operazione di spostamento sia atomica, Temporary Folder Path deve trovarsi nello stesso disco fisico di Folder Path. È possibile usare Temporary Folder solo quando la proprietà Aggiungi se esiste è disabilitata.
 
-	![][11]  
-	![][12]
+	![][11] ![][12]
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -105,4 +105,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

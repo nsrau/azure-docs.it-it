@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Come implementare l'esplorazione in base a facet in Ricerca di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato" 
+	pageTitle="Come implementare l'esplorazione in base a facet in Ricerca di Azure | Microsoft Azure | categorie di esplorazione di ricerca" 
 	description="Aggiungere Esplorazione in base a facet alle applicazioni che si integrano con la Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 #Come implementare l'esplorazione in base a facet in Ricerca di Azure
@@ -29,10 +29,6 @@ I facet consentono di trovare ciò che si sta cercando con una percentuale di su
 L'implementazione dell'esplorazione in base a facet differisce fra le tecnologie di ricerca e può essere molto complessa. Nella Ricerca di Azure, l'esplorazione in base a facet viene creata in fase di query, usando campi con gli attributi specificati in precedenza nello schema. Le query compilate dall'applicazione devono consentire l'invio dei *parametri di query facet* per ricevere i valori di filtro facet disponibili per il set di risultati dei documenti. Per ridurre effettivamente il set di risultati dei risultati, l'applicazione deve applicare un'espressione `$filter`.
 
 In termini di sviluppo di applicazioni, la scrittura di codice che crea query costituisce la maggior parte del lavoro. Molti dei comportamenti dell'applicazione desiderata dall'esplorazione in base a facet viene fornita dal servizio, incluso il supporto incorporato per l'impostazione degli intervalli e il recupero dei conteggi relativi ai risultati del facet. Il servizio include anche valori predefiniti appropriati che consentono di evitare le strutture di spostamento ingombranti.
-
-Per un'esperienza pratica, si consiglia questo esempio in CodePlex: [Azure Search AdventureWorks Catalog](https://azuresearchadventureworksdemo.codeplex.com/)
-
-È anche possibile guardare gli [approfondimenti su Ricerca di Azure](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Al minuto 45:25 è presente una dimostrazione su come implementare i facet.
 
 In questo articolo sono contenute le sezioni seguenti:
 
@@ -59,7 +55,7 @@ L'esperienza di ricerca dell'esplorazione in base a facet è iterativa. Pertanto
 
 Il punto di partenza è una pagina dell'applicazione che consente un'esplorazione in base a facet, in genere sul perimetro. L'esplorazione in base a facet è spesso una struttura ad albero, con caselle di controllo per ogni valore o testo selezionabile.
 
-1.	Una query inviata a Ricerca di Azure specifica la struttura dell'esplorazione in base a facet tramite uno o più parametri di query del facet. Ad esempio, la query potrebbe includere `facet=Rating`, ad esempio con l'opzione `:values` o `:sort` per specificare ulteriormente la presentazione.
+1.	Una query inviata a Ricerca di Azure specifica la struttura dell'esplorazione in base a facet tramite uno o più parametri di query del facet. Ad esempio, la query potrebbe includere `facet=Rating`, ad esempio con l’opzione `:values` o `:sort` per specificare ulteriormente la presentazione.
 2.	Il livello di presentazione consente di eseguire il rendering di una pagina di ricerca che permette l'esplorazione in base ai facet specificati nella richiesta.
 3.	A fronte di una struttura di esplorazione in base a facet che include la classificazione, l'utente fa clic su "4" per indicare che devono essere visualizzati solo i prodotti con una valutazione pari a 4 stelle o superiore. 
 4.	In risposta, l'applicazione invia una query che include `$filter=Rating ge 4` 
@@ -121,14 +117,14 @@ In termini di esplorazione in base a facet, la pagina Web o un'applicazione cons
 
 Per le applicazioni Web, viene comunemente usata la tecnologia AJAX nel livello di presentazione, poiché consente di aggiornare le modifiche incrementali. È inoltre possibile usare ASP.NET MVC o qualsiasi altra piattaforma di visualizzazione che può connettersi a un servizio di Ricerca di Azure tramite HTTP. L'applicazione di esempio a cui fa riferimento in questo articolo, ovvero **AdventureWorks Catalog**, è un'applicazione MVC ASP.NET.
 
-Nell'esempio seguente, tratto dal file **index. cshtml** dell'applicazione di viene creata una struttura HTML dinamica per la visualizzazione dell'esplorazione in base a facet nella pagina dei risultati di ricerca. Nell'esempio l'esplorazione in base a facet è incorporata nella pagina dei risultati della ricerca e viene visualizzata quando l'utente immette un termine di ricerca.
+Nell'esempio seguente, tratto dal file **index. cshtml** dell'applicazione di viene creata una struttura HTML dinamica per la visualizzazione dell’esplorazione in base a facet nella pagina dei risultati di ricerca. Nell'esempio l'esplorazione in base a facet è incorporata nella pagina dei risultati della ricerca e viene visualizzata quando l'utente immette un termine di ricerca.
 
 Si noti che ogni facet contiene un'etichetta (colori, categorie, prezzi), un'associazione a un campo di collaborazione (colore, categoryName, listPrice) e un parametro `.count`, usati per restituire il numero di elementi trovati per tale risultato facet.
 
   ![][2]
  
 
-> [AZURE.TIP]Quando si progetta la pagina di risultati di ricerca, ricordarsi di aggiungere un meccanismo per la cancellazione dei facet. Se si usano le caselle di controllo, gli utenti possono facilmente intuire come cancellare i filtri. Per altri layout potrebbe essere necessario un modello di navigazione o un altro approccio creativo. Ad esempio, nell'applicazione di esempio AdventureWorks Catalog, è possibile fare clic sul titolo AdventureWorks Catalog per reimpostare la pagina di ricerca.
+> [AZURE.TIP] Quando si progetta la pagina di risultati di ricerca, ricordarsi di aggiungere un meccanismo per la cancellazione dei facet. Se si usano le caselle di controllo, gli utenti possono facilmente intuire come cancellare i filtri. Per altri layout potrebbe essere necessario un modello di navigazione o un altro approccio creativo. Ad esempio, nell'applicazione di esempio AdventureWorks Catalog, è possibile fare clic sul titolo AdventureWorks Catalog per reimpostare la pagina di ricerca.
 
 <a name="buildindex"></a>
 ##Compilare l'indice
@@ -143,7 +139,7 @@ Di seguito è riportato lo schema per l'applicazione di esempio AdventureWorks C
  
 Si noti che `Facetable` è disattivato per i campi stringa che non devono essere usati come facet, ad esempio un ID o un nome. La disattivazione dell'esplorazione in base a facet laddove non necessaria consente di mantenere ridotte le dimensioni dell'indice e in genere consente di migliorare le prestazioni.
 
-> [AZURE.TIP]Come procedura consigliata, includere il set completo di attributi dell'indice per ogni campo. Benché `Facetable` sia attivato per impostazione predefinita per quasi tutti i campi, l'impostazione intenzionale di ogni attributo consentono di valutare le implicazioni di ogni decisione di schema.
+> [AZURE.TIP] Come procedura consigliata, includere il set completo di attributi dell'indice per ogni campo. Benché `Facetable` sia attivato per impostazione predefinita per quasi tutti i campi, l'impostazione intenzionale di ogni attributo consentono di valutare le implicazioni di ogni decisione di schema.
 
 <a name="checkdata"></a>
 ##Controllo della qualità dei dati 
@@ -210,7 +206,7 @@ Per valori numerici e data/ora solo, è possibile impostare in modo esplicito i 
 
 **Riduzione dei risultati facet**
 
-I risultati facet sono documenti trovati nei risultati della ricerca che corrispondono a un termine di facet. Nell'esempio seguente, nei risultati della ricerca per *il cloud computing*, i 254 elementi dispongono inoltre di una *specifica interna* come tipo di contenuto. Gli elementi non si escludono necessariamente a vicenda. Se un elemento soddisfa i criteri di entrambi i filtri, viene conteggiato in ognuno di essi. Ciò è possibile quando l'esplorazione in base a facet è impostata sui campi `Collection(Edm.String)` che vengono spesso usati per implementare l'aggiunta di tag nel documento.
+I risultati facet sono documenti trovati nei risultati della ricerca che corrispondono a un termine di facet. Nell'esempio seguente, nei risultati della ricerca per *il cloud computing*, i 254 elementi dispongono inoltre di una *specifica interna* come tipo di contenuto. Gli elementi non si escludono necessariamente a vicenda. Se un elemento soddisfa i criteri di entrambi i filtri, viene conteggiato in ognuno di essi. Ciò è possibile quando l'esplorazione in base a facet su campi `Collection(Edm.String)` che vengono spesso utilizzati per implementare l'aggiunta di tag nel documento.
 
 		Search term: "cloud computing"
 		Content type
@@ -227,7 +223,7 @@ Per ogni campo di esplorazione in base a facet nella struttura di spostamento, e
 
 Si noti la distinzione tra i risultati di facet e i risultati della ricerca. I risultati della ricerca sono tutti i documenti che corrispondono alla query. I risultati facet sono le corrispondenze per ogni valore del facet. Nell'esempio verranno restituiti i nomi di città non presenti nell'elenco di classificazione facet (5 nel nostro esempio). I risultati che vengono filtrati tramite l'esplorazione in base a facet diventano visibili all'utente quando egli cancella i facet o sceglie altri facet oltre a città.
 
-> [AZURE.NOTE]La discussione relativa a `count` quando ne esiste più di un tipo potrebbe portare a confusione. La tabella seguente offre un breve riepilogo di come viene usato il termine nell'API di Ricerca di Azure, nel codice di esempio e nella documentazione.
+> [AZURE.NOTE] La discussione relativa a `count` quando ne esiste più di un tipo potrebbe portare a confusione. La tabella seguente offre un breve riepilogo di come viene usato il termine nell'API di Ricerca di Azure, nel codice di esempio e nella documentazione.
 
 - `@colorFacet.count`<br/> Nel codice di presentazione, si noterà un parametro di conteggio del facet usato per visualizzare il numero di risultati facet. Nei risultati facet, Conteggio indica il numero di documenti che corrispondono a un intervallo o termine facet.
 
@@ -280,7 +276,7 @@ Ogni intervallo viene compilato usando 0 come punto di partenza e un valore dall
 
 Per filtrare i documenti in base a un intervallo selezionato dall'utente, è possibile usare gli operatori di filtro `"ge"` e `"lt"` in un'espressione di due parti che definisce gli endpoint dell'intervallo. Ad esempio, se l'utente sceglie l'intervallo 10-25, il filtro sarà `$filter=listPrice ge 10 and listPrice lt 25`.
 
-Nell'applicazione di esempio nell'espressione di filtro vengono usati i parametri **priceFrom** e **priceTo** per impostare gli endpoint. Il metodo **BuildFilter** in **CatalogSearch.cs** contiene l'espressione di filtro che fornisce i documenti all'interno di un intervallo.
+Nell'applicazione di esempio nell'espressione di filtro vengono utilizzati i parametri **priceFrom** e **priceTo** per impostare gli endpoint. Il metodo **BuildFilter** in **CatalogSearch.cs** contiene l'espressione di filtro che fornisce i documenti all'interno di un intervallo.
 
   ![][6]
 
@@ -302,7 +298,7 @@ Sono disponibili due funzioni geospaziali in Ricerca di Azure, **geo.distance** 
 
 La demo Adventure Works di Ricerca di Azure in Codeplex contiene gli esempi descritti nel presente articolo. Quando si lavora con i risultati, controllare l'URL per le modifiche nella costruzione delle query. Questa applicazione è casualmente incaricata all'accodamento i facet all'URI a ogni selezione.
 
-1.	Configurare l'applicazione di esempio (vedere [Creare la prima applicazione per le istruzioni](search-create-first-solution.md)). 
+1.	Configurare l'applicazione di esempio per usare l'URL e la chiave api del servizio. 
 
 	Si noti lo schema definito nel file Program.cs del progetto CatalogIndexer. Specifica campi di esplorazione in base a facet per colore, listPrice, dimensioni, peso, categoryName e modelName. Solo alcuni di questi (colore, listPrice, categoryName) vengono effettivamente implementate nell'esplorazione in base a facet.
 
@@ -335,6 +331,8 @@ Per altre informazioni sui principi di progettazione per l'esplorazione in base 
 
 - [Progettazione per la ricerca con esplorazione in base a facet](http://www.uie.com/articles/faceted_search/)
 - [Modelli di progettazione: esplorazione in base a facet](http://alistapart.com/article/design-patterns-faceted-navigation)
+
+È anche possibile guardare gli [approfondimenti su Ricerca di Azure](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Al minuto 45:25 è presente una dimostrazione su come implementare i facet.
 
 <!--Anchors-->
 [How to build it]: #howtobuildit
@@ -372,4 +370,4 @@ Per altre informazioni sui principi di progettazione per l'esplorazione in base 
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Applicazione nativa di .NET di modello app v2.0 | Microsoft Azure"
+	pageTitle="App nativa di .NET v2.0 di Azure AD | Microsoft Azure"
 	description="Come creare un'app .NET nativa che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell'istituto di istruzione."
 	services="active-directory"
 	documentationCenter=""
@@ -13,14 +13,15 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-# Anteprima di Modello app 2.0: Aggiungere l'accesso a un'app desktop di Windows
+# Aggiungere l'accesso a un'applicazione Desktop di Windows
 
-Con Modello app 2.0 è possibile aggiungere rapidamente l'autenticazione alle app desktop con supporto per account Microsoft personali, aziendali e dell'istituto di istruzione. Consente inoltre all'app di comunicare in modo sicuro con un'API Web di back-end, oltre che con alcune [API unificate di Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
+Con l'endpoint v2.0 è possibile aggiungere rapidamente l'autenticazione alle app desktop con supporto per account Microsoft personali, aziendali o dell'istituto di istruzione. Consente inoltre all'app di comunicare in modo sicuro con un'API Web di back-end e con [Microsoft Graph](https://graph.microsoft.io) e alcune API unificate di [Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
 
-> [AZURE.NOTE]Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 
 Per le [app .NET native in esecuzione su un dispositivo](active-directory-v2-flows.md#mobile-and-native-apps), Azure AD offre Active Directory Authentication Library o ADAL. L'unico scopo di ADAL è consentire all'app di ottenere facilmente i token per le chiamate ai servizi Web. Per dimostrare la semplicità di questa operazione, in questo esempio viene creata un'app .NET WPF To Do List che:
 
@@ -28,11 +29,7 @@ Per le [app .NET native in esecuzione su un dispositivo](active-directory-v2-flo
 -	Chiama in modo sicuro un servizio Web To Do List di back-end, anch'esso protetto da OAuth 2.0.
 -	Disconnette gli utenti.
 
-Per creare l'app funzionante completa, sarà necessario:
-
-2. Registrare l'app.
-3. Installare e configurare ADAL.
-5. Usare ADAL per ottenere i token da Azure AD.
+## Scaricare il codice di esempio
 
 Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet). Per seguire la procedura è possibile [scaricare la struttura dell'app come file con estensione zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) o clonare la struttura:
 
@@ -40,20 +37,20 @@ Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azu
 
 Al termine dell'esercitazione, verrà fornita anche l'app completata.
 
-## 1. Registrare un'app
+## Registrare un'app
 Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questa [procedura dettagliata](active-directory-v2-app-registration.md). Verificare di:
 
 - Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
 - Aggiungere la piattaforma **Mobile** per l'app.
 - Annotare il **Redirect URI** dal portale. È necessario usare il valore predefinito `urn:ietf:wg:oauth:2.0:oob`.
 
-## 2. Installare e configurare ADAL
+## Installare e configurare ADAL
 A questo punto si dispone di un'app registrata in Microsoft ed è possibile installare ADAL e trascrivere il codice correlato all'identità. Affinché ADAL riesca a comunicare con l'endpoint v2.0, è necessario fornirlo insieme ad alcune informazioni relative alla registrazione dell'app.
 
 -	Innanzitutto, aggiungere ADAL al progetto TodoListClient usando la console di Gestione pacchetti.
 
 ```
-PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
+PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease
 ```
 
 -	Nel progetto TodoListClient aprire `app.config`. Sostituire i valori degli elementi nella sezione `<appSettings>` in modo che corrispondano ai valori inseriti nel portale di registrazione dell'app. Il codice farà riferimento a questi valori ogni volta che userà ADAL.
@@ -62,7 +59,7 @@ PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory
 - Nel progetto TodoList-Service aprire `web.config` nella radice del progetto.  
     - Sostituire il valore `ida:Audience` con lo stesso **ID applicazione** del portale.
 
-## 3\. Usare ADAL per ottenere token
+## Usare ADAL per ottenere token
 Il principio alla base di ADAL è che l'app, ogni volta che ha bisogno di un token di accesso, deve semplicemente chiamare `authContext.AcquireToken(...)` e ADAL fa il resto.
 
 -	Nel progetto `TodoListClient` aprire `MainWindow.xaml.cs` e individuare il metodo `OnInitialized(...)`. Il primo passaggio consiste nell'inizializzare l'oggetto `AuthenticationContext` dell'app, ovvero la classe primaria di ADAL, dove si passano ad ADAL le coordinate di cui ha bisogno per comunicare con Azure AD e gli si indica come memorizzare i token nella cache.
@@ -231,7 +228,9 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null) { /
 		...
 ```
 
-A questo punto A questo punto si dispone di un'app WPF .NET funzionante, la quale consente di autenticare gli utenti e di effettuare chiamate sicure delle API Web utilizzando Oauth 2.0. Eseguire entrambi i progetti e accedere con un account Microsoft personale oppure con un account aziendale o dell'istituto di istruzione. Aggiungere le attività all'elenco To-Do dell'utente. Disconnettersi e ripetere l'accesso come utente differente per visualizzare l'elenco To-Do. Chiudere l'app e rieseguirla. La sessione dell'utente non subisce modifiche, poiché l'app memorizza i token in un file locale.
+## Esegui
+
+Congratulazioni. A questo punto si dispone di un'app WPF .NET funzionante, la quale consente di autenticare gli utenti e di effettuare chiamate sicure delle API Web utilizzando Oauth 2.0. Eseguire entrambi i progetti e accedere con un account Microsoft personale oppure con un account aziendale o dell'istituto di istruzione. Aggiungere le attività all'elenco To-Do dell'utente. Disconnettersi e ripetere l'accesso come utente differente per visualizzare l'elenco To-Do. Chiudere l'app e rieseguirla. La sessione dell'utente non subisce modifiche, poiché l'app memorizza i token in un file locale.
 
 ADAL facilita l'incorporazione delle funzionalità di identità comuni all'interno dell'app usando sia account personali che aziendali. Esegue automaticamente le attività più complesse: gestione della cache, supporto del protocollo OAuth, presentazione all'utente di un'interfaccia utente di accesso, aggiornamento dei token scaduti e altro. Tutto ciò che occorre conoscere è una sola chiamata all'API, `authContext.AcquireTokenAsync(...)`.
 
@@ -241,10 +240,10 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 ## Passaggi successivi
 
-Ora è possibile passare ad argomenti più avanzati. È possibile consultare:
+Ora è possibile passare ad argomenti più avanzati. È possibile:
 
-- [Protezione dell'API Web TodoListService con Modello app 2.0 >>](active-directory-v2-devquickstarts-dotnet-api.md)
+- [Protezione dell'API Web TodoListService con l'endpoint v2.0 >>](active-directory-v2-devquickstarts-dotnet-api.md)
 
-Per altre risorse consultare: - [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Per altre risorse consultare: - [la guida per gli sviluppatori versione 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

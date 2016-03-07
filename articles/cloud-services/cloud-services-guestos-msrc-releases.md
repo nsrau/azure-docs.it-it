@@ -20,19 +20,36 @@
 
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
+
+## Sistema operativo guest di febbraio
+
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-009 | [3134220] | Aggiornamento cumulativo della sicurezza per Internet Explorer | 4\.29, 3.36, 2.48 | 9 febbraio 2016 |
+| MS16-013 | [3134811] | Aggiornamento della sicurezza di Windows Journal in merito all'esecuzione di codice in modalità remota | 4\.29, 3.36, 2.48 | 9 febbraio 2016 |
+| MS16-014 | [3134228] | Aggiornamento della sicurezza di Microsoft Windows in merito all'esecuzione di codice in modalità remota | 4\.29, 3.36, 2.48 | 9 febbraio 2016 |
+| MS16-016 | [3136041] | Aggiornamento della sicurezza di WebDAV in merito all'elevazione dei privilegi | 4\.29, 3.36, 2.48 | 9 febbraio 2016 |
+| MS16-018 | [3136082] | Aggiornamento della sicurezza per il driver in modalità Kernel di Windows in merito all'elevazione dei privilegi | 4\.29, 3.36, 2.48 | 9 febbraio 2016 |
+| MS16-019 | [3137893] | Aggiornamento della sicurezza per .NET Framework in merito all'esecuzione di codice in modalità remota | 4\.29, 3.36, 2.48 | 9 febbraio 2016 |
+| MS16-021 | [3133043] | Aggiornamento della sicurezza per il server NPS RADIUS in merito al Denial of Service | 4\.29, 3.36, 2.48 | 9 febbraio 2016 |
+| Advisory Microsoft sulla sicurezza | [3109853] | Aggiornamento per migliorare l'interoperabilità TLS | 4\.29, 3.36 | 9 febbraio 2016 |
+| Nuovo rilascio - MS15-101 | [3089662] | Le vulnerabilità in .NET Framework potrebbero consentire l'elevazione dei privilegi | 4\.29, 3.36, 2.48 | 9 febbraio 2016 |
+| Nuovo rilascio - MS15-118 | [3104507] | Aggiornamenti della protezione per .NET Framework per risolvere l'elevazione dei privilegi | 4\.29, 3.36, 2.48 | 9 febbraio 2016 |
+| Nuovo rilascio - MS15-128 | [3104503] | Aggiornamento della sicurezza per il componente grafico Microsoft per l'esecuzione di codice in modalità remota dell’indirizzo | 4\.29, 3.36, 2.48 | 9 febbraio 2016 |
+
 ## Sistema operativo guest di gennaio
 
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS16-001 | [3124903] | Aggiornamento cumulativo della sicurezza per Internet Explorer | 4\.28, 3.35, 2.47 | 12 gennaio 2015 |
-| MS16-003 | [3125540] | Aggiornamento cumulativo della sicurezza per JScript e VBScript | 2\.47 | 12 gennaio 2015 |
-| MS16-005 | [3124584] | Aggiornamento della sicurezza per i driver in modalità kernel di Windows per risolvere l'esecuzione di codice in modalità remota | 4\.28, 3.35, 2.47 | 12 gennaio 2015 |
-| MS16-007 | [3124901] | Aggiornamento della sicurezza per Microsoft Windows per l'esecuzione di codice in modalità remota dell’indirizzo | 4\.28, 3.35, 2.47 | 12 gennaio 2015 |
-| MS16-008 | [3124605] | Aggiornamento della sicurezza per il kernel risolvere l'elevazione dei privilegi | 4\.28, 3.35, 2.47 | 12 gennaio 2015 |
-| Revisione dell'avviso di sicurezza Microsoft | [2755801] | Aggiornamento per le vulnerabilità in Adobe Flash Player in Internet Explorer (pacchetto KB: da definire), avviso segnaposto | 4\.28, 3.35 | 12 gennaio 2015 |
-| Advisory Microsoft sulla sicurezza | [3109853] | Aggiornamento per migliorare l'interoperabilità TLS | 4\.28, 3.35 | 12 gennaio 2015 |
-| Advisory Microsoft sulla sicurezza | [3123479] | Deprecato l'algoritmo hash SHA-1 per il programma Microsoft Root Certificate | 4\.28, 3.35, 2.47 | 12 gennaio 2015 |
-| Advisory Microsoft sulla sicurezza | [2736233] | Aggiornamenti per ActiveX Killbit | 4\.28, 3.35, 2.47 | 12 gennaio 2015 |
+| MS16-001 | [3124903] | Aggiornamento cumulativo della sicurezza per Internet Explorer | 4\.28, 3.35, 2.47 | 12 gennaio 2016 |
+| MS16-003 | [3125540] | Aggiornamento cumulativo della sicurezza per JScript e VBScript | 2\.47 | 12 gennaio 2016 |
+| MS16-005 | [3124584] | Aggiornamento della sicurezza per i driver in modalità kernel di Windows per risolvere l'esecuzione di codice in modalità remota | 4\.28, 3.35, 2.47 | 12 gennaio 2016 |
+| MS16-007 | [3124901] | Aggiornamento della sicurezza per Microsoft Windows per l'esecuzione di codice in modalità remota dell’indirizzo | 4\.28, 3.35, 2.47 | 12 gennaio 2016 |
+| MS16-008 | [3124605] | Aggiornamento della sicurezza per il kernel risolvere l'elevazione dei privilegi | 4\.28, 3.35, 2.47 | 12 gennaio 2016 |
+| Revisione dell'avviso di sicurezza Microsoft | [2755801] | Aggiornamento per le vulnerabilità in Adobe Flash Player in Internet Explorer (pacchetto KB: da definire), avviso segnaposto | 4\.28, 3.35 | 12 gennaio 2016 |
+| Advisory Microsoft sulla sicurezza | [3109853] | Aggiornamento per migliorare l'interoperabilità TLS | 4\.28, 3.35 | 12 gennaio 2016 |
+| Advisory Microsoft sulla sicurezza | [3123479] | Deprecato l'algoritmo hash SHA-1 per il programma Microsoft Root Certificate | 4\.28, 3.35, 2.47 | 12 gennaio 2016 |
+| Advisory Microsoft sulla sicurezza | [2736233] | Aggiornamenti per ActiveX Killbit | 4\.28, 3.35, 2.47 | 12 gennaio 2016 |
 
 ## Sistema operativo guest di dicembre
 
@@ -178,7 +195,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-029 | [3035126][3035126] | La vulnerabilità nel componente Windows Photo Decoder potrebbe consentire la divulgazione di informazioni | 4\.18, 3.25, 2.37 | N/D |
 | MS15-030 | [3039976] | La vulnerabilità in Remote Desktop Protocol potrebbe consentire un attacco Denial of Service | 4\.18, 3.25, 2.37 | N/D |
 
-> [AZURE.NOTE]Il bollettino MS15-031 potrebbe apparire come non installato. Non è tuttavia applicabile a questa versione del sistema operativo guest.
+> [AZURE.NOTE] Il bollettino MS15-031 potrebbe apparire come non installato. Non è tuttavia applicabile a questa versione del sistema operativo guest.
 
 ## Sistema operativo guest di febbraio
 
@@ -224,6 +241,18 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [3007054][3007054] | L'opzione di stampa protetta da PIN viene sempre visualizzata quando si stampa un documento in un'applicazione di Windows Store in Windows | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 | N/D | [2999802][2999802] | In Windows vengono stampate linee a tinta unita invece che linee tratteggiate | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 | N/D | [2896881][2896881] | È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
+
+[3134220]: http://support.microsoft.com/kb/3134220
+[3134811]: http://support.microsoft.com/kb/3134811
+[3134228]: http://support.microsoft.com/kb/3134228
+[3136041]: http://support.microsoft.com/kb/3136041
+[3136082]: http://support.microsoft.com/kb/3136082
+[3137893]: http://support.microsoft.com/kb/3137893
+[3133043]: http://support.microsoft.com/kb/3133043
+[3109853]: http://support.microsoft.com/kb/3109853
+[3089662]: http://support.microsoft.com/kb/3089662
+[3104507]: http://support.microsoft.com/kb/3104507
+[3104503]: http://support.microsoft.com/kb/3104503
 
 [3124903]: http://support.microsoft.com/kb/3124903
 [3125540]: http://support.microsoft.com/kb/3125540
@@ -377,4 +406,4 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

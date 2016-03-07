@@ -1,5 +1,5 @@
 <properties
-	pageTitle="API Web di Node.js del modello app v2.0 | Microsoft Azure"
+	pageTitle="API Web NodeJS v2.0 di Azure AD| Microsoft Azure"
 	description="Come creare un'API Web NodeJS che accetta token da account Microsoft personali, aziendali o dell'istituto di istruzione."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -10,27 +10,22 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-	ms.tgt_pltfrm="na"
+  	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="brandwe"/>
 
-# Anteprima di Modello app 2.0: Proteggere un'API Web usando Node.js
+# Proteggere un'API Web usando node.js
 
 > [AZURE.NOTE]
-Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
+	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 
-Con Modello app 2.0 è possibile proteggere un'API Web usando token di accesso [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), in modo da consentire agli utenti di accedere all'API Web in modo sicuro con un account Microsoft personale, aziendale o dell'istituto di istruzione.
+Con l'endpoint v2.0 di Azure Active Directory è possibile proteggere un'API Web usando token di accesso [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) in modo da consentire agli utenti di accedere all'API Web in modo sicuro con un account Microsoft personale, aziendale o dell'istituto di istruzione.
 
 **Passport** è il middleware di autenticazione per Node.js. Passport, estremamente flessibile e modulare, può essere rilasciato in modo non invadente in qualsiasi applicazione Web basata su Express o Resitify. Una gamma completa di strategie supporta l'autenticazione mediante nome utente e password, Facebook, Twitter e altro ancora. È stata sviluppata una strategia per Microsoft Azure Active Directory. Dopo l'installazione di questo modulo, verrà aggiunto il plug-in `passport-azure-ad` di Microsoft Azure Active Directory.
 
-A questo scopo è necessario:
-
-1. Registrare un'applicazione con Azure AD.
-2. Impostare l'app per l'uso del plug-in azure-ad-passport di Passport.
-3. Configurare un'applicazione client per chiamare l'API Web To Do List.
-
+## Scaricare
 Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs). Per seguire la procedura è possibile [scaricare la struttura dell'app come file con estensione zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip) o clonare la struttura:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
@@ -38,8 +33,8 @@ Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azu
 Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
 
-## 1. Registrare un'app
-Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questa [procedura dettagliata](active-directory-v2-app-registration.md).  Verificare di:
+## 1\. Registrare un'app
+Creare una nuova app in [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o seguire questa [procedura dettagliata](active-directory-v2-app-registration.md). Verificare di:
 
 - Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
 - Aggiungere la piattaforma **Mobile** per l'app.
@@ -57,7 +52,7 @@ Per usare correttamente questo esempio, è necessario disporre di un'installazio
 
 Installare MongoDB da [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] in questa procedura dettagliata si presume che si usino gli endpoint server e di installazione predefiniti per MongoDB, che al momento della stesura di questo articolo sono: mongodb://localhost
+> [AZURE.NOTE] In questa procedura dettagliata si presume che si usino gli endpoint server e di installazione predefiniti per MongoDB, che al momento della stesura di questo articolo sono: mongodb://localhost
 
 ## Passaggio 4: Installare i moduli Restify nell'API Web
 
@@ -75,11 +70,11 @@ Digitare il seguente comando:
 
 Questo comando installa Restify.
 
-#### È stato visualizzato un errore?
+#### È STATO VISUALIZZATO UN ERRORE?
 
 Quando si usa npm in alcuni sistemi operativi, è possibile che vengano visualizzati un errore di errore: EPERM, chmod '/usr/local/bin/..' e una richiesta di provare a eseguire l'account come amministratore. In questo caso, usare il comando sudo per eseguire npm a un livello di privilegi più elevato.
 
-#### È stato visualizzato un errore relativo a DTRACE?
+#### È STATO VISUALIZZATO UN ERRORE RELATIVO A DTRACE?
 
 Durante l'installazione di Restify, è possibile che venga visualizzato qualcosa di simile:
 
@@ -126,7 +121,7 @@ L'output di questo comando dovrebbe apparire simile al seguente:
 	├── verror@1.3.6 (extsprintf@1.0.2)
 	├── csv@0.3.6
 	├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
-	└── bunyan@0.22.0 (mv@0.0.5)
+	└── bunyan@0.22.0(mv@0.0.5)
 
 
 ## 5: Installare Passport.js nell'API Web
@@ -182,7 +177,7 @@ MongoDB verrà usato come archivio dati. Per questo motivo, è necessario instal
 * `npm install mongoose`
 * `npm install mongodb`
 
-## 8. Installare moduli aggiuntivi
+## 8\. Installare moduli aggiuntivi
 
 Ora si installeranno gli altri moduli necessari.
 
@@ -650,13 +645,12 @@ In primo luogo, assicurarsi che l'istanza di monogoDB sia in esecuzione.
 
 Quindi, passare alla directory e iniziare a usare Curl.
 
-`$ cd azuread`
-`$ node server.js`
+`$ cd azuread` `$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
 ```Shell
-HTTP/1.1 200 OK
+HTTP/1.1 2.0OK
 Connection: close
 Content-Type: application/json
 Content-Length: 171
@@ -770,7 +764,7 @@ Passport usa un modello simile per tutte le strategie (Twitter, Facebook e così
 > [AZURE.IMPORTANT]
 Il codice precedente accetta qualsiasi utente che esegue l'autenticazione al server. Questa operazione è nota come registrazione automatica. Nei server di produzione è preferibile non consentire l'accesso a chiunque senza prima prevedere un processo di registrazione. Questo è il modello in genere adottato per le app consumer che consentono di eseguire la registrazione con Facebook, ma che chiedono di immettere informazioni aggiuntive. Se non si trattasse di un programma della riga di comando, si sarebbe estratto il messaggio di posta elettronica dall'oggetto token restituito e si sarebbe chiesto di immettere informazioni aggiuntive. Poiché si tratta di un server di test, è sufficiente aggiungere le informazioni al database in memoria.
 
-### 2. Proteggere alcuni endpoint
+### 2\. Proteggere alcuni endpoint
 
 Per proteggere gli endpoint, specificare la chiamata a passport.authenticate() con il protocollo preferito.
 
@@ -852,12 +846,10 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
-È ora possibile passare ad argomenti più avanzati. È possibile consultare:
+È ora possibile passare ad argomenti più avanzati. È possibile:
 
-[Proteggere un'API Web con Modello app 2.0 in Node.js >>](active-directory-v2-devquickstarts-node-web.md)
+[Proteggere un'app Web Node.js usando l'endpoint v2.0 >>](active-directory-v2-devquickstarts-node-web.md)
 
-Per altre risorse consultare:
-- [l'anteprima di Modello app 2.0 >>](active-directory-appmodel-v2-overview.md)
-- [il tag "azure-active directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Per altre risorse consultare: - [la guida per gli sviluppatori versione 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "azure-active-directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

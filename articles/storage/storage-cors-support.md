@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/19/2016"
 	ms.author="tamram"/>
 
 # Supporto di condivisione delle risorse multiorigine (CORS) per i servizi di archiviazione di Azure
@@ -22,7 +22,7 @@ A partire dalla versione del 15 agosto 2013, i servizi di archiviazione di Azure
 
 È possibile impostare regole CORS singolarmente per ciascun servizio di archiviazione chiamando [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) e [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Una volta impostate le regole CORS per il servizio, una richiesta correttamente autenticata, eseguita al servizio e autenticata correttamente, verrà valutata per determinare se è consentita in base alle regole specificate.
 
->[AZURE.NOTE]CORS non è un meccanismo di autenticazione. Qualsiasi richiesta eseguita a una risorsa di archiviazione quando è abilitata la condivisione CORS deve disporre di una firma di autenticazione appropriata o deve essere eseguita su una risorsa pubblica.
+>[AZURE.NOTE] CORS non è un meccanismo di autenticazione. Qualsiasi richiesta eseguita a una risorsa di archiviazione quando è abilitata la condivisione CORS deve disporre di una firma di autenticazione appropriata o deve essere eseguita su una risorsa pubblica.
 
 ## Informazioni sulle richieste CORS
 
@@ -147,7 +147,7 @@ La seconda richiesta non corrisponde alla prima regola, perché il metodo non co
 
 La terza richiesta corrisponde alla seconda regola nel relativo metodo e dominio di origine, pertanto non vengono valutate altre regole. Tuttavia, l'*intestazione x-ms-client-request-id* non è consentita dalla seconda regola, quindi la richiesta ha esito negativo, anche se la semantica della terza regola ne avrebbe consentito l'esito positivo.
 
->[AZURE.NOTE]Sebbene nell'esempio sia riportata una regola meno restrittiva prima di una più restrittiva, in generale è consigliabile elencare prima le regole più restrittive.
+>[AZURE.NOTE] Sebbene nell'esempio sia riportata una regola meno restrittiva prima di una più restrittiva, in generale è consigliabile elencare prima le regole più restrittive.
 
 ## Informazioni sulla procedura per impostare l'intestazione Vary
 
@@ -195,4 +195,4 @@ Le richieste preliminari con esito negativo non verranno fatturate.
 
 [Specifica del W3C relativa alla condivisione delle risorse multiorigine (CORS)](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

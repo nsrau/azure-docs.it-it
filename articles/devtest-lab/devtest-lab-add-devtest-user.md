@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Aggiungere proprietari e utenti di un lab di sviluppo e test
+
+> [AZURE.NOTE] Fare clic sul collegamento seguente per visualizzare il video associato a questo articolo, relativo alla [procedura di impostazione della sicurezza nel lab di sviluppo/test](/documentation/videos/how-to-set-security-in-your-devtest-lab)
 
 ## Panoramica
 
@@ -101,4 +103,4 @@ Per aggiungere un utente di Lab di sviluppo e test nel lab, seguire questi passa
 
 	1. Il pannello **Utenti** mostra ruoli e utenti aggiunti.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

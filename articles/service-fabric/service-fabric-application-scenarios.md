@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/30/2015"
+   ms.date="02/12/2016"
    ms.author="mfussell"/>
 
 # Scenari di applicazione di Service Fabric
@@ -22,7 +22,7 @@ Azure Service Fabric offre una piattaforma flessibile e affidabile che consente 
 
 La piattaforma Service Fabric in Azure è ideale per le categorie di applicazioni e servizi seguenti:
 
-- **Servizi a disponibilità elevata**: i servizi di Service Fabric garantiscono un failover estremamente veloce. L’infrastruttura di servizi consente di creare più repliche del servizio secondario. In caso di inattività di un nodo, processo o singolo servizio a causa di un errore hardware o altra anomalia, una delle repliche secondarie viene immediatamente innalzata di livello a replica primaria con una perdita trascurabile di servizio per i clienti.
+- **Servizi a disponibilità elevata**: i servizi di Service Fabric garantiscono un failover veloce tramite la creazione di più repliche secondarie del servizio. In caso di inattività di un nodo, di un processo o di un singolo servizio a causa di un errore hardware o di un'altra anomalia, una delle repliche secondarie viene innalzata di livello a replica primaria con una perdita trascurabile di servizio.
 
 - **Servizi scalabili**: è possibile partizionare singoli servizi implementando la scalabilità orizzontale dello stato nel cluster. Inoltre, i singoli servizi possono essere creati e rimossi in tempo reale. I servizi possono essere aumentati facilmente e rapidamente da poche istanze su un numero ridotto di nodi a migliaia di istanze su molti nodi, e quindi ridotti nuovamente, a seconda delle esigenze delle risorse. È possibile usare Service Fabric per compilare questi servizi e gestire il relativo ciclo di vita completo.
 
@@ -68,4 +68,4 @@ Vedere anche gli argomenti seguenti:
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

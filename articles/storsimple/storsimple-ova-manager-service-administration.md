@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # Usare il servizio StorSimple Manager per amministrare l'array virtuale StorSimple (anteprima)
@@ -75,13 +75,15 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 |Se si desidera eseguire questa operazione...|Andare a questa pagina dell'interfaccia utente...|Seguire questa procedura|
 |---|---|---|
 |Creare un servizio</br>Eliminare un servizio</br>Ottenere la chiave di registrazione del servizio</br>Rigenerare la chiave di registrazione del servizio|Servizio StorSimple Manager|[Distribuire il servizio StorSimple Manager](storsimple-ova-manage-service.md)|
+|Modificare la chiave DEK del servizio</br>Visualizzare i log delle operazioni|Servizio StorSimple Manager → Dashboard|[Usare il dashboard del servizio StorSimple](storsimple-ova-service-dashboard.md)|
 |Disattivare un array virtuale</br>Eliminare un array virtuale|Servizio StorSimple Manager → Dispositivi|[Disattivare o eliminare un array virtuale](storsimple-ova-deactivate-and-delete-device.md)|
 |Ripristino di emergenza e failover del dispositivo</br>Prerequisiti per il failover</br>Failover su un dispositivo virtuale</br>Ripristino di emergenza di continuità aziendale (BCDR)</br>Errori durante il ripristino di emergenza|Servizio StorSimple Manager → Dispositivi|[Ripristino di emergenza e failover del dispositivo per l'array virtuale StorSimple](storsimple-ova-failover-dr.md)|
 |Backup di condivisioni e volumi</br>Eseguire un backup manuale</br>Modificare la pianificazione del backup</br>Visualizzare i backup esistenti|Servizio StorSimple Manager → Catalogo di backup|[Backup dell'array virtuale StorSimple](storsimple-ova-backup.md)|
 |Ripristinare condivisioni da un set di backup</br>Ripristinare volumi da un set di backup</br>Ripristino a livello di elementi (solo file server)|Servizio StorSimple Manager → Catalogo di backup|[Ripristinare da un backup dell'array virtuale StorSimple](storsimple-ova-restore.md)|
 |Informazioni sugli account di archiviazione</br>Aggiungere un account di archiviazione</br>Modificare un account di archiviazione</br>Eliminare un account di archiviazione|Servizio StorSimple Manager → Configura|[Gestire un account di archiviazione per l'array virtuale StorSimple](storsimple-ova-manage-storage-accounts.md)|
 |Informazioni sui record di controllo di accesso</br>Aggiungere o modificare un record di controllo di accesso </br>Eliminare un record di controllo di accesso|Servizio StorSimple Manager → Configura|[Gestire record di controllo di accesso per l'array virtuale StorSimple](storsimple-ova-manage-acrs.md)|
-|Configurare le impostazioni degli avvisi</br>Ricevere notifiche di avviso</br>Gestire gli avvisi</br>Esaminare gli avvisi|Servizio StorSimple Manager → Avvisi|[Visualizzare e gestire gli avvisi per l'array virtuale StorSimple](storsimple-ova-manage-alerts.md)
+|Visualizza i dettagli dei processi|Servizio StorSimple Manager → Processi| [Gestire processi di array virtuali StorSimple](storsimple-ova-manage-jobs.md)|
+|Configurare le impostazioni degli avvisi</br>Ricevere notifiche di avviso</br>Gestire gli avvisi</br>Esaminare gli avvisi|Servizio StorSimple Manager → Avvisi|[Visualizzare e gestire gli avvisi per l'array virtuale StorSimple](storsimple-ova-manage-alerts.md)|
 |Modificare la password dell’amministratore del dispositivo|Servizio StorSimple Manager → Dispositivi → Configura|[Modificare la password amministratore del dispositivo dell'array virtuale StorSimple](storsimple-ova-change-device-admin-password.md)|
 |Installare gli aggiornamenti del software|Servizio StorSimple Manager → Dispositivi → Manutenzione|[Aggiornare l'array virtuale](storsimple-ova-update.md)|
 
@@ -92,6 +94,6 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 >- [Arrestare e riavviare l'array virtuale](storsimple-ova-web-ui-admin.md#shut-down-and-restart-your-device)
 
 ##Passaggi successivi
-Per informazioni sull'interfaccia utente Web e sul relativo utilizzo, vedere [Usare l'interfaccia utente Web per amministrare l'array virtuale StorSimple (anteprima)](storsimple-ova-web-ui-admin.md).
+Per informazioni sull'interfaccia utente Web e sul suo uso, vedere [Usare l'interfaccia utente Web per amministrare l'array virtuale StorSimple (anteprima)](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

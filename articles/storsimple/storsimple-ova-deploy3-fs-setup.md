@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/05/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli"/>
 
 # Distribuire StorSimple Virtual Array: configurare come file server (anteprima)
@@ -69,7 +69,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image5.png)
 
-	Se si aggiunge più di un'interfaccia di rete durante il provisioning del dispositivo, è possibile configurarle tutte qui.
+	Se si aggiunge più di un'interfaccia di rete durante il provisioning del dispositivo, è possibile configurarle tutte qui. Si noti che è possibile configurare l'interfaccia di rete come solo IPv4 o come IPv4 e IPv6. Le configurazioni solo IPv6 non sono supportate.
 
 1.  I server DNS sono necessari perché vengono usati quando il dispositivo tenta di comunicare con i provider del servizio di archiviazione cloud o per risolvere il dispositivo in base al nome quando configurato come file server. Nella pagina **Impostazioni di rete**, in **Server DNS**:
 
@@ -235,4 +235,4 @@ Guardare il video per scoprire in che modo configurare e registrare StorSimple V
 
 Scoprire come usare l'interfaccia utente Web locale per [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

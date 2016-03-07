@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Definire i criteri del lab
+
+> [AZURE.NOTE] Fare clic sul collegamento seguente per visualizzare il video associato a questo articolo, relativo alla [procedura di creazione di elementi personalizzati](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab)
 
 ## Panoramica
 
@@ -100,4 +102,4 @@ I criteri di arresto automatico consentono di ridurre al minimo gli sprechi nel 
 
 1. Toccare **Salva**.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

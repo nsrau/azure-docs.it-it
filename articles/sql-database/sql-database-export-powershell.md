@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,7 +19,6 @@
 
 # Creare ed esportare un file BACPAC di un database SQL di Azure tramite PowerShell
 
-**Database singolo**
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-export.md)
@@ -30,7 +29,7 @@ In questo articolo vengono fornite istruzioni per l'esportazione di un file BACP
 
 Un [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) è un file con estensione .bacpac che contiene lo schema del database e i dati. L'utilizzo primario per un file BACPAC è quello di spostare un database da un server all’altro, a [migrazione di un database locale nel cloud](sql-database-cloud-migrate.md), e di archiviare un database esistente in un formato aperto.
 
-> [AZURE.NOTE]I BACPAC non sono destinati a essere utilizzati per il backup e le operazioni di ripristino. Il database SQL di Azure crea automaticamente i backup per ogni database dell’utente. Per ulteriori informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
+> [AZURE.NOTE] I BACPAC non sono destinati a essere utilizzati per il backup e le operazioni di ripristino. Il database SQL di Azure crea automaticamente i backup per ogni database dell’utente. Per ulteriori informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
 
 Il file BACPAC viene esportato in un contenitore di BLOB di archiviazione di Azure che è possibile scaricare una volta che l'operazione è stata completata correttamente.
@@ -38,10 +37,10 @@ Il file BACPAC viene esportato in un contenitore di BLOB di archiviazione di Azu
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-- Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
+- Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare clic su **ACCOUNT GRATUITO** nella parte superiore della pagina, quindi tornare all'articolo.
 - Database SQL di Azure. Se non si dispone di un database SQL, crearne uno seguendo i passaggi indicati in questo articolo: [Creare il primo database SQL di Azure](sql-database-get-started.md).
-- Un [account di archiviazione Azure](storage-create-storage-account.md) con un contenitore di BLOB per archiviare il BACPAC. Attualmente l'account di archiviazione deve utilizzare il modello di distribuzione classica, quindi selezionate **Classico** durante la creazione di un account di archiviazione.
-- Azure PowerShell. Per scaricare e installare i moduli Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
+- Un [account di archiviazione Azure](../storage/storage-create-storage-account.md) con un contenitore di BLOB per archiviare il BACPAC. Attualmente l'account di archiviazione deve utilizzare il modello di distribuzione classica, quindi selezionate **Classico** durante la creazione di un account di archiviazione.
+- Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 
 
@@ -60,7 +59,7 @@ Per selezionare la sottoscrizione, è necessario l’ID sottoscrizione o il nome
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-Dopo aver eseguito correttamente il cmdlet **Select-AzureSubscription**, verrà nuovamente visualizzato il prompt dei comandi di PowerShell. Se si dispone di più di una sottoscrizione, è possibile eseguire il cmdlet **Get-AzureSubscription** e verificare che nella sottoscrizione che si desidera usare sia visualizzato **IsCurrent : True**.
+Dopo aver eseguito correttamente il cmdlet **Select-AzureSubscription**, verrà nuovamente visualizzato il prompt dei comandi di PowerShell. Se si dispone di più di una sottoscrizione, è possibile eseguire il cmdlet **Get-AzureSubscription** e verificare che nella sottoscrizione che si desidera usare sia visualizzato **IsCurrent:True**.
 
 
 ## Impostare le variabili per l'ambiente specifico
@@ -94,7 +93,7 @@ Eseguendo il cmdlet **Get-Credential** si apre una finestra in cui vengono chies
 
 Tale comando invia una richiesta di esportazione del database al servizio. A seconda delle dimensioni del database, l'operazione di esportazione potrebbe richiedere molto tempo.
 
-> [AZURE.IMPORTANT]Per garantire un file BACPAC coerente dal punto di vista transazionale è necessario innanzitutto [creare una copia del database](sql-database-copy-powershell.md) e quindi esportare la copia del database.
+> [AZURE.IMPORTANT] Per garantire un file BACPAC coerente dal punto di vista transazionale è necessario innanzitutto [creare una copia del database](sql-database-copy-powershell.md) e quindi esportare la copia del database.
 
 
     $exportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
@@ -148,4 +147,4 @@ L’esecuzione di questo comando richiede una password. Immettere la password de
 - [Esercitazioni di ripristino di emergenza](sql-database-disaster-recovery-drills.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

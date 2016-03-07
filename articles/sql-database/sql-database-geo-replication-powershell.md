@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="sstein"/>
 
 # Configurare la replica geografica per il database SQL di Azure
@@ -36,7 +36,7 @@ I database Standard possono avere un solo database secondario non accessibile in
 
 Per configurare la replica geografica, sono necessari gli elementi seguenti:
 
-- Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
+- Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare clic su **ACCOUNT GRATUITO** nella parte superiore della pagina, quindi tornare all'articolo.
 - Un database SQL di Azure logico: il database primario che si vuole replicare in una area geografica diversa.
 - Azure PowerShell 1.0 o versione successiva È possibile scaricare e installare i moduli di Azure PowerShell dalla pagina [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
@@ -215,4 +215,4 @@ Il comando seguente recupera lo stato del collegamento di replica tra il databas
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 - [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

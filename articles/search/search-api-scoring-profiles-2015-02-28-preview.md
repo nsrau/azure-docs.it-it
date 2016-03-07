@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Profili di punteggio (API REST di Ricerca di Azure versione 28/02/2015 Anteprima) | Microsoft Azure | Servizio di ricerca cloud ospitato"
+	pageTitle="Profili di punteggio (API REST di Ricerca di Azure versione 28/02/2015 Anteprima) | Microsoft Azure | API di anteprima di Ricerca di Azure"
 	description="Ricerca di Azure è un servizio di ricerca ospitato sul cloud che supporta l'ottimizzazione dei risultati in base ai profili di punteggio definiti dall'utente."
 	services="search"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="11/04/2015" />
+	ms.date="02/18/2016" />
 
 # Profili di punteggio (API REST di Ricerca di Azure versione 2015-02-28-Preview)
 
-> [AZURE.NOTE]Questo articolo descrive i profili di punteggio in [2015-02-28-Preview](search-api-2015-02-28-preview.md). Attualmente non esiste alcuna differenza tra la versione documentata `2015-02-28` in [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) e la versione `2015-02-28-Preview` descritta di seguito.
+> [AZURE.NOTE] Questo articolo descrive i profili di punteggio in [2015-02-28-Preview](search-api-2015-02-28-preview.md). Attualmente non esiste alcuna differenza tra la `2015-02-28` versione documentata in [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) e `2015-02-28-Preview` la versione descritta qui. Questo documento è comunque disponibile per garantire la copertura completa dell'API dal punto di vista della documentazione.
 
 ## Panoramica
 
@@ -55,7 +55,7 @@ Per usare il profilo di punteggio, la query viene formulata in modo da specifica
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2015-02-28-Preview
 
-Questa query cerca il termine 'inn' e passa la posizione attuale. Si noti che questa query include altri parametri, ad esempio `scoringParameter`. I parametri della query sono illustrati in [Cercare documenti (API di Ricerca di Azure)](search-api-2015-02-28-preview/#SearchDocs.md).
+Questa query cerca il termine 'inn' e passa la posizione attuale. Si noti che questa query include altri parametri, ad esempio `scoringParameter`. I parametri della query sono illustrati in [Cercare documenti (API di Ricerca di Azure)](search-api-2015-02-28-preview/#SearchDocs).
 
 Fare clic su [Esempio](#example) per esaminare un esempio più dettagliato del profilo di punteggio.
 
@@ -372,4 +372,4 @@ Per altri esempi, vedere il sito Web relativo ai [tipi di dati dello schema XML 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

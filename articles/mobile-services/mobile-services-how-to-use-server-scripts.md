@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="ricksal"/>
 
 
@@ -106,7 +106,7 @@ Uno script di operazione su tabella deve chiamare almeno una delle funzioni segu
  
 + **respond function**: viene restituita una risposta personalizzata.
 
-> [AZURE.IMPORTANT]Quando uno script include un percorso di codice in cui non viene richiamata né la funzione **execute** né la funzione **respond**, è possibile che l'operazione si blocchi.
+> [AZURE.IMPORTANT] Quando uno script include un percorso di codice in cui non viene richiamata né la funzione **execute** né la funzione **respond**, è possibile che l'operazione si blocchi.
 
 Lo script seguente chiama la funzione **execute** per completare l'operazione dati richiesta dal client:
 
@@ -318,7 +318,7 @@ Questa sezione descrive come creare e usare gli endpoint delle API personalizzat
 
 ###<a name="custom-api-overview"></a>Panoramica delle API personalizzate
 
-Un'API personalizzata è un endpoint nel servizio mobile a cui è possibile accedere mediante uno o più metodi HTTP standard: GET, POST, PUT, PATCH, DELETE. È possibile definire un'esportazione di funzioni separata per ogni metodo HTTP supportato dall'API personalizzata, in un unico file di script. Lo script registrato viene richiamato quando viene ricevuta una richiesta all'API personalizzata mediante il metodo specificato. Per ulteriori informazioni, vedere [API personalizzata].
+Un'API personalizzata è un endpoint nel servizio mobile a cui è possibile accedere mediante uno o più metodi HTTP standard: GET, POST, PUT, PATCH, DELETE. È possibile definire un'esportazione di funzioni separata per ogni metodo HTTP supportato dall'API personalizzata, in un unico file di script. Lo script registrato viene richiamato quando viene ricevuta una richiesta all'API personalizzata mediante il metodo specificato. Per altre informazioni, vedere [API personalizzata].
 
 Quando le funzioni API personalizzate vengono chiamate dal runtime di Servizi mobili, vengono forniti sia un oggetto [request][request object] che un oggetto [response][response object]. Questi oggetti espongono la funzionalità della [libreria express.js], che può essere sfruttata dagli script. L'API personalizzata riportata di seguito, denominata **hello**, è un esempio molto semplice che restituisce _Hello, world!_ in risposta a una richiesta POST:
 
@@ -513,7 +513,7 @@ Servizi mobili espone un set di moduli che gli script possono caricare usando la
 
 Dopo avere eseguito il commit del file package.json o dei moduli personalizzati nell'archivio per il servizio mobile, utilizzare **require** per fare riferimento ai moduli in base al nome.
 
->[AZURE.NOTE]I moduli specificati in package.json o caricati nel servizio mobile vengono usati solo nel proprio codice di script del server. Questi moduli non vengono usati dal runtime di Servizi mobili.
+>[AZURE.NOTE] I moduli specificati in package.json o caricati nel servizio mobile vengono usati solo nel proprio codice di script del server. Questi moduli non vengono usati dal runtime di Servizi mobili.
 
 ###<a name="helper-functions"></a>Procedura: Usare le funzioni di supporto
 
@@ -661,7 +661,7 @@ Gli script di API personalizzate possono accedere all'[oggetto tables] dalla pro
 
 		var todoItemsTable = request.service.tables.getTable('TodoItem');
 
-> [AZURE.NOTE]Le funzioni condivise non possono accedere direttamente all'oggetto **tables**. In una funzione condivisa è necessario passare l'oggetto tables alla funzione.
+> [AZURE.NOTE] Le funzioni condivise non possono accedere direttamente all'oggetto **tables**. In una funzione condivisa è necessario passare l'oggetto tables alla funzione.
 
 Quando è disponibile un [oggetto table], è possibile chiamare una o più funzioni di operazioni su tabella: insert, update, delete o read. In questo esempio vengono lette le autorizzazioni utente da una tabella di autorizzazioni:
 
@@ -924,7 +924,7 @@ Il modo principale per eseguire il debug e risolvere i problemi relativi agli sc
 
 Per scrivere nei log, utilizzare l'[oggetto console] globale. Utilizzare la funzione **log** o **info** per registrare avvisi a livello di informazioni. Le funzioni **warning** e **error** registrano i rispettivi livelli, che sono descritti nei log.
 
-> [AZURE.NOTE]Per visualizzare i log per il proprio servizio mobile, accedere al [portale di Azure classico](https://manage.windowsazure.com/), selezionare il servizio mobile e quindi scegliere la scheda **Log**.
+> [AZURE.NOTE] Per visualizzare i log per il proprio servizio mobile, accedere al [portale di Azure classico](https://manage.windowsazure.com/), selezionare il servizio mobile e quindi scegliere la scheda **Log**.
 
 È anche possibile utilizzare la funzione di registrazione dell'[oggetto console] per formattare i messaggi mediante parametri. Nell'esempio seguente un oggetto JSON viene fornito come parametro alla stringa del messaggio:
 
@@ -1050,4 +1050,4 @@ Per evitare di sovraccaricare il log, è consigliabile rimuovere o disabilitare 
 [supporto di package.json in Servizi mobili di Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,50 +13,54 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/18/2016"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-# Anteprima di Modello app 2.0: Accesso per account Microsoft e utenti di Azure AD nella stessa app
+# Accesso per account Microsoft e utenti di Azure AD nella stessa app
+
+In passato, gli sviluppatori di app che intendevano supportare sia gli account Microsoft che Azure Active Directory dovevano eseguire l'integrazione con due sistemi separati. È ora disponibile una nuova versione dell'API di autenticazione che consente agli utenti di accedere con entrambi i tipi di account usando il sistema Azure AD. Questo sistema di autenticazione convergente è chiamato **endpoint v2.0**. Con l'endpoint v2.0 è sufficiente una semplice integrazione per raggiungere un pubblico costituito da milioni di utenti, sia con account personali che con account aziendali o dell'istituto di istruzione.
+
+Le applicazioni con l'endpoint v2.0 possono inoltre usare le API REST da [Microsoft Graph](https://graph.microsoft.io) e [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) con entrambi i tipi di account.
 
 > [AZURE.NOTE]
-	Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
+	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 
-In passato, gli sviluppatori di app che intendevano supportare sia gli account Microsoft che Azure Active Directory dovevano eseguire l'integrazione con due sistemi separati. Modello app 2.0 permette concedere l'accesso agli utenti con entrambi i tipi di account. Grazie a una semplice integrazione è possibile raggiungere un pubblico costituito da milioni di utenti, sia con account personali che con account aziendali o dell'istituto di istruzione.
-
-L'app può anche utilizzare un [set di API REST per Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) con entrambi i tipi di account. Al momento, queste API includono le API per la posta, i contatti e i calendari di Outlook. Nel prossimo futuro verranno aggiunti altri servizi. 
-<!-- TODO: customer reference article --> 
-<!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
-
-Modello app 2.0 è disponibile in anteprima. Durante il periodo di anteprima, ci auguriamo di ricevere i commenti e i suggerimenti degli utenti sull'esperienza di utilizzo del nuovo modello di app. In base ai commenti e suggerimenti ricevuti, apporteremo tutte le modifiche necessarie per migliorare il servizio offerto. Non rilasciare un'app per l'ambiente di produzione usando Modello app 2.0 durante questo periodo. 
-<!-- TODO: Get approval on how it looks  -->
 
 ## Introduzione
-Esistono due modi per creare un'app con Modello app 2.0. È possibile scegliere di inviare direttamente messaggi del protocollo tramite [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) o [Open ID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). In alternativa, è possibile usare le librerie per creare automaticamente l'app. Per iniziare, è sufficiente scegliere la piattaforma preferita. 
-<!-- TODO: Finalize this table  -->
+Scegliere la piattaforma preferita per compilare un'app usando le nostre librerie open source e i framework. In alternativa, è possibile usare la documentazione del protocollo OAuth 2.0 e OpenID Connect per inviare e ricevere i messaggi di protocollo direttamente senza usare una libreria di autenticazione. <!-- TODO: Finalize this table  -->
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-## Novità
-Visitare spesso questa pagina per rimanere aggiornati sulle modifiche futura all'anteprima pubblica di Modello app 2.0. Gli aggiornamenti saranno anche resi noti su Twitter all'indirizzo @AzureAD.
+## Novità	
+Le informazioni di carattere generale fornite di seguito saranno utili per individuare le operazioni che possono essere eseguite o meno con l'endpoint v2.0.
 
-- Se è stata creata un'app durante il periodo di anteprima del modello di app v2.0 2015, [verificare le informazioni sulle modifiche al protocollo](active-directory-v2-preview-oidc-changes.md) per assicurarsi che l'app continui a funzionare.
-- Informazioni sui [tipi di app che si possono creare con Modello app 2.0](active-directory-v2-flows.md).
-- Gli sviluppatori che hanno familiarità con Azure Active Directory possono vedere l'articolo che illustra gli [aggiornamenti ai protocolli e le differenze in Modello app 2.0](active-directory-v2-compare.md).
-- [Limitazioni, restrizioni e vincoli della versione di anteprima](active-directory-v2-limitations.md) corrente
+- Se l'app viene compilata durante il periodo di anteprima dell'endpoint 2015 v2.0, assicurarsi di [leggere le informazioni sulle modifiche più significative apportate al protocollo](active-directory-v2-preview-oidc-changes.md) di recente.
+- Informazioni sui [tipi di app che si possono creare con l'endpoint v2.0](active-directory-v2-flows.md).
+- Gli sviluppatori che hanno familiarità con Azure Active Directory possono vedere l'articolo che illustra gli [aggiornamenti ai protocolli e le differenze nell'endpoint v2.0](active-directory-v2-compare.md).
+- Comprendere le [limitazioni, le restrizioni e i vincoli](active-directory-v2-limitations.md) dell'endpoint v2.0.
 
-## Riferimento
+## riferimento
 I collegamenti seguenti sono utili per un'esplorazione più approfondita della piattaforma:
 
 - Per ottenere supporto su Stack Overflow, usare i tag [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
-- Per inviare i commenti e i suggerimenti sulla versione di anteprima, è possibile usare [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/). Specificare "AppModelv2:" nel titolo del post per permetterci di individuarlo.
-- [Riferimento al protocollo di Modello app 2.0](active-directory-v2-protocols.md)
-- [Riferimento al token di Modello app 2.0](active-directory-v2-tokens.md)
+- [Riferimento al protocollo v2.0](active-directory-v2-protocols.md)
+- [Riferimento al token v2.0](active-directory-v2-tokens.md)
+- [Ambiti e consenso nell'endpoint v2.0](active-directory-v2-scopes.md)
+- [Portale di registrazione delle app Microsoft](https://apps.dev.microsoft.com)
 - [Riferimento all'API REST di Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
-- [Ambiti e consenso nell'endpoint versione 2](active-directory-v2-scopes.md)
+- [Microsoft Graph](https://graph.microsoft.io)
+- Di seguito sono elencate le librerie client open source e gli esempi che sono stati testati con l'endpoint v2.0. Si noti che funzionalità quali [la registrazione client dinamica di OpenID Connect](https://openid.net/specs/openid-connect-registration-1_0.html) e gli endpoint di convalida del token non sono ancora supportate e potrebbero dover essere disabilitate nella libreria per poter usare l'endpoint v2:  
+
+  - [Java WSO2 Identity Server](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
+  - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
+  - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
+  - [Client di base PHP OpenID Connect](https://github.com/jumbojett/OpenID-Connect-PHP)
+  - [Esempio Android OpenID Connect](https://github.com/learning-layers/android-openid-connect)
 
 <!-- TODO: These articles
 - [ADAL Library Reference]()
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
+- Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

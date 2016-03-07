@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Controllare il routing e usare dispositivi virtuali di rete in Gestione risorse mediante PowerShell | Microsoft Azure"
-   description="Informazioni su come controllare il routing e usare dispositivi virtuali di rete in Azure PowerShell"
+   pageTitle="Controllare il routing e usare dispositivi virtuali in Gestione risorse mediante PowerShell | Microsoft Azure"
+   description="Informazioni su come controllare il routing e usare dispositivi virtuali in Gestione risorse mediante PowerShell"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-#Creare route definite dall'utente in PowerShell
+#Creare route definite dall'utente in Gestione risorse mediante PowerShell
 
 [AZURE.INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
@@ -56,7 +56,7 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
 		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
 
->[AZURE.WARNING]L'output per il comando precedente mostra il contenuto per l'oggetto di configurazione della rete virtuale, che esiste solo nei computer in cui si esegue PowerShell. È necessario eseguire il cmdlet **Set-AzureVirtualNetwork**,per salvare queste impostazioni in Azure.
+>[AZURE.WARNING] L'output per il comando precedente mostra il contenuto per l'oggetto di configurazione della rete virtuale, che esiste solo nei computer in cui si esegue PowerShell. È necessario eseguire il cmdlet **Set-AzureVirtualNetwork**,per salvare queste impostazioni in Azure.
 
 7. Salvare la nuova configurazione di subnet in Azure.
 
@@ -68,7 +68,7 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
 		ResourceGroupName : TestRG
 		Location          : westus
 		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"7df26c0e-652f-4754-bc4e-733fef7d5b2b"
+		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ProvisioningState : Succeeded
 		Tags              : 
 		                    Name         Value
@@ -236,4 +236,4 @@ Per abilitare l'inoltro dell'indirizzo IP nella scheda di interfaccia di rete us
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

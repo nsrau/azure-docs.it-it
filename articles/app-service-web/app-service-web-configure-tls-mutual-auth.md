@@ -20,6 +20,8 @@
 
 ## Panoramica ##
 È possibile limitare l'accesso all'app web di Azure abilitandone diversi tipi di autenticazione. A questo scopo è possibile eseguire l'autenticazione usando un certificato client quando la richiesta è per TLS/SSL. Questo meccanismo è detto l'autenticazione reciproca TLS o autenticazione del certificato client. Questo articolo illustra come configurare un'app Web per l'uso dell'autenticazione del certificato client.
+> **Nota:** se si accede al sito tramite HTTP e non HTTPS, non si riceveranno i certificati client. Pertanto, se l'applicazione richiede i certificati client è consigliabile non consentire le richieste all'applicazione tramite HTTP.
+> 
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -39,7 +41,7 @@ Assicurarsi di modificare il valore di "posizione" con la posizione in cui si tr
 
 
 ## Accesso al certificato client dall'app Web ##
-Quando l'app Web è configurata per l'uso dell'autenticazione del certificato client, il certificato client è disponibile nell'app tramite un valore con codifica Base64 nell'intestazione della richiesta "X-ARR ClientCert". L'applicazione può creare un certificato da questo valore e quindi usarlo a scopo di autenticazione e autorizzazione nell'applicazione.
+Se si usa ASP.NET e si configura l'applicazione per l'uso dell'autenticazione del certificato client, il certificato sarà disponibile tramite la proprietà **HttpRequest.ClientCertificate**. Per gli altri stack di applicazioni, il certificato client è disponibile nell'app tramite un valore con codifica Base64 nell'intestazione della richiesta "X-ARR ClientCert". L'applicazione può creare un certificato da questo valore e quindi usarlo a scopo di autenticazione e autorizzazione nell'applicazione.
 
 ## Considerazioni speciali per la convalida del certificato ##
 Il certificato client inviato all'applicazione non viene sottoposto ad alcuna convalida da parte della piattaforma di app Web di Azure. La convalida il certificato è responsabilità dell'app Web. Ecco un esempio di codice ASP.NET che convalida le proprietà del certificato a scopo di autenticazione.
@@ -121,7 +123,7 @@ Il certificato client inviato all'applicazione non viene sottoposto ad alcuna co
                 if (certificate == null || !String.IsNullOrEmpty(errorString)) return false;
                 
                 // 1. Check time validity of certificate
-                if (DateTime.Compare(DateTime.Now, certificate.NotBefore) < 0 && DateTime.Compare(DateTime.Now, certificate.NotAfter) > 0) return false;
+                if (DateTime.Compare(DateTime.Now, certificate.NotBefore) < 0 || DateTime.Compare(DateTime.Now, certificate.NotAfter) > 0) return false;
                 
                 // 2. Check subject name of certificate
                 bool foundSubject = false;
@@ -179,4 +181,4 @@ Il certificato client inviato all'applicazione non viene sottoposto ad alcuna co
         }
     }
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

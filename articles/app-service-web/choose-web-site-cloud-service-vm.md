@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Confronto tra Azure App Service, Servizi cloud e Macchine virtuali di Azure"
-	description="Informazioni su quando usare Azure App Service, Servizi cloud e Macchine virtuali di Azure per l'hosting di applicazioni Web."
+	pageTitle="Confronto tra Servizio app di Azure, Servizi cloud e Service Fabric di Azure"
+	description="Informazioni su quando usare Servizio app di Azure, Servizi cloud, Macchine virtuali e Service Fabric di Azure per l'hosting di applicazioni Web."
 	services="app-service\web, virtual-machines, cloud-services"
 	documentationCenter=""
 	authors="tdykstra"
@@ -12,15 +12,15 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="11/19/2015"
+	ms.topic="article"
+	ms.date="02/22/2016"
 	ms.author="tdykstra"/>
 
-# Confronto tra Azure App Service, Servizi cloud e Macchine virtuali di Azure
+# Confronto tra Servizio app di Azure, Servizi cloud e Service Fabric di Azure
 
 ## Panoramica
 
-Azure offre vari modi per ospitare i siti Web: [Azure App Service][], [Servizi cloud][] e [Macchine virtuali][]. In questo articolo vengono fornite informazioni utili per comprendere le opzioni disponibili ed effettuare la scelta appropriata per l'applicazione Web.
+Azure offre vari modi per ospitare i siti Web: [Servizio app di Azure][], [Servizi cloud][], [Macchine virtuali][] e [Service Fabric][]. In questo articolo vengono fornite informazioni utili per comprendere le opzioni disponibili ed effettuare la scelta appropriata per l'applicazione Web.
 
 Azure App Service è la scelta migliore per la maggior parte delle app Web. La distribuzione e la gestione sono integrate nella piattaforma ed è possibile scalare rapidamente i siti per gestire carichi di traffico elevato; inoltre, il bilanciamento del carico e la gestione del traffico predefiniti offrono disponibilità elevata. È possibile spostare facilmente siti esistenti in Azure App Service con uno [strumento di migrazione online](https://www.migratetoazure.net/), usare un'app open source della raccolta di applicazioni Web oppure creare un nuovo sito tramite il framework e gli strumenti di propria scelta. La funzionalità[WebJobs][] semplifica l'aggiunta di elaborazione di processi in background all'app Web di servizio app.
 
@@ -138,36 +138,36 @@ Inoltre, Azure App Service dispone di una nuova funzionalità di anteprima per l
 
 ##<a name="features"></a>Confronto delle funzionalità
 
-Nella tabella seguente vengono confrontate le funzionalità del Servizio app, Servizi cloud e Macchine virtuali per aiutare i clienti a operare la scelta più adatta. Per informazioni aggiornate sul contratto di servizio per ciascuna opzione, vedere i [contratti di servizio di Azure](/support/legal/sla/).
+Nella tabella seguente vengono confrontate le funzionalità del Servizio app, di Servizi cloud, di Macchine virtuali e di Service Fabric per aiutare i clienti a operare la scelta più adatta. Per informazioni aggiornate sul contratto di servizio per ciascuna opzione, vedere i [contratti di servizio di Azure](/support/legal/sla/).
 
-Funzionalità|Servizio app (app Web)|Servizi cloud (ruoli Web)|Macchine virtuali|Note
----|---|---|---|---
-Distribuzione quasi istantanea|X|||La distribuzione di un'applicazione o di un aggiornamento di un'applicazione in un Servizio cloud o la creazione di una VM persistente richiede come minimo diversi minuti; la distribuzione di un'applicazione in un app Web richiede pochi secondi.
-Aumento della dimensione delle macchine senza ridistribuzione|X|||
-Le istanze del server Web condividono contenuti e configurazione, quindi non occorre ridistribuire o riconfigurare man mano che si scala.|X|||
-Più ambienti di distribuzione (produzione e gestione temporanea)|X|X||
-Gestione automatica dell'aggiornamento del sistema operativo|X|X||
-Commutazione di piattaforma trasparente (è possibile passare facilmente tra 32 bit e 64 bit)|X|X||
-Distribuzione codice con GIT, FTP|X||X|
-Distribuzione codice con distribuzione Web|X||X|Servizi cloud supporta l'uso della distribuzione Web per distribuire gli aggiornamenti a singole istanze del ruolo. Tuttavia, non è possibile usarlo per la distribuzione iniziale di un ruolo e se si usa la distribuzione Web per un aggiornamento è necessario effettuare la distribuzione separata a ciascuna istanza di un ruolo. Sono necessarie più istanze per qualificarsi per il contratto di servizio di Servizi cloud per gli ambienti di produzione.
-Supporto WebMatrix|X||X|
-Accesso a servizi quali bus di servizio, archiviazione, database SQL|X|X|X|
-Hosting del livello Web o dei servizi Web di un'architettura multilivello|X|X|X|
-Hosting del livello intermedio di un'architettura multilivello|X|X|X|App Web del servizio app può ospitare facilmente un livello intermedio API REST e la funzionalità [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) può ospitare processi di elaborazione in background. È possibile eseguire WebJobs in un sito Web dedicato per ottenere la scalabilità indipendente per il livello. L'anteprima [API apps](../app-service-api/app-service-api-apps-why-best-platform.md) fornisce anche altre funzionalità per l'hosting di servizi REST.
-Supporto integrato di MySQL distribuito come servizio|X|X|X|Servizi cloud può integrare MySQL distribuito come servizio tramite le offerte di ClearDB, ma non come parte del flusso di lavoro del portale di Azure.
-Supporto per ASP.NET, ASP classico, Node.js, PHP, Python|X|X|X|
-Scalabilità orizzontale a più istanze senza ridistribuzione|X|X|X|Macchine virtuali consente la scalabilità orizzontale su più istanze; tuttavia, i servizi in esecuzione nelle macchine devono essere scritti per gestire tale scalabilità. È necessario configurare un bilanciamento del carico per instradare le richieste tra le macchine e creare un gruppo di affinità per impedire i riavvii simultanei di tutte le istanze a causa degli errori di manutenzione o hardware.
-Supporto per SSL|X|X|X|Per App Web del servizio app, SSL per i nomi di dominio personalizzati è supportato solo nella modalità Basic e Standard. Per informazioni sull'uso di SSL con app Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](../app-service-web/web-sites-configure-ssl-certificate.md).
-Integrazione di Visual Studio|X|X|X|
-Debug remoto|X|X|X|
-Distribuzione codice con TFS|X|X|X|
-Isolamento rete con la [rete virtuale di Azure](/services/virtual-network/)|X|X|X|Vedere anche [Integrazione della rete virtuale di Siti Web di Azure](/blog/2014/09/15/azure-websites-virtual-network-integration/)
-Supporto per [Gestione traffico di Azure](/services/traffic-manager/)|X|X|X|
-Monitoraggio integrato degli endpoint|X|X|X|
-Accesso al server tramite Desktop remoto||X|X|
-Installazione di qualsiasi MSI personalizzato||X|X|
-Possibilità di definire/eseguire le attività di avvio||X|X|
-Possibilità di essere in ascolto di eventi ETW||X|X|
+Funzionalità|Servizio app (app Web)|Servizi cloud (ruoli Web)|Macchine virtuali|Service Fabric|Note
+---|---|---|---|---|---
+Distribuzione quasi istantanea|X|||X|La distribuzione di un'applicazione o di un aggiornamento di un'applicazione in un Servizio cloud o la creazione di una VM persistente richiede come minimo diversi minuti; la distribuzione di un'applicazione in un app Web richiede pochi secondi.
+Aumento della dimensione delle macchine senza ridistribuzione|X|||X|
+Le istanze del server Web condividono contenuti e configurazione, quindi non occorre ridistribuire o riconfigurare man mano che si scala.|X|||X|
+Più ambienti di distribuzione (produzione e gestione temporanea)|X|X||X|Service Fabric consente di disporre di più ambienti per le app o di distribuire diverse versioni affiancate dell'app.
+Gestione automatica dell'aggiornamento del sistema operativo|X|X|||Sono previsti aggiornamenti automatici del sistema operativo per una versione futura di Service Fabric.
+Commutazione di piattaforma trasparente (è possibile passare facilmente tra 32 bit e 64 bit)|X|X|||
+Distribuzione codice con GIT, FTP|X||X||
+Distribuzione codice con distribuzione Web|X||X||Servizi cloud supporta l'uso della distribuzione Web per distribuire gli aggiornamenti a singole istanze del ruolo. Tuttavia, non è possibile usarlo per la distribuzione iniziale di un ruolo e se si usa la distribuzione Web per un aggiornamento è necessario effettuare la distribuzione separata a ciascuna istanza di un ruolo. Sono necessarie più istanze per qualificarsi per il contratto di servizio di Servizi cloud per gli ambienti di produzione.
+Supporto WebMatrix|X||X||
+Accesso a servizi quali bus di servizio, archiviazione, database SQL|X|X|X|X|
+Hosting del livello Web o dei servizi Web di un'architettura multilivello|X|X|X|X|
+Hosting del livello intermedio di un'architettura multilivello|X|X|X|X|App Web del servizio app può ospitare facilmente un livello intermedio API REST e la funzionalità [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) può ospitare processi di elaborazione in background. È possibile eseguire WebJobs in un sito Web dedicato per ottenere la scalabilità indipendente per il livello. L'anteprima [API apps](../app-service-api/app-service-api-apps-why-best-platform.md) fornisce anche altre funzionalità per l'hosting di servizi REST.
+Supporto integrato di MySQL distribuito come servizio|X|X|X||Servizi cloud può integrare MySQL distribuito come servizio tramite le offerte di ClearDB, ma non come parte del flusso di lavoro del portale di Azure.
+Supporto per ASP.NET, ASP classico, Node.js, PHP, Python|X|X|X|X|Service Fabric supporta la creazione di un front-end Web tramite [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) oppure, in alternativa, consente di distribuire qualsiasi tipo di applicazione (Node.js, Java e così via) come un [eseguibile guest](../service-fabric/service-fabric-deploy-existing-app.md).
+Scalabilità orizzontale a più istanze senza ridistribuzione|X|X|X|X|Macchine virtuali consente la scalabilità orizzontale su più istanze; tuttavia, i servizi in esecuzione nelle macchine devono essere scritti per gestire tale scalabilità. È necessario configurare un bilanciamento del carico per instradare le richieste tra le macchine e creare un gruppo di affinità per impedire i riavvii simultanei di tutte le istanze a causa degli errori di manutenzione o hardware.
+Supporto per SSL|X|X|X|X|Per App Web del servizio app, SSL per i nomi di dominio personalizzati è supportato solo nella modalità Basic e Standard. Per informazioni sull'uso di SSL con app Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](../app-service-web/web-sites-configure-ssl-certificate.md).
+Integrazione di Visual Studio|X|X|X|X|
+Debug remoto|X|X|X||
+Distribuzione codice con TFS|X|X|X|X|
+Isolamento rete con la [rete virtuale di Azure](/services/virtual-network/)|X|X|X|X|Vedere anche [Integrazione della rete virtuale di Siti Web di Azure](/blog/2014/09/15/azure-websites-virtual-network-integration/)
+Supporto per [Gestione traffico di Azure](/services/traffic-manager/)|X|X|X|X|
+Monitoraggio integrato degli endpoint|X|X|X||
+Accesso al server tramite Desktop remoto||X|X|X|
+Installazione di qualsiasi MSI personalizzato||X|X|X|Service Fabric consente di ospitare qualsiasi file eseguibile come un [eseguibile guest](../service-fabric/service-fabric-deploy-existing-app.md) o di installare qualsiasi applicazione sulle macchine virtuali.
+Possibilità di definire/eseguire le attività di avvio||X|X|X|
+Possibilità di essere in ascolto di eventi ETW||X|X|X|
 
 
 > [AZURE.NOTE]
@@ -183,11 +183,13 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
 * [Servizio app di Azure](/documentation/services/app-service/)
 * [Servizi cloud di Azure](/documentation/services/cloud-services/)
 * [Macchine virtuali di Azure](/documentation/services/virtual-machines/)
+* [Service Fabric](/documentation/services/service-fabric)
 
   [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
-  [Azure App Service]: /services/app-service/
+  [Servizio app di Azure]: /services/app-service/
   [Servizi cloud]: http://go.microsoft.com/fwlink/?LinkId=306052
   [Macchine virtuali]: http://go.microsoft.com/fwlink/?LinkID=306053
+  [Service Fabric]: /services/service-fabric
   [ClearDB]: http://www.cleardb.com/
   [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
   [Processi Web]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
@@ -201,6 +203,5 @@ Per iniziare a usare le opzioni scelte per l'applicazione, vedere le risorse seg
   [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
   [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
   [archiviazione]: http://www.windowsazure.com/documentation/services/storage/
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

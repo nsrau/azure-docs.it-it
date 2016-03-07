@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/09/2016"
+	ms.date="02/23/2016"
 	ms.author="billmath"/>
 
 
@@ -92,7 +92,7 @@ Questa attività permette di definire gli strumenti che verranno usati per sincr
 Negli anni sono stati creati numerosi strumenti di sincronizzazione per diversi scenari. Al momento, Azure AD Connect è lo strumento preferito per tutti gli scenari supportati. Anche AAD Sync e DirSync sono ancora in circolazione e potrebbero ancora essere presenti nell'ambiente in uso.
 
 >[AZURE.NOTE]
-Per le informazioni più recenti relative alle funzionalità supportate per ogni strumento, vedere l'articolo [Confronto degli strumenti di integrazione directory](active-directory-aadconnect-get-started-tools-comparison.md).
+Per le informazioni più recenti relative alle funzionalità supportate per ogni strumento, vedere l'articolo [Confronto degli strumenti di integrazione directory](active-directory-hybrid-identity-design-considerations-tools-comparison.md).
 
 ### Topologie supportate
 Quando si definisce una strategia di sincronizzazione, è necessario determinare la topologia da usare. A seconda delle informazioni definite nel passaggio 2, è possibile stabilire la topologia corretta da usare. La topologia singola di Azure AD a foresta singola è quella più comune ed è costituita da una singola foresta Active Directory e una singola istanza di Azure AD. Questa topologia verrà usata nella maggior parte degli scenari ed è la topologia prevista quando si usa l'installazione rapida di Azure AD Connect come illustrato nella figura seguente.
@@ -197,4 +197,4 @@ La modalità Multi-Factor Authentication è disponibile per impostazione predefi
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

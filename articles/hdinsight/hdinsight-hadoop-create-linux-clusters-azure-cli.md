@@ -19,7 +19,7 @@
 
 #Creare cluster basati su Linux in HDInsight tramite l'interfaccia della riga di comando di Azure
 
-[AZURE.INCLUDE [selettore](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[AZURE.INCLUDE [selettore](../../includes/hdinsight-selector-create-clusters.md)]
 
 L'interfaccia della riga di comando di Azure è un'utilità della riga di comando multipiattaforma che consente di gestire i servizi di Azure. Può essere usata con i modelli di Gestione risorse di Azure per creare un cluster HDInsight insieme agli account di archiviazione associati e ad altri servizi.
 
@@ -121,4 +121,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

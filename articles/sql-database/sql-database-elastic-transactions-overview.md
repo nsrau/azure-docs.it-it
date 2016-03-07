@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Panoramica delle transazioni di database elastico con il database SQL di Azure (in anteprima)"
-   description="Panoramica delle transazioni di database elastico con il database SQL di Azure (in anteprima)"
+   pageTitle="Panoramica delle transazioni di database elastico con il database SQL di Azure"
+   description="Panoramica delle transazioni di database elastico con il database SQL di Azure"
    services="sql-database"
    documentationCenter=""
    authors="torsteng"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="sql-database"
-   ms.date="02/01/2016"
+   ms.date="02/23/2016"
    ms.author="torsteng"/>
 
-# Panoramica delle transazioni di database elastico con il database SQL di Azure (in anteprima)
+# Panoramica delle transazioni di database elastico con il database SQL di Azure
 
 Le transazioni di database elastico per il database SQL di Azure consentono di eseguire transazioni estese a più database nel database SQL. Le transazioni di database elastico per il database SQL sono disponibili per le applicazioni .NET tramite ADO .NET e si integrano con la familiare esperienza di programmazione usando le classi [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx). Per ottenere la libreria, vedere [Microsoft .NET Framework 4.6.1 (programma di installazione Web)](https://www.microsoft.com/download/details.aspx?id=49981).
 
@@ -94,11 +94,13 @@ Le transazioni di database elastico per il database SQL supportano anche il coor
 	}
 
 
-## Configurazione dei ruoli di lavoro di Azure
+## Installazione di .NET per i servizi cloud di Azure
 
-È possibile automatizzare l'installazione e la distribuzione della versione di .NET e delle librerie necessarie per le transazioni di database elastico in Azure, ovvero nel sistema operativo guest del servizio cloud. Per i ruoli di lavoro di Azure, usare le attività di avvio. I concetti e i passaggi sono documentati in [Installare .NET in un ruolo del servizio cloud](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+Azure offre diverse soluzioni per l'hosting di applicazioni .NET. Per un confronto delle diverse soluzioni, vedere [Confronto tra Azure App Service, Servizi cloud e Macchine virtuali di Azure](../app-service-web/choose-web-site-cloud-service-vm.md). Se il sistema operativo guest della soluzione è precedente alla versione 4.6.1 di .NET richiesta per le transazioni elastiche, è necessario aggiornare il sistema operativo guest alla versione 4.6.1.
 
-Si noti che il programma di installazione per .NET 4.6.1 richiede più spazio di archiviazione temporaneo durante il processo di bootstrap nei servizi cloud di Azure rispetto al programma di installazione per .NET 4.6. Per garantire una corretta installazione, è necessario aumentare l'archiviazione temporanea per il servizio cloud di Azure nel file ServiceDefinition.csdef nella sezione LocalResources e le impostazioni di ambiente dell'attività di avvio, come illustrato nell'esempio seguente:
+Per i servizi app di Azure, gli aggiornamenti del sistema operativo guest non sono attualmente supportati. Per le macchine virtuali di Azure, è sufficiente accedere alla macchina virtuale ed eseguire il programma di installazione del framework .NET più recente. Per i servizi cloud di Azure, è necessario includere l'installazione di una versione più recente di .NET nelle attività di avvio della distribuzione. I concetti e i passaggi sono documentati in [Installare .NET in un ruolo del servizio cloud](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+
+Si noti che il programma di installazione per .NET 4.6.1 può richiedere più spazio di archiviazione temporaneo durante il processo di bootstrap nei servizi cloud di Azure rispetto al programma di installazione per .NET 4.6. Per garantire una corretta installazione, è necessario aumentare l'archiviazione temporanea per il servizio cloud di Azure nel file ServiceDefinition.csdef nella sezione LocalResources e le impostazioni di ambiente dell'attività di avvio, come illustrato nell'esempio seguente:
 
 	<LocalResources>
 	...
@@ -118,6 +120,17 @@ Si noti che il programma di installazione per .NET 4.6.1 richiede più spazio di
 			</Environment>
 		</Task>
 	</Startup>
+	
+## Transazioni tra più server
+
+Le transazioni di database elastici sono supportate in diversi server logici del database SQL di Azure. Quando le transazioni oltrepassano i limiti dei server logici, i server partecipanti devono essere innanzitutto inseriti in una relazione di comunicazione reciproca. Dopo aver stabilito la relazione di comunicazione, qualsiasi database in uno dei due server può partecipare alle transazioni elastiche con i database dell'altro server. Con le transazioni che si estendono su più di due server logici, è necessaria una relazione di comunicazione per ogni coppia di server logici.
+
+Usare i seguenti cmdlet di PowerShell per la gestione delle relazioni di comunicazione tra server per le transazioni di database elastici:
+
+* **New AzureRmSqlServerCommunicationLink**: usare questo cmdlet per creare una nuova relazione di comunicazione tra due server logici in un database SQL di Azure. La relazione è simmetrica, ovvero entrambi i server possono avviare le transazioni con l'altro server.
+* **Get-AzureRmSqlServerCommunicationLink**: usare questo cmdlet per recuperare le relazioni di comunicazione esistenti e le relative proprietà.
+* **Remove-AzureRmSqlServerCommunicationLink**: usare questo cmdlet per rimuovere una relazione di comunicazione esistente. 
+
 
 ## Monitoraggio dello stato delle transazioni
 
@@ -136,7 +149,6 @@ Per le transazioni di database elastico nel database SQL si applicano attualment
 * Sono supportate solo le transazioni tra database nel database SQL. Altri provider di risorse [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) e database al di fuori del database SQL non possono partecipare alle transazioni di database elastico. Ciò significa che le transazioni di database elastico non possono estendersi in locale al database SQL Server e al database SQL di Azure. Per le transazioni distribuite in locale, continuare a usare MSDTC. 
 * Sono supportate solo le transazioni coordinate tramite client da un'applicazione .NET. Il supporto sul lato server per T-SQL, ad esempio BEGIN DISTRIBUTED TRANSACTION, è pianificato, ma non ancora disponibile. 
 * Sono supportati solo i database nel database SQL di Azure V12.
-* Sono supportati solo i database che appartengono allo stesso server logico nel database SQL.
 
 ## Altre informazioni
 
@@ -145,4 +157,4 @@ Se ancora non si usano le funzionalità del database elastico per le applicazion
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

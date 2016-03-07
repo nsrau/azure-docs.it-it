@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 
@@ -50,7 +50,7 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Creare un nuovo notebook. Fare clic su **New** e quindi su **Python2**.
+2. Creare un nuovo notebook. Fare clic su **Nuovo** e quindi su **PySpark**.
 
 	![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.createnotebook.png "Creare un nuovo notebook Jupyter")
 
@@ -58,22 +58,12 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 
 	![Specificare un nome per il notebook](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "Specificare un nome per il notebook")
 
-4. Importare i moduli necessari e creare i contesti di Spark e Hive. Incollare il frammento di codice seguente in una cella vuota e quindi premere **MAIUSC+INVIO**.
+4. Poiché il notebook è stato creato tramite il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark, SQL e Hive verranno creati automaticamente quando si esegue la prima cella di codice. È possibile iniziare con l'importazione dei tipi necessari per questo scenario. A tale scopo, posizionare il cursore nella cella e premere **MAIUSC + INVIO**.
 
-		from pyspark import SparkContext
 		from pyspark.sql import *
-		from pyspark.sql import HiveContext
-		from pyspark.sql import Row
 		
-		# Create Spark and Hive contexts
-		sc = SparkContext('yarn-client')
-		hiveCtx = HiveContext(sc)
-
-	Ogni volta che viene eseguito un processo in Jupyter, il titolo della finestra del Web browser visualizzerà lo stato **(Occupato)** accanto al titolo del notebook. È anche visibile un cerchio nero accanto al testo **Python 2** nell'angolo in alto a destra. Dopo il completamento del processo, viene visualizzato un cerchio vuoto.
-
-	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-use-bi-tools/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
-
-4. Caricare i dati di esempio in una tabella temporanea. Quando si crea un cluster Spark in HDInsight, il file di dati di esempio **hvac.csv** viene copiato nell'account di archiviazione associato in **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**.
+	
+5. Caricare i dati di esempio in una tabella temporanea. Quando si crea un cluster Spark in HDInsight, il file di dati di esempio **hvac.csv** viene copiato nell'account di archiviazione associato in **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**.
 
 	In una cella vuota incollare il frammento di codice seguente e premere **MAIUSC+INVIO**. Questo frammento di codice consente di registrare i dati in una tabella Hive denominata **hvac**.
 
@@ -94,9 +84,10 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 		dfw = DataFrameWriter(hvacTable)
 		dfw.saveAsTable('hvac')
 
-5. Verificare che la tabella è stata creata correttamente. In una cella vuota del notebook, copiare il seguente frammento e premere **MAIUSC + INVIO**.
+5. Verificare che la tabella è stata creata correttamente. È possibile usare il magic `%%hive` per eseguire query Hive direttamente. Per altre informazioni sul magic `%%hive` e sugli altri magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 
-		hiveCtx.sql("SHOW TABLES").show()
+		%%hive
+		SHOW TABLES
 
 	Verrà visualizzato un output simile al seguente:
 
@@ -113,7 +104,8 @@ Dopo avere salvato i dati come tabella Hive, nella sezione successiva verrà eff
 
 6. Verificare che la tabella contiene i dati desiderati. In una cella vuota del notebook copiare il frammento di codice seguente e premere **MAIUSC+INVIO**.
 
-		hiveCtx.sql("SELECT * FROM hvac LIMIT 10").show()
+		%%hive
+		SELECT * FROM hvac LIMIT 10
 	
 7. È possibile chiudere il notebook per rilasciare le risorse. A tale scopo, dal menu **File** del notebook fare clic su **Close and Halt**. Questa operazione consente di arrestare e chiudere il notebook.
 
@@ -135,7 +127,7 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 
 	![Riquadro Spark nel dashboard di Power BI](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.tile.png "Riquadro Spark nel dashboard di Power BI")
 
-6. Si noti che l'elenco **campi** a destra elenca la tabella **hvac** creata in precedenza. Espandere la tabella per visualizzare i campi della tabella, come definito in precedenza nel notebook.
+6. Si noti che l’elenco **campi** negli elenchi di destra la tabella **hvac** creata in precedenza. Espandere la tabella per visualizzare i campi della tabella, come definito in precedenza nel notebook.
 
 	  ![Elencare le tabelle Hive](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.display.tables.png "Elencare le tabelle Hive")
 
@@ -144,7 +136,7 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 	![Creare visualizzazioni](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual1.png "Creare visualizzazioni")
 
 
-8. Per impostazione predefinita, la visualizzazione mostra la somma di **ActualTemp** e **TargetTemp**. Per entrambi i campi, dall'elenco a discesa selezionare **Media** per ottenere una media della temperature effettiva e di destinazione per entrambi gli edifici.
+8. Per impostazione predefinita, la visualizzazione mostra la somma di **ActualTemp** e **TargetTemp**. Per entrambi i campi, dall'elenco a discesa selezionare **Media** per ottenere una media della temperature effettiva e di destinazione per entrambe le compilazioni.
 
 	![Creare visualizzazioni](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual2.png)
     
@@ -202,7 +194,7 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 
 ### Scenari
 
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura dell'edificio mediante dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura di compilazione tramite dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -239,4 +231,4 @@ Dopo aver salvato i dati come una tabella Hive, è possibile usare Power BI per 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

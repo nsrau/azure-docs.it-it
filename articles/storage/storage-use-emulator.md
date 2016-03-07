@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="02/21/2016" 
 	ms.author="tamram"/>
 
 # Usare l'emulatore di archiviazione di Azure per sviluppo e test
@@ -21,7 +21,7 @@
 
 L'emulatore di archiviazione di Microsoft Azure offre un ambiente locale che emula i servizi BLOB, code e tabelle di Azure per scopi di sviluppo. Usando l'emulatore di archiviazione, è possibile testare l'applicazione con i servizi di archiviazione in locale, senza creare una sottoscrizione di Azure o sostenere alcun costo. Quando si è soddisfatti della modalità di funzionamento dell'applicazione nell'emulatore, è possibile passare all'utilizzo di un account di archiviazione di Azure nel cloud.
 
-> [AZURE.NOTE]L'emulatore di archiviazione è disponibile come parte di [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). È inoltre possibile installare l'emulatore di archiviazione come pacchetto autonomo. Per configurare l'emulatore di archiviazione, è necessario avere i privilegi di amministratore nel computer.
+> [AZURE.NOTE] L'emulatore di archiviazione è disponibile come parte di [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). È inoltre possibile installare l'emulatore di archiviazione come pacchetto autonomo. Per configurare l'emulatore di archiviazione, è necessario avere i privilegi di amministratore nel computer.
 >  
 > Si noti che i dati creati in una versione dell'emulatore di archiviazione non sono necessariamente accessibili quando si utilizza una versione diversa. Se è necessario rendere persistenti i dati a lungo termine, si consiglia di archiviare i dati in un account di archiviazione di Azure anziché nell'emulatore di archiviazione.
 
@@ -39,9 +39,9 @@ Come per Archiviazione di Azure nel cloud, tutte le richieste effettuate nell'em
 
 ### Autenticazione con credenziali con chiave condivisa
 
-[AZURE.INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
+[AZURE.INCLUDE [risorsa di archiviazione-emulatore-connessione-stringa-includere](../../includes/storage-emulator-connection-string-include.md)]
 
-Per altri dettagli sulle stringhe di connessione, vedere [Configurare una stringa di connessione all'archiviazione di Azure](storage-configure-connection-string.md).
+Per altri dettagli sulle stringhe di connessione, vedere [Configurare le stringhe di connessione di archiviazione di Azure](storage-configure-connection-string.md).
 
 ### Autenticazione con una firma di accesso condiviso 
 
@@ -133,13 +133,13 @@ A partire dalla versione 3.1, l'account dell'emulatore di archiviazione supporta
 
     http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt 
 
-> [AZURE.NOTE]Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli vedere il [riferimento alla libreria client di archiviazione](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+> [AZURE.NOTE] Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli, vedere [Libreria client di archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 
 ## Riferimenti dello strumento da riga di comando emulatore di archiviazione
 
 A partire dalla versione 3.0, quando si avvia l'emulatore di archiviazione viene visualizzata una finestra della riga di comando popup. Usare la finestra della riga di comando per avviare e arrestare l'emulatore, nonché per eseguire query sullo stato e altre operazioni.
 
-> [AZURE.NOTE]Se è installato l'emulatore di calcolo di Microsoft Azure, viene visualizzata un'icona nella barra delle applicazioni quando si avvia l'emulatore di archiviazione. Fare clic con il pulsante destro del mouse sull'icona per visualizzare un menu che fornisce una modalità grafica per avviare e arrestare l'emulatore di archiviazione.
+> [AZURE.NOTE] Se è installato l'emulatore di calcolo di Microsoft Azure, viene visualizzata un'icona nella barra delle applicazioni quando si avvia l'emulatore di archiviazione. Fare clic con il pulsante destro del mouse sull'icona per visualizzare un menu che fornisce una modalità grafica per avviare e arrestare l'emulatore di archiviazione.
 
 ### Sintassi della riga di comando
 
@@ -169,7 +169,7 @@ Poiché l'emulatore di archiviazione è un ambiente emulato eseguito in un'istan
 
 - A partire dalla versione 3.1, l'account dell'emulatore di archiviazione supporta RA-GRS (replica con ridondanza geografica in sola lettura). Nell'emulatore, RA-GRS è abilitato per tutti gli account e non esiste mai una discordanza tra le repliche primaria e secondaria. Le operazioni Get Blob Service Stats, Get Queue Service Stats e Get Table Service Stats sono supportate per l'account secondario e restituiscono sempre il valore dell'elemento di risposta `LastSyncTime` come ora corrente in base al database SQL sottostante.
 
-	Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli vedere il [riferimento alla libreria client di archiviazione](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+	Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli, vedere [Libreria client di archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 
 - Gli endpoint del servizio file e del servizio protocollo SMB non sono attualmente supportati nell'emulatore di archiviazione.
 
@@ -223,7 +223,7 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 - L'emulatore di archiviazione supporta ora la versione 2014-02-14 dei servizi di archiviazione per gli endpoint dei servizi BLOB, di accodamento e tabelle. Si noti che gli endpoint del servizio file non sono attualmente supportati nell'emulatore di archiviazione. Vedere [Controllo delle versioni per i servizi di archiviazione Azure](https://msdn.microsoft.com/library/azure/dd894041.aspx) per informazioni dettagliate sulla versione 2014-02-14.
 
 ### Versione 3.1
-- Il servizio di archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) è ora supportato nell'emulatore di archiviazione. Le API Get Blob Service Stats, Get Queue Service Stats e Get Table Service Stats sono supportate per l'account secondario e restituiscono sempre il valore dell'elemento di risposta LastSyncTime come ora corrente in base al database SQL sottostante. Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli vedere il riferimento alla libreria client di archiviazione.
+- Il servizio di archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) è ora supportato nell'emulatore di archiviazione. Le API Get Blob Service Stats, Get Queue Service Stats e Get Table Service Stats sono supportate per l'account secondario e restituiscono sempre il valore dell'elemento di risposta LastSyncTime come ora corrente in base al database SQL sottostante. Per l'accesso a livello di codice al percorso secondario con l'emulatore di archiviazione, usare la libreria client di archiviazione per .NET versione 3.2 o successiva. Per i dettagli, vedere il materiale di riferimento della libreria client di archiviazione di Microsoft Azure per .NET.
 
 ### Versione 3.0
 - L'emulatore di archiviazione di Azure non è più disponibile nello stesso pacchetto dell'emulatore di calcolo.
@@ -232,4 +232,4 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 - La versione 2013-08-15 dei servizi di archiviazione di Azure è ora completamente supportata. (In precedenza questa versione era supportata solo dalla versione 2.2.1 dell'emulatore di archiviazione di anteprima.)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

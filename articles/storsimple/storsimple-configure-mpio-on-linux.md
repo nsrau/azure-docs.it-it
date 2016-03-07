@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="storsimple"
@@ -21,7 +21,7 @@ Questo articolo illustra i passaggi necessari a configurare l'I/O a percorsi mul
 
 Questa procedura è applicabile a tutti i modelli di dispositivi della serie StorSimple 8000.
 
->[AZURE.NOTE]Questa procedura non può essere usata per un dispositivo virtuale StorSimple. Per altre informazioni, vedere Come configurare i server host per il dispositivo virtuale.
+>[AZURE.NOTE] Questa procedura non può essere usata per un dispositivo virtuale StorSimple. Per altre informazioni, vedere Come configurare i server host per il dispositivo virtuale.
 
 ## Informazioni sui percorsi multipli 
 
@@ -207,7 +207,7 @@ Come illustrato nella figura precedente:
 
 La configurazione sopra indicata restituirà 4 percorsi separati tra il dispositivo e l'host se l'host e le interfacce di dati sono instradabili.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- È consigliabile non combinare interfacce di rete da 1 GbE e da 10 GbE per i percorsi multipli. Quando si usano due interfacce di rete, devono essere di tipo identico.
 >- Sul dispositivo StorSimple, DATA0, DATA1, DATA4 e DATA5 sono interfacce da 1 GbE mentre DATA2 e DATA3 sono interfacce di rete da 10 GbE.|
@@ -285,7 +285,8 @@ Questo algoritmo di bilanciamento del carico usa tutti i percorsi multipli dispo
 
 
 
-> [AZURE.NOTE]I valori più comuni di `path_grouping_policy` includono:
+> [AZURE.NOTE] 
+I valori più comuni di `path_grouping_policy` includono:
 	
 > - failover = 1 percorso per ogni gruppo prioritario
 > - multibus = tutti i percorsi validi in 1 gruppo prioritario
@@ -466,23 +467,23 @@ Per altre informazioni, vedere come [usare il comando interattivo di risoluzione
 |Tipo|Comando|Descrizione|
 |---|---|---|
 |**iSCSI**|`service iscsid start`|Avviare il servizio iSCSI|
-||`service iscsid stop`|Arrestare il servizio iSCSI|
-||`service iscsid restart`|Riavviare il servizio iSCSI|
-||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Trovare destinazioni disponibili all'indirizzo specificato|
-||`iscsiadm -m node --login -T <TARGET_IQN>`|Eseguire l'accesso alla destinazione iSCSI|
-||`iscsiadm -m node --logout -p <Target_IP>`|Disconnettersi dalla destinazione iSCSI|
-||`cat /etc/iscsi/initiatorname.iscsi`|Stampare il nome dell'iniziatore iSCSI|
-||`iscsiadm –m session –s <sessionid> -P 3`|Verificare lo stato della sessione iSCSI e il volume rilevato sull'host|
-||`iscsi –m session`|Mostra tutte le sessioni iSCSI stabilite tra l'host e il dispositivo StorSimple|
+|`service iscsid stop`|Arrestare il servizio iSCSI|
+|`service iscsid restart`|Riavviare il servizio iSCSI|
+|`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Individuare le destinazioni disponibili all'indirizzo specificato|
+|`iscsiadm -m node --login -T <TARGET_IQN>`|Accedere alla destinazione iSCSI|
+|`iscsiadm -m node --logout -p <Target_IP>`|Disconnettersi dalla destinazione iSCSI|
+|`cat /etc/iscsi/initiatorname.iscsi`|Stampare il nome dell'iniziatore iSCSI|
+|`iscsiadm –m session –s <sessionid> -P 3`|Controllare lo stato della sessione e del volume iSCSI individuati nell'host|
+|`iscsi –m session`|Mostra tutte le sessioni iSCSI stabilite tra l'host e il dispositivo StorSimple|
 | | | |
-|**Percorsi multipli**|`service multipathd start`|Avviare daemon a percorsi multipli|
-||`service multipathd stop`|Arrestare daemon a percorsi multipli|
-||`service multipathd restart`|Riavviare daemon a percorsi multipli|
-||`chkconfig multipathd on` </br> O </br> `mpathconf –with_chkconfig y`|Abilitare l'esecuzione del daemon a percorsi multipli in fase di avvio|
-||`multipathd –k`|Avviare la console interattiva per la risoluzione dei problemi|
-||`multipath –l`|Elencare connessioni e dispositivi a percorsi multipli|
-||`mpathconf --enable`|Creare un file multipath.conf di esempio in `/etc/mulitpath.conf`|
-||||
+|**Percorsi multipli**|`service multipathd start`|Avviare il daemon a percorsi multipli|
+|`service multipathd stop`|Arrestare il daemon a percorsi multipli|
+|`service multipathd restart`|Riavviare il daemon a percorsi multipli|
+|`chkconfig multipathd on` </br> OPPURE </br> `mpathconf –with_chkconfig y`|Abilitare l'avvio del daemon a percorsi multipli all'avvio del computer|
+|`multipathd –k`|Avviare la console interattiva per la risoluzione dei problemi|
+|`multipath –l`|Elencare le connessioni e i dispositivi a percorsi multipli|
+|`mpathconf --enable`|Creare un file mulitpath.conf di esempio in `/etc/mulitpath.conf`|
+|
 
 ## Passaggi successivi
 
@@ -491,4 +492,4 @@ Nella configurazione di MPIO sull'host Linux può anche essere necessario consul
 - [Configurazione di MPIO su CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Guida alla formazione Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

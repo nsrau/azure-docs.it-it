@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/18/2016"
 	ms.author="brandwe"/>
 
 # Anteprima di B2C: Aggiungere l'accesso a un'app Web NodeJS
@@ -51,7 +51,7 @@ A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad
 
 - Includere un'**app Web/API Web** nell'applicazione
 - Specificare `http://localhost/TodoListService` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
-- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesta a breve.
+- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve. Si noti che prima di usare questo valore è necessario [inserire un carattere di escape XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape).
 - Copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -418,7 +418,7 @@ Come riferimento, l'esempio completato (senza i valori di configurazione) [è di
 
 È ora possibile passare ad argomenti più avanzati. È possibile consultare:
 
-[Proteggere un'API Web con Modello B2C in Node.js >>](active-directory-b2c-devquickstarts-webapi-nodejs.md)
+[Proteggere un'API Web con Modello B2C in Node.js >>](active-directory-b2c-devquickstarts-api-node.md)
 
 <!--
 
@@ -431,4 +431,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

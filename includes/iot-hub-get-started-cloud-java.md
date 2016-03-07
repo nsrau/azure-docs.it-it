@@ -181,7 +181,7 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
     public static void main( String[] args ) throws IOException
     ```
 
-12. Aggiungere il codice seguente al metodo **main** nella classe **App**. Questo codice crea un'istanza di **EventHubClient** per la connessione all'endpoint compatibile con Hub eventi nell'hub IoT. Crea quindi due thread per la lettura dalle due partizioni. Sostituire **{youriothubkey}**, **{youreventhubcompatiblenamespace}** e **{youreventhubcompatiblename}** con i valori annotati in precedenza. Il valore del segnaposto **{youreventhubcompatiblenamespace}** proviene dall'**Endpoint compatibile con l'hub eventi** ed è espresso nel formato **xxxxnamespace.servicebus.windows.net**.
+12. Aggiungere il codice seguente al metodo **main** nella classe **App**. Questo codice crea un'istanza di **EventHubClient** per la connessione all'endpoint compatibile con Hub eventi nell'hub IoT. Crea quindi due thread per la lettura dalle due partizioni. Sostituire **{youriothubkey}**, **{youreventhubcompatiblenamespace}** e **{youreventhubcompatiblename}** con i valori annotati in precedenza. Il valore del segnaposto **{youreventhubcompatiblenamespace}** proviene dall'**endpoint compatibile con l'hub eventi** ed è espresso nel formato **xxxxnamespace**. In altre parole, rimuovere il prefisso ****sb://** e il suffisso **.servicebus.windows.net** dal valore dell'endpoint compatibile con l'hub eventi proveniente dal portale.
 
     ```
     String policyName = "iothubowner";
@@ -213,7 +213,7 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
 
 13. Salvare e chiudere il file App.java.
 
-14. Per compilare l'applicazione **read-d2c-messages** con Maven, eseguire questo comando al prompt dei comandi nella cartella read-d2c-messages:
+14. Per compilare l'applicazione **read-d2c-messages** con Maven, al prompt dei comandi nella cartella read-d2c-messages eseguire il comando seguente:
 
     ```
     mvn clean package -DskipTests
@@ -228,4 +228,4 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
 [lnk-event-hubs-overview]: event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

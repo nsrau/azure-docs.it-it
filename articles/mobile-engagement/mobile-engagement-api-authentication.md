@@ -20,18 +20,17 @@
 
 ## Panoramica
 
-Questo documento è una guida complementare per i clienti che eseguono la migrazione da Capptain ad Azure Mobile Engagement e che usavano le API. Viene descritto in modo dettagliato come far funzionare il meccanismo di autenticazione per le nuove API.
+Questo documento descrive in modo dettagliato come far funzionare il meccanismo di autenticazione per le nuove API.
 
 Si presuppone che l'utente abbia una sottoscrizione di Azure valida e che abbia creato un'app Mobile Engagement usando una delle [Esercitazioni per sviluppatori](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## Autenticazione
 
-Quando si esegue la migrazione di API Capptain a nuove API Azure Mobile Engagement, le differenze principali riguardano l'autenticazione. In precedenza le API supportavano l'autenticazione di base. Ora è necessario usare per l'autenticazione un token OAuth basato su Microsoft Azure Active Directory.
+È necessario usare per l'autenticazione un token OAuth basato su Microsoft Azure Active Directory.
 
 Per autenticare richieste API, è necessario aggiungere a ciascuna richiesta un'intestazione di autorizzazione. Tale intestazione deve essere nel formato seguente:
 
 	Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGmJlNmV2ZWJPamg2TTNXR1E...
-
 
 >[AZURE.NOTE] I token di Azure Active Directory scadono in un'ora.
 
@@ -130,9 +129,7 @@ Di seguito è descritto un modo alternativo per eseguire la procedura illustrata
 
 	Copiare questi valori per riferimento. Per ottenere un token di accesso, specificare TenantId come `{TENANT_ID}`, ApplicationId come `{CLIENT_ID}` e Secret come `{CLIENT_SECRET}`.
 
-
 8. Nel portale di gestione di Azure verificare se nell'area **Applicazioni di proprietà dell'azienda** viene visualizzata una nuova applicazione di Active Directory.
-
 
 #### Procedura per ottenere un token valido
 
@@ -166,9 +163,7 @@ Ora in ogni chiamata all'API includere l'intestazione della richiesta di autoriz
 
 Se viene restituito il codice di stato 401, rivedere il corpo della risposta e controllare che il token non sia scaduto. In caso affermativo, ottenere un nuovo token.
 
-
 ##Uso delle API
-
 
 Ora che si dispone di un token valido, è possibile eseguire chiamate API.
 
@@ -187,7 +182,6 @@ Ora che si dispone di un token valido, è possibile eseguire chiamate API.
 
 	![](./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png)
 
-
 >[AZURE.NOTE] <br/> 1. Ignorare l'indirizzo radice dell'API perché riferito alle API precedenti.<br/> 2. È necessario usare il nome di risorsa dell'applicazione, che è diverso dal nome dell'applicazione stessa.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

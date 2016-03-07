@@ -15,13 +15,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/16/2016" 
+	ms.date="02/18/2016" 
 	ms.author="jeffstok"
 />
 
-# Creare una soluzione IoT con analisi di flusso #
+# Creare una soluzione IoT con analisi di flusso
 
-## Introduzione ##
+## Introduzione
 
 In questa esercitazione si apprenderà come acquisire informazioni dettagliate in tempo reale a partire dai dati con l'analisi di flusso di Azure. Il servizio di elaborazione del flusso di Azure consente agli sviluppatori di gestire facilmente lo spazio dei dati in movimento combinando i flussi dei dati come eventi generati da clickstream, log e dispositivi con record cronologici o dati di riferimento per estrarre informazioni dettagliate aziendali in modo facile e veloce. L'analisi di flusso di Azure, un servizio di calcolo di flusso completamente gestito e in tempo reale ospitato in Microsoft Azure, fornisce resilienza predefinita, bassa latenza e scalabilità per garantire operatività in pochi minuti.
 
@@ -33,7 +33,7 @@ Dopo aver completato questa esercitazione, si sarà in grado di:
 -   Sviluppare in tutta sicurezza delle soluzioni di flusso per i clienti con l'analisi di flusso di Azure.
 -   Usare l'esperienza di monitoraggio e registrazione per risolvere i problemi.
 
-## Prerequisiti ##
+## Prerequisiti
 
 Sono necessari i prerequisiti seguenti per svolgere correttamente questa esercitazione.
 
@@ -41,20 +41,21 @@ Sono necessari i prerequisiti seguenti per svolgere correttamente questa esercit
 -   Visual Studio 2015 o la versione gratuita [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 -   [Sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/)
 -   Privilegi di amministratore nel computer
--   Scaricare la versione più recente TollApp.zip da [GitHub](https://github.com/streamanalytics/samples/releases)
+-   Scaricare [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) dall'Area download Microsoft.
+-   Facoltativo: codice sorgente per il generatore di eventi TollApp in [GitHub](https://github.com/streamanalytics/samples/tree/master/TollApp)
 
-## Presentazione dello scenario: il casello ##
+## Presentazione dello scenario: il casello
 
 
 I caselli sono una realtà conosciuta, presente su autostrade, ponti e gallerie di tutto il mondo. Ogni casello comprende una serie di cabine, manuali quando ci si ferma per pagare il pedaggio al personale addetto o automatiche quando il sensore posizionato sulla cabina esegue la scansione della scheda RFID, posta sul parabrezza del veicolo, al momento del passaggio nel casello. È semplice visualizzare il passaggio dei veicoli nei caselli come un flusso di eventi, sui quali è possibile eseguire alcune operazioni interessanti.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
 
-## Dati di ingresso ##
+## Dati di ingresso
 
 I flussi di dati su cui si lavora sono due e sono prodotti dai sensori installati all'entrata e all'uscita del casello, oltre a un set di dati di ricerca statico con dati di registrazione del veicolo.
 
-### Flusso di dati di ingresso ###
+### Flusso di dati di ingresso
 
 Il flusso di dati di ingresso contiene informazioni sulle automobili che entrano nel casello.
   
@@ -108,7 +109,7 @@ Ecco una breve descrizione delle colonne:
 | Tempo ingresso | Data e ora di uscita del veicolo dalla corsia della cabina del casello in UTC |
 | Targa | Numero di targa del veicolo |
 
-###Dati di registrazione del veicolo commerciale
+### Dati di registrazione del veicolo commerciale
 
 Viene riportato uno snapshot statico del database di registrazione del veicolo commerciale.
   
@@ -148,7 +149,7 @@ Questa esercitazione richiede 2 Hub eventi di Azure per ricevere i flussi di dat
 
 Lo script Setup.ps1 nella cartella TollApp in GitHub può essere usato per creare tutte le risorse necessarie. Per ottimizzare i tempi, si consiglia di eseguirlo. Se si desidera sapere di più sulla configurazione di queste risorse nel portale di Azure, consultare l'appendice sulla configurazione delle risorse dell'esercitazione nel portale di Azure
 
-Scaricare e salvare la cartella e i file di supporto [TollApp](https://github.com/streamanalytics/samples/releases). Verificare di aver scaricato la versione più recente.
+Scaricare e salvare la cartella e i file di supporto di [TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip).
 
 Aprire una finestra di "Microsoft Azure PowerShell" **COME AMMINISTRATORE**. Se non si ha ancora Azure PowerShell, seguire le istruzioni per installarlo in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
@@ -224,7 +225,7 @@ Fare clic su "TollDataDB"
 
 Copiare il nome del server senza il numero di porta (*servername*.database.windows.net, ad esempio)
 
-##Connettersi al database da Visual Studio
+## Connettersi al database da Visual Studio
 
 Si usa Visual Studio per accedere ai risultati di query nel database di output.
 
@@ -256,7 +257,7 @@ Connettersi al database di Azure (la destinazione) da Visual Studio:
   
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
   
-##Generatore di eventi: progetto di esempio TollApp
+## Generatore di eventi: progetto di esempio TollApp
 
 Lo script di PowerShell invia automaticamente gli eventi tramite il programma dell'applicazione di esempio TollApp. Non è necessario eseguire ulteriori passaggi.
 
@@ -278,7 +279,7 @@ Fare clic su "Crea processo di Analisi di flusso" in fondo alla pagina.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image22.png)
 
-##Definire le origini di input
+## Definire le origini di input
 
 Fare clic sul processo di analisi creato nel portale.
 
@@ -344,7 +345,7 @@ Ora sono definiti tutti gli input.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image36.jpg)
 
-##Definire l'output
+## Definire l'output
 
 Andare alla scheda "Output" e fare clic su "Aggiungi un output".
 
@@ -358,7 +359,7 @@ Immettere "tolladmin" come nome utente e "123toll!" come password. Il nome della
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.jpg)
 
-##Query di analisi di flusso di Azure
+## Query di analisi di flusso di Azure
 
 La scheda Query contiene una query SQL che esegue la trasformazione dei dati in ingresso.
 
@@ -368,7 +369,7 @@ L'obiettivo di questa esercitazione è quello di rispondere a diverse domande di
 
 Prima di iniziare il primo processo di analisi di flusso di Azure, è il caso di esaminare alcuni scenari e la sintassi delle query.
 
-##Introduzione al linguaggio di query di analisi di flusso di Azure
+## Introduzione al linguaggio di query di analisi di flusso di Azure
 -----------------------------------------------------
 
 Si immagini di dover contare il numero di veicoli che entra nel casello. Trattandosi di un flusso continuo di eventi, è essenziale stabilire un "periodo di tempo". È necessario quindi modificare la domanda e incentrarla sul "numero di veicoli che entra nel casello ogni 3 minuti". Questo viene generalmente definito come Tumbling Count.
@@ -383,7 +384,7 @@ Si osservi la query di analisi di flusso di Azure in risposta alla domanda:
 
 Per altri dettagli, è possibile leggere gli articoli sui costrutti relativi a [Gestione del tempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) e [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) usati nella query da MSDN.
 
-##Eseguire i test delle query di analisi di flusso di Azure
+## Eseguire i test delle query di analisi di flusso di Azure
 
 Una volta scritta la prima query di analisi di flusso di Azure, è necessario eseguirne il test con file di dati di esempio disponibili nella cartella TollApp nel percorso seguente:
 
@@ -411,7 +412,7 @@ Verificare che l'output della query sia come previsto:
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image42.jpg)
 
-##Domanda 2: Report del tempo totale necessario a ciascuna automobile per attraversare il casello
+## Domanda 2: Report del tempo totale necessario a ciascuna automobile per attraversare il casello
 
 Si desidera calcolare quanto tempo impiega in media l'automobile per attraversare il casello e valutare efficienza ed esperienza cliente.
 
@@ -435,7 +436,7 @@ Selezionare la casella di controllo per eseguire il test della query e visualizz
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image45.png)
 
-##Domanda 3: Report di tutti i veicoli commerciali con registrazione scaduta
+## Domanda 3: Report di tutti i veicoli commerciali con registrazione scaduta
 
 Analisi di flusso di Azure può usare snapshot statici dei dati da unire ai flussi di dati temporali. La domanda di esempio seguente viene usata per illustrare questa funzionalità.
 
@@ -457,7 +458,7 @@ Visualizzare l'output della query:
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image47.png)
 
-##Avviare il processo di analisi di flusso
+## Avviare il processo di analisi di flusso
 
 
 Una volta scritta la prima query di analisi di flusso di Azure, è necessario completare la configurazione e avviare il processo. Salvare la query dalla domanda 3, generando un output corrispondente allo schema della tabella output **TollDataRefJoin**.
@@ -474,13 +475,13 @@ L'avvio del processo può richiedere alcuni minuti. È possibile visualizzare lo
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.jpg)
 
-##Controllare i risultati in Visual Studio
+## Controllare i risultati in Visual Studio
 
 Aprire Esplora server di Visual Studio e fare clic con il pulsante destro del mouse sulla tabella TollDataRefJoin. Selezionare "Mostra dati tabella" per visualizzare l'output del processo.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image51.jpg)
 
-##Ridimensionare i processi di analisi di flusso di Azure
+## Ridimensionare i processi di analisi di flusso di Azure
 
 Analisi di flusso di Azure è progettato per garantire una scalabilità elastica e per gestire un carico elevato di dati. La query di analisi di flusso di Azure può usare la clausola **PARTITION BY** per comunicare al sistema che questo passaggio aumenterà il numero di istanze. PartitionId è una colonna speciale aggiunta dal sistema corrispondente all'id di partizione dell'input (Hub eventi)
 
@@ -500,7 +501,7 @@ Andare alla scheda di output e modificare il nome della tabella SQL in "TollData
 
 A questo punto, se si avvia il processo, l'analisi di flusso di Azure può distribuire il lavoro tra più risorse di calcolo e ottenere maggiore produttività. Notare che l'applicazione TollApp invia anche eventi partizionati in base a TollId.
 
-##Monitoraggio
+## Monitoraggio
 
 La scheda Monitoraggio contiene le statistiche relative al processo in esecuzione.
 
@@ -516,13 +517,13 @@ Per visualizzare altre informazioni su un evento specifico, selezionare l'evento
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image56.png)
 
-##Conclusioni
+## Conclusioni
 
 Questa esercitazione ha presentato il servizio di analisi di flusso di Azure. È stato illustrato come configurare input e output per il processo di analisi di flusso. Con lo scenario dei dati del casello, è stato possibile spiegare le tipologie più comuni di problemi che si verificano nello spazio dei dati in movimento e come possono essere risolti tramite semplici query simili a SQL nell'analisi di flusso di Azure. Sono stati descritti i costrutti di estensioni SQL per lavorare con i dati temporali. È stato illustrato come unire i flussi di dati e come arricchirli tramite dati di riferimento statici. È stato spiegato come aumentare il numero di istanze di una query per ottenere maggiore produttività.
 
-Anche se questa esercitazione offre una panoramica dettagliata del prodotto, non è assolutamente comprensiva di tutto. È possibile conoscere altri modelli di query che usano il linguaggio SAQL [qui](stream-analytics-stream-analytics-query-patterns.md). Consultare la [documentazione online](https://azure.microsoft.com/documentation/services/stream-analytics/) per sapere di più sull'analisi di flusso di Azure.
+Anche se questa esercitazione offre una panoramica dettagliata del prodotto, non è assolutamente comprensiva di tutto. È possibile scoprire altri modelli di query che usano il linguaggio SAQL [qui](stream-analytics-stream-analytics-query-patterns.md). Consultare la [documentazione online](https://azure.microsoft.com/documentation/services/stream-analytics/) per sapere di più sull'analisi di flusso di Azure.
 
-##Eliminare l'account di Azure.
+## Eliminare l'account di Azure.
 
 Arrestare il processo di analisi di flusso dal portale di Azure.
 
@@ -534,4 +535,4 @@ Tenere presente che le risorse possono essere identificate in base al nome. Assi
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

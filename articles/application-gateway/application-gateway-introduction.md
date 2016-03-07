@@ -12,11 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="02/18/2016"
    ms.author="joaoma"/>
 
-# Informazioni sul servizio Gateway applicazione
-
+# Panoramica del gateway applicazione
 
 Il servizio Gateway applicazione di Microsoft Azure fornisce una soluzione di bilanciamento del carico HTTP gestita da Azure basata sul bilanciamento del carico di livello 7.
 
@@ -26,8 +25,8 @@ Il servizio Gateway applicazione attualmente supporta la distribuzione di applic
 
 - Bilanciamento del carico HTTP
 - Affinità di sessione basata su cookie
-- Offload SSL ( Secure Sockets Layer)
-
+- [Offload SSL ( Secure Sockets Layer)](application-gateway-ssl-arm.md)
+- [Routing del contenuto basato su URL](application-gateway-url-route-overview.md) 
 
 ## Bilanciamento del carico di livello 7 HTTP
 
@@ -41,7 +40,7 @@ Il bilanciamento del carico di livello 7 HTTP è utile per:
 - Applicazioni che hanno la funzione di liberare le server farm Web dal sovraccarico della terminazione SSL.
 - Applicazioni, ad esempio la rete per la distribuzione di contenuti, che necessitano che più richieste HTTP nella stessa connessione TCP con esecuzione prolungata vengano instradate/bilanciate in server back-end diversi.
 
-
+ 
 ## Istanze e dimensioni del gateway
 
 Il servizio Gateway applicazione è attualmente disponibile in 3 dimensioni: Small, Medium e Large. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
@@ -59,6 +58,7 @@ Nella tabella seguente viene illustrata una velocità effettiva media delle pres
 
 >[AZURE.NOTE] Si tratta di indicazioni approssimative per una velocità effettiva del gateway applicazione. La velocità effettiva dipende da vari dettagli ambientali come la dimensione media della pagina, la posizione di istanze di back-end e il tempo di elaborazione del server di una pagina.
 
+
 ## Monitoraggio dell’integrità
 
 Il gateway applicazione di Azure monitora automaticamente l'integrità delle istanze di back-end. Per altre informazioni, vedere [Panoramica del monitoraggio dell'integrità del gateway applicazione](application-gateway-probe-overview.md).
@@ -72,4 +72,6 @@ Il gateway applicazione di Azure monitora automaticamente l'integrità delle ist
 
 Dopo aver acquisito familiarità con il gateway applicazione, è possibile [creare un gateway applicazione](application-gateway-create-gateway.md) oppure [configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md) per bilanciare il carico delle connessioni HTTPS.
 
-<!---HONumber=AcomDC_0128_2016-->
+Per informazioni su come creare un gateway applicazione usando il routing del contenuto basato su URL, vedere [Creare un gateway applicazione usando il routing basato su URL](application-gateway-create-url-route-arm-ps.md).
+
+<!---HONumber=AcomDC_0224_2016-->

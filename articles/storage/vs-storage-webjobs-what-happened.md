@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Cosa è successo al progetto Webjob (servizio connesso a Visual Studio Archiviazione di Azure)?
@@ -34,6 +34,6 @@ Il pacchetto NuGet per l'Archiviazione di Azure è stato aggiunto o aggiornato n
 ## Aggiunta di stringa di connessione per l'Archiviazione di Azure
 Nel file App.config del progetto gli elementi **AzureWebJobsStorage** e **AzureWebJobsDashboard** sono stati aggiornati con la stringa di connessione e la chiave dell'account di archiviazione selezionato.
 
-Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+Per altre informazioni, vedere [Risorse di documentazione di Processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

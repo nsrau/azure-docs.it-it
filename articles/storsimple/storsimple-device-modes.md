@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -42,7 +42,7 @@ Talvolta potrebbe essere necessario avere il dispositivo StorSimple in modalità
 
 È possibile porre il sistema in modalità di manutenzione solo tramite Windows PowerShell per StorSimple. In questa modalità, tutte le richieste I/O sono sospese. Inoltre vengono arrestati servizi come la memoria ad accesso casuale non volatile (NVRAM) o il servizio cluster. Entrambi i controller vengono riavviati quando si entra o si esce dalla modalità. Quando si esce dalla modalità di manutenzione, tutti i servizi vengono ripresi e devono essere integri. L'operazione potrebbe richiedere alcuni minuti.
 
->[AZURE.NOTE]**La modalità di manutenzione è supportata solo in un dispositivo che funziona correttamente. Non è supportata in un dispositivo in cui uno o entrambi i controller non funzionano.**</br>
+>[AZURE.NOTE] **La modalità di manutenzione è supportata solo in un dispositivo che funziona correttamente. Non è supportata in un dispositivo in cui uno o entrambi i controller non funzionano.**</br>
 
 ### Modalità di ripristino
 
@@ -50,7 +50,7 @@ La modalità di ripristino può essere descritta come la "modalità provvisoria 
 
 Se il sistema passa in modalità di ripristino, è necessario contattare il supporto tecnico Microsoft per i passaggi successivi. Per ulteriori informazioni, andare a [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
->[AZURE.NOTE]**Non è possibile porre il dispositivo in modalità di ripristino. Se il dispositivo è in uno stato non valido, la modalità di ripristino tenta di impostare il dispositivo su uno stato che permetta al personale di supporto Microsoft di esaminarlo.**
+>[AZURE.NOTE] **Non è possibile porre il dispositivo in modalità di ripristino. Se il dispositivo è in uno stato non valido, la modalità di ripristino tenta di impostare il dispositivo su uno stato che permetta al personale di supporto Microsoft di esaminarlo.**
 
 ## Determinare la modalità del dispositivo StorSimple
 
@@ -63,7 +63,7 @@ Se il sistema passa in modalità di ripristino, è necessario contattare il supp
 
 Per eseguire la manutenzione o installare gli aggiornamenti in modalità manutenzione, è possibile porre il dispositivo StorSimple in modalità di manutenzione (dalla modalità normale). Eseguire le procedure seguenti per attivare o disattivare la modalità di manutenzione.
 
-> [AZURE.IMPORTANT]Prima di entrare in modalità manutenzione, verificare che entrambi i controller di dispositivi siano integri effettuando l’accesso allo **Stato Hardware** sulla pagina **Manutenzione** nel portale di Azure classico. Se il controller non è integro, contattare il supporto tecnico Microsoft per i passaggi successivi. Per ulteriori informazioni, andare su [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
+> [AZURE.IMPORTANT] Prima di entrare in modalità manutenzione, verificare che entrambi i controller di dispositivi siano integri effettuando l’accesso allo **Stato Hardware** sulla pagina **Manutenzione** nel portale di Azure classico. Se il controller non è integro, contattare il supporto tecnico Microsoft per i passaggi successivi. Per ulteriori informazioni, andare su [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
 #### Per attivare la modalità di manutenzione
 
@@ -97,4 +97,4 @@ Per eseguire la manutenzione o installare gli aggiornamenti in modalità manuten
 
 Informazioni su come [applicare gli aggiornamenti in modalità normale e manutenzione](storsimple-update-device.md) al dispositivo StorSimple.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

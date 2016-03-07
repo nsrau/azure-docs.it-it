@@ -18,13 +18,13 @@
 
 # Anteprima di Azure Active Directory B2C: Limitazioni e restrizioni
 
-Nel periodo di anteprima di Azure Active Directory (AD) B2C molte funzionalità e caratteristiche non sono ancora supportate. Molte di queste limitazioni verranno rimosse prima che Azure AD B2C sia disponibile a livello generale. È tuttavia necessario tenerle presenti se si creano applicazioni per utenti basate su Azure AD B2C durante la fase di anteprima.
+Nel periodo di anteprima di Azure Active Directory (Azure AD) B2C molte funzionalità e caratteristiche non sono ancora supportate. Molte di queste limitazioni verranno rimosse prima che Azure AD B2C sia disponibile a livello generale. È tuttavia necessario tenerle presenti se si creano applicazioni per utenti basate su Azure AD B2C durante la fase di anteprima.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## Problemi durante la creazione di tenant Azure AD B2C
+## Problemi durante la creazione di tenant di Azure AD B2C
 
-Se si verificano problemi durante la [creazione di un tenant Azure AD B2C](active-directory-b2c-get-started), consultare questo [articolo](active-directory-b2c-support-create-directory.md) per informazioni aggiuntive.
+Se si verificano problemi durante la [creazione di un tenant di Azure AD B2C](active-directory-b2c-get-started), vedere [Creazione di un Tenant di Azure AD o di un Tenant di Azure AD B2C - Problemi e risoluzioni](active-directory-b2c-support-create-directory.md) per istruzioni.
 
 ## Problemi relativi alla personalizzazione nei messaggi di posta elettronica di verifica
 
@@ -36,7 +36,7 @@ Le applicazioni che si integrano con Azure AD B2C non devono essere rilasciate a
 
 ## Restrizioni relative alle applicazioni
 
-I tipi di applicazioni seguenti non sono attualmente supportati nell'anteprima di Azure AD B2C. Per una descrizione dei tipi di applicazioni supportati, fare riferimento a [questo articolo](active-directory-b2c-apps.md).
+I tipi di applicazioni seguenti non sono attualmente supportati nell'anteprima di Azure AD B2C. Per una descrizione dei tipi di applicazioni supportati, fare riferimento ad [Anteprima di Azure AD B2C: Tipi di applicazioni](active-directory-b2c-apps.md).
 
 ### Applicazioni a pagina singola (JavaScript)
 
@@ -44,7 +44,7 @@ Molte applicazioni moderne dispongono di un front-end per applicazioni a pagina 
 
 ### Applicazioni daemon e sul lato server
 
-Anche le applicazioni che contengono processi a esecuzione prolungata o che funzionano senza la presenza di un utente necessitano di un modo per accedere alle risorse protette, ad esempio le API Web. Tali applicazioni possono autenticarsi e ottenere i token usando la propria identità, anziché un'identità delegata dell'utente, mediante il [flusso delle credenziali client di OAuth 2.0](active-directory-b2c-reference-protocols.md#oauth2-client-credentials-grant-flow). Questo flusso non è ancora disponibile nell'anteprima di Azure AD B2C. In altre parole, le applicazioni possono ottenere i token solo dopo l'esecuzione di un flusso di accesso utente interattivo.
+Anche le applicazioni che contengono processi a esecuzione prolungata o che funzionano senza la presenza di un utente necessitano di un modo per accedere alle risorse protette, ad esempio le API Web. Tali applicazioni possono autenticarsi e ottenere i token usando la propria identità, anziché un'identità delegata dell'utente, mediante il [flusso delle credenziali client di OAuth 2.0](active-directory-b2c-reference-protocols.md#oauth2-client-credentials-grant-flow). Questo flusso non è ancora disponibile nell'anteprima di Azure AD B2C, pertanto attualmente le applicazioni possono ottenere i token solo dopo l'esecuzione di un flusso di accesso utente interattivo.
 
 ### API Web autonome
 
@@ -52,7 +52,7 @@ Nell'anteprima di Azure AD B2C è possibile [creare un'API Web protetta mediante
 
 ### Catene di API Web (On-Behalf-Of)
 
-Molte architetture includono un'API Web che deve chiamare un'altra API Web downstream, entrambe protette da Azure AD B2C. Questo scenario è comune nei client nativi che dispongono di un back-end dell'API Web, che a sua volta chiama un servizio Microsoft Online come l'API Graph di Azure AD.
+Molte architetture includono un'API Web che deve chiamare un'altra API Web downstream, entrambe protette da Azure AD B2C. Questo scenario è comune nei client nativi che dispongono di un back-end dell'API Web, che a sua volta chiama un servizio online Microsoft come l'API Graph di Azure AD.
 
 Questo scenario dell'API Web concatenata può essere supportato tramite la concessione delle credenziali di connessione JWT di OAuth 2.0, nota anche come flusso On-Behalf-Of. Tuttavia, il flusso On-Behalf-Of non è attualmente implementato nell'anteprima di Azure AD B2C.
 
@@ -60,7 +60,7 @@ Questo scenario dell'API Web concatenata può essere supportato tramite la conce
 
 Non tutti i linguaggi e le piattaforme dispongono di librerie che supportano l'anteprima di Azure AD B2C. Il set di librerie di autenticazione è attualmente limitato a .NET, iOS, Android e NodeJS. Esercitazioni rapide per ogni libreria sono disponibili nella sezione [Introduzione](active-directory-b2c-overview.md#getting-started).
 
-Se si desidera integrare un'applicazione con l'anteprima di Azure AD B2C usando un linguaggio o una piattaforma differente, vedere il [riferimento ai protocolli OAuth 2.0 e OpenID Connect](active-directory-b2c-reference-protocols.md) che contiene informazioni sulla creazione dei messaggi HTTP necessari per comunicare con il servizio Azure AD B2C.
+Se si desidera integrare un'applicazione con l'anteprima di Azure AD B2C usando un linguaggio o una piattaforma differente, vedere l'articolo relativo al [riferimento ai protocolli OAuth 2.0 e OpenID Connect](active-directory-b2c-reference-protocols.md) che illustra come creare i messaggi HTTP necessari per comunicare con il servizio Azure AD B2C.
 
 ## Restrizioni relative ai protocolli
 
@@ -84,16 +84,12 @@ Le funzionalità B2C sono accessibili nel portale di Azure, ma è possibile usar
 
 Se si reimposta la password per un cliente con account locale nel portale di Azure classico (comando **Reimposta password** nella scheda **Utenti**), il cliente non sarà in grado di modificare la propria password all'accesso successivo e sarà bloccato dall'accesso alle applicazioni. Stiamo lavorando su correzione del problema. In alternativa, utilizzare l’[API Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) per reimpostare la password del consumer.
 
-## Restrizioni relative all'eliminazione di tenant Azure AD B2C
+## Restrizioni relative all'eliminazione di tenant di Azure AD B2C
 
-Non è possibile eliminare un tenant Azure AD B2C nel portale di Azure classico.
+Non è possibile eliminare un tenant di Azure AD B2C nel portale di Azure classico.
 
 ## Problemi relativi alla verifica di un dominio nel portale di Azure classico
 
 Attualmente non è possibile verificare correttamente un dominio nel [portale di Azure classico](https://manage.windowsazure.com/). Microsoft sta lavorando per trovare una soluzione.
 
-## Messaggi di avviso nel portale di Azure
-
-Quando si accede al pannello delle impostazioni B2C nel portale di Azure, in Notifiche nell'angolo in alto a destra verrà visualizzato un messaggio di avviso simile al seguente: "L'utente non dispone di sottoscrizioni nella directory <B2CTenantName>. È possibile passare alle altre directory.", dove <B2CTenantName> è il nome del tenant B2C. È possibile ignorare questo messaggio e continuare ad accedere alle funzionalità B2C. Microsoft sta lavorando con il team del portale di Azure per trovare una soluzione a questo problema.
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

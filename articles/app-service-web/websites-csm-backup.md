@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/23/2016"
 	ms.author="nicking"/>
 
 # Usare REST per eseguire il backup e il ripristino di app del servizio App
@@ -92,7 +92,7 @@ Il backup dell'app inizierà immediatamente alla ricezione della richiesta. Il c
 }
 ```
 
->[AZURE.NOTE]I messaggi di errore si trovano nella proprietà log della risposta HTTP.
+>[AZURE.NOTE] I messaggi di errore si trovano nella proprietà log della risposta HTTP.
 
 <a name="schedule-automatic-backups"></a>
 ## Pianificare backup automatici
@@ -225,9 +225,9 @@ Nel corpo della richiesta inviare un oggetto JSON che contiene il nuovo URL di f
 }
 ```
 
->[AZURE.NOTE]Per motivi di sicurezza, l'URL di firma di accesso condiviso associato a un backup non viene restituito quando si invia una richiesta GET per un backup specifico. Se si vuole visualizzare l'URL di firma di accesso condiviso associata a un backup, inviare una richiesta POST allo stesso URL precedente e includere semplicemente un oggetto JSON vuoto nel corpo della richiesta. La risposta dal server conterrà tutte le informazioni del backup, incluso il relativo URL di firma di accesso condiviso.
+>[AZURE.NOTE] Per motivi di sicurezza, l'URL di firma di accesso condiviso associato a un backup non viene restituito quando si invia una richiesta GET per un backup specifico. Se si vuole visualizzare l'URL di firma di accesso condiviso associata a un backup, inviare una richiesta POST allo stesso URL precedente e includere semplicemente un oggetto JSON vuoto nel corpo della richiesta. La risposta dal server conterrà tutte le informazioni del backup, incluso il relativo URL di firma di accesso condiviso.
 
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

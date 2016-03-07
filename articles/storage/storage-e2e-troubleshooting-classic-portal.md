@@ -3,7 +3,7 @@
 	description="Esercitazione che illustra la risoluzione dei problemi end-to-end mediante Analisi archiviazione di Azure, AzCopy e Microsoft Message Analyzer" 
 	services="storage" 
 	documentationCenter="dotnet" 
-	authors="tamram" 
+	authors="robinsh" 
 	manager="carmonm"/>
 
 <tags 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="02/23/2016" 
+	ms.author="robinsh"/>
 
 # Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer 
 
@@ -58,7 +58,7 @@ Nello scenario di esempio, dopo avere stabilito che la metrica della percentuale
 
 Gli esempi seguenti presentano un campione di errori della serie 400 per le richieste nell'archivio BLOB di Azure e le possibili cause. Tutti questi errori, così come quelli nella fascia 300 e 500, possono contribuire a una bassa percentuale di operazioni riuscite.
 
-Tenere presente che gli elenchi riportati sotto sono tutt'altro che completi. Per informazioni dettagliate sugli errori generali di Archiviazione di Azure e sugli errori specifici dei singoli servizi di archiviazione, vedere [Codici di stato e di errore](http://msdn.microsoft.com/library/azure/dd179382.aspx) su MSDN.
+Tenere presente che gli elenchi riportati sotto sono tutt'altro che completi. Per informazioni dettagliate sugli errori generali di Archiviazione di Azure e sugli errori specifici dei singoli servizi di archiviazione, vedere [Codici di stato e di errore](http://msdn.microsoft.com/library/azure/dd179382.aspx).
 
 **Esempi di codice di stato 404 (Non trovato)**
 
@@ -88,7 +88,7 @@ In questa esercitazione viene usato Message Analyzer per utilizzare tre diversi 
 
 ### Configurare le metriche e la registrazione sul lato server
 
-In primo luogo è necessario configurare la registrazione e le metriche di Archiviazione di Azure, in modo da disporre di dati dell'applicazione client per l'analisi. La registrazione e le metriche possono essere configurate in diversi modi: tramite il [portale di Azure classico](https://manage.windowsazure.com), tramite PowerShell o a livello di codice. Per informazioni dettagliate sulla registrazione e sulle metriche, vedere [Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Abilitazione di Registrazione archiviazione e accesso ai dati di log](http://msdn.microsoft.com/library/azure/dn782840.aspx) su MSDN.
+In primo luogo è necessario configurare la registrazione e le metriche di Archiviazione di Azure, in modo da disporre di dati dell'applicazione client per l'analisi. La registrazione e le metriche possono essere configurate in diversi modi: tramite il [portale di Azure classico](https://manage.windowsazure.com), tramite PowerShell o a livello di codice. Per informazioni dettagliate sulla registrazione e sulle metriche, vedere [Abilitazione delle metriche di archiviazione e visualizzazione dei dati di metrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Abilitazione della registrazione e accesso ai dati del Log di archiviazione](http://msdn.microsoft.com/library/azure/dn782840.aspx).
 
 **Tramite il portale di Azure classico**
 
@@ -130,7 +130,7 @@ Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e
 
 ### Configurare la registrazione sul lato client .NET
 
-Per configurare la registrazione sul lato client per un'applicazione .NET, abilitare la diagnostica .NET nel file di configurazione dell'applicazione (web.config o app.config). Per informazioni dettagliate, vedere l'articolo relativo alla [registrazione sul lato client con la libreria client di archiviazione .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) e l'articolo relativo alla [registrazione sul lato client con Microsoft Azure Storage SDK per Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) su MSDN.
+Per configurare la registrazione sul lato client per un'applicazione .NET, abilitare la diagnostica .NET nel file di configurazione dell'applicazione (web.config o app.config). Per informazioni dettagliate, vedere [Registrazione lato client con la libreria Client di archiviazione .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Registrazione lato client con Microsoft Azure Storage SDK per Java](http://msdn.microsoft.com/library/azure/dn782844.aspx).
 
 Il log lato client include informazioni dettagliate sul modo in cui il client prepara la richiesta e riceve ed elabora la risposta.
 
@@ -347,18 +347,7 @@ Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i
 | Ritardi imprevisti nel recapito dei messaggi in una coda | AzureStorageClientDotNetV4.Description contains "Retrying failed operation." | Client |
 | Aumento di PercentThrottlingError HTTP | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Rete |
 | Aumento di PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rete |
-| Aumento di PercentTimeoutError (tutti) |    *StatusCode == 500 | All |
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
-| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network |
-| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | 
-| 404 (all) | *StatusCode == 404 | All |
-| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network |
-| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network |
-| 409 (all) | *StatusCode == 409 | All |
-| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server |
-| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server |
-| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network |
-| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
+| Aumento di PercentTimeoutError (tutti) |    **StatusCode == 500 | All | | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | | 404 (all) | *StatusCode == 404 | All | | Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | | HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | | 409 (all) | *StatusCode == 409 | All | | Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | | Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | | Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | | Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## Passaggi successivi
@@ -373,4 +362,4 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
  
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

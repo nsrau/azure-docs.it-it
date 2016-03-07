@@ -58,6 +58,8 @@ Se è necessario eseguire un'attività di sincronizzazione, è possibile eseguir
 
 <center>![Cloud](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
+Per altre informazioni sull'utilità di pianificazione del servizio di sincronizzazione di Azure AD Connect, vedere [Utilità di pianificazione di Azure AD Connect](active-directory-aadconnectsync-feature-scheduler.md)
+
 
 ## Attività aggiuntive disponibili in Azure AD Connect
 Dopo l'installazione iniziale di Azure AD Connect è sempre possibile riavviare la procedura guidata dalla pagina iniziale di Azure AD Connect o dal collegamento sul dekstop. Si noterà che la riesecuzione della procedura guidata fornisce alcune nuove opzioni sotto forma di Attività aggiuntive.
@@ -76,4 +78,4 @@ Abilitazione modalità di gestione temporanea | Consente di inserire in un'area 
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

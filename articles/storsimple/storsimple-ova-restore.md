@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/27/2016"
+   ms.date="02/23/2016"
    ms.author="alkohli"/>
 
 # Ripristinare da un backup di StorSimple Virtual Array (anteprima)
@@ -100,12 +100,11 @@ Per ripristinare da un backup, nel portale di Azure classico, eseguire i passagg
 
 3.  È possibile monitorare lo stato del processo di ripristino. Quando il ripristino è stato completato al 100%, tornare indietro alla pagina **Volumi** nel dispositivo.
 
-4.  È ora possibile visualizzare il nuovo volume ripristinato nell'elenco dei volumi nel dispositivo.
+4.  È ora possibile visualizzare il nuovo volume ripristinato nell'elenco dei volumi nel dispositivo. Si noti che il ripristino riporta allo stesso tipo di volume. Un volume a livelli viene ripristinato come volume a livelli e un volume aggiunto in locale come un volume aggiunto in locale.
 
-	> [AZURE.NOTE] Il ripristino riporta allo stesso tipo di volume. Un volume a livelli viene ripristinato come volume a livelli e un volume aggiunto in locale come un volume aggiunto in locale.
+> [AZURE.IMPORTANT] Quando si tenta di ripristinare un volume o una condivisione da un set di backup, anche se il processo di ripristino non riesce, è comunque possibile creare nel portale un volume o una condivisione di destinazione. È importante eliminare questo volume o questa condivisione di destinazione nel portale per ridurre al minimo eventuali problemi futuri causati da questo elemento.
 
 ## Ripristino a livello di elemento (ILR)
-
 
 Questa versione introduce il ripristino a livello di elemento (ILR) su un dispositivo virtuale StorSimple configurato come file server. La funzionalità consente di eseguire il ripristino granulare di file e cartelle da un backup cloud di tutte le condivisioni nel dispositivo StorSimple. Gli utenti possono recuperare i file eliminati dai backup recenti con un modello self-service.
 
@@ -138,4 +137,4 @@ Guardare il video per scoprire come è possibile creare condivisioni, eseguire i
 
 Altre informazioni su come [gestire StorSimple Virtual Array con l'interfaccia utente Web locale](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="Uso del connettore File nelle app per la logica | Microsoft Azure App Service"
 	description="Come creare e configurare l'app per le API o il connettore File e usarlo in un'app per la logica in Azure App Service"
 	authors="rajeshramabathiran"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="02/10/2016"
 	ms.author="rajram"/>
 
 # Uso del connettore File e aggiunta all'app per la logica
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
 Connettersi a un file system per caricare, scaricare ed eseguire altre operazioni sui file in un computer host. Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati. È possibile aggiungere il connettore File al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
 
 Il connettore File usa Gestione connessione ibrida per la connettività ibrida al file system host.
@@ -32,10 +34,10 @@ Per usare il connettore File, è innanzitutto necessario creare un'istanza dell'
 	- **Impostazioni pacchetto**
 		- **Root Folder**: specificare il percorso della cartella radice nel computer host. Ad esempio, D:\\FileConnectorTest
 		- **Service Bus Connection String**: specificare una stringa di connessione del bus di servizio. Assicurarsi che lo spazio dei nomi del bus di servizio sia del tipo Standard e NON Basic per consentire l'uso degli inoltri del bus di servizio. L'inoltro del bus di servizio viene usato per la connessione a Gestione connessione ibrida.
-	- **App Service plan**: selezionare o creare un piano di servizio app
+	- **Piano di servizio app**: selezionare o creare un piano di servizio app
 	- **Pricing tier**: scegliere un livello di prezzo per il connettore
 	- **Resource group**: selezionare o creare un gruppo di risorse in cui deve risiedere il connettore
-	- **Subscription**: scegliere una sottoscrizione in cui si vuole creare questo connettore
+	- **Sottoscrizione**: scegliere una sottoscrizione in cui si vuole creare questo connettore
 	- **Location**: scegliere l'area geografica in cui si vuole distribuire il connettore
 
 4. Fare clic su Create. Verrà creato un nuovo connettore File.
@@ -58,7 +60,7 @@ Dopo aver creato l'app per le API, è possibile usare il connettore File come tr
 
 7. Una volta completata la configurazione, è possibile usare il trigger e l'azione nel flusso. È possibile configurare anche altre azioni nello stesso modo.
 
-> [AZURE.NOTE]Una volta letto dalla cartella, il trigger del file eliminerà il file.
+> [AZURE.NOTE] Una volta letto dalla cartella, il trigger del file eliminerà il file.
 
 ## API REST del connettore File ##
 Per usare il connettore all'esterno di un'app per la logica, è possibile sfruttare le API REST esposte dal connettore. È possibile visualizzare le definizioni delle API selezionando Browse->Api App->File Connector. Fare ora clic su API Definition nella sezione di riepilogo per visualizzare tutte le API esposte dal connettore: ![][7]
@@ -68,7 +70,7 @@ Per informazioni dettagliate sulle API, vedere l'articolo relativo alla [definiz
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova l’app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -85,4 +87,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [definizione delle API del connettore File]: https://msdn.microsoft.com/library/dn936296.aspx
 [uso di Gestione connessione ibrida]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

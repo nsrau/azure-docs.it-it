@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 # Protocolli della versione 2.0: flusso del codice di autorizzazione di OAuth 2.0
@@ -24,29 +24,45 @@ La concessione del codice di autorizzazione OAuth 2.0 può essere utilizzata nel
 <!-- TODO: Need link to libraries -->
 
 > [AZURE.NOTE]
-    Queste informazioni fanno riferimento all'anteprima pubblica di Modello app 2.0. Per istruzioni su come eseguire l'integrazione con il servizio Azure AD disponibile a livello generale, consultare la [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
+	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 
-Il flusso del codice di autorizzazione di OAuth 2.0 è descritto nella [sezione 4.1 della specifica di OAuth 2.0](http://tools.ietf.org/html/rfc6749). Viene usato per eseguire l'autenticazione e l'autorizzazione nella maggior parte dei tipi di app, tra cui [app Web](active-directory-v2-flows.md#web-apps) e [app native](active-directory-v2-flows.md#mobile-and-native-apps). Tale flusso consente alle app di acquisire in modo sicuro i token di accesso che possono essere usati per accedere alle risorse protette tramite Modello app 2.0.
+Il flusso del codice di autorizzazione di OAuth 2.0 è descritto nella [sezione 4.1 della specifica di OAuth 2.0](http://tools.ietf.org/html/rfc6749). Viene usato per eseguire l'autenticazione e l'autorizzazione nella maggior parte dei tipi di app, tra cui [app Web](active-directory-v2-flows.md#web-apps) e [app native](active-directory-v2-flows.md#mobile-and-native-apps). Tale flusso consente alle app di acquisire in modo sicuro i token di accesso che possono essere usati per accedere alle risorse protette tramite endpoint v2.0.
 
+## Diagramma di protocollo
+In generale, l'intero flusso di autenticazione per un'applicazione nativa/mobile ha un aspetto analogo al seguente:
 
+![Flusso del codice di autenticazione di OAuth](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
 ## Richiedere un codice di autorizzazione
 Il flusso del codice di autorizzazione ha inizio con il client che indirizza l'utente all'endpoint `/authorize`. In questa richiesta, il client indica le autorizzazioni che deve acquisire dall'utente:
 
 ```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345
+// Line breaks for legibility only
+
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&response_type=code
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&response_mode=query
+&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&state=12345
 ```
 
 > [AZURE.TIP] Provare a incollare questa richiesta in un browser.
 
+```
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345
+```
+
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | --------------- |
+| tenant | Obbligatoria | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints). |
 | client\_id | Obbligatorio | ID applicazione che il portale di registrazione ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) ha assegnato all'app. |
 | response\_type | Obbligatorio | Deve includere `code` per il flusso del codice di autorizzazione. |
 | redirect\_uri | consigliato | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Per le app native e le app per dispositivi mobili è necessario usare il valore predefinito `urn:ietf:wg:oauth:2.0:oob`. |
 | scope | Obbligatorio | Elenco separato da spazi di [ambiti](active-directory-v2-scopes.md) a cui si vuole che l'utente dia il consenso. |
 | response\_mode | Consigliato | Specifica il metodo da usare per restituire il token risultante all'app. Può essere `query` o `form_post`. |
-| state | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per la [prevenzione di attacchi di richiesta intersito falsa](http://tools.ietf.org/html/rfc6749#section-10.12) viene in genere usato un valore univoco generato in modo casuale. Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
+| state | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per [evitare gli attacchi di richiesta intersito falsa](http://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
 | prompt | Facoltativo | Indica il tipo di interazione obbligatoria dell'utente. Gli unici valori validi in questa fase sono "login", "none" e "consent". `prompt=login` impone all'utente di immettere le credenziali per la richiesta, negando l'accesso Single Sign-On, mentre `prompt=none` provoca l'effetto contrario, ovvero garantisce che all'utente non venga presentato alcun prompt interattivo. Se la richiesta non può essere completata automaticamente tramite Single-Sign-On, l'endpoint 2.0 restituirà un errore. `prompt=consent` attiverà la finestra di dialogo di consenso di OAuth in seguito all'accesso dell'utente, chiedendo all'utente di concedere le autorizzazioni per l'app. |
 | login\_hint | Facoltativo | Consente di pre-compilare il campo nome utente/indirizzo di posta elettronica dell'utente nella pagina di accesso, se già si conosce il nome utente. Le app usano spesso questo parametro durante la riautenticazione, dopo aver estratto il nome utente da un accesso precedente tramite l'attestazione `preferred_username`. |
 | domain\_hint | Facoltativo | Può essere uno di `consumers` o `organizations`. Se incluso, non verrà eseguito il processo di individuazione basata sulla posta elettronica a cui viene sottoposto l'utente nella pagina di accesso della versione 2.0. Questo comporta un'esperienza utente leggermente semplificata. Le app usano spesso questo parametro durante la riautenticazione, estraendo `tid` da un accesso precedente. Se il valore dell'attestazione `tid` è `9188040d-6c67-4c5b-b112-36a304b66dad`, usare `domain_hint=consumers`. In caso contrario, usare `domain_hint=organizations`. |
@@ -89,7 +105,7 @@ Dopo aver ottenuto un codice di autorizzazione e l'autorizzazione dell'utente, �
 ```
 // Line breaks for legibility only
 
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -110,6 +126,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | --------------------- |
+| tenant | Obbligatoria | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints). |
 | client\_id | Obbligatorio | ID applicazione che il portale di registrazione ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) ha assegnato all'app. |
 | grant\_type | Obbligatorio | Deve essere `authorization_code` per il flusso del codice di autorizzazione. |
 | scope | Obbligatorio | Elenco di ambiti separati da spazi. Gli ambiti richiesti in questa sezione devono essere equivalenti agli ambiti richiesti nella prima sezione o un sottoinsieme di questi ultimi. Se gli ambiti specificati in questa richiesta si estendono su più server di risorse, l'endpoint 2.0 restituirà un token per la risorsa specificata nel primo ambito. Per una spiegazione più dettagliata degli ambiti, fare riferimento all'argomento relativo ad [autorizzazioni, consenso e ambiti](active-directory-v2-scopes.md). |
@@ -124,7 +141,7 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 {
 	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
 	"token_type": "Bearer",
-	"expires_in": "3600",
+	"expires_in": 3599,
 	"scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
 	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
 	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
@@ -137,7 +154,7 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 | expires\_in | Validità del token di accesso (espressa in secondi). |
 | scope | Ambiti per i quali il token di accesso è valido. |
 | refresh\_token | Token di aggiornamento di OAuth 2.0. L'app può usare questo token per acquisire token di accesso aggiuntivi dopo la scadenza del token di accesso corrente. I token di aggiornamento hanno una durata elevata e possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo. Per informazioni dettagliate, consultare l'argomento [Anteprima Azure AD B2C: Riferimento al Token](active-directory-v2-tokens.md). |
-| id\_token | Token JWT (Token Web JSON) non firmato. L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza. Per altre informazioni sui token ID, vedere l'argomento [Anteprima di Modello app 2.0: Riferimento al token](active-directory-v2-tokens.md). |
+| id\_token | Token JWT (Token Web JSON) non firmato. L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza. Per altre informazioni sui token ID, vedere il [riferimento al token dell'endpoint v2.0](active-directory-v2-tokens.md). |
 
 #### Risposta di errore
 Le risposte di errore hanno un aspetto simile al seguente:
@@ -185,7 +202,7 @@ I token di accesso hanno breve durata ed è quindi necessario aggiornarli dopo l
 ```
 // Line breaks for legibility only
 
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -205,6 +222,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | -------- |
+| tenant | Obbligatoria | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints). |
 | client\_id | Obbligatorio | ID applicazione che il portale di registrazione ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) ha assegnato all'app. |
 | grant\_type | Obbligatorio | Deve essere `refresh_token` per questa sezione del flusso del codice di autorizzazione. |
 | scope | Obbligatorio | Elenco di ambiti separati da spazi. Gli ambiti richiesti in questa sezione devono essere equivalenti agli ambiti richiesti nella sezione di richiesta del codice di autorizzazione originale o un sottoinsieme di questi ultimi. Se gli ambiti specificati in questa richiesta si estendono su più server di risorse, l'endpoint 2.0 restituirà un token per la risorsa specificata nel primo ambito. Per una spiegazione più dettagliata degli ambiti, fare riferimento all'argomento relativo ad [autorizzazioni, consenso e ambiti](active-directory-v2-scopes.md). |
@@ -219,7 +237,7 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 {
 	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
 	"token_type": "Bearer",
-	"expires_in": "3600",
+	"expires_in": 3599,
 	"scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
 	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
 	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
@@ -232,7 +250,7 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 | expires\_in | Validità del token di accesso (espressa in secondi). |
 | scope | Ambiti per i quali il token di accesso è valido. |
 | refresh\_token | Nuovo token di aggiornamento di OAuth 2.0. È necessario sostituire il token di aggiornamento precedente con quello appena acquisito, per garantire che i token di aggiornamento rimangano validi il più a lungo possibile. |
-| id\_token | Token JWT (Token Web JSON) non firmato. L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza. Per altre informazioni sui token ID, vedere l'argomento [Anteprima di Modello app 2.0: Riferimento al token](active-directory-v2-tokens.md). |
+| id\_token | Token JWT (Token Web JSON) non firmato. L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza. Per altre informazioni sui token ID, vedere il [riferimento al token dell'endpoint v2.0](active-directory-v2-tokens.md). |
 
 #### Risposta di errore
 ```
@@ -257,9 +275,4 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 | trace\_id | Identificatore univoco per la richiesta utile per la diagnostica. |
 | correlation\_id | Identificatore univoco per la richiesta utile per la diagnostica tra i componenti. |
 
-## Riepilogo
-In generale, l'intero flusso di autenticazione per un'applicazione nativa/mobile ha un aspetto analogo al seguente:
-
-![Flusso del codice di autenticazione di OAuth](../media/active-directory-v2-flows/convergence_scenarios_native.png)
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

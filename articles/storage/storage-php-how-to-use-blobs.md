@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 # Come usare l'archiviazione BLOB da PHP
@@ -42,7 +42,7 @@ In questa guida si useranno le funzionalità del servizio che possono essere chi
 
 Per usare le API del servizio BLOB di Azure, è necessario:
 
-1. Fare riferimento al file autoloader mediante l'istruzione [require\_once][require_once].
+1. Fare riferimento al file autoloader mediante l'istruzione [require\_once].
 2. Fare riferimento a tutte le eventuali classi utilizzabili.
 
 Nell'esempio seguente viene indicato come includere il file autoloader e fare riferimento alla classe **ServicesBuilder**.
@@ -291,9 +291,9 @@ Per eliminare un contenere di BLOB, infine, passare il nome del contenitore a **
 A questo punto, dopo aver appreso le nozioni di base del servizio BLOB di Azure, usare i collegamenti seguenti per altre informazioni su attività di archiviazione più complesse.
 
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-- Vedere l'esempio relativo al BLOB in blocchi PHP all'indirizzo <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>,
-- Vedere l'esempio relativo al BLOB di pagine PHP all'indirizzo <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
-- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
+- Vedere l'[esempio relativo al BLOB in blocchi PHP](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php).
+- Vedere l'[esempio relativo al BLOB di pagine PHP](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php).
+- [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
  
 Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/develop/php/).
 
@@ -302,8 +302,8 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/de
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
-[require_once]: http://php.net/require_once
+[require\_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

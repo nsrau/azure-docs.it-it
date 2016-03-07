@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Introduzione all'archiviazione tabelle di Azure e ai servizi relativi a Visual Studio
@@ -26,7 +26,7 @@ Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quan
 
 L'operazione **Aggiungi servizi connessi** consente di installare i pacchetti NuGet appropriati per accedere all'archiviazione di Azure nel progetto e aggiunge la stringa di connessione per l'account di archiviazione ai file di configurazione del progetto.
 
-Per ulteriori informazioni generali sull'utilizzo dell'archiviazione tabelle di Azure, vedere [Come utilizzare l'archiviazione delle tabelle da .NET](storage-dotnet-how-to-use-tables.md).
+Per ulteriori informazioni generali sull'utilizzo dell'archiviazione tabelle di Azure, vedere [Introduzione all'archiviazione tabelle di Azure con .NET](storage-dotnet-how-to-use-tables.md).
 
 Per iniziare, è innanzitutto necessario creare una tabella nell'account di archiviazione. Verrà mostrato come creare una tabella di Azure nel codice. Infine verrà mostrato come eseguire operazioni relative alle tabelle e all'entità di base, come l'aggiunta, la modifica, la lettura e la lettura delle entità delle tabelle. Negli esempi, scritti in codice C#, viene utilizzata la libreria del client di archiviazione di Azure per .NET.
 
@@ -89,8 +89,6 @@ Per aggiungere un'entità a una classe, creare una classe che definisca le propr
 
 Per eseguire le operazioni su tabelle che interessano entità, viene utilizzato l'oggetto **CloudTable** creato in precedenza in "Accesso alle tabelle nel codice". L'oggetto **TableOperation** rappresenta l'operazione da eseguire. L'esempio di codice seguente mostra come creare un oggetto **CloudTable** e un oggetto **CustomerEntity**. Per preparare l'operazione, viene creato un oggetto **TableOperation** per inserire l'entità customer nella tabella. Infine, per eseguire l'operazione viene chiamato CloudTable.ExecuteAsync.
 
-	// Get a reference to the CloudTable object named 'peopleTable' as described in "Access a table in code"
-
 	// Create a new customer entity.
 	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
 	customer1.Email = "Walter@contoso.com";
@@ -105,8 +103,6 @@ Per eseguire le operazioni su tabelle che interessano entità, viene utilizzato 
 ## Inserire un batch di entità
 
 È possibile inserire più entità in una tabella in una singola operazione di scrittura. L'esempio di codice seguente crea due oggetti entità ("Jeff Smith" e "Ben Smith"), li aggiunge a un oggetto **TableBatchOperation** utilizzando il metodo **Insert**, quindi avvia l'operazione richiamando CloudTable.ExecuteBatchAsync.
-
-	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
 	// Create the batch operation.
 	TableBatchOperation batchOperation = new TableBatchOperation();
@@ -131,8 +127,6 @@ Per eseguire le operazioni su tabelle che interessano entità, viene utilizzato 
 ## Ottenere tutte le entità di una partizione
 Per eseguire una query su una tabella e recuperare tutte le entità di una partizione, usare un oggetto **TableQuery**. Nell'esempio di codice seguente viene specificato un filtro per le entità in cui la chiave di partizione è 'Smith'. Questo esempio consente di stampare sulla console i campi di ogni entità inclusa nei risultati della query.
 
-	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
-
 	// Construct the query operation for all customer entities where PartitionKey="Smith".
     TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
 
@@ -153,8 +147,6 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 ## Ottenere una singola entità
 È possibile scrivere una query per ottenere una singola entità specifica. Il codice seguente usa un oggetto **TableOperation** per specificare un cliente denominato 'Ben Smith'. Questo metodo restituisce una sola entità, anziché una raccolta, e il valore restituito in **TableResult.Result** è un oggetto **CustomerEntity**. La specifica delle chiavi di partizione e di riga in una query costituisce la soluzione più rapida per recuperare una singola entità dal servizio **tabelle**.
 
-	// Get a reference to a CloudTableobject named 'peopleTable' as described in "Access a table in code"
-
 	// Create a retrieve operation that takes a customer entity.
 	TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
@@ -169,8 +161,6 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 
 ## Eliminare un'entità
 È possibile eliminare un'entità dopo averla individuata. Il codice seguente cerca un'entità customer denominata "Ben Smith" e, se la trova, la elimina.
-
-	// Get a reference to a CloudTableobject named 'peopleTable' as described in "Access a table in code"
 
 	// Create a retrieve operation that expects a customer entity.
 	TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
@@ -197,6 +187,6 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 
 ## Passaggi successivi
 
-[AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+[AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

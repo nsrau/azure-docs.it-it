@@ -20,7 +20,7 @@
 
 Le applicazioni Azure richiedono in genere una combinazione di risorse (ad esempio un server di database, un database o un sito Web) per raggiungere gli obiettivi desiderati. Anziché distribuire e gestire separatamente ogni risorsa, è possibile creare un modello di Gestione risorse di Azure che distribuisce e fornisce tutte le risorse per l'applicazione in un'unica operazione coordinata. Nel modello vengono definite le risorse necessarie per l'applicazione e vengono specificati i parametri di distribuzione per immettere valori nei diversi ambienti di distribuzione. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione. In questo argomento vengono descritte le sezioni del modello.
 
-Visual Studio fornisce strumenti per la creazione di modelli. Per altre informazioni sull'utilizzo di Visual Studio con i modelli, vedere [Creazione e distribuzione di gruppi di risorse di Azure mediante Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) e [Modifica dei modelli di Gestione risorse con Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
+Visual Studio fornisce strumenti per la creazione di modelli. Per altre informazioni sull'utilizzo di Visual Studio con i modelli, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 È necessario limitare le dimensioni del modello a 1 MB e ogni file dei parametri a 64 KB. Il limite di 1 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni delle risorse iterative e i valori di variabili e parametri.
 
@@ -35,13 +35,13 @@ Prima di iniziare a creare il modello, è consigliabile stabilire cosa distribui
 5. Valori da passare durante la distribuzione e valori da definire direttamente nel modello
 6. Eventuale necessità di valori restituiti dalla distribuzione
 
-Per scoprire quali tipi di risorse sono disponibili per la distribuzione, quali aree sono supportate per i tipi e le versioni di API disponibili per ogni tipo, vedere l'articolo relativo a [provider, aree, versioni API e schemi di Gestione risorse](resource-manager-supported-services.md). Questo argomento fornisce esempi e collegamenti che permettono di determinare i valori da inserire nel modello.
+Per scoprire quali tipi di risorse sono disponibili per la distribuzione, quali aree sono supportate per i tipi e le versioni di API disponibili per ogni tipo, vedere [Provider, aree, versioni API e schemi di Gestione risorse](resource-manager-supported-services.md). Questo argomento fornisce esempi e collegamenti che permettono di determinare i valori da inserire nel modello.
 
 Se una risorsa deve essere distribuita dopo un'altra, è possibile contrassegnarla come dipendente dall'altra risorsa. Per sapere come eseguire questa operazione, vedere la sezione [Risorse](#resources) di seguito.
 
 È possibile modificare il risultato della distribuzione del modello fornendo i valori dei parametri durante l'esecuzione. Per sapere come eseguire questa operazione, vedere la sezione [Parametri](#parameters) di seguito.
 
-I valori restituiti dalla distribuzione vengono inseriti nella sezione [outputs](#outputs) del modello.
+I valori restituiti dalla distribuzione vengono inseriti nella sezione [Output](#outputs).
 
 ## Formato del modello
 
@@ -295,7 +295,7 @@ La sezione resources contiene una matrice delle risorse da distribuire. All'inte
 
 
 
-L'esempio seguente illustra una risorsa **Microsoft.Web/serverfarms** e una risorsa **Microsoft.Web/sites** con una risorsa figlio **Extensions**. Si noti che il sito è contrassegnato come dipendente nella server farm perché per poter distribuire il sito deve esistere la server farm. Si noti anche che la risorsa **Extensions** è un elemento figlio del sito.
+L'esempio seguente illustra una risorsa **Microsoft.Web/serverfarms** e una risorsa **Microsoft.Web/sites** con una risorsa **Extensions** figlio. Si noti che il sito è contrassegnato come dipendente nella server farm perché per poter distribuire il sito deve esistere la server farm. Si noti anche che la risorsa **Extensions** è un elemento figlio del sito.
 
     "resources": [
         {
@@ -474,4 +474,4 @@ Il modello seguente distribuisce un'app Web e fornisce il codice da un file con 
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per visualizzare gli schemi disponibili, vedere [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

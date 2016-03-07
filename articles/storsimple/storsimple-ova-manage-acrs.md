@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # Usare il servizio StorSimple Manager per gestire i record di controllo di accesso per l'array virtuale StorSimple (anteprima)
@@ -114,4 +114,4 @@ Attenersi alla procedura seguente per eliminare un record di controllo di access
 
 - Altre informazioni sull'[aggiunta di volumi e la configurazione di record di controllo di accesso](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

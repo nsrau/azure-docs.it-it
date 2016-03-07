@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="02/04/2016"
 	ms.author="heidist" />
 
 # API di gestione: versione 2015-02-28
@@ -826,4 +826,4 @@ Se l’operazione ha esito positivo, il codice di stato della risposta è HTTP 2
 
 Nessuna.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

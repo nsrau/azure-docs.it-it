@@ -1,5 +1,5 @@
 <properties
-   pageTitle="API REST di Ricerca di Azure versione 2015-02-28-Preview | Microsoft Azure"
+   pageTitle="API REST di Ricerca di Azure versione 2015-02-28-Preview | Microsoft Azure | API di anteprima di Ricerca di Azure"
    description="L'API REST di Ricerca di Azure versione 2015-02-28-Preview include funzionalità sperimentali come gli analizzatori del linguaggio naturale e le ricerche moreLikeThis."
    services="search"
    documentationCenter="na"
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="02/04/2016"
+   ms.date="02/16/2016"
    ms.author="heidist"/>
 
 # API REST del servizio Ricerca di Azure: versione 2015-02-28-Preview
 
 Questo articolo è la documentazione di riferimento per `api-version=2015-02-28-Preview`. Questa versione di anteprima estende l'attuale versione disponibile per il pubblico, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), con le seguenti funzionalità sperimentali:
 
-- La [sintassi delle query Lucene](https://msdn.microsoft.com/library/mt589323.aspx) ora può essere usata per le query in Ricerca di Azure. Per usare il parser delle query Lucene, specificare `queryType` nelle operazioni di ricerca. `moreLikeThis` è un parametro di query usato nelle [operazioni di ricerca](#SearchDocs) che trova documenti rilevanti rispetto a un altro documento specifico.
+- Parametro di query `moreLikeThis` nell'API di [ricerca documenti](#SearchDocs). Trova altri documenti rilevanti per un altro documento specifico.
 
-Alcune funzionalità aggiuntive di `2015-02-28-Preview` sono documentate separatamente, incluse le seguenti:
+Alcune parti aggiuntive dell'API REST `2015-02-28-Preview` sono documentate separatamente. incluse le seguenti:
 
 - [Profili di punteggio](search-api-scoring-profiles-2015-02-28-preview.md)
 - [Indicizzatori](search-api-indexers-2015-02-28-preview.md)
@@ -619,7 +619,7 @@ Un `scoringProfile` definisce i comportamenti di punteggio personalizzati che co
 
 Un profilo di punteggio predefinito viene eseguito in background al fine di calcolare un punteggio di ricerca per ogni elemento visualizzato in un set di risultati. È possibile utilizzare un profilo di punteggio interno, senza nome. In alternativa, è possibile impostare il `defaultScoringProfile` affinché usi un profilo personalizzato come predefinito. Tale profilo può essere richiamato ogni volta in cui un profilo personalizzato non viene specificato nella stringa di query.
 
-Per ulteriori dettagli, vedere [Aggiungere profili di punteggio a un indice di ricerca (API REST di Ricerca di Azure)](search-api-scoring-profiles-2015-02-28.md).
+Per ulteriori dettagli, vedere [Aggiungere profili di punteggio a un indice di ricerca (API REST di Ricerca di Azure)](search-api-scoring-profiles-2015-02-28-preview.md).
 
 **Opzioni CORS**
 
@@ -1029,7 +1029,7 @@ L'elenco seguente descrive le intestazioni della richiesta obbligatorie e facolt
 - `Content-Type`: elemento obbligatorio. Impostare il valore su `application/json`.
 - `api-key`: elemento obbligatorio. L'elemento `api-key` viene usato per autenticare la richiesta nel servizio di ricerca. È un valore stringa univoco per il servizio. La richiesta di **aggiunta di documenti** deve includere un'intestazione `api-key` impostata sulla chiave amministratore, anziché su una chiave di query.
 
-Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](.search-create-service-portal.md).
+Per creare l'URL della richiesta, è necessario anche il nome del servizio. È possibile ottenere il nome del servizio e `api-key` dal dashboard servizi nel portale di Azure. Per informazioni, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 **Corpo della richiesta**
 
@@ -1150,7 +1150,7 @@ Un'operazione **Search** viene generata come richiesta GET o POST e specifica i 
 
 **Quando usare POST invece di GET**
 
-Quando si usa HTTP GET per chiamare l'API di **Ricerca**, è necessario tenere presente che la lunghezza dell'URL della richiesta non può superare 8 KB. Di solito è sufficiente per la maggior parte delle applicazioni. Alcune applicazioni, tuttavia, generano query di dimensioni molto grandi o espressioni di filtro OData. Per queste applicazioni è preferibile usare HTTP POST perché consente filtri e query di maggiori dimensioni rispetto a GET. Con POST il fattore limitante è il numero di condizioni o di clausole in una query , non la dimensione della query non elaborata, poiché il limite delle dimensioni della richiesta per POST è di circa 17 MB.
+Quando si usa HTTP GET per chiamare l'API di **Ricerca**, è necessario tenere presente che la lunghezza dell'URL della richiesta non può superare 8 KB. Di solito è sufficiente per la maggior parte delle applicazioni. Alcune applicazioni, tuttavia, generano query di dimensioni molto grandi o espressioni di filtro OData. Per queste applicazioni è preferibile usare HTTP POST perché consente filtri e query di maggiori dimensioni rispetto a GET. Con POST il fattore limitante è il numero di condizioni o di clausole in una query , non la dimensione della query non elaborata, poiché il limite delle dimensioni della richiesta per POST è di circa 16 MB.
 
 > [AZURE.NOTE] Anche se il limite della dimensione della richiesta POST è molto grande, le query di ricerca e le espressioni di filtro non possono essere arbitrariamente complesse. Per altre informazioni sulle limitazioni della complessità dei filtri e delle query di ricerca, vedere le pagine relative rispettivamente alla [sintassi delle query Lucene](https://msdn.microsoft.com/library/mt589323.aspx) e alla [sintassi delle espressioni OData](https://msdn.microsoft.com/library/dn798921.aspx). **Richiesta**
 
@@ -1193,7 +1193,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
 
 > [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `skip` anziché `$skip`.
 
-`$top=#` (facoltativo): specifica il numero di risultati della ricerca da recuperare. Può essere usato insieme a `$skip` per implementare il paging sul lato client dei risultati della ricerca.
+`$top=#` (facoltativo): il numero di risultati della ricerca da recuperare. Può essere usato insieme a `$skip` per implementare il paging sul lato client dei risultati della ricerca.
 
 > [AZURE.NOTE] Quando si chiama **Search** con POST, questo parametro è denominato `top` invece di `$top`.
 
@@ -1219,7 +1219,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
   - Esempio: `facet=rating,sort:-value` genera bucket per tutte le classificazioni possibili, in ordine decrescente in base al valore. Se le classificazioni sono da 1 a 5, i bucket avranno l'ordine 5, 4, 3, 2, 1, indipendentemente dal numero di documenti corrispondenti a ogni classificazione.
 - `values` (valori numerici delimitati da pipe o valori `Edm.DateTimeOffset` che specificano un set dinamico di valori di immissione di facet)
   - Esempio: `facet=baseRate,values:10|20` genera tre bucket, uno per la tariffa di base da 0 a 10 escluso, uno da 10 a 20 escluso e uno per 20 e oltre.
-  - Esempio: `facet=lastRenovationDate,values:2010-02-01T00:00:00Z` genera due bucket, uno per hotel rinnovati prima del febbraio 2010 e uno per hotel rinnovati a partire dal 1 febbraio 2010.
+  - Esempio: `facet=lastRenovationDate,values:2010-02-01T00:00:00Z` genera due bucket, uno per hotel rinnovati prima del febbraio 2010 e uno per hotel rinnovati a partire dal 1° febbraio 2010.
 - `interval` (intervallo di tipo Integer maggiore di 0 per i numeri o `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year` per i valori di tipo data/ora)
   - Esempio: `facet=baseRate,interval:100` genera bucket in base agli intervalli di tariffe di base con dimensioni pari a 100. Se le tariffe di base sono tutte comprese tra € 60 e € 600, saranno presenti bucket per 0-100, 100-200, 200-300, 300-400, 400-500 e 500-600.
   - Esempio: `facet=lastRenovationDate,interval:year` genera un bucket per ogni anno in cui gli hotel sono stati rinnovati.
@@ -1639,7 +1639,9 @@ Un'operazione **Suggestions** viene generata come richiesta GET.
 
 **Quando usare POST invece di GET**
 
-Quando si usa HTTP GET per chiamare l'API **Suggestions**, è necessario tenere presente che la lunghezza dell'URL della richiesta non può superare 8 KB. Di solito è sufficiente per la maggior parte delle applicazioni. Alcune applicazioni generano tuttavia query di dimensioni molto grandi, specialmente le espressioni di filtro OData. Per queste applicazioni l'uso di HTTP POST è una scelta migliore. Le dimensioni massime della richiesta POST sono di circa 17 MB, sufficienti anche per le query più complesse.
+Quando si usa HTTP GET per chiamare l'API **Suggestions**, è necessario tenere presente che la lunghezza dell'URL della richiesta non può superare 8 KB. Di solito è sufficiente per la maggior parte delle applicazioni. Alcune applicazioni generano tuttavia query di dimensioni molto grandi, specialmente le espressioni di filtro OData. Per queste applicazioni è preferibile usare HTTP POST perché consente filtri di maggiori dimensioni rispetto a GET. Con POST il fattore limitante è il numero di clausole in un filtro, non la dimensione della stringa di filtro non elaborata, poiché il limite delle dimensioni della richiesta per POST è di circa 16 MB.
+
+> [AZURE.NOTE] Anche se il limite della dimensione della richiesta POST è molto grande, le espressioni di filtro non possono essere arbitrariamente complesse. Per altre informazioni sulle limitazioni della complessità dei filtri, vedere le pagine relative alla [sintassi delle espressioni OData](https://msdn.microsoft.com/library/dn798921.aspx).
 
 **Richiesta**
 
@@ -1772,4 +1774,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
       "suggesterName": "sg"
     }
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

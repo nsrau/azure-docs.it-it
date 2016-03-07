@@ -4,8 +4,8 @@
 	services="app-service\logic" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="app-service-logic" 
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="02/11/2016" 
 	ms.author="mandia"/>
 
 # Connettori Business to Business e app per le API nel servizio app di Microsoft Azure
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
 Il servizio app di Microsoft Azure (o servizio app) include numerose app per le API BizTalk, estremamente importanti per gli ambienti di integrazione. Queste app per le API sono basate sui concetti e gli strumenti usati all'interno di BizTalk Server, ma sono ora disponibili come parte del servizio app di Azure.
 
 Una categoria di queste app sono le app per le API Business to Business (B2B), che consentono di aggiungere partner, creare contratti ed eseguire facilmente tutte le operazioni possibili in locale mediante EDI, AS2 ed EDIFACT.
@@ -49,8 +51,8 @@ Quando si crea un'app per le API B2B sono necessarie alcune risorse. L'utente de
 
 Requisito | Descrizione
 --- | ---
-Database SQL di Azure | Archivia elementi B2B, tra cui partner, schemi, certificati e contratti. Ogni app per le API B2B richiede un proprio database SQL di Azure. <br/><br/>**Nota** Copiare la stringa di connessione al database.<br/><br/>[Creare un database SQL di Azure](../sql-database-get-started.md)
-Contenitore dell'archiviazione BLOB di Azure | Archivia le proprietà dei messaggi quando è abilitata l'archiviazione AS2. Se l'archiviazione dei messaggi AS2 non è necessaria, il contenitore di archiviazione non è necessario. <br/><br/>**Nota** Se si sta abilitando l'archiviazione, copiare la stringa di connessione all'archivio BLOB.<br/><br/>[Informazioni sugli account di archiviazione di Azure](../storage-create-storage-account.md)
+Database SQL di Azure | Archivia elementi B2B, tra cui partner, schemi, certificati e contratti. Ogni app per le API B2B richiede un proprio database SQL di Azure. <br/><br/>**Nota** Copiare la stringa di connessione al database.<br/><br/>[Creare un database SQL di Azure](../sql-database/sql-database-get-started.md)
+Contenitore dell'archiviazione BLOB di Azure | Archivia le proprietà dei messaggi quando è abilitata l'archiviazione AS2. Se l'archiviazione dei messaggi AS2 non è necessaria, il contenitore di archiviazione non è necessario. <br/><br/>**Nota** Se si sta abilitando l'archiviazione, copiare la stringa di connessione all'archivio BLOB.<br/><br/>[Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md)
 Spazio dei nomi del bus di servizio e i relativi valori chiave | Archivia i dati di invio in batch X12 ed EDIFACT. Se non è necessario l'invio in batch, lo spazio dei nomi del bus di servizio non è necessario.<br/><br/>**Nota** Se si abilita l'invio in batch, copiare questi valori.<br/><br/>[Creare uno spazio dei nomi del bus di servizio](http://msdn.microsoft.com/library/azure/hh690931.aspx)
 Istanza di TPM | Per creare un connettore AS2 e un'app per le API X12 o EDIFACT è necessaria un'istanza di BizTalk Trading Partner Management (TPM). Quando si crea l'app per le API TPM, si crea l'istanza di TPM. <br/><br/>**Nota** Prendere nota del nome dell'app per le API TPM. 
 
@@ -71,7 +73,7 @@ La procedura seguente consente di creare le app per le API B2B tramite il pannel
 
 #### Creare app per le API BizTalk Trading Partner Management (TPM)
 
-> [AZURE.NOTE]Per creare un connettore AS2 e un'app per le API X12 o EDIFACT è necessaria un'istanza di BizTalk Trading Partner Management (TPM). Quando si crea l'app per le API TPM, si crea l'istanza di TPM.
+> [AZURE.NOTE] Per creare un connettore AS2 e un'app per le API X12 o EDIFACT è necessaria un'istanza di BizTalk Trading Partner Management (TPM). Quando si crea l'app per le API TPM, si crea l'istanza di TPM.
 
 La procedura seguente consente di creare l'istanza di TPM:
 
@@ -175,7 +177,7 @@ Il servizio app di Microsoft Azure espone diversi tipi di applicazione che posso
 
 All'interno dell'app, selezionare semplicemente le app per le API B2B dalla raccolta per aggiungerle automaticamente all'app.
 
-> [AZURE.IMPORTANT]Per aggiungere connettori e app per le API create in precedenza, creare le app per la logica, mobili o Web nello stesso gruppo di risorse.
+> [AZURE.IMPORTANT] Per aggiungere connettori e app per le API create in precedenza, creare le app per la logica, mobili o Web nello stesso gruppo di risorse.
 
 La procedura seguente consente di aggiungere le app per le API B2B ad app per la logica, app per dispositivi mobili o Web:
 
@@ -187,11 +189,11 @@ La procedura seguente consente di aggiungere le app per le API B2B ad app per la
 
 3. In **Raccolta** selezionare l'app per le API B2B, che verrà aggiunta automaticamente all'app. È anche possibile creare una nuova app per le API B2B.
 
-	> [AZURE.IMPORTANT]Il connettore AS2 e le app per le API X12 ed EDIFACT richiedono un'istanza di TPM. Pertanto, quando si creano nuove app per le API B2B, creare prima l'app per le API TPM e quindi creare il connettore AS2 e l'app per le API X12 o EDIFACT.
+	> [AZURE.IMPORTANT] Il connettore AS2 e le app per le API X12 ed EDIFACT richiedono un'istanza di TPM. Pertanto, quando si creano nuove app per le API B2B, creare prima l'app per le API TPM e quindi creare il connettore AS2 e l'app per le API X12 o EDIFACT.
 
 4. Selezionare **OK** per salvare le modifiche.
 
->[AZURE.NOTE]Per iniziare a usare le app per la logica di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova app per la logica](https://tryappservice.azure.com/?appservice=logic), dove è possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare le app per la logica prima di creare un account di Azure, [provare le app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Altre risorse B2B
 
@@ -206,4 +208,4 @@ La procedura seguente consente di aggiungere le app per le API B2B ad app per la
 
 [Elenco di connettori e app per le API](app-service-logic-connectors-list.md)<br/><br/> [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

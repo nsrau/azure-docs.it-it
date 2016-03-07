@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 12/14/15-->
+<!--author=SharS last changed: 02/22/2016-->
 
 ### Per configurare e registrare il dispositivo
 
@@ -16,7 +16,7 @@
   
 5. Completare i passaggi seguenti per configurare le impostazioni di rete minime richieste per il dispositivo.
 
-    > [AZURE.IMPORTANT]È necessario eseguire questa procedura sul controller attivo del dispositivo. Nel messaggio dell’intestazione del menu della console seriale è indicato lo stato del controller. Se non si è connessi al controller attivo, disconnettersi e quindi connettersi al controller attivo.
+    > [AZURE.IMPORTANT] È necessario eseguire questa procedura sul controller attivo del dispositivo. Nel messaggio dell’intestazione del menu della console seriale è indicato lo stato del controller. Se non si è connessi al controller attivo, disconnettersi e quindi connettersi al controller attivo.
 
       1. Al prompt dei comandi, digitare la password. La password predefinita è **Password1**.
 
@@ -32,11 +32,11 @@
        - Indirizzo IP per il server DNS primario
        - Indirizzo IP per il server NTP primario
  
-        > [AZURE.NOTE]Potrebbe essere necessario attendere alcuni minuti affinché la subnet mask e le impostazioni DNS vengano applicate.
+        > [AZURE.NOTE] Potrebbe essere necessario attendere alcuni minuti affinché la subnet mask e le impostazioni DNS vengano applicate.
 
       4. Facoltativamente, configurare il server proxy Web.
 
-      >[AZURE.IMPORTANT]Sebbene la configurazione del proxy Web sia facoltativa, tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](storsimple-configure-web-proxy.md).
+      > [AZURE.IMPORTANT] Sebbene la configurazione del proxy Web sia facoltativa, tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](storsimple-configure-web-proxy.md).
 
 6. Premere Ctrl + C per uscire dalla configurazione guidata.
  
@@ -97,7 +97,7 @@
 
 14. Il passaggio finale dell'installazione guidata registra il dispositivo con il servizio StorSimple Manager. A tale scopo, è necessario il codice di registrazione del servizio ottenuto in [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-get-service-registration-key-gov.md). Dopo aver fornito il codice di registrazione, potrebbe essere necessario attendere 2-3 minuti prima che il dispositivo venga registrato.
 
-      >[AZURE.NOTE]È possibile premere CTRL+C in qualsiasi momento per uscire dall'installazione guidata. Se sono state immesse tutte le impostazioni di rete (indirizzo IP per Data 0, Subnet mask e Gateway), le voci verranno conservate.
+      > [AZURE.NOTE] È possibile premere Ctrl + C in qualsiasi momento per uscire dall'installazione guidata. Se sono state immesse tutte le impostazioni di rete (indirizzo IP per Data 0, Subnet mask e Gateway), le voci verranno conservate.
 
 	![Registrazione di StorSimple in corso](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegistrationProgress-gov-include.png)
 
@@ -105,7 +105,9 @@
 	
 	![StorSimple registrare il dispositivo 7](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice7_gov-include.png)
 
-      >[AZURE.IMPORTANT]Per copiare il testo dalla finestra della console seriale, è sufficiente selezionarlo. È quindi possibile incollarlo negli Appunti o in qualsiasi editor di testo. >> NON utilizzare Ctrl + C per copiare la chiave DEK del servizio. Se si utilizza Ctrl + C l'installazione guidata verrà chiusa. Di conseguenza, la password di amministratore del dispositivo non verrà modificata e verrà ripristinata la password predefinita del dispositivo.
+      > [AZURE.IMPORTANT] Per copiare il testo dalla finestra della console seriale, è sufficiente selezionarlo. È quindi possibile incollarlo negli Appunti o in qualsiasi editor di testo.
+      > 
+      > NON usare CTRL+C per copiare la chiave DEK del servizio. Se si usa CTRL+C l'installazione guidata verrà chiusa. Di conseguenza, la password di amministratore del dispositivo non verrà modificata e verrà ripristinata la password predefinita del dispositivo.
 
 16. Uscire dalla console seriale.
 
@@ -117,9 +119,11 @@
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov-u2/HCS_DeviceOnline-gov-include.png) 
   
         If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
-      
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
+
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in [networking requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
+
+        Verify that port 9354 is open for outbound communication as this is used by the service bus for StorSimple Manager Service-to-device communication.
      
         
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -27,7 +27,11 @@ Per abilitare l'appartenenza dinamica per un determinato gruppo, effettuare le s
 
 3. Selezionare una condizione (Non uguale a, Uguale a, Non inizia con, Inizia con, Non contiene, Contiene, Non corrispondente, Corrispondente) e quindi specificare un valore per la proprietà utente selezionata. Ad esempio, se un gruppo viene assegnato a un'applicazione SaaS e vengono abilitate le appartenenze dinamiche per questo gruppo impostando una regola in base alla quale l'opzione **Aggiungi utenti in** viene impostata sul titolo mansione (jobTitle) uguale a (-eq) Rappresentante, tutti gli utenti all'interno della directory di Azure AD la cui mansione è impostata su Rappresentante avranno accesso all'applicazione SaaS.
 
-4. Si noti che è possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office. Le appartenenze dinamiche ai gruppi richiedono una licenza Azure AD Premium.
+4. Si noti che è possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office. Le appartenenze dinamiche per i gruppi richiedono una licenza Azure AD Premium da assegnare all'amministratore che gestisce la regola in un gruppo e a tutti gli utenti selezionati dalla regola come membri del gruppo.
+
+Per altre informazioni sulle regole complesse dell'appartenenza dinamica ai gruppi, vedere:
+
+* [Uso di attributi per la creazione di regole avanzate](active-directory-accessmanagement-groups-with-advanced-rules.md)
 
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
@@ -36,4 +40,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Informazioni su Azure Active Directory](active-directory-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

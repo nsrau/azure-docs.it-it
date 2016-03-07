@@ -3,7 +3,7 @@
 	description="Di seguito sono elencate le domande frequenti e le relative risposte su Azure AD Connect Health. In questa sezione sono contenute le domande sull'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto."
 	services="active-directory"
 	documentationCenter=""
-	authors="karavar"
+	authors="billmath"
 	manager="samueld"
 	editor="curtand"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="vakarand"/>
+	ms.date="02/17/2016"
+	ms.author="billmath;vakarand"/>
 
 
 # Domande frequenti su Azure AD Connect Health
@@ -99,5 +99,6 @@ Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizi
 * [Operazioni di Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md)
+* [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/19/2016"
+   ms.date="02/22/2016"
    ms.author="stepsic"/>
 
 #App API JavaScript
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
 L'applicazione dell'API JavaScript offre un modo semplice per eseguire semplici espressioni JavaScript*mentre è in esecuzione l'applicazione di logica*.
 
 ##Quando è necessario utilizzare questa applicazione API?
@@ -91,4 +94,4 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

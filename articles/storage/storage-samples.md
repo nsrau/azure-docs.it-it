@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="01/06/2016"
+   ms.date="02/21/2016"
    ms.author="tamram" />
 
 # Esempi di archiviazione di Azure
@@ -28,12 +28,12 @@ La [libreria degli esempi di codice per Azure](https://azure.microsoft.com/docum
 
 Per esplorare gli esempi .NET, scaricare la [libreria client di archiviazione .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) da NuGet. La libreria client di archiviazione .NET è disponibile anche nell'[Azure SDK per .NET](https://azure.microsoft.com/downloads/).
 
-* [Introduzione all'uso di BLOB, tabelle e code di Azure in 5 minuti](storage-getting-started-guide.md)
+* [Introduzione a Azure Storage in cinque minuti](storage-getting-started-guide.md)
 * [Gestione della concorrenza con l'archiviazione di Azure - Applicazione di esempio](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
 * [Introduzione ai BLOB](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataBlobStorage)
 * [Introduzione alle tabelle](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataTableStorage)
 * [Introduzione alle code](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataStorageQueue)
-* [Introduzione ai file](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataTableStorage)
+* [Introduzione ai file](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage)
 
 ## Esempi di Java
 
@@ -85,4 +85,4 @@ Per esplorare gli esempi di C++, scaricare la [libreria client di archiviazione 
 - [Codice sorgente per la libreria client di archiviazione C++](https://github.com/Azure/azure-storage-cpp)
 - [Informazioni di riferimento sulla libreria client C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

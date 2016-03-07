@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/20/2016" 
 	ms.author="anwestg"/>
 
 # Servizio di applicazione Azure Web App offerte per white paper aziendali #
@@ -49,7 +49,7 @@ Un approccio alternativo consiste nello sfruttare l'investimento operato in loca
 
 - [Ambienti del servizio app](app-service-app-service-environment-intro.md): gli Ambienti del servizio app (ASE) sono una nuova funzionalità Premium aggiunta recentemente all'offerta del Servizio app di Microsoft Azure. Gli Ambienti del servizio app forniscono un ambiente completamente isolato e dedicato per eseguire in modo sicuro le applicazioni del Servizio app di Azure su larga scala, offrendo inoltre isolamento e accesso alla rete protetto   
 - [Connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md): la funzionalità Connessioni ibride di Servizi BizTalk di Microsoft Azure consente a Siti Web di Azure di connettersi alle risorse locali in modo sicuro, ad esempio SQL Server, MySQL, API Web e servizi Web personalizzati. 
-- [Integrazione con la rete virtuale](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/): l'integrazione della rete virtuale di Siti Web di Azure consente di connettere il proprio sito Web a una rete virtuale di Azure, che a sua volta può essere connessa all'infrastruttura in locale attraverso una connessione VPN da sito a sito. 
+- [Integrazione con la rete virtuale](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/): l'integrazione della rete virtuale di Siti Web di Azure consente di connettere la propria app Web a una rete virtuale di Azure, che a sua volta può essere connessa all'infrastruttura in locale attraverso una connessione VPN da sito a sito. 
 
 Nel diagramma seguente è illustrato un esempio di soluzione di alto livello con opzioni di connettività per le risorse locali. Il primo esempio mostra come ottenerla tramite le funzionalità standard di Servizio App di Azure e il secondo mostra come ottenerla tramite l’offerta Premium, gli Ambienti del servizio App.
 
@@ -83,9 +83,9 @@ Siti Web di Azure rappresenta una piattaforma stabile e affidabile che ha già d
 
 La piattaforma Microsoft Azure consente il controllo degli accessi in base al ruolo, per controllare le risorse a livello aziendale in Siti Web di Azure. Il controllo degli accessi in base al ruolo offre alle aziende il potere di implementare i propri criteri di gestione degli accessi nell'ambiente Azure, assegnando gli utenti a gruppi e quindi assegnando a loro volta le autorizzazioni necessarie a tali gruppi per accedere alla risorsa, ad esempio un sito Web di Azure. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [http://aka.ms/azurerbac](../role-based-access-control-configure/). Grazie all'utilizzo di Siti Web di Azure è possibile garantire che le applicazioni Web vengano distribuite in un ambiente sicuro e protetto e di avere il controllo totale nel territorio in cui vengono distribuite le risorse.
 
-Gli ambienti del servizio app di Azure [http://aka.ms/aseintro] sono una nuova opzione del piano di servizio premium per i clienti aziendali che desiderano utilizzare il Servizio app di Azure e forniscono un ambiente completamente isolato e dedicato. Ciò consente ai clienti aziendali di distribuire le applicazioni che possono sfruttare i vantaggi di fascia alta, mantenendo al contempo il controllo completo sul traffico di rete in ingresso e in uscita; gli ambienti del servizio app consentono alle applicazioni di stabilire connessioni sicure ad alta velocità su reti virtuali alle risorse locali.
+Gli ambienti del servizio app di Azure [http://aka.ms/aseintro](http://aka.ms/aseintro) sono una nuova opzione del piano di servizio premium per i clienti aziendali che desiderano usare il Servizio app di Azure e predispongono un ambiente completamente isolato e dedicato. Ciò consente ai clienti aziendali di distribuire le applicazioni che possono sfruttare i vantaggi di fascia alta, mantenendo al contempo il controllo completo sul traffico di rete in ingresso e in uscita; gli ambienti del servizio app consentono alle applicazioni di stabilire connessioni sicure ad alta velocità su reti virtuali alle risorse locali.
 
-Le app Web del servizio app sono anche in grado di sfruttare completamente gli investimenti locali, offrendo la possibilità di riconnettersi alle risorse interne, ad esempio il data warehouse o un ambiente SharePoint. Come discusso in [Soluzione di alto livello], è possibile usare le connessioni ibride e la connettività di rete virtuale per stabilire connessioni a infrastrutture e servizi locali.
+Le app Web del servizio app sono anche in grado di sfruttare completamente gli investimenti locali, offrendo la possibilità di riconnettersi alle risorse interne, ad esempio il data warehouse o un ambiente SharePoint. Come discusso in [Soluzione di alto livello](#highlevel), è possibile usare le connessioni ibride e la connettività alla rete virtuale per stabilire connessioni a infrastrutture e servizi locali.
 
 ### Scalabilità globale ### ###
 
@@ -135,7 +135,7 @@ La piattaforma Azure offre diverse alternative all'utilizzo di Database SQL di A
 #### Connettività alle risorse locali ### ####
 App Web del servizio app offre più opzioni di connessione alle risorse locali, quali i database, che consentono il riutilizzo dell'esistente infrastruttura di valore elevato. Le opzioni sono elencate di seguito:
 
-- Gli ambienti del servizio app vengono isolati e creati in una subnet di una rete virtuale, consentendo pertanto all’ambiente di comunicare con gli endpoint privati che fanno parte della stessa rete virtuale - [http://aka.ms/appserviceasenetworking]
+- Gli ambienti del servizio app vengono isolati e creati in una subnet di una rete virtuale, consentendo pertanto all’ambiente di comunicare con gli endpoint privati che fanno parte della stessa rete virtuale - [http://aka.ms/appserviceasenetworking](http://aka.ms/appserviceasenetworking)
 - L'integrazione della rete virtuale di Siti Web di Azure supporta l'integrazione tra Siti Web di Azure e una rete virtuale di Azure, consentendo l'accesso alle risorse in esecuzione nella rete virtuale, che se connessa alla rete locale con una connessione VPN da sito a sito consente la connettività diretta ai sistemi in locale.
 - Le connessioni ibride sono una funzionalità di Servizi BizTalk di Azure che consente di connettersi facilmente a singole risorse locali, ad esempio SQL Server, MySQL, API Web HTTP e alla maggior parte dei servizi Web personalizzati.
 
@@ -159,4 +159,4 @@ Per altre informazioni, sul servizio Siti Web di Microsoft Azure, visitare [http
  
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

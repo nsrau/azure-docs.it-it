@@ -20,8 +20,6 @@
 
 Quando è necessario passare un valore protetto (ad esempio una password) come parametro durante la distribuzione, è possibile archiviare tale valore come chiave privata in un [insieme di credenziali chiave di Azure](./key-vault/key-vault-whatis.md) e fare riferimento al valore in altri modelli di Gestione risorse. Includere solo un riferimento alla chiave privata nel modello, in modo che la chiave privata non sia mai esposta, e non è necessario immettere manualmente il valore per la chiave privata ogni volta che si distribuiscono le risorse. Specificare quali utenti o entità servizio possono accedere alla chiave privata.
 
-> [AZURE.NOTE] Attualmente, solo l’interfaccia della riga di comando di Azure supporta la possibilità di fare riferimento a una chiave privata nell’insieme di credenziali chiave. Azure PowerShell aggiungerà presto questa possibilità.
-
 ## Distribuire un insieme di credenziali chiave e una chiave privata
 
 Per creare l'insieme di credenziali chiave da utilizzare come riferimento da altri modelli di Gestione risorse, è necessario impostare la proprietà **enabledForTemplateDeployment** su **true** e occorre concedere l'accesso all'utente o entità servizio che eseguirà la distribuzione con riferimento alla chiave privata.
@@ -105,4 +103,4 @@ Il parametro che accetta la chiave privata deve essere di tipo **securestring**.
 - Per informazioni sull'uso di un insieme di credenziali delle chiavi con una macchina virtuale, vedere [Considerazioni sulla sicurezza per Gestione risorse di Azure](best-practices-resource-manager-security.md).
 - Per esempi completi di segreti di riferimento alle chiavi private, vedere [Esempi di insiemi di credenziali chiave](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

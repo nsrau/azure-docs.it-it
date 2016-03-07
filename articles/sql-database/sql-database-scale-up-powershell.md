@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,7 +19,6 @@
 
 # Modificare il livello di servizio e il livello di prestazioni (livello di prezzo) di un database SQL con PowerShell
 
-**Database singolo**
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-scale-up.md)
@@ -28,14 +27,14 @@
 
 In questo articolo viene illustrato come modificare il livello del servizio e il livello delle prestazioni del database SQL con PowerShell.
 
-Utilizzare le informazioni contenute negli argomenti [Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio](sql-database-upgrade-new-service-tiers.md) e [Livelli di servizio e livelli di prestazioni del database SQL di Azure](sql-database-service-tiers.md) per determinare il livello di prestazioni e il livello di servizio appropriati per il database SQL di Azure.
+Utilizzare le informazioni contenute negli argomenti [Aggiornamento delle edizioni Web e Business del database SQL ai nuovi livelli di servizio](sql-database-upgrade-server-portal.md) e [Livelli di servizio e livelli di prestazioni del database SQL di Azure](sql-database-service-tiers.md) per determinare il livello di prestazioni e il livello di servizio appropriati per il database SQL di Azure.
 
-> [AZURE.IMPORTANT]La modifica del livello di servizio e del livello delle prestazioni di un database SQL è un'operazione in linea. Ciò significa che il database rimane online e disponibile durante l'intera operazione senza tempi di inattività.
+> [AZURE.IMPORTANT] La modifica del livello di servizio e del livello delle prestazioni di un database SQL è un'operazione in linea. Ciò significa che il database rimane online e disponibile durante l'intera operazione senza tempi di inattività.
 
 - Per effettuare il downgrade di un database, la dimensione di quest'ultimo deve essere inferiore alla dimensione massima consentita per il livello del servizio di destinazione. 
-- Quando si aggiorna un database con la [replica geografica standard](https://msdn.microsoft.com/library/azure/dn758204.aspx) o la [replica geografica attiva](https://msdn.microsoft.com/library/azure/dn741339.aspx) abilitata, è necessario aggiornare i database secondari al livello di prestazioni desiderato prima di aggiornare il database primario.
-- Quando si effettua il downgrade da un livello di servizio Premium, è necessario prima terminare tutte le relazioni di replica geografica. È possibile attenersi alla procedura descritta nell'argomento [Terminare una relazione di copia continua](https://msdn.microsoft.com/library/azure/dn741323.aspx) per arrestare il processo di replica tra il database primario e i database secondari attivi.
-- Le offerte per il ripristino del servizio sono diverse per i vari livelli di servizio. Se si effettua il downgrade è possibile che la capacità di eseguire un ripristino temporizzato o di disporre di un periodo di mantenimento del backup inferiore vengano perse. Per ulteriori informazioni, vedere [Backup e ripristino del database SQL di Azure](https://msdn.microsoft.com/library/azure/jj650016.aspx).
+- Quando si aggiorna un database con la [replica geografica](sql-database-geo-replication-portal) abilitata, è necessario aggiornare i database secondari al livello di prestazioni desiderato prima di aggiornare il database primario.
+- Quando si effettua il downgrade da un livello di servizio Premium, è necessario prima terminare tutte le relazioni di replica geografica. È possibile attenersi alla procedura descritta nell'argomento [Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio](sql-database-disaster-recovery.md) per arrestare il processo di replica tra il database primario e i database secondari attivi.
+- Le offerte per il ripristino del servizio sono diverse per i vari livelli di servizio. Se si effettua il downgrade è possibile che la capacità di eseguire un ripristino temporizzato o di disporre di un periodo di mantenimento del backup inferiore vengano perse. Per ulteriori informazioni, vedere [Backup e ripristino del database SQL di Azure](sql-database-business-continuity.md).
 - È possibile apportare fino a quattro modifiche di singoli database (livello di servizio o di prestazioni) nell'arco di un periodo di 24 ore.
 - Le nuove proprietà del database non vengono applicate finché non sono state completate le modifiche.
 
@@ -43,7 +42,7 @@ Utilizzare le informazioni contenute negli argomenti [Aggiornamento delle edizio
 
 **Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:**
 
-- Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
+- Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare clic su **ACCOUNT GRATUITO** nella parte superiore della pagina, quindi tornare all'articolo.
 - un database SQL di Azure. Se non si dispone di un database SQL, crearne uno seguendo i passaggi indicati in questo articolo: [Creare il primo database SQL di Azure](sql-database-get-started.md).
 - Azure PowerShell.
 
@@ -56,22 +55,19 @@ Per eseguire i cmdlet di PowerShell, è necessario che Azure PowerShell sia inst
 
 È innanzitutto necessario stabilire l'accesso all'account Azure, poi avviare PowerShell ed eseguire il cmdlet seguente. Nella schermata di accesso utilizzare lo stesso indirizzo email e password utilizzati per accedere al portale di Azure.
 
-	Add-AzureRmAccount
+	Login-AzureRmAccount
 
 Dopo aver effettuato l'accesso, sullo schermo verranno visualizzate informazioni tra cui l'ID usato per l'accesso con le sottoscrizioni di Azure per le quali si dispone dell'accesso.
 
 
 ### Selezionare la sottoscrizione ad Azure
 
-Per selezionare la sottoscrizione, è necessario l'ID sottoscrizione o il nome della sottoscrizione (**-SubscriptionName**), È possibile copiare l'ID sottoscrizione dalle informazioni visualizzate nel passaggio precedente o, se si dispone di più sottoscrizioni e si necessita di altre informazioni, è possibile eseguire il cmdlet **Get-AzureSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Una volta acquisita la sottoscrizione, eseguire il cmdlet seguente:
+Per selezionare la sottoscrizione, è necessario l’ID sottoscrizione o il nome della sottoscrizione (**-SubscriptionName**) È possibile copiare l'ID sottoscrizione dalle informazioni visualizzate nel passaggio precedente o, se si dispone di più sottoscrizioni e si necessita di altre informazioni, è possibile eseguire il cmdlet **Get-AzureSubscription** e copiare le informazioni di sottoscrizione desiderate dal set di risultati. Una volta acquisita la sottoscrizione, eseguire il cmdlet seguente:
 
 	$SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
-Dopo aver eseguito correttamente il cmdlet **Select-AzureSubscription**, verrà nuovamente visualizzato il prompt dei comandi di PowerShell. Se si dispone di più di una sottoscrizione, è possibile eseguire il cmdlet **Get-AzureSubscription** e verificare che nella sottoscrizione che si desidera usare sia visualizzato **IsCurrent: True**.
 
-
- 
 
 
 ## Modificare il livello di servizio e il livello delle prestazioni del database SQL
@@ -129,7 +125,7 @@ Eseguire il cmdlet **Set-AzureRmSqlDatabase** e impostare **-RequestedServiceObj
 ## Risorse aggiuntive
 
 - [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
-- [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
-- [Cmdlet del database SQL di Azure.](https://msdn.microsoft.com/library/azure/mt163521.aspx)
+- [Documentazione relativa al database SQL](http://azure.microsoft.com/documentation/services/sql-database/)
+- [Cmdlet del database SQL di Azure.](http://msdn.microsoft.com/library/mt574084.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -98,7 +98,6 @@ Altre informazioni sull'hub IoT:
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
-[Gestione degli errori temporanei]: https://msdn.microsoft.com/it-IT/library/hh680901(v=pandp.50).aspx
 
 [Guida per gli sviluppatori dell'hub IoT di Azure, sezione Dispositivo a cloud]: https://azure.microsoft.com/it-IT/documentation/articles/iot-hub-devguide/#d2c
 
@@ -114,7 +113,7 @@ Altre informazioni sull'hub IoT:
 [Linee guida dell'hub IoT]: iot-hub-guidance.md
 [Guida per sviluppatori di hub IoT]: iot-hub-devguide.md
 [Introduzione all'hub IoT]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
+[Supported devices]: iot-hub-tested-configurations.md
 [Centro per sviluppatori Azure IoT]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

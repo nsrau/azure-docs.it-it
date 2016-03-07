@@ -143,7 +143,7 @@ Sì. Sarà necessario creare un gateway di ExpressRoute nella rete virtuale. Il 
 Si deve stabilire un circuito ExpressRoute e configurare le route per il peering pubblico.
 
 ### Sono previsti limiti per i numeri di route pubblicabili?
-Sì. Sono accettati al massimo 4000 prefissi di route per il peering privato e pubblico. Se si abilita la funzionalità Premium di ExpressRoute, sarà possibile aumentare questo valore fino a 10.000 route.
+Sì. Sono accettati al massimo 4000 prefissi di route per il peering privato e 200 ciascuno per il peering pubblico e il peering Microsoft. Se si abilita la funzionalità Premium di ExpressRoute, sarà possibile aumentare questo valore fino a 10.000 route per il peering privato.
 
 ### Sono previste limitazioni per gli intervalli IP pubblicabili tramite la sessione BGP?
 I prefissi pubblicati tramite BGP devono essere pari a /29 o superiori (da /28 a /8).
@@ -241,4 +241,4 @@ Per altre informazioni sull'elenco di partner e località in cui è supportato E
 ### È possibile accedere a Office 365 tramite Internet anche se ExpressRoute è stato configurato per l'organizzazione specifica?
 Sì. Gli endpoint di Office 365 sono raggiungibili tramite Internet anche se ExpressRoute è stato configurato per la rete specifica. Se ci si trova in una località configurata per la connessione ai servizi di Office 365 tramite ExpressRoute, la connessione verrà effettuata tramite ExpressRoute.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

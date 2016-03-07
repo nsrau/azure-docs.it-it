@@ -4,7 +4,7 @@
 	services="sql-database"  
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sidneyh" />
 
 # Esercitazione relativa allo strumento divisione-unione del database elastico
@@ -42,9 +42,9 @@ I passaggi precedenti consentono di scaricare i file di divisione e unione nella
 
 ### Configurazione del servizio di divisione e unione
 
-1. Nella cartella in cui sono stati scaricati gli elementi necessari per la divisione e l'unione creare una copia del file **ServiceConfiguration.Template.cscfg** fornito con **SplitMergeService.cspkg** e denominare tale copia **ServiceConfiguration.cscfg**.
+1. Nella cartella in cui sono stati scaricati gli assembly necessari per la divisione e l'unione creare una copia del file **ServiceConfiguration.Template.cscfg** fornito con **SplitMergeService.cspkg** e rinominare tale copia **ServiceConfiguration.cscfg**.
 
-2. Aprire ServiceConfiguration.cscfg in un editor di testo di propria scelta. Si consiglia di usare Visual Studio, in quanto quest'ultimo eseguirà la convalida degli input, come ad esempio quella del formato dell'identificazione personale del certificato.
+2. Aprire **ServiceConfiguration.cscfg** in un editor di testo, ad esempio Visual Studio, che convalida input come il formato delle identificazioni personali del certificato.
 
 3. Creare un nuovo database o scegliere un database esistente da usare come database per lo stato delle operazioni di divisione e unione, quindi recuperare la stringa di connessione del database.
 
@@ -334,4 +334,4 @@ In questo caso, controllare il file di configurazione, in particolare l'impostaz
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

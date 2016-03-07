@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2015"
+	ms.date="01/14/2016"
 	ms.author="sstein"/>
 
 # Esercitazione del database SQL: Proteggere i dati sensibili con la crittografia sempre attiva (archivio certificati di Windows)
@@ -52,7 +52,7 @@ Per questa esercitazione occorrono:
 ## Creare un database SQL vuoto
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Nuovo** > **Dati + Archiviazione** > **Database SQL**.
-3. Creare un database **vuoto** denominato **Clinic** in un server nuovo o esistente. Per istruzioni dettagliate per creare un database nel portale di Azure, vedere [Creare un database SQL in pochi minuti](sql-database-getting-started.md).
+3. Creare un database **vuoto** denominato **Clinic** in un server nuovo o esistente. Per istruzioni dettagliate per creare un database nel portale di Azure, vedere [Creare un database SQL in pochi minuti](sql-database-get-started.md).
 
 	![creazione di un database vuoto](./media/sql-database-always-encrypted/create-database.png)
 
@@ -545,4 +545,4 @@ Dopo aver creato un database che usa la crittografia sempre attiva, è possibile
 - [Procedura guidata della crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog della crittografia sempre attiva](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->
