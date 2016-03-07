@@ -301,7 +301,9 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 13.  Esaminare le informazioni nella pagina **Riepilogo**.
 
 	![Riepilogo](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
->[AZURE.WARNING] È necessario configurare il proxy dell'agente di Servizi di ripristino di Microsoft Azure. Dopo aver completato l'installazione, avviare un'applicazione denominata "Microsoft Azure Recovery Services Shell" dal menu di avvio di Windows. Nella finestra di comando visualizzata eseguire il set di comandi seguente per configurare le impostazioni del server proxy.
+
+>[AZURE.WARNING] È necessario configurare il proxy dell'agente di Servizi di ripristino di Microsoft Azure.
+>Dopo aver completato l'installazione, avviare un'applicazione denominata "Microsoft Azure Recovery Services Shell" dal menu di avvio di Windows. Nella finestra di comando visualizzata eseguire il set di comandi seguente per configurare le impostazioni del server proxy.
 >
 	$pwd = ConvertTo-SecureString -String ProxyUserPassword
 	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd
@@ -755,5 +757,5 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Altre informazioni sul failback](site-recovery-failback-azure-to-vmware-classic.md) per rendere nuovamente disponibili nell'ambiente locale i computer sottoposti a failover in esecuzione in Azure.
 
-<!-------HONumber=AcomDC_0218_2016-->
+<!--------HONumber=AcomDC_0218_2016-->
 
