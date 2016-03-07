@@ -31,7 +31,7 @@ Questa esercitazione descrive come configurare le notifiche di avviso, le condiz
 
 >[AZURE.NOTE] È possibile immettere un massimo di 20 indirizzi di posta elettronica per ogni dispositivo virtuale.
 
-Dopo aver attivato la notifica di posta elettronica per un dispositivo virtuale, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da **storsimple-alerts-noreply@mail.windowsazure.com* e conterranno una descrizione della condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche di posta elettronica.
+Dopo aver attivato la notifica di posta elettronica per un dispositivo virtuale, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *storsimple-alerts-noreply@mail.windowsazure.com* e conterranno una descrizione della condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche di posta elettronica.
 
 #### Per abilitare la notifica di posta elettronica degli avvisi per un dispositivo virtuale
 
@@ -45,7 +45,7 @@ Dopo aver attivato la notifica di posta elettronica per un dispositivo virtuale,
 
     2. Nel campo **Invia messaggio di posta elettronica agli amministratori del servizio** selezionare **Sì** se si vuole che l'amministratore del servizio e tutti i co-amministratori ricevano le notifiche di avviso.
 
-    3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato **someone@somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo virtuale.
+    3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato *someone@somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo virtuale.
 
         ![configurazione delle notifiche degli avvisi](./media/storsimple-ova-manage-alerts/alerts3.png)
 
@@ -195,4 +195,4 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 - [Informazioni sull'array virtuale StorSimple](storsimple-ova-overview.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-----HONumber=AcomDC_0224_2016-->

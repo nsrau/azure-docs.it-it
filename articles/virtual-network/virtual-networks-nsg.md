@@ -117,10 +117,10 @@ Come illustrato dalle regole predefinite seguenti, il traffico che origina e ter
 |Documentazione di distribuzione|Classico|Gestione risorse|
 |---|---|---|
 |Portale classico|![No][red]|![No][red]|
-|Portale di Azure|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Sì][green]</a>|
-|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Sì][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Sì][green]</a>|
-|Interfaccia della riga di comando di Azure|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Sì][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Sì][green]</a>|
-|Modello ARM|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Sì][green]</a>|
+|Portale di Azure|![No][red]|<a href=" https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Sì][green]</a>|
+|PowerShell|<a href=" https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Sì][green]</a>|<a href=" https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Sì][green]</a>|
+|Interfaccia della riga di comando di Azure|<a href=" https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Sì][green]</a>|<a href=" https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Sì][green]</a>|
+|Modello ARM|![No][red]|<a href=" https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Sì][green]</a>|
 
 |**Chiave**|![Sì][green]Supportato. Fare clic per visualizzare l'articolo.|![No][red]Non supportato.|
 |---|---|---|
@@ -274,4 +274,4 @@ Poiché alcuni gruppi di sicurezza di rete devono essere associati a singole sch
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!----HONumber=AcomDC_0218_2016-->
+<!-----HONumber=AcomDC_0218_2016-->
