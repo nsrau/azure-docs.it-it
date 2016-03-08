@@ -14,7 +14,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
@@ -48,7 +48,11 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 È possibile installare Microsoft HDInsight Emulator tramite Installazione guidata piattaforma Web Microsoft.
 
-> [AZURE.NOTE] HDInsight Emulator supporta attualmente solo sistemi operativi in lingua inglese. Se nel computer è installata una versione precedente dell'emulatore, è necessario disinstallare i due componenti seguenti da Pannello di controllo/Programmi e funzionalità prima di installare la versione più recente: <ul> <li>Microsoft HDInsight Emulator per Azure o HDInsight Developer Preview, a seconda di quale è installato</li> <li>Hortonworks Data Platform</li> </ul>
+> [AZURE.NOTE] HDInsight Emulator supporta attualmente solo sistemi operativi in lingua inglese. Se una versione precedente dell'emulatore è stata installata in precedenza, sarà prima di tutto necessario disinstallare i due componenti riportati di seguito da Pannello di controllo/Programmi e funzionalità prima di installare la versione più recente dell'emulatore.
+><ul>
+> <li>Microsoft HDInsight Emulator per Azure o Microsoft HDInsight Developer Preview, indipendentemente da quale sia installato.</li>
+> <li>Hortonworks Data Platform</li>
+> </ul>
 
 
 **Per installare HDInsight Emulator**
@@ -259,7 +263,22 @@ Il file con estensione jar e i file di origine si trovano nella cartella C:\\Had
 
 		hadoop jar .\Java\w3c_scenarios.jar "microsoft.hadoop.w3c.TotalHitsForPage" "/w3c/input/small/data_w3c_small.txt" "/w3c/output"
 
-	La tabella seguente illustra gli elementi del comando: <table border="1"> <tr><td>Parametro</td><td>Nota</td></tr> <tr><td>w3c\_scenarios.jar</td><td>Il file JAR si trova nella cartella C:\\hdp\\GettingStarted\\Java.</td></tr> <tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>Il tipo può essere sostituito da uno dei seguenti: <ul> <li>microsoft.hadoop.w3c.AverageTimeTaken</li> <li>microsoft.hadoop.w3c.ErrorsByPage</li> </ul></td></tr> <tr><td>/w3c/input/small/data\_w3c\_small.txt</td><td>Il file di input può essere sostituito dai seguenti: <ul> <li>/w3c/input/medium/data\_w3c\_medium.txt</li> <li>/w3c/input/large/data\_w3c\_large.txt</li> </ul></td></tr> <tr><td>/w3c/output</td><td>Nome della cartella di output.</td></tr> </table>
+	Nella tabella seguente vengono illustrati gli elementi di tale comando:
+	<table border="1">
+	<tr><td>Parametro</td><td>Nota</td></tr>
+	<tr><td>w3c_scenarios.jar</td><td>Il file con estensione jar si trova nella cartella C:\hdp\GettingStarted\Java.</td></tr>
+	<tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>È possibile sostituire il tipo con uno dei valori seguenti:
+	<ul>
+	<li>microsoft.hadoop.w3c.AverageTimeTaken</li>
+	<li>microsoft.hadoop.w3c.ErrorsByPage</li>
+	</ul></td></tr>
+	<tr><td>/w3c/input/small/data_w3c_small.txt</td><td>È possibile sostituire il file di input con uno dei valori seguenti:
+	<ul>
+	<li>/w3c/input/medium/data_w3c_medium.txt</li>
+	<li>/w3c/input/large/data_w3c_large.txt</li>
+	</ul></td></tr>
+	<tr><td>/w3c/output</td><td>Nome della cartella di output.</td></tr>
+	</table>
 
 4. Eseguire il comando seguente per visualizzare il file di output:
 
@@ -317,8 +336,17 @@ Il motore di query Hive può risultare familiare agli analisti con competenze av
 
         C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ctotalhitsbypage.hql
 
-	La tabella seguente descrive gli elementi del comando: <table border="1"> <tr><td>File</td><td>Descrizione</td></tr> <tr><td>C:\\hdp\\hive-0.13.0.2.1.3.0-1981\\bin\\hive.cmd</td><td>Script del comando Hive.</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3ctotalhitsbypage.hql</td><td> È possibile sostituire il file di script Hive con uno dei seguenti: <ul> <li>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3caveragetimetaken.hql</li> <li>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3cerrorsbypage.hql</li> </ul> </td></tr>
-
+	Nella tabella seguente vengono illustrati gli elementi di tale comando:
+	<table border="1">
+	<tr><td>File</td><td>Descrizione</td></tr>
+	<tr><td>C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd</td><td>Script del comando Hive.</td></tr>
+	<tr><td>C:\hdp\GettingStarted\Hive\w3c\w3ctotalhitsbypage.hql</td><td> È possibile sostituire il file di script Hive con uno dei file seguenti:
+	<ul>
+	<li>C:\hdp\GettingStarted\Hive\w3c\w3caveragetimetaken.hql</li>
+	<li>C:\hdp\GettingStarted\Hive\w3c\w3cerrorsbypage.hql</li>
+	</ul>
+	</td></tr>
+	
 	</table>
 
 	Di seguito è riportato lo script HiveQL di w3ctotalhitsbypage.hql:
@@ -359,12 +387,25 @@ I processi Pig usano un linguaggio di flusso di dati chiamato *Pig Latin*. Le as
 
 		C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd -f ".\Pig\w3c\TotalHitsForPage.pig" -p "input=/w3c/input/small/data_w3c_small.txt"
 
-	La tabella seguente illustra gli elementi del comando: <table border="1"> <tr><td>File</td><td>Descrizione</td></tr> <tr><td>C:\\hdp\\pig-0.12.1.2.1.3.0-1981\\bin\\pig.cmd</td><td>Script del comando Pig.</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Pig\\w3c\\TotalHitsForPage.pig</td><td> È possibile sostituire il file di script Pig Latin con uno dei seguenti: <ul> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\AverageTimeTaken.pig</li> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\ErrorsByPage.pig</li> </ul> </td></tr> <tr><td>/w3c/input/small/data\_w3c\_small.txt</td><td> È possibile sostituire il parametro con un file più grande:
-
+	Nella tabella seguente vengono illustrati gli elementi di tale comando:
+	<table border="1">
+	<tr><td>File</td><td>Descrizione</td></tr>
+	<tr><td>C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd</td><td>Script del comando Pig.</td></tr>
+	<tr><td>C:\hdp\GettingStarted\Pig\w3c\TotalHitsForPage.pig</td><td> È possibile sostituire il file di script Pig Latin con uno dei file seguenti:
 	<ul>
-<li>/w3c/input/medium/data_w3c_medium.txt</li>
-<li>/w3c/input/large/data_w3c_large.txt</li>
-</ul></td></tr> </table>
+	<li>C:\hdp\GettingStarted\Pig\w3c\AverageTimeTaken.pig</li>
+	<li>C:\hdp\GettingStarted\Pig\w3c\ErrorsByPage.pig</li>
+	</ul>
+	</td></tr>
+	<tr><td>/w3c/input/small/data_w3c_small.txt</td><td> È possibile sostituire il parametro con un file di dimensioni maggiori:
+	
+	<ul>
+	<li>/w3c/input/medium/data_w3c_medium.txt</li>
+	<li>/w3c/input/large/data_w3c_large.txt</li>
+	</ul>
+	
+	</td></tr>
+	</table>
 
 	L'output dovrebbe essere simile al seguente:
 
@@ -497,4 +538,4 @@ In questa esercitazione MapReduce è stato installato HDInsight Emulator, un amb
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

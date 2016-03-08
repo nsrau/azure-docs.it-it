@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="02/22/2016"
 	ms.author="bradygaster"/>
 
 # Compilare e distribuire un'app per le API Java nel servizio app di Azure
@@ -195,14 +195,14 @@ In questa sezione si sostituirà l'implementazione sul lato server del codice ge
             }
   
             @Override
-            public Response contactsGet()
+            public Response contactsGet(SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 return Response.ok().entity(list).build();
                 }
   
             @Override
-            public Response contactsGetById(Integer id)
+            public Response contactsGetById(Integer id, SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 Contact ret = null;
@@ -262,7 +262,7 @@ Questa sezione descrive come creare una nuova app per le API tramite il portale 
 
 	![Configurare Java nel pannello dell'app per le API](media/app-service-api-java-api-app/set-up-java.png)
 
-1. Fare clic sulla voce di menu delle impostazioni **Credenziali per la distribuzione** e specificare il nome utente e la password che si desidera usare per la pubblicazione dei file nell'app per le API.
+1. Fare clic sulla voce di menu delle impostazioni **Credenziali per la distribuzione** e specificare il nome utente e la password da usare per la pubblicazione dei file nell'app per le API.
 
 	![Reimpostare le credenziali di distribuzione](media/app-service-api-java-api-app/deployment-credentials.png)
 
@@ -295,4 +295,4 @@ Per approfondire questo esempio, è possibile acquisire informazioni su [Storage
 
 Per altre informazioni su come usare Java in Azure, vedere il [Centro per sviluppatori Java](/develop/java/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/20/2015"
+   ms.date="02/26/2016"
    ms.author="seanmck"/>
 
 # Introduzione alla distribuzione e all'aggiornamento di applicazioni nel cluster locale
@@ -117,6 +117,10 @@ Una volta distribuita l'applicazione, si osserveranno alcuni dettagli dell'app i
 
 3. Osservare infine l'elenco di partizioni per WordCountService:
 
+    ```powershell
+    Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
+    ```
+
     ![Visualizzazione delle partizioni del servizio in PowerShell][ps-getsfpartitions]
 
     Il set di comandi appena usati, come tutti i comandi di PowerShell per Service Fabric, sono disponibili per tutti i cluster a cui ci si connette, locali o remoti.
@@ -186,4 +190,4 @@ La nuova versione dell'applicazione conterà solo le parole che iniziano con una
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

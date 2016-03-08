@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/02/2016" 
+	ms.date="02/25/2016" 
 	ms.author="elizapo"/>
 
 # Domande frequenti su Azure RemoteApp
@@ -30,7 +30,7 @@ Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono a
 - **È possibile provare il servizio gratuitamente?** Sì. È disponibile una versione di valutazione gratuita della durata di 30 giorni. Al termine della valutazione, è possibile passare a un account a pagamento (che è possibile usare nell'ambiente di produzione) oppure interrompere l'uso del servizio. Avviare la versione di valutazione gratuita visitando [portal.azure.com](http://portal.azure.com) e creare una nuova istanza di RemoteApp. Con la versione di valutazione è possibile creare 2 istanze di RemoteApp con 10 utenti per istanza. Si noti che la versione di valutazione è valida soltanto per 30 giorni.
 ## Dettagli della sottoscrizione Azure RemoteApp ##
 
-- **Quali sono i limiti del servizio?** Sarà possibile conoscere le impostazioni predefinite e i limiti di servizio di Azure RemoteApp in [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](azure-subscription-service-limits.md). Per altre domande contattare Microsoft.
+- **Quali sono i limiti del servizio?** Sarà possibile conoscere le impostazioni predefinite e i limiti di servizio di Azure RemoteApp in [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../azure-subscription-service-limits.md). Per altre domande contattare Microsoft.
 - **Quanti utenti sono necessari?** È necessario un numero minimo di 20 utenti. Il numero MINIMO è 20. Verrà emessa una fattura per 20. 
 - **Quanto costa RemoteApp?** Consultare i [dettagli dei prezzi di Azure RemoteApp](../../../pricing/details/remoteapp/).
 - **Un tipo di raccolta costa più di un altro?** Sì, è possibile, a seconda delle esigenze di raccolta. Una raccolta ibrida richiede una connessione da RemoteApp di Azure alla rete locale. Se si utilizza una Route di rete virtuale/Express esistente, non esiste alcun costo aggiuntivo. Se invece si usa una nuova rete virtuale di Azure e un gateway o Express Route, verrà addebitato un costo per il [gateway VPN](../../../pricing/details/vpn-gateway) o per [Express Route](../../../pricing/details/expressroute/). Questo costo (vedere informazioni dettagliato sui collegamenti) è sopra il costo mensile della RemoteApp di Azure.
@@ -114,4 +114,4 @@ Finora sono state formulate le domande seguenti su Azure RemoteApp. Ve ne sono a
 ### Come contribuire al miglioramento 
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

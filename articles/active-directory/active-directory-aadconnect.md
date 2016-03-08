@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016"
+	ms.date="02/29/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integrazione delle identità locali con Azure Active Directory
@@ -49,11 +49,11 @@ Il download per Azure AD Connect è disponibile nell'[Area download Microsoft](h
 
 | Soluzione | Scenario |
 | ----- | ----- |
-| Prima di iniziare | <li>[Azure AD Connect: Hardware e prerequisiti](active-directory-aadconnect-prerequisites.md)</li> |
+| Prima di iniziare: [Hardware e prerequisiti](active-directory-aadconnect-prerequisites.md) | <li>Passaggi da completare prima di iniziare a installare Azure AD Connect.</li> |
 | [Impostazioni rapide](active-directory-aadconnect-get-started-express.md) | <li>Scelta consigliata e opzione predefinita se è presente una singola foresta Active Directory.</li> <li>Accesso utente con la stessa password tramite la sincronizzazione delle password.</li>
 | [Impostazioni personalizzate](active-directory-aadconnect-get-started-custom.md) | <li>Da usare quando sono presenti più foreste. Supporta numerose [topologie](active-directory-aadconnect-topologies.md) locali.</li> <li>Personalizzazione dell'opzione di accesso, ad esempio tramite AD FS per la federazione o un provider di identità di terze parti.</li> <li>Personalizzazione delle funzionalità di sincronizzazione, ad esempio filtro e writeback.</li>
 | [Aggiornamento da DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Se è presente un server DirSync esistente già in esecuzione.</li>
-| Aggiornamento da Azure AD Sync | <li>Si tratta di un'operazione di aggiornamento sul posto.</li>
+| [Aggiornamento da Azure AD Sync o Azure AD Connect](active-directory-aadconnect-upgrade-previous-version.md)| <li>Sono disponibili diversi metodi.</li>
 
 
 [Dopo l'installazione](active-directory-aadconnect-whats-next.md) sarà necessario verificare se funziona come previsto e assegnare le licenze agli utenti.
@@ -131,7 +131,7 @@ Il modello di configurazione sincronizzato è chiamato [provisioning dichiarativ
 | Argomento | |
 | --------- | --------- |
 | Cronologia delle versioni | [Cronologia delle versioni](active-directory-aadconnect-version-history.md) |
-| Confronto tra DirSync, Azure ADSync e Azure AD Connect | [Confronto degli strumenti di integrazione directory](active-directory-aadconnect-get-started-tools-comparison.md) |
+| Confronto tra DirSync, Azure ADSync e Azure AD Connect | [Confronto degli strumenti di integrazione directory](active-directory-hybrid-identity-design-considerations-tools-comparison.md) |
 | Attributi sincronizzati | [Attributi sincronizzati](active-directory-aadconnectsync-attributes-synchronized.md) |
 | Monitoraggio con Azure AD Connect Health | [Azure AD Connect Health](active-directory-aadconnect-health.md) |
 | Domande frequenti | [Domande frequenti su Azure AD Connect](active-directory-aadconnect-faq.md) |
@@ -144,4 +144,4 @@ Presentazione Ignite 2015 su come estendere le directory locali nel cloud.
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

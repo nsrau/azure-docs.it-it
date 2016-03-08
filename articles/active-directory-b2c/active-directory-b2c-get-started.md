@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.topic="get-started-article"
+	ms.date="02/25/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Creare un tenant Azure AD B2C
@@ -74,4 +74,4 @@ Utilizzare la procedura seguente per creare un nuovo tenant AD B2C di Azure. Att
 
 Leggere le informazioni su come registrare un'applicazione in Azure AD B2C e creare un'applicazione di avvio rapido in [Anteprima di Azure Active Directory B2C: come registrare l'applicazione](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

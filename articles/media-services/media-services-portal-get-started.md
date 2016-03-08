@@ -4,7 +4,7 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="02/25/2016"
 	ms.author="juliako"/>
 
 
@@ -139,7 +139,7 @@ Oltre alle funzionalità di creazione dinamica dei pacchetti, le unità riservat
 
 ### Codificare
 
-Questa sezione descrive la procedura per la codifica di contenuti con Azure Media Encoder tramite il portale di Azure classico.
+Questa sezione descrive la procedura per la codifica di contenuti con Media Encoder Standard tramite il portale di Azure classico.
 
 1.  Selezionare il file da codificare. Se la codifica è supportata per questo tipo di file, il pulsante **ELABORA** viene abilitato nella parte inferiore della pagina CONTENUTO.
 4. Nella finestra di dialogo **Elabora** selezionare il processore **Media Encoder Standard**.
@@ -253,4 +253,4 @@ Se questo argomento non contiene i risultati desiderati, manca un elemento o in 
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

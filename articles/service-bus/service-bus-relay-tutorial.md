@@ -475,7 +475,7 @@ Il passaggio successivo consiste nel creare un'applicazione console del bus di s
 	using System.ServiceModel;
 	```
 
-1. Ripetere i passaggi precedenti per aggiungere un riferimento a Microsoft.ServiceBus.dll e allo spazio dei nomi [Microsoft.ServiceBus](https://msdn.microsoft.com/library/microsoft.servicebus.aspx) nel progetto.
+1. Installare il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 1. Aggiungere la definizione del contratto di servizio allo spazio dei nomi, come mostrato nell'esempio seguente. Si noti che questa definizione è identica alla definizione usata nel progetto **Service**. È necessario aggiungere il codice alla parte iniziale dello spazio dei nomi `Microsoft.ServiceBus.Samples`.
 
@@ -823,4 +823,4 @@ Per altre informazioni sul bus di servizio, vedere gli argomenti seguenti.
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

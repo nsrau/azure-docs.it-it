@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Come utilizzare la rete CDN | Microsoft Azure" 
-	description="Informazioni su come usare la rete per la distribuzione di contenuti (rete CDN) di Azure per distribuire contenuto con esigenze di larghezza di banda elevata, tramite la memorizzazione nella cache di oggetti BLOB e contenuto statico." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Come utilizzare la rete CDN | Microsoft Azure"
+	description="Informazioni su come usare la rete per la distribuzione di contenuti (rete CDN) di Azure per distribuire contenuto con esigenze di larghezza di banda elevata, tramite la memorizzazione nella cache di oggetti BLOB e contenuto statico."
+	services="cdn"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="01/20/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/25/2016"
 	ms.author="casoper"/>
 
 
@@ -27,20 +27,20 @@ L'uso della rete CDN per la memorizzazione dei dati Azure nella cache offre molt
 - Elevata scalabilità distribuita, per una gestione migliore dei carichi elevati istantanei, ad esempio nelle fasi iniziali di un evento quale il lancio di un prodotto.
 - Mediante la distribuzione delle richieste utente e la gestione dei contenuti da POP perimetrali globali, sarà possibile inviare meno traffico all'origine.
 
->[AZURE.TIP]La rete CDN di Azure può distribuire contenuto da un'ampia gamma di origini. Le origini integrate all'interno di Azure includono il servizio app, i Servizi Cloud, l'archiviazione BLOB e i Servizi multimediali. È inoltre possibile definire un'origine personalizzata usando qualsiasi indirizzo Web accessibile pubblicamente.
+>[AZURE.TIP] La rete CDN di Azure può distribuire contenuto da un'ampia gamma di origini. Le origini integrate all'interno di Azure includono il servizio app, i Servizi Cloud, l'archiviazione BLOB e i Servizi multimediali. È inoltre possibile definire un'origine personalizzata usando qualsiasi indirizzo Web accessibile pubblicamente.
 
 ##Come abilitare la rete CDN
 
 1. Creare un profilo della rete CDN con endpoint che puntano all'origine
 
 	Un profilo della rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo contiene uno o più endpoint della rete CDN. Dopo aver creato un profilo della rete CDN, è possibile creare un nuovo endpoint della rete CDN usando l'origine selezionata.
-	
-	>[AZURE.NOTE]Per impostazione predefinita, ogni sottoscrizione di Azure è limitata a quattro profili della rete CDN. Ogni profilo della rete CDN è limitato a dieci endpoint della rete CDN.
+
+	>[AZURE.NOTE] Per impostazione predefinita, ogni sottoscrizione di Azure è limitata a quattro profili della rete CDN. Ogni profilo della rete CDN è limitato a dieci endpoint della rete CDN.
 	>
 	> I prezzi della rete CDN vengono applicati a livello di profilo della rete CDN. Se si desidera usare una combinazione di funzionalità della rete CDN Standard e Premium, è necessario disporre di più profili della rete CDN.
-	
+
 	Per un'esercitazione dettagliata sulla creazione di profili ed endpoint della rete CDN, vedere [Come abilitare la rete per la distribuzione di contenuti (CDN) per Azure](cdn-create-new-endpoint.md).
-	
+
 2. Impostare la configurazione della rete CDN
 
 	È possibile abilitare alcune funzionalità per l'endpoint della rete CDN, ad esempio [i criteri di memorizzazione della cache](cdn-caching-policy.md), [la memorizzazione nella cache delle stringhe di query](cdn-query-string.md), [il motore regole](cdn-rules-engine.md) e così via. Per informazioni dettagliate, vedere il menu **Gestisci** a sinistra.
@@ -55,10 +55,12 @@ Una volta abilitata la rete CDN in un account di archiviazione di Azure, tutti i
 
 Per ottenere prestazioni ottimali, usare la memorizzazione nella cache perimetrale della rete CDN per distribuire BLOB di dimensioni minori di 10 GB.
 
-Quando si abilita l'accesso alla rete CDN per un account di archiviazione, il portale di gestione offre un nome di dominio della rete CDN nel formato seguente: `http://<identifier>.azureedge.net/`. Questo nome di dominio può essere usato per accedere ai BLOB in un contenitore pubblico. Ad esempio, dato un contenitore pubblico denominato music in un account di archiviazione denominato myaccount, gli utenti possono accedere ai BLOB in tale contenitore usando uno dei due URL seguenti:
+Quando si abilita l'accesso alla rete CDN per un account di archiviazione, il portale di gestione offre un nome di dominio della rete CDN nel formato seguente: `http://<identifier>.azureedge.net/`. Questo nome di dominio può essere usato per accedere ai BLOB in un contenitore pubblico. Ad esempio, dato un contenitore pubblico, gli utenti possono accedere ai BLOB in tale contenitore usando uno dei due URL seguenti:
 
-- **URL del servizio BLOB di Azure**: `http://myAccount.blob.core.windows.net/music/` 
-- **URL della rete CDN di Azure**: `http://<identifier>.azureedge.net/music/` 
+- **URL del servizio BLOB di Azure**: `http://<account>.blob.core.windows.net/<container>/`
+- **URL della rete CDN di Azure**: `http://<identifier>.azureedge.net/<container>/`
+
+> [AZURE.TIP] Nell'esempio precedente è stato fatto riferimento all'endpoint della rete CDN nell'*intero* account di archiviazione. L'URL della rete CDN dovrà quindi includere il contenitore. È possibile riferire l'URL della rete CDN radice a un contenitore specifico usando il parametro **Percorso origine**.
 
 ## Memorizzazione di contenuto nella cache da siti Web di Azure
 
@@ -66,9 +68,9 @@ Quando si abilita l'accesso alla rete CDN per un account di archiviazione, il po
 
 Quando si abilita l'accesso alla rete CDN per un sito Web, il portale di gestione fornisce un nome di dominio della rete CDN nel formato seguente: `http://<identifier>.azureedge.net/`. Questo nome di dominio può essere usato per recuperare oggetti da un sito Web. Ad esempio, supponendo un contenitore pubblico chiamato cdn e un file di immagine chiamato music.png, gli utenti possono accedere all'oggetto usando uno dei due URL seguenti:
 
-- **URL del sito Web di Azure**: `http://mySiteName.azurewebsites.net/cdn/music.png` 
+- **URL del sito Web di Azure**: `http://mySiteName.azurewebsites.net/cdn/music.png`
 - **URL della rete CDN di Azure**: `http://<identifier>.azureedge.net/cdn/music.png`
- 
+
 ## Memorizzazione di contenuto nella cache da servizi cloud di Azure
 
 È possibile memorizzare nella cache nella rete CDN oggetti forniti da un servizio cloud di Azure.
@@ -78,7 +80,7 @@ La memorizzazione nella cache per i servizi cloud presenta i vincoli seguenti:
 
 - la rete CDN deve essere usata per memorizzare nella cache solo contenuto statico.
 
-	>[AZURE.WARNING]La memorizzazione nella cache di contenuto estremamente volatile o dinamico può avere effetti negativi sulle prestazioni o causare problemi, con il conseguente aumento dei costi.
+	>[AZURE.WARNING] La memorizzazione nella cache di contenuto estremamente volatile o dinamico può avere effetti negativi sulle prestazioni o causare problemi, con il conseguente aumento dei costi.
 - Il servizio cloud deve essere distribuito in una distribuzione di produzione.
 - Il servizio cloud deve fornire l'oggetto sulla porta 80 tramite HTTP.
 - Il servizio cloud deve posizionare il contenuto in modo che venga memorizzato nella cache nella, o distribuito dalla, cartella /cdn del servizio cloud.
@@ -86,8 +88,8 @@ La memorizzazione nella cache per i servizi cloud presenta i vincoli seguenti:
 Quando si abilita l'accesso alla rete CDN per un servizio cloud, il portale di gestione fornisce un nome di dominio della rete CDN nel formato seguente: `http://<identifier>.azureedge.net/`. Questo nome di dominio può essere usato per recuperare oggetti da un servizio cloud. Ad esempio, supponendo un servizio cloud chiamato myHostedService e una pagina Web ASP.NET chiamata music.aspx che distribuisce contenuto, gli utenti possono accedere all'oggetto usando uno dei due URL seguenti:
 
 
-- **URL del servizio cloud di Azure**: `http://myHostedService.cloudapp.net/music.aspx` 
-- **URL della rete CDN di Azure**: `http://<identifier>.azureedge.net/music.aspx` 
+- **URL del servizio cloud di Azure**: `http://myHostedService.cloudapp.net/music.aspx`
+- **URL della rete CDN di Azure**: `http://<identifier>.azureedge.net/music.aspx`
 
 ## Memorizzazione nella cache di contenuti da origini personalizzate
 
@@ -97,14 +99,14 @@ La memorizzazione nella cache per le origini personalizzate presenta i vincoli s
 
 - la rete CDN deve essere usata per memorizzare nella cache solo contenuto statico.
 
-	>[AZURE.WARNING]La memorizzazione nella cache di contenuto estremamente volatile o dinamico può avere effetti negativi sulle prestazioni o causare problemi, con il conseguente aumento dei costi.
+	>[AZURE.WARNING] La memorizzazione nella cache di contenuto estremamente volatile o dinamico può avere effetti negativi sulle prestazioni o causare problemi, con il conseguente aumento dei costi.
 - Il contenuto nell'origine personalizzata deve essere ospitato in un server con un indirizzo IP pubblico. I nodi perimetrali della rete CDN non sono in grado di recuperare le risorse dai server Intranet in presenza di un firewall.
 
 Quando si abilita l'accesso alla rete CDN per un'origine personalizzata, il portale di Azure fornisce un nome di dominio della rete CDN nel formato seguente: `http://<identifier>.azureedge.net/`. Questo nome di dominio può essere usato per recuperare oggetti dall'origine personalizzata. Ad esempio, supponendo un sito che si trova all'indirizzo www.contoso.com e una pagina Web ASP.NET chiamata music.aspx che distribuisce contenuto, gli utenti possono accedere all'oggetto usando uno dei due URL seguenti:
 
 
-- **URL dell'origine personalizzata**: `http://www.contoso.com/music.aspx` 
-- **URL della rete CDN di Azure**: `http://<identifier>.azureedge.net/music.aspx` 
+- **URL dell'origine personalizzata**: `http://www.contoso.com/music.aspx`
+- **URL della rete CDN di Azure**: `http://<identifier>.azureedge.net/music.aspx`
 
 ## Memorizzazione di contenuto specifico nella cache con stringhe di query
 
@@ -147,4 +149,4 @@ La rete CDN di Microsoft Azure può essere gestita a livello di codice usando le
 - [Ripulire un endpoint della rete CDN di Azure](cdn-purge-endpoint.md)
 - [Riferimento API REST del Provider di risorse della rete CDN](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

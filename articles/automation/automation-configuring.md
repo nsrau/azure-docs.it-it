@@ -3,7 +3,7 @@
    description="Illustra i passaggi da eseguire per configurare Automazione di Azure nelle fasi iniziali."
    services="automation"
    documentationCenter=""
-   authors="SnehaGunda"
+   authors="MGoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Configurazione di Automazione di Azure
@@ -94,4 +94,4 @@ Ecco l'elenco dei parametri da configurare:
 - [Automazione di Azure: Autenticazione in Azure tramite Azure Active Directory](https://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

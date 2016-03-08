@@ -21,7 +21,7 @@
 
 Ricerca di Microsoft Azure è un servizio di ricerca ospitato sul cloud che consente di incorporare funzionalità di ricerca in applicazioni personalizzate. Fornisce un motore di ricerca e una risorsa di archiviazione per i dati di ricerca, accessibili e gestibili tramite il portale di Azure, .NET SDK o un'API REST. Le funzionalità chiave includono query con completamento automatico, corrispondenza fuzzy, evidenziazione dei risultati, esplorazione in base a facet, profili di punteggio e supporto multilingue. Per altre informazioni sulle funzionalità di Ricerca di Azure, vedere [Che cos'è la Ricerca di Azure](search-what-is-azure-search.md).
 
-Ricerca di Azure è disponibile con piani tariffari che variano da gratuito (condiviso) a Standard, il cui costo si basa sulla capacità scelta al momento dell'iscrizione.
+Ricerca di Azure è disponibile con piani tariffari che variano da gratuito (condiviso) a Basic e Standard, i cui costi sono ripartiti in base alla capacità scelta al momento dell'iscrizione.
 
 ## Aggiungere gratuitamente Ricerca di Azure alla sottoscrizione
 
@@ -42,7 +42,8 @@ L'amministratore può aggiungere Ricerca di Azure a una sottoscrizione di Azure 
 	- Il **livello di prezzo** determina capacità e fatturazione. Entrambi i livelli offrono le stesse funzionalità, ma a livelli diversi di risorse.
 
 		- Il livello **gratuito** viene eseguito in cluster condivisi con altri sottoscrittori. Offre capacità sufficienti per provare le esercitazioni e scrivere codice per i modelli di prova, ma non è consigliato per le applicazioni in ambienti di produzione. La distribuzione di un servizio gratuito in genere richiede solo pochi minuti.
-		- Il livello **standard** viene eseguito su risorse dedicate ed è altamente scalabile. Inizialmente viene eseguito il provisioning di un servizio standard con una replica e una partizione, ma è possibile regolare la capacità una volta creato il servizio. La distribuzione di un servizio standard richiede più tempo, in genere circa 15 minuti.
+		- Il livello **Basic (anteprima)** viene eseguito su risorse dedicate, ma con limiti e prezzi inferiori per carichi di lavoro di produzione più piccoli. È possibile aumentare fino a 3 repliche e 1 partizione, sufficienti per la disponibilità elevata per l'esecuzione delle query.
+		- Il livello **standard** viene eseguito su risorse dedicate ed è altamente scalabile. Inizialmente viene effettuato il provisioning di un servizio standard con una replica e una partizione, ma è possibile aumentare la capacità fino a un massimo di 36 unità di ricerca dopo la creazione del servizio. La distribuzione di un servizio standard richiede più tempo, in genere circa 15 minuti.
 
 	- I **gruppi di risorse** sono contenitori per i servizi e le risorse usati per uno scopo comune. Ad esempio, se si intende creare un'applicazione di ricerca personalizzata basata su Ricerca di Azure, la funzionalità per app Web di Servizio app di Azure e il servizio di archiviazione BLOB di Azure, è possibile creare un gruppo di risorse per raggruppare questi servizi nelle pagine di gestione del portale.
 
@@ -126,4 +127,4 @@ Dopo aver creato il servizio, è possibile eseguire i passaggi successivi: compi
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

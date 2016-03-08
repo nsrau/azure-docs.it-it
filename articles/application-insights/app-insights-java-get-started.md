@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introduzione ad Application Insights in un progetto Web Java | Microsoft Azure"
-	description="Monitoraggio delle prestazioni e l'uso del sito Web Java con Application Insights"
+	pageTitle="Analisi di app Web Java con Application Insights | Microsoft Azure"
+	description="Monitorare le prestazioni e l'uso del sito Web Java con Application Insights."
 	services="application-insights"
     documentationCenter="java"
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/24/2016"
+	ms.date="03/02/2016"
 	ms.author="awills"/>
 
 # Introduzione ad Application Insights in un progetto Web Java
@@ -52,7 +52,7 @@ Sono necessari gli elementi seguenti:
 
 *Scegliere il modo più appropriato per il progetto.*
 
-#### Se si sta creando un progetto Web dinamico in Eclipse...
+#### Se si usa Eclipse per creare un progetto Web dinamico o Maven:
 
 Usare il [plug-in di Application Insights SDK per Java][eclipse].
 
@@ -80,7 +80,7 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
     </dependencies>
 
 
-* *Errori di convalida checksum o compilazione?* Provare a usare una versione specifica, ad esempio `<version>1.0.n</version>`. La versione più recente è disponibile nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md) o negli [elementi Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Errori di convalida checksum o compilazione?* Provare a usare una versione specifica, ad esempio `<version>1.0.n</version>`. La versione più recente è disponibile nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o negli [elementi Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *È necessario eseguire l'aggiornamento a un nuovo SDK?* Aggiornare le dipendenze del progetto.
 
 #### Se si usa Gradle...
@@ -98,7 +98,7 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
       // or applicationinsights-core for bare API
     }
 
-* *Errori di convalida checksum o compilazione? Provare a usare una versione specifica, come* `version:'1.0.n'`. *La versione più recente è disponibile nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md).*
+* *Errori di convalida checksum o compilazione? Provare a usare una versione specifica, come* `version:'1.0.n'`. *La versione più recente è disponibile nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Per eseguire l'aggiornamento a un nuovo SDK*
  * Aggiornare le dipendenze del progetto.
 
@@ -118,7 +118,7 @@ Aggiungere manualmente SDK:
 
 * *Per aggiornare il SDK, quando si pubblicano le modifiche*
  * Scaricare la versione più recente di [Application Insights SDK per Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) e sostituire le versioni precedenti.
- * Le modifiche sono descritte nelle [note sulla versione dell'SDK](app-insights-release-notes-java.md).
+ * Le modifiche sono descritte nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
 
@@ -398,4 +398,4 @@ Per altre informazioni, vedere il [Centro per sviluppatori Java](/develop/java/)
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="02/11/2016"
+   	ms.date="03/01/2016"
    	ms.author="jgao"/>
 
 # Esercitazione di Hadoop: Introduzione all'uso di Hadoop basato su Linux in HDInsight
@@ -35,22 +35,24 @@ Prima di iniziare questa esercitazione, è necessario avere:
 
 ## Creare cluster
 
-La maggior parte dei processi Hadoop è costituita da processi batch. Creare un cluster ed eseguire alcuni processi. In questa sezione si creerà un cluster Hadoop basato su Linux in HDInsight usando il [modello di Gestione risorse di Azure](../resource-group-template-deploy.md). Per questa esercitazione non è necessario conoscere il modello di Gestione risorse di Azure. Per altri metodi di creazione di cluster e per informazioni sulle impostazioni, vedere [Creare cluster Hadoop basati su Linux in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Per altre informazioni sull'uso di modelli di Gestione risorse di Azure per creare cluster Hadoop in HDInsight, vedere [Creare cluster Hadoop basati su Windows in HDInsight tramite modelli di Gestione risorse di Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md).
+La maggior parte dei processi Hadoop è costituita da processi batch. Creare un cluster ed eseguire alcuni processi. In questa sezione si creerà un cluster Hadoop basato su Linux in HDInsight usando il [modello di Azure Resource Manager](../resource-group-template-deploy.md). Per questa esercitazione non è necessario conoscere il modello di Gestione risorse di Azure. Per altri metodi di creazione di cluster e per informazioni sulle impostazioni, vedere l'articolo sulla [creazione di cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Per altre informazioni sull'uso di modelli di Azure Resource Manager per creare cluster Hadoop in HDInsight, vedere l'articolo relativo alla [creazione di cluster Hadoop in HDInsight tramite modelli di Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md).
 
-1. Fare clic sull'immagine seguente per aprire un modello di Gestione risorse di Azure nel portale di Azure. Il modello di Gestione risorse di Azure è disponibile in un contenitore BLOB pubblico. 
+1. Fare clic sull'immagine seguente per aprire un modello di Gestione risorse di Azure nel portale di Azure. Il modello di Azure Resource Manager è disponibile in un contenitore BLOB pubblico con l'URL **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json*.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/it-IT/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-2. Nel pannello **Parametri** immettere quanto segue:
+2. Nel pannello **Parametri** immettere le informazioni seguenti:
 
     - **ClusterName**: immettere un nome per il cluster Hadoop che verrà creato.
     - **ClusterStorageAccountName**: ogni cluster ha una dipendenza dall'account di archiviazione BLOB di Azure. Dopo aver eliminato un cluster, i dati vengono mantenuti nell'account di archiviazione.
     - **Cluster login name and password**: il nome dell'account di accesso predefinito è **admin**.
-    - **SSH username and password**: il nome utente predefinito è **sshuser**. È possibile rinominarlo. Gli altri parametri sono facoltativi. È possibile lasciarli invariati.  
+    - **SSH username and password**: il nome utente predefinito è **sshuser**. È possibile rinominarlo. 
+    
+    Gli altri parametri sono facoltativi. È possibile lasciarli invariati. Il nome dell'account di archiviazione predefinito del cluster è il nome del cluster a cui viene aggiunto "store". È hardcoded nella sezione delle variabili nel modello.
 3. Fare clic su **OK** per salvare i parametri.
-4. Nel pannello **Distribuzione personalizzata** fare clic su **Gruppo di risorse** nella casella a discesa e quindi scegliere **Nuovo** per creare un nuovo gruppo di risorse. Il gruppo di risorse è un contenitore che raggruppa il cluster, l'account di archiviazione dipendente e altre risorse collegate.
+4. Nel pannello **Distribuzione personalizzata** fare clic sulla casella a discesa **Gruppo di risorse** e quindi scegliere **Nuovo** per creare un nuovo gruppo di risorse. Il gruppo di risorse è un contenitore che raggruppa il cluster, l'account di archiviazione dipendente e altre risorse collegate. La posizione del gruppo di risorse può essere diversa dalla posizione del cluster.
 5. Fare clic su **Note legali** e quindi su **Crea**.
-6. Fare clic su **Crea**. Verrà visualizzato un nuovo riquadro denominato **Invio della distribuzione per Distribuzione modello**. La creazione di un cluster richiede circa 20 minuti. Dopo aver creato il cluster, è possibile fare clic sul pannello del cluster nel portale per aprirlo.
+6. Fare clic su **Create**. Verrà visualizzato un nuovo riquadro denominato **Invio della distribuzione per Distribuzione modello**. La creazione di un cluster richiede circa 20 minuti. Dopo aver creato il cluster, è possibile fare clic sul pannello del cluster nel portale per aprirlo.
 
 Al termine dell'esercitazione, è consigliabile eliminare il cluster. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati. Per istruzioni sull'eliminazione del cluster, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di Azure](hdinsight-administer-use-management-portal.md#delete-clusters).
 
@@ -133,4 +135,4 @@ Per altre informazioni sulla creazione o la gestione di un cluster HDInsight, ve
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

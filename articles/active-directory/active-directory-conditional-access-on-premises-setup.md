@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.topic="get-started-article"
+	ms.date="02/26/2016"
 	ms.author="femila"/>
 
 
@@ -42,16 +42,16 @@ Prerequisiti dello scenario
 * Tenant di Azure Active Directory
 * Windows Server Active Directory (Windows Server 2008 o versioni successive)
 * Schema aggiornato in Windows Server 2012 R2
-* Sottoscrizione di Azure Active Directory Premium
+* Licenza di Azure Active Directory Premium
 * Windows Server 2012 R2 Federation Services configurato per l'accesso SSO ad Azure AD
 * Microsoft Azure Active Directory Connect (Azure AD Connect) su server proxy applicazione Web di Windows Server 2012 R2. [Scaricare Azure AD Connect da questa pagina](http://www.microsoft.com/it-IT/download/details.aspx?id=47594).
-* Dominio verificato. 
+* Dominio verificato.
 
 Problemi noti in questa versione
 -------------------------------------------------------------------------------
 * I criteri di accesso condizionale basati su dispositivo richiedono la funzionalità di writeback degli oggetti dispositivo in Active Directory da Azure Active Directory. L'esecuzione del writeback degli oggetti dispositivo in Active Directory può richiedere fino a 3 ore.
-* I dispositivi iOS 7 richiedono sempre di selezionare un certificato durante l'autenticazione dei certificati client. 
-* Alcune versioni di iOS 8, precedenti iOS 8.3, non funzionano. 
+* I dispositivi iOS 7 richiedono sempre di selezionare un certificato durante l'autenticazione dei certificati client.
+* Alcune versioni di iOS 8, precedenti iOS 8.3, non funzionano.
 
 ## Presupposti dello scenario
 Questo scenario presuppone l'esistenza di un ambiente ibrido, costituito da un tenant di Azure AD e un'istanza di Active Directory locale. Questi tenant devono essere connessi mediante Azure AD Connect, con un dominio verificato e AD FS per SSO. L'elenco di controllo riportato di seguito è utile per configurare l'ambiente per la fase descritta in precedenza.
@@ -89,11 +89,11 @@ Seguire questo elenco di controllo per abilitare e configurare il servizio Regis
 | Attività | Riferimento |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
 | Completare la parte 2 di Abilitazione del writeback dei dispositivi in Azure AD Connect. Al termine, tornare a questa guida. | [Abilitazione del writeback dei dispositivi in Azure AD Connect](#Upgrade your Active Directory Domain Services Schema) |
-	 
+
 
 ##[Facoltativo] Parte 4: Abilitazione di Multi-Factor Authentication
 
-È consigliabile configurare una delle diverse opzioni per Multi-Factor Authentication. Se si desidera richiedere MFA, vedere [Scegliere la soluzione di sicurezza Multi-Factor più adatta](multi-factor-authentication-get-started.md). È inclusa una descrizione di ogni soluzione con collegamenti che consentono di configurare la soluzione selezionata.
+È consigliabile configurare una delle diverse opzioni per Multi-Factor Authentication. Se si desidera richiedere MFA, vedere [Scegliere la soluzione di sicurezza Multi-Factor più adatta](../multi-factor-authentication/multi-factor-authentication-get-started.md). È inclusa una descrizione di ogni soluzione con collegamenti che consentono di configurare la soluzione selezionata.
 
 ## Parte 5: Verifica
 
@@ -109,10 +109,10 @@ La distribuzione è completata. È ora possibile provare alcuni scenari. Seguire
 
 
 
-## Integrare Azure Active Directory con Active Directory locale
-Con questa procedura è possibile integrare il tenant di Azure AD con l'istanza di Active Directory locale usando Azure AD Connect. Anche se i passaggi sono disponibili nel portale di Azure, prendere nota delle istruzioni speciali elencate in questa sezione.
+## Integrare Azure Active Directory con l'istanza di Active Directory locale
+Questa procedura permette di integrare il tenant di Azure AD con l'istanza di Active Directory locale usando Azure AD Connect. Anche se i passaggi sono disponibili nel portale di Azure classico, è consigliabile prendere nota di eventuali istruzioni speciali elencate in questa sezione.
 
-1.	Accedere al portale di Azure come Amministratore.
+1.	Accedere al portale di Azure classico usando un account amministratore globale in Azure AD.
 2.	Nel riquadro sinistro selezionare **Active Directory**.
 3.	Selezionare la propria directory nella scheda **Directory**.
 4.	Selezionare la scheda **Integrazione directory**.
@@ -121,8 +121,8 @@ Con questa procedura è possibile integrare il tenant di Azure AD con l'istanza 
   2.	Installare ed eseguire Azure AD Connect. Installare Azure AD Connect seguendo le istruzioni seguenti, [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Verificare e gestire la sincronizzazione della directory. Le istruzioni per l'accesso Single Sign-On sono disponibili in questo passaggio.
   >[AZURE.NOTE] Configurare la federazione con AD FS come descritto nel documento accessibile dal collegamento precedente.[AZURE.NOTE] Non è necessario configurare le funzionalità di anteprima.
-  
-   
+
+
 
 
 ## Aggiornare lo schema di Servizi di dominio Active Directory
@@ -130,7 +130,7 @@ Con questa procedura è possibile integrare il tenant di Azure AD con l'istanza 
 L'aggiornamento dello schema di Active Directory non può essere annullato. È quindi consigliabile eseguirlo prima in un ambiente di test.
 
 1. Accedere al controller di dominio con un account che abbia sia i diritti di amministratore dell'organizzazione sia di amministratore dello schema.
-2. Copiare la directory **[media]\\support\\adprep** e le sottodirectory in uno dei controller di dominio Active Directory. 
+2. Copiare la directory **[media]\\support\\adprep** e le sottodirectory in uno dei controller di dominio Active Directory.
 3. Dove [media] è il percorso del supporto di installazione di Windows Server 2012 R2.
 4. Al prompt dei comandi passare alla directory adprep ed eseguire: **adprep.exe /forestprep**. Seguire le istruzioni visualizzate per completare l'aggiornamento dello schema.
 
@@ -163,7 +163,7 @@ Questa è un'operazione da eseguire una sola volta per preparare la foresta Acti
 
 ### Preparare Azure AD Connect per il writeback dei dispositivi
 
-1.	Completare Parte 1: Preparare AAD Connect. 
+1.	Completare la parte 1: preparare Azure AD Connect.
 
 
 ## Aggiungere dispositivi all'area di lavoro con Registrazione dispositivo di Azure Active Directory
@@ -249,4 +249,4 @@ A questo punto, quando gli utenti accedono all'applicazione da un dispositivo no
 
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

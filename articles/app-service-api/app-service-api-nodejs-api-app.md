@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="02/25/2015"
 	ms.author="bradygaster"/>
 
 # Compilare e distribuire un'app per le API Node.js nel servizio app di Azure
@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 ## Prerequisiti
-1. [Node.js](nodejs.org) in esecuzione nel computer di sviluppo (in questo esempio si presuppone che sia installato Node.js versione 4.2.2)
+1. [Node.js](http://nodejs.org) in esecuzione nel computer di sviluppo (in questo esempio si presuppone che sia installato Node.js versione 4.2.2)
 1. Un account [GitHub](https://github.com/)
 1. Un [account di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) di Microsoft Azure
 1. Git installato nella workstation di sviluppo locale
@@ -243,4 +243,4 @@ A questo punto è stata creata e distribuita la prima app per le API usando Node
 
 Per basarsi su questo esempio, è possibile aggiungere codice ai gestori per archiviare i dati in un database o sul disco dell'istanza di app per le API. Ora che la distribuzione continua è stata attivata, modificare le funzionalità dell'app per le API ed estendere le modifiche è semplice come modificare il codice ed eseguirne il push all'archivio Git.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

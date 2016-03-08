@@ -62,9 +62,9 @@ Per eseguire il backup di file e dati da un computer Windows ad Azure, è necess
 
     È consigliabile selezionare l'opzione per la ridondanza dell'archiviazione subito dopo la creazione di un insieme di credenziali e prima che i computer vengano registrati nell'insieme di credenziali. Dopo la registrazione di un elemento nell'insieme di credenziali, l'opzione di ridondanza di archiviazione è bloccata e non può essere modificata.
 
-    Se si usa Azure come endpoint primario di archiviazione dei backup (se ad esempio si esegue il backup in Azure da Windows Server), è consigliabile scegliere l'opzione predefinita di archiviazione con ridondanza geografica.
+    Se si usa Azure come endpoint primario di archiviazione dei backup (se, ad esempio, si esegue il backup in Azure da Windows Server), è consigliabile scegliere l'opzione predefinita di [archiviazione con ridondanza geografica](../storage/storage-redundancy.md#geo-redundant-storage).
 
-    Se si usa Azure come endpoint terziario di archiviazione dei backup (se, ad esempio, si usa SCDPM per avere una copia locale del backup e si usa Azure per la conservazione a lungo termine), è consigliabile scegliere l'archiviazione con ridondanza locale. In questo modo vengono ridotti i costi di archiviazione dei dati in Azure e viene offerta una durabilità dei dati inferiore che può essere accettabile per le copie terziarie.
+    Se si usa Azure come endpoint terziario di archiviazione dei backup (se, ad esempio, si usa SCDPM per avere una copia locale del backup e si usa Azure per la conservazione a lungo termine), è consigliabile scegliere l'[archiviazione con ridondanza locale](../storage/storage-redundancy.md#locally-redundant-storage). In questo modo vengono ridotti i costi di archiviazione dei dati in Azure e viene offerta una durabilità dei dati inferiore che può essere accettabile per le copie terziarie.
 
     a. Fare clic sull'insieme di credenziali appena creato.
 
@@ -77,8 +77,6 @@ Per eseguire il backup di file e dati da un computer Windows ad Azure, è necess
     Sarà necessario fare clic su **Salva** se è stato selezionato **Con ridondanza locale**, perché **Con ridondanza geografica** è l'opzione predefinita.
 
     ![Archiviazione con ridondanza geografica](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
-
-    >[AZURE.NOTE] Per altre informazioni sulle opzioni per la ridondanza di archiviazione, vedere questo articolo sulla [panoramica](../storage/storage-redundancy.md).
 
     d. Fare clic su **Servizi di ripristino** nel riquadro di spostamento sinistro per tornare all'elenco di risorse per **Servizi di ripristino**.
 
@@ -126,7 +124,7 @@ A questo punto, la creazione di un insieme di credenziali di backup e il downloa
 
     Il percorso della cache specificato deve avere uno spazio disponibile pari almeno al 5% dei dati di backup.
 
-    Fare clic su **Avanti**.
+    Fare clic su **Next**.
 
     ![Cartella della cache](./media/backup-try-azure-backup-in-10-mins/recovery-services-agent-setup-wizard-1.png)
 
@@ -166,7 +164,7 @@ A questo punto, la creazione di un insieme di credenziali di backup e il downloa
 
     ![Crittografia](./media/backup-try-azure-backup-in-10-mins/registering-server.png)
 
-8. Una volta impostata la **chiave di crittografia**, lasciare selezionata la casella di controllo **Avvia agente di Servizi di ripristino di Microsoft Azure** e fare clic su**Chiudi**.
+8. Una volta impostata la **chiave di crittografia**, lasciare selezionata la casella di controllo **Avvia agente di Servizi di ripristino di Microsoft Azure** e fare clic su **Chiudi**.
 
     ![Crittografia](./media/backup-try-azure-backup-in-10-mins/close-server-registration.png)
 
@@ -236,7 +234,7 @@ A questo punto, la creazione di un insieme di credenziali di backup e il downloa
 
     ![Eseguire ora il backup di Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-progress.png)
 
-12. Dopo aver completato il backup iniziale, la visualizzazione **Processi** nella console di Backup di Azure indica lo stato "Processo completato".
+12. Dopo avere completato il backup iniziale, la visualizzazione **Processi** nella console di Backup di Azure indica lo stato "Processo completato".
 
     ![Completamento infrarossi](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
@@ -248,4 +246,4 @@ Il backup dei file e delle cartelle è stato eseguito in Backup di Azure.
 - Sono disponibili altre informazioni sul [backup di un server Windows](backup-azure-backup-windows-server.md)
 - Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

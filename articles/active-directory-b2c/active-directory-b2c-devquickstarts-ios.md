@@ -1,78 +1,70 @@
-<properties
-	pageTitle="Anteprima Azure AD B2C: chiamata di un'API Web da un'applicazione iOS | Microsoft Azure"
-	description="Questo articolo illustra come creare un'app iOS "To-Do List" che chiama un'API Web node.js web tramite token di connessione OAuth 2.0. Sia l’app iOS che l’API Web utilizzano Azure AD B2C per gestire le identità degli utenti e autenticare gli utenti." 
-	services="active-directory-b2c"
-	documentationCenter="ios"
-	authors="brandwe"
-	manager="mbaldwin"
-	editor=""/>
+<properties pageTitle="Anteprima di Azure Active Directory B2C: Chiamare un'API Web da un'app iOS | Microsoft Azure" description="Questo articolo illustra come creare un'app iOS "To-Do List" che chiama un'API Web Node.js web tramite token di connessione OAuth 2.0. Sia l'app iOS che l'API Web usano Azure Active Directory B2C per gestire le identità utente e autenticare gli utenti." services="active-directory-b2c" documentationCenter="ios" authors="brandwe" manager="mbaldwin" editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="objectivec"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/17/2016"
 	ms.author="brandwe"/>
 
-# Anteprima di Azure AD B2C: Chiamata di un'API Web da un'applicazione iOS
+# Anteprima di Azure AD B2C: Chiamare un'API Web da un'app iOS
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-Azure AD B2C consente di aggiungere potenti funzionalità di gestione delle identità self-service alle app iOS e alle API Web con pochi brevi passaggi. Questo articolo descrive come creare un'app iOS "To-Do List" che chiama un’API Web node.js web tramite token di connessione OAuth 2.0. Sia l'app iOS che l'API Web usano Azure AD B2C per gestire le identità utente e autenticare gli utenti.
+Azure Active Directory (Azure AD) B2C permette di aggiungere funzionalità efficaci di gestione delle identità self-service alle app iOS e alle API Web con pochi brevi passaggi. Questo articolo illustra come creare un'app iOS "To-Do List" che chiama un'API Web Node.js tramite token di connessione OAuth 2.0. Sia l'app iOS che l'API Web usano Azure AD B2C per gestire le identità utente e autenticare gli utenti.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 > [AZURE.NOTE]
-	Questa Guida rapida richiede come prerequisito che un'API Web sia protetta da Azure AD con B2C per poter funzionare completamente. È stata creata una da utilizzare sia per .Net che per node.js. Questa procedura dettagliata presuppone che l’API Web Node.js di esempio sia configurata. Consultare l’[esempio API Web Azure Active Directory per Node.js](active-directory-b2c-devquickstarts-api-node.md`).
+	Per poter usare questa guida introduttiva è necessario avere già un'API Web protetta da Azure AD B2C. È stata compilata un'API Web che può essere usata sia per .NET che per Node.js. Questa procedura dettagliata presuppone che l'esempio di API Web per Node.js sia configurato. Per altre informazioni, vedere l'[esempio di API Web di Azure Active Directory per Node.js](active-directory-b2c-devquickstarts-api-node.md).
 
 > [AZURE.NOTE]
-	Questo articolo non descrive come implementare le esperienze di accesso, iscrizione e gestione del profilo con Azure AD B2C, ma illustra la chiamata delle API Web dopo che l'utente ha già effettuato l'autenticazione. Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per la creazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
+	Questo articolo non descrive come implementare la gestione dell'iscrizione, dell'accesso e del profilo con Azure AD B2C, ma illustra la chiamata delle API Web dopo che l'utente ha effettuato l'autenticazione. Se non è già stato fatto, iniziare con l'[esercitazione introduttiva per la creazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) per acquisire le nozioni di base su Azure AD B2C.
 
-## 1\. Ottenere una directory di Azure AD B2C
+## Ottenere una directory di Azure AD B2C
 
-Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant. Una directory è un contenitore per utenti, app, gruppi e così via. Se non è già stato fatto, passare a [creare una directory B2C](active-directory-b2c-get-started.md) prima di continuare.
+Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant. Una directory è un contenitore per utenti, app, gruppi e così via. Se non è già stato fatto, [creare una directory B2C](active-directory-b2c-get-started.md) prima di proseguire.
 
-## 2\. Creare un'applicazione
+## Creare un'applicazione
 
-A questo punto, è necessario creare un'app nella directory B2C, che fornisce ad Azure AD alcune informazioni necessarie per comunicare in modo sicuro con l'app. Sia l'app che l'API Web saranno rappresentate da un singolo **ID applicazione** in questo caso, poiché includono un'app per la logica. Per creare un'app, seguire [questa procedura](active-directory-b2c-app-registration.md): Assicurarsi di
+Successivamente, è necessario creare un'app nella directory B2C. In questo modo Azure AD acquisisce le informazioni necessarie per comunicare in modo sicuro con l'app. Sia l'app che l'API Web sono rappresentate da un singolo **ID applicazione** in questo caso, perché includono un'app per la logica. Per creare un'app, seguire [questa procedura](active-directory-b2c-app-registration.md): Assicurarsi di:
 
-- Includere un'**app Web/API Web** nell'applicazione
-- Specificare `http://localhost:3000/auth/openid/return` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
-- Creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve. Si noti che prima di usare questo valore è necessario [inserire un carattere di escape XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape).
-- Copiare l'**ID applicazione** assegnato all'app, perché anche questo verrà richiesto a breve.
+- Includere un'**app Web/API Web** nell'applicazione.
+- Immettere `http://localhost:3000/auth/openid/return` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
+- Creare un **segreto applicazione** per l'applicazione e prenderne nota. Sarà necessario più avanti.
+- Copiare l'**ID applicazione** assegnato all'app. Sarà necessario più avanti.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## 3\. Creare i criteri
+## Creare i criteri
 
-In Azure AD B2C ogni esperienza utente è definita da [**criteri**](active-directory-b2c-reference-policies.md) specifici. Questa app contiene tre esperienze di identità: iscrizione, accesso e accesso con Facebook. Sarà necessario creare i criteri per ciascun tipo, come descritto nell'articolo [riferimento ai criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
+In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory-b2c-reference-policies.md) specifici. Questa app contiene tre esperienze di identità: iscrizione, accesso e accesso con Facebook. È necessario creare i criteri per ogni tipo, come descritto nell'[articolo di riferimento per i criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
 
-- Scegliere il **Nome visualizzato** e alcuni altri attributi per l'iscrizione nei criteri di iscrizione.
-- Scegliere il **Nome visualizzato** e l'**ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
-- Copiare il **Nome** di ciascun criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. Sarà necessario usare i nomi dei criteri a breve.
+- Scegliere il **Nome visualizzato** e gli attributi per l'iscrizione nei criteri di iscrizione.
+- Scegliere **Nome visualizzato** e **ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
+- Copiare il **Nome** di ogni criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`. I nomi dei criteri saranno necessari in un secondo momento.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Dopo aver creato i tre criteri, è possibile passare alla creazione dell'app.
+Dopo aver creato i tre criteri, è possibile passare alla compilazione dell'app.
 
-Si noti che questo articolo non illustra come usare i criteri appena creati. Per altre informazioni sul funzionamento dei criteri in Azure AD B2C, iniziare con l'[esercitazione introduttiva per la creazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Si noti che questo articolo non illustra come usare i criteri appena creati. Per informazioni sul funzionamento dei criteri in Azure AD B2C, iniziare dall'[esercitazione introduttiva per la creazione di un'app Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
-## 4\. Scaricare il codice
+## Scaricare il codice
 
-Il codice per questa esercitazione è disponibile [in GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). Per creare l'esempio passo dopo passo, è possibile [scaricare un progetto scheletro come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip) o clonare lo scheletro:
+Il codice per questa esercitazione [è disponibile in GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). Per creare l'esempio passo dopo passo, è possibile [scaricare il progetto struttura come file ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip). È anche possibile clonare la struttura:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS.git
 ```
 
-> [AZURE.NOTE] **Il download dello scheletro è necessario per completare questa esercitazione.** Data la complessità dell'implementazione di un'applicazione pienamente funzionante su iOS, lo **scheletro** prevede un codice UX che sarà eseguito dopo aver completato l'esercitazione seguente. Si tratta di una misura che consente di risparmiare tempo per gli sviluppatori. Il codice UX non è pertinente all'argomento di aggiunta B2C a un'applicazione iOS.
+> [AZURE.NOTE] **È necessario scaricare la struttura per completare questa esercitazione.** Data la complessità dell'implementazione di un'applicazione pienamente funzionante in iOS, la **struttura** contiene codice dell'esperienza utente che verrà eseguito al termine dell'esercitazione. Si tratta di una misura che permette agli sviluppatori di risparmiare tempo. Il codice dell'esperienza utente non è pertinente all'argomento relativo all'aggiunta di B2C a un'app iOS.
 
-L'app completata è anche [disponibile come file con estensione zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip) o nel ramo `complete` dello stesso repository.
+L'app completata è anche [disponibile come file ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip) o nel ramo `complete` dello stesso repository.
 
-
-Caricare ora il podfile usando cocoapods. Verrà creata una nuova area di lavoro XCode che verrà caricata. Se non si dispone di Cocoapods, visitare [il sito Web per installare cocoapods](https://cocoapods.org).
+A questo punto, caricare `podfile` tramite CocoaPods. Verrà creata una nuova area di lavoro Xcode da caricare. Se CocoaPods non è disponibile, [visitare il sito Web per configurarlo](https://cocoapods.org).
 
 ```
 $ pod install
@@ -80,9 +72,9 @@ $ pod install
 $ open Microsoft Tasks for Consumers.xcworkspace
 ```
 
-## 5\. Configurare l'applicazione attività iOS
+## Configurare l'applicazione attività iOS
 
-Affinché l'applicazione attività iOS comunichi con Azure AD B2C, è necessario fornire alcuni parametri comuni. Nella cartella `Microsoft Tasks` aprire il file `settings.plist` nella radice del progetto e sostituire i valori nella sezione `<dict>`. Questi valori verranno usati nell'app.
+Perché l'app attività iOS possa comunicare con Azure AD B2C, è necessario fornire alcuni parametri comuni. Nella cartella `Microsoft Tasks` aprire il file `settings.plist` nella radice del progetto e sostituire i valori nella sezione `<dict>`. Questi valori verranno usati nell'app.
 
 ```
 <dict>
@@ -117,15 +109,15 @@ Affinché l'applicazione attività iOS comunichi con Azure AD B2C, è necessario
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-## 6\. Ottenere i token di accesso e chiamare le API dell'attività
+## Ottenere i token di accesso e chiamare le API dell'attività
 
-Questa sezione mostra come completare uno scambio di token OAuth 2.0 in un'app Web usando le librerie e i framework di Microsoft. Se non si ha familiarità con i **codici di autorizzazione** e i **token di accesso**, provare a consultare le [informazioni di riferimento relative al protocollo OAuth 2.0](active-directory-b2c-reference-protocols.md).
+Questa sezione illustra come completare uno scambio di token OAuth 2.0 in un'app Web usando le librerie e i framework di Microsoft. Se non si ha familiarità con i codici di autorizzazione e i token di accesso, vedere il [riferimento al protocollo OAuth 2.0](active-directory-b2c-reference-protocols.md) per altre informazioni.
 
-#### Creare file di intestazione con i metodi da noi utilizzati.
+### Creare file di intestazione usando i metodi
 
-Saranno necessari alcuni metodi per ottenere un token con il criterio selezionato e in seguito chiamare il server dell’Attività. Tali metodi verranno esaminati di seguito.
+Per ottenere un token con i criteri selezionati e quindi chiamare il server delle attività è necessario usare alcuni metodi. Configurare ora i metodi necessari.
 
-Creare un file denominato `samplesWebAPIConnector.h` in /Microsoft Tasks nel progetto XCode.
+Creare un file denominato `samplesWebAPIConnector.h` in `/Microsoft Tasks` nel progetto Xcode.
 
 Aggiungere il codice seguente per definire la procedura necessaria:
 
@@ -157,11 +149,11 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 @end
 ```
 
-Si tratta di semplici operazioni CRUD sull'API e di un metodo `doPolicy` che consente di ottenere un token con i criteri desiderati.
+Si tratta di semplici operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) eseguite nell'API e di un metodo `doPolicy`. Usando questo metodo è possibile ottenere un token con i criteri selezionati.
 
-Si noterà inoltre che esistono altri due file di intestazione ed è necessario definire quale conterrà l'Elemento attività e i Dati dei criteri. Per creare i file d’intestazione:
+Si noti che è necessario definire altri due file di intestazione, che conterranno i dati relativi ai criteri e all'elemento attività. Creare i file di intestazione:
 
-Creare un file denominato `samplesTaskItem.h` con il codice seguente:
+Creare il file `samplesTaskItem.h` con il codice seguente:
 
 ```
 #import <Foundation/Foundation.h>
@@ -176,7 +168,7 @@ Creare un file denominato `samplesTaskItem.h` con il codice seguente:
 @end
 ```
 
-Creare anche un file `samplesPolicyData.h` per contenere i dati dei criteri:
+Creare anche il file `samplesPolicyData.h` per contenere i dati dei criteri:
 
 ```
 #import <Foundation/Foundation.h>
@@ -190,11 +182,11 @@ Creare anche un file `samplesPolicyData.h` per contenere i dati dei criteri:
 
 @end
 ```
-#### Aggiunta di un'implementazione per gli elementi Attività e Criterio
+### Aggiungere un'implementazione per gli elementi attività e criteri
 
-Ora che si hanno i file di intestazione, è necessario scrivere il codice per archiviare i dati che verranno utilizzati per l'esempio.
+Ora che i file di intestazione sono disponibili, è possibile scrivere codice per archiviare i dati da usare per l'esempio.
 
-Creare un file denominato `samplesPolicyData.m` con il codice seguente:
+Creare il file `samplesPolicyData.m` con il codice seguente:
 
 ```
 #import <Foundation/Foundation.h>
@@ -223,13 +215,13 @@ Creare un file denominato `samplesPolicyData.m` con il codice seguente:
 @end
 ```
 
-#### Scrivere il codice di installazione per la chiamata in ADAL per iOS
+### Scrivere il codice di configurazione per la chiamata ad ADAL per iOS
 
-Il codice rapido per archiviare gli oggetti per l'interfaccia utente è completo. È ora necessario scrivere il codice per accedere ad ADAL per iOS con i parametri introdotti nel file `settings.plist` per ottenere un token di accesso da fornire al server di attività. Il codice può essere complicato, pertanto prestare attenzione.
+Il codice rapido per archiviare gli oggetti per l'interfaccia utente ora è completo. A questo punto, è necessario scrivere codice per l'accesso ad Active Directory Authentication Library (ADAL) per iOS con i parametri inclusi in `settings.plist`. In questo modo è possibile ottenere un token di accesso da fornire al server delle attività.
 
-Tutto il lavoro verrà eseguito in `samplesWebAPIConnector.m`.
+Tutta la procedura verrà eseguita in `samplesWebAPIConnector.m`.
 
-In primo luogo, creare l’implementazione `doPolicy()` scritta nel file di intestazione `samplesWebAPIConnector.h`:
+Creare prima di tutto l'implementazione di `doPolicy()` scritta nel file di intestazione `samplesWebAPIConnector.h`:
 
 ```
 +(void) doPolicy:(samplesPolicyData *)policy
@@ -259,21 +251,21 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 
 ```
 
-Si noterà che il metodo è piuttosto semplice. Esso accetta come input l'oggetto `samplesPolicyData` appena creato, l'elemento ViewController parent e quindi un callback. Il callback è interessante e sarà trattato in maniera dettagliata.
+Il metodo è semplice. Accetta come input l'oggetto `samplesPolicyData` creato, l'elemento padre `ViewController` e un callback. Il callback verrà esaminato in modo più approfondito.
 
-1. Si noterà che `completionBlock` ha ADProfileInfo come tipo che verrà restituito con un oggetto `userInfo`. ADProfileInfo è il tipo che contiene tutte le risposte dal server, in particolare le attestazioni.
-2. Si noterà `readApplicationSettings`, che legge i dati forniti in `settings.plist`.
-3. È presente infine un metodo `getClaimsWithPolicyClearingCache` piuttosto esteso. Questo riguarda la chiamata effettiva a ADAL per iOS che è necessario scrivere, ma la si scriverà in un secondo momento.
+- Si noti che `completionBlock` prevede `ADProfileInfo` come un tipo restituito tramite un oggetto `userInfo`. `ADProfileInfo` è il tipo che contiene tutte le risposte dal server, incluse le attestazioni.
+- Si noti anche che `readApplicationSettings` legge i dati forniti in `settings.plist`.
+- Il risultato finale è un metodo `getClaimsWithPolicyClearingCache` di grandi dimensioni. Questa è la chiamata ad ADAL per iOS vera e propria che è necessario scrivere e verrà approfondita più avanti in questo articolo.
 
-Si scriverà ora il metodo `getClaimsWithPolicyClearingCache` esteso. Tale metodo è sufficientemente grande da meritare una sezione apposita.
+Scrivere il metodo di grandi dimensioni `getClaimsWithPolicyClearingCache`. Date le dimensioni, il metodo richiede una sezione distinta.
 
-#### Creare la chiamata in ADAL per iOS
+### Creare la chiamata ad ADAL per iOS
 
-Se è stato scaricato lo scheletro da GitHub, si noterà che ne esistono diversi in grado di agevolare l'applicazione di esempio. Gli scheletri seguono tutti il modello `get(Claims|Token)With<verb>ClearningCache`. Con l’utilizzo delle convenzioni Objetive C, esso appare molto simile all’inglese. Ad esempio "ottenere un Token con i parametri aggiuntivi forniti e cancellare la cache", che è `getTokenWithExtraParamsClearingCache()`. Piuttosto semplice.
+Dopo aver scaricato la struttura da GitHub, sono disponibili diverse chiamate per l'applicazione di esempio. I metodi seguono tutti il modello `get(Claims|Token)With<verb>ClearningCache`. L'uso delle convenzioni Objective C le rende molto simili alla lingua inglese. Ad esempio, "Ottieni un token con i parametri aggiuntivi da me forniti e cancella la cache" sarà `getTokenWithExtraParamsClearingCache()`.
 
-Si scriverà "ottenere Attestazioni e un token con i criteri forniti e non cancellare la cache" o `getClaimsWithPolicyClearingCache`. ADAL restituisce sempre un token, pertanto non è necessario specificare "Attestazioni e token" nel metodo. Poiché a volte è necessario soltanto il token senza il sovraccarico dell'analisi delle attestazioni, viene fornito un metodo senza attestazioni denominato `getTokenWithPolicyClearingCache` nello scheletro.
+Si scriverà "Ottieni attestazioni e un token con i criteri forniti e non cancellare la cache", ovvero `getClaimsWithPolicyClearingCache`. ADAL restituisce sempre un token, non è quindi necessario specificare "attestazioni e un token" nel metodo. Dal momento che a volte è necessario soltanto il token senza il sovraccarico dell'analisi delle attestazioni, nella struttura viene fornito un metodo senza attestazioni denominato `getTokenWithPolicyClearingCache`.
 
-Tale codice è riportato di seguito:
+Scrivere il codice seguente:
 
 ```
 +(void) getClaimsWithPolicyClearingCache  : (BOOL) clearCache
@@ -321,9 +313,16 @@ Tale codice è riportato di seguito:
 
 ```
 
-La prima parte del codice dovrebbe essere familiare. Caricare le impostazioni fornite in `Settings.plist` e assegnare il tutto a `data`. Viene quindi impostata una classe `ADAuthenticationError` che accetti qualsiasi errore proveniente da ADAL per iOS. È anche possibile creare un oggetto `authContext`, ossia l'impostazione della chiamata ad ADAL, che viene passata ad *authority* per avviare i processi. Viene inoltre fornito `authContext` un riferimento al controller padre in modo che sia possibile ritornare ad esso. È anche possibile convertire `redirectURI`, una stringa di `settings.plist`, nel tipo NSURL previsto da ADAL. È necessario infine impostare un oggetto `correlationId`, che è semplicemente un UUID in grado di seguire la chiamata dal client al server e viceversa. Questo è utile per il debug.
+La prima parte del codice dovrebbe essere familiare.
 
-Ora, passare alla chiamata effettiva a ADAL, dove la chiamata è diversa rispetto agli utilizzi precedenti di ADAL per iOS:
+- Caricare le impostazioni fornite in `settings.plist` e assegnarle a `data`.
+- Impostare `ADAuthenticationError`, che accetta qualsiasi errore da ADAL per iOS.
+- Creare `authContext`, che consente di impostare la chiamata ad ADAL, e passargli l'autorità necessaria per l'avvio del processo.
+- Fornire a `authContext` un riferimento al controller padre in modo che sia possibile ripristinarlo.
+- Convertire `redirectURI`, una stringa di `settings.plist`, nel tipo NSURL previsto da ADAL.
+- Impostare `correlationId`. Si tratta di un UUID che può seguire la chiamata dal client al server e viceversa. Questo è utile per il debug.
+
+Passare ora alla chiamata effettiva ad ADAL, che si differenzia rispetto agli usi precedenti di ADAL per iOS:
 
 ```
 [authContext acquireTokenWithScopes:data.scopes
@@ -338,19 +337,19 @@ Ora, passare alla chiamata effettiva a ADAL, dove la chiamata è diversa rispett
 
 ```
 
-Si noterà che la chiamata è piuttosto semplice.
+La chiamata è piuttosto semplice.
 
-**scopes**: ambiti che vengono passati al server e che si desidera richiedere al server per l'accesso dell'utente. Per l'anteprima B2C viene passato il parametro client\_id. Verrà tuttavia modificato per leggere gli ambiti in futuro. Questo documento verrà quindi aggiornato. **addtionalScopes**: ambiti aggiuntivi che è possibile usare per l'applicazione. Verranno usati in futuro. **clientId**: ID dell'applicazione ottenuto dal portale **redirectURI**: reindirizzamento in cui si prevede che il token venga rispedito. **identifier**: modalità di identificazione dell'utente, in modo da controllare se è disponibile un token utilizzabile nella cache invece di dover sempre richiedere al server un altro token. Si noterà che questo viene eseguito in un tipo denominato `ADUserIdentifier` e che è possibile specificare l’ID che si desidera utilizzare. È consigliabile utilizzare il nome utente. **promptBehavior** - è deprecato e deve essere AD\_PROMPT\_ALWAYS **extraQueryParameters** - qualsiasi parametro aggiuntivo che si desidera passare al server nel formato codificato dell’URL. **criteri** -il criterio che si richiama. La parte più importante di questa procedura dettagliata.
+`scopes`: gli ambiti passati al server da richiedere al server per un utente che esegue l'accesso. Per l'anteprima di B2C si passa `client_id`, che in futuro verrà usato per la lettura degli ambiti. Dopo tale modifica questo documento verrà aggiornato. `additionalScopes`: gli ambiti aggiuntivi che è possibile usare per l'app. Se ne prevede l'uso in futuro. `clientId`: l'ID applicazione ottenuto dal portale. `redirectURI`: l'URI di reindirizzamento in cui è previsto l'invio del token. `identifier`: un modo per identificare un utente allo scopo di verificare se esiste un token utilizzabile nella cache. Questo permette di evitare la continua richiesta di nuovi token al server. È contenuto in un tipo denominato `ADUserIdentifier` ed è possibile specificare cosa usare come ID. Si consiglia di usare `username`. `promptBehavior`: un oggetto deprecato. Dovrebbe essere `AD_PROMPT_ALWAYS`. `extraQueryParameters`: qualsiasi elemento aggiuntivo che si vuole passare al server, in formato con codifica URL. `policy`: i criteri che vengono richiamati. Questa è la parte più importante della procedura dettagliata.
 
-Si noti che nella completionBlock viene passato l’elemento `ADAuthenticationResult` che dispone del token e delle informazioni sul profilo (se la chiamata ha avuto esito positivo)
+In `completionBlock` è possibile vedere che viene passato `ADAuthenticationResult`. Qui sono inclusi il token e le informazioni sul profilo, se la chiamata ha esito positivo.
 
-Utilizzando il codice sopra, è possibile acquisire un token per il criterio fornito. Utilizzare questo token per chiamare l'API.
+Usando il codice appena illustrato è possibile ottenere un token per i criteri forniti. Il token può essere usato per chiamare l'API.
 
-#### Creare Chiamate Attività al server
+### Creare le chiamate di attività per il server
 
-Ora che si dispone di un token, è necessario fornirlo all'API per l’autorizzazione.
+Il token ottenuto deve essere fornito all'API per l'autorizzazione.
 
-Come detto in precedenza, è necessario implementare tre metodi:
+È necessario implementare tre metodi:
 
 ```
 +(void) getTaskList:(void (^) (NSArray*, NSError* error))completionBlock
@@ -365,7 +364,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock;
    completionBlock:(void (^) (bool, NSError* error)) completionBlock;
 ```
 
-`getTasksList` fornisce una matrice che rappresenta le attività nel server. `addTask` e `deleteTask` eseguono l'azione successiva e restituiscono TRUE o FALSE in caso di esito positivo.
+`getTasksList` fornisce una matrice che rappresenta le attività nel server. `addTask` e `deleteTask` eseguono le azioni successive e restituiscono `true` o `false` in caso di esito positivo.
 
 Scrivere prima `getTaskList`:
 
@@ -429,9 +428,9 @@ Scrivere prima `getTaskList`:
 
 ```
 
-Non rientra nell'ambito di questa procedura dettagliata illustrare il codice attività, ma è interessante notare che un metodo `craftRequest` accetta l'URL dell'attività. Questo metodo viene utilizzato per creare la richiesta, con il token di accesso pervenuto, per il server. Il metodo viene riportato di seguito:
+La descrizione del codice dell'attività non rientra nell'ambito di questa procedura dettagliata, ma è interessante notare il metodo `craftRequest`, che accetta l'URL dell'attività. Questo metodo viene usato per creare la richiesta per il server, usando il token di accesso ricevuto. Scrivere il metodo.
 
-Aggiungere il codice seguente al file 'samplesWebAPIConnector.m':
+Aggiungere il codice seguente al file `samplesWebAPIConnector.m`:
 
 ```
 +(void) craftRequest : (NSString*)webApiUrlString
@@ -460,9 +459,9 @@ Aggiungere il codice seguente al file 'samplesWebAPIConnector.m':
 }
 ```
 
-Come è possibile osservare, il codice accetta un URI Web, vi aggiunge il token con l'intestazione `Bearer` in HTTP e lo restituisce quindi all'utente. Chiamare l'API `getTokenClearingCache`. Questa operazione può sembrare strana inizialmente, ma la chiamata viene usata semplicemente per ottenere un token dalla cache e assicurarsi che sia ancora valido (le chiamate getToken* eseguono questa operazione interrogando ADAL). Utilizzare il codice in ogni chiamata. Si torni ora alla creazione dei metodi Attività aggiuntivi.
+Il codice accetta un URI Web, aggiunge il token usando l'intestazione `Bearer` in HTTP e lo restituisce quindi all'utente. Chiamare l'API `getTokenClearingCache`. È sufficiente usare questa chiamata per ottenere un token dalla cache e per assicurarsi che sia ancora valido. Le chiamate `getToken` eseguono questa operazione richiedendo ADAL. Usare questo codice in ogni chiamata. A questo punto, è necessario creare i metodi delle attività aggiuntive.
 
-Si scriverà ora `addTask`:
+Scrivere `addTask`:
 
 ```
 +(void) addTask:(samplesTaskItem*)task
@@ -517,10 +516,10 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 }
 ```
 
-Questo codice segue lo stesso modello, ma introduce un ultimo metodo da implementare, ovvero `convertTaskToDictionary`. Questo metodo accetta la matrice e la rende un oggetto dizionario che viene modificato più facilmente nei parametri di query da passare al server. Questo codice è molto semplice:
+Questo metodo segue lo stesso modello, ma introduce anche l'ultimo metodo da implementare, `convertTaskToDictionary`. Questo metodo trasforma la matrice in un oggetto dizionario, che è più facile da modificare nei parametri di query da passare al server. Il codice è semplice:
 
 ```
-// Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
+// Here we have some conversation helpers that allow us to parse passed items into dictionaries for URLEncoding later.
 
 +(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
 {
@@ -535,7 +534,7 @@ Questo codice segue lo stesso modello, ma introduce un ultimo metodo da implemen
 
 ```
 
-Verrà scritto infine `deleteTask`:
+A questo punto, scrivere `deleteTask`:
 
 ```
 +(void) deleteTask:(samplesTaskItem*)task
@@ -587,9 +586,9 @@ Verrà scritto infine `deleteTask`:
 }
 ```
 
-### Aggiungere la disconnessione all'applicazione.
+### Aggiungere la disconnessione all'applicazione
 
-L'ultima cosa da fare è implementare la Disconnessione per l’applicazione. Questa operazione è piuttosto semplice. Di nuovo nel file `sampleWebApiConnector.m`:
+L'ultima cosa da fare è implementare la disconnessione nell'applicazione. L'operazione è semplice. All'interno del file `sampleWebApiConnector.m`:
 
 ```
 +(void) signOut
@@ -606,22 +605,22 @@ L'ultima cosa da fare è implementare la Disconnessione per l’applicazione. Qu
 }
 ```
 
-## 9\. Eseguire l'app di esempio
+## Eseguire l'app di esempio
 
-Infine, compilare ed eseguire l’app in xCode. Effettuare l'iscrizione o l'accesso all'app e creare le attività per l'utente connesso. Disconnettersi ed eseguire di nuovo l'accesso con un account utente diverso e creare le attività per l’utente in questione.
+Infine, compilare ed eseguire l'app in Xcode. Effettuare l'iscrizione o l'accesso all'app e creare le attività per l'utente connesso. Disconnettersi ed eseguire di nuovo l'accesso con un account utente diverso e creare le attività per tale utente.
 
-Osservare che le attività sono archiviate per utente nell'API, perché l'API estrae l'identità dell'utente dai token di accesso che riceve.
+Si noti che le attività sono archiviate per utente nell'API, perché l'API estrae l'identità dell'utente dal token di accesso che riceve.
 
-Come riferimento, l'esempio completato [è disponibile qui in un file con estensione zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
+Per riferimento, l'esempio completo [viene fornito come file ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). È anche possibile clonarlo da GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS```
 
 ## Passaggi successivi
 
-È ora possibile passare ad argomenti più avanzati B2C. È possibile consultare:
+È ora possibile passare ad argomenti più avanzati B2C. È possibile provare a:
 
-[Chiamata di un'API Web Node.js da un'applicazione Web Node.js >>]()
+[Chiamare un'API Web per Node.js da un'app Web Node.js]()
 
-[Personalizzazione dell’UX del’App B2C>>]()
+[Personalizzare l'esperienza utente per un'app B2C]()
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->
