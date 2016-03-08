@@ -10,10 +10,10 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/25/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -49,7 +49,7 @@ Per eseguire questa esercitazione, è necessario:
 - L’utilità della riga di comando bcp installata
 - L’utilità della riga di comando SQLCMD installata
 
->[AZURE.NOTE]È possibile scaricare le utilità bcp e sqlcmd dall'[Area download Microsoft][].
+>[AZURE.NOTE] È possibile scaricare le utilità bcp e sqlcmd dall'[Area download Microsoft][].
 
 ## Importare i dati in SQL Data Warehouse
 
@@ -78,7 +78,7 @@ WITH
 );
 GO
 ```
->[AZURE.NOTE]Vedere l’argomento [Progettazione tabella][] nel gruppo di sviluppo di argomenti per ulteriori informazioni sulle possibilità disponibili nella clausola WITH.
+>[AZURE.NOTE] Vedere l’argomento [Progettazione tabella][] nel gruppo di sviluppo di argomenti per ulteriori informazioni sulle possibilità disponibili nella clausola WITH.
 
 ### Passaggio 2: Creare un file di dati di origine
 
@@ -101,7 +101,7 @@ Aprire il Blocco note e copiare le righe di dati seguenti in un nuovo file.
 
 Salvare il file nella directory temporanea locale, C:\\Temp\\DimDate2.txt.
 
-> [AZURE.NOTE]È importante ricordare che bcp.exe non supporta la codifica UTF-8 del file. Utilizzare i file codificati ASCII o la codifica UTF-16 per i file quando si utilizza bcp.exe.
+> [AZURE.NOTE] È importante ricordare che bcp.exe non supporta la codifica UTF-8 del file. Utilizzare i file codificati ASCII o la codifica UTF-16 per i file quando si utilizza bcp.exe.
 
 ### Passaggio 3: Connettersi e importare i dati
 bcp permette di connettersi e importare i dati usando il comando seguente, sostituendo i valori in base alla necessità:
@@ -174,7 +174,7 @@ Per verificare che i dati siano stati esportati correttamente, aprire il nuovo f
 20150101,1,3
 ```
 
->[AZURE.NOTE]A causa della natura dei sistemi distribuiti, è possibile che l'ordine dei dati non sia uguale nei database di SQL Data Warehouse. È facoltativamente possibile usare il parametro queryout per specificare la query Transact-SQL da eseguire.
+>[AZURE.NOTE] A causa della natura dei sistemi distribuiti, è possibile che l'ordine dei dati non sia uguale nei database di SQL Data Warehouse. È facoltativamente possibile usare il parametro queryout per specificare la query Transact-SQL da eseguire.
 
 ## Passaggi successivi
 Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehouse][]. Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
@@ -196,4 +196,4 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 <!--Other Web references-->
 [Area download Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

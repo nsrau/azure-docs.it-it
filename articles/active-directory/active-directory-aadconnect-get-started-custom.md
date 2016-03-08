@@ -163,7 +163,9 @@ Immettere qui i server specifici nei quali si desidera installare ADFS. È possi
 Immettere qui i server specifici che si desidera utilizzare come server Proxy applicazione Web. Il server Proxy applicazione Web viene distribuito nel DMZ (per la rete Extranet) e supporta le richieste di autenticazione dalla rete Extranet. È possibile aggiungere uno o più server in base alle esigenze di pianificazione della capacità. Si consiglia di installare un singolo server proxy applicazione Web per le distribuzioni pilota e di test e di distribuire server aggiuntivi aprendo nuovamente Azure AD Connect dopo l'installazione iniziale e distribuendo il proxy applicazione Web nei server aggiuntivi. In genere, è consigliabile disporre di un numero equivalente di server proxy per soddisfare l'autenticazione dalla Intranet.
 
 > [AZURE.NOTE]
-<li> Se l'account usato per installare Azure AD Connect non è un account amministratore locale nei server AD FS, verranno richieste le credenziali per un account con autorizzazioni sufficienti.</li> <li> Verificare la connettività HTTP/HTTPS tra il server Azure AD Connect e il server proxy applicazione Web prima di configurare questo passaggio.</li> <li> Verificare anche la connettività HTTP/HTTPS tra il server applicazioni Web e il server AD FS per consentire il passaggio delle richieste di autenticazione.</li>
+<li> Se l'account usato per installare Azure AD Connect non è un account amministratore locale nei server AD FS, verranno richieste le credenziali per un account con autorizzazioni sufficienti.</li>
+<li> Verificare la connettività HTTP/HTTPS tra il server Azure AD Connect e il server proxy applicazione Web prima di configurare questo passaggio.</li>
+<li> Verificare anche la connettività HTTP/HTTPS tra il server applicazioni Web e il server AD FS per consentire il passaggio delle richieste di autenticazione.</li>
 
 ![App Web](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
 
@@ -191,6 +193,14 @@ Questa configurazione viene utilizzata per impostare la relazione di federazione
 ![Dominio di Azure AD](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
 
 
+### Verificare il dominio di Azure AD selezionato per la federazione
+
+Quando si seleziona il dominio per la federazione con la directory locale, Azure AD Connect fornisce le informazioni necessarie per verificare il dominio, se non è già verificato. Questa pagina fornisce i record DNS che è necessario creare presso il registrar, o nel punto in cui è ospitato il DNS, per completare una verifica del dominio.</br>
+
+![Dominio di Azure AD](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
+
+> [AZURE.NOTE] Azure AD Connect prova a verificare il dominio in fase di configurazione. Se la configurazione continua senza aggiungere i record DNS necessari in cui è ospitato il DNS del dominio, la procedura guidata non può completare la configurazione.</br>
+
 ## Configurare e verificare le pagine
 In questa pagina verrà effettivamente eseguita la configurazione.
 
@@ -217,7 +227,7 @@ Azure AD Connect verificherà le impostazioni DNS automaticamente, facendo clic 
 
 Inoltre, eseguire i passaggi di verifica seguenti:
 
-- Convalidare l'accesso tramite browser da un computer nel dominio da Internet Explorer, dalla rete Intranet: connettersi a https://myapps.microsoft.com e verificare l'accesso con l'account connesso. **Nota:** l'account amministratore di Servizi di dominio Active Directory predefinito non è sincronizzato e non può essere usato per la verifica.
+- Convalidare l'accesso tramite browser da un computer aggiunto a un dominio da Internet Explorer, dalla rete Intranet: connettersi a https://myapps.microsoft.com e verificare l'accesso con l'account connesso. **Nota:** l'account amministratore di Servizi di dominio Active Directory predefinito non è sincronizzato e non può essere usato per la verifica.
 - Convalidare l'accesso tramite browser da qualsiasi dispositivo dalla rete Extranet: connettersi a https://myapps.microsoft.com da un computer di casa o un dispositivo mobile e fornire l'ID di accesso e la password.
 - Convalidare l'accesso rich client: connettersi a https://testconnectivity.microsoft.com, scegliere la scheda **Office 365** e quindi scegliere **Test di Single Sign-On in Office 365**.
 
@@ -228,4 +238,4 @@ Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

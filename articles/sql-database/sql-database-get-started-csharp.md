@@ -11,7 +11,7 @@
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
    ms.date="01/22/2016"
@@ -22,7 +22,7 @@
 **Database singolo**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-get-started.md)
+- [Portale di Azure](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -34,7 +34,7 @@ La prova del database SQL consente di creare un database singolo usando SQL e C#
 
 I singoli frammenti di codice sono suddivisi per maggiore chiarezza e un'applicazione console di esempio riunisce tutti i comandi nella sezione nella parte inferiore di questo articolo.
 
-La libreria di database SQL di Azure per .NET include un'API basata su [Gestione risorse di Azure](resource-group-overview.md) che esegue il wrapping dell'[API REST di database SQL basata su Gestione risorse](https://msdn.microsoft.com/library/azure/mt163571.aspx). La libreria client segue il modello comune per le librerie client basate su Gestione risorse. Gestione risorse richiede gruppi di risorse e l'autenticazione con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+La libreria di database SQL di Azure per .NET include un'API basata su [Gestione risorse di Azure](../resource-group-overview.md) che esegue il wrapping dell'[API REST di database SQL basata su Gestione risorse](https://msdn.microsoft.com/library/azure/mt163571.aspx). La libreria client segue il modello comune per le librerie client basate su Gestione risorse. Gestione risorse richiede gruppi di risorse e l'autenticazione con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
@@ -50,7 +50,7 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 
 ## Installare le librerie richieste
 
-Per impostare un database SQL con C#, ottenere le librerie di gestione richieste installando i pacchetti seguenti tramite la [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**):
+Per configurare un database SQL con C#, ottenere le librerie di gestione necessarie installando i pacchetti seguenti tramite la [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
     Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -86,7 +86,7 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 
     ![Aggiungere un URL di reindirizzamento per l'applicazione SQL in C#.][8]
 
-7. Completare la creazione dell'app, fare clic su **CONFIGURA** e copiare l'**ID CLIENT**. L'ID del cliente sarà necessario in seguito nel codice.
+7. Completare la creazione dell'app, fare clic su **CONFIGURA** e copiare l'**ID CLIENT**, che sarà necessario in seguito nel codice.
 
     ![Ottenere un ID client per l'applicazione SQL in C#.][9]
 
@@ -463,4 +463,4 @@ Dopo aver provato il database SQL e aver impostato un database con C#, è possib
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

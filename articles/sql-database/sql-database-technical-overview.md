@@ -36,7 +36,7 @@ Per molte aziende e app, la possibilità di creare database e connettere o disco
 
 In qualsiasi caso-o singolo o elastico-non è vincolante. È possibile mescolare database singoli con pool di database elastici e modificare i livelli di servizio di singoli database e pool per creare progettazioni innovative. Inoltre, con la potenza e la portata di Azure, è possibile combinare e integrare i servizi di Azure con il database SQL per soddisfare le esigenze esclusive di progettazione di app moderne dell'azienda, promuovere l'efficienza in termini di costi e di risorse e sfruttare nuove opportunità commerciali.
 
-Ma come è possibile confrontare le prestazioni relative di database e i pool di database? Come si conosce il giusto arresto quando si connette e si disconnette? La risposta è l'unità di transazione di database (DTU) per singoli database e il valore di DTU elastica (eDTU) per i database elastici e i pool di database.
+Ma come è possibile confrontare le prestazioni relative di database e i pool di database? Come si conosce il giusto arresto quando si connette e si disconnette? La risposta è l'unità di transazione di database (DTU) per singoli database e il valore di DTU di database elastico (eDTU) per i database elastici e i pool di database.
 
 ## Comprendere i DTU
 
@@ -61,4 +61,4 @@ Dopo avere letto l'introduzione al database SQL e avere ottenuto informazioni su
 
 - Per iniziare, [creare il primo database](sql-database-get-started.md). Poi costruire la prima app in [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md), o [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

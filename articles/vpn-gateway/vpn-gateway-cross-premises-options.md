@@ -4,12 +4,12 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/01/2015"
@@ -32,18 +32,18 @@ La scelta dell'opzione può dipendere da diversi fattori, ad esempio:
 La tabella seguente può aiutare nella scelta della migliore opzione di connettività per la soluzione.
 
 
-|  -                            | **Point-to-Site**                                                                            | **Site-to-Site**                                                                                  | **ExpressRoute - EXP**                                                                                                                     |
+| - | **Da punto a sito** | **Da sito a sito** | **ExpressRoute** |
 |------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| **Servizi supportati di Azure** | Macchine virtuali e servizi cloud                                                       | Macchine virtuali e servizi cloud                                                                      | [Elenco servizi](../expressroute/expressroute-faqs.md#supported-services)                                                            |
-| **Larghezze di banda tipiche** | In genere < 100 Mbps aggregate | In genere < 100 Mbps aggregate | 50 Mbps, 100 Mbps, 200 Mbps e 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps  | 
-| **Protocolli supportati** | Secure Socket Tunneling Protocol (SSTP) | IPsec | Connessione diretta su VLAN, Tecnologie VPN del NSP (MPLS, VPLS,...) | 
-| **Routing** | Sono supportati routing basati sui criteri (routing statico) e basati sul route basato (VPN con routing dinamico) | BGP | 
-| **Resilienza delle connessioni** | attivo-passivo | attivo-passivo | attivo-attivo | 
-| **Caso di utilizzo tipico** | Creazione di prototipi, sviluppo / test / gli scenari di laboratorio per i servizi cloud e macchine virtuali | Scenari di sviluppo / test lab e piccoli carichi di lavoro su piccola scala per i servizi cloud e le macchine virtuali | Accesso a tutti i servizi di Azure (elenco convalidato), aziendali e carichi di lavoro critici, Backup, Big Data, Azure come sito di ripristino di emergenza | 
-| **SLA** | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) | 
-| **Prezzi** | [Prezzi](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [Prezzi](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [Prezzi](http://azure.microsoft.com/pricing/details/expressroute/) | 
-| **Documentazione tecnica** | [Documentazione del Gateway VPN ](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentazione del Gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentazione di ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) | 
-| **Domande frequenti** | [Domande frequenti sul Gateway VPN](vpn-gateway-vpn-faq.md) | [Domande frequenti sul Gateway VPN](vpn-gateway-vpn-faq.md) | [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md) |
+| **Servizi supportati di Azure** | Servizi cloud e Macchine virtuali | Servizi cloud e Macchine virtuali | [Elenco dei servizi](../expressroute/expressroute-faqs.md#supported-services) |
+| **Larghezze di banda tipiche** | Aggregazione tipica < 100 Mbps | Aggregazione tipica < 100 Mbps | 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps |
+| **Protocolli supportati** | Secure Socket Tunneling Protocol (SSTP) | IPsec | Connessione diretta su VLAN, tecnologie VPN del provider (MPLS, VPLS, ecc.) |
+| **Routing** | Basato su route (dinamico) | Sono supportati il routing basato su criteri (routing statico) e il routing basato su route (VPN routing dinamico) | BGP |
+| **Resilienza della connessione** | attiva-passiva | attiva-passiva | attiva-attiva |
+| **Caso d'uso tipico** | Creazione di prototipi, scenari di sviluppo/test /laboratorio per servizi cloud e macchine virtuali | Scenari di sviluppo/test/laboratorio e carichi di lavoro di produzione su scala ridotta per servizi cloud e macchine virtuali | Accesso a tutti i servizi di Azure (elenco convalidato), carichi di lavoro aziendali e di importanza strategica, backup, Big Data, Azure come sito di ripristino di emergenza |
+| **CONTRATTO DI SERVIZIO** | [CONTRATTO DI SERVIZIO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATTO DI SERVIZIO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATTO DI SERVIZIO](https://azure.microsoft.com/support/legal/sla/) |
+| **Prezzi** | [Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Prezzi](https://azure.microsoft.com/pricing/details/expressroute/) |
+| **Documentazione tecnica** | [Documentazione del gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentazione del gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentazione di ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
+| ****DOMANDE FREQUENTI ** | [Domande frequenti sul Gateway VPN](vpn-gateway-vpn-faq.md) | [Domande frequenti sul Gateway VPN](vpn-gateway-vpn-faq.md) | [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md) |
 
 
 ## Connessioni Site-to-site
@@ -99,4 +99,4 @@ Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a Ex
 
 Vedere [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md) e [Domande frequenti su Gateway VPN](vpn-gateway-vpn-faq.md) per altre informazioni.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

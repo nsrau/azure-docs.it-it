@@ -19,7 +19,7 @@
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](web-sites-nodejs-develop-deploy-mac.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -27,9 +27,9 @@
 
 Questa esercitazione illustra come creare un'[app Web Java nel servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) tramite il [portale di Azure](https://portal.azure.com/). Il portale di Azure è un'interfaccia Web che si può usare per gestire le risorse di Azure.
 
-> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione Visual Studio][] oppure [iscriversi per ottenere una versione di valutazione gratuita][].
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione Visual Studio] oppure [iscriversi per ottenere una versione di valutazione gratuita].
 >
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app][]. In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app]. In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Opzioni dell'applicazione Java
 
@@ -53,7 +53,7 @@ Si possono usare diversi modi per configurare un'applicazione Java in un'app Web
 	* Si vuole configurare manualmente da zero il contenitore Web. 
 	* Si vuole usare una versione di Java non supportata nel servizio app e caricarla manualmente.
 
-	Per casi come questi è possibile creare un'app tramite il portale di Azure e quindi mettere a disposizione manualmente i file di runtime appropriati. In questo caso i file verranno conteggiati a fronte delle quote di spazio di archiviazione per il piano di servizio app. Per altre informazioni, vedere [Caricare un'app Web Java personalizzata in Azure](https://acom-sandbox.azurewebsites.net/it-IT/documentation/articles/web-sites-java-custom-upload/).
+	Per casi come questi è possibile creare un'app tramite il portale di Azure e quindi mettere a disposizione manualmente i file di runtime appropriati. In questo caso i file verranno conteggiati a fronte delle quote di spazio di archiviazione per il piano di servizio app. Per altre informazioni, vedere [Caricare un'app Web Java personalizzata in Azure](web-sites-java-custom-upload.md).
 
 ## <a name="portal"></a>Creare e configurare un'app Web Java
 
@@ -176,7 +176,6 @@ Per altre informazioni sullo sviluppo di applicazioni Java in Azure, visitare la
 <!-- External Links -->
 [attivare i benefici della sottoscrizione Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [iscriversi per ottenere una versione di valutazione gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
-
 [Prova il servizio app]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

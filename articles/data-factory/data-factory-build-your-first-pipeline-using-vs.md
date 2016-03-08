@@ -18,11 +18,11 @@
 
 # Introduzione a Data Factory di Azure (Visual Studio)
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md)
+- [Con l'editor di Data factory](data-factory-build-your-first-pipeline-using-editor.md)
+- [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Con Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Con il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 Questo articolo descrive come usare Microsoft Visual Studio per creare la prima data factory di Azure.
@@ -116,7 +116,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
 #### Creare il set di dati di input
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Tabelle**, scegliere **Aggiungi** e fare clic su **Nuovo elemento**. 
-2. Selezionare **Blob di Azure** dall'elenco, cambiare il nome del file in **OutputDataset.json** e quindi fare clic su **Aggiungi**.
+2. Selezionare **Blob di Azure** dall'elenco, cambiare il nome del file in **InputDataSet.json** e quindi fare clic su **Aggiungi**.
 3. Sostituire il codice **JSON** nell'editor con quanto segue: 
 
 	Nel frammento di codice JSON si crea un set di dati denominato **AzureBlobInput** che rappresenta i dati di input per un'attività nella pipeline. Si specifica anche che i dati di input si trovano nel contenitore BLOB denominato **adfgetstarted** e nella cartella denominata **inputdata**.
@@ -347,7 +347,7 @@ Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguir
 ## Usare i file di configurazione
 È possibile usare i file di configurazione in Visual Studio per configurare le proprietà di pipeline/tabelle/servizi collegati in modo diverso a seconda dell'ambiente.
 
-Considerare la definizione JSON seguente per un servizio collegato Archiviazione di Azure. Per specificare **connectionString** con valori diversi per accountname e accountkey in base all'ambiente (sviluppo/test/produzione) in cui si stanno distribuendo le entità della data factory, usare un file di configurazione separato per ogni ambiente.
+Considerare la definizione JSON seguente per un servizio collegato Archiviazione di Azure. Per specificare **connectionString** con valori diversi per accountname e accountkey in base all'ambiente (sviluppo/test/produzione) in cui si stanno distribuendo le entità di Data Factory, usare un file di configurazione separato per ogni ambiente.
 
 	{
 	    "name": "StorageLinkedService",
@@ -363,7 +363,7 @@ Considerare la definizione JSON seguente per un servizio collegato Archiviazione
 ### Aggiungere un file di configurazione
 Per aggiungere un file di configurazione per ogni ambiente, seguire questa procedura:
 
-1. Fare clic con il pulsante destro del mouse sul progetto data factory nella soluzione di Visual Studio, scegliere **Aggiungi** e fare clic su **Nuovo elemento**.
+1. Fare clic con il pulsante destro del mouse sul progetto di Data Factory nella soluzione di Visual Studio, scegliere **Aggiungi** e fare clic su **Nuovo elemento**.
 2. Selezionare **Config** nell'elenco di modelli installati sulla sinistra, selezionare **File di configurazione**, immettere un **nome** per il file di configurazione e fare clic su **Aggiungi**.
 
 	![Aggiungere un file di configurazione](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
@@ -449,4 +449,4 @@ Quando si esegue la distribuzione, i valori del file di configurazione vengono u
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

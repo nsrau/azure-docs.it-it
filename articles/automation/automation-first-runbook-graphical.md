@@ -3,7 +3,7 @@
     description="Esercitazione che illustra la creazione, i test e la pubblicazione di un semplice runbook grafico ."
     services="automation"
     documentationCenter=""
-    authors="bwren"
+    authors="mgoedtel"
     manager="stevenka"
     editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/18/2016"
+    ms.date="02/23/2016"
     ms.author="magoedte;bwren"/>
 
 # Il primo runbook grafico
@@ -161,4 +161,4 @@ Ora si modificherà il runbook in modo che provi solo ad avviarsi, se non è gi�
 -	[Il primo runbook di flusso di lavoro PowerShell](automation-first-runbook-textual.md)
 -	[Il primo runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

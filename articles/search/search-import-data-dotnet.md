@@ -19,11 +19,11 @@
 
 # Importare dati in Ricerca di Azure tramite .NET
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
-- [Portal](search-import-data-portal.md)
+- [Panoramica](search-what-is-data-import.md)
+- [Portale](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [Indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 Questo articolo illustra come popolare un indice con [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx). Il contenuto seguente è un subset dell'articolo [Come usare Ricerca di Azure da un'applicazione .NET](search-howto-dotnet-sdk.md). Vedere l'articolo padre per la procedura end-to-end.
 
@@ -98,7 +98,7 @@ Il passaggio successivo in `Main` è il popolamento dell'indice appena creato. Q
 
         try
         {
-            var batch = IndexBatch.Upload(sitecoreItems);
+            var batch = IndexBatch.Upload(documents);
             indexClient.Documents.Index(batch);
         }
         catch (IndexBatchException e)
@@ -119,10 +119,10 @@ Questo metodo è costituito da quattro parti. La prima crea una matrice di ogget
 
 La seconda parte crea un `IndexAction` per ogni `Hotel`, quindi li raggruppa insieme in un nuovo `IndexBatch`. Il batch viene quindi caricato nell'indice di Ricerca di Azure dal metodo `Documents.Index`.
 
-> [AZURE.NOTE] In questo esempio, verranno semplicemente caricati i documenti. Per unire le modifiche in un documento esistente o eliminare un documento, è possibile creare il metodo `Merge`, `MergeOrUpload` o `Delete` corrispondente.
+> [AZURE.NOTE] In questo esempio, verranno semplicemente caricati i documenti. Per unire le modifiche in un documento esistente o eliminare un documento, è possibile usare il metodo `Merge`, `MergeOrUpload` o `Delete` corrispondente.
 
 La terza parte di questo metodo è un blocco catch che gestisce un caso di errore importante per l'indicizzazione. Se il servizio Ricerca di Azure non riesce a indicizzare alcuni dei documenti nel batch, viene generato un `IndexBatchException` da `Documents.Index`. Questa situazione può verificarsi se l'indicizzazione dei documenti avviene mentre il servizio è sovraccarico. **Si consiglia di gestire in modo esplicito questo caso nel codice.** È possibile ritardare e quindi ritentare l'indicizzazione di documenti, accedere e continuare come nell'esempio, oppure eseguire altre attività a seconda dei requisiti di coerenza di dati dell'applicazione.
 
 Infine, il metodo ritarda per due secondi. L'indicizzazione avviene in modo asincrono nel servizio Ricerca di Azure, pertanto l'applicazione di esempio deve attendere un breve periodo per garantire che i documenti siano disponibili per la ricerca. Ritardi come questi in genere sono necessari solo in applicazioni di esempio, test e demo.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

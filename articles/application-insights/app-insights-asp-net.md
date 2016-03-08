@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights per ASP.NET" 
-	description="Analizzare la prestazione, la disponibilità e i modelli di utilizzo dell'applicazione web locale o di Microsoft Azure tramite Application Insights." 
+	pageTitle="Analisi di app Web per ASP.NET con Application Insights" 
+	description="Analisi delle prestazioni, della disponibilità e dell'utilizzo per il sito Web ASP.NET, ospitato in locale o in Azure." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -11,8 +11,8 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.topic="get-started-article" 
+	ms.date="02/28/2016" 
 	ms.author="awills"/>
 
 
@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-L’SDK di Application Insights invia dati di telemetria dall'applicazione Web attiva al portale di Azure, a cui è possibile accedere e visualizzare i grafici di utilizzo e delle prestazioni dell'app.
+Application Insights SDK invia dati di telemetria dall'applicazione Web attiva al portale di Azure, a cui è possibile accedere e visualizzare i grafici di utilizzo e delle prestazioni dell'app.
 
-![Esempi di grafici di monitoraggio delle prestazioni](./media/app-insights-asp-net/10-perf.png)
+![Grafici di monitoraggio delle prestazioni di esempio](./media/app-insights-asp-net/10-perf.png)
 
 Sarà inoltre possibile analizzare e correlare richieste specifiche, eccezioni e registrare eventi. È possibile utilizzare l'API per aggiungere dati di telemetria per il monitoraggio delle prestazioni e dell'utilizzo in dettaglio.
 
@@ -68,13 +68,13 @@ Il comando esegue le seguenti fasi (che potrebbero invece essere eseguite [manua
 2. Crea una risorsa Application Insights nel [portale di Azure][portal]. È qui che verranno visualizzati i dati. Recupera la *chiave di strumentazione*, che identifica la risorsa.
 3. Inserisce la chiave di strumentazione in `ApplicationInsights.config`, in modo che l'SDK possa inviare dati di telemetria al portale.
 
-Se inizialmente non si esegue l'accesso ad Azure, l'SDK verrà installato senza che venga connesso a una risorsa. Sarà possibile visualizzare e cercare i dati di Application Insights Telemetry nell'hub di diagnostica di Visual Studio durante il debug. Gli altri passaggi possono essere completati in un secondo momento.
+Se inizialmente non si esegue l'accesso ad Azure, l'SDK verrà installato senza che venga connesso a una risorsa. Sarà possibile visualizzare e cercare i dati di telemetria di Application Insights nella finestra di ricerca di Visual Studio durante il debug. Gli altri passaggi possono essere completati in un secondo momento.
 
 ## <a name="run"></a> Eseguire il progetto
 
 Eseguire l'applicazione con F5 e provarla aprendo pagine diverse per generare alcuni dati di telemetria.
 
-In Visual Studio verrà visualizzato il conteggio degli eventi che sono stati inviati.
+In Visual Studio verrà visualizzato il conteggio degli eventi che sono stati registrati.
 
 ![In Visual Studio il pulsante Application Insights viene visualizzato durante il debug.](./media/app-insights-asp-net/appinsights-09eventcount.png)
 
@@ -83,7 +83,7 @@ Fare clic su questo pulsante per aprire la ricerca diagnostica.
 
 ### Ricerca diagnostica
 
-La finestra di ricerca mostra gli eventi inviati al portale di Application Insights. Nel portale è disponibile una funzionalità di ricerca equivalente.
+La finestra di ricerca mostra gli eventi che sono stati registrati. Se è stato eseguito l'accesso ad Azure durante la configurazione di Application Insights, sarà possibile cercare gli stessi eventi nel portale.
 
 ![Fare clic con il pulsante destro del mouse sul progetto e scegliere Application Insights, Cerca.](./media/app-insights-asp-net/34.png)
 
@@ -105,6 +105,8 @@ Fare clic su un'eccezione per ottenere un'analisi dello stack. Se il codice dell
 Aprire la risorsa Application Insights nel [portale di Azure][portal].
 
 ![Fare clic con il pulsante destro del mouse sul progetto e aprire il portale di Azure.](./media/app-insights-asp-net/appinsights-04-openPortal.png)
+
+Se non è stato eseguito l'accesso ad Azure durante l'aggiunta di Application Insights all'app, accedere ora. Selezionare **Configura Application Insights**. Questa operazione consente di continuare a visualizzare i dati di telemetria dall'app attiva dopo averla distribuita. I dati di telemetria verranno visualizzati nel portale di Application Insights.
 
 ### Metriche: dati aggregati
 
@@ -212,4 +214,4 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

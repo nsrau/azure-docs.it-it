@@ -10,10 +10,10 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/25/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -28,7 +28,7 @@ I data warehouse sono caratterizzati da query che analizzano quantità più elev
 
 - Un data warehouse funziona al meglio quando i dati sono archiviati in maniera da ottimizzare le query che devono analizzare grandi quantità di righe o grandi intervalli di dati. Questo tipo di analisi opera in modo ottimale quando i dati vengono archiviati e sottoposti a ricerche in base alle colonne invece che alle righe. 
 
->[AZURE.NOTE]L'indice columnstore in memoria, che si basa sull'archiviazione in colonne, offre una compressione fino a dieci volte superiore e prestazioni delle query anche cento volte più elevate rispetto agli alberi binari tradizionali per le query di creazione di report e analisi. Gli indici columnstore vengono considerati uno standard per l'archiviazione e l'analisi di grandi quantità di dati in un data warehouse.
+>[AZURE.NOTE] L'indice columnstore in memoria, che si basa sull'archiviazione in colonne, offre una compressione fino a dieci volte superiore e prestazioni delle query anche cento volte più elevate rispetto agli alberi binari tradizionali per le query di creazione di report e analisi. Gli indici columnstore vengono considerati uno standard per l'archiviazione e l'analisi di grandi quantità di dati in un data warehouse.
 
 - Un data warehouse ha requisiti diversi rispetto a un sistema ottimizzato per l'elaborazione di transazioni online (OLTP). Il sistema OLTP prevede numerose operazioni di inserimento, aggiornamento ed eliminazione. Queste operazioni eseguono la ricerca fino a righe specifiche nella tabella. Le ricerche nelle tabelle vengono eseguite in modo ottimale quando i dati sono archiviati riga per riga. I dati possono essere ordinati e ricercati rapidamente secondo un approccio di tipo "divide et impera", noto anche come ricerca nell'albero binario o albero B.
 
@@ -38,7 +38,7 @@ Il caricamento dei dati rappresenta una parte considerevole del carico di lavoro
 
 - Il processo di caricamento tradizionalmente viene indicato con l'acronimo ETL (Extract, Transform, Load), ovvero estrazione, trasformazione e caricamento. I dati solitamente devono essere trasformati per diventare coerenti con gli altri dati contenuti nel data warehouse. In passato le aziende usavano server ETL dedicati per eseguire le trasformazioni. Ora, grazie all'elevata velocità dell'elaborazione parallela massiva, è possibile prima caricare i dati in SQL Data Warehouse e quindi effettuare le trasformazioni. Tale processo è detto ELT (Extract, Load, Transform), ovvero estrazione, caricamento e trasformazione, e sta diventando un nuovo standard per il carico di lavoro del data warehouse.
 
-> [AZURE.NOTE]Con SQL Server CTP2, è ora possibile eseguire l'analisi in tempo reale su una tabella OLTP. Il data warehouse sarà comunque necessario per archiviare e analizzare i dati, ma l'analisi sarà possibile in tempo reale.
+> [AZURE.NOTE] Con SQL Server CTP2, è ora possibile eseguire l'analisi in tempo reale su una tabella OLTP. Il data warehouse sarà comunque necessario per archiviare e analizzare i dati, ma l'analisi sarà possibile in tempo reale.
  
 ### Query di reporting e analisi
 Le query di reporting e analisi vengono spesso classificate come di piccole, medie e grandi dimensioni in base al numero di criteri, ma in genere si basano sul tempo. Nella maggior parte dei data warehouse è presente un carico di lavoro misto costituito da una combinazione di query a esecuzione rapida e query a esecuzione prolungata. In ogni caso è importante determinare tale combinazione e la relativa frequenza (oraria, giornaliera, a fine mese, a fine trimestre e così via). È fondamentale comprendere che il carico di lavoro con query miste, insieme alla concorrenza, porta a una pianificazione appropriata della capacità per un data warehouse.
@@ -73,4 +73,4 @@ Per iniziare a sviluppare il data warehouse, vedere la [panoramica sullo svilupp
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

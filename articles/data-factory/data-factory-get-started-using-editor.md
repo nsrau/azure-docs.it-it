@@ -12,16 +12,16 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare una pipeline con l’attività Copia utilizzando Data Factory Editor
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Panoramica dell'esercitazione](data-factory-get-started.md)
+- [Con l'editor di Data factory](data-factory-get-started-using-editor.md)
+- [Con Visual Studio](data-factory-get-started-using-vs.md)
+- [Tramite PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 
 
@@ -33,11 +33,13 @@ Passaggio | Descrizione
 [Passaggio 1: Creare un'istanza di Data factory di Azure](#CreateDataFactory) | In questo passaggio verrà creata un'istanza di Data factory di Azure denominata **ADFTutorialDataFactory**.  
 [Passaggio 2: Creare servizi collegati](#CreateLinkedServices) | In questo passaggio verranno creati due servizi collegati: **StorageLinkedService** e **AzureSqlLinkedService**. StorageLinkedService collega la risorsa di archiviazione di Azure e AzureSqlLinkedService collega il database SQL di Azure ad ADFTutorialDataFactory. I dati di input per la pipeline si trovano in un contenitore BLOB nell'archivio BLOB di Azure e i dati di output verranno archiviati in una tabella nel database SQL di Azure. Questi due archivi dati vengono quindi aggiunti alla data factory come servizi collegati.      
 [Passaggio 3: Creare tabelle di input e di output](#CreateInputAndOutputDataSets) | Nel passaggio precedente sono stati creati servizi collegati che fanno riferimento agli archivi dati che includono dati di input/output. In questo passaggio verranno definite due tabelle di data factory, ovvero **EmpTableFromBlob** e **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati. Per EmpTableFromBlob verrà specificato il contenitore BLOB che include un BLOB con i dati di origine, mentre per EmpSQLTable verrà specificata la tabella SQL in cui verranno archiviati i dati di output. Verranno specificate anche altre proprietà, ad esempio la struttura e la disponibilità dei dati e così via. 
-[Passaggio 4: Creare ed eseguire una pipeline](#CreateAndRunAPipeline) | In questo passaggio si creerà una pipeline denominata **ADFTutorialPipeline** in ADFTutorialDataFactory. La pipeline includerà un'**attività di copia** che copia i dati di input dal BLOB di Azure e li inserisce nella tabella di output SQL di Azure.
+[Passaggio 4: Creare ed eseguire una pipeline](#CreateAndRunAPipeline) | In questo passaggio si creerà una pipeline denominata **ADFTutorialPipeline** in ADFTutorialDataFactory. La pipeline includerà un'**attività di copia** che copia i dati di input dal BLOB di Azure e li inserisce nella tabella di output SQL di Azure. L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate sull'attività di copia, vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md). 
 [Passaggio 5: Monitorare le sezioni e la pipeline](#MonitorDataSetsAndPipeline) | In questo passaggio verranno monitorate sezioni delle tabelle di input e di output mediante il portale di Azure.
- 
 
-## <a name="CreateDataFactory"></a> Passaggio 1: Creare un'istanza di Data factory di Azure
+> [AZURE.IMPORTANT] 
+Leggere l'articolo [Panoramica dell'esercitazione](data-factory-get-started.md) e completare i prerequisiti prima di eseguire questa esercitazione.
+
+## <a name="CreateDataFactory"></a>Passaggio 1: Creare un'istanza di Azure Data Factory
 In questo passaggio viene usato il portale di Azure per creare un'istanza di Data factory di Azure denominata **ADFTutorialDataFactory**.
 
 1.	Dopo l'accesso al [portale di Azure][azure-portal], fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **Analisi dei dati** nel pannello **Crea** e quindi fare clic su **Data factory** nel pannello **Analisi dei dati**. 
@@ -375,13 +377,11 @@ In questa esercitazione è stata creata una data factory di Azure per copiare da
 1.	Creare una **data factory** di Azure.
 2.	Creare **servizi collegati** che collegano gli archivi dati e i calcoli (definiti come **servizi collegati**) alla data factory.
 3.	Creare **tabelle** che descrivono dati di input e dati di output per le pipeline.
-4.	Creare **pipeline**. Una pipeline è costituita da una o più attività ed elabora gli input producendo l'output. Impostare il periodo attivo per la pipeline specificando l'ora di **Inizio** e di **Fine** per la pipeline. Il periodo attivo definisce l'intervallo di tempo in cui verranno prodotte sezioni di dati. 
+4.	Creare **pipeline**. Una pipeline è costituita da una o più attività ed elabora gli input producendo l'output. Impostare il periodo attivo per la pipeline specificando l'ora di **Inizio** e di **Fine** per la pipeline. Il periodo attivo definisce l'intervallo di tempo in cui verranno prodotte sezioni di dati.
 
 
-Per un elenco di attività supportate, vedere l'argomento [Pipeline e attività][msdn-activities]. Per un elenco di servizi collegati supportati, vedere l'argomento [Servizi collegati][msdn-linkedservices] in MSDN Library.
- 
-Per eseguire questa esercitazione con Azure PowerShell, vedere [Monitorare e gestire Data factory di Azure con Azure PowerShell][monitor-manage-using-powershell].
-
+## Vedere anche
+Vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per informazioni dettagliate sull'**Attività di copia** in Azure Data Factory.
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -459,4 +459,4 @@ Per eseguire questa esercitazione con Azure PowerShell, vedere [Monitorare e ges
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.topic="hero-article"
+	ms.date="03/01/2016"
 	ms.author="stepsic"/>
 
 # Creare una nuova app per la logica che connette servizi SaaS
@@ -24,7 +24,7 @@
 | [Documentazione del connettore delle app per la logica](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
 | [Forum delle app per la logica](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=azurelogicapps) |
 
-Questo argomento illustra come iniziare in pochi minuti a usare le [app per la logica del servizio app](app-service-logic-what-are-logic-apps.md). Verrà illustrato un flusso di lavoro che consente di inviare un set di tweet a cui si è interessati a una cartella Dropbox.
+Questo argomento illustra come iniziare in pochi minuti a usare le [app per la logica del servizio app](app-service-logic-what-are-logic-apps.md). Verrà illustrato un flusso di lavoro che consente di inviare un set di tweet a cui si è interessati a una cassetta postale.
 
 Per usare questo scenario, sono necessari:
 
@@ -38,13 +38,7 @@ Per usare questo scenario, sono necessari:
 2. In Tutto cercare "logic apps" e quindi selezionare **Logic App (preview)**. È anche possibile selezionare **Nuovo**, **Web e dispositivi mobili** e selezionare **Logic App (preview)**. 
 3. Immettere un nome per l'app per la logica, selezionare il piano del servizio app e selezionare **Crea**. In questo passaggio si presume che esista già un piano del servizio app e che si abbia familiarità con le proprietà obbligatorie. In caso contrario, è possibile iniziare con [Panoramica approfondita dei piani per Servizio app di Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-4. Quando l'app per la logica si apre per la prima volta, sarà necessario un trigger. Ad esempio, è possibile usare **Ricorrenza**: ![Ricorrenza](./media/app-service-logic-create-a-logic-app/recurrence.png)
-
-	Usando Ricorrenza, l'app per la logica viene eseguita continuamente in base al periodo scelto. Ad esempio, è possibile eseguire l'app per la logica ogni 30 secondi, ogni 5 ore, ogni giorno alle 8 PST, ogni notte alle 2 EST e così via. È anche possibile eliminare la ricorrenza dall'app per la logica. Se si elimina la ricorrenza, l'app per la logica dovrà essere avviata manualmente.
-
-5. Per questa esercitazione, tuttavia, il trigger verrà eseguito ogni volta che un tweet corrisponde a una condizione. Fare clic sul menu `...` per eliminare il trigger Ricorrenza.
-
-6. Cercare **twitter** nella casella di ricerca del trigger e selezionarlo.
+4. Quando l'app per la logica si apre per la prima volta, sarà necessario un trigger. Cercare **twitter** nella casella di ricerca del trigger e selezionarlo.
 
 7. Digitare ora la parola chiave in base alla quale cercare il tweet. ![Ricerca di Twitter](./media/app-service-logic-create-a-logic-app/twittersearch.png)
 
@@ -73,4 +67,4 @@ In meno di 5 minuti è stato possibile configurare una semplice app per la logic
 [Azure portal]: https://portal.azure.com
 [Usare le funzionalità delle app per la logica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

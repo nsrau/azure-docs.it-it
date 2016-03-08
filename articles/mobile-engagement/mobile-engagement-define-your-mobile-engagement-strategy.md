@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2015"
+	ms.date="03/01/2016"
 	ms.author="piyushjo" />
 
 # Definire la strategia di Mobile Engagement
@@ -60,7 +60,7 @@ Come si sarà già intuito, la semplice trasmissione di una notifica push non è
 
 È quindi consigliabile essere il più contestuali possibile quando ci si rivolge alla propria utenza ed è fondamentale essere consapevoli del comportamento degli utenti finali per conoscerne lo stato in tempo reale. La raccolta dei dati consente agli addetti al marketing di concentrarsi su ciò che conta veramente per individuare i casi di utilizzo e raggiungere gli obiettivi della strategia di Mobile Engagement. Per raggiungere gli obiettivi definiti in precedenza, è anche necessario raccogliere solo i dati che permettono di concentrarsi su ciò che si vuole apprendere e sui casi di utilizzo e non tutti i dati delle analisi indistintamente. Questo è un buon inizio. Provare, testare e apprendere come usare la soluzione e indirizzare notifiche push intelligenti per aumentare la fedeltà degli utenti a un'applicazione portandola così al livello di un caso di successo.
 
->[AZURE.NOTE]Ricordare sempre che troppi dati sono controproducenti.
+>[AZURE.NOTE] Ricordare sempre che troppi dati sono controproducenti.
 
 ### Casi di utilizzo e procedure consigliate
 
@@ -113,12 +113,14 @@ Le *informazioni sull'app* sono dati che consentono di conoscere in tempo reale 
 
 	![][1]
 
-*Caso di utilizzo: dati dichiarativi* 1. Avvisi di novità da inviare ai segmenti: raccogliere dati dichiarativi per segmentare i destinatari in base alle loro preferenze. Consente di inviare notifiche push su un argomento specifico di particolare interesse per uno specifico gruppo di destinatari. 2. Segmentare i destinatari in base allo stato di accesso. Raccogliere dati per sapere se un utente è connesso o se ha creato un account. Consente di individuare gli utenti finali che non hanno ancora eseguito l'accesso e inviare loro una notifica push per convincerli a registrarsi. ![][2]
+*Caso di utilizzo: dati dichiarativi*
+1.	Avvisi di novità da inviare ai segmenti: raccogliere dati dichiarativi per segmentare i destinatari in base alle loro preferenze. Consente di inviare notifiche push su un argomento specifico di particolare interesse per uno specifico gruppo di destinatari.
+2.	Segmentare i destinatari in base allo stato di accesso. Raccogliere dati per sapere se un utente è connesso o se ha creato un account. Consente di individuare gli utenti finali che non hanno ancora eseguito l'accesso e inviare loro una notifica push per convincerli a registrarsi. ![][2]
 
 ### Passaggi successivi
 
 - Per altre informazioni sui concetti di base di Mobile Engagement, vedere [Concetti relativi a Mobile Engagement].
-- [Creare un account Azure Mobile Engagement](mobile-engagement-create-account.md).
+- Vedere [Creare un'app Azure Mobile Engagement](mobile-engagement-create.md) per creare una nuova Raccolta di app di Mobile Engagement in Azure e iniziare a gestire le app tramite il portale di Mobile Engagement.
 - Per altre informazioni, vedere [Procedure consigliate](mobile-engagement-getting-started-best-practices.md).
 - Per informazioni sull'implementazione di Mobile Engagement con un'app di gioco di esempio, vedere [uno scenario di app di gioco](mobile-engagement-gaming-scenario.md). 
 - Per informazioni sull'implementazione di Mobile Engagement con un'app multimediale di esempio, vedere [uno scenario di app multimediale](mobile-engagement-media-scenario.md). 
@@ -132,4 +134,4 @@ Le *informazioni sull'app* sono dati che consentono di conoscere in tempo reale 
 [Concetti relativi a Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Esercitazioni]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

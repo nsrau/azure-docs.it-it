@@ -1,70 +1,160 @@
 <properties
-	pageTitle="Compilare query in Ricerca di Azure con chiamate REST | Microsoft Azure | Servizio di ricerca cloud ospitato"
-	description="Compilare una query di ricerca in Ricerca di Azure e usare i parametri di ricerca per filtrare, ordinare ed esplorare in base a facet i risultati della ricerca con la libreria .NET o l'SDK."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
-    tags="azure-portal"/>
+    pageTitle="Eseguire query su un indice di Ricerca di Azure con l'API REST | Microsoft Azure | Servizio di ricerca cloud ospitato"
+    description="Compilare una query di ricerca in Ricerca di Azure e usare i parametri di ricerca per filtrare, ordinare ed esplorare in base a facet i risultati della ricerca."
+    services="search"
+    documentationCenter=""
+	authors="ashmaka"
+/>
 
 <tags
-	ms.service="search"
-	ms.devlang="rest-api"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="02/17/2016"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="na"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="02/29/2016"
+    ms.author="ashmaka"/>
 
-# Compilare query in Ricerca di Azure con chiamate REST
+# Eseguire query su un indice di Ricerca di Azure con l'API REST
 > [AZURE.SELECTOR]
-- [Overview](search-query-overview.md)
-- [Search Explorer](search-explorer.md)
+- [Panoramica](search-query-overview.md)
+- [Esplora ricerche](search-explorer.md)
 - [Fiddler](search-fiddler.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-Questo articolo illustra come creare una query su un indice usando l'[API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). Parte del contenuto riportato di seguito è estratto dall'articolo [Eseguire ricerche nei documenti (API REST di Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx). Per altro contesto, vedere l'articolo padre.
+Questo articolo illustra come eseguire query su un indice con l'[API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). Prima di iniziare questa procedura dettagliata, è necessario avere [creato un indice di Ricerca di Azure](search-create-index-rest-api.md) e [averlo popolato con dati](search-import-data-rest-api.md).
 
-I prerequisiti per l'importazione includono la disponibilità di un indice esistente in cui sono già caricati i documenti che forniscono dati ricercabili.
+## I. Identificare la chiave API di query del servizio Ricerca di Azure
+Un componente chiave di ogni operazione di ricerca con l'API REST di Ricerca di Azure è la *chiave API* generata per il servizio di cui è stato effettuato il provisioning. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
-Per cercare nell'indice con l'API REST, eseguire una richiesta HTTP GET. I parametri di query saranno definiti nell'URL della richiesta HTTP.
+1. Per trovare le chiavi API del servizio, è necessario accedere al [portale di Azure](https://portal.azure.com/).
+2. Passare al pannello del servizio Ricerca di Azure.
+3. Fare clic sull'icona "Chiavi".
 
-**Richiesta e intestazioni della richiesta**:
+Il servizio avrà *chiavi amministratore* e *chiavi di query*.
+  * Le *chiavi amministratore* primarie e secondarie concedono diritti completi a tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati. Sono disponibili due chiavi, quindi è possibile continuare a usare la chiave secondaria se si decide di rigenerare la chiave primaria e viceversa.
+  * Le *chiavi di query* concedono l'accesso in sola lettura agli indici e ai documenti e vengono in genere distribuite alle applicazioni client che inviano richieste di ricerca.
 
-Nell'URL è necessario fornire il nome del servizio e il nome dell'indice, oltre alla versione dell'API appropriata. Specificare i parametri query nella stringa di query alla fine dell'URL. Uno dei parametri nella stringa di query deve essere la versione dell'API appropriata. Al momento della pubblicazione di questo documento la versione dell'API corrente è "2015-02-28".
+Ai fini di una query su un indice, è possibile usare una delle chiavi di query. Si possono anche usare le chiavi amministratore per le query, ma è necessario usare una chiave di query nel codice dell'applicazione, perché questo approccio è più coerente con il [principio del privilegio minimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-Come intestazioni della richiesta è necessario definire il tipo di contenuto e fornire la chiave amministratore primaria o secondaria del servizio.
+## II. Formulare la query
+Esistono due modi per [eseguire una ricerca nell'indice usando l'API REST](https://msdn.microsoft.com/library/azure/dn798927.aspx). Uno consiste nell'inviare una richiesta HTTP POST in cui i parametri di query verranno definiti in un oggetto JSON nel corpo della richiesta. L'altro consiste nell'inviare una richiesta HTTP GET in cui i parametri di query verranno definiti nell'URL della richiesta. Si noti che POST ha [limiti più ridotti](https://msdn.microsoft.com/library/azure/dn798927.aspx) per quanto riguarda le dimensioni dei parametri di query rispetto a GET. Per questo motivo, è consigliabile usare POST, a meno di non avere circostanze particolari in cui l'uso di GET potrebbe essere più conveniente.
 
-	GET https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+Sia per POST che per GET è necessario fornire il *nome del servizio*, il *nome dell'indice*, nonché la *versione dell'API* corretta nell'URL della richiesta. Al momento della pubblicazione di questo documento la versione dell'API corrente è `2015-02-28`. Per GET i parametri di query dovranno essere forniti nella *stringa di query* alla fine dell'URL. Per il formato dell'URL, vedere di seguito:
 
-Ricerca di Azure offre numerose opzioni per creare query estremamente avanzate. Per altre informazioni su tutti i diversi parametri di una stringa di query, visitare [questa pagina](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
 
-**Esempi**:
+Il formato per POST è lo stesso, ma con solo la versione dell'API nei parametri della stringa di query.
 
-Di seguito sono riportati alcuni esempi con diverse stringhe di query. Questi esempi usano un indice fittizio denominato "Hotel":
+Ricerca di Azure offre numerose opzioni per creare query estremamente avanzate. Per altre informazioni su tutti i diversi parametri di una query, vedere [questa pagina](https://msdn.microsoft.com/library/azure/dn798927.aspx). Di seguito sono disponibili anche alcune query di esempio.
 
-Cercare il termine "quality" nell'intero indice:
+#### Query di esempio
 
-	GET https://[service name].search.windows.net/indexes/hotels/docs?search=quality&$orderby=lastRenovationDate desc&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+Ecco alcuni esempi di query su un indice denominato "hotels". Queste query vengono visualizzate in formato GET e POST.
 
-Cercare nell'intero indice:
+Eseguire una ricerca del termine "budget" nell'intero indice e restituire solo il campo `hotelName`:
 
-	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2015-02-28
 
-Cercare nell'intero indice e ordinare in base a un campo specifico (lastRenovationDate):
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+{
+    "search": "budget",
+    "select": "hotelName"
+}
+```
 
-	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+Eseguire una ricerca nell'intero indice degli hotel con un prezzo inferiore a 150 USD a notte e restituire `hotelId` e `description`:
 
-Una richiesta di query riuscita restituirà un codice di stato "200 OK" e i risultati della ricerca saranno riportati in formato JSON nel corpo della risposta. Per altre informazioni, vedere la sezione "Risposta" di [questa pagina](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
 
-<!---HONumber=AcomDC_0224_2016-->
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+{
+    "search": "*",
+    "filter": "baseRate lt 150",
+    "select": "hotelId,description"
+}
+```
+
+Eseguire una ricerca nell'intero indice, ordinata per campo specifico (`lastRenovationDate`) in ordine decrescente, acquisire i primi due risultati e mostrare solo `hotelName` e `lastRenovationDate`:
+
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2015-02-28
+
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+{
+    "search": "*",
+    "orderby": "lastRenovationDate desc",
+    "select": "hotelName,lastRenovationDate",
+    "top": 2
+}
+```
+
+## III. Inviare la richiesta HTTP
+Dopo aver formulato la query come parte dell'URL della richiesta HTTP (per GET) o del corpo (per POST), è possibile definire le intestazioni delle richieste e inviare la query.
+
+#### Richiesta e intestazioni della richiesta
+È necessario definire due intestazioni della richiesta per GET o tre per POST:
+1. L'intestazione `api-key` deve essere impostata sulla chiave di query trovata nel passaggio I precedente. Si noti che è anche possibile usare una chiave amministratore come intestazione `api-key`, ma è consigliabile usare una chiave di query perché concederà esclusivamente l'accesso in sola lettura a indici e documenti.
+2. L'intestazione `Accept` deve essere impostata su `application/json`.
+3. Solo per POST l'intestazione `Content-Type` deve essere impostata anche su `application/json`.
+
+Veder di seguito per una richiesta HTTP GET per la ricerca nell'indice "hotels" con l'API REST di Ricerca di Azure, usando una query semplice che consente di cercare il termine "motel":
+
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2015-02-28
+Accept: application/json
+api-key: [query key]
+```
+
+Di seguito è riportata la stessa query di esempio, questa volta usando HTTP POST:
+
+```
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+Content-Type: application/json
+Accept: application/json
+api-key: [query key]
+
+{
+    "search": "motel"
+}
+```
+
+Una richiesta di query riuscita restituirà un codice di stato `200 OK` e i risultati della ricerca saranno restituiti in formato JSON nel corpo della risposta. Ecco quali i risultati per la query precedente, supponendo che l'indice "hotels" sia popolato con i dati di esempio in [questo articolo](search-import-data-rest-api.md). Si noti che l'oggetto JSON è stato formattato per maggiore chiarezza.
+
+```JSON
+{
+    "value": [
+        {
+            "@search.score": 0.59600675,
+            "hotelId": "2",
+            "baseRate": 79.99,
+            "description": "Cheapest hotel in town",
+            "description_fr": "Hôtel le moins cher en ville",
+            "hotelName": "Roach Motel",
+            "category": "Budget",
+            "tags":["motel", "budget"],
+            "parkingIncluded": true,
+            "smokingAllowed": true,
+            "lastRenovationDate": "1982-04-28T00:00:00Z",
+            "rating": 1,
+            "location": {
+                "type": "Point",
+                "coordinates": [-122.131577, 49.678581],
+                "crs": {
+                    "type":"name",
+                    "properties": {
+                        "name": "EPSG:4326"
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
+Per altre informazioni, vedere la sezione "Risposta" di [questa pagina](https://msdn.microsoft.com/library/azure/dn798927.aspx). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [questo articolo](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+
+<!---HONumber=AcomDC_0302_2016-->

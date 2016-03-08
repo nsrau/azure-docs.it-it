@@ -11,7 +11,7 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="01/08/2016"
@@ -35,7 +35,7 @@ Apache Storm in HDInsight è un cluster gestito integrato nell'ambiente Azure ch
 
 	* Supporta una combinazione di linguaggi di programmazione. Ad esempio, legge i dati usando Java e li elabora in C#.
 	
-		> [AZURE.NOTE]Le topologie di C# sono supportate solo nei cluster HDInsight basati su Windows.
+		> [AZURE.NOTE] Le topologie di C# sono supportate solo nei cluster HDInsight basati su Windows.
 
 	* Usa l'interfaccia Java **Trident** per creare topologie Storm che supportano l'elaborazione di tipo"exactly-once" dei messaggi, la persistenza "transazionale" del datastore e un insieme di operazioni di analisi del flusso di uso comune.
 
@@ -53,7 +53,7 @@ Per un'introduzione all'uso di Storm, vedere [Introduzione a Storm in HDInsight]
 
 Il provisioning di un nuovo cluster Storm in HDInsight richiede solo alcuni minuti. Specificare il nome, le dimensioni, l'account amministratore e l'account di archiviazione del cluster. Azure creerà il cluster, inclusi topologie di esempio e un dashboard di gestione Web.
 
-> [AZURE.NOTE]È anche possibile eseguire il provisioning di cluster Storm usando [Interfaccia della riga di comando di Azure](../xplat-cli-install.md) o [Azure PowerShell](../powershell-install-configure.md).
+> [AZURE.NOTE] È anche possibile eseguire il provisioning di cluster Storm usando [Interfaccia della riga di comando di Azure](../xplat-cli-install.md) o [Azure PowerShell](../powershell-install-configure.md).
 
 Entro 15 minuti dall'invio della richiesta il nuovo cluster Storm sarà in esecuzione, pronto ad elaborare la prima pipeline di analisi in tempo reale.
 
@@ -101,7 +101,7 @@ La configurazione predefinita di Apache Storm prevede un solo nodo Nimbus. Storm
 
 Anche se è possibile specificare il numero di nodi del cluster durante la fase di creazione, in seguito può essere necessario aumentare o ridurre il cluster sulla base del carico di lavoro. Tutti i cluster HDInsight consentono di modificare il numero di nodi, anche durante l'elaborazione dei dati.
 
-> [AZURE.NOTE]Per sfruttare i vantaggi di nuovi nodi aggiunti tramite la scalabilità, è necessario ribilanciare le topologie avviate prima dell'aumento delle dimensioni del cluster.
+> [AZURE.NOTE] Per sfruttare i vantaggi di nuovi nodi aggiunti tramite la scalabilità, è necessario ribilanciare le topologie avviate prima dell'aumento delle dimensioni del cluster.
 
 ###Supporto
 
@@ -137,7 +137,7 @@ Apache Storm elabora **topologie** al posto dei processi MapReduce con cui l'ute
 
 * **Spout**: utilizza i dati dall'origine dati e genera uno o più **flussi**.
 
-	> [AZURE.NOTE]In molti casi i dati vengono letti da una coda, ad esempio Kafka, code del bus di servizio di Azure o hub eventi. La coda assicura la persistenza dei dati in caso di interruzione.
+	> [AZURE.NOTE] In molti casi i dati vengono letti da una coda, ad esempio Kafka, code del bus di servizio di Azure o hub eventi. La coda assicura la persistenza dei dati in caso di interruzione.
 
 * **Bolt**: utilizza i **flussi**, esegue l'elaborazione sulle **tuple** e può generare **flussi**. I bolt sono responsabili anche della scrittura dei dati in una risorsa di archiviazione esterna, ad esempio una coda, HDInsight, HBase, un BLOB o un altro archivio dati.
 
@@ -219,4 +219,4 @@ Per altre informazioni sulle soluzioni di analisi in tempo reale con Apache Stor
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

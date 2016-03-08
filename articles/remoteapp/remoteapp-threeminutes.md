@@ -12,8 +12,8 @@
     ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/05/2015"
+    ms.topic="hero-article"
+    ms.date="02/25/2016"
     ms.author="mbaldwin" />
 
 
@@ -33,6 +33,6 @@ Ora è possibile accedere alle applicazioni eseguite in tempo reale in Azure Rem
 
 Le opinioni dei nostri utenti sono importanti. Alla fine di ogni sessione viene visualizzata una finestra di dialogo dove lasciare il proprio commento. Basta un minuto per condividere i propri commenti e scegliere se essere contattati da Microsoft per informazioni aggiuntive.
 
->[AZURE.NOTE]Poiché si tratta di un ambiente controllato per la modalità demo, non è stato abilitato l'accesso a Internet esterno dalle applicazioni demo pubblicate. Pertanto, i servizi come OneDrive non sono accessibili. Inoltre, la condivisione degli Appunti (con la funzionalità di copia e incolla) e il reindirizzamento USB e della stampante sono disabilitati.
+>[AZURE.NOTE] Poiché si tratta di un ambiente controllato per la modalità demo, non è stato abilitato l'accesso a Internet esterno dalle applicazioni demo pubblicate. Pertanto, i servizi come OneDrive non sono accessibili. Inoltre, la condivisione degli Appunti (con la funzionalità di copia e incolla) e il reindirizzamento USB e della stampante sono disabilitati.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -45,7 +45,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 È necessario disporre di un account di Data Lake Analytics prima di poter eseguire qualsiasi processo. Per creare un account di Data Lake Analytics, è necessario specificare quanto segue:
 
-- **Gruppo di risorse di Azure**: è necessario creare un account di Data Lake Analytics all'interno di un gruppo di risorse di Azure. [Gestione risorse di Azure](resource-group-overview.md) consente di lavorare con le risorse dell'applicazione come gruppo. È quindi possibile distribuire, aggiornare o eliminare tutte le risorse per l'applicazione mediante un'unica operazione coordinata.  
+- **Gruppo di risorse di Azure**: è necessario creare un account di Data Lake Analytics all'interno di un gruppo di risorse di Azure. [Gestione risorse di Azure](../resource-group-overview.md) consente di lavorare con le risorse dell'applicazione come gruppo. È quindi possibile distribuire, aggiornare o eliminare tutte le risorse per l'applicazione mediante un'unica operazione coordinata.  
 
 	Per elencare i gruppi di risorse nella sottoscrizione:
     
@@ -68,7 +68,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	        -Name "<Your Data Lake account name>" `
 	        -Location "<Azure Data Center>"  # For example, "East US 2"
 
-	> [AZURE.NOTE]Il nome dell'account di Data Lake deve contenere solo lettere minuscole e numeri.
+	> [AZURE.NOTE] Il nome dell'account di Data Lake deve contenere solo lettere minuscole e numeri.
 
 
 
@@ -135,9 +135,9 @@ Lo script di PowerShell seguente mostra come ottenere il nome dell'archivio pred
 	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
->[AZURE.NOTE]Il portale di Azure fornisce un'interfaccia utente per copiare i file di dati di esempio nell'account di Data Lake Store predefinito. Per istruzioni, vedere [Introduzione ad Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
+>[AZURE.NOTE] Il portale di Azure fornisce un'interfaccia utente per copiare i file di dati di esempio nell'account di Data Lake Store predefinito. Per istruzioni, vedere [Introduzione ad Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
-Data Lake Analytics può inoltre accedere all'archivio BLOB di Azure. Per caricare i dati nell'archivio BLOB di Azure, vedere [Uso di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full.md).
+Data Lake Analytics può inoltre accedere all'archivio BLOB di Azure. Per caricare i dati nell'archivio BLOB di Azure, vedere [Uso di Azure PowerShell con Archiviazione di Azure](../storage/storage-powershell-guide-full.md).
 
 ##Inviare processi di Data Lake Analytics
 
@@ -174,7 +174,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]Non sono attualmente supportate autorizzazioni di accesso a contenitori pubblici o a contenitori BLOB di Azure con BLOB pubblici.
+    >[AZURE.NOTE] Non sono attualmente supportate autorizzazioni di accesso a contenitori pubblici o a contenitori BLOB di Azure con BLOB pubblici.
     
 	
 **Per inviare il processo**
@@ -217,4 +217,4 @@ Dopo il completamento del processo, è possibile usare i cmdlet seguenti per vis
 - Per informazioni sulle attività di gestione, vedere [Gestire Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-manage-use-portal.md).
 - Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

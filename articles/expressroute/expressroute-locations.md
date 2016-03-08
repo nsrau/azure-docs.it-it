@@ -60,7 +60,7 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **[AT & T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supportato | Supportato | Amsterdam, Dallas, Londra, Silicon Valley, Singapore, Washington DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supportato | Supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Tokyo, Washington DC |
 |**China Telecom Global** | Supportato | Non supportato | Hong Kong |
-|**Cologix** | Presto disponibile | Non supportato | Montreal+, Toronto+ |
+|**Cologix** | Presto disponibile | Presto disponibile | Montreal+, Toronto+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supportato | Supportato | Amsterdam, Dublino, Londra |
 | **Comcast** | Supportato | Non supportato | Silicon Valley, Washington DC |
 | **CoreSite** | Supportato | Supportato | Los Angeles | 
@@ -73,11 +73,11 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 | **Megaport** | Supportato | Supportato | Dallas, Los Angeles, Melbourne, New York, Seattle, Sydney, Washington DC |
 | **MTN** | Supportato | Supportato | Londra |
 | **NEXTDC** | Supportato | Supportato | Melbourne, Sydney |
-| **NTT Communications** | Supportato | Presto disponibile | Londra, Tokyo |
+| **NTT Communications** | Supportato | Supportato | Londra, Tokyo |
 | **[Orange](http://www.orange-business.com/)** | Supportato | Supportato | Amsterdam, Hong Kong, Londra, Silicon Valley, Singapore, Washington DC |
 | **PCCW Global Limited** | Supportato | Supportato | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Supportato | Non supportato | Singapore |
-| **Softbank** | Presto disponibile | Non supportato | Osaka, Tokyo | 
+| **Softbank** | Presto disponibile | Presto disponibile | Osaka, Tokyo | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supportato | Supportato | Amsterdam, Chennai, Hong Kong, Londra, Mumbai, Singapore, Washington DC |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Supportato | Supportato | Amsterdam, Londra |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supportato | Non supportato | Melbourne, Sydney |
@@ -141,4 +141,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 - Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 - Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

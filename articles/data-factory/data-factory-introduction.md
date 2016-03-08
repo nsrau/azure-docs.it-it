@@ -57,4 +57,16 @@ I servizi collegati definiscono le informazioni necessarie affinché il servizio
 
 Dopo aver acquisito familiarità con i quattro semplici concetti relativi a set di dati, attività, pipeline e servizi collegati, si è pronti per iniziare. È possibile [compilare la prima pipeline](data-factory-build-your-first-pipeline.md) da zero o distribuire un esempio pronto all'uso seguendo le istruzioni riportate nell'articolo [Data factory di Azure - Esempi](data-factory-samples.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+## Aree supportate
+In questo momento è possibile creare data factory nelle aree **Stati Uniti occidentali** ed **Europa settentrionale**. Una data factory può accedere ad archivi dati e servizi di calcolo in altre aree di Azure per spostare i dati tra archivi dati o elaborare i dati usando i servizi di calcolo.
+
+Azure Data Factory stesso non archivia alcun dato. Consente di creare flussi basati sui dati per orchestrare lo spostamento di dati tra [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores) e l'elaborazione di dati mediante i [servizi di calcolo](data-factory-compute-linked-services.md) in altre aree o in un ambiente locale. Consente anche di [monitorare e gestire i flussi di lavoro](data-factory-monitor-manage-pipelines.md) usando meccanismi a livello di codice e di interfaccia utente.
+
+Si noti che, anche se Azure Data Factory è disponibile solo nelle aree **Stati Uniti occidentali** ed **Europa settentrionale**, il servizio che consente lo spostamento dei dati in Data Factory è disponibile [a livello globale](data-factory-data-movement-activities.md#global) in alcune aree. Nel caso in cui un archivio dati si trovi dietro un firewall, i dati verranno spostati da un [Gateway di gestione dati ](data-factory-move-data-between-onprem-and-cloud.md) installato nell'ambiente locale.
+
+Ad esempio, si supponga che gli ambienti di calcolo, come un cluster Azure HDInsight e Azure Machine Learning, siano in esecuzione nell'area Europa settentrionale. È possibile creare e sfruttare i vantaggi di un'istanza di Azure Data Factory in Europa settentrionale e usarla per pianificare processi negli ambienti di calcolo in Europa occidentale. Il servizio Data Factory necessita di pochi secondi per attivare il processo nell'ambiente di calcolo, ma il tempo per l'esecuzione del processo nell'ambiente di calcolo non cambia.
+
+In futuro si prevede che Azure Data Factory sia disponibile in ogni area geografica supportata da Azure.
+  
+
+<!---HONumber=AcomDC_0302_2016-->

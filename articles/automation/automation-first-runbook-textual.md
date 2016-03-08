@@ -3,7 +3,7 @@
     description="Esercitazione in cui viene illustrata la creazione, il test e la pubblicazione di un semplice runbook testuale con flusso di lavoro PowerShell."
     services="automation"
     documentationCenter=""
-    authors="bwren"
+    authors="mgoedtel"
     manager="stevenka"
     editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/18/2016"
+    ms.date="02/23/2016"
     ms.author="magoedte;bwren"/>
 
 # Il primo runbook del flusso di lavoro PowerShell
@@ -117,4 +117,4 @@ Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe pi
 -	[Il primo runbook grafico](automation-first-runbook-graphical.md)
 -	[Il primo runbook PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->
