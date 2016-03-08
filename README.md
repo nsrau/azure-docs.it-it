@@ -51,7 +51,7 @@ Il contenuto del repository azure-content è organizzato in modo analogo alla do
 
 La cartella *\articles* contiene gli articoli della documentazione formattati come file markdown con estensione *MD*.
 
-Gli articoli nella directory radice sono pubblicati in Azure.Microsoft.com nel percorso **http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
+Gli articoli nella directory radice sono pubblicati in Azure.Microsoft.com nel percorso *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 
 * **Nomi file degli articoli:** vedere le [informazioni aggiuntive sulla denominazione dei file](./contributor-guide/file-names-and-locations.md).
 
@@ -104,4 +104,4 @@ I metadati dell'articolo abilitano determinate funzionalità nel sito Web azure.
 
 Per un elenco di tutti gli argomenti, vedere l'[indice della Guida per i collaboratori](./contributor-guide/contributor-guide-index.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0307_2016-->
