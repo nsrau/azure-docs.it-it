@@ -109,7 +109,7 @@ Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe pi
 3.	Chiudere il riquadro Test.
 4.	Fare clic su **Pubblica** per pubblicare la nuova versione del runbook.
 5.	Arrestare la macchina virtuale avviata nel passaggio precedente.
-6.	Fare clic su **Avvia** per avviare il runbook. Digitare **NomeVM** e **NomeServizioVM** per la macchina virtuale da avviare.
+6.	Fare clic su **Avvia** per avviare il runbook. Digitare **NomeVM** e **NomeServizioVM** per la macchina virtuale da avviare.  
 	![Passare i parametri](media/automation-first-runbook-textual-powershell/automation-pass-parameter.png)  
 7.	Quando il runbook viene completato, controllare che la macchina virtuale sia stata avviata.
 
@@ -129,4 +129,4 @@ I runbook PowerShell hanno lo stesso ciclo di vita, le stesse funzionalità e la
 -	Per saperne di più sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
 -	Per altre informazioni sulla funzionalità di supporto degli script PowerShell, vedere il blog relativo al [supporto di script PowerShell nativi in Automazione di Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
-<!----HONumber=AcomDC_0302_2016-->
+<!------HONumber=AcomDC_0302_2016-->
