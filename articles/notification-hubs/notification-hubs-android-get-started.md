@@ -550,4 +550,4 @@ Per altre informazioni sull'uso di Hub di notifica, vedere [Panoramica dell'Hub 
 [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-android-notify-users.md
 [Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0128_2016---->

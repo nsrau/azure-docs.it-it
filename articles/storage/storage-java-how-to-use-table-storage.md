@@ -564,4 +564,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Java](/d
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [introduzione di Upsert e proiezione di query in tabelle di Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!-------HONumber=AcomDC_0218_2016-->

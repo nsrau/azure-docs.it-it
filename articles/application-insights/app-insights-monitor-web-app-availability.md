@@ -389,4 +389,4 @@ Aprire le porte 80 (HTTP) e 443 (HTTPS).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016---->

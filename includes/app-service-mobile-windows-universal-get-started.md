@@ -7,4 +7,4 @@ Di seguito sono riportate alcune schermate dell'app completata:
 
 Completare l'esercitazione è un prerequisito essenziale per tutte le esercitazioni di app per dispositivi mobili per Windows Store e per le app Windows Phone Store.
 
-<!---HONumber=Nov15_HO1-->
+<!-----HONumber=Nov15_HO1-->

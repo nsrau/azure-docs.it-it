@@ -26,4 +26,4 @@ Il servizio di accodamento contiene i componenti seguenti:
 
 - **Messaggio:** un messaggio, in qualsiasi formato, con dimensione massima di 64 KB.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!-----HONumber=AcomDC_0218_2016-->

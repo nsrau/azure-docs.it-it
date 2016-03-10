@@ -328,4 +328,4 @@ In questo semplice esempio le notifiche push vengono trasmesse a tutti i disposi
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0218_2016---->

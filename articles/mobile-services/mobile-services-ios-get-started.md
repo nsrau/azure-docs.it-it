@@ -95,4 +95,4 @@ Informazioni su come eseguire altre importanti attività in Servizi mobili:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Versione per back-end .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0211_2016----->

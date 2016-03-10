@@ -414,4 +414,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
 -	[Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-----HONumber=AcomDC_0224_2016-->

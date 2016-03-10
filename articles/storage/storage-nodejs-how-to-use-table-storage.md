@@ -448,4 +448,4 @@ Per altre informazioni, vedere le risorse seguenti:
   [App Web Node.js con il servizio tabelle di Azure]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!-----HONumber=AcomDC_0218_2016-->

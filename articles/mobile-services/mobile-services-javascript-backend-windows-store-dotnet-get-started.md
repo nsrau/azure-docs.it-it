@@ -98,4 +98,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [portale di Azure classico]: https://manage.windowsazure.com/
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0211_2016---->

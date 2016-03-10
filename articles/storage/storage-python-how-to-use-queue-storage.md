@@ -107,4 +107,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archiviazione code, v
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK per Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-----HONumber=AcomDC_0224_2016-->

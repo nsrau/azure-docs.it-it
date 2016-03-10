@@ -216,4 +216,4 @@ Per ulteriori informazioni su altre API di archiviazione di Azure, seguire i col
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-----HONumber=AcomDC_0224_2016-->
