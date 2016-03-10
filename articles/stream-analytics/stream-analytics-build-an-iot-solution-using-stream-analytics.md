@@ -319,7 +319,7 @@ Fare clic su OK nella parte inferiore della finestra di dialogo per terminare la
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image30.jpg)
 
-È necessario seguire la stessa sequenza di passaggi per creare il secondo input Hub eventi per il flusso con gli eventi Exit. Nella 3° pagina si devono immettere i valori come nello screenshot riportato di seguito.
+È necessario seguire la stessa sequenza di passaggi per creare il secondo input Hub eventi per il flusso con gli eventi Exit. Nella terza pagina si devono immettere i valori come nello screenshot riportato di seguito.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image31.png)
 
