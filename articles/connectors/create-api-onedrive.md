@@ -52,7 +52,8 @@ Quando si aggiunge OneDrive a PowerApps Enterprise, si immettono i valori di **c
 
 1. Passare alla [pagina di creazione app][5] in _Centro per sviluppatori di account Microsoft_ e accedere con il proprio _Account Microsoft_.
 
-2. Immettere il **nome dell'applicazione** e accettare il contratto: ![Nuova app di OneDrive][6]
+2. Immettere il **nome dell'applicazione** e accettare il contratto:  
+![Nuova app di OneDrive][6]
 
 3. Nelle impostazioni:
 

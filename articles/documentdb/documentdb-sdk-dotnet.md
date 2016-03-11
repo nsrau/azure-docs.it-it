@@ -115,6 +115,7 @@ Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione
  
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
+| [1\.5.3](#1.5.3) | 19 febbraio 2016 |---
 | [1\.5.2](#1.5.2) | 14 dicembre 2015 |---
 | [1\.5.1](#1.5.1) | 23 novembre 2015 |---
 | [1\.5.0](#1.5.0) | 05 ottobre 2015 |---

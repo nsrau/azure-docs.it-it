@@ -121,7 +121,11 @@ Modificare il file `config.js` e i parametri di configurazione seguenti in modo 
 | `verbose` | Indica se lo script restituisce o meno output in modalità dettagliata. | `true` |
 | `remote` | Indica se i test jmeter vengono eseguiti localmente o in server remoti. | `true` |
 | `cluster.clusterName` | Nome del cluster Elasticsearch. | `elasticsearch` |
-| `cluster.jumpboxIp` | Indirizzo IP della VM Jumpbox. |-| | `cluster.username` | Utente amministratore creato durante la distribuzione del cluster. |-| | `cluster.password` | Password per l'utente amministratore. |-| | `cluster.loadBalancer.ip` | Indirizzo IP del servizio di bilanciamento del carico di Elasticsearch. |-| | `cluster.loadBalancer.url` | URL di base del servizio di bilanciamento del carico. |-|
+| `cluster.jumpboxIp` | Indirizzo IP della VM Jumpbox. |-| 
+| `cluster.username` | Utente amministratore creato durante la distribuzione del cluster. |-| 
+| `cluster.password` | Password per l'utente amministratore. |-| 
+| `cluster.loadBalancer.ip` | Indirizzo IP del servizio di bilanciamento del carico di Elasticsearch. |-| 
+| `cluster.loadBalancer.url` | URL di base del servizio di bilanciamento del carico. |-|
 
 ## Esecuzione dei test
 

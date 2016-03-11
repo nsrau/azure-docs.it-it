@@ -107,7 +107,7 @@ Dopo aver creato un'app per le API di BizTalk Rules, il passaggio successivo pre
 
    ![Alt text][4]
 
-2.Selezionare "Definizioni vocabolario". Viene visualizzata la schermata Creazione vocabolario.<br/>
+2.Selezionare "Definizioni vocabolario". Viene visualizzata la schermata Creazione vocabolario.  
 3.Selezionare "Aggiungi" per iniziare ad aggiungere nuove definizioni di vocabolario.
 Attualmente sono supportati due tipi di definizioni del vocabolario: Valore letterale e XML.
 
@@ -125,6 +125,7 @@ Attualmente sono supportati due tipi di definizioni del vocabolario: Valore lett
   6. Selezionare *OK*.
 
 ![Alt text][5]
+
 ##Definizione XML
 Se si sceglie XML come tipo di vocabolario, è necessario specificare gli input seguenti  
   a.	Schema: facendo clic su questa opzione si aprirà un nuovo pannello che consente all'utente di scegliere da un elenco di schemi già caricati o di caricarne uno nuovo.  
@@ -141,13 +142,13 @@ Nei passaggi precedenti sono state descritte le operazioni di creazione delle de
 ##Creazione di criteri
 Una volta che lo sviluppatore ha creato i vocabolari necessari, il business analyst dovrebbe creare i criteri aziendali tramite il portale di Azure.  
 	1.	Nell'app delle regole create è presente una sezione Criteri. Facendo clic su di essa l'utente passa alla pagina di creazione dei criteri.  
-	2. Nella pagina viene mostrato l'elenco dei criteri di questa specifica app delle regole. L'analista può aggiungere un nuovo criterio semplicemente digitandone il nome e premendo TAB due volte. Più criteri possono risiedere in una singola app per le API delle regole. 
-	3. Selezionando il criterio creato l'utente passerà alla pagina Dettagli criteri dove può osservare le regole presenti nel criterio. 
-	![Alt text][8] 
+	2. Nella pagina viene mostrato l'elenco dei criteri di questa specifica app delle regole. L'analista può aggiungere un nuovo criterio semplicemente digitandone il nome e premendo TAB due volte. Più criteri possono risiedere in una singola app per le API delle regole.  
+	3. Selezionando il criterio creato l'utente passerà alla pagina Dettagli criteri dove può osservare le regole presenti nel criterio.  
+	![Alt text][8]  
 	4. Selezionare "Aggiungi" per aggiungere una nuova regola. Verrà visualizzato un nuovo pannello.
 
 ##Creazione di regole
-Una regola è una raccolta di istruzioni relative a condizioni e azioni. Le azioni vengono eseguite se la condizione restituisce true. Nel pannello Crea regola, assegnare un nome univoco della regola (per il criterio) e una descrizione (facoltativa). La casella Condizione (IF) può essere usata per creare istruzioni condizionali complesse. Di seguito sono elencate le parole chiave supportate: 
+Una regola è una raccolta di istruzioni relative a condizioni e azioni. Le azioni vengono eseguite se la condizione restituisce true. Nel pannello Crea regola, assegnare un nome univoco della regola (per il criterio) e una descrizione (facoltativa). La casella Condizione (IF) può essere usata per creare istruzioni condizionali complesse. Di seguito sono elencate le parole chiave supportate:  
 1. 	And: operatore condizionale  
 2. 	Or – operatore condizionale  
 3. 	does_not_exist  
@@ -177,7 +178,7 @@ Le caselle Condizione e Azione offrono il supporto IntelliSense che aiuta a crea
 ![Alt text][9]
 
 ##Concatenamento diretto esplicito
-Poiché BizTalk Rules supporta il concatenamento diretto esplicito, se gli utenti vogliono rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate: 
+Poiché BizTalk Rules supporta il concatenamento diretto esplicito, se gli utenti vogliono rivalutare le regole in risposta a determinate azioni, possono attivare questo processo usando determinate parole chiave. Di seguito sono elencate le parole chiave supportate:  
    1.	update <vocabulary definition>: questa parola chiave rivaluta tutte le regole che usano la definizione del vocabolario specificata nella sua condizione.  
    2.	Halt: questa parola chiave interrompe tutte le esecuzioni di regole
 
