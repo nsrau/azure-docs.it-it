@@ -81,7 +81,8 @@ Ora che si dispone di uno streaming di eventi di Tweet in tempo reale, è possib
 	* **AREA**: scegliere l'area in cui si desidera eseguire il processo. È consigliabile inserire il processo e l'hub eventi nella stessa area per garantire prestazioni migliori ed evitare addebiti connessi al trasferimento di dati tra aree diverse.
 	* **ACCOUNT DI ARCHIVIAZIONE**: scegliere l'account di archiviazione da usare per archiviare i dati di monitoraggio per tutti i processi di Analisi dei flussi in esecuzione all'interno dell'area scelta. È possibile scegliere un account di archiviazione esistente o crearne uno nuovo.
 
-3.	Fare clic su **ANALISI DEI FLUSSI** nel riquadro sinistro per visualizzare un elenco dei processi di Analisi dei flussi. ![Icona di servizio Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
+3.	Fare clic su **ANALISI DEI FLUSSI** nel riquadro sinistro per visualizzare un elenco dei processi di Analisi dei flussi.
+	![Icona di servizio Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
 
 4.	Il nuovo processo verrà visualizzato nell'elenco con uno stato **CREATO**. Si noti che il pulsante **AVVIA** nella parte inferiore della pagina è disabilitato. Prima di poter avviare il processo, è necessario configurare l'input, l'output, la query per l'esecuzione.
 
@@ -237,3 +238,5 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
  
 
 <!---HONumber=AcomDC_0224_2016-->
+
+

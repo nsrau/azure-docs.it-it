@@ -71,7 +71,7 @@ Date | EndOfDay(X) | X: DateTime | Ottiene la data e ora che rappresenta la fine
 Date | EndOfMonth(X) | X: DateTime | Ottiene la fine del mese rappresentato dal componente mese del parametro X.<p>Esempio: EndOfMonth di 15/09/2013 17:10:23 è 30/09/2013 23:59:59 (data e ora che rappresentano la fine del mese di settembre)</p>
 Date | StartOfDay(X) | X: DateTime | Ottiene l'inizio del giorno rappresentato dal componente giorno del parametro X.<p>Esempio: StartOfDay di 15/09/2013 17:10:23 è 15/09/2013 00:00:00.</p>
 DateTime | From(X) | X: String | Analizza la stringa X fino a una data/ora.
-DateTime | Ticks(X) | X: DateTime | Ottiene la proprietà dei tick del parametro X. Un tick equivale a 100 nanosecondi. Il valore di questa proprietà rappresenta il numero di tick trascorsi dalla mezzanotte 00.00.00 del 1° gennaio 0001. 
+DateTime | Ticks(X) | X: DateTime | Ottiene la proprietà dei tick del parametro X. Un tick equivale a 100 nanosecondi. Il valore di questa proprietà rappresenta il numero di tick trascorsi dalla mezzanotte 00.00.00 del 1 gennaio 0001. 
 Text | Format(X) | X: variabile stringa | Formatta il testo.
 
 #### Esempio di Text.Format

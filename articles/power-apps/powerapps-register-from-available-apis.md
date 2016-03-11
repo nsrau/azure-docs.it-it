@@ -107,19 +107,20 @@ Nella tabella seguente vengono confrontate le funzionalità delle API gestite da
 
 ## Registrazione di un'API gestita da Microsoft o gestita dal reparto IT
 
-1. Nel [portale di Azure](https://portal.azure.com/), selezionare **PowerApps**, quindi selezionare **Gestisci API**:  
-![][17]  
-2. In Gestisci API, selezionare **Aggiungi**:  
+1. Nel [portale di Azure](https://portal.azure.com/),segno- in con il tuo account di lavoro (*yourUserName*@*YourCompany*.com). Stai automaticamente l'accesso al tuo abbonamento società
+2. selezionare **PowerApps**, quindi selezionare **Gestisci API**:  
+![][17]
+3. In Gestisci API, selezionare **Aggiungi**:  
 ![][18]  
-3. In **Aggiungi API**, immettere le proprietà dell'API:  
+4. In **Aggiungi API**, immettere le proprietà dell'API:  
 
 	- In **Nome**, immettere un nome per l'API. Tenere presente che il nome immesso viene compreso nell'URL di runtime dell'API. Il nome deve essere significativo e univoco all'interno dell'organizzazione.
 	- In **Origine**, selezionare **Da API disponibili**:  
 	![][19]
-4. Selezionare **API** e quindi scegliere l'API da registrare:  
+5. Selezionare **API** e quindi scegliere l'API da registrare:  
 ![][20]
-5. Selezionare l'API specifica e aggiungere tutte le proprietà configurabili.
-6. Selezionare **AGGIUNGI** per completare questi passaggi.
+6. Selezionare l'API specifica e aggiungere tutte le proprietà configurabili.
+7. Selezionare **AGGIUNGI** per completare questi passaggi.
 
 > [AZURE.TIP] Quando si registra un'API, ciò avviene nel proprio ambiente del servizio app. Una volta effettuata tale registrazione, l'API è utilizzabile da altre app presenti nello stesso ambiente del servizio app.
 
