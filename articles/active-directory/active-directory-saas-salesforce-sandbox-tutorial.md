@@ -114,7 +114,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
     1.  Nella casella di testo Nome digitare il nome della configurazione (ad esempio: *SPSSOWAAD\_Test*).
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Salesforce Sandbox** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Autorità di certificazione**.
     3.  Nella casella di testo **ID entità** digitare ****https://test.salesforce.com** se è la prima istanza di Salesforce Sandbox aggiunta alla directory. Se esiste già un'istanza di Salesforce Sandbox, in **ID entità** digitare l'**URL di accesso**, che deve essere nel formato: `http://company.my.salesforce.com`
-4.  Per caricare il certificato scaricato, fare clic su **Sfoglia**.
+	4.  Per caricare il certificato scaricato, fare clic su **Sfoglia**.
     5.  In **Tipo di identità SAML** selezionare **L'asserzione contiene l'ID federazione dell'oggetto utente**.
     6.  In **Percorso identità SAML** selezionare **L’identità è nell’elemento NameIdentifier dell’istruzione Subject**.
     7.  Nella finestra di dialogo **Configura accesso Single Sign-On in Salesforce Sandbox** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **URL accesso provider di identità**.
@@ -206,4 +206,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-----HONumber=AcomDC_0224_2016-->
