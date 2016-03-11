@@ -89,9 +89,16 @@ Copiare i file di parametri degli script di test seguenti nel computer server JM
 
 * [query-config-win.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-win.ini) e [query-config-nix.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-nix.ini). Questi due file contengono le stesse informazioni. Il file *win* è formattato per i nomi file e i percorsi di Windows e il file *nix* è formattato per i nomi file e i percorsi di Linux:
 
-  '''ini [DEFAULT] debug=true #se true mostra i log della console.
+  ```ini
+  [DEFAULT]
+  debug=true #se true mostra i log della console.
 
-  [RUN] pathreports=C:\\Users\\administrator1\\jmeter\\test-results\\ #percorso in cui vengono salvati i risultati dei test. jmx=C:\\Users\\administrator1\\testplan.jmx #percorso del piano di test JMeter. machines=10.0.0.1,10.0.02,10.0.0.3 #indirizzi IP dei nodi dati di Elasticsearch separati da virgole. reports=aggr,err,tps,waitio,cpu,network,disk,response,view #Nomi dei report separati da virgole. tests=idx1 #nome dell'indice di Elasticsearch da testare. properties=run.properties #Nome del file delle proprietà. '''
+  [RUN]
+  pathreports=C:\\Users\\administrator1\\jmeter\\test-results\\ #percorso in cui vengono salvati i risultati dei test.
+  jmx=C:\\Users\\administrator1\\testplan.jmx #percorso del piano di test JMeter.
+  machines=10.0.0.1,10.0.02,10.0.0.3 #indirizzi IP dei nodi dati di Elasticsearch separati da virgole.
+  reports=aggr,err,tps,waitio,cpu,network,disk,response,view #Nomi dei report separati da virgole. tests=idx1 #nome dell'indice di Elasticsearch da testare. properties=run.properties #Nome del file delle proprietà.
+  ```
 
   Modificare questo file per specificare i percorsi dei risultati del test, il nome del piano di test di JMeter da eseguire, gli indirizzi IP dei nodi dati di Elasticsearch, i report che contengono i dati sulle prestazioni non elaborati che saranno generati e il nome o i nomi dell'indice o degli indici da testare. Se il file *run.properties* si trova in una cartella o una directory diversa, specificare il percorso completo del file.
 
@@ -115,4 +122,4 @@ Copiare i file di parametri degli script di test seguenti nel computer server JM
 [Creazione di un ambiente di test delle prestazioni per Elasticsearch in Azure]: guidance-elasticsearch-creating-performance-testing-environment.md
 [Distribuzione di un campionatore JUnit per JMeter per il test delle prestazioni di Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-----HONumber=AcomDC_0224_2016-->
