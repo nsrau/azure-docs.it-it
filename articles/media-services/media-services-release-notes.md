@@ -411,7 +411,7 @@ Per altre informazioni, vedere [Logica di retry in Media Services SDK for .NET].
 
 Le modifiche apportate alle versioni 3.0.0.1 e 3.0.0.2 includono:
 
-* Risoluzione dei problemi correlati all'uso di query LINQ con istruzioni OrderBy.
+* Risoluzione dei problemi correlati all'uso di query LINQ con istruzioni OrderBy.
 
 * Soluzioni di test in [GitHub] divise in test basati su unità e test basati su scenario.
 

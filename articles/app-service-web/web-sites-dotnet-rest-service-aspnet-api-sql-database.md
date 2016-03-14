@@ -50,7 +50,7 @@ Verrà creata una semplice applicazione Web di elenco contatti basata su ASP.NET
 
 1. Nella finestra di dialogo **Nuovo progetto ASP.NET** selezionare il modello **MVC**, selezionare **API Web** e quindi fare clic su **Modifica autenticazione**.
 
-	![Finestra di dialogo Nuovo progetto ASP.NET](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
+	![Finestra di dialogo Nuovo progetto ASP.NET](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
 1. Nella finestra di dialogo **Modifica autenticazione** fare clic su **Nessuna autenticazione** e quindi fare clic su **OK**.
 
@@ -60,7 +60,7 @@ Verrà creata una semplice applicazione Web di elenco contatti basata su ASP.NET
 
 1. Nella finestra di dialogo **Nuovo progetto ASP.NET**, verificare che **Ospita nel cloud** sia selezionato e fare clic su **OK**.
 
-	![Finestra di dialogo Nuovo progetto ASP.NET](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
+	![Finestra di dialogo Nuovo progetto ASP.NET](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
 Se non è già stato effettuato l'accesso ad Azure, verrà richiesto di accedervi.
 
@@ -123,7 +123,8 @@ Il markup precedente cambia il nome dell'app da "My ASP.NET App" a "Contact Mana
 
 ### Eseguire l'applicazione in locale
 
-1. Premere CTRL+F5 per eseguire l'applicazione. La home page dell'applicazione verrà visualizzata nel browser predefinito. ![Pagina iniziale Elenco azioni](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.png)
+1. Premere CTRL+F5 per eseguire l'applicazione. La home page dell'applicazione verrà visualizzata nel browser predefinito.
+	![Pagina iniziale Elenco azioni](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
 
 Non è necessario eseguire per il momento altre operazioni per creare l'applicazione che verrà distribuita in Azure. La funzionalità di database verrà aggiunta in un secondo momento.
 
@@ -205,11 +206,11 @@ La funzionalità di scaffolding di ASP.NET MVC consente di generare automaticame
 
 1. Nella finestra di dialogo **Add Scaffold** selezionare **MVC Controller with views, using EF**, quindi fare clic su **Aggiungi**.
 
- ![Aggiungi controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
+ ![Aggiungi controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
 
 6. Impostare il nome del controller su **HomeController**. Selezionare **Contact** come classe del modello. Fare clic sul pulsante **Nuovo contesto dati** e accettare il contesto predefinito "ContactManager.Models.ContactManagerContext" per **Nuovo tipo di contesto dati**. Fare clic su **Aggiungi**.
 
-	![Finestra di dialogo Aggiungi controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.png)
+	![Finestra di dialogo Aggiungi controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
 
 	Nella finestra di dialogo chiederà: "un file con nome HomeController esiste già. Sostituirlo?" Fare clic su **Sì**. Il file HomeController creato con il nuovo progetto verrà sovrascritto. Per l'elenco dei contatti, verrà usato il nuovo file HomeController.
 
@@ -508,7 +509,7 @@ Con:
 
 1. Nella finestra di dialogo **Aggiungi scaffolding** immettere **Controller Web API 2 con azioni, che usa Entity Framework** e quindi fare clic su **Aggiungi**.
 
-	![Aggiunta di un controller per l'API](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.png)
+	![Aggiunta di un controller per l'API](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.PNG)
 
 4. Nella finestra di dialogo **Aggiungi controller** immettere "ContactsController" come nome del controller. In **Classe modello** selezionare "Contact (ContactManager.Models)". Mantenere il valore predefinito per **Classe contesto dei dati**.
 
@@ -549,7 +550,7 @@ La richiesta intersito falsa (nota anche come XSRF o CSRF) è un attacco contro 
 
 Un attacco XSRF è diverso da un attacco di phishing. Gli attacchi di phishing richiedono un'interazione da parte della vittima. In un attacco di phishing, un sito Web dannoso imita il sito Web di destinazione e la vittima viene indotta a fornire informazioni sensibili all'autore dell'attacco. In un attacco XSRF spesso non è necessaria alcuna interazione da parte della vittima. Al contrario, l'attacco non fa che attendere che il browser invii automaticamente tutti i cookie pertinenti al sito Web di destinazione.
 
-Per altre informazioni, vedere il sito Web relativo all'[Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) XSRFhttps://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
+Per altre informazioni, vedere il sito Web relativo all'[Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **ContactManager**, scegliere **Aggiungi** e quindi fare clic su **Classe**.
 

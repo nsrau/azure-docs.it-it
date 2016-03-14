@@ -56,7 +56,16 @@ Azure fornisce un subset dei contatori delle prestazioni disponibili per Windows
 |ASP.NET v4.0.30319 |Richieste respinte |Contatori delle prestazioni per ASP.NET|
 |Memoria |MByte disponibili |Contatori delle prestazioni di memoria|
 |Memoria |Byte vincolati |Contatori delle prestazioni di memoria|
-|Processore(\_Total) |% Tempo processore |Contatori delle prestazioni per ASP.NET| |TCPv4 |Errori di connessione |Oggetto TCP| |TCPv4 |Connessioni stabilite |Oggetto TCP| |TCPv4 |Connessioni ripristinate |Oggetto TCP| |TCPv4 |Segmenti inviati/sec |Oggetto TCP| |Interfaccia di rete(*) |Byte ricevuti/sec |Oggetto interfaccia di rete| |Interfaccia di rete(*) |Byte inviati/sec |Oggetto interfaccia di rete| |Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Byte ricevuti/sec|Oggetto interfaccia di rete| |Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Byte inviati/sec|Oggetto interfaccia di rete| |Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Totale byte/sec|Oggetto interfaccia di rete|
+|Processore(\_Total) |% Tempo processore |Contatori delle prestazioni per ASP.NET|
+|TCPv4 |Errori di connessione |Oggetto TCP|
+|TCPv4 |Connessioni stabilite |Oggetto TCP|
+|TCPv4 |Connessioni ripristinate |Oggetto TCP|
+|TCPv4 |Segmenti inviati/sec |Oggetto TCP|
+|Interfaccia di rete(*) |Byte ricevuti/sec |Oggetto interfaccia di rete|
+|Interfaccia di rete(*) |Byte inviati/sec |Oggetto interfaccia di rete|
+|Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Byte ricevuti/sec|Oggetto interfaccia di rete|
+|Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Byte inviati/sec|Oggetto interfaccia di rete|
+|Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Totale byte/sec|Oggetto interfaccia di rete|
 
 ## Creare e aggiungere contatori delle prestazioni personalizzati all'applicazione
 
@@ -167,7 +176,7 @@ L'agente Diagnostica di Azure aggiorna la configurazione dei contatori delle pre
 Per creare un semplice contatore delle prestazioni personalizzato denominato "\\MyCustomCounterCategory\\MyButton1Counter", effettuare i passaggi seguenti:
 
 1. Aprire il file di definizione del servizio (CSDEF) dell'applicazione.
-2. Aggiungere l'elemento Runtime all'elemento WebRole o WorkerRole per consentire l'esecuzione con privilegi elevati:
+2. Aggiungere l'elemento Runtime all'elemento WebRole o WorkerRole per consentire l'esecuzione con privilegi elevati:
 
     ```
     <runtime executioncontext="elevated"/>

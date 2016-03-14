@@ -42,6 +42,7 @@ Come punto di partenza per l'argomento verrà usata l'applicazione creata nell'e
     1. Selezionare **Enable remote debugging for this role**.
     1. Per **Input endpoint to use** usare **Debugging (public:8090, private:8090)**.
     1. Assicurarsi che l'opzione **Start JVM in suspended mode, waiting for a debugger connection** sia deselezionata.
+
         >[AZURE.IMPORTANT] L'opzione **Start JVM in suspended mode, waiting for a debugger connection** è destinata solo a scenari di debug avanzati nell'emulatore di calcolo (non alle distribuzioni cloud). Se viene usata l'opzione **Start JVM in suspended mode, waiting for a debugger connection**, il processo di avvio del server verrà sospeso fino alla connessione del debugger Eclipse alla rispettiva JVM. Anche se è possibile usare questa opzione per una sessione di debug tramite l'emulatore di calcolo, è consigliabile non usarla per una sessione di debug in una distribuzione cloud. L'inizializzazione di un server viene eseguita in un'attività di avvio di Azure e il cloud di Azure rende disponibili gli endpoint pubblici solo dopo il completamento dell'attività di avvio. Un processo di avvio non verrà quindi completato correttamente se questa opzione viene abilitata in una distribuzione cloud, poiché non sarà in grado di ricevere una connessione da un client di Eclipse esterno.
     1. Fare clic su **Create Debug Configurations**.
 1. Nella finestra di dialogo **Azure Debug Configuration**:
@@ -85,6 +86,7 @@ Quando si conosce il numero di porta pubblica assegnato all'istanza, sarà possi
     1. Selezionare **Enable remote debugging for this role**.
     1. Per **Input endpoint to use**, usare l'endpoint predefinito generato automaticamente dal toolkit, elencato come **Debugging (public:8090, private:8090)**.
     1. Assicurarsi che l'opzione **Start JVM in suspended mode, waiting for a debugger connection** sia deselezionata.
+
         >[AZURE.IMPORTANT] L'opzione **Start JVM in suspended mode, waiting for a debugger connection** è destinata solo a scenari di debug avanzati nell'emulatore di calcolo (non alle distribuzioni cloud). Se viene usata l'opzione **Start JVM in suspended mode, waiting for a debugger connection**, il processo di avvio del server verrà sospeso fino alla connessione del debugger Eclipse alla rispettiva JVM. Anche se è possibile usare questa opzione per una sessione di debug tramite l'emulatore di calcolo, è consigliabile non usarla per una sessione di debug in una distribuzione cloud. L'inizializzazione di un server viene eseguita in un'attività di avvio di Azure e il cloud di Azure rende disponibili gli endpoint pubblici solo dopo il completamento dell'attività di avvio. Un processo di avvio non verrà quindi completato correttamente se questa opzione viene abilitata in una distribuzione cloud, poiché non sarà in grado di ricevere una connessione da un client di Eclipse esterno.
     1. Fare clic su **Create Debug Configurations**.
 1. Nella finestra di dialogo **Azure Debug Configuration**:

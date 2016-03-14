@@ -16,7 +16,8 @@
 
 #Esercitazione: Integrazione di Azure Active Directory con Dropbox for Business
   
-Questa esercitazione descrive l'integrazione di Azure e Dropbox for Business. Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive l'integrazione di Azure e Dropbox for Business.  
+Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 -   Sottoscrizione di Azure valida
 -   Tenant di test in Dropbox for Business

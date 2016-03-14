@@ -25,7 +25,7 @@ Parte del pacchetto Nuget *MicrosoftAzure.MobileEngagement* **3.3.0**
 -   Miglioramenti della stabilità.
   
 ##3\.1.0 (20/11/2015)
-Parte del pacchetto Nuget *MicrosoftAzure.MobileEngagement***v3.2.0**
+Parte del pacchetto Nuget *MicrosoftAzure.MobileEngagement* **v3.2.0**
 
 -   Arresto anomalo fisso durante la richiesta di id del dispositivo subito dopo l'inizializzazione.
 -   La console registra miglioramenti.
