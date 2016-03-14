@@ -74,7 +74,7 @@ Le app per dispositivi mobili forniscono un nuovo [Mobile App Server SDK] che of
 
 A questo punto si avrà un progetto che non fa più riferimento agli SDK di Servizi mobili.
 
-Si aggiungeranno quindi i riferimenti agli SDK delle app per dispositivi mobili. Per questo aggiornamento, la maggior parte degli sviluppatori vorrà scaricare e installare il pacchetto `Micrsoft.Azure.Mobile.Server.Quickstart`, che permette di ottenere l'intero set necessario.
+Si aggiungeranno quindi i riferimenti agli SDK delle app per dispositivi mobili. Per questo aggiornamento, la maggior parte degli sviluppatori vorrà scaricare e installare il pacchetto `Microsoft.Azure.Mobile.Server.Quickstart`, che permette di ottenere l'intero set necessario.
 
 Vi saranno alcuni errori del compilatore derivanti dalle differenze tra gli SDK, ma sono semplici da risolvere e vengono descritti nella parte rimanente di questa sezione.
 
@@ -277,4 +277,4 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [prezzi del servizio app]: https://azure.microsoft.com/it-IT/pricing/details/app-service/
 [panoramica di .NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

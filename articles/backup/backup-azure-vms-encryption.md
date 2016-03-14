@@ -3,8 +3,8 @@
    description="Informazioni su come Backup di Azure gestisce i dati crittografati mediante BitLocker o dmcrypt durante il backup delle macchine virtuali IaaS. Questo articolo consente di prepararsi alle differenze di backup e di ripristino quando si gestiscono dischi crittografati."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
+   authors="markgalioto"
+   manager="jwhit"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="11/27/2015"
-   ms.author="aashishr"/>
+   ms.author="markgal; jimpark"/>
 
 # Gestione di dischi crittografati durante il backup delle macchine Virtuali
 
@@ -42,7 +42,7 @@ Esistono molte parti di questa soluzione che devono essere configurate e gestite
 | Ripristino dei dati | Backup di Azure | Usare Backup di Azure per ripristinare i dischi o un'intera macchina virtuale da un punto di ripristino. I dati non vengono decrittografati dal Backup di Azure come parte dell'operazione di ripristino.|
 | Decrittografia | BitLocker o dmcrypt | Per leggere i dati da un disco dati ripristinato o da una macchina virtuale ripristinata, il software ha bisogno della chiave dal software di gestione delle chiavi. È impossibile decrittografare i dati senza la chiave corretta. |
 
-> [AZURE.IMPORTANT]Gestione delle chiavi - compreso il rollover della chiave - non è una parte del Backup di Azure. Questo aspetto deve essere gestito in modo indipendente, ma è molto importante per l’operazione complessiva di backup/ripristino.
+> [AZURE.IMPORTANT]  Gestione delle chiavi - compreso il rollover della chiave - non è una parte del Backup di Azure. Questo aspetto deve essere gestito in modo indipendente, ma è molto importante per l’operazione complessiva di backup/ripristino.
 
 ## CloudLink SecureVM
 
@@ -62,4 +62,4 @@ Quando è necessario effettuare il rollover o modificare le chiavi per le macchi
 - [Guida alla distribuzione - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Distribuzione e uso di SecureVM - video](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

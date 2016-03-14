@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/22/2016" 
 	ms.author="ccompy"/>
 
 # Integrare un'app in una rete virtuale di Azure #
@@ -56,7 +56,7 @@ Prima di procedere con la connessione della propria app Web a una rete virtuale,
 
 È possibile connettersi a una rete virtuale nuova o a una esistente. Se si crea una nuova rete oltre a creare la rete virtuale, viene preconfigurato un gateway di routing dinamico e viene abilitata una VPN da punto a sito.
 
->[AZURE.NOTE]La configurazione di una nuova integrazione di reti virtuali può richiedere diversi minuti.
+>[AZURE.NOTE] La configurazione di una nuova integrazione di reti virtuali può richiedere diversi minuti.
 
 Per abilitare Integrazione rete virtuale, aprire le impostazioni dell'app e selezionare Rete. L'interfaccia utente visualizzata offre tre opzioni di rete. Questa guida tratta solo la funzionalità Integrazione rete virtuale, anche se le connessioni ibride e gli ambienti del servizio app sono descritti più avanti in questo documento.
 
@@ -87,7 +87,7 @@ Nella creazione di una nuova rete virtuale occorre tenere presente che attualmen
 
 Per permettere alla rete virtuale di connettersi alle altre reti è consigliabile evitare di scegliere uno spazio di indirizzi IP che si sovrappone a tali reti.
 
->[AZURE.NOTE]La creazione di una nuova rete virtuale completa di gateway operativi può richiedere fino a 30 minuti. Al termine, l'interfaccia utente verrà aggiornata.
+>[AZURE.NOTE] La creazione di una nuova rete virtuale completa di gateway operativi può richiedere fino a 30 minuti. Al termine, l'interfaccia utente verrà aggiornata.
 
 ![][3]
 
@@ -156,7 +156,7 @@ Sono disponibili due azioni principali. La prima è la possibilità di aggiunger
 
 Uno dei vantaggi della funzionalità Integrazione rete virtuale è la possibilità per le app di accedere alle risorse locali dall'app, se la rete virtuale è connessa alla rete locale con una VPN da sito a sito. Perché ciò sia possibile, potrebbe essere necessario aggiornare il gateway VPN locale con le route per l'intervallo IP da punto a sito. Quando la connessione VPN da sito a sito viene configurata per la prima volta, gli script usati per la configurazione devono impostare route che includono la VPN da punto a sito. Se la VPN da punto a sito viene aggiunta dopo aver creato la VPN da sito a sito, è necessario aggiornare le route manualmente. Le informazioni dettagliate su come eseguire questa operazione variano in base al gateway e non sono descritte in questo documento.
 
->[AZURE.NOTE]La funzionalità Integrazione rete virtuale permette di accedere alle risorse locali con una VPN da sito a sito. Attualmente non è possibile fare lo stesso con una VPN ExpressRoute.
+>[AZURE.NOTE] La funzionalità Integrazione rete virtuale permette di accedere alle risorse locali con una VPN da sito a sito. Attualmente non è possibile fare lo stesso con una VPN ExpressRoute.
 
 ##Dettagli prezzi##
 Quando si usa la funzionalità Integrazione rete virtuale è opportuno tenere presente alcune differenze nei prezzi. I 3 costi correlati all'uso della funzionalità sono:
@@ -225,7 +225,11 @@ Di seguito è riportata la procedura di debug aggiuntiva:
 ####Risorse locali####
 Se non si riesce a raggiungere le risorse locali, è necessario prima di tutto verificare se è possibile raggiungere una risorsa nella rete virtuale. Se ciò è possibile, i passaggi successivi sono piuttosto semplici. Cercare di raggiungere l'applicazione locale da una macchina virtuale nella rete virtuale. A questo scopo è possibile usare telnet o un'utilità ping TCP. Se la macchina virtuale non riesce a raggiungere la risorsa locale, verificare il funzionamento della connessione VPN da sito a sito. Se questa funziona, controllare quanto indicato in precedenza nonché la configurazione e lo stato del gateway locale.
 
-A questo punto, se la macchina virtuale ospitata nella rete virtuale riesce a raggiungere il sistema locale e l'app non ci riesce, i motivi possibili sono: le route non sono configurate con l'intervallo IP da punto a sito all'interno del gateway locale; i gruppi di sicurezza di rete bloccano l'accesso per l'intervallo IP da punto a sito; i firewall locali bloccano il traffico dall'intervallo IP da punto a sito; nella rete virtuale è presente una route definita dall'utente che impedisce al traffico da punto a sito di raggiungere la rete locale.
+A questo punto, se la macchina virtuale ospitata su VNET può raggiungere il sistema locale ma l'app non ci riesce, la causa è probabilmente una delle seguenti:
+- le route non sono configurate con gli intervalli di IP Da punto a sito all'interno del gateway locale
+- i gruppi di sicurezza della rete bloccano l'accesso all'intervallo di IP Da punto a sito
+- i firewall locali bloccano il traffico proveniente dall'intervallo di IP Da punto a sito
+- in VNET è presente una route definita dall'utente (UDR) che impedisce al traffico Da punto a sito di raggiungere la rete locale
 
 ## Connessioni ibride e ambienti del servizio App##
 Sono disponibili 3 funzioni che consentono l'accesso alle risorse ospitate su reti virtuali. Vale a dire:
@@ -265,4 +269,4 @@ Oltre a differenze funzionali, vanno considerate le differenze di prezzo. La fun
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

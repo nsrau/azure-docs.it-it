@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN - Report HTTP avanzati" 
-	description="Report HTTP avanzati nella rete CDN di Microsoft Azure. Questi report forniscono informazioni dettagliate sull'attività della rete CDN." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - Report HTTP avanzati"
+	description="Report HTTP avanzati nella rete CDN di Microsoft Azure. Questi report forniscono informazioni dettagliate sull'attività della rete CDN."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016"
 	ms.author="casoper"/>
 
 # Report HTTP avanzati nella rete CDN di Microsoft Azure
@@ -22,18 +22,18 @@
 
 Questo documento illustra la creazione di report HTTP avanzati nella rete CDN di Microsoft Azure. Questi report forniscono informazioni dettagliate sull'attività della rete CDN.
 
-> [AZURE.NOTE]I report HTTP avanzati sono una funzionalità del piano Premium per la rete CDN. Per un confronto tra le funzionalità del livello Standard e del livello Premium della rete CDN, vedere [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md).
+> [AZURE.NOTE] I report HTTP avanzati sono una funzionalità del piano Premium per la rete CDN. Per un confronto tra le funzionalità del livello Standard e del livello Premium della rete CDN, vedere [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md).
 
 ## Accesso ai report HTTP avanzati
 
 1. Nel pannello relativo al profilo della rete CDN fare clic sul pulsante **Gestisci**.
 
 	![Pulsante Gestisci del pannello relativo al profilo della rete CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
-	
+
 	Verrà aperto il portale di gestione della rete CDN.
-	
+
 2. Passare il puntatore sulla scheda **Analisi**, quindi sul riquadro a comparsa **Report HTTP avanzati**. Fare clic su **Piattaforma HTTP grande**.
-	
+
 	Vengono visualizzate le opzioni dei report.
 
 ## Report geografici (basati su mappe)
@@ -52,7 +52,7 @@ Mappa del mondo | Questo report consente di visualizzare la domanda mondiale del
 Mappa Stati Uniti | Questo report consente di visualizzare la domanda del contenuto della rete CDN negli Stati Uniti. Su questa mappa ogni stato è contraddistinto dal colore per indicare la percentuale di riscontri originati da tale area.
 Mappa Canada | Questo report consente di visualizzare la domanda del contenuto della rete CDN in Canada. Su questa mappa ogni provincia è contraddistinta dal colore per indicare la percentuale di riscontri originati da tale area.
 Mappa Europa | Questo report consente di visualizzare la domanda del contenuto della rete CDN in Europa. Su questa mappa ogni paese è contraddistinto dal colore per indicare la percentuale di riscontri originati da tale area.
-Mappa Asia Pacifico | Questo report consente di visualizzare la domanda del contenuto della rete CDN in Asia. Su questa mappa ogni paese è contraddistinto dal colore per indicare la percentuale di riscontri originati da tale area. 
+Mappa Asia Pacifico | Questo report consente di visualizzare la domanda del contenuto della rete CDN in Asia. Su questa mappa ogni paese è contraddistinto dal colore per indicare la percentuale di riscontri originati da tale area.
 
 ## Report geografici (grafici a barre)
 
@@ -64,7 +64,7 @@ Il lato sinistro del grafico (asse y) indica quanti riscontri si sono verificati
 
 * Se si passa il puntatore su una barra, il nome e il numero totale di riscontri che si sono verificati nell'area verrà visualizzato come descrizione comando.
 * La descrizione comando per il report Città principali identifica una città con nome, stato/provincia e abbreviazione del paese.
-* Se la città o l'area (ad esempio, stato/provincia) da cui ha avuto origine una richiesta non può essere determinata, verrà indicata come sconosciuta. Se il paese è sconosciuto, verranno visualizzati due punti di domanda (ad esempio, ??).
+* Se la città o l'area (ad esempio, stato/provincia) da cui ha avuto origine una richiesta non può essere determinata, verrà indicata come sconosciuta. Se il paese è sconosciuto, verranno visualizzati due punti di domanda (vale a dire, ??).
 * Un report può includere le metriche per l'area "Europa" o "Asia/Pacifico". Tali elementi non servono a offrire informazioni statistiche su tutti gli indirizzi IP in tali aree, ma si applicano solo alle richieste originate dagli indirizzi IP distribuiti in Europa o in Asia/Pacifico invece che in una città o in un paese specifico.
 
 I dati usati per generare il grafico a barre possono essere visualizzati sotto il grafico stesso, dove saranno indicati il numero totale di riscontri, la percentuale di riscontri, la quantità di dati trasferiti (in gigabyte) e la percentuale di dati trasferiti per le prime 250 aree. Visualizzare una descrizione per ogni metrica.
@@ -84,7 +84,7 @@ Immediatamente dopo la generazione di questo tipo di report, un grafico a barre 
 
 Il lato sinistro del grafico (asse y) indica quanti riscontri si sono verificati nella data specificata. Proprio sotto il grafico (asse x) verrà visualizzata un'etichetta indicante la data (formato: AAAA-MM-GG) per ogni giorno incluso nel report.
 
-> [AZURE.TIP]Se si passa il puntatore su una barra, il numero totale di riscontri che si sono verificati in tale data verrà visualizzato come descrizione comando.
+> [AZURE.TIP] Se si passa il puntatore su una barra, il numero totale di riscontri che si sono verificati in tale data verrà visualizzato come descrizione comando.
 
 I dati usati per generare il grafico a barre possono essere visualizzati sotto il grafico stesso, dove saranno indicati il numero totale di riscontri e la quantità di dati trasferiti (in gigabyte) per ogni giorno considerato dal report.
 
@@ -96,7 +96,7 @@ Immediatamente dopo la generazione di questo tipo di report, un grafico a barre 
 
 Il lato sinistro del grafico (asse y) indica quanti riscontri si sono verificati nell'ora specificata. Proprio sotto il grafico (asse x) verrà visualizzata un'etichetta indicante la data/ora (formato: AAAA-MM-GG hh:mm) per ogni ora inclusa nel report. L'ora viene indicata con il formato di 24 ore e specificata con il fuso orario UTC/GMT.
 
-> [AZURE.TIP]Se si passa il puntatore su una barra, il numero totale di riscontri che si sono verificati durante tale ora verrà visualizzato come descrizione comando.
+> [AZURE.TIP] Se si passa il puntatore su una barra, il numero totale di riscontri che si sono verificati durante tale ora verrà visualizzato come descrizione comando.
 
 I dati usati per generare il grafico a barre possono essere visualizzati sotto il grafico stesso, dove saranno indicati il numero totale di riscontri e la quantità di dati trasferiti (in gigabyte) per ogni ora considerata dal report.
 
@@ -104,7 +104,7 @@ I dati usati per generare il grafico a barre possono essere visualizzati sotto i
 
 Il report Per file consente di visualizzare la quantità di domanda e il traffico generato da una determinata piattaforma per la maggior parte degli asset richiesti. Immediatamente dopo la generazione di questo tipo di report, verrà generato un grafico a barre sui 10 asset più richiesti nel periodo di tempo specificato.
 
-> [AZURE.NOTE]Ai fini di questo report, gli URL CNAME perimetrali vengono convertiti negli equivalenti URL CDN. Questo consente un calcolo preciso del numero totale di riscontri associati a un asset indipendentemente dagli URL CNAME perimetrali o CDN usati per richiederlo.
+> [AZURE.NOTE] Ai fini di questo report, gli URL CNAME perimetrali vengono convertiti negli equivalenti URL CDN. Questo consente un calcolo preciso del numero totale di riscontri associati a un asset indipendentemente dagli URL CNAME perimetrali o CDN usati per richiederlo.
 
 Il lato sinistro del grafico (asse y) indica il numero di richieste per ogni asset nel periodo di tempo specificato. Proprio sotto il grafico (asse x) verrà visualizzata un'etichetta indicante il nome file per ognuno dei primi 10 asset richiesti.
 
@@ -122,7 +122,7 @@ I dati usati per generare il grafico a barre possono essere visualizzati sotto i
 
 Il report Per tipo di file consente di visualizzare la quantità di domanda e il traffico generato in base al tipo di file. Immediatamente dopo la generazione di questo tipo di report, un grafico ad anello indicherà la percentuale di riscontri generati dai primi 10 tipi di file.
 
-> [AZURE.TIP]Se si passa il puntatore su una sezione del grafico ad anello, il tipo di contenuto multimediale Internet di tale tipo di file verrà visualizzato come descrizione comando.
+> [AZURE.TIP] Se si passa il puntatore su una sezione del grafico ad anello, il tipo di contenuto multimediale Internet di tale tipo di file verrà visualizzato come descrizione comando.
 
 I dati usati per generare il grafico ad anello possono essere visualizzati sotto il grafico stesso, dove saranno indicati il tipo di contenuto multimediale Internet o l'estensione di file, il numero totale di riscontri, la percentuale di riscontri, la quantità di dati trasferiti (in gigabyte) e la percentuale di dati trasferiti per ognuno dei primi 250 tipi di file.
 
@@ -164,13 +164,13 @@ I dati usati per generare il grafico a barre possono essere visualizzati sotto i
 
 Il report Per download consente di analizzare i modelli di download per il contenuto più richiesto. La parte iniziale del report contiene un grafico a barre che confronta i tentativi di download con i download completati per i primi 10 asset richiesti. Ogni barra è contraddistinta dal colore per indicare se si tratta di un tentativo di download (blu) o di un download completato (verde).
 
-> [AZURE.NOTE]Ai fini di questo report, gli URL CNAME perimetrali vengono convertiti negli equivalenti URL CDN. Questo consente un calcolo preciso di tutte le statistiche associate a un asset indipendentemente dagli URL CNAME perimetrali o CDN usati per richiederlo.
+> [AZURE.NOTE] Ai fini di questo report, gli URL CNAME perimetrali vengono convertiti negli equivalenti URL CDN. Questo consente un calcolo preciso di tutte le statistiche associate a un asset indipendentemente dagli URL CNAME perimetrali o CDN usati per richiederlo.
 
 Il lato sinistro del grafico (asse y) indica il nome file per ognuno dei primi 10 asset richiesti. Proprio sotto il grafico (asse x) verranno visualizzate le etichette indicanti il numero totale di download tentati/completati.
 
 Proprio sotto il grafico a barre verranno elencate le informazioni seguenti per i primi 250 asset richiesti: il percorso relativo (incluso il nome file), il numero di volte in cui un asset è stato scaricato completamente, il numero di volte in cui è stato richiesto e la percentuale di richieste che hanno restituito un download completo.
 
-> [AZURE.TIP]La rete CDN non viene informata da un client HTTP (ad esempio, un browser) quando un asset è stato scaricato completamente. Di conseguenza, è necessario calcolare se un asset è stato completamente scaricato in base ai codici di stato e alle richieste di intervallo di byte. Quando si esegue questo calcolo, prima di tutto è necessario verificare se la richiesta restituisce un codice di stato 200 OK. In questo caso, si esaminano le richieste di intervallo di byte per assicurarsi che coprano l'intero asset. Infine si confronta la quantità di dati trasferiti con le dimensioni dell'asset richiesto. Se i dati trasferiti sono uguali o maggiori alle dimensioni del file e le richieste di intervallo di byte sono appropriate per l'asset, il riscontro verrà calcolato come un download completo.
+> [AZURE.TIP] La rete CDN non viene informata da un client HTTP (ad esempio, un browser) quando un asset è stato scaricato completamente. Di conseguenza, è necessario calcolare se un asset è stato completamente scaricato in base ai codici di stato e alle richieste di intervallo di byte. Quando si esegue questo calcolo, prima di tutto è necessario verificare se la richiesta restituisce un codice di stato 200 OK. In questo caso, si esaminano le richieste di intervallo di byte per assicurarsi che coprano l'intero asset. Infine si confronta la quantità di dati trasferiti con le dimensioni dell'asset richiesto. Se i dati trasferiti sono uguali o maggiori alle dimensioni del file e le richieste di intervallo di byte sono appropriate per l'asset, il riscontro verrà calcolato come un download completo.
 >
 >Data la necessità di interpretare questo report, tenere in considerazione i fattori seguenti che possono influire sulla coerenza e sull'accuratezza del report.
 >
@@ -181,7 +181,7 @@ Proprio sotto il grafico a barre verranno elencate le informazioni seguenti per 
 
 Il report Per errori 404 consente di identificare il tipo di contenuto che genera il maggior numero di codici di stato 404 Non trovato. La parte iniziale del report contiene un grafico a barre per i primi 10 asset per cui è stato restituito un codice di stato 404 Non trovato. Questo grafico a barre confronta il numero totale di richieste con le richieste che hanno restituito un codice di stato 404 Non trovato per tali asset. Ogni barra è contraddistinta dal colore. Le barre gialle indicano che le richieste hanno restituito un codice di stato 404 Non trovato. Le barre rosse indicano il numero totale di richieste per l'asset.
 
-> [AZURE.NOTE]Ai fini di questo report, tenere presente quanto segue:
+> [AZURE.NOTE] Ai fini di questo report, tenere presente quanto segue:
 >
 >* Un riscontro rappresenta una richiesta per un asset indipendentemente dal codice di stato.
 >* Gli URL CNAME perimetrali vengono convertiti negli equivalenti URL CDN. Questo consente un calcolo preciso di tutte le statistiche associate a un asset indipendentemente dagli URL CNAME perimetrali o CDN usati per richiederlo.
@@ -196,4 +196,4 @@ Proprio sotto il grafico a barre verranno elencate le informazioni seguenti per 
 * [Override del comportamento HTTP predefinito mediante il motore di regole](cdn-rules-engine.md)
 * [Analizzare le prestazioni perimetrali](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

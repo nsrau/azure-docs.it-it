@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/18/2015"
+	ms.date="02/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Usare i criteri per gestire le risorse e controllare l'accesso
@@ -46,7 +46,7 @@ Questi scenari possono essere facilmente realizzati con i criteri, come descritt
 
 ## Struttura delle definizioni di criteri
 
-La definizione dei criteri viene creata tramite JSON. È costituita da uno o più condizioni/operatori logici che definiscono le azioni e un effetto che indica cosa succede quando sono soddisfatte le condizioni.
+La definizione dei criteri viene creata tramite JSON. È costituita da uno o più condizioni/operatori logici che definiscono le azioni e un effetto che indica cosa succede quando sono soddisfatte le condizioni. Lo schema è pubblicato in [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json).
 
 I criteri includono fondamentalmente gli elementi seguenti:
 
@@ -90,15 +90,45 @@ Una condizione valuta se un **campo** o un'**origine** soddisfa determinati crit
 
 ## Campi e origini
 
-Le condizioni vengono create usando campi e origini. Un campo rappresenta le proprietà nel payload delle richieste di risorse. Un'origine rappresenta le caratteristiche della richiesta stessa.
+Le condizioni vengono create usando campi e origini. Un campo rappresenta le proprietà nel payload delle richieste di risorse usato per descrivere lo stato della risorsa. Un'origine rappresenta le caratteristiche della richiesta stessa.
 
 Sono supportati i campi e le origini seguenti:
 
-Campi: **name**, **kind**, **type**, **location**, **tags**, **tags.***.
+Campi: **name**, **kind**, **type**, **location**, **tags**, **tags.***, e **property alias**.
 
 Origini: **action**.
 
+Property alias è un nome che può essere usato nella definizione di criteri per accedere alle proprietà specifiche del tipo di risorsa, ad esempio impostazioni e SKU. Funziona in tutte le versioni di API in cui la proprietà esiste. È possibile recuperare gli alias tramite l'API REST sottostante. Il supporto per PowerShell verrà aggiunto in futuro.
+
+    GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
+	
+La definizione di un alias è simile a quanto segue. Come si può vedere, un alias definisce percorsi in diverse versioni di API, anche quando si verifica una modifica del nome di una proprietà.
+
+    "aliases": [
+      {
+        "name": "Microsoft.Storage/storageAccounts/sku.name",
+        "paths": [
+          {
+            "path": "Properties.AccountType",
+            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
+          }
+        ]
+      }
+    ]
+
+Attualmente, gli alias supportati sono:
+
+| Nome alias | Descrizione |
+| ---------- | ----------- |
+| {resourceType}/sku.name | I tipi di risorse supportati sono: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.family | Il tipo di risorsa supportato è Microsoft.Cache/Redis |
+| {resourceType}/sku.capacity | Il tipo di risorsa supportato è Microsoft.Cache/Redis |
+| Microsoft.Cache/Redis/enableNonSslPort | |
+| Microsoft.Cache/Redis/shardCount | |
+
+
 Per ulteriori informazioni sulle azioni, vedere l'articolo relativo ai [ruoli predefiniti del controllo degli accessi in base al ruolo](active-directory/role-based-access-built-in-roles.md). Attualmente, il criterio funziona solo su richieste PUT.
+
 
 ## Esempi di definizioni di criteri
 
@@ -168,6 +198,35 @@ L'esempio seguente illustra l'uso dell'origine. Mostra che sono consentite solo 
         "effect" : "deny"
       }
     }
+
+### Usare SKU approvate
+
+L'esempio seguente illustra l'uso di alias di proprietà alias per limitare le SKU. Nell'esempio seguente, solo l'uso di Standard\_LRS e Standard\_GRS è approvato per gli account di archiviazione.
+
+    {
+      "if": {
+        "allOf": [
+          {
+            "source": "action",
+            "like": "Microsoft.Storage/storageAccounts/*"
+          },
+          {
+            "not": {
+              "allof": [
+                {
+                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "in": ["Standard_LRS", "Standard_GRS"]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+    
 
 ### Convenzione di denominazione
 
@@ -327,4 +386,4 @@ Per visualizzare tutti gli eventi correlati all'effetto di controllo, è possibi
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

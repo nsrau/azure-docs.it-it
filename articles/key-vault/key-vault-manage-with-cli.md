@@ -24,7 +24,7 @@ Usare questa esercitazione per imparare a eseguire facilmente le attività inizi
 
 **Tempo previsto per il completamento:** 20 minuti
 
->[AZURE.NOTE]Questa esercitazione non include istruzioni su come scrivere l'applicazione Azure usata nel passaggio che spiega come autorizzare un'applicazione all'uso di una chiave o un segreto nell'insieme di credenziali delle chiavi.
+>[AZURE.NOTE]  Questa esercitazione non include istruzioni su come scrivere l'applicazione Azure usata nel passaggio che spiega come autorizzare un'applicazione all'uso di una chiave o un segreto nell'insieme di credenziali delle chiavi.
 >
 >Attualmente non è possibile configurare l'insieme di credenziali delle chiavi di Azure nel portale di Azure. Usare invece le istruzioni relative all'interfaccia della riga di comando multipiattaforma. In alternativa, per le istruzioni relative ad Azure PowerShell, vedere [questa esercitazione equivalente](key-vault-get-started.md).
 
@@ -68,7 +68,7 @@ Se invece si vuole accedere digitando in modo interattivo
 
     azure login
 
->[AZURE.NOTE]Il metodo di accesso funziona solo con l'account aziendale. L'account aziendale corrisponde a un utente gestito dall'organizzazione e definito nel tenant Azure Active Directory dell'organizzazione.
+>[AZURE.NOTE]  Il metodo di accesso funziona solo con l'account aziendale. L'account aziendale corrisponde a un utente gestito dall'organizzazione e definito nel tenant Azure Active Directory dell'organizzazione.
 
 
 Se non si dispone di un account aziendale e si usa un account Microsoft per accedere alla sottoscrizione di Azure, è possibile crearne facilmente uno utilizzando la procedura seguente.
@@ -153,7 +153,7 @@ Ora si può visualizzare la chiave o il segreto appena creato:
 Questo passaggio di solito viene eseguito da uno sviluppatore, su un computer separato. Anche se non è specifico dell'insieme di credenziali delle chiavi di Azure, viene incluso qui per completezza.
 
 
->[AZURE.IMPORTANT]Per completare l'esercitazione, l'account, l'insieme di credenziali e l'applicazione in cui si registrerà questo passaggio devono essere tutti nella stessa directory di Azure.
+>[AZURE.IMPORTANT] Per completare l'esercitazione, l'account, l'insieme di credenziali e l'applicazione in cui si registrerà questo passaggio devono essere tutti nella stessa directory di Azure.
 
 Le applicazioni che usano un insieme di credenziali delle chiavi devono eseguire l'autenticazione con un token di Azure Active Directory. A tale scopo, il proprietario dell'applicazione deve innanzitutto registrare l'applicazione in Azure Active Directory. Al termine della registrazione, il proprietario dell'applicazione ottiene i valori seguenti:
 
@@ -185,11 +185,11 @@ Per autorizzare l'accesso da parte dell'applicazione alla chiave o al segreto ne
 
 Ad esempio, se il nome dell'insieme di credenziali è ContosoKeyVault e l'applicazione che si desidera autorizzare ha un ID client 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed e si vuole autorizzare l'applicazione a decrittografare e firmare con le chiavi dell'insieme di credenziali, eseguire quanto segue:
 
-    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '["decrypt","sign"]'
+    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '["decrypt","sign"]'
 
 Se si desidera autorizzare la stessa applicazione per la lettura di tutti i segreti nell'insieme di credenziali, eseguire le seguenti operazioni:
 
-	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["get"]'
+	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-secrets '["get"]'
 
 ## Per usare un modulo di protezione hardware ##
 
@@ -256,4 +256,4 @@ Ecco un esempio di come rimuovere un segreto specifico:
 
 Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

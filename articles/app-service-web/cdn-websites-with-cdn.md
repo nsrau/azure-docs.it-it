@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/29/2016" 
 	ms.author="cephalin"/>
 
 
@@ -41,13 +41,15 @@ Per completare questa esercitazione, è necessario disporre dei prerequisiti seg
 -	Un [account Microsoft Azure](/account/) attivo
 -	Visual Studio 2015 con [Azure SDK per .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) Se si usa Visual Studio, la procedura può variare.
 
-> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure: è possibile [aprire un account Azure gratuitamente](/pricing/free-trial/) - si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio le app Web. È possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure.
+> + È possibile [aprire un account Azure gratuitamente](/pricing/free-trial/). Si riceveranno crediti da usare per provare i servizi di Azure a pagamento e, una volta esauriti i crediti, sarà comunque possibile mantenere l'account e continuare a usare i servizi di Azure gratuiti, come le app Web.
+> + È possibile [attivare i benefici della sottoscrizione Visual Studio](/pricing/member-offers/msdn-benefits-details/). Con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 >
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Distribuire un'app Web in Azure con un endpoint della rete CDN integrato ##
 
-In questa sezione verrà distribuito nel servizio app il modello di applicazione MCV di ASP.NET predefinito di Visual Studio 2013, che verrà quindi integrato con un nuovo endpoint della rete CDN. Seguire le istruzioni riportate di seguito:
+In questa sezione verrà distribuito nel servizio app il modello di applicazione MCV di ASP.NET predefinito di Visual Studio 2015, che verrà quindi integrato con un nuovo endpoint della rete CDN. Seguire le istruzioni riportate di seguito:
 
 1. In Visual Studio 2015 creare una nuova applicazione Web ASP.NET dalla barra dei menu selezionando **File > Nuovo > Progetto > Web > Applicazione Web ASP.NET**. Assegnargli un nome e fare clic su **OK**.
 
@@ -75,36 +77,49 @@ In questa sezione verrà distribuito nel servizio app il modello di applicazione
 
 	Dopo il completamento della pubblicazione, l'app Web verrà visualizzata nel browser.
 
-1. Per creare un endpoint della rete CDN, accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. Fare clic su **Nuovo** > **Servizi app** > **Rete CDN** > **Creazione rapida**. Selezionare **http://*&lt;sitename>*.azurewebsites.net/** e fare clic su **Crea**.
+1. Per creare un endpoint della rete CDN, accedere al [portale di Azure](https://portal.azure.com).
+2. Fare clic su **+ Nuovo** > **Contenuti multimediali e rete CDN** > **Rete CDN**.
+
+	![](media/cdn-websites-with-cdn/create-cdn-profile.png)
+
+3. Specificare **Rete CDN**, **Percorso**, **Gruppo di risorse**, **Piano tariffario**, quindi fare clic su **Crea**
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE] Dopo aver creato l'endpoint della rete CDN, nel portale classico viene visualizzato il relativo URL e il dominio di origine in esso integrato. È tuttavia possibile che la propagazione completa della configurazione del nuovo endpoint della rete CDN in tutte le località in cui si trovano i nodi della rete CDN richieda tempo.
+4. Nel pannello relativo al **Profilo di rete CDN** fare clic sul pulsante **+ Endpoint**. Assegnargli un nome, selezionare **App Web** nell'elenco a discesa **Tipo origine** e l'app Web nell'elenco a discesa **Nome host origine**, quindi fare clic su **Aggiungi**.
 
-3. Tornare al portale classico e nella scheda **Rete CDN** e fare clic sul nome dell'endpoint della rete CDN appena creato.
+	![](media/cdn-websites-with-cdn/cdn-profile-blade.png)
+
+
+
+	> [AZURE.NOTE] Dopo aver creato l'endpoint della rete CDN, nel pannello **Endpoint** viene visualizzato il relativo URL e il dominio di origine in esso integrato. È tuttavia possibile che la propagazione completa della configurazione del nuovo endpoint della rete CDN in tutte le località in cui si trovano i nodi della rete CDN richieda tempo.
+
+3. Tornare al pannello **Endpoint** e fare clic sul nome dell'endpoint della rete CDN appena creato.
 
 	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 
-3. Fare clic su **Abilita stringa di query** per abilitare le stringhe di query nella cache della rete CDN. Dopo averle abilitate, lo stesso collegamento a cui si accede con diverse stringhe di query verrà memorizzato nella cache come voci separate.
+3. Fare clic sul pulsante **Configura**. Nel pannello **Configura** selezionare **Memorizza nella cache ogni URL univoco** nell'elenco a discesa **Comportamento memorizzazione nella cache della stringa di query**, quindi fare clic su **Salva**.
+
 
 	![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
-	>[AZURE.NOTE] Benché non sia necessario abilitare la stringa di query per questa sezione dell'esercitazione, per comodità è consigliabile farlo prima possibile, perché la propagazione a tutti i nodi della rete CDN di qualsiasi modifica apportata in questa fase richiederà del tempo e non è auspicabile che contenuti non abilitati per le stringhe query intasino la cache della rete CDN (l'aggiornamento del contenuto della rete CDN verrà discusso più avanti).
+Dopo averle abilitate, lo stesso collegamento a cui si accede con diverse stringhe di query verrà memorizzato nella cache come voci separate.
 
-2. Fare clic sull'indirizzo dell'endpoint della rete CDN. Se l'endpoint è pronto, dovrebbe venire visualizzata l'app Web. Se viene visualizzato un errore **HTTP 404**, l'endpoint della rete CDN non è pronto. Potrebbe essere necessario attendere fino a un'ora affinché la configurazione della rete CDN sia propagata a tutti i nodi perimetrali.
+>[AZURE.NOTE] Benché non sia necessario abilitare la stringa di query per questa sezione dell'esercitazione, per comodità è consigliabile farlo prima possibile, perché la propagazione a tutti i nodi della rete CDN di qualsiasi modifica apportata in questa fase richiederà del tempo e non è auspicabile che contenuti non abilitati per le stringhe query intasino la cache della rete CDN (l'aggiornamento del contenuto della rete CDN verrà discusso più avanti).
+
+2. Passare all'endpoint della rete CDN. Se l'endpoint è pronto, dovrebbe venire visualizzata l'app Web. Se viene visualizzato un errore **HTTP 404**, l'endpoint della rete CDN non è pronto. Potrebbe essere necessario attendere fino a un'ora affinché la configurazione della rete CDN sia propagata a tutti i nodi perimetrali. 
 
 	![](media/cdn-websites-with-cdn/11-access-success.png)
 
-1. Successivamente, provare ad accedere al file **~/Content/bootstrap.css** nel progetto ASP.NET. Nella finestra del browser passare a **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. Nella configurazione illustrata, questo URL è il seguente:
+1. Successivamente, provare ad accedere al file **~/Content/bootstrap.css** nel progetto ASP.NET. Nella finestra del browser passare a **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**. Nella configurazione illustrata, questo URL è il seguente:
 
-		http://az673227.vo.msecnd.net/Content/bootstrap.css
+		http://az673227.azureedge.net/Content/bootstrap.css
 
 	che corrisponde all'URL di origine seguente all'endpoint della rete CDN:
 
 		http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
 
-	Quando si passa a **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**, viene richiesto di scaricare il file bootstrap.css inviato dall'app Web in Azure.
+	Quando si passa a **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, viene richiesto di scaricare il file bootstrap.css proveniente dall'app Web in Azure.
 
 	![](media/cdn-websites-with-cdn/12-file-access.png)
 
@@ -126,7 +141,7 @@ L'alternativa consiste nel determinare quale contenuto rendere disponibile dalla
 
 ## Configurare le opzioni di memorizzazione nella cache dei file statici nell'app Web di Azure ##
 
-Con l'integrazione della rete CDN di Azure nell'app Web di Azure, è possibile specificare in che modo memorizzare il contenuto statico nella cache nell'endpoint della rete CDN. A tale scopo, aprire il file *Web.config* dal progetto ASP.NET (ad esempio **cdnwebapp**) e aggiungere un elemento `<staticContent>` a `<system.webServer>`. Il linguaggio XML seguente configura la scadenza della cache entro tre giorni.
+Con l'integrazione della rete CDN di Azure nell'app Web di Azure, è possibile specificare in che modo memorizzare il contenuto statico nella cache nell'endpoint della rete CDN. A tale scopo, aprire il file *Web.config*dal progetto ASP.NET (ad esempio **cdnwebapp**) e aggiungere un elemento `<staticContent>` a `<system.webServer>`. Il linguaggio XML seguente configura la scadenza della cache entro tre giorni.
 
     <system.webServer>
       <staticContent>
@@ -215,7 +230,7 @@ Seguire i passaggi precedenti per configurare questa azione del controller:
               }
               else // Get content from Azure CDN
               {
-                return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+                return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
               }
             }
 
@@ -301,13 +316,13 @@ Quando si inviano i valori del modulo a `/MemeGenerator/Index`, il metodo di azi
       }
       else // Get content from Azure CDN
       {
-        return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+        return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
       }
     }
 
 Se il debugger locale è collegato, si avrà una normale esperienza di debug con un reindirizzamento locale. Se viene eseguito nell'app Web di Azure, si viene reindirizzati a:
 
-	http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 che corrisponde all'URL di origine seguente in corrispondenza dell'endpoint della rete CDN:
 
@@ -367,7 +382,7 @@ Attenersi alla procedura seguente per integrare la creazione di bundle e la mini
           bundles.UseCdn = true;
           var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
             .GetName().Version.ToString();
-          var cdnUrl = "http://<yourCDNName>.vo.msecnd.net/{0}?v=" + version;
+          var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?v=" + version;
 
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
                 "~/Scripts/jquery-{version}.js"));
@@ -398,7 +413,7 @@ Attenersi alla procedura seguente per integrare la creazione di bundle e la mini
 
 	è lo stesso di:
 
-		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.vo.msecnd.net/bundles/jquery?v=<W.X.Y.Z>"))
+		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?v=<W.X.Y.Z>"))
 
 	Questo costruttore comunica alle operazioni di creazione di bundle e minimizzazione ASP.NET di eseguire il rendering dei singoli file di script quando ne viene eseguito il debug a livello locale, ma di usare l'indirizzo della rete CDN specificato per accedere allo script in questione. Notare tuttavia due importanti caratteristiche di questo URL della rete CDN definito con precisione:
 	
@@ -415,11 +430,11 @@ Attenersi alla procedura seguente per integrare la creazione di bundle e la mini
 4. Visualizzare il codice HTML relativo alla pagina. Dovrebbe essere possibile visualizzare l'URL della rete CDN di cui è stato eseguito il rendering, con una stringa di versione univoca ogni volta che si ripubblicano le modifiche all'app Web di Azure. Ad esempio:
 	
         ...
-        <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
-        <script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449"></script>
+        <link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
+        <script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25449"></script>
         ...
-        <script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449"></script>
-        <script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25449"></script>
         ...
 
 5. In Visual Studio eseguire il debug l'applicazione ASP.NET in Visual Studio digitando `F5`.,
@@ -448,7 +463,7 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
         {
           var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
             .GetName().Version.ToString();
-          var cdnUrl = "http://cdnurl.vo.msecnd.net/.../{0}?" + version;
+          var cdnUrl = "http://cdnurl.azureedge.net/.../{0}?" + version;
           bundles.UseCdn = true;
 
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
@@ -504,46 +519,27 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 4. Pubblicare di nuovo l'app Web di Azure e accedere alla home page.
 5. Visualizzare il codice HTML relativo alla pagina. Gli script inseriti dovrebbero essere simili al seguente:    
 	
-	``` 
-	... 
-	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-	<script>(function() { 
-		var loadFallback, 
-			len = document.styleSheets.length; 
-		for (var i = 0; i < len; i++) { 
-			var sheet = document.styleSheets[i]; 
-			if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { 
-		 	   var meta = document.createElement('meta'); 
-		           meta.className = 'sr-only'; 
-			   document.head.appendChild(meta); 
-			   var value = window.getComputedStyle(meta).getPropertyValue('width'); 
-			   document.head.removeChild(meta); 
-			   if (value !== '1px') { 
-			   document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); 
-			   } 
-			} 
-		} 
-		return true; 
-	}())||document.write('<script src="/Content/css"><\\/script>');</script>
+	``` ... <link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
-	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
 	... 
-	<script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25474"></script>
 	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 
- 	<script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
+ 	<script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25474"></script>
  	<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
 	...
 	```
 
-	Si noti che lo script inserito per il bundle CSS contiene ancora residui della proprietà `CdnFallbackExpression` nella riga:
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	Poiché però la prima parte dell'espressione || restituirà sempre true (nella riga subito sopra), la funzione document.write() non verrà mai eseguita.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
-6. Per verificare il funzionamento dello script di fallback, tornare indietro al dashboard dell'endpoint della rete CDN e fare clic su **Disabilita endpoint**.
+6. Per verificare il funzionamento dello script di fallback, tornare indietro al pannello endpoint della rete CDN e fare clic su **Arresta**.
 
 	![](media/cdn-websites-with-cdn/13-test-fallback.png)
 
@@ -561,4 +557,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 * Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

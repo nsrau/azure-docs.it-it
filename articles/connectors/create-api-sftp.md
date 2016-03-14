@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introduzione all'API di SFTP
-Connettersi a un server SFTP per gestire i file. È possibile eseguire diverse attività sul server SFTP, ad esempio caricare file, eliminarli e così via.
+Connettersi a un server SFTP per gestire i file. È possibile eseguire diverse attività sul server SFTP, ad esempio caricare file, eliminarli e così via. L'API di SFTP può essere usata da:
 
-L'API di SFTP può essere usata dalle app per la logica.
+- App per la logica
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione schema 2015-08-01 di anteprima delle app per la logica. Per la versione schema 2014-12-01 di anteprima, fare clic sul [connettore di SFTP](../app-service-logic/app-service-logic-connector-sftp.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore di SFTP](../app-service-logic/app-service-logic-connector-sftp.md).
 
 Con SFTP è possibile:
 
@@ -38,7 +38,7 @@ Per l'API di SFTP sono disponibili i trigger e le azioni seguenti:
 
 Trigger | Azioni
 --- | ---
-<ul><li>Quando un file viene creato o modificato </li></ul> | <ul><li>Crea file</li><li>Copia file</li><li>Elimina file</li><li>Estrai in una cartella</li><li>Recupera contenuto di file</li><li>Recupera contenuto di file tramite percorso</li><li>Recupera metadati di file</li><li>Recupera metadati di file tramite</li><li>Aggiorna file</li><li>Quando un file viene creato o modificato </li></ul>
+<ul><li>Quando un file viene creato o modificato</li></ul> | <ul><li>Crea file</li><li>Copia file</li><li>Elimina file</li><li>Estrai cartella</li><li>Recupera contenuto di file</li><li>Recupera contenuto di file tramite percorso</li><li>Recupera metadati di file</li><li>Recupera metadati di file tramite percorso</li><li>Aggiorna file</li><li>Quando un file viene creato o modificato </li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
@@ -58,15 +58,16 @@ Dopo aver creato la connessione immettere le proprietà di SFTP, ad esempio il p
 >[AZURE.TIP] È possibile usare la stessa connessione di SFTP in altre app per la logica.
 
 
-## Riferimento all'API REST Swagger
+## Riferimento all'API REST di Swagger
+Si applica alla versione 1.0.
 
 ### Crea file
 Carica un file in SFTP. ```POST: /datasets/default/files```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|folderPath|string|sì|query|nessuno |Percorso univoco della cartella in SFTP|
-|name|string|sì|query| nessuno|Nome del file|
+|folderPath|string|yes|query|nessuno |Percorso univoco della cartella in SFTP|
+|name|string|yes|query| nessuno|Nome del file|
 |body|string(binary) |sì|body|nessuno |Contenuto del file da creare in SFTP|
 
 #### Risposta
@@ -80,8 +81,8 @@ Copia un file in SFTP. ```POST: /datasets/default/copyFile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|source|string|sì|query| nessuno|Percorso del file di origine|
-|destination|string|sì|query|nessuno |Percorso del file di destinazione, incluso il nome del file|
+|source|string|yes|query| nessuno|Percorso del file di origine|
+|destination|string|yes|query|nessuno |Percorso del file di destinazione, incluso il nome del file|
 |overwrite|boolean|no|query|nessuno|Sovrascrive il file di destinazione se è impostata su 'true'|
 
 #### Risposta
@@ -95,7 +96,7 @@ Elimina un file in SFTP. ```DELETE: /datasets/default/files/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno |Identificatore univoco del file in SFTP|
+|id|string|yes|path|nessuno |Identificatore univoco del file in SFTP|
 
 #### Risposta
 |Nome|Descrizione|
@@ -108,8 +109,8 @@ Estrae un file di archivio in una cartella tramite SFTP, ad esempio con estensio
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|source|string|sì|query|nessuno |Percorso del file di archivio|
-|destination|string|sì|query|nessuno |Percorso della cartella di destinazione|
+|source|string|yes|query|nessuno |Percorso del file di archivio|
+|destination|string|yes|query|nessuno |Percorso della cartella di destinazione|
 |overwrite|boolean|no|query|nessuno|Sovrascrive i file di destinazione se è impostata su 'true'|
 
 #### Risposta
@@ -119,11 +120,11 @@ Estrae un file di archivio in una cartella tramite SFTP, ad esempio con estensio
 |default|Operazione non riuscita.|
 
 ### Recupera contenuto di file
-Recupera i contenuti del file da SFTP tramite l'ID. ```GET: /datasets/default/files/{id}/content```
+Recupera il contenuto dei file da SFTP tramite ID. ```GET: /datasets/default/files/{id}/content```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno |Identificatore univoco del file in SFTP|
+|id|string|yes|path|nessuno |Identificatore univoco del file in SFTP|
 
 #### Risposta
 |Nome|Descrizione|
@@ -133,11 +134,11 @@ Recupera i contenuti del file da SFTP tramite l'ID. ```GET: /datasets/default/fi
 
 
 ### Recupera contenuto di file tramite percorso
-Recupera i contenuti del file da SFTP tramite il percorso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera il contenuto dei file da SFTP tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|path|string|sì|query| nessuno|Percorso univoco del file in SFTP|
+|path|string|yes|query| nessuno|Percorso univoco del file in SFTP|
 
 #### Risposta
 |Nome|Descrizione|
@@ -147,11 +148,11 @@ Recupera i contenuti del file da SFTP tramite il percorso. ```GET: /datasets/def
 
 
 ### Recupera metadati di file 
-Recupera i metadati dei file da SFTP tramite l'ID del file. ```GET: /datasets/default/files/{id}```
+Recupera i metadati dei file da SFTP tramite ID file. ```GET: /datasets/default/files/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path| nessuno|Identificatore univoco del file in SFTP|
+|id|string|yes|path| nessuno|Identificatore univoco del file in SFTP|
 
 #### Risposta
 | Nome | Descrizione |
@@ -161,11 +162,11 @@ Recupera i metadati dei file da SFTP tramite l'ID del file. ```GET: /datasets/de
 
 
 ### Recupera metadati di file tramite percorso
-Recupera i metadati dei file da SFTP tramite il percorso. ```GET: /datasets/default/GetFileByPath```
+Recupera i metadati dei file da SFTP tramite percorso. ```GET: /datasets/default/GetFileByPath```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|path|string|sì|query|nessuno |Percorso univoco del file in SFTP|
+|path|string|yes|query|nessuno |Percorso univoco del file in SFTP|
 
 #### Risposta
 |Nome|Descrizione|
@@ -179,7 +180,7 @@ Aggiorna il contenuto dei file tramite SFTP. ```PUT: /datasets/default/files/{id
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno |Identificatore univoco del file in SFTP|
+|id|string|yes|path|nessuno |Identificatore univoco del file in SFTP|
 |body|string(binary) |sì|body| nessuno|Contenuto del file da aggiornare in SFTP|
 
 #### Risposta
@@ -190,11 +191,11 @@ Aggiorna il contenuto dei file tramite SFTP. ```PUT: /datasets/default/files/{id
 
 
 ### Quando un file viene creato o modificato 
-Quando un file viene modificato in SFTP attiva un flusso. ```GET: /datasets/default/triggers/onupdatedfile```
+Quando un file viene modificato in SFTP, attiva un flusso. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|folderId|string|sì|query|nessuno |Identificatore univoco della cartella|
+|folderId|string|yes|query|nessuno |Identificatore univoco della cartella|
 
 #### Risposta
 |Nome|Descrizione|
@@ -216,7 +217,7 @@ Quando un file viene modificato in SFTP attiva un flusso. ```GET: /datasets/defa
 
 | Nome | Tipo di dati | Obbligatorio|
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 |tableDisplayName|string|no|
@@ -226,7 +227,7 @@ Quando un file viene modificato in SFTP attiva un flusso. ```GET: /datasets/defa
 
 | Nome | Tipo di dati | Obbligatorio|
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 
@@ -249,4 +250,4 @@ Quando un file viene modificato in SFTP attiva un flusso. ```GET: /datasets/defa
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -20,7 +20,7 @@
 > [AZURE.SELECTOR]
 - [Aggiornamento 2](../articles/storsimple/storsimple-virtual-device-u2.md)
 - [Aggiornamento 1](../articles/storsimple/storsimple-virtual-device-u1.md)
-- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
+- [Versione di disponibilità generale (GA)](../articles/storsimple/storsimple-virtual-device.md)
 
 ##Panoramica
 Il dispositivo virtuale StorSimple rappresenta una funzionalità aggiuntiva fornita con la soluzione Microsoft Azure StorSimple. Il dispositivo virtuale StorSimple viene eseguito in una macchina virtuale della rete virtuale di Microsoft Azure e può essere utilizzato per eseguire il backup e duplicare i dati dagli host.
@@ -37,7 +37,7 @@ Il dispositivo virtuale StorSimple è disponibile in due modelli, Standard 8010 
 | **Macchina virtuale di Azure** | Standard\_A3 (4 core, 7 GB di memoria) | Standard\_DS3 (4 core, 14 GB di memoria) |
 | **Compatibilità tra le versioni** | Versioni con aggiornamenti precedenti a Update 2 o successivi | Versioni con aggiornamenti Update 2 o successivi |
 | **Aree di disponibilità** | Tutte le aree di Azure | Aree di Azure che supportano l'archiviazione Premium<br></br>Per un elenco delle aree, vedere [Aree supportate per il modello 8020](#supported-regions-for-8020) |
-| **Tipo di archiviazione** | Usa l'archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard]() | Usa l'archiviazione Premium di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Premium](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Tipo di archiviazione** | Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard]() | Usa l'Archiviazione Premium di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Indicazioni relative al carico di lavoro** | Recupero a livello di elemento per i file dai backup | Scenari di sviluppo e test cloud, bassa latenza, carichi di lavoro a prestazioni superiori <br></br>Dispositivo secondario per il ripristino di emergenza |
  
 <sup>1</sup> *precedentemente noto come 1100*.
@@ -118,7 +118,7 @@ Effettuare i seguenti aggiornamenti del servizio StorSimple di Azure, prima di c
 
 - Aggiungere i [record controllo di accesso](storsimple-manage-acrs.md) per le macchine virtuali che svolgeranno il ruolo di server host per il dispositivo virtuale.
 
-- Usare un [account di archiviazione](storsimple-manage-storage-accounts.md#add-a-storage-account) nella stessa area del dispositivo virtuale. Gli account di archiviazione posti in aree diverse possono causare una riduzione delle prestazioni. È possibile usare un account di archiviazione Standard o Premium con il dispositivo virtuale. Altre informazioni sulla creazione di un [account di archiviazione Standard]() o un [account di archiviazione Premium](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+- Usare un [account di archiviazione](storsimple-manage-storage-accounts.md#add-a-storage-account) nella stessa area del dispositivo virtuale. Gli account di archiviazione posti in aree diverse possono causare una riduzione delle prestazioni. È possibile usare un account di archiviazione Standard o Premium con il dispositivo virtuale. Altre informazioni sulla creazione di un [account di archiviazione Standard]() o un [account di archiviazione Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 
 - Usare un account di archiviazione differente rispetto a quello usato per creare i dati. Se si utilizza lo stesso account di archiviazione, si potrebbe verificare una riduzione delle prestazioni.
 
@@ -146,8 +146,7 @@ Per creare il dispositivo virtuale StorSimple, eseguire la procedura riportata d
 
 Prima di iniziare questa procedura, assicurarsi di avere una copia della chiave DEK del servizio. La chiave DEK del servizio è stata creata durante la procedura di configurazione del primo dispositivo StorSimple ed è stata salvata in un luogo sicuro. Se non si dispone di una copia della chiave DEK del servizio, è necessario contattare il supporto tecnico Microsoft e richiedere assistenza.
 
-Per configurare e registrare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito.
-[AZURE.INCLUDE [Configurare e registrare il dispositivo virtuale](../../includes/storsimple-configure-register-virtual-device.md)]
+Per configurare e registrare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito.[AZURE.INCLUDE [Configurare e registrare il dispositivo virtuale](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Passaggio 3: (Facoltativo) Modificare le impostazioni di configurazione del dispositivo
 
@@ -278,8 +277,8 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 ## Passaggi successivi
 
-- Ottenere informazioni su come [Usare il servizio StorSimple Manager per gestire un dispositivo virtuale](storsimple-manager-service-administration.md).
+- Informazioni su come [Usare il servizio StorSimple Manager per gestire un dispositivo virtuale](storsimple-manager-service-administration.md).
  
-- Ottenere informazioni su come [Ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
+- Informazioni su come [Ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

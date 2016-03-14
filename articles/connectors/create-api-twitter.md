@@ -14,16 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/23/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 
 # Introduzione all'API di Twitter
-Connettersi a Twitter per pubblicare un tweet, recuperare la sequenza temporale dell'utente e così via.
+Connettersi a Twitter per pubblicare un tweet, recuperare la sequenza temporale dell'utente e così via. L'API di Twitter può essere usata da:
 
-L'API di Twitter può essere usata dalle app di PowerApps Enterprise e dalle app per la logica.
+- PowerApps 
+- App per la logica 
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione schema 2015-08-01 di anteprima delle app per la logica. Per la versione schema 2014-12-01 di anteprima, fare clic sul [connettore di Twitter](../app-service-logic/app-service-logic-connector-twitter.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore di Twitter](../app-service-logic/app-service-logic-connector-twitter.md).
 
 Con Twitter è possibile:
 
@@ -50,7 +51,7 @@ Tutte le API supportano i dati nei formati JSON e XML.
 ## Creare una connessione a Twitter
 
 ### Aggiungere configurazioni aggiuntive in PowerApps
-Quando si aggiunge Twitter a PowerApps Enterprise, immettere i valori della **chiave cliente** e del **segreto cliente** dell'applicazione Twitter. Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione Twitter. Se non si ha un'applicazione Twitter, è possibile usare la procedura seguente per creare l'applicazione:
+Quando si aggiunge Twitter a PowerApps Enterprise, immettere i valori **Chiave utente** e **Segreto Consumer** dell'applicazione Twitter. Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione Twitter. Se non si ha un'applicazione Twitter, è possibile usare la procedura seguente per creare l'applicazione:
 
 1. Accedere a [Twitter](https://apps.twitter.com).
 
@@ -60,28 +61,29 @@ Quando si aggiunge Twitter a PowerApps Enterprise, immettere i valori della **ch
    
 	1. Immettere qualsiasi valore in **Name**, **Description** e **Website**.
 	2. In **Callback url** immettere il valore dell'**URL di reindirizzamento** visualizzato quando si aggiunge l'API di Twitter nel portale di Azure.
-	5. Accettare il contratto e **creare l'applicazione Twitter**.  
+	5. Accettare il contratto e **Creare l'applicazione Twitter**.  
 
 	![Creare app di Twitter][7]
 
-A questo punto, copiare e incollare i valori di **chiave cliente** e **segreto cliente** nella configurazione di Twitter nel portale di Azure.
+A questo punto, copiare e incollare i valori di **Chiave utente** e **Segreto Consumer** nella configurazione di Twitter nel portale di Azure.
 
 
 ### Aggiungere configurazioni aggiuntive nelle app per la logica
 Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione all'account Twitter.
 
 1. Accedere all'account Twitter.
-2. Selezionare **Authorize** e consentire alle app per la logica di connettersi e usare l'account Twitter. 
+2. Selezionare **Autorizza** e consentire alle app per la logica di connettersi e usare l'account Twitter. 
 
 Dopo aver creato la connessione immettere le proprietà di Twitter, ad esempio testo tweet. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di Twitter in altre app per la logica.
 
 
-## Riferimento all'API REST Swagger
+## Riferimento all'API REST di Swagger
+Si applica alla versione 1.0.
 
 ### Pubblica un nuovo tweet 
-Tweet. ```POST: /posttweet```
+Invia tweet. ```POST: /posttweet```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -105,7 +107,7 @@ Quando viene pubblicato un nuovo tweet corrispondente alla query di ricerca, att
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|searchQuery|string|sì|query|nessuno|Testo della query, si può usare qualsiasi operatore di query supportato da Twitter: http://www.twitter.com/search)|
+|searchQuery|string|yes|query|nessuno|Testo della query per cui si può usare qualsiasi operatore di query supportato da Twitter: http://www.twitter.com/search)|
 
 #### Risposta
 |Nome|Descrizione|
@@ -144,7 +146,7 @@ Recupera i dettagli relativi all'utente specificato, ad esempio nome utente, des
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|userName|string|sì|query|nessuno|Gestione dell'utente da parte di Twitter|
+|userName|string|yes|query|nessuno|Gestione dell'utente da parte di Twitter|
 
 #### Risposta
 |Nome|Descrizione|
@@ -163,7 +165,7 @@ Recupera una raccolta dei tweet più recenti pubblicati dall'utente specificato.
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|userName|string|sì|query|nessuno|Gestione di Twitter|
+|userName|string|yes|query|nessuno|Gestione di Twitter|
 |maxResults|integer|no|query|20|Numero massimo di tweet da recuperare|
 
 #### Risposta
@@ -183,7 +185,7 @@ Recupera una raccolta di tweet rilevanti corrispondenti a una query specificata.
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|searchQuery|string|sì|query|nessuno|Testo della query, si può usare qualsiasi operatore di query supportato da Twitter: http://www.twitter.com/search)|
+|searchQuery|string|yes|query|nessuno|Testo della query per cui si può usare qualsiasi operatore di query supportato da Twitter: http://www.twitter.com/search)|
 |maxResults|integer|no|query|20|Numero massimo di tweet da recuperare|
 
 #### Risposta
@@ -203,7 +205,7 @@ Recupera gli utenti che seguono l'utente specificato. ```GET: /followers```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|userName|string|sì|query|nessuno|Gestione dell'utente da parte di Twitter|
+|userName|string|yes|query|nessuno|Gestione dell'utente da parte di Twitter|
 |maxResults|integer|no|query|20|Numero massimo di utenti da recuperare|
 
 #### Risposta
@@ -242,7 +244,7 @@ Recupera gli utenti che l'utente specificato sta seguendo. ```GET: /friends```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|userName|string|sì|query|nessuno|Gestione dell'utente da parte di Twitter|
+|userName|string|yes|query|nessuno|Gestione dell'utente da parte di Twitter|
 |maxResults|integer|no|query|20|Numero massimo di utenti da recuperare|
 
 #### Risposta
@@ -316,7 +318,7 @@ Recupera gli utenti seguiti dall'utente principale. ```GET: /myfriends```
 
 
 ## Passaggi successivi
-Dopo aver aggiunto l'API di Dropbox a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle proprie app.
+Dopo aver aggiunto l'API di Dropbox a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle app.
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -325,4 +327,4 @@ Dopo aver aggiunto l'API di Dropbox a PowerApps Enterprise, [concedere autorizza
 [6]: ./media/create-api-twitter/twitter-apps-page.png
 [7]: ./media/create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

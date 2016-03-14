@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/20/2015" 
+	ms.date="02/29/2016" 
 	ms.author="wesmc"/>
 
 # Guida all'architettura push aziendale
@@ -273,4 +273,4 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 [Introduzione ad Hub di notifica - Esercitazione per Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [portale di Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

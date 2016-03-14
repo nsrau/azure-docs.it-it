@@ -43,7 +43,7 @@ Se durante l'installazione di IntelliJ IDEA non è stata richiesta l'abilitazion
 
 1. Avviare IntelliJ IDEA e dalla schermata iniziale fare clic su **Configure** e quindi fare clic su **Plugins**.
 
-	![Abilitazione di plug-in Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/enable-scala-plugin.png)
+	![Abilitare i plug-in Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/enable-scala-plugin.png)
 
 2. Nella schermata successiva fare clic su **Install JetBrains plugin** nell'angolo inferiore sinistro. Nella finestra di dialogo **Browse JetBrains Plugins** che si apre cercare Scala e quindi fare clic su **Install**.
 
@@ -71,8 +71,6 @@ Se durante l'installazione di IntelliJ IDEA non è stata richiesta l'abilitazion
 
 2. Nella finestra successiva specificare i dettagli del progetto.
 
-	![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
-
 	* Specificare un nome per il progetto e il relativo percorso.
 	* Per **Project SDK** assicurarsi di specificare una versione di Java successiva alla 7.
 	* Per **Scala SDK** fare clic su **Create**, quindi su **Download** e infine selezionare la versione di Scala da usare. **Assicurarsi di non usare la versione 2.11.x**. In questo esempio viene usata la versione **2.10.6**.
@@ -80,6 +78,9 @@ Se durante l'installazione di IntelliJ IDEA non è stata richiesta l'abilitazion
 		![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
 	* Per **Spark SDK** scaricare e usare l'SDK da [qui](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409).
+
+		![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
+
 	* Fare clic su **Finish**.
 
 3. Definire la struttura del progetto per creare un elemento (file con estensione jar in pacchetto) che alla fine conterrà il codice che viene eseguito nel cluster.
@@ -204,8 +205,6 @@ Quando si esegue l'applicazione Spark in Scala localmente in un computer Windows
 
 2. Nella finestra successiva specificare i dettagli del progetto.
 
-	![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-local-project-details.png)
-
 	* Specificare un nome per il progetto e il relativo percorso.
 	* Per **Project SDK** assicurarsi di specificare una versione di Java successiva alla 7.
 	* Per **Scala SDK** fare clic su **Create**, quindi su **Download** e infine selezionare la versione di Scala da usare. **Assicurarsi di non usare la versione 2.11.x**. In questo esempio viene usata la versione **2.10.6**.
@@ -214,6 +213,8 @@ Quando si esegue l'applicazione Spark in Scala localmente in un computer Windows
 
 	* Per **Spark SDK** scaricare e usare l'SDK da [qui](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409).
 	* Fare clic su **Finish**.
+
+		![Creazione di un'applicazione Spark in Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-local-project-details.png)
 
 3. Definire la struttura del progetto per creare un elemento (file con estensione jar in pacchetto) che alla fine conterrà il codice che viene eseguito nel cluster.
 
@@ -317,4 +318,4 @@ Quando si esegue l'applicazione Spark in Scala localmente in un computer Windows
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

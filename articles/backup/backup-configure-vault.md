@@ -30,7 +30,7 @@ Questo articolo elenca le operazioni da effettuare per preparare l'ambiente per 
 Se tutti i passaggi generali descritti sopra sono già stati eseguiti, è possibile avviare il [backup dei computer Windows](backup-azure-backup-windows-server.md). In caso contrario, seguire questa procedura dettagliata per assicurarsi che l'ambiente sia pronto.
 
 ## Prima di iniziare
-Per preparare l'ambiente per il backup di computer Windows, è necessario un account Azure. Se non si ha un account, è possibile creare un [account di valutazione gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
+Per preparare l'ambiente per il backup di computer Windows, è necessario un account Azure. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/free/) in pochi minuti.
 
 ## Creare un insieme di credenziali per il backup
 Per eseguire in Azure il backup di file e dati da un computer Windows o da Data Protection Manager oppure il backup di macchine virtuali IaaS, è necessario creare un insieme di credenziali per il backup nell'area geografica in cui si vogliono archiviare i dati.
@@ -53,11 +53,35 @@ Per eseguire in Azure il backup di file e dati da un computer Windows o da Data 
 
     ![Creazione dell'insieme di credenziali](./media/backup-configure-vault/creatingvault1.png)
 
-    Dopo avere creato l'archivio di backup, verrà visualizzato un messaggio che indica che l'insieme di credenziali è stato creato correttamente. L'insieme di credenziali viene anche elencato nelle risorse di Servizi di ripristino come **Attivo**. ![Creazione dello stato dell'insieme di credenziali](./media/backup-configure-vault/backupvaultstatus1.png)
+    Dopo avere creato l'archivio di backup, verrà visualizzato un messaggio che indica che l'insieme di credenziali è stato creato correttamente. L'insieme di credenziali viene inoltre elencato nelle risorse di servizi di ripristino come**Active**.
 
-> [AZURE.IMPORTANT] È consigliabile identificare l'opzione per la ridondanza dell'archiviazione subito dopo la creazione dell'insieme di credenziali e prima che i computer vengano registrati nell'insieme di credenziali. Dopo la registrazione di un elemento nell'insieme di credenziali, l'opzione di ridondanza di archiviazione è bloccata e non può essere modificata.
->
-> **Per altre informazioni sulla scelta delle opzioni per la ridondanza dell'archiviazione, vedere questa [panoramica](backup-azure-storage-redundancy-options.md).**
+    ![Creazione dello stato dell'insieme di credenziali](./media/backup-configure-vault/backupvaultstatus1.png)
+
+    >[AZURE.IMPORTANT] È consigliabile identificare l'opzione per la ridondanza dell'archiviazione subito dopo la creazione dell'insieme di credenziali e prima che i computer vengano registrati nell'insieme di credenziali. Dopo la registrazione di un elemento nell'insieme di credenziali, l'opzione di ridondanza di archiviazione è bloccata e non può essere modificata.
+
+4. Selezionare le opzioni per la **ridondanza di archiviazione**.
+
+    Se si usa Azure come endpoint primario di archiviazione dei backup (se, ad esempio, si esegue il backup in Azure da Windows Server), è consigliabile scegliere l'opzione predefinita di [archiviazione con ridondanza geografica](../storage/storage-redundancy.md#geo-redundant-storage).
+
+    Se si usa Azure come endpoint terziario di archiviazione dei backup, ad esempio, se si usa SCDPM per avere una copia locale del backup e si usa Azure per la conservazione a lungo termine, è consigliabile scegliere l'[archiviazione con ridondanza locale](../storage/storage-redundancy.md#locally-redundant-storage). In questo modo vengono ridotti i costi di archiviazione dei dati in Azure e viene offerta una durabilità dei dati inferiore che può essere accettabile per le copie terziarie.
+
+    Per altre informazioni sulle opzioni di archiviazione [con ridondanza geografica](../storage/storage-redundancy.md#geo-redundant-storage) e [con ridondanza locale](../storage/storage-redundancy.md#locally-redundant-storage) leggere questa [panoramica](../storage/storage-redundancy.md).
+
+    a. Fare clic sull'insieme di credenziali appena creato.
+
+    b. Nella pagina Avvio rapido selezionare **Configura**.
+
+    ![Configurazione dello stato dell'insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/configure-vault.png)
+
+    c. Scegliere l'opzione per la ridondanza di archiviazione appropriata.
+
+    Sarà necessario fare clic su **Salva** se è stato selezionato **Con ridondanza locale**, perché **Con ridondanza geografica** è l'opzione predefinita.
+
+    ![Archiviazione con ridondanza geografica](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
+
+    d. Fare clic su **Servizi di ripristino** nel riquadro di spostamento sinistro per tornare all'elenco di risorse per i **Servizi di ripristino**.
+
+    ![Selezione dell'insieme di credenziali di backup](./media/backup-try-azure-backup-in-10-mins/rs-left-nav.png)
 
 ## Scaricare il file delle credenziali di insieme
 Per poter eseguire il backup dei dati in Azure, è necessario autenticare il server locale (Windows client, Windows Server o server SCDPM) con un insieme di credenziali per il backup. L'autenticazione viene eseguita mediante le "credenziali di insieme". Il file delle credenziali dell'insieme di credenziali viene scaricato tramite un canale sicuro dal Portale di Azure e il servizio Backup di Azure non è a conoscenza della chiave privata del certificato, che non è persistente nel portale o nel servizio.
@@ -101,7 +125,7 @@ Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario inst
 
     ![Salva agente](./media/backup-configure-vault/agent.png)
 
-4. Al termine del download di *MARSagentinstaller.exe*, fare clic su **Esegui** (o fare doppio clic su **MARSAgentInstaller.exe** dal percorso in cui è stato salvato). Scegliere la *cartella di installazione* e la *cartella della cache* necessarie per l'agente e fare clic su **Avanti**.
+4. Al termine del download di *MARSagentinstaller.exe*, fare clic su **Esegui** oppure fare doppio clic su **MARSAgentInstaller.exe** dal percorso in cui è stato salvato. Scegliere la *cartella di installazione* e la *cartella della cache* necessarie per l'agente e fare clic su **Avanti**.
 
     Il percorso della cache specificato deve avere uno spazio disponibile pari almeno al 5% dei dati di backup.
 
@@ -111,7 +135,7 @@ Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario inst
 
     Per completare l'installazione, l'agente Backup di Azure installerà .NET Framework 4.5 e Windows PowerShell (se non è già installato).
 
-6. Dopo avere installato l'agente, fare clic su **Procedi alla registrazione** per continuare con il flusso di lavoro.
+6. Dopo avere installato l'agente, fare clic su **Continua con la registrazione** per continuare con il flusso di lavoro.
 
     ![Registra](./media/backup-configure-vault/register.png)
 
@@ -123,7 +147,7 @@ Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario inst
 
     Verificare che il file delle credenziali dell'insieme di credenziali sia disponibile in un percorso accessibile dall'applicazione di installazione. Se si verificano errori relativi all'accesso, copiare il file delle credenziali di insieme in un percorso temporaneo nel computer e ripetere l'operazione.
 
-    Se si verifica un errore di credenziali dell'insieme di credenziali non valide, ad esempio "Le credenziali dell'insieme di credenziali specificate non sono valide", il file è danneggiato o non ha le credenziali più recenti associate al servizio di ripristino. Ripetere l'operazione dopo avere scaricato un nuovo file di archivio delle credenziali dal portale. Questo errore in genere si verifica se l'utente fa clic sull'opzione *Scarica credenziali dell'insieme di credenziali* in rapida successione. In questo caso è valido solo l'ultimo file delle credenziali dell'insieme di credenziali.
+    Se si verifica un errore di credenziali dell'insieme di credenziali non valide, ad esempio "Le credenziali dell'insieme di credenziali specificate non sono valide", il file è danneggiato o non ha le credenziali più recenti associate al servizio di ripristino. Ripetere l'operazione dopo avere scaricato un nuovo file di archivio delle credenziali dal portale. Questo errore in genere si verifica se l'utente fa clic ripetutamente sull'opzione *Scarica credenziali dell'insieme di credenziali* in rapida successione. In questo caso è valido solo l'ultimo file delle credenziali dell'insieme di credenziali.
 
 8. Nella schermata **Impostazione crittografia** è possibile *generare* una passphrase o *fornire* una passphrase (almeno 16 caratteri). Ricordarsi di salvare la passphrase in un luogo sicuro.
 
@@ -136,9 +160,9 @@ Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario inst
     Il computer ora risulta registrato nell'insieme di credenziali ed è possibile avviare il backup in Microsoft Azure.
 
 ## Passaggi successivi
-- Iscriversi a una [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/)
+- Iscriversi per ottenere un [account di Azure gratuito](https://azure.microsoft.com/free/)
 - [Eseguire il backup di un computer client o server Windows](backup-azure-backup-windows-server.md).
 - In caso di domande, vedere [Domande frequenti su Backup di Azure](backup-azure-backup-faq.md).
-- Visitare il [forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 # Integrazione di Reach SDK per app universali di Windows
 
-Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento [Integrazione di Engagement SDK per app universali di Windows](mobile-engagement-windows-store-integrate-engagement.md).
+Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento [Integrazione di Mobile Engagement SDK per app di Windows universali](mobile-engagement-windows-store-integrate-engagement.md).
 
 ## Incorporare Engagement Reach SDK nel progetto di app universali di Windows
 
 Nessun elemento da aggiungere. Risorse e riferimenti di `EngagementReach` sono già presenti nel progetto.
 
-> [AZURE.TIP]È possibile personalizzare le immagini incluse nella cartella `Resources` del progetto, soprattutto l'icona del marchio, che per impostazione predefinita è l'icona di Engagement. Nelle app universali è inoltre possibile spostare la cartella `Resources` del progetto condiviso per condividere il contenuto tra app, ma è necessario mantenere il file `Resources\EngagementConfiguration.xml` nel percorso predefinito poiché è dipendente dalla piattaforma.
+> [AZURE.TIP] È possibile personalizzare le immagini incluse nella cartella `Resources` del progetto, soprattutto l'icona del marchio, che per impostazione predefinita è l'icona di Engagement. Nelle app universali è inoltre possibile spostare la cartella `Resources` del progetto condiviso per condividere il contenuto tra app, ma è necessario mantenere il file `Resources\EngagementConfiguration.xml` nel percorso predefinito poiché è dipendente dalla piattaforma.
 
 ## Abilitare Servizi notifica Push Windows
 
@@ -50,7 +50,7 @@ Modificare il file `App.xaml.cs`:
 
 	`EngagementReach.Instance.Init` viene eseguito in un thread dedicato. Non è necessario eseguirlo manualmente.
 
-> [AZURE.NOTE]Se si usano notifiche push in altre sezioni dell'applicazione, è necessario [condividere il canale di push](#push-channel-sharing) con Engagement Reach.
+> [AZURE.NOTE] Se si usano notifiche push in altre sezioni dell'applicazione, è necessario [condividere il canale di push](#push-channel-sharing) con Engagement Reach.
 
 ## Integrazione
 
@@ -60,7 +60,7 @@ L'integrazione di una sovrimpressione non richiede la scrittura di molto codice 
 
 L'integrazione di una visualizzazione Web è più complessa da implementare. Tuttavia, se le pagine dell'app devono ereditare da un oggetto diverso da "Page", è necessario integrare la visualizzazione Web e il relativo comportamento.
 
-> [AZURE.TIP]È consigliabile aggiungere un elemento `<Grid></Grid>` a livello di radice per racchiudere il contenuto della pagina. Per l'integrazione di una visualizzazione Web, è sufficiente aggiungere Webview come figlio della griglia. Se è necessario impostare il componente Engagement altrove, tenere presente che è necessario gestire manualmente le dimensioni di visualizzazione.
+> [AZURE.TIP] È consigliabile aggiungere un elemento `<Grid></Grid>` radice per racchiudere il contenuto della pagina. Per l'integrazione di una visualizzazione Web, è sufficiente aggiungere Webview come figlio della griglia. Se è necessario impostare il componente Engagement altrove, tenere presente che è necessario gestire manualmente le dimensioni di visualizzazione.
 
 ### Integrazione di una sovrimpressione
 
@@ -297,7 +297,7 @@ In App.xaml.cs in "Public App(){}" aggiungere:
 
 È possibile notare che il callback di ogni metodo restituisce un valore booleano. Engagement invia un feedback per il back-end dopo l'invio del push di dati. Se il callback restituisce false, verrà inviato il feedback `exit`. In caso contrario, il feedback sarà `action`. Se non è impostato alcun callback per gli eventi, il feedback `drop` verrà restituito a Engagement.
 
-> [AZURE.WARNING]Engagement non è in grado di ricevere più feedback per un push di dati. Se si prevede di impostare diversi gestori su un evento, tenere presente che il feedback corrisponderà all'ultimo inviato. In questo caso, è consigliabile restituire sempre lo stesso valore per evitare confusione di feedback sul front-end.
+> [AZURE.WARNING] Engagement non è in grado di ricevere più feedback per un push di dati. Se si prevede di impostare diversi gestori su un evento, tenere presente che il feedback corrisponderà all'ultimo inviato. In questo caso, è consigliabile restituire sempre lo stesso valore per evitare confusione di feedback sul front-end.
 
 ## Personalizzare l'interfaccia utente (facoltativo)
 
@@ -330,7 +330,7 @@ Impostare quindi il contenuto del campo `EngagementReach.Instance.Handler` con l
 			  // Engagement Agent and Reach initialization
 			}
 
-> [AZURE.NOTE]Per impostazione predefinita, Engagement usa una specifica implementazione di `EngagementReachHandler`. Non è necessario crearne di proprie e, se ne viene creata una, non è necessario eseguire l'override di ogni metodo. Il comportamento predefinito consiste nel selezionare l'oggetto di base di Engagement.
+> [AZURE.NOTE] Per impostazione predefinita, Engagement usa una specifica implementazione di `EngagementReachHandler`. Non è necessario crearne di proprie e, se ne viene creata una, non è necessario eseguire l'override di ogni metodo. Il comportamento predefinito consiste nel selezionare l'oggetto di base di Engagement.
 
 ### Visualizzazione Web
 
@@ -405,7 +405,7 @@ Per implementare il callback, in App.xaml.cs in "Public App(){}" aggiungere:
 
 È possibile impostare il callback nel metodo "Public App(){}" del file `App.xaml.cs`, preferibilmente prima della chiamata `EngagementReach.Instance.Init()`.
 
-> [AZURE.TIP]Ogni gestore viene chiamato dal thread dell'interfaccia utente. Non è necessario preoccuparsi quando si utilizza MessageBox o un elemento correlato all'interfaccia utente.
+> [AZURE.TIP] Ogni gestore viene chiamato dal thread dell'interfaccia utente. Non è necessario preoccuparsi quando si utilizza MessageBox o un elemento correlato all'interfaccia utente.
 
 ##<a id="push-channel-sharing"></a> Condivisione del canale push
 
@@ -469,4 +469,4 @@ Per usare questo protocollo modificare `App.xaml.cs` con il metodo `OnActivated`
 			  #endregion
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0302_2016-->

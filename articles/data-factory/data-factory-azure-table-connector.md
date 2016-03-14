@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="02/24/2016" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso le tabelle di Azure mediante Data factory di Azure
@@ -362,6 +362,14 @@ La sezione typeProperties è diversa per ogni tipo di set di dati e contiene inf
 | -------- | ----------- | -------- |
 | tableName | Nome della tabella nell'istanza del database di tabelle di Azure a cui fa riferimento il servizio collegato. | Sì
 
+### Schema da Data Factory
+Per gli archivi di dati privi di schema, ad esempio Tabella di Azure, il servizio Data Factory deduce lo schema in uno dei modi seguenti:
+
+1.	Se si specifica la struttura dei dati tramite la proprietà **structure** nella definizione del set di dati, il servizio Data Factory considera la struttura come schema. In questo caso, se una riga non contiene un valore per una colonna, verrà inserito un valore null.
+2.	Se non si specifica la struttura dei dati tramite la proprietà **structure** nella definizione del set di dati, il servizio Data Factory deduce lo schema usando la prima riga di dati. In questo caso, se la prima riga non contiene lo schema completo, alcune colonne non saranno presenti nel risultato dell'operazione di copia.
+
+Pertanto, per le origini dati prive di schema, la procedura consigliata consiste nello specificare la struttura dei dati usando la proprietà **structure**.
+
 ## Proprietà del tipo di attività di copia di tabelle di Azure
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
@@ -518,4 +526,4 @@ In questo caso Data Factory eseguirà automaticamente la conversione del tipo in
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

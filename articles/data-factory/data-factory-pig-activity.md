@@ -68,7 +68,7 @@ inputs | Input utilizzati dall'attività Pig | No
 outputs | Output generati dall'attività Pig | Sì
 linkedServiceName | Riferimento al cluster HDInsight registrato come servizio collegato in Data factory | Sì
 script | Specificare lo script Pig inline | No
-script path | Archiviare lo script Pig in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". non è possibile usare entrambe le proprietà contemporaneamente | No
+script path | Archiviare lo script Pig in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Si noti che il nome del file distingue tra maiuscole e minuscole. | No
 defines | Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Pig | No
 
 ## Esempio
@@ -186,4 +186,4 @@ Per impostare i parametri per lo script Pig, seguire questa procedura:
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

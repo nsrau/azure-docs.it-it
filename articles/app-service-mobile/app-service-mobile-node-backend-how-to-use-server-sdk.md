@@ -74,6 +74,7 @@ Ogni back-end Node.js per le app per dispositivi mobili del servizio app di Azur
 Questa applicazione crea una semplice API Web ottimizzata per dispositivi mobili con un endpoint singolo, `/tables/TodoItem`, che consente l'accesso non autenticato a un archivio dati SQL sottostante usando uno schema dinamico. È adatta per l'avvio rapido delle librerie client seguenti:
 
 - [Avvio rapido di client Android]
+- [Avvio rapido di client Apache Cordova]
 - [Avvio rapido di client iOS]
 - [Avvio rapido di client Windows Store]
 - [Avvio rapido di client Xamarin.iOS]
@@ -430,6 +431,67 @@ La proprietà di accesso può assumere uno dei tre valori seguenti:
 
 Se la proprietà di accesso non è definita, è consentito l'accesso non autenticato.
 
+### <a name="howto-tables-getidentity"></a>Procedura: Usare le attestazioni di autenticazione con le tabelle
+
+È possibile impostare un numero di attestazioni richieste quando viene impostata l'autenticazione. Queste attestazioni non sono in genere disponibili tramite l'oggetto `context.user`. È possibile tuttavia recuperarle usando il metodo `context.user.getIdentity()`. Il metodo `getIdentity()` restituisce una promessa che viene risolta in un oggetto. L'oggetto viene associato a una chiave tramite il metodo di autenticazione (facebook, google, twitter, microsoftaccount o aad).
+
+Ad esempio, se si configura l'autenticazione dell'account Microsoft e si richiede l'attestazione degli indirizzi di posta elettronica, è possibile aggiungere l'indirizzo di posta elettronica nel record con il codice seguente:
+
+    var azureMobileApps = require('azure-mobile-apps');
+
+    // Create a new table definition
+    var table = azureMobileApps.table();
+
+    table.columns = {
+        "emailAddress": "string",
+        "text": "string",
+        "complete": "boolean"
+    };
+    table.dynamicSchema = false;
+    table.access = 'authenticated';
+
+    /**
+    * Limit the context query to those records with the authenticated user email address
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function queryContextForEmail(context) {
+        return context.user.getIdentity().then((data) => {
+            context.query.where({ emailAddress: data.microsoftaccount.claims.emailaddress });
+            return context.execute();
+        });
+    }
+
+    /**
+    * Adds the email address from the claims to the context item - used for
+    * insert operations
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function addEmailToContext(context) {
+        return context.user.getIdentity().then((data) => {
+            context.item.emailAddress = data.microsoftaccount.claims.emailaddress;
+            return context.execute();
+        });
+    }
+
+    // Configure specific code when the client does a request
+    // READ - only return records belonging to the authenticated user
+    table.read(queryContextForEmail);
+
+    // CREATE - add or overwrite the userId based on the authenticated user
+    table.insert(addEmailToContext);
+
+    // UPDATE - only allow updating of record belong to the authenticated user
+    table.update(queryContextForEmail);
+
+    // DELETE - only allow deletion of records belong to the authenticated uer
+    table.delete(queryContextForEmail);
+
+    module.exports = table;
+
+Per visualizzare le attestazioni disponibili, usare un browser Web per visualizzare l'endpoint `/.auth/me` del sito.
+
 ### <a name="howto-tables-disabled"></a>Procedura: Disabilitare l'accesso a specifiche operazioni su tabella
 
 Oltre che sulla tabella, la proprietà di accesso può essere usata per controllare singole operazioni. Sono disponibili quattro operazioni:
@@ -549,7 +611,7 @@ Quando si crea una nuova applicazione, è consigliabile eseguire il seeding dei 
 
 ### <a name="Swagger"></a>Abilitare il supporto di Swagger
 
-App per dispositivi mobili del servizio app di Azure viene fornito con il supporto predefinito di [Swagger]. Per abilitare il supporto di Swagger, installare prima di tutto swagger-ui come una dipendenza:
+Le app per dispositivi mobili del servizio app di Azure sono fornite con il supporto di [Swagger] incorporato. Per abilitare il supporto di Swagger, installare prima di tutto swagger-ui come una dipendenza:
 
     npm install --save swagger-ui
 
@@ -766,6 +828,7 @@ Nell'editor è anche possibile eseguire il codice nel sito.
 
 <!-- URLs -->
 [Avvio rapido di client Android]: app-service-mobile-android-get-started.md
+[Avvio rapido di client Apache Cordova]: app-service-mobile-cordova-get-started.md
 [Avvio rapido di client iOS]: app-service-mobile-ios-get-started.md
 [Avvio rapido di client Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md
 [Avvio rapido di client Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
@@ -803,4 +866,4 @@ Nell'editor è anche possibile eseguire il codice nel sito.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

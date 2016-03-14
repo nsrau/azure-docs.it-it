@@ -1,48 +1,56 @@
-<properties 
-	pageTitle="Gestire un account DocumentDB usando il portale di Azure | Microsoft Azure" 
-	description="Informazioni su come gestire il proprio account DocumentDB tramite il portale di Azure. Trovare una guida sull'uso del portale di Azure per visualizzare, copiare, eliminare e accedere agli account." 
+<properties
+	pageTitle="Gestire un account DocumentDB usando il portale di Azure | Microsoft Azure"
+	description="Informazioni su come gestire il proprio account DocumentDB tramite il portale di Azure. Trovare una guida sull'uso del portale di Azure per visualizzare, copiare, eliminare e accedere agli account."
 	keywords="Portale di Azure, documentdb, azure, Microsoft azure"
-	services="documentdb" 
-	documentationCenter="" 
-	authors="AndrewHoh" 
-	manager="jhubbard" 
+	services="documentdb"
+	documentationCenter=""
+	authors="AndrewHoh"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/18/2015" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/26/2016"
 	ms.author="anhoh"/>
 
 # Come gestire un account DocumentDB
 
-Acquisire familiarità con le chiavi, le impostazioni di coerenza e le informazioni su come eliminare un account nel portale di Azure.
+Informazioni su come usare le chiavi e i livelli di uniformità. Include inoltre informazioni su come eliminare un account nel portale di Azure
 
 ## <a id="keys"></a>Visualizzare, copiare e rigenerare le chiavi di accesso
 Quando si crea un account DocumentDB, il servizio genera due chiavi di accesso principali che possono essere usate per l'autenticazione quando si accede all'account DocumentDB. Fornendo due chiavi di accesso, DocumentDB consente di rigenerare le chiavi senza interruzioni dell'account DocumentDB.
 
-Nel [portale di Microsoft Azure](https://portal.azure.com/) accedere alla parte relativa alle **chiavi** dal pannello dell'**account DocumentDB** per visualizzare, copiare e rigenerare le chiavi usate per accedere all'account DocumentDB.
+Nel [portale di Microsoft Azure](https://portal.azure.com/) accedere al pannello **Chiavi** dalla barra **Informazioni di base** nel pannello **Account DocumentDB** per visualizzare, copiare e rigenerare le chiavi di accesso usate per accedere all'account DocumentDB.
 
-![Schermata del portale di Azure, pannello delle chiavi](media/documentdb-manage-account/keys.png)
+![Schermata del portale di Azure, pannello delle chiavi](./media/documentdb-manage-account/keys.png)
+
+È anche possibile accedere a **Chiavi** dal pannello **Tutte le impostazioni**.
+
+![Tutte le impostazioni, pannello Chiavi](./media/documentdb-manage-account/allsettingskeys.png)
+
+Si noti che il pannello **Chiavi** include anche le stringhe di connessione primaria e secondaria che possono essere usate per connettersi al proprio account dall'[Utilità di migrazione dati](documentdb-import-data.md).
+
+Include inoltre le chiavi di sola lettura per concedere agli utenti l'accesso di sola lettura a DocumentDB. Lettura e query sono operazioni di sola lettura, a differenza di creazione, eliminazione e sostituzione.
 
 ### Visualizzare e copiare una chiave di accesso nel portale di Azure
 
 1.      Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB. 
 
-2.      Nel filtro di **Riepilogo** fare clic su **Keys**.
+2.      Nella barra **Informazioni di base** dal pannello **Account di DocumentDB** fare clic su **Chiavi**.
 
 3.      Nel pannello **Keys** fare clic sul pulsante **Copy** a destra della chiave da copiare.
 
-  ![Visualizzare e copiare una chiave di accesso nel portale di Azure, pannello delle chiavi](./media/documentdb-manage-account/image004.jpg)
+  ![Visualizzare e copiare una chiave di accesso nel portale di Azure, pannello delle chiavi](./media/documentdb-manage-account/copykeys.png)
 
 ### Per rigenerare le chiavi di accesso
 
 È consigliabile modificare periodicamente le chiavi di accesso all'account DocumentDB per mantenere più sicure le connessioni. Vengono assegnate due chiavi di accesso per consentire di mantenere le connessioni all'account DocumentDB con una delle due chiavi mentre si rigenera l'altra.
 
-> [AZURE.WARNING]La rigenerazione delle chiavi di accesso influisce su tutte le applicazioni che dipendono dalla chiave corrente. Per usare la nuova chiave è necessario aggiornare tutti i client che usano la chiave di accesso per accedere all'account DocumentDB.
+> [AZURE.WARNING] La rigenerazione delle chiavi di accesso influisce su tutte le applicazioni che dipendono dalla chiave corrente. Per usare la nuova chiave è necessario aggiornare tutti i client che usano la chiave di accesso per accedere all'account DocumentDB.
 
 Se si dispone di applicazioni o servizi cloud che usano l'account DocumentDB e si rigenerano le chiavi, si perderanno le connessioni, a meno che non si registrino le chiavi. I passaggi seguenti illustrano il processo necessario per la registrazione delle chiavi.
 
@@ -50,7 +58,7 @@ Se si dispone di applicazioni o servizi cloud che usano l'account DocumentDB e s
 
 2.      Rigenerare la chiave di accesso primaria per l'account DocumentDB. Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB.
 
-3.      Nel filtro di riepilogo fare clic su **Keys**.
+3.      Nella barra **Informazioni di base** dal pannello **Account di DocumentDB** fare clic su **Chiavi**.
 
 4.      Nel pannello **Keys** fare clic sul comando **Regenerate Primary** e quindi su **OK** per confermare che si vuole generare una nuova chiave.
 
@@ -77,15 +85,13 @@ DocumentDB supporta quattro livelli di coerenza dei dati, ben definiti e configu
 
 1.      Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB. 
 
-2.      Nella sezione **Configurazione** fare clic su **Coerenza di default**.
+2.      Nel pannello dell'account, se il pannello delle **impostazioni** non è già aperto, fare clic sull'icona **Impostazioni** sulla barra dei comandi superiore.
 
-3.      Nel pannello **Coerenza di default** selezionare il livello di coerenza predefinito desiderato per l'account DocumentDB.
+3.      Nel pannello **Tutte le impostazioni** fare clic su **Uniformità predefinita** in **Funzionalità**.
 
-![Sessione coerenza predefinita](./media/documentdb-manage-account/image005.png)
+![Sessione coerenza predefinita](./media/documentdb-manage-account/chooseandsaveconsistency.png)
 
-![Coerenza predefinito limitata](./media/documentdb-manage-account/image006.png)
-
-4.      Fare clic su **Save**.
+4.      Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **Salva**.
 
 5.      L'avanzamento dell'operazione può essere monitorato tramite l'hub delle notifiche del portale di Azure.
 
@@ -94,7 +100,7 @@ DocumentDB supporta quattro livelli di coerenza dei dati, ben definiti e configu
 ## <a id="delete"></a> Procedura: come eliminare un account di DocumentDB nel portale di Azure
 Per rimuovere un account DocumentDB non più in uso dal portale di Azure, utilizzare il comando **Elimina** nel pannello dell'**account DocumentDB**.
 
-![Come eliminare un account di DocumentDB nel portale di Azure](./media/documentdb-manage-account/image009.png)
+![Come eliminare un account di DocumentDB nel portale di Azure](./media/documentdb-manage-account/deleteaccountconfirmation.png)
 
 1.      Nel [portale di Azure](https://portal.azure.com/) accedere all'account DocumentDB che si desidera eliminare. 
 
@@ -110,7 +116,4 @@ Informazioni su come [iniziare a usare l'account DocumentDB](http://go.microsoft
 
 Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure DocumentDB in [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
- 
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

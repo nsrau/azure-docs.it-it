@@ -12,21 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/17/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
-# Usare l'interfaccia utente Web per amministrare l'array virtuale StorSimple (anteprima)
+# Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array
 
 ![flusso del processo di installazione](./media/storsimple-ova-web-ui-admin/manage4.png)
 
 ## Panoramica
 
-Le esercitazioni in questo articolo si applicano all'array virtuale Microsoft Azure StorSimple (noto anche come dispositivo virtuale locale StorSimple) che esegue la versione 1.1.1.0 (anteprima). Questo articolo illustra una parte dei flussi di lavoro e delle attività di gestione complessi eseguibili sull'array virtuale StorSimple. Sono disponibili due interfacce utente utilizzabili per la gestione dell'array virtuale StorSimple: l'interfaccia utente del servizio StorSimple Manager (definito interfaccia utente del portale) e l'interfaccia utente Web locale per il dispositivo. Questo articolo è incentrato sulle attività che è possibile eseguire con l'interfaccia utente Web.
-
->[AZURE.IMPORTANT] 
->
->- L'array virtuale StorSimple è disponibile in anteprima ed è progettato a scopo di valutazione e pianificazione della distribuzione. L'installazione di questa versione di anteprima in un ambiente di produzione non è supportata. 
->- Se si riscontrano problemi con l'array virtuale StorSimple, inserire un post al riguardo nel [forum MSDN per StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
+Le esercitazioni in questo articolo si applicano a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple) che esegue la versione di disponibilità generale (GA) di marzo 2016. Questo articolo illustra una parte dei flussi di lavoro e delle attività di gestione complessi eseguibili sull'array virtuale StorSimple. È possibile gestire StorSimple Virtual Array usando l'interfaccia utente del servizio StorSimple Manager (interfaccia utente del portale) e l'interfaccia utente Web locale per il dispositivo. Questo articolo è incentrato sulle attività che è possibile eseguire con l'interfaccia utente Web.
 
 L'articolo include le esercitazioni seguenti:
 
@@ -43,11 +38,11 @@ Se la chiave DEK del servizio è stata smarrita ed è necessario recuperarla, es
 
 #### Per ottenere la chiave DEK del servizio
 
-1. Connettersi all'interfaccia utente Web locale. Andare a **Configurazione** > **Impostazioni cloud**.
+1. Connettersi all'interfaccia utente Web locale. Passare a **Configurazione** > **Impostazioni cloud**.
 
     ![ottenere la chiave DEK del servizio 1](./media/storsimple-ova-web-ui-admin/image27.png)
 
-2. In fondo alla pagina, fare clic su **Ottieni chiave DEK del servizio**. Viene visualizzata una chiave. Copiare e salvare questa chiave.
+2. Nella parte inferiore della pagina fare clic su **Ottieni chiave DEK del servizio**. Viene visualizzata una chiave. Copiare e salvare questa chiave.
 
     ![ottenere la chiave DEK del servizio 2](./media/storsimple-ova-web-ui-admin/image28.png)
 
@@ -58,7 +53,7 @@ In alcuni casi, quando si configura il dispositivo tramite l'interfaccia utente 
 
 #### Per eseguire i test di diagnostica
 
-1. Nell'interfaccia utente Web locale, andare a **Risoluzione dei problemi** > **Test di diagnostica**.
+1. Nell'interfaccia utente Web locale passare a **Risoluzione dei problemi** > **Test di diagnostica**.
 
     ![eseguire diagnostica 1](./media/storsimple-ova-web-ui-admin/image29.png)
 
@@ -74,11 +69,11 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
 
 #### Per generare il pacchetto di log
 
-1. Nell'interfaccia utente Web locale, andare a **Risoluzione dei problemi** > **Log del sistema**.
+1. Nell'interfaccia utente Web locale passare a **Risoluzione dei problemi** > **Log del sistema**.
 
     ![generare pacchetto di log 1](./media/storsimple-ova-web-ui-admin/image31.png)
 
-2. In fondo alla pagina, fare clic su **Crea pacchetto di log**. Viene creato un pacchetto di log del sistema. L'operazione richiede alcuni minuti.
+2. Nella parte inferiore della pagina fare clic su **Crea pacchetto di log**. Viene creato un pacchetto di log del sistema. L'operazione richiede alcuni minuti.
 
     ![generare pacchetto di log 2](./media/storsimple-ova-web-ui-admin/image32.png)
 
@@ -98,9 +93,9 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
 
 #### Per arrestare il dispositivo virtuale
 
-1. Nell'interfaccia utente Web locale, andare a **Manutenzione** > **Impostazioni risparmio energia**.
+1. Nell'interfaccia utente Web locale passare a **Manutenzione** > **Impostazioni risparmio energia**.
 
-2. In fondo alla pagina, fare clic su **Arresto**.
+2. Nella parte inferiore della pagina fare clic su **Arresto**.
 
     ![arresto del dispositivo 1](./media/storsimple-ova-web-ui-admin/image36.png)
 
@@ -116,9 +111,9 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
 
 #### Per riavviare il dispositivo virtuale
 
-1. Nell'interfaccia utente Web locale, andare a **Manutenzione** > **Impostazioni risparmio energia**.
+1. Nell'interfaccia utente Web locale passare a **Manutenzione** > **Impostazioni risparmio energia**.
 
-2. In fondo alla pagina, fare clic su **Riavvia**.
+2. Nella parte inferiore della pagina fare clic su **Riavvia**.
 
     ![riavvio del dispositivo](./media/storsimple-ova-web-ui-admin/image36.png)
 
@@ -134,6 +129,6 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
 
 ## Passaggi successivi
 
-Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+Informazioni su come [Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Introduzione ad Application Insights con Java in Eclipse
@@ -49,7 +49,16 @@ Seguire i passaggi rimanenti per ogni progetto Java.
 ## Creare una risorsa di Application Insights in Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. 
+2. Creare una nuova risorsa di Application Insights.  
+
+    ![Fare clic su + e scegliere Application Insights](./media/app-insights-java-eclipse/01-create.png)  
+3. Impostare il tipo di applicazione nell'applicazione Web Java.  
+
+    ![Inserire un nome, scegliere l'app Web Java e fare clic su Crea](./media/app-insights-java-eclipse/02-create.png)  
+4. Ottenere la chiave di strumentazione della nuova risorsa. Dopo poco sarà necessario incollarla in questo progetto del codice.  
+
+    ![Nella panoramica della nuova risorsa, fare clic su Proprietà e copiare la chiave di strumentazione](./media/app-insights-java-eclipse/03-key.png)
+
 
 ## Aggiunta di Application Insights al progetto
 
@@ -260,4 +269,4 @@ Inserire alcune righe di codice nell'applicazione Web Java per scoprire come vie
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

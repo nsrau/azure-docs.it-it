@@ -15,13 +15,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # Introduzione all'API di ricerca di Bing 
-Connettersi alla funzionalità di ricerca di Bing per cercare notizie, video e così via.
+Connettersi alla funzionalità di ricerca di Bing per cercare notizie, video e così via. L'API di ricerca di Bing può essere usata da:
 
-L'API di ricerca di Bing può essere usata da PowerApps e dalle app per la logica.
+- App per la logica 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [App per la logica](../articles/connectors/create-api-bingsearch.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-bingsearch.md)
+
 
 Con la ricerca di Bing è possibile:
 
@@ -43,7 +49,7 @@ Nessuno | <ul><li>Cerca siti Web</li><li>Cerca video</li><li>Cerca immagini</li>
 Tutte le API supportano i dati nei formati JSON e XML.
 
 ## Configurazione aggiuntiva
-Quando si aggiunge ricerca di Bing a PowerApps Enterprise, viene richiesta una chiave dell'account. Se non si dispone di una chiave di ricerca di Bing, creare un'[offerta di ricerca di Bing](https://datamarket.azure.com/dataset/bing/search) per ottenerne una.
+Quando si aggiunge ricerca di Bing a PowerApps Enterprise, viene richiesta una chiave dell'account. Se non si dispone di una chiave di ricerca di Bing, usare l'[offerta di ricerca di Bing](https://datamarket.azure.com/dataset/bing/search) gratuita per ottenerne una.
 
 
 ## Riferimento all'API REST Swagger
@@ -54,7 +60,7 @@ Recupera siti Web da una ricerca di Bing. ```GET: /Web```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|query|string|sì|query|nessuno |Testo da cercare, ad esempio 'xbox'|
+|query|string|yes|query|nessuno |Testo da cercare, ad esempio 'xbox'|
 |maxResult|integer|no|query|nessuno |Numero massimo di risultati da restituire|
 |startOffset|integer|no|query| nessuno|Numero di risultati da ignorare|
 |adultContent|string|no|query|nessuno |Filtro contenuti adulti. Valori validi: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
@@ -75,14 +81,14 @@ Recupera video da una ricerca di Bing. ```GET: /Video```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|query|string|sì|query|nessuno |Testo da cercare, ad esempio 'xbox'|
+|query|string|yes|query|nessuno |Testo da cercare, ad esempio 'xbox'|
 |maxResult|integer|no|query| nessuno|Numero massimo di risultati da restituire|
 |startOffset|integer|no|query|nessuno |Numero di risultati da ignorare|
 |adultContent|string|no|query|nessuno |Filtro contenuti adulti. Valori validi: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
 |market|string|no|query|nessuno |Mercato o area in base a cui restringere la ricerca, ad esempio it-IT|
 |longitudine|number|no|query|nessuno |Longitudine (coordinate est/ovest) in base a cui restringere la ricerca, ad esempio 47.603450|
 |latitudine|number|no|query|nessuno |Latitudine (coordinate nord/sud) in base a cui restringere la ricerca, ad esempio -122.329696|
-|videoFilters|string|no|query|nessuno |Filtro di ricerca in base a parametri quali dimensioni, aspetto, colore, stile, volto o qualsiasi altra combinazione. Valori validi: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <p>Ad esempio, 'Duration:Short+Resolution:High'</p>|
+|videoFilters|string|no|query|nessuno |Filtro di ricerca in base a parametri quali dimensioni, aspetto, colore, stile, volto o qualsiasi altra combinazione. Valori validi: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>Ad esempio, 'Duration:Short+Resolution:High'|
 |videoSortBy|string|no|query|nessuno |Ordinamento dei risultati. Valori validi: <ul><li>Date</li><li>Relevance</li></ul> <p>L'ordinamento in base alla data implica l'uso di valori decrescenti.</p>|
 
 #### Risposta
@@ -97,16 +103,16 @@ Recupera immagini da una ricerca di Bing. ```GET: /Image```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|query|string|sì|query|nessuno |Testo da cercare, ad esempio 'xbox'|
+|query|string|yes|query|nessuno |Testo da cercare, ad esempio 'xbox'|
 |maxResult|integer|no|query|nessuno |Numero massimo di risultati da restituire|
 |startOffset|integer|no|query|nessuno |Numero di risultati da ignorare|
 |adultContent|string|no|query|nessuno |Filtro contenuti adulti. Valori validi: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
 |market|string|no|query|nessuno |Mercato o area in base a cui restringere la ricerca, ad esempio it-IT|
 |longitudine|number|no|query| nessuno|Longitudine (coordinate est/ovest) in base a cui restringere la ricerca, ad esempio 47.603450|
 |latitudine|number|no|query|nessuno |Latitudine (coordinate nord/sud) in base a cui restringere la ricerca, ad esempio -122.329696|
-|imageFilters|string|no|query|nessuno |Filtro di ricerca in base a parametri quali dimensioni, aspetto, colore, stile, volto o qualsiasi altra combinazione. Valori validi: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><p>Ad esempio, 'Size:Small+Aspect:Square'</p>|
+|imageFilters|string|no|query|nessuno |Filtro di ricerca in base a parametri quali dimensioni, aspetto, colore, stile, volto o qualsiasi altra combinazione. Valori validi: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>Ad esempio, 'Size:Small+Aspect:Square'|
 
-#### Risposta
+#### Response
 |Nome|Descrizione|
 |---|---|
 |200|OK|
@@ -118,7 +124,7 @@ Recupera i risultati delle notizie da una ricerca di Bing. ```GET: /News```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|query|string|sì|query|nessuno |Testo da cercare, ad esempio 'xbox'|
+|query|string|yes|query|nessuno |Testo da cercare, ad esempio 'xbox'|
 |maxResult|integer|no|query|nessuno |Numero massimo di risultati da restituire|
 |startOffset|integer|no|query| nessuno|Numero di risultati da ignorare|
 |adultContent|string|no|query|nessuno |Filtro contenuti adulti. Valori validi: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
@@ -141,7 +147,7 @@ Recupera i suggerimenti ortografici. ```GET: /SpellingSuggestions```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|query|string|sì|query| nessuno|Testo da cercare, ad esempio 'xbox'|
+|query|string|yes|query| nessuno|Testo da cercare, ad esempio 'xbox'|
 |maxResult|integer|no|query|nessuno |Numero massimo di risultati da restituire|
 |startOffset|integer|no|query| nessuno|Numero di risultati da ignorare|
 |adultContent|string|no|query|nessuno |Filtro contenuti adulti. Valori validi: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
@@ -161,7 +167,7 @@ Recupera i risultati di ricerca correlati da una ricerca di Bing. ```GET: /Relat
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|query|string|sì|query|nessuno |Testo da cercare, ad esempio 'xbox'|
+|query|string|yes|query|nessuno |Testo da cercare, ad esempio 'xbox'|
 |maxResult|integer|no|query|nessuno |Numero massimo di risultati da restituire|
 |startOffset|integer|no|query| nessuno|Numero di risultati da ignorare|
 |adultContent|string|no|query|nessuno |Filtro contenuti adulti. Valori validi: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
@@ -181,7 +187,7 @@ Recupera tutti i siti web, i video, le immagini e così via da una ricerca di Bi
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|query|string|sì|query|nessuno |Testo da cercare, ad esempio 'xbox'|
+|query|string|yes|query|nessuno |Testo da cercare, ad esempio 'xbox'|
 |maxResult|integer|no|query|nessuno |Numero massimo di risultati da restituire|
 |startOffset|integer|no|query|nessuno |Numero di risultati da ignorare|
 |adultContent|string|no|query|nessuno |Filtro contenuti adulti. Valori validi: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
@@ -189,9 +195,9 @@ Recupera tutti i siti web, i video, le immagini e così via da una ricerca di Bi
 |longitudine|number|no|query|nessuno |Longitudine (coordinate est/ovest) in base a cui restringere la ricerca, ad esempio 47.603450|
 |latitudine|number|no|query|nessuno |Latitudine (coordinate nord/sud) in base a cui restringere la ricerca, ad esempio -122.329696|
 |webFileType|string|no|query|nessuno |Tipo di file in base al quale restringere la ricerca, ad esempio 'DOC'|
-|videoFilters|string|no|query|nessuno |Filtro di ricerca in base a parametri quali dimensioni, aspetto, colore, stile, volto o qualsiasi altra combinazione. Valori validi: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <p>Ad esempio, 'Duration:Short+Resolution:High'</p>|
+|videoFilters|string|no|query|nessuno |Filtro di ricerca in base a parametri quali dimensioni, aspetto, colore, stile, volto o qualsiasi altra combinazione. Valori validi: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>Ad esempio, 'Duration:Short+Resolution:High'|
 |videoSortBy|string|no|query|nessuno |Ordinamento dei risultati. Valori validi: <ul><li>Date</li><li>Relevance</li></ul> <p>L'ordinamento in base alla data implica l'uso di valori decrescenti.</p>|
-|imageFilters|string|no|query|nessuno |Filtro di ricerca in base a parametri quali dimensioni, aspetto, colore, stile, volto o qualsiasi altra combinazione. Valori validi: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><p>Ad esempio, 'Size:Small+Aspect:Square'</p>|
+|imageFilters|string|no|query|nessuno |Filtro di ricerca in base a parametri quali dimensioni, aspetto, colore, stile, volto o qualsiasi altra combinazione. Valori validi: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>Ad esempio, 'Size:Small+Aspect:Square'|
 |newsSortBy|string|no|query|nessuno |Ordinamento dei risultati. Valori validi: <ul><li>Date</li><li>Relevance</li></ul> <p>L'ordinamento in base alla data implica l'uso di valori decrescenti.</p>|
 |newsCategory|string|no|query|nessuno |Categoria di notizie in base a cui restringere la ricerca, ad esempio 'rt\_Business'|
 |newsLocationOverride|string|no|query|nessuno |Sovrascrittura per l'individuazione delle posizioni di Bing. Questo parametro è applicabile solo al mercato it-IT. Il formato di input è US./<state />, ad esempio 'US.WA'|
@@ -280,7 +286,7 @@ Recupera tutti i siti web, i video, le immagini e così via da una ricerca di Bi
 |WebResultsTotal|integer|no|
 |ImageResultsTotal|integer|no|
 |VideoResultsTotal|integer|no|
-|NewsResultsTotal|integer|
+|NewsResultsTotal|integer|no|
 |SpellSuggestionsTotal|integer|no|
 |WebResults|array|no|
 |ImageResults|array|no|
@@ -291,8 +297,8 @@ Recupera tutti i siti web, i video, le immagini e così via da una ricerca di Bi
 
 ## Passaggi successivi
 
-Dopo aver aggiunto l'API di ricerca di Bing a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle proprie app.
+Dopo aver aggiunto l'API di ricerca di Bing a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle app.
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

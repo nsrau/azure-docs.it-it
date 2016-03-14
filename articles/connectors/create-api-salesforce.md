@@ -14,15 +14,16 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/22/2016"
+ms.date="02/25/2016"
 ms.author="deonhe"/>
 
 # Introduzione all'API di Salesforce
-Connettersi a Salesforce per creare oggetti, recuperarli e così via.
+Connettersi a Salesforce per creare oggetti, recuperarli e così via. L'API di Salesforce può essere usata da:
 
-L'API di Salesforce può essere usata dalle app di PowerApps Enterprise e dalle app per la logica.
+- PowerApps 
+- App per la logica 
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione schema 2015-08-01 di anteprima delle app per la logica. Per la versione schema 2014-12-01 di anteprima, fare clic sull'[API di Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic su [API di Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
 
 Con Salesforce è possibile:
 
@@ -47,11 +48,11 @@ Tutte le API supportano i dati nei formati JSON e XML.
 ## Creare una connessione a Salesforce 
 
 ### Aggiungere configurazioni aggiuntive in PowerApps
-Quando si aggiunge Salesforce a PowerApps Enterprise, si immettono i valori di **chiave app** e **segreto app** dell'applicazione di Salesforce. Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione Salesforce. Se non si ha un'applicazione Salesforce, è possibile usare la procedura seguente per creare l'applicazione:
+Quando si aggiunge Salesforce a PowerApps Enterprise, si immettono i valori **Chiave app** e **Chiave privata app** dell'applicazione Salesforce. Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione Salesforce. Se non si ha un'applicazione Salesforce, è possibile usare la procedura seguente per creare l'applicazione:
 
-1. [Accedere alla home page per gli sviluppatori Salesforce][5], selezionare il profilo e quindi **il programma di installazione**: ![Home page di Salesforce][6]
+1. [Accedere alla home page per gli sviluppatori Salesforce][5], selezionare il profilo e quindi selezionare **Setup**: ![Home page di Salesforce][6]
 
-3. Selezionare **Crea** e selezionare **App**. Nella pagina **Apps** selezionare **New** in **Connected Apps**: ![Creazione app Salesforce][7]
+3. Selezionare **Crea** e selezionare **App**. Nella pagina **Apps** sotto **Connected Apps** selezionare **New**: ![Creazione app Salesforce][7]
 
 4. In **Nuova App connessa**:
 
@@ -69,7 +70,7 @@ Quando si aggiunge Salesforce a PowerApps Enterprise, si immettono i valori di *
 
 6. **Salvare** le modifiche: ![Nuova app di Salesforce][8]
 
-A questo punto, copiare e incollare i valori di **ID client** e **chiave app** nella configurazione di Salesforce nel portale di Azure.
+A questo punto, copiare e incollare i valori **Chiave app** e **Chiave privata app** nella configurazione di Salesforce nel portale di Azure.
 
 ### Aggiungere configurazioni aggiuntive nelle app per la logica
 Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Salesforce.
@@ -82,7 +83,7 @@ Dopo aver creato la connessione immettere le proprietà di Salesforce, ad esempi
 >[AZURE.TIP] È possibile usare la stessa connessione in altre app per la logica.
 
 ## Informazioni di riferimento sull'API REST
-#### Questa documentazione è relativa alla versione 1.0
+Si applica alla versione 1.0.
 
 
 ### Crea oggetto
@@ -90,8 +91,8 @@ Crea un oggetto Salesforce. ```POST: /datasets/default/tables/{table}/items```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|table|string|sì|path|nessuno|Tipo di oggetto SObject di Salesforce, ad esempio: 'Lead'|
-|item| |sì|body|nessuno|Oggetto Salesforce da creare|
+|tabella|string|yes|path|nessuno|Tipo di oggetto SObject di Salesforce, ad esempio: 'Lead'|
+|item| |yes|body|nessuno|Oggetto Salesforce da creare|
 
 ### Risposta
 |Nome|Descrizione|
@@ -106,8 +107,8 @@ Recupera un oggetto Salesforce. ```GET: /datasets/default/tables/{table}/items/{
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|table|string|sì|path|nessuno|Tipo di oggetto SObject di Salesforce, ad esempio: 'Lead'|
-|id|string|sì|path|nessuno|Identificatore univoco dell'oggetto Salesforce da recuperare|
+|tabella|string|yes|path|nessuno|Tipo di oggetto SObject di Salesforce, ad esempio: 'Lead'|
+|id|string|yes|path|nessuno|Identificatore univoco dell'oggetto Salesforce da recuperare|
 
 ### Risposta
 
@@ -123,8 +124,8 @@ Elimina un oggetto Salesforce. ```DELETE: /datasets/default/tables/{table}/items
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|table|string|sì|path|nessuno|Tipo di oggetto SObject di Salesforce, ad esempio: 'Lead'|
-|id|string|sì|path|nessuno|Identificatore univoco dell'oggetto Salesforce da eliminare|
+|tabella|string|yes|path|nessuno|Tipo di oggetto SObject di Salesforce, ad esempio: 'Lead'|
+|id|string|yes|path|nessuno|Identificatore univoco dell'oggetto Salesforce da eliminare|
 
 ### Risposta
 |Nome|Descrizione|
@@ -139,9 +140,9 @@ Aggiorna un oggetto Salesforce. ```PATCH: /datasets/default/tables/{table}/items
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|table|string|sì|path|nessuno|Tipo di oggetto SObject di Salesforce, ad esempio: 'Lead'|
-|id|string|sì|path|nessuno|Identificatore univoco dell'oggetto Salesforce da aggiornare|
-|item| |sì|body|nessuno|Oggetto Salesforce con le proprietà modificate|
+|tabella|string|yes|path|nessuno|Tipo di oggetto SObject di Salesforce, ad esempio: 'Lead'|
+|id|string|yes|path|nessuno|Identificatore univoco dell'oggetto Salesforce da aggiornare|
+|item| |yes|body|nessuno|Oggetto Salesforce con le proprietà modificate|
 
 ### Risposta
 |Nome|Descrizione|
@@ -152,17 +153,17 @@ Aggiorna un oggetto Salesforce. ```PATCH: /datasets/default/tables/{table}/items
 
 
 ### Quando viene creato un oggetto
-Quando viene creato un oggetto in Salesforce attiva un flusso. ```GET: /datasets/default/tables/{table}/onnewitems```
+Quando viene creato un oggetto in Salesforce, attiva un flusso. ```GET: /datasets/default/tables/{table}/onnewitems```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|table|string|sì|path|nessuno|Tipo di oggetto SObject di Salesforce, ad esempio: 'Lead'|
+|tabella|string|yes|path|nessuno|Tipo di oggetto SObject di Salesforce, ad esempio: 'Lead'|
 |$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0)|
 |$top|integer|no|query|nessuno|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
 |$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi|
 |$orderby|string|no|query|nessuno|Query orderBy ODATA per specificare l'ordine degli elementi|
 
-### Risposta
+### Response
 |Nome|Descrizione|
 |---|---|
 |200|OK|
@@ -171,17 +172,17 @@ Quando viene creato un oggetto in Salesforce attiva un flusso. ```GET: /datasets
 
 
 ### Quando viene modificato un oggetto 
-Quando viene modificato un oggetto in Salesforce attiva un flusso. ```GET: /datasets/default/tables/{table}/onupdateditems```
+Quando viene modificato un oggetto in Salesforce, attiva un flusso. ```GET: /datasets/default/tables/{table}/onupdateditems```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|table|string|sì|path|nessuno|Tipo di oggetto SObject di Salesforce, ad esempio: 'Lead'|
+|tabella|string|yes|path|nessuno|Tipo di oggetto SObject di Salesforce, ad esempio: 'Lead'|
 |$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0)|
 |$top|integer|no|query|nessuno|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
 |$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi|
 |$orderby|string|no|query|nessuno|Query orderBy ODATA per specificare l'ordine degli elementi|
 
-### Risposta
+### Response
 |Nome|Descrizione|
 |---|---|
 |200|OK|
@@ -203,7 +204,7 @@ Quando viene modificato un oggetto in Salesforce attiva un flusso. ```GET: /data
 
 | Nome | Tipo di dati | Obbligatorio|
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 |tableDisplayName|string|no|
@@ -214,7 +215,7 @@ Quando viene modificato un oggetto in Salesforce attiva un flusso. ```GET: /data
 
 | Nome | Tipo di dati | Obbligatorio|
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 
@@ -244,7 +245,7 @@ Quando viene modificato un oggetto in Salesforce attiva un flusso. ```GET: /data
 |DisplayName|string|no|
 
 
-#### Table
+#### Tabella
 
 | Nome | Tipo di dati | Obbligatorio|
 |---|---|---|
@@ -274,7 +275,7 @@ Quando viene modificato un oggetto in Salesforce attiva un flusso. ```GET: /data
 
 
 ## Passaggi successivi
-Dopo aver aggiunto l'API di Salesforce a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle proprie app.
+Dopo aver aggiunto l'API di Salesforce a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle app.
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -284,4 +285,4 @@ Dopo aver aggiunto l'API di Salesforce a PowerApps Enterprise, [concedere autori
 [7]: ./media/create-api-salesforce/salesforce-create-app.png
 [8]: ./media/create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

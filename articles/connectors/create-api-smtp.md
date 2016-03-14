@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introduzione all'API di SMTP
-Connettersi a un server SMTP per inviare messaggi di posta elettronica.
+Connettersi a un server SMTP per inviare messaggi di posta elettronica. L'API di SMTP può essere usata da:
 
-L'API di SMTP può essere usata dalle app per la logica.
+- App per la logica
 
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore di SMTP](../app-service-logic/app-service-logic-connector-smtp.md).
 
@@ -54,6 +54,7 @@ Dopo aver creato la connessione, immettere le proprietà di SMTP, ad esempio i v
 >[AZURE.TIP] È possibile usare la stessa connessione di SMTP in altre app per la logica.
 
 ## Riferimento all'API REST di Swagger
+Si applica alla versione 1.0.
 
 ### Invia messaggio di posta elettronica
 Invia un messaggio di posta elettronica a uno o più destinatari. ```POST: /SendEmail```
@@ -93,4 +94,4 @@ Invia un messaggio di posta elettronica a uno o più destinatari. ```POST: /Send
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

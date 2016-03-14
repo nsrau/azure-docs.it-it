@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="02/26/2016"
    ms.author="andkjell"/>
 
 # Servizio di sincronizzazione Azure AD Connect: utilità di pianificazione
@@ -49,6 +49,8 @@ Per visualizzare le impostazioni attuali della configurazione, passare a PowerSh
 - **IsStagingModeEnabled**: indica se il [modello di staging](active-directory-aadconnectsync-operations.md#staging-mode) è abilitato.
 
 È possibile modificare tutte queste impostazioni con `Set-ADSyncScheduler`. Il parametro IsStagingModeEnabled può essere configurato solo dall'installazione guidata.
+
+La configurazione dell'utilità di pianificazione viene archiviata in Azure AD. Se si dispone di un server di gestione temporanea, qualsiasi modifica apportata nel server primario avrà effetto anche nel server di gestione temporanea (fatta eccezione per IsStagingModeEnabled).
 
 ## Avviare l'utilità di pianificazione
 Per impostazione predefinita, l'utilità di pianificazione verrà eseguita ogni 30 minuti. In alcuni casi è possibile che si voglia eseguire un ciclo di sincronizzazione tra i cicli pianificati o che sia necessario eseguirne un tipo diverso.
@@ -96,4 +98,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

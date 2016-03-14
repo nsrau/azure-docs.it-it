@@ -120,9 +120,9 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     a. Per **SAML-enabled** selezionare **Sì**.
 
-    b. Nella pagina **Configura accesso Single Sign-On in UserEcho** del portale di Azure classico copiare il valore di **URL servizio Single Sign-On**, aprire il certificato scaricato nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **URL SSO SAML**.
+    b. Nella pagina Configura accesso Single Sign-On in UserEcho del portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e quindi incollarlo nella casella di testo **URL SSO SAML**.
 
-    c. Nella finestra di dialogo **Configura accesso Single Sign-On in UserEcho** del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **URL disconnessione remota**.
+    c. Nella finestra di dialogo Configura accesso Single Sign-On in UserEcho del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **URL disconnessione remota**.
 
     d. Aprire il certificato scaricato nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **X.509 Certificate**.
 
@@ -253,4 +253,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -62,8 +62,8 @@ Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scaden
  
 | Tipo di utente | Scade dopo |
 | :-------- | :----------- | 
-| Utenti NON gestiti da Azure Active Directory (@hotmail.com, @live.com, ecc.) | 12 ore |
-| Utenti gestiti da Azure Active Directory (AAD) | | 14 giorni dopo l'esecuzione dell'ultima sezione, se non vengono eseguite sezioni basate sul servizio collegato OAuth per 14 giorni dall'esecuzione dell'ultima sezione. <p>90 giorni, se viene eseguita una sezione basata sul servizio collegato OAuth almeno una volta ogni 14 giorni.</p> |
+| Account utente NON gestiti da Azure Active Directory (@hotmail.com, @live.com, ecc.) | 12 ore |
+| Account utente gestiti da Azure Active Directory (AAD) | | 14 giorni dopo l'esecuzione dell'ultima sezione. <p>90 giorni, se viene eseguita una sezione basata sul servizio collegato OAuth almeno una volta ogni 14 giorni.</p> |
 
 Per evitare/risolvere questo problema, alla **scadenza del token** è necessario ripetere l'autorizzazione con il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà **sessionId** e **authorization** a livello di codice usando il codice riportato nella sezione seguente.
 
@@ -156,7 +156,7 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 Proprietà | Descrizione | Obbligatorio
 :-------- | :----------- | :--------
 type | La proprietà type deve essere impostata su **DataLakeAnalyticsU-SQL**. | Sì
-scriptPath | Percorso della cartella contenente lo script U-SQL. | No (se si usa uno script)
+scriptPath | Percorso della cartella contenente lo script U-SQL. Si noti che il nome del file distingue tra maiuscole e minuscole. | No (se si usa uno script)
 scriptLinkedService | Servizi collegati che collegano la risorsa di archiviazione contenente lo script alla Data factory | No (se si usa uno script)
 script | Specificare lo script inline anziché specificare le proprietà scriptPath e scriptLinkedService. Ad esempio: "script" : "CREATE DATABASE test". | No (se si usano le proprietà scriptPath e scriptLinkedService)
 degreeOfParallelism | Il numero massimo di nodi che verranno usati contemporaneamente per eseguire il processo. | No
@@ -257,4 +257,4 @@ I valori dei parametri **@in** e **@out** nello script U-SQL riportato sopra ven
 
 È possibile specificare anche altre proprietà come degreeOfParallelism, priorità e così via nella definizione della pipeline per i processi in esecuzione sul servizio di Analisi Azure Data Lake.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

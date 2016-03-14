@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/28/2016" 
 	ms.author="ireiter"/>
 
 #Normal Distribution Suite
@@ -265,4 +265,4 @@ Per le domande frequenti relative all'uso del servizio Web o alla pubblicazione 
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

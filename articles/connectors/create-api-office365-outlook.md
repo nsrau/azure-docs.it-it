@@ -13,95 +13,111 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="02/22/2016"
-ms.author="deonhe"/>
+ms.date="02/25/2016"
+ms.author="mandia"/>
 
-# Introduzione all'API Outlook di Office 365
+# Guida introduttiva all'API Outlook di Office 365 
 
-L'API di Office 365 consente di interagire con Office 365. Ad esempio, per creare, modificare e aggiornare contatti ed elementi del calendario.
+Connettersi a Outlook di Office 365 per ricevere la posta elettronica, rispondere a un messaggio di posta elettronica, aggiornare il calendario, aggiornare i contatti e molto altro. È possibile usare l'API Outlook di Office 365 da:
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic su [API di Office 365](../app-service-logic/app-service-logic-connector-Office365.md).
+- PowerApps 
+- App per la logica 
 
-È possibile usare Office 365 per:
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic su [API di Office 365](../app-service-logic/app-service-logic-connector-office365.md).
 
-* Compilare app per la logica
-* Compilare app avanzate
+Con Outlook di Office 365 è possibile:
 
-Per informazioni su come aggiungere un'API in PowerApps Enterprise, vedere l'articolo relativo alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+- Creare il flusso di business in base ai dati ottenuti da Outlook di Office 365. 
+- Usare un trigger in presenza di un nuovo messaggio di posta elettronica, quando si crea un nuovo contatto e altro ancora.
+- Usare azioni per rispondere a un messaggio di posta elettronica, creare un nuovo evento del calendario e altro ancora. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, in presenza di un nuovo oggetto in Salesforce, si può prendere questo oggetto e aggiornare i contatti Outlook di Office 365. 
+- Aggiungere l'API Outlook di Office 365 a PowerApps Enterprise in modo che gli utenti possano usarla nelle proprie app. 
 
-Per aggiungere un'operazione nelle app per la logica, vedere [Creare una nuova app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per informazioni su come aggiungere un'API in PowerApps Enterprise, leggere l'articolo relativo alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
-## Informazioni su trigger e azioni
+Per aggiungere un'operazione nelle app per la logica, vedere l'articolo su come [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-L'API di Office 365 include trigger e può essere usata come azione. Tutte le API supportano dati nei formati JSON e XML.
+## Trigger e azioni
 
- Nell'API di Office 365 sono disponibili le azioni e/o i trigger seguenti:
+L'API Outlook di Office 365 dispone dei trigger e delle azioni seguenti.
 
-### Azioni di Office 365
-È possibile eseguire queste azioni:
+| Trigger | Azioni|
+| --- | --- |
+|<ul><li>All'avvio imminente di un evento</li><li>All'arrivo di un nuovo messaggio di posta elettronica</li><li>In presenza di nuovi elementi</li><li>In presenza di elementi aggiornati</li></ul>| <ul><li>Creare un contatto</li><li>Creare un evento</li><li>Inviare un messaggio di posta elettronica di approvazione</li><li>Inviare un messaggio di posta elettronica</li><li>Eliminare un contatto</li><li>Eliminare un messaggio di posta elettronica</li><li>Eliminare un evento</li><li>Ottenere l'allegato</li><li>Ottenere calendari</li><li>Ottenere un contatto</li><li>Ottenere cartelle dei contatti</li><li>Ottenere contatti</li><li>Ottenere messaggi di posta elettronica</li><li>Ottenere un evento</li><li>Ottenere eventi</li><li>Contrassegnare come già letto</li><li>All'avvio imminente di un evento</li><li>All'avvio di un nuovo messaggio di posta elettronica</li><li>In presenza di nuovi elementi</li><li>In presenza di elementi aggiornati</li><li>Rispondere al messaggio</li><li>Inviare un messaggio di posta elettronica con opzioni</li><li>Aggiornare un contatto</li><li>Aggiornare un evento</li></ul> |
 
-|Azione|Descrizione|
-|--- | ---|
-|GetEmails|Recupera i messaggi di posta elettronica da una cartella.|
-|SendEmail|Invia un messaggio di posta elettronica.|
-|DeleteEmail|Elimina un messaggio di posta elettronica in base all'ID.|
-|MarkAsRead|Contrassegna un messaggio di posta elettronica come già letto.|
-|ReplyTo|Risponde a un messaggio di posta elettronica.|
-|GetAttachment|Recupera l'allegato al messaggio in base all'ID.|
-|SendMailWithOptions|Invia un messaggio di posta elettronica con più opzioni e attende che il destinatario risponda con una delle opzioni.|
-|SendApprovalMail|Invia un messaggio di approvazione e attende una risposta dal destinatario A.|
-|CalendarGetTables|Recupera i calendari.|
-|CalendarGetItems|Recupera gli elementi da un calendario.|
-|CalendarPostItem|Crea un nuovo evento.|
-|CalendarGetItem|Recupera un elemento specifico da un calendario.|
-|CalendarDeleteItem|Elimina un elemento del calendario.|
-|CalendarPatchItem|Aggiorna parzialmente un elemento del calendario.|
-|ContactGetTables|Recupera le cartelle dei contatti.|
-|ContactGetItems|Recupera i contatti da una cartella Contatti.|
-|ContactPostItem|Crea un nuovo contatto.|
-|ContactGetItem|Recupera un contatto specifico da una cartella Contatti.|
-|ContactDeleteItem|Elimina un contatto.|
-|ContactPatchItem|Aggiorna parzialmente un contatto.|
-### Trigger di Office 365
-È possibile ascoltare questi eventi:
-
-|Trigger | Descrizione|
-|--- | ---|
-|OnUpcomingEvents|Attiva un flusso all'avvio di un prossimo evento del calendario.|
-|OnNewEmail|Attiva un flusso quando arriva un nuovo messaggio di posta elettronica.|
-|CalendarGetOnNewItems|Attivata quando viene creato un nuovo elemento del calendario.|
-|CalendarGetOnUpdatedItems|Attivata quando viene modificato un elemento del calendario.|
+Tutte le API supportano dati nei formati JSON e XML.
 
 
 ## Creare una connessione a Office 365
-Per usare l'API di Office 365, creare prima di tutto una **connessione**, quindi fornire i dettagli di queste proprietà:
 
-|Proprietà| Obbligatorio|Descrizione|
-| ---|---|---|
-|Token|Sì|Fornire le credenziali di Office 365|
+### Aggiungere configurazioni aggiuntive in PowerApps
+Quando si aggiunge questa API a PowerApps Enterprise, immettere la **chiave app** e i valori di **chiave privata app** dell'applicazione di Office 365 Azure Active Directory (AAD). Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione Office 365. Se non si dispone di un'applicazione Office 365, è possibile seguire la procedura riportata sotto per creare l'applicazione:
 
+1. Nel [portale di Azure][5] aprire **Active Directory** e selezionare il nome del tenant dell'organizzazione.
+2. Selezionare la scheda **Applicazioni** e selezionare **Aggiungi**: ![Applicazioni tenant ADD][7]
 
->[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
+3. In **Aggiungi applicazione**:
 
-## Riferimento all'API REST di Office 365
-#### Questa documentazione è relativa alla versione 1.0
+	1. Immettere un **Nome** per l'applicazione.  
+	2. Lasciare il tipo di applicazione come **Web**.  
+	3. Selezionare **Avanti**.  
+
+	![Aggiungere l'applicazione ADD - info app][8]
+
+6. In **Proprietà app**:
+
+	1. Immettere l'**URL ACCESSO** dell'applicazione. Poiché si intende eseguire l'autenticazione con AAD per PowerApps, impostare l'URL di accesso su \__https://login.windows.net_.
+2. Immettere un **URI ID APP** valido per l'app.  
+	3. Selezionare **OK**.  
+
+	![Aggiungere l'applicazione ADD - proprietà app][9]
+
+7. Al termine viene visualizzata la nuova applicazione AAD. Selezionare **Configura**: ![App ADD Contoso][10]
+
+8. Nella sezione _OAuth 2_ impostare l'**URL di risposta** secondo il valore dell'URL di reindirizzamento mostrato nel momento in cui è stata aggiunta l'API Outlook di Office 365 nel portale di Azure. Selezionare **Aggiungi applicazione**: ![Configurare l'applicazione ADD Contoso][11]
+
+9. In **Autorizzazioni per altre applicazioni** selezionare **Office 365 Exchange Online**, quindi **OK**: ![Delegato app Contoso][12]
+
+	Nella pagina di configurazione, notare che _Office 365 Exchange Online_ viene aggiunto all’elenco _Autorizzazioni per altre applicazioni_.
+
+10. Per **Office 365 Exchange Online** selezionare **Autorizzazioni delegate**, quindi le autorizzazioni seguenti:
+
+	- Lettura e scrittura dei contatti dell'utente
+	- Lettura dei contatti dell'utente
+	- Lettura e scrittura dei calendari dell'utente
+	- Lettura dei calendari dell’utente
+	- Invio di messaggi di posta elettronica come utente
+	- Lettura e scrittura della posta dell'utente
+	- Lettura della posta utente
+
+	![Autorizzazioni delegate app Contoso][13]
+
+Viene creata una nuova applicazione Azure Active Directory È possibile copiare e incollare la **chiave app** e i valori della **chiave privata app** nella configurazione di API Outlook di Office 365 nel portale di Azure.
+
+Per alcune utili informazioni sulle applicazioni AAD vedere [Come vengono aggiunte le applicazioni in Azure AD e perché](../active-directory/active-directory-how-applications-are-added.md).
+
+### Aggiungere configurazioni aggiuntive nelle app per la logica
+Quando si aggiunge questa API alle app per la logica, è necessario accedere all'account Outlook di Office 365 e consentire alle app per la logica di connettersi all'account.
+
+1. Accedere all'account Outlook di Office 365.
+2. Consentire alle app per la logica di connettersi e di usare l'account Office 365. 
+
+Dopo aver creato la connessione, immettere le proprietà Outlook di Office 365, ad esempio il percorso della cartella della posta in arrivo o il messaggio di posta elettronica. Le **Informazioni di riferimento sulle API REST** in questo argomento illustrano tali proprietà.
+
+>[AZURE.TIP] È possibile usare la stessa connessione Outlook di Office 365 in altre app per la logica.
+
+## Riferimento all'API REST di Swagger
+Si applica alla versione 1.0.
 
 
 ### All'avvio imminente di un evento 
-
-
- Attiva un flusso all'avvio di un prossimo evento del calendario. ```GET: /Events/OnUpcomingEvents```
-
-
+Per attivare un flusso all'avvio di un evento del calendario imminente. ```GET: /Events/OnUpcomingEvents```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |tabella|string|yes|query|nessuno|Identificatore univoco del calendario.|
 |lookAheadTimeInMinutes|integer|no|query|15|Tempo (in minuti) di attesa di eventi imminenti.|
 
-
 #### Response
-
 |Nome|Descrizione|
 |---|---|
 |200|Operazione riuscita|
@@ -111,16 +127,10 @@ Per usare l'API di Office 365, creare prima di tutto una **connessione**, quindi
 |403|Accesso negato|
 |500|Internal Server Error|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Ottenere messaggi di posta elettronica 
-
-
- Recupera i messaggi di posta elettronica da una cartella. ```GET: /Mail```
-
-
+Per recuperare i messaggi di posta elettronica da una cartella. ```GET: /Mail```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -132,7 +142,6 @@ Per usare l'API di Office 365, creare prima di tutto una **connessione**, quindi
 |skip|integer|no|query|0|Numero di messaggi di posta elettronica da ignorare (valore predefinito: 0).|
 |skipToken|string|no|query|nessuno|Ignorare il token per recuperare una nuova pagina.|
 
-
 #### Response
 
 |Nome|Descrizione|
@@ -143,16 +152,10 @@ Per usare l'API di Office 365, creare prima di tutto una **connessione**, quindi
 |403|Accesso negato|
 |500|Internal Server Error|
 |default|Operazione non riuscita.|
-------
 
 
-
-### Inviare messaggi di posta elettronica 
-
-
- Invia un messaggio di posta elettronica. ```POST: /Mail```
-
-
+### Invia messaggio di posta elettronica 
+Per inviare un messaggio di posta elettronica. ```POST: /Mail```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -169,22 +172,15 @@ Per usare l'API di Office 365, creare prima di tutto una **connessione**, quindi
 |403|Accesso negato|
 |500|Internal Server Error|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Eliminare i messaggi di posta elettronica 
-
-
- Elimina un messaggio di posta elettronica in base all'ID. ```DELETE: /Mail/{messageId}```
-
-
+Per eliminare un messaggio di posta elettronica in base all'ID. ```DELETE: /Mail/{messageId}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |messageId|string|yes|path|nessuno|ID del messaggio da eliminare.|
 
-
 #### Response
 
 |Nome|Descrizione|
@@ -195,22 +191,15 @@ Per usare l'API di Office 365, creare prima di tutto una **connessione**, quindi
 |403|Accesso negato|
 |500|Internal Server Error|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Contrassegnare come già letto 
-
-
- Contrassegna un messaggio di posta elettronica come già letto. ```POST: /Mail/MarkAsRead/{messageId}```
-
-
+Per contrassegnare un messaggio di posta elettronica come già letto. ```POST: /Mail/MarkAsRead/{messageId}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |messageId|string|yes|path|nessuno|ID del messaggio deve essere contrassegnato come letto|
 
-
 #### Response
 
 |Nome|Descrizione|
@@ -221,16 +210,10 @@ Per usare l'API di Office 365, creare prima di tutto una **connessione**, quindi
 |403|Accesso negato|
 |500|Internal Server Error|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Rispondere al messaggio 
-
-
- Risponde a un messaggio di posta elettronica. ```POST: /Mail/ReplyTo/{messageId}```
-
-
+Per rispondere a un messaggio di posta elettronica. ```POST: /Mail/ReplyTo/{messageId}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -238,7 +221,6 @@ Per usare l'API di Office 365, creare prima di tutto una **connessione**, quindi
 |comment|string|yes|query|nessuno|Commento nella risposta|
 |replyAll|boolean|no|query|false|Rispondere a tutti i destinatari.|
 
-
 #### Response
 
 |Nome|Descrizione|
@@ -249,23 +231,16 @@ Per usare l'API di Office 365, creare prima di tutto una **connessione**, quindi
 |403|Accesso negato|
 |500|Internal Server Error|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Ottenere l'allegato 
-
-
- Recupera l'allegato al messaggio in base all'ID. ```GET: /Mail/{messageId}/Attachments/{attachmentId}```
-
-
+Per recuperare l'allegato al messaggio in base all'ID. ```GET: /Mail/{messageId}/Attachments/{attachmentId}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |messageId|string|yes|path|nessuno|ID del messaggio.|
 |attachmentId|string|yes|path|nessuno|ID dell'allegato d scaricare.|
 
-
 #### Response
 
 |Nome|Descrizione|
@@ -276,16 +251,10 @@ Per usare l'API di Office 365, creare prima di tutto una **connessione**, quindi
 |403|Accesso negato|
 |500|Internal Server Error|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### All'arrivo di un nuovo messaggio di posta elettronica 
-
-
- Attiva un flusso quando arriva un nuovo messaggio di posta elettronica. ```GET: /Mail/OnNewEmail```
-
-
+Per attivare un flusso all'arrivo di un nuovo messaggio di posta elettronica. ```GET: /Mail/OnNewEmail```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -296,7 +265,6 @@ Per usare l'API di Office 365, creare prima di tutto una **connessione**, quindi
 |fetchOnlyWithAttachment|boolean|no|query|false|Recuperare solo i messaggi di posta elettronica con un allegato.|
 |includeAttachments|boolean|no|query|false|Includere gli allegati.|
 |subjectFilter|string|no|query|nessuno|Stringa da cercare nell'oggetto.|
-
 
 #### Response
 
@@ -309,21 +277,14 @@ Per usare l'API di Office 365, creare prima di tutto una **connessione**, quindi
 |403|Accesso negato|
 |500|Internal Server Error|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Inviare posta elettronica con opzioni 
-
-
- Invia un messaggio di posta elettronica con più opzioni e attende che il destinatario risponda con una delle opzioni. ```POST: /mailwithoptions/$subscriptions```
-
-
+Per inviare un messaggio di posta elettronica con più opzioni e attendere che il destinatario risponda con una delle opzioni. ```POST: /mailwithoptions/$subscriptions```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |optionsEmailSubscription| |yes|body|nessuno|Richiesta di sottoscrizione per le opzioni di posta elettronica.|
-
 
 #### Response
 
@@ -336,16 +297,10 @@ Per usare l'API di Office 365, creare prima di tutto una **connessione**, quindi
 |403|Accesso negato|
 |500|Internal Server Error|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Inviare messaggio di posta elettronica di approvazione 
-
-
- Invia un messaggio di approvazione e attende una risposta dal destinatario A. ```POST: /approvalmail/$subscriptions```
-
-
+Per inviare un messaggio di approvazione e attendere una risposta dal destinatario A. ```POST: /approvalmail/$subscriptions```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -363,41 +318,35 @@ Per usare l'API di Office 365, creare prima di tutto una **connessione**, quindi
 |403|Accesso negato|
 |500|Internal Server Error|
 |default|Operazione non riuscita.|
-------
+
 
 
 
 ### Ottenere calendari 
-
-
- Recupera i calendari. ```GET: /datasets/calendars/tables```
+Per recuperare i calendari. ```GET: /datasets/calendars/tables```
 
 Non sono disponibili parametri per questa chiamata.
-#### Response
+
+#### Risposta
 
 |Nome|Descrizione|
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
+
 
 
 
 ### Ottenere eventi 
-
-
- Recupera gli elementi da un calendario. ```GET: /datasets/calendars/tables/{table}/items```
-
-
+Per recuperare gli elementi da un calendario. ```GET: /datasets/calendars/tables/{table}/items```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco del calendario da recuperare.|
-|$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0).|
+|$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0)|
 |$top|integer|no|query|nessuno|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
-|$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi.|
-|$orderby|string|no|query|nessuno|Query orderBy ODATA per specificare l'ordine degli elementi.|
-
+|$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi|
+|$orderby|string|no|query|nessuno|Query orderBy ODATA per specificare l'ordine degli elementi|
 
 #### Response
 
@@ -405,85 +354,58 @@ Non sono disponibili parametri per questa chiamata.
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Creare un evento 
-
-
- Crea un nuovo evento. ```POST: /datasets/calendars/tables/{table}/items```
-
-
+Per creare un nuovo evento. ```POST: /datasets/calendars/tables/{table}/items```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di un calendario.|
 |item| |yes|body|nessuno|Elemento del calendario da creare.|
 
-
 #### Response
 
 |Nome|Descrizione|
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Ottenere un evento 
-
-
- Recupera un elemento specifico da un calendario. ```GET: /datasets/calendars/tables/{table}/items/{id}```
-
-
+Per recuperare un elemento specifico da un calendario. ```GET: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di un calendario.|
 |id|string|yes|path|nessuno|Identificatore univoco di un elemento del calendario da recuperare.|
 
-
 #### Response
 
 |Nome|Descrizione|
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Eliminare un evento 
-
-
- Elimina un elemento del calendario. ```DELETE: /datasets/calendars/tables/{table}/items/{id}```
-
-
+Per eliminare un elemento del calendario. ```DELETE: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di un calendario.|
 |id|string|yes|path|nessuno|Identificatore univoco dell'elemento del calendario da eliminare.|
 
-
 #### Response
 
 |Nome|Descrizione|
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Aggiornare un evento 
-
-
- Aggiorna parzialmente un elemento del calendario. ```PATCH: /datasets/calendars/tables/{table}/items/{id}```
-
-
+Per aggiornare parzialmente un elemento del calendario. ```PATCH: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -491,32 +413,24 @@ Non sono disponibili parametri per questa chiamata.
 |id|string|yes|path|nessuno|Identificatore univoco dell'elemento del calendario da aggiornare.|
 |item| |yes|body|nessuno|Elemento del calendario da aggiornare.|
 
-
 #### Response
 
 |Nome|Descrizione|
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### In presenza di nuovi elementi 
-
-
- Attivata quando viene creato un nuovo elemento del calendario. ```GET: /datasets/calendars/tables/{table}/onnewitems```
-
-
+Si attiva quando viene creato un nuovo elemento del calendario. ```GET: /datasets/calendars/tables/{table}/onnewitems```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di un calendario.|
-|$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0).|
+|$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0)|
 |$top|integer|no|query|nessuno|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
-|$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi.|
-|$orderby|string|no|query|nessuno|Query orderBy ODATA per specificare l'ordine degli elementi.|
-
+|$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi|
+|$orderby|string|no|query|nessuno|Query orderBy ODATA per specificare l'ordine degli elementi|
 
 #### Response
 
@@ -524,25 +438,18 @@ Non sono disponibili parametri per questa chiamata.
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### In presenza di elementi aggiornati 
-
-
- Attivata quando viene modificato un elemento del calendario. ```GET: /datasets/calendars/tables/{table}/onupdateditems```
-
-
+Si attiva quando viene modificato un elemento del calendario. ```GET: /datasets/calendars/tables/{table}/onupdateditems```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di un calendario.|
-|$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0).|
+|$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0)|
 |$top|integer|no|query|nessuno|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
-|$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi.|
-|$orderby|string|no|query|nessuno|Query orderBy ODATA per specificare l'ordine degli elementi.|
-
+|$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi|
+|$orderby|string|no|query|nessuno|Query orderBy ODATA per specificare l'ordine degli elementi|
 
 #### Response
 
@@ -550,41 +457,31 @@ Non sono disponibili parametri per questa chiamata.
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Ottenere cartelle dei contatti 
-
-
- Recupera le cartelle dei contatti. ```GET: /datasets/contacts/tables```
+Per recuperare le cartelle dei contatti. ```GET: /datasets/contacts/tables```
 
 Non sono disponibili parametri per questa chiamata.
-#### Response
+
+#### Risposta
 
 |Nome|Descrizione|
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Ottenere contatti 
-
-
- Recupera i contatti da una cartella Contatti. ```GET: /datasets/contacts/tables/{table}/items```
-
-
+Per recuperare i contatti da una cartella di contatti. ```GET: /datasets/contacts/tables/{table}/items```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco della cartella Contatti da recuperare.|
-|$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0).|
+|$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0)|
 |$top|integer|no|query|nessuno|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
-|$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi.|
-|$orderby|string|no|query|nessuno|Query orderBy ODATA per specificare l'ordine degli elementi.|
-
+|$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi|
+|$orderby|string|no|query|nessuno|Query orderBy ODATA per specificare l'ordine degli elementi|
 
 #### Response
 
@@ -592,85 +489,58 @@ Non sono disponibili parametri per questa chiamata.
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Creare un contatto 
-
-
- Crea un nuovo contatto. ```POST: /datasets/contacts/tables/{table}/items```
-
-
+Per creare un nuovo contatto. ```POST: /datasets/contacts/tables/{table}/items```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di una cartella Contatti.|
 |item| |yes|body|nessuno|Contatto da creare.|
 
-
 #### Response
 
 |Nome|Descrizione|
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Ottenere un contatto 
-
-
- Recupera un contatto specifico da una cartella Contatti. ```GET: /datasets/contacts/tables/{table}/items/{id}```
-
-
+Per recuperare un contatto specifico da una cartella di contatti. ```GET: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di una cartella Contatti.|
 |id|string|yes|path|nessuno|Identificatore univoco di un contatto da recuperare.|
 
-
 #### Response
 
 |Nome|Descrizione|
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Eliminare un contatto 
-
-
- Elimina un contatto. ```DELETE: /datasets/contacts/tables/{table}/items/{id}```
-
-
+Per eliminare un contatto. ```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
 |tabella|string|yes|path|nessuno|Identificatore univoco di una cartella Contatti.|
 |id|string|yes|path|nessuno|Identificatore univoco del contatto da eliminare.|
 
-
 #### Response
 
 |Nome|Descrizione|
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
-
 
 
 ### Aggiornare un contatto 
-
-
- Aggiorna parzialmente un contatto. ```PATCH: /datasets/contacts/tables/{table}/items/{id}```
-
-
+Per aggiornare parzialmente un contatto. ```PATCH: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -678,507 +548,263 @@ Non sono disponibili parametri per questa chiamata.
 |id|string|yes|path|nessuno|Identificatore univoco del contatto da aggiornare.|
 |item| |yes|body|nessuno|Contatto da aggiornare.|
 
-
 #### Response
 
 |Nome|Descrizione|
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
 
 
+## Definizioni degli oggetti
 
-## Definizioni di oggetti: 
+#### TriggerBatchResponse[IDictionary[String,Object]]
 
- **TriggerBatchResponse[IDictionary[String,Object]]**:
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|value|array|no|
 
-Proprietà obbligatorie per TriggerBatchResponse[IDictionary[String,Object]]:
 
+#### SendMessage: inviare un messaggio di posta elettronica
 
-Nessuna delle proprietà è obbligatoria.
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|Attachments|array|no|
+|Da|string|no|
+|Cc|string|no|
+|Bcc|string|no|
+|Oggetto|string|yes|
+|Corpo|string|yes|
+|Importance|string|no|
+|IsHtml|boolean|no|
+|To|string|yes|
 
+#### SendAttachment: allegato
 
-**Tutte le proprietà**:
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|@odata.type|string|no|
+|Nome|string|yes|
+|ContentBytes|string|yes|
 
 
-| Nome | Tipo di dati |
-|---|---|
-|value|array|
+#### ReceiveMessage: ricevere un messaggio di posta elettronica
 
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|ID|string|no|
+|IsRead|boolean|no|
+|HasAttachment|boolean|no|
+|DateTimeReceived|string|no|
+|Attachments|array|no|
+|Da|string|no|
+|Cc|string|no|
+|Bcc|string|no|
+|Oggetto|string|yes|
+|Corpo|string|yes|
+|Importance|string|no|
+|IsHtml|boolean|no|
+|To|string|yes|
 
 
- **SendMessage**: invia un messaggio di posta elettronica
+#### ReceiveAttachment: ricevere un allegato
 
-Proprietà obbligatorie per SendMessage:
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|ID|string|yes|
+|ContentType|string|yes|
+|@odata.type|string|no|
+|Nome|string|no|
+|ContentBytes|string|yes|
 
-Subject, Body, To
 
-**Tutte le proprietà**:
+#### DigestMessage: inviare un messaggio di posta elettronica
 
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|Oggetto|string|yes|
+|Corpo|string|no|
+|Importance|string|no|
+|Digest|array|yes|
+|Attachments|array|no|
+|To|string|yes|
 
-| Nome | Tipo di dati |
-|---|---|
-|Attachments|array|
-|Da|string|
-|Cc|string|
-|Bcc|string|
-|Oggetto|string|
-|Corpo|string|
-|Importance|string|
-|IsHtml|boolean|
-|To|string|
+#### TriggerBatchResponse[ReceiveMessage]
 
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|value|array|no|
 
 
- **SendAttachment**: allegato
+#### DataSetsMetadata
 
-Proprietà obbligatorie per SendAttachment:
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|tabular|non definito|no|
+|BLOB|non definito|no|
 
-Name, ContentBytes
 
-**Tutte le proprietà**:
+#### TabularDataSetsMetadata
 
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|una sezione source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+|tableDisplayName|string|no|
+|tablePluralName|string|no|
 
-| Nome | Tipo di dati |
-|---|---|
-|@odata.type|string|
-|Nome|string|
-|ContentBytes|string|
 
+#### BlobDataSetsMetadata
 
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|una sezione source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
 
- **ReceiveMessage**: riceve un messaggio di posta elettronica
 
-Proprietà obbligatorie per ReceiveMessage:
+#### TableMetadata
 
-Subject, Body, To
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|name|string|no|
+|title|string|no|
+|x-ms-permission|string|no|
+|schema|non definito|no|
 
-**Tutte le proprietà**:
 
+#### OptionsEmailSubscription: modello per la sottoscrizione di opzioni di posta elettronica
 
-| Nome | Tipo di dati |
-|---|---|
-|ID|string|
-|IsRead|boolean|
-|HasAttachment|boolean|
-|DateTimeReceived|string|
-|Attachments|array|
-|Da|string|
-|Cc|string|
-|Bcc|string|
-|Oggetto|string|
-|Corpo|string|
-|Importance|string|
-|IsHtml|boolean|
-|To|string|
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|NotificationUrl|string|no|
+|Message|non definito|no|
 
+#### MessageWithOptions: messaggio di posta elettronica con opzioni dell'utente. Si tratta del messaggio previsto come parte dell'input utente.
 
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|Oggetto|string|yes|
+|Opzioni|string|yes|
+|Corpo|string|no|
+|Importance|string|no|
+|Attachments|array|no|
+|To|string|yes|
 
- **ReceiveAttachment**: riceve un allegato
+#### SubscriptionResponse: modello per la sottoscrizione del messaggio di posta elettronica di approvazione
 
-Proprietà obbligatorie per ReceiveAttachment:
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|id|string|no|
+|resource|string|no|
+|notificationType|string|no|
+|notificationUrl|string|no|
 
-Id, ContentType, Name, ContentBytes
 
-**Tutte le proprietà**:
+#### ApprovalEmailSubscription: modello per la sottoscrizione del messaggio di posta elettronica di approvazione
 
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|NotificationUrl|string|no|
+|Message|non definito|no|
 
-| Nome | Tipo di dati |
-|---|---|
-|ID|string|
-|ContentType|string|
-|@odata.type|string|
-|Nome|string|
-|ContentBytes|string|
 
+#### ApprovalMessage: messaggio di posta elettronica di approvazione. Si tratta del messaggio previsto come parte dell'input utente.
 
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|Oggetto|string|yes|
+|Opzioni|string|yes|
+|Corpo|string|no|
+|Importance|string|no|
+|Attachments|array|no|
+|To|string|yes|
 
- **DigestMessage**: invia un messaggio di posta elettronica
+#### ApprovalEmailResponse: risposta al messaggio di posta elettronica di approvazione
 
-Proprietà obbligatorie per DigestMessage:
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|SelectedOption|string|no|
 
-Subject, Digest, To
+#### TablesList
 
-**Tutte le proprietà**:
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|value|array|no|
 
 
-| Nome | Tipo di dati |
-|---|---|
-|Oggetto|string|
-|Corpo|string|
-|Importance|string|
-|Digest|array|
-|Attachments|array|
-|To|string|
+#### Tabella
 
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|Nome|string|no|
+|DisplayName|string|no|
 
 
- **TriggerBatchResponse[ReceiveMessage]**:
+#### Item
 
-Proprietà obbligatorie per TriggerBatchResponse[ReceiveMessage]:
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|ItemInternalId|string|no|
 
 
-Nessuna delle proprietà è obbligatoria.
+#### CalendarItemsList: elenco degli elementi del calendario
 
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|value|array|no|
 
-**Tutte le proprietà**:
 
+#### CalendarItem: rappresenta un elemento della tabella del calendario
 
-| Nome | Tipo di dati |
-|---|---|
-|value|array|
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|ItemInternalId|string|no|
 
 
+#### ContactItemsList: elenco degli elementi dei contatti
 
- **DataSetsMetadata**:
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|value|array|no|
 
-Proprietà obbligatorie per DataSetsMetadata:
 
+#### ContactItem: rappresenta un elemento della tabella dei contatti
 
-Nessuna delle proprietà è obbligatoria.
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|ItemInternalId|string|no|
 
 
-**Tutte le proprietà**:
+#### DataSetsList
 
+| Nome | Tipo di dati |Obbligatorio|
+|---|---|---|
+|value|array|no|
 
-| Nome | Tipo di dati |
-|---|---|
-|tabular|non definito|
-|BLOB|non definito|
 
+#### DataSet
 
-
- **TabularDataSetsMetadata**:
-
-Proprietà obbligatorie per TabularDataSetsMetadata:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|una sezione source|string|
-|displayName|string|
-|urlEncoding|string|
-|tableDisplayName|string|
-|tablePluralName|string|
-
-
-
- **BlobDataSetsMetadata**:
-
-Proprietà obbligatorie per BlobDataSetsMetadata:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|una sezione source|string|
-|displayName|string|
-|urlEncoding|string|
-
-
-
- **TableMetadata**:
-
-Proprietà obbligatorie per TableMetadata:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|name|string|
-|title|string|
-|x-ms-permission|string|
-|schema|non definito|
-
-
-
- **OptionsEmailSubscription**: modello per la sottoscrizione di opzioni di posta elettronica
-
-Proprietà obbligatorie per OptionsEmailSubscription:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|NotificationUrl|string|
-|Message|non definito|
-
-
-
- **MessageWithOptions**: messaggi di posta elettronica con opzioni dell'utente. Si tratta del messaggio previsto come parte dell'input utente.
-
-Proprietà obbligatorie per MessageWithOptions:
-
-Subject, Options, To
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|Oggetto|string|
-|Opzioni|string|
-|Corpo|string|
-|Importance|string|
-|Attachments|array|
-|To|string|
-
-
-
- **SubscriptionResponse**: modello per la sottoscrizione del messaggio di posta elettronica di approvazione
-
-Proprietà obbligatorie per SubscriptionResponse:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|id|string|
-|resource|string|
-|notificationType|string|
-|notificationUrl|string|
-
-
-
- **ApprovalEmailSubscription**: modello per la sottoscrizione del messaggio di posta elettronica di approvazione
-
-Proprietà obbligatorie per ApprovalEmailSubscription:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|NotificationUrl|string|
-|Message|non definito|
-
-
-
- **ApprovalMessage**: messaggio di posta elettronica di approvazione. Si tratta del messaggio previsto come parte dell'input utente.
-
-Proprietà obbligatorie per ApprovalMessage:
-
-Subject, Options, To
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|Oggetto|string|
-|Opzioni|string|
-|Corpo|string|
-|Importance|string|
-|Attachments|array|
-|To|string|
-
-
-
- **ApprovalEmailResponse**:risposta al messaggio di posta elettronica di approvazione
-
-Proprietà obbligatorie per ApprovalEmailResponse:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|SelectedOption|string|
-
-
-
- **TablesList**:
-
-Proprietà obbligatorie per TablesList:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|value|array|
-
-
-
- **Tabella**:
-
-Proprietà obbligatorie per Table:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|Nome|string|
-|DisplayName|string|
-
-
-
- **Item**:
-
-Proprietà obbligatorie per Item:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|ItemInternalId|string|
-
-
-
- **CalendarItemsList**: elenco di elementi del calendario
-
-Proprietà obbligatorie per CalendarItemsList:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|value|array|
-
-
-
- **CalendarItem**: rappresenta un elemento di tabella del calendario
-
-Proprietà obbligatorie per CalendarItem:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|ItemInternalId|string|
-
-
-
- **ContactItemsList**: elenco di contatti
-
-Proprietà obbligatorie per ContactItemsList:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|value|array|
-
-
-
- **ContactItem**: rappresenta un elemento della tabella dei contatti
-
-Proprietà obbligatorie per ContactItem:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|ItemInternalId|string|
-
-
-
- **DataSetsList**:
-
-Proprietà obbligatorie per DataSetsList:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|value|array|
-
-
-
- **DataSet**:
-
-Proprietà obbligatorie per DataSet:
-
-
-Nessuna delle proprietà è obbligatoria.
-
-
-**Tutte le proprietà**:
-
-
-| Nome | Tipo di dati |
-|---|---|
-|Nome|string|
-|DisplayName|string|
+| Nome | Tipo di dati | Obbligatorio|
+|---|---|---|
+|Nome|string|no|
+|DisplayName|string|no|
 
 
 ## Passaggi successivi
-Dopo aver aggiunto l'API di Office 365 a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle proprie app.
+Dopo aver aggiunto l'API di Office 365 a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle app.
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!--References-->
+[5]: https://portal.azure.com
+[7]: ./media/create-api-office365-outlook/aad-tenant-applications.png
+[8]: ./media/create-api-office365-outlook/aad-tenant-applications-add-appinfo.png
+[9]: ./media/create-api-office365-outlook/aad-tenant-applications-add-app-properties.png
+[10]: ./media/create-api-office365-outlook/contoso-aad-app.png
+[11]: ./media/create-api-office365-outlook/contoso-aad-app-configure.png
+[12]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
+[13]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
+
+<!---HONumber=AcomDC_0302_2016-->

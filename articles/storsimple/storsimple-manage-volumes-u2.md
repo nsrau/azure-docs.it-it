@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
+   ms.date="02/25/2016"
    ms.author="v-sharos" />
 
 # Per gestire il volume è possibile usare il servizio StorSimple Manager (aggiornamento 2)
@@ -182,18 +182,32 @@ Per guardare un video che illustra come espandere un volume, fare clic [qui](htt
 
 ## Modificare il tipo di volume
 
-È possibile passare da un tipo di volume a livelli a uno aggiunto in locale o viceversa. Si tratta in genere di piccoli volumi esistenti a cui è necessario accedere spesso. Questa conversione non deve tuttavia essere eseguita con frequenza. Di seguito sono elencati alcuni motivi per convertire un volume a livelli in uno aggiunto in locale:
+È possibile passare da un tipo di volume a livelli a uno aggiunto in locale o viceversa. Questa conversione non deve tuttavia essere eseguita con frequenza. Di seguito sono elencati alcuni motivi per convertire un volume a livelli in uno aggiunto in locale:
 
 - Garanzie locali relative alla disponibilità e alle prestazioni dei dati
 - Eliminazione di latenze cloud e di problemi di connettività cloud
 
-Quando un volume aggiunto in locale viene creato, ne viene effettuato il provisioning completo. Se si sta convertendo un volume a livelli in un volume aggiunto in locale, StorSimple verifica che lo spazio sul dispositivo sia sufficiente prima di avviare la conversione. Se lo spazio non è sufficiente, verrà visualizzato un errore e l'operazione verrà annullata.
+Si tratta in genere di piccoli volumi esistenti a cui è necessario accedere spesso. Quando un volume aggiunto in locale viene creato, ne viene effettuato il provisioning completo. Se si sta convertendo un volume a livelli in un volume aggiunto in locale, StorSimple verifica che lo spazio sul dispositivo sia sufficiente prima di avviare la conversione. Se lo spazio non è sufficiente, verrà visualizzato un errore e l'operazione verrà annullata.
 
 > [AZURE.NOTE] Prima di iniziare una conversione da un volume a livelli a uno aggiunto in locale, considerare i requisiti di spazio degli altri carichi di lavoro.
 
 È possibile, ad esempio, passare da un volume aggiunto in locale a un volume a livelli se è necessario spazio aggiuntivo per il provisioning di altri volumi. Quando si converte il volume aggiunto in locale in uno a livelli, la capacità disponibile nel dispositivo aumenta della dimensione della capacità rilasciata. Se problemi di connettività impediscono la conversione di un volume dal tipo locale al tipo a livelli, il volume locale presenterà le proprietà di un volume a livelli fino al completamento della conversione. Infatti è possibile che alcuni dati siano stati distribuiti nel cloud. Questi dati trasferiti continueranno a occupare lo spazio locale nel dispositivo, che non può essere liberato fino al riavvio e al completamento dell'operazione.
 
 >[AZURE.NOTE] La conversione di un volume può richiedere tempo e non è possibile annullarla una volta avviata. Il volume rimane online durante la conversione ed è possibile eseguire i backup, ma non è possibile espandere o ripristinare il volume mentre la conversione è in corso.
+
+La conversione da un volume a livelli a un volume aggiunto in locale può influire negativamente sulle prestazioni dei dispositivi. Inoltre, i seguenti fattori possono aumentare il tempo necessario per la conversione:
+
+- Larghezza di banda insufficiente.
+- Dispositivo pieno e distribuzione nel cloud già in atto.
+- Nessun backup corrente disponibile.
+
+Per ridurre al minimo gli effetti di questi fattori:
+
+- Rivedere i criteri di limitazione della larghezza di banda e verificare che sia disponibile una larghezza di banda dedicata di 40 Mbps.
+- Pianificare la conversione in orari di scarso traffico.
+- Eseguire un backup prima di iniziare la conversione.
+
+Se si desidera convertire più volumi che supportano diversi carichi di lavoro, è necessario specificare le priorità della conversione in modo che i volumi a priorità più elevata vengano convertiti per primi. Ad esempio, è necessario convertire i volumi che ospitano macchine virtuali o con carichi di lavoro SQL prima dei volumi con carichi di lavoro di condivisione file.
 
 #### Per modificare il tipo di volume
 
@@ -285,4 +299,4 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

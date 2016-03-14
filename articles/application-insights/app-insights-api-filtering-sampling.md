@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/25/2016" 
 	ms.author="awills"/>
 
 # Campionamento, filtro e pre-elaborazione della telemetria in Application Insights SDK
@@ -24,9 +24,7 @@
 Queste funzionalità attualmente sono disponibili per ASP.NET SDK.
 
 * Il [campionamento](#sampling) riduce il volume della telemetria senza effetti sulle statistiche. Tiene insieme i punti dati correlati per poter passare da uno all'altro quando si diagnostica un problema. Nel portale i conteggi totali vengono moltiplicati per compensare il campionamento.
- * Il campionamento a frequenza fissa consente di determinare la percentuale di eventi trasmessi.
- * Il campionamento adattivo (il valore predefinito per ASP.NET SDK da 2.0.0 Beta 3) regola automaticamente la frequenza di campionamento in base al volume della telemetria. È possibile impostare un volume di destinazione.
-* I [filtri](#filtering) consentono di selezionare o di modificare la telemetria nell'SDK prima che venga inviata al server. È possibile, ad esempio, ridurre il volume della telemetria escludendo le richieste dei robot. Questo approccio alla riduzione del traffico è più semplice del campionamento. Offre un controllo maggiore su ciò che viene trasmesso, ma occorre tenere presente che avrà effetto sulle statistiche, ad esempio se si filtrano tutte le richieste riuscite.
+* L'[applicazione di filtri](#filtering) consente di selezionare o di modificare la telemetria nell'SDK prima che venga inviata al server. È possibile, ad esempio, ridurre il volume della telemetria escludendo le richieste dei robot. Questo approccio alla riduzione del traffico è più semplice del campionamento. Offre un controllo maggiore su ciò che viene trasmesso, ma occorre tenere presente che avrà effetto sulle statistiche, ad esempio se si filtrano tutte le richieste riuscite.
 * [Aggiunta di proprietà](#add-properties) a qualsiasi telemetria inviata dall'app, inclusa la telemetria dai moduli standard. È possibile, ad esempio, aggiungere valori calcolati oppure i numeri di versione in base a cui filtrare i dati nel portale.
 * [L'API SDK](app-insights-api-custom-events-metrics.md) viene usata per inviare metriche ed eventi personalizzati.
 
@@ -42,10 +40,15 @@ Prima di iniziare:
 
 Il [campionamento](app-insights-sampling.md) è il modo consigliato per ridurre il traffico mantenendo accurate le statistiche. Il filtro seleziona gli elementi correlati per poter passare da uno all'altro nella diagnosi. I conteggi eventi vengono modificati in Esplora metriche per compensare gli elementi filtrati.
 
-* È consigliabile usare il campionamento adattivo. Regola automaticamente la percentuale di campionamento per raggiungere un volume specifico di richieste. Attualmente disponibile solo per la telemetria lato server di ASP.NET.  
+* È consigliabile usare il campionamento adattivo. Regola automaticamente la percentuale di campionamento per raggiungere un volume specifico di richieste. Attualmente disponibile solo per la telemetria lato server di ASP.NET. 
 * Il [Campionamento a frequenza fissa](app-insights-sampling.md) è inoltre disponibile. Specificare la percentuale di campionamento. Disponibile per il codice dell'app Web ASP.NET e per le pagine Web JavaScript. Il client e il server sincronizzeranno il rispettivo campionamento in modo che nella ricerca sia possibile spostarsi tra le visualizzazioni pagina e le richieste correlate.
+* Il campionamento per inserimento diventa attivo non appena i dati di telemetria vengono ricevuti nel portale di Application Insights e pertanto può essere usato indipendentemente dall'SDK in uso. Non riduce il traffico dei dati di telemetria sulla rete, ma riduce il volume elaborato e memorizzato in Application Insights. Solo i dati di telemetria mantenuti vengono conteggiati nella quota mensile. 
 
-### Per abilitare il campionamento
+### Per abilitare il campionamento per inserimento
+
+Dalla barra Impostazioni aprire il pannello Quota + prezzi. Fare clic su Campionamento e selezionare un rapporto di campionamento.
+
+### Per abilitare il campionamento adattivo
 
 **Aggiornare i pacchetti del progetto NuGet** all'ultima versione *preliminare* di Application Insights: fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere Gestisci pacchetti NuGet, selezionare **Includi versione preliminare** e cercare Microsoft.ApplicationInsights.Web.
 
@@ -404,4 +407,4 @@ Per un riepilogo delle proprietà non personalizzate disponibili in telemetryIte
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

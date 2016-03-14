@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/26/2016" 
 	ms.author="erikre"/>
 
 # Creare un'app Web ASP.NET 5 in Visual Studio Code
@@ -22,7 +22,7 @@
 
 Questa esercitazione illustra come creare un'app Web ASP.NET 5 usando [Visual Studio Code](http://code.visualstudio.com//Docs/whyvscode) e come distribuirla nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
 
-> [AZURE.NOTE]Sebbene in questo articolo si faccia riferimento alle app Web, è applicabile anche ad app per le API e app per dispositivi mobili.
+> [AZURE.NOTE] Sebbene in questo articolo si faccia riferimento alle app Web, è applicabile anche ad app per le API e app per dispositivi mobili.
 
 ASP.NET 5 è una riprogettazione significativa di ASP.NET. Costituisce un nuovo framework open source e multipiattaforma per la creazione di moderne app Web basate sul cloud tramite .NET. Per altre informazioni, vedere l'articolo di [introduzione ad ASP.NET 5](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html) Per altre informazioni sulle app Web del servizio app di Azure, vedere [Panoramica delle app Web](app-service-web-overview.md).
 
@@ -71,7 +71,7 @@ Questa esercitazione è stata realizzata per consentire la creazione di applicaz
 
 		dnvm use 1.0.0-update1 –p
 
-> [AZURE.NOTE]Per istruzioni di installazione più dettagliate per OS X, Linux e Windows, vedere l'articolo relativo all'[installazione di ASP.NET 5 e DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx).
+> [AZURE.NOTE] Per istruzioni di installazione più dettagliate per OS X, Linux e Windows, vedere l'articolo relativo all'[installazione di ASP.NET 5 e DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx).
 
 ## Creare l'app Web 
 
@@ -83,7 +83,7 @@ Questa sezione illustra come eseguire lo scaffolding di una nuova app Web ASP.NE
 
 		npm install -g yo grunt-cli generator-aspnet bower
 
-	> [AZURE.NOTE]È possibile che venga visualizzato un avviso che segnala che la versione npm non è aggiornata. Questo avviso non dovrebbe incidere su questa esercitazione.
+	> [AZURE.NOTE] È possibile che venga visualizzato un avviso che segnala che la versione npm non è aggiornata. Questo avviso non dovrebbe incidere su questa esercitazione.
 
 3. Digitare quanto segue al prompt dei comandi per creare la cartella di progetto ed eseguire lo scaffolding dell'app.
 
@@ -115,7 +115,7 @@ Dopo aver creato l'app Web e recuperato tutti i pacchetti NuGet per l'app, è or
 
 		dnx: Run Command
 
-	> [AZURE.NOTE]Se il server Omnisharp non è in esecuzione, si avvierà. Immettere nuovamente il comando precedente.
+	> [AZURE.NOTE] Se il server Omnisharp non è in esecuzione, si avvierà. Immettere nuovamente il comando precedente.
 
 	Selezionare quindi il comando seguente per eseguire l'app web:
 		
@@ -123,7 +123,7 @@ Dopo aver creato l'app Web e recuperato tutti i pacchetti NuGet per l'app, è or
 
 	Nella finestra di comando verrà visualizzato l'applicazione è stata avviata. Se nella finestra di comando non compare questo messaggio, verificare che nell'angolo inferiore sinistro della finestra di VSCode non siano presenti errori relativi al progetto.
 	
-	> [AZURE.NOTE]Per eseguire un comando da **Command Palette**, è necessario inserire un carattere **>** all'inizio della riga di comando. È possibile visualizzare i dettagli del comando **web** nel file *project.json*.
+	> [AZURE.NOTE] Per eseguire un comando da **Command Palette**, è necessario inserire un carattere **>** all'inizio della riga di comando. È possibile visualizzare i dettagli del comando **web** nel file *project.json*.
 
 2. Aprire un browser e passare all'URL seguente.
 
@@ -169,7 +169,7 @@ Git è un sistema di controllo delle versioni distribuite che è possibile usare
 
 4. Selezionare l'app Web creata in questa esercitazione.
 
-5. Nel pannello dell'app Web scorrere fino alla sezione **Distribuzione** e fare clic su **Configura distribuzione continua**.
+5. Nel pannello dell'app Web fare clic su **Impostazioni** > **Distribuzione continua**.
 
 	![Host dell'app Web di Azure](./media/web-sites-create-web-app-using-vscode/14-azure-deployment.png)
 
@@ -185,7 +185,7 @@ Git è un sistema di controllo delle versioni distribuite che è possibile usare
 
 	* Creare un nome utente e una password. La password sarà necessaria più avanti durante la configurazione di Git.
 
-	* Fare clic su **Salva**.
+	* Fare clic su **Save**.
 
 9. Nel pannello dell'app Web fare clic su **Impostazioni > Proprietà**. L'URL del repository Git remoto in cui verrà effettuata la distribuzione è visualizzato in **URL GIT**.
 
@@ -241,7 +241,7 @@ In questa sezione si creerà un repository Git locale e si eseguirà il push dal
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]Se si apportano modifiche all'app, è possibile ripetere la pubblicazione direttamente in Visual Studio Code con la funzionalità Git predefinita integrata selezionando l'opzione **Commit All** seguita dall'opzione **Push**. L'opzione **Push** è disponibile nel menu a discesa accanto ai pulsanti **Commit all** e **Refresh**.
+> [AZURE.NOTE] Se si apportano modifiche all'app, è possibile ripetere la pubblicazione direttamente in Visual Studio Code con la funzionalità Git predefinita integrata selezionando l'opzione **Commit All** seguita dall'opzione **Push**. L'opzione **Push** è disponibile nel menu a discesa accanto ai pulsanti **Commit all** e **Refresh**.
 
 Se è necessario collaborare a un progetto, considerare la possibilità di effettuare il push in GitHub mentre si effettua il push in Azure.
 
@@ -262,4 +262,4 @@ A questo scopo, è possibile eseguire una delle due operazioni seguenti:
 ## Riepilogo
 In questa esercitazione si è appreso come creare un'app Web in Visual Studio Code e distribuirla in Azure. Per altre informazioni su Visual Studio Code, vedere l'articolo [Vantaggi di Visual Studio Code](https://code.visualstudio.com/Docs/). Per altre informazioni sulle app Web del servizio app, vedere [Panoramica delle app Web](app-service-web-overview.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

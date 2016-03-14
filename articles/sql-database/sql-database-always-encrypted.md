@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Esercitazione del database SQL: Proteggere i dati sensibili con la crittografia sempre attiva| Microsoft Azure"
+	pageTitle="Proteggere i dati sensibili nel database SQL con la crittografia del database | Microsoft Azure"
 	description="Proteggere i dati sensibili nel database SQL in pochi minuti."
-	keywords="esercitazione database sql, crittografia di dati in un database sql"	
+	keywords="database sql, crittografia sql, crittografia database, chiave crittografia, dati sensibili, crittografia sempre attiva"	
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 
@@ -15,23 +15,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="02/29/2016"
 	ms.author="sstein"/>
 
-# Esercitazione del database SQL: Proteggere i dati sensibili con la crittografia sempre attiva (archivio certificati di Windows)
+# Proteggere i dati sensibili nel database SQL con la crittografia del database e archiviare le chiavi di crittografia nell'archivio certificati di Windows
 
+> [AZURE.SELECTOR]
+- [Insieme di credenziali chiave Azure](sql-database-always-encrypted-azure-key-vault.md)
+- [Archivio certificati di Windows](sql-database-always-encrypted.md)
+
+Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia di database tramite la [procedura guidata per la crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx) di [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) e archiviare le chiavi di crittografia nell'archivio certificati di Windows.
 
 La crittografia sempre attiva è una nuova tecnologia di crittografia del database SQL di Azure e di SQL Server, che protegge i dati sensibili inattivi sul server durante lo spostamento tra client e server e durante l'uso, assicurando che i dati sensibili non vengano mai visualizzati come testo non crittografato all'interno del sistema di database. Solo le applicazioni client o i server delle app, che hanno accesso alle chiavi, possono accedere ai dati di testo non crittografato. Per informazioni dettagliate, vedere l'articolo relativo alla [crittografia sempre attiva (motore di database)](https://msdn.microsoft.com/library/mt163865.aspx).
 
-Questa esercitazione illustra come proteggere i dati sensibili implementando la crittografia sempre attiva in un database SQL in pochi minuti tramite SQL Server Management Studio (SSMS).
 
 Dopo aver configurato il database per usare la crittografia sempre attiva, verrà creata un'applicazione client in C# con Visual Studio per lavorare con i dati crittografati.
 
 Seguire i passaggi in questo articolo per imparare come configurare la crittografia sempre attiva per un database SQL di Azure. Questo articolo spiega come eseguire le attività seguenti:
 
 - Usare la procedura guidata per la crittografia sempre attiva in SSMS per creare [chiavi di crittografia sempre attiva](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3)
-    - Creare una [chiave master di colonna](https://msdn.microsoft.com/library/mt146393.aspx).
-    - Creare una [chiave di crittografia di colonna](https://msdn.microsoft.com/library/mt146372.aspx).
+    - Creare una [chiave master di colonna (CMK, Column Master Key)](https://msdn.microsoft.com/library/mt146393.aspx).
+    - Creare una [chiave di crittografia di colonna (CEK, Column Encryption Key)](https://msdn.microsoft.com/library/mt146372.aspx).
 - Creare una tabella di database e crittografare alcune colonne.
 - Creare un'applicazione che inserisce, seleziona e visualizza i dati delle colonne crittografate.
 
@@ -43,8 +47,8 @@ Seguire i passaggi in questo articolo per imparare come configurare la crittogra
 Per questa esercitazione occorrono:
 
 - Un account e una sottoscrizione di Azure prima di iniziare. Nel caso in cui non siano disponibili, è possibile usare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) versione 13.0.700.242 o successiva.
-- [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) o versione successiva (nel computer client).
+- [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) versione 13.0.700.242 o versioni successive.
+- [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) o versioni successive (nel computer client).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 
 
@@ -545,4 +549,4 @@ Dopo aver creato un database che usa la crittografia sempre attiva, è possibile
 - [Procedura guidata della crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog della crittografia sempre attiva](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

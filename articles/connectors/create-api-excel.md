@@ -14,22 +14,20 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/23/2016"
+ms.date="02/25/2016"
 ms.author="deonhe"/>
 
 # Introduzione all'API di Excel
 
-Connettersi a Excel per inserire una riga, eliminare una riga e altro ancora.
+Connettersi a Excel per inserire una riga, eliminare una riga e altro ancora. L'API di Excel può essere usata da:
 
-L'API di Excel può essere usata dalle app di PowerApps Enterprise.
+- PowerApps
 
 Con Excel, è possibile:
 
 - Aggiungere l'API di Excel a PowerApps Enterprise, in modo che gli utenti possano usarla nelle proprie app. 
 
 Per informazioni su come aggiungere un'API in PowerApps Enterprise, vedere l'articolo relativo alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
-
-Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Trigger e azioni
 Excel include le azioni seguenti. Non sono disponibili trigger.
@@ -41,11 +39,10 @@ Excel include le azioni seguenti. Non sono disponibili trigger.
 Tutte le API supportano dati nei formati JSON e XML.
 
 ## Riferimento all'API REST di Swagger
-#### Questa documentazione è relativa alla versione 1.0
-
+Si applica alla versione 1.0.
 
 ### Inserisce una nuova riga in una tabella Excel
-**```POST: /datasets/{dataset}/tables/{table}/items```**
+```POST: /datasets/{dataset}/tables/{table}/items```
 
 
 
@@ -62,12 +59,12 @@ Tutte le API supportano dati nei formati JSON e XML.
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
+
 
 
 
 ### Recupera una singola riga da una tabella Excel
-**```GET: /datasets/{dataset}/tables/{table}/items/{id}```**
+```GET: /datasets/{dataset}/tables/{table}/items/{id}```
 
 
 
@@ -84,12 +81,12 @@ Tutte le API supportano dati nei formati JSON e XML.
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
+
 
 
 
 ### Elimina una riga da una tabella Excel
-**```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```**
+```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
 
 
 
@@ -106,12 +103,12 @@ Tutte le API supportano dati nei formati JSON e XML.
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
+
 
 
 
 ### Aggiorna una riga esistente in una tabella Excel
-**```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```**
+```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
 
 
 
@@ -129,11 +126,11 @@ Tutte le API supportano dati nei formati JSON e XML.
 |---|---|
 |200|OK|
 |default|Operazione non riuscita.|
-------
 
 
 
-## Definizione dell'oggetto
+
+## Definizioni oggetto
 
 #### DataSetsMetadata
 
@@ -209,6 +206,6 @@ Tutte le API supportano dati nei formati JSON e XML.
 
 
 ## Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Creare un'app avanzata](../power-apps/powerapps-get-started-azure-portal.md)
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Creare un'app di PowerApps](../power-apps/powerapps-get-started-azure-portal.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

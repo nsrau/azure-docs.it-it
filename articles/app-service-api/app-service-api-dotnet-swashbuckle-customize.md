@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="02/22/2016" 
 	ms.author="bradyg"/>
 
 # Personalizzare le definizioni delle API generate da Swashbuckle 
@@ -201,7 +201,7 @@ Quando si usa Visual Studio per rigenerare il codice client per l'API REST, il c
         	    throw ex;
 		}
 
-Il codice per questa dimostrazione è disponibile in [questo archivio GitHub](https://github.com/Azure-Samples/API-Apps-DotNet-Swashbuckle-Customization-MultipleResponseCodes). Oltre al progetto API Web contrassegnato con i commenti della documentazione XML, è presente un progetto di applicazione console che contiene un client generato per questa API.
+Il codice per questa dimostrazione è disponibile in [questo archivio GitHub](https://github.com/Azure-Samples/app-service-api-dotnet-swashbuckle-swaggerresponse). Oltre al progetto API Web contrassegnato con i commenti della documentazione XML, è presente un progetto di applicazione console che contiene un client generato per questa API.
 
 ### Personalizzare i codici di risposta previsti con l'attributo SwaggerResponse
 
@@ -250,4 +250,4 @@ Il codice per questa dimostrazione è disponibile in [questo archivio GitHub](ht
 Questo articolo ha illustrato come personalizzare il modo in cui Swashbuckle genera gli ID operazione e i codici di risposta validi. Per altre informazioni, vedere [Swashbuckle su GitHub](https://github.com/domaindrivendev/Swashbuckle).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

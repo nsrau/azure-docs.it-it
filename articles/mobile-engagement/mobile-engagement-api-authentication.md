@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/17/2016"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement: Uso delle API per l'autenticazione
@@ -92,11 +92,9 @@ Durante l'esecuzione della procedura annotare le informazioni seguenti perché s
 
 Di seguito è descritto un modo alternativo per eseguire la procedura illustrata in precedenza usando uno script di PowerShell.
 
-1. Usare la versione più recente di Azure PowerShell.
+1. Usare la versione più recente di Azure PowerShell. Per le istruzioni di download vedere questo [collegamento](../powershell-install-configure.md). 
 
-	Attualmente la versione 1.2.1 è disponibile per il download [qui](https://github.com/Azure/azure-powershell/releases/tag/v1.2.1-February2016).
-
-2. Aprire Windows PowerShell in modalità di amministrazione e assicurarsi di aver installato i [cmdlet di Gestione risorse di Azure ](https://msdn.microsoft.com/library/mt125356.aspx).
+2. Aprire Windows PowerShell in modalità di amministrazione e assicurarsi di aver installato i [cmdlet di Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx).
 
 		Install-Module AzureRM
 		Install-AzureRM
@@ -155,7 +153,7 @@ Di seguito è riportata una risposta di esempio:
 	5391911","resource":"https://management.core.windows.net/","access_token":{ACCESS_T
 	OKEN}}
 
-Questo esempio include la codifica URL dei parametri POST. Il valore `resource` è effettivamente `https://management.core.windows.net/`. Prestare attenzione anche alla codifica URL `{CLIENT_SECRET}` perché può contenere caratteri speciali.
+Questo esempio include la codifica URL dei parametri POST. Il valore `resource` effettivo è `https://management.core.windows.net/`. Prestare attenzione anche alla codifica URL `{CLIENT_SECRET}` perché può contenere caratteri speciali.
 
 Ora in ogni chiamata all'API includere l'intestazione della richiesta di autorizzazione:
 
@@ -182,6 +180,7 @@ Ora che si dispone di un token valido, è possibile eseguire chiamate API.
 
 	![](./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png)
 
->[AZURE.NOTE] <br/> 1. Ignorare l'indirizzo radice dell'API perché riferito alle API precedenti.<br/> 2. È necessario usare il nome di risorsa dell'applicazione, che è diverso dal nome dell'applicazione stessa.
+>[AZURE.NOTE] <br/>
+>1. Ignorare l'indirizzo radice dell'API perché riferito alle API precedenti.<br/> 2. È necessario usare il nome di risorsa dell'applicazione, che è diverso dal nome dell'applicazione stessa. 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

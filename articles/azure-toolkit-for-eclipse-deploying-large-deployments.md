@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/30/2015" 
+    ms.date="02/26/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268601.aspx -->
@@ -37,7 +37,7 @@ Altre informazioni sulla creazione di una risorsa di archiviazione locale sono r
 
 [Toolkit di Azure per Eclipse][]
 
-[Creare un'applicazione Hello World per Azure in Eclipse][]
+[Creazione di un'applicazione Hello World per Azure in Eclipse][]
 
 [Installare il Toolkit di Azure per Eclipse.][]
 
@@ -47,7 +47,7 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 
 [Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Creare un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Creazione di un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Proprietà dell’archiviazione locale]: http://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
 
@@ -55,4 +55,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 
 [ic667943]: ./media/azure-toolkit-for-eclipse-deploying-large-deployments/ic667943.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

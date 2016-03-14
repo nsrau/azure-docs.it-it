@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="03/01/2016" 
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [.NET](media-services-get-media-processor.md)
 - [REST](media-services-rest-get-media-processor.md)
- 
+
 
 ##Panoramica
 
@@ -30,30 +30,30 @@ In Servizi multimediali un processore di contenuti multimediali è un componente
 
 Nella tabella seguente sono riportati il nome e la descrizione di tutti i processori multimediali disponibili.
 
-Nome del processore multimediale|Descrizione|Ulteriori informazioni
+Nome del processore multimediale|Descrizione|Altre informazioni
 ---|---|---
-Azure Media Encoder|Consente di eseguire attività di codifica usando Azure Media Encoder.|[Azure Media Encoder](media-services-encode-asset.md#azure_media_encoder)
-Codificatore multimediale standard|Consente di eseguire attività di codifica utilizzando il codificatore multimediale standard.|[Azure Media Encoder](media-services-encode-asset.md#media_encoder_standard)
-Flusso di lavoro Premium del codificatore multimediale|Consente di eseguire attività di codifica usando il flusso di lavoro Premium del codificatore multimediale.|[Flusso di lavoro Premium del codificatore multimediale](media-services-encode-asset.md#media_encoder_premium_wokrflow)
-Azure Media Indexer| Consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati.|[Indicizzazione di file multimediali con Azure Media Indexer](media-services-index-content.md)
-Azure Media Hyperlapse (anteprima)|Consente di ridurre le imperfezioni del video con la stabilizzazione video. Consente inoltre di velocizzare il contenuto in una clip utilizzabile.|		[Azure Media Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
-Storage Decryption| Consente di decrittografare asset di file multimediali crittografati mediante la crittografia di archiviazione.|N/D
-Azure Media Packager|Consente di convertire asset di file multimediali dal formato MP4 al formato Smooth Streaming. Consente inoltre di convertire asset di file multimediali dal formato Smooth Streaming al formato Apple HTTP Live Streaming (HLS).|[Stringhe di set di impostazioni di attività per Azure Media Packager](http://msdn.microsoft.com/library/hh973635.aspx)
-Azure Media Encryptor|Consente di crittografare asset di file multimediali usando PlayReady Protection.|[Stringhe di set di impostazioni di attività per Azure Media Packager](http://msdn.microsoft.com/library/hh973610.aspx)
+Codificatore multimediale standard|Fornisce funzionalità standard per la codifica su richiesta. |[Panoramica e confronto dei codificatori multimediali su richiesta di Azure](media-services-encode-asset.md)
+Flusso di lavoro Premium del codificatore multimediale|Consente di eseguire attività di codifica usando il flusso di lavoro Premium del codificatore multimediale.|[Panoramica e confronto dei codificatori multimediali su richiesta di Azure](media-services-encode-asset.md)
+Azure Media Indexer| Consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati.|[Azure Media Indexer](media-services-index-content.md)
+Azure Media Hyperlapse (anteprima)|Consente di ridurre le imperfezioni del video con la stabilizzazione video. Consente inoltre di velocizzare il contenuto in una clip utilizzabile.|[Azure Media Hyperlapse](media-services-hyperlapse-content.md)
+Azure Media Encoder|Ammortizzato
+Storage Decryption| Ammortizzato|
+Azure Media Packager|Ammortizzato|
+Azure Media Encryptor|Ammortizzato|
 
 ##Ottenere un processore di contenuti multimediali
 
-Il seguente metodo illustra come ottenere un'istanza del processore di contenuti multimediali. Nell'esempio si suppone che si usi una variabile a livello di modulo denominata **\_context** per fare riferimento al contesto del server descritto nella sezione [Procedura: Connettersi a Servizi multimediali a livello di codice].
+Il seguente metodo illustra come ottenere un'istanza del processore di contenuti multimediali. Nell'esempio si suppone che si usi una variabile a livello di modulo denominata **\_context** per fare riferimento al contesto del server descritto nella sezione [Procedura: Connettersi a Servizi multimediali a livello di codice](media-services-dotnet-connect_programmatically.md).
 
 	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 	{
-	     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-	        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-	
-	    if (processor == null)
-	        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-	
-	    return processor;
+		var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+		ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+		
+		if (processor == null)
+		throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+		
+		return processor;
 	}
 
 
@@ -66,10 +66,7 @@ Il seguente metodo illustra come ottenere un'istanza del processore di contenuti
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##Passaggi successivi
-Dopo avere ottenuto un'istanza del processore multimediale, passare all'argomento [Procedura: Codificare un asset][] che illustra come utilizzare Azure Media Encoder per codificare un asset.
 
-[Procedura: Codificare un asset]: media-services-encode-asset.md
-[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
-[Procedura: Connettersi a Servizi multimediali a livello di codice]: ../media-services-set-up-computer/
+Dopo avere ottenuto un'istanza del processore di contenuti multimediali, passare all'argomento [Come codificare un asset](media-services-dotnet-encode-with-media-encoder-standard.md) che illustra come utilizzare Media Encoder Standard per codificare un asset.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

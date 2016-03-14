@@ -3,7 +3,7 @@
 	description="Aggiornamenti più recenti per Strumenti di Visual Studio per Application Insights" 
 	services="application-insights" 
     documentationCenter=""
-	authors="dimazaid" 
+	authors="aruna" 
 	manager="douge"/>
 <tags 
 	ms.service="application-insights" 
@@ -11,17 +11,36 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
-	ms.author="dimazaid"/>
+	ms.date="02/26/2016" 
+	ms.author="acearun"/>
  
-# Note sulla versione per Strumenti Application Insights per Visual Studio v 4.2
+# Note sulla versione per Strumenti Application Insights per Visual Studio
+
+## Versione 4.3
+### Ricercare i dati di telemetria da sessioni di debug locali
+In questa versione è possibile ricercare i dati di telemetria di Application Insights generati nella sessione di debug di Visual Studio. Nelle versioni precedenti la ricerca è possibile soltanto se l'app è stata registrata in Application Insights. In questa versione, per ricercare i dati di telemetria locali è sufficiente che nell'app sia stato installato Application Insights SDK.
+
+#### Se si dispone di un'applicazione ASP.NET con Application Insights SDK
+
+- Eseguire il debug dell'applicazione.
+- Aprire Ricerca di Application Insights in uno dei modi seguenti
+	- Menu Visualizza -> Altre finestre -> Ricerca di Application Insights
+	- Fare clic sul pulsante della barra degli strumenti di Application Insights
+	- In Esplora soluzioni, espandere i dati di telemetria della sessione di debug di ricerca ApplicationInsights.config ->
+- Se non è stata eseguita l'iscrizione ad Application Insights, la finestra di ricerca viene aperta in modalità 'Telemetria della sessione di debug'.
+- Fare clic sull'icona di ricerca per visualizzare i dati di telemetria locali.
+
+![Caricamento completato](./media/app-insights-release-notes-vsix/LocalSearch.png)
+
+
+
 ##Versione 4.2
 In questa versione sono state aggiunte funzionalità per semplificare la ricerca di dati nel contesto degli eventi, passare al codice da altri eventi di dati e inviare i dati di registrazione in Application Insights. Questa estensione viene aggiornata ogni mese. Inviare eventuali commenti o suggerimenti a aidevtools@microsoft.com
 ###- Accesso a zero clic
 Se si usa il sistema di traccia NLog, Log4Net o System.Diagnostics non è necessario spostare le tracce in AI. Gli adattatori di accesso di Application Insights sono integrati nel normale processo di configurazione. Se si dispone già di uno di questi framework di registrazione configurato:
 ####Se Application Insights è già stato aggiunto
 - Fare clic con il pulsante destro del mouse su Nodo progetto->Application Insights->Configura Application Insights. Assicurarsi che venga visualizzata l'opzione che consente di aggiungere l'adattatore appropriato nella finestra di configurazione. 
-- Oppure, durante la compilazione della soluzione, nella finestra popup visualizzata nella parte superiore destra della schermata fare clic su Configura. ![Avviso popup](./media/app-insights-release-notes-vsix/LoggingToast.png)
+- In alternativa, durante la compilazione della soluzione, nella finestra popup visualizzata nella parte superiore destra della schermata fare clic su Configura. ![Avviso popup](./media/app-insights-release-notes-vsix/LoggingToast.png)
 
 Dopo aver installato l'adattatore di registrazione, è possibile eseguire l'applicazione e assicurarsi di visualizzare i dati nella scheda degli strumenti di diagnostica come indicato di seguito: ![Tracce](./media/app-insights-release-notes-vsix/Traces.png)
 ###- L'utente può trovare/passare al codice in cui viene generata la proprietà dell'evento di telemetria
@@ -87,4 +106,4 @@ Nelle versioni future dell'estensione Application Insights saranno introdotte nu
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

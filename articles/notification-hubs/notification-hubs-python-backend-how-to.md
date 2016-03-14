@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
-	ms.author="yuaxu"/>
+	ms.date="02/29/2016" 
+	ms.author="wesmc"/>
 
 # Come usare Hub di notifica da Python
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 		
 Per accedere a tutte le funzionalità di Hub di notifica da un back-end Java/PHP/Ruby, è possibile usare l'interfaccia REST di Hub di notifica come descritto nell'argomento [API REST degli hub di notifica](http://msdn.microsoft.com/library/dn223264.aspx) in MSDN.
 
-> [AZURE.NOTE]Di seguito è riportato un esempio di riferimento per l'implementazione degli invii di notifiche in Python. Non si tratta dell'SDK Python di Hub di notifica.
+> [AZURE.NOTE] Di seguito è riportato un esempio di riferimento per l'implementazione degli invii di notifiche in Python. Non si tratta dell'SDK Python di Hub di notifica.
 
-> [AZURE.NOTE]L'esempio è scritto in Python 3.4.
+> [AZURE.NOTE] L'esempio è scritto in Python 3.4.
 
 In questo argomento viene illustrato come:
 
@@ -33,7 +33,7 @@ In questo argomento viene illustrato come:
 
 Completare l'[esercitazione introduttiva](notification-hubs-windows-store-dotnet-get-started.md) per la piattaforma mobile preferita, implementando la parte del back-end in Python.
 
-> [AZURE.NOTE]L'ambito dell'esempio è limitato all'invio di notifiche. Non viene eseguita alcuna gestione delle registrazioni.
+> [AZURE.NOTE] L'ambito dell'esempio è limitato all'invio di notifiche. Non viene eseguita alcuna gestione delle registrazioni.
 
 ## Interfaccia del client
 L'interfaccia principale del client può fornire gli stessi metodi disponibili nell'[SDK di Hub di notifica per .NET](http://msdn.microsoft.com/library/jj933431.aspx). Questo consentirà di convertire direttamente tutte le esercitazioni e gli esempi disponibili in questo sito e a cui hanno contribuito i membri della community su Internet.
@@ -392,4 +392,4 @@ In questo argomento è stato illustrato come creare un semplice client REST Pyth
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

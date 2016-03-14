@@ -18,10 +18,14 @@
 	ms.author="heidist"/>
 
 # Gestire il servizio di ricerca in Microsoft Azure
+> [AZURE.SELECTOR]
+- [Portale](search-manage.md)
+- [PowerShell](search-manage-powershell.md)
+- [API REST](search-get-started-management-api.md)
 
 Ricerca di Azure è un servizio basato sul cloud con un'API basata su HTTP che è possibile usare in applicazioni di ricerca personalizzate. Il servizio di ricerca fornisce il motore per l'analisi del testo tramite ricerca full-text, funzionalità avanzate di ricerca, archiviazione di dati di ricerca e una sintassi dei comandi di query.
 
-Questo articolo spiega come amministrare un servizio di ricerca nel [portale di Azure](https://portal.azure.com). È anche possibile usare la nuova funzionalità di analisi del traffico di ricerca per informazioni dettagliate sulle attività a livello di indice. Per iniziare, visitare [Analisi del traffico di ricerca per Ricerca di Azure](search-traffic-analytics.md).
+Questo articolo spiega come amministrare un servizio di ricerca nel [Portale di Azure](https://portal.azure.com). È anche possibile usare la nuova funzionalità di analisi del traffico di ricerca per informazioni dettagliate sulle attività a livello di indice. Per iniziare, visitare [Analisi del traffico di ricerca per Ricerca di Azure](search-traffic-analytics.md).
 
 In alternativa, è possibile usare l'API REST di gestione. Per informazioni dettagliate, vedere [Introduzione all'API REST di gestione di Ricerca di Azure](search-get-started-management-api.md) e [API REST di gestione di Ricerca di Azure](http://msdn.microsoft.com/library/azure/dn832684.aspx).
 
@@ -32,7 +36,7 @@ Un amministratore che configura un servizio di ricerca deve prima di tutto defin
 
 Per gli abbonati esistenti è disponibile un servizio condiviso senza costi aggiuntivi, consigliato per scopi di apprendimento, test dei modelli di prova e piccoli progetti di sviluppo. Il servizio condiviso è limitato a 50 MB di spazio di archiviazione, tre indici e un numero massimo 10.000 documenti, anche qualora lo spazio di archiviazione usato da questi ultimi sia inferiore ai 50 MB consentiti. Non vi è garanzia alcuna rispetto alle prestazioni del servizio condiviso, pertanto, se si prevede di sviluppare un'applicazione di ricerca di produzione, è consigliabile valutare l'acquisto del servizio di ricerca standard.
 
-Il servizio di ricerca standard è fatturabile perché fornisce accesso a risorse dedicate e a un'infrastruttura usata unicamente dalla propria sottoscrizione. Il servizio di ricerca standard viene allocato in bundle di partizioni definiti dall'utente (archiviazione) e repliche (carichi di lavoro del servizio) e viene tariffato per unità di ricerca. È possibile aumentare partizioni o repliche indipendentemente, aggiungendo le risorse necessarie.
+Il servizio di ricerca, sia Basic che Standard, è fatturabile perché fornisce accesso a risorse dedicate e a un'infrastruttura usata unicamente dalla propria sottoscrizione. I servizi di ricerca Basic e Standard vengono allocati in bundle di partizioni definiti dall'utente (archiviazione) e repliche (carichi di lavoro del servizio). Le tariffe sono definite per unità di ricerca. È possibile aumentare partizioni o repliche indipendentemente, aggiungendo le risorse necessarie.
 
 Per pianificare la capacità e comprendere l'impatto di fatturazione, è consigliabile consultare le informazioni disponibili seguendo i collegamenti seguenti:
 
@@ -104,9 +108,9 @@ In questa anteprima pubblica, il monitoraggio delle risorse è limitato alle inf
 
 Nella sezione Utilizzo del Dashboard servizi è possibile determinare rapidamente se i livelli delle risorse di partizione sono adeguati per l'applicazione.
 
-Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici. Esistono limiti rigidi associati a questi conteggi in base al livello di prezzo. Per dettagli, vedere [Limitazioni e vincoli](search-limits-quotas-capacity.md).
+Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici. Esistono limiti rigidi associati a questi conteggi in base al livello di prezzo. Per informazioni dettagliate, vedere l'articolo relativo ai [limiti del servizio di ricerca](search-limits-quotas-capacity.md).
 
-+	[Ottenere le statistiche di indice](http://msdn.microsoft.com/library/dn798942.aspx)
++	[Ottenere le statistiche di un indice](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Conteggio documenti](http://msdn.microsoft.com/library/dn798924.aspx)
 
 > [AZURE.NOTE] Il comportamento della cache può determinare la dichiarazione di un limite più alto. Ad esempio, quando si usa il servizio condiviso, è possibile che venga visualizzato un numero documenti superiore al limite rigido di 10.000. Questa stima in eccesso è temporanea e verrà rilevata al successivo controllo di imposizione del limite.
@@ -115,15 +119,15 @@ Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei doc
 <a id="sub-6"></a>
 ## Aumentare o ridurre la quantità di risorse
 
-Ogni servizio di ricerca viene creato con un minimo di una replica e una partizione. Se si è effettuata l'iscrizione alle risorse dedicate usando il livello di prezzo Standard, fare clic sul riquadro **RIDIMENSIONA** nel dashboard del servizio per regolare il numero di partizioni e di repliche usate dal servizio.
+Ogni servizio di ricerca viene creato con un minimo di una replica e una partizione. Se si è effettuata l'iscrizione alle risorse dedicate usando il [piano tariffario Basic o Standard](search-limits-quotas-capacity.md), fare clic sul riquadro **RIDIMENSIONA** nel dashboard del servizio per regolare il numero di partizioni e di repliche usate dal servizio stesso.
 
-Quando si aggiungono risorse, queste verranno usate dal servizio in modo automatico. Non sono necessarie ulteriori azioni da parte dell'utente, ma vi sarà un lieve ritardo prima che l'impatto delle nuove risorse sia apprezzabile. Possono essere necessari 15 o più minuti per il provisioning delle risorse aggiuntive.
+Quando si aggiunge capacità tramite l'una o l'altra risorsa, la risorsa aggiunta viene usata dal servizio in modo automatico. Non sono necessarie ulteriori azioni da parte dell'utente, ma vi sarà un lieve ritardo prima che l'impatto delle nuove risorse sia apprezzabile. Possono essere necessari 15 o più minuti per il provisioning delle risorse aggiuntive.
 
  ![][10]
 
 ### Aggiungere repliche
 
-L'aumento delle query al secondo o il raggiungimento della disponibilità elevata si ottengono mediante l'aggiunta di repliche. Ogni replica presenta una copia di un indice, pertanto l'aggiunta di un'ulteriore replica si traduce in un indice aggiuntivo che può essere usato per soddisfare le richieste di query. In linea generale, attualmente sono necessarie almeno 3 repliche per la disponibilità elevata.
+L'aumento delle query al secondo o il raggiungimento della disponibilità elevata si ottengono mediante l'aggiunta di repliche. Ogni replica presenta una copia di un indice, pertanto l'aggiunta di un'ulteriore replica si traduce in un indice aggiuntivo che può essere usato per soddisfare le richieste di query. In linea generale, attualmente sono necessarie almeno 3 repliche per la disponibilità elevata. Per informazioni dettagliate vedere l'articolo relativo alla [pianificazione della capacità](search-capacity-planning.md).
 
 Un servizio di ricerca con un numero superiore di repliche può eseguire il bilanciamento del carico delle richieste di query su un numero maggiore di indici. Per un determinato volume di query, la velocità effettiva delle query sarà maggiore in presenza di più copie dell'indice disponibili per soddisfare la richiesta. Se si verificano latenze delle query, ci si può aspettare un netto miglioramento delle prestazioni una volta portate online le repliche aggiuntive.
 
@@ -133,7 +137,9 @@ Sebbene la velocità effettiva delle query aumenti quando si aggiungono repliche
 
 La maggior parte delle applicazioni di servizio mostrano una necessità insita di disporre di più repliche, più che di un numero maggiore di partizioni, poiché la maggior parte delle applicazioni che usano la ricerca può essere contenuta facilmente in una singola partizione che può supportare fino a 15 milioni di documenti.
 
-Per quei casi in cui è richiesto un numero maggiore di documenti, è possibile aggiungere partizioni. Si noti che le partizioni vengono aggiunte in multipli di 12 (ossia 1, 2, 3, 4, 6 o 12). Si tratta di un artefatto del partizionamento orizzontale: un indice viene creato in 12 sottopartizioni, tutte archiviabili a propria volta in un'unica partizione o equamente distribuibili in 2, 3, 4, 6 o 12 partizioni (in quest'ultimo caso, una per partizione).
+Per i casi in cui è necessario un numero maggiore di documenti, l'iscrizione al servizio Standard permette di aggiungere partizioni. Il livello Basic non offre partizioni aggiuntive.
+
+Al livello Standard le partizioni vengono aggiunte in multipli di 12 (ossia 1, 2, 3, 4, 6 o 12). Si tratta di un artefatto del partizionamento orizzontale: un indice viene creato in 12 sottopartizioni, tutte archiviabili a propria volta in un'unica partizione o equamente distribuibili in 2, 3, 4, 6 o 12 partizioni (in quest'ultimo caso, una per partizione).
 
 ### Rimuovere repliche
 
@@ -200,4 +206,4 @@ I ruoli forniscono il controllo degli accessi dopo la creazione del servizio. So
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 
@@ -51,7 +51,7 @@ Le *attività* possono tuttavia essere controllate anche manualmente usando l'AP
 
 			[[EngagementAgent shared] endActivity];
 
-> [AZURE.WARNING]Questa funzione non deve **MAI** essere chiamata autonomamente, a meno che non si desideri dividere un uso dell'applicazione in più sessioni. Una chiamata a questa funzione interromperebbe immediatamente la sessione corrente e quindi una successiva chiamata a `startActivity()` avvierebbe una nuova sessione. Questa funzionalità viene chiamata automaticamente dall'SDK durante la chiusura dell'applicazione.
+> [AZURE.WARNING] Questa funzione non deve **MAI** essere chiamata autonomamente, a meno che non si desideri dividere un uso dell'applicazione in più sessioni. Una chiamata a questa funzione interromperebbe immediatamente la sessione corrente e quindi una successiva chiamata a `startActivity()` avvierebbe una nuova sessione. Questa funzionalità viene chiamata automaticamente dall'SDK durante la chiusura dell'applicazione.
 
 ##Segnalazione di eventi
 
@@ -219,7 +219,7 @@ Questi dati possono essere strutturati e utilizzano la classe NSDictionary di iO
 
 Tenere presente che i dati aggiuntivi possono includere `arrays(NSArray, NSMutableArray)`, `numbers(NSNumber class)`, `strings(NSString, NSMutableString)`, `urls(NSURL)`, `data(NSData, NSMutableData)` o altre istanze di `NSDictionary`.
 
-> [AZURE.NOTE]Il parametro aggiuntivo viene serializzato in JSON. Se si desidera passare oggetti diversi da quelli descritti in precedenza, è necessario implementare il metodo seguente nella classe:
+> [AZURE.NOTE] Il parametro aggiuntivo viene serializzato in JSON. Se si desidera passare oggetti diversi da quelli descritti in precedenza, è necessario implementare il metodo seguente nella classe:
 >
 			 -(NSString*)JSONRepresentation;
 >
@@ -283,4 +283,4 @@ Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 
 	{"birthdate":"1983-12-07","gender":"female"}
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

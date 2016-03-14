@@ -15,13 +15,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # Introduzione all'API di Dropbox 
-Connettersi a Dropbox per gestire file, ad esempio creare i file, recuperarli e così via.
+Connettersi a Dropbox per gestire file, ad esempio creare i file, recuperarli e così via. L'API di Dropbox può essere usata da:
 
-L'API di Dropbox può essere usata dalle app di PowerApps Enterprise e dalle app per la logica.
+- App per la logica 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [App per la logica](../articles/connectors/create-api-dropbox.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-dropbox.md)
 
 Con Dropbox è possibile:
 
@@ -46,47 +51,48 @@ Tutte le API supportano i dati nei formati JSON e XML.
 ## Creare una connessione a Dropbox
 
 ### Aggiungere configurazioni aggiuntive in PowerApps
-Quando si aggiunge Dropbox a PowerApps Enterprise, si immettono i valori di **chiave app** e **segreto app** dell'applicazione di Dropbox. Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione Dropbox. Se non si ha un'applicazione Dropbox, è possibile usare la procedura seguente per creare l'applicazione:
+Quando si aggiunge Dropbox a PowerApps Enterprise, si immettono i valori **Chiave app** e **Chiave privata app** dell'applicazione Dropbox. Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione Dropbox. Se non si ha un'applicazione Dropbox, è possibile usare la procedura seguente per creare l'applicazione:
 
 1. Accedere a [Dropbox][1].
 2. Visitare il sito per sviluppatori Dropbox e selezionare **My Apps**: ![Sito per sviluppatori Dropbox][8]  
 3. Selezionare **Crea app**: ![Creare app Dropbox][9]  
 4. In **Crea una nuova app sulla piattaforma Dropbox**:  
 
-	1. In **Choose an API** selezionare **Dropbox API**.
-	2. In **Choose the type of access you need** selezionare **Full Dropbox**.  
+	1. In **Scegliere l'API** selezionare **API Dropbox**.
+	2. In **Scegliere il tipo di accesso necessario** selezionare **Dropbox completo**.  
 	3. Immettere un nome per l'app.  
 
 	![Creare app Dropbox pagina 1][10]
 
 5. Nella pagina delle impostazioni dell’app:
 
-	1. In **OAuth 2** immettere il valore dell'**URL di reindirizzamento** visualizzato quando si aggiunge l'API di Dropbox nel portale di Azure. Selezionare **Aggiungi**.  
-	2. Selezionare il collegamento **Show** per visualizzare il **segreto dell'app**:  
+	1. In **OAuth 2** immettere l'**URL di reindirizzamento** visualizzato quando si aggiunge l'API di Dropbox nel portale di Azure. Selezionare **Aggiungi**.  
+	2. Selezionare il collegamento **Mostra** per visualizzare **Chiave privata app**:  
 
 	![Creare app Dropbox pagina 2][11]
 
-A questo punto, copiare e incollare i valori di **ID client** e **chiave app** nella configurazione di Dropbox nel portale di Azure.
+A questo punto, copiare e incollare i valori di **Chiave app** e **Chiave privata app** nella configurazione di Dropbox nel portale di Azure.
 
 ### Aggiungere configurazioni aggiuntive nelle app per la logica
 Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Dropbox.
 
 1. Accedere all'account Dropbox.
-2. Selezionare **Authorize** e consentire alle app per la logica di connettersi e usare Dropbox. 
+2. Selezionare **Autorizza** e consentire alle app per la logica di connettersi e usare Dropbox. 
 
 Dopo aver creato la connessione immettere le proprietà di Dropbox, ad esempio nome file o percorso cartella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di Dropbox in altre app per la logica.
 
-## Riferimento all'API REST Swagger
+## Riferimento all'API REST di Swagger
+Si applica alla versione 1.0.
 
 ### Crea file    
 Carica un file in Dropbox. ```POST: /datasets/default/files```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|folderPath|string|sì|query|nessuno |Percorso della cartella per caricare il file in Dropbox|
-|name|string|sì|query|nessuno |Nome del file da creare in Dropbox|
+|folderPath|string|yes|query|nessuno |Percorso della cartella per caricare il file in Dropbox|
+|name|string|yes|query|nessuno |Nome del file da creare in Dropbox|
 |body|string(binary) |sì|body|nessuno |Contenuto del file da creare in Dropbox|
 
 #### Risposta
@@ -101,7 +107,7 @@ Quando un nuovo file viene creato in una cartella di Dropbox, attiva un flusso. 
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|folderId|string|sì|query|nessuno |Identificatore univoco della cartella in Dropbox.|
+|folderId|string|yes|query|nessuno |Identificatore univoco della cartella in Dropbox.|
 
 #### Risposta
 |Nome|Descrizione|
@@ -115,8 +121,8 @@ Copia un file in Dropbox. ```POST: /datasets/default/copyFile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|source|string|sì|query|nessuno |URL del file di origine|
-|destination|string|sì|query| nessuno|Percorso file di destinazione in Dropbox, incluso nome file di destinazione|
+|source|string|yes|query|nessuno |URL del file di origine|
+|destination|string|yes|query| nessuno|Percorso file di destinazione in Dropbox, incluso nome file di destinazione|
 |overwrite|boolean|no|query|nessuno |Sovrascrive il file di destinazione se è impostata su 'true'|
 
 #### Risposta
@@ -131,7 +137,7 @@ Elimina un file da Dropbox. ```DELETE: /datasets/default/files/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno|Identificatore univoco del file da eliminare da Dropbox|
+|id|string|yes|path|nessuno|Identificatore univoco del file da eliminare da Dropbox|
 
 #### Risposta
 |Nome|Descrizione|
@@ -145,8 +151,8 @@ Estrae un file di archivio in una cartella di Dropbox, ad esempio con estensione
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|source|string|sì|query|nessuno |Percorso del file di archivio|
-|destination|string|sì|query|nessuno |Percorso in Dropbox in cui estrarre il contenuto dell'archivio|
+|source|string|yes|query|nessuno |Percorso del file di archivio|
+|destination|string|yes|query|nessuno |Percorso in Dropbox in cui estrarre il contenuto dell'archivio|
 |overwrite|boolean|no|query|nessuno |Sovrascrive i file di destinazione se è impostata su 'true'|
 
 #### Risposta
@@ -157,11 +163,11 @@ Estrae un file di archivio in una cartella di Dropbox, ad esempio con estensione
 
 
 ### Recupera contenuto di file tramite ID    
-Recupera i contenuti del file da Dropbox tramite l'ID. ```GET: /datasets/default/files/{id}/content```
+Recupera il contenuto dei file da Dropbox tramite ID. ```GET: /datasets/default/files/{id}/content```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno |Identificatore univoco del file in Dropbox|
+|id|string|yes|path|nessuno |Identificatore univoco del file in Dropbox|
 
 #### Risposta
 |Nome|Descrizione|
@@ -171,11 +177,11 @@ Recupera i contenuti del file da Dropbox tramite l'ID. ```GET: /datasets/default
 
 
 ### Recupera contenuto di file tramite percorso    
-Recupera i contenuti del file da Dropbox tramite il percorso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera il contenuto dei file da Dropbox tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|path|string|sì|query|nessuno |Percorso univoco del file in Dropbox|
+|path|string|yes|query|nessuno |Percorso univoco del file in Dropbox|
 
 #### Risposta
 |Nome|Descrizione|
@@ -185,11 +191,11 @@ Recupera i contenuti del file da Dropbox tramite il percorso. ```GET: /datasets/
 
 
 ### Recupera metadati di file tramite ID    
-Recupera i metadati dei file da Dropbox tramite l'ID del file. ```GET: /datasets/default/files/{id}```
+Recupera i metadati dei file da Dropbox tramite ID file. ```GET: /datasets/default/files/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno |Identificatore univoco del file in Dropbox|
+|id|string|yes|path|nessuno |Identificatore univoco del file in Dropbox|
 
 #### Risposta
 |Nome|Descrizione|
@@ -199,11 +205,11 @@ Recupera i metadati dei file da Dropbox tramite l'ID del file. ```GET: /datasets
 
 
 ### Recupera metadati di file tramite percorso    
-Recupera i metadati dei file da Dropbox tramite il percorso. ```GET: /datasets/default/GetFileByPath```
+Recupera i metadati dei file da Dropbox tramite percorso. ```GET: /datasets/default/GetFileByPath```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|path|string|sì|query|nessuno |Percorso univoco del file in Dropbox|
+|path|string|yes|query|nessuno |Percorso univoco del file in Dropbox|
 
 #### Risposta
 |Nome|Descrizione|
@@ -217,7 +223,7 @@ Aggiorna un file in Dropbox. ```PUT: /datasets/default/files/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path| nessuno|Identificatore univoco del file da aggiornare in Dropbox|
+|id|string|yes|path| nessuno|Identificatore univoco del file da aggiornare in Dropbox|
 |body|string(binary) |sì|body|nessuno |Contenuto del file da aggiornare in Dropbox|
 
 #### Risposta
@@ -232,7 +238,7 @@ Quando un file viene modificato in una cartella di Dropbox, attiva un flusso. ``
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|folderId|string|sì|query|nessuno |Identificatore univoco della cartella in Dropbox.|
+|folderId|string|yes|query|nessuno |Identificatore univoco della cartella in Dropbox.|
 
 #### Risposta
 |Nome|Descrizione|
@@ -254,7 +260,7 @@ Quando un file viene modificato in una cartella di Dropbox, attiva un flusso. ``
 
 |Nome proprietà | Tipo di dati |Obbligatorio|
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 |tableDisplayName|string|no|
@@ -264,7 +270,7 @@ Quando un file viene modificato in una cartella di Dropbox, attiva un flusso. ``
 
 |Nome proprietà | Tipo di dati |Obbligatorio|
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 
@@ -284,7 +290,7 @@ Quando un file viene modificato in una cartella di Dropbox, attiva un flusso. ``
 |FileLocator|string|no|
 
 ## Passaggi successivi
-Dopo aver aggiunto l'API di Dropbox a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle proprie app.
+Dopo aver aggiunto l'API di Dropbox a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle app.
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -298,4 +304,4 @@ Dopo aver aggiunto l'API di Dropbox a PowerApps Enterprise, [concedere autorizza
 [10]: ./media/create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

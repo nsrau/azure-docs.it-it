@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/25/2015"
+   ms.date="02/29/2016"
    ms.author="robb" />
 
 # Creare e usare contatori di prestazioni in un'applicazione Azure
@@ -21,10 +21,10 @@ Questo articolo descrive i vantaggi dei contatori delle prestazioni e come inser
 
 I contatori delle prestazioni disponibili per Windows Server, IIS e ASP.NET possono anche essere usati per raccogliere dati e per determinare l'integrità delle macchine virtuali, dei ruoli di lavoro e dei ruoli Web di Azure. È anche possibile creare e usare contatori delle prestazioni personalizzati.
 
-È possibile esaminare i dati dei contatori delle prestazioni 
-1. Direttamente nell'host applicazione con lo strumento Performance Monitor accessibile da Desktop remoto 
-2. Con System Center Operations Manager con Azure Management Pack 
-3. Con altri strumenti di monitoraggio che accedono ai dati di diagnostica trasferiti ad Archiviazione di Azure. Per altre informazioni, vedere [Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx).
+È possibile esaminare i dati dei contatori delle prestazioni
+1. Direttamente nell'host applicazione con lo strumento Performance Monitor accessibile da Desktop remoto
+2. Con System Center Operations Manager con Azure Management Pack
+3. Con altri strumenti di monitoraggio che accedono ai dati di diagnostica trasferiti ad Archiviazione di Azure. Per altre informazioni, vedere [Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx).  
 
 Per altre informazioni sul monitoraggio delle prestazioni dell'applicazione nel [portale di Azure classico](http://manage.azure.com/), vedere [Come monitorare i servizi cloud](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
@@ -56,22 +56,13 @@ Azure fornisce un subset dei contatori delle prestazioni disponibili per Windows
 |ASP.NET v4.0.30319 |Richieste respinte |Contatori delle prestazioni per ASP.NET|
 |Memoria |MByte disponibili |Contatori delle prestazioni di memoria|
 |Memoria |Byte vincolati |Contatori delle prestazioni di memoria|
-|Processore(\_Total) |% Tempo processore |Contatori delle prestazioni per ASP.NET|
-|TCPv4 |Errori di connessione |Oggetto TCP|
-|TCPv4 |Connessioni stabilite |Oggetto TCP|
-|TCPv4 |Connessioni ripristinate |Oggetto TCP|
-|TCPv4 |Segmenti inviati/sec |Oggetto TCP|
-|Interfaccia di rete(*) |Byte ricevuti/sec |Oggetto interfaccia di rete|
-|Interfaccia di rete(*) |Byte inviati/sec |Oggetto interfaccia di rete|
-|Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Byte ricevuti/sec|Oggetto interfaccia di rete|
-|Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Byte inviati/sec|Oggetto interfaccia di rete|
-|Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Totale byte/sec|Oggetto interfaccia di rete|
+|Processore(\_Total) |% Tempo processore |Contatori delle prestazioni per ASP.NET| |TCPv4 |Errori di connessione |Oggetto TCP| |TCPv4 |Connessioni stabilite |Oggetto TCP| |TCPv4 |Connessioni ripristinate |Oggetto TCP| |TCPv4 |Segmenti inviati/sec |Oggetto TCP| |Interfaccia di rete(*) |Byte ricevuti/sec |Oggetto interfaccia di rete| |Interfaccia di rete(*) |Byte inviati/sec |Oggetto interfaccia di rete| |Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Byte ricevuti/sec|Oggetto interfaccia di rete| |Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Byte inviati/sec|Oggetto interfaccia di rete| |Interfaccia di rete (Scheda di rete bus macchina virtuale Microsoft \_2)|Totale byte/sec|Oggetto interfaccia di rete|
 
 ## Creare e aggiungere contatori delle prestazioni personalizzati all'applicazione
 
 Azure include il supporto per creare e modificare contatori delle prestazioni personalizzati per ruoli Web e ruoli di lavoro. I contatori possono essere usati per tenere traccia del comportamento specifico dell'applicazione e per monitorarlo. È possibile creare ed eliminare categorie e identificatori dei contatori delle prestazioni personalizzati da un'attività di avvio, un ruolo Web o un ruolo di lavoro con autorizzazioni elevate.
 
->[AZURE.NOTE]Il codice che apporta le modifiche ai contatori delle prestazioni personalizzati deve avere autorizzazioni di esecuzione elevate. Se il codice è in un ruolo Web o in un ruolo di lavoro, il ruolo deve includere il tag <Runtime executionContext="elevated" /> nel file ServiceDefinition.csdef per la corretta inizializzazione del ruolo.
+>[AZURE.NOTE] Il codice che apporta le modifiche ai contatori delle prestazioni personalizzati deve avere autorizzazioni di esecuzione elevate. Se il codice è in un ruolo Web o in un ruolo di lavoro, il ruolo deve includere il tag <Runtime executionContext="elevated" /> nel file ServiceDefinition.csdef per la corretta inizializzazione del ruolo.
 
 È possibile inviare i dati dei contatori delle prestazioni personalizzati alla risorsa di archiviazione di Azure con l'agente di diagnostica.
 
@@ -83,7 +74,7 @@ Azure memorizza nella cache i dati dei contatori delle prestazioni con altre inf
 
 Ogni istanza dei contatori delle prestazioni configurati viene registrata con una frequenza di campionamento specificata e i dati campionati vengono trasferiti nell'account di archiviazione in base a una richiesta di trasferimento pianificato o a una richiesta di trasferimento su richiesta. I trasferimenti automatici possono essere pianificati con una frequenza di una volta ogni minuto. I dati dei contatori delle prestazioni trasferiti dall'agente di diagnostica vengono archiviati in una tabella, WADPerformanceCountersTable, nell'account di archiviazione. Questa tabella è accessibile e può essere sottoposta a query con i metodi API di archiviazione standard di Azure. Per un esempio di query e di visualizzazione dei dati dei contatori delle prestazioni dalla tabella WADPerformanceCountersTable, vedere l'[esempio PerformanceCounters per Microsoft Azure](http://code.msdn.microsoft.com/Windows-Azure-PerformanceCo-7d80ebf9).
 
->[AZURE.NOTE]A seconda della latenza della coda e della frequenza di trasferimento dell'agente di diagnostica, i dati dei contatori delle prestazioni più recenti nell'account di archiviazione potrebbero essere scaduti da alcuni minuti.
+>[AZURE.NOTE] A seconda della latenza della coda e della frequenza di trasferimento dell'agente di diagnostica, i dati dei contatori delle prestazioni più recenti nell'account di archiviazione potrebbero essere scaduti da alcuni minuti.
 
 ## Abilitare i contatori delle prestazioni con il file di configurazione della diagnostica
 
@@ -144,7 +135,7 @@ Per salvare in modo permanente le informazioni di diagnostica nell'account di ar
 
 Per Azure SDK 2.5 l'account di archiviazione può essere specificato nel file diagnostics.wadcfgx.
 
->[AZURE.NOTE]Queste istruzioni si applicano solo ad Azure SDK 2.4 e versioni precedenti. Per Azure SDK 2.5 l'account di archiviazione può essere specificato nel file diagnostics.wadcfgx.
+>[AZURE.NOTE] Queste istruzioni si applicano solo ad Azure SDK 2.4 e versioni precedenti. Per Azure SDK 2.5 l'account di archiviazione può essere specificato nel file diagnostics.wadcfgx.
 
 Per impostare le stringhe di connessione:
 
@@ -179,7 +170,7 @@ Per creare un semplice contatore delle prestazioni personalizzato denominato "\\
 2. Aggiungere l'elemento Runtime all'elemento WebRole o WorkerRole per consentire l'esecuzione con privilegi elevati:
 
     ```
-    <RuntimeexecutionContext="elevated"/>
+    <runtime executioncontext="elevated"/>
     ```
 3. Salvare il file.
 4. Aprire il file della diagnostica (diagnostics.wadcfg in SDK 2.4 e versioni precedenti o diagnostics.wadcfgx in SDK 2.5 e versioni successive) e aggiungere quanto segue a DiagnosticMonitorConfiguration: 
@@ -318,11 +309,6 @@ Per eseguire il mapping di entità a oggetti C#, viene utilizzata una classe per
 
 
 ## Passaggi successivi
+[Visualizzare altri articoli sulla diagnostica di Azure](../azure-diagnostics.md)
 
-A questo punto, dopo aver appreso le nozioni di base della raccolta dei contatori delle prestazioni, vedere i collegamenti seguenti per imparare a implementare scenari più complessi di risoluzione dei problemi.
-
-[Procedure consigliate di risoluzione dei problemi per lo sviluppo di applicazioni Azure](https://msdn.microsoft.com/library/azure/hh771389.aspx)
-
-[Come monitorare i servizi cloud](./how-to-monitor-a-cloud-service.md)
-
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

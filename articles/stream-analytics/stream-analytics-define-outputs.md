@@ -3,7 +3,7 @@
 	description="Informazioni su come destinare gli output di trasformazione dei dati di Analisi di flusso a opzioni di archiviazione dei dati e su come usare Power BI per i risultati dell'analisi."
 	keywords="trasformazione dei dati, risultati dell'analisi, opzioni di archiviazione dati"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
-	documentationCenter=""
+	documentationCenter="" 
 	authors="jeffstokes72"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="03/02/2016"
 	ms.author="jeffstok"/>
 
 # Destinare gli output di trasformazione dei dati di Analisi di flusso a strumenti di analisi e opzioni di archiviazione dei dati
@@ -39,7 +39,7 @@ Un [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) p
 
 ## Archiviazione BLOB ##
 
-L'archiviazione BLOB offre una soluzione conveniente e scalabile per archiviare grandi quantità di dati non strutturati nel cloud. Per un'introduzione all'archivio BLOB di Azure e al relativo utilizzo, vedere la documentazione in [Come usare i BLOB](./articles/storage-dotnet-how-to-use-blobs.md).
+L'archiviazione BLOB offre una soluzione conveniente e scalabile per archiviare grandi quantità di dati non strutturati nel cloud. Per un'introduzione all'archivio BLOB di Azure e al relativo utilizzo, vedere la documentazione in [Come usare i BLOB](../storage/storage-dotnet-how-to-use-blobs.md).
 
 La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un output del BLOB.
 
@@ -118,7 +118,7 @@ Per configurare i flussi dei dati dell'hub eventi, sono necessari alcuni paramet
 
 [Power BI](https://powerbi.microsoft.com/) può essere usato come output per un processo di Analisi di flusso per offrire un'esperienza di visualizzazione avanzata dei risultati di analisi. Questa funzionalità può essere usata per i dashboard operativi, la generazione di report e la creazione di report basati sulle metriche.
 
-> [AZURE.NOTE] A questo punto, la creazione e la configurazione dell’output di Power BI non è supportata nel portale di anteprima di Azure.
+> [AZURE.NOTE] Attualmente, la creazione e la configurazione dell’output di Power BI è supportata solo nel portale di Azure classico.
 
 ### Autorizzare un account Power BI
 
@@ -159,7 +159,7 @@ Per risolvere questo problema, arrestare il processo in esecuzione e passare all
 
 ## Archiviazione tabelle
 
-Il servizio di [archiviazione tabelle di Azure](./articles/storage-introduction.md) offre un archivio a disponibilità elevata e altamente scalabile, per consentire la scalabilità automatica di un'applicazione in base alle richieste degli utenti. L'archivio tabelle è l'archivio di chiavi/attributi NoSQL di Microsoft che è possibile sfruttare per i dati strutturati con meno vincoli allo schema. Archivio tabelle di Azure consente di archiviare i dati per il salvataggio permanente e il recupero efficiente.
+Il servizio di [archiviazione tabelle di Azure](../storage/storage-introduction.md) offre un archivio a disponibilità elevata e altamente scalabile, per consentire la scalabilità automatica di un'applicazione in base alle richieste degli utenti. L'archivio tabelle è l'archivio di chiavi/attributi NoSQL di Microsoft che è possibile sfruttare per i dati strutturati con meno vincoli allo schema. Archivio tabelle di Azure consente di archiviare i dati per il salvataggio permanente e il recupero efficiente.
 
 La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un output di tabelle.
 
@@ -267,4 +267,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

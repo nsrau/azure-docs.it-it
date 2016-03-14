@@ -47,6 +47,19 @@ Per usare l'API di Yammer, creare innanzitutto una **connessione**, quindi forni
 | ---|---|---|
 |Token|Sì|Specificare le credenziali di Yammer|
 
+Seguire questi passaggi per accedere a Yammer e completare la configurazione della **connessione** Yammer nell'app per la logica:
+
+1. Selezionare **Ricorrenza**
+2. Selezionare una **Frequenza** e immettere un **Intervallo**
+3. Selezionare **Aggiungi un'azione** ![Configurare Yammer][1]
+4. Immettere Yammer nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con Yammer nel nome
+5. Selezionare **Yammer - Recupera tutti i messaggi**
+6. Selezionare **Accedi a Yammer**: ![Configurare Yammer][2]
+7. Fornire le credenziali di Yammer per accedere e autorizzare l'applicazione ![Configurare Yammer][3]  
+8. Si verrà reindirizzati alla pagina di accesso dell'organizzazione. **Autorizzare** Yammer a interagire con l'app per la logica: ![Configurare Yammer][4] 
+9. Dopo l'accesso, tornare all'app per la logica per completarla configurando la sezione **Yammer - Recupera tutti i messaggi** e aggiungendo gli altri trigger e azioni necessari. ![Configurare Yammer][5]  
+10. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.
+
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
@@ -187,4 +200,10 @@ Se viene fornito l'ID del gruppo, il messaggio verrà inviato al gruppo specific
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+[1]: ./media/create-api-yammer/connectionconfig1.png
+[2]: ./media/create-api-yammer/connectionconfig2.png
+[3]: ./media/create-api-yammer/connectionconfig3.png
+[4]: ./media/create-api-yammer/connectionconfig4.png
+[5]: ./media/create-api-yammer/connectionconfig5.png
+
+<!---HONumber=AcomDC_0302_2016-->

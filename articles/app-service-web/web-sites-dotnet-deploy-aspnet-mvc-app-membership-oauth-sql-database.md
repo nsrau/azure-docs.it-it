@@ -13,7 +13,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="12/07/2015" 
 	ms.author="riande"/>
 
@@ -35,7 +35,7 @@ Contenuto dell'esercitazione:
 * Come archiviare dati relazionali nel cloud usando il Database SQL Azure.
 * Come distribuire un progetto Web che usa un database in un'[app Web](http://go.microsoft.com/fwlink/?LinkId=529714) nel servizio app di Azure.
 
->[AZURE.NOTE]Si tratta di un'esercitazione lunga. Per una rapida introduzione ai progetti Web del Servizio app di Azure e di Visual Studio, vedere [Creare un'app Web ASP.NET nel Servizio app di Azure](web-sites-dotnet-get-started.md). Per informazioni su come risolvere i problemi, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
+>[AZURE.NOTE] Si tratta di un'esercitazione lunga. Per una rapida introduzione ai progetti Web del Servizio app di Azure e di Visual Studio, vedere [Creare un'app Web ASP.NET nel Servizio app di Azure](web-sites-dotnet-get-started.md). Per informazioni su come risolvere i problemi, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
 >
 >Oppure, per iniziare a usare il servizio app di Azure prima di iscriversi per ottenere un account Azure, passare al sito [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) in cui è possibile creare immediatamente un'app Web temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
@@ -107,7 +107,7 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
 
 1. In **Esplora soluzioni** aprire il file *Layout.cshtml* nella cartella *Views\\Shared*.
 
-	![_Layout.cshtml in Solution Explorer][newapp004]
+	![\_Layout.cshtml in Esplora soluzioni][newapp004]
 
 1. Sostituire il contenuto del file *Layout.cshtml* con il codice seguente.
 
@@ -390,7 +390,7 @@ L'attività successiva consiste nell'abilitare la funzionalità [Migrazioni Code
 
 ## Aggiungere un provider OAuth2
 
->[AZURE.NOTE]Per istruzioni dettagliate su come usare i siti portale per sviluppatori di Google e Facebook, in questa esercitazione sono disponibili collegamenti alle esercitazioni del sito ASP.NET. Google e Facebook, tuttavia, modificano i siti più spesso di quanto vengano aggiornate le esercitazioni, che risultano attualmente obsolete. In caso di problemi a seguire le indicazioni, vedere il commento Disqus alla fine di questa esercitazione per un elenco delle modifiche.
+>[AZURE.NOTE] Per istruzioni dettagliate su come usare i siti portale per sviluppatori di Google e Facebook, in questa esercitazione sono disponibili collegamenti alle esercitazioni del sito ASP.NET. Google e Facebook, tuttavia, modificano i siti più spesso di quanto vengano aggiornate le esercitazioni, che risultano attualmente obsolete. In caso di problemi a seguire le indicazioni, vedere il commento Disqus alla fine di questa esercitazione per un elenco delle modifiche.
 
 [OAuth](http://oauth.net/ "http://oauth.net/") è un protocollo aperto che consente di eseguire l'autenticazione sicura in un metodo semplice e standard da applicazioni Web, per dispositivi mobili e desktop. Il modello Internet ASP.NET MVC usa OAuth per esporre Facebook, Twitter, Google e Microsoft come provider di autenticazione. Benché in questa esercitazione venga usato solo Google come provider di autenticazione, è possibile modificare con facilità il codice per usare un altro provider. I passaggi per l'implementazione di altri provider sono molto simili ai passaggi illustrati in questa esercitazione. Per usare Facebook come provider di autenticazione, vedere l'esercitazione relativa alla [creazione di un'app MVC 5 con autenticazione OAuth2 mediante Facebook, Twitter, LinkedIn e Google](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on).
 
@@ -445,7 +445,7 @@ In questa sezione verranno aggiunti al database di appartenenza un utente locale
 
 	![Immagine del codice](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	Questo codice consente di creare un nuovo ruolo denominato *canEdit*, quindi di creare un nuovo utente locale *user1@contoso.com* e infine di aggiungere *user1@contoso.com* al ruolo *canEdit*. Per altre informazioni, vedere la pagina relativa alle [esercitazioni per ASP.NET Identity](http://www.asp.net/identity/overview/features-api) nel sito ASP.NET.
+	Questo codice consente di creare un nuovo ruolo denominato *canEdit*, quindi di creare un nuovo utente locale **user1@contoso.com* e infine di aggiungere **user1@contoso.com* al ruolo *canEdit*. Per altre informazioni, vedere la pagina relativa alle [esercitazioni per ASP.NET Identity](http://www.asp.net/identity/overview/features-api) nel sito ASP.NET.
 
 ## Utilizzo di codice temporaneo per aggiungere al ruolo canEdit nuovi utenti di accesso a social networking  ##
 
@@ -501,7 +501,7 @@ In **Console di Gestione pacchetti** fare clic sul tasto di direzione per visual
 
 		Update-Database
 
-Il comando **Update-Database** esegue il metodo **Seed**, che a sua volta esegue il metodo **AddUserAndRole** aggiunto in precedenza. Il metodo **AddUserAndRole** crea l'utente *user1@contoso.com* e lo aggiunge al ruolo *canEdit*.
+Il comando **Update-Database** esegue il metodo **Seed**, che a sua volta esegue il metodo **AddUserAndRole** aggiunto in precedenza. Il metodo **AddUserAndRole** crea l'utente **user1@contoso.com* e lo aggiunge al ruolo *canEdit*.
 
 ## Protezione dell'applicazione con SSL e l'attributo Authorize ##
 
@@ -509,8 +509,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 1. Aprire il file *App\_Start\\FilterConfig.cs* e sostituire il metodo *RegisterGlobalFilters* con il codice seguente, che consente di aggiungere due filtri:
 
-		public static void
-		RegisterGlobalFilters(GlobalFilterCollection filters)
+		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
 		    filters.Add(new HandleErrorAttribute());
 		    filters.Add(new System.Web.Mvc.AuthorizeAttribute());
@@ -589,9 +588,9 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 1. Fare clic su un collegamento di modifica nella pagina. Si verrà reindirizzati alla pagina di accesso, perché il nuovo utente locale non è stato aggiunto al ruolo *canEdit*.
 
-1. Accedere usando il nome utente *user1@contoso.com* e la password "P\_assw0rd1" (il carattere "0" in "word" è uno zero). Si verrà reindirizzati alla pagina di modifica selezionata in precedenza.
+1. Accedere usando il nome utente **user1@contoso.com* e la password "P\_assw0rd1" (il carattere "0" in "word" è uno zero). Si verrà reindirizzati alla pagina di modifica selezionata in precedenza.
 
-	Se non è possibile effettuare l'accesso con tale account e password, provare a copiare la password dal codice sorgente e incollarla. Se ancora non è possibile accedere, verificare la colonna **UserName** della tabella **AspNetUsers** per accertarsi che *user1@contoso.com* sia stato aggiunto.
+	Se non è possibile effettuare l'accesso con tale account e password, provare a copiare la password dal codice sorgente e incollarla. Se ancora non è possibile accedere, verificare la colonna **UserName** della tabella **AspNetUsers** per accertarsi che **user1@contoso.com* sia stato aggiunto.
 
 1. Verificare che sia possibile apportare modifiche ai dati.
 
@@ -615,7 +614,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 1. Fare clic su **Pubblica**.
 
-1. Effettuare l'accesso come *user1@contoso.com* (usando la password "P\_assw0rd1") e verificare che sia possibile modificare i dati.
+1. Effettuare l'accesso come **user1@contoso.com* (usando la password "P\_assw0rd1") e verificare che sia possibile modificare i dati.
 
 1. Effettuare la disconnessione.
 
@@ -699,7 +698,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 	![Pagina CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. Prendere nota dell'ID dell'account Google usato per la registrazione nel ruolo **canEdit** e dell'ID di *user1@contoso.com*. È necessario che questi siano gli unici utenti nel ruolo **canEdit**. Questa verifica verrà eseguita nel passaggio successivo.
+1. Prendere nota dell'ID dell'account Google usato per la registrazione nel ruolo **canEdit** e dell'ID di **user1@contoso.com*. È necessario che questi siano gli unici utenti nel ruolo **canEdit**. Questa verifica verrà eseguita nel passaggio successivo.
 
 	![Pagina CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -707,7 +706,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 	![Pagina CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-3. Verificare che i valori di **UserId** provengano da *user1@contoso.com* e dall'account Google registrato.
+3. Verificare che i valori di **UserId** provengano da **user1@contoso.com* e dall'account Google registrato.
 
 ## Risoluzione dei problemi
 
@@ -737,7 +736,7 @@ Se lo si desidera, ***inviare commenti e suggerimenti*** sugli aspetti ritenuti 
 
 ## Modifiche apportate
 
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
@@ -798,4 +797,4 @@ Se lo si desidera, ***inviare commenti e suggerimenti*** sugli aspetti ritenuti 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

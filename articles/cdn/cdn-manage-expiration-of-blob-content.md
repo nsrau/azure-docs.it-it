@@ -1,18 +1,18 @@
-<properties 
- pageTitle="Come gestire la scadenza del contenuto dei BLOB nella rete per la distribuzione di contenuti (rete CDN) di Azure" 
- description="" 
- services="cdn" 
- documentationCenter=".NET" 
- authors="camsoper" 
- manager="dwrede" 
+<properties
+ pageTitle="Come gestire la scadenza del contenuto dei BLOB nella rete per la distribuzione di contenuti (rete CDN) di Azure"
+ description=""
+ services="cdn"
+ documentationCenter=".NET"
+ authors="camsoper"
+ manager="erikre"
  editor=""/>
-<tags 
- ms.service="cdn" 
- ms.workload="media" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/02/2015" 
+<tags
+ ms.service="cdn"
+ ms.workload="media"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="02/25/2016" 
  ms.author="casoper"/>
 
 
@@ -22,7 +22,7 @@ I BLOB per cui è più utile la memorizzazione nella cache della rete CDN di Azu
 
 Per controllare il TTL, sono disponibili due opzioni.
 
-1.	Evitare di impostare i valori della cache in modo da usare il TTL predefinito di 7 giorni. 
+1.	Evitare di impostare i valori della cache in modo da usare il TTL predefinito di 7 giorni.
 2.	Impostare in modo esplicito la proprietà *x-ms-blob-cache-control* su una richiesta **Put Blob**, **Put Block List** o **Set Blob Properties** oppure usare la libreria gestita di Azure per impostare la proprietà [BlobProperties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx). Impostando questa proprietà, si imposta il valore dell'intestazione *Cache-Control* per il BLOB. Il valore dell'intestazione o della proprietà deve specificare il valore appropriato in secondi. Ad esempio, per impostare il periodo massimo di memorizzazione nella cache su un anno, è possibile specificare l'intestazione della richiesta come `x-ms-blob-cache-control: public, max-age=31556926`. Per informazioni dettagliate sull'impostazione delle intestazioni di memorizzazione nella cache, vedere la [specifica HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).  
 
 Qualsiasi contenuto che si vuole memorizzare nella cache tramite la rete CDN deve essere archiviato nell'account di archiviazione di Azure come BLOB accessibile pubblicamente. Per altre informazioni dettagliate sul servizio BLOB di Azure, vedere **Concetti relativi al servizio BLOB**.
@@ -40,7 +40,7 @@ Supponendo di aver abilitato la rete CDN come indicato sopra, il BLOB creato ver
 	using System;
 	using Microsoft.WindowsAzure;
 	using Microsoft.WindowsAzure.StorageClient;
-	
+
 	namespace BlobsInCDN
 	{
 	    class Program
@@ -50,31 +50,31 @@ Supponendo di aver abilitato la rete CDN come indicato sopra, il BLOB creato ver
 	            //Specify storage credentials.
 	            StorageCredentialsAccountAndKey credentials = new StorageCredentialsAccountAndKey("storagesample",
 	                "m4AHAkXjfhlt2rE2BN/hcUR4U2lkGdCmj2/1ISutZKl+OqlrZN98Mhzq/U2AHYJT992tLmrkFW+mQgw9loIVCg==");
-	            
+
 	            //Create a reference to your storage account, passing in your credentials.
 	            CloudStorageAccount storageAccount = new CloudStorageAccount(credentials, true);
-	            
+
 	            //Create a new client object, which will provide access to Blob service resources.
 	            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-	
+
 	            //Create a new container.
 	            CloudBlobContainer container = blobClient.GetContainerReference("cdncontent");
 	            container.CreateIfNotExist();
-	
+
 	            //Specify that the container is publicly accessible.
 	            BlobContainerPermissions containerAccess = new BlobContainerPermissions();
 	            containerAccess.PublicAccess = BlobContainerPublicAccessType.Container;
 	            container.SetPermissions(containerAccess);
-	
+
 	            //Create a new blob and write some text to it.
 	            CloudBlob blob = blobClient.GetBlobReference("cdncontent/testblob.txt");
 	            blob.UploadText("This is a test blob.");
-	
+
 	            //Set the Cache-Control header on the blob to specify your desired refresh interval.
 	            blob.SetCacheControl("public, max-age=31536000");
 	        }
 	    }
-	
+
 	    public static class BlobExtensions
 	    {
 	        //A convenience method to set the Cache-Control header.
@@ -96,4 +96,4 @@ Verificare che il BLOB sia disponibile tramite l'URL specifico della rete CDN. P
 
 [Come gestire la scadenza del contenuto del servizio cloud nella rete per la distribuzione di contenuti (rete CDN) di Azure](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

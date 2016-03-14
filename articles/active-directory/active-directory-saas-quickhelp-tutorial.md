@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -93,7 +93,7 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
  
      a. Nella casella di testo **URL di accesso**, digitare l'URL usato dagli utenti per accedere al sito QuickHelp, (ad esempio:* https://quickhelp.com/bsiazure/*).
 
-     >[AZURE.NOTE] Se non si conosce il valore dell'URL di accesso, contattare il team di supporto di QuickHelp.
+     > [AZURE.NOTE] Se non si conosce il valore dell'URL di accesso, contattare il team di supporto di QuickHelp.
 
      b. Fare clic su **Avanti**.
 
@@ -255,4 +255,4 @@ In questa sezione viene descritto come testare la configurazione dell'accesso Si
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

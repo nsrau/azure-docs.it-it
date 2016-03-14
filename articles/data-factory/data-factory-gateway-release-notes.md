@@ -22,8 +22,13 @@ Una delle maggiori difficoltà relative all'integrazione moderna dei dati consis
 
 Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud mediante il Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
 
+## Versione corrente (1.10.5892.1)
 
-## Versione corrente (1.9.5865.2)
+• Miglioramenti delle prestazioni • Correzioni dei bug
+
+## Versioni precedenti
+
+## 1\.9.5865.2
 
 - Funzionalità di aggiornamento automatico senza intervento dell'utente
 - Nuova icona dell'area di notifica con indicatori di stato del gateway
@@ -32,9 +37,6 @@ Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud medi
 - Script di PowerShell per attivare o disattivare l'aggiornamento automatico 
 - Miglioramenti delle prestazioni
 - Correzioni di bug
-
-
-## Versioni precedenti
 
 ## 1\.8.5822.1
 
@@ -132,4 +134,4 @@ Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud medi
 ### Perché Gestione origine dati prova a connettersi a un gateway?
 Si tratta di una progettazione di sicurezza secondo cui è possibile configurare solo origini dati locali per l'accesso cloud all'interno della rete aziendale, evitando la propagazione delle credenziali all'esterno del firewall aziendale. Assicurarsi che il computer possa raggiungere il computer in cui è installato il gateway.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

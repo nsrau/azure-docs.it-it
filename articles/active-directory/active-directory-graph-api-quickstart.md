@@ -15,7 +15,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/22/2016"
+      ms.date="02/25/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Avvio rapido per l'API Graph di Azure AD
@@ -70,7 +70,8 @@ Di seguito è riportato l'output che viene visualizzato se si passa a Esplora gr
 
 **Eseguire una query**: per eseguire una query, digitarla nell'apposita casella di richiesta e fare clic su **OTTIENI** oppure premere il tasto **INVIO**. I risultati vengono visualizzati nella casella delle risposte. Ad esempio, `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.5` elencherà tutti gli oggetti gruppo nella directory demo.
 
-Si notino le limitazioni e le funzioni dello strumento Esplora grafico riportate di seguito: - Funzionalità di completamento automatico in set di risorse. Per visualizzarla, fare clic su **Usa società demo** e quindi fare clic sulla casella di richiesta (dove viene visualizzato l'URL della società). È possibile selezionare un set di risorse dall'elenco a discesa.
+Si notino le limitazioni e le funzioni dello strumento Esplora grafico riportate di seguito:
+- Funzionalità di completamento automatico in set di risorse. Per visualizzarla, fare clic su **Usa società demo** e quindi fare clic sulla casella di richiesta (dove viene visualizzato l'URL della società). È possibile selezionare un set di risorse dall'elenco a discesa.
 
 - Supporta gli alias di indirizzamento "me" e "myorganization". Ad esempio, è possibile usare `https://graph.windows.net/me?api-version=1.5` per restituire l'oggetto utente dell'utente che ha effettuato l'accesso oppure `https://graph.windows.net/myorganization/users?api-version=1.5` per restituire tutti gli utenti nella directory corrente. Tenere presente che usando l'alias "me" viene restituito un errore per la società demo perché nessun utente connesso sta effettuando la richiesta.
 
@@ -125,4 +126,4 @@ Per altre informazioni sulle entità e i tipi di Azure AD esposti da Graph e sul
 
 Altre informazioni su [API di Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

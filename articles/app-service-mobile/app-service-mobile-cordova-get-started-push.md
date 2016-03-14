@@ -76,18 +76,24 @@ Nei test di questa esercitazione è stato usato Google Nexus 5X che esegue la ve
 
 ### Installare il plug-in Apache Cordova Push
 
-Le applicazioni Apache Cordova non gestiscono in modo nativo le funzionalità del dispositivo o della rete. Queste funzionalità sono fornite dai plug-in che vengono pubblicati in [npm] o in GitHub. Il plug-in `phonegap-plugin-push` viene usato per gestire le notifiche push di rete. Per l'installazione dalla riga di comando:
+Le applicazioni Apache Cordova non gestiscono in modo nativo le funzionalità del dispositivo o della rete. Queste funzionalità sono fornite dai plug-in che vengono pubblicati in [npm](https://www.npmjs.com/) o in GitHub. Il plug-in `phonegap-plugin-push` viene usato per gestire le notifiche push di rete.
+
+È possibile installare il plug-in di push in uno dei modi seguenti:
+
+**Dal prompt dei comandi:**
 
     cordova plugin add phonegap-plugin-push
 
-Per installare il plug-in in Visual Studio:
+**Da Visual Studio:**
 
 1.  Aprire il file `config.xml` in Esplora soluzioni.
-2.  Fare clic su **Plug-in** sul lato sinistro e quindi su **Personalizzato** in alto
-3.  Selezionare **Git** come origine dell'installazione. Immettere `https://github.com/phonegap/phonegap-plugin-push` come origine
+2.  Fare clic su **Plug-in** > **Personalizzato**, selezionare **Git** come origine dell'installazione e immettere `https://github.com/phonegap/phonegap-plugin-push` come origine.
+	
+	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
+	
 4.  Fare clic sulla freccia accanto all'origine dell'installazione e quindi fare clic su **Aggiungi**
 
-Verrà installato il plug-in push.
+Il plug-in di push è stato installato.
 
 ### Installare Android di Google Play Services
 
@@ -107,64 +113,69 @@ Le librerie richieste attualmente sono elencate nella [documentazione relativa a
 
 ### Registrare il dispositivo per il push all'avvio
 
-Aggiungere una chiamata a `registerForPushNotifications()` durante il callback per il processo di accesso o nella parte inferiore del metodo `onDeviceReady()`:
+1. Aggiungere una chiamata a **registerForPushNotifications** durante il callback per il processo di accesso o nella parte inferiore del metodo **onDeviceReady**:
 
-    // Login to the service
-    client.login('google')
-        .then(function () {
-            // Create a table reference
-            todoItemTable = client.getTable('todoitem');
+ 
+		// Login to the service.
+		client.login('google')
+		    .then(function () {
+		        // Create a table reference
+		        todoItemTable = client.getTable('todoitem');
+		
+		        // Refresh the todoItems
+		        refreshDisplay();
+		
+		        // Wire up the UI Event Handler for the Add Item
+		        $('#add-item').submit(addItemHandler);
+		        $('#refresh').on('click', refreshDisplay);
+		
+				// Added to register for push notifications.
+		        registerForPushNotifications();
+		
+		    }, handleError);
 
-            // Refresh the todoItems
-            refreshDisplay();
+	L'esempio mostra la chiamata a **registerForPushNotifications** dopo il completamento dell'autenticazione, consigliata quando nell'app vengono usate notifiche push e autenticazione.
 
-            // Wire up the UI Event Handler for the Add Item
-            $('#add-item').submit(addItemHandler);
-            $('#refresh').on('click', refreshDisplay);
+2. Aggiungere il nuovo metodo `registerForPushNotifications()` come illustrato di seguito:
 
-            registerForPushNotifications();
+	    // Register for Push Notifications.
+		// Requires that phonegap-plugin-push be installed.
+	    var pushRegistration = null;
+	    function registerForPushNotifications() {
+	        pushRegistration = PushNotification.init({
+	            android: {
+	                senderID: 'Your_Project_ID'
+	            },
+	            ios: {
+	                alert: 'true',
+	                badge: 'true',
+	                sound: 'true'
+	            },
+	            wns: {
+	
+	            }
+	        });
+	
+	        pushRegistration.on('registration', function (data) {
+	            client.push.register('gcm', data.registrationId);
+	        });
+	
+	        pushRegistration.on('notification', function (data, d2) {
+	            alert('Push Received: ' + data.message);
+	        });
+	
+	        pushRegistration.on('error', handleError);
+	    }
 
-        }, handleError);
-
-Implementare `registerForPushNotifications()` come indicato di seguito:
-
-    /**
-     * Register for Push Notifications - requires the phonegap-plugin-push be installed
-     */
-    var pushRegistration = null;
-    function registerForPushNotifications() {
-        pushRegistration = PushNotification.init({
-            android: {
-                senderID: 'YourProjectID'
-            },
-            ios: {
-                alert: 'true',
-                badge: 'true',
-                sound: 'true'
-            },
-            wns: {
-
-            }
-        });
-
-        pushRegistration.on('registration', function (data) {
-            client.push.register('gcm', data.registrationId);
-        });
-
-        pushRegistration.on('notification', function (data, d2) {
-            alert('Push Received: ' + data.message);
-        });
-
-        pushRegistration.on('error', handleError);
-    }
-
-Sostituire _YourProjectID_ con l'ID progetto numerico per l'app da [Google Developer Console].
+3. Nel codice riportato sopra, sostituire `Your_Project_ID` con l'ID progetto numerico dell'app da [Google Developer Console].
 
 ## Eseguire il test dell'app sul servizio mobile pubblicato
 
 È possibile eseguire il test dell'app collegando direttamente un telefono Android con un cavo USB. Invece di **Emulatore Android di Google** selezionare **Dispositivo**. Visual Studio scaricherà l'applicazione nel dispositivo ed eseguirà l'applicazione. Si potrà quindi interagire con l'applicazione sul dispositivo.
 
 Migliorare l'esperienza di sviluppo. La condivisione dello schermo di applicazioni come [Mobizen] può facilitare lo sviluppo di un'applicazione Android proiettando lo schermo di Android in un Web browser sul PC.
+
+È inoltre possibile testare l'app Android nell'emulatore Android. Ricordarsi di aggiungere un account Google nell'emulatore.
 
 ##<a name="next-steps"></a>Passaggi successivi
 
@@ -185,4 +196,4 @@ Migliorare l'esperienza di sviluppo. La condivisione dello schermo di applicazio
 [Strumenti di Visual Studio per Apache Cordova]: https://www.visualstudio.com/it-IT/features/cordova-vs.aspx
 [Hub di notifica]: ../notification-hubs/notification-hubs-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

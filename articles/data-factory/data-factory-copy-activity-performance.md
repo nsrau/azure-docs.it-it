@@ -63,11 +63,11 @@ Di seguito sono indicati i passaggi tipici da eseguire per ottimizzare le presta
 3. **Espandere la configurazione all'insieme dei dati.** Una volta verificati i risultati dell'esecuzione e le prestazioni, è possibile espandere la definizione del set di dati e il periodo attivo della pipeline per coprire tutti i dati presi in considerazione.
 
 ## Informazioni di riferimento sulle prestazioni
-> [AZURE.IMPORTANT]**Dichiarazione di non responsabilità:** i dati seguenti sono stati pubblicati esclusivamente come linee guida e per fornire una pianificazione generale. Si presume che la larghezza di banda, l'hardware, la configurazione e così via siano di livello ottimale. Usare queste informazioni solo come riferimento. La velocità effettiva dello spostamento dati osservata verrà influenzata da numerose variabili. Vedere le sezioni seguenti per informazioni su come ottimizzare e ottenere prestazioni migliori in base alle proprie esigenze nell'ambito dello spostamento dati. Questi dati verranno aggiornati quando saranno disponibili nuovi miglioramenti e funzionalità per l'incremento delle prestazioni.
+> [AZURE.IMPORTANT] **Dichiarazione di non responsabilità:** i dati seguenti sono stati pubblicati esclusivamente come linee guida e per fornire una pianificazione generale. Si presume che la larghezza di banda, l'hardware, la configurazione e così via siano di livello ottimale. Usare queste informazioni solo come riferimento. La velocità effettiva dello spostamento dati osservata verrà influenzata da numerose variabili. Vedere le sezioni seguenti per informazioni su come ottimizzare e ottenere prestazioni migliori in base alle proprie esigenze nell'ambito dello spostamento dati. Questi dati verranno aggiornati quando saranno disponibili nuovi miglioramenti e funzionalità per l'incremento delle prestazioni.
 
 ![Matrice delle prestazioni](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [AZURE.NOTE]**Presto disponibili:** attualmente si sta lavorando per migliorare le caratteristiche delle prestazioni di base e a breve nella tabella precedente saranno presenti nuovi e più elevati valori per la velocità effettiva.
+> [AZURE.NOTE] **Presto disponibili:** attualmente si sta lavorando per migliorare le caratteristiche delle prestazioni di base e a breve nella tabella precedente saranno presenti nuovi e più elevati valori per la velocità effettiva.
 
 Punti da notare:
 
@@ -76,19 +76,19 @@ Punti da notare:
 - Nel caso degli archivi dati di Microsoft Azure, l'origine e il sink sono nella stessa area di Azure.
 - Nel caso dello spostamento dati ibrido (da locale a cloud o da cloud a locale), il Gateway di gestione dati (istanza singola) era ospitato in un computer diverso da quello dell'archivio dati locale, con la configurazione seguente. Si noti che, con una sola attività in esecuzione nel gateway, l'operazione di copia ha utilizzato solo una piccola parte delle risorse della CPU/memoria di questo computer e della larghezza di banda di rete.
 	<table>
-<tr>
-	<td>CPU</td>
-	<td>32 core, 2,20 GHz, Intel Xeon® E5-2660 v2</td>
-</tr>
-<tr>
-	<td>Memoria</td>
-	<td>128 GB</td>
-</tr>
-<tr>
-	<td>Rete</td>
-	<td>Interfaccia Internet: 10 Gbps; Interfaccia Intranet: 40 Gbps</td>
-</tr>
-</table>
+	<tr>
+		<td>CPU</td>
+		<td>32 core, 2,20 GHz, Intel Xeon® E5-2660 v2</td>
+	</tr>
+	<tr>
+		<td>Memoria</td>
+		<td>128 GB</td>
+	</tr>
+	<tr>
+		<td>Rete</td>
+		<td>Interfaccia Internet: 10 Gbps; Interfaccia Intranet: 40 Gbps</td>
+	</tr>
+	</table>
 
 ## Considerazioni sull'origine
 ### Generale
@@ -218,10 +218,10 @@ In questo caso, è possibile che la compressione dati BZIP2 stia rallentando l'i
 Ecco alcune informazioni di riferimento sul monitoraggio e sull'ottimizzazione delle prestazioni per alcuni archivi dati supportati:
 
 - Archiviazione di Azure (inclusi BLOB di Azure e Tabella di Azure): [Obiettivi di scalabilità per Archiviazione di Azure](../storage/storage-scalability-targets.md) ed [Elenco di controllo relativo a prestazioni e scalabilità di Archiviazione di Azure](../storage//storage-performance-checklist.md)
-- Database SQL di Azure: è possibile [monitorare le prestazioni](../sql-database/sql-database-service-tiers.md#monitoring-performance) e controllare la percentuale DTU (Database Throughput Unit).
+- Database SQL di Azure: è possibile [monitorare le prestazioni](../sql-database/sql-database-service-tiers.md#monitoring-performance) e controllare la percentuale DTU (Database Transaction Unit).
 - Azure SQL Data Warehouse: la capacità viene misurata in unità Data Warehouse (DWU). Vedere [Scalabilità e prestazioni elastiche con SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-performance-scale.md).
 - Azure DocumentDB: [Livello di prestazioni in DocumentDB](../documentdb/documentdb-performance-levels.md).
 - SQL Server locale: [Monitorare e ottimizzare le prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
 - File server locale: [Ottimizzazione delle prestazioni per i file server](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,24 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/27/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Distribuire StorSimple Virtual Array: preparare il portale (anteprima)
+# Distribuire StorSimple Virtual Array: preparare il portale
 
 ![](./media/storsimple-ova-deploy1-portal-prep/getstarted4.png)
 
 ## Panoramica 
 
-Questo articolo si applica solo a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione 1.1.1.0 (anteprima pubblica). Questo è il primo articolo della serie di esercitazioni per la distribuzione necessarie per la distribuzione completa dell'array virtuale come file server o server iSCSI. Questo articolo illustra la preparazione necessaria per creare e configurare il servizio StorSimple Manager prima di eseguire il provisioning di un array virtuale. Questo articolo contiene anche i collegamenti a un elenco di controllo configurazione della distribuzione, oltre ai prerequisiti di configurazione.
+Le informazioni contenute in questo articolo si applicano solo a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione di disponibilità generale (GA) di marzo 2016. Questo è il primo articolo della serie di esercitazioni per la distribuzione necessarie per la distribuzione completa dell'array virtuale come file server o server iSCSI. Questo articolo illustra la preparazione necessaria per creare e configurare il servizio StorSimple Manager prima di eseguire il provisioning di un array virtuale. Questo articolo contiene anche i collegamenti a un elenco di controllo configurazione della distribuzione, oltre ai prerequisiti di configurazione.
 
 Per completare il processo di installazione e configurazione sono necessari privilegi di amministratore. Si consiglia di consultare l'elenco di controllo configurazione della distribuzione prima di iniziare. La preparazione del portale richiede meno di 10 minuti.
 
 Le informazioni sulla distribuzione di StorSimple pubblicate in questo articolo si applicano solo agli array virtuali di StorSimple.
-
-> [AZURE.IMPORTANT]
-> 
-> Questa anteprima pubblica è progettata solo a scopo di valutazione e pianificazione della distribuzione. L'installazione di questa versione di anteprima in un ambiente di produzione non è supportata.
 
 ### Introduzione
 
@@ -43,7 +39,7 @@ Consultare gli articoli seguenti nella sequenza indicata per distribuire StorSim
 | **#** | **In questo passaggio** | **Contenuto dell'esercitazione** | **Usare questi documenti**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
 |1\. | **Configurare il portale di Azure classico** | Creare e configurare il servizio StorSimple Manager prima di eseguire il provisioning di un dispositivo virtuale StorSimple. |[Preparare il portale](storsimple-ova-deploy1-portal-prep.md)| 
-|2\. | **Eseguire il provisioning dell'array virtuale** | Per Hyper-V, eseguire il provisioning e connettersi a un dispositivo virtuale StorSimple in un sistema host che esegue Hyper-V 2008 R2, Hyper-V 2012 o Hyper-V 2012 R2. <br></br> <br></br> Per VMware, eseguire il provisioning e connettersi a un dispositivo virtuale locale StorSimple in un sistema host che esegue VMware ESXi 5.5 e versioni successive.| [Eseguire il provisioning di un array virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Eseguire il provisioning di un array virtuale in VMware](storsimple-ova-deploy2-provision-vmware.md)|
+|2\. | **Eseguire il provisioning dell'array virtuale** | Per Hyper-V, eseguire il provisioning e connettersi a un dispositivo virtuale StorSimple in un sistema host che esegue Hyper-V 2008 R2, Hyper-V 2012 o Hyper-V 2012 R2. <br></br> <br></br> Per VMware, eseguire il provisioning e connettersi a un dispositivo virtuale locale StorSimple in un sistema host che esegue VMware ESXi 5.5 e versioni successive.<br></br>| [Eseguire il provisioning di un array virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Eseguire il provisioning di un array virtuale in VMware](storsimple-ova-deploy2-provision-vmware.md)|
 |3\. | **Configurare l'array virtuale** | Per il file server, eseguire l'installazione iniziale, registrare il file server StorSimple e completare l'installazione del dispositivo. È quindi possibile eseguire il provisioning delle condivisioni SMB. <br></br> <br></br> Per il server iSCSI, eseguire l'installazione iniziale, registrare il server iSCSI StorSimple e completare l'installazione del dispositivo. È quindi possibile eseguire il provisioning dei volumi iSCSI.| [Configurare l'array virtuale come file server](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Configurare l'array virtuale come server iSCSI](storsimple-ova-deploy3-iscsi-setup.md)|
 
 #### Video sulla distribuzione
@@ -143,6 +139,9 @@ Eseguire i passaggi seguenti nel [portale di Azure classico](https://manage.wind
 
 Una volta in possesso della chiave di registrazione, è necessario scaricare l'immagine del dispositivo virtuale appropriato per eseguire il provisioning di un dispositivo virtuale nel sistema host. Le immagini dei dispositivi virtuali sono specifiche del sistema operativo e si possono scaricare dalla pagina Avvio rapido nel portale di Azure classico.
 
+> [AZURE.IMPORTANT] Il software in esecuzione in StorSimple Virtual Array può essere usato solo in combinazione con il servizio Storsimple Manager.
+
+
 Eseguire i passaggi seguenti nel [portale di Azure classico](https://manage.windowsazure.com/).
 
 #### Per ottenere l'immagine del dispositivo virtuale
@@ -150,15 +149,20 @@ Eseguire i passaggi seguenti nel [portale di Azure classico](https://manage.wind
 1.  Nella pagina del **servizio StorSimple Manager**, fare clic sul servizio creato. Verrà visualizzata la pagina **Avvio rapido**. È possibile fare clic sull'icona di avvio rapido ![](./media/storsimple-ova-deploy1-portal-prep/image8.png) per accedere alla pagina **Avvio rapido** in qualsiasi momento.
 
 
-1.  Scaricare il VHD (Virtual Hard Disk) appropriato in una condivisione di rete nel data center. Sono disponibili VHD separati per:
+1.  Scaricare il VHD o VHDX appropriato in una condivisione di rete nel data center. Sono disponibili immagini separate per:
 
+	-   Hyper-V 2012 e versioni successive
+	
 	-   Hyper-V 2008 R2 e versioni successive
 
 	-   VMWare ESXi 5.5 e versioni successive
 
+	> [AZURE.IMPORTANT] Il software in esecuzione in StorSimple Virtual Array può essere usato solo in combinazione con il servizio Storsimple Manager.
+
+
 1.  Fare clic sull'immagine del sistema operativo host da usare in seguito per il provisioning del dispositivo virtuale. In questo modo, si passa ad Area download Microsoft.
 
-1.  Se si usa Hyper-V, scaricare il VHD per Hyper-V 2008 R2 o versioni successive. Se si usa VMware, scaricare il file VMDK. Il VHD è un file compresso da 4,77 GB mentre il file VMDK è un file da 4,75 GB. Il tempo necessario per scaricare il file dipende dalla connessione Internet.
+1.  Se si usa Hyper-V, scaricare il VHDX per Hyper-V 2012 o il VHD per Hyper-V 2008 R2 o versioni successive. Se si usa VMware, scaricare il file VMDK. Il VHDX è un file compresso di 4,77 GB, il VHD è un file di 4,77 GB, mentre il VMDK è un file di 4,75 GB. Il tempo necessario per scaricare il file dipende dalla connessione Internet.
 
 2.  Decomprimere il file e prendere nota della posizione del file decompresso nell'unità locale.
 
@@ -174,9 +178,9 @@ Guardare il video per istruzioni dettagliate su come iniziare a usare StorSimple
 
 Si tratta di un passaggio facoltativo che è necessario eseguire solo se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio.
 
-Se è necessario creare un account di Archiviazione di Azure in un'area diversa, vedere le informazioni su [come creare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account) per istruzioni dettagliate.
+Se è necessario creare un account di archiviazione di Azure in un'area diversa, vedere [Creare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account) per istruzioni dettagliate.
 
-Eseguire i passaggi seguenti nel [portale di Azure classico](https://manage.windowsazure.com/) nella pagina del servizio StorSimple Manager per aggiungere un account di Archiviazione di Microsoft Azure esistente.
+Eseguire i passaggi seguenti nel [portale di Azure classico](https://manage.windowsazure.com/) nella pagina del servizio StorSimple Manager per aggiungere un account di archiviazione di Microsoft Azure esistente.
 
 #### Per aggiungere un account di archiviazione
 
@@ -207,4 +211,4 @@ Il passaggio successivo riguarda il provisioning di una macchina virtuale per il
 
 -   [Eseguire il provisioning di StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

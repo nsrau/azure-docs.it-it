@@ -12,17 +12,17 @@
 # Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery (legacy)
 
 > [AZURE.SELECTOR]
-- [Enhanced](site-recovery-vmware-to-azure-classic.md)
+- [Avanzato](site-recovery-vmware-to-azure-classic.md)
 - [Legacy](site-recovery-vmware-to-azure-classic-legacy.md)
 
 
-Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una rapida panoramica, vedere l'articolo [Che cos'è Site Recovery?](site-recovery-overview.md).
+Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una rapida panoramica, vedere l'articolo [Che cos'è Azure Site Recovery?](site-recovery-overview.md)
 
 ## Panoramica
 
 Questo articolo illustra come:
 
-- **Eseguire la replica di macchine virtuali VMware in Azure**: distribuire Site Recovery per coordinare la replica, il failover e il ripristino di macchine virtuali VMware locali nell'archiviazione di Azure.
+- **Eseguire la replica di macchine virtuali VMware in Azure**: distribuire Site Recovery per coordinare la replica, il failover e il ripristino di macchine virtuali VMware locali nelle risorse di archiviazione di Azure.
 - **Eseguire la replica di server fisici in Azure**: distribuire Azure Site Recovery per coordinare la replica, il failover e il ripristino di server fisici Windows e Linux locali in Azure.
 
 >[AZURE.NOTE] Lo scenario descritto in questo articolo contiene **istruzioni legacy**. Non seguire la procedura descritta in questo articolo per le nuove distribuzioni. Usare invece le istruzioni di [distribuzione avanzata](site-recovery-vmware-to-azure-classic.md) per il portale classico. Se è già stata eseguita la distribuzione usando il metodo descritto in questo articolo, si consiglia di eseguire la migrazione alla nuova versione come descritto di seguito.
@@ -51,9 +51,9 @@ Eseguire la migrazione nel modo seguente:
 1. Leggere le informazioni sulle [funzionalità avanzate](site-recovery-vmware-to-azure-classic.md#enhanced-deployment), assicurarsi di comprendere la nuova [architettura](site-recovery-vmware-to-azure-classic.md#scenario-architecture) e verificare i [prerequisiti](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) per la distribuzione avanzata.
 2. Disinstallare il servizio Mobility dai computer attualmente protetti. Una nuova versione del servizio Mobility verrà installata nei computer nel momento in cui verranno aggiunti al nuovo gruppo protezione dati.
 3. Ottenere una [chiave di registrazione dell'insieme di credenziali](site-recovery-vmware-to-azure-classic.md#step-4-download-a-vault-registration-key) ed [eseguire la procedura guidata per la configurazione unificata](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server) per installare i componenti del server di configurazione, di elaborazione e di destinazione master nel server di gestione. Altre informazioni sulla [pianificazione della capacità](site-recovery-vmware-to-azure-classic.md#capacity-planning).
-4. Se si ha un server vCenter VMware, [impostare le credenziali](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server) per accedervi in modo che Site Recovery possa individuare automaticamente le VM gestite. Altre informazioni sulle [autorizzazioni necessarie](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+4. Se si ha un server vCenter VMware, [impostare le credenziali](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server) per accedervi in modo che Site Recovery possa individuare automaticamente le macchine virtuali gestite. Altre informazioni sulle [autorizzazioni necessarie](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 5. Aggiungere [server vCenter o host ESXi](site-recovery-vmware-to-azure-classic.md#step-7-add-vcenter-servers-and-esxi-hosts). Possono essere necessari fino a 15 minuti per l'aggiornamento del portale in modo che le credenziali vengano visualizzate.
-6. Creare un [nuovo gruppo protezione dati](site-recovery-vmware-to-azure-classic.md#step-8-create-a-protection-group). Possono essere necessari fino a 15 minuti per l'aggiornamento del portale in modo che le macchine virtuali vengano individuate e visualizzate. Se non si vuole attendere, è possibile evidenziare il nome del server di gestione (non selezionarlo) e fare clic su **Aggiorna**.
+6. Creare un [nuovo gruppo protezione dati](site-recovery-vmware-to-azure-classic.md#step-8-create-a-protection-group). Possono essere necessari fino a 15 minuti per l'aggiornamento del portale in modo che le macchine virtuali vengano individuate e visualizzate. Se non si vuole attendere, è possibile evidenziare il nome del server di gestione, senza fare clic su di esso, e fare clic su **Aggiorna**.
 7. Nel nuovo gruppo protezione dati fare clic su **Esegui la migrazione delle macchine virtuali**.
 
 	![Aggiunta di un account](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration1.png)
@@ -77,7 +77,7 @@ Eseguire la migrazione nel modo seguente:
 
 	![Aggiunta di un account](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration5.png)
 
->[AZURE.NOTE] Dopo aver completato la procedura di migrazione è necessario passare alla [versione aggiornata dell'articolo](site-recovery-vmware-to-azure-classic.md). La parte restante di questo articolo, infatti, non è più rilevante e non è quindi necessario seguire le altre procedure descritte**.
+>[AZURE.NOTE] Dopo aver completato la procedura di migrazione è necessario passare alla [versione avanzata dell'articolo](site-recovery-vmware-to-azure-classic.md). La parte restante di questo articolo, infatti, non è più rilevante e non è quindi necessario seguire le altre procedure descritte**.
 
 
 
@@ -114,8 +114,8 @@ Le aree principali da considerare sono:
 - **Numero di origini per ogni server di destinazione master** - È possibile proteggere più computer di origine con un singolo server di destinazione master. Tuttavia, non è possibile proteggere un singolo computer di origine in più server di destinazione master. Infatti, quando i dischi vengono replicati, nell'archivio BLOB di Azure viene creato un VHD che rispecchia le dimensioni del disco e che viene collegato come disco dati al server di destinazione master.  
 - **Frequenza di modifica giornaliera massima per ogni origine** - Esistono tre fattori da considerare quando si valuta la frequenza di modifica consigliata per ogni origine. Per le considerazioni relative alla destinazione, sono necessarie due operazioni IOPS sul disco di destinazione per ogni operazione nell'origine. Questo avviene perché vengono eseguite un'operazione di lettura dei dati precedenti e un'operazione di scrittura dei nuovi dati sul disco di destinazione. 
 	- **Frequenza di modifica giornaliera supportata dal server di elaborazione** - Un computer di origine non può estendersi su più server di elaborazione. Un singolo server di elaborazione può supportare fino a 1 TB di frequenza di modifica giornaliera. Pertanto 1 TB è la frequenza massima di modifica giornaliera dei dati supportata per una macchina di origine. 
-	- **Velocità effettiva massima supportata dal disco di destinazione** - La varianza massima per ogni disco di origine non può essere superiore a 144 GB al giorno (con una dimensione di scrittura di 8 K). Vedere la tabella nella sezione relativa al server di destinazione master per la velocità effettiva e gli IOPS della destinazione per le varie dimensioni di scrittura. Questo numero deve essere diviso per due, perché ogni operazione IOP di origine genera 2 IOPS sul disco di destinazione. Fare riferimento a [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) durante la configurazione della destinazione per l'account di archiviazione Premium.
-	- **Velocità effettiva massima supportata dall'account di archiviazione** - Un'origine non può estendersi su più account di archiviazione. Dato che un account di archiviazione accetta al massimo 20.000 richieste al secondo e che ogni IOP di origine genera 2 IOPS nel server di destinazione master, è consigliabile mantenere il numero di IOPS nell'origine su 10.000. Fare riferimento a [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) durante la configurazione dell'origine per l'account di archiviazione Premium.
+	- **Velocità effettiva massima supportata dal disco di destinazione** - La varianza massima per ogni disco di origine non può essere superiore a 144 GB al giorno (con una dimensione di scrittura di 8 K). Vedere la tabella nella sezione relativa al server di destinazione master per la velocità effettiva e gli IOPS della destinazione per le varie dimensioni di scrittura. Questo numero deve essere diviso per due, perché ogni operazione IOP di origine genera 2 IOPS sul disco di destinazione. Fare riferimento a [Obiettivi di scalabilità e prestazioni per Azure](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) durante la configurazione della destinazione per l'account di archiviazione Premium.
+	- **Velocità effettiva massima supportata dall'account di archiviazione** - Un'origine non può estendersi su più account di archiviazione. Dato che un account di archiviazione accetta al massimo 20.000 richieste al secondo e che ogni IOP di origine genera 2 IOPS nel server di destinazione master, è consigliabile mantenere il numero di IOPS nell'origine su 10.000. Fare riferimento a [Obiettivi di scalabilità e prestazioni per Azure](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) durante la configurazione dell'origine per l'account di archiviazione Premium.
 
 ### Considerazioni relative ai server dei componenti
 
@@ -197,7 +197,7 @@ Si noti che:
 **Componente** | **Requisiti** | **Dettagli**
 --- | --- | --- 
 **Account di Azure** | È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](pricing/free-trial/).
-**Archiviazione di Azure** | <p>Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure</p><p>Questo deve essere un [account di archiviazione con ridondanza geografica standard](../storage/storage-redundancy.md#geo-redundant-storage) o un [account di archiviazione Premium](../storage/storage-premium-storage-preview-portal.md).</p><p>L'account deve trovarsi nella stessa area geografica del servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione.</p><p>Per ulteriori informazioni, vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/storage-introduction.md)</p>
+**Archiviazione di Azure** | <p>Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure</p><p>Questo deve essere un [account di archiviazione con ridondanza geografica standard](../storage/storage-redundancy.md#geo-redundant-storage) o un [account di archiviazione Premium](../storage/storage-premium-storage.md).</p><p>L'account deve trovarsi nella stessa area geografica del servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione.</p><p>Per ulteriori informazioni, vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/storage-introduction.md)</p>
 **Rete virtuale di Azure** | Sarà necessaria una rete virtuale di Azure in cui saranno distribuiti il server di configurazione e il server di destinazione master. Dovrà trovarsi nella stessa sottoscrizione e nella stessa area dell'insieme di credenziali di Azure Site Recovery. Se si desidera replicare i dati tramite una connessione VPN o ExpressRoute, la rete virtuale di Azure deve essere connessa alla rete locale tramite una connessione ExpressRoute o una VPN da sito a sito.
 **Risorse di Azure** | Accertarsi di avere risorse di Azure sufficienti per distribuire tutti i componenti. Per altre informazioni, vedere [Limiti relativi alle sottoscrizioni di Azure](../azure-subscription-service-limits.md).
 **Macchine virtuali di Azure** | <p>Le macchine virtuali da proteggere devono essere conformi ai [prerequisiti di Azure](site-recovery-best-practices.md).</p><p>**Numero di dischi** - Possono essere supportati al massimo 31 dischi in un singolo server protetto</p><p>**Dimensioni del disco** - La capacità del singolo disco non deve essere superiore a 1023 GB</p><p>**Clustering** - I server di cluster non sono supportati</p><p>**Avvio** - L'avvio UEFI (Unified Extensible Firmware Interface)/EFI (Extensible Firmware Interface) non è supportato</p><p>**Volumi** - I volumi crittografati con Bitlocker non sono supportati</p><p> **Nomi dei server** - I nomi devono contenere da 1 a 63 caratteri (lettere, numeri e trattini). Il nome deve iniziare e terminare con una lettera o un numero. Dopo aver protetto un computer, è possibile modificare il nome di Azure.</p>
@@ -382,7 +382,7 @@ Si noti che:
 
 Si noti che i primi quattro indirizzi IP in qualsiasi subnet sono riservati per l'uso interno in Azure. Specificare gli altri indirizzi IP disponibili.
 
->[AZURE.NOTE] Selezionare DS4 standard durante la configurazione della protezione dei carichi di lavoro che richiedono prestazioni di IO elevate e omogenee e bassa latenza per ospitare i carichi di lavoro con numerose operazioni di IO mediante [account di archiviazione Premium](../storage/storage-premium-storage-preview-portal.md).
+>[AZURE.NOTE] Selezionare DS4 standard durante la configurazione della protezione dei carichi di lavoro che richiedono prestazioni di IO elevate e omogenee e bassa latenza per ospitare i carichi di lavoro con numerose operazioni di IO mediante [account di archiviazione Premium](../storage/storage-premium-storage.md).
 
 
 3. Viene creata una macchina virtuale server di destinazione master di Windows con questi endpoint (gli endpoint pubblici vengono creati solo se il tipo di distribuzione è Internet pubblico):
@@ -695,7 +695,7 @@ Aggiungere i computer come segue:
 3. Se si attiva la protezione per macchine virtuali VMware, nella pagina **Seleziona macchine virtuali** selezionare il server vCenter che gestisce le macchine virtuali (o l'host EXSi in cui sono in esecuzione) e quindi selezionare le macchine.
 
 	![Aggiungere un server V-Center](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)	
-4. In **Specificare le risorse di destinazione** selezionare i server di destinazione master e l'archiviazione da usare per la replica e indicare se le impostazioni devono essere usate per tutti i carichi di lavoro. Selezionare [Account di archiviazione Premium](../storage/storage-premium-storage-preview-portal.md) durante la configurazione della protezione dei carichi di lavoro che richiedono prestazioni di I/O elevate e coerenti e bassa latenza per ospitare i carichi di lavoro con numerose operazioni di I/O. Se si desidera utilizzare un account di archiviazione Premium per i dischi dei carichi di lavoro, è necessario usare destinazioni master della serie DS. Non è possibile usare dischi di archiviazione Premium su destinazioni master diverse dalla serie DS.
+4. In **Specificare le risorse di destinazione** selezionare i server di destinazione master e l'archiviazione da usare per la replica e indicare se le impostazioni devono essere usate per tutti i carichi di lavoro. Selezionare [Account di archiviazione Premium](../storage/storage-premium-storage.md) durante la configurazione della protezione dei carichi di lavoro che richiedono prestazioni di I/O elevate e coerenti e bassa latenza per ospitare i carichi di lavoro con numerose operazioni di I/O. Se si desidera utilizzare un account di archiviazione Premium per i dischi dei carichi di lavoro, è necessario usare destinazioni master della serie DS. Non è possibile usare dischi di archiviazione Premium su destinazioni master diverse dalla serie DS.
 
 	![Server vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/machine-resources.png)
 
@@ -804,4 +804,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

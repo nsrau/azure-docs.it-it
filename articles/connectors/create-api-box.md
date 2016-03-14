@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introduzione all'API di Box
-Connettersi a Box per creare ed eliminare file e così via.
+Connettersi a Box per creare ed eliminare file e così via. L'API di Box può essere usata da:
 
-L'API di Box può essere usata dalle app per la logica.
+- App per la logica 
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione schema 2015-08-01 di anteprima delle app per la logica. Per la versione schema 2014-12-01 di anteprima, fare clic sul [connettore di Box](../app-service-logic/app-service-logic-connector-box.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore di Box](../app-service-logic/app-service-logic-connector-box.md).
 
 Con Box è possibile:
 
@@ -45,13 +45,14 @@ Tutte le API supportano i dati nei formati JSON e XML.
 Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Box.
 
 1. Accedere all'account Box.
-2. Selezionare **Authorize** e consentire alle app per la logica di connettersi e usare Box. 
+2. Selezionare **Autorizza** e consentire alle app per la logica di connettersi e usare Box. 
 
 Dopo aver creato la connessione, immettere le proprietà di Box. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di Box in altre app per la logica.
 
-## Riferimento all'API REST Swagger
+## Riferimento all'API REST di Swagger
+Si applica alla versione 1.0.
 
 ### Crea file
 Carica un file in Box. ```POST: /datasets/default/files```
@@ -131,7 +132,7 @@ Estrae un file di archivio in una cartella di Box, ad esempio con estensione zip
 
 
 ### Recupera contenuto di file tramite ID
-Recupera i contenuti del file da Box tramite l'ID. ```GET: /datasets/default/files/{id}/content```
+Recupera il contenuto dei file da Box tramite ID. ```GET: /datasets/default/files/{id}/content```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -145,7 +146,7 @@ Recupera i contenuti del file da Box tramite l'ID. ```GET: /datasets/default/fil
 
 
 ### Recupera contenuto di file tramite percorso
-Recupera i contenuti del file da Box tramite il percorso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera il contenuto dei file da Box tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -159,7 +160,7 @@ Recupera i contenuti del file da Box tramite il percorso. ```GET: /datasets/defa
 
 
 ### Recupera metadati di file tramite ID
-Recupera i metadati dei file da Box tramite l'ID del file. ```GET: /datasets/default/files/{id}```
+Recupera i metadati dei file da Box tramite ID file. ```GET: /datasets/default/files/{id}```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -173,7 +174,7 @@ Recupera i metadati dei file da Box tramite l'ID del file. ```GET: /datasets/def
 
 
 ### Recupera metadati di file tramite percorso
-Recupera i metadati dei file da Box tramite il percorso. ```GET: /datasets/default/GetFileByPath```
+Recupera i metadati dei file da Box tramite percorso. ```GET: /datasets/default/GetFileByPath```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -228,7 +229,7 @@ Quando un file viene modificato in una cartella di Box, attiva un flusso. ```GET
 
 |Nome proprietà | Tipo di dati |Obbligatorio|
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 |tableDisplayName|string|no|
@@ -238,7 +239,7 @@ Quando un file viene modificato in una cartella di Box, attiva un flusso. ```GET
 
 |Nome proprietà | Tipo di dati |Obbligatorio|
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 
@@ -247,11 +248,11 @@ Quando un file viene modificato in una cartella di Box, attiva un flusso. ```GET
 |Nome proprietà | Tipo di dati |Obbligatorio|
 |---|---|---|
 |ID|string|no|
-|Name|string|no|
+|Nome|string|no|
 |DisplayName|string|no|
 |Path|string|no|
 |LastModified|string|no|
-|Size|integer|no|
+|Dimensione|integer|no|
 |MediaType|string|no|
 |IsFolder|boolean|no|
 |ETag|string|no|
@@ -261,4 +262,4 @@ Quando un file viene modificato in una cartella di Box, attiva un flusso. ```GET
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

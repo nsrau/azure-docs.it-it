@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Livelli di coerenza in DocumentDB | Microsoft Azure" 
-	description="Esaminare il modo in cui DocumentDB ha quattro livelli di coerenza con livelli di prestazioni associati per consentire agli sviluppatori di applicazioni di compensare in modo prevedibile coerenza, disponibilità e latenza." 
+<properties
+	pageTitle="Livelli di coerenza in DocumentDB | Microsoft Azure"
+	description="Esaminare il modo in cui DocumentDB ha quattro livelli di coerenza con livelli di prestazioni associati per consentire agli sviluppatori di applicazioni di compensare in modo prevedibile coerenza, disponibilità e latenza."
 	keywords="coerenza finale, documentdb, azure, Microsoft azure"
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="cgronlun" 
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="cgronlun"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/23/2015" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/24/2016"
 	ms.author="mimig"/>
 
 # Utilizzo dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni di DocumentDB
 
 Gli sviluppatori devono spesso far fronte alla sfida posta dalla scelta tra due estremi: coerenza assoluta e coerenza finale. In realtà vi sono diversi stadi intermedi di coerenza tra questi due estremi. Nella maggior parte degli scenari reali, le applicazioni traggono vantaggio dai compromessi granulari tra coerenza, disponibilità e latenza. DocumentDB offre quattro livelli di coerenza ben definiti, a cui sono associati dei livelli di prestazioni. Ciò consente agli sviluppatori di applicazioni di compensare in modo prevedibile coerenza, disponibilità e latenza.
- 
+
 Tutte le risorse di sistema, inclusi gli account di database, i database, le raccolte, gli utenti e le autorizzazioni, sono sempre fortemente coerenti per letture e query. I livelli di coerenza si applicano unicamente alle risorse definite dall'utente. Per query e operazioni di lettura sulle risorse definite dall'utente, tra cui documenti, allegati, stored procedure, trigger e funzioni definite dall'utente, DocumentDB offre quattro livelli di coerenza distinti:
 
  - Coerenza assoluta
@@ -34,19 +34,19 @@ Questi livelli di coerenza granulari e ben definiti permettono di ottenere compr
 
 È possibile configurare un livello di coerenza predefinito per l'account di database che si applica a tutte le raccolte (in tutti i database) nel proprio account di database. Per impostazione predefinita, tutte le letture e le query eseguite sulle risorse definite dall'utente useranno il livello di coerenza predefinito che è stato specificato nell'account di database. Tuttavia, è possibile abbassare il livello di coerenza di una richiesta di lettura/query specifica specificando l'intestazione della richiesta [x-ms-coerenza-level]. Il protocollo di replica di DocumentDB supporta quattro tipi di livelli di coerenza, descritti in breve qui di seguito.
 
->[AZURE.NOTE]L'override del livello di coerenza predefinito per le singole raccolte potrebbe essere supportato in una versione futura.
+>[AZURE.NOTE] L'override del livello di coerenza predefinito per le singole raccolte potrebbe essere supportato in una versione futura.
 
 **Sicuro**: la coerenza assoluta garantisce che un'operazione di scrittura sia visibile solo dopo che viene eseguito il commit permanente per il quorum di maggioranza delle repliche. Per quanto riguarda la scrittura, o ne viene eseguito il commit in modo sincrono dalla replica primaria e dalla maggioranza delle repliche secondarie oppure viene interrotta. Una lettura viene sempre confermata dal quorum di lettura di maggioranza: un client non potrà mai rilevare una scrittura parziale o di cui non è stato eseguito il commit e garantisce sempre la lettura della scrittura confermata più recente.
- 
+
 La coerenza assoluta offre la garanzia totale sulla coerenza dei dati, ma il livello più basso di prestazioni in lettura e scrittura.
 
 **Obsolescenza associata**: la coerenza con obsolescenza associata garantisce l’ordine totale di propagazione delle operazioni di scrittura con la possibilità di leggere il ritardo rispetto alle scritture in corrispondenza di gran parte dei prefissi K. La lettura viene sempre confermata da un quorum di maggioranza di repliche. La risposta a una richiesta di lettura ne specifica il relativo aggiornamento (in termini di K). Con l’obsolescenza associata è possibile impostare una soglia configurabile di obsolescenza (come i prefissi o l'ora) per le letture di compromesso tra latenza e coerenza nello stato continuo.
 
 L'obsolescenza associata offre un comportamento più prevedibile per la coerenza delle letture, con latenza minima per le scritture. Poiché le letture vengono confermate da un quorum di maggioranza, la latenza di lettura non è quella minima offerta dal sistema. L’Obsolescenza associata è un'opzione per gli scenari in cui si desidera coerenza assoluta, ma laddove la coerenza assoluta non è pratica. Se si configura l'“intervallo di obsolescenza” per far sì che la coerenza obsolescenza associata sia arbitrariamente di dimensioni, preserverà comunque l'ordine globale totale delle scritture. Ciò fornisce una garanzia più elevata rispetto a quella di sessione o finale.
 
->[AZURE.NOTE]L’obsolescenza vincolata garantisce solo le letture monotona esplicite richieste di lettura. La risposta del server visualizzati per le richieste di scrittura non offre garanzie obsolescenza vincolato.
+>[AZURE.NOTE] L’obsolescenza vincolata garantisce solo le letture monotona esplicite richieste di lettura. La risposta del server visualizzati per le richieste di scrittura non offre garanzie obsolescenza vincolato.
 
-**Sessione**: a differenza dei modelli di coerenza globale offerti dai livelli di coerenza obsolescenza sicuri e vincolati, la coerenza di "sessione" è progettata per una sessione client specifica. La coerenza di sessione è di solito sufficiente in quanto fornisce letture e scritture monotoniche garantite, oltre alla capacità di leggere le proprie scritture. Una richiesta di lettura per la coerenza di sessione viene rilasciata a fronte di una replica che può gestire la versione richiesta dal cliente (parte del cookie di sessione).
+**Sessione**: a differenza dei modelli di coerenza globale offerti dai livelli di coerenza obsolescenza sicuri e vincolati, la coerenza di "sessione" è progettata per una sessione client specifico. La coerenza di sessione è di solito sufficiente in quanto fornisce letture e scritture monotoniche garantite, oltre alla capacità di leggere le proprie scritture. Una richiesta di lettura per la coerenza di sessione viene rilasciata a fronte di una replica che può gestire la versione richiesta dal cliente (parte del cookie di sessione).
 
 La coerenza di sessione offre una coerenza prevedibile dei dati delle letture per una sessione, con latenza minima per le scritture. Anche la latenza delle letture è bassa, tranne in rari casi in cui la lettura viene gestita da una singola replica.
 
@@ -60,11 +60,15 @@ La coerenza finale rappresenta il livello più debole, ma offre la latenza più 
 
 2. Nel pannello **DocumentDB account**, selezionare il database di account da modificare.
 
-3. Nel pannello dell’account, nella sezione **configurazione**, fare clic sul riquadro **Uniformità predefinita**.
+3. Nel pannello dell'account, se il pannello delle **impostazioni** non è già aperto, fare clic sull'icona **Impostazioni** sulla barra dei comandi superiore.
 
-4. Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **Salva**.
+4. Nel pannello **Tutte le impostazioni** fare clic su **Uniformità predefinita** in **Funzionalità**.
 
-	![Cattura di schermata evidenziando il riquadro uniformità predefinita, le impostazioni di coerenza ed il pulsante Salva](./media/documentdb-consistency-levels/database-consistency-level.png)
+	![Schermata con icona Impostazioni e opzione Uniformità predefinita](./media/documentdb-consistency-levels/database-consistency-level-1.png)
+
+5. Nel pannello **Coerenza predefinita** selezionare il nuovo livello di coerenza e fare clic su **Salva**.
+
+	![Schermata con il livello Uniformità e il pulsante Salva](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## Livelli di coerenza per le query
 
@@ -83,9 +87,8 @@ Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compr
 
 -	Doug Terry. Coerenza dei dati replicati illustrati attraverso il baseball.[http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 -	Doug Terry. Garanzie di sessione per i dati replicati con tipizzazione debole e coerente.[http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
--	Daniel Abadi. Svantaggi della coerenza nella Progettazione moderna distribuita di sistemi di Database: CAP è solo una parte del brano". [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
--	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Obsolescenza associata probabilistica (PBS) per quorum di pratiche parziali.[http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+-	Daniel Abadi. Svantaggi della coerenza nella Progettazione moderna distribuita di sistemi di Database: CAP è solo una parte del brano". [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+-	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistica delimitata obsolescenza (PBS) per pratiche quorum parziale.[http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. Coerente Finale - Revisited. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
- 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

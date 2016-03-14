@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/23/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introduzione all'API di Facebook
-Connettersi a Facebook e pubblicare un post in una sequenza temporale, recuperare il feed di una pagina e così via.
+Connettersi a Facebook e pubblicare un post in una sequenza temporale, recuperare il feed di una pagina e così via. L'API di Facebook può essere usata da:
 
-L''API di Facebook può essere usata dalle app per la logica.
+- App per la logica 
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione schema 2015-08-01 di anteprima delle app per la logica. Per la versione schema 2014-12-01 di anteprima, fare clic sul [connettore di Facebook](../app-service-logic/app-service-logic-connector-facebook.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore di Facebook](../app-service-logic/app-service-logic-connector-facebook.md).
 
 
 Con Facebook è possibile:
@@ -46,7 +46,7 @@ Tutte le API supportano i dati nei formati JSON e XML.
 Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Facebook.
 
 1. Accedere al proprio account Facebook
-2. Selezionare **Authorize** e consentire alle app per la logica di connettersi e usare Facebook. 
+2. Selezionare **Autorizza** e consentire alle app per la logica di connettersi e usare Facebook. 
 
 Dopo aver creato la connessione, immettere le proprietà di Facebook. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
@@ -62,7 +62,7 @@ Recupera i feed dalla sequenza temporale dell'utente connesso. ```GET: /me/feed`
 | ---|---|---|---|---|---|
 |fields|string|no|query|nessuno |Specificare i campi che si desidera ottenere, ad esempio ID, nome o immagine.|
 |limit|integer|no|query| nessuno|Numero massimo di post da recuperare|
-|with|string|no|query| nessuno|Limitare l'elenco dei post solo a quelli con percorso collegato.|
+|con|string|no|query| nessuno|Limitare l'elenco dei post solo a quelli con percorso collegato.|
 |filter|string|no|query| nessuno|Recuperare solo i post che corrispondono a un filtro di flusso specifico.|
 
 #### Risposta
@@ -75,7 +75,7 @@ Recupera i feed dalla sequenza temporale dell'utente connesso. ```GET: /me/feed`
 
 
 ### Pubblica post nella sequenza temporale
-Pubblicare un messaggio di stato nella sequenza temporale dell'utente connesso. ```POST: /me/feed```
+Pubblica un messaggio di stato nella sequenza temporale dell'utente connesso. ```POST: /me/feed```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -109,7 +109,7 @@ Recupera i post dal feed di una pagina specificata. ```GET: /{pageId}/feed```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|pageId|string|sì|path| nessuno|ID della pagina da cui devono essere recuperati i post.|
+|pageId|string|yes|path| nessuno|ID della pagina da cui devono essere recuperati i post.|
 |limit|integer|no|query| nessuno|Numero massimo di post da recuperare|
 |include\_hidden|boolean|no|query|nessuno |Includere o escludere i post che sono stati nascosti dalla pagina|
 |fields|string|no|query|nessuno |Specificare i campi che si desidera ottenere, ad esempio ID, nome o immagine.|
@@ -128,7 +128,7 @@ Recupera i post dalla sequenza temporale di un utente. ```GET: /{userId}/feed```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|userId|string|sì|path|nessuno |ID dell'utente la cui cronologia deve essere recuperata.|
+|userId|string|yes|path|nessuno |ID dell'utente la cui cronologia deve essere recuperata.|
 |limit|integer|no|query|nessuno |Numero massimo di post da recuperare|
 |con|string|no|query|nessuno |Limitare l'elenco dei post solo a quelli con percorso collegato.|
 |filter|string|no|query| nessuno|Recuperare solo i post che corrispondono a un filtro di flusso specifico.|
@@ -144,12 +144,12 @@ Recupera i post dalla sequenza temporale di un utente. ```GET: /{userId}/feed```
 
 
 ### Pubblica post nella pagina
-Pubblicare un messaggio in una pagina di Facebook come utente connesso. ```POST: /{pageId}/feed```
+Pubblica un messaggio in una pagina di Facebook con il nome dell'utente connesso. ```POST: /{pageId}/feed```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|pageId|string|sì|path|nessuno |ID della pagina da pubblicare.|
-|post|many |sì|body|nessuno |Nuovo messaggio da pubblicare.|
+|pageId|string|yes|path|nessuno |ID della pagina da pubblicare.|
+|post|many |yes|body|nessuno |Nuovo messaggio da pubblicare.|
 
 #### Risposta
 |Nome|Descrizione|
@@ -428,11 +428,11 @@ I membri di questi gruppi hanno più probabilità di vedere questo post, gli alt
 |location|string|no|
 |description|string|no|
 |ticket\_uri|string|no|
-|rsvp\_status|string|sì|
+|rsvp\_status|string|yes|
 
 
 ## Passaggi successivi
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

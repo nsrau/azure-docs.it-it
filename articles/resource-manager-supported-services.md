@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="03/01/2016"
    ms.author="tomfitz"/>
 
 # Provider, aree, versioni API e schemi di Gestione risorse
@@ -35,9 +35,7 @@ Nelle tabelle seguenti vengono elencati quali servizi supportano la distribuzion
 | Servizi del ciclo di vita Dynamics | Sì | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (anteprima) | Sì | [REST di Service Fabric](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Macchine virtuali | Sì | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [01/08/2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| Macchine virtuali (classico) | Limitato | Parziale | - | - | 
-| App remota | No | - | - | - | 
-| Servizi cloud (classico) | No | Parziale (vedere di seguito) | - | - | - |
+| Macchine virtuali (classico) | Limitato | Parziale | - | - | | App remota | No | - | - | - | | Servizi cloud (classico) | No | Parziale (vedere di seguito) | - | - | - |
 
 Macchine virtuali (classiche) fa riferimento a risorse che sono state distribuite attraverso il modello di distribuzione classica, anziché tramite il modello di distribuzione di Gestione risorse. In generale, queste risorse non supportano le operazioni di Gestione risorse, ma esistono alcune operazioni che sono state abilitate. Per altre informazioni su questi modelli di distribuzione, vedere [Comprendere la distribuzione di Gestione risorse e la distribuzione classica](resource-manager-deployment-model.md).
 
@@ -90,8 +88,7 @@ Servizi cloud (classico) può essere usato con altre risorse classiche, tuttavia
 | Archivio Data Lake | Sì | | | |
 | HDInsights | Sì | [REST di HDInsights](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Analisi dei flussi | Sì | [REST di analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
-| Machine Learning | No | - | - | - | 
-| Catalogo dati | No | - | - | - |
+| Machine Learning | No | - | - | - | | Catalogo dati | No | - | - | - |
 
 ## Internet delle cose
 
@@ -115,8 +112,7 @@ Servizi cloud (classico) può essere usato con altre risorse classiche, tuttavia
 | ------- | ------- | -------- | ------ | ------ |
 | Servizi BizTalk | Sì | | [01/04/2014](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Bus di servizio | Sì | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Backup | No | - | - | - | 
-| Site Recovery | No | - | - | - |
+| Backup | No | - | - | - | | Site Recovery | No | - | - | - |
 
 ## Gestione dell'identità e dell'accesso 
 
@@ -153,9 +149,11 @@ Azure Active Directory funziona con Gestione risorse per l'abilitazione del cont
 
 Quando si distribuiscono risorse, è spesso necessario recuperare informazioni sui provider e i tipi di risorse. Queste informazioni possono essere recuperate tramite l'API REST, Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
+Per usare un provider di risorse, il provider deve essere registrato con l'account. Per impostazione predefinita, molti provider di risorse sono registrati automaticamente. Tuttavia, potrebbe essere necessario registrare alcuni provider di risorse manualmente. Nell'esempio seguente viene illustrato come ottenere lo stato della registrazione di un provider di risorse e registrare il provider di risorse, se necessario.
+
 ### API REST
 
-Per ottenere tutti i provider di risorse disponibili, con informazioni sullo stato della registrazione e i tipi, le posizioni e le versioni dell'API supportate, usare l'operazione [Elencare tutti i provider di risorse](https://msdn.microsoft.com/library/azure/dn790524.aspx).
+Per ottenere tutti i provider di risorse disponibili, con informazioni sullo stato della registrazione e i tipi, le posizioni e le versioni dell'API supportate, usare l'operazione [Elencare tutti i provider di risorse](https://msdn.microsoft.com/library/azure/dn790524.aspx). Se è necessario registrare un provider di risorse, vedere [Registrare una sottoscrizione con un provider di risorse](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
 ### PowerShell
 
@@ -183,6 +181,10 @@ L'output sarà analogo al seguente:
     sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} {20...
     ...
     
+Per registrare un provider di risorse, specificare lo spazio dei nomi:
+
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+
 ### Interfaccia della riga di comando di Azure
 
 L'esempio seguente illustra come ottenere tutti i provider di risorse disponibili.
@@ -203,6 +205,10 @@ L'output sarà analogo al seguente:
 È possibile salvare in un file le informazioni relative a un provider di risorse specifico con il comando seguente.
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
+
+Per registrare un provider di risorse, specificare lo spazio dei nomi:
+
+    azure provider register -n Microsoft.ServiceBus
 
 ## Aree supportate
 
@@ -294,4 +300,4 @@ L'output sarà analogo al seguente:
 - Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per informazioni sulla distribuzione delle risorse, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

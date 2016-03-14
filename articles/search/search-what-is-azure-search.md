@@ -11,10 +11,11 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/09/2016"
+	ms.date="03/02/2016"
 	ms.author="ashmaka"/>
 
 # Che cos'è la Ricerca di Azure?
+
 Ricerca di Azure è una soluzione di ricerca distribuita come servizio cloud che delega la gestione di server e infrastruttura a Microsoft, offrendo un servizio pronto per l'uso che consente di inserire dati e di aggiungere ricerche sulle applicazioni Web o mobili. Ricerca di Azure consente di implementare facilmente un'esperienza di ricerca affidabile nelle applicazioni usando una semplice [API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) o [.NET SDK](search-howto-dotnet-sdk.md) senza dover gestire l'infrastruttura di ricerca o diventare esperti di ricerca.
 
 ## Offrire agli utenti un'esperienza di ricerca avanzata
@@ -58,9 +59,9 @@ Il **paging** e la limitazione dei risultati della ricerca [non comportano alcun
 ### 1\. Servizio di provisioning
 È possibile attivare un servizio Ricerca di Azure usando il [portale Azure](https://portal.azure.com/) o l’[API Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn832684.aspx).
 
-A seconda della configurazione del servizio, si userà il servizio gratuito condiviso con altri sottoscrittori di Ricerca di Azure o il [piano tariffario](https://azure.microsoft.com/pricing/details/search/) Standard che riserva risorse all’uso esclusivo da parte dal servizio. Durante il provisioning del servizio, è anche possibile scegliere l'area del data center che ospita il servizio.
+A seconda della configurazione del servizio di ricerca, si userà il livello gratuito del servizio, in condivisione con altri sottoscrittori di Ricerca di Azure o il [servizio a pagamento](https://azure.microsoft.com/pricing/details/search/) che riserva risorse all’uso esclusivo del servizio da parte di utenti singoli. Durante il provisioning del servizio, è anche possibile scegliere l'area del data center che ospita il servizio.
 
-Quando si usa Ricerca di Azure nel livello Standard, è possibile scalare il servizio in due dimensioni: 1) aggiungere repliche per aumentare la capacità di gestire ingenti carichi di query e 2) aggiungere partizioni per aumentare lo spazio di archiviazione per altri documenti. Grazie alla gestione separata dell’archiviazione dei documenti e della velocità effettiva delle query è possibile personalizzare il servizio di ricerca in base alle esigenze.
+A seconda del livello del servizio scelto, è possibile ridimensionare il servizio in due sensi: 1) aggiungere repliche per aumentare la capacità di gestire ingenti carichi di query e 2) aggiungere partizioni per aumentare lo spazio di archiviazione per altri documenti. Grazie alla gestione separata dell’archiviazione dei documenti e della velocità effettiva delle query è possibile personalizzare il servizio di ricerca in base alle esigenze.
 
 ### 2\. Creare un indice
 Per poter caricare il contenuto nel servizio Ricerca di Azure, è innanzitutto necessario definire un indice di Ricerca di Azure. Un indice è simile a una tabella di database che contiene i dati e può accettare query di ricerca. È necessario definire lo schema di indice per eseguire il mapping della struttura dei documenti in cui si desidera eseguire la ricerca, in modo analogo ai campi in un database.
@@ -82,4 +83,4 @@ Dopo avere compilato l'indice di Ricerca di Azure, è ora possibile [eseguire qu
 
 Se non si dispone di un account Azure, è possibile provare una sessione gratuita di 60 minuti senza effettuare l'iscrizione obbligatoria. Andare al sito [Prova il Servizio app di Azure](http://go.microsoft.com/fwlink/p/?LinkId=618214) e selezionare "App Web". Quindi selezionare il modello di "ASP.NET + Ricerca di Azure" per iniziare.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

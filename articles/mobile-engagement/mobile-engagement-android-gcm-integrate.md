@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 #Come integrare GCM con Mobile Engagement
 
-> [AZURE.IMPORTANT]Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento relativo all'integrazione di Engagement in Android.
+> [AZURE.IMPORTANT] Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento relativo all'integrazione di Engagement in Android.
 >
 > Questo documento è utile solo se è stato integrato il modulo Reach per il supporto continuo delle campagne. Per integrare le campagne Reach nell'applicazione, leggere prima l'articolo relativo all'integrazione del servizio Reach di Engagement in Android.
 
@@ -28,7 +28,7 @@ L'integrazione di GCM consente il push dell'applicazione.
 
 I payload GCM di cui viene eseguito il push sull’SDK contengono sempre la chiave `azme` nell'oggetto dati. Pertanto se si usa GCM per uno scopo diverso nell'applicazione, è possibile filtrare le notifiche push in base a tale chiave.
 
-> [AZURE.IMPORTANT]Solo i dispositivi che eseguono Android 2.2 o versioni successive, con Google Play installato e con la connessione a Google in background abilitata, possono essere riattivati da GCM. È comunque possibile integrare questo codice in modo sicuro in dispositivi non supportati (usa solo elementi di tipo Intent).
+> [AZURE.IMPORTANT] Solo i dispositivi che eseguono Android 2.2 o versioni successive, con Google Play installato e con la connessione a Google in background abilitata, possono essere riattivati da GCM. È comunque possibile integrare questo codice in modo sicuro in dispositivi non supportati (usa solo elementi di tipo Intent).
 
 ##Iscriversi a GCM e abilitare il servizio GCM
 
@@ -40,7 +40,7 @@ Seguire tale procedura solo per abilitare GCM per l'account. Quando si raggiunge
 
 Nella procedura viene spiegato che il **numero di progetto** viene usato come **ID mittente GCM**. Questa informazione sarà necessario più avanti nella procedura.
 
-> [AZURE.IMPORTANT]Il **numero di progetto** non deve essere confuso con l'**ID progetto**. L'ID progetto può essere diverso (è un nome nei nuovi progetti). Nell'SDK di Engagement è necessario integrare il **numero di progetto**, che è visualizzato nel menu **Overview** di [Google Developers Console].
+> [AZURE.IMPORTANT] Il **numero di progetto** non deve essere confuso con l'**ID progetto**. L'ID progetto può essere diverso (è un nome nei nuovi progetti). Nell'SDK di Engagement è necessario integrare il **numero di progetto**, che è visualizzato nel menu **Overview** di [Google Developers Console].
 
 ##Integrazione dell'SDK
 
@@ -103,7 +103,7 @@ Al momento della stesura di questo documento (5 febbraio 2014), la procedura è 
 
 È ora possibile selezionare "In qualsiasi momento" durante la creazione di annunci e sondaggi del servizio Reach.
 
-> [AZURE.IMPORTANT]Engagement richiede una **chiave server**. I server di Engagement non possono usare una chiave Android.
+> [AZURE.IMPORTANT] Engagement richiede una **chiave server**. I server di Engagement non possono usare una chiave Android.
 
 ##Test
 
@@ -115,4 +115,4 @@ Per verificare l'integrazione, vedere l'argomento relativo al test dell'integraz
 [libreria client GCM]: http://developer.android.com/guide/google/gcm/gs.html#libs
 [Google Developers Console]: https://cloud.google.com/console
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

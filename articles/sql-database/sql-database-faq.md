@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/11/2015"
-   ms.author="jeffreyg"/>
+   ms.date="02/25/2016"
+   ms.author="sashan"/>
 
 # Domande frequenti sul database SQL
 
@@ -74,4 +74,19 @@ L'archiviazione di backup è l'archiviazione associata ai backup automatizzati d
 ## Se si sta passando da un livello Web/Business a nuovi livelli di servizio, cosa è necessario sapere?
 I database SQL di Azure Web e Business sono stati ritirati e sostituiti dai livelli Basic, Standard, Premium ed Elastic. Sono presenti domande frequenti aggiuntive che dovrebbe aiutare in questo periodo di transizione. [Domande frequenti sul ritiro dell'edizione Web e Business](sql-database-web-business-sunset-faq.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+## Che cos'è un intervallo di replica previsto durante la replica geografica di un database tra due aree della stessa area geografica di Azure?  
+È supportato un RPO pari a 5 secondi e l'intervallo di replica è minore fino a quando la replica geografica secondaria è ospitata nell'area associata di Azure consigliata e appartiene allo stesso livello di servizio.
+
+## Che cos'è un intervallo di replica previsto quando la replica geografica secondaria viene creata nella stessa area del database primario?  
+Non c'è molta differenza tra l'intervallo di replica intra-area e l'intervallo inter-area quando viene usata l'area associata di Azure consigliata.
+
+## Se si verifica un errore di rete tra due aree, come funziona la logica di ripetizione quando è impostata la replica geografica?  
+Se si verifica una disconnessione, viene eseguito un tentativo ogni 10 secondi per ristabilire le connessioni.
+
+## Cosa posso fare per garantire che una modifica importante al database primario venga replicata?
+La replica geografica secondaria è una replica asincrona per la quale non viene eseguita la sincronizzazione completa con la replica primaria. È tuttavia disponibile un metodo che consente di forzare la sincronizzazione. Il metodo è progettato per garantire la replica delle modifiche importanti, ad esempio degli aggiornamenti delle password. Il metodo ha impatto sulle prestazioni poiché blocca il thread delle chiamante fino a quando non vengono replicate tutte le transazioni. Per informazioni dettagliate, vedere [sp\_wait\_for\_database\_copy\_sync](https://msdn.microsoft.com/library/dn467644.aspx).
+
+## Quali strumenti sono disponibili per monitorare l'intervallo di replica tra il database primario e la replica geografica secondaria?
+L'intervallo di replica in tempo reale tra il database primario e la replica geografica secondaria è esposto attraverso una vista a gestione dinamica (DMV). Per informazioni dettagliate, vedere [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx).
+
+<!---HONumber=AcomDC_0302_2016-->

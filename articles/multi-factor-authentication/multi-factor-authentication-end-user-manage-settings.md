@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/25/2016" 
 	ms.author="billmath"/>
 
 # Problemi di Azure Multi-Factor Authentication
@@ -124,6 +124,9 @@ Se si usa Multi-Factor Authentication con Azure, è consigliabile modificare le 
 
 Se è disponibile un nuovo telefono ed è necessario modificare il numero di contatto principale usato dall'autenticazione a più fattori, è possibile procedere in due modi.
 
+>[AZURE.IMPORTANT]
+È importante configurare un numero di telefono di autenticazione secondario. Poiché il numero di telefono primario e l'app per dispositivi mobili si trovano probabilmente sullo stesso telefono, il numero di telefono secondario è l'unico modo che consente di accedere di nuovo all'account in caso di perdita o furto del telefono.
+
 Il primo consiste nell'usare un metodo di autenticazione secondario. Se è stato specificato un numero di telefono di autenticazione secondario, sarà possibile accedere mediante tale numero. ![Impostazione](./media/multi-factor-authentication-end-user-manage/altphone.png) Come si può notare nella schermata precedente, sono stati configurati due numeri di telefono, uno che termina con 67 e un altro che termina con 30.
   
 Per accedere usando il numero di telefono alternativo, accedere seguendo la procedura normale, quindi scegliere semplicemente **Usa un'opzione di verifica diversa**. ![Verifica diversa](./media/multi-factor-authentication-end-user-manage/differentverification.png)
@@ -131,9 +134,6 @@ Per accedere usando il numero di telefono alternativo, accedere seguendo la proc
 Selezionare quindi l'altro numero di telefono. In questo caso si seleziona **Chiama al numero +X XXXXXXXX30**
 
 ![Telefono alternativo](./media/multi-factor-authentication-end-user-manage/altphone2.png)
-
->[AZURE.IMPORTANT]
-È importante configurare un numero di telefono di autenticazione secondario. Poiché il numero di telefono primario e l'app per dispositivi mobili si trovano probabilmente sullo stesso telefono, il numero di telefono secondario è l'unico modo che consente di accedere di nuovo all'account in caso di perdita o furto del telefono.
 
 Il secondo consiste nel contattare l'amministratore o la persona che ha configurato l'autenticazione a più fattori. Questa operazione è necessaria unicamente se non è stato configurato un numero di telefono di autenticazione secondario. In caso contrario, sarà necessario contattare l'amministratore o la persona che ha configurato l'autenticazione a più fattori e richiedere la cancellazione delle impostazioni. All'accesso successivo verrà quindi richiesto di ripetere la [configurazione dell'autenticazione a più fattori](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again).
 
@@ -172,4 +172,4 @@ Se non si trova una risposta al problema in questa pagina, è possibile inserire
 
 Lasciando commenti e suggerimenti dettagliati su questa pagina sarà possibile aggiornarla e continuare a migliorarla con altre informazioni.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

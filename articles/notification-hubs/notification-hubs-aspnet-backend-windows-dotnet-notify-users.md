@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #Uso di Hub di notifica di Azure per inviare notifiche agli utenti con back-end.NET
@@ -48,7 +48,7 @@ Prima di iniziare questa esercitazione, è necessario aver già completato quest
 
 
 
-> [AZURE.NOTE]Se si usa Servizi mobili come servizio back-end, vedere la [versione per Servizi mobili](../mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) di questa esercitazione.
+> [AZURE.NOTE] Se si usa Servizi mobili come servizio back-end, vedere la [versione per Servizi mobili](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md) di questa esercitazione.
 
 
 
@@ -387,4 +387,4 @@ In questa sezione viene aggiornato il codice nel progetto completato per l’ese
 [Utilizzo di Hub di notifica per inviare le ultime notizie]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

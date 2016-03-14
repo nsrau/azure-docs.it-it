@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/25/2016" 
 	ms.author="glenga"/>
 
 # Registrare l'app per l'uso dell'account Microsoft per l'autenticazione
@@ -31,7 +31,7 @@ Questo argomento illustra come registrare l'app per dispositivi mobili in modo d
 
 ##Registrare l'app di Windows Store in Windows Dev Center
 
-Le app di Windows Store devono innanzitutto essere registrate in Windows Dev Center.
+Le app di Windows Store devono innanzitutto essere registrate in Windows Dev Center. Con la registrazione l'app di Windows sarà in grado di usare tutte le caratteristiche della funzione Single Sign-On.
 
 >[AZURE.NOTE]Per le app per Windows Phone 8, Windows Phone 8.1 Silverlight e non per Windows è possibile saltare questa sezione.
 
@@ -48,12 +48,16 @@ Le app di Windows Store devono innanzitutto essere registrate in Windows Dev Cen
 6. Nella pagina di Windows Dev Center per la nuova app fare clic su **Servizi** > **Notifiche push**.
 
 7. Nella pagina **Notifiche push** fare clic su **Sito di servizi Live** in **Servizi notifica Push Windows (WNS) e Servizi mobili di Microsoft Azure**.
+ 
+	Verrà visualizzata la pagina delle impostazioni dell'account Microsoft per l'app.
 
-Viene visualizzata la pagina dell'account Microsoft per l'app. Successivamente, si otterranno le credenziali di autenticazione necessari affinché Azure possa utilizzare l'autenticazione di Microsoft con l'app.
+8. Prendere nota del valore **SID pacchetto**. È possibile salvare il SID nel portale di Azure per abilitare la funzione Single Sign-On e le notifiche push per l'app di Windows.
+
+Quindi si configurerà l'autenticazione dell'account Microsoft per l'app di Windows, iniziando dal passaggio 4 nella sezione successiva.
 
 ## Configurare la registrazione all'account Microsoft e connettersi a Servizi mobili
 
-Il primo passaggio di questa sezione si applica solo ad app per Windows Phone 8, Windows Phone 8.1 Silverlight e app non di Windows Store. Per tali app è anche possibile ignorare l'ID di sicurezza (SID) del pacchetto, disponibile solo per le app di Windows Store.
+Se l'app di Windows è già stata registrata nella sezione precedente, è possibile saltare al passaggio 2.
 
 1. Per un'app non di Windows Store, passare alla pagina [Applicazioni personali](http://go.microsoft.com/fwlink/p/?LinkId=262039) nel centro per sviluppatori degli account Microsoft, accedere con l'account Microsoft (se richiesto), fare clic su **Crea applicazione**, digitare un **Nome applicazione** poi fare clic su **Accetto**.
 
@@ -74,7 +78,7 @@ Il primo passaggio di questa sezione si applica solo ad app per Windows Phone 8,
    	![Impostazioni app dell'account Microsoft](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png)
 
 
-    > [AZURE.NOTE]Il segreto client è un'importante credenziale di sicurezza. Non condividere questo valore con altri né distribuirlo con l'app. Solo per le registrazioni delle app di Windows Store il campo relativo all'ID di sicurezza del pacchetto risulta compilato.
+    > [AZURE.NOTE] Il segreto client è un'importante credenziale di sicurezza. Non condividere questo valore con altri né distribuirlo con l'app. Solo per le registrazioni delle app di Windows Store il campo relativo all'ID di sicurezza del pacchetto risulta compilato.
 
 4. Nel [portale di Azure classico] fare clic sulla scheda **Identità** relativa al servizio mobile, immettere l'ID client, il segreto client e l'ID di sicurezza del pacchetto ottenuto dal provider di identità, poi fare clic su **Salva**.
 
@@ -93,4 +97,4 @@ Il servizio mobile e l'app sono ora configurati per l'uso con l'account Microsof
 
 [portale di Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

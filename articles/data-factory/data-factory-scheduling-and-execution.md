@@ -243,6 +243,25 @@ Quando, dopo aver avviato la nuova esecuzione, la sezione 9-10AM del dataset2 è
 
 Per un approfondimento sulla definizione e il monitoraggio delle dipendenze per catene complesse di attività e set di dati, fare riferimento alle sezioni seguenti.
 
+## Concatenamento di attività
+È possibile concatenare due attività usando il set di dati di output di un'attività come set di dati di input di altre attività. Le attività possono essere nella stessa pipeline o in pipeline diverse. La seconda attività viene eseguita solo quando la prima viene completata correttamente.
+
+Ad esempio, si consideri il caso seguente:
+ 
+1.	La pipeline P1 include l'attività A1 che richiede il set di dati di input esterno D1 e produce il set di dati di **output** **D2**.
+2.	La pipeline P2 include l'attività A2 che richiede l'**input** del set di dati **D2** e produce il set di dati di output D3.
+ 
+In questo scenario, l'attività A1 viene eseguita quando i dati esterni sono disponibili e viene raggiunta la frequenza di disponibilità pianificata. L'attività A2 viene eseguita quando le sezioni pianificate di D2 diventano disponibili e viene raggiunta la frequenza di disponibilità pianificata. Se è presente un errore in una delle sezioni del set di dati D2, A2 non verrà eseguita per tale sezione fino a quando non diventa disponibile.
+
+La visualizzazione diagramma sarebbe la seguente:
+
+![Concatenamento di attività in due pipeline](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
+
+La visualizzazione diagramma con entrambe le attività nella stessa pipeline sarebbe la seguente:
+
+![Concatenamento di attività nella stessa pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
+
+
 ## Modellazione di set di dati con frequenze diverse
 
 Negli esempi precedenti, la finestra di pianificazione dell'attività e le frequenze relative ai set di dati di input e di output erano identiche. Alcuni scenari richiedono tuttavia la possibilità di generare output a una frequenza diversa da quella degli input. La data factory supporta la modellazione di questi scenari.
@@ -511,9 +530,6 @@ L'attività Hive usa i due input e genera una sezione di output giornaliera. È 
 	}
 
 
-## Concatenamento di attività
-È possibile concatenare due attività usando il set di dati di output di un'attività come set di dati di input di altre attività. Le attività possono essere nella stessa pipeline o in pipeline diverse. La seconda attività viene eseguita solo quando la prima viene completata correttamente. Il concatenamento si verifica a livello di intervallo di tempo (unità discreta all'interno di un set di dati).
-
 ## Funzioni e variabili di sistema di Data Factory   
 
 Vedere l'articolo [Funzioni e variabili di sistema di Data Factory](data-factory-functions-variables.md) per un elenco di funzioni e variabili di sistema supportate da Azure Data Factory.
@@ -616,4 +632,4 @@ Analogamente ai set di dati prodotti dalla data factory, è necessario che le se
 
   
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

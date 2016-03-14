@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/26/2016" 
 	ms.author="hawong"/>
 
 # Esercitazione su Power BI per DocumentDB: Visualizzare dati tramite il connettore Power BI
@@ -194,4 +194,4 @@ Per condividere il report, è necessario avere un account in PowerBI.com.
 - Per altre informazioni su Power BI, fare clic [qui](https://support.powerbi.com/knowledgebase).
 - Per altre informazioni su DocumentDB, vedere [qui](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->
