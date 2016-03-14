@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="cloud-services"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="02/20/2016"
 	ms.author="robb"/>
 
 
@@ -43,7 +43,7 @@ Se si usano i modelli disponibili in Visual Studio, la configurazione del listen
 ### Aggiungere un listener di traccia
 
 1. Aprire il file web.config o app.config, in base al ruolo selezionato.
-2. Aggiungere al file il codice seguente:
+2. Aggiungere il codice seguente al file. Modificare l'attributo Version impostando il numero di versione dell'assembly a cui si fa riferimento. La versione dell'assembly non cambia necessariamente con ogni versione di Azure SDK a meno che non vengano resi disponibili aggiornamenti.
 
 	```
 	<system.diagnostics>
@@ -51,7 +51,7 @@ Se si usano i modelli disponibili in Visual Studio, la configurazione del listen
 			<listeners>
 				<add type="Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener,
 		          Microsoft.WindowsAzure.Diagnostics,
-		          Version=1.0.0.0,
+		          Version=2.8.0.0,
 		          Culture=neutral,
 		          PublicKeyToken=31bf3856ad364e35"
 		          name="AzureDiagnostics">
@@ -61,8 +61,8 @@ Se si usano i modelli disponibili in Visual Studio, la configurazione del listen
 		</trace>
 	</system.diagnostics>
 	```
-	>[AZURE.IMPORTANT]Accertarsi di avere un riferimento progetto all'assembly Microsoft.WindowsAzure.Diagnostics. Aggiornare il numero di versione nel file xml precedente in base alla versione dell'assembly di riferimento Microsoft.WindowsAzure.Diagnostics.
-	
+	>[AZURE.IMPORTANT] Accertarsi di avere un riferimento progetto all'assembly Microsoft.WindowsAzure.Diagnostics. Aggiornare il numero di versione nel file xml precedente in base alla versione dell'assembly di riferimento Microsoft.WindowsAzure.Diagnostics.
+
 3. Salvare il file di configurazione.
 
 Per altre informazioni sui listener, vedere l'articolo sui [listener di traccia](https://msdn.microsoft.com/library/4y5y10s7.aspx).
@@ -73,10 +73,11 @@ Dopo aver completato i passaggi necessari per aggiungere il listener, è possibi
 ### Per aggiungere un'istruzione di traccia al codice
 
 1. Aprire un file di origine per l'applicazione, ad esempio il file <RoleName>.cs per il ruolo di lavoro o il ruolo Web.
-2. Aggiungere l'istruzione using seguente, se non è già presente: ```
+2. Aggiungere l'istruzione using seguente, se non è già presente:
+	```
 	    using System.Diagnostics;
 	```
 3. Aggiungere istruzioni di traccia nei punti in cui si desidera acquisire informazioni sullo stato dell'applicazione. È possibile usare vari metodi per formattare l'output dell'istruzione di traccia. Per altre informazioni, vedere la [procedura per aggiungere istruzioni di traccia al codice dell'applicazione](https://msdn.microsoft.com/library/zd83saa2.aspx).
 4. Salvare il file di origine.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/25/2016" 
 	ms.author="v-donntr"/>
 
 
@@ -541,7 +541,14 @@ Un altro strumento che è possibile usare per pubblicare l'applicazione è FileZ
 1. In FileZilla fare clic su **File > Site Manager**.
 2. Nella finestra di dialogo **Site Manager** fare clic su **New Site**. In **Select Entry** apparirà un nuovo sito FTP vuoto a cui assegnare un nome. Per questa procedura, denominarlo `AzureWebDemo-FTP`.
 
-    Nella scheda **General** specificare le impostazioni seguenti: - **Host:** immettere il **Nome host FTP** copiato dal dashboard. - **Port:** lasciare questo campo vuoto, perché si tratta di un trasferimento passivo e sarà il server a determinare la porta da usare. - **Protocol:** FTP File Transfer Protocol - **Encryption:** Use plain FTP - **Logon Type:** Normal - **User:** immettere l'utente FTP/distribuzione copiato dal dashboard. È il nome utente FTP completo, nel formato *nomeappweb\\nomeutente*. - **Password:** immettere la password specificata quando sono state impostate le credenziali di distribuzione.
+    Nella pagina **Generale** specificare le impostazioni seguenti:
+    - **Host:** immettere il **Nome host FTP** copiato dal dashboard.
+    - **Porta:** lasciarla non configurata, poiché si tratta di un trasferimento passivo per il quale il server determinerà la porta da usare.
+    - **Protocollo:** protocollo per il trasferimento del file FTP
+    - **Crittografia:** usare FTP semplice
+    - **Tipo di accesso:** normale
+    - **Utente:** immettere l'utente FTP/distribuzione copiato dal dashboard. Questo è il nome utente FTP completo, che ha il formato *webappname\\username*.
+    - **Password:** immettere la password specificata quando si sono impostate le credenziali di distribuzione.
 
     Nella scheda **Transfer Settings** selezionare **Passive**.
 
@@ -594,10 +601,10 @@ Questa procedura crea un'app web del servizio app. Finché la risorsa esiste, i 
 [Azure Toolkit per Eclipse]: https://msdn.microsoft.com/library/azure/hh690946.aspx
 [portale di Azure classico]: https://manage.windowsazure.com
 [Che cos'è una directory di Azure AD]: http://technet.microsoft.com/library/jj573650.aspx
-[Creare e caricare un certificato di gestione per Azure]: http://msdn.microsoft.com/library/azure/gg551722.aspx
+[Creare e caricare un certificato di gestione per Azure]: ../cloud-services/cloud-services-certs-create.md
 [strumento di gestione di chiavi e certificati (Keytool)]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
-[WebSiteManagementClient]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html
+[WebSiteManagementClient]: http://azure.github.io/azure-sdk-for-java/com/microsoft/azure/management/websites/WebSiteManagementClient.html
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

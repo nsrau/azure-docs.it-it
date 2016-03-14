@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="02/29/2016" 
 	ms.author="wesmc"/>
 
 #Hub di notifica di Azure - Linee guida sulla diagnostica
@@ -75,7 +75,7 @@ Se si usano i modelli, seguire le indicazioni riportate in [Linee guida sui mode
 
 Supponendo che Hub di notifica sia stato configurato correttamente e che tutti i tag/espressioni tag siano stati usati correttamente, con conseguente individuazione di destinatari validi a cui inviare le notifiche, Hub di notifica genera diversi batch di elaborazione in parallelo, ognuno dei quali invia messaggi a un set di registrazioni.
 
-> [AZURE.NOTE]Dato che l'elaborazione avviene in parallelo, l'ordine di recapito delle notifiche non è garantito.
+> [AZURE.NOTE] Dato che l'elaborazione avviene in parallelo, l'ordine di recapito delle notifiche non è garantito.
 
 A questo punto, Hub di notifica di Azure è ottimizzato per un modello di recapito "at-most-once" per i messaggi, che comporta un tentativo di deduplicazione per fare in modo che nessuna notifica venga recapitata più di una volta a un dispositivo. A questo scopo, prima dell'invio effettivo del messaggio al PNS vengono esaminate le registrazioni per garantire che venga inviato un solo messaggio per ID dispositivo. Dato che ogni batch viene inviato al PNS, che a sua volta accetta e convalida le registrazioni, è possibile che il PNS rilevi un errore in una o più registrazioni in un batch, restituisca un errore a Hub di notifica di Azure e interrompa l'elaborazione, eliminando completamente il batch interessato. Questo vale soprattutto per gli APNS che usano un protocollo di flusso TCP. Vista l'ottimizzazione per il recapito "at-most-once", tenere presente che non vi saranno nuovi tentativi per il batch non riuscito poiché non si sa con certezza se il batch è stato eliminato interamente o parzialmente dal PNS. Il PNS, comunque, indica a Hub di notifica di Azure quale registrazione ha causato l'errore e sulla base di questo feedback è possibile rimuovere la registrazione dal database. Ciò significa che un batch di registrazioni o un suo subset potrebbe non ricevere una notifica, ma siccome la registrazione errata è stata eliminata, al successivo tentativo di invio è più probabile che l'operazione abbia esito positivo. Visto il numero crescente dei dispositivi di destinazione (alcuni clienti inviano notifiche a milioni di dispositivi), l'eliminazione sporadica di un batch non fa molta differenza in termini di percentuale complessiva di dispositivi che ricevono le notifiche, ma se invece le notifiche inviate sono poche e sono presenti alcuni errori PNS, è possibile che la mancata ricezione interessi tutte le notifiche o gran parte di esse. Se questo comportamento si verifica frequentemente, è necessario identificare le registrazioni errate ed eliminarle. È necessario sicuramente eliminare le registrazioni create manualmente perché sono la causa più comune delle notifiche non recapitate. Nel caso di un ambiente di test, è possibile eliminare direttamente tutte le registrazioni poiché le app, all'apertura nei dispositivi, tenteranno di ripetere la registrazione in Hub di notifica, assicurando così la validità di tutte le registrazioni create successivamente.
 
@@ -115,7 +115,7 @@ Di seguito vengono illustrate le diverse strategie per diagnosticare e identific
 
 	![][8]
  
-	> [AZURE.NOTE]La funzionalità di Visual Studio per la modifica delle registrazioni deve essere usata solo durante le attività di sviluppo/test su un numero limitato di registrazioni. Se è necessario correggere le registrazioni in blocco, è possibile usare la funzionalità di esportazione/importazione delle registrazioni descritta in [Esportazione/Importazione di registrazioni](https://msdn.microsoft.com/library/dn790624.aspx)
+	> [AZURE.NOTE] La funzionalità di Visual Studio per la modifica delle registrazioni deve essere usata solo durante le attività di sviluppo/test su un numero limitato di registrazioni. Se è necessario correggere le registrazioni in blocco, è possibile usare la funzionalità di esportazione/importazione delle registrazioni descritta in [Esportazione/Importazione di registrazioni](https://msdn.microsoft.com/library/dn790624.aspx)
 
 2. **Service Bus Explorer**
 
@@ -179,7 +179,7 @@ Si supponga di usare .NET SDK per inviare una notifica di tipo avviso popup nati
  
 Questo messaggio indica che nell'hub di notifica sono state configurate credenziali non valide oppure che si è verificato un problema relativo alle registrazioni nell'hub. La procedura consigliata consiste nell'eliminare la registrazione e lasciare che il client la ricrei prima di inviare il messaggio.
  
-> [AZURE.NOTE]Si noti che l'uso di questa proprietà è molto limitato e deve quindi essere riservato solo ad ambienti di sviluppo/test con un set limitato di registrazioni. Le notifiche di debug vengono inviate solo a 10 dispositivi. Inoltre è previsto un limite di 10 invii al minuto per l'elaborazione di debug.
+> [AZURE.NOTE] Si noti che l'uso di questa proprietà è molto limitato e deve quindi essere riservato solo ad ambienti di sviluppo/test con un set limitato di registrazioni. Le notifiche di debug vengono inviate solo a 10 dispositivi. Inoltre è previsto un limite di 10 invii al minuto per l'elaborazione di debug.
 
 ###Esaminare i dati di telemetria 
 
@@ -206,7 +206,7 @@ Per informazioni dettagliate:
 - [Accesso alla telemetria a livello di codice]
 - [Esempio di accesso alla telemetria tramite API] 
 
-> [AZURE.NOTE]Molte funzionalità correlate alla telemetria, come l’**esportazione/importazione di registrazioni** e l'**accesso alla telemetria tramite API**, sono disponibili solo con il livello Standard. Se si tenta di usare queste funzionalità in un livello Basic o Gratuito, viene visualizzato un apposito messaggio di eccezione quando si usa l'SDK e il messaggio HTTP 403 (Accesso negato) quando vengono usate direttamente dalle API REST. Assicurarsi di passare al livello Standard tramite il portale di Azure classico.
+> [AZURE.NOTE] Molte funzionalità correlate alla telemetria, come l’**esportazione/importazione di registrazioni** e l'**accesso alla telemetria tramite API**, sono disponibili solo con il livello Standard. Se si tenta di usare queste funzionalità in un livello Basic o Gratuito, viene visualizzato un apposito messaggio di eccezione quando si usa l'SDK e il messaggio HTTP 403 (Accesso negato) quando vengono usate direttamente dalle API REST. Assicurarsi di passare al livello Standard tramite il portale di Azure classico.
 
 <!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
@@ -240,4 +240,4 @@ Per informazioni dettagliate:
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

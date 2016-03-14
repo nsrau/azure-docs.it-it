@@ -7,7 +7,7 @@
    manager="carmonm"
    editor="tysonn" 
    tags="azure-service-management" />
-<tags 
+<tags  
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -15,6 +15,7 @@
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
    ms.author="telmos" />
+
 
 # Indicazione delle impostazioni DNS in un file di configurazione di rete virtuale
 
@@ -46,12 +47,12 @@ Il file di configurazione di rete può contenere i seguenti elementi. Il titolo 
 	  <DnsServerRef name="ID3" />
 	</DnsServersRef>
 
->[AZURE.NOTE] Per specificare questa impostazione per l'elemento siti di rete virtuale, esso deve essere definito in precedenza nell'elemento DNS. Il *nome* del DnsServerRef nell’elemento siti di rete virtuale deve fare riferimento a un valore nome specificato nell'elemento DNS per *nome* DnsServer.
+>[AZURE.NOTE] Per specificare questa impostazione per l'elemento siti di rete virtuale, esso deve essere definito in precedenza nell'elemento DNS. Il *nome*del DnsServerRef nell’elemento siti di rete virtuale deve fare riferimento a un valore nome specificato nell'elemento DNS per*nome* DnsServer.
 
 ## Passaggi successivi
 
 - Informazioni sullo [Schema di configurazione delle reti virtuali di Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
 - Informazioni sullo [Schema di configurazione dei servizi di Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
-- [Configurare una rete virtuale usando file di configurazione di rete](virtual-networks-using-network-configuration-file.md)
+- [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

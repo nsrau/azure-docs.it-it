@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Monitorare dipendenze, eccezioni e tempi di esecuzione nelle app Web Java
@@ -80,7 +80,7 @@ Configurare il contenuto del file XML. Modificare l'esempio seguente in modo da 
                 void methodTwo(String, int) -->
            <Method name="methodTwo"
               reportExecutionTime="true"
-              signature="(Ljava/lang/String:I)V" />
+              signature="(Ljava/lang/String;I)V" />
         </Class>
         
       </Instrumentation>
@@ -122,4 +122,4 @@ Per cercare singole istanze di dipendenze, eccezioni e report sui metodi, aprire
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

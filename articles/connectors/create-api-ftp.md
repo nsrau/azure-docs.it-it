@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introduzione all'API di FTP
-Connettersi a un server FTP per gestire i file. È possibile eseguire diverse attività sul server FTP, ad esempio caricare file, eliminarli e così via.
+Connettersi a un server FTP per gestire i file, ad esempio, caricare i file, eliminare i file e altro. L'API di FTP può essere usata da:
 
-L'API di FTP può essere usata dalle app per la logica.
+- App per la logica
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione schema 2015-08-01 di anteprima delle app per la logica. Per la versione schema 2014-12-01 di anteprima, fare clic sul [connettore di FTP](../app-service-logic/app-service-logic-connector-ftp.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore di FTP](../app-service-logic/app-service-logic-connector-ftp.md).
 
 Con FTP è possibile:
 
@@ -55,15 +55,16 @@ Dopo aver creato la connessione immettere le proprietà di FTP, ad esempio file 
 
 >[AZURE.TIP] È possibile usare la stessa connessione di FTP in altre app per la logica.
 
-## Riferimento all'API REST Swagger
+## Riferimento all'API REST di Swagger
+Si applica alla versione 1.0.
 
 ### Crea file
 Carica un file nel server FTP. ```POST: /datasets/default/files```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|folderPath|string|sì|query|nessuno |Percorso della cartella per caricare il file nel server FTP|
-|name|string|sì|query| nessuno|Nome del file da creare nel server FTP|
+|folderPath|string|yes|query|nessuno |Percorso della cartella per caricare il file nel server FTP|
+|name|string|yes|query| nessuno|Nome del file da creare nel server FTP|
 |body| |sì|body|nessuno |Contenuto del file da creare nel server FTP|
 
 #### Risposta
@@ -77,8 +78,8 @@ Copia un file nel server FTP. ```POST: /datasets/default/copyFile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|source|string|sì|query|nessuno |URL del file di origine|
-|destination|string|sì|query|nessuno |Percorso file di destinazione nel server FTP, incluso nome file di destinazione|
+|source|string|yes|query|nessuno |URL del file di origine|
+|destination|string|yes|query|nessuno |Percorso file di destinazione nel server FTP, incluso nome file di destinazione|
 |overwrite|boolean|no|query|nessuno |Sovrascrive il file di destinazione se è impostata su 'true'|
 
 #### Risposta
@@ -92,7 +93,7 @@ Elimina un file dal server FTP. ```DELETE: /datasets/default/files/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno |Identificatore univoco del file da eliminare dal server FTP|
+|id|string|yes|path|nessuno |Identificatore univoco del file da eliminare dal server FTP|
 
 #### Risposta
 |Nome|Descrizione|
@@ -105,8 +106,8 @@ Estrae un file di archivio in una cartella del server FTP, ad esempio con estens
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|source|string|sì|query| nessuno|Percorso del file di archivio|
-|destination|string|sì|query| nessuno|Percorso della cartella di destinazione|
+|source|string|yes|query| nessuno|Percorso del file di archivio|
+|destination|string|yes|query| nessuno|Percorso della cartella di destinazione|
 |overwrite|boolean|no|query|nessuno|Sovrascrive i file di destinazione se è impostata su 'true'|
 
 #### Risposta
@@ -116,11 +117,11 @@ Estrae un file di archivio in una cartella del server FTP, ad esempio con estens
 |default|Operazione non riuscita.|
 
 ### Recupera contenuto di file
-Recupera i contenuti del file dal server FTP tramite l'ID. ```GET: /datasets/default/files/{id}/content```
+Recupera il contenuto dei file dal server FTP tramite ID. ```GET: /datasets/default/files/{id}/content```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno |Identificatore univoco del file|
+|id|string|yes|path|nessuno |Identificatore univoco del file|
 
 #### Risposta
 |Nome|Descrizione|
@@ -130,11 +131,11 @@ Recupera i contenuti del file dal server FTP tramite l'ID. ```GET: /datasets/def
 
 
 ### Recupera contenuto di file tramite percorso
-Recupera i contenuti del file dal server FTP tramite il percorso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera il contenuto dei file dal server FTP tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|path|string|sì|query|nessuno |Percorso univoco del file nel server FTP|
+|path|string|yes|query|nessuno |Percorso univoco del file nel server FTP|
 
 #### Risposta
 |Nome|Descrizione|
@@ -144,11 +145,11 @@ Recupera i contenuti del file dal server FTP tramite il percorso. ```GET: /datas
 
 
 ### Recupera metadati di file 
-Recupera i metadati dei file dal server FTP tramite l'ID del file. ```GET: /datasets/default/files/{id}```
+Recupera i metadati dei file dal server FTP tramite ID file. ```GET: /datasets/default/files/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno|Identificatore univoco del file|
+|id|string|yes|path|nessuno|Identificatore univoco del file|
 
 #### Risposta
 | Nome | Descrizione |
@@ -158,11 +159,11 @@ Recupera i metadati dei file dal server FTP tramite l'ID del file. ```GET: /data
 
 
 ### Recupera metadati di file tramite percorso
-Recupera i metadati dei file dal server FTP tramite il percorso. ```GET: /datasets/default/GetFileByPath```
+Recupera i metadati dei file dal server FTP tramite percorso. ```GET: /datasets/default/GetFileByPath```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|path|string|sì|query| nessuno|Percorso univoco del file nel server FTP|
+|path|string|yes|query| nessuno|Percorso univoco del file nel server FTP|
 
 #### Risposta
 |Nome|Descrizione|
@@ -176,7 +177,7 @@ Recupera un file aggiornato. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|folderId|string|sì|query|nessuno |ID della cartella in cui cercare un file aggiornato|
+|folderId|string|yes|query|nessuno |ID della cartella in cui cercare un file aggiornato|
 
 #### Risposta
 |Nome|Descrizione|
@@ -190,7 +191,7 @@ Aggiorna un file nel server FTP. ```PUT: /datasets/default/files/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path| nessuno|Identificatore univoco del file da aggiornare nel server FTP|
+|id|string|yes|path| nessuno|Identificatore univoco del file da aggiornare nel server FTP|
 |body| |sì|body|nessuno |Contenuto del file da aggiornare nel server FTP|
 
 #### Risposta
@@ -213,7 +214,7 @@ Aggiorna un file nel server FTP. ```PUT: /datasets/default/files/{id}```
 
 | Nome | Tipo di dati | Obbligatorio |
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 |tableDisplayName|string|no|
@@ -223,7 +224,7 @@ Aggiorna un file nel server FTP. ```PUT: /datasets/default/files/{id}```
 
 | Nome | Tipo di dati | Obbligatorio |
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 
@@ -246,4 +247,4 @@ Aggiorna un file nel server FTP. ```PUT: /datasets/default/files/{id}```
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -17,6 +17,10 @@
 	ms.author="heidist"/>
 
 # Introduzione all'API REST di gestione di Ricerca di Azure
+> [AZURE.SELECTOR]
+- [Portale](search-manage.md)
+- [PowerShell](search-manage-powershell.md)
+- [API REST](search-get-started-management-api.md)
 
 L'API REST di gestione di Ricerca di Azure è un'alternativa a livello di codice per eseguire attività amministrative nel portale. Le operazioni di gestione del servizio includono la creazione o l'eliminazione del servizio, la scalabilità del servizio e la gestione delle chiavi. Questa esercitazione include un'applicazione client di esempio per dimostrare l'API di gestione del servizio. Include anche i passaggi di configurazione necessari per eseguire l'esempio nell'ambiente di sviluppo locale.
 
@@ -204,4 +208,4 @@ Dopo avere completato questa esercitazione, è possibile volere altre informazio
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

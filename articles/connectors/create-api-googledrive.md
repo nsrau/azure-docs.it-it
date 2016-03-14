@@ -15,13 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introduzione all'API di Google Drive
-Connettersi a Google Drive per creare file, recuperare righe e così via.
+Connettersi a Google Drive per creare file, recuperare righe e così via. L'API di Google Drive può essere usata da:
 
-L'API di Google Drive può essere usata da PowerApps e dalle app per la logica.
+- PowerApps 
+- App per la logica 
 
 Con Google Drive è possibile:
 
@@ -47,7 +48,7 @@ Tutte le API supportano i dati nei formati JSON e XML.
 ## Creare una connessione a Google Drive
 
 ### Aggiungere configurazioni aggiuntive in PowerApps
-Quando si aggiunge Google Drive a PowerApps Enterprise, si immettono i valori di **chiave app** e **segreto app** dell'applicazione di Google Drive. Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione Google. Se non si ha un'applicazione Google Drive, è possibile usare la procedura seguente per creare l'applicazione:
+Quando si aggiunge Google Drive a PowerApps Enterprise, si immettono i valori **Chiave app** e **Chiave privata app** dell'applicazione Google Drive. Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione Google. Se non si ha un'applicazione Google Drive, è possibile usare la procedura seguente per creare l'applicazione:
 
 1. Accedere a [Google Developers Console][5] e selezionare **Create an empty project**: ![Google Developers Console][6]
 
@@ -69,29 +70,30 @@ Quando si aggiunge Google Drive a PowerApps Enterprise, si immettono i valori di
 
 11. Vengono visualizzati l'ID client e il segreto client dell'applicazione registrata.
 
-A questo punto, copiare e incollare i valori di **ID client** e **chiave app** nella configurazione dell'API di Google Drive nel portale di Azure.
+A questo punto, copiare e incollare i valori **ID client** e **Chiave privata app** nella configurazione dell'API di Google Drive nel portale di Azure.
 
 
 ### Aggiungere configurazioni aggiuntive nelle app per la logica
 Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Google Drive.
 
 1. Accedere all'account Google Drive.
-2. Selezionare **Authorize** e consentire alle app per la logica di connettersi e usare Google Drive. 
+2. Consentire alle app per la logica di connettersi e usare Google Drive. 
 
 Dopo aver creato la connessione immettere le proprietà di Google Drive, ad esempio nome file o percorso cartella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di Google Drive in altre app per la logica.
 
 
-## Riferimento all'API REST Swagger
+## Riferimento all'API REST di Swagger
+Si applica alla versione 1.0.
 
 ### Crea file    
 Carica un file in Google Drive. ```POST: /datasets/default/files```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|folderPath|string|sì|query|nessuno |Percorso della cartella per caricare il file in Google Drive|
-|name|string|sì|query|nessuno |Nome del file da creare in Google Drive|
+|folderPath|string|yes|query|nessuno |Percorso della cartella per caricare il file in Google Drive|
+|name|string|yes|query|nessuno |Nome del file da creare in Google Drive|
 |body|string(binary) |sì|body| nessuno|Contenuto del file da creare in Google Drive|
 
 #### Risposta
@@ -106,8 +108,8 @@ Inserisce una riga in Google Sheet. ```POST: /datasets/{dataset}/tables/{table}/
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|sì|path| nessuno|Identificatore univoco del file di Google Sheet|
-|table|string|sì|path|nessuno |Identificatore univoco del foglio di lavoro|
+|dataset|string|yes|path| nessuno|Identificatore univoco del file di Google Sheet|
+|table|string|yes|path|nessuno |Identificatore univoco del foglio di lavoro|
 |item|ItemInternalId: string |sì|body|nessuno |Riga da inserire nel foglio specificato|
 
 #### Risposta
@@ -122,8 +124,8 @@ Copia un file in Google Drive. ```POST: /datasets/default/copyFile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|source|string|sì|query| nessuno|URL del file di origine|
-|destination|string|sì|query|nessuno |Percorso file di destinazione in Google Drive incluso nome file di destinazione|
+|source|string|yes|query| nessuno|URL del file di origine|
+|destination|string|yes|query|nessuno |Percorso file di destinazione in Google Drive incluso nome file di destinazione|
 |overwrite|boolean|no|query|nessuno |Sovrascrive il file di destinazione se è impostata su 'true'|
 
 #### Risposta
@@ -138,7 +140,7 @@ Elimina un file da Google Drive. ```DELETE: /datasets/default/files/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno |Identificatore univoco del file da eliminare da Google Drive|
+|id|string|yes|path|nessuno |Identificatore univoco del file da eliminare da Google Drive|
 
 #### Risposta
 |Nome|Descrizione|
@@ -152,11 +154,11 @@ Elimina una riga da Google Sheet. ```DELETE: /datasets/{dataset}/tables/{table}/
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|sì|path|nessuno |Identificatore univoco del file di Google Sheet|
-|table|string|sì|path|nessuno |Identificatore univoco del foglio di lavoro|
-|id|string|sì|path|nessuno |Identificatore univoco della riga da eliminare|
+|dataset|string|yes|path|nessuno |Identificatore univoco del file di Google Sheet|
+|table|string|yes|path|nessuno |Identificatore univoco del foglio di lavoro|
+|id|string|yes|path|nessuno |Identificatore univoco della riga da eliminare|
 
-#### Risposta
+#### Response
 |Nome|Descrizione|
 |---|---|
 |200|OK|
@@ -168,8 +170,8 @@ Estrae un file di archivio in una cartella di Google Drive, ad esempio con esten
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|source|string|sì|query|nessuno |Percorso del file di archivio|
-|destination|string|sì|query|nessuno |Percorso in Google Drive in cui estrarre il contenuto dell'archivio|
+|source|string|yes|query|nessuno |Percorso del file di archivio|
+|destination|string|yes|query|nessuno |Percorso in Google Drive in cui estrarre il contenuto dell'archivio|
 |overwrite|boolean|no|query|nessuno |Sovrascrive i file di destinazione se è impostata su 'true'|
 
 #### Risposta
@@ -180,11 +182,11 @@ Estrae un file di archivio in una cartella di Google Drive, ad esempio con esten
 
 
 ### Recupera contenuto di file tramite ID    
-Recupera il contenuto di file da Google Drive tramite l'ID. ```GET: /datasets/default/files/{id}/content```
+Recupera il contenuto di file da Google Drive tramite ID. ```GET: /datasets/default/files/{id}/content```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno |Identificatore univoco del file da recuperare in Google Drive|
+|id|string|yes|path|nessuno |Identificatore univoco del file da recuperare in Google Drive|
 
 #### Risposta
 |Nome|Descrizione|
@@ -194,11 +196,11 @@ Recupera il contenuto di file da Google Drive tramite l'ID. ```GET: /datasets/de
 
 
 ### Recupera contenuto di file tramite percorso    
-Recupera il contenuto di file da Google Drive tramite il percorso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera il contenuto di file da Google Drive tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|path|string|sì|query|nessuno |Percorso del file in Google Drive|
+|path|string|yes|query|nessuno |Percorso del file in Google Drive|
 
 #### Risposta
 |Nome|Descrizione|
@@ -208,11 +210,11 @@ Recupera il contenuto di file da Google Drive tramite il percorso. ```GET: /data
 
 
 ### Recupera metadati di file tramite ID    
-Recupera i metadati dei file da Google Drive tramite l'ID. ```GET: /datasets/default/files/{id}```
+Recupera i metadati dei file da Google Drive tramite ID. ```GET: /datasets/default/files/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno |Identificatore univoco del file in Google Drive|
+|id|string|yes|path|nessuno |Identificatore univoco del file in Google Drive|
 
 #### Risposta
 |Nome|Descrizione|
@@ -222,11 +224,11 @@ Recupera i metadati dei file da Google Drive tramite l'ID. ```GET: /datasets/def
 
 
 ### Recupera metadati di file tramite percorso    
-Recupera i metadati dei file da Google Drive tramite il percorso. ```GET: /datasets/default/GetFileByPath```
+Recupera i metadati dei file da Google Drive tramite percorso. ```GET: /datasets/default/GetFileByPath```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|path|string|sì|query|nessuno |Percorso del file in Google Drive|
+|path|string|yes|query|nessuno |Percorso del file in Google Drive|
 
 #### Risposta
 |Nome|Descrizione|
@@ -240,11 +242,11 @@ Recupera una singola riga da Google Sheet. ```GET: /datasets/{dataset}/tables/{t
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|sì|path|nessuno |Identificatore univoco del file di Google Sheet|
-|table|string|sì|path|nessuno |Identificatore univoco del foglio di lavoro|
-|id|string|sì|path| nessuno|Identificatore univoco della riga da recuperare|
+|dataset|string|yes|path|nessuno |Identificatore univoco del file di Google Sheet|
+|table|string|yes|path|nessuno |Identificatore univoco del foglio di lavoro|
+|id|string|yes|path| nessuno|Identificatore univoco della riga da recuperare|
 
-#### Risposta
+#### Response
 |Nome|Descrizione|
 |---|---|
 |200|OK|
@@ -256,7 +258,7 @@ Aggiorna un file in Google Drive. ```PUT: /datasets/default/files/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno |Identificatore univoco del file da aggiornare in Google Drive|
+|id|string|yes|path|nessuno |Identificatore univoco del file da aggiornare in Google Drive|
 |body|string(binary) |sì|body| nessuno|Contenuto del file da creare in Google Drive|
 
 #### Risposta
@@ -271,12 +273,12 @@ Aggiorna una riga in Google Sheet. ```PATCH: /datasets/{dataset}/tables/{table}/
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|dataset|string|sì|path|nessuno |Identificatore univoco del file di Google Sheet|
-|table|string|sì|path| nessuno|Identificatore univoco del foglio di lavoro|
-|id|string|sì|path|nessuno |Identificatore univoco della riga da aggiornare|
+|dataset|string|yes|path|nessuno |Identificatore univoco del file di Google Sheet|
+|table|string|yes|path| nessuno|Identificatore univoco del foglio di lavoro|
+|id|string|yes|path|nessuno |Identificatore univoco della riga da aggiornare|
 |item|ItemInternalId: string |sì|body|nessuno |Riga con i valori aggiornati|
 
-#### Risposta
+#### Response
 |Nome|Descrizione|
 |---|---|
 |200|OK|
@@ -296,7 +298,7 @@ Aggiorna una riga in Google Sheet. ```PATCH: /datasets/{dataset}/tables/{table}/
 
 |Nome proprietà | Tipo di dati |Obbligatorio|
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 |tableDisplayName|string|no|
@@ -306,7 +308,7 @@ Aggiorna una riga in Google Sheet. ```PATCH: /datasets/{dataset}/tables/{table}/
 
 |Nome proprietà | Tipo di dati |Obbligatorio|
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 
@@ -361,7 +363,7 @@ Aggiorna una riga in Google Sheet. ```PATCH: /datasets/{dataset}/tables/{table}/
 
 
 ## Passaggi successivi
-Dopo aver aggiunto l'API di Google Drive a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle proprie app.
+Dopo aver aggiunto Google Drive a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle app.
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -376,4 +378,4 @@ Dopo aver aggiunto l'API di Google Drive a PowerApps Enterprise, [concedere auto
 [13]: ./media/create-api-googledrive/configure-consent-screen.png
 [14]: ./media/create-api-googledrive/create-client-id.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

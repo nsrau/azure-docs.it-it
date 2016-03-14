@@ -66,9 +66,6 @@
 12. Quindi, aggiungere i membri seguenti per la classe `MyHandler`:
 
 		public static final int NOTIFICATION_ID = 1;
-		private NotificationManager mNotificationManager;
-		NotificationCompat.Builder builder;
-		Context ctx;
 
 
 13. Nella classe `MyHandler` aggiungere il codice seguente per eseguire l'override del metodo **onRegistered** che registra il dispositivo nell'hub di notifica del servizio mobile.
@@ -76,7 +73,7 @@
 		@Override
 		public void onRegistered(Context context,  final String gcmRegistrationId) {
 		    super.onRegistered(context, gcmRegistrationId);
-	
+		
 		    new AsyncTask<Void, Void, Void>() {
 		    		    	
 		    	protected Void doInBackground(Void... params) {
@@ -93,34 +90,28 @@
 		}
 
 
-
 14. Nella classe `MyHandler` aggiungere il codice seguente per eseguire l'override del metodo **onReceive**, che determina la visualizzazione della notifica al momento della ricezione.
 
 		@Override
 		public void onReceive(Context context, Bundle bundle) {
-		    ctx = context;
-		    String nhMessage = bundle.getString("message");
-	
-		    sendNotification(nhMessage);
-		}
-	
-		private void sendNotification(String msg) {
-			mNotificationManager = (NotificationManager)
-		              ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-	
-		    PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-		          new Intent(ctx, ToDoActivity.class), 0);
-	
-		    NotificationCompat.Builder mBuilder =
-		          new NotificationCompat.Builder(ctx)
-		          .setSmallIcon(R.drawable.ic_launcher)
-		          .setContentTitle("Notification Hub Demo")
-		          .setStyle(new NotificationCompat.BigTextStyle()
-		                     .bigText(msg))
-		          .setContentText(msg);
-	
-		     mBuilder.setContentIntent(contentIntent);
-		     mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+        		String msg = bundle.getString("message");
+		
+        		PendingIntent contentIntent = PendingIntent.getActivity(context,
+                		0, // requestCode
+                		new Intent(context, ToDoActivity.class),
+                		0); // flags
+
+        		Notification notification = new NotificationCompat.Builder(context)
+                		.setSmallIcon(R.drawable.ic_launcher)
+                		.setContentTitle("Notification Hub Demo")
+                		.setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
+                		.setContentText(msg)
+                		.setContentIntent(contentIntent)
+                		.build();
+
+        		NotificationManager notificationManager = (NotificationManager)
+                		context.getSystemService(Context.NOTIFICATION_SERVICE);
+        		notificationManager.notify(NOTIFICATION_ID, notification);
 		}
 
 
@@ -131,4 +122,4 @@
 
     L'app è ora aggiornata per il supporto delle notifiche push.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

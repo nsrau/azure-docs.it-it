@@ -16,8 +16,7 @@
 
    	 -   StorSimple Manager e Archiviazione di Azure possono trovarsi in due posizioni distinte. In tal caso, è necessario creare il servizio StorSimple Manager e l'account di archiviazione di Azure separatamente. Per creare un account Archiviazione di Azure, andare al servizio Archiviazione di Azure nel portale e seguire i passaggi relativi alla [creazione di un account di Archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account). Dopo aver creato questo account, aggiungerlo al servizio StorSimple Manager seguendo i passaggi relativi alla [configurazione di un nuovo account di archiviazione per il servizio](#optional-step-configure-a-new-storage-account-for-the-service).
    	 
-   	 -   Notare che in anteprima è possibile creare il servizio StorSimple Manager solo negli Stati Uniti occidentali e nel Giappone orientale.
-	
+   	 	
 	1.  Scegliere una **Sottoscrizione** dall'elenco a discesa. La sottoscrizione viene collegata all'account di fatturazione. Questo campo non è presente se si dispone di una sola sottoscrizione.
 
 	1.  Selezionare **Crea un nuovo account di archiviazione di Azure** per creare automaticamente un account di archiviazione con il servizio. Questo account di archiviazione avrà un nome speciale, ad esempio "storsimplebwv8c6dcnf". Se è necessario che i dati siano in una posizione diversa, deselezionare questa casella di controllo.
@@ -32,4 +31,4 @@
 
 	Lo stato del servizio si trasformerà in **Attivo**.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

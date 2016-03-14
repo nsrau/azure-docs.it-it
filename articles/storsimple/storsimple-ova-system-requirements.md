@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/07/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Requisiti di sistema di StorSimple Virtual Array (anteprima)
+# Requisiti di sistema StorSimple Virtual Array
 
 ## Panoramica
 
@@ -34,10 +34,6 @@ Le informazioni sui requisiti di sistema StorSimple pubblicate in questo articol
  
 - Per i dispositivi serie 7000, andare all'articolo sui [requisiti di sistema per il dispositivo StorSimple serie 5000-7000](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
-> [AZURE.IMPORTANT]
-> 
-> - Questa anteprima pubblica è destinata esclusivamente alla valutazione. L'installazione di questa versione di anteprima in un ambiente di produzione non è supportata.
-> - Se si riscontrano problemi con StorSimple Virtual Array, inserire un post al riguardo nel [forum MSDN per StorSimple](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=StorSimple).  
 
 ## Requisiti software
 
@@ -102,4 +98,4 @@ La tabella seguente elenca le porte che devono essere aperte nel firewall per co
 
 -   [Preparare il portale per distribuire StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -117,7 +117,8 @@ Tramite le edizioni con pagamento a consumo sono disponibili diverse funzionalit
 
 
 
-<br> <hr>
+<br>
+<hr>
 ## Funzionalità comuni
 #### Oggetti directory 
 
@@ -152,7 +153,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 - [Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
 
 
-<br> <hr>
+<br>
+<hr>
 #### Accesso Single Sign-On (SSO)
 
 **Tipo:** funzionalità comuni
@@ -172,7 +174,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Gestione di applicazioni con Azure Active Directory](active-directory-enable-sso-scenario.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Modifica delle password self-service per gli utenti cloud
 
 **Tipo:** funzionalità comuni
@@ -188,7 +191,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 - [Come aggiornare la password](active-directory-passwords-update-your-own-password.md)
 
 
-<br> <hr>
+<br>
+<hr>
 #### Connect (motore di sincronizzazione che estende le directory locali ad Azure Active Directory) 
 
 **Tipo:** funzionalità comuni
@@ -204,7 +208,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Report su sicurezza/utilizzo
 
 **Tipo:** funzionalità comuni
@@ -220,7 +225,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
 
-<br> <hr>
+<br>
+<hr>
 
 ## Funzionalità Premium e Basic
 #### Provisioning/gestione dell'accesso basato sul gruppo
@@ -238,7 +244,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Utilizzare un gruppo per gestire l'accesso alle applicazioni SaaS](active-directory-accessmanagement-group-saasapps.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Reimpostazione delle password self-service per gli utenti cloud
 
 **Tipo:** funzionalità Basic
@@ -254,7 +261,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Reimpostazione della password di Azure AD per utenti e amministratori](active-directory-passwords.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Personalizzazione aziendale (pagine di accesso/personalizzazione del panello di accesso)
 
 **Tipo:** funzionalità Basic
@@ -270,7 +278,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Proxy dell'applicazione
 
 **Tipo:** funzionalità Basic
@@ -286,7 +295,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Come fornire l'accesso remoto sicuro alle applicazioni locali](active-directory-application-proxy-get-started.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Contratti di servizio del 99,9%
 
 **Tipo:** funzionalità Basic
@@ -302,7 +312,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/)
 
-<br> <hr>
+<br>
+<hr>
 
 ## Funzionalità Premium
 #### Gestione self-service dei gruppi e delle app/aggiunta self-service di applicazioni/gruppi dinamici
@@ -350,7 +361,8 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 - [Informazioni su Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Licenze CAL MIM e server MIM 
 
 I diritti software di Microsoft Identity Manager Server vengono concessi attraverso licenze di Windows Server (qualsiasi edizione). Microsoft Identity Manager viene eseguito sul sistema operativo Windows Server. Di conseguenza, purché il server esegua una copia con licenza valida di Windows Server, Microsoft Identity Manager può essere installato e usato su tale server. Nessuna altra licenza separata è necessaria per il Server di gestione identità Microsoft.
@@ -383,7 +395,8 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 - [Ricerca di applicazioni cloud non gestite con Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Connect Health
 
 **Tipo:** funzionalità Premium
@@ -399,7 +412,8 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 
 - [Monitorare l'infrastruttura di gestione delle identità locale e i servizi di sincronizzazione nel cloud](active-directory-aadconnect-health.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Rollover automatico delle password per account di gruppo
 
 **Tipo:** funzionalità Premium
@@ -412,7 +426,8 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 | | | ![Controllo][12]| |
 
 
-<br> <hr>
+<br>
+<hr>
 ## Aggiunta ad Azure Active Directory - Solo funzionalità correlate a Windows 10
 #### Aggiunta di un dispositivo ad Azure AD, Desktop SSO, Microsoft Passport per Azure AD, con ripristino Bitlocker per amministratori
 
@@ -448,10 +463,11 @@ Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Bas
 **Funzionalità in anteprima disponibili:**
 
 - [Collaborazione B2B](active-directory-b2b-collaboration-overview.md)
-- Accesso condizionale
 - [Unità amministrative](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [Integrazione delle applicazioni HR](active-directory-saas-workday-inbound-tutorial.md)
+- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
 
@@ -467,4 +483,4 @@ Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Bas
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

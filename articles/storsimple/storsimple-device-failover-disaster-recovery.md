@@ -59,6 +59,19 @@ Utilizzare la seguente tabella per determinare se è possibile eseguire il failo
 | Aggiornamento 2 a Aggiornamento 1 (1, 1.1, 1.2) | Sì <br></br>se utilizza volumi aggiunti localmente o a livelli o una combinazione dei due, il failover dei volumi viene sempre eseguito come un volume a livelli. | Sì<br></br>se utilizza volumi aggiunti in locale, il failover viene eseguito come volume a livelli. |
 | Aggiornamento 2 a Aggiornamento 2 (versione successiva) | Sì<br></br>se utilizza volumi aggiunti in locale o a livelli o una combinazione dei due, il failover viene sempre eseguito come il tipo di volume iniziale: volume a livelli come volume a livelli e volume aggiunto localmente come volume aggiunto localmente. | Sì<br></br>se utilizza volumi aggiunti in locale, il failover viene eseguito come volume a livelli. |
 
+
+#### Failover parziale in tutte le versioni del software
+
+Se si prevede di eseguire un failover parziale usando un dispositivo di origine StorSimple che esegue il pre-aggiornamento 1 in una destinazione che esegue Aggiornamento 1 o versione successiva, attenersi alle istruzioni che seguono.
+
+
+| Origine del failover parziale | Consentito per il dispositivo fisico | Consentito per il dispositivo virtuale |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+|Da pre-aggiornamento 1 (versione 0.1, 0.2, 0.3) a Aggiornamento 1 o versione successiva | Sì, vedere la procedura consigliata di seguito. | Sì, vedere la procedura consigliata di seguito. |
+
+
+>[AZURE.TIP] In Aggiornamento 1 e versioni successive è stata eseguita una modifica ai metadati del cloud e al formato dati. Per questa ragione, non è consigliabile eseguire un failover parziale da pre-aggiornamento 1 a Aggiornamento 1 o versioni successive. Se è necessario eseguire un failover parziale, è consigliabile applicare prima Aggiornamento 1 o versioni successive in entrambi i dispositivi (origine e destinazione) e quindi procedere con il failover.
+
 ## Failover su un altro dispositivo fisico
 
 Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo fisico di destinazione.
@@ -162,4 +175,4 @@ Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un p
 - Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

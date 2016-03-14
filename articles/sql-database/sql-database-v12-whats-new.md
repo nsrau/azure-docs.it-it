@@ -53,7 +53,7 @@ Per informazioni sul piccolo set di funzionalità non ancora supportate nel data
 ## Più prestazioni Premium, nuovi livelli di prestazioni
 
 
-Nella versione 12, le unità di prestazioni di database espresse in DTU (Database Throughput Unit) allocate a tutti i livelli di prestazioni sono state aumentate del 25% senza costi aggiuntivi. Con le nuove funzionalità, come quelle elencate di seguito, si possono ottenere miglioramenti delle prestazioni ancora maggiori:
+Nella versione 12, le unità di prestazioni di database espresse in DTU (Database Transaction Unit) allocate a tutti i livelli di prestazioni sono state aumentate del 25% senza costi aggiuntivi. Con le nuove funzionalità, come quelle elencate di seguito, si possono ottenere miglioramenti delle prestazioni ancora maggiori:
 
 
 - Supporto per gli [indici columnstore](http://msdn.microsoft.com/library/gg492153.aspx) in memoria.
@@ -161,4 +161,4 @@ Se ancora non si usa la versione 12, è possibile aggiornare il server logico se
 
 [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

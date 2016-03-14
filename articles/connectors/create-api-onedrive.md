@@ -14,16 +14,17 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/22/2016"
-ms.author="deonhe"/>
+ms.date="02/25/2016"
+ms.author="mandia"/>
 
 # Introduzione all'API di OneDrive
 
-Connettersi a OneDrive per gestire i file. In OneDrive è possibile eseguire varie azioni, ad esempio creare, aggiornare, recuperare ed eliminare file.
+Connettersi a OneDrive per gestire i file, ad esempio, caricare, recuperare ed eliminare i file e altro ancora. L'API di OneDrive può essere usata da:
 
-L'API di OneDrive può essere usata dalle app di PowerApps Enterprise e dalle app per la logica.
+- PowerApps 
+- App per la logica 
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione schema 2015-08-01 di anteprima delle app per la logica. Per la versione schema 2014-12-01 di anteprima, fare clic sull'[API di OneDrive](../app-service-logic/app-service-logic-connector-onedrive.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic su [API di OneDrive](../app-service-logic/app-service-logic-connector-onedrive.md).
 
 Con OneDrive è possibile:
 
@@ -41,29 +42,28 @@ L'API di OneDrive include i trigger e le azioni seguenti.
 
 | Trigger | Azioni|
 | --- | --- |
-|<ul><li>Quando un file viene creato</li><li>Quando un file viene modificato</li></ul> | <ul><li>Crea file</li><li>Elenca file in una cartella</li><li>Quando un file viene creato</li><li>Copia file</li><li>Elimina file</li><li>Estrai in una cartella</li><li>Recupera contenuto di file tramite ID</li><li>Recupera contenuto di file tramite percorso</li><li>Recupera metadati di file tramite ID</li><li>Recupera metadati di file tramite percorso</li><li>Elenca cartella radice</li><li>Aggiorna file</li><li>Quando un file viene modificato</li></ul>
+|<ul><li>Quando un file viene creato</li><li>Quando un file viene modificato</li></ul> | <ul><li>Crea file</li><li>Elenca file in una cartella</li><li>Quando un file viene creato</li><li>Copia file</li><li>Elimina file</li><li>Estrai cartella</li><li>Recupera contenuto di file tramite ID</li><li>Recupera contenuto di file tramite percorso</li><li>Recupera metadati di file tramite ID</li><li>Recupera metadati di file tramite percorso</li><li>Elenca cartella radice</li><li>Aggiorna file</li><li>Quando un file viene modificato</li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
 ## Creare una connessione a OneDrive
 
 ### Aggiungere configurazioni aggiuntive in PowerApps
-Quando si aggiunge OneDrive a PowerApps Enterprise, si immettono i valori di **chiave app** e **segreto app** dell'applicazione di OneDrive. Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione OneDrive. Se non si ha un'applicazione OneDrive, è possibile usare la procedura seguente per creare l'applicazione:
+Quando si aggiunge OneDrive a PowerApps Enterprise, si immettono i valori **Chiave app** e **Chiave privata app** dell'applicazione di OneDrive. Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione OneDrive. Se non si ha un'applicazione OneDrive, è possibile usare la procedura seguente per creare l'applicazione:
 
 1. Passare alla [pagina di creazione app][5] in _Centro per sviluppatori di account Microsoft_ e accedere con il proprio _Account Microsoft_.
 
-2. Immettere il **nome dell'applicazione** e accettare il contratto:  
-![Nuova app di OneDrive][6]
+2. Immettere il **nome dell'applicazione** e accettare il contratto: ![Nuova app di OneDrive][6]
 
 3. Nelle impostazioni:
 
-	1. Selezionare **API Settings**.  
+	1. Selezionare **Impostazioni API**.  
 	2. Impostare l'**URL di reindirizzamento** sul valore visualizzato quando si aggiunge la nuova API di OneDrive nel portale di Azure.  
 	3. **Salvare** le modifiche.  
 
 	![Impostazioni dell’app API di OneDrive][7]
 
-A questo punto, copiare e incollare i valori di **ID client** e **chiave app** nella configurazione di OneDrive nel portale di Azure.
+A questo punto, copiare e incollare i valori di **ID client** e **Chiave privata app** nella configurazione di OneDrive nel portale di Azure.
 
 ### Aggiungere configurazioni aggiuntive nelle app per la logica
 Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione a OneDrive.
@@ -75,16 +75,16 @@ Dopo aver creato la connessione immettere le proprietà di OneDrive, ad esempio 
 
 >[AZURE.TIP] È possibile usare la stessa connessione in altre app per la logica.
 
-## Riferimento all'API REST Swagger
-#### Questa documentazione è relativa alla versione 1.0
+## Riferimento all'API REST di Swagger
+Si applica alla versione 1.0.
 
 
 ### Recupera metadati di file tramite ID
-Recupera i metadati di un file in OneDrive tramite l'ID. ```GET: /datasets/default/files/{id}```
+Recupera i metadati di un file in OneDrive tramite ID. ```GET: /datasets/default/files/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno|Identificatore univoco del file in OneDrive|
+|id|string|yes|path|nessuno|Identificatore univoco del file in OneDrive|
 
 ### Risposte
 |Nome|Descrizione|
@@ -98,7 +98,7 @@ Aggiorna un file in OneDrive. ```PUT: /datasets/default/files/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno|Identificatore univoco del file da aggiornare in OneDrive|
+|id|string|yes|path|nessuno|Identificatore univoco del file da aggiornare in OneDrive|
 |body| |sì|body|nessuno|Contenuto del file da aggiornare in OneDrive|
 
 
@@ -113,7 +113,7 @@ Elimina un file da OneDrive. ```DELETE: /datasets/default/files/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno|Identificatore univoco del file da eliminare da OneDrive|
+|id|string|yes|path|nessuno|Identificatore univoco del file da eliminare da OneDrive|
 
 
 ### Risposta
@@ -124,11 +124,11 @@ Elimina un file da OneDrive. ```DELETE: /datasets/default/files/{id}```
 
 
 ### Recupera metadati di file tramite percorso
-Recupera i metadati di un file in OneDrive tramite il percorso. ```GET: /datasets/default/GetFileByPath```
+Recupera i metadati di un file in OneDrive tramite percorso. ```GET: /datasets/default/GetFileByPath```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|path|string|sì|query|nessuno|Percorso univoco del file in OneDrive|
+|path|string|yes|query|nessuno|Percorso univoco del file in OneDrive|
 
 
 ### Risposta
@@ -141,11 +141,11 @@ Recupera i metadati di un file in OneDrive tramite il percorso. ```GET: /dataset
 
 
 ### Recupera contenuto di file tramite percorso
-Recupera i contenuti di un file in OneDrive tramite il percorso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera il contenuto dei file in OneDrive tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|path|string|sì|query|nessuno|Percorso univoco del file in OneDrive|
+|path|string|yes|query|nessuno|Percorso univoco del file in OneDrive|
 
 
 ### Risposta
@@ -159,11 +159,11 @@ Recupera i contenuti di un file in OneDrive tramite il percorso. ```GET: /datase
 
 
 ### Recupera contenuto di file tramite ID
-Recupera i contenuti di un file in OneDrive tramite l'ID. ```GET: /datasets/default/files/{id}/content```
+Recupera il contenuto dei file in OneDrive tramite ID. ```GET: /datasets/default/files/{id}/content```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|id|string|sì|path|nessuno|Identificatore univoco del file in OneDrive|
+|id|string|yes|path|nessuno|Identificatore univoco del file in OneDrive|
 
 
 ### Risposta
@@ -181,8 +181,8 @@ Carica un file in OneDrive. ```POST: /datasets/default/files```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|folderPath|string|sì|query|nessuno|Percorso della cartella per caricare il file in OneDrive|
-|name|string|sì|query|nessuno|Nome del file da creare in OneDrive|
+|folderPath|string|yes|query|nessuno|Percorso della cartella per caricare il file in OneDrive|
+|name|string|yes|query|nessuno|Nome del file da creare in OneDrive|
 |body| |sì|body|nessuno|Contenuto del file da creare in OneDrive|
 
 
@@ -200,8 +200,8 @@ Copia un file in OneDrive. ```POST: /datasets/default/copyFile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|source|string|sì|query|nessuno|URL del file di origine|
-|destination|string|sì|query|nessuno|Percorso file di destinazione in OneDrive incluso nome file di destinazione|
+|source|string|yes|query|nessuno|URL del file di origine|
+|destination|string|yes|query|nessuno|Percorso file di destinazione in OneDrive incluso nome file di destinazione|
 |overwrite|boolean|no|query|false|Sovrascrive il file di destinazione se è impostata su 'true'|
 
 
@@ -219,7 +219,7 @@ Quando un nuovo file viene creato in una cartella di OneDrive, attiva un flusso.
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|folderId|string|sì|query|nessuno|Identificatore univoco della cartella in OneDrive.|
+|folderId|string|yes|query|nessuno|Identificatore univoco della cartella in OneDrive.|
 
 
 ### Risposta
@@ -236,7 +236,7 @@ Quando un file viene modificato in una cartella di OneDrive, attiva un flusso. `
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|folderId|string|sì|query|nessuno|Identificatore univoco della cartella in OneDrive.|
+|folderId|string|yes|query|nessuno|Identificatore univoco della cartella in OneDrive.|
 
 
 ### Risposta
@@ -253,8 +253,8 @@ Estrae una cartella in OneDrive. ```POST: /datasets/default/extractFolderV2```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|source|string|sì|query|nessuno|Percorso del file di archivio|
-|destination|string|sì|query|nessuno|Percorso in OneDrive in cui estrarre il contenuto dell'archivio|
+|source|string|yes|query|nessuno|Percorso del file di archivio|
+|destination|string|yes|query|nessuno|Percorso in OneDrive in cui estrarre il contenuto dell'archivio|
 |overwrite|boolean|no|query|false|Sovrascrive i file di destinazione se è impostata su 'true'|
 
 
@@ -281,7 +281,7 @@ Estrae una cartella in OneDrive. ```POST: /datasets/default/extractFolderV2```
 
 |Nome proprietà | Tipo di dati |Obbligatorio|
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 |tableDisplayName|string|no|
@@ -292,7 +292,7 @@ Estrae una cartella in OneDrive. ```POST: /datasets/default/extractFolderV2```
 
 |Nome proprietà | Tipo di dati |Obbligatorio|
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 
@@ -315,7 +315,7 @@ Estrae una cartella in OneDrive. ```POST: /datasets/default/extractFolderV2```
 
 
 ## Passaggi successivi
-Dopo aver aggiunto l'API di OneDrive a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle proprie app.
+Dopo aver aggiunto l'API di OneDrive a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle app.
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -324,4 +324,4 @@ Dopo aver aggiunto l'API di OneDrive a PowerApps Enterprise, [concedere autorizz
 [6]: ./media/create-api-onedrive/onedrive-new-app.png
 [7]: ./media/create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

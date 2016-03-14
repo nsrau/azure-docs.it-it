@@ -12,7 +12,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="10/21/2015"
+  ms.date="02/20/2016"
   ms.author="robb" />
 
 # Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure
@@ -52,7 +52,7 @@ Per SDK 2.5 e versioni successive, la richiesta di trasferimento dei dati di dia
 Per SDK 2.4 e versioni precedenti, è possibile richiedere di trasferire i dati di diagnostica nel file di configurazione oltre che a livello di programmazione. L'approccio programmatico consente anche di eseguire trasferimenti su richiesta.
 
 
->[AZURE.IMPORTANT]Quando si trasferiscono i dati di diagnostica in un account di archiviazione di Azure, si devono sostenere i costi per le risorse di archiviazione usate dai dati di diagnostica.
+>[AZURE.IMPORTANT] Quando si trasferiscono i dati di diagnostica in un account di archiviazione di Azure, si devono sostenere i costi per le risorse di archiviazione usate dai dati di diagnostica.
 
 ## Archiviare i dati di diagnostica
 
@@ -83,14 +83,15 @@ I dati dei log vengono archiviati nell'archivio BLOB o tabelle con i nomi seguen
 ## Strumenti per visualizzare i dati di diagnostica
 Sono disponibili diversi strumenti per visualizzare i dati una volta trasferiti nell'account di archiviazione. Ad esempio:
 
-- **Esplora server in Visual Studio**: se sono stati installati gli Strumenti di Azure per Microsoft Visual Studio, è possibile usare il nodo Archiviazione di Azure in Esplora server per visualizzare i dati di tabelle e BLOB di sola lettura dagli account di archiviazione di Azure. È possibile visualizzare i dati dall'account dell'emulatore di archiviazione locale e anche dagli account di archiviazione creati per Azure. Per altre informazioni, vedere [Esplorazione delle risorse di archiviazione con Esplora server](https://msdn.microsoft.com/library/ff683677.aspx).
+- Esplora server in Visual Studio: se sono stati installati gli Strumenti di Azure per Microsoft Visual Studio, è possibile usare il nodo Archiviazione di Azure in Esplora server per visualizzare i dati di tabelle e BLOB di sola lettura dagli account di archiviazione di Azure. È possibile visualizzare i dati dall'account dell'emulatore di archiviazione locale e anche dagli account di archiviazione creati per Azure. Per altre informazioni, vedere [Esplorazione e gestione delle risorse di archiviazione con Esplora server](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
 
-- **Azure Storage Explorer di Neudesic**: [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) è un utile strumento di interfaccia utente grafica per esaminare e modificare i dati nei progetti di archiviazione di Azure, inclusi i log delle applicazioni Azure. Per scaricare lo strumento, vedere [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/).
+- [Azure Storage Explorer di Neudesic](http://azurestorageexplorer.codeplex.com/) è un utile strumento di interfaccia utente grafica per esaminare e modificare i dati nei progetti di archiviazione di Azure, inclusi i log delle applicazioni Azure.
 
-- Azure Diagnostics Manager di Cerebrata: [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) è un client basato su Windows (WPF) per la gestione di Diagnostica Azure. Consente di visualizzare, scaricare e gestire i dati di diagnostica raccolti dalle applicazioni in esecuzione in Azure. Per scaricare lo strumento, vedere [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx).
+- [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) include Azure Diagnostics Manager che consente di visualizzare, scaricare e gestire i dati di diagnostica raccolti dalle applicazioni in esecuzione in Azure.
+
 
 ## Passaggi successivi
 
 [Tracciare il flusso in un'applicazione di Servizi cloud con Diagnostica di Azure](cloud-services-dotnet-diagnostics-trace-flow.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

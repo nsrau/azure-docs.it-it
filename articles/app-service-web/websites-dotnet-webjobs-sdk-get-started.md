@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/14/2015"
+	ms.topic="article"
+	ms.date="02/29/2016"
 	ms.author="tdykstra"/>
 
 # Creare un processo Web .NET nel servizio app di Azure
@@ -73,13 +73,11 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 1. Aprire la finestra **Esplora server** in Visual Studio.
 
-2. Fare clic con il pulsante destro del mouse sul nodo **Azure** e quindi scegliere **Connetti a Microsoft Azure**.
-![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Fare clic con il pulsante destro del mouse sul nodo **Azure** e quindi scegliere **Connetti a Microsoft Azure**. ![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Accedere con le credenziali di Azure.
 
-5. Fare clic con il pulsante destro del mouse su **Archiviazione** sotto il nodo Azure e quindi scegliere **Crea account di archiviazione**.
-![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Fare clic con il pulsante destro del mouse su **Archiviazione** sotto il nodo Azure e quindi scegliere **Crea account di archiviazione**. ![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. Nella finestra di dialogo **Crea account di archiviazione** immettere un nome per l'account di archiviazione.
 
@@ -123,10 +121,10 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 	La stringa di connessione di archiviazione è un esempio contenente i segnaposto per il nome dell'account di archiviazione e la chiave di accesso. La si sostituirà con una stringa di connessione contenente il nome e la chiave dell'account di archiviazione.
 
-	<pre class="prettyprint">&lt;connectionStrings&gt;
-	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
-	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-	&lt;/connectionStrings&gt;</pre>
+	<pre class="prettyprint">&lt;connectionStrings>
+	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
+	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+	&lt;/connectionStrings></pre>
 
 	La stringa di connessione di archiviazione si chiama AzureWebJobsStorage perché questo è il nome usato da WebJobs SDK per impostazione predefinita. Poiché qui viene usato lo stesso nome, è necessario impostare solo un valore della stringa di connessione nell'ambiente di Azure.
 
@@ -146,17 +144,17 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 6. Aprire il file *App.config* nel progetto ContosoAdsWebJob.
 
-	Questo file ha due stringhe di connessione di archiviazione, una per i dati dell'applicazione e l'altra per la registrazione. È possibile usare account di archiviazione separati per i dati applicazione e la registrazione oppure usare [più account di archiviazione per i dati](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). In questa esercitazione viene usato un singolo account di archiviazione. Le stringhe di connessione sono segnaposto per le chiavi dell'account di archiviazione. 
-  	<pre class="prettyprint">&lt;configuration&gt;
-    &lt;connectionStrings&gt;
-        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
-    &lt;/connectionStrings&gt;
-        &lt;startup&gt;
-            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
-    &lt;/startup&gt;
-&lt;/configuration&gt;</pre>
+	Questo file ha due stringhe di connessione di archiviazione, una per i dati dell'applicazione e l'altra per la registrazione. È possibile usare account di archiviazione separati per i dati applicazione e la registrazione oppure usare [più account di archiviazione per i dati](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). In questa esercitazione viene usato un singolo account di archiviazione. Le stringhe di connessione sono segnaposto per le chiavi dell'account di archiviazione.
+  	<pre class="prettyprint">&lt;configuration>
+	&lt;connectionStrings>
+	    &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+	    &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+	    &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/>
+	&lt;/connectionStrings>
+	    &lt;startup>
+	        &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	&lt;/startup>
+	&lt;/configuration></pre>
 
 	Per impostazione predefinita, WebJobs SDK cerca le stringhe di connessione denominate AzureWebJobsStorage e AzureWebJobsDashboard. Come alternativa, è possibile archiviare la stringa di connessione come si preferisce e passarla in modo esplicito all'oggetto [`JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -221,7 +219,7 @@ Dopo aver creato alcuni annunci durante l'esecuzione nel cloud, verrà visualizz
 
 4. Accedere ad Azure se non si è già connessi.
 
-5. Fare clic su **Nuovo**.
+5. Fare clic su **New**.
 
 	L'aspetto della finestra di dialogo dipende dalla versione di Azure SDK per .NET installata.
 
@@ -231,7 +229,7 @@ Dopo aver creato alcuni annunci durante l'esecuzione nel cloud, verrà visualizz
 
 	L'URL completo sarà costituito da quanto immesso in questa casella e da .azurewebsites.net (come mostrato accanto alla casella di testo **Nome app Web**). Se, ad esempio, il nome dell'app Web è ContosoAds, l'URL sarà ContosoAds.azurewebsites.net.
 
-7. Nell'elenco a discesa [Piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) selezionare **Crea nuovo piano di servizio app**. Immettere un nome per il piano di servizio app, ad esempio ContosoAdsPlan.
+7. Nell'elenco a discesa [Piano di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) , selezionare **Crea nuovo piano di servizio app**. Immettere un nome per il piano di servizio app, ad esempio ContosoAdsPlan.
 
 8. Nell'elenco a discesa [Gruppo di risorse](../resource-group-overview.md) selezionare **Crea nuovo gruppo di risorse**.
 
@@ -353,7 +351,7 @@ In questa sezione si userà **Esplora server** per impostare i valori delle stri
 
 	Facendo clic sul pulsante **Riproduci funzione** di questa pagina, il framework WebJobs SDK chiama nuovamente la funzione ed è possibile modificare i dati passati prima alla funzione.
 
->[AZURE.NOTE]Al termine del test eliminare l'app Web e l'istanza di database SQL. L'app Web è gratuita, ma l'istanza di database SQL e l'account di archiviazione causano un incremento delle spese (minime date le dimensioni ridotte). In più, se si lascia l'app Web in esecuzione, chiunque individui l'URL potrà creare e visualizzare inserzioni. Nel portale classico passare alla scheda **Dashboard** per l'app Web e quindi fare clic sul pulsante **Elimina** nella parte inferiore della pagina. È quindi possibile selezionare una casella di controllo per eliminare contemporaneamente l'istanza del database SQL. Se si vuole semplicemente impedire ad altri utenti di accedere all'app Web, fare invece clic su **Arresta**. In questo caso, continueranno a essere generati addebiti per il database SQL e l'account di archiviazione. È possibile eseguire una procedura analoga per eliminare il database SQL e l'account di archiviazione quando non sono più necessari.
+>[AZURE.NOTE] Al termine del test eliminare l'app Web e l'istanza di database SQL. L'app Web è gratuita, ma l'istanza di database SQL e l'account di archiviazione causano un incremento delle spese (minime date le dimensioni ridotte). In più, se si lascia l'app Web in esecuzione, chiunque individui l'URL potrà creare e visualizzare inserzioni. Nel portale classico passare alla scheda **Dashboard** per l'app Web e quindi fare clic sul pulsante **Elimina** nella parte inferiore della pagina. È quindi possibile selezionare una casella di controllo per eliminare contemporaneamente l'istanza del database SQL. Se si vuole semplicemente impedire ad altri utenti di accedere all'app Web, fare invece clic su **Arresta**. In questo caso, continueranno a essere generati addebiti per il database SQL e l'account di archiviazione. È possibile eseguire una procedura analoga per eliminare il database SQL e l'account di archiviazione quando non sono più necessari.
 
 ## <a id="create"></a>Creare un'applicazione completamente nuova
 
@@ -470,7 +468,7 @@ Per aggiungere file a un progetto o a una cartella, fare clic con il pulsante de
 	- *Global.asax.cs*  
 	- Nel *controller* cartella: *AdController.cs*
 	- Nella cartella *Views\\Shared*: il file *\_Layout.cshtml*
-	- Nella cartella *Views\\Home*: *Index.cshtml*
+- Nella cartella *Views\\Home*: *Index.cshtml*
 	- Nella cartella *Views\\Ad* (creare prima di tutto la cartella): cinque file *.cshtml* <br/><br/>
 
 3. Nel progetto ContosoAdsWebJob aggiungere i file seguenti dal progetto scaricato.
@@ -485,7 +483,7 @@ Ora è possibile compilare, eseguire e implementare l'applicazione come indicato
 
 Le sezioni seguenti illustrano il codice correlato all'uso di WebJobs SDK e dei BLOB e delle code di archiviazione Azure.
 
-> [AZURE.NOTE]Per il codice specifico di WebJobs SDK, passare alle sezioni [Program.cs e Functions.cs](#programcs).
+> [AZURE.NOTE] Per il codice specifico di WebJobs SDK, passare alle sezioni [Program.cs e Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -807,7 +805,7 @@ Per assicurarsi che i processi Web siano sempre in esecuzione e che siano in ese
 
 ### Uso di WebJobs SDK al di fuori dei processi Web
 
-Un programma che usa WebJobs SDK non deve essere eseguito in Azure in un processo Web. Può essere eseguito in locale e anche in altri ambienti, ad esempio un ruolo di lavoro dei servizi cloud o un servizio di Windows. Tuttavia, è possibile accedere al dashboard di WebJobs SDK solo da un'app Web di Azure. Per usare il dashboard è necessario connettere l'app Web all'account di archiviazione usato, impostando la stringa di connessione AzureWebJobsDashboard nella scheda **Configura** del portale classico. Sarà quindi possibile andare al dashboard tramite il seguente URL:
+Un programma che usa WebJobs SDK non deve essere eseguito in Azure in un processo Web. Può essere eseguito in locale e anche in altri ambienti, ad esempio un ruolo di lavoro dei servizi cloud o un servizio di Windows. Tuttavia, è possibile accedere al dashboard di WebJobs SDK solo da un'app Web di Azure. Per usare il dashboard è necessario connettere l'app Web all'account di archiviazione in uso, impostando la stringa di connessione AzureWebJobsDashboard nella scheda **Configura** del portale classico. Sarà quindi possibile andare al dashboard tramite il seguente URL:
 
 https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
@@ -817,4 +815,4 @@ Per altre informazioni, vedere [Accesso a un dashboard per lo sviluppo locale co
 
 Per altre informazioni, vedere [Risorse di documentazione di Processi Web di Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

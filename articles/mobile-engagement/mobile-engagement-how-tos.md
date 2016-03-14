@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="05/12/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Come iniziare a usare e gestire le notifiche push per raggiungere gli utenti finali
@@ -126,12 +126,16 @@ La modalità di recapito "Solo in-app" fornisce la notifica push quando l'applic
 ### Pianificare l'inizio di una campagna
 ![Shedule1][18]
 
-È il 21 marzo e si vuole diffondere un annuncio alla mezzanotte del 22 marzo. Non è necessario essere davanti all'interfaccia per effettuare un push. È possibile pianificare in anticipo il minuto esatto in cui le notifiche verranno inviate. Deselezionare la casella di controllo "Nessuna" e selezionare un'ora di inizio. Scegliere la data e l'ora in cui avviare la campagna push.
+È il 21 marzo e si vuole diffondere un annuncio alla mezzanotte del 22 marzo. Non è necessario essere davanti all'interfaccia per effettuare un push. È possibile pianificare in anticipo il minuto esatto in cui le notifiche verranno inviate.
+-    Deselezionare la casella di controllo "Nessuna" e selezionare un'ora di inizio 
+-    Scegliere la data e ora in cui avviare la campagna push.
 
 ### Pianificare la fine di una campagna
 ![Shedule2][19]
 
-Si vuole interrompere la campagna il 25 marzo alle 15, ma si sa che non si sarà presenti per poterlo fare. Non è necessario essere davanti all'interfaccia per effettuare un push. È possibile pianificare in anticipo il minuto esatto in cui la campagna verrà interrotta. Fare clic sulla casella di controllo "Nessuna" e selezionare un'ora di fine. Scegliere la data e l'ora in cui terminare la campagna push.
+Si vuole interrompere la campagna il 25 marzo alle 15, ma si sa che non si sarà presenti per poterlo fare. Non è necessario essere davanti all'interfaccia per effettuare un push. È possibile pianificare in anticipo il minuto esatto in cui la campagna verrà interrotta.
+-    Fare clic sulla casella di controllo "Nessuna" e selezionare un'ora di fine
+-    Scegliere la data e ora in cui terminare la campagna push.
 
 ### Terminare manualmente una campagna
 ![Shedule3][20]
@@ -293,4 +297,4 @@ Una visualizzazione Web è un popup con contenuto Web. Questo popup viene visual
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

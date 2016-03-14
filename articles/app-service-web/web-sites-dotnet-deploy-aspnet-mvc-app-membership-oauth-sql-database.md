@@ -13,7 +13,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="12/07/2015" 
 	ms.author="riande"/>
 
@@ -35,7 +35,7 @@ Contenuto dell'esercitazione:
 * Come archiviare dati relazionali nel cloud usando il Database SQL Azure.
 * Come distribuire un progetto Web che usa un database in un'[app Web](http://go.microsoft.com/fwlink/?LinkId=529714) nel servizio app di Azure.
 
->[AZURE.NOTE]Si tratta di un'esercitazione lunga. Per una rapida introduzione ai progetti Web del Servizio app di Azure e di Visual Studio, vedere [Creare un'app Web ASP.NET nel Servizio app di Azure](web-sites-dotnet-get-started.md). Per informazioni su come risolvere i problemi, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
+>[AZURE.NOTE] Si tratta di un'esercitazione lunga. Per una rapida introduzione ai progetti Web del Servizio app di Azure e di Visual Studio, vedere [Creare un'app Web ASP.NET nel Servizio app di Azure](web-sites-dotnet-get-started.md). Per informazioni su come risolvere i problemi, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
 >
 >Oppure, per iniziare a usare il servizio app di Azure prima di iscriversi per ottenere un account Azure, passare al sito [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751) in cui è possibile creare immediatamente un'app Web temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
@@ -107,7 +107,7 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
 
 1. In **Esplora soluzioni** aprire il file *Layout.cshtml* nella cartella *Views\\Shared*.
 
-	![_Layout.cshtml in Solution Explorer][newapp004]
+	![_Layout.cshtml in Esplora soluzioni][newapp004]
 
 1. Sostituire il contenuto del file *Layout.cshtml* con il codice seguente.
 
@@ -390,7 +390,7 @@ L'attività successiva consiste nell'abilitare la funzionalità [Migrazioni Code
 
 ## Aggiungere un provider OAuth2
 
->[AZURE.NOTE]Per istruzioni dettagliate su come usare i siti portale per sviluppatori di Google e Facebook, in questa esercitazione sono disponibili collegamenti alle esercitazioni del sito ASP.NET. Google e Facebook, tuttavia, modificano i siti più spesso di quanto vengano aggiornate le esercitazioni, che risultano attualmente obsolete. In caso di problemi a seguire le indicazioni, vedere il commento Disqus alla fine di questa esercitazione per un elenco delle modifiche.
+>[AZURE.NOTE] Per istruzioni dettagliate su come usare i siti portale per sviluppatori di Google e Facebook, in questa esercitazione sono disponibili collegamenti alle esercitazioni del sito ASP.NET. Google e Facebook, tuttavia, modificano i siti più spesso di quanto vengano aggiornate le esercitazioni, che risultano attualmente obsolete. In caso di problemi a seguire le indicazioni, vedere il commento Disqus alla fine di questa esercitazione per un elenco delle modifiche.
 
 [OAuth](http://oauth.net/ "http://oauth.net/") è un protocollo aperto che consente di eseguire l'autenticazione sicura in un metodo semplice e standard da applicazioni Web, per dispositivi mobili e desktop. Il modello Internet ASP.NET MVC usa OAuth per esporre Facebook, Twitter, Google e Microsoft come provider di autenticazione. Benché in questa esercitazione venga usato solo Google come provider di autenticazione, è possibile modificare con facilità il codice per usare un altro provider. I passaggi per l'implementazione di altri provider sono molto simili ai passaggi illustrati in questa esercitazione. Per usare Facebook come provider di autenticazione, vedere l'esercitazione relativa alla [creazione di un'app MVC 5 con autenticazione OAuth2 mediante Facebook, Twitter, LinkedIn e Google](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on).
 
@@ -737,7 +737,7 @@ Se lo si desidera, ***inviare commenti e suggerimenti*** sugli aspetti ritenuti 
 
 ## Modifiche apportate
 
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
@@ -798,4 +798,4 @@ Se lo si desidera, ***inviare commenti e suggerimenti*** sugli aspetti ritenuti 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

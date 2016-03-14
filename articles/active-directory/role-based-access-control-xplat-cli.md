@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gestione del controllo di accesso basato sui ruoli con l'interfaccia della riga di comando di Azure"
-	description="Gestione del controllo di accesso basato sui ruoli con l'interfaccia della riga di comando di Azure"
+	pageTitle="Gestione del controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure"
+	description="Gestione del controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure"
 	services="active-directory"
 	documentationCenter="na"
 	authors="kgremban"
@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows PowerShell](role-based-access-control-powershell.md)
-- [Azure CLI](/role-based-access-control-xplat-cli-install.md)
+- [Interfaccia della riga di comando di Azure](role-based-access-control-xplat-cli.md)
 
 Il controllo di accesso basato sui ruoli nel portale di Azure e nell'API di Gestione risorse di Azure consentono di gestire l'accesso alle proprie sottoscrizioni e risorse a un livello estremamente dettagliato. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
 
@@ -30,10 +30,10 @@ In questa esercitazione vengono fornite informazioni sull'utilizzo dell’interf
 
 ## Prerequisiti ##
 
-Per usare l'interfaccia della riga di comando di Azure per gestire il controllo degli accessi in base al ruolo, è necessario disporre dei programmi seguenti:
+Per usare l'interfaccia della riga di comando di Azure per gestire il controllo degli accessi in base al ruolo, è necessario disporre di quanto segue:
 
 - Usare la versione 0.8.8 o successiva dell'interfaccia della riga di comando di Azure. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
-- È consigliabile leggere anche le esercitazioni seguenti per acquisire familiarità con la configurazione e l'uso di Gestione risorse di Azure nell'interfaccia della riga di comando di Azure: [Uso dell'interfaccia della riga di comando di Azure con Gestione risorse](../xplat-cli-azure-resource-manager.md)
+- È consigliabile leggere anche le esercitazioni seguenti per acquisire familiarità con la configurazione e l'uso di Azure Resource Manager nell'interfaccia della riga di comando di Azure: [Uso dell'interfaccia della riga di comando di Azure con Resource Manager](../xplat-cli-azure-resource-manager.md)
 
 ## Contenuto dell'esercitazione: ##
 
@@ -140,12 +140,12 @@ Quando si tenta di eseguire altri cmdlet come `azure group create`, si riceverà
 
 Per altre informazioni sulla gestione del controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure e per gli argomenti correlati:
 
-- [Controllo di accesso basato sui ruoli in Microsoft Azure](../role-based-access-control-configure.md)
+- [Controllo di accesso basato sui ruoli in Microsoft Azure](role-based-access-control-configure.md)
 - [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
 - [Uso dell'interfaccia della riga di comando di Azure con Gestione risorse](../xplat-cli-azure-resource-manager.md)
-- [Uso dei gruppi di risorse per la gestione delle risorse di Azure](../azure-preview-portal-using-resource-groups.md): informazioni su come creare e gestire gruppi di risorse nel portale di gestione di Azure.
+- [Uso del Portale di Azure per la gestione delle risorse di Azure](../azure-portal/resource-group-portal.md): informazioni su come creare e gestire gruppi di risorse nel Portale di Azure.
 - [Blog di Azure](http://blogs.msdn.com/windowsazure): informazioni sulle nuove funzionalità di Azure.
 - [Configurazione del controllo di accesso basato sui ruoli con Windows PowerShell](role-based-access-control-powershell.md)
 - [Risoluzione dei problemi relativi al controllo di accesso basato sui ruoli](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

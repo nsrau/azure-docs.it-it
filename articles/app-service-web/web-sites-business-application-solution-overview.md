@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 
@@ -117,6 +117,7 @@ Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app
 [Cache Redis di Azure]: /blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
 [stato della sessione ASP.NET]: https://msdn.microsoft.com/library/azure/dn690522.aspx
 [cache di output]: https://msdn.microsoft.com/library/azure/dn798898.aspx
+[Gestione traffico di Azure]: http://www.hanselman.com/blog/CloudPowerHowToScaleAzureWebsitesGloballyWithTrafficManager.aspx
 
 [riepilogo rapido]: web-sites-monitor.md
 [Azure Application Insights]: http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
@@ -125,4 +126,4 @@ Con il livello **Standard** è possibile monitorare i tempi di risposta dell'app
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="01/22/2016"
+   	ms.date="02/29/2016"
    	ms.author="larryfr"/>
 
 #Creare cluster basati su Linux in HDInsight tramite l'interfaccia della riga di comando di Azure
@@ -57,8 +57,8 @@ I seguenti passaggi devono essere eseguiti da un prompt dei comandi, una shell o
 
 4. Creare un modello per il cluster HDInsight. Di seguito sono indicati alcuni modelli di esempio di base:
 
-    * [Cluster basato su Linux, con una chiave pubblica SSH](https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-publickey)
-    * [Cluster basato su Linux, con una password per l'account SSH](https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-password)
+    * [Cluster basato su Linux, con una chiave pubblica SSH](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-publickey)
+    * [Cluster basato su Linux, con una password per l'account SSH](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)
 
     Entrambi i modelli creano anche l'account di archiviazione di Azure predefinito usato da HDInsight.
 
@@ -83,7 +83,7 @@ I seguenti passaggi devono essere eseguiti da un prompt dei comandi, una shell o
 5. Per creare un gruppo di risorse vuoto, seguire questa procedura. Sostituire __RESOURCEGROUPNAME__ con il nome che si desidera usare per questo gruppo. Sostituire __LOCATION__ con il data center in cui si desidera creare il cluster HDInsight:
 
         azure group create RESOURCEGROUPNAME LOCATION
-    
+
     > [AZURE.NOTE] Se il nome del percorso contiene spazi, racchiuderlo tra virgolette doppie, ad esempio "Stati Uniti centrali del sud".
 
 6. Usare il comando seguente per creare la distribuzione iniziale per questo gruppo di risorse. Sostituire __PATHTOTEMPLATE__ con il percorso del file modello __azuredeploy.json__. Sostituire__PATHTOPARAMETERSFILE__ con il percorso del file __azuredeploy.parameters.json__. Sostituire __RESOURCEGROUPNAME__ con il nome del gruppo creato nel passaggio precedente:
@@ -95,7 +95,7 @@ I seguenti passaggi devono essere eseguiti da un prompt dei comandi, una shell o
 7. Il completamento della distribuzione può richiedere tempo, circa 15 minuti. Usare il comando seguente per visualizzare informazioni sulla distribuzione. Sostituire __RESOURCEGROUPNAME__ con il nome del gruppo di risorse usato nel passaggio precedente:
 
         azure group log show -l RESOURCEGROUPNAME
-    
+
     Una volta completata la distribuzione, il campo __Stato__ campo conterrà il valore __Operazione riuscita__. Se si verifica un errore durante la distribuzione, è possibile ottenere altre informazioni sull'errore usando il comando seguente:
 
         azure group log show -l -v RESOURCEGROUPNAME
@@ -121,4 +121,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

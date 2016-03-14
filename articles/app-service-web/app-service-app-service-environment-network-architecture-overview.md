@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/26/2016" 
 	ms.author="stefsch"/>
 
 # Panoramica dell'architettura di rete degli ambienti del servizio app
@@ -31,7 +31,7 @@ Il diagramma seguente mostra una panoramica dei vari flussi di rete in ingresso 
 
 Un ambiente del servizio app può comunicare con svariati endpoint di clienti privati. Ad esempio, le app in esecuzione nell'ambiente del servizio app possono connettersi a uno o più server di database in esecuzione su macchine virtuali IaaS nella stessa topologia di rete virtuale.
 
-[AZURE.IMPORTANT] Esaminando il diagramma di rete, le "altre risorse di calcolo" vengono distribuite in una subnet diversa dall'ambiente del servizio app. La distribuzione delle risorse nella stessa subnet con l'ambiente del servizio app bloccherà la connettività da questo ambiente a tali risorse, ad eccezione di routing specifico all'interno dell'ambiente del servizio app. Distribuire in una subnet diversa, nella stessa rete virtuale. L'ambiente del servizio app sarà quindi in grado di connettersi. Non è necessaria alcuna configurazione aggiuntiva.
+>[AZURE.IMPORTANT] Esaminando il diagramma di rete, le "altre risorse di calcolo" vengono distribuite in una subnet diversa dall'ambiente del servizio app. La distribuzione delle risorse nella stessa subnet con l'ambiente del servizio app bloccherà la connettività da questo ambiente a tali risorse, ad eccezione di routing specifico all'interno dell'ambiente del servizio app. Distribuire in una subnet diversa, nella stessa rete virtuale. L'ambiente del servizio app sarà quindi in grado di connettersi. Non è necessaria alcuna configurazione aggiuntiva.
 
 Gli ambienti del servizio app comunicano anche con le risorse database SQL e di archiviazione di Azure necessarie per la gestione e il funzionamento di un ambiente del servizio app. Alcune risorse SQL e di archiviazione con cui comunica un ambiente del servizio app si trovano nella stessa area dell'ambiente del servizio app, mentre altre si trovano in aree remote di Azure. Di conseguenza, la connettività in uscita a Internet è sempre necessaria per il corretto funzionamento di un ambiente del servizio app.
 
@@ -89,4 +89,4 @@ Informazioni dettagliate sull'uso di route definite dall'utente per concedere l'
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/26/2016"
 	ms.author="asmalser"/>
 
 #Personalizzazione delle attestazioni rilasciate nel token SAML per le applicazioni preintegrate in Azure Active Directory
@@ -54,9 +54,7 @@ Ad esempio, se è necessario inviare il reparto dell’organizzazione a cui appa
 
 Se per un determinato utente non è stato archiviato alcun valore per un attributo selezionato, l’attestazione non verrà rilasciata nel token.
 
-**Nota:** l’**user.onpremisesecurityidentifier** e l’**user.onpremisesamaccountname** sono supportati soltanto quando si effettua la sincronizzazione dei dati utente da Active Directory in locale utilizzando l'anteprima più recente dello strumento ADD Connect. È possibile scaricare l'anteprima dello strumento di connessione facendo clic sul collegamento riportato di seguito:
-
-http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=53949
+**Nota:** **user.onpremisesecurityidentifier** e **user.onpremisesamaccountname** sono supportati soltanto quando si effettua la sincronizzazione dei dati utente da Active Directory in locale usando lo strumento [Azure AD Connect](active-directory-aadconnect.md).
 
 ## Articoli correlati
 
@@ -70,4 +68,4 @@ http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

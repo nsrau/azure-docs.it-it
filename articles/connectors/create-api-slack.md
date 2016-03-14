@@ -48,6 +48,19 @@ Per usare l'API di Slack, creare innanzitutto una **connessione**, quindi fornir
 | ---|---|---|
 |Token|Sì|Fornire le credenziali di Slack|
 
+Seguire questi passaggi per accedere a Slack e completare la configurazione della **connessione** Slack nell'app per la logica:
+
+1. Selezionare **Ricorrenza**
+2. Selezionare una **Frequenza** e immettere un **Intervallo**
+3. Selezionare **Aggiungi un'azione** ![Configurare Slack][1]  
+4. Immettere Slack nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con Slack nel nome
+5. Selezionare **Slack - Invia messaggio**
+6. Selezionare **Accedi a Slack**: ![Configurare Slack][2]
+7. Fornire le credenziali di Slack per accedere e autorizzare l'applicazione ![Configurare Slack][3]  
+8. Si verrà reindirizzati alla pagina di accesso dell'organizzazione. **Autorizzare** Slack a interagire con l'app per la logica: ![Configurare Slack][5] 
+9. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla tramite la configurazione della sezione **Slack - Recupera tutti i messaggi**. Aggiungere altri trigger e azioni necessari. ![Configurare Slack][6]
+10. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.
+
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
@@ -62,8 +75,8 @@ Per usare l'API di Slack, creare innanzitutto una **connessione**, quindi fornir
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|channel|string|sì|query|nessuno|Canale, gruppo privato o canale di messaggistica istantanea per inviare messaggi. Può essere un nome, ad esempio #general o un ID codificato.|
-|text|string|sì|query|nessuno|Testo del messaggio da inviare. Per le opzioni di formattazione, vedere https://api.slack.com/docs/formatting.|
+|channel|string|yes|query|nessuno|Canale, gruppo privato o canale di messaggistica istantanea per inviare messaggi. Può essere un nome, ad esempio #general o un ID codificato.|
+|text|string|yes|query|nessuno|Testo del messaggio da inviare. Per le opzioni di formattazione, vedere https://api.slack.com/docs/formatting.|
 |username|string|no|query|nessuno|Nome del robot|
 |as\_user|boolean|no|query|nessuno|Passare true per pubblicare il messaggio come utente autenticato, anziché come robot|
 |parse|string|no|query|nessuno|Modificare la gestione dei messaggi. Per informazioni dettagliate, vedere https://api.slack.com/docs/formatting.|
@@ -461,4 +474,11 @@ Nessuna delle proprietà è obbligatoria.
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+[1]: ./media/create-api-slack/connectionconfig1.png
+[2]: ./media/create-api-slack/connectionconfig2.png
+[3]: ./media/create-api-slack/connectionconfig3.png
+[4]: ./media/create-api-slack/connectionconfig4.png
+[5]: ./media/create-api-slack/connectionconfig5.png
+[6]: ./media/create-api-slack/connectionconfig6.png
+
+<!---HONumber=AcomDC_0302_2016-->

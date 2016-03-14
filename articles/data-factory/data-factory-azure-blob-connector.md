@@ -386,7 +386,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 | Proprietà | Descrizione | Obbligatorio |
 | -------- | ----------- | -------- | 
 | folderPath | Percorso del contenitore e della cartella nell'archivio BLOB. Esempio: myblobcontainer\\myblobfolder\\ | Sì |
-| filename | <p>Nome del BLOB. fileName è facoltativo. </p><p>Se si specifica un nome file, l'attività (inclusa la copia) funziona sul BLOB specifico.</p><p>Quando fileName non è specificato, la copia include tutti i BLOB nella proprietà folderPath per il set di dati di input.</p><p>Quando fileName non è specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: Data.<Guid>.txt (ad esempio, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
+| fileName | <p>Il valore fileName del file BLOB è facoltativo e distingue tra maiuscole e minuscole.</p><p>Se si specifica un nome file, l'attività (inclusa la copia) funziona sul BLOB specifico.</p><p>Quando fileName non è specificato, la copia include tutti i BLOB nella proprietà folderPath per il set di dati di input.</p><p>Quando fileName non è specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: Data.<Guid>.txt (ad esempio, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
 | partitionedBy | partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. Vedere la sezione della proprietà [partitionedBy Leveraging](#Leveraging-partitionedBy-property) di seguito per informazioni dettagliate ed esempi. | No
 | format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per altri dettagli, vedere la sezione [Specifica di TextFormat](#specifying-textformat) disponibile di seguito. | No
 | compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate** e **BZip2** e i livelli supportati sono: **Ottimale** e **Più veloce**. Si noti che le impostazioni di compressione non sono attualmente supportate per i dati **AvroFormat**. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
@@ -478,7 +478,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- | 
-| treatEmptyAsNull | Specifica se considerare una stringa vuota o null come valore null. | TRUE<br/>FALSE | No |
+| treatEmptyAsNull | Specifica se considerare una stringa vuota o null come valore null. <p>Si noti che quando la proprietà **quoteChar** viene specificata, anche una stringa vuota tra virgolette può essere considerata come null.</p> | TRUE(default) <br/>FALSE | No |
 | skipHeaderLineCount | Indica quante righe devono essere ignorate. È applicabile solo quando il set di dati di input usa **TextFormat**. | Numero intero compreso tra 0 e Max. | No | 
 | ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. | True (valore predefinito), False | No | 
 
@@ -511,4 +511,4 @@ false | mergeFiles | <p>Per una cartella di origine Cartella1 con la struttura s
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

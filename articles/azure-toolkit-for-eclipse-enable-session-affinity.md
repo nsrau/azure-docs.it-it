@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/30/2015" 
+    ms.date="02/26/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
@@ -49,7 +49,7 @@ Per un esempio di come gestire i dati della sessione quando viene abilitata l'af
 
 [Toolkit di Azure per Eclipse][]
 
-[Creare un'applicazione Hello World per Azure in Eclipse][]
+[Creazione di un'applicazione Hello World per Azure in Eclipse][]
 
 [Installare il Toolkit di Azure per Eclipse.][]
 
@@ -61,7 +61,7 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 
 [Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Creare un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Creazione di un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Come gestire i dati della sessione con affinità di sessione]: http://go.microsoft.com/fwlink/?LinkID=699539
 [Come mantenere i dati della sessione con l’Affinità di sessione]: http://go.microsoft.com/fwlink/?LinkID=699539
 [Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
@@ -70,4 +70,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

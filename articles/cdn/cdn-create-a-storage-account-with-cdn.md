@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Come utilizzare la rete CDN | Microsoft Azure" 
-	description="Informazioni su come usare la rete per la distribuzione di contenuti (rete CDN) di Azure per distribuire contenuto con esigenze di larghezza di banda elevata, tramite la memorizzazione nella cache di oggetti BLOB e contenuto statico." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Come utilizzare la rete CDN | Microsoft Azure"
+	description="Informazioni su come usare la rete per la distribuzione di contenuti (rete CDN) di Azure per distribuire contenuto con esigenze di larghezza di banda elevata, tramite la memorizzazione nella cache di oggetti BLOB e contenuto statico."
+	services="cdn"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
@@ -71,7 +71,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 1. Nel [portale di gestione di Azure](https://portal.azure.com), in alto a sinistra, fare clic su **Nuovo**. Nel pannello **Nuovo** selezionare **Contenuti multimediali e rete CDN**, quindi **Rete CDN**.
 
     Viene visualizzato il pannello del nuovo profilo di rete CDN.
-    
+
     ![Nuovo profilo di rete CDN][new-cdn-profile]
 
 2. Inserire un nome per il profilo di rete CDN.
@@ -93,15 +93,15 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo 
 1. Nel [portale di gestione di Azure](https://portal.azure.com) passare al profilo di rete CDN. Lo si potrebbe aver bloccato nel dashboard nel passaggio precedente. Se così non fosse, è possibile trovarlo cliccando su **Sfoglia**, quindi su **Profili di rete CDN** e facendo clic sul profilo in cui si prevede di aggiungere l'endpoint.
 
     Viene visualizzato il pannello del profilo di rete CDN.
-    
+
     ![Profilo di rete CDN][cdn-profile-settings]
-    
+
 2. Fare clic sul pulsante **Aggiungi Endpoint**.
 
     ![Pulsante Aggiungi endpoint][cdn-new-endpoint-button]
 
     Viene visualizzato il pannello **Aggiungi un endpoint**.
-    
+
     ![Pannello Aggiungi endpoint][cdn-add-endpoint]
 
 3. Immettere un **Nome** per questo endpoint della rete CDN. Questo nome verrà usato per accedere alle risorse memorizzate nella cache nel dominio `<EndpointName>.azureedge.net`.
@@ -154,4 +154,4 @@ Un oggetto già memorizzato nella cache della rete CDN rimarrà nella cache fino
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

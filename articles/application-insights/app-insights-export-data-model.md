@@ -24,7 +24,7 @@ Ci sono diversi [esempi](app-insights-export-telemetry.md#code-samples) che illu
 La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsiasi nome di tipo di telemetria: visualizzazione, richiesta e così via.
 
 
-## &lt;telemetryType&gt;
+## & lt; telemetryType & gt;
 
 **<measurement>**
 
@@ -52,7 +52,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Il count dell'elemento di telemetria.   
 
-    *Derivazione:* se Null, count = 1
+    *Derivazione:* se null, count = 1
 
 **duration**
 
@@ -108,7 +108,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Il testo di hashtag dell'elemento di dati URL 
 
-    *Derivazione:* vedere l'appendice per la trasformazione di URL
+    *Derivazione:*vedere l’appendice per la trasformazione di URL
 
 **urlData.host**
 
@@ -354,7 +354,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Il browser del client 
 
-    *Predefinito:* se Null, viene impostato in base all'elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
+    *Predefinito:* se null, questo viene impostato in base all’elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
 
     *Esempi*<br/> Opera<br/>Mobile Safari<br/>Ovi Browser<br/>Chrome<br/>Firefox<br/>Internet Explorer
 
@@ -364,7 +364,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     La versione del browser del client 
 
-    *Predefinito:* se Null, viene impostato in base all'elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
+    *Predefinito:* se null, questo viene impostato in base all’elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
 
     *Esempi*<br/> Opera 12.17<br/>Mobile Safari 8.0<br/>Ovi Browser 5.5<br/>Chrome 37.0<br/>Firefox 21.0<br/>Internet Explorer 7.0
 
@@ -475,11 +475,13 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 
     ipv4 context.location.clientip      
 * 
-    L'indirizzo IPv4 del client nel formato xxx.xxx. xxx.xxx.   
+    L'indirizzo IPv4 del client nel formato xxx.xxx. xxx.xxx.
+
+     L'ultimo ottetto è sempre impostato su 0 per risolvere eventuali problemi di privacy.
 
     *Predefinito:* se Null, impostare l'indirizzo IP HTTP acquisito nell'endpoint della raccolta dati
 
-    *Esempi*<br/> 0.123.63.143<br/>123.203.131.197
+    *Esempi*<br/> 186.123.63.0<br/>123.203.131.0
 
 **continent**
 
@@ -530,7 +532,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Se issynthetic = true, questo elemento di dati rappresenta l'origine dei dati sintetici. 
 
-    *Predefinito:* se Null, nell'agente utente vengono cercate eventuali origini sintetiche note (agente di ricerca Web ecc.) e in base a queste informazioni può essere impostata l'origine.
+    *Predefinito:* se null, l'agente utente viene controllato per origini sintetiche note (classificazione di documenti Web ecc.) e in base a ciò, si può impostare l’origine.
 
 **syntheticTransaction**
 
@@ -629,7 +631,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 
     *Derivazione:* standardizzare su &lt;telemetryType.name&gt;
 
-**remoteDependencyType**
+**type**
 
     string remotedependency.remotedependencytype      Max: 100
 * 
@@ -761,7 +763,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     L'ultimo evento della sessione. Questo viene originato dalla event.name ed è disponibile come una segmentazione/aggregazione per le metriche sessionMetric 
 
-    *Derivazione:* originato da event.name
+    *Derivazione:*Originato da event.name
 
 **exitUrl**
 
@@ -989,4 +991,4 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * [Esportazione continua](app-insights-export-telemetry.md)
 * [Esempi di codice](app-insights-export-telemetry.md#code-samples)
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0302_2016-->

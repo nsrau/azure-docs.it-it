@@ -31,7 +31,8 @@ Questo articolo descrive,con l'aiuto di un esempio, come usare Windows PowerShel
 
 > [AZURE.NOTE] I cmdlet di PowerShell per Azure Site Recovery attualmente consentono di configurare gli scenari da sito VMM a sito VMM, da sito VMM ad Azure e da sito Hyper-V ad Azure. Il supporto per gli altri scenari ASR verrà aggiunto a breve.
 
-Non è necessario essere un esperto di PowerShell per utilizzare questo articolo, ma si presume che si conoscano i concetti di base, come moduli, cmdlet e sessioni. Per altre informazioni su Windows PowerShell, vedere [Introduzione a Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx) e [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
+Non è necessario essere un esperto di PowerShell per utilizzare questo articolo, ma si presume che si conoscano i concetti di base, come moduli, cmdlet e sessioni. Per altre informazioni su Windows PowerShell, vedere [Introduzione a Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
+- Altre informazioni sull'[so di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md)
 
 
 ## Funzionalità principali
@@ -109,7 +110,7 @@ Questo articolo illustra, con l'aiuto di un esempio, come usare Azure Powershell
 
 2. Creare un nuovo insieme di credenziali di Servizi di ripristino di Azure, come segue:
 
-		$vault = New-AzureRmRecoveryServicesVault -Name <string> -ResouceGroupName <string> -Location <string>
+		$vault = New-AzureRmRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
 	Per recuperare un elenco di insiemi di credenziali esistenti, usare il cmdlet `Get-AzureRmRecoveryServicesVault`.
 
@@ -261,4 +262,4 @@ Questo articolo illustra, con l'aiuto di un esempio, come usare Azure Powershell
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

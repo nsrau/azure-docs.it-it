@@ -31,14 +31,14 @@
 ## Procedura dettagliata
 1. Usando Visual Studio 2012 o 2013, creare un'applicazione console .NET in C#.
 	<ol type="a">
-	<li>Avviare <b>Visual Studio 2012</b> o <b>Visual Studio 2013</b>.</li>
-	<li>Fare clic su <b>File</b>, scegliere <b>Nuovo</b> e quindi fare clic su <b>Progetto</b>.</li> 
-	<li>Espandere <b>Modelli</b> e quindi selezionare <b>Visual C#</b>. In questa procedura dettagliata viene usato C#, ma è possibile usare qualsiasi linguaggio .NET.</li> 
-	<li>Selezionare <b>Applicazione console</b> dall'elenco dei tipi di progetto a destra.</li>
-	<li>Immettere <b>DataFactoryAPITestApp</b> come <b>Nome</b>.</li> 
-	<li>Selezionare <b>C:\ADFGetStarted</b> per <b>Percorso</b>.</li>
-	<li>Fare clic su <b>OK</b> per creare il progetto.</li>
-</ol>
+		<li>Avviare <b>Visual Studio 2012</b> o <b>Visual Studio 2013</b>.</li>
+		<li>Fare clic su <b>File</b>, scegliere <b>Nuovo</b> e quindi fare clic su <b>Progetto</b>.</li> 
+		<li>Espandere <b>Modelli</b> e quindi selezionare <b>Visual C#</b>. In questa procedura dettagliata viene usato C#, ma è possibile usare qualsiasi linguaggio .NET.</li> 
+		<li>Selezionare <b>Applicazione console</b> dall'elenco dei tipi di progetto a destra.</li>
+		<li>Immettere <b>DataFactoryAPITestApp</b> come <b>Nome</b>.</li> 
+		<li>Selezionare <b>C:\ADFGetStarted</b> per <b>Percorso</b>.</li>
+		<li>Fare clic su <b>OK</b> per creare il progetto.</li>
+	</ol>
 2. Fare clic su <b>Strumenti</b>, scegliere <b>Gestione pacchetti NuGet</b> e quindi fare clic su <b>Console di Gestione pacchetti</b>.
 3.	In <b>Console di Gestione pacchetti</b> eseguire i comandi seguenti uno alla volta.</b> 
 
@@ -205,6 +205,8 @@
 
 11. Aggiungere al metodo **Main** il codice seguente che **crea e attiva una pipeline**. Questa pipeline contiene una proprietà **CopyActivity** che accetta **BlobSource** come origine e **BlobSink** come sink.
 
+L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate sull’attività di copia, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md).
+
             // create a pipeline
         Console.WriteLine("Creating a pipeline");
         DateTime PipelineActivePeriodStartTime = new DateTime(2014, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
@@ -261,7 +263,7 @@
 
 	
 
-12. Aggiungere alla classe **Program** il metodo helper seguente usato per il metodo **Main**. Tramite questo metodo viene visualizzata una finestra di dialogo che consente di specificare il **nome utente** e la **password** usati per accedere al portale di Azure classico.
+12. Aggiungere alla classe **Program** il metodo helper seguente usato per il metodo **Main**. Tramite questo metodo viene visualizzata una finestra di dialogo che consente di specificare il **nome utente** e la **password** usati per accedere al portale di Azure classico. 
  
 		public static string GetAuthorizationHeader()
         {
@@ -392,4 +394,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

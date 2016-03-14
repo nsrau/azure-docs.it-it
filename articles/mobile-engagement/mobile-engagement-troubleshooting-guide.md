@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="10/22/2015"
+   ms.date="02/26/2016"
    ms.author="piyushjo"/>
 
 # Azure Mobile Engagement - Guida alla risoluzione dei problemi
@@ -28,7 +28,7 @@ La guida alla risoluzione dei problemi seguente semplifica la comprensione delle
 1. Assicurarsi di avere eseguito tutti i passaggi necessari per l'integrazione, come illustrato nelle [Esercitazioni introduttive](mobile-engagement-windows-store-dotnet-get-started.md).
 2. Verificare di usare la versione più recente degli SDK della piattaforma. 
 3. Eseguire il test in un dispositivo effettivo e in un emulatore, perché alcuni problemi sono specifici solo dell'emulatore. 
-4. Assicurarsi di non superare alcun limite/limitazione di Mobile Engagement illustrato [qui](azure-subscription-service-limits.md).
+4. Assicurarsi di non superare alcun limite/limitazione di Mobile Engagement illustrato [qui](../azure-subscription-service-limits.md).
 5. Se non si riesce a connettersi al back-end del servizio Mobile Engagement o se i dati non vengono caricati in modo continuo, assicurarsi che non siano in corso incidenti del servizio verificando [qui](https://azure.microsoft.com/status/).
 
 ## Problemi di monitoraggio
@@ -88,7 +88,8 @@ Ecco altre istruzioni per la risoluzione dei problemi specifiche per le piattafo
 	
 	    	<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 	    
-	- Assicurarsi che tutte le autorizzazioni necessarie nel file manifesto Android siano presenti e siano configurate correttamente.
+	- Assicurarsi che tutte le autorizzazioni necessarie nel file manifesto Android siano presenti e siano configurate correttamente
+	- Assicurarsi che il numero di progetto da aggiungere all'app client provenga dallo stesso account da cui è stata ottenuta la chiave del server GCM. Se i due account non corrispondono, i push non potranno uscire. 
 	- Se si ricevono le notifiche del sistema, ma non le notifiche in-app, vedere la sezione [Specificare un'icona per le notifiche](mobile-engagement-android-get-started.md), perché è probabile che non sia stata specificata l'icona corretta nel file manifesto Android. 
 	- Se si invia una notifica BigPicture, assicurarsi che eventuali server di immagini esterni disponibili riescano a supportare HTTP "GET" e "HEAD".
 
@@ -120,4 +121,4 @@ Se non si riesce a risolvere il problema autonomamente, sono disponibili le opzi
 	- Versione di Mobile Engagement SDK (ad esempio Android SDK v2.1.0)
 	- Dettagli dell'errore con messaggio di errore esatto e scenario
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

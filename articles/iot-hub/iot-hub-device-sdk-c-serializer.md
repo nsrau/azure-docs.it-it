@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/10/2015"
+     ms.date="02/23/2016"
      ms.author="obloch"/>
 
 # Microsoft Azure IoT device SDK per C: altre informazioni sulla libreria serializer
@@ -528,17 +528,25 @@ Questo descrive tutto ciò che è necessario sapere quando si inviano eventi e s
 
 ## Configurazione delle macro
 
-Se si usa la libreria **Serializer**, ecco una parte importante dell'SDK che è opportuno tenere presente:
+Se si usa la libreria **Serializer**, una parte importante dell'SDK che è opportuno tenere presente si trova nella libreria azure-c-shared-utility. Se è stato clonato il repository Azure-iot-sdk da GitHub usando l'opzione ricorsiva, la libreria delle utilità condivise sarà qui:
 
 ```
-.\\c\\common\\tools\\macro\_utils\_h\_generator.
+.\\c\\azure-c-shared-utility
+```
+
+Se la libreria non è stata clonata, è possibile trovarla [qui](https://github.com/Azure/azure-c-shared-utility).
+
+Nella libreria delle utilità condivise, si troverà la seguente cartella:
+
+```
+azure-c-shared-utility\\macro\_utils\_h\_generator.
 ```
 
 Questa cartella contiene una soluzione di Visual Studio chiamata **macro\_utils\_h\_generator.sln**:
 
   ![](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.PNG)
 
-Il programma in questa soluzione genera il file **macro\_utils.h** disponibile nella directory .\\c\\common\\inc. L'SDK include un file macro\_utils.h predefinito. Questa soluzione consente tuttavia di modificare alcuni parametri e quindi di ricreare il file di intestazione in base a questi parametri.
+Il programma in questa soluzione genera il file **macro\_utils.h**. L'SDK include un file macro\_utils.h predefinito. Questa soluzione consente tuttavia di modificare alcuni parametri e quindi di ricreare il file di intestazione in base a questi parametri.
 
 I due parametri chiave da considerare sono **nArithmetic** e **nMacroParameters**, definiti in queste due righe del file macro\_utils.tt:
 
@@ -658,4 +666,4 @@ Questo articolo descrive in dettaglio gli aspetti univoci della libreria **seria
 
 Questo articolo conclude anche la serie in tre parti relativa allo sviluppo di applicazioni con **Azure IoT device SDK per C**. Le informazioni dovrebbero essere sufficienti non solo per iniziare, ma anche per avere una conoscenza approfondita del funzionamento delle API. Per altre informazioni, nell'SDK sono disponibili alcuni esempi non illustrati in questo articolo. Anche la [documentazione dell'SDK](https://github.com/Azure/azure-iot-sdks) è una risorsa molto utile per altre informazioni.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

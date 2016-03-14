@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Application Insights per le applicazioni web Java che sono già live
@@ -23,7 +23,7 @@ Se si dispone di un'applicazione web che è già in esecuzione sul server J2EE, 
 
 È necessaria una sottoscrizione a [Microsoft Azure](https://azure.com).
 
-> [AZURE.NOTE]La procedura in questa pagina consente di aggiungere il SDK all'applicazione web in fase di esecuzione. Ciò è utile se non si desidera aggiornare o ricompilare il codice sorgente. Ma se possibile, è consigliabile[aggiungere l’SDK al codice sorgente](app-insights-java-get-started.md)invece. Che offre ulteriori opzioni, ad esempio la scrittura di codice per tenere traccia delle attività dell'utente.
+> [AZURE.NOTE] La procedura in questa pagina consente di aggiungere il SDK all'applicazione web in fase di esecuzione. Ciò è utile se non si desidera aggiornare o ricompilare il codice sorgente. Ma se possibile, è consigliabile[aggiungere l’SDK al codice sorgente](app-insights-java-get-started.md)invece. Che offre ulteriori opzioni, ad esempio la scrittura di codice per tenere traccia delle attività dell'utente.
 
 ## 1\. Ottenere una chiave di strumentazione di Application Insights
 
@@ -139,4 +139,4 @@ E quando si visualizzano le proprietà di una richiesta, è possibile visualizza
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

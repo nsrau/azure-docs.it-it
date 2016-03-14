@@ -13,8 +13,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
-	ms.date="02/16/2016"
+	ms.topic="article" 
+	ms.date="02/29/2016"
 	ms.author="billmath"/>
 
 # Informazioni su Azure Multi-Factor Authentication
@@ -117,9 +117,10 @@ Messaggi di saluto personalizzati per le telefonate| | | *
 Personalizzazione dell'ID chiamante per le telefonate| | | *
 Conferma evento| | | *
 IP attendibili| | | *
-Sospendere MFA per dispositivi memorizzati (anteprima pubblica)| | | *
+Memorizzazione di MFA per dispositivi attendibili |* | * | *
 SDK MFA| | | *
 MFA per applicazioni locali che utilizzano il server MFA| | | *
+Opzioni di verifica selezionabili (anteprima pubblica)|* | * | *
 
 
 ## Come ottenere Azure Multi-Factor Authentication
@@ -136,9 +137,11 @@ Quando si usa un provider di Azure Multi-Factor Authentication, sono disponibili
 - **Per utente**. In genere, per le aziende che desiderano abilitare la multi-factor authentication per un numero fisso di dipendenti che richiedono regolarmente l'autenticazione.
 - **Per autenticazione**. In genere, per le aziende che desiderano abilitare la multi-factor authentication per un gruppo esteso di utenti esterni che non richiedono regolarmente l'autenticazione.
 
+Azure multi-Factor Authentication fornisce metodi di verifica selezionabili per cloud e server. Ciò significa che è possibile scegliere i metodi da rendere disponibili agli utenti per l'uso con l'autenticazione a più fattori. Questa funzionalità è attualmente in anteprima pubblica per la versione cloud dell'autenticazione a più fattori. Per altre informazioni vedere [Metodi di verifica selezionabili](multi-factor-authentication-whats-next.md#selectable-verification-methods-public-preview).
+
 Per ulteriori informazioni sui prezzi, vedere [Prezzi - Multi-Factor Authentication (MFA).](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
-Scegliere il modello per postazione o basato sul consumo più adatto per l'organizzazione. Quindi, per iniziare vedere [Introduzione.](multi-factor-authentication-get-started.md)
+Scegliere il modello per postazione o basato sul consumo più adatto per l'organizzazione. Quindi, per iniziare vedere [Introduzione](multi-factor-authentication-get-started.md).
 
 ## Scegliere la soluzione di sicurezza Multi-Factor più adatta
 
@@ -198,7 +201,7 @@ Bypass monouso | ● | ●
 Messaggi di saluto personalizzati per le telefonate | ● | ●
 ID chiamante personalizzabile per le telefonate | ● | ●
 IP attendibili | ● | ●
-Sospensione MFA per dispositivi memorizzati (anteprima pubblica) | ● |  
+Memorizzazione di MFA per dispositivi attendibili (anteprima pubblica) | ● |  
 Accesso condizionale | ● | ●
 Cache | ● | ●
 
@@ -206,4 +209,4 @@ Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authen
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -3,7 +3,7 @@
 	description="Prima di pubblicare un runbook in automazione di Azure, è possibile eseguirne il test per assicurarsi che funzioni come previsto. In questo articolo viene descritto come verificare un runbook e visualizzarne l'output."
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/18/2016"
+	ms.date="02/23/2016"
 	ms.author="magoedte;bwren" />
 
 # Test di un runbook in Automazione di Azure
@@ -55,4 +55,4 @@ La procedura per verificare ogni [tipo di runbook](automation-runbook-types.md) 
 - [Modifica dei runbook testuali di automazione di Azure](automation-edit-textual-runbook.md)
 - [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

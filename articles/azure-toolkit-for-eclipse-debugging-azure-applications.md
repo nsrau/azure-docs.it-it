@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/30/2015" 
+    ms.date="02/26/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
@@ -30,13 +30,12 @@ Come punto di partenza per l'argomento verrà usata l'applicazione creata nell'e
 
 ## Per eseguire il debug dell'applicazione durante l'esecuzione in Azure ##
 
->[AZURE.WARNING]Il supporto attuale del toolkit per il debug remoto Java è destinato principalmente alle distribuzioni in esecuzione nell'emulatore di calcolo di Azure. Poiché la connessione di debug non è sicura, è consigliabile non abilitare il debug remoto in distribuzioni di produzione. Se è necessario eseguire il debug di un'applicazione in esecuzione sul cloud di Azure, usare una distribuzione di gestione temporanea. Occorre tuttavia ricordare che l'accesso non autorizzato alla sessione di debug è possibile se altri utenti conoscono l'indirizzo IP della distribuzione cloud, anche se si tratta di una distribuzione di gestione temporanea.
+>[AZURE.WARNING] Il supporto attuale del toolkit per il debug remoto Java è destinato principalmente alle distribuzioni in esecuzione nell'emulatore di calcolo di Azure. Poiché la connessione di debug non è sicura, è consigliabile non abilitare il debug remoto in distribuzioni di produzione. Se è necessario eseguire il debug di un'applicazione in esecuzione sul cloud di Azure, usare una distribuzione di gestione temporanea. Occorre tuttavia ricordare che l'accesso non autorizzato alla sessione di debug è possibile se altri utenti conoscono l'indirizzo IP della distribuzione cloud, anche se si tratta di una distribuzione di gestione temporanea.
 
 1. Compilare il progetto per il test nell'emulatore: in Project Explorer di Eclipse fare clic con il pulsante destro del mouse su **MyAzureProject**, scegliere **Properties**, fare clic su **Azure** e impostare **Build for** su **Deployment to cloud**.
 1. Ricompilare il progetto: scegliere **Project** dal menu di Eclipse, quindi fare cli su **Build All**.
 1. Distribuire l'applicazione in *gestione temporanea* in Azure.
-
-    >[AZURE.IMPORTANT]Come indicato in precedenza, è consigliabile eseguire il debug nell'emulatore di calcolo nella maggior parte dei casi, quindi eseguire il debug nell'ambiente di gestione temporanea solo se è necessario debug aggiuntivo. È consigliabile non eseguire il debug nell'ambiente di produzione.
+    >[AZURE.IMPORTANT] Come indicato in precedenza, è consigliabile eseguire il debug nell'emulatore di calcolo nella maggior parte dei casi, quindi eseguire il debug nell'ambiente di gestione temporanea solo se è necessario debug aggiuntivo. È consigliabile non eseguire il debug nell'ambiente di produzione.
 1. Quando la distribuzione è pronta in Azure, ottenerne il nome DNS dal [portale di gestione di Azure][]. Il nome DNS di una distribuzione di gestione temporanea ha il formato http://*&lt;guid&gt;*.cloudapp.net, dove *&lt;guid&gt;* è un valore GUID assegnato da Azure.
 1. In Project Explorer di Eclipse fare clic con il pulsante destro del mouse su **WorkerRole1**, scegliere **Azure** e quindi fare clic su **Debugging**.
 1. Nella finestra di dialogo **Properties for WorkerRole1 Debugging**:
@@ -60,7 +59,7 @@ Come punto di partenza per l'argomento verrà usata l'applicazione creata nell'e
 1. Nella finestra di dialogo **Debug Configurations** espandere **Remote Java Application** nel riquadro di sinistra, selezionare **Azure Cloud (WorkerRole1)** e infine fare clic su **Debug**.
 1. Nel browser eseguire l'applicazione di gestione temporanea, ****http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, sostituendo il GUID dal nome DNS per *&lt;guid&gt;*. Se richiesto da una finestra di dialogo **Confirm Perspective Switch**, fare clic su **Yes**. La sessione di debug dovrebbe ora essere eseguita fino alla riga di codice in cui è stato impostato il punto di interruzione.
 
->[AZURE.NOTE]Se si tenta di avviare una connessione di debug remoto in una distribuzione in cui sono in esecuzione più istanze del ruolo, non sarà possibile controllare l'istanza a cui il debugger verrà connesso inizialmente, poiché il bilanciamento del carico di Azure sceglierà un'istanza in modo casuale. Dopo la connessione all'istanza, si continuerà a eseguire il debug della stessa istanza. Si noti anche che in caso di un periodo di inattività superiore a 4 minuti (ad esempio in caso di arresto in corrispondenza di un punto di interruzione per troppo tempo) è possibile che Azure chiuda la connessione.
+>[AZURE.NOTE] Se si tenta di avviare una connessione di debug remoto in una distribuzione in cui sono in esecuzione più istanze del ruolo, non sarà possibile controllare l'istanza a cui il debugger verrà connesso inizialmente, poiché il bilanciamento del carico di Azure sceglierà un'istanza in modo casuale. Dopo la connessione all'istanza, si continuerà a eseguire il debug della stessa istanza. Si noti anche che in caso di un periodo di inattività superiore a 4 minuti (ad esempio in caso di arresto in corrispondenza di un punto di interruzione per troppo tempo) è possibile che Azure chiuda la connessione.
 
 ## Debug di un'istanza del ruolo specifica in una distribuzione a più istanze ##
 
@@ -78,7 +77,7 @@ Quando si conosce il numero di porta pubblica assegnato all'istanza, sarà possi
 
 ## Solo Windows: per eseguire il debug dell'applicazione durante l'esecuzione nell'emulatore di calcolo ##
 
->[AZURE.NOTE]L'emulatore di Azure è disponibile solo per Windows. Ignorare questa sezione se si usa un sistema operativo diverso da Windows.
+>[AZURE.NOTE] L'emulatore di Azure è disponibile solo per Windows. Ignorare questa sezione se si usa un sistema operativo diverso da Windows.
 
 1. Compilare il progetto per il test nell'emulatore: in Project Explorer di Eclipse fare clic con il pulsante destro del mouse su **MyAzureProject**, scegliere **Properties**, fare clic su **Azure** e impostare **Build for** su **Testing in emulator**.
 1. Ricompilare il progetto: scegliere **Project** dal menu di Eclipse, quindi fare cli su **Build All**.
@@ -116,17 +115,17 @@ Questa sezione ha illustrato come eseguire il debug nell'emulatore di calcolo. L
 
 [Creazione di un'applicazione Hello World per Azure in Eclipse][]
 
-[Installazione di Azure Toolkit per Eclipse][]
+[Installare il Toolkit di Azure per Eclipse.][]
 
-Per altre informazioni sull'uso di Azure con Java, visitare il [centro per sviluppatori Java di Azure][].
+Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure][].
 
 <!-- URL List -->
 
-[centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Centro per sviluppatori Java di Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [portale di gestione di Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
 [Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Creazione di un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installazione di Azure Toolkit per Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Installare il Toolkit di Azure per Eclipse.]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Uso della libreria di runtime del servizio Azure in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 
 <!-- IMG List -->
@@ -134,4 +133,4 @@ Per altre informazioni sull'uso di Azure con Java, visitare il [centro per svilu
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

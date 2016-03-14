@@ -18,7 +18,7 @@
 
 # Distribuire un gruppo di risorse con un modello di Gestione risorse di Azure
 
-In questo argomento viene illustrato come usare i modelli di Gestione risorse di Azure per distribuire le risorse in Azure. Viene descritto come distribuire le risorse usando Azure PowerShell, l’interfaccia della riga di comando di Azure, l'API REST o il portale di Azure.
+In questo argomento viene illustrato come usare i modelli di Gestione risorse di Azure per distribuire le risorse in Azure. Viene descritto come distribuire le risorse usando Azure PowerShell, l’interfaccia della riga di comando di Azure, l'API REST o il Portale di Azure.
 
 Per un'introduzione a Gestione risorse, vedere [Panoramica di Gestione risorse di Azure](./resource-group-overview.md). Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 
@@ -284,4 +284,4 @@ Per informazioni su come definire i parametri nel modello, vedere [Creazione di 
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

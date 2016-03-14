@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Connettersi al bus di servizio di Azure per inviare e ricevere messaggi. È possibile eseguire varie azioni, ad esempio inviare alla coda, inviare all'argomento, ricevere dalla coda, ricevere dalla sottoscrizione, e così via.
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic su [Azure Service Bus](../app-service-logic/app-service-logic-connector-Azure Service Bus.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic su [Bus di servizio di Azure](../app-service-logic/app-service-logic-connector-azureservicebus.md).
 
 Con il bus di servizio di Azure è possibile:
 
@@ -56,6 +56,17 @@ Per usare l'API del bus di servizio di Azure, creare prima di tutto una **connes
 |Proprietà| Obbligatorio|Descrizione|
 | ---|---|---|
 |ConnectionString|Sì|Fornire una stringa di connessione per il bus di servizio di Azure|  
+
+Seguire questi passaggi per creare una **connessione** bus di servizio che sarà possibile usare nelle app per la logica:
+
+1. Selezionare **Ricorrenza**
+2. Selezionare una **Frequenza** e immettere un **Intervallo** ![Configurare il Bus di servizio][1] 
+3. Selezionare **Aggiungi un'azione** ![Configurare il Bus di servizio][2]   
+4. Immettere **Bus di servizio** nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con Bus di servizio nel nome
+5. Selezionare **Bus di servizio - Invia messaggio** ![Configurare il Bus di servizio][3]
+7. Immettere un **Nome connessione** e una **Stringa di connessione** quindi, selezionare **Crea connessione**: ![Configurare il Bus di servizio][4]
+7. Dopo aver creata la connessione, verrà visualizzata la finestra di dialogo **Invia messaggio**. Immettere tutte le informazioni necessarie per inviare un messaggio. ![Configurare il Bus di servizio][5]
+8. Selezionare **Salva** nel menu in alto per salvare il lavoro.    
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
@@ -147,4 +158,11 @@ ContentTransferEncoding
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+[1]: ./media/create-api-servicebus/connectionconfig1.png
+[2]: ./media/create-api-servicebus/connectionconfig2.png
+[3]: ./media/create-api-servicebus/connectionconfig3.png
+[4]: ./media/create-api-servicebus/connectionconfig4.png
+[5]: ./media/create-api-servicebus/connectionconfig5.png
+[6]: ./media/create-api-servicebus/connectionconfig6.png
+
+<!---HONumber=AcomDC_0302_2016-->

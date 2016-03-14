@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-manage-portal.md)
+- [Portale di Azure](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -34,14 +34,14 @@ Il [portale di Azure](https://portal.azure.com/) consente di creare, monitorare 
 
 Il portale di Azure offre un set di azioni di database comuni accessibile nella parte superiore del pannello di un database. È possibile ripristinare un database a un momento precedente, aprire un database in Visual Studio, copiare un database in un nuovo server ed esportare il database a un account di archiviazione di Azure.
 
-- [Ripristino di un database SQL](sql-database-point-in-time-restore-tutorial-management-portal.md)
+- [Ripristino di un database SQL](sql-database-user-error-recovery.md)
 - [Aprire un database SQL in Visual Studio](sql-database-connect-query.md)
 - [Esportare un database SQL](sql-database-export.md)
 
 ## 2\. Monitoraggio del database
 ![Monitoraggio del database](./media/sql-database-manage-portal/sqldatabase_monitoring.png)
 
-Per impostazione predefinita, i database SQL di Azure dispongono di grafici di monitoraggio per unità di velocità effettiva database (DTU), dimensioni del database e stato della connessione. Questi grafici di monitoraggio possono essere personalizzati ed estesi per indicare la percentuale di CPU, la percentuale di IO dei dati, i deadlock, la percentuale di IO del log o persino la percentuale di richieste bloccate dal firewall. Ulteriori informazioni su come personalizzare i grafici di monitoraggio sono disponibili [qui][Azure part monitoring].
+Per impostazione predefinita, i database SQL di Azure dispongono di grafici di monitoraggio per unità di transazione database (DTU), dimensioni del database e stato della connessione. Questi grafici di monitoraggio possono essere personalizzati ed estesi per indicare la percentuale di CPU, la percentuale di IO dei dati, i deadlock, la percentuale di IO del log o persino la percentuale di richieste bloccate dal firewall. Ulteriori informazioni su come personalizzare i grafici di monitoraggio sono disponibili [qui][Azure part monitoring].
 
 Inoltre, è possibile configurare regole di avviso per monitorare una metrica specificata e avvisare un amministratore designato e un co-amministratore quando vengono raggiunte le soglie predefinite. Ulteriori informazioni su come configurare regole di avviso nel portale di Azure classico sono disponibili [qui][Azure part monitoring].
 
@@ -85,4 +85,4 @@ I database SQL di Azure possono essere configurati per replicare in modo asincro
   [AzureDb Auditing]: http://azure.microsoft.com/documentation/articles/sql-database-auditing-get-started/
   [AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

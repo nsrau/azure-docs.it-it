@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="11/10/2015"
+    ms.date="02/19/2016"
     ms.author="v-darmi"/>
 
 # Monitorare le API con Gestione API di Azure, Hub eventi e Runscope
@@ -268,4 +268,4 @@ Il servizio Gestione API di Azure è la posizione ideale per acquisire il traffi
 	-	[Informazioni di riferimento per i criteri log-to-event](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	
 
-<!-----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

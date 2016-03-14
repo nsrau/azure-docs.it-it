@@ -14,18 +14,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 
 # Introduzione all'API di SQL Azure
 Connettersi a SQL Azure per gestire le tabelle e le righe, ad esempio per inserire righe, recuperare tabelle e così via.
 
-L'API di SQL Azure può essere usata dalle app per la logica.
+L'API di SQL Azure può essere usata da:
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione schema 2015-08-01 di anteprima delle app per la logica. Per la versione schema 2014-12-01 di anteprima, fare clic sul [connettore di SQL](../app-service-logic/app-service-logic-connector-sql.md).
+- App per la logica 
 
-Con SQL è possibile:
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore di SQL](../app-service-logic/app-service-logic-connector-sql.md).
+
+Con SQL Azure, è possibile:
 
 - Creare il flusso aziendale in base ai dati ottenuti da SQL Azure. 
 - Usare le azioni per recuperare una riga, inserirla e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, è possibile ottenere una riga di dati da SQL Azure e quindi aggiungere i dati in Excel. 
@@ -53,15 +55,16 @@ Dopo aver creato la connessione immettere le proprietà di SQL, ad esempio nome 
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
-## Informazioni di riferimento sulle API REST
+## Riferimento all'API REST di Swagger
+Si applica alla versione 1.0.
 
 ### Ottenere la riga 
 Recupera una singola riga da una tabella SQL. ```GET: /datasets/default/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|table|string|sì|path|nessuno|Nome della tabella SQL|
-|id|string|sì|path|nessuno|Identificatore univoco della riga da recuperare|
+|tabella|string|yes|path|nessuno|Nome della tabella SQL|
+|id|string|yes|path|nessuno|Identificatore univoco della riga da recuperare|
 
 #### Risposta
 |Nome|Descrizione|
@@ -75,13 +78,13 @@ Recupera le righe da una tabella SQL. ```GET: /datasets/default/tables/{table}/i
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|table|string|sì|path|nessuno|Nome della tabella SQL|
+|tabella|string|yes|path|nessuno|Nome della tabella SQL|
 |$skip|integer|no|query|nessuno|Numero di elementi da ignorare (impostazione predefinita = 0)|
 |$top|integer|no|query|nessuno|Numero massimo di elementi da recuperare (impostazione predefinita = 256)|
 |$filter|string|no|query|nessuno|Query di filtro ODATA per limitare il numero di elementi|
 |$orderby|string|no|query|nessuno|Query orderBy ODATA per specificare l'ordine degli elementi|
 
-#### Risposta
+#### Response
 |Nome|Descrizione|
 |---|---|
 |200|OK|
@@ -93,7 +96,7 @@ Inserisce una nuova riga in una tabella SQL. ```POST: /datasets/default/tables/{
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|table|string|sì|path|nessuno|Nome della tabella SQL|
+|tabella|string|yes|path|nessuno|Nome della tabella SQL|
 |item|ItemInternalId: string|sì|body|nessuno|Riga da inserire nella tabella specificata in SQL|
 
 #### Risposta
@@ -108,10 +111,10 @@ Elimina una riga da una tabella SQL. ```DELETE: /datasets/default/tables/{table}
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|table|string|sì|path|nessuno|Nome della tabella SQL|
-|id|string|sì|path|nessuno|Identificatore univoco della riga da eliminare|
+|tabella|string|yes|path|nessuno|Nome della tabella SQL|
+|id|string|yes|path|nessuno|Identificatore univoco della riga da eliminare|
 
-#### Risposta
+#### Response
 |Nome|Descrizione|
 |---|---|
 |200|OK|
@@ -135,11 +138,11 @@ Aggiorna una riga esistente in una tabella SQL. ```PATCH: /datasets/default/tabl
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|table|string|sì|path|nessuno|Nome della tabella SQL|
-|id|string|sì|path|nessuno|Identificatore univoco della riga da aggiornare|
+|tabella|string|yes|path|nessuno|Nome della tabella SQL|
+|id|string|yes|path|nessuno|Identificatore univoco della riga da aggiornare|
 |item|ItemInternalId: string|sì|body|nessuno|Riga con i valori aggiornati|
 
-#### Risposta
+#### Response
 |Nome|Descrizione|
 |---|---|
 |200|OK|
@@ -158,7 +161,7 @@ Aggiorna una riga esistente in una tabella SQL. ```PATCH: /datasets/default/tabl
 
 |Nome proprietà | Tipo di dati | Obbligatorio |
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 |tableDisplayName|string|no|
@@ -168,7 +171,7 @@ Aggiorna una riga esistente in una tabella SQL. ```PATCH: /datasets/default/tabl
 
 |Nome proprietà | Tipo di dati |Obbligatorio |
 |---|---|---|
-|source|string|no|
+|una sezione source|string|no|
 |displayName|string|no|
 |urlEncoding|string|no|
 
@@ -224,4 +227,4 @@ Aggiorna una riga esistente in una tabella SQL. ```PATCH: /datasets/default/tabl
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

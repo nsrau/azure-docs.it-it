@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="03/01/2016" 
 	ms.author="byvinyal"
 />
 	
@@ -56,7 +56,11 @@ Per illustrare la scalabilità automatica di un **ambiente del servizio app** ve
 ###Introduzione dello scenario
 Diego è amministratore del sistema presso una società e ha eseguito la migrazione di una parte dei carichi di lavoro che gestisce in un **ambiente del servizio app**.
 
-L'**ambiente del servizio app** è configurato per il ridimensionamento manuale come indicato di seguito: * Front-end: 3 * pool di lavoro 1: 10 * pool di lavoro 2: 5 * pool di lavoro 3: 5
+L'**ambiente del servizio app** è configurato per la scalabilità manuale come segue:
+* Front-end: 3
+* Pool di lavoro 1: 10
+* Pool di lavoro 2: 5
+* Pool di lavoro 3: 5
 
 Il **pool di lavoro 1** viene usato per i carichi di lavoro di produzione, mentre il **pool di lavoro 2** e il **pool di lavoro 3** sono usati per il controllo qualità e i carichi di lavoro di sviluppo.
 
@@ -155,16 +159,16 @@ Con queste informazioni, Diego può definire le regole e il profilo di scalabili
 |	**Durata:** 20 minuti |	**Durata:** 30 minuti |
 |	**Aggregazione temporale:** media |	**Aggregazione temporale:** media |
 |	**Azione:** aumenta numero di 8 |	**Azione:** aumenta numero di 3 |
-|	**Disattiva regole dopo (minuti):** 90 |	**Disattiva regole dopo (minuti):** 90 |
+|	**Disattiva regole dopo (minuti):** 180 |	**Disattiva regole dopo (minuti):** 180 |
 | | |
 |	**Regola di scalabilità (riduzione)** |	**Regola di scalabilità (riduzione)** |
 |	**Risorsa:** pool di lavoro 1 |	**Risorsa:** pool di lavoro 1 |
 |	**Metrica:** Pool di lavoro disponibili |	**Metrica:** Pool di lavoro disponibili |
-|	**Operazione:** maggiore di 8 |	**Operazione:** minore di 3 |
+|	**Operazione:** maggiore di 8 |	**Operazione:** maggiore di 3 |
 |	**Durata:** 20 minuti |	**Durata:** 15 minuti |
 |	**Aggregazione temporale:** media |	**Aggregazione temporale:** media |
 |	**Azione:** riduci numero di 2 |	**Azione:** riduci numero di 3 |
-|	**Disattiva regole dopo (minuti):** 90 |	**Disattiva regole dopo (minuti):** 90 |
+|	**Disattiva regole dopo (minuti):** 120 |	**Disattiva regole dopo (minuti):** 120 |
 
 L'intervallo di destinazione definito nel profilo è calcolato in base al numero minimo di istanze definito nel profilo per il **piano di servizio app** più il buffer.
 
@@ -199,7 +203,7 @@ Per questo scenario, Diego sa che la percentuale di errore aumenta quando i pool
 |	**Durata:** 20 minuti |
 |	**Aggregazione temporale:** media |
 |	**Azione:** aumenta numero di 3 |
-|	**Disattiva regole dopo (minuti):** 90 |
+|	**Disattiva regole dopo (minuti):** 120 |
 | |
 |	**Regola di scalabilità (riduzione)** |
 |	**Risorsa:** pool di lavoro 1 |
@@ -208,7 +212,7 @@ Per questo scenario, Diego sa che la percentuale di errore aumenta quando i pool
 |	**Durata:** 20 minuti |
 |	**Aggregazione temporale:** media |
 |	**Azione:** riduci numero di 3 |
-|	**Disattiva regole dopo (minuti):** 90 |
+|	**Disattiva regole dopo (minuti):** 120 |
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png
@@ -227,4 +231,4 @@ Per questo scenario, Diego sa che la percentuale di errore aumenta quando i pool
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -14,6 +14,7 @@ Lunghezza nome proprietà | 100 | 100
 Lunghezza valore proprietà | 1000 | 1000
 Lunghezza messaggio di traccia e di eccezione | 10000 | 10000
 Lunghezza nome di metrica | 100 | 100
+Test della disponibilità | 10 | 10
 
 <sup>1</sup> Un punto dati è un evento o un valore di metrica singolo, con proprietà e misurazioni associate.
 
@@ -21,4 +22,4 @@ Lunghezza nome di metrica | 100 | 100
  
 [Informazioni su prezzi e quote in Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

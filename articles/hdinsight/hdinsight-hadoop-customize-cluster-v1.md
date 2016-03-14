@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/26/2016" 
 	ms.author="nitinme"/>
 
 # Personalizzare cluster HDInsight mediante l'azione script
@@ -69,16 +69,18 @@ Nome | Script
 	![Usare l'azione script per personalizzare un cluster](./media/hdinsight-hadoop-customize-cluster-v1/HDI.CustomProvision.Page6.png "Usare l'azione script per personalizzare un cluster")
 	
 	<table border='1'>
-	<tr><th>Proprietà</th><th>Valore</th></tr>
-	<tr><td>Nome</td>
-		<td>Specificare un nome per l'azione di script.</td></tr>
-	<tr><td>URI script</td>
-		<td>Specificare l'URI dello script da richiamare per personalizzare il cluster.</td></tr>
-	<tr><td>Tipo di nodo</td>
-		<td>Specificare i nodi in cui viene eseguito lo script di personalizzazione. È possibile scegliere <b>Tutti i nodi</b>, <b>Solo nodi head</b> o <b>Solo nodi di lavoro</b>.
-	<tr><td>Parametri</td>
-		<td>Specificare i parametri, se richiesti dallo script.</td></tr>
-</table>È possibile aggiungere altre azioni script per installare più componenti nel cluster.
+		<tr><th>Proprietà</th><th>Valore</th></tr>
+		<tr><td>Nome</td>
+			<td>Specificare un nome per l'azione di script.</td></tr>
+		<tr><td>URI script</td>
+			<td>Specificare l'URI dello script da richiamare per personalizzare il cluster.</td></tr>
+		<tr><td>Tipo di nodo</td>
+			<td>Specificare i nodi in cui viene eseguito lo script di personalizzazione. È possibile scegliere <b>Tutti i nodi</b>, <b>Solo nodi head</b> o <b>Solo nodi di lavoro</b>.
+		<tr><td>Parametri</td>
+			<td>Specificare i parametri, se richiesti dallo script.</td></tr>
+	</table>
+
+	È possibile aggiungere altre azioni script per installare più componenti nel cluster.
 
 3. Fare clic sul segno di spunta per avviare il provisioning del cluster.
   
@@ -176,4 +178,4 @@ Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Fasi durante il provisioning di un cluster"
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

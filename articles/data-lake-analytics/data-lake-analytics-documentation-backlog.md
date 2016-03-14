@@ -48,7 +48,7 @@ U-SQL | Opzioni di autenticazione ADLS | 1 | In sospeso | [@ArindamC](https://gi
 
 Area |Argomento | location
 ------------- | ------------- | -------------- 
-Servizio | Coordinamento della distribuzione di Data Lake Analytics con altri servizi di Azure mediante i modelli ARM | [Località](../data-lake-analytics-manage-use-powershell.md)
+Servizio | Coordinamento della distribuzione di Data Lake Analytics con altri servizi di Azure mediante i modelli ARM | [Località](data-lake-analytics-manage-use-powershell.md)
 
 ## Come fornire commenti e suggerimenti per il backlog
 Sono disponibili alcune opzioni per fornire commenti e suggerimenti per il backlog:
@@ -57,4 +57,4 @@ Sono disponibili alcune opzioni per fornire commenti e suggerimenti per il backl
 * Inviare una richiesta pull su questo documento nell'[Archivio di contenuti di Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Inviare un messaggio di posta elettronica a [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

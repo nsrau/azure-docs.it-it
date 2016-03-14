@@ -61,7 +61,7 @@ inputs | Input utilizzati dall'attività Hive | No
 outputs | Output generati dall'attività Hive | Sì 
 linkedServiceName | Riferimento al cluster HDInsight registrato come servizio collegato in Data factory | Sì 
 script | Specificare lo script Hive inline | No
-script path | Archiviare lo script Hive in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath", tenendo presente che non è possibile usare entrambe le proprietà contemporaneamente | No 
+script path | Archiviare lo script Hive in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Si noti che il nome del file distingue tra maiuscole e minuscole. | No 
 defines | Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Hive usando "hiveconf" | No
 
 ## Esempio
@@ -214,4 +214,4 @@ Per impostare i parametri per lo script Hive, seguire questa procedura:
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -103,7 +103,7 @@ Se sono passate più di 72 ore da quando sono state apportate le modifiche al do
 
 ## Verificare il dominio personalizzato per la federazione con la directory locale
 
-1.  Scaricare ed eseguire Azure AD Connect. Lo strumento Azure AD Connect [richiederà di aggiungere le voci DNS fornite](active-directory-aadconnect-get-started-custom.md#select-the-azure-ad-domain-that-you-wish-to-federate).
+1.  Scaricare ed eseguire Azure AD Connect. Lo strumento Azure AD Connect [richiederà di aggiungere le voci DNS fornite](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
 
 ## Nomi di dominio di terzo livello
 
@@ -125,4 +125,4 @@ Dopo aver verificato il dominio, è possibile configurarlo per l'uso con i propr
 - [Cosa fare se si modifica il registrar DNS per il nome di dominio personalizzato](active-directory-add-domain-change-registrar.md)
 - [Eliminare un dominio personalizzato in Azure Active Directory](active-directory-add-domain-delete-domain.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

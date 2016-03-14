@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Ripristino di emergenza e failover del dispositivo per StorSimple Virtual Array (anteprima)
+# Ripristino di emergenza e failover del dispositivo per StorSimple Virtual Array
 
 
 ## Panoramica
@@ -27,7 +27,7 @@ Il failover del dispositivo viene gestito tramite la funzionalità di ripristino
 
 ![](./media/storsimple-ova-failover-dr/image16.png)
 
-Questo articolo è applicabile solo a StorSimple Virtual Array (anteprima). Per eseguire il failover di un dispositivo serie 8000, andare a [Failover e ripristino di emergenza per il dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
+Il contenuto di questo articolo si applica solo a StorSimple Virtual Array. Per eseguire il failover di un dispositivo serie 8000, andare a [Failover e ripristino di emergenza per il dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
 
 
 ## Che cos'è il ripristino di emergenza?
@@ -174,4 +174,4 @@ Se non viene soddisfatta una delle verifiche preliminari, vengono visualizzati d
 
 Scoprire di più su come [amministrare StorSimple Virtual Array tramite l'interfaccia utente Web locale](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

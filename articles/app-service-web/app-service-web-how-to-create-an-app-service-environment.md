@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
@@ -30,7 +30,13 @@ La creazione di un ambiente del servizio app richiede ai clienti di fornire le i
 - selezione della rete virtuale di Azure e di una subnet
 - definizione del pool di risorse dell'ambiente del servizio app
 
-Ognuno di questi elementi prevede dettagli importanti. - Il nome dell'ambiente del servizio app verrà usato nel sottodominio per tutte le app create in tale ambiente del servizio app - Tutte le app create in un ambiente del servizio app si troveranno nella stessa sottoscrizione in cui si trova l'ambiente del servizio app - Se non si ha accesso alla sottoscrizione usata per creare l'ambiente del servizio app, non sarà possibile usare l'ambiente per creare le app - Le reti virtuali usate per ospitare un ambiente del servizio app devono essere reti virtuali "v1" classiche regionali - La subnet usata per ospitare l'ambiente del servizio app non può contenere altre risorse di calcolo - In una subnet può essere presente un solo ambiente del servizio app
+Per ciascuno di questi elementi tenere presente le informazioni importanti che seguono.
+- Il nome dell'ambiente del servizio app verrà usato nel sottodominio per tutte le app create in tale ambiente
+- Tutte le app create in un ambiente saranno incluse nella stessa sottoscrizione dell'ambiente del servizio app
+- Se non si dispone dell'accesso alla sottoscrizione usata per l'ambiente del servizio app non è possibile usare l'ambiente per la creazione delle app
+- Le reti virtuali usate per l'hosting di un ambiente del servizio app devono essere reti virtuali regionali classiche "v1" 
+- La subnet usata per l'hosting dell'ambiente del servizio app non deve contenere altre risorse di calcolo
+- Una subnet può includere un solo ambiente del servizio app
 
 Ogni distribuzione dell'ambiente del servizio app è un servizio ospitato gestito e mantenuto da Azure. Le risorse di calcolo che ospitano i ruoli di sistema dell'ambiente del servizio app non sono accessibili al cliente anche se questi può gestire la quantità di istanze e le relative dimensioni.
 
@@ -68,7 +74,9 @@ Nell'interfaccia utente di creazione della rete virtuale, sarà necessario speci
 
 La località della rete virtuale corrisponde alla località dell'ambiente del servizio app, perché l'ambiente è distribuito in tale rete virtuale.
 
-Dopo aver specificato o selezionato la rete virtuale, è necessario creare o selezionare la subnet. I dettagli da specificare in questa sezione sono: - Nome subnet - Intervallo di indirizzi della subnet nella notazione CIDR
+Dopo aver specificato o selezionato la rete virtuale, è necessario creare o selezionare la subnet. Viene richiesto di immettere le informazioni seguenti:
+- Nome della subnet
+- Intervallo di indirizzi della subnet nella notazione CIDR
 
 Se non si ha familiarità con la notazione CIDR (Classless Inter-Domain Routing), questa assume il formato di un indirizzo IP separato da una barra da valore CIDR. L'aspetto sarà simile al seguente *10.0.0.0/22*. Il valore CIDR indica il numero di bit di apertura mascherati dall'indirizzo IP visualizzato. Per esprimere il concetto in modo più facile, i valori CIDR specificano un indirizzo IP. In questo esempio 10.0.0.0/22 indica un intervallo di 1024 indirizzi o dall'indirizzo 10.0.0.0 a 10.0.3.255. /23 indica 512 indirizzi e così via.
 
@@ -155,4 +163,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

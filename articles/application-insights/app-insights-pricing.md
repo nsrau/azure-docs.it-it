@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="02/28/2016" 
 	ms.author="awills"/>
 
 # Gestire i prezzi e la quota per Application Insights
@@ -140,6 +140,17 @@ Il livello di prezzo determina quanto tempo viene mantenuti i dati sul retro del
 * I dati aggregati, ovvero conteggi, medie e altri dati statistici visualizzati in Esplora metriche, vengono conservati con livello di dettaglio di un minuto per 30 giorni e con livello di dettaglio di un'ora o un giorno, a seconda del tipo, per almeno 13 mesi.
 
 
+## Campionamento
+
+Il [campionamento](app-insights-sampling.md) consente di ridurre il volume dei dati di telemetria conservati dall'app, pur mantenendo la possibilità di trovare gli eventi correlati durante le ricerche di diagnostica e il conteggio corretto degli eventi. Il campionamento permette di evitare il superamento della quota mensile.
+
+Sono disponibili diversi tipi di campionamento. È consigliabile usare il [campionamento adattivo](app-insights-sampling.md) che si adatta automaticamente al volume dei dati di telemetria inviati dall'app. Il campionamento viene eseguito nell'SDK dell'app Web riducendo il traffico dei dati di telemetria sulla rete. È possibile usarlo se il framework dell'app Web è .NET. Installare quindi l'ultima versione (beta) dell'SDK.
+
+In alternativa, è possibile impostare il *campionamento per inserimento* nel pannello Quota + prezzi. Questo tipo di campionamento opera nel punto in cui i dati di telemetria provenienti dall'app raggiungono il servizio Application Insights. Non ha alcun effetto sul volume dei dati di telemetria inviati dall'app, ma riduce tuttavia il volume mantenuto dal servizio.
+
+![Dal pannello Quota + prezzi, fare clic sul riquadro degli esempi e selezionare una frazione di campionamento.](./media/app-insights-sampling/04.png)
+
+Il campionamento consente di ridurre in modo efficace i costi e di non superare la quota mensile. L'algoritmo di campionamento conserva gli elementi correlati ai dati di telemetria, in modo che, quando si usa la ricerca, ad esempio, è possibile trovare la richiesta correlata a una particolare eccezione. L'algoritmo mantiene inoltre i conteggi corretti e consente di visualizzare in Esplora metriche i valori corretti della frequenza delle richieste, della frequenza delle eccezioni e di altri contatori.
 
 
 ## Esaminare la fattura per la sottoscrizione ad Azure
@@ -162,4 +173,4 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

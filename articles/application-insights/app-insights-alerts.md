@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Impostare gli avvisi in Application Insights
@@ -38,11 +38,13 @@ Per ricevere un messaggio di posta elettronica quando una metrica supera una sog
 
 ![Nel pannello Regole di avviso scegliere Aggiungi avviso. Impostare l'app come la risorsa da misurare, specificare un nome per l'avviso e scegliere una metrica.](./media/app-insights-alerts/01-set-metric.png)
 
-Impostare la risorsa prima delle altre proprietà. **Scegliere la risorsa "(components)"** per impostare avvisi sulle metriche relative a prestazioni e utilizzo.
-
-Prendere nota delle unità in cui viene richiesto di immettere il valore di soglia.
-
-Il nome assegnato all'avviso deve essere univoco all'interno del gruppo di risorse (non solo dell'applicazione).
+* Impostare la risorsa prima delle altre proprietà. **Scegliere la risorsa "(components)"** per impostare avvisi sulle metriche relative a prestazioni e utilizzo.
+* Prendere nota delle unità in cui viene richiesto di immettere il valore di soglia.
+* Il nome assegnato all'avviso deve essere univoco all'interno del gruppo di risorse (non solo dell'applicazione).
+* Se si seleziona la casella "Proprietari di posta elettronica...", verranno inviati avvisi tramite posta elettronica a chiunque abbia accesso a questa risorsa.
+* Se si specifica "Indirizzi di posta elettronica aggiuntivi", gli avvisi verranno inviati agli utenti o gruppi corrispondenti (indipendentemente dalla selezione della casella relativa ai "proprietari di posta elettronica"). 
+* Impostare un [indirizzo di webhook](../azure-portal/insights-webhooks-alerts.md) se è stata impostata un'app Web che risponderà agli avvisi. L'app verrà richiamata sia quando l'avviso viene attivato sia quando viene risolto.
+* È possibile disabilitare o abilitare l'avviso usando i pulsanti nella parte superiore del pannello.
 
 *Il pulsante Aggiungi avviso non viene visualizzato*: si sta usando un account aziendale? È possibile impostare gli avvisi se si ha l'accesso come proprietario o come collaboratore a questa risorsa dell'applicazione. Controllare in Impostazioni -> Utenti. [Informazioni sul controllo di accesso][roles].
 
@@ -67,9 +69,11 @@ La cronologia delle modifiche di stato si trova nel log eventi delle operazioni:
 
 ## Funzionamento degli avvisi
 
-* Per un avviso esistono due possibili stati: "avviso" e "integro". 
+* Un avviso può avere tre stati: "Mai attivato", "Attivato" e "Risolto". Lo stato Attivato indica che la condizione specificata aveva valore true al momento dell'ultima valutazione.
 
-* Quando lo stato di un avviso cambia, viene inviato un messaggio di posta elettronica.
+* Quando lo stato di un avviso viene modificato, viene generata una notifica. Se la condizione dell'avviso era già impostata su true durante la creazione dell'avviso, è possibile che non si riceva alcuna notifica finché la condizione non viene impostata su false.
+
+* Ogni notifica genera un messaggio di posta elettronica se è stata selezionata la casella dei messaggi di posta elettronica o sono stati specificati indirizzi di posta elettronica. È anche possibile esaminare l'elenco di riepilogo a discesa Notifiche.
 
 * Un avviso viene valutato ogni volta che arriva una metrica, ma non altrimenti.
 
@@ -123,4 +127,4 @@ Gli avvisi più diffusi includono:
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

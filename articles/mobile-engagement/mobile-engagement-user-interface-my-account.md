@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/22/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # Come gestire il profilo dell'account e i dispositivi di test
  
-In questo articolo viene descritta la **Home page** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**. Per ulteriori informazioni, vedere [Creare un account Azure Mobile Engagement](mobile-engagement-create-account.md).
+In questo articolo viene descritta la **Home page** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili.
  
 Per ottenere la pagina account personale, fare clic sul proprio account nella parte superiore della pagina.
 
@@ -27,7 +27,7 @@ Nella sezione Account personale dell'interfaccia utente è possibile visualizzar
 ![MyAccount1][7]
 
 ## Profilo:
-È possibile visualizzare o modificare le impostazioni del proprio account mostrate di seguito: È inoltre possibile assegnare a un altro utente l'autorizzazione per utilizzare l'applicazione in base all'indirizzo di posta elettronica da[Home](mobile-engagement-interface-home.md).
+È possibile visualizzare o modificare le impostazioni del proprio account mostrate di seguito: È inoltre possibile assegnare a un altro utente l'autorizzazione per utilizzare l'applicazione in base all'indirizzo di posta elettronica da[Home](mobile-engagement-user-interface-home.md).
 
 ![MyAccount2][8]
 
@@ -151,4 +151,4 @@ Per utilizzare l'API Push o l'API dispositivo è necessario conoscere l'identifi
  
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

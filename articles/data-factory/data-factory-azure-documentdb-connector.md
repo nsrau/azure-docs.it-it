@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/24/2016" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso DocumentDB mediante Data factory di Azure
@@ -379,6 +379,14 @@ Esempio:
 	  }
 	}
 
+### Schema da Data Factory
+Per gli archivi di dati privi di schema, ad esempio DocumentDB, il servizio Data Factory deduce lo schema in uno dei modi seguenti:
+
+1.	Se si specifica la struttura dei dati tramite la proprietà **structure** nella definizione del set di dati, il servizio Data Factory considera la struttura come schema. In questo caso, se una riga non contiene un valore per una colonna, verrà inserito un valore null.
+2.	Se non si specifica la struttura dei dati tramite la proprietà **structure** nella definizione del set di dati, il servizio Data Factory deduce lo schema usando la prima riga di dati. In questo caso, se la prima riga non contiene lo schema completo, alcune colonne non saranno presenti nel risultato dell'operazione di copia.
+
+Pertanto, per le origini dati prive di schema, la procedura consigliata consiste nello specificare la struttura dei dati usando la proprietà **structure**.
+
 ## Proprietà del tipo di attività di copia di Azure DocumentDB
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via.
@@ -419,4 +427,4 @@ In caso di attività di copia con origine di tipo **DocumentDbCollectionSource**
 	**Risposta:** No. In questo momento, è possibile specificare solo una raccolta.
      
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

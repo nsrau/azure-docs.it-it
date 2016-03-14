@@ -26,7 +26,7 @@ StorSimple utilizza la [suddivisione in livelli](#automatic-storage-tiering) di 
 
 Con l'aggiornamento 2 di StorSimple, è possibile identificare i volumi appropriati come *aggiunti in locale* per garantire che i dati primari rimangano a livello locale per il dispositivo e non a livello cloud. Questo consente di eseguire carichi di lavoro sensibili alla latenza cloud, ad esempio carichi di lavoro SQL e delle macchine virtuali, su volumi aggiunti in locale, pur continuando a usare il cloud per il backup. Per altre informazioni sui volumi aggiunti in locale, vedere l'articolo relativo all'[uso del servizio StorSimple Manager per gestire i volumi](storsimple-manage-volumes-u2.md).
 
-L'aggiornamento 2 consente anche di creare dispositivi virtuali StorSimple che sfruttano le basse latenze e le alte prestazioni offerte dall'archiviazione Premium di Azure. Per altre informazioni sui dispositivi virtuali Premium StorSimple, vedere [Distribuire e gestire un dispositivo virtuale StorSimple in Azure](storsimple-virtual-device-u1.md). Per altre informazioni sull'archiviazione Premium di Azure, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage-preview-portal.md).
+L'aggiornamento 2 consente anche di creare dispositivi virtuali StorSimple che sfruttano le basse latenze e le alte prestazioni offerte dall'archiviazione Premium di Azure. Per altre informazioni sui dispositivi virtuali Premium StorSimple, vedere [Distribuire e gestire un dispositivo virtuale StorSimple in Azure](storsimple-virtual-device-u1.md). Per altre informazioni sull'archiviazione Premium di Azure, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage.md).
 
 Oltre alla gestione dell'archiviazione, le funzioni di protezione dei dati di StorSimple consentono di creare backup su richiesta e pianificati e quindi di archiviarli in locale o nel cloud. I backup vengono eseguiti sotto forma di snapshot incrementali, il che significa che possono essere creati e ripristinati rapidamente. Gli snapshot cloud possono essere fondamentali in scenari di ripristino di emergenza perché sostituiscono i sistemi di archiviazione secondaria (come il backup su nastro) e consentono di ripristinare i dati nel data center o in siti alternativi, se necessario.
 
@@ -99,7 +99,7 @@ Il dispositivo virtuale presenta le seguenti funzionalità:
 - È possibile creare un numero illimitato di dispositivi virtuali nel cloud e attivarli e disattivarli in base alle esigenze. 
 - Consente di simulare ambienti locali in scenari di ripristino di emergenza, sviluppo e test ed è in grado di facilitare il recupero a livello di elementi dai backup. 
 
-Con l'aggiornamento 2 e versioni successive, il dispositivo virtuale StorSimple è disponibile in due modelli: il dispositivo 8010 (precedentemente noto come modello 1100) e il dispositivo 8020. Il dispositivo 8010 ha una capacità massima di 30 TB. Il dispositivo 8020, che sfrutta i vantaggi dell'archiviazione Premium di Azure, ha una capacità massima di 64 TB (l'archiviazione Premium di Azure archivia i dati su unità SSD, mentre l'archiviazione standard archivia i dati nelle unità disco rigido). Si noti che è necessario un account di archiviazione Premium di Azure per usare l'archiviazione Premium. Per altre informazioni sull'archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage-preview-portal.md).
+Con l'aggiornamento 2 e versioni successive, il dispositivo virtuale StorSimple è disponibile in due modelli: il dispositivo 8010 (precedentemente noto come modello 1100) e il dispositivo 8020. Il dispositivo 8010 ha una capacità massima di 30 TB. Il dispositivo 8020, che sfrutta i vantaggi dell'archiviazione Premium di Azure, ha una capacità massima di 64 TB (l'archiviazione Premium di Azure archivia i dati su unità SSD, mentre l'archiviazione standard archivia i dati nelle unità disco rigido). Si noti che è necessario un account di archiviazione Premium di Azure per usare l'archiviazione Premium. Per altre informazioni sull'archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage.md).
 
 Per altre informazioni sul dispositivo virtuale StorSimple, vedere [Distribuire e gestire un dispositivo virtuale StorSimple in Azure](storsimple-virtual-device-u1.md).
 
@@ -177,7 +177,7 @@ Microsoft Azure StorSimple organizza automaticamente i dati in livelli logici in
 
 Per abilitare l'accesso rapido, StorSimple archivia i dati molto attivi (hot data) nelle unità SSD del dispositivo StorSimple. Archivia invece i dati usati occasionalmente (warm data) nelle unità disco rigido del dispositivo o nei server del data center. Infine, i dati inattivi, i dati di backup e quelli conservati per scopi di archiviazione o conformità vengono spostati nel cloud.
 
->[AZURE.NOTE]Nell'aggiornamento 2 o versioni successive, è possibile specificare un volume come aggiunto in locale, nel qual caso i dati rimangono sul dispositivo locale e non a livello di cloud.
+>[AZURE.NOTE] Nell'aggiornamento 2 o versioni successive, è possibile specificare un volume come aggiunto in locale, nel qual caso i dati rimangono sul dispositivo locale e non a livello di cloud.
 
 StorSimple ordina e riorganizza i dati e le assegnazioni delle risorse di archiviazione in base ai cambiamenti dei modelli di utilizzo. Alcune informazioni, ad esempio, possono diventare meno attive nel corso del tempo. Con il diminuire della frequenza d'uso, viene prima eseguita la migrazione di tali informazioni dalle unità SSD alle unità disco rigido e infine nel cloud. Se ritornano attive, le informazioni vengono di nuovo migrate nel dispositivo di archiviazione.
 
@@ -195,7 +195,7 @@ Il processo di suddivisione in livelli di archiviazione avviene nel modo seguent
 
 Il thin provisioning è una tecnologia di virtualizzazione in cui le risorse di archiviazione disponibili risultano maggiori delle risorse fisiche. Anziché riservare in anticipo spazio di archiviazione sufficiente, StorSimple usa il thin provisioning per allocare esattamente la quantità di spazio necessaria per soddisfare i requisiti correnti. La natura elastica dell'archiviazione cloud facilita questo approccio, consentendo a StorSimple di aumentare o diminuire lo spazio cloud in base alle variazioni nella domanda.
 
->[AZURE.NOTE]Non viene eseguito il thin provisioning dei volumi aggiunti in locale. Per l'archiviazione allocata a un volume solo locale, viene eseguito il provisioning completo quando viene creato il volume.
+>[AZURE.NOTE] Non viene eseguito il thin provisioning dei volumi aggiunti in locale. Per l'archiviazione allocata a un volume solo locale, viene eseguito il provisioning completo quando viene creato il volume.
 
 ### Deduplicazione e compressione
 
@@ -203,7 +203,7 @@ Microsoft Azure StorSimple usa tecniche di deduplicazione e compressione dei dat
 
 La deduplicazione riduce la quantità complessiva di dati archiviati eliminando la ridondanza nel set di dati archiviato. Se i dati subiscono delle variazioni, StorSimple ignora quelli non modificati e acquisisce soltanto le differenze. StorSimple riduce inoltre la quantità di dati archiviati identificando e rimuovendo le informazioni non necessarie.
 
->[AZURE.NOTE]I dati sui volumi aggiunti in locale non sono deduplicati o compressi. Tuttavia, i backup dei volumi aggiunti in locale sono deduplicati e compressi.
+>[AZURE.NOTE] I dati sui volumi aggiunti in locale non sono deduplicati o compressi. Tuttavia, i backup dei volumi aggiunti in locale sono deduplicati e compressi.
 
 ## Terminologia di StorSimple 
 
@@ -278,4 +278,4 @@ Informazioni sulla [sicurezza di StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

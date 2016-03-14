@@ -3,7 +3,7 @@
    description="Informazioni su come gestire l'array virtuale StorSimple locale mediante il servizio StorSimple Manager nel portale di Azure classico."
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="03/01/2016"
+   ms.author="alkohli" />
 
-# Usare il servizio StorSimple Manager per amministrare l'array virtuale StorSimple (anteprima)
+# Usare il servizio StorSimple Manager per amministrare StorSimple Virtual Array
 
 ![flusso del processo di installazione](./media/storsimple-ova-manager-service-administration/manage4.png)
 
@@ -58,11 +58,11 @@ Nella tabella seguente è illustrata la gerarchia di spostamento per l'interfacc
 |Pagina di destinazione|Pagine a livello di servizio|Pagine a livello di dispositivo|
 |---|---|---|
 |Servizio StorSimple Manager|Dashboard (servizio)|Dashboard (dispositivo)|
-|Dispositivi →|Monitoraggio|
-|Catalogo di backup|Condivisioni (file server) o </br>volumi (server iSCSI)|
-|Configura (servizio)|Configura (dispositivo)|
-|Processi|Manutenzione|
-|Avvisi|
+||Dispositivi →|Monitoraggio|
+||Catalogo di backup|Condivisioni (file server) o </br>volumi (server iSCSI)|
+||Configura (servizio)|Configura (dispositivo)|
+||Processi|Manutenzione|
+||Avvisi|
 
 ## Usare il servizio StorSimple Manager per eseguire attività di gestione
 
@@ -96,4 +96,4 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 ##Passaggi successivi
 Per informazioni sull'interfaccia utente Web e sul suo uso, vedere [Usare l'interfaccia utente Web per amministrare l'array virtuale StorSimple (anteprima)](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

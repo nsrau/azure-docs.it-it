@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Rete CDN - statistiche in tempo reale" 
-	description="Statistiche in tempo reale nella rete CDN di Microsoft Azure. Le statistiche in tempo reale forniscono i dati in tempo reale sulle prestazioni della rete CDN durante la distribuzione di contenuti ai client." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Rete CDN - statistiche in tempo reale"
+	description="Statistiche in tempo reale nella rete CDN di Microsoft Azure. Le statistiche in tempo reale forniscono i dati in tempo reale sulle prestazioni della rete CDN durante la distribuzione di contenuti ai client."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 # Statistiche in tempo reale nella rete CDN di Microsoft Azure
@@ -22,7 +22,7 @@
 
 Questo documento illustra le statistiche in tempo reale nella rete CDN di Microsoft Azure. Questa funzionalità fornisce i dati in tempo reale sulle prestazioni della rete CDN durante la distribuzione di contenuti ai client.
 
-> [AZURE.NOTE]Le statistiche in tempo reale sono una funzionalità del piano Premium della rete CDN. Per un confronto delle funzionalità della rete CDN Standard e Premium, vedere [Panoramica della rete CDN di Azure](cdn-overview.md).
+> [AZURE.NOTE] Le statistiche in tempo reale sono una funzionalità del piano Premium della rete CDN. Per un confronto delle funzionalità della rete CDN Standard e Premium, vedere [Panoramica della rete CDN di Azure](cdn-overview.md).
 
 Quando si visualizzano le statistiche in tempo reale per le piattaforme basate su HTTP, sono disponibili i grafici seguenti:
 
@@ -31,25 +31,25 @@ Quando si visualizzano le statistiche in tempo reale per le piattaforme basate s
 * [Stati della cache](#cache-statuses)
 * [Connessioni](#connections)
 
-> [AZURE.NOTE]Ognuno dei grafici precedenti visualizza le statistiche in tempo reale per un determinato periodo di tempo. Una volta superato il tempo specificato, viene visualizzata una finestra temporale scorrevole di dati. Ciò significa che i dati precedenti verranno rimossi dal grafico per lasciare spazio ai nuovi dati. Il periodo di tempo per questa finestra temporale scorrevole può essere impostato dall'intervallo di tempo dell'opzione Graph.
- 
+> [AZURE.NOTE] Ognuno dei grafici precedenti visualizza le statistiche in tempo reale per un determinato periodo di tempo. Una volta superato il tempo specificato, viene visualizzata una finestra temporale scorrevole di dati. Ciò significa che i dati precedenti verranno rimossi dal grafico per lasciare spazio ai nuovi dati. Il periodo di tempo per questa finestra temporale scorrevole può essere impostato dall'intervallo di tempo dell'opzione Graph.
+
 ## Accesso alle statistiche in tempo reale
 
 1. Dal pannello del profilo della rete CDN fare clic sul pulsante **Gestisci**.
 
 	![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-real-time-stats/cdn-manage-btn.png)
-	
+
 	Si aprirà il portale di gestione della rete CDN.
-	
+
 2. Passare il puntatore sulla scheda **Analisi**, quindi sul riquadro a comparsa **Statistiche in tempo reale**. Fare clic su **Piattaforma HTTP grande**.
-	
+
 	Vengono visualizzate le opzioni dei report.
 
 ## Larghezza di banda
 
 Il grafico della larghezza di banda visualizza la quantità di larghezza di banda utilizzata per la piattaforma corrente in un periodo di tempo specificato. La parte ombreggiata del grafico indica l'utilizzo della larghezza di banda. La quantità esatta di larghezza di banda attualmente in uso viene visualizzata direttamente sotto il grafico a linee.
 
-> [AZURE.NOTE]Le unità utilizzate per effettuare i report dell’utilizzo della larghezza di banda sono una delle seguenti: bit al secondo (b/s), kilobit al secondo (Kb/s), megabit al secondo (Mb/s) o Gigabit al secondo (Gb/s).
+> [AZURE.NOTE] Le unità utilizzate per effettuare i report dell’utilizzo della larghezza di banda sono una delle seguenti: bit al secondo (b/s), kilobit al secondo (Kb/s), megabit al secondo (Mb/s) o Gigabit al secondo (Gb/s).
 
 ## Codici di stato
 
@@ -57,7 +57,7 @@ Il grafico dei codici di stato è costituito da linee contraddistinte da colori 
 
 Direttamente sopra al grafico viene visualizzato un elenco dei codici di stato. Questo elenco indica ogni codice di stato che può essere incluso nel grafico a linee e il numero di occorrenze correnti al secondo per ogni codice di stato. Per impostazione predefinita, viene visualizzata una riga per ognuno di questi codici di stato nel grafico. Tuttavia, è possibile scegliere di monitorare solo i codici di stato che hanno un significato speciale per la configurazione della rete CDN. Questo può essere eseguito solo contrassegnando le opzioni di codice di stato desiderate e cancellando tutte le altre opzioni. Dopo aver stabilito i codici di stato che verranno visualizzati nel grafico, è necessario fare clic su Aggiorna grafico. Questo impedisce che i codici di stato esclusi siano inclusi nel grafico.
 
-> [AZURE.NOTE]L’opzione **Aggiorna grafico** cancellerà il grafico. Dopo questa operazione, verranno visualizzati solo i codici di stato selezionati.
+> [AZURE.NOTE] L’opzione **Aggiorna grafico** cancellerà il grafico. Dopo questa operazione, verranno visualizzati solo i codici di stato selezionati.
 
 Ogni opzione di codice di stato è descritta di seguito.
 
@@ -75,7 +75,7 @@ Altri al secondo | Determina se il totale di occorrenze per tutti gli altri codi
 
 È inoltre possibile nascondere temporaneamente i dati registrati per un codice di stato specifico. È possibile farlo dall'area direttamente sotto al grafico deselezionando l'opzione di codice di stato desiderata. Il codice di stato selezionato verrà nascosto immediatamente dal grafico. Se si seleziona questa opzione di codice di stato tale opzione verrà visualizzata nuovamente.
 
-> [AZURE.NOTE]Le opzioni contraddistinte da colori direttamente sotto al grafico vengono applicate solo a ciò che viene visualizzato nel grafico. Non influisce sul funzionamento del grafico che tiene traccia di tale codice di stato.
+> [AZURE.NOTE] Le opzioni contraddistinte da colori direttamente sotto al grafico vengono applicate solo a ciò che viene visualizzato nel grafico. Non influisce sul funzionamento del grafico che tiene traccia di tale codice di stato.
 
 ## Stati della cache
 
@@ -83,11 +83,11 @@ Il grafico degli stati della cache è costituito da linee contraddistinte da col
 
 Direttamente sopra al grafico viene visualizzato un elenco degli stati della cache. Questo elenco indica ogni stato della cache che può essere incluso nel grafico a linee e il numero di occorrenze correnti al secondo per ogni stato della cache. Per impostazione predefinita, viene visualizzata una riga per ognuno di questi stati della cache nel grafico. Tuttavia, è possibile scegliere di monitorare solo gli stati della cache che hanno un significato speciale per la configurazione della rete CDN. Questo può essere eseguito solo contrassegnando le opzioni di stato della cache desiderate e cancellando tutte le altre opzioni. Dopo aver stabilito gli stati della cache che verranno visualizzati nel grafico, è necessario fare clic su Aggiorna grafico. Questo impedisce che i codici di stato esclusi siano inclusi nel grafico.
 
-> [AZURE.NOTE]L’opzione **Aggiorna grafico** cancellerà il grafico. Dopo questa operazione, verranno visualizzati solo gli stati della cache selezionati.
+> [AZURE.NOTE] L’opzione **Aggiorna grafico** cancellerà il grafico. Dopo questa operazione, verranno visualizzati solo gli stati della cache selezionati.
 
 È inoltre possibile nascondere temporaneamente i dati registrati per un codice di risposta specifico. È possibile farlo dall'area direttamente sotto al grafico deselezionando l'opzione di codice di risposta desiderata. Il codice di risposta selezionato verrà nascosto immediatamente dal grafico. Se si seleziona questa opzione di codice di risposta tale opzione verrà visualizzata nuovamente.
 
-> [AZURE.NOTE]Le opzioni contraddistinte da colori direttamente sotto al grafico vengono applicate solo a ciò che viene visualizzato nel grafico. Non influisce sul funzionamento del grafico che tiene traccia di tale codice di stato.
+> [AZURE.NOTE] Le opzioni contraddistinte da colori direttamente sotto al grafico vengono applicate solo a ciò che viene visualizzato nel grafico. Non influisce sul funzionamento del grafico che tiene traccia di tale codice di stato.
 
 ## Connessioni
 
@@ -99,4 +99,4 @@ Questa rappresentazione grafica del numero medio di connessioni al minuto consen
 * [Report HTTP avanzati](cdn-advanced-http-reports.md)
 * [Analizzare delle prestazioni edge](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

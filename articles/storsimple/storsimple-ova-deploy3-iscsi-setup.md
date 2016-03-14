@@ -12,34 +12,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/18/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
 
-# Distribuire l'array virtuale StorSimple: configurare il dispositivo virtuale come server iSCSI (anteprima)
+# Distribuire StorSimple Virtual Array: configurare il dispositivo virtuale come server iSCSI
 
 ![flusso del processo di installazione di iSCSI](./media/storsimple-ova-deploy3-iscsi-setup/iscsi4.png)
 
 ## Panoramica
 
-Questa esercitazione sulla distribuzione si applica all'array virtuale Microsoft Azure StorSimple (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione in anteprima pubblica 1.1.1.0. Questa esercitazione illustra come eseguire l'installazione iniziale, registrare il server iSCSI StorSimple, completare l'installazione del dispositivo, quindi creare, montare, inizializzare e formattare i volumi nel server iSCSI del dispositivo virtuale StorSimple. Le informazioni sull'installazione di StorSimple in questo articolo si applicano solo all'array virtuale StorSimple.
+Questa esercitazione di sviluppo si applica solo a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione di disponibilità generale (GA) di marzo 2016. Questa esercitazione illustra come eseguire l'installazione iniziale, registrare il server iSCSI StorSimple, completare l'installazione del dispositivo, quindi creare, montare, inizializzare e formattare i volumi nel server iSCSI del dispositivo virtuale StorSimple. Le informazioni sull'installazione di StorSimple in questo articolo si applicano solo all'array virtuale StorSimple.
 
 Il completamento delle procedure descritte di seguito richiede approssimativamente da 30 minuti a 1 ora. Le informazioni pubblicate in questo articolo si applicano solo all'array virtuale StorSimple.
-
->[AZURE.IMPORTANT] 
->
->- L'array virtuale StorSimple è disponibile in anteprima ed è destinato a scopi di valutazione e pianificazione della distribuzione. L'installazione di questa versione di anteprima in un ambiente di produzione non è supportata. 
->- Se si riscontrano problemi con l'array virtuale StorSimple, pubblicare un post al riguardo nel [forum MSDN per StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
 
 ## Prerequisiti di installazione
 
 Prima di configurare e installare il dispositivo virtuale StorSimple, si deve:
 
-- Eseguire il provisioning di un dispositivo virtuale e connettersi come illustrato in [Distribuire l'array virtuale StorSimple: eseguire il provisioning di un array virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o in [Distribuire l'array virtuale StorSimple: eseguire il provisioning di un array virtuale in VMware](storsimple-ova-deploy2-provision-vmware.md).
+- Eseguire il provisioning di un dispositivo virtuale e connettersi come illustrato in [Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o in [Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in VMware](storsimple-ova-deploy2-provision-vmware.md).
 
-- Avere ottenuto la chiave di registrazione del servizio dal servizio StorSimple Manager creato per gestire i dispositivi virtuali StorSimple. Per ulteriori informazioni, vedere **Passaggio 2: Ottenere la chiave di registrazione del servizio** in [Distribuire l'array virtuale StorSimple: preparare il portale](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+- Avere ottenuto la chiave di registrazione del servizio dal servizio StorSimple Manager creato per gestire i dispositivi virtuali StorSimple. Per altre informazioni, vedere **Passaggio 2: Ottenere la chiave di registrazione del servizio** in [Distribuire StorSimple Virtual Array: preparare il portale](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
-- Se questo è il secondo dispositivo virtuale o l'ulteriore dispositivo registrato con un servizio StorSimple Manager esistente, è necessario disporre della chiave DEK del servizio. Questa chiave viene generata nel momento in cui avviene la corretta registrazione del primo dispositivo con questo servizio. Se si smarrisce la chiave, vedere come **ottenere la chiave DEK del servizio** nell'articolo relativo a come [usare l'interfaccia utente Web per amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
+- Se questo è il secondo dispositivo virtuale o l'ulteriore dispositivo registrato con un servizio StorSimple Manager esistente, è necessario disporre della chiave DEK del servizio. Questa chiave viene generata nel momento in cui avviene la corretta registrazione del primo dispositivo con questo servizio. Se si smarrisce la chiave, vedere **Ottenere la chiave DEK del servizio** in [Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array ](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
 
 ## Installazione passo per passo 
 
@@ -62,7 +57,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     ![errore di certificato di sicurezza](./media/storsimple-ova-deploy3-iscsi-setup/image3.png)
 
-2. Accedere all'interfaccia utente Web del dispositivo virtuale come **StorSimpleAdmin**. Immettere la password amministratore del dispositivo modificata in Passaggio 3: Avviare il dispositivo virtuale nell'articolo relativo alla [distribuzione dell'array virtuale StorSimple e provisioning di un dispositivo virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o alla [distribuzione dell'array virtuale StorSimple e provisioning di un dispositivo virtuale in VMware](storsimple-ova-deploy2-provision-vmware.md).
+2. Accedere all'interfaccia utente Web del dispositivo virtuale come **StorSimpleAdmin**. Immettere la password amministratore del dispositivo modificata nel Passaggio 3: Avviare il dispositivo virtuale dell'articolo [Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in Hyper-V ](storsimple-ova-deploy2-provision-hyperv.md) o [Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in VMware ](storsimple-ova-deploy2-provision-vmware.md).
 
     ![Pagina di accesso](./media/storsimple-ova-deploy3-iscsi-setup/image4.png)
 
@@ -70,7 +65,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     ![Home page](./media/storsimple-ova-deploy3-iscsi-setup/image5.png)
 
-4. Nella pagina delle **Impostazioni di rete**, in **Interfacce di rete**, DATA 0 viene configurato automaticamente per l'utente. Ogni interfaccia di rete è impostata come predefinita per ottenere un indirizzo IP automaticamente (DHCP). Quindi, un indirizzo IP, una subnet e un gateway vengono assegnati automaticamente (sia per IPv4 che per IPv6).
+4. Nella pagina delle **Impostazioni di rete** in **Interfacce di rete** DATA 0 viene configurato automaticamente. Ogni interfaccia di rete è impostata come predefinita per ottenere un indirizzo IP automaticamente (DHCP). Quindi, un indirizzo IP, una subnet e un gateway vengono assegnati automaticamente (sia per IPv4 che per IPv6).
 
     Se si prevede di distribuire il dispositivo come server iSCSI (per il provisioning dell'archiviazione a blocchi), si consiglia di disabilitare l'opzione **Ottieni automaticamente un indirizzo IP** e configurare gli indirizzi IP statici.
 
@@ -78,7 +73,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     Se si aggiunge più di un'interfaccia di rete durante il provisioning del dispositivo, è possibile configurarle tutte qui. Si noti che è possibile configurare l'interfaccia di rete come solo IPv4 o come IPv4 e IPv6. Le configurazioni solo IPv6 non sono supportate.
 
-5. I server DNS sono necessari perché vengono usati quando il dispositivo tenta di comunicare con i provider del servizio di archiviazione cloud o per risolvere il dispositivo in base al nome se è configurato come file server. Nella pagina **Impostazioni di rete**, in **Server DNS**:
+5. I server DNS sono necessari perché vengono usati quando il dispositivo tenta di comunicare con i provider del servizio di archiviazione cloud o per risolvere il dispositivo in base al nome se è configurato come file server. Nella pagina **Impostazioni di rete** in **Server DNS**:
 
     1. Un server DNS primario e secondario viene configurato automaticamente. Se si sceglie di configurare gli indirizzi IP statici, è possibile specificare i server DNS. Per una disponibilità elevata, si consiglia di configurare un server DNS primario e uno secondario.
 
@@ -137,7 +132,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
 9. Configurare le impostazioni del cloud per il dispositivo. In questo passaggio, viene completata la configurazione del dispositivo locale, quindi si registra il dispositivo con il servizio StorSimple Manager.
 
-    1. Immettere la **chiave di registrazione del servizio** ottenuta al **Passaggio 2: Ottenere la chiave di registrazione del servizio** di [Distribuire l'array virtuale StorSimple: preparare il portale](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+    1. Immettere la **chiave di registrazione del servizio** ottenuta al **Passaggio 2: Ottenere la chiave di registrazione del servizio** in [Distribuire StorSimple Virtual Array: preparare il portale](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
     2. Se questo non è il primo dispositivo che si registra con tale servizio, è necessario fornire la **chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per altre informazioni, fare riferimento all'esercitazione [Ottenere la chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
 
@@ -197,7 +192,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un volume.
 
     2. Fornire una descrizione per il volume. La descrizione consente di identificare i proprietari del volume.
 
-    3. Selezionare un tipo di utilizzo per il volume. Il tipo di utilizzo può essere **Volume a livelli** o **Volume aggiunto in locale.** (**Volume a livelli** è l'impostazione predefinita.) Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare **Volume** **aggiunto in locale**. Per tutti gli altri dati, selezionare **Volume** **a livelli**.
+    3. Selezionare un tipo di utilizzo per il volume. Il tipo di utilizzo può essere **Volume a livelli** o **Volume aggiunto in locale.** L'impostazione predefinita è **Volume a livelli**. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare **Volume** **aggiunto in locale**. Per tutti gli altri dati, selezionare **Volume** **a livelli**.
 
         Per un volume aggiunto in locale viene eseguito il thick provisioning per garantire che i dati primari nel volume rimangano nel dispositivo e non si spostino sul cloud. Se si crea un volume aggiunto in locale, il dispositivo cercherà lo spazio disponibile nei livelli locali per il provisioning di un volume delle dimensioni richieste. La creazione di un volume aggiunto in locale può comportare la distribuzione dei dati esistenti dal dispositivo al cloud, aumentando il tempo necessario per la creazione del volume. Il tempo totale dipende dalle dimensioni del volume di cui è stato eseguito il provisioning, dalla larghezza di banda di rete disponibile e dai dati sul dispositivo.
 
@@ -249,7 +244,7 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 
     ![destinazioni individuate](./media/storsimple-ova-deploy3-iscsi-setup/image24.png)
 
-5. Selezionare il dispositivo di destinazione e quindi fare clic su **Connetti**. Dopo aver connesso il dispositivo, lo stato deve essere modificato in **Connesso**. Per altre informazioni sull'utilizzo dell'iniziatore iSCSI di Microsoft, vedere [Installazione e configurazione dell’iniziatore iSCSI di Microsoft][1].
+5. Selezionare il dispositivo di destinazione e quindi fare clic su **Connetti**. Dopo aver connesso il dispositivo, lo stato deve essere modificato in **Connesso**. Per altre informazioni sull'uso dell'iniziatore iSCSI di Microsoft, vedere [Installazione e configurazione dell'iniziatore iSCSI di Microsoft][1].
 
     ![selezionare il dispositivo di destinazione](./media/storsimple-ova-deploy3-iscsi-setup/image25.png)
 
@@ -291,7 +286,7 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 
 ## Passaggi successivi
 
-Altre informazioni su come usare l'interfaccia utente Web locale per [amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
+Informazioni su come usare l'interfaccia utente Web locale per [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
 ## Appendice A: Ottenere il nome qualificato iSCSI di un host di Windows Server
 
@@ -310,4 +305,4 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un 
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

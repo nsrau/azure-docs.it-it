@@ -1,30 +1,17 @@
-Resource|Free|Basic (Preview) <sup>6</sup>|S1|S2
+Risorsa|Free|Basic (anteprima) <sup>6</sup>|S1|S2
 ---|---|---|---|----
-Maximum search services|N/A|---|12 per Azure subscription|12 per Azure subscription
-Maximum storage size <sup>1</sup>|50 MB or 10,000 documents|2 GB per service|25 GB per partition or 300 GB documents per service|100 GB per partition or 1.2 TB per service
-Maximum documents hosted|10,000 total|1 million per service|15 million per partition (up to 180 million documents per service)|60 million per partition (up to 720 million documents per service)
-Maximum indexes|3|5|50|200
-Maximum indexers|3|5|50|200
-Maximum indexer datasources|3|5|50|200
-Index: maximum fields per index|1000|100 <sup>5</sup>|1000|1000
-Index: maximum scoring profiles per index|16|16|16|16
-Index: maximum functions per profile|8|8|8|8
-Indexers: maximum indexing load per invocation|10,000 documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents
-Indexers: maximum running time|3 minutes|24 hours|24 hours|24 hours
-Queries per second (QPS) <sup>2</sup>|N/A|~3 per replica|~15 per replica|~60 per replica
-Scale out: maximum search units (SU) <sup>3</sup>|N/A|Up to 3 units (3 replicas and 1 partition)|36 units|36 units
-Pricing <sup>4</sup>|N/A|$75 per SU per month|$250 per SU per month|$1000 per SU per month
+Servizi di ricerca massima|N/D|---|12 per ogni sottoscrizione di Azure|12 per ogni sottoscrizione di Azure Dimensioni massime di archiviazione <sup>1</sup>|50 MB o 10.000 documenti|2 GB per servizio|25 GB per partizione o 300 GB di documenti per servizio|100 GB per partizione o 1.2 TB per servizio Numero massimo di documenti ospitati|10.000 in totale|1 milione per servizio|15 milioni per partizione (fino a 180 milioni di documenti per servizio)|60 milioni per partizione (fino a 720 milioni di documenti per servizio) Numero massimo di indici|3|5|50|200 Numero massimo di indicizzatori|3|5|50|200 Numero massimo di origini dati indicizzatori|3|5|50|200 Indice: numero massimo di campi per indice|1000|100 <sup>5</sup>|1000|1000 Indice: numero massimo di profili di punteggio per indice|16|16|16|16 Indice: numero massimo di funzioni per profilo|8|8|8|8 Indicizzatori: carico di indicizzazione massimo per chiamata|10.000 documenti|Limitato solo da numero massimo di documenti|Limitato solo da numero massimo di documenti|Limitato solo da numero massimo di documenti Indicizzatori: tempo massimo di esecuzione|3 minuti|24 ore|24 ore|24 ore Query al secondo (QPS) <sup>2</sup>|N/D|~3 per replica|~15 per replica|~60 per replica Scalabilità orizzontale: numero massimo di unità di ricerca (SU) <sup>3</sup>|N/D|Fino a 3 unità (3 repliche e 1 partizione)|36 unità|36 unità Prezzi <sup>4</sup>|N/D|$75 per SU al mese|$250 per SU al mese|$1000 per SU al mese
 
-<sup>1</sup> Storage size is either a fixed amount or the number of documents per service, whichever comes first.
+<sup>1</sup> Le dimensioni di archiviazione corrispondono a una quantità fissa o al numero di documenti per ogni servizio, a seconda del valore raggiunto per primo.
 
-<sup>2</sup> QPS is an approximation based on heuristics, using simulated and actual customer workloads to derive estimated values. Exact QPS throughput will vary depending on your data and the nature of the query.
+<sup>2</sup> Query al secondo è un'approssimazione basata sull'euristica, che usa carichi di lavoro simulati ed effettivi per calcolare i valori stimati. La velocità di query al secondo effettiva varia a seconda dei dati e della natura della query.
 
-<sup>3</sup> Search units are the billable unit for either a replica or a partition. You need both for both storage, indexing, and query operations. See [Capacity Planning](../articles/search/search-capacity-planning.md) for valid combinations of replicas and partitions that keep you within the maximum limit of 3 or 36 units, for Basic and Standard respectively.
+<sup>3</sup> Le unità di ricerca sono l'unità fatturabile per una replica o una partizione. Sono necessarie entrambe per l'archiviazione, l'indicizzazione e le operazioni di query. Vedere [Pianificazione della capacità](../articles/search/search-capacity-planning.md) per le combinazioni valide di repliche e partizioni entro il limite massimo di 3 o 36 unità di base e standard.
 
-<sup>4</sup> Price is for the U.S. market, illustrating relative costs among alternative tiers. Different markets have different prices. Refer to the [Pricing page](https://azure.microsoft.com/pricing/details/search/) for rates in other currencies. The rate is per search unit (SU). At the S1 level, a configuration of 3 search units (say 3 replicas and 1 partition) would cost $750 per month on average. If you scale down to fewer SU within the month, the bill is prorated so that you are charged only for what you use.
+<sup>4</sup> Il prezzo è per il mercato degli Stati Uniti e illustra i costi relativi dei diversi livelli. I prezzi variano a seconda del mercato. Consultare la [pagina Prezzi](https://azure.microsoft.com/pricing/details/search/) per i prezzi in altre valute. La velocità si riferisce alla singola unità di ricerca (SU). A livello S1, una configurazione di 3 unità di ricerca (ad esempio 3 repliche e 1 partizione) avrebbe un costo medio di $750 al mese. Se si passa a un numero inferiore di unità di ricerca entro il mese, la fattura viene ripartita in modo da addebitare solo ciò che si utilizza.
 
-<sup>5</sup> This is not a typo. Basic tier has a limit of 100 fields per index. It is the only tier that has this lower limit.
+<sup>5</sup> Non si tratta di un errore di digitazione. Il livello di base prevede un limite di 100 campi per ogni indice. Si tratta dell'unico livello con limite inferiore.
 
-<sup>6</sup> [Basic tier](http://aka.ms/azuresearchbasic) is available at an introductory rate of 50% off the full price during the preview period.
+<sup>6</sup> Il [livello di base](http://aka.ms/azuresearchbasic) è disponibile nel periodo di anteprima con uno sconto del 50% rispetto al prezzo intero.
 
-
+<!---HONumber=AcomDC_0302_2016-->

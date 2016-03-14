@@ -15,13 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Introduzione all'API di Microsoft Translator
-Connettersi a Microsoft Translator per tradurre il testo, individuare una lingua e così via.
+Connettersi a Microsoft Translator per tradurre il testo, individuare una lingua e così via. L'API di Microsoft Translator può essere usata da:
 
-L'API di Microsoft Translator può essere usata dalle app di PowerApps Enterprise e dalle app per la logica.
+- PowerApps 
+- App per la logica 
 
 Con Microsoft Translator è possibile:
 
@@ -45,7 +46,7 @@ Tutte le API supportano i dati nei formati JSON e XML.
 ## Creare una connessione a Microsoft Translator
 
 ### Aggiungere configurazioni aggiuntive in PowerApps
-Quando si aggiunge Microsoft Translator a PowerApps Enterprise, immettere i valori di **ID client** e **segreto client** dell'applicazione Microsoft Translator. Se non si ha un'applicazione Microsoft Translator, è possibile crearne una:
+Quando si aggiunge Microsoft Translator a PowerApps Enterprise, immettere i valori **ID client** e **Segreto client** dell'applicazione Microsoft Translator. Se non si ha un'applicazione Microsoft Translator, è possibile crearne una:
 
 1. Passare alla [Pagina per gli sviluppatori di Azure Data Market][5] e accedere con il proprio account Microsoft. 
 
@@ -53,23 +54,24 @@ Quando si aggiunge Microsoft Translator a PowerApps Enterprise, immettere i valo
 
 	1. Immettere un valore per **ID client**.
 	2. Immettere il **nome** dell'applicazione.
-	3. Immettere un valore fittizio per l'**URL di reindirizzamento**, ad esempio **https://contosoredirecturl*.
+	3. Immettere un valore fittizio per l'**URL di reindirizzamento**, Ad esempio, immettere: **https://contosoredirecturl*.
 4. Immettere una **descrizione**.
 	5. Selezionare **Create**.  
 
 	![Registrare l'applicazione][6]
 
-A questo punto, copiare e incollare i valori di **ID client** e **chiave app** nella configurazione di Microsoft Translator nel portale di Azure.
+A questo punto, copiare e incollare i valori **ID client** e **Segreto client** nella configurazione di Translator nel portale di Azure.
 
 
-## Riferimento all'API REST Swagger
+## Riferimento all'API REST di Swagger
+Si applica alla versione 1.0.
 
 ### Rileva lingua    
 Rileva la lingua di origine di un testo specificato. ```GET: /Detect```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|query|string|sì|query|nessuno |Testo di cui verrà identificata la lingua|
+|query|string|yes|query|nessuno |Testo di cui verrà identificata la lingua|
 
 #### Risposta
 |Nome|Descrizione|
@@ -83,8 +85,8 @@ Converte un testo specificato in parlato come un flusso audio in formato wave. `
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|query|string|sì|query|nessuno |Testo da convertire|
-|Lingua|string|sì|query|nessuno |Codice della lingua in cui generare il riconoscimento vocale, ad esempio 'it-IT'|
+|query|string|yes|query|nessuno |Testo da convertire|
+|Lingua|string|yes|query|nessuno |Codice della lingua in cui generare il riconoscimento vocale, ad esempio 'it-IT'|
 
 #### Risposta
 |Nome|Descrizione|
@@ -98,8 +100,8 @@ Traduce il testo in una lingua specificata tramite Microsoft Translator. ```GET:
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
-|query|string|sì|query|nessuno |Testo da tradurre|
-|languageTo|string|sì|query| nessuno|Codice lingua di destinazione, ad esempio 'fr'|
+|query|string|yes|query|nessuno |Testo da tradurre|
+|languageTo|string|yes|query| nessuno|Codice lingua di destinazione, ad esempio 'fr'|
 |languageFrom|string|no|query|nessuno |Codice lingua di origine, ad esempio 'it'. Se non viene specificato, Microsoft Translator tenterà di rilevarlo automaticamente.|
 |category|string|no|query|generale |Categoria di traduzione (valore predefinito: 'generale')|
 
@@ -144,7 +146,7 @@ Non sono disponibili parametri per questa chiamata.
 
 
 ## Passaggi successivi
-Dopo aver aggiunto l'API di Microsoft Translator a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle proprie app.
+Dopo aver aggiunto l'API di Microsoft Translator a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle app.
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -153,4 +155,4 @@ Dopo aver aggiunto l'API di Microsoft Translator a PowerApps Enterprise, [conced
 [5]: https://datamarket.azure.com/developer/applications/
 [6]: ./media/create-api-microsofttranslator/register-your-application.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

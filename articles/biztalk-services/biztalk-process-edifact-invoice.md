@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/02/2015"
-   ms.author="Deonhe"/>
+   ms.date="02/29/2016"
+   ms.author="deonhe"/>
 
 # Esercitazione: Elaborare fatture EDIFACT mediante Servizi BizTalk di Microsoft Azure
 È possibile utilizzare il portale Servizi BizTalk per configurare e distribuire accordi EDIFACT e X12. In questa esercitazione viene illustrato come creare un accordo EDIFACT per lo scambio di fatture tra partner commerciali. L'esercitazione è relativa a una soluzione aziendale end-to-end che coinvolge due partner commerciali, Northwind e Contoso, che si scambiano messaggi EDIFAC.
@@ -46,7 +46,7 @@ Per completare lo scenario, vengono usate code di bus di servizio per inviare la
 
 ## Prerequisiti
 
-*   È necessario disporre di uno spazio dei nomi di bus di servizio. Per istruzioni sulla creazione di uno spazio dei nomi, vedere [Procedura: Creare o modificare uno spazio dei nomi del servizio del bus di servizio](https://msdn.microsoft.com/library/hh690931.aspx). Si supponga di aver già effettuato il provisioning di uno spazio dei nomi di bus di servizio, denominato **edifactbts**.
+*   È necessario disporre di uno spazio dei nomi di bus di servizio. Per istruzioni sulla creazione di uno spazio dei nomi, vedere [Procedura: Creare o modificare uno spazio dei nomi del servizio del bus di servizio](https://msdn.microsoft.com/library/azure/hh674478.aspx). Si supponga di aver già effettuato il provisioning di uno spazio dei nomi di bus di servizio, denominato **edifactbts**.
 
 *   È necessario disporre di una sottoscrizione a Servizi BizTalk. Per le istruzioni, vedere [Creazione di servizi BizTalk tramite il portale di Azure](http://go.microsoft.com/fwlink/?LinkID=302280). Per questa esercitazione, si supponga di avere una sottoscrizione a Servizi BizTalk, denominata **contosowabs**.
 
@@ -59,9 +59,9 @@ Per completare lo scenario, vengono usate code di bus di servizio per inviare la
 ## Passaggio 1: creare le code del bus di servizio  
 Questa soluzione usa code di bus di servizio per lo scambio di messaggi tra i partner commerciali. Contoso e Northwind inviano messaggi alle code, da dove vengono usati dai bridge EAI e/o EDI. Per questa soluzione, sono necessarie tre code del bus di servizio:
 
-*   **northwindreceive** –Attraverso questa coda Northwind riceve le fatture da Contoso.
+*   **northwindreceive**: Northwind riceve la fattura da Contoso tramite questa coda.
 
-*   **contosoreceive** – Attraverso questa coda Contoso riceve l'acknowledgement da Northwind.
+*   **contosoreceive**: Contoso riceve l'acknowledgement da Northwind tramite questa coda.
 
 *   **suspended** – A questa coda vengono instradati tutti i messaggi sospesi. I messaggi vengono sospesi se presentano errori durante l'elaborazione.
 
@@ -113,7 +113,7 @@ Gli accordi tra partner commerciali vengono creati tra i profili di business dei
     3.  Nella scheda **Protocollo**, nella sezione **Schemi**, caricare lo schema **EFACT\_D93A\_INVOIC.xsd**. Questo schema è disponibile con il pacchetto di esempio.
 
         ![][4]  
-    4.  Nella scheda **Trasporto** specificare i dettagli delle code del bus di servizio. Per l'accordo sul lato invio, viene usata la coda **northwindreceive** per inviare la fattura EDIFACT a Northwind, mentre la coda **suspended** viene usata per instradare gli eventuali messaggi che presentano problemi durante l'elaborazione e vengono sospesi. Queste code sono state create nel [Passaggio 1: creare le code del bus di servizio](#BKMK_Queue).
+    4.  Nella scheda **Trasporto** specificare i dettagli delle code del bus di servizio. Per l'accordo sul lato invio, viene usata la coda **northwindreceive** per inviare la fattura EDIFACT a Northwind, mentre la coda **suspended** viene usata per instradare gli eventuali messaggi che presentano problemi durante l'elaborazione e vengono sospesi. Queste code sono state create nel **Passaggio 1: Creare le code del bus di servizio** di questo argomento.
 
         ![][5]
 
@@ -129,13 +129,14 @@ Gli accordi tra partner commerciali vengono creati tra i profili di business dei
 
     4.  Nella scheda **Route** creare un filtro per assicurarsi che a Contoso vengano instradati solo gli acknowledgement di Northwind. In **Route Settings** fare clic su **Aggiungi** per creare il filtro di routing.
 
-        ![][6] 1. Nei campi **Nome regola**, **Route rule** e **Route destination** specificare i valori mostrati nell'immagine.
+        ![][6]
+        1.  Nei campi **Nome regola**, **Route rule** e **Route destination** specificare i valori mostrati nell'immagine.
 
         2.  Fare clic su **Save**.
 
     5.  Sempre nella scheda **Route**, specificare dove devono essere instradati gli acknowledgement sospesi, ossia gli acknowledgement che presentano problemi durante l'elaborazione. Impostare il tipo di trasporto su Bus di servizio di Azure, il tipo di destinazione route su **Coda**, il tipo di autenticazione su **Firma di accesso condiviso** (SAS), specificare la relativa stringa di connessione per lo spazio dei nomi di bus di servizio quindi immettere **suspended** come nome della coda.
 
-5.  Fare infine clic su **Distribuisci** per distribuire il contratto. Notare gli endpoint in cui vengono distribuiti gli accordi di invio e ricezione.
+5.  Fare infine clic su **Distribuisci** per distribuire l'accordo. Notare gli endpoint in cui vengono distribuiti gli accordi di invio e ricezione.
 
     *   Nella scheda **Send Settings**, in **Inbound URL**, notare l'endpoint. Per inviare un messaggio da Contoso a Northwind usando il bridge di trasmissione EDI è necessario inviare un messaggio a questo endpoint.
 
@@ -239,7 +240,7 @@ Anche il progetto di Servizi BizTalk, **InvoiceProcessingBridge**, che converte 
 
 2.  In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul progetto **InvoiceProcessingBridge** e scegliere **Distribuisci**.
 
-3.  Specificare i valori mostrati nell'immagine, quindi fare clic su **Distribuisci**. È possibile ottenere le credenziali ACS per Servizi BizTalk facendo clic su **Informazioni di connessione** dal dashboard di Servizi BizTalk.
+3.  Specificare i valori mostrati nell'immagine, quindi fare clic su **Distribuisci**. È possibile ottenere le credenziali ACS per i Servizi BizTalk facendo clic su **Informazioni di connessione** dal dashboard dei Servizi BizTalk.
 
     ![][11]
 
@@ -287,7 +288,7 @@ Quando si usano i batch, l'aspetto più importante da considerare è l'effettivo
 4.  Specificare criteri di rilascio del batch. Dalla casella di riepilogo a discesa selezionare **MessageCountBased** e per **Conteggio** specificare **3**. Questo significa che a Northwind verrà inviato un batch di tre messaggi. Fare clic su **Avanti**.
 
     ![][18]  
-5.  Controllare il riepilogo, quindi fare clic su **Salva**. Fare clic su **Distribuisci** per ridistribuire il contratto.
+5.  Controllare il riepilogo, quindi fare clic su **Salva**. Fare clic su **Distribuisci** per ridistribuire l'accordo.
 
 6.  Tornare all'applicazione **client dell'esercitazione**, fare clic su **Send In-house Invoice** e seguire i messaggi di richiesta per inviare la fattura. Si noterà che Northwind non riceve alcuna fattura perché i criteri relativi al numero di messaggi per il batch non sono soddisfatti. Ripetere questo passaggio altre due volte, in modo da avere tre messaggi di fatture da inviare a Northwind. In questo caso, i criteri di rilascio, che prevedono un batch di 3 messaggi, vengono soddisfatti, pertanto ora dovrebbe risultare una fattura presso Northwind.
 
@@ -312,4 +313,4 @@ Quando si usano i batch, l'aspetto più importante da considerare è l'effettivo
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

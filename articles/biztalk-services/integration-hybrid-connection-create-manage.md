@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -33,7 +33,7 @@ In questo argomento vengono riportati i passaggi seguenti.
 
 Una connessione ibrida può essere creata nel portale di Azure usando le app Web **oppure** i servizi BizTalk.
 
-**Per creare connessioni ibride con le app Web**, vedere [Connettere App Web di Azure a una risorsa locale](../web-sites-hybrid-connection-get-started.md).
+**Per creare connessioni ibride con le app Web**, vedere [Connettere App Web di Azure a una risorsa locale](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 **Per creare connessioni ibride nei servizi BizTalk**:
 
@@ -61,9 +61,9 @@ Porta | Immettere il numero di porta della risorsa locale. Ad esempio, se si usa
 
 ## <a name="LinkWebSite"></a>Collegare App Web di Azure o App per dispositivi mobili di Azure
 
-Per collegare App Web di Azure a una connessione ibrida esistente, selezionare **usa una connessione ibrida esistente** nel pannello delle connessioni ibride. Vedere [Connettere le app Web di Azure a una risorsa locale](../web-sites-hybrid-connection-get-started.md).
+Per collegare App Web di Azure a una connessione ibrida esistente, selezionare **usa una connessione ibrida esistente** nel pannello delle connessioni ibride. Vedere [Connettere le app Web di Azure a una risorsa locale](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
-Per collegare le app per dispositivi mobili di Azure a una connessione ibrida esistente, selezionare **aggiungi connessione ibrida** quando si modifica o si crea un servizio mobile. Vedere [Servizi mobili di Azure e Connessioni ibride](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
+Per collegare le app per dispositivi mobili di Azure a una connessione ibrida esistente, selezionare **aggiungi connessione ibrida** quando si modifica o si crea un servizio mobile. Vedere [Servizi mobili di Azure e Connessioni ibride](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 
 ## <a name="InstallHCM"></a>Installare Gestione connessioni ibride nella risorsa locale
@@ -85,7 +85,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 3. On the on-premises resource, install the Hybrid Connection Manager from the MSI file. 
 4. Using Windows PowerShell, type: 
 > Add-HybridConnection -ConnectionString “*Your On-Premises Connection String that you copied*” 
--->
+--> 
 
 #### Informazioni aggiuntive
 - Le connessioni ibride supportano le risorse locali installate nei seguenti sistemi operativi:
@@ -119,7 +119,9 @@ Per gestire le connessioni ibride è possibile:
 
 	**Gestisci connessione** elenca le stringhe di connessione dell'applicazione e locali. È possibile copiare le stringhe di connessione o rigenerare la chiave di accesso usata nella stringa di connessione.
 
-	**Se si seleziona Rigenera**, la chiave di accesso condivisa usata nella stringa di connessione viene modificata. Eseguire l'operazione seguente: nel portale di Azure classico selezionare **Chiavi di sincronizzazione** nell'applicazione Azure. Eseguire nuovamente la **Configurazione locale**. Quando si esegue di nuovo l'installazione locale, la risorsa locale viene configurata automaticamente per usare la stringa di connessione primaria aggiornata.
+	**Se si seleziona Rigenera**, la chiave di accesso condivisa usata nella stringa di connessione viene modificata. Eseguire le operazioni seguenti:
+	- Nel portale classico di Azure selezionare **Chiavi di sincronizzazione** nell'applicazione Azure.
+	- Eseguire di nuovo **Installazione locale**. Quando si esegue di nuovo l'installazione locale, la risorsa locale viene configurata automaticamente per usare la stringa di connessione primaria aggiornata.
 
 
 #### Usare i Criteri di gruppo per controllare le risorse locali usate da una connessione ibrida
@@ -138,7 +140,7 @@ Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criter
 
 ## Avanti
 
-[Connettere le app Web di Azure a una risorsa locale](../web-sites-hybrid-connection-get-started.md) [Connettersi a un'istanza di SQL Server locale dalle app Web di Azure](../web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Servizi mobili di Azure e connessioni ibride](../mobile-services-dotnet-backend-hybrid-connections-get-started.md) [Panoramica delle connessioni ibride](integration-hybrid-connection-overview.md)
+[Connettere le app Web di Azure a una risorsa locale](../app-service-web/web-sites-hybrid-connection-get-started.md) [Connettersi a un'istanza di SQL Server locale dalle app Web di Azure](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Servizi mobili di Azure e connessioni ibride](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md) [Panoramica delle connessioni ibride](integration-hybrid-connection-overview.md)
 
 
 ## Vedere anche
@@ -150,4 +152,4 @@ Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criter
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

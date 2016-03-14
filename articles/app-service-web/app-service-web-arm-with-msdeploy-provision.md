@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="02/26/2016"
 	ms.author="john.dehavilland"/>
 
 # Distribuire un'app Web con MSDeploy, il nome host personalizzato e il certificato SSL
@@ -197,4 +197,4 @@ Lo script PowerShell seguente illustra la distribuzione completa chiamando Deplo
 
 A questo punto l'applicazione è stata distribuita ed è possibile accedervi tramite https://www.yourcustomdomain.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

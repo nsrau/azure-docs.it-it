@@ -21,7 +21,7 @@
 Le funzionalità di **database elastico** consentono di utilizzare le risorse di database virtualmente illimitate di **Database SQL di Azure** per creare soluzioni per carichi di lavoro transazionali e soprattutto applicazioni SaaS (Software as a Service). Le funzioni di database elastico sono costituite dai seguenti elementi:
 
 * Strumenti di database elastici: questi due strumenti semplificano lo sviluppo e la gestione di soluzioni di database partizionate. Gli strumenti sono: la [libreria client di database elastici](sql-database-elastic-database-client-library.md) e lo [strumento di suddivisione-unione dei database elastici](sql-database-elastic-scale-overview-split-and-merge.md). 
-* [Pool di database elastici](sql-database-elastic-pool-guidance.md) (anteprima): un pool è una raccolta di database a cui è possibile aggiungere o rimuovere i database in qualsiasi momento. I database nel pool condividono una quantità fissa di risorse (note come unità elaborate del database o DTU). Per le risorse viene pagato un prezzo fisso, che consente di calcolare facilmente i costi durante la gestione delle prestazioni. 
+* [Pool di database elastici](sql-database-elastic-pool-guidance.md) (anteprima): un pool è una raccolta di database a cui è possibile aggiungere o rimuovere i database in qualsiasi momento. I database nel pool condividono una quantità fissa di risorse (note come unità di transazione del database o DTU). Per le risorse viene pagato un prezzo fisso, che consente di calcolare facilmente i costi durante la gestione delle prestazioni. 
 * [Processi di database elastico](sql-database-elastic-jobs-overview.md) (anteprima): utilizzare i processi per gestire un numero elevato di database SQL di Azure. Consente di eseguire facilmente operazioni amministrative, ad esempio le modifiche dello schema, la gestione delle credenziali, gli aggiornamenti dei dati di riferimento, la raccolta dei dati sulle prestazioni o la raccolta di dati di telemetria tenant (cliente) utilizzando i processi.
 * [Query di database elastico](sql-database-elastic-query-overview.md) (anteprima): consente di eseguire una query Transact-SQL che si estende in più database. Tale query consente una connessione a strumenti di report, ad esempio Excel, PowerBI, Tableau e così via.
 
@@ -108,4 +108,4 @@ Cosa si può fare meglio? Questo argomento spiega chiaramente la funzionalità? 
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

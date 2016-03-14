@@ -56,6 +56,8 @@ No. Le appartenenze ai gruppi non possono essere modificate nei domini gestiti d
 #### È possibile estendere lo schema del dominio fornito da Servizi di dominio Azure Active Directory?
 No. Lo schema è amministrato da Microsoft per il dominio gestito. Le estensioni dello schema non sono supportate da Servizi di dominio Azure Active Directory.
 
+### È possibile modificare i record DNS forniti da Servizi di dominio di Azure AD?
+Sì. Gli utenti che fanno parte del gruppo amministrativo (ad esempio gli amministratori di controller di dominio di AAD) dispongono delle autorizzazioni di amministratore DNS per modificare i record DNS.
 
 ### Fatturazione e disponibilità
 
@@ -74,4 +76,4 @@ Per un elenco di aree di Azure per cui è disponibile Servizi di dominio Azure A
 #### Quando sarà disponibile a livello generale Servizi di dominio Azure AD?
 Non è attualmente possibile condividere informazioni sulla tempistica prevista per la disponibilità del servizio a livello generale.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/24/2016" 
 	ms.author="billmath"/>
 
 # Gestione delle impostazioni utente con Azure Multi-Factor Authentication nel cloud
@@ -38,17 +38,19 @@ Questa impostazione impone all'utente di ripetere il processo di registrazione q
 
 ### Come richiedere agli utenti di fornire di nuovo i metodi di contatto
 
-<ol>
-<li>Accedere al portale di gestione di Azure.</li>
-<li>A sinistra fare clic su Active Directory.</li>
-<li>In Directory fare clic sulla directory relativa all'utente desiderato.</li>
-<li>Nella parte superiore fare clic su Utenti.</li>
-<li>Nella parte inferiore della pagina fare clic su Gestisci Multi-Factor Auth. Verrà visualizzata la pagina di multi-factor authentication. <li>Individuare l'utente che si desidera gestire e inserire un segno di spunta nella casella situata accanto al nome. Potrebbe essere necessario modificare la visualizzazione nella parte superiore.</li> <li>A destra viene visualizzato il collegamento **Gestisci le impostazioni dell'utente**. Fare clic su di esso.</li> <li>Inserire un segno di spunta in **Richiedere agli utenti selezionati di fornire di nuovo i metodi di contatto**.</li>
 
-![Fornire metodi di contatto](./media/multi-factor-authentication-manage-users-and-devices/reproofup.png)
 
-<li>Fare clic su Salva.</li>
-<li>Fare clic su Chiudi</li>
+
+1. Accedere al portale di Azure classico.
+2. A sinistra fare clic su Active Directory.
+3. In Directory fare clic sulla directory relativa all'utente desiderato.
+4. Nella parte superiore fare clic su Utenti.
+5. Nella parte inferiore della pagina fare clic su Gestisci Multi-Factor Auth. Verrà visualizzata la pagina Multi-Factor Authentication.
+6. Individuare l'utente che si desidera gestire e inserire un segno di spunta nella casella situata accanto al nome. Potrebbe essere necessario modificare la visualizzazione nella parte superiore.
+7. A destra viene visualizzato il collegamento **Gestisci le impostazioni dell'utente**. quindi farvi clic.
+8. Inserire un segno di spunta in **Richiedere agli utenti selezionati di fornire di nuovo i metodi di contatto**. ![Fornire metodi di contatto](./media/multi-factor-authentication-manage-users-and-devices/reproofup.png)
+10. Fare clic su Salva.
+11. Fare clic su Chiudi
 
 ## Eliminare le password per le app esistenti degli utenti
 
@@ -56,28 +58,32 @@ Vengono eliminate tutte le password dell'app create da un utente. Le app non bas
 
 ### Come eliminare le password per le app esistenti degli utenti
 
-<ol>
-<li>Accedere al portale di gestione di Azure.</li>
-<li>A sinistra fare clic su Active Directory.</li>
-<li>In Directory fare clic sulla directory relativa all'utente desiderato.</li>
-<li>Nella parte superiore fare clic su Utenti.</li>
-<li>Nella parte inferiore della pagina fare clic su Gestisci Multi-Factor Auth. Verrà visualizzata la pagina di multi-factor authentication. <li>Individuare l'utente che si desidera gestire e inserire un segno di spunta nella casella situata accanto al nome. Potrebbe essere necessario modificare la visualizzazione nella parte superiore.</li> <li>A destra viene visualizzato il collegamento **Gestisci le impostazioni dell'utente**. Fare clic su di esso.</li> <li>Inserire un segno di spunta in **Eliminare le password per le app esistenti degli utenti**.</li> ![Eliminare password per le app](./media/multi-factor-authentication-manage-users-and-devices/deleteapppasswords.png) <li>Fare clic su Salva.</li> <li>Fare clic su Chiudi.</li>
+1. Accedere al portale di Azure classico.
+2. A sinistra fare clic su Active Directory.
+3. In Directory fare clic sulla directory relativa all'utente desiderato.
+4. Nella parte superiore fare clic su Utenti.
+5. Nella parte inferiore della pagina fare clic su Gestisci Multi-Factor Auth. Verrà visualizzata la pagina Multi-Factor Authentication.
+6. Individuare l'utente che si desidera gestire e inserire un segno di spunta nella casella situata accanto al nome. Potrebbe essere necessario modificare la visualizzazione nella parte superiore.
+7. A destra viene visualizzato il collegamento **Gestisci le impostazioni dell'utente**. quindi farvi clic. 
+8. Inserire un segno di spunta in **Eliminare le password per le app esistenti degli utenti**. ![Eliminare password per le app](./media/multi-factor-authentication-manage-users-and-devices/deleteapppasswords.png)
+10. Fare clic su Salva.
+10. Fare clic su Chiudi.
 
+## Ripristinare MFA in tutti i dispositivi memorizzati per un utente
 
-
-
-
-## Ripristinare Multi-Factor Authentication in tutti i dispositivi sospesi per un utente
-
-Gli amministratori hanno la possibilità di reimpostare Multi-Factor Authentication su dispositivi e browser. Ciò avviene tramite il ripristino di Multi-Factor Authentication per dispositivi e browser di un utente. Quando si esegue questa operazione, la sospensione viene rimossa da tutti i dispositivi e i browser dell'utente.
+Gli amministratori hanno la possibilità di ripristinare Multi-Factor Authentication su dispositivi e browser degli utenti. Questa operazione rimuove la memorizzazione di MFA da tutti i dispositivi e da tutti i browser dell'utente, che all'accesso successivo dovrà usare MFA.
 
 ### Come ripristinare Multi-Factor Authentication in tutti i dispositivi sospesi per un utente
 
-<ol>
-<li>Accedere al portale di gestione di Azure.</li>
-<li>A sinistra fare clic su Active Directory.</li>
-<li>In Directory fare clic sulla directory relativa all'utente desiderato.</li>
-<li>Nella parte superiore fare clic su Utenti.</li>
-<li>Nella parte inferiore della pagina fare clic su Gestisci Multi-Factor Auth. Verrà visualizzata la pagina di multi-factor authentication. <li>Individuare l'utente che si desidera gestire e inserire un segno di spunta nella casella situata accanto al nome. Potrebbe essere necessario modificare la visualizzazione nella parte superiore.</li> <li>A destra viene visualizzato il collegamento **Gestisci le impostazioni dell'utente**. Fare clic su di esso.</li> <li>Inserire un segno di spunta in Ripristinare Multi-Factor Authentication in tutti i dispositivi sospesi.</li> ![Eliminare password per le app](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png) <li>Fare clic su Salva.</li> <li>Fare clic su Chiudi.</li>
+1. Accedere al portale di Azure classico.
+2. A sinistra fare clic su Active Directory.
+3. In Directory fare clic sulla directory relativa all'utente desiderato.
+4. Nella parte superiore fare clic su Utenti.
+5. Nella parte inferiore della pagina fare clic su Gestisci Multi-Factor Auth. Verrà visualizzata la pagina Multi-Factor Authentication.
+6. Individuare l'utente che si desidera gestire e inserire un segno di spunta nella casella situata accanto al nome. Potrebbe essere necessario modificare la visualizzazione nella parte superiore.
+7. A destra viene visualizzato il collegamento **Gestisci le impostazioni dell'utente**. quindi farvi clic.
+8. Inserire un segno di spunta in **Ripristina l'autenticazione a più fattori in tutti i dispositivi memorizzati** ![Eliminare password per le app](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png)
+9. Fare clic su Salva.
+10. Fare clic su Chiudi.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

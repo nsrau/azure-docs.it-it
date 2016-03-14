@@ -13,22 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# Distribuire StorSimple Virtual Array: configurare come file server (anteprima)
+# Distribuire StorSimple Virtual Array: configurare come file server
 
 ![](./media/storsimple-ova-deploy3-fs-setup/fileserver4.png)
 
 ## Introduzione 
 
-Questo articolo si applica solo a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione 1.1.1.0 (anteprima). Questo articolo illustra come eseguire l'installazione iniziale, registrare il file server StorSimple, completare l'installazione del dispositivo, quindi creare condivisioni SMB a cui connettersi. Questo è l'ultimo articolo della serie di esercitazioni per la distribuzione necessarie per la distribuzione completa dell'array virtuale come file server o server iSCSI.
+Le informazioni contenute in questo articolo si applicano solo a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione di disponibilità generale (GA) di marzo 2016. Questo articolo illustra come eseguire l'installazione iniziale, registrare il file server StorSimple, completare l'installazione del dispositivo, quindi creare condivisioni SMB a cui connettersi. Questo è l'ultimo articolo della serie di esercitazioni per la distribuzione necessarie per la distribuzione completa dell'array virtuale come file server o server iSCSI.
 
 Il completamento del processo di installazione e configurazione può richiedere circa 10 minuti.
 
-> [AZURE.IMPORTANT]
-> 
-> Questa anteprima pubblica è destinata esclusivamente alla valutazione. L'installazione di questa versione di anteprima in un ambiente di produzione non è supportata.
 
 ## Prerequisiti di installazione
 
@@ -36,7 +33,7 @@ Prima di configurare e installare il dispositivo virtuale StorSimple, si deve:
 
 -   Eseguire il provisioning di un dispositivo virtuale e connettersi come illustrato nell'articolo relativo al [provisioning di StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o al [provisioning di StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
 
--   Avere ottenuto la chiave di registrazione del servizio dal servizio StorSimple Manager creato per gestire i dispositivi virtuali StorSimple. Per ulteriori informazioni, vedere [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per StorSimple Virtual Array.
+-   Avere ottenuto la chiave di registrazione del servizio dal servizio StorSimple Manager creato per gestire i dispositivi virtuali StorSimple. Per altre informazioni, vedere [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per StorSimple Virtual Array.
 
 -   Se questo è il secondo dispositivo virtuale o l'ulteriore dispositivo registrato con un servizio StorSimple Manager esistente, è necessario disporre della chiave DEK del servizio. Questa chiave viene generata nel momento in cui avviene la corretta registrazione del primo dispositivo con questo servizio. Se si smarrisce la chiave, vedere come [ottenere la chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) per StorSimple Virtual Array.
 
@@ -65,13 +62,13 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image4.png)
 
-1.  Nella pagina delle **Impostazioni di rete**, in **Interfacce di rete**, DATA 0 viene configurato automaticamente per l'utente. Ogni interfaccia di rete è impostata come predefinita per ottenere l'indirizzo IP automaticamente (DHCP). Di conseguenza, un indirizzo IP, una subnet e un gateway vengono assegnati automaticamente (sia per IPv4 che per IPv6).
+1.  Nella pagina delle **Impostazioni di rete** in **Interfacce di rete** DATA 0 viene configurato automaticamente per l'utente. Ogni interfaccia di rete è impostata come predefinita per ottenere l'indirizzo IP automaticamente (DHCP). Di conseguenza, un indirizzo IP, una subnet e un gateway vengono assegnati automaticamente (sia per IPv4 che per IPv6).
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image5.png)
 
 	Se si aggiunge più di un'interfaccia di rete durante il provisioning del dispositivo, è possibile configurarle tutte qui. Si noti che è possibile configurare l'interfaccia di rete come solo IPv4 o come IPv4 e IPv6. Le configurazioni solo IPv6 non sono supportate.
 
-1.  I server DNS sono necessari perché vengono usati quando il dispositivo tenta di comunicare con i provider del servizio di archiviazione cloud o per risolvere il dispositivo in base al nome quando configurato come file server. Nella pagina **Impostazioni di rete**, in **Server DNS**:
+1.  I server DNS sono necessari perché vengono usati quando il dispositivo tenta di comunicare con i provider del servizio di archiviazione cloud o per risolvere il dispositivo in base al nome quando configurato come file server. Nella pagina **Impostazioni di rete** in **Server DNS**:
 
     1.  Un server DNS primario e secondario viene configurato automaticamente. Se si sceglie di configurare gli indirizzi IP statici, è possibile specificare i server DNS. Per una disponibilità elevata, si consiglia di configurare un server DNS primario e uno secondario.
 
@@ -131,7 +128,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     1.  Immettere la **chiave di registrazione del servizio** ottenuta in [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per StorSimple Virtual Array.
 
-    2.  Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per altre informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
+    2.  Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per ulteriori informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
 
     3.  Fare clic su **Register**. Il dispositivo viene così riavviato. È necessario attendere 2-3 minuti per la corretta registrazione del dispositivo. Dopo avere riavviato il dispositivo, si passa alla pagina di accesso.
 
@@ -154,15 +151,15 @@ Eseguire i passaggi seguenti nel [portale di Azure classico](https://manage.wind
 
 #### Per completare l'installazione minima del dispositivo
 
-1.  Nella pagina **Dispositivi**, selezionare il dispositivo appena creato. Il dispositivo viene visualizzato come **Attivo**. Fare clic sulla freccia accanto al nome del dispositivo, quindi fare clic su **Avvio rapido**.
+1.  Nella pagina **Dispositivi**, selezionare il dispositivo appena creato. Il dispositivo viene visualizzato come **Attivo**. Fare clic sulla freccia in base al nome del dispositivo, quindi fare clic su **Avvio rapido**.
 
 2.  Fare clic su **installazione dispositivo completata** per avviare la configurazione guidata del dispositivo.
 
-3.  Nella pagina **Impostazioni di base** della configurazione guidata del dispositivo, eseguire le seguenti operazioni:
+3.  Nella configurazione guidata del dispositivo, nella pagina **Impostazioni di base**, eseguire le seguenti operazioni:
 
-	1.  Specificare un account di archiviazione da usare con il dispositivo. È possibile selezionare un account di archiviazione esistente in questa sottoscrizione nell'elenco a discesa o specificare **Aggiungi elementi** per scegliere un account da una sottoscrizione diversa.
+	1.  Specificare un account di archiviazione da usare con il dispositivo. È possibile selezionare un account di archiviazione esistente in questa sottoscrizione nell'elenco a discesa o specificare **Aggiungi altro** per scegliere un account da una sottoscrizione diversa.
 
-	2.  Definire le impostazioni di crittografia per tutti i dati inattivi (crittografia AES) da inviare al cloud. Per crittografare i dati, selezionare la casella combinata per **abilitare la chiave di crittografia per l'archiviazione cloud**. Immettere una crittografia di archiviazione cloud di 32 caratteri. Immettere nuovamente la chiave per confermarla. Una chiave AES a 256 bit viene usata con la chiave definita dall'utente per la crittografia.
+	2.  Definire le impostazioni di crittografia per tutti i dati inattivi (crittografia AES) da inviare al cloud. Per crittografare i dati, selezionare la casella combinata per **abilitare la chiave di crittografia di archiviazione cloud**. Immettere una crittografia di archiviazione cloud di 32 caratteri. Immettere nuovamente la chiave per confermarla. Una chiave AES a 256 bit viene usata con la chiave definita dall'utente per la crittografia.
 
 	3.  Fare clic sull’icona del segno di spunta ![](./media/storsimple-ova-deploy3-fs-setup/image15.png).
 
@@ -235,4 +232,4 @@ Guardare il video per scoprire in che modo configurare e registrare StorSimple V
 
 Scoprire come usare l'interfaccia utente Web locale per [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

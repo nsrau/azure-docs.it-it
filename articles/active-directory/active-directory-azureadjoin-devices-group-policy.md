@@ -10,7 +10,7 @@
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article"
 
-	ms.date="11/19/2015"
+	ms.date="02/26/2016"
 
 	ms.author="femila"/>
 
@@ -72,7 +72,7 @@ Nel server Azure AD Connect, eseguire questi comandi di PowerShell:
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
 
-Quando si esegue il cmdlet $aadAdminCred = Get-Credential, usare il formato **user@example.com* per il nome utente delle credenziali immesse quando viene visualizzato il popup Get-Credential.
+Quando si esegue il cmdlet $aadAdminCred = Get-Credential, usare il formato *user@example.com* per il nome utente delle credenziali immesse quando viene visualizzato il popup Get-Credential.
 
 Quando si esegue il cmdlet Initialize-ADSyncDomainJoinedComputerSync..., sostituire [*connector account name*] con l'account di dominio usato come account connettore di Active Directory.
 
@@ -144,4 +144,4 @@ In Windows 10 questo modello di Criteri di gruppo è stato rinominato. Se si ese
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

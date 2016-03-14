@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="web"
-   ms.date="12/24/2015"
+   ms.date="02/26/2016"
    ms.author="sumuth"/>
 
 # Usare efficacemente gli ambienti DevOps per le app Web
@@ -23,7 +23,7 @@ Questo articolo illustra come configurare e gestire le distribuzioni di applicaz
 ## Configurazione di un ambiente non di produzione (staging, sviluppo, controllo qualità)
 Una volta che l'app Web è operativa, il passaggio successivo prevede la creazione di un ambiente non di produzione. Per usare gli slot di distribuzione, assicurarsi che sia in esecuzione la modalità del piano di servizio app **Standard** o **Premium**. Gli slot di distribuzione sono in realtà app Web dal vivo con nomi host specifici. È possibile scambiare il contenuto dell'app Web e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. La distribuzione dell'applicazione in uno slot di distribuzione presenta i seguenti vantaggi:
 
-1. È possibile convalidare le modifiche alle app Web in uno slot di distribuzione di staging prima di scambiarlo con quello di produzione.
+1. È possibile convalidare le modifiche alle app Web in uno slot di distribuzione temporaneo prima di scambiarlo con quello di produzione.
 2. La distribuzione preliminare di un'app Web in uno slot e la successiva implementazione in un ambiente di produzione garantiscono che tutte le istanze dello slot vengano effettivamente eseguite prima di passare alla fase di produzione. Ciò consente di evitare i tempi di inattività al momento della distribuzione dell'app Web. Il reindirizzamento del traffico è lineare e nessuna richiesta viene eliminata in seguito alle operazioni di scambio. L'intero flusso di lavoro può essere automatizzata tramite la configurazione di [scambio automatico](web-sites-staged-publishing.md#configure-auto-swap-for-your-web-app) quando non è necessario spazio di pre-swapping convalida.
 3. Dopo uno scambio, lo slot con l'app Web gestita temporaneamente includerà l'app Web di produzione precedente. Se le modifiche applicate nello slot di produzione non risultano corrette, è possibile ripetere immediatamente lo scambio dei due slot per recuperare l'ultima app Web con i dati corretti.
 
@@ -287,8 +287,8 @@ Esplorare e testare l'app Web di staging. Si consideri uno scenario in cui è ne
 
 ![Anteprima modifiche dello scambio per WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE]
- >Se invece è presente uno scenario in cui è solo necessario eseguire il push dei file (senza aggiornamenti del database), **selezionare** la casella di controllo **Impostazione slot** per tutte le *impostazioni app* e le *impostazioni delle stringhe di connessione* relative al database nel pannello delle impostazioni dell'app Web nel portale di Azure prima di fare clic su SCAMBIA. In questo caso, le impostazioni DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER e la stringa di connessione predefinita non verranno visualizzate nell'anteprima modifiche quando si esegue un'operazione di **scambio**. In questa fase, al termine dell'operazione di **scambio** l'app Web WordPress conterrà **SOLO** i file aggiornati.
+ > [AZURE.NOTE]
+ Se invece è presente uno scenario in cui è solo necessario eseguire il push dei file (senza aggiornamenti del database), **selezionare** la casella di controllo **Impostazione slot** per tutte le *impostazioni app* e le *impostazioni delle stringhe di connessione* relative al database nel pannello delle impostazioni dell'app Web nel portale di Azure prima di fare clic su SCAMBIA. In questo caso, le impostazioni DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER e la stringa di connessione predefinita non verranno visualizzate nell'anteprima modifiche quando si esegue un'operazione di **scambio**. In questa fase, al termine dell'operazione di **scambio** l'app Web WordPress conterrà **SOLO** i file aggiornati.
 
 Ecco l'app Web WordPress di produzione ![App Web di produzione prima dello scambio degli slot](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png) prima dell'operazione di SCAMBIO
 
@@ -372,7 +372,7 @@ Per procedere con la configurazione è necessario aggiornare il file courier.con
   </repositories>
  ```
 
-In `<repositories>` immettere l'URL del sito di produzione e le informazioni dell'utente. Se si usa il provider di appartenenze Umbraco predefinito, aggiungere l'ID per l'utente Administration nella sezione <user>. Se si usa il provider di appartenenze Umbraco personalizzato, usare `<login>` e `<password>` affinché il modulo Courier2 possa connettersi al sito di produzione. Per altre informazioni, consultare la [documentazione](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) relativa al modulo Courier.
+In `<repositories>` immettere l’URL del sito di produzione e le informazioni dell’utente. Se si usa il provider di appartenenze Umbraco predefinito, aggiungere l'ID per l'utente Administration nella sezione <user>. Se si usa il provider di appartenenze Umbraco personalizzato, usare `<login>`,`<password>` affinché il modulo Courier2 possa connettersi al sito di produzione. Per altre informazioni, consultare la [documentazione](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) relativa al modulo Courier.
 
 Analogamente, installare il modulo Courier nel sito di produzione e configurarlo affinché gestisca in modo temporaneo l'app Web nel relativo file courier.config, come illustrato di seguito
 
@@ -428,7 +428,10 @@ Dopo aver aggiornato il sito di sviluppo locale, pubblicare le modifiche nell'ap
 
 ![Anteprima dello scambio per la distribuzione di Umbraco CMS.](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-Vantaggi dello scambio dell'app Web e del database: 1. È possibile eseguire il rollback alla versione precedente dell'app Web con un'altra operazione di **scambio** in caso di errori dell'applicazione. 2. Per gli aggiornamenti, è necessario distribuire i file e il database dall'app Web di staging all'app Web e al database di produzione. Durante la distribuzione di file e database, esistono molti aspetti che potrebbero non funzionare come previsto. La funzionalità di **scambio** degli slot consente di ridurre i tempi di inattività durante gli aggiornamenti e ridurre i rischi di errori che possono verificarsi durante la distribuzione delle modifiche. 3. Consente di eseguire il **test A/B** tramite la funzionalità di [test in produzione](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
+Vantaggi dello scambio dell'app Web e del database:
+1. È possibile eseguire il rollback alla versione precedente dell'app Web con un'altra operazione di **scambio** in caso di errori dell'applicazione.
+2. Per gli aggiornamenti, è necessario distribuire i file e il database dall'app Web di staging all'app Web e al database di produzione. Durante la distribuzione di file e database, esistono molti aspetti che potrebbero non funzionare come previsto. La funzionalità di **scambio** degli slot consente di ridurre i tempi di inattività durante gli aggiornamenti e ridurre i rischi di errori che possono verificarsi durante la distribuzione delle modifiche.
+3. Consente di eseguire il **test A/B** tramite la funzionalità di [test in produzione](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
 Questo esempio illustra la flessibilità della piattaforma in cui è possibile creare moduli personalizzati simili al modulo Umbraco Courier per gestire la distribuzione in più ambienti.
 
@@ -439,4 +442,4 @@ Questo esempio illustra la flessibilità della piattaforma in cui è possibile c
 
 [Come bloccare l'accesso Web agli slot di distribuzione non di produzione](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

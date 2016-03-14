@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 # Migrazione di un'app Web aziendale a un servizio app di Azure
 
 È possibile eseguire facilmente la migrazione dei siti Web esistenti che vengono eseguiti su Internet Information Service (IIS) 6 o versioni successive al [servizio app per app Web](http://go.microsoft.com/fwlink/?LinkId=529714).
 
->[AZURE.IMPORTANT]Il supporto per Windows Server 2003 terminerà il 14 luglio 2015. Se i siti Web sono attualmente eseguiti su un server IIS che è Windows Server 2003, le app Web rappresentano una soluzione a basso rischio, a costo contenuto e ad attrito ridotto per mantenere i propri siti Web online, mentre Migration Assistant di App Web può aiutare ad automatizzare il processo di migrazione per conto dell'utente.
+>[AZURE.IMPORTANT] Il supporto per Windows Server 2003 terminerà il 14 luglio 2015. Se i siti Web sono attualmente eseguiti su un server IIS che è Windows Server 2003, le app Web rappresentano una soluzione a basso rischio, a costo contenuto e ad attrito ridotto per mantenere i propri siti Web online, mentre Migration Assistant di App Web può aiutare ad automatizzare il processo di migrazione per conto dell'utente.
 
 [Migration Assistant di App Web](https://www.movemetothecloud.net/) può analizzare l'installazione del server IIS, identificare di quali siti è possibile eseguire la migrazione al servizio app, evidenziare eventuali elementi dei quali non è possibile eseguire la migrazione o che non sono supportati sulla piattaforma e quindi eseguire la migrazione dei propri siti Web e dei database associati in Azure.
 
@@ -66,7 +66,7 @@ Questa sezione prende in esame un esempio di migrazione di alcuni siti Web che u
 
 	![](./media/web-sites-migration-from-iis-server/install-page.png)
 
-	>[AZURE.NOTE]È anche possibile fare clic su **Download per installazione offline** per scaricare un file ZIP per l'installazione su server non connessi a Internet. In alternativa, fare clic su **Carica un report di conformità di una migrazione esistente**, che è un'opzione avanzata per usare un report di conformità di una migrazione esistente generato in precedenza (illustrato più avanti in questo articolo).
+	>[AZURE.NOTE] È anche possibile fare clic su **Download per installazione offline** per scaricare un file ZIP per l'installazione su server non connessi a Internet. In alternativa, fare clic su **Carica un report di conformità di una migrazione esistente**, che è un'opzione avanzata per usare un report di conformità di una migrazione esistente generato in precedenza (illustrato più avanti in questo articolo).
 
 5.	Nella schermata **Installazione applicazione**, fare clic su **Installa** per avviare l'installazione nel computer. Verranno installate anche le dipendenze corrispondenti come distribuzione Web, DacFX e IIS, se necessario.
 
@@ -94,7 +94,7 @@ Questa sezione prende in esame un esempio di migrazione di alcuni siti Web che u
  
 	![](./media/web-sites-migration-from-iis-server/readiness-assessment.png)
 
-12.	Fare clic su **Inizia la migrazione** per avviare la migrazione. Si verrà reindirizzati ad Azure per accedere al proprio account. È importante accedere con un account con una sottoscrizione di Azure attiva. Se non si ha un account di Azure, è possibile iscriversi alla versione di valutazione gratuita qui.
+12.	Fare clic su **Inizia la migrazione** per avviare la migrazione. Si verrà reindirizzati ad Azure per accedere al proprio account. È importante accedere con un account con una sottoscrizione di Azure attiva. Se non si ha un account di Azure, è possibile iscriversi alla versione di valutazione gratuita [qui](https://azure.microsoft.com/pricing/free-trial/?WT.srch=1&WT.mc_ID=SEM_).
 
 13.	Selezionare l'account tenant, la sottoscrizione di Azure e l'area da usare per le app Web e i database di Azure migrati, quindi fare clic su **Avvia la migrazione**. È possibile selezionare i siti Web di cui eseguire la migrazione in un secondo momento.
 
@@ -111,7 +111,7 @@ Questa sezione prende in esame un esempio di migrazione di alcuni siti Web che u
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[AZURE.NOTE]la casella di controllo **Enable Azure Active Directory** nelle impostazioni personalizzate si integra con il sito Web di Azure con [Azure Active Directory](active-directory-whatis.md) (la **directory predefinita**). Per altre informazioni sulla sincronizzazione di Azure Active Directory con l'Active Directory locale, vedere [Integrazione directory](http://msdn.microsoft.com/library/jj573653).
+	>[AZURE.NOTE] la casella di controllo **Enable Azure Active Directory** nelle impostazioni personalizzate si integra con il sito Web di Azure con [Azure Active Directory](active-directory-whatis.md) (la **directory predefinita**). Per altre informazioni sulla sincronizzazione di Azure Active Directory con l'Active Directory locale, vedere [Integrazione directory](http://msdn.microsoft.com/library/jj573653).
 
 16.	 Dopo aver apportato tutte le modifiche desiderate, fare clic su **Crea** per avviare il processo di migrazione. Lo strumento di migrazione creerà il database SQL di Azure e l'app Web di Azure e quindi pubblicherà il contenuto del sito Web e i database. L'avanzamento della migrazione è chiaramente indicato nello strumento di migrazione e sarà visualizzata una schermata di riepilogo alla fine, che include dettagli sui siti di cui è stata eseguita la migrazione, l'esito della migrazione e collegamenti alle app Web di Azure appena create.
 
@@ -129,10 +129,10 @@ Questa sezione prende in esame un esempio di migrazione di alcuni siti Web che u
 
 	![](./media/web-sites-migration-from-iis-server/TimeTrackerMigrated.png)
 
->[AZURE.NOTE]Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

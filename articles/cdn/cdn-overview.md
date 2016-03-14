@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Panoramica della rete CDN di Azure" 
-	description="Informazioni sulla rete per la distribuzione di contenuti (rete CDN) di Azure e su come usarla per distribuire contenuto con esigenze di larghezza di banda elevata tramite la memorizzazione nella cache di BLOB e contenuto statico." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Panoramica della rete CDN di Azure"
+	description="Informazioni sulla rete per la distribuzione di contenuti (rete CDN) di Azure e su come usarla per distribuire contenuto con esigenze di larghezza di banda elevata tramite la memorizzazione nella cache di BLOB e contenuto statico."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/20/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 # Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure
@@ -28,11 +28,11 @@ La rete CDN offre agli sviluppatori una soluzione globale per distribuire conten
 L'uso della rete CDN per memorizzare nella cache dati di Azure offre diversi vantaggi, inclusi i seguenti:
 
 - Prestazioni ed esperienza utente migliori per utenti finali distanti da un'origine contenuto e che usano applicazioni in cui sono necessari molti passaggi in Internet per caricare il contenuto.
-- Distribuzione su larga scala per gestire al meglio un carico elevato immediato, come all'inizio di un evento per il lancio di un prodotto. 
+- Distribuzione su larga scala per gestire al meglio un carico elevato immediato, come all'inizio di un evento per il lancio di un prodotto.
 
 
 >[AZURE.IMPORTANT] Quando si crea o abilita un endpoint della rete CDN, la propagazione nel mondo può richiedere fino a 90 minuti.
- 
+
 Quando la richiesta di un oggetto viene prima effettuata alla rete CDN, l'oggetto viene recuperato direttamente dal percorso di origine dell’origine dell’oggetto. Questa origine può essere un account di archiviazione di Azure, un’app web, un servizio cloud o qualsiasi origine personalizzata che accetta le richieste web pubbliche. Quando viene effettuata una richiesta usando la sintassi della rete CDN, la richiesta viene reindirizzata all'endpoint della rete CDN più vicino alla località da cui è stata avviata la richiesta per fornire accesso all'oggetto. Se l'oggetto non viene trovato nell'endpoint, viene recuperato dal servizio e memorizzato nella cache nell'endpoint, in cui viene configurata un'impostazione di durata (TTL) per l'oggetto memorizzato nella cache.
 
 ## Funzionalità standard
@@ -61,4 +61,4 @@ Il livello Premium della rete CDN comprende tutte le funzionalità del livello S
 - [Report HTTP avanzati](cdn-advanced-http-reports.md)
 - [Statistiche in tempo reale](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="02/29/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Cronologia delle versioni
@@ -24,8 +24,19 @@ Lo scopo di questo articolo è consentire agli utenti di esaminare le versioni r
 
 Collegamenti correlati:
 
+- Metodi per [eseguire l'aggiornamento da una versione precedente alla versione più recente](active-directory-aadconnect-upgrade-previous-version.md) di Azure AD Connect.
 - Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.1.110.0
+Data di rilascio: febbraio 2016
+
+**Problemi risolti:**
+
+- L'aggiornamento da versioni precedenti non funziona se l'installazione non è stata eseguita nella cartella predefinita **C:\\Programmi**.
+- Se si esegue l'installazione e si deseleziona **Avvia il processo di sincronizzazione..** al termine dell'installazione guidata, una nuova esecuzione dell'installazione guidata non abilita l'utilità di pianificazione.
+- L'utilità di pianificazione non funzionerà come previsto nei server in cui il formato di data/ora non è US-en. `Get-ADSyncScheduler` non potrà restituire gli orari corretti.
+- Se è stata installata una versione precedente di Azure AD Connect con ADFS come opzione di accesso e aggiornamento, non è possibile eseguire nuovamente l'installazione guidata.
 
 ## 1\.1.105.0
 Data di rilascio: febbraio 2016
@@ -42,8 +53,8 @@ Data di rilascio: febbraio 2016
 
 **Funzionalità passate dal livello di anteprima al livello di disponibilità generale:**
 
-- [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md)
-- [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md)
+- [Writeback dispositivi](active-directory-aadconnect-feature-device-writeback.md).
+- [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md).
 
 **Nuove funzionalità di anteprima:**
 
@@ -237,4 +248,4 @@ Data di rilascio: settembre 2014
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

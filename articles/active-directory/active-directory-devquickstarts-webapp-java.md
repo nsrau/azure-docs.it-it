@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="11/14/2015"
+	ms.date="02/19/2016"
 	ms.author="brandwe"/>
 
 
@@ -23,7 +23,10 @@
 
 Azure AD facilita e semplifica l'outsourcing della gestione delle identità delle app Web, fornendo un unico account di accesso e disconnessione solo con poche righe di codice. Nelle app Web Java, è possibile eseguire questa operazione utilizzando l’implementazione Microsoft di ADAL4J basato sulla community.
 
-  Qui si userà ADAL4J per: far accedere l'utente all'app con Azure AD come provider di identità; visualizzare alcune informazioni sull'utente; far disconnettere l'utente dall'app.
+  ADAL4J verrà usato per:
+- Connettere l'utente all'app usando Azure AD come provider di identità.
+- Visualizzare alcune informazioni relative all'utente.
+- Disconnettere l'utente dall'app.
 
 A questo scopo è necessario:
 
@@ -47,7 +50,7 @@ Per consentire all'app di autenticare gli utenti, sarà innanzitutto necessario 
     - L'**URI ID app** è un identificatore univoco dell'applicazione. Per convenzione si usa `https://<tenant-domain>/<app-name>`, ad esempio `http://localhost:8080/adal4jsample/`.
 - Dopo avere completato la registrazione, AAD assegnerà all'app un identificatore client univoco. Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla scheda Configura.
 
-Dopo aver eseguito l'accesso al portale per l'app, creare un **Segreto applicazione** per l'applicazione e prenderne nota, perché verrà richiesto a breve.
+Dopo aver eseguito l'accesso al portale per l'app, creare un **Segreto applicazione** per l'applicazione e prenderne nota. perché verrà richiesto a breve.
 
 
 ## 2\. Configurare l'app per usare la libreria ADAL4J e i prerequisiti tramite Maven
@@ -237,7 +240,8 @@ Il file dovrebbe avere un aspetto simile al seguente:
 
 Lasciare gli altri parametri di configurazione invariati.
 
-> [AZURE.NOTE]Come si può notare dal file XML, viene scritta un'app Web JSP/Servlet denominata `mvc-dispatcher` che userà `BasicFilter` ogni volta che viene visitato l'URL /secure. Nel codice che verrà scritto in seguito /secure corrisponderà alla posizione in cui risiede il contenuto protetto e verrà forzata l'autenticazione ad Azure Active Directory.
+> [AZURE.NOTE]
+Come si può notare dal file XML, viene scritta un'app Web JSP/Servlet denominata `mvc-dispatcher` che userà `BasicFilter` ogni volta che viene visitato l'URL /secure. Nel codice che verrà scritto in seguito /secure corrisponderà alla posizione in cui risiede il contenuto protetto e verrà forzata l'autenticazione ad Azure Active Directory.
 
 -	Creare quindi il file `mvc-dispatcher-servlet.xml` in `\webapp\WEB-INF` e immettere quanto segue:
 
@@ -350,7 +354,8 @@ Verranno creati alcuni file Java per:
 1. Consentire l'accesso e la disconnessione dell'utente
 2. Ottenere dati relativi all'utente.
 
-> [AZURE.NOTE]Per ottenere dati relativi all'utente, è necessario usare l'API Graph di Azure Active Directory. L'API Graph è un servizio Web sicuro che consente di raccogliere dati sull'organizzazione e anche sui singoli utenti. Questa operazione garantisce risultati migliori rispetto a quando vengono precompilati i dati sensibili nei token, perché garantisce che l'utente che richiede i dati sia autorizzato e che chiunque venga in possesso del token (tramite un telefono jailbroken o la cache del Web browser in un computer desktop) non possa accedere a informazioni importanti sull'utente o sull'organizzazione.
+> [AZURE.NOTE] 
+Per ottenere dati relativi all'utente, è necessario usare l'API Graph di Azure Active Directory. L'API Graph è un servizio Web sicuro che consente di raccogliere dati sull'organizzazione e anche sui singoli utenti. Questa operazione garantisce risultati migliori rispetto a quando vengono precompilati i dati sensibili nei token, perché garantisce che l'utente che richiede i dati sia autorizzato e che chiunque venga in possesso del token (tramite un telefono jailbroken o la cache del Web browser in un computer desktop) non possa accedere a informazioni importanti sull'utente o sull'organizzazione.
 
 Ora verranno scritti alcuni file Java che permetteranno di eseguire questa operazione automaticamente:
 
@@ -739,7 +744,7 @@ public class HttpClientHelper {
 
 ## 6\. Creare i file di modello Java dell'API Graph (per il filtro di base BasicFilter MVC)
 
-Come indicato sopra, verrà usata l'API Graph per ottenere i dati relativi all'utente connesso. Per semplificare la procedura, sarà necessario creare un file per rappresentare un **oggetto directory** e un singolo file per rappresentare l'**utente**, affinché sia possibile usare il modello orientato a oggetti di Java.
+Come indicato sopra, verrà usata l'API Graph per ottenere i dati relativi all'utente connesso. Per semplificare la procedura, sarà necessario creare un file per rappresentare un **Oggetto directory** e un singolo file per rappresentare l'**Utente**, affinché sia possibile usare il modello orientato a oggetti di Java.
 
 1. Creare un file denominato `DirectoryObject.java` che verrà usato per archiviare i dati relativi a qualsiasi oggetto directory (sarà possibile riutilizzarlo in seguito per eventuali altre query dell'API Graph). È possibile tagliare e incollare dal codice seguente:
 
@@ -1718,10 +1723,10 @@ public class BasicFilter implements Filter {
 Questo servlet espone tutti i metodi previsti da `ADAL4J` per poter eseguire l'applicazione. Sono inclusi:
 
 - `getAccessTokenFromClientCredentials()` ottiene il token di accesso dal segreto
-- `getAccessTokenFromRefreshToken()` ottiene il token di accesso da un token di aggiornamento
-- `getAccessToken()` ottiene il token di accesso da un flusso OpenID Connect (che verrà usato)
+- `getAccessTokenFromRefreshToken()` - ottiene il token di accesso da un token di aggiornamento
+- `getAccessToken()` - ottiene il token di accesso da un flusso OpenID Connect (che verrà usato)
 - `createSessionPrincipal()` crea un'entità da usare per l'accesso all'API Graph
-- `getRedirectUrl()` ottiene l'URL di reindirizzamento per confrontarlo con il valore immesso nel portale.
+- `getRedirectUrl()` - ottiene l'URL di reindirizzamento per confrontarlo con il valore immesso nel portale.
 
 ##Compilare ed eseguire l'esempio in Tomcat
 
@@ -1734,14 +1739,15 @@ Nella directory `/targets` dovrebbe essere presente un file `adal4jsample.war`. 
 `http://localhost:8080/adal4jsample/`
 
 
-> [AZURE.NOTE]La distribuzione di un file WAR con i server Tomcat più recenti è un'operazione semplice. È sufficiente passare a `http://localhost:8080/manager/` e seguire le istruzioni per caricare il file `adal4jsample.war`. Verrà eseguita la distribuzione automatica con l'endpoint corretto.
+> [AZURE.NOTE] 
+La distribuzione di un file WAR con i server Tomcat più recenti è un'operazione semplice. È sufficiente passare a `http://localhost:8080/manager/` e seguire le istruzioni per caricare il file `adal4jsample.war`. Verrà eseguita la distribuzione automatica con l'endpoint corretto.
 
 ##Passaggi successivi
 
 Congratulazioni. È stata compilata un'applicazione Java funzionante che può autenticare gli utenti, chiamare in modo sicuro le API Web usando OAuth 2.0 e ottenere informazioni di base sull'utente. Se non si è ancora popolato il tenant con alcuni utenti, ora è possibile farlo.
 
-Come riferimento, l'esempio completato (senza i valori di configurazione) [è disponibile in un file con estensione zip](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
+Come riferimento, l'esempio completato (senza i valori di configurazione) [ è disponibile in un file con estensione zip](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0302_2016-->

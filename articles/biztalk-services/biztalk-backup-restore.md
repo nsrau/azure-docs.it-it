@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -23,7 +23,7 @@ I Servizi BizTalk di Azure includono funzioni di backup e ripristino. In questo 
 
 È anche possibile eseguire il backup dei Servizi BizTalk mediante l'[API REST](http://go.microsoft.com/fwlink/p/?LinkID=325584).
 
-> [AZURE.NOTE]Il backup delle connessioni ibride NON viene eseguito, indipendentemente dall'edizione. È necessario ricreare le connessioni ibride.
+> [AZURE.NOTE] Il backup delle connessioni ibride NON viene eseguito, indipendentemente dall'edizione. È necessario ricreare le connessioni ibride.
 
 ## Operazioni preliminari
 
@@ -55,7 +55,7 @@ I Servizi BizTalk di Azure includono funzioni di backup e ripristino. In questo 
 [Pianificare un backup](#backupschedule)
 
 #### <a name="backupnow"></a>Backup su richiesta
-1. Nel portale di Azure classico selezionare **Servizi BizTalk** e quindi il servizio di cui si vuole eseguire il backup.
+1. Nel portale di Azure classico, selezionare **Servizi BizTalk** e quindi selezionare il servizio di cui si desidera eseguire il backup.
 2. Nella scheda **Dashboard** selezionare **Backup** nella parte inferiore della pagina.
 3. Immettere un nome per il backup, ad esempio *ServizioBizTalk*BU*Data*.
 4. Scegliere un account di archiviazione BLOB e selezionare il segno di spunta per avviare il backup.
@@ -70,7 +70,9 @@ Al termine del backup verrà creato un contenitore con il nome di backup indicat
 
 	![][AutomaticBU]
 
-	**Note**: in **Giorni di conservazione** il periodo di conservazione deve essere superiore alla frequenza di backup. Selezionare **Mantieni sempre almeno un backup**, anche se il periodo di conservazione è scaduto.
+	**Note**
+	- In **Giorni di conservazione**, il periodo di conservazione deve essere maggiore della frequenza di backup.
+	- Selezionare **Mantieni sempre almeno un backup**, anche se è stato superato il periodo di conservazione.
 	
 
 4. Selezionare **Salva**.
@@ -96,7 +98,7 @@ Il collegamento apre i log operazioni dei servizi di gestione per semplificare l
 
 #### Ripristinare un backup
 
-1. Nel portale di Azure classico selezionare **Nuovo** > **Servizi app** > **Servizio BizTalk** > **Ripristina**:
+1. Nel portale di Azure classico, selezionare **Nuovo** > **Servizi app** > **Servizio BizTalk** > **Ripristina**:
 
 	![Ripristinare un backup][Restore]
 
@@ -233,4 +235,4 @@ Per creare Servizi BizTalk di Azure nel portale di Azure classico, passare a [Se
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

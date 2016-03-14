@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -31,7 +31,7 @@ Verrà aperta una nuova finestra con le schede seguenti, che sono descritte in q
 A seconda dell'edizione di Servizi BizTalk, non tutte le opzioni elencate potrebbero essere disponibili.
 <table border="1">
     <tr>
-        <td><strong>Scarica gli strumenti</strong></td>
+        <td><strong>Get the tools</strong></td>
 
         <td>Scaricare l'SDK di Servizi BizTalk per installare i modelli di progetto di Visual Studio sul computer di sviluppo locale. I modelli consentono di creare i progetti Visuali Studio dei <strong>Servizi BizTalk</strong> (bridge) e degli <strong>elementi del servizio BizTalk</strong> (Transform) Visual Studio distribuiti nel proprio servizio BizTalk.
         <br/><br/>
@@ -42,9 +42,9 @@ A seconda dell'edizione di Servizi BizTalk, non tutte le opzioni elencate potreb
     <tr>
         <td><strong>Create partner agreements</strong></td>
 
-        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
+        <td>Consente di aprire il portale Servizi BizTalk di Azure ospitato su Azure dove aggiungere partner e creare contratti EDI X12, AS2 ed EDIFACT.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
+        Nell'articolo relativo alla <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">configurazione di componenti per la messaggistica EDI sul portale Servizi BizTalk</a> sono elencate le procedure introduttive.
         </td>
     </tr>
 
@@ -237,17 +237,16 @@ Include i valori in tempo reale relativi all'integrità del servizio BizTalk. È
 ##### Per rimuovere o visualizzare la metrica nel grafico
 1. Selezionare la scheda **Monitoraggio**.
 2. Selezionare **Aggiungi metriche** sulla barra delle applicazioni:
-<br/>
 ![Fare clic su Aggiungi metriche][AddMetrics]
 3. Controllare la metrica delle prestazioni che si desidera visualizzare.
 4. Fare clic sul segno di spunta per tornare alla scheda **Monitoraggio**.
 5. Fare clic sul cerchio accanto alla metrica desiderata per visualizzarne il valore nel grafico.  
 
-	Ad esempio, la metrica **Utilizzo di CPU** è inattiva e il relativo valore non è visualizzato nel grafico:  
-![Metrica Utilizzo di CPU disabilitata][GrayedMetric]  
+	Ad esempio, la metrica **Utilizzo CPU** è inattiva e il relativo output non è visualizzato nel grafico: 
+![Metrica Utilizzo CPU disabilitata][GrayedMetric]
 
-	Fare clic sul cerchio inattivo per abilitare la metrica **Utilizzo di CPU** e visualizzarne il valore nel grafico:  
-![Metrica CPU Usage abilitata][EnabledMetric]
+	Selezionare il cerchio inattivo per abilitare la metrica **Utilizzo CPU** per visualizzarne l'output nel grafico: 
+![Metrica Utilizzo CPU abilitata][EnabledMetric]
 
 6. Per rimuovere una metrica dal grafico e dall'elenco, fare clic su **Elimina metrica** sulla barra delle applicazioni. Per aggiungere di nuovo la metrica all'elenco, fare clic su **Aggiungi metriche** sulla barra delle applicazioni, controllare la metrica e fare clic sul segno di spunta per tornare alla scheda **Monitoraggio**. Selezionare il cerchio in grigio per abilitare la metrica.
 
@@ -276,7 +275,7 @@ Questa metrica indica il risultato del calcolo seguente:
 <td>Visualizza il numero totale di messaggi di cui il servizio BizTalk non eseguito correttamente il pull dagli endpoint di origine.</td>
 </tr>
 <tr>
-<td><strong>Utilizzo CPU</strong></td>
+<td><strong>Utilizzo di CPU</strong></td>
 <td>Consente di elencare il valore % tempo processore di tutte le istanze del ruolo.</td>
 </tr>
 <tr>
@@ -340,7 +339,7 @@ Le connessioni ibride consentono la connessione di un'applicazione Azure, come S
 
 Per creare connessioni ibride in Siti Web di Azure, vedere [Accesso alle risorse locali usando connessioni ibride nel servizio app di Azure](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
-Per usa re connessioni ibride in Servizi mobili di Azure, vedere l'articolo relativo a [Servizi mobili di Azure e connessioni ibride](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
+Per usa re connessioni ibride in Servizi mobili di Azure, vedere l'articolo relativo a [Servizi mobili di Azure e connessioni ibride](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 Per creare o gestire connessioni ibride in Siti Web di Azure, vedere l'articolo relativo alle [Connessioni ibride](integration-hybrid-connection-overview.md).
 
@@ -366,4 +365,4 @@ Ora che è stata acquisita familiarità con le diverse schede è possibile otten
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

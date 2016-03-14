@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Esaminare le metriche in Application Insights
@@ -212,4 +212,6 @@ Per visualizzazioni dei dati ancora più avanzate, è possibile [esportare in Po
 [start]: app-insights-overview.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=AcomDC_1125_2015-->
+ 
+
+<!---HONumber=AcomDC_0302_2016-->

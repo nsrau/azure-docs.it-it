@@ -2,7 +2,7 @@
 	pageTitle="Monitorare le app per la logica in Servizio app di Azure | Microsoft Azure" 
 	description="Come verificare il funzionamento delle app per la logica" 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/29/2016"
 	ms.author="stepsic"/>
 
 # Monitorare le app per la logica
 
-Dopo aver creato un'app per la logica (seguendo la procedura riportata in [Creare un'app per la logica](app-service-logic-create-a-logic-app.md)), è possibile visualizzare l'intera cronologia della sua esecuzione nel portale di Azure. Per visualizzare la cronologia, selezionare **Sfoglia**, **Web e dispositivi mobili** e **App per la logica**. Verrà visualizzato l'elenco di tutte le app per la logica incluse nella propria sottoscrizione. Un'app per la logica può essere **abilitata** o **disabilitata**. Se **abilitata**, i trigger eseguono l'app per la logica in risposta a eventi di attivazione; se **disabilitata**, l'app per la logica non viene eseguita in risposta ad alcun evento.
+Dopo aver [creato un'app per la logica](app-service-logic-create-a-logic-app.md), è possibile visualizzare l'intera cronologia della sua esecuzione nel portale di Azure. Per visualizzare la cronologia, selezionare **Sfoglia** e quindi **App per la logica**. Verrà visualizzato l'elenco di tutte le app per la logica incluse nella propria sottoscrizione. È possibile selezionare qualsiasi app per la logica e **abilitarla** o **disabilitarla**. Se **abilitata**, i trigger eseguono l'app per la logica in risposta a eventi di attivazione; se **disabilitata**, l'app per la logica non viene eseguita in risposta ad alcun evento.
 
 ![Panoramica](./media/app-service-logic-monitor-your-logic-apps/overview.png)
 
 Quando viene visualizzato il pannello dell'app per la logica, sono disponibili altre due sezioni utili:
 
-- **Riepilogo**, che indica lo stato più recente ed è un punto di ingresso per la modifica dell'app per la logica.
+- **Riepilogo**, che mostra lo stato più recente ed è un punto di ingresso per la modifica dell'app per la logica.
 - **Tutte le esecuzioni**, che mostra un elenco delle esecuzioni di questa app per la logica.
 
 ## Visualizzare le esecuzioni dell'app
@@ -33,7 +33,7 @@ Quando viene visualizzato il pannello dell'app per la logica, sono disponibili a
 
 Questo elenco mostra, per ogni esecuzione, l'**Ora di inizio**, l'**identificatore** (è possibile usarlo quando si chiama l'API REST) e la **Durata**. Selezionare una riga qualsiasi per visualizzare informazioni dettagliate relative a tale esecuzione.
 
-Il pannello dei dettagli mostra un grafico con l'ora e la sequenza di esecuzione di tutte le azioni nell'esecuzione. Immediatamente sotto è visualizzato l'elenco completo di tutte le azioni eseguite.
+Il pannello dei dettagli mostra un grafico con l'ora e la sequenza di esecuzione di tutte le azioni nell'esecuzione. Di seguito è visualizzato l'elenco completo di tutte le azioni eseguite:
 
 ![Esecuzione e azioni](./media/app-service-logic-monitor-your-logic-apps/runandaction.png)
 
@@ -53,7 +53,7 @@ Per i trigger *Push* *non* è possibile vedere quante volte sono state avviate l
 
 ## Abilitare il controllo delle versioni
 
-È disponibile una funzionalità aggiuntiva, non ancora attiva nell'interfaccia utente ma disponibile tramite l'[API REST](http://go.microsoft.com/fwlink/p/?LinkID=525617&clcid=0x409). Quando si aggiorna la definizione di un'app per la logica, la versione precedente della definizione viene archiviata. Se è già in corso un'esecuzione, infatti, questa continua a fare riferimento alla versione dell'app per la logica che esisteva nel momento in cui è stata avviata. Non è possibile modificare le definizioni delle esecuzioni quando sono in corso. L'API REST della cronologia delle versioni consente di accedere a queste informazioni.
+È disponibile una funzionalità aggiuntiva, non ancora attiva nell'interfaccia utente ma disponibile tramite l'[API REST](https://msdn.microsoft.com/library/azure/mt643788.aspx). Quando si aggiorna la definizione di un'app per la logica, la versione precedente della definizione viene archiviata. Se è già in corso un'esecuzione, infatti, questa continua a fare riferimento alla versione dell'app per la logica che esisteva nel momento in cui è stata avviata. Non è possibile modificare le definizioni delle esecuzioni quando sono in corso. L'API REST della cronologia delle versioni consente di accedere a queste informazioni.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

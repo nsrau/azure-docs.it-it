@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Informazioni su Azure Application Insights" 
-	description="Tenere traccia dell'utilizzo e delle prestazioni dell'applicazione Web live o del dispositivo. Rilevare, valutare e diagnosticare i problemi. Monitorare continuamente e migliorare l'uso con gli utenti." 
+	pageTitle="Analisi con Application Insights" 
+	description="Analisi di dispositivi e app Web. Tenere traccia dell'utilizzo e delle prestazioni dell'applicazione Web live. Rilevare, valutare e diagnosticare i problemi. Monitorare continuamente e migliorare l'uso con gli utenti." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Informazioni su Azure Application Insights
@@ -151,4 +151,4 @@ Per altri dettagli, scegliere il tipo di app in Attività iniziali nella barra d
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

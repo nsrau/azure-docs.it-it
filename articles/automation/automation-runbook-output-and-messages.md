@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Output di runbook e messaggi di automazione di Azure | Microsoft Azure"
    description="Viene descritto come creare e recuperare l'output e i messaggi di errore da runbook in automazione di Azure."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="03/02/2016"
+   ms.author="magoedte;bwren" />
 
 # Output di runbook e messaggi in automazione di Azure
 
@@ -51,7 +51,7 @@ Si consideri il seguente esempio di runbook.
 	   Write-Verbose "Verbose outside of function"
 	   Write-Output "Output outside of function"
 	   $functionOutput = Test-Function
-	
+
 	   Function Test-Function
 	   {
 	      Write-Verbose "Verbose inside of function"
@@ -77,7 +77,7 @@ Il runbook di esempio seguente restituisce un oggetto string e include una dichi
 	Workflow Test-Runbook
 	{
 	   [OutputType([string])]
-	
+
 	   $output = "This is some string output."
 	   Write-Output $output
 	}
@@ -93,7 +93,7 @@ I flussi di errore e di avviso sono utili per registrare i problemi che si verif
 Creare un avviso o un messaggio di errore utilizzando il cmdlet [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) o [Write-Error](http://technet.microsoft.com/library/hh849962.aspx). Anche le attività possono scrivere tali flussi.
 
 	#The following lines create a warning message and then an error message that will suspend the runbook.
-	
+
 	$ErrorActionPreference = "Stop"
 	Write-Warning –Message "This is a warning message."
 	Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
@@ -107,7 +107,7 @@ Quando si esegue il[test di un runbook](http://msdn.microsoft.com/library/azure/
 Creare un messaggio dettagliato utilizzando il cmdlet [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx).
 
 	#The following line creates a verbose message.
-	
+
 	Write-Verbose –Message "This is a verbose message."
 
 ### Flusso di debug
@@ -152,20 +152,42 @@ In Windows PowerShell, è possibile recuperare i messaggi e gli output da un run
 
 Nell'esempio seguente viene avviato un runbook figlio e si attende il suo completamento. Una volta completato, il relativo output viene raccolto dal processo.
 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" 
-	
+	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+
 	$doLoop = $true
 	While ($doLoop) {
 	   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
 	   $status = $job.Status
-	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped") 
+	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
 	}
-	
+
 	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+
+### Creazione grafica
+
+Per i runbook grafici, è disponibile una registrazione aggiuntiva sotto forma di traccia a livello di attività. Sono disponibili due livelli di traccia: base e dettagliato. Nella traccia di base sono indicate l'ora di inizio e di fine di ogni attività del runbook, oltre a informazioni relative a eventuali ulteriori tentativi di esecuzione dell'attività, ad esempio il numero di tentativi e l'ora di inizio dell'attività. Nella traccia dettagliata sono indicate le informazioni della traccia di base e i dati di input e output di ogni attività. Si noti che attualmente i record di traccia vengono scritti usando il flusso dettagliato. Per questa ragione è necessario abilitare la registrazione dettagliata quando si abilita la traccia. Per i runbook grafici con la traccia abilitata non è necessario registrare record di stato perché la traccia di base svolge la stessa funzione e offre maggiori informazioni.
+
+![Visualizzazione dei flussi dei processi di creazione grafica](media/automation-runbook-output-and-messages/job_streams_view_blade.png)
+
+È possibile osservare nella schermata precedente che quando si abilitano la registrazione e la traccia dettagliata per i runbook grafici sono disponibili molte più informazioni nella visualizzazione di flussi dei processi di produzione. Queste informazioni aggiuntive possono essere essenziali per la risoluzione dei problemi di produzione di un runbook e pertanto è consigliabile attivarle solo a tale scopo e non come regola generale. I record di traccia possono essere particolarmente numerosi. Con la traccia dei runbook grafici è possibile ottenere da due a quattro record per ogni attività a seconda che sia stato configurata la traccia di base o dettagliata. Se non sono necessarie queste informazioni per tenere traccia dell'avanzamento di un runbook per la risoluzione dei problemi, è consigliabile non abilitare la traccia.
+
+**Per abilitare la traccia a livello di attività, eseguire la procedura seguente.**
+
+ 1. Nel portale di Azure aprire l'account di automazione.
+
+ 2. Fare clic sul riquadro **Runbook** per aprire l'elenco dei runbook.
+
+ 3. Nel pannello Runbook, fare clic per selezionare un runbook grafico dall'elenco dei runbook.
+
+ 4. Nel pannello Impostazioni del runbook selezionato, fare clic su **Registrazione e traccia**.
+
+ 5. Nel pannello Registrazione e traccia in Registra record dettagliati **abilitare** la registrazione dettagliata e impostare il livello **base** o **dettagliato** necessario per la traccia a livello di attività.<br>
+
+    ![Pannello Registrazione e traccia della creazione grafica](media/automation-runbook-output-and-messages/logging_and_tracing_settings_blade.png)
 
 ## Articoli correlati
 
 - [Tenere traccia di un processo del runbook](automation-runbook-execution.md)
 - [Runbook figlio](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

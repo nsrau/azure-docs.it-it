@@ -40,7 +40,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
 ##<a name="add-authentication"></a>Aggiungere l'autenticazione all'app
 
-1. Aprire il progetto in **Visual Studio**, quindi aprire il file <tt>www/index.html</tt> per la modifica.
+1. Aprire il progetto in **Visual Studio**, quindi aprire il file `www/index.html` per la modifica.
 
 2. Individuare il meta tag `Content-Security-Policy` nella sezione di intestazione. È necessario aggiungere l'host OAuth all'elenco delle origini consentite.
 
@@ -54,16 +54,17 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
     Ecco un esempio di Content-Security-Policy implementato per Azure Active Directory:
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 
+			data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
 
-    È necessario sostituire <tt>https://login.windows.net</tt> con l'host OAuth dalla tabella precedente. Per altre informazioni su questo meta tag, vedere la [documentazione relativa a Content-Security-Policy].
+    È necessario sostituire `https://login.windows.net` con l'host OAuth dalla tabella precedente. Per altre informazioni su questo meta tag, vedere la [documentazione relativa a Content-Security-Policy].
 
     Si noti che alcuni provider di autenticazione non richiedono modifiche a Content-Security-Policy quando viene usato in dispositivi mobili appropriati. Ad esempio, non sono richieste modifiche a Content-Security-Policy quando si usa l'autenticazione di Google in un dispositivo Android.
 
-3. Aprire il file <tt>www/js/index.js</tt> per la modifica. Anche se il progetto verrà compilato ed eseguito solo con le modifiche già apportate, la procedura consigliata consiste nel chiamare in modo esplicito un metodo login() per avviare un'azione di accesso. Individuare il metodo `onDeviceReady()`. Sotto il codice di creazione del client, aggiungere quanto segue:
+3. Aprire il file `www/js/index.js` per la modifica, individuare il metodo `onDeviceReady()` e nel codice di creazione del client aggiungere quanto segue:
 
         // Login to the service
-        client.login('SDK Provider_Name')
+        client.login('SDK_Provider_Name')
             .then(function () {
 
                 // BEGINNING OF ORIGINAL CODE
@@ -82,11 +83,11 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 
             }, handleError);
 
-    Ad esempio, per Azure Active Directory usare:
+    Si noti che questo codice sostituisce il codice esistente che crea il riferimento alla tabella e aggiorna l'interfaccia utente.
 
-        client.login('aad')
+    Il metodo login() inizia l'autenticazione con il provider. Il metodo login() è una funzione asincrona che restituisce una promessa JavaScript. Il resto dell'inizializzazione viene inserito nella risposta della promessa in modo che non venga eseguita finché non viene completato il metodo login().
 
-    Il metodo login() è una funzione asincrona che restituisce una promessa JavaScript. Il resto dell'inizializzazione viene inserito nella risposta della promessa in modo che non venga eseguita finché non viene completato il metodo login().
+4. Nel codice aggiunto, sostituire `SDK_Provider_Name` con il nome del provider di accesso. Ad esempio, per Azure Active Directory usare `client.login('aad')`.
 
 4. Eseguire il progetto. Al termine dell'inizializzazione del progetto, l'applicazione verrà visualizzata la pagina di accesso di OAuth per il provider di autenticazione scelto.
 
@@ -102,4 +103,4 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
 [Notifiche Push]: app-service-mobile-cordova-get-started-push.md
 [Autenticazione e autorizzazione]: app-service-mobile-auth.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

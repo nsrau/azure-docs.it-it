@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="01/29/2016"
+  ms.date="02/24/2016"
   ms.author="andrl"/>
 
 # Portale della community
@@ -62,6 +62,15 @@ Un file Swagger dell'API REST per DocumentDB che può essere facilmente distribu
 
 Altre informazioni su [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
+
+### fluent-plugin-documentdb
+
+*di Yoichi Kawasaki*
+
+fluent-plugin-documentdb è un plug-in Fluentd per l'output in Azure DocumentDB.
+
+Altre informazioni sono disponibili su [GitHub](https://github.com/yokawasa/fluent-plugin-documentdb) e [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
+
 <br/><br/>
 
 *Altri progetti di DocumentDB open source su [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
@@ -79,6 +88,12 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 <br/>
 
 **Post della community:**
+
+* [**Raccolta di log in Azure DocumentDB usando fluent plug-in-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *di Yoichi Kawasaki*
+
+* [**DocumentDB Parte 1/2 – La teoria**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *di Peter Mannerhult*
+
+* [**Cosa amare e odiare di Azure DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - *di George Saadeh*
 
 * [**Scripting sul lato server per Azure DocumentDB**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *di Robert Sheldon*
 
@@ -138,7 +153,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 | [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, TX | 28 gennaio 2016 | n/d |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | Montreal, QC, Canada | 1 dicembre 2015 | N/D |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | Seattle, WA | 12 novembre 2015 | N/D |
-| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | Seattle, WA | 27-30 ottobre 2015 | N/D |
+| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | Seattle, WA | 27-30 ottobre 2015 | [Sviluppo di applicazioni moderne in Azure](https://www.youtube.com/watch?v=k5Z24HX-RyQ) |
 | [CloudDevelop 2015](http://www.clouddevelop.org/) | David Makogon, Ryan Crawcour | Columbus, OH | 23 ottobre 2015 | N/D |
 | [SQL Saturday #430 - Sofia 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | Leonard Lobel | Sofia, Bulgaria | 10 ottobre 2015 | n/d |
 | [SQL Saturday #429 - Oporto 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | Leonard Lobel | Porto, Portogallo | 3 ottobre 2015 | n/d |
@@ -167,6 +182,8 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 | Mostra | Relatore | Data | Episodio |
 | ------------------------------------------- | ----------------------- | ------------------ | ------- |
+| Integration User Group | Han Wong | 17 febbraio 2016 | [Analizzare e visualizzare dati non relazionali con DocumentDB e Power BI](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
+| Channel 9: Applicazioni moderne | Tara Shankar Jana | 13 dicembre 2016 | [Un approccio moderno ai dati nelle applicazioni](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips | Miguel Quintero | 10 dicembre 2015 | [Panoramica di DocumentDB](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
 | Integration User Group | Howard Edidin | 9 novembre 2015 | [Azure DocumentDB for Healthcare Integration - Parte 2](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
 | Integration User Group | Howard Edidin | 5 ottobre 2015 | [Azure DocumentDB for Healthcare Integration](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
@@ -267,4 +284,4 @@ Gli Wizard di DocumentDB sono leader della community che hanno dimostrato grande
 
 Come fare per diventare un Wizard di DocumentDB? Anche se non ci sono requisiti particolari per diventare Wizard di DocumentDB, tra i criteri presi in considerazione c'è l'impatto del contributo del candidato nei forum online, ad esempio StackOverflow e MSDN, Wiki e contenuti online, conferenze e gruppi di utenti, podcast, siti Web, blog e social media, nonché articoli e documentazione. Per candidare se stessi o qualcun altro, è sufficiente [inviare un messaggio di posta elettronica](mailto:askdocdb@microsoft.com).
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

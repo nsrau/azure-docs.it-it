@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako,cenkdin,anilmur" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="02/03/2016"   
+	ms.date="03/01/2016"   
 	ms.author="juliako"/>
 
 #Utilizzare il codificatore NewTek TriCaster per inviare un flusso live a velocità in bit singola.
@@ -27,6 +27,9 @@
 In questo argomento viene illustrato come configurare il codificatore live [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) per inviare un flusso a velocità in bit singola a canali AMS abilitati per la codifica live. Per altre informazioni, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 In questa esercitazione viene illustrato come gestire Servizi multimediali di Azure (AMS) con lo strumento Azure Media Services Explorer (AMSE). Questo strumento può essere eseguito solo in PC Windows. Gli utenti di sistemi Mac o Linux possono usare il portale di Azure classico per creare [canali](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programmi](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
+
+>[AZURE.NOTE]Quando si usa Tricaster per l'invio di un feed di contributo a Servizi multimediali di Azure e in particolare alcune funzionalità di Tricaster, ad esempio tagli rapidi tra i feed o passaggi all'interno e all'esterno di slate, sono possibili anomalie audio/video nell'evento live. Il team di AMS sta lavorando per risolvere questi problemi. Fino a quel momento non è consigliabile usare queste funzionalità.
+
 
 ##Prerequisiti
 
@@ -162,4 +165,4 @@ Vedere l’argomento [risoluzione dei problemi](media-services-troubleshooting-l
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

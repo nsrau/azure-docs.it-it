@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ L'obiettivo di questa esercitazione è illustrare come integrare CS Stars con Az
 
 - È possibile controllare in Azure AD chi può accedere a CS Stars. 
 - È possibile abilitare gli utenti per l'accesso automatico a CS Stars (Single Sign-On) con i propri account Azure AD.
-- È possibile gestire gli account in una posizione centrale, il portale di Azure Active Directory.
+- È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -35,13 +35,13 @@ Per configurare l'integrazione di Azure AD con CS Stars, sono necessari gli elem
 - Sottoscrizione di CS Stars abilitata per l'accesso Single Sign-On.
 
 
-> [AZURE.NOTE]Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Descrizione dello scenario
@@ -56,7 +56,7 @@ Per configurare l'integrazione di CS Stars in Azure AD, è necessario aggiungere
 
 **Per aggiungere CS Stars dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Active Directory][1]<br>
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Active Directory][1]<br>
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -87,11 +87,11 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con CS Stars, è 
 
 ### Configurazione dell'accesso Single Sign-On di Azure AD
 
-In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel portale di Azure AD e configurare l'accesso Single Sign-On nell'applicazione CS Stars.<br>
+In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione CS Stars.<br>
 
 **Per configurare Single Sign-On di Azure AD con CS Stars, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **CS Stars** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br>![Configura accesso Single Sign-On][6]<br>
+1. Nella pagina di integrazione dell'applicazione **CS Stars** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br>![Configura accesso Single Sign-On][6]<br>
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a CS Stars** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][7]<br>
 
@@ -99,7 +99,7 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
  
      3\.1 Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione CS Stars (ad esempio: **https://uat.csstars.com/enterprise/default.cmdx?ssoclient=C234UAT2*).
 
-     >[AZURE.NOTE]Se non si conosce il valore corretto, contattare il rappresentante di Marsh ClearSight.
+     > [AZURE.NOTE] Se non si conosce il valore corretto, contattare il rappresentante di Marsh ClearSight.
 
      3\.2. Fare clic su **Avanti**.
  
@@ -108,7 +108,7 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
 5. Per ottenere l'abilitazione dell'accesso Single Sign-On per CS Stars, contattare il rappresentante di Marsh ClearSight e fornire il file di metadati.
 
 
-6. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Cos'è Azure AD Connect][10]<br>
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Cos'è Azure AD Connect][10]<br>
 
 7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**. <br><br>![Cos'è Azure AD Connect][11]<br>
 
@@ -116,11 +116,11 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
 
 
 ### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test nel portale di Azure chiamato Britta Simon.<br> Nell'elenco di utenti selezionare **Britta Simon**. <br><br>![Creare un utente di Azure AD][20]<br>
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.<br> Nell'elenco di utenti selezionare **Britta Simon**. <br><br>![Creare un utente di Azure AD][20]<br>
 
-**Per creare un utente test in Azure AD, seguire questa procedura:**
+**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
+1. Nel **portale di Azure classico** nel riquadro di spostamento a sinistra fare clic su **Active Directory**. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -128,7 +128,7 @@ Questa sezione descrive come creare un utente test nel portale di Azure chiamato
  
 4. Per aprire la finestra di dialogo **Aggiungi utente**, nella barra degli strumenti in basso fare clic su **Aggiungi utente**. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_04.png)<br>
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_05.png)<br>
+5. Nella pagina **Informazioni sull'utente** eseguire la procedura seguente: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_05.png)<br>
   1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
   2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
   3. Fare clic su Avanti.
@@ -163,7 +163,7 @@ L'obiettivo di questa sezione consiste nell'abilitare Britta Simon all'uso dell'
 
 **Per assegnare Britta Simon a CS Stars, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Assegna utente][201]<br>
+1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Assegna utente][201]<br>
 2. Nell'elenco delle applicazioni selezionare **CS Stars**. <br><br>![Assegna utente][202]<br>
 1. Nel menu in alto fare clic su **Utenti**.<br> <br><br>![Assegna utente][203]<br>
 1. Nell'elenco di utenti selezionare **Britta Simon**.
@@ -205,4 +205,4 @@ L'obiettivo di questa sezione è testare la configurazione dell'accesso Single S
 
 [400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

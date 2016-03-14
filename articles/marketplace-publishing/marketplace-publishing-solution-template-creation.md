@@ -31,7 +31,8 @@ Passare alla pagina [https://publish.windowsazure.com](http://publish.windowsazu
   ![disegno][img-pubportal-sol-templ-new]
 
 ### 3\. Iniziare con le topologie
-Un modello di soluzione è un elemento padre per tutte le relative topologie. È possibile definire più topologie in un singolo modello di soluzione/offerta. Quando un'offerta passa alla fase di gestione temporanea, passano a tale fase anche tutte le relative topologie. Seguire la procedura riportata di seguito per la definizione dell'offerta e creare una topologia. "Identificatore topologia" è in genere il nome della topologia per il modello di soluzione. L'identificatore topologia viene usato nell'URL come illustrato di seguito:
+Un modello di soluzione è un elemento padre per tutte le relative topologie. È possibile definire più topologie in un singolo modello di soluzione/offerta. Quando un'offerta passa alla fase di gestione temporanea, passano a tale fase anche tutte le relative topologie. Per definire l'offerta, eseguire i passaggi seguenti:
+- Creare una topologia. "Identificatore topologia" è in genere il nome della topologia per il modello di soluzione. L'identificatore topologia viene usato nell'URL come illustrato di seguito:
 
   Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
@@ -40,7 +41,9 @@ Un modello di soluzione è un elemento padre per tutte le relative topologie. È
 - Aggiungere una nuova versione
 
 ### 4\. Ottenere la certificazione per le versioni della topologia
-Caricare un file ZIP contenente tutti i file necessari per eseguire il provisioning della specifica versione della topologia. Il file ZIP deve contenere quanto segue: - File *mainTemplate.json* e *createUiDefinition.json* nella directory radice. - Eventuali modelli collegati e tutti gli script richiesti.
+Caricare un file ZIP contenente tutti i file necessari per eseguire il provisioning della specifica versione della topologia. Il file zip deve contenere quanto segue:
+- File *mainTemplate.json* e *createUiDefinition.json* nella directory radice.
+- Tutti i modelli collegati e tutti gli script necessari.
 
 Dopo aver caricato il file ZIP, fare clic su **Richiedi certificazione**. Il team di certificazione Microsoft esaminerà i file e certificherà la topologia.
 
@@ -67,11 +70,11 @@ Articoli correlati:
 
 - Gestione risorse di Azure: [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates/) e [semplici esempi di modelli ARM](https://github.com/rjmax/ArmExamples)
 
-- Limitazioni degli account di archiviazione: [Post di blog relativo al monitoraggio della limitazione degli account di archiviazione](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) e [Archiviazione Premium](../storage/storage-premium-storage-preview-portal/#scalability-and-performance-targets-whit-ITing-premium-storage)
+- Limitazioni degli account di archiviazione: [Post di blog relativo al monitoraggio della limitazione degli account di archiviazione](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) e [Archiviazione Premium](../storage/storage-premium-storage.md#scalability-and-performance-targets-whit-ITing-premium-storage)
 
 [img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]: media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

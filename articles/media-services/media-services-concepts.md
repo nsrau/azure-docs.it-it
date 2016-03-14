@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="02/25/2016" 
 	ms.author="juliako"/>
 
 #Concetti su Servizi multimediali di Azure 
@@ -85,19 +85,23 @@ Un'entità [Job](https://msdn.microsoft.com/library/azure/hh974289.aspx) viene i
 
 Un processo contiene i metadati relativi all'elaborazione da eseguire. Ogni processo contiene una o più entità [task](https://msdn.microsoft.com/library/azure/hh974286.aspx) che specificano un'attività di elaborazione atomica, i relativi asset di input e output, un processore di contenuti multimediali e le impostazioni associate. Le attività contenute in un processo possono essere concatenate, in modo che l'asset di output di un'attività sia indicato come asset di input dell'attività successiva. In questo modo un processo può contenere tutte le operazioni di elaborazione necessarie per una presentazione multimediale.
 
-##<a id="encoding"></a>Codifica\\Creazione di pacchetti
+##<a id="encoding"></a>Codifica 
 
-###Codifica
+Servizi multimediali di Azure offre diverse opzioni per la codifica di servizi multimediali nel cloud.
 
-Per distribuire un video digitale tramite Internet è necessario comprimere il file multimediale. I file video digitali hanno dimensioni piuttosto elevate e possono risultare troppo grandi per la distribuzione su Internet o per la visualizzazione corretta sui dispositivi dei clienti. Gli utenti guardano i video in diversi dispositivi, da TV con set-top box, a PC desktop, tablet e smartphone. Ogni dispositivo ha requisiti diversi per larghezza di banda e compressione. La codifica è il processo di compressione di video e audio tramite compressori/decompressori o codec.
+Quando si iniziano ad utilizzare i servizi multimediali, è importante comprendere la differenza tra codec e formati di file. I codec sono costituiti da software che implementa gli algoritmi di compressione/decompressione, mentre i formati di file sono contenitori che includono il video compresso.
 
-Il processo di transcodifica consiste nel ricodificare in un formato di codifica differente un video codificato in precedenza. Poiché i video vengono codificati dalla maggior parte delle videocamere, i processi di codifica eseguiti su Servizi multimediali di Azure consistono principalmente in una transcodifica.
+Servizi multimediali fornisce il servizio di creazione dinamica dei pacchetti, che consente di distribuire i contenuti codificati in formato MP4 o Smooth Streaming con velocità in bit adattiva in formati di streaming supportati da Servizi multimediali (MPEG DASH, HLS, Smooth Streaming, HDS), senza dover ricreare i pacchetti con questi formati di streaming.
 
-###Codec e formati di file 
+Per sfruttare i vantaggi del servizio di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md), è necessario seguire questa procedura:
 
-I codec consistono in due componenti: un componente per la compressione dei file multimediali digitali per la trasmissione e un altro per la decompressione dei file multimediali digitali per la riproduzione. Sono disponibili codec audio per la compressione e la decompressione di audio e codec video per la compressione e decompressione di video. I codec possono usare la compressione con o senza perdita di dati. I codec senza perdita di dati conservano tutte le informazioni durante la compressione. Quando il file è decompresso, si ottiene un file identico al file multimediale di input. I codec senza perdita di dati sono quindi ideali per l'archiviazione. I codec con perdita di dati perdono alcune informazioni durante la codifica e producono file di dimensioni minori rispetto all'originale, ma con una riduzione della qualità del video. Sono ideali per la trasmissione in streaming su Internet. I due principali codec usati da Azure Media Encoder per la codifica sono h. 264 e VC-1. Altri codec possono essere disponibili nell'ecosistema dei codificatori dei partner.
+- Codificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a velocità in bit adattiva (i passaggi per la codifica sono descritti più avanti in questa esercitazione).
+- Ottenere almeno un'unità di streaming on demand per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere l'articolo sulla [procedura per scalare unità riservate di streaming on demand](media-services-manage-origins.md#scale_streaming_endpoints/).
 
-###Codificatori di Servizi multimediali
+Servizi multimediali supporta i seguenti codificatori su richiesta descritti in questo articolo:
+
+- [Codificatore multimediale standard](media-services-encode-asset.md#media-encoder-standard)
+- [Flusso di lavoro Premium del codificatore multimediale](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 Per informazioni sui codificatori supportati, vedere [Codificatori](media-services-encode-asset.md).
 
@@ -248,4 +252,4 @@ Il seguente elenco include la descrizione dei vari formati di streaming e alcuni
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

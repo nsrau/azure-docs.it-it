@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/11/2016"
-	ms.author="emgerner"/>
+	ms.date="02/29/2016"
+	ms.author="jehine"/>
 
 # Come usare l'archiviazione BLOB di Azure da Python
 
@@ -57,14 +57,14 @@ Dopo questa modifica, i BLOB in un contenitore pubblico saranno visibili a tutti
 
 ## Caricare un BLOB in un contenitore
 
-Per creare un BLOB in blocchi e caricare i dati, usare il metodo **create\_block\_blob\_from\_path**, **create\_block\_blob\_from\_stream**, **create\_block\_blob\_from\_bytes** o **create\_block\_blob\_from\_text**. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
+Per creare un BLOB in blocchi e caricare i dati, usare il metodo **create\_blob\_from\_path**, **create\_blob\_from\_stream**, **create\_blob\_from\_bytes** o **create\_blob\_from\_text**. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
 
-**create\_block\_blob\_from\_path** carica i contenuti di un file dal percorso specificato, **create\_block\_blob\_from\_stream** carica i contenuti da un file/flusso già aperto. **create\_block\_blob\_from\_bytes** carica una matrice di byte e **create\_block\_blob\_from\_text** carica il valore di testo specificato usando la codifica specificata (l'impostazione predefinita è UTF-8).
+**create\_blob\_from\_path** carica i contenuti di un file dal percorso specificato, mentre **create\_blob\_from\_stream** carica i contenuti di un file/flusso già aperto. **create\_blob\_from\_bytes** carica una matrice di byte, mentre **create\_blob\_from\_text** carica il valore di testo specificato usando la codifica impostata (l'impostazione predefinita è UTF-8).
 
 Nell'esempio seguente viene caricato il contenuto del file **sunset.png** nel BLOB **myblob**.
 
 	from azure.storage.blob import ContentSettings
-	block_blob_service.create_block_blob_from_path(
+	block_blob_service.create_blob_from_path(
         'mycontainer',
         'myblockblob',
         'sunset.png',
@@ -125,4 +125,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
 [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK per Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

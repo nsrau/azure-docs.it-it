@@ -12,24 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/14/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
 
-# Limiti di StorSimple Virtual Array (anteprima)
+# Limiti di StorSimple Virtual Array
 
 ##Panoramica
 
-Tenere in considerazione questi limiti durante la pianificazione, la distribuzione e il funzionamento di Microsoft Azure StorSimple Virtual Array (in anteprima). La tabella seguente illustra i limiti del dispositivo virtuale.
-
->[AZURE.IMPORTANT]
->
->- StorSimple Virtual Array è disponibile in anteprima ed è destinato a scopi di valutazione e pianificazione della distribuzione. L'installazione di questa versione di anteprima in un ambiente di produzione non è supportata. 
->
->- Se si riscontrano problemi con StorSimple Virtual Array, pubblicare un post al riguardo nel [forum MSDN per StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
+Tenere in considerazione questi limiti durante la pianificazione, la distribuzione e il funzionamento di Microsoft Azure StorSimple Virtual Array. La tabella seguente illustra i limiti del dispositivo virtuale.
 
 ## Limiti di StorSimple Virtual Array 
 
 [AZURE.INCLUDE [storsimple-virtual-array-limits](../../includes/storsimple-virtual-array-limits.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

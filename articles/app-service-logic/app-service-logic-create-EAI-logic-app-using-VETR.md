@@ -10,7 +10,7 @@
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/18/2016"
@@ -97,7 +97,7 @@ Dopo aver terminato l'elaborazione pipeline, verrà reinviata una risposta HTTP 
 1. Aggiungere un **Listener HTTP** dalla raccolta e selezionare l'azione **Invia risposta HTTP**.
 2. Impostare **ID risposta** su *Invia messaggio*.
 2. Impostare **Contenuto della risposta** su *Elaborazione pipeline completata*.
-3. Impostare **Codice di stato della risposta** su *200* per indicare HTTP 200 OK.
+3. Impostare **Codice di stato della risposta** su *200* per indicare HTTP 200 OK.
 4. Selezionare il menu a discesa nella parte superiore destra e selezionare **Aggiungere una condizione da soddisfare**. Impostare la condizione sull'espressione seguente: ```@equals(actions('azureservicebusconnector').status,'Succeeded')``` <br/>
 5. Ripetere i passaggi anche per inviare una risposta HTTP in caso di errore. Modificare **Condizione** impostando l'espressione seguente: ```@not(equals(actions('azureservicebusconnector').status,'Succeeded'))``` <br/>
 6. Selezionare **OK** quindi **Crea**.
@@ -118,4 +118,4 @@ Alcuni argomenti utili:
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

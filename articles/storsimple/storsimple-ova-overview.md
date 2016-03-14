@@ -3,8 +3,8 @@
    description="Viene illustrato StorSimple Virtual Array, una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra un dispositivo virtuale locale e l'archiviazione cloud di Microsoft Azure."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
+   authors="alkohli"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,26 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
-   ms.author="v-sharos" />
+   ms.date="03/01/2016"
+   ms.author="alkohli" />
 
-# Introduzione a StorSimple Virtual Array (anteprima)
+# Introduzione a StorSimple Virtual Array
 
 ## Panoramica
 
 Microsoft Azure StorSimple Virtual Array è una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra un dispositivo virtuale locale in esecuzione in un hypervisor e l'archiviazione cloud di Microsoft Azure. Il Virtual Array (conosciuto anche come dispositivo virtuale locale StorSimple) è una soluzione file server o server iSCSI efficiente, dai costi contenuti e facilmente gestibile in grado di eliminare molti problemi e spese associati ai sistemi di archiviazione aziendali e alla protezione dei dati. Il Virtual Array è particolarmente adatto per scenari di sedi remote/succursali.
 
->[AZURE.IMPORTANT]
->
-> StorSimple Virtual Array è disponibile in anteprima ed è destinato a scopi di valutazione e pianificazione della distribuzione. L'installazione di questa versione di anteprima in un ambiente di produzione non è supportata.
->
-> Se si riscontrano problemi con StorSimple Virtual Array, pubblicare un post al riguardo nel [forum MSDN per StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
-
 Questa panoramica è incentrata sul Virtual Array.
 
 - Per una panoramica di StorSimple serie 8000, consultare [Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida](storsimple-overview.md). 
 
-- Per informazioni sui dispositivi StorSimple serie 5000/7000, andare alla [guida di StorSimple](http://onlinehelp.storsimple.com/).
+- Per informazioni sui dispositivi StorSimple serie 5000/7000, vedere la [guida di StorSimple](http://onlinehelp.storsimple.com/).
 
 Il Virtual Array supporta il protocollo iSCSI o Server Message Block (SMB). Viene eseguito nell'infrastruttura hypervisor esistente e fornisce più livelli per il cloud, il backup nel cloud, il ripristino rapido, il ripristino a livello di elemento e le funzionalità di ripristino di emergenza.
 
@@ -93,7 +87,7 @@ Il Virtual Array supporta i seguenti scenari di protezione dei dati e ripristino
 
 - **Ripristino volume o condivisione**: usare il ripristino come nuovo flusso di lavoro per ripristinare un volume o una condivisione. Usare questo approccio per ripristinare l'intero volume o l'intera condivisione.
 - **Ripristino a livello di elemento**: le condivisioni consentono l'accesso semplificato ai backup recenti. È possibile ripristinare facilmente un singolo file da una cartella speciale con estensione .backup disponibile nel cloud. Questa funzionalità di ripristino è gestita dall'utente e non è richiesto alcun intervento amministrativo.
-- **Ripristino di emergenza**: usare la funzionalità di failover per ripristinare tutti i volumi o tutte le condivisioni in un Virtual Array nuovo. Creare il nuovo Virtual Array e registrarlo con il servizio StorSimple Manager, quindi eseguire il failover del Virtual Array originale. Il nuovo Virtual Array presuppone quindi le risorse sottoposte a provisioning. 
+- **Ripristino di emergenza**: usare la funzionalità di failover per ripristinare tutti i volumi o tutte le condivisioni in un nuovo array virtuale. Creare il nuovo Virtual Array e registrarlo con il servizio StorSimple Manager, quindi eseguire il failover del Virtual Array originale. Il nuovo Virtual Array presuppone quindi le risorse sottoposte a provisioning. 
 
 ## Componenti Virtual Array
 
@@ -102,7 +96,7 @@ Il Virtual Array include i componenti seguenti:
 - [Virtual Array](#virtual-array): un dispositivo di archiviazione cloud ibrido basato su una macchina virtuale sottoposta a provisioning nell'ambiente virtualizzato o in hypervisor.  
 - [Servizio StorSimple Manager](#storsimple-manager-service): un'estensione del portale di Azure classico che consente di gestire uno o più dispositivi StorSimple da una singola interfaccia Web accessibile da diverse posizioni geografiche. È possibile usare il servizio StorSimple Manager per creare e gestire i servizi, visualizzare e gestire i dispositivi e gli avvisi, oltre a gestire volumi, condivisioni e snapshot esistenti.
 - [Interfaccia utente Web locale](#local-web-user-interface): un'interfaccia utente basata sul Web usata per configurare il dispositivo in modo che possa connettersi alla rete locale e quindi registrare il dispositivo con il servizio StorSimple Manager. 
-- [Interfaccia della riga di comando](#command-line-interface): un'interfaccia di Windows PowerShell da poter usare per avviare una sessione di supporto nel Virtual Array. Le sezioni seguenti descrivono dettagliatamente ciascuno dei componenti e illustrano il modo in cui la soluzione organizza i dati, alloca le risorse di archiviazione e facilita la gestione dell'archiviazione e la protezione dei dati.
+- [Interfaccia della riga di comando](#command-line-interface): un'interfaccia di Windows PowerShell da poter usare per avviare una sessione di supporto nell'array virtuale. Le sezioni seguenti descrivono dettagliatamente ciascuno dei componenti e illustrano il modo in cui la soluzione organizza i dati, alloca le risorse di archiviazione e facilita la gestione dell'archiviazione e la protezione dei dati.
 
 ### Virtual Array
 
@@ -118,7 +112,7 @@ Il Virtual Array presenta le seguenti funzionalità:
 - I backup vengono archiviati nel cloud, in grado di facilitare il ripristino di emergenza e semplificare il ripristino a livello di elemento (ILR). 
 - È possibile applicare gli aggiornamenti al Virtual Array nello stesso modo in cui si applicano a un dispositivo fisico.
 
->[AZURE.NOTE]Non è possibile espandere un Virtual Array. Pertanto, è importante eseguire il provisioning di un'archiviazione adeguata quando il dispositivo virtuale viene creato.
+>[AZURE.NOTE] Non è possibile espandere un Virtual Array. Pertanto, è importante eseguire il provisioning di un'archiviazione adeguata quando il dispositivo virtuale viene creato.
 
 ### Servizio StorSimple Manager
 
@@ -140,7 +134,7 @@ Per altre informazioni, vedere l'articolo relativo all'[uso del servizio StorSim
 
 Il Virtual Array include un'interfaccia utente basata sul Web per configurazione e registrazione singole del dispositivo con il servizio StorSimple Manager. È possibile usarlo per arrestare e riavviare il Virtual Array, eseguire i test diagnostici, aggiornare il software, modificare la password amministratore del dispositivo, visualizzare i registri di sistema e contattare il supporto tecnico Microsoft per inviare una richiesta di assistenza.
 
-Per informazioni sull'uso di un'interfaccia utente basata sul Web, andare all'articolo relativo all'[uso dell'interfaccia utente basata sul Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Per informazioni sull'uso di un'interfaccia utente basata sul Web, vedere [Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
 ### Interfaccia della riga di comando
 
@@ -163,7 +157,7 @@ Ai dati di una particolare condivisione o di un particolare volume a livelli vie
 
 ![suddivisione automatica in livelli dell'archiviazione](./media/storsimple-ova-overview/automatic-storage-tiering.png)
 
->[AZURE.NOTE]È possibile specificare un volume come aggiunto in locale e in questo caso i dati rimangono nel Virtual Array e non vengono mai caricati nel cloud. Per ulteriori informazioni, andare a [Condivisioni e volumi aggiunti in locale](#locally-pinned-shares-and-volumes).
+>[AZURE.NOTE] È possibile specificare un volume come aggiunto in locale e in questo caso i dati rimangono nel Virtual Array e non vengono mai caricati nel cloud. Per altre informazioni, vedere [Condivisioni e volumi aggiunti in locale](#locally-pinned-shares-and-volumes).
 
 ### Condivisioni e volumi aggiunti in locale
 
@@ -174,13 +168,13 @@ Ai dati di una particolare condivisione o di un particolare volume a livelli vie
 
 È possibile ripristinare una condivisione o un volume aggiunti in locale come fossero a livelli o una condivisione o un volume a livelli come aggiunti in locale.
 
-Per ulteriori informazioni sui volumi aggiunti in locale, andare a [Per gestire il volume è possibile usare il servizio StorSimple Manager](storsimple-manage-volumes-u2.md).
+Per altre informazioni sui volumi aggiunti in locale, vedere [Per gestire il volume, è possibile usare il servizio StorSimple Manager](storsimple-manage-volumes-u2.md).
 
 ### Deduplicazione e compressione dei dati a livelli o sottoposti a backup nel cloud
 
 StorSimple usa deduplicazione e compressione dei dati per ridurre ulteriormente i requisiti di archiviazione nel cloud. La deduplicazione riduce la quantità complessiva di dati archiviati eliminando la ridondanza nel set di dati archiviato. Se i dati subiscono delle variazioni, StorSimple ignora quelli non modificati e acquisisce soltanto le differenze. Inoltre, StorSimple riduce la quantità di dati archiviati identificando e rimuovendo le informazioni duplicate.
 
->[AZURE.NOTE]I dati archiviati nel Virtual Array non sono deduplicati o compressi. Deduplicazione e compressione si verificano un attimo prima dell'invio dei dati al cloud.
+>[AZURE.NOTE] I dati archiviati nel Virtual Array non sono deduplicati o compressi. Deduplicazione e compressione si verificano un attimo prima dell'invio dei dati al cloud.
 
 ### Backup pianificati e su richiesta
 
@@ -188,6 +182,6 @@ Le funzionalità di protezione dei dati di StorSimple consentono di creare backu
 
 ## Passaggi successivi
 
-Scoprire come [preparare il portale Virtual Array](storsimple-ova-deploy1-portal-prep.md).
+Informazioni su come [preparare il portale dell'array virtuale](storsimple-ova-deploy1-portal-prep.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/23/2016" 
+	ms.date="02/26/2016" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -32,7 +32,7 @@ Valutare se l'uso di un pool di database elastici per un gruppo di database è r
 
 Gli ISV SaaS sviluppano applicazioni basate sui livelli di dati su larga scala costituiti a più database. Un modello comune di applicazione prevede l'assegnazione di un database a ogni cliente. Clienti diversi, tuttavia, hanno modelli di utilizzo differenti e non prevedibili. Per questo motivo, è difficile stabilire a priori i requisiti di risorse di ciascun utente di database. Di conseguenza, per garantire una velocità effettiva notevole e tempi di risposta rapidi, un ISV potrebbe effettuare un overprovisioning delle risorse con un considerevole aumento dei costi. In alternativa, l'ISV può dedicare minore e dei rischi per i propri clienti un'esperienza peggioramento delle prestazioni.
 
-Pool di database flessibile in Database SQL Azure è consentire agli ISV di SaaS ottimizzare le prestazioni di prezzo per un gruppo di database all'interno di un budget prescritto mettendo a disposizione elasticità delle prestazioni per ogni database. I pool di database elastici abilitano l'ISV per l'acquisto di unità di velocità effettiva dei database elastici (eDTU) per un pool condiviso da più database per contenere imprevedibili periodi di utilizzo da parte dei singoli database. Il requisito di eDTU di un pool è determinato dall'utilizzo aggregato dei relativi database. La quantità di eDTU disponibili per il pool è controllata dal bilancio ISV. I pool di database elastici rendono più semplice agli ISV ragionare sull’impatto del budget sulle prestazioni e viceversa per il pool. Gli ISV aggiungono semplicemente il database al pool, impostano le necessarie garanzie eDTU o delimitano i database e quindi impostano il valore di eDTU del pool in base al loro budget. Utilizzando i pool di database elastici gli ISV possono aumentare con facilità i servizi offerti da una piccola nuova impresa a un'azienda matura in continua crescita.
+Pool di database flessibile in Database SQL Azure è consentire agli ISV di SaaS ottimizzare le prestazioni di prezzo per un gruppo di database all'interno di un budget prescritto mettendo a disposizione elasticità delle prestazioni per ogni database. I pool di database elastici abilitano l'ISV per l'acquisto di unità di transazione del database elastiche (eDTU) per un pool condiviso da più database per contenere imprevedibili periodi di utilizzo da parte dei singoli database. Il requisito di eDTU di un pool è determinato dall'utilizzo aggregato dei relativi database. La quantità di eDTU disponibili per il pool è controllata dal bilancio ISV. I pool di database elastici rendono più semplice agli ISV ragionare sull’impatto del budget sulle prestazioni e viceversa per il pool. Gli ISV aggiungono semplicemente il database al pool, impostano le necessarie garanzie eDTU o delimitano i database e quindi impostano il valore di eDTU del pool in base al loro budget. Utilizzando i pool di database elastici gli ISV possono aumentare con facilità i servizi offerti da una piccola nuova impresa a un'azienda matura in continua crescita.
   
 
 
@@ -435,4 +435,4 @@ Non tutti i singoli database sono candidati ottimali per pool database elastica.
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

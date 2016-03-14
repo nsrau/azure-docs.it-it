@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 # API di Application Insights per metriche ed eventi personalizzati 
@@ -196,7 +196,29 @@ Se sono presenti alcune schede in pagine HTML diverse, è possibile specificare 
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
+#### Temporizzazione delle visualizzazioni delle pagine
 
+Per impostazione predefinita, gli intervalli di tempo indicati come "Tempo di caricamento della visualizzazione pagina" sono misurati dal momento in cui il browser invia la richiesta al momento della chiamata all'evento di caricamento pagina del browser.
+
+In alternativa, è possibile:
+
+* Impostare una durata esplicita nella chiamata [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview).
+ * `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`
+* Usare le chiamate dell'intervallo di visualizzazione della pagina `startTrackPage` e `stopTrackPage`.
+
+*JavaScript*
+
+    // To start timing a page:
+    appInsights.startTrackPage("Page1");
+
+...
+
+    // To stop timing and log the page:
+    appInsights.stopTrackPage("Page1", url, properties, measurements);
+
+Il nome usato come primo parametro associa le chiamate di avvio e arresto. Il valore predefinito corrisponde al nome della pagina corrente.
+
+I tempi di caricamento delle pagine visualizzati in Esplora metriche sono calcolati in base all'intervallo tra la chiamata di avvio e la chiamata di arresto. È possibile specificare l'intervallo effettivo calcolato desiderato.
 
 ## Tenere traccia di una richiesta
 
@@ -436,7 +458,7 @@ Esistono tuttavia alcuni [limiti sul numero di proprietà, di valori delle propr
     telemetry.trackEvent("WinGame", properties, metrics);
 
 
-> [AZURE.NOTE]Assicurarsi di non registrare informazioni personali nelle proprietà.
+> [AZURE.NOTE] Assicurarsi di non registrare informazioni personali nelle proprietà.
 
 **Se è stata usata la metrica**, aprire Esplora metriche e selezionare la metrica dal gruppo personalizzato:
 
@@ -479,7 +501,7 @@ Se si preferisce, è possibile raccogliere i parametri di un evento in un oggett
 
     telemetry.TrackEvent(event);
 
-> [AZURE.WARNING]Non riutilizzare la stessa istanza dell'elemento di telemetria, `event` in questo esempio, per chiamare Track*() più volte. Potrebbe causare l'invio della telemetria con una configurazione errata.
+> [AZURE.WARNING] Non riutilizzare la stessa istanza dell'elemento di telemetria, `event` in questo esempio, per chiamare Track*() più volte. Potrebbe causare l'invio della telemetria con una configurazione errata.
 
 #### <a name="timed"></a> Temporizzazione degli eventi
 
@@ -736,4 +758,4 @@ Esistono alcuni limiti sul numero di metriche e eventi per applicazione (ovvero,
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

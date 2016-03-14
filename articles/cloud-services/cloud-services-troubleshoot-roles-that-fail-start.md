@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="01/20/2016"
+   ms.date="02/25/2016"
    ms.author="daleche" />
 
 # Risolvere i problemi dei ruoli del servizio cloud che non vengono avviati
@@ -71,7 +71,7 @@ Quando il servizio viene ridistribuito, verrà visualizzato un messaggio di erro
 
 1. Verificare che sia installato Azure SDK 1.3 o versione successiva.
 
-2. Durante la distribuzione della soluzione con Visual Studio, scegliere "Configura connessioni Desktop remoto". Per altre informazioni sulla configurazione della connessione Desktop remoto, vedere [Uso di Desktop remoto con i ruoli Azure](https://msdn.microsoft.com/library/gg443832.aspx).
+2. Durante la distribuzione della soluzione con Visual Studio, scegliere "Configura connessioni Desktop remoto". Per altre informazioni sulla configurazione della connessione Desktop remoto, vedere [Uso di Desktop remoto con i ruoli Azure](../vs-azure-tools-remote-desktop-roles.md).
 
 3. Quando lo stato dell'istanza è **Pronto**, nel portale di Microsoft Azure classico fare clic su una delle istanze del ruolo.
 
@@ -167,4 +167,4 @@ Altri [articoli sulla risoluzione dei problemi](..\?tag=top-support-issue&servic
 
 Per informazioni su come risolvere i problemi dei ruoli del servizio cloud usando i dati di diagnostica del calcolo Azure PaaS, vedere la [serie di blog di Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->
