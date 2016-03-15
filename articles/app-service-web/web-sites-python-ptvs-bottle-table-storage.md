@@ -216,4 +216,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!------HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016-->
