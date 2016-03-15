@@ -75,7 +75,8 @@ Questo articolo illustra alcuni degli errori più comuni che possono verificarsi
 
 **Motivo dell'errore:** se il runbook è un flusso di lavoro di PowerShell, archivia gli oggetti complessi in un formato deserializzato per rendere persistente lo stato del runbook se il flusso di lavoro viene sospeso.
 
-**Suggerimenti sulla risoluzione dei problemi:** una qualsiasi delle tre soluzioni seguenti consente di correggere questo problema.
+**Suggerimenti sulla risoluzione dei problemi:**
+una qualsiasi delle tre soluzioni seguenti consente di correggere questo problema.
 
 1. Se si inviano tramite pipe oggetti complessi da un cmdlet a altro, eseguire il wrapping dei cmdlet in un InlineScript.  
 2. Passare il nome o il valore necessario dall'oggetto complesso invece di passare l'intero oggetto.  
@@ -137,7 +138,8 @@ Questo articolo illustra alcuni degli errori più comuni che possono verificarsi
 
 - Il cmdlet **New AzureRmAutomationModule** viene usato per caricare il modulo e non è stato specificato il percorso di archiviazione completo oppure il modulo non è stato caricato con un URL accessibile pubblicamente.
 
-**Suggerimenti per la risoluzione dei problemi:** una qualsiasi delle soluzioni seguenti consente di correggere il problema.
+**Suggerimenti per la risoluzione dei problemi:**
+una qualsiasi delle soluzioni seguenti consente di correggere il problema.
 
 - Verificare che il modulo segua questo formato: NomeModulo.Zip **->** NomeModulo o NumeroVersione **->** (NomeModulo.psm1, NomeModulo.psd1)
 
@@ -206,4 +208,4 @@ Se sono state seguite le procedure precedenti per la risoluzione dei problemi e 
 
 - Inviare commenti o suggerimenti oppure richieste di funzionalità per Automazione di Azure al forum dedicato ai [suggerimenti degli utenti](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!-----HONumber=AcomDC_0302_2016-->
