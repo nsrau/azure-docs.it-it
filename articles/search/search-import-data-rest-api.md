@@ -168,4 +168,4 @@ Per altre informazioni su azioni sui documenti e risposte di esito positivo/erro
 ## Avanti
 Dopo il popolamento dell'indice di Ricerca di Azure, si potrà iniziare a eseguire una query per la ricerca di documenti.
 
-<!------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-->

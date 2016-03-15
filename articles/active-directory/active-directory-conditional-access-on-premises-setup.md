@@ -251,4 +251,4 @@ A questo punto, quando gli utenti accedono all'applicazione da un dispositivo no
 
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-->

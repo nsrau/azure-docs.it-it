@@ -1,4 +1,11 @@
-<properties pageTitle="Anteprima di Azure Active Directory B2C: Chiamare un'API Web da un'applicazione Android | Microsoft Azure" description="Questo articolo illustra come creare un'app Android "To-Do List" che chiama un'API Web Node.js web tramite token di connessione OAuth 2.0. Sia l'app Android che l'API Web usano Azure Active Directory B2C per gestire le identità degli utenti e autenticare gli utenti." services="active-directory-b2c" documentationCenter="android" authors="brandwe" manager="msmbaldwin" editor=""/>
+<properties 
+	pageTitle="Anteprima di Azure Active Directory B2C: Chiamare un'API Web da un'applicazione Android | Microsoft Azure"
+	description="Questo articolo illustra come creare un'app Android "To-Do List" che chiama un'API Web Node.js web tramite token di connessione OAuth 2.0. Sia l'app Android che l'API Web usano Azure Active Directory B2C per gestire le identità degli utenti e autenticare gli utenti."
+	services="active-directory-b2c"
+	documentationCenter="android"
+	authors="brandwe"
+	manager="msmbaldwin"
+	editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"

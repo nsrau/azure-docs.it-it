@@ -122,4 +122,4 @@ Copiare i file di parametri degli script di test seguenti nel computer server JM
 [Creazione di un ambiente di test delle prestazioni per Elasticsearch in Azure]: guidance-elasticsearch-creating-performance-testing-environment.md
 [Distribuzione di un campionatore JUnit per JMeter per il test delle prestazioni di Elasticsearch]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016-->
