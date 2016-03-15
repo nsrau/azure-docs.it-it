@@ -53,7 +53,9 @@ Quando si aggiunge OneDrive a PowerApps Enterprise, si immettono i valori **Chia
 
 1. Passare alla [pagina di creazione app][5] in _Centro per sviluppatori di account Microsoft_ e accedere con il proprio _Account Microsoft_.
 
-2. Immettere il **nome dell'applicazione** e accettare il contratto: ![Nuova app di OneDrive][6]
+2. Immettere il **nome dell'applicazione** e accettare il contratto:
+
+	![Nuova app di OneDrive][6]
 
 3. Nelle impostazioni:
 
@@ -324,4 +326,4 @@ Dopo aver aggiunto l'API di OneDrive a PowerApps Enterprise, [concedere autorizz
 [6]: ./media/create-api-onedrive/onedrive-new-app.png
 [7]: ./media/create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!-----HONumber=AcomDC_0302_2016-->
