@@ -284,4 +284,4 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 
 [Dimensioni per i servizi cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!--------HONumber=AcomDC_0302_2016-->
