@@ -42,7 +42,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Un contenitore delle proprietà di coppia chiave valore (KVP) che fornisce l'estensibilità sugli articoli di telemetria di AppInsights per l’aggiunta di proprietà personalizzate. Lo sviluppatore è in grado di fornire un elenco di coppia chiave-valore associato a un elemento di dati di telemetria. Ogni chiave viene rilevata e possono essere fornite massimo 200 chiavi univoche per ogni AppInsights ikey (applicazione). Una chiave può avere una lunghezza massima di 100 caratteri. Tutti i valori vengono considerati come stringa e può essere fornita una dimensione massima di 1000 caratteri. Ogni proprietà inizialmente è classificata come una dimensione, che abilita le funzionalità di segmentazione in base a ogni set di valore della proprietà. Ogni set di valore è registrato per ogni chiave di proprietà per la cardinalità. Quando la cardinalità di una chiave supera 100 valori univoci, la proprietà viene classificata come un attributo. Un attributo può essere ricercato, ma non può essere la destinazione di segmentazione (aggregazione o raggruppamento). 
 
-    *Derivazione:*i nomi delle proprietà hanno dimensioni massime pari a 100; i valori delle proprietà hanno dimensioni massime pari a 1024
+    *Derivazione:* i nomi delle proprietà hanno dimensioni massime pari a 100; i valori delle proprietà hanno dimensioni massime pari a 1024
 
     *Predefinito:* in presenza di una chiave esistente, il valore mancante è quindi value = null
 
@@ -108,7 +108,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Il testo di hashtag dell'elemento di dati URL 
 
-    *Derivazione:*vedere l’appendice per la trasformazione di URL
+    *Derivazione:* vedere l’appendice per la trasformazione di URL
 
 **urlData.host**
 
@@ -763,7 +763,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     L'ultimo evento della sessione. Questo viene originato dalla event.name ed è disponibile come una segmentazione/aggregazione per le metriche sessionMetric 
 
-    *Derivazione:*Originato da event.name
+    *Derivazione:* Originato da event.name
 
 **exitUrl**
 
@@ -991,4 +991,4 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * [Esportazione continua](app-insights-export-telemetry.md)
 * [Esempi di codice](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!-----HONumber=AcomDC_0302_2016-->

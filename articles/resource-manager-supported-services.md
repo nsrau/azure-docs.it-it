@@ -304,4 +304,4 @@ L'output sarà analogo al seguente:
 - Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per informazioni sulla distribuzione delle risorse, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!------HONumber=AcomDC_0302_2016-->
+<!--------HONumber=AcomDC_0302_2016-->

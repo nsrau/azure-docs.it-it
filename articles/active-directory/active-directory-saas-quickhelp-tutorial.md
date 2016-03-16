@@ -117,7 +117,7 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
 
     b. Per caricare il file dei metadati di Azure scaricato, fare clic su **Sfoglia**, passare al file e quindi fare clic su **Carica metadati**.
 
-    c. Nella casella di testo **Email**, digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    c. Nella casella di testo **Email**, digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
     d. Nella casella di testo **Nome**, digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
 
@@ -255,4 +255,4 @@ In questa sezione viene descritto come testare la configurazione dell'accesso Si
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!-----HONumber=AcomDC_0302_2016-->
