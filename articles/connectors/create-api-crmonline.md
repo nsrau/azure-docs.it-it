@@ -62,8 +62,8 @@ Quando si aggiunge CRM Online a PowerApps Enterprise, immettere i valori **ID cl
 
 3. In **Proprietà app**:
 
-	1. Immettere l'**URL DI ACCESSO** dell'applicazione. Poiché si intende eseguire l'autenticazione con AAD per PowerApps, impostare l'URL di accesso su \__https://login.windows.net_.
-2. Immettere un valore valido di **URI ID APP** per l'app.  
+	1. Immettere l'**URL DI ACCESSO** dell'applicazione. Poiché si intende eseguire l'autenticazione con AAD per PowerApps, impostare l'URL di accesso su _https://login.windows.net_.
+	2. Immettere un valore valido di **URI ID APP** per l'app.  
 	3. Selezionare **OK**.  
 
 	![Aggiunta dell'applicazione AAD - proprietà app][10]
@@ -80,11 +80,14 @@ Seguire questi passaggi per accedere a CRM Online e completare la configurazione
 
 1. Selezionare **Ricorrenza**
 2. Selezionare una **Frequenza** e immettere un **Intervallo**
-3. Selezionare **Aggiungi un'azione** ![Configurare CRM Online][13]
+3. Selezionare **Aggiungi un'azione**  
+![Configurare CRM Online][13]
 4. Immettere CRM nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con CRM nel nome
 5. Selezionare **Dynamics CRM Online - Crea un nuovo record**
-6. Selezionare **Accedi a Dynamics CRM Online**: ![Configurare CRM Online][14]
-7. Fornire le credenziali di CRM Online per accedere e autorizzare l'applicazione ![Configurare CRM Online][15]  
+6. Selezionare **Accedi a Dynamics CRM Online**:  
+![Configurare CRM Online][14]
+7. Fornire le credenziali di CRM Online per accedere e autorizzare l'applicazione
+![Configurare CRM Online][15]  
 8. Dopo l'accesso, tornare all'app per la logica per completarla aggiungendo gli altri trigger e azioni necessari.
 9. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.
 
@@ -300,3 +303,5 @@ Dopo aver aggiunto l'API di CRM Online a PowerApps Enterprise, [concedere autori
 [15]: ./media/create-api-crmonline/crmconfig3.png
 
 <!---HONumber=AcomDC_0302_2016-->
+
+

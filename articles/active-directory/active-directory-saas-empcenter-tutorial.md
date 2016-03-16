@@ -80,8 +80,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configurare le impostazioni dell'app](./media/active-directory-saas-empcenter-tutorial/IC802921.png "Configurare le impostazioni dell'app")
 
-    1.  Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione EmpCenter, ad esempio: "**https://partner-authenticati.empcenter.com/workforce/SSO.do*).
-2.  Fare clic su **Avanti**
+    1.  Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione EmpCenter, ad esempio: *https://partner-authenticati.empcenter.com/workforce/SSO.do*).
+    2.  Fare clic su **Avanti**
 
 4.  Nella pagina **Configura accesso Single Sign-On in EmpCenter** fare clic su **Download metadati** e quindi salvare il file di metadati nel computer.
 
@@ -96,7 +96,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Configura accesso Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
   
-Per consentire agli utenti di Azure AD di accedere a EmpCenter, è necessario eseguirne il provisioning in EmpCenter. Nel caso di EmpCenter, gli account utente devono essere creati dal team di supporto di EmpCenter.
+Per consentire agli utenti di Azure AD di accedere a EmpCenter, è necessario eseguirne il provisioning in EmpCenter.  
+Nel caso di EmpCenter, gli account utente devono essere creati dal team di supporto di EmpCenter.
 
 >[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da EmpCenter per eseguire il provisioning degli account utente di Azure Active Directory.
 

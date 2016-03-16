@@ -54,9 +54,10 @@ Tutte le API supportano dati nei formati JSON e XML.
 Quando si aggiunge questa API a PowerApps Enterprise, immettere i valori **ID client** e **Segreto client** dell'applicazione Office 365 per Azure Active Directory (AAD). Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione Office 365. Se non si dispone di un'applicazione Office 365, è possibile seguire la procedura riportata sotto per creare l'applicazione:
 
 1. Nel [portale di Azure][5] aprire **Active Directory** e selezionare il nome del tenant dell'organizzazione.
-2. Selezionare la scheda **Applicazioni** e selezionare **Aggiungi**: ![Applicazioni tenant ADD][7]
+2. Selezionare la scheda **Applicazioni** e selezionare **Aggiungi**:  
+![Applicazioni tenant ADD][7]
 
-3. In **Aggiungi applicazione**:
+3. In **Aggiungi applicazione**:  
 
 	1. Immettere un **Nome** per l'applicazione.  
 	2. Lasciare il tipo di applicazione come **Web**.  
@@ -64,17 +65,19 @@ Quando si aggiunge questa API a PowerApps Enterprise, immettere i valori **ID cl
 
 	![Aggiungere l'applicazione ADD - info app][8]
 
-4. In **Proprietà app**:
+4. In **Proprietà app**:  
 
-	1. Immettere l'**URL DI ACCESSO** dell'applicazione. Poiché si intende eseguire l'autenticazione con AAD per PowerApps, impostare l'URL di accesso su \__https://login.windows.net_.
-2. Immettere un valore valido di **URI ID APP** per l'app.  
+	1. Immettere l'**URL DI ACCESSO** dell'applicazione. Poiché si intende eseguire l'autenticazione con AAD per PowerApps, impostare l'URL di accesso su \__https://login.windows.net_.  
+	2. Immettere un valore valido di **URI ID APP** per l'app.  
 	3. Selezionare **OK**.  
 
 	![Aggiungere l'applicazione ADD - proprietà app][9]
 
-5. Al termine si apre la nuova applicazione AAD. Selezionare **Configura**: ![App ADD Contoso][10]
+5. Al termine si apre la nuova applicazione AAD. Selezionare **Configura**:  
+![App ADD Contoso][10]
 
-6. Nella sezione **OAuth2** impostare l'**URL di risposta** sull'URL di reindirizzamento visualizzato quando è stata aggiunta l'API di Office 365 Users nel portale di Azure. Selezionare **Aggiungi applicazione**: ![Configurare l'applicazione ADD Contoso][11]
+6. Nella sezione **OAuth2** impostare l'**URL di risposta** sull'URL di reindirizzamento visualizzato quando è stata aggiunta l'API di Office 365 Users nel portale di Azure. Selezionare **Aggiungi applicazione**:  
+![Configurare l'applicazione ADD Contoso][11]
 
 7. In **Autorizzazioni per altre applicazioni** selezionare **API di Office 365 Unified (Anteprima)** e selezionare **OK**:
 
@@ -102,7 +105,8 @@ Dopo aver creato la connessione, immettere le proprietà di Office 365 Users, ad
 Si applica alla versione 1.0.
 
 ### Recupera il mio profilo 
-Recupera il profilo dell'utente corrente. ```GET: /users/me```
+Recupera il profilo dell'utente corrente.  
+```GET: /users/me```
 
 Non sono disponibili parametri per questa chiamata.
 
@@ -120,7 +124,8 @@ Non sono disponibili parametri per questa chiamata.
 
 
 ### Recupera profilo utente 
-Recupera il profilo di un utente specifico. ```GET: /users/{userId}```
+Recupera il profilo di un utente specifico.  
+```GET: /users/{userId}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -140,7 +145,8 @@ Recupera il profilo di un utente specifico. ```GET: /users/{userId}```
 
 
 ### Recupera manager 
-Recupera il profilo utente del manager dell'utente specificato. ```GET: /users/{userId}/manager```
+Recupera il profilo utente del manager dell'utente specificato.  
+```GET: /users/{userId}/manager```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -161,7 +167,8 @@ Recupera il profilo utente del manager dell'utente specificato. ```GET: /users/{
 
 
 ### Recupera i dipendenti diretti 
-Recupera i dipendenti diretti. ```GET: /users/{userId}/directReports```
+Recupera i dipendenti diretti.  
+```GET: /users/{userId}/directReports```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -182,7 +189,8 @@ Recupera i dipendenti diretti. ```GET: /users/{userId}/directReports```
 
 
 ### Ricerca utenti 
-Recupera i risultati di ricerca dei profili utente. ```GET: /users```
+Recupera i risultati di ricerca dei profili utente.  
+```GET: /users```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -236,3 +244,5 @@ Dopo aver aggiunto l'API di Office 365 a PowerApps Enterprise, [concedere autori
 [11]: ./media/create-api-office365-users/contoso-aad-app-configure.PNG
 
 <!---HONumber=AcomDC_0302_2016-->
+
+
