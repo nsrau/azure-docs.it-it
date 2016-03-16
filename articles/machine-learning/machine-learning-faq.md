@@ -94,9 +94,7 @@ Per i set di dati con dimensioni maggiori di un paio di GB, caricare i dati in A
 **È possibile leggere i dati da Amazon S3?**
 
 Se la quantità di dati è limitata e si vuole esporli tramite un URL HTTP, è possibile usare il modulo [Reader][reader]. Per quantità di dati maggiori, trasferirli prima in Archiviazione di Azure e quindi usare il modulo [Reader][reader] per passarli all'esperimento.
-<!--
-<SEE CLOUD DS PROCESS>
--->
+<!--<SEE CLOUD DS PROCESS>-->
 
 **Esiste una capacità di input dell'immagine predefinita?**
 
@@ -219,9 +217,9 @@ Una volta inserito in produzione un modello predittivo, è possibile monitorarlo
 
 Per RRS, la risposta del servizio web si trova in genere dove si visualizza il risultato. È inoltre possibile scrivere un BLOB. Per BES, l'output viene scritto in un BLOB per impostazione predefinita. È inoltre possibile scrivere l'output in un database o in una tabella utilizzando il modulo di scrittura.
 
- ****È possibile creare servizi web solo da modelli creati in Studio? No. È inoltre possibile creare servizi web direttamente dai notebook Jupyter e RStudio.
+ **È possibile creare servizi web solo da modelli creati in Studio? No. È inoltre possibile creare servizi web direttamente dai notebook Jupyter e RStudio.
 
- ****Dove è possibile trovare informazioni sui codici di errore? I codici di errore vengono descritti [qui](https://msdn.microsoft.com/library/azure/dn905910.aspx).
+ **Dove è possibile trovare informazioni sui codici di errore? I codici di errore vengono descritti [qui](https://msdn.microsoft.com/library/azure/dn905910.aspx).
 
 ## Scalabilità
 

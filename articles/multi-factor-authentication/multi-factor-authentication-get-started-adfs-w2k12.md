@@ -7,7 +7,14 @@
 	manager="stevenpo" 
 	editor="curtland"/>
 
-<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="03/04/2016"" ms.author="billmath"/>
+<tags 
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article"
+	ms.date="03/04/2016"" 
+	ms.author="billmath"/>
 
 
 # Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication con ADFS di Windows Server 2012 R2
@@ -47,7 +54,8 @@ Prima di iniziare, tenere presente le seguenti informazioni:
 8. Nel passaggio Avvia programma di installazione, fare clic su Avanti.
 9. Nel programma di installazione scheda ADFS di multi-Factor Authentication, fare clic su Avanti.
 10. Al termine dell'installazione, fare clic su Chiudi.
-11. Ora che è stato installato l'adapter, deve essere registrato con AD FS. Aprire Windows PowerShell ed eseguire il comando seguente: c:\\Programmi\\Microsoft Programmi\\multi-factor \\programmi\\multi-factor Authentication Server\\register-multifactorauthenticationadfsadapter.ps1
+11. Ora che è stato installato l'adapter, deve essere registrato con AD FS. Aprire Windows PowerShell ed eseguire il comando seguente: 
+	c:\\Programmi\\Microsoft Programmi\\multi-factor \\programmi\\multi-factor Authentication Server\\register-multifactorauthenticationadfsadapter.ps1
    <center>! [Cloud] (. / media/multi-factor-authentication-get-started-adfs-w2k12/pshell.png)</center>
 12. A questo punto è necessario modificare i criteri di autenticazione globali in ADFS utilizzare l'adattatore appena registrato. Nella Console di gestione AD FS, passare al nodo Criteri di autenticazione e nella sezione multi-factor Authentication, fare clic sul collegamento di modifica accanto alla sottosezione impostazioni globali. Nella finestra di dialogo Modifica criteri di autenticazione globali, selezionare multi-Factor Authentication come metodo di autenticazione aggiuntivo e quindi fare clic su OK. L'adapter viene registrata come WindowsAzureMultiFactorAuthentication. È necessario riavviare il servizio ADFS rendere effettiva la registrazione.
 
