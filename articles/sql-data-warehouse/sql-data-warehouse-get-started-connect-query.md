@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Connettersi ed eseguire query con Visual Studio
@@ -46,7 +46,7 @@ Per connettersi al database, è necessario il nome completo del server ( ***nome
 
 1. Aprire Visual Studio.
 2. Dal menu Visualizza scegliere **Esplora oggetti di SQL Server**.
- 
+
 ![][2]
 
 3. Fare clic sul pulsante **Aggiungi SQL Server**.
@@ -91,4 +91,4 @@ Ora che è possibile connettersi ed eseguire query, provare a [connettersi con P
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

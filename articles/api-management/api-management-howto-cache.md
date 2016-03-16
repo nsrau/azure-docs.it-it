@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/16/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Aggiungere il caching per migliorare le prestazioni in Gestione API di Azure
@@ -22,7 +22,7 @@ Le operazioni in Gestione API possono essere configurate per la memorizzazione n
 
 Questa Guida illustra come aggiungere la memorizzazione delle risposte nella cache per l'API e configurare i criteri per le operazioni API Echo di esempio. Per verificare il funzionamento della memorizzazione della cache, è possibile chiamare l'operazione dal portale per sviluppatori.
 
->[AZURE.NOTE]Per informazioni sul caching degli elementi in base alla chiave usando espressioni di criteri, vedere [Caching personalizzato in Gestione API di Azure](api-management-sample-cache-by-key.md).
+>[AZURE.NOTE] Per informazioni sul caching degli elementi in base alla chiave usando espressioni di criteri, vedere [Caching personalizzato in Gestione API di Azure](api-management-sample-cache-by-key.md).
 
 ## Prerequisiti
 
@@ -32,7 +32,7 @@ Prima di eseguire i passaggi di questa guida, è necessario avere un'istanza del
 
 In questo passaggio vengono riviste le impostazioni di caching dell'operazione **GET su risorsa (memorizzata nella cache)** dell'API Echo di esempio.
 
->[AZURE.NOTE]Ogni istanza del servizio Gestione API è preconfigurata con un'API Echo utilizzabile per sperimentare e ottenere altre informazioni su Gestione API. Per altre informazioni, vedere [Introduzione a Gestione API di Azure][].
+>[AZURE.NOTE] Ogni istanza del servizio Gestione API è preconfigurata con un'API Echo utilizzabile per sperimentare e ottenere altre informazioni su Gestione API. Per altre informazioni, vedere [Introduzione a Gestione API di Azure][].
 
 Per iniziare, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
 
@@ -89,7 +89,7 @@ La definizione dei criteri per questa operazione include i criteri che definisco
 		</outbound>
 	</policies>
 
->[AZURE.NOTE]Le modifiche apportate ai criteri di caching nell'editor dei criteri si rifletteranno nella scheda **Caching** di un'operazione e viceversa.
+>[AZURE.NOTE] Le modifiche apportate ai criteri di caching nell'editor dei criteri si rifletteranno nella scheda **Caching** di un'operazione e viceversa.
 
 ## <a name="test-operation"> </a>Chiamare un'operazione e testare la memorizzazione nella cache
 
@@ -103,7 +103,7 @@ Fare clic su **API** dal menu in alto e quindi scegliere **API Echo**.
 
 >Se è stata configurata una sola API o se ne è visibile solo una per l'account, facendo clic sulle API vengono visualizzate le operazioni per l'API.
 
-Selezionare l'operazione **GET su risorsa (memorizzata nella cache)** e quindi fare clic su **Apri console**.
+Selezionare l'operazione **GET su risorsa (memorizzata nella cache)**, quindi fare clic su **Apri console**.
 
 ![Open console][api-management-open-console]
 
@@ -163,4 +163,4 @@ Il valore di **sampleheader** nella risposta ora è **value2**. I risultati dell
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_1217_2015----->
+<!---HONumber=AcomDC_0309_2016-->

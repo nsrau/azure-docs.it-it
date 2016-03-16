@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introduzione all'archiviazione BLOB di Azure con .NET | Microsoft Azure"
-	description="Archiviare i dati dei file nel cloud con l'archiviazione BLOB (oggetti) di Azure. Introduzione a semplici operazioni di archiviazione BLOB, incluse le operazioni di creazione di un contenitore e caricamento, download, elenco ed eliminazione di contenuto dei BLOB."
+	description="Archiviare i dati dei file nel cloud con l'archivio BLOB (archivio di oggetti) di Azure. Introduzione a semplici operazioni di archiviazione BLOB, incluse le operazioni di creazione di un contenitore e caricamento, download, elenco ed eliminazione di contenuto dei BLOB."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/14/2016"
+	ms.date="02/25/2016"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Panoramica
 
-Archiviazione BLOB di Azure è un servizio che archivia i dati dei file nel cloud. Archiviazione BLOB può archiviare qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. Archiviazione BLOB è talvolta detta archiviazione di oggetti.
+Archiviazione BLOB di Azure è un servizio che archivia i dati dei file nel cloud. Archiviazione BLOB può archiviare qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. L'archivio BLOB è anche denominato archivio di oggetti.
 
 ### Informazioni sull'esercitazione
 
@@ -32,6 +32,12 @@ Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comun
 **Tempo previsto per il completamento:** 45 minuti
 
 **Prerequisiti:**
+
+- [Microsoft Visual Studio](https://www.visualstudio.com/it-IT/visual-studio-homepage-vs.aspx)
+- [Libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+- [Gestione configurazione di Azure per .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+- Un [account di archiviazione Azure](storage-create-storage-account.md#create-a-storage-account).
+
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -374,4 +380,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!-------HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

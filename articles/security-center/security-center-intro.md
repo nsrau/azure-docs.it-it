@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="03/02/2016"
    ms.author="terrylan"/>
 
 # Introduzione al Centro sicurezza di Azure
@@ -31,11 +31,11 @@ Informazioni sul Centro sicurezza di Azure, le funzionalità principali e il fun
 | | |
 |----- |-----|
 | Prevenzione | Monitora lo stato della sicurezza delle risorse di Azure |
-| | Definisce i criteri per le sottoscrizioni di Azure in base ai requisiti di sicurezza dell'azienda, ai tipi di applicazioni in uso o al livello di riservatezza dei dati |
+| | Definisce i criteri per le sottoscrizioni e i gruppi di risorse di Azure in base ai requisiti di sicurezza dell'azienda, ai tipi di applicazioni in uso o al livello di riservatezza dei dati |
 | | Usa i suggerimenti relativi alla sicurezza in base ai criteri per guidare i proprietari del servizio nel processo di implementazione dei controlli necessari |
 | | Distribuisce rapidamente i servizi di sicurezza e i dispositivi di Microsoft e dei partner |
 | Rilevamento |Raccoglie e analizza automaticamente i dati di sicurezza dalle risorse di Azure, dalla rete e dalle soluzioni dei partner, ad esempio programmi antimalware e firewall |
-| | Sfrutta le informazioni sulle minacce globali da prodotti e servizi Microsoft, centri anti-crimine digitali e di risposta agli eventi imprevisti, nonché da feed esterni |
+| | Sfrutta le informazioni sulle minacce globali da prodotti e servizi Microsoft, Microsoft Digital Crimes Unit (DCU) e Microsoft Security Response Center (MSRC), nonché da feed esterni |
 | | Applica analisi avanzate, tra cui analisi del comportamento e di Machine Learning |
 | Risposta | Fornisce eventi imprevisti o avvisi di sicurezza con priorità |
 | | Offre informazioni dettagliate sull'origine dell'attacco e sulle risorse interessate |
@@ -50,17 +50,39 @@ Nel Centro sicurezza è possibile impostare i criteri di sicurezza, monitorare l
 
 ### Criteri di sicurezza
 
-È possibile definire i criteri per le sottoscrizioni di Azure in base ai requisiti di sicurezza dell'azienda. È anche possibile personalizzarli in base ai tipi di applicazioni in uso o al livello di riservatezza dei dati in ogni sottoscrizione. Ad esempio, le risorse usate per lo sviluppo o il test possono avere requisiti di sicurezza diversi da quelli delle applicazioni di produzione. Allo stesso modo, le applicazioni con dati regolamentati, come le informazioni personali, possono richiedere un livello di sicurezza più elevato.
+È possibile definire i criteri per le sottoscrizioni e i gruppi di risorse di Azure in base ai requisiti di sicurezza della società. È anche possibile personalizzarli in base ai tipi di applicazioni in uso o al livello di riservatezza dei dati in ogni sottoscrizione. Ad esempio, le risorse usate per lo sviluppo o il test possono avere requisiti di sicurezza diversi da quelli delle applicazioni di produzione. Allo stesso modo, le applicazioni con dati regolamentati, come le informazioni personali, possono richiedere un livello di sicurezza più elevato.
 
-> [AZURE.NOTE] Per modificare un criterio di sicurezza, è necessario essere il proprietario o un collaboratore di una sottoscrizione.
+> [AZURE.NOTE] Per modificare i criteri di sicurezza a livello di sottoscrizione o di gruppo di risorse, è necessario essere il proprietario della sottoscrizione o un collaboratore.
 
-Fare clic sul riquadro **Criteri di sicurezza** per un elenco delle sottoscrizioni e quindi sceglierne una per visualizzare i dettagli dei criteri.
+Nel pannello **Centro sicurezza** selezionare il riquadro **Criteri di sicurezza** per un elenco delle sottoscrizioni e dei gruppi di risorse.
 
-![Riquadro Criteri di sicurezza][2]
+![Pannello Centro sicurezza][2]
 
-**Raccolta dati** (vedere sopra) abilita la raccolta dei dati per i criteri di sicurezza. L'abilitazione consente: - Analisi giornaliera di tutte le macchine virtuali supportate per il monitoraggio della sicurezza e le raccomandazioni - Raccolta di eventi di sicurezza per l'analisi e il rilevamento delle minacce.
+Nel pannello **Criteri di sicurezza** selezionare una sottoscrizione per visualizzare i dettagli dei criteri.
 
-**Mostra suggerimenti per:** (vedere sopra) consente di scegliere i controlli di sicurezza da monitorare e suggerire in base alle esigenze di sicurezza delle risorse all'interno della sottoscrizione.
+![Sottoscrizione pannello Criteri di sicurezza][3]
+
+**Raccolta dati** (vedere sopra) abilita la raccolta dei dati per i criteri di sicurezza. L'abilitazione fornisce:
+
+- Analisi giornaliera di tutte le macchine virtuali supportate per il monitoraggio della sicurezza e le raccomandazioni.
+- Raccolta di eventi di sicurezza per l'analisi e il rilevamento delle minacce.
+
+**Scegli un account di archiviazione per ogni area** (vedere sopra) consente di scegliere, per ogni area in cui sono in esecuzione delle macchine virtuali, l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Se non si sceglie un account di archiviazione per ogni area, verrà creato automaticamente. I dati raccolti vengono isolati logicamente da quelli di altri clienti per motivi di sicurezza.
+
+> [AZURE.NOTE] La raccolta dei dati e la scelta di un account di archiviazione per ogni area è configurata a livello di sottoscrizione.
+
+**Mostra raccomandazioni per** (vedere sopra) consente di scegliere i controlli di sicurezza da monitorare e suggerire in base alle esigenze di sicurezza delle risorse all'interno della sottoscrizione.
+
+Successivamente, selezionare un gruppo di risorse per visualizzare i dettagli dei criteri.
+
+![Gruppo di risorse pannello Criteri di sicurezza][4]
+
+**Ereditarietà** (vedere sopra) consente di definire il gruppo di risorse come:
+
+- Ereditato (impostazione predefinita), ossia tutti i criteri di sicurezza per questo gruppo di risorse vengono ereditati dal livello della sottoscrizione.
+- Univoco, ossia il gruppo di risorse avrà criteri di sicurezza personalizzati. Può essere necessario apportare modifiche in **Mostra raccomandazioni per**.
+
+> [AZURE.NOTE] In caso di conflitto tra criteri definiti a livello di sottoscrizione e quelli a livello di gruppo di risorse, i criteri a livello di gruppo di risorse avranno la precedenza.
 
 ### Suggerimenti per la sicurezza
 
@@ -74,7 +96,7 @@ Fare clic sul riquadro **Criteri di sicurezza** per un elenco delle sottoscrizio
 
 Fare clic sul riquadro **Suggerimenti** per visualizzarne un elenco. Fare clic su ogni raccomandazione per visualizzare informazioni aggiuntive o intervenire per risolvere il problema.
 
-![Raccomandazioni di sicurezza nel Centro sicurezza di Azure][3]
+![Raccomandazioni di sicurezza nel Centro sicurezza di Azure][5]
 
 ### Integrità delle risorse
 
@@ -82,7 +104,7 @@ Il riquadro **Integrità delle risorse** visualizza il comportamento di sicurezz
 
 Selezionare un tipo di risorsa nel riquadro **Integrità delle risorse** per visualizzare altre informazioni, incluso un elenco delle potenziali vulnerabilità di sicurezza identificate. Nell'esempio seguente è selezionata la risorsa **Macchine virtuali**.
 
-![Riquadro Integrità delle risorse][4]
+![Riquadro Integrità delle risorse][6]
 
 ### Avvisi di sicurezza
 
@@ -95,11 +117,11 @@ Selezionare un tipo di risorsa nel riquadro **Integrità delle risorse** per vis
 
 Fare clic sul riquadro **Avvisi di sicurezza** per visualizzare un elenco di avvisi con priorità.
 
-![Avvisi di sicurezza][5]
+![Avvisi di sicurezza][7]
 
 Se si seleziona un avviso, verranno visualizzate altre informazioni sull'attacco e suggerimenti su come risolverlo.
 
-![Dettagli dell'avviso di sicurezza][6]
+![Dettagli dell'avviso di sicurezza][8]
 
 ## Introduzione
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Il Centro sicurezza viene abilitato con la sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -111,19 +133,21 @@ Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di
 ## Passaggi successivi
 Questo documento ha illustrato il Centro sicurezza, le funzionalità principali e come iniziare a usarlo. Per altre informazioni, vedere gli argomenti seguenti:
 
-- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza.
-- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui i suggerimenti facilitano la protezione delle risorse di Azure.
+- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni facilitano la protezione delle risorse di Azure.
 - [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-- [Come gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
+- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
-- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): ottenere le ultime informazioni e notizie sulla sicurezza di Azure.
+- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-intro/security-tile.PNG
-[2]: ./media/security-center-intro/security-policy.png
-[3]: ./media/security-center-intro/recommendations.png
-[4]: ./media/security-center-intro/resources-health.png
-[5]: ./media/security-center-intro/security-alert.png
-[6]: ./media/security-center-intro/security-alert-detail.png
+[2]: ./media/security-center-intro/security-center.png
+[3]: ./media/security-center-intro/security-policy.png
+[4]: ./media/security-center-intro/security-policy-blade.png
+[5]: ./media/security-center-intro/recommendations.png
+[6]: ./media/security-center-intro/resources-health.png
+[7]: ./media/security-center-intro/security-alert.png
+[8]: ./media/security-center-intro/security-alert-detail.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
-	manager="dwrede"
+	manager="reikre"
 	editor=""/>
 
 <tags
@@ -13,20 +13,17 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.date="03/05/2016"
 	ms.author="ricksal"/>
 
 # Introduzione a Servizi mobili per Android (back-end JavaScript)
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Per l'equivalente di App per dispositivi mobili di questo argomento, vedere [Creare un'app per Android in App per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-android-get-started.md).
 
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per Android mediante Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app **To do list** che archivia i dati dell'app nel nuovo servizio mobile.
 
@@ -97,4 +94,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Introduzione alle notifiche push]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-<!---HONumber=AcomDC_0211_2016----->
+<!---HONumber=AcomDC_0309_2016-->

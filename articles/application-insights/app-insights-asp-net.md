@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/28/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
 
 
@@ -94,7 +94,7 @@ La ricerca di testo libero funziona in tutti i campi degli eventi. Ad esempio, �
 
 ### Eccezioni
 
-Se è stato [impostato il monitoraggio delle eccezioni](app-insights-asp-net-exception-mvc.md), i report di eccezione verranno visualizzati nella finestra di ricerca.
+Se è stato [impostato il monitoraggio delle eccezioni](app-insights-asp-net-exceptions.md), i report di eccezione verranno visualizzati nella finestra di ricerca.
 
 Fare clic su un'eccezione per ottenere un'analisi dello stack. Se il codice dell'app è aperto in Visual Studio, è possibile fare clic nell'analisi dello stack per visualizzare la relativa riga del codice.
 
@@ -126,7 +126,7 @@ Aprire la ricerca per esaminare le singole richieste e i relativi eventi associa
 
 [Altre informazioni sulla ricerca](app-insights-diagnostic-search.md)
 
-* *Nessun evento associato?* Impostare le [eccezioni del server](app-insights-asp-net-exception-mvc.md) e le [dipendenze](app-insights-asp-net-dependencies.md).
+* *Nessun evento associato?* Impostare le [eccezioni del server](app-insights-asp-net-exceptions.md) e le [dipendenze](app-insights-asp-net-dependencies.md).
 
 
 ## Dati non visualizzati
@@ -172,7 +172,7 @@ In Visual Studio 2015 o versione successiva Hub diagnostica mostra i dati di tel
 ## Passaggi successivi
 
 - [Dati utente e pagina](../article/application-insights/app-insights-javascript.md#selector1)
-- [Eccezioni](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
+- [Eccezioni](../article/application-insights/app-insights-asp-net-exceptions.md#selector1)
 - [Dipendenze](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Disponibilità](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
@@ -214,4 +214,4 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

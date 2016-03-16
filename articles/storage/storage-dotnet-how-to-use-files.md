@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="02/29/2016"
+      ms.date="03/03/2016"
       ms.author="minet" />
 
 # Introduzione ad Archiviazione file di Azure in Windows
@@ -255,29 +255,11 @@ Per montare la condivisione file da un client locale, è prima necessario seguir
 
 ## Sviluppare con Archiviazione file
 
-Per usare Archiviazione file a livello di codice, è possibile usare le librerie client di archiviazione per .NET e Java o l'API REST di Archiviazione di Azure. L'esempio in questa sezione illustra come usare una condivisione file con la [libreria client di archiviazione di Azure per .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) da una semplice applicazione console in esecuzione sul desktop.
+Per usare Archiviazione file a livello di codice, è possibile usare le librerie client di archiviazione per .NET e Java o l'API REST di Archiviazione di Azure. L'esempio in questa sezione illustra come usare una condivisione file con la [libreria client di archiviazione di Azure per .NET](https://msdn.microsoft.com/library/mt347887.aspx) da una semplice applicazione console in esecuzione sul desktop.
 
-### Creare l'applicazione console e ottenere l'assembly
+[AZURE.INCLUDE [storage-dotnet-install-library-include](../../includes/storage-dotnet-install-library-include.md)]
 
-Per creare una nuova applicazione console in Visual Studio e installare il pacchetto NuGet di archiviazione Azure:
-
-1. In Visual Studio scegliere **File > Nuovo progetto** e quindi **Windows > Applicazione console** dall'elenco di modelli di Visual C#.
-2. Specificare un nome per l'applicazione console e quindi fare clic su **OK**.
-3. Dopo aver creato il progetto, fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**. Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
-
-### Salvare le credenziali dell'account di archiviazione nel file app.config
-
-A questo punto salvare le credenziali nel file app.config del progetto. Modificare il file app.config in modo che assomigli all'esempio seguente, sostituendo `myaccount` con il nome dell'account di archiviazione e `mykey` con la chiave dell'account di archiviazione.
-
-	<?xml version="1.0" encoding="utf-8" ?>
-	<configuration>
-	    <startup>
-	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
-	    </startup>
-	    <appSettings>
-	        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
-	    </appSettings>
-	</configuration>
+[AZURE.INCLUDE [storage-dotnet-save-connection-string-include](../../includes/storage-dotnet-save-connection-string-include.md)]
 
 > [AZURE.NOTE] L'ultima versione dell'emulatore di archiviazione di Azure non supporta l'archiviazione file. La stringa di connessione deve indirizzare a un account di archiviazione di Azure nel cloud per poter usare il servizio Archiviazione file.
 
@@ -285,8 +267,8 @@ A questo punto salvare le credenziali nel file app.config del progetto. Modifica
 
 Aprire il file program.cs da Esplora soluzioni e aggiungere le dichiarazioni dello spazio dei nomi seguenti all'inizio del file.
 
-	using Microsoft.WindowsAzure;
-	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.Azure; // Namespace for Azure Configuration Manager
+	using Microsoft.WindowsAzure.Storage; // Namespaces for Storage Client Library
 	using Microsoft.WindowsAzure.Storage.Blob;
 	using Microsoft.WindowsAzure.Storage.File;
 
@@ -419,13 +401,13 @@ Nell'esempio seguente viene creato un criterio di accesso condiviso in una condi
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Per altre informazioni sulla creazione e sull'uso di firme di accesso condiviso, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) e [Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con l'archivio BLOB](storage-dotnet-shared-access-signature-part-2.md).
+Per altre informazioni sulla creazione e sull'uso di firme di accesso condiviso, vedere [Firme di accesso condiviso: informazioni sul modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) e [Creare e usare una firma di accesso condiviso con l'archivio BLOB](storage-dotnet-shared-access-signature-part-2.md).
 
 ### Copiare i file
 
 A partire dalla versione 5.x della libreria del client di archiviazione di Azure, è possibile copiare un file in un altro file, un file in un BLOB o un BLOB in un file. Le sezioni seguenti illustrano come eseguire queste operazioni di copia a livello di programmazione.
 
-È inoltre possibile utilizzare AzCopy per copiare un file in un altro o per copiare un blob in un file o viceversa. Vedere [Copiare i file in Archiviazione file di Azure con AzCopy](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy).
+È inoltre possibile utilizzare AzCopy per copiare un file in un altro o per copiare un blob in un file o viceversa. Vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
 > [AZURE.NOTE] Se si copia un BLOB in un file o un file in un BLOB, è necessario utilizzare una firma di accesso condiviso (SAS) per autenticare l'oggetto di origine, anche se si copia nello stesso account di archiviazione.
 
@@ -528,6 +510,55 @@ Analisi di flusso di Azure ora supporta le metriche per Archiviazione file. Graz
 
 È possibile abilitare le metriche per Archiviazione file dal [portale di Azure](https://portal.azure.com). È anche possibile abilitare le metriche a livello ci codice chiamando l'operazione Set File Service Properties tramite l'API REST o una delle soluzioni analoghe disponibili nella libreria client di archiviazione.
 
+L'esempio di codice seguente mostra come usare la libreria client di archiviazione per .NET per abilitare la metrica per l'archiviazione file.
+
+Prima di tutto aggiungere le istruzioni `using` seguenti al file program.cs, oltre a quelle aggiunte sopra:
+
+	using Microsoft.WindowsAzure.Storage.File.Protocol;
+	using Microsoft.WindowsAzure.Storage.Shared.Protocol;
+
+Si noti che, mentre gli archivi BLOB, tabelle e code usano il tipo `ServiceProperties` condiviso nello spazio dei nomi `Microsoft.WindowsAzure.Storage.Shared.Protocol`, l'archiviazione file usa il proprio tipo, ovvero il tipo `FileServiceProperties` nello spazio dei nomi `Microsoft.WindowsAzure.Storage.File.Protocol`. È tuttavia necessario fare riferimento a entrambi gli spazi dei nomi dal proprio codice, per poter compilare il codice seguente.
+
+    // Parse your storage connection string from your application's configuration file.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    // Create the File service client.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    // Set metrics properties for File service.
+    // Note that the File service currently uses its own service properties type,
+    // available in the Microsoft.WindowsAzure.Storage.File.Protocol namespace.
+    fileClient.SetServiceProperties(new FileServiceProperties()
+    {
+        // Set hour metrics
+        HourMetrics = new MetricsProperties()
+        {
+            MetricsLevel = MetricsLevel.ServiceAndApi,
+            RetentionDays = 14,
+            Version = "1.0"
+        },
+        // Set minute metrics
+        MinuteMetrics = new MetricsProperties()
+        {
+            MetricsLevel = MetricsLevel.ServiceAndApi,
+            RetentionDays = 7,
+            Version = "1.0"
+        }
+    });
+
+    // Read the metrics properties we just set.
+    FileServiceProperties serviceProperties = fileClient.GetServiceProperties();
+    Console.WriteLine("Hour metrics:");
+    Console.WriteLine(serviceProperties.HourMetrics.MetricsLevel);
+    Console.WriteLine(serviceProperties.HourMetrics.RetentionDays);
+    Console.WriteLine(serviceProperties.HourMetrics.Version);
+    Console.WriteLine();
+    Console.WriteLine("Minute metrics:");
+    Console.WriteLine(serviceProperties.MinuteMetrics.MetricsLevel);
+    Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
+    Console.WriteLine(serviceProperties.MinuteMetrics.Version);
+
+
 ## Domande frequenti su Archiviazione file
 
 1. **L'autenticazione basata su Active Directory è supportata da Archiviazione file?** 
@@ -582,11 +613,11 @@ Analisi di flusso di Azure ora supporta le metriche per Archiviazione file. Graz
 
 13. **Patch rilasciata per risolvere il problema di prestazioni lente con file di Azure**
 
-	Il team di Windows ha recentemente rilasciato una patch per risolvere un problema di prestazioni lente quando il cliente accede all'archivio file di Azure da Windows 8.1 o Windows Server 2012 R2. Per altre informazioni, vedere l'articolo KB associato, relativo alle [prestazioni lente quando si accede all'archivio file di Azure da Windows 8.1 o Server 2012 R2](https://support.microsoft.com/it-IT/kb/3114025).
+	Il team di Windows ha recentemente rilasciato una patch per risolvere un problema di prestazioni lente quando il cliente accede all'archivio file di Azure da Windows 8.1 o Windows Server 2012 R2. Per altre informazioni, vedere l'articolo KB associato, [Rallentamento delle prestazioni quando si accede all'archivio file di Azure da Windows 8.1 o Server 2012 R2](https://support.microsoft.com/it-IT/kb/3114025).
 
 14. **Uso dell'archivio file di Azure con IBM MQ**
 
-	IBM ha rilasciato un documento per guidare i clienti di IBM MQ nella configurazione dell'archivio file di Azure con il relativo servizio. Per altre informazioni, vedere la pagina relativa alla [configurazione di IBM MQ multi-instance queue manager (MIQM) con il Servizio file di Microsoft Azure](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
+	IBM ha rilasciato un documento per guidare i clienti di IBM MQ nella configurazione dell'archivio file di Azure con il relativo servizio. Per altre informazioni, vedere la pagina relativa alla [configurazione di IBM MQ Multi Instance Queue Manager (MIQM) con il servizio file di Microsoft Azure](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
 ## Passaggi successivi
 
@@ -615,4 +646,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

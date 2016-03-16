@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione a Data factory di Azure (modello di Gestione risorse di Azure)"
+	pageTitle="Creare la prima data factory (modello ARM) | Microsoft Azure"
 	description="In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure usando il modello di Gestione risorse di Azure."
 	services="data-factory"
 	documentationCenter=""
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/05/2016"
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# Creare la prima pipeline di Data factory di Azure con il modello di Gestione risorse di Azure
+# Esercitazione: Creare la prima data factory di Azure usando il modello di Azure Resource Manager
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md)
+- [Con l'editor di Data factory](data-factory-build-your-first-pipeline-using-editor.md)
+- [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Con Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Con il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 Questo articolo descrive come usare un modello di Gestione risorse di Azure per creare la prima data factory di Azure.
@@ -215,13 +215,13 @@ Fare clic sulla scheda **Tramite l'editor di Data factory** per passare all'arti
 
 Tenere presente quanto segue:
 
-- Data factory crea automaticamente un cluster HDInsight **basato su Windows** con il codice JSON precedente. È anche possibile fare in modo che crei un cluster HDInsight **basato su Linux**. Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
-- È possibile usare **il proprio cluster HDInsight** invece di un cluster HDInsight su richiesta. Per i dettagli, vedere [Servizio collegato HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
-- Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Si tratta di un comportamento previsto da progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo (**timeToLive**) che viene eliminato al termine dell'elaborazione.
+- Data Factory crea automaticamente un cluster HDInsight **basato su Windows** con il codice JSON precedente. È anche possibile creare automaticamente un cluster HDInsight **basato su Linux**. Per informazioni dettagliate, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
+- È possibile usare **il proprio cluster HDInsight** invece di un cluster HDInsight su richiesta. Per informazioni dettagliate, vedere [Servizio collegato HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+- Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON **linkedServiceName**. HDInsight non elimina il contenitore quando viene eliminato il cluster. Si tratta di un comportamento previsto da progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo, **timeToLive**, che viene eliminato al termine dell'elaborazione.
 
-	Man mano che vengono elaborate sempre più sezioni, verranno visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. Il nome di questi contenitori segue uno schema: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Storage Explorer](http://storageexplorer.com/).
+	Man mano che vengono elaborate sempre più sezioni, verranno visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. Il nome di questi contenitori segue uno schema: "adf**nomedatafactory**-**nomeserviziocollegato**-datatimestamp". Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Storage Explorer](http://storageexplorer.com/).
 
-Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+Per informazioni dettagliate, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
 > [AZURE.NOTE] Un altro esempio di modello di Azure Resource Manager per la creazione di una data factory di Azure è disponibile in [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json).
 
@@ -252,4 +252,4 @@ Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-
 10. Quando lo stato della sezione è **Pronto**, cercare i dati di output nella cartella **partitioneddata** del contenitore **adfgetstarted** nell'archivio BLOB.  
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

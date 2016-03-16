@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/11/2016"
 	ms.author="wesmc"/>
 
@@ -127,7 +127,13 @@ Gli sviluppatori di app per dispositivi mobili possono usare gli hub di notifica
     + Si noti che le app per dispositivi mobili consentono di eliminare tutti i tag nelle registrazioni per motivi di sicurezza. Usare le hub di notifica dal back-end direttamente per associare tag ai dispositivi.
 3. Invio di notifiche dal back-end dell'app con hub di notifica
 
-Ecco alcuni vantaggi per gli sviluppatori con questa integrazione:- **SDK Client delle app per dispositivi mobili.** Questi SDK multipiattaforma forniscono API semplici per la registrazione e per comunicare automaticamente con l'hub di notifica collegato all'app per dispositivi mobili. Gli sviluppatori non hanno bisogno di approfondire le credenziali dell’hub di notifica e di lavorare con un servizio aggiuntivo. + Gli SDK usano automaticamente il tag del dispositivo specificato con l'ID utente autenticato delle app per dispositivi mobili per abilitare il push per lo scenario utente. + Gli SDK usano automaticamente l'ID di installazione delle app per dispositivi mobili come GUID per registrarsi con gli hub di notifica, risparmiando agli sviluppatori il problema di mantenere più GUID del servizio. - **Modello di installazione.** le app per dispositivi mobili funzionano con il modello di push più recente degli hub di notifica per rappresentare tutte le proprietà di push associate a un dispositivo in un'installazione JSON che è in linea con i servizi di notifica push e che è facile da usare. - **Flessibilità.** Gli sviluppatori possono sempre scegliere di utilizzare direttamente gli hub di notifica anche con l'integrazione sul posto. - **Esperienza integrata in [portale di Azure].** Il Push come funzionalità è rappresentato visivamente nelle app per dispositivi mobili e gli sviluppatori possono utilizzare facilmente l'hub di notifica associato tramite le App per dispositivi mobili.
+Ecco alcuni vantaggi per gli sviluppatori inclusi in questa integrazione:
+- **SDK client delle app per dispositivi mobili.** Questi SDK multipiattaforma forniscono API semplici per la registrazione e per comunicare automaticamente con l'hub di notifica collegato all'app per dispositivi mobili. Gli sviluppatori non hanno bisogno di cercare tra le credenziali di Hub di notifica e lavorare con un servizio aggiuntivo.
+    + Gli SDK assegnano automaticamente tag al dispositivo specificato con l'ID utente autenticato di App per dispositivi mobili per abilitare il push all'utente.
+    + L'ID di installazione di App per dispositivi mobili viene usato automaticamente dagli SDK come GUID per la registrazione in Hub di notifica. In questo modo gli sviluppatori non sono costretti a mantenere più GUID di servizio.
+- **Modello di installazione.** App per dispositivi mobili usa il modello push più recente di Hub di notifica per rappresentare tutte le proprietà push associate a un dispositivo in un'installazione JSON che sia in linea con i servizi di notifica push e facile da usare.
+- **Flessibilità.** Gli sviluppatori possono scegliere di usare direttamente Hub di notifica in qualsiasi momento, anche dopo l'integrazione.
+- **Esperienza integrata nel [portale di Azure].** Il Push come funzionalità è rappresentato visivamente nelle app per dispositivi mobili e gli sviluppatori possono utilizzare facilmente l'hub di notifica associato tramite le App per dispositivi mobili.
 
 
 
@@ -165,4 +171,4 @@ Di seguito sono riportati i riferimenti pertinenti per l'API gestita .NET relati
   [portale di Azure]: https://portal.azure.com
   [tag]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

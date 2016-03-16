@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/12/2016"
+	ms.date="03/07/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -71,7 +71,7 @@ Quando si abilita la sincronizzazione password, i criteri di complessità delle 
 
 **Criteri di scadenza delle password**
 
-Se un utente è incluso nell'ambito della sincronizzazione delle password, la password dell'account cloud viene impostata su "*Nessuna scadenza*". Può pertanto accadere che la password di un utente scada nell'ambiente locale, ma che l'utente possa continuare ad accedere ai servizi cloud usando la password scaduta.
+Se un utente è incluso nell'ambito della sincronizzazione delle password, la password dell'account cloud viene impostata su "*Nessuna scadenza*". Può quindi accadere che la password di un utente scada nell'ambiente locale, ma che l'utente possa continuare ad accedere ai servizi cloud usando la nuova password dopo il successivo ciclo di sincronizzazione delle password.
 
 La password cloud verrà aggiornata la volta successiva che l'utente cambia la password nell'ambiente locale.
 
@@ -90,7 +90,7 @@ Se l'utente cambia di nuovo la password locale, la nuova password verrà sincron
 
 Se si usano le impostazioni rapide quando si installa Azure AD Connect, la sincronizzazione password viene abilitata per impostazione predefinita.
 
-Se si usano le impostazioni personalizzate quando si installa Azure AD Connect, la sincronizzazione password viene abilitata nella pagina di accesso dell'utente.
+Se si usano le impostazioni personalizzate quando si installa Azure AD Connect, la sincronizzazione password viene abilitata nella pagina di accesso dell'utente. 
 ![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
 
 Se si sceglie di usare **la federazione tramite ADFS**, è possibile abilitare la sincronizzazione password come backup in caso di errore dell'infrastruttura di ADFS. È inoltre possibile abilitarla se si prevede di usare Servizi di dominio Azure AD.
@@ -160,4 +160,4 @@ Non è obbligatorio forzare una sincronizzazione completa di tutte le password, 
 * [Servizio di sincronizzazione Azure AD Connect: Personalizzazione delle opzioni di sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

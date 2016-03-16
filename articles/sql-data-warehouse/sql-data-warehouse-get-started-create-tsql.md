@@ -14,13 +14,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
-#Creare SQL Data Warehouse con TSQL 
+#Creare SQL Data Warehouse con TSQL
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-data-warehouse-get-started-provision.md)
+- [Portale di Azure](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-TSQL.md)
 - [PowerShell](sql-data-warehouse-get-started-create-powershell.md)
 
@@ -76,4 +76,4 @@ Al termine del provisioning di SQL Data Warehouse, è possibile [caricare dati d
 [caricare dati di esempio]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [pagina dei prezzi]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

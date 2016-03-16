@@ -14,7 +14,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="12/03/2015"
+     ms.date="03/02/2016"
      ms.author="dobett"/>
 
 # Esercitazione: Introduzione alle soluzioni preconfigurate IoT
@@ -33,6 +33,8 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
 
 1.  Accedere a [azureiotsuite.com][lnk-azureiotsuite] con le credenziali dell'account Azure e fare clic su **+** per creare una nuova soluzione.
 
+    > [AZURE.NOTE] Per informazioni aggiuntive in caso di problemi con le autorizzazioni necessarie per effettuare il provisioning di una soluzione, vedere [Autorizzazioni per il sito azureiotsuite.com](iot-suite-permissions.md).
+
 2.  Fare clic su **Seleziona** nel riquadro **Monitoraggio remoto**.
 
 3.  Immettere un valore in **Nome soluzione** per la soluzione preconfigurata di monitoraggio remoto.
@@ -41,7 +43,21 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
 
 5.  Fare clic su **Crea soluzione** per iniziare il processo di provisioning. In genere l'esecuzione del processo richiede alcuni minuti.
 
+## Attendere il completamento del processo di provisioning.
+
+1. Fare clic sul riquadro per la soluzione con stato **Provisioning**.
+ 
+2. Notare gli stati **Provisioning** man mano che i servizi di Azure vengono distribuiti nella sottoscrizione di Azure.
+
+3. Al termine del provisioning lo stato cambia in **Pronto**.
+
+4. Fare clic sul riquadro per visualizzare i dettagli della soluzione nel riquadro di destra.
+
+Se ci sono dettagli importanti non elencati per la soluzione, è possibile segnalarlo e inviare suggerimenti sulle funzionalità usando il [forum di Azure IoT](https://feedback.azure.com/forums/321918-azure-iot).
+
 ## Visualizzare il dashboard della soluzione di monitoraggio remoto
+
+Il dashboard della soluzione consente di gestire la soluzione distribuita. Ad esempio, è possibile visualizzare dati di telemetria, aggiungere dispositivi e configurare regole.
 
 1.  Al termine del provisioning quando il riquadro della soluzione preconfigurata indica **Pronto**, fare clic su **Avvia** per aprire il portale della soluzione di monitoraggio remoto in una nuova scheda.
 
@@ -52,6 +68,8 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
     ![][img-dashboard]
 
 ## Visualizzare l'elenco di dispositivi per la soluzione
+
+L'elenco dei dispositivi mostra tutti i dispositivi registrati nella soluzione. Permette di visualizzare e modificare metadati dei dispositivi, aggiungere o rimuovere dispositivi e inviare comandi ai dispositivi.
 
 1.  Fare clic su **Dispositivi** nel menu a sinistra per passare all'*elenco dei dispositivi* per questa soluzione.
 
@@ -64,6 +82,8 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
     ![][img-devicedetails]
 
 ## Inviare un comando a un dispositivo
+
+Il riquadro dei dettagli del dispositivo mostra tutti i comandi supportati dal dispositivo e consente di inviare comandi a dispositivi specifici.
 
 1.  Fare clic su **Comandi** nel riquadro dei dettagli del dispositivo selezionato.
 
@@ -101,7 +121,13 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
 
     ![][img-runningnew]
 
+## Aggiungere un nuovo dispositivo fisico
+
+Per aggiungere un nuovo dispositivo fisico alla soluzione, vedere [Connettere il dispositivo alla soluzione preconfigurata per il monitoraggio remoto IoT Suite][lnk-connecting-devices].
+
 ## Visualizzare e modificare le regole per la soluzione
+
+La soluzione preconfigurata effettua il provisioning di due regole per SampleDevice001. In base alle regole, nel riquadro della **cronologia avvisi** nel dashboard vengono visualizzate notifiche quando i valori di temperatura e umidità superano una certa soglia.
 
 1.  Tornare al dashboard della soluzione e visualizzare il riquadro **Cronologia avvisi**.
 
@@ -113,11 +139,9 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
 
     ![][img-rules]
 
-4.  La soluzione preconfigurata effettua il provisioning di due regole.
-
 5.  Fare clic sulla regola **Temperature** nell'elenco di regole per visualizzarne le proprietà.
 
-6.  Fare clic su **Modifica** nel riquadro delle proprietà della regola.
+6.  Per modificare una regola, fare clic su **Modifica** nel riquadro delle proprietà della regola.
 
     ![][img-displayrule]
 
@@ -131,11 +155,11 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
 
     ![][img-newhistory]
     
-Al termine, è possibile eliminare la soluzione preconfigurata dalla sottoscrizione di Azure nel sito [azureiotsuite.com][lnk-azureiotsuite], che consente di eliminare facilmente tutte le risorse di cui è stato effettuato il provisioning quando è stata creata la soluzione preconfigurata.
+Al termine, è possibile eliminare la soluzione preconfigurata dalla sottoscrizione di Azure nel sito [azureiotsuite.com][lnk-azureiotsuite]. Questo permette di eliminare facilmente tutte le risorse di cui è stato effettuato il provisioning quando è stata creata la soluzione preconfigurata.
 
 ## Passaggi successivi
 
-Dopo avere compilato una soluzione preconfigurata funzionante, è possibile passare agli scenari seguenti:
+Ora che è stata compilata una soluzione preconfigurata funzionante, è possibile passare alle procedure dettagliate seguenti:
 
 -   [Guida alla personalizzazione di soluzioni preconfigurate][lnk-customize]
 -   [Panoramica della soluzione preconfigurata di manutenzione predittiva][lnk-predictive]
@@ -161,5 +185,6 @@ Dopo avere compilato una soluzione preconfigurata funzionante, è possibile pass
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
+[lnk-connecting-devices]: iot-suite-connecting-devices.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

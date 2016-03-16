@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/03/2016"
    ms.author="maroche"/>
 
 
@@ -58,4 +58,7 @@ I metadati estratti dai dati di origine durante la registrazione e i metadati fo
 ## Riepilogo
 La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più semplice individuare e comprendere l'origine dati, copiando i metadati strutturali e descrittivi dall'origine dati nel servizio Catalogo. Una volta registrata un'origine dati, gli utenti possono fornire le annotazioni affinché venga individuata e compresa in maniera più semplice dal portale **Catalogo dati Azure**.
 
-<!---HONumber=AcomDC_0224_2016-->
+## Vedere anche
+- Per altre informazioni dettagliate sull'annotazione delle origini dati, vedere [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md).
+
+<!---HONumber=AcomDC_0309_2016-->

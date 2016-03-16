@@ -1,66 +1,171 @@
 <properties
-	pageTitle="Compilare query in Ricerca di Azure con .NET | Microsoft Azure | Servizio di ricerca cloud ospitato"
-	description="Compilare una query di ricerca in Ricerca di Azure e usare i parametri di ricerca per filtrare, ordinare ed esplorare in base a facet i risultati della ricerca con la libreria .NET o l'SDK."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
-    tags="azure-portal"/>
+    pageTitle="Eseguire query su un indice di Ricerca di Azure con .NET SDK | Microsoft Azure | Servizio di ricerca cloud ospitato"
+    description="Compilare una query di ricerca in Ricerca di Azure e usare i parametri di ricerca per filtrare e ordinare i risultati della ricerca."
+    services="search"
+    documentationCenter=""
+    authors="brjohnstmsft"
+/>
 
 <tags
-	ms.service="search"
-	ms.devlang="dotnet"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="02/10/2016"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="dotnet"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="03/09/2016"
+    ms.author="brjohnst"/>
 
-#Compilare query in Ricerca di Azure con .NET
+# Eseguire query su un indice di Ricerca di Azure con .NET SDK
 > [AZURE.SELECTOR]
-- [Overview](search-query-overview.md)
-- [Search Explorer](search-explorer.md)
+- [Panoramica](search-query-overview.md)
+- [Esplora ricerche](search-explorer.md)
 - [Fiddler](search-fiddler.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-Questo articolo illustra come compilare una query con [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx). Il contenuto seguente è un subset dell'articolo [Come usare Ricerca di Azure da un'applicazione .NET](search-howto-dotnet-sdk.md). Vedere l'articolo padre per la procedura end-to-end.
+Questo articolo illustra come eseguire query su un indice con [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx). Prima di iniziare questa procedura dettagliata, è necessario avere [creato un indice di Ricerca di Azure](search-create-index-dotnet.md) e [averlo popolato con dati](search-import-data-dotnet.md).
 
-I prerequisiti per la creazione di una query includono la disponibilità di una connessione stabilita in precedenza al servizio di ricerca, che in genere si esegue attraverso `SearchServiceClient`.
+Si noti che tutto il codice di esempio in questo articolo è scritto in C#. Il codice sorgente completo è disponibile [su GitHub](http://aka.ms/search-dotnet-howto).
 
-Il frammento di codice seguente crea un metodo che passa l'input di una stringa di ricerca a un metodo SearchDocuments.
+## I. Identificare la chiave API di query del servizio Ricerca di Azure
+Dopo avere creato un indice di Ricerca di Azure, si è quasi pronti per eseguire query con .NET SDK. Prima di tutto è necessario ottenere una delle chiavi API di query generate per il servizio di ricerca di cui è stato effettuato il provisioning. .NET SDK invierà questa chiave API a ogni richiesta al servizio. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
-	private static void SearchDocuments(SearchIndexClient indexClient, string searchText, string filter = null)
-	{
-		// Execute search based on search text and optional filter
-		var sp = new SearchParameters();
-	
-		if (!String.IsNullOrEmpty(filter))
-		{
-			sp.Filter = filter;
-		}
-	
-		DocumentSearchResult<Hotel> documentSearchResult = indexClient.Documents.Search<Hotel>(searchText, sp);
-		foreach (SearchResult<Hotel> result in documentSearchResult.Results)
-		{
-			Console.WriteLine(result.Document);
-		}
-	}
-	
-Prima di tutto questo metodo crea un nuovo oggetto SearchParameters. Consente di specificare opzioni aggiuntive per la query di ordinamento, filtro, impaginazione e faceting. In questo esempio viene impostata solo la proprietà Filter.
+1. Per trovare le chiavi API del servizio, è necessario accedere al [portale di Azure](https://portal.azure.com/).
+2. Passare al pannello del servizio Ricerca di Azure.
+3. Fare clic sull'icona "Chiavi".
 
-Il passaggio successivo consiste nell’esecuzione effettiva della query di ricerca. Questa operazione viene eseguita con il metodo Documents.Search. In questo caso, è possibile passare il testo di ricerca da utilizzare come stringa più i parametri di ricerca creati in precedenza. Viene anche specificato Hotel come parametro di tipo per Documents.Search, che indica all'SDK di deserializzare i documenti nei risultati della ricerca in oggetti di tipo Hotel.
+Il servizio avrà *chiavi amministratore* e *chiavi di query*.
 
-Infine, questo metodo scorre tutte le corrispondenze nei risultati della ricerca, stampando ogni documento nella console.
+  - Le *chiavi amministratore* primarie e secondarie concedono diritti completi per tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati. Sono disponibili due chiavi, quindi è possibile continuare a usare la chiave secondaria se si decide di rigenerare la chiave primaria e viceversa.
+  - Le *chiavi di query* concedono l'accesso in sola lettura agli indici e ai documenti e vengono in genere distribuite alle applicazioni client che inviano richieste di ricerca.
 
-Si osservi il modo in cui viene chiamato questo metodo:
+Ai fini di una query su un indice, è possibile usare una delle chiavi di query. Si possono anche usare le chiavi amministratore per le query, ma è necessario usare una chiave di query nel codice dell'applicazione perché questo approccio è più coerente con il [principio del privilegio minimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-	SearchDocuments(indexClient, searchText: "fancy wifi");
-	SearchDocuments(indexClient, searchText: "*", filter: "category eq 'Luxury'");
+## II. Creare un'istanza della classe SearchIndexClient
+Per eseguire query con Azure Search .NET SDK, è necessario creare un'istanza della classe `SearchIndexClient`. Questa classe ha diversi costruttori. Quello appropriato accetta il nome del servizio di ricerca, il nome dell'indice e un oggetto `SearchCredentials` come parametri. `SearchCredentials` esegue il wrapping della chiave API.
 
-Nella prima chiamata, si cercano tutti i documenti che contengono i termini di query "fancy" o "wifi". Nella seconda chiamata, il testo di ricerca è impostato su "*", che significa "trova tutti gli elementi". Per altre informazioni sulla sintassi dell'espressione di query di ricerca, vedere [Semplice sintassi di query in Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798920.aspx).
+Il codice seguente crea un nuovo oggetto `SearchIndexClient` per l'indice "hotels" (creato in [Creare un indice di Ricerca di Azure con .NET SDK](search-create-index-dotnet.md)) usando i valori archiviati nel file di configurazione dell'applicazione (`app.config` o `web.config`) per il nome del servizio di ricerca e la chiave API:
 
-La seconda chiamata usa un'espressione OData $filter, category eq 'Luxury'. Questa chiamata vincola la ricerca alla restituzione solo dei documenti in cui il campo category corrisponde esattamente alla stringa "Luxury". Per altre informazioni sulla sintassi di OData, vedere [Sintassi delle espressioni OData per Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798921.aspx).
+```csharp
+string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
+string queryApiKey = ConfigurationManager.AppSettings["SearchServiceQueryApiKey"];
 
-<!---HONumber=AcomDC_0224_2016-->
+SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
+```
+
+`SearchIndexClient` include una proprietà `Documents`. Questa proprietà fornisce tutti i metodi necessari per eseguire query sugli indici di Ricerca di Azure.
+
+## III. Eseguire query sull'indice
+Per eseguire una ricerca con .NET SDK è sufficiente chiamare il metodo `Documents.Search` sull'oggetto `SearchIndexClient`. Questo metodo accetta alcuni parametri, incluso il testo di ricerca, nonché un oggetto `SearchParameters` che può essere usato per perfezionare ulteriormente la query.
+
+#### Tipi di query
+
+Ricerca di Azure offre numerose opzioni per creare query estremamente avanzate. I due tipi di query principali che si useranno sono `search` e `filter`. Una query `search` cerca uno o più termini in tutti i campi _ricercabili_ dell'indice e funziona come un motore di ricerca, ad esempio Google o Bing. Una query `filter` valuta un'espressione booleana su tutti i campi _filtrabili_ di un indice. Diversamente dalle query `search`, le query `filter` ricercano la corrispondenza esatta con il contenuto di un campo e quindi supportano la distinzione tra lettere maiuscole e minuscole per i campi di tipo stringa.
+
+È possibile usare le ricerche e i filtri insieme o separatamente. Se si usano insieme, prima viene applicato il filtro all'intero indice e quindi viene eseguita la ricerca sui risultati del filtro. I filtri quindi possono essere un'utile tecnica per migliorare le prestazioni delle query perché riducono il set di documenti che la query di ricerca deve elaborare.
+
+Ricerche e filtri vengono eseguiti usando il metodo `Documents.Search`. Una query di ricerca può essere passata nel parametro `searchText`, mentre un'espressione di filtro può essere passata nella proprietà `Filter` della classe `SearchParameters`. Per filtrare senza eseguire ricerche, passare semplicemente `"*"` per il parametro `searchText`. Per eseguire una ricerca senza filtrare, lasciare la proprietà `Filter` non impostata oppure non passare un'istanza di `SearchParameters`.
+
+La sintassi per le espressioni di filtro è un subset del [linguaggio di filtro OData](https://msdn.microsoft.com/library/azure/dn798921.aspx). Per le query di ricerca è possibile usare la [sintassi semplificata](https://msdn.microsoft.com/library/azure/dn798920.aspx) o la [sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
+
+Per altre informazioni su tutti i diversi parametri di una query, vedere la [documentazione di riferimento relativa a .NET SDK su MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.searchparameters.aspx). Di seguito sono disponibili anche alcune query di esempio.
+
+#### Query di esempio
+
+Il codice di esempio seguente mostra alcuni modi per eseguire una query sull'indice "hotels" definito in [Creare un indice di Ricerca di Azure con .NET SDK](search-create-index-dotnet.md#DefineIndex). Si noti che i documenti restituiti con i risultati della ricerca sono istanze della classe `Hotel`, che è stata definita in [Importazione di dati in Ricerca di Azure tramite .NET SDK](search-import-data-dotnet.md#HotelClass). Il codice di esempio usa un metodo `WriteDocuments` per restituire i risultati di ricerca nella console. Questo metodo è descritto nella sezione successiva.
+
+```csharp
+SearchParameters parameters;
+DocumentSearchResult<Hotel> results;
+
+Console.WriteLine("Search the entire index for the term 'budget' and return only the hotelName field:\n");
+
+parameters = 
+    new SearchParameters() 
+    { 
+        Select = new[] { "hotelName" }
+    };
+
+results = indexClient.Documents.Search<Hotel>("budget", parameters);
+
+WriteDocuments(results);
+
+Console.Write("Apply a filter to the index to find hotels cheaper than $150 per night, ");
+Console.WriteLine("and return the hotelId and description:\n");
+
+parameters =
+    new SearchParameters()
+    {
+        Filter = "baseRate lt 150",
+        Select = new[] { "hotelId", "description" }
+    };
+
+results = indexClient.Documents.Search<Hotel>("*", parameters);
+
+WriteDocuments(results);
+
+Console.Write("Search the entire index, order by a specific field (lastRenovationDate) ");
+Console.Write("in descending order, take the top two results, and show only hotelName and ");
+Console.WriteLine("lastRenovationDate:\n");
+
+parameters =
+    new SearchParameters()
+    {
+        OrderBy = new[] { "lastRenovationDate desc" },
+        Select = new[] { "hotelName", "lastRenovationDate" },
+        Top = 2
+    };
+
+results = indexClient.Documents.Search<Hotel>("*", parameters);
+
+WriteDocuments(results);
+
+Console.WriteLine("Search the entire index for the term 'motel':\n");
+
+parameters = new SearchParameters();
+results = indexClient.Documents.Search<Hotel>("motel", parameters);
+
+WriteDocuments(results);
+```
+
+## IV. Gestire i risultati della ricerca
+Il metodo `Documents.Search` restituisce un oggetto `DocumentSearchResult` che contiene i risultati della query. Nell'esempio nella sezione precedente viene usato un metodo denominato `WriteDocuments` per restituire i risultati di ricerca nella console:
+
+```csharp
+private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
+{
+    foreach (SearchResult<Hotel> result in searchResults.Results)
+    {
+        Console.WriteLine(result.Document);
+    }
+
+    Console.WriteLine();
+}
+```
+
+Ecco i risultati per le query nella sezione precedente, supponendo che l'indice "hotels" sia popolato con i dati di esempio in [Importazione di dati in Ricerca di Azure tramite .NET SDK](search-import-data-dotnet.md):
+
+```
+Search the entire index for the term 'budget' and return only the hotelName field:
+
+Name: Roach Motel
+
+Apply a filter to the index to find hotels cheaper than $150 per night, and return the hotelId and description:
+
+ID: 2   Description: Cheapest hotel in town
+ID: 3   Description: Close to town hall and the river
+
+Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
+
+Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
+Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
+
+Search the entire index for the term 'motel':
+
+ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
+
+```
+
+Il codice di esempio precedente usa la console per restituire i risultati della ricerca. Analogamente, sarà necessario visualizzare i risultati della ricerca nella propria applicazione. Per un esempio di rendering dei risultati di ricerca in un'applicazione Web basata su ASP.NET MVC, vedere [questo esempio su GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample).
+
+<!---HONumber=AcomDC_0309_2016-->

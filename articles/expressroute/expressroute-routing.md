@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/12/2016"
+   ms.date="03/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -127,11 +127,15 @@ Microsoft contrassegnerà i prefissi annunciati tramite il peering pubblico e il
 | | Stati Uniti centro-settentrionali | 12076:51007 |
 | | Stati Uniti centro-meridionali | 12076:51008 |
 | | Stati Uniti centrali | 12076:51009 |
+| | Canada centrale | 12076:51020 |
+| | Canada orientale | 12076:51021 |
 | **America del Sud** | | |
 | | Brasile meridionale | 12076:51014 |
 | **Europa** | | |
 | | Europa settentrionale | 12076:51003 |
 | | Europa occidentale | 12076:51002 |
+| | Regno Unito settentrionale | 12076:51022 |
+| | Regno Unito meridionale 2 | 12076:51023 |
 | **Asia Pacifico** | | |
 | | Asia orientale | 12076:51010 |
 | | Asia sudorientale | 12076:51011 |
@@ -170,8 +174,8 @@ Microsoft non riconosce eventuali valori della community BGP impostati dall'uten
 
 - Configurare la connessione ExpressRoute.
 
-	- [Creare un circuito ExpressRoute per il modello di distribuzione classica](expressroute-howto-circuit-classic.md) o [Creare e modificare un circuito ExpressRoute usando Gestione risorse di Azure](expressroute-howto-circuit-arm.md)
-	- [Configurare il routing per il modello di distribuzione classica](expressroute-howto-routing-classic.md) o [Configurare il routing per il modello di distribuzione Gestione risorse](expressroute-howto-routing-arm.md)
-	- [Collegare una rete virtuale classica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Collegare una rete virtuale di Gestione risorse a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
+	- [Creare un circuito ExpressRoute per il modello di distribuzione classica](expressroute-howto-circuit-classic.md) o [Creare e modificare un circuito ExpressRoute usando Azure Resource Manager](expressroute-howto-circuit-arm.md)
+	- [Configurare il routing per il modello di distribuzione classica](expressroute-howto-routing-classic.md) o [Configurare il routing per il modello di distribuzione di Azure Resource Manager](expressroute-howto-routing-arm.md)
+	- [Collegare una rete virtuale classica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Collegare una rete virtuale di Azure Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,15 +13,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Visualizzare i dati con Power BI
 
 Questa esercitazione illustra come usare Power BI per connettersi a SQL Data Warehouse e creare alcune visualizzazioni di base.
 
-> [AZURE.NOTE]Per completare questa esercitazione, è necessario un database SQL Data Warehouse precaricato con il database di esempio AdventureWorksDW. In [Introduzione: effettuare il provisioning di SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) viene illustrato come crearne uno.
-> 
+> [AZURE.NOTE] Per completare questa esercitazione, è necessario un database SQL Data Warehouse precaricato con il database di esempio AdventureWorksDW. In [Introduzione: effettuare il provisioning di SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) viene illustrato come crearne uno.
+>
 > Se si ha già un database SQL Data Warehouse ma non i dati di esempio, è possibile [caricare i dati di esempio manualmente][].
 
 > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
@@ -31,7 +31,7 @@ Questa esercitazione illustra come usare Power BI per connettersi a SQL Data War
 Per aprire Power BI e connettersi al database AdventureWorksDW:
 
 1. Accedere al [portale di Azure][].
-2. Fare clic su **Database SQL** e scegliere il database SQL Data Warehouse AdventureWorks. 
+2. Fare clic su **Database SQL** e scegliere il database SQL Data Warehouse AdventureWorks.
 
     ![Trovare il database][1]
 
@@ -57,7 +57,7 @@ Per aprire Power BI e connettersi al database AdventureWorksDW:
 
 È ora possibile usare Power BI per analizzare i dati di esempio di AdventureWorksDW. Per eseguire l'analisi, AdventureWorksDW dispone di una visualizzazione denominata VenditeAggregate. Questa visualizzazione contiene alcune metriche chiave per l'analisi delle vendite della società.
 
-1. Per creare una mappa degli importi di vendita in base al codice postale, nel riquadro con i campi a destra fare clic su AggregateSales per espanderlo. Fare clic sulle colonne PostalCode e SalesAmount per selezionarle. 
+1. Per creare una mappa degli importi di vendita in base al codice postale, nel riquadro con i campi a destra fare clic su AggregateSales per espanderlo. Fare clic sulle colonne PostalCode e SalesAmount per selezionarle.
 
     ![Selezione di AggregateSales in Power BI][6]
 
@@ -66,7 +66,7 @@ Per aprire Power BI e connettersi al database AdventureWorksDW:
     ![Mappa di Power BI][7]
 
 2. In questo passaggio viene creato un grafico a barre che mostra gli importi delle vendite per reddito del cliente. Per creare il grafico, passare alla visualizzazione AggregateSales espansa. Fare clic sul campo SalesAmount. Trascinare il campo Customer Income a sinistra e rilasciarlo sull'asse.
-    
+
     ![Selezione asse in Power BI][8]
 
     Il grafico a barre è stato spostato a sinistra.
@@ -110,4 +110,4 @@ Dopo essersi esercitati con i dati di esempio, si passerà ora alle operazioni d
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

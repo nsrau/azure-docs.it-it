@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](powershell-azure-resource-manager.md)
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
+- [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
 
 Con Gestione risorse di Azure è stato introdotto un metodo completamente nuovo per gestire le risorse di Azure. Invece di creare e gestire le singole risorse, si inizia immaginando un'intera soluzione, ad esempio un blog, una raccolta foto, un portale di SharePoint o un wiki. Si usa un modello (una rappresentazione dichiarativa della soluzione) per creare un gruppo di risorse contenente tutte le risorse necessarie per supportare la soluzione. A questo punto, si gestisce e distribuisce il gruppo di risorse come unità logica.
 
@@ -358,7 +358,7 @@ Quando si inserisce il comando, viene richiesto il parametro obbligatorio mancan
     (Type !? for Help.)
     administratorLoginPassword: ********
 
-Se il modello include un parametro con un nome corrispondente a uno dei parametri nel comando per la distribuzione del modello, ad esempio un parametro denominato **ResourceGroupName** nel modello che corrisponde al parametro **ResourceGroupName** nel cmdlet [New AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx), verrà richiesto di specificare un valore per un parametro con il suffisso **FromTemplate**, ad esempio **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
+Se il modello include un parametro con un nome corrispondente a uno dei parametri nel comando per la distribuzione del modello, ad esempio un parametro denominato **ResourceGroupName** nel modello che corrisponde al parametro **ResourceGroupName** nel cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx), verrà richiesto di specificare un valore per un parametro con il suffisso **FromTemplate**, ad esempio **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
 
 Il comando viene eseguito e restituisce dei messaggi quando le risorse vengono create. Infine viene visualizzato il risultato della distribuzione.
 
@@ -416,7 +416,7 @@ Dopo avere creato un gruppo di risorse, è possibile usare i cmdlet del modulo d
                 
         ...
 	        
-- Il modello precedente include un tag di una risorsa. È possibile usare i tag per organizzare logicamente tutte le risorse nella sottoscrizione. Usare i comandi **Find-AzureRmResource** e **Find-AzureRmResourceGroup** per eseguire una query delle risorse in base ai tag.
+- Il modello precedente include un tag di una risorsa. È possibile usare i tag per organizzare logicamente tutte le risorse nella sottoscrizione. Usare i comandi **Find-AzureRmResource** e **Find-AzureRmResourceGroup** per eseguire una query sulle risorse in base ai tag.
 
         PS C:\> Find-AzureRmResource -TagName team
 
@@ -442,7 +442,7 @@ Per aggiungere una risorsa al gruppo di risorse, è possibile usare il cmdlet **
 
 - Per eliminare una risorsa dal gruppo di risorse, usare il cmdlet **Remove-AzureRmResource**. Questo cmdlet elimina la risorsa, ma non il gruppo di risorse.
 
-	Il comando rimuove il sito Web TestSite dal gruppo di risorse TestRG.
+	Il comando rimuove il sito Web TestSite dal gruppo di risorse TestRG1.
 
 		Remove-AzureRmResource -Name TestSite -ResourceGroupName TestRG1 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01
 
@@ -463,4 +463,4 @@ Per aggiungere una risorsa al gruppo di risorse, è possibile usare il cmdlet **
 - Per un esempio dettagliato della distribuzione di un progetto, vedere [Distribuire microservizi in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per informazioni sulla risoluzione dei problemi relativi a una distribuzione non riuscita, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

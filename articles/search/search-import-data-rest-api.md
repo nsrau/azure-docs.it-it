@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="02/29/2016"
+    ms.date="03/09/2016"
     ms.author="ashmaka"/>
 
 # Importare dati in Ricerca di Azure tramite l'API REST
@@ -38,8 +38,9 @@ Quando si inviano richieste HTTP al servizio tramite l'API REST, *ogni* richiest
 3. Fare clic sull'icona "Chiavi".
 
 Il servizio avrà *chiavi amministratore* e *chiavi di query*.
-  * Le *chiavi amministratore* primarie e secondarie concedono diritti completi a tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati. Sono disponibili due chiavi, quindi è possibile continuare a usare la chiave secondaria se si decide di rigenerare la chiave primaria e viceversa.
-  * Le *chiavi di query* concedono l'accesso in sola lettura agli indici e ai documenti e vengono in genere distribuite alle applicazioni client che inviano richieste di ricerca.
+
+  - Le *chiavi amministratore* primarie e secondarie concedono diritti completi a tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati. Sono disponibili due chiavi, quindi è possibile continuare a usare la chiave secondaria se si decide di rigenerare la chiave primaria e viceversa.
+  - Le *chiavi di query* concedono l'accesso in sola lettura agli indici e ai documenti e vengono in genere distribuite alle applicazioni client che inviano richieste di ricerca.
 
 Per l'importazione di dati in un indice è possibile usare la chiave amministratore primaria o secondaria.
 
@@ -53,7 +54,7 @@ Ogni oggetto JSON nella matrice "value" rappresenta un documento da indicizzare.
 `upload` | L'azione `upload` è simile a "upsert", in cui il documento viene inserito se è nuovo e aggiornato o sostituito se esiste già. | chiave, oltre a tutti gli altri campi da definire | Quando si aggiorna o si sostituisce un documento esistente, qualsiasi campo non specificato nella richiesta avrà il campo impostato su `null`. Ciò si verifica anche quando il campo è stato precedentemente impostato su un valore diverso da null.
 `merge` | Aggiorna un documento esistente con i campi specificati. Se il documento non esiste nell'indice, l'unione non riuscirà. | chiave, oltre a tutti gli altri campi da definire | I campi specificati in un'azione di unione sostituiscono i campi esistenti nel documento. Sono inclusi anche i campi di tipo `Collection(Edm.String)`. Ad esempio, se il documento contiene un campo `tags` con valore `["budget"]` e si esegue un'unione con valore `["economy", "pool"]` per `tags`, il valore finale del campo `tags` sarà `["economy", "pool"]`. Non sarà `["budget", "economy", "pool"]`.
 `mergeOrUpload` | Questa azione si comporta come `merge` se nell'indice esiste già un documento con la chiave specificata. Se il documento non esiste, si comporta come `upload` con un nuovo documento. | chiave, oltre a tutti gli altri campi da definire |- 
-`delete` | Rimuove il documento specificato dall'indice. | solo chiave | Tutti i campi specificati oltre al campo della chiave verranno ignorati. Se si vuole rimuovere un singolo campo da un documento, usare invece *merge* e impostare semplicemente il campo su null in modo esplicito.
+`delete` | Rimuove il documento specificato dall'indice. | solo chiave | Tutti i campi specificati oltre al campo della chiave verranno ignorati. Se si vuole rimuovere un singolo campo da un documento, usare invece `merge` e impostare il campo su Null in modo esplicito.
 
 ## III. Creare la richiesta HTTP e il corpo della richiesta
 Ora che sono stati raccolti i valori dei campi necessari per le operazioni sull'indice, si è pronti per creare la richiesta HTTP effettiva e il corpo della richiesta JSON per importare i dati.
@@ -116,7 +117,7 @@ Nell'URL è necessario fornire il nome del servizio, il nome dell'indice, in que
 
 In questo caso, si useranno `upload`, `mergeOrUpload` e `delete` come azioni di ricerca.
 
-Si supponga che l'indice "hotels" di esempio sia già popolato con alcuni documenti. Si noti che non è stato necessario specificare tutti i possibili campi dei documenti quando si usa `merge` e come viene specificata solo la chiave del documento (`hotelId`) quando si usa `delete`.
+Si supponga che l'indice "hotels" di esempio sia già popolato con alcuni documenti. Si noti che non è stato necessario specificare tutti i possibili campi dei documenti quando si usa `mergeOrUpload` e come viene specificata solo la chiave del documento (`hotelId`) quando si usa `delete`.
 
 Si noti anche che è possibile includere solo fino a 1000 documenti, o 16 MB, in una singola richiesta di indicizzazione.
 
@@ -163,9 +164,9 @@ Il codice di stato `503` viene restituito se nessuno degli elementi nella richie
 
 > [AZURE.NOTE] In questo caso, è consigliabile interrompere l'invio del codice client e attendere prima di riprovare. Il sistema avrà così tempo per recuperare, aumentando le probabilità che le future richieste siano soddisfatte. La ripetizione rapida delle richieste prolungherà semplicemente il tempo necessario per risolvere la situazione.
 
-Per altre informazioni su azioni sui documenti e risposte di esito positivo/errore, vedere [questa pagina](https://msdn.microsoft.com/library/azure/dn798925.aspx). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [questo articolo](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Per altre informazioni su azioni sui documenti e risposte di esito positivo/errore, vedere [Aggiungere, aggiornare o eliminare documenti](https://msdn.microsoft.com/library/azure/dn798930.aspx). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [Codici di stato HTTP (Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
 ## Avanti
-Dopo il popolamento dell'indice di Ricerca di Azure, si potrà iniziare a eseguire una query per la ricerca di documenti.
+Dopo il popolamento dell'indice di Ricerca di Azure, si potrà iniziare a eseguire una query per la ricerca di documenti. Per i dettagli, vedere [Eseguire query su un indice di Ricerca di Azure con l'API REST](search-query-rest-api.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

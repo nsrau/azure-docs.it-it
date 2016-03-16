@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/18/2016"
+	ms.date="03/09/2016"
 	ms.author="heidist"/>
 
 # Creare un servizio di Ricerca di Azure nel portale di Azure
@@ -25,7 +25,7 @@ Ricerca di Azure è disponibile con piani tariffari che variano da gratuito (con
 
 ## Aggiungere gratuitamente Ricerca di Azure alla sottoscrizione
 
-L'amministratore può aggiungere Ricerca di Azure a una sottoscrizione di Azure esistente, senza costi aggiuntivi se viene scelto il servizio condiviso. Per iniziare a provare il servizio, è possibile iscriversi per ottenere la [sottoscrizione di una versione di valutazione gratuita](../../includes/free-trial-note.md).
+L'amministratore può aggiungere Ricerca di Azure a una sottoscrizione di Azure esistente, senza costi aggiuntivi se viene scelto il servizio condiviso. Per iniziare a provare il servizio, è possibile iscriversi per ottenere la [sottoscrizione di una versione di valutazione gratuita di Azure](../../includes/free-trial-note.md).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -56,27 +56,27 @@ L'amministratore può aggiungere Ricerca di Azure a una sottoscrizione di Azure 
 Controllare le notifiche nell'indice. Quando il servizio è pronto per l'uso, viene visualizzato un avviso.
 
 <a id="sub-3"></a>
-## Aggiungere un servizio di ricerca con il piano Standard per ottenere risorse dedicate
+## Aggiungere un servizio di ricerca con il piano Basic o Standard per ottenere risorse dedicate
 
-Molti clienti iniziano con il servizio gratuito e quindi passano al piano Standard per supportare carichi di lavoro più grandi. Il piano Standard offre risorse dedicate in un data center di Azure che possono essere usate solo dall'utente.
+Molti clienti iniziano con il servizio gratuito e quindi passano al piano Basic o Standard per supportare carichi di lavoro più grandi. I piani Basic e Standard consentono di recuperare risorse dedicate che possono essere usate solo dall'utente in un data center di Azure.
 
-Le operazioni di Ricerca di Azure richiedono repliche di archiviazione e del servizio. A differenza del servizio gratuito che non offre alcuna opzione per l'aggiunta di risorse, il piano Standard consente di passare a un piano superiore per aggiungere risorse di archiviazione o il supporto delle query, aumentando la risorsa che risulta più critica per i propri carichi di lavoro.
+Le operazioni di Ricerca di Azure richiedono repliche di archiviazione e del servizio. A differenza del servizio gratuito che non offre alcuna opzione per l'aggiunta di risorse, il piano Standard consente di passare a un piano superiore per aggiungere risorse di archiviazione o il supporto delle query, aumentando la risorsa che risulta più critica per i propri carichi di lavoro. Il piano Basic consente anche di passare a un piano superiore, ma solo per le repliche, con un limite massimo di tre.
 
-Per usare il piano Standard, è necessario creare un nuovo servizio di ricerca con quel piano tariffario. È possibile ripetere i passaggi precedenti in questo articolo per creare un nuovo servizio di Ricerca di Azure. Si noti che la configurazione di risorse dedicate può richiedere fino a 15 minuti o oltre.
+Per usare il piano Basic o Standard, è necessario creare un nuovo servizio di ricerca con quel piano tariffario. È possibile ripetere i passaggi precedenti in questo articolo per creare un nuovo servizio di Ricerca di Azure. Si noti che la configurazione di risorse dedicate può richiedere fino a 15 minuti o oltre.
 
-Non esiste alcun aggiornamento sul posto della versione gratuita. Il passaggio al livello Standard, che include la scalabilità, richiede un nuovo servizio. Sarà necessario ricaricare gli indici e i documenti usati dall'applicazione di ricerca.
+Non esiste alcun aggiornamento sul posto della versione gratuita. Il passaggio da un piano all'altro, che include la scalabilità, richiede un nuovo servizio. Sarà necessario ricaricare gli indici e i documenti usati dall'applicazione di ricerca.
 
-Un servizio di Ricerca di Azure al livello standard viene creato con una replica e una partizione, ma può essere facilmente ridimensionato a livelli più elevati di risorse.
+Un servizio di Ricerca di Azure nel piano Basic o Standard viene creato con una replica e una partizione, ma può essere facilmente ridimensionato a livelli più elevati di risorse.
 
 1.	Dopo avere creato il servizio, tornare al dashboard del servizio.
 
 2.	Fare clic sul riquadro **Scale**.
 
-3.	Usare i dispositivi di scorrimento per aggiungere repliche, partizioni o entrambe.
+3.	Usare i dispositivi di scorrimento per aggiungere repliche, partizioni o entrambe per il piano Standard. Per il piano Basic, è possibile aumentare le repliche fino a un massimo di tre.
 
 Le repliche e le partizioni aggiuntive vengono fatturate in termini di unità di ricerca. Le unità di ricerca totali per supportare qualsiasi configurazione di risorsa specifica vengono visualizzate nella pagina, durante l'aggiunta delle risorse.
 
-Per informazioni sul prezzo per unità, vedere [Dettagli prezzi](http://go.microsoft.com/fwlink/p/?LinkID=509792). Per assistenza sulla scelta delle combinazioni di partizione e replica, vedere [Limiti dei servizi in Ricerca di Azure](search-limits-quotas-capacity.md).
+Per informazioni sul prezzo per unità, vedere [Dettagli prezzi](http://go.microsoft.com/fwlink/p/?LinkID=509792). Per assistenza sulla scelta delle combinazioni di partizione e replica, vedere [Pianificazione della capacità](search-capacity-planning.md).
 
 <a id="sub-2"></a>
 ## Individuare il nome del servizio e le chiavi API del servizio Ricerca di Azure
@@ -107,13 +107,9 @@ Dopo aver creato il servizio, è possibile eseguire i passaggi successivi: compi
 
 - [Eseguire query in un indice di Ricerca di Azure con Esplora ricerche nel portale di Azure](search-explorer.md)
 
-- [Introduzione a Ricerca di Azure in .NET](search-get-started-dotnet.md)
-
 - [Come utilizzare Ricerca di Azure in .NET](search-howto-dotnet-sdk.md)
 
 - [Gestire la soluzione di ricerca in Microsoft Azure](search-manage.md)
-
-
 
 
 <!--Anchors-->
@@ -127,4 +123,4 @@ Dopo aver creato il servizio, è possibile eseguire i passaggi successivi: compi
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

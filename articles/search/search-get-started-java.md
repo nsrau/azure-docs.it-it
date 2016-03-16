@@ -3,8 +3,8 @@
 	description="Come compilare un'applicazione di ricerca cloud ospitata in Azure usando Java come linguaggio di programmazione."
 	services="search"
 	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
+	authors="EvanBoyle"
+	manager="pablocas"
 	editor="v-lincan"/>
 
 <tags
@@ -13,17 +13,17 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/11/2016"
-	ms.author="heidist"/>
+	ms.date="03/08/2016"
+	ms.author="evboyle"/>
 
 # Introduzione a Ricerca di Azure in Java
 > [AZURE.SELECTOR]
-- [Portal](search-get-started-portal.md)
-- [.NET](search-get-started-dotnet.md)
+- [Portale](search-get-started-portal.md)
+- [.NET](search-howto-dotnet-sdk.md)
 
 Informazioni su come compilare un'applicazione di ricerca Java personalizzata che utilizza Ricerca di Azure per l’esperienza di ricerca. L'esercitazione utilizza l’[API REST del servizio Ricerca di Azure](https://msdn.microsoft.com/library/dn798935.aspx) per costruire gli oggetti e le operazioni utilizzati in questo esercizio.
 
-Per eseguire questo esempio è necessario avere un servizio di Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com). Per istruzioni dettagliate, vedere [Creare un servizio di Ricerca di Azure nel portale di Azure](search-create-service-portal.md).
+Per eseguire questo esempio, è necessario un servizio di Ricerca di Azure, a cui è possibile iscriversi nel [portale di Azure](https://portal.azure.com). Per istruzioni dettagliate, vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 Per compilare e testare questo esempio è stato utilizzato il seguente software:
 
@@ -59,7 +59,7 @@ Nell'elenco seguente vengono descritti i file che sono rilevanti per questo esem
 Per tutte le chiamate API REST a Ricerca di Azure è necessario specificare l'URL del servizio e una chiave API.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nella barra di spostamento fare clic su **Servizio di ricerca** per elencare tutti i servizi di Ricerca di Azure di cui è stato eseguito il provisioning per la sottoscrizione.
+2. Nella barra di spostamento fare clic su **Servizio di ricerca** per elencare tutti i servizi di Ricerca di Azure di cui è stato effettuato il provisioning per la sottoscrizione.
 3. Selezionare il servizio che si vuole usare.
 4. Nel dashboard del servizio saranno presenti i riquadri per le informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
 
@@ -203,4 +203,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

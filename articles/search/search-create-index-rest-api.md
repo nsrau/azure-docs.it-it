@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="02/29/2016"
+    ms.date="03/09/2016"
     ms.author="ashmaka"/>
 
 # Creare un indice di Ricerca di Azure con l'API REST
@@ -37,13 +37,15 @@ Dopo avere effettuato il provisioning di un servizio Ricerca di Azure, è possib
 3. Fare clic sull'icona "Chiavi".
 
 Il servizio avrà *chiavi amministratore* e *chiavi di query*.
-  * Le *chiavi amministratore* primarie e secondarie concedono diritti completi a tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati. Sono disponibili due chiavi, quindi è possibile continuare a usare la chiave secondaria se si decide di rigenerare la chiave primaria e viceversa.
-  * Le *chiavi di query* concedono l'accesso in sola lettura agli indici e ai documenti e vengono in genere distribuite alle applicazioni client che inviano richieste di ricerca.
+
+ - Le *chiavi amministratore* primarie e secondarie concedono diritti completi a tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati. Sono disponibili due chiavi, quindi è possibile continuare a usare la chiave secondaria se si decide di rigenerare la chiave primaria e viceversa.
+ - Le *chiavi di query* concedono l'accesso in sola lettura agli indici e ai documenti e vengono in genere distribuite alle applicazioni client che inviano richieste di ricerca.
 
 Per la creazione di un indice è possibile usare la chiave primaria o secondaria.
 
 ## II. Definire l'indice di Ricerca di Azure usando JSON ben formato
 Una singola richiesta HTTP POST al servizio creerà l'indice. Il corpo della richiesta HTTP POST conterrà un singolo oggetto JSON che definisce l'indice di Ricerca di Azure.
+
 1. La prima proprietà di questo oggetto JSON è il nome dell'indice.
 2. La seconda proprietà di questo oggetto JSON è una matrice JSON denominata `fields` che contiene un oggetto JSON separato per ogni campo dell'indice. Ogni oggetto JSON contiene più coppie nome/valore per ogni attributo dei campi che include "name", "type" e così via.
 
@@ -84,7 +86,7 @@ La definizione di indice precedente usa un analizzatore personalizzato della lin
 
     POST https://[service name].search.windows.net/indexes?api-version=2015-02-28 Content-Type: application/json api-key: [api-key]
 
-Per una richiesta riuscita, verrà visualizzato il codice di stato 201 (Creato). Per altre informazioni sulla creazione di un indice tramite l'API REST, vedere le informazioni di riferimento sulle API su [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [questo articolo](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Per una richiesta riuscita, verrà visualizzato il codice di stato 201 (Creato). Per altre informazioni sulla creazione di un indice tramite l'API REST, vedere le informazioni di riferimento sulle API su [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [Codici di stato HTTP (Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
 Dopo avere usato un indice, se si vuole eliminarlo è sufficiente inviare una richiesta HTTP DELETE. Ad esempio, per eliminare l'indice "hotels":
 
@@ -92,6 +94,6 @@ Dopo avere usato un indice, se si vuole eliminarlo è sufficiente inviare una ri
     api-key: [api-key]
 
 ## Avanti
-Dopo avere creato un indice di Ricerca di Azure, sarà possibile caricare il contenuto nell'indice, in modo che si possa iniziare a eseguire ricerche nei dati.
+Dopo avere creato un indice di Ricerca di Azure, sarà possibile caricare il contenuto nell'indice, in modo che si possa iniziare a eseguire ricerche nei dati. Per informazioni dettagliate, vedere [Importare dati in Ricerca di Azure tramite l'API REST](search-import-data-rest-api.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

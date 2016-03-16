@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creare un database di SQL Data Warehouse usando Transact-SQL (TSQL)
@@ -61,4 +61,4 @@ Al termine del provisioning di SQL Data Warehouse, è possibile [caricare dati d
 [caricare dati di esempio]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [pagina dei prezzi]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

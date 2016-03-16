@@ -135,7 +135,9 @@ Per verificare che l'agente sia stato installato, aprire i servizi e cercare qua
 È possibile configurare gli agenti di Azure AD Connect Health per l'interazione con un proxy HTTP.
 
 >[AZURE.NOTE]
-- Non è possibile usare "Netsh WinHttp set ProxyServerAddress" perché l'agente usa System.Net per effettuare richieste Web anziché i servizi HTTP di Microsoft Windows. - L'indirizzo del proxy HTTP configurato verrà usato per il passthrough dei messaggi HTTPS crittografati. - Non sono supportati i proxy autenticati (con HTTPBasic).
+- L'uso di "Netsh WinHttp set ProxyServerAddress" non funziona in questo caso, perché l'agente usa System.Net, invece dei servizi HTTP Microsoft Windows, per creare richieste Web.
+- L'indirizzo del proxy HTTP verrà usato per il pass-through di messaggi HTTPS crittografati.
+- I proxy autenticati, che usano HTTPBasic, non sono supportati.
 
 ### Modificare la configurazione del proxy per l'agente di Health
 Sono disponibili le opzioni seguenti per configurare l'agente di Azure AD Connect Health per l'uso di un proxy HTTP.
@@ -190,7 +192,7 @@ Il parametro role accetta attualmente i valori seguenti:
 
 È possibile usare il flag -ShowResults nel comando per visualizzare log dettagliati. Usare l'esempio seguente:
 
-    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResults
+    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
 
 >[AZURE.NOTE]Per usare lo strumento di connettività, è prima di tutto necessario completare la registrazione dell'agente. Se non si riesce a completare la registrazione dell'agente, assicurarsi che siano stati soddisfatti tutti i [requisiti](active-directory-aadconnect-health.md#requirements) per Azure AD Connect Health. Questo test di connettività viene eseguito per impostazione predefinita durante la registrazione dell'agente.
 
@@ -204,4 +206,4 @@ Il parametro role accetta attualmente i valori seguenti:
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

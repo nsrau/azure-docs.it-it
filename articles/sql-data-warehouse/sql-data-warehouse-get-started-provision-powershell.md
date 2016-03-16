@@ -13,13 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/25/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creare SQL Data Warehouse con PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-data-warehouse-get-started-provision.md)
+- [Portale di Azure](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
@@ -42,7 +42,7 @@ Se PowerShell non è già installato, è necessario scaricarlo e configurarlo.
 	```
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
-   
+
 ## Creare un database di SQL Data Warehouse
 Per distribuire un'istanza di SQL Data Warehouse, usare il cmdlet New-AzureRmSQLDatabase. Prima di eseguire il comando, verificare i prerequisiti seguenti.
 
@@ -71,14 +71,14 @@ I parametri necessari per questo cmdlet sono i seguenti:
  + **DatabaseName**: il nome dell'istanza di SQL Data Warehouse che si sta creando.
  + **ServerName**: il nome del server che si sta usando per la creazione (deve essere V12).
  + **ResourceGroupName**: il gruppo di risorse in uso. Per ottenere i gruppi di risorse disponibili nella sottoscrizione, usare Get-AzureResource.
- + **Edition**: per creare un'istanza di SQL Data Warehouse, è necessario impostare l'edizione su "DataWarehouse". 
+ + **Edition**: per creare un'istanza di SQL Data Warehouse, è necessario impostare l'edizione su "DataWarehouse".
 
-Per i riferimenti ai comandi, vedere [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619339.aspx)
+Per i riferimenti ai comandi, vedere [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619339.aspx).
 
 Per le opzioni di parametro, vedere [Create Database (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt204021.aspx).
 
 ## Passaggi successivi
-Al termine del provisioning di SQL Data Warehouse, è possibile [caricare i dati di esempio][] o vedere come eseguire le attività di [sviluppo][], [caricamento][] o [migrazione][].
+Al termine del provisioning di SQL Data Warehouse, è possibile [caricare dati di esempio][] o vedere come eseguire le attività di [sviluppo][], [caricamento][] o [migrazione][].
 
 Per altre informazioni su come gestire SQL Data Warehouse a livello di codice, consultare la documentazione relativa a [PowerShell][] o all'[API REST][].
 
@@ -89,11 +89,11 @@ Per altre informazioni su come gestire SQL Data Warehouse a livello di codice, c
 <!--Article references-->
 [migrazione]: ./sql-data-warehouse-overview-migrate.md
 [sviluppo]: ./sql-data-warehouse-overview-develop/.md
-[caricare i dati di esempio]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[caricare dati di esempio]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [Powershell]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [API REST]: https://msdn.microsoft.com/library/azure/dn505719.aspx
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Come installare e configurare Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

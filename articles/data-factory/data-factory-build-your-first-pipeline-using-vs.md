@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduzione a Data Factory di Azure (Visual Studio)"
+	pageTitle="Creare la prima data factory (Visual Studio) | Microsoft Azure"
 	description="In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure usando Visual Studio."
 	services="data-factory"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="02/16/2016"
 	ms.author="spelluru"/>
 
-# Introduzione a Data Factory di Azure (Visual Studio)
+# Creare la prima data factory di Azure con Microsoft Visual Studio
 > [AZURE.SELECTOR]
 - [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md)
 - [Con l'editor di Data factory](data-factory-build-your-first-pipeline-using-editor.md)
@@ -256,6 +256,7 @@ In questo passaggio viene creata la prima pipeline con un'attività **HDInsightH
 
 	Nel codice JSON dell'attività si specifica che lo script Hive viene eseguito sulla risorsa di calcolo specificata da **linkedServiceName** - **HDInsightOnDemandLinkedService**.
 
+	> [ACOM.NOTE] Per informazioni dettagliate sulle proprietà JSON usate nell'esempio precedente, vedere [Anatomia di una pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline). 
 3. Salvare il file **HiveActivity1.json**.
 
 ### Aggiungere partitionweblogs.hql e input.log come dipendenza 
@@ -292,7 +293,7 @@ Quando si pubblica la soluzione nel passaggio successivo, il file **partitionweb
 
 6. Accedere al [portale di Azure](https://portal.azure.com/) e seguire questa procedura:
 	1. Fare clic su **Sfoglia** e selezionare **Data factory**.
-	 	![Esplora data factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+		 ![Esplora data factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Selezionare **FirstDataFactoryUsingVS** dall'elenco di data factory. 
 7. Nella home page della data factory fare clic su **Diagramma**.
   
@@ -347,7 +348,7 @@ Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguir
 ## Usare i file di configurazione
 È possibile usare i file di configurazione in Visual Studio per configurare le proprietà di pipeline/tabelle/servizi collegati in modo diverso a seconda dell'ambiente.
 
-Considerare la definizione JSON seguente per un servizio collegato Archiviazione di Azure. Per specificare **connectionString** con valori diversi per accountname e accountkey in base all'ambiente (sviluppo/test/produzione) in cui si stanno distribuendo le entità di Data Factory, usare un file di configurazione separato per ogni ambiente.
+Considerare la definizione JSON seguente per un servizio collegato Archiviazione di Azure. Per specificare **connectionString** con valori diversi per accountname e accountkey in base all'ambiente di sviluppo, di test o di produzione in cui si stanno distribuendo le entità di Data Factory, usare un file di configurazione separato per ogni ambiente.
 
 	{
 	    "name": "StorageLinkedService",
@@ -449,4 +450,4 @@ Quando si esegue la distribuzione, i valori del file di configurazione vengono u
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->
