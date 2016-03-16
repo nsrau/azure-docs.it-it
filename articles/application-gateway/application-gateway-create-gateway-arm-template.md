@@ -22,9 +22,9 @@
 Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre le seguenti funzionalità di distribuzione delle applicazioni: bilanciamento del carico HTTP, affinità delle sessioni basata sui cookie e offload SSL (Secure Sockets Layer).
 
 > [AZURE.SELECTOR]
-- [Azure Classic PowerShell](application-gateway-create-gateway.md)
-- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
+- [PowerShell per Azure classico](application-gateway-create-gateway.md)
+- [PowerShell per Azure Resource Manager](application-gateway-create-gateway-arm.md)
+- [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 
 <BR>
 
@@ -54,7 +54,7 @@ In questo scenario si apprenderà come:
 
 È possibile scaricare da GitHub il modello di Gestione risorse di Azure esistente per creare una rete virtuale e due subnet, apportare eventuali modifiche e riutilizzarlo. A tale scopo, seguire questa procedura:
 
-1. Accedere a https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/.
+1. Passare a [Creare il gateway applicazione](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-create).
 2. Fare clic su **azuredeploy.json** e quindi su **RAW**.
 3. Salvare il file in una cartella locale nel computer.
 4. Se si ha familiarità con i modelli di Gestione risorse di Azure, procedere al passaggio 7.
@@ -116,7 +116,7 @@ In questo scenario si apprenderà come:
 
 ## Distribuire il modello di Gestione risorse di Azure usando PowerShell
 
-Se è la prima volta che si usa Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione scelta.
+Se è la prima volta che si usa Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione scelta.
 
 ### Passaggio 1
 
@@ -191,7 +191,7 @@ L'output generato dalla riga di comando sarà il seguente:
 
 Per distribuire il modello di Gestione risorse di Azure scaricato usando l'interfaccia della riga di comando di Azure, seguire questa procedura:
 
-1. Se è la prima volta che si usa l'interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se è la prima volta che si usa l'interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
 		azure config mode arm
@@ -200,7 +200,7 @@ Di seguito è riportato l'output previsto per il comando precedente:
 
 		info:	New mode is arm
 
-3. Se necessario, eseguire il comando **azure group create** per creare un nuovo gruppo di risorse, come illustrato di seguito. Si noti l'output del comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
+3. Se necessario, eseguire il comando **azure group create** per creare un nuovo gruppo di risorse, come illustrato di seguito. Si noti l'output del comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
 		azure group create -n appgatewayRG -l eastus
 
@@ -248,12 +248,12 @@ Il pulsante per la distribuzione offre un altro modo per usare i modelli di Gest
 
 
 ### Passaggio 1
-Visitare la pagina relativa alla [creazione di un gateway applicazione con un indirizzo IP pubblico](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/).
+Vedere [Creare un gateway applicazione con IP pubblico](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/).
 
 
 ### Passaggio 2
 
-Fare clic su **Distribuisci in Azure**.
+Fare clic su **Distribuzione in Azure**.
 
 ![Distribuzione in Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
 
@@ -277,11 +277,11 @@ Nel pannello Distribuzione personalizzata fare clic su **Crea**.
 
 Per configurare l'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
-Per configurare un gateway applicazione da usare con il dispositivo di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
+Per configurare un gateway applicazione da usare con il servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

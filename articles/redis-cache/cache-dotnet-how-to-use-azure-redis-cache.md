@@ -4,7 +4,7 @@
 	services="redis-cache,app-service" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
-- [Node.js](cache-nodejs-get-started.md)
+- [Node.JS](cache-nodejs-get-started.md)
 - [Java](cache-java-get-started.md)
 - [Python](cache-python-get-started.md)
 
@@ -57,7 +57,7 @@ Per creare una cache, accedere prima al [portale di Azure][] e fare clic su **Nu
 
 ![New cache][NewCacheMenu]
 
->[AZURE.NOTE] Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][].
+>[AZURE.NOTE] Se non si ha un account Azure, è possibile creare un account gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][].
 
 Nel pannello **Nuova cache Redis** specificare la configurazione desiderata per la cache.
 
@@ -336,4 +336,4 @@ A questo punto, dopo aver appreso le nozioni di base, visitare i collegamenti se
 
 [versione di valutazione gratuita di Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="03/02/2016"
    ms.author="terrylan"/>
 
 # Introduzione al Centro sicurezza di Azure
@@ -43,62 +43,60 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
 
 ## Usare il Centro sicurezza
 
-Configurare i **criteri** di sicurezza per le sottoscrizioni:
+È possibile configurare criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure. Verranno configurati i **criteri** di sicurezza per la sottoscrizione:
 
-4. Fare clic sul riquadro **Criterio di sicurezza** nel pannello **Centro sicurezza PC**.
-5. Nel pannello **Criteri di sicurezza - Definire i criteri per sottoscrizione** selezionare una sottoscrizione.
-6. Nel pannello **Criteri di sicurezza** attivare **Raccolta dati** per raccogliere automaticamente i log. L’attivazione della **Raccolta dati** inoltre effettuerà il provisioning dell'estensione di monitoraggio in tutte le VM correnti e nuove nella sottoscrizione.
-7. Fare clic su **Scegliere gli account di archiviazione**. Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Se non si sceglie un account di archiviazione per ogni area, verrà creato automaticamente. I dati raccolti vengono isolati logicamente da quelli di altri clienti per motivi di sicurezza.
-8. Attivare le **Raccomandazioni** che si desidera visualizzare come parte dei criteri di sicurezza. Esempi:
+1. Selezionare il riquadro **Criterio di sicurezza** nel pannello **Centro sicurezza**. ![Centro sicurezza][3]
 
-  - L'attivazione di **Aggiornamenti del sistema** consente di analizzare tutte le macchine virtuali supportate per rilevare gli aggiornamenti del sistema operativo mancanti.
-  - L'attivazione di **Regole della baseline** consente di analizzare le macchine virtuali supportate per identificare le configurazioni del sistema operativo che potrebbero rendere la macchina virtuale più vulnerabile agli attacchi.
+2. Nel pannello **Criteri di sicurezza - Definire i criteri per sottoscrizione o gruppo di risorse** selezionare una sottoscrizione. ![Pannello Avvisi di sicurezza nel Centro sicurezza di Azure][4]
 
-![Riquadro Avvisi di sicurezza nel Centro sicurezza di Azure][3]
+3. Nel pannello **Criterio di sicurezza** attivare **Raccolta dati** per raccogliere automaticamente i log. L’attivazione della **Raccolta dati** inoltre effettuerà il provisioning dell'estensione di monitoraggio in tutte le VM correnti e nuove nella sottoscrizione.
+4. Selezionare **Scegliere un account di archiviazione per area**. Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Se non si sceglie un account di archiviazione per ogni area, verrà creato automaticamente. I dati raccolti vengono isolati logicamente da quelli di altri clienti per motivi di sicurezza.
+
+     > [AZURE.NOTE] È consigliabile attivare la raccolta dati e scegliere prima un account di archiviazione a livello di sottoscrizione. I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma la configurazione della raccolta dati e dell'account di archiviazione viene eseguita solo a livello di sottoscrizione.
+
+5. Attivare le **Raccomandazioni** che si desidera visualizzare come parte dei criteri di sicurezza. Esempi:
+
+ - L'attivazione di **Aggiornamenti del sistema** consente di analizzare tutte le macchine virtuali supportate per rilevare gli aggiornamenti del sistema operativo mancanti.
+ - L'attivazione di **Regole della baseline** consente di analizzare le macchine virtuali supportate per identificare le configurazioni del sistema operativo che potrebbero rendere la macchina virtuale più vulnerabile agli attacchi.
 
 **Raccomandazioni** indirizzo:
 
-9. Tornare al pannello **Centro sicurezza PC** e fare clic sul riquadro **Raccomandazioni**. Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse di Azure. Quando identifica potenziali vulnerabilità di sicurezza, al suo interno vengono visualizzate raccomandazioni.
-11.	Fare clic su ogni raccomandazione per visualizzare informazioni aggiuntive e/o intervenire per risolvere il problema.
-
-![Raccomandazioni nel Centro sicurezza di Azure][4]
+1. Tornare al pannello **Centro sicurezza** e selezionare il riquadro **Raccomandazioni**. Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse di Azure. Quando identifica potenziali vulnerabilità di sicurezza, al suo interno vengono visualizzate raccomandazioni.
+2.	Selezionare ogni raccomandazione per visualizzare informazioni aggiuntive e/o intervenire per risolvere il problema. ![Raccomandazioni nel Centro sicurezza di Azure][5]
 
 Visualizzare lo stato di integrità e di sicurezza delle risorse tramite **Integrità risorse**:
 
-12.	Tornare al pannello **Centro sicurezza PC**.
-13.	Il riquadro **Integrità risorse** contiene indicatori dello stato della protezione per **Macchine virtuali**, **Rete**, **SQL** e **Applicazioni**.
-14.	Selezionare **Macchine virtuali** per visualizzare ulteriori informazioni.
-15.	Il pannello **Macchine virtuali** visualizza un riepilogo dello stato, che mostra lo stato di programmi antimalware, aggiornamenti del sistema, riavvii e regole della baseline delle macchine virtuali.
-16.	Selezionare un elemento in **PASSAGGI DI PREVENZIONE** per visualizzare altre informazioni e/o intervenire per configurare i controlli necessari.
-17.	Eseguire il drill down per visualizzare informazioni aggiuntive per specifiche macchine virtuali.
-
-![Riquadro Integrità delle risorse nel Centro sicurezza di Azure][5]
+1.	Tornare al pannello **Centro sicurezza PC**.
+2.	Il riquadro **Integrità risorse** contiene indicatori dello stato della protezione per **Macchine virtuali**, **Rete**, **SQL** e **Applicazioni**.
+3.	Selezionare **Macchine virtuali** per visualizzare ulteriori informazioni.
+4.	Il pannello **Macchine virtuali** visualizza un riepilogo dello stato, che mostra lo stato di programmi antimalware, aggiornamenti del sistema, riavvii e regole della baseline delle macchine virtuali.
+5.	Selezionare un elemento in **PASSAGGI DI PREVENZIONE** per visualizzare altre informazioni e/o intervenire per configurare i controlli necessari.
+6.	Eseguire il drill-down per visualizzare informazioni aggiuntive per specifiche macchine virtuali. ![Riquadro Integrità delle risorse nel Centro sicurezza di Azure][6]
 
 **Avvisi di sicurezza** indirizzo:
 
-19.	Tornare al pannello **Centro sicurezza PC** e fare clic sul riquadro **Avvisi di sicurezza**. Nel pannello **Avvisi di sicurezza** viene visualizzato un elenco di avvisi. Gli avvisi vengono generati dall'analisi dei log di sicurezza e dell'attività di rete effettuata dal Centro protezione. Sono inclusi anche gli avvisi generati da soluzioni partner integrate. ![Avvisi di sicurezza nel Centro sicurezza di Azure][6]
+1.	Tornare al pannello **Centro sicurezza** e selezionare il riquadro **Avvisi di sicurezza**. Nel pannello **Avvisi di sicurezza** viene visualizzato un elenco di avvisi. Gli avvisi vengono generati dall'analisi dei log di sicurezza e dell'attività di rete effettuata dal Centro protezione. Sono inclusi anche gli avvisi generati da soluzioni partner integrate. ![Avvisi di sicurezza nel Centro sicurezza di Azure][7]
 
-21.	Fare clic su un avviso per visualizzare informazioni aggiuntive.
-
-  ![Dettagli degli avvisi di sicurezza nel Centro sicurezza di Azure][7]
+2.	Selezionare un avviso per visualizzare informazioni aggiuntive. ![Dettagli degli avvisi di sicurezza nel Centro sicurezza di Azure][8]
 
 ## Passaggi successivi
 In questo documento sono stati presentati i componenti del monitoraggio della sicurezza e della gestione dei criteri nel Centro sicurezza. Per altre informazioni, vedere gli argomenti seguenti:
 
-- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza.
-- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui i suggerimenti facilitano la protezione delle risorse di Azure.
+- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni facilitano la protezione delle risorse di Azure.
 - [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-- [Come gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
+- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): ottenere le ultime informazioni e notizie sulla sicurezza di Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-get-started/security-tile.png
 [2]: ./media/security-center-get-started/pin-blade.png
-[3]: ./media/security-center-get-started/security-policy.png
-[4]: ./media/security-center-get-started/recommendations.png
-[5]: ./media/security-center-get-started/resources-health.png
-[6]: ./media/security-center-get-started/security-alert.png
-[7]: ./media/security-center-get-started/security-alert-detail.png
+[3]: ./media/security-center-get-started/security-center.png
+[4]: ./media/security-center-get-started/security-policy.png
+[5]: ./media/security-center-get-started/recommendations.png
+[6]: ./media/security-center-get-started/resources-health.png
+[7]: ./media/security-center-get-started/security-alert.png
+[8]: ./media/security-center-get-started/security-alert-detail.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

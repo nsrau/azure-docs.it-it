@@ -233,6 +233,10 @@ Aprire un singolo test per modificarlo o disabilitarlo.
 
 Disabilitare i test Web può essere utile durante l'esecuzione di operazioni di manutenzione sul servizio.
 
+## Automazione
+
+È possibile [usare gli script di PowerShell per configurare un test Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automaticamente.
+
 ## Domande? Problemi?
 
 * *È possibile chiamare codice da un test Web?*
@@ -389,4 +393,4 @@ Aprire le porte 80 (HTTP) e 443 (HTTPS).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0302_2016---->
+<!---HONumber=AcomDC_0309_2016-->

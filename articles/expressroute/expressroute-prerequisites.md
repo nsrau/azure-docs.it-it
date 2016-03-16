@@ -28,7 +28,7 @@ Per connettersi ai servizi cloud Microsoft usando ExpressRoute, sarà necessario
 ## Relazione con un provider di connettività
 
 - Una relazione con un provider di connettività dall'elenco di provider supportati tramite il quale è necessario fornire la connettività. È necessaria una relazione commerciale esistente con il provider di connettività. Assicurarsi che il servizio fornito dal provider di connettività sia compatibile con ExpressRoute.
-- Se si desidera usare un provider di connettività non incluso nell'elenco dei provider supportati, è comunque possibile creare una connessione ai servizi cloud Microsoft tramite scambio.
+- Se si vuole usare un provider di connettività non incluso nell'elenco dei provider supportati, è comunque possibile creare una connessione ai servizi cloud Microsoft tramite scambio.
 	- Contattare il provider di connettività per verificare se è presente in una delle località di scambio nell'elenco dei provider supportati.
 	- Richiedere al provider di connettività di estendere la rete alla località di scambio scelta.
 	- Ordinare un circuito ExpressRoute con lo scambio come provider di connettività.
@@ -71,4 +71,4 @@ Esaminare le risorse seguenti per altre informazioni sui requisiti di Office 365
 	- [Configurare il routing](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

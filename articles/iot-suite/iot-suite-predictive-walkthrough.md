@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="12/02/2015"
+ ms.date="03/02/2016"
  ms.author="araguila"/>
 
 # Procedura dettagliata della soluzione preconfigurata di manutenzione predittiva
@@ -124,4 +124,4 @@ Dopo aver eseguito la soluzione di manutenzione predittiva preconfigurata è con
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

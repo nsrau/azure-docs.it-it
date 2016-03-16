@@ -28,7 +28,7 @@ Per creare un lab DevTest sono necessari gli elementi seguenti:
 
 ## Creare un lab
 
-1. Accedere al [portale di anteprima di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Fare clic su **Esplora**.
 
@@ -61,4 +61,4 @@ Una volta creato il lab, ecco alcuni passaggi successivi da considerare:
 
 - [Aggiungere una VM con elementi a un lab DevTest di Azure](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

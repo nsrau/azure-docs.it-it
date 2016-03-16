@@ -42,7 +42,7 @@ Per completare questa esercitazione, è necessario disporre di:
 + Dispositivo con iOS 8 o versione successiva
 + Iscrizione a iOS Developer Program
 
-   >[AZURE.NOTE] Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un simulatore iOS.
+   > [AZURE.NOTE] Considerati i requisiti di configurazione delle notifiche push, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un simulatore iOS.
 
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni di Hub di notifica relative ad app per iOS.
 
@@ -56,7 +56,7 @@ Questa sezione illustra come creare un nuovo hub di notifica e configurare l'aut
 
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="7">
+<ol start="6">
 <li>
 <p>Fare clic sulla scheda <b>Configura</b> in alto e quindi scegliere il pulsante <b>Carica</b> nelle impostazioni di notifica di Apple per caricare l'identificazione digitale del certificato. Selezionare quindi il certificato <b>.p12</b> esportato in precedenza e la password per il certificato.</p>
 <p>Assicurarsi di selezionare la modalità <b>Sandbox</b>, essendo destinata allo sviluppo. Usare la modalità <b>Produzione</b> solo se si vuole inviare notifiche push agli utenti che hanno acquistato l'app dallo Store.</p>
@@ -508,4 +508,4 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 
 [guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

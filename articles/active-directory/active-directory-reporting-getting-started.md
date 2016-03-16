@@ -3,7 +3,7 @@
    description="Elenca i vari report disponibili nei report di Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="curtand"
+   authors="dhanyahk"
    manager="stevenpo"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/10/2016"
-   ms.author="curtand;kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Introduzione ad Azure Active Directory Reporting
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) include la sicurezza, l’attività e i report
 - Accessi da origini sconosciute
 - Accessi dopo più errori
 - Accessi da più aree geografiche
-- Accessi da indirizzi IP con attività sospetta
+- Accessi da indirizzi IP con attività sospette
 - Attività di accesso irregolare
 - Accessi da dispositivi potenzialmente infetti
 - Utenti con anomalie dell'attività di accesso
@@ -67,7 +67,7 @@ La pipeline di report è costituita da tre passaggi principali. Ogni volta che u
 
 A causa della grande quantità di autenticazioni e accessi elaborati dalla piattaforma di Azure AD, gli accessi più recenti elaborati sono, in media, di un'ora prima. In rari casi, ci potrebbero volere fino a 8 ore per elaborare gli accessi più recenti.
 
-È possibile trovare l’accesso più recente elaborato esaminando il testo di supporto della Guida nella parte superiore di ogni report.
+È possibile trovare l’accesso più recente elaborato esaminando il testo della Guida nella parte superiore di ogni report.
 
 ![Testo della Guida nella parte superiore di ogni report](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
 
@@ -92,13 +92,13 @@ Se questa è la prima volta in cui vengono visualizzati i report, è necessario 
 
 ### Esplorare ogni report
 
-Passare a ciascun report per visualizzare i dati che sono stati raccolti e gli accessi elaborati. È possibile trovare un [elenco di tutti i report qui](active-directory-reporting-guide.md).
+Passare a ogni report per visualizzare i dati che raccolti e gli accessi elaborati. È possibile trovare un [elenco di tutti i report qui](active-directory-reporting-guide.md).
 
 ![Tutti i report](./media/active-directory-reporting-getting-started/reportsMain.png)
 
 ### Scaricare i report in formato CSV
 
-Ogni report può essere scaricato come file CSV (valore delimitato da virgole). È possibile utilizzare questi file in Excel, PowerBI o programmi di analisi di terze parti per un'ulteriore analisi dei dati
+Ogni report può essere scaricato come file CSV (valori delimitati da virgole). È possibile utilizzare questi file in Excel, PowerBI o programmi di analisi di terze parti per un'ulteriore analisi dei dati
 
 Per scaricare tutti i report in un formato CSV, passare al report e fare clic su "Download" nella parte inferiore.
 
@@ -152,8 +152,8 @@ Vedere [Introduzione all'API di Report](active-directory-reporting-api-getting-s
 
 ### Ottenere un contatto
 
-Indirizzo di posta elettronica [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) per commenti e suggerimenti, aiuto o per eventuali domande!
+Inviare un messaggio di posta elettronica all'indirizzo [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) per commenti, richieste di assistenza o eventuali domande.
 
 > [AZURE.TIP] Per ulteriori informazioni sul Report di AD Azure, consultare [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

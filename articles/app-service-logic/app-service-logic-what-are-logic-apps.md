@@ -12,33 +12,38 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/22/2016"
+	ms.topic="hero-article" 
+	ms.date="03/01/2016"
 	ms.author="klam"/>
 
 #Cosa sono le app per la logica?
 
 | Riferimento rapido |
 | --------------- |
-| [Linguaggio di definizione delle app per la logica](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
+| [Linguaggio di definizione delle app per la logica](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
 | [Documentazione sulle API gestite per le app per la logica](https://azure.microsoft.com/documentation/articles/apis-list) |
-| [Forum delle app per la logica](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=azurelogicapps) |
+| [Forum delle app per la logica](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps) |
 
 Servizio app di Azure è una piattaforma distribuita come servizio (PaaS) completamente gestita per gli sviluppatori che semplifica la creazione di app Web, per dispositivi mobili e di integrazione. Le app per la logica rappresentano una parte di questa suite e consentono a qualsiasi utente o sviluppatore tecnico di automatizzare l'esecuzione e il flusso di lavoro dei processi aziendali tramite una finestra di progettazione visiva facile da usare.
 
-Inoltre, è possibile combinare le app per la logica con [API gestite][managedapis] predefinite per contribuire a risolvere facilmente anche i più complessi scenari di integrazione.
+È anche possibile combinare le app per la logica con [API gestite][managedapis] predefinite per contribuire a risolvere facilmente anche i più complessi scenari di integrazione:
 
 ![Finestra di progettazione del flusso di app](./media/app-service-logic-what-are-logic-apps/LogicAppCapture2.png)
 
-È possibile replicare automaticamente nuovi record nel database SQL e inviarli al front desk. In alternativa, è possibile trovare automaticamente tweet negativi e inviarli a un canale slack.
+Come indicato, le app per la logica consentono di automatizzare i processi aziendali. Ecco alcuni esempi:
+ 
+* È possibile replicare automaticamente nuovi record nel database SQL e inviare messaggi al front desk.   
+* È possibile trovare automaticamente tweet negativi e inviarli a un canale slack.
 
-##Perché usare le app per la logica?
+Tutti questi scenari possono essere configurati tramite la finestra di progettazione visiva e senza scrivere una singola riga di codice. È possibile iniziare [subito a sviluppare la propria app per la logica][create].
+
+## Perché usare le app per la logica?
 
 Le app per la logica consentono agli sviluppatori di progettare flussi di lavoro che vengono avviati da un trigger e quindi di eseguire una serie di passaggi. Per ogni passaggio viene richiamata un'API e contemporaneamente vengono gestite in modo sicuro l'autenticazione e le procedure consigliate, come l'impostazione del checkpoint e l'esecuzione durevole.
 
-Se si desidera automatizzare qualsiasi processo aziendale (ad esempio, individuare tweet negativi e pubblicarli nel canale slack interno o replicare nuovi record del cliente da SQL, appena arrivano, nel sistema CRM), le app per la logica facilitano l'integrazione di diverse origini dati, dal cloud a un'infrastruttura locale. Controllare le [API gestite][managedapis] per altre informazioni e [iniziare][create] ora per scoprire le attività che è possibile eseguire.
+Se si desidera automatizzare qualsiasi processo aziendale (ad esempio, individuare tweet negativi e pubblicarli nel canale slack interno o replicare nuovi record del cliente da SQL, appena arrivano, nel sistema CRM), le app per la logica facilitano l'integrazione di diverse origini dati, dal cloud a un'infrastruttura locale. Controllare le [API gestite][managedapis] per altre informazioni e [iniziare][create] subito per scoprire le attività che è possibile eseguire.
 
-Con le [API gestite BizTalk][biztalk] è anche possibile passare a scenari di integrazione avanzati con la potenza di un [motore regole][rules], della [gestione dei partner commerciali][tpm] e altro ancora.
+Con le [API gestite BizTalk][biztalk] è anche possibile passare a scenari di integrazione avanzati, sfruttando i vantaggi di un [motore regole][rules], della [gestione dei partner commerciali][tpm] e altro ancora.
 
 - **Strumenti di progettazione facili da usare**: è possibile progettare le app per la logica in modalità end-to-end nel browser. Iniziare con un trigger: da una semplice pianificazione a un momento qualsiasi in cui compare un tweet relativo alla propria azienda. Quindi, gestire un numero qualsiasi di azioni usando la raccolta completa di connettori.
 
@@ -69,9 +74,9 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [create]: app-service-logic-create-a-logic-app.md
-[managedapis]: app-service-logic-connectors-list.md
+[managedapis]: ../connectors/apis-list.md
 [tpm]: app-service-logic-create-a-trading-partner-agreement.md
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

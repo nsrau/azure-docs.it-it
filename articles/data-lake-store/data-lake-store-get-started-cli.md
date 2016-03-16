@@ -1,29 +1,29 @@
-<properties 
+<properties
    pageTitle="Introduzione ad Data Lake Store utilizzando l'interfaccia della riga di comando multipiattaforma | Microsoft Azure"
-   description="Usare la riga di comando multipiattaforma di Azure per creare un account di Data Lake Store ed eseguire operazioni di base" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+   description="Usare la riga di comando multipiattaforma di Azure per creare un account di Data Lake Store ed eseguire operazioni di base"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # Introduzione ad Azure Data Lake Store tramite la riga di comando di Azure
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
+- [Uso del portale](data-lake-store-get-started-portal.md)
+- [Tramite PowerShell](data-lake-store-get-started-powershell.md)
+- [Uso di .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Utilizzare l'interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
+- [Uso di Node.js](data-lake-store-manage-use-nodejs.md)
 
 Informazioni su come la riga di comando di Azure per creare un account di Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake Store, vedere [Panoramica di Data Lake](data-lake-store-overview.md).
 
@@ -35,12 +35,12 @@ L'interfaccia della riga di comando di Azure viene implementata in Node.js. Può
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup). 
+- **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
 - **Interfaccia della riga di comando di Azure**: per informazioni sull’installazione e la configurazione vedere [Installare e configurare l’interfaccia della riga di comando di Azure](../xplat-cli-install.md). Assicurarsi di riavviare del computer dopo l'installazione dell’interfaccia della riga di comando.
 
 ##Effettuare l'accesso alla sottoscrizione di Azure
 
-Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure (Azure CLI)](xplat-cli-connect.md) e connettersi alla sottoscrizione usando il metodo __login__.
+Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure (Azure CLI)](../xplat-cli-connect.md) e connettersi alla sottoscrizione usando il metodo __login__.
 
 
 ## Creare un account di Azure Data Lake Store
@@ -146,12 +146,12 @@ L'output di questo comando dovrebbe essere simile al seguente:
 
 * **Per eliminare un file**, usare il comando seguente:
 
-		azure datalake store filesystem delete <dataLakeStoreAccountName> <path> 
+		azure datalake store filesystem delete <dataLakeStoreAccountName> <path>
 
 	ad esempio:
 
 		azure datalake store filesystem delete mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv
-	
+
 	Quando viene richiesto, immettere **Y** per eliminare l'elemento.
 
 ## Visualizzare l'elenco del controllo di accesso per una cartella in Data Lake Store
@@ -187,10 +187,10 @@ Quando viene richiesto, immettere **Y** per eliminare l'account.
 ## Passaggi successivi
 
 - [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
-- [Usare Azure Data Lake Analytics con Data Lake Store](data-lake-analytics-get-started-portal.md)
+- [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

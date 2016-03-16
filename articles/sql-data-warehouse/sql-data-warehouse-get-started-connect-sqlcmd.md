@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Connettersi ed eseguire query con SQLCMD
@@ -78,9 +78,9 @@ Per altre informazioni su sqlcmd, vedere la [relativa documentazione](https://ms
 Ora che è possibile connettersi ed eseguire query, provare a [connettersi con PowerBI][].
 
 [connettersi con PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
- 
+
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -74,4 +74,4 @@ Dopo aver individuato cosa è possibile fare con IoT Suite e quali sono i compon
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

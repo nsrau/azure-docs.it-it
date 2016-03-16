@@ -1,6 +1,6 @@
 <properties
     pageTitle="Eseguire query su un indice di Ricerca di Azure con l'API REST | Microsoft Azure | Servizio di ricerca cloud ospitato"
-    description="Compilare una query di ricerca in Ricerca di Azure e usare i parametri di ricerca per filtrare, ordinare ed esplorare in base a facet i risultati della ricerca."
+    description="Compilare una query di ricerca in Ricerca di Azure e usare i parametri di ricerca per filtrare e ordinare i risultati della ricerca."
     services="search"
     documentationCenter=""
 	authors="ashmaka"
@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="02/29/2016"
+    ms.date="03/09/2016"
     ms.author="ashmaka"/>
 
 # Eseguire query su un indice di Ricerca di Azure con l'API REST
@@ -33,8 +33,9 @@ Un componente chiave di ogni operazione di ricerca con l'API REST di Ricerca di 
 3. Fare clic sull'icona "Chiavi".
 
 Il servizio avrà *chiavi amministratore* e *chiavi di query*.
-  * Le *chiavi amministratore* primarie e secondarie concedono diritti completi a tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati. Sono disponibili due chiavi, quindi è possibile continuare a usare la chiave secondaria se si decide di rigenerare la chiave primaria e viceversa.
-  * Le *chiavi di query* concedono l'accesso in sola lettura agli indici e ai documenti e vengono in genere distribuite alle applicazioni client che inviano richieste di ricerca.
+
+ - Le *chiavi amministratore* primarie e secondarie concedono diritti completi a tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati. Sono disponibili due chiavi, quindi è possibile continuare a usare la chiave secondaria se si decide di rigenerare la chiave primaria e viceversa.
+ - Le *chiavi di query* concedono l'accesso in sola lettura agli indici e ai documenti e vengono in genere distribuite alle applicazioni client che inviano richieste di ricerca.
 
 Ai fini di una query su un indice, è possibile usare una delle chiavi di query. Si possono anche usare le chiavi amministratore per le query, ma è necessario usare una chiave di query nel codice dell'applicazione, perché questo approccio è più coerente con il [principio del privilegio minimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
@@ -47,7 +48,15 @@ Sia per POST che per GET è necessario fornire il *nome del servizio*, il *nome 
 
 Il formato per POST è lo stesso, ma con solo la versione dell'API nei parametri della stringa di query.
 
-Ricerca di Azure offre numerose opzioni per creare query estremamente avanzate. Per altre informazioni su tutti i diversi parametri di una query, vedere [questa pagina](https://msdn.microsoft.com/library/azure/dn798927.aspx). Di seguito sono disponibili anche alcune query di esempio.
+#### Tipi di query
+
+Ricerca di Azure offre numerose opzioni per creare query estremamente avanzate. I due tipi di query principali che si useranno sono `search` e `filter`. Una query `search` cerca uno o più termini in tutti i campi _ricercabili_ dell'indice e funziona come un motore di ricerca, ad esempio Google o Bing. Una query `filter` valuta un'espressione booleana su tutti i campi _filtrabili_ di un indice. Diversamente dalle query `search`, le query `filter` ricercano la corrispondenza esatta con il contenuto di un campo e quindi supportano la distinzione tra lettere maiuscole e minuscole per i campi di tipo stringa.
+
+È possibile usare le ricerche e i filtri insieme o separatamente. Se si usano insieme, prima viene applicato il filtro all'intero indice e quindi viene eseguita la ricerca sui risultati del filtro. I filtri quindi possono essere un'utile tecnica per migliorare le prestazioni delle query perché riducono il set di documenti che la query di ricerca deve elaborare.
+
+La sintassi per le espressioni di filtro è un subset del [linguaggio di filtro OData](https://msdn.microsoft.com/library/azure/dn798921.aspx). Per le query di ricerca è possibile usare la [sintassi semplificata](https://msdn.microsoft.com/library/azure/dn798920.aspx) o la [sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
+
+Per altre informazioni su tutti i diversi parametri di una query, vedere [Eseguire ricerche nei documenti](https://msdn.microsoft.com/library/azure/dn798927.aspx). Di seguito sono disponibili anche alcune query di esempio.
 
 #### Query di esempio
 
@@ -65,7 +74,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Eseguire una ricerca nell'intero indice degli hotel con un prezzo inferiore a 150 USD a notte e restituire `hotelId` e `description`:
+Applicare un filtro all'indice per trovare gli hotel con un prezzo inferiore a 150 dollari a notte e restituire `hotelId` e `description`:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
@@ -122,7 +131,7 @@ api-key: [query key]
 }
 ```
 
-Una richiesta di query riuscita restituirà un codice di stato `200 OK` e i risultati della ricerca saranno restituiti in formato JSON nel corpo della risposta. Ecco quali i risultati per la query precedente, supponendo che l'indice "hotels" sia popolato con i dati di esempio in [questo articolo](search-import-data-rest-api.md). Si noti che l'oggetto JSON è stato formattato per maggiore chiarezza.
+Una richiesta di query riuscita restituirà un codice di stato `200 OK` e i risultati della ricerca saranno restituiti in formato JSON nel corpo della risposta. Ecco i risultati per la query precedente, supponendo che l'indice "hotels" sia popolato con i dati di esempio in [Importazione di dati in Ricerca di Azure tramite l'API REST](search-import-data-rest-api.md). Si noti che JSON è stato formattato per maggiore chiarezza.
 
 ```JSON
 {
@@ -155,6 +164,6 @@ Una richiesta di query riuscita restituirà un codice di stato `200 OK` e i risu
 }
 ```
 
-Per altre informazioni, vedere la sezione "Risposta" di [questa pagina](https://msdn.microsoft.com/library/azure/dn798927.aspx). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [questo articolo](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Per altre informazioni, vedere la sezione "Risposta" di [Eseguire ricerche nei documenti](https://msdn.microsoft.com/library/azure/dn798927.aspx). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [Codici di stato HTTP (Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

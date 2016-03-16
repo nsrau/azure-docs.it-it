@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/24/2016" 
+	ms.date="03/03/2016" 
 	ms.author="billmath"/>
 
 #Scegliere la soluzione di sicurezza Multi-Factor più adatta
@@ -65,20 +65,20 @@ SMS unidirezionale come secondo fattore | ● | ●
 SMS bidirezionale come secondo fattore | | ● 
 Token hardware come secondo fattore | | ● 
 Password di app per i client che non supportano MFA | ● |  
-Controllo amministrazione sui metodi di autenticazione | | ● 
+Controllo amministrazione sui metodi di autenticazione | (anteprima pubblica) | ● 
 Modalità PIN | | ●
 Avviso di illecito | ● | ●
 Report MFA | ● | ● 
-Bypass monouso | ● | ● 
+Bypass monouso | | ● 
 Messaggi di saluto personalizzati per le telefonate | ● | ● 
 ID chiamante personalizzabile per le telefonate | ● | ● 
 IP attendibili | ● | ● 
 Memorizzazione di MFA per dispositivi attendibili (anteprima pubblica) | ● |  
 Accesso condizionale | ● | ● 
-Cache | ● | ● 
+Cache | | ● 
 
 Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authentication nel cloud o il server MFA locale, sarà possibile iniziare a impostare e utilizzare Azure Multi-Factor Authentication. **Selezionare l'icona che rappresenta lo scenario.**
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/22/2016"
+	ms.date="03/04/2016"
 	ms.author="billmath;andkjell"/>
 
 # Installazione personalizzata di Azure AD Connect
@@ -40,7 +40,7 @@ Durante l'installazione dei servizi di sincronizzazione, è possibile lasciare d
 | Configurazione facoltativa | Descrizione |
 | ------------- | ------------- |
 | Usare un server SQL esistente | Permette di specificare il nome di SQL Server e il nome dell'istanza. Scegliere questa opzione se si dispone già di un server di database che si desidera usare. Se in SQL Server l'esplorazione non è abilitata ed è necessario specificare un numero di porta nella casella **Nome istanza**, immettere il nome dell'istanza seguito da una virgola e dal numero di porta. |
-| Usare un account di servizio esistente | Per impostazione predefinita, Azure AD Connect crea un account di servizio locale che verrà usato dai servizi di sincronizzazione. La password viene generata automaticamente e non è nota alla persona che installa Azure AD Connect. Se si usa un server SQL remoto, è necessario disporre di un account di servizio nel dominio e conoscere la password. In questi casi, immettere l'account di servizio da usare. Assicurarsi che l'utente che esegue l'installazione sia un'associazione di sicurezza in SQL, in modo che sia possibile creare un accesso per l'account del servizio. Vedere [Autorizzazioni e account di Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
+| Usare un account di servizio esistente | Per impostazione predefinita, Azure AD Connect crea un account di servizio locale che verrà usato dai servizi di sincronizzazione. La password viene generata automaticamente e non è nota alla persona che installa Azure AD Connect. Se si usa un server SQL remoto o un proxy che richiede l'autenticazione, è necessario avere un account di servizio nel dominio e conoscere la password. In questi casi, immettere l'account di servizio da usare. Assicurarsi che l'utente che esegue l'installazione sia un'associazione di sicurezza in SQL, in modo che sia possibile creare un accesso per l'account del servizio. Vedere [Autorizzazioni e account di Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
 | Specificare i gruppi di sincronizzazione personalizzati | Per impostazione predefinita, Azure AD Connect crea quattro gruppi locali nel server quando vengono installati i servizi di sincronizzazione. I gruppi sono: gruppo Administrators, gruppo Operators, gruppo Browse e Gruppo Password Reset. Se si vuole specificare gruppi personalizzati, è possibile farlo qui. I gruppi devono essere locali sul server e non possono trovarsi nel dominio. |
 
 ## Accesso utente
@@ -238,4 +238,4 @@ Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

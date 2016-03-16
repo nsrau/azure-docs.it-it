@@ -13,7 +13,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/25/2016"
 	ms.author="paulettm"/>
 
@@ -25,7 +25,7 @@ Questa sezione contiene le domande e le risposte su Azure Machine Learning, un s
 
 **Cos'è Azure Machine Learning?**
 
-Azure Machine Learning è un servizio completamente gestito che è possibile usare per creare, testare, usare e gestire le soluzioni per l'analisi predittiva nel cloud. Con un semplice browser è possibile accedere, caricare i dati e avviare immediatamente le sperimentazioni di Machine Learning. La modellazione predittiva a trascinamento, un'ampia gamma di moduli e una libreria di modelli di avvio rendono le attività comuni di Machine Learning facili e veloci da eseguire. Per altre informazioni, vedere la [panoramica del servizio di Azure Machine Learning](/services/machine-learning/). Per un'introduzione al Machine Learning che tratta i concetti e la terminologia di base, vedere [Introduzione ad Azure Machine Learning](machine-learning-what-is-machine-learning.md).
+Azure Machine Learning è un servizio completamente gestito che è possibile usare per creare, testare, usare e gestire le soluzioni per l'analisi predittiva nel cloud. Con un semplice browser è possibile accedere, caricare i dati e avviare immediatamente le sperimentazioni di Machine Learning. La modellazione predittiva a trascinamento, un'ampia gamma di moduli e una libreria di modelli di avvio rendono le attività comuni di Machine Learning facili e veloci da eseguire. Per altre informazioni, vedere la [panoramica del servizio di Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/). Per un'introduzione al Machine Learning che tratta i concetti e la terminologia di base, vedere [Introduzione ad Azure Machine Learning](machine-learning-what-is-machine-learning.md).
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -63,7 +63,7 @@ No. Tuttavia, quando si esegue un esperimento, la versione del grafico viene man
 ### Importazione ed esportazione dei dati per Machine Learning
 **Quali origini dati sono supportate da Machine Learning?**
 
-I dati possono essere caricati in Machine Learning Studio in uno dei due modi seguenti: caricando i file locali come set di dati oppure usando un modulo Reader per importare i dati. I file locali possono essere caricati aggiungendo nuovi set di dati in Machine Learning Studio. Vedere [Importare dati di training in Azure Machine Learning Studio](machine-learning-import-data.md) per altre informazioni sui formati di file supportati.
+I dati possono essere caricati in Machine Learning Studio in uno dei due modi seguenti: caricando i file locali come set di dati oppure usando un modulo Reader per importare i dati. I file locali possono essere caricati aggiungendo nuovi set di dati in Machine Learning Studio. Vedere [Importare dati di training in Azure Machine Learning Studio](machine-learning-data-science-import-data.md) per altre informazioni sui formati di file supportati.
 
 
 #### <a id="ModuleLimit"></a>Qual è la grandezza massima dei set di dati per i moduli?
@@ -93,9 +93,10 @@ Per i set di dati con dimensioni maggiori di un paio di GB, caricare i dati in A
 
 **È possibile leggere i dati da Amazon S3?**
 
-Se la quantità di dati è limitata e si vuole esporli tramite un URL HTTP, è possibile usare il modulo [Reader][reader]. Per quantità di dati maggiori, trasferirli prima in Archiviazione di Azure, quindi usare il modulo [Reader][reader] per passarli all'esperimento. 
-<!--<SEE CLOUD DS PROCESS>-->
-
+Se la quantità di dati è limitata e si vuole esporli tramite un URL HTTP, è possibile usare il modulo [Reader][reader]. Per quantità di dati maggiori, trasferirli prima in Archiviazione di Azure e quindi usare il modulo [Reader][reader] per passarli all'esperimento.
+<!--
+<SEE CLOUD DS PROCESS>
+-->
 
 **Esiste una capacità di input dell'immagine predefinita?**
 
@@ -218,8 +219,8 @@ Una volta inserito in produzione un modello predittivo, è possibile monitorarlo
 
 Per RRS, la risposta del servizio web si trova in genere dove si visualizza il risultato. È inoltre possibile scrivere un BLOB. Per BES, l'output viene scritto in un BLOB per impostazione predefinita. È inoltre possibile scrivere l'output in un database o in una tabella utilizzando il modulo di scrittura.
 
- **È possibile creare servizi web solo da modelli creati in Studio? No. È inoltre possibile creare servizi web direttamente dai notebook Jupyter e RStudio.
- 
+ ****È possibile creare servizi web solo da modelli creati in Studio? No. È inoltre possibile creare servizi web direttamente dai notebook Jupyter e RStudio.
+
  ****Dove è possibile trovare informazioni sui codici di errore? I codici di errore vengono descritti [qui](https://msdn.microsoft.com/library/azure/dn905910.aspx).
 
 ## Scalabilità
@@ -291,7 +292,7 @@ Vedere [Domande frequenti sulla pubblicazione e sull'utilizzo delle app di Machi
 
 **Dove si trovano i training per Azure ML?**
 
-Il [centro di documentazione di Azure Machine Learning](/services/machine-learning/) ospita le esercitazioni video e le guide per le procedure. Queste guide dettagliate forniscono un'introduzione ai servizi e indicazioni sul ciclo di vita data-science per l'importazione dei dati, la pulizia dei dati, la compilazione di modelli predittivi e la loro distribuzione in produzione con Azure ML.
+Il [centro di documentazione di Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) ospita le esercitazioni video e le guide per le procedure. Queste guide dettagliate forniscono un'introduzione ai servizi e indicazioni sul ciclo di vita data-science per l'importazione dei dati, la pulizia dei dati, la compilazione di modelli predittivi e la loro distribuzione in produzione con Azure ML.
 
 Microsoft aggiungerà regolarmente nuovo materiale in Machine Learning Center. Per ottenere altro materiale di apprendimento, inviare una richiesta su Machine Learning Center nel [forum dei commenti degli utenti](https://windowsazure.uservoice.com/forums/257792-machine-learning).
 
@@ -312,4 +313,4 @@ Per ottenere supporto tecnico per Azure Machine Learning, andare in [Opzioni di 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

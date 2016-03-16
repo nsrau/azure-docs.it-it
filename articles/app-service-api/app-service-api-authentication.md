@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/21/2016"
+	ms.date="03/04/2016"
 	ms.author="tdykstra"/>
 
 # Autenticazione e autorizzazione per app per le API nel servizio app di Azure
@@ -85,7 +85,7 @@ Per gestire uno scenario da servizio a servizio senza l'autenticazione del servi
 
 L'autenticazione dell'account da un'app per la logica del servizio app per un'app per le API è un caso speciale ed è illustrata nell'articolo [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
-## Autenticazione client
+## Autenticazione dei client per dispositivi mobili
 
 Per informazioni su come gestire l'autenticazione dai client per dispositivi mobili, vedere la [documentazione sull'autenticazione per le app per dispositivi mobili](../app-service-mobile/app-service-mobile-ios-get-started-users.md). L'autenticazione del servizio app funziona allo stesso modo per le app per dispositivi mobili e per le app per le API.
   
@@ -102,7 +102,7 @@ Per altre informazioni su OAuth 2.0, OpenID Connect e i token Web JSON (JWT), ve
 * [Introduzione a OAuth2, OpenID Connect e JSON Web Tokens (JWT) - corso PluralSight](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
 * [Creazione e protezione di un'API RESTful per più client in ASP.NET - corso PluralSight](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
 
-Per altre informazioni sull'autenticazione con Azure Active Directory, vedere le risorse seguenti.
+Per altre informazioni su Azure Active Directory, vedere le risorse seguenti.
 
 * [Scenari per Azure AD](http://aka.ms/aadscenarios)
 * [Guida per sviluppatori Azure AD](http://aka.ms/aaddev)
@@ -110,6 +110,6 @@ Per altre informazioni sull'autenticazione con Azure Active Directory, vedere le
 
 ## Passaggi successivi
 
-Questo articolo ha illustrato le funzionalità di autenticazione e autorizzazione del servizio app che è possibile usare per le app per le API. Nella prossima esercitazione si apprenderà come implementare l'[autenticazione utente nelle app per le API del servizio app](app-service-api-dotnet-user-principal-auth.md).
+Questo articolo ha illustrato le funzionalità di autenticazione e autorizzazione del servizio app che è possibile usare per le app per le API. La prossima esercitazione della serie introduttiva illustra come implementare l'[autenticazione utente nelle app per le API del servizio app](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

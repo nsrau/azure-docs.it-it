@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="03/07/2016"
    ms.author="larryfr"/>
 
 
@@ -25,6 +25,8 @@ Apache Storm è un sistema di calcolo in tempo reale scalabile, a tolleranza di 
 > [AZURE.NOTE] I passaggi descritti in questo articolo consentono di creare un cluster HDInsight basato su Linux. Per la procedura necessaria per creare un cluster Storm basato su Windows nel cluster HDInsight, vedere [Esercitazione di Apache Storm: Introduzione all'esempio Storm Starter usando l'analisi dei dati in HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
 ## Prima di iniziare
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Per completare correttamente questa esercitazione di Apache Storm, è necessario quanto segue:
 
@@ -90,7 +92,7 @@ Storm in HDInsight usa Archiviazione BLOB di Azure per archiviare i file di log 
     
     - __Identità AAD del cluster__: consente di selezionare un'identità di Azure Active Directory che verrà usata dal cluster per accedere all'Archivio Azure Data Lake.
     
-        > [AZURE.NOTE] Non viene usata in questo documento e si può quindi mantenere l'impostazione predefinita. Per informazioni sull'uso di questa voce e dell'Archivio Azure Data Lake con HDInsight, vedere [Creare un cluster HDInsight che usa Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md).
+        > [AZURE.NOTE] Non viene usata in questo documento e si può quindi mantenere l'impostazione predefinita. Per informazioni sull'uso di questa voce e dell'Archivio Azure Data Lake con HDInsight, vedere [Creare un cluster HDInsight che usa Archivio Azure Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md).
 		
 	- __Seleziona__: per salvare la configurazione dell'origine dati.
 	
@@ -215,6 +217,10 @@ Usare la procedura seguente per monitorare la topologia con l'interfaccia utente
 
 Tornare alla pagina **Topology summary** per la topologia relativa al conteggio parole e quindi fare clic sul pulsante **Kill** nella sezione **Topology actions**. Quando richiesto, immettere 10 per il numero di secondi di attesa prima dell'arresto della topologia. Dopo il periodo di timeout, la topologia non verrà più visualizzata nella sezione **Storm UI** del dashboard.
 
+##Eliminazione del cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##Riepilogo
 
 In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere come creare un cluster Storm in HDInsight e usare Storm Dashboard per distribuire, monitorare e gestire topologie Storm.
@@ -233,4 +239,4 @@ In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/16/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Caricare i dati con Azure Data Factory
@@ -40,7 +40,7 @@ Per una panoramica di Azure Data Factory, vedere [Introduzione al servizio Azure
 
 Prima di iniziare questa esercitazione, è necessario avere le risorse seguenti.
 
-   + **BLOB di archiviazione Azure**: questa esercitazione usa il BLOB di archiviazione di Azure come origine dati per la pipeline di Azure Data Factory e quindi è necessario che ne sia disponibile uno per archiviare i dati di esempio. Se non ne è già disponibile uno, vedere [Creare un account di archiviazione](../storage/storage-create-storage-account/#create-a-storage-accoun/). 
+   + **BLOB di archiviazione Azure**: questa esercitazione usa il BLOB di archiviazione di Azure come origine dati per la pipeline di Azure Data Factory e quindi è necessario che ne sia disponibile uno per archiviare i dati di esempio. Se non ne è già disponibile uno, vedere [Creare un account di archiviazione](../storage/storage-create-storage-account/#create-a-storage-accoun/).
 
    + **SQL Data Warehouse**: questa esercitazione sposta i dati dal BLOB di archiviazione di Azure in SQL Data Warehouse e quindi è necessario avere un data warehouse online che viene caricato con i dati di esempio AdventureWorksDW. Se non si ha già un data warehouse, vedere le informazioni su come [effettuare il provisioning](sql-data-warehouse-get-started-provision.md). Se è disponibile un data warehouse, ma non ne è stato effettuato il provisioning con i dati di esempio, è possibile [caricarlo manualmente](sql-data-warehouse-get-started-manually-load-samples.md).
 
@@ -158,7 +158,7 @@ Nella sezione 'Creare e distribuire' fare clic su 'Più comandi' e quindi 'Nuova
     "name": "<Pipeline Name>",
     "properties": {
         "description": "<Description>",
-        "activities": [ 
+        "activities": [
           {
             "type": "Copy",
     		"typeProperties": {
@@ -215,4 +215,4 @@ Questi argomenti forniscono informazioni dettagliate su Azure Data Factory. Illu
 - [Esercitazione: Copiare i dati di un BLOB di archiviazione di Azure nel database SQL di Azure](../data-factory/data-factory-get-started.md). In questa esercitazione si creerà una pipeline in Azure Data Factory per copiare i dati da un BLOB di archiviazione di Azure in un database SQL di Azure.
 - [Esercitazione in uno scenario reale](../data-factory/data-factory-tutorial.md). Si tratta di un'esercitazione dettagliata per l'uso di Azure Data Factory.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

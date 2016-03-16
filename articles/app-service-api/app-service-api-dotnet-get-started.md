@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.date="03/09/2016"
 	ms.author="tdykstra"/>
 
 # Introduzione alle app per le API e ad ASP.NET nel servizio app di Azure
@@ -461,9 +461,10 @@ Se l'app per le API di livello intermedio venisse chiamata ora, cercherebbe di c
  
 4. Nel pannello **Impostazioni applicazione** dell'app per le API scorrere verso il basso fino alla sezione **Impostazioni app** e aggiungere la chiave e il valore seguenti:
 
-	|Chiave|Valore|Esempio
-	|---|---|---|
-	|toDoListDataAPIURL|https://{your nome dell'app per le API di livello dati}.azurewebsites.net|https://todolistdataapi0121.azurewebsites.net|
+	| **Chiave** | toDoListDataAPIURL |
+	|---|---|
+	| **Valore** | https://{your dell'app per le API di livello dati}.azurewebsites.net |
+	| **Esempio** | https://todolistdataapi0121.azurewebsites.net |
 
 4. Fare clic su **Save**.
 
@@ -517,9 +518,9 @@ Se, tuttavia, si vuole modificare la rappresentazione nel portale, è possibile 
 
 ## Facoltativo: URL di definizione dell'API nei modelli di Gestione risorse di Azure
 
-In questa esercitazione è stato illustrato l'URL di definizione dell'API in Visual Studio e nel portale di Azure. È anche possibile configurare l'URL di definizione dell'API per un'app per le API usando [modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md) in strumenti della riga di comando come [Azure PowerShell](../powershell-install-configure.md) e l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+In questa esercitazione è stato illustrato l'URL di definizione dell'API in Visual Studio e nel portale di Azure. È anche possibile configurare l'URL di definizione dell'API per un'app per le API usando [modelli di Azure Resource Manager](../resource-group-authoring-templates.md) in strumenti della riga di comando come [Azure PowerShell](../powershell-install-configure.md) e l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
-Per un esempio di modello di Gestione risorse di Azure che imposta la proprietà di definizione dell'API, aprire il [file azuredeploy.json nel repository dell'applicazione di esempio di questa esercitazione](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Trovare la sezione del modello simile all'esempio seguente:
+Per un esempio di modello di Azure Resource Manager che imposta la proprietà di definizione dell'API, aprire il [file azuredeploy.json nel repository dell'applicazione di esempio di questa esercitazione](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Trovare la sezione del modello simile all'esempio seguente:
 
 		"apiDefinition": {
 		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
@@ -529,4 +530,4 @@ Per un esempio di modello di Gestione risorse di Azure che imposta la proprietà
 
 Questa esercitazione ha illustrato come creare app per le API, distribuire il codice in queste app, generare il relativo codice client e usarle dai client .NET. L'esercitazione successiva della serie di esercitazioni introduttive sulle app per le API mostra come [utilizzare app per le API da client JavaScript tramite CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

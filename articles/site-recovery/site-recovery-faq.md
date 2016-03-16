@@ -1,17 +1,17 @@
-<properties
-	pageTitle="Site Recovery: domande frequenti | Microsoft Azure"
+<properties 
+	pageTitle="Site Recovery: domande frequenti | Microsoft Azure" 
 	description="Questo articolo risponde alle domande frequenti su Azure Site Recovery."
-	services="site-recovery"
+	services="site-recovery" 
 	documentationCenter=""
 	authors="rayne-wiselman"
 	manager="jwhit"
 	editor=""/>
 
-<tags
+<tags 
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
 	ms.date="02/14/2016"
 	ms.author="raynew"/>
@@ -32,7 +32,7 @@ Site Recovery favorisce l'attuazione della strategia di continuità aziendale e 
 
 ### Quali elementi può proteggere Site Recovery?
 
-- **Macchine virtuali Hyper-V**: Site Recovery può proteggere qualsiasi carico di lavoro in esecuzione in una macchina virtuale Hyper-V.
+- **Macchine virtuali Hyper-V**: Site Recovery può proteggere qualsiasi carico di lavoro in esecuzione in una macchina virtuale Hyper-V. 
 - **Server fisici**: Site Recovery può proteggere server fisici che eseguono Windows o Linux.
 - **Macchine virtuali VMware**: Site Recovery può proteggere qualsiasi carico di lavoro in esecuzione in una macchina virtuale VMware.
 
@@ -64,11 +64,11 @@ No, questa opzione non è supportata. Come soluzione alternativa, occorre replic
 È possibile usare Site Recovery per proteggere la maggior parte dei carichi di lavoro in esecuzione in una macchina virtuale o in un server fisico. Site Recovery consente di distribuire il ripristino di emergenza compatibile con l'applicazione. Si integra con le applicazioni Microsoft, tra cui SharePoint, Exchange, Dynamics, SQL Server e Active Directory, e opera a stretto contatto con fornitori leader, tra cui Oracle, SAP, IBM e Red Hat. È possibile personalizzare la soluzione di ripristino di emergenza per ogni applicazione specifica. [Altre informazioni](site-recovery-workload.md) sulla protezione del carico di lavoro.
 
 
-### È sempre necessario un server VMM di System Center per proteggere le macchine virtuali Hyper-V?
+### È sempre necessario un server VMM di System Center per proteggere le macchine virtuali Hyper-V? 
 
 No. Oltre a poter replicare macchine virtuali Hyper-V disponibili in cloud VMM, è anche possibile replicarle in un ambiente in cui VMM non è distribuito. [Altre informazioni](site-recovery-hyper-v-site-to-azure.md) Per la replica in un data center secondario, i server host Hyper-V devono essere gestiti in cloud VMM.
 
-### È possibile distribuire Site Recovery con VMM se si dispone di un solo server VMM?
+### È possibile distribuire Site Recovery con VMM se si dispone di un solo server VMM? 
 
 Sì. È possibile replicare le macchine virtuali Hyper-V nel cloud sul server VMM in Azure oppure tra cloud VMM sullo stesso server. Si noti che per la replica da locale a locale è consigliabile disporre di un server VMM nei siti primari e secondari. [Altre informazioni](site-recovery-single-vmm.md)
 
@@ -90,7 +90,7 @@ Le macchine virtuali da replicare in Azure devono essere conformi ai [requisiti 
 
 Sì. Site Recovery esegue la conversione dalla seconda generazione alla prima durante il failover. In caso di failback, la macchina virtuale viene riconvertita nella seconda generazione. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
-### Se si esegue la replica in Azure, come vengono addebitati i costi per le macchine virtuali di Azure?
+### Se si esegue la replica in Azure, come vengono addebitati i costi per le macchine virtuali di Azure? 
 
 Durante la replica regolare, i dati vengono replicati nell'archiviazione di Azure con ridondanza geografica e non vengono addebitati i costi di macchine virtuali IaaS di Azure. Questo aspetto rappresenta un vantaggio significativo. Quando si esegue un failover in Azure, Site Recovery crea automaticamente le macchine virtuali IaaS di Azure e in seguito vengono fatturate le risorse di calcolo utilizzate in Azure.
 
@@ -131,13 +131,13 @@ Durante la replica di macchine virtuali e server fisici tra siti locali, è supp
 
 ### Con quale frequenza è possibile eseguire la replica dei dati?
 - **Hyper-V:** le macchine virtuali Hyper-V eseguite in Windows Server 2012 R2 possono essere replicate ogni 30 secondi, 5 minuti o 15 minuti. Se è stata configurata la replica SAN, la replica sarà sincrona.
-- **VMware e server fisici:** in questo caso la frequenza di replica non è rilevante. La replica sarà continua.
+- **VMware e server fisici:** in questo caso la frequenza di replica non è rilevante. La replica sarà continua. 
 
 ### È possibile estendere la replica dal sito di ripristino esistente a un sito terziario?
 No, la replica concatenata o estesa non è supportata. Inviare commenti e suggerimenti su questa funzionalità nel [forum dei commenti](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication/).
 
 
-### È possibile eseguire una replica offline la prima volta che si esegue la replica in Azure?
+### È possibile eseguire una replica offline la prima volta che si esegue la replica in Azure? 
 
 Questa funzionalità non è supportata. Inviare commenti e suggerimenti su questa funzionalità nel [forum dei commenti](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from/).
 
@@ -150,7 +150,7 @@ Questa funzionalità non è supportata. Inviare commenti e suggerimenti su quest
 
 I dischi dinamici sono supportati durante la replica delle macchine virtuali Hyper-V, ma non sono supportati durante la replica dei server fisici o delle macchine virtuali VMware. Inviare commenti e suggerimenti su questa funzionalità nel [forum dei commenti](https://feedback.azure.com/forums/256299-site-recovery/).
 
-### Se si esegue il failover in Azure, come è possibile accedere alle macchine virtuali dopo il failover?
+### Se si esegue il failover in Azure, come è possibile accedere alle macchine virtuali dopo il failover? 
 
 È possibile accedere alle macchine virtuali di Azure tramite una connessione Internet sicura, una connessione VPN da sito a sito o ExpressRoute di Azure, se disponibile. Le comunicazioni tramite connessione VPN vengono eseguite alle porte interne della rete di Azure in cui si trova la macchina virtuale. Le comunicazioni tramite Internet sono mappate agli endpoint pubblici nel servizio cloud di Azure per le macchine virtuali.
 
@@ -168,7 +168,7 @@ Azure è progettato per la resilienza del servizio. Site Recovery è già proget
 Il failover non è automatico. Le operazioni di failover si avviano con un singolo clic nel portale oppure è possibile usare i [cmdlet di PowerShell per Azure Site Recovery](https://msdn.microsoft.com/library/dn850420.aspx) per attivare un failover. Anche il failback è un'operazione semplice nel portale di Site Recovery. Per avviarlo in automatico, è possibile usare Orchestrator o Operations Manager locale per rilevare un errore della macchina virtuale e quindi attivare il failover tramite l'SDK.
 
 ### Se si esegue la replica delle macchine virtuali Hyper-V, è possibile applicare limitazioni della larghezza di banda allocata per il traffico di replica Hyper-V?
-- Se si esegue la replica tra due siti locali delle macchine virtuali Hyper-V, è possibile usare QoS di Windows. Ecco uno script di esempio:
+- Se si esegue la replica tra due siti locali delle macchine virtuali Hyper-V, è possibile usare QoS di Windows. Ecco uno script di esempio: 
 
     	New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
     	gpupdate.exe /force
@@ -219,4 +219,4 @@ Sì, è possibile replicare macchine virtuali Hyper-V e Azure o tra siti del pro
 - Leggere la [panoramica di Site Recovery](site-recovery-overview.md)
 - Informazioni sull'[architettura di Site Recovery](site-recovery-components.md)  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

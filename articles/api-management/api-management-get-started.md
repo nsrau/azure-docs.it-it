@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Gestire la prima API in Gestione API di Azure
@@ -59,7 +59,7 @@ Il sistema è costituito dai componenti seguenti:
 
 ## <a name="create-service-instance"></a>Creare un'istanza di Gestione API
 
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][].
+>[AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile creare un account gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][].
 
 Per poter usare Gestione API, occorre innanzitutto creare un'istanza del servizio. Accedere al [portale di Azure classico][] e fare clic su **Nuovo**, **Servizi app**, **Gestione API**, **Crea**.
 
@@ -73,13 +73,13 @@ Selezionare i valori di **Sottoscrizione** e **Area** desiderati per l'istanza d
 
 Immettere **Contoso Ltd.** in **Nome organizzazione** e specificare l'indirizzo di posta elettronica nel campo **Indirizzo di posta elettronica dell'amministratore**.
 
->[AZURE.NOTE]Questo indirizzo di posta elettronica viene usato per le notifiche inviate dal sistema Gestione API. Per altre informazioni, vedere [Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure][].
+>[AZURE.NOTE] Questo indirizzo di posta elettronica viene usato per le notifiche inviate dal sistema Gestione API. Per altre informazioni, vedere [Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure][].
 
 ![New API Management service][api-management-create-instance-step2]
 
 Le istanze del servizio Gestione API sono disponibili in tre livelli: Developer, Standard e Premium. Per impostazione predefinita, le nuove istanze del servizio Gestione API vengono create nel livello Developer. Per selezionare il livello Standard o Premium, selezionare la casella di controllo **Impostazioni avanzate** e scegliere il livello desiderato nella schermata seguente.
 
->[AZURE.NOTE]Il livello Developer è dedicato allo sviluppo, al test e alla distribuzione pilota di programmi API in cui l'elevata disponibilità non è un fattore rilevante. Nei livelli Standard e Premium è possibile aumentare il numero di unità riservate per gestire un maggior volume di traffico. I livelli Standard e Premium forniscono al servizio Gestione API anche una potenza di elaborazione e prestazioni maggiori. È possibile completare questa esercitazione usando qualsiasi livello. Per altre informazioni sui livelli di Gestione API, vedere [Gestione API - Prezzi][].
+>[AZURE.NOTE] Il livello Developer è dedicato allo sviluppo, al test e alla distribuzione pilota di programmi API in cui l'elevata disponibilità non è un fattore rilevante. Nei livelli Standard e Premium è possibile aumentare il numero di unità riservate per gestire un maggior volume di traffico. I livelli Standard e Premium forniscono al servizio Gestione API anche una potenza di elaborazione e prestazioni maggiori. È possibile completare questa esercitazione usando qualsiasi livello. Per altre informazioni sui livelli di Gestione API, vedere [Gestione API - Prezzi][].
 
 Selezionare la casella di controllo per creare l'istanza del servizio.
 
@@ -93,7 +93,7 @@ Un'API rappresenta un set di operazioni che possono essere richiamate da un'appl
 
 È possibile creare le API (e aggiungere operazioni) in modo manuale oppure è possibile importarle. In questa esercitazione, verrà importata l'API per un servizio Web calcolatrice di esempio fornito da Microsoft e ospitato in Azure.
 
->[AZURE.NOTE]Per informazioni aggiuntive sulla creazione di un'API e l'aggiunta manuale delle operazioni, vedere [Come creare le API](api-management-howto-create-apis.md) e [Come aggiungere operazioni a un'API](api-management-howto-add-operations.md).
+>[AZURE.NOTE] Per informazioni aggiuntive sulla creazione di un'API e l'aggiunta manuale delle operazioni, vedere [Come creare le API](api-management-howto-create-apis.md) e [Come aggiungere operazioni a un'API](api-management-howto-add-operations.md).
 
 Le API vengono configurate dal portale di pubblicazione, accessibile dal portale di Azure classico. Per accedere al portale di pubblicazione, fare clic su **Gestisci** nel portale di Azure classico per il servizio Gestione API.
 
@@ -111,6 +111,8 @@ Per configurare l'API Calcolatrice, seguire questa procedura:
 4. Fare clic su **Salva** per importare l'API.
 
 ![Aggiunta nuova API][api-management-import-new-api]
+
+>[AZURE.NOTE] **Gestione API** supporta attualmente sia la versione 1.2 che la versione 2.0 del documento Swagger per l'importazione. Anche se la [specifica Swagger 2.0](http://swagger.io/specification) dichiara che le proprietà `host`, `basePath` e `schemes` sono facoltative, il documento Swagger 2.0 **DEVE** contenere queste proprietà. In caso contrario, non verrà importato.
 
 Una volta importata l'API, la pagina di riepilogo dell'API viene visualizzata nel portale di pubblicazione.
 
@@ -163,7 +165,7 @@ La visualizzazione predefinita del portale di pubblicazione è il **dashboard**,
 
 Passare il puntatore del mouse sul grafico della **Calcolatrice di base** per visualizzare le metriche specifiche relative all'utilizzo dell'API in un dato periodo di tempo.
 
->[AZURE.NOTE]Se il grafico non contiene linee, tornare al portale per sviluppatori ed effettuare alcune chiamate all'API, attendere qualche secondo e quindi tornare al dashboard.
+>[AZURE.NOTE] Se il grafico non contiene linee, tornare al portale per sviluppatori ed effettuare alcune chiamate all'API, attendere qualche secondo e quindi tornare al dashboard.
 
 Fare clic su **Visualizza dettagli** per visualizzare la pagina di riepilogo per l'API, inclusa una versione più estesa delle metriche visualizzate.
 
@@ -243,4 +245,4 @@ La sezione **Analisi** include le quattro schede seguenti:
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

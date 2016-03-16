@@ -1,29 +1,29 @@
-<properties 
-   pageTitle="Introduzione a Data Lake Store | Azure" 
-   description="Usare Azure PowerShell per creare un account di Data Lake Store ed eseguire operazioni di base" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Introduzione a Data Lake Store | Azure"
+   description="Usare Azure PowerShell per creare un account di Data Lake Store ed eseguire operazioni di base"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # Introduzione all'archivio Azure Data Lake mediante Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
+- [Uso del portale](data-lake-store-get-started-portal.md)
+- [Tramite PowerShell](data-lake-store-get-started-powershell.md)
+- [Uso di .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Utilizzare l'interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
+- [Uso di Node.js](data-lake-store-manage-use-nodejs.md)
 
 Informazioni su come usare Azure PowerShell per creare un account di Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake Store, vedere [Panoramica di Data Lake](data-lake-store-overview.md).
 
@@ -37,7 +37,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 ##Installare Azure PowerShell 1.0 o versioni successive
 
-Vedere la sezione relativa ai prerequisiti di [Uso di Azure PowerShell con Gestione risorse di Azure](powershell-azure-resource-manager.md#prerequisites).
+Vedere la sezione Prerequisiti in [Uso di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
 
 ## Creare un account di Azure Data Lake Store
 
@@ -45,15 +45,15 @@ Vedere la sezione relativa ai prerequisiti di [Uso di Azure PowerShell con Gesti
 
         # Log in to your Azure account
 		Login-AzureRmAccount
-        
+
 		# List all the subscriptions associated to your account
 		Get-AzureRmSubscription
-		
-		# Select a subscription 
+
+		# Select a subscription
 		Set-AzureRmContext -SubscriptionId <subscription ID>
-        
+
 		# Register for Azure Data Lake Store
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore" 
+		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 
 2. Un account di Archivio Azure Data Lake è associato a un gruppo di risorse di Azure. Per iniziare, creare un gruppo di risorse di Azure.
@@ -118,8 +118,8 @@ Per scaricare un file, usare il comando seguente:
 
 Per eliminare un file, usare il comando seguente:
 
-	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv 
-	
+	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
+
 Quando viene richiesto, immettere **Y** per eliminare l'elemento. Se sono presenti più file da eliminare, è possibile fornire tutti i percorsi separati da una virgola.
 
 	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
@@ -143,7 +143,7 @@ Quando viene richiesto, immettere **Y** per eliminare l'account.
 ## Passaggi successivi
 
 - [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
-- [Usare Azure Data Lake Analytics con Data Lake Store](data-lake-analytics-get-started-portal.md)
+- [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

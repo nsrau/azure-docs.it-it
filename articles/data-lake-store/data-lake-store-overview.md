@@ -1,18 +1,18 @@
-<properties 
-   pageTitle="Panoramica di Azure Data Lake Store | Azure" 
-   description="Comprendere che cos'è Azure Data Lake Store e il valore che fornisce per altri archivi di dati" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Panoramica di Azure Data Lake Store | Azure"
+   description="Comprendere che cos'è Azure Data Lake Store e il valore che fornisce per altri archivi di dati"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/22/2016"
    ms.author="nitinme"/>
 
@@ -83,9 +83,8 @@ All’Archivio Data Lake di Azure si può accedere attraverso il nuovo sistema d
 
 Vedere [Guida introduttiva all’utilizzo di Archivio Data Lake tramite il portale di Azure](data-lake-store-get-started-portal.md), a come eseguire il provisioning di un Archivio Data Lake tramite il portale di Azure. Una volta eseguito il provisioning di Data Lake di Azure, è possibile imparare a utilizzare le offerte di Big data, ad esempio Analisi di Azure Data Lake o Azure HDInsight con l'Archivio Data Lake. È inoltre possibile creare un'applicazione .NET per ottenere un account Archivio Data Lake di Azure ed eseguire operazioni, scaricare dati e così via.
 
-- [Introduzione all’analisi dei dati di Data Lake di Azure](data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [Introduzione all’analisi dei dati di Data Lake di Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Introduzione a Azure Data Lake Store utilizzando .NET SDK](data-lake-store-get-started-net-sdk.md)
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

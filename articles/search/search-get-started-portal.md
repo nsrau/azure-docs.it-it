@@ -19,8 +19,8 @@
 
 # Introduzione a Ricerca di Azure nel portale
 > [AZURE.SELECTOR]
-- [Portal](search-get-started-portal.md)
-- [.NET](search-get-started-dotnet.md)
+- [Portale](search-get-started-portal.md)
+- [.NET](search-howto-dotnet-sdk.md)
 
 Questa introduzione senza codice permette di iniziare a usare Ricerca di Microsoft Azure con funzionalità incorporate direttamente nel portale.
 
@@ -105,7 +105,7 @@ Fare clic su **OK** per completare questo passaggio della procedura guidata.
 
 #### Passaggio 3: Definire l'indicizzatore
 
-Sempre nella procedura guidata **Importa dati** fare clic su **Indicizzatore** > **Nome**, digitare un nome per l'indicizzatore e usare i valori predefiniti per tutti gli altri valori. Questo oggetto definisce un processo eseguibile. Dopo averlo creato sarà possibile inserirlo nella pianificazione ricorrente. Per il momento usare l'opzione predefinita per avviare l'esecuzione dell'indicizzatore una volta, immediatamente, facendo clic su **OK**.
+Sempre nella procedura guidata **Importa dati** fare clic su **Indicizzatore** > **Nome**, digitare un nome per l'indicizzatore e usare i valori predefiniti per tutti gli altri valori. Questo oggetto definisce un processo eseguibile. Dopo averlo creato, sarà possibile inserirlo nella pianificazione ricorrente. Per il momento usare l'opzione predefinita per avviare l'esecuzione dell'indicizzatore una volta, immediatamente, facendo clic su **OK**.
 
 Tutte le voci relative all'importazione dei dati risulteranno compilate e pronte all'uso.
 
@@ -129,7 +129,7 @@ Ora è disponibile un indice di ricerca su cui è possibile eseguire query.
 2. Verificare qual è l'indice attivo. Se non è quello appena creato, fare clic su **Cambia indice** nella barra dei comandi per selezionare l'indice richiesto.
 2. Lasciare vuota la casella di ricerca e quindi fare clic sul pulsante **Cerca** per eseguire una ricerca con caratteri jolly che restituisce tutti i documenti.
 3. Immettere alcune query di ricerca full-text. È possibile esaminare i risultati della ricerca con caratteri jolly per acquisire familiarità con gli artisti, gli album e i generi su cui eseguire query.
-4. Provare un'altra sintassi di query usando gli [esempi forniti alla fine di questo articolo](https://msdn.microsoft.com/library/azure/dn798927.aspx) per avere qualche spunto. Modificare quindi la query in modo da usare stringhe di ricerca che è probabile trovare nell'indice.
+4. Provare un'altra sintassi di query usando gli [esempi forniti alla fine di questo articolo](https://msdn.microsoft.com/library/azure/dn798927.aspx) per avere qualche spunto. Modificare quindi la query per poter usare stringhe di ricerca che è probabile trovare nell'indice.
 
 ## Passaggi successivi
 
@@ -184,4 +184,4 @@ Verrà restituito l'output JSON, a partire dal numero di documento 386 fino al d
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->
