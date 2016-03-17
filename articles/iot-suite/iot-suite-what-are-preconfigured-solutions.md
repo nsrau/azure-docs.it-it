@@ -34,7 +34,8 @@ La tabella seguente mostra quali funzionalità IoT specifiche sono disponibili p
 
 | Soluzione | Inserimento di dati | Identità del dispositivo | Comando e controllo | Regole e azioni | Analisi predittiva |
 |------------------------|-----|-----|-----|-----|-----|
-| [Monitoraggio remoto][lnk-remote-monitoring] | Sì | Sì | Sì | Sì | - | | [Manutenzione predittiva][lnk-predictive-maintenance] | Sì | Sì | Sì | Sì | Sì |
+| [Monitoraggio remoto][lnk-remote-monitoring] | Sì | Sì | Sì | Sì | - |
+| [Manutenzione predittiva][lnk-predictive-maintenance] | Sì | Sì | Sì | Sì | Sì |
 
 - *Inserimento di dati*: inserimento di dati su vasta scala nel cloud.
 - *Identità del dispositivo*: gestione delle identità univoche di ogni dispositivo connesso.
@@ -133,4 +134,4 @@ Esplorare queste risorse per altre informazioni sulle soluzioni preconfigurate I
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!------HONumber=AcomDC_0309_2016-->
