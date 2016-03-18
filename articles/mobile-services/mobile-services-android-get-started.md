@@ -94,4 +94,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Introduzione alle notifiche push]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----HONumber=AcomDC_0309_2016-->
