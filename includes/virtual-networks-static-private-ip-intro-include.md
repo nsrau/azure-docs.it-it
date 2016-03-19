@@ -1,0 +1,5 @@
+Le macchine virtuali IaaS e le istanze del ruolo PaaS in una rete virtuale ricevono automaticamente un indirizzo IP privato da un intervallo specificato, in base alla subnet a cui sono connessi. Tale indirizzo viene mantenuto per le macchine virtuali e le istanze del ruolo, fino a quando non vengono rimosse. Disabilitare un'istanza di macchina virtuale o un ruolo interrompendolo da PowerShell, CLI Azure o dal portale di Azure. In questi casi, una volta che l'istanza di macchina virtuale o del ruolo viene riavviata, riceverà un indirizzo IP disponibile dall'infrastruttura di Azure, che potrebbe non essere lo stesso che aveva in precedenza. Se si arresta la macchina virtuale o l’istanza del ruolo dal sistema operativo guest, esso mantiene comunque il suo indirizzo IP.
+
+In alcuni casi, si desidera che una macchina virtuale o istanza del ruolo disponga di un indirizzo IP statico, ad esempio, se la macchina virtuale eseguirà DNS o sarà un controller di dominio. È possibile farlo impostando un indirizzo IP statico privato.
+
+<!---HONumber=Oct15_HO3-->

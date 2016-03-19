@@ -1,0 +1,126 @@
+<properties
+	pageTitle="Creare un servizio di Ricerca di Azure nel portale | Microsoft Azure | Servizio di ricerca cloud"
+	description="Aggiungere un servizio di Ricerca di Azure gratuito o Standard a una sottoscrizione esistente tramite il portale di Azure. Ricerca di Azure è un servizio di ricerca cloud ospitato per app personalizzate."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
+	editor=""
+    tags="azure-portal"/>
+
+<tags
+	ms.service="search"
+	ms.devlang="na"
+	ms.workload="search"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="na"
+	ms.date="03/09/2016"
+	ms.author="heidist"/>
+
+# Creare un servizio di Ricerca di Azure nel portale di Azure
+
+Ricerca di Microsoft Azure è un servizio di ricerca ospitato sul cloud che consente di incorporare funzionalità di ricerca in applicazioni personalizzate. Fornisce un motore di ricerca e una risorsa di archiviazione per i dati di ricerca, accessibili e gestibili tramite il portale di Azure, .NET SDK o un'API REST. Le funzionalità chiave includono query con completamento automatico, corrispondenza fuzzy, evidenziazione dei risultati, esplorazione in base a facet, profili di punteggio e supporto multilingue. Per altre informazioni sulle funzionalità di Ricerca di Azure, vedere [Che cos'è la Ricerca di Azure](search-what-is-azure-search.md).
+
+Ricerca di Azure è disponibile con piani tariffari che variano da gratuito (condiviso) a Basic e Standard, i cui costi sono ripartiti in base alla capacità scelta al momento dell'iscrizione.
+
+## Aggiungere gratuitamente Ricerca di Azure alla sottoscrizione
+
+L'amministratore può aggiungere Ricerca di Azure a una sottoscrizione di Azure esistente, senza costi aggiuntivi se viene scelto il servizio condiviso. Per iniziare a provare il servizio, è possibile iscriversi per ottenere la [sottoscrizione di una versione di valutazione gratuita di Azure](../../includes/free-trial-note.md).
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+
+2. Nell'indice fare clic su **Nuovo** > **Dati e archiviazione** > **Ricerca**.
+
+     ![][1]
+
+3. Configurare il nome del servizio, il piano tariffario, il gruppo di risorse, la sottoscrizione e la posizione. Queste impostazioni sono necessarie e non possono essere modificate dopo il provisioning del servizio.
+
+     ![][2]
+
+	- Il **nome del servizio** deve essere univoco, in lettere minuscole e con una lunghezza massima di 60 caratteri, senza spazi. Questo nome diventa parte dell'endpoint del servizio Ricerca di Azure, ad esempio, "https://**nome-del-servizio**.search.windows.net". Per altre informazioni sulle convenzioni di denominazione, vedere [Regole di denominazione](https://msdn.microsoft.com/library/azure/dn857353.aspx).
+
+	- Il **livello di prezzo** determina capacità e fatturazione. Entrambi i livelli offrono le stesse funzionalità, ma a livelli diversi di risorse.
+
+		- Il livello **gratuito** viene eseguito in cluster condivisi con altri sottoscrittori. Offre capacità sufficienti per provare le esercitazioni e scrivere codice per i modelli di prova, ma non è consigliato per le applicazioni in ambienti di produzione. La distribuzione di un servizio gratuito in genere richiede solo pochi minuti.
+		- Il livello **Basic (anteprima)** viene eseguito su risorse dedicate, ma con limiti e prezzi inferiori per carichi di lavoro di produzione più piccoli. È possibile aumentare fino a 3 repliche e 1 partizione, sufficienti per la disponibilità elevata per l'esecuzione delle query.
+		- Il livello **standard** viene eseguito su risorse dedicate ed è altamente scalabile. Inizialmente viene effettuato il provisioning di un servizio standard con una replica e una partizione, ma è possibile aumentare la capacità fino a un massimo di 36 unità di ricerca dopo la creazione del servizio. La distribuzione di un servizio standard richiede più tempo, in genere circa 15 minuti.
+
+	- I **gruppi di risorse** sono contenitori per i servizi e le risorse usati per uno scopo comune. Ad esempio, se si intende creare un'applicazione di ricerca personalizzata basata su Ricerca di Azure, la funzionalità per app Web di Servizio app di Azure e il servizio di archiviazione BLOB di Azure, è possibile creare un gruppo di risorse per raggruppare questi servizi nelle pagine di gestione del portale.
+
+	- L’opzione **Sottoscrizione** consente di scegliere tra più sottoscrizioni, se si dispone di più di una sottoscrizione.
+
+	- La **posizione** è l'area geografica del data center. Attualmente tutte le risorse devono essere eseguite nello stesso data center. La distribuzione di risorse tra più data center non è supportata.
+
+4. Fare clic su **Crea** per eseguire il provisioning del servizio.
+
+Controllare le notifiche nell'indice. Quando il servizio è pronto per l'uso, viene visualizzato un avviso.
+
+<a id="sub-3"></a>
+## Aggiungere un servizio di ricerca con il piano Basic o Standard per ottenere risorse dedicate
+
+Molti clienti iniziano con il servizio gratuito e quindi passano al piano Basic o Standard per supportare carichi di lavoro più grandi. I piani Basic e Standard consentono di recuperare risorse dedicate che possono essere usate solo dall'utente in un data center di Azure.
+
+Le operazioni di Ricerca di Azure richiedono repliche di archiviazione e del servizio. A differenza del servizio gratuito che non offre alcuna opzione per l'aggiunta di risorse, il piano Standard consente di passare a un piano superiore per aggiungere risorse di archiviazione o il supporto delle query, aumentando la risorsa che risulta più critica per i propri carichi di lavoro. Il piano Basic consente anche di passare a un piano superiore, ma solo per le repliche, con un limite massimo di tre.
+
+Per usare il piano Basic o Standard, è necessario creare un nuovo servizio di ricerca con quel piano tariffario. È possibile ripetere i passaggi precedenti in questo articolo per creare un nuovo servizio di Ricerca di Azure. Si noti che la configurazione di risorse dedicate può richiedere fino a 15 minuti o oltre.
+
+Non esiste alcun aggiornamento sul posto della versione gratuita. Il passaggio da un piano all'altro, che include la scalabilità, richiede un nuovo servizio. Sarà necessario ricaricare gli indici e i documenti usati dall'applicazione di ricerca.
+
+Un servizio di Ricerca di Azure nel piano Basic o Standard viene creato con una replica e una partizione, ma può essere facilmente ridimensionato a livelli più elevati di risorse.
+
+1.	Dopo avere creato il servizio, tornare al dashboard del servizio.
+
+2.	Fare clic sul riquadro **Scale**.
+
+3.	Usare i dispositivi di scorrimento per aggiungere repliche, partizioni o entrambe per il piano Standard. Per il piano Basic, è possibile aumentare le repliche fino a un massimo di tre.
+
+Le repliche e le partizioni aggiuntive vengono fatturate in termini di unità di ricerca. Le unità di ricerca totali per supportare qualsiasi configurazione di risorsa specifica vengono visualizzate nella pagina, durante l'aggiunta delle risorse.
+
+Per informazioni sul prezzo per unità, vedere [Dettagli prezzi](http://go.microsoft.com/fwlink/p/?LinkID=509792). Per assistenza sulla scelta delle combinazioni di partizione e replica, vedere [Pianificazione della capacità](search-capacity-planning.md).
+
+<a id="sub-2"></a>
+## Individuare il nome del servizio e le chiavi API del servizio Ricerca di Azure
+
+Dopo aver creato il servizio, è possibile tornare al portale di Azure per ottenere l'URL o l'`api-key`. Per le connessioni al servizio Ricerca di Azure è necessario disporre sia dell'URL che di una `api-key` per l'autenticazione della chiamata.
+
+1. Nell'indice fare clic su **Home** e quindi sul servizio di Ricerca di Azure per aprire il relativo dashboard.
+
+2. Nel dashboard del servizio, saranno riportate sezioni per informazioni essenziali, nonché l'icona della chiave per l'accesso alle chiavi di amministrazione.
+
+  	![][3]
+
+3. Copiare l'URL del servizio e una chiave di amministrazione. Saranno necessari per l'attività successiva, [Verificare la disponibilità del servizio](#sub-4).
+
+
+<a id="sub-4"></a>
+## Verificare la disponibilità del servizio
+
+L'ultimo passaggio della configurazione di Ricerca di Azure prevede la conferma che il servizio sia operativo e accessibile da un'applicazione client. È possibile usare [Fiddler con Ricerca di Azure](search-fiddler.md) per verificare la disponibilità del servizio.
+
+<!--Next steps and links -->
+<a id="next-steps"></a>
+## Passaggi successivi
+
+Dopo aver creato il servizio, è possibile eseguire i passaggi successivi: compilare un [indice](search-what-is-an-index.md), [eseguire query su un indice](search-query-overview.md), creare e gestire le applicazioni di ricerca che usano Ricerca di Azure.
+
+- [Creare un indice di Ricerca di Azure nel portale di Azure](search-create-index-portal.md)
+
+- [Eseguire query in un indice di Ricerca di Azure con Esplora ricerche nel portale di Azure](search-explorer.md)
+
+- [Come utilizzare Ricerca di Azure in .NET](search-howto-dotnet-sdk.md)
+
+- [Gestire la soluzione di ricerca in Microsoft Azure](search-manage.md)
+
+
+<!--Anchors-->
+[Find the service name and api-keys of your Azure Search service]: #sub-2
+[Upgrade to the standard tier]: #sub-3
+[Test service operations]: #sub-4
+[Next steps]: #next-steps
+
+<!--Image references-->
+[1]: ./media/search-create-service-portal/create-search-portal-1.PNG
+[2]: ./media/search-create-service-portal/create-search-portal-2.PNG
+[3]: ./media/search-create-service-portal/create-search-portal-3.PNG
+
+<!---HONumber=AcomDC_0309_2016-->

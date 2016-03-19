@@ -1,0 +1,38 @@
+<!--author=SharS last changed: 9/17/15-->
+
+#### Per montare, avviare e formattare un volume
+
+1. Avviare l'iniziatore iSCSI di Microsoft.
+
+2. Nella finestra **Proprietà iniziatore iSCSI**, sulla scheda **Individuazione**, fare clic su **Individua portale**.
+
+3. Nella finestra di dialogo **Individua portale di destinazione**, fornire l’indirizzo IP dell’interfaccia di rete abilitata per l’iSCSI e fare clic su **OK**.
+
+4. Nella finestra **Proprietà iniziatore iSCSI**, sulla scheda **Destinazioni**, individuare le **Destinazioni individuate**. Lo stato del dispositivo deve apparire come **Inattivo**.
+
+5. Selezionare il dispositivo di destinazione, quindi fare clic su **Connetti**. Dopo aver connesso il dispositivo, lo stato deve essere modificato in **Connesso**. Per altre informazioni sull'utilizzo dell'iniziatore iSCSI di Microsoft, vedere [Installazione e configurazione dell’iniziatore iSCSI di Microsoft][1].
+
+6. Nell'host di Windows, premere il tasto Logo Windows + X, quindi fare clic su **Esegui**.
+
+7. Nella finestra di dialogo **Esegui**, digitare **Diskmgmt.msc**. Fare clic su **OK**, quindi viene visualizzata la finestra di dialogo **Gestione disco**. Nel riquadro destro vengono visualizzati i volumi sul proprio host.
+
+8. Nella finestra **Gestione disco**, i volumi montati verranno visualizzati come indicato nella figura seguente. Fare clic con il pulsante destro del mouse sul volume individuato (fare clic sul nome del disco) e fare clic su **Online**.
+
+     ![Avvia formattazione volume](./media/storsimple-mount-initialize-format-volume/HCS_InitializeFormatVolume-include.png)
+
+9. Fare nuovamente clic con il pulsante destro del mouse sul volume (fare clic sul nome del disco) e fare clic su **Online**.
+
+10. Per formattare un volume semplice, attenersi alla seguente procedura:
+  1. Fare clic con il pulsante destro del mouse sul volume per selezionarlo (fare clic nell'area destra) e scegliere **Nuovo Volume semplice**.
+  2. Nella procedura guidata Nuovo volume semplice, specificare la dimensione del volume e la lettera di unità, quindi configurare il volume come file system NTFS.
+  3. Specificare una dimensione unità di allocazione pari a 64 KB. Queste dimensioni unità di allocazione funzionano correttamente con gli algoritmi di deduplicazione utilizzati nella soluzione StorSimple.
+  4. Eseguire una formattazione veloce.
+
+![Video disponibile](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Video disponibile**
+
+Per guardare un video che illustra come montare, inizializzare, e formattare un volume StorSimple, fare clic [qui](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
+
+<!--Link references-->
+[1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
+
+<!---HONumber=AcomDC_0128_2016-->
