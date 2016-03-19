@@ -1,0 +1,5 @@
+È possibile creare macchine virtuali (VM) in Azure e collegare più interfacce di rete (NIC) a ciascuna delle macchine virtuali. Multi-NIC è un requisito per molti dispositivi virtuali di rete, ad esempio distribuzione di applicazioni e soluzioni di ottimizzazione WAN. La funzionalità Multi-NIC fornisce inoltre una migliore funzionalità di gestione del traffico di rete, che include l'isolamento del traffico tra una NIC di front-end e le NIC di back-end o la separazione del traffico del piano dati dal traffico del piano di gestione.
+
+Prima di implementare più schede di rete nelle macchine virtuali, è necessario comprendere quando è possibile usare più schede di rete e come usarle. Leggere la [panoramica di più schede di rete](virtual-networks-multiple-nics.md) per altre informazioni sulle macchine virtuali con più schede di rete.
+
+<!---HONumber=Nov15_HO4-->

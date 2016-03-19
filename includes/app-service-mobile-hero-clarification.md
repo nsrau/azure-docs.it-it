@@ -1,0 +1,4 @@
+
+In questo argomento, verrà creato un nuovo back-end dell’app per dispositivi mobili, scaricato e creato il progetto del server, e scaricata un’app client "todo list" che si connette al nuovo back-end dell'app per dispositivi mobili. App per dispositivi mobili offre tutte le funzionalità di back-end del servizio app, ma con funzionalità aggiuntive progettate per gli sviluppatori di dispositivi mobili, incluse le notifiche push e la sincronizzazione non in linea. I client SDK semplificano l'archiviazione dei dati basata su cloud e l'autenticazione nelle app. Per altre informazioni, vedere [Informazioni sulle app per dispositivi mobili](app-service-mobile-value-prop.md).
+
+<!---HONumber=Nov15_HO4-->
