@@ -14,16 +14,22 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="deonhe"/>
 
 # Introduzione all'API di Salesforce
 Connettersi a Salesforce per creare oggetti, recuperarli e così via. L'API di Salesforce può essere usata da:
 
-- PowerApps 
 - App per la logica 
+- PowerApps
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic su [API di Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
+> [AZURE.SELECTOR]
+- [App per la logica](../articles/connectors/create-api-salesforce.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
+
+&nbsp;
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic sul [connettore Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
 
 Con Salesforce è possibile:
 
@@ -32,7 +38,7 @@ Con Salesforce è possibile:
 - Usare le azioni per creare un oggetto, eliminarlo e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando viene creato un nuovo oggetto in Salesforce, è possibile inviare un messaggio di posta elettronica tramite Office 365.
 - Aggiungere l'API di Salesforce a PowerApps Enterprise, in modo che gli utenti possano usarla nelle proprie app. 
 
-Per informazioni su come aggiungere un'API in PowerApps Enterprise, vedere l'articolo relativo alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Per informazioni su come aggiungere un'API in PowerApps Enterprise, accedere alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -41,44 +47,18 @@ L'API di Salesforce include i trigger e le azioni seguenti.
 
 | Trigger | Azioni|
 | --- | --- |
-|<ul><li>Quando viene creato un oggetto</li><li>Quando viene modificato un oggetto</li></ul> | <ul><li>Crea oggetto</li><li>Recupera oggetti</li><li>Quando viene creato un oggetto</li><li>Quando viene modificato un oggetto</li><li>Elimina oggetto</li><li>Recupera oggetto</li><li>Recupera tipi di oggetto (SObjects)</li><li>Aggiorna oggetto</li></ul>
+|<ul><li>Quando viene creato un oggetto</li><li>Quando viene modificato un oggetto</li></ul> | <ul><li>Crea oggetto</li><li>Ottieni oggetti</li><li>Quando viene creato un oggetto</li><li>Quando viene modificato un oggetto</li><li>Elimina oggetto</li><li>Ottieni oggetto</li><li>Ottieni tipi di oggetto (SObjects)</li><li>Aggiorna oggetto</li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
 ## Creare una connessione a Salesforce 
 
-### Aggiungere configurazioni aggiuntive in PowerApps
-Quando si aggiunge Salesforce a PowerApps Enterprise, si immettono i valori **Chiave app** e **Chiave privata app** dell'applicazione Salesforce. Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione Salesforce. Se non si ha un'applicazione Salesforce, è possibile usare la procedura seguente per creare l'applicazione:
-
-1. [Accedere alla home page per gli sviluppatori Salesforce][5], selezionare il profilo e quindi selezionare **Setup**: ![Home page di Salesforce][6]
-
-3. Selezionare **Crea** e selezionare **App**. Nella pagina **Apps** sotto **Connected Apps** selezionare **New**: ![Creazione app Salesforce][7]
-
-4. In **Nuova App connessa**:
-
-	1. Immettere il valore per **Connected App Name**.  
-	2. Immettere il valore per **API Name**.  
-	3. Immettere il valore per **Contact Email**.  
-	4. In _API (Enable OAuth Settings)_ selezionare **Enable OAuth Settings** e impostare **Callback URL** sul valore visualizzato quando si aggiunge la nuova API di Salesforce nel portale di Azure.  
-
-5. In _Ambiti OAuth selezionati_ aggiungere i seguenti ambiti agli **Ambiti OAuth selezionati**:
-
-	- Accedere e gestire i dati Chatter (chatter\_api)
-	- Accedere e gestire i dati (api)
-	- Consentire l'accesso all'identificatore univoco (openid)
-	- Eseguire richieste per conto dell’utente in qualsiasi momento (refresh\_token, offline\_access)
-
-6. **Salvare** le modifiche: ![Nuova app di Salesforce][8]
-
-A questo punto, copiare e incollare i valori **Chiave app** e **Chiave privata app** nella configurazione di Salesforce nel portale di Azure.
-
-### Aggiungere configurazioni aggiuntive nelle app per la logica
 Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Salesforce.
 
 1. Accedere all'account Salesforce.
 2. Consentire alle app per la logica di connettersi e usare l'account Salesforce. 
 
-Dopo aver creato la connessione immettere le proprietà di Salesforce, ad esempio nome tabella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
+Dopo aver creato la connessione immettere le proprietà di Salesforce, ad esempio nome tabella. Tali proprietà vengono descritte nelle **Informazioni di riferimento sulle API REST** in questo argomento.
 
 >[AZURE.TIP] È possibile usare la stessa connessione in altre app per la logica.
 
@@ -153,7 +133,7 @@ Aggiorna un oggetto Salesforce. ```PATCH: /datasets/default/tables/{table}/items
 
 
 ### Quando viene creato un oggetto
-Quando viene creato un oggetto in Salesforce, attiva un flusso. ```GET: /datasets/default/tables/{table}/onnewitems```
+Attiva un flusso quando viene creato un oggetto in Salesforce. ```GET: /datasets/default/tables/{table}/onnewitems```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -172,7 +152,7 @@ Quando viene creato un oggetto in Salesforce, attiva un flusso. ```GET: /dataset
 
 
 ### Quando viene modificato un oggetto 
-Quando viene modificato un oggetto in Salesforce, attiva un flusso. ```GET: /datasets/default/tables/{table}/onupdateditems```
+Attiva un flusso quando viene modificato un oggetto in Salesforce. ```GET: /datasets/default/tables/{table}/onupdateditems```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -275,9 +255,10 @@ Quando viene modificato un oggetto in Salesforce, attiva un flusso. ```GET: /dat
 
 
 ## Passaggi successivi
-Dopo aver aggiunto l'API di Salesforce a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle app.
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Tornare all'[elenco di API](apis-list.md).
 
 
 [5]: https://developer.salesforce.com
@@ -285,4 +266,4 @@ Dopo aver aggiunto l'API di Salesforce a PowerApps Enterprise, [concedere autori
 [7]: ./media/create-api-salesforce/salesforce-create-app.png
 [8]: ./media/create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

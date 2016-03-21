@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="tomfitz"/>
 
 # Creare una Cache Redis utilizzando un modello
@@ -26,7 +26,7 @@ Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli
 
 Per il modello completo, vedere il [modello di Cache Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
->[AZURE.NOTE]Dei modelli ARM per il nuovo [livello Premium](cache-premium-tier-intro.md) sono disponibili.
+>[AZURE.NOTE] Dei modelli ARM per il nuovo [livello Premium](cache-premium-tier-intro.md) sono disponibili.
 >
 >-    [Creare una Cache Redis Premium con il clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
 >-    [Creare una Cache Redis Premium con persistenza dei dati](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
@@ -137,4 +137,4 @@ Crea la Cache Redis di Azure.
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

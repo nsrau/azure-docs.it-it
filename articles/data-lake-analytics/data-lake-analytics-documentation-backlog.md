@@ -40,7 +40,8 @@ Servizio | Spostamento di output di SQL Data Warehouse mediante Data factory |1 
 Strumenti | Uso di strumenti di diagnostica | 1 | In sospeso | [@mumian](https://github.com/mumian) | 
 U-SQL | Illustrare le tecniche per eseguire operazioni di JOIN basate sull’intervallo | 1 | In sospeso | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | Opzioni di autenticazione ADLS | 1 | In sospeso | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
-
+U-SQL | Invio di processi tramite l'interfaccia della riga di comando multipiattaforma | 1 | In sospeso | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
+U-SQL | Aggiornamenti alla documentazione di riferimento per REDUCE e COMBINE | 1 | In sospeso | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
 
 
 
@@ -57,4 +58,4 @@ Sono disponibili alcune opzioni per fornire commenti e suggerimenti per il backl
 * Inviare una richiesta pull su questo documento nell'[Archivio di contenuti di Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Inviare un messaggio di posta elettronica a [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

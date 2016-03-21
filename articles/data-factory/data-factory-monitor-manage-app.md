@@ -18,8 +18,8 @@
 
 # Monitorare e gestire le pipeline di Azure Data Factory con la nuova app di monitoraggio e gestione
 > [AZURE.SELECTOR]
-- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+- [Con il portale di Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md)
 
 Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'**app di monitoraggio e gestione**. Contiene anche informazioni su come creare avvisi e ricevere notifiche sugli errori tramite l'applicazione.
       
@@ -135,14 +135,14 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
 <td>Retry</td><td>L'esecuzione dell'attività verrà ritentata.</td>
 </tr>
 <tr>
-<td>Validation</td><td>La convalida non è ancora stata avviata.</td>
+<td>Convalida</td><td>La convalida non è ancora stata avviata.</td>
 </tr>
 <tr>
 <td>ValidationRetry</td><td>In attesa della riesecuzione della convalida.</td>
 </tr>
 <tr>
 &lt;tr
-<td rowspan="2">InProgress</td><td>Validating</td><td>Convalida in corso.</td>
+<td rowspan="2">InProgress</td><td>Convalida in corso.</td><td>Convalida in corso.</td>
 </tr>
 <td></td>
 <td>È in corso l'elaborazione della finestra attività.</td>
@@ -154,7 +154,7 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
 <td>Canceled</td><td>Annullato dall'utente.</td>
 </tr>
 <tr>
-<td>Validation</td><td>Convalida non riuscita.</td>
+<td>Convalida</td><td>Convalida non riuscita.</td>
 </tr>
 <tr>
 <td></td><td>Non è stato possibile generare e/o convalidare la finestra attività.</td>
@@ -175,7 +175,7 @@ Quando si fa clic su una finestra attività nell'elenco, i relativi dettagli ven
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### Aggiornare le finestre attività  
-I dettagli non vengono aggiornati automaticamente. L'elenco delle finestre attività deve essere aggiornato manualmente usando il pulsante di **aggiornamento**, vale a dire il secondo pulsante nella barra dei comandi.
+I dettagli non vengono aggiornati automaticamente. L'elenco delle finestre attività deve essere aggiornato manualmente usando il pulsante di **aggiornamento**, vale a dire il secondo pulsante sulla barra dei comandi.
  
 
 ### Finestra Properties
@@ -207,11 +207,11 @@ Al momento sono disponibili tre viste di sistema supportate. Selezionare un'opzi
 
 Quando si seleziona l'opzione **Recent activity windows**, le finestre attività recenti vengono visualizzate in ordine decrescente in base all'**ora dell'ultimo tentativo**.
 
-L'opzione **Failed activity windows** permette di visualizzare tutte le finestre attività non riuscita nell'elenco. Selezionare una finestra attività non riuscita dall'elenco per visualizzarne i dettagli nella finestra **Properties** o in **Activity Window Explorer**. È anche possibile scaricare i log relativi a una finestra attività non riuscita.
+L'opzione **Failed activity windows** permette di visualizzare tutte le finestre attività non riuscite nell'elenco. Selezionare una finestra attività non riuscita dall'elenco per visualizzarne i dettagli nella finestra **Properties** o in **Activity Window Explorer**. È anche possibile scaricare i log relativi a una finestra attività non riuscita.
 
 
 ## Ordinamento e filtro delle finestre attività
-Modificare le impostazioni relative all'**ora di inizio** e **ora di fine** nella barra dei comandi per filtrare le finestre attività. Dopo aver modificato queste impostazioni, fare clic sul pulsante accanto all'ora di fine per aggiornare l'elenco delle finestre attività.
+Modificare le impostazioni relative all'**ora di inizio** e all'**ora di fine** nella barra dei comandi per filtrare le finestre attività. Dopo aver modificato queste impostazioni, fare clic sul pulsante accanto all'ora di fine per aggiornare l'elenco delle finestre attività.
 
 ![Ora di inizio e ora di fine](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
 
@@ -239,7 +239,7 @@ Per cancellare i filtri è possibile usare la stessa finestra popup. Per cancell
 ## Esecuzione di azioni batch
 
 ### Rieseguire finestre attività selezionate
-Selezionare una finestra attività, fare clic sulla freccia a discesa del primo pulsante nella barra dei comandi e selezionare **Rerun** o **Rerun with upstream in pipeline**. L'opzione **Rerun with upstream in pipeline** permette di rieseguire anche tutte le finestre attività upstream. ![Rieseguire una finestra attività](./media/data-factory-monitor-manage-app/ReRunSlice.png)
+Selezionare una finestra attività, fare clic sulla freccia GIÙ del primo pulsante nella barra dei comandi e selezionare **Rerun** o **Rerun with upstream in pipeline**. L'opzione **Rerun with upstream in pipeline** permette di rieseguire anche tutte le finestre attività upstream. ![Rieseguire una finestra attività](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
 È anche possibile selezionare più finestre attività nell'elenco e rieseguirle contemporaneamente. È possibile filtrare le finestre attività in base allo stato, ad esempio **Failed**, e quindi rieseguire le finestre attività non riuscite dopo aver corretto il problema che ne causava l'errore. Vedere la sezione seguente per informazioni dettagliate sull'applicazione di filtri alle finestre attività nell'elenco.
 
@@ -265,10 +265,10 @@ La pagina Alerts consente di creare nuovi avvisi e di visualizzare, modificare e
 	È anche possibile **aggregare** gli eventi di avviso, come illustrato di seguito:
 
 	![Avvisi aggregati](./media/data-factory-monitor-manage-app/AggregateAlerts.png)
-2. Selezionare l'**evento**, lo **stato** e lo **stato secondario** (facoltativo) per cui si vuole ricevere un avviso dal servizio Data Factory e fare clic su **Next**. Verrà visualizzata la pagina dei **Recipients**.
+2. Selezionare l'**evento**, lo **stato** e lo **stato secondario** (facoltativo) per cui si vuole ricevere un avviso dal servizio Data Factory e fare clic su **Next**. Dovrebbe essere visualizzata la pagina **Recipients**.
 
 	![Creazione di avvisi: pagina Recipients](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png) 
-3. Selezionare l'opzione **Email subscription admins** e/o immettere un valore per **Additional administrator email** e quindi fare clic su **Finish**. L'avviso verrà visualizzato nell'elenco. 
+3. Selezionare l'opzione **Email subscription admins** e/o immettere un valore per **Additional administrator email**, quindi fare clic su **Finish**. L'avviso verrà visualizzato nell'elenco. 
 	
 	![Elenco degli avvisi](./media/data-factory-monitor-manage-app/AlertsList.png)
 
@@ -281,7 +281,7 @@ Nome evento | Stato | Stato secondario
 -------------- | ------ | ----------
 Esecuzione attività avviata | Started | Avvio in corso
 Esecuzione attività terminata | Succeeded | Succeeded 
-Esecuzione attività terminata | Failed| Failed Resource Allocation<p>Failed Execution</p><p>Timed Out</p><p>Failed Validation</p><p>Abandoned</p>
+Esecuzione attività terminata | Failed| Failed Resource Allocation<br/>Failed Execution<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandoned<br/>
 Creazione cluster HDI su richiesta avviata | Started | &nbsp; |
 Creazione cluster HDI su richiesta completata | Succeeded | &nbsp; |
 Cluster HDI su richiesta eliminato | Succeeded | &nbsp; |
@@ -295,4 +295,4 @@ Cluster HDI su richiesta eliminato | Succeeded | &nbsp; |
     
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

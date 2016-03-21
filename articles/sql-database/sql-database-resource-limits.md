@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="02/17/2016"
+	ms.date="03/02/2016"
 	ms.author="jroth" />
 
 
@@ -55,12 +55,6 @@ I [Pool di database elastici](sql-database-elastic-pool.md) condividono le risor
 
 Per una definizione espansa di ogni risorsa elencata nelle tabelle precedenti, vedere le descrizioni in [Limiti e capacità a livello di servizio](sql-database-performance-guidance.md#service-tier-capabilities-and-limits). Per una panoramica dei livelli di servizio, vedere [Livelli di servizio e livelli di prestazioni del database SQL di Azure](sql-database-service-tiers.md).
 
-## Quota DTU per server
-
-Il database SQL di Azure prevede una quota di DTU (unità elaborate nel database) per server logico pari a 15000 DTU. Questa quota rappresenta il numero di DTU che un server logico può ospitare, in base alla somma delle DTU del livello di prestazioni di ogni database nel server. Ad esempio, un server con 5 database Basic (5 x 5 DTU max), 2 database Standard S1 (2 x 20 DTU max) e 3 database Premium P1 (3 x 100 DTU max) utilizza 365 DTU della propria quota di 15000 DTU.
-
->[AZURE.NOTE] È possibile richiedere un aumento della quota da [contattare il supporto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
-
 ## Altri limiti relativi al database SQL
 
 | Area | Limite | Descrizione |
@@ -75,4 +69,4 @@ Il database SQL di Azure prevede una quota di DTU (unità elaborate nel database
 
 [Messaggi di errore per programmi client di Database SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
  
 # Esportare i dati di telemetria da Application Insights
@@ -31,7 +31,7 @@ La funzionalità di esportazione continua è disponibile nel periodo di valutazi
 Se non si dispone già di un account di archiviazione "classico", crearne uno ora.
 
 
-1. Creare un account di archiviazione "classico" per la sottoscrizione nel [portale di Azure](https://portal.azure.com).
+1. Creare un account di archiviazione per la sottoscrizione nel [portale di Azure](https://portal.azure.com).
 
     ![Nel portale di Azure scegliere Nuovo, Dati, Archiviazione](./media/app-insights-export-telemetry/030.png)
 
@@ -212,4 +212,4 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

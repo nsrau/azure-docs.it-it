@@ -8,10 +8,13 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article"
-
-	ms.date="02/26/2016"
-
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # Connettere dispositivi aggiunti a un dominio ad Azure AD in ambiente Windows 10
@@ -144,4 +147,4 @@ In Windows 10 questo modello di Criteri di gruppo è stato rinominato. Se si ese
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

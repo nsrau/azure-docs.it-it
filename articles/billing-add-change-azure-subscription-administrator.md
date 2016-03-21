@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/07/2016"
 	ms.author="genli"/>
 
 # Come aggiungere o modificare i ruoli di amministratore di Azure
@@ -29,7 +29,7 @@ Esistono tre tipi di ruoli di amministratore in Microsoft Azure:
 
 > [AZURE.NOTE] Il controllo degli accessi in base al ruolo di Azure Active Directory consente di aggiungere gli utenti a più ruoli. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo di Azure Active Directory](./active-directory/role-based-access-control-configure.md).
 
-## Come aggiungere un coamministratore per una sottoscrizione
+## Procedura: aggiungere un amministratore per una sottoscrizione
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com/).
 
@@ -46,7 +46,7 @@ L'indirizzo di posta elettronica seguente può essere aggiunto come co-amministr
 * **Account Microsoft** (precedentemente noto come ID Windows Live) </br> È possibile usare un account Microsoft per accedere a tutti i prodotti e servizi cloud Microsoft destinati all'utente, quali Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone e Xbox LIVE.
 * **Account dell'organizzazione**</br> Un account dell'organizzazione è un account che viene creato in Azure Active Directory. L'indirizzo dell'account aziendale è simile al seguente: user@&lt;your dominio&gt;.onmicrosoft.com
 
-## Limitazioni e restrizioni
+### Limitazioni e restrizioni
 
  * Ogni sottoscrizione è associata a una directory di Azure AD, ovvero la directory predefinita. Per trovare la directory predefinita associata alla sottoscrizione, accedere al [portale di Azure classico](https://manage.windowsazure.com/) e selezionare **Impostazioni** > **Sottoscrizioni**. Verificare l'ID sottoscrizione per trovare la directory predefinita.
 
@@ -56,13 +56,14 @@ L'indirizzo di posta elettronica seguente può essere aggiunto come co-amministr
 
  * Ora che è possibile accedere ad Azure con un account aziendale, ecco le modifiche ai requisiti di account di amministratore del servizio e di co-amministratore:
 
-	| Metodo di accesso| Aggiungere un account Microsoft o utenti in una directory predefinita come coamministratori o amministratori del servizio? |Aggiungere un account aziendale nella stessa organizzazione come coamministratore o amministratore del servizio? |Aggiungere un account aziendale in un'organizzazione diversa come coamministratore o amministratore del servizio?
-	| ------------- | ------------- |---------------|---------------|
-	|Account Microsoft |Sì|No|No|
-	|Account dell'organizzazione|Sì|Sì|No|
+	Metodo di accesso| Aggiungere un account Microsoft o utenti in una directory predefinita come coamministratori o amministratori del servizio? |Aggiungere un account aziendale nella stessa organizzazione come coamministratore o amministratore del servizio? |Aggiungere un account aziendale in un'organizzazione diversa come coamministratore o amministratore del servizio?
+	------------- | ------------- |---------------|---------------
+	Account Microsoft |Sì|No|No
+	Account dell'organizzazione|Sì|Sì|No
 
 ## Come modificare l'amministratore del servizio per una sottoscrizione
-Solo l'amministratore dell'account può modificare l'amministratore del servizio per una sottoscrizione.
+
+Portale di Azure classico Solo l'amministratore dell'account può modificare l'amministratore del servizio per una sottoscrizione.
 
 1. Accedere al [portale di gestione dell'account](https://account.windowsazure.com/subscriptions) mediante l'amministratore dell'account.
 
@@ -88,4 +89,4 @@ Per trasferire la proprietà dell'account Azure a un altro account, vedere [Tras
 
 * Per altre informazioni sul modo in cui Azure Active Directory è correlato alla sottoscrizione di Azure, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

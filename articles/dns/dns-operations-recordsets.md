@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/21/2016"
+   ms.date="03/04/2016"
    ms.author="joaoma"/>
 
 # Come gestire i record DNS utilizzando PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-operations-recordsets-cli.md)
+- [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
 
 
-Questa guida descrive come gestire i set di record e i record per la zona DNS.
+Questa guida descrive come gestire i set di record e i record per la zona DNS usando Azure PowerShell.
 
 È importante comprendere la differenza tra i set di record DNS e i singoli record DNS. Un set di record è la raccolta di record con lo stesso nome e tipo in una zona. Per altre informazioni, vedere [Informazioni sui set di record e sui record](../dns-getstarted-create-recordset#Understanding-record-sets-and-records).
 
@@ -38,13 +38,14 @@ Per un set di record all'apice della zona, usare "@" come nome del set di record
 
 DNS di Azure supporta i seguenti tipi di record: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT. I set di record di tipo SOA vengono creati automaticamente con ogni zona, non possono essere creati separatamente.
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www -Zone $zone -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -ZoneName contoso.com -ResouceGroupName MyAzureResouceGroup [-Tag $tags] [-Overwrite] [-Force]
 
 Se esiste già un set di record, il comando non riuscirà a meno che non venga usata l'opzione -Overwrite. L'opzione "-Overwrite" attiverà una richiesta di conferma, che può essere eliminata usando l'opzione -Force.
 
-Nell'esempio precedente la zona viene specificata usando un oggetto di zona, restituito da Get-AzureRmDnsZone o New-AzureRmDnsZone. In alternativa, è anche possibile specificare la zona in base al nome della zona e del gruppo di risorse:
+Nell'esempio precedente la zona viene specificata mediante il nome della zona e il nome del gruppo di risorse. In alternativa, è possibile specificare un oggetto zona, restituito da Get-AzureRmDnsZone o New-AzureRmDnsZone.
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www –ZoneName contoso.com –ResourceGroupName MyAzureResourceGroup -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
+	PS C:\> $zone = Get-AzureRmDnsZone -ZoneName contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 –Zone $zone [-Tag $tags] [-Overwrite] [-Force]
 
 New-AzureRmDnsRecordSet restituisce un oggetto locale che rappresenta il set di record creato nel DNS di Azure.
 
@@ -62,12 +63,13 @@ I set di record con caratteri jolly sono supportati per tutti i tipi di record t
 
 Per recuperare un set di record esistente, usare "Get-AzureRmDnsRecordSet", specificando il nome relativo del set di record, il tipo di record e la zona:
 
+	PS C:\> $rs = Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+
+Come per New-AzureRmDnsRecordSet, il nome del record deve essere un nome relativo, cioè deve escludere il nome della zona. La zona può essere specificata usando il nome della zona e il nome del gruppo di risorse oppure un oggetto zona:
+
+	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
 	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name www –RecordType A -Zone $zone
-
-Come per New-AzureRmDnsRecordSet, il nome del record deve essere un nome relativo, cioè deve escludere il nome della zona. La zona può essere specificata usando un oggetto di zona (vedere sopra) o nome della zona e nome gruppo di risorse:
-
-	PS C:\> $rs = Get-AzureRmDnsRecordSet –Name www –RecordType A -Zonename contoso.com -ResourceGroupName MyAzureResourceGroup
-
+	
 Get-AzureRmDnsRecordSet restituisce un oggetto locale che rappresenta il set di record creato nel DNS di Azure.
 
 ## Elencare i set di record
@@ -77,15 +79,18 @@ Omettendo i parametri –Name e/o –RecordType, è possibile usare Get-AzureRmD
 
 Elencare tutti i set di record. Verranno restituiti tutti i set di record, indipendentemente dal nome o dal tipo di record:
 
-	PS C:\> $list = Get-AzureRmDnsRecordSet -Zone $zone
+	PS C:\> $list = Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 ### Opzione 2 
 
 Elencare i set di record di un determinato tipo. Verranno restituiti tutti i set di record corrispondenti al tipo di record specificato (in questo caso, i record A):
 
-	PS C:\> $list = Get-AzureRmDnsRecordSet –RecordType A -Zone $zone 
+	PS C:\> $list = Get-AzureRmDnsRecordSet –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup 
 
-In entrambi i casi, la zona può essere specificata usando un oggetto di zona (come mostrato) o specificando i parametri –ZoneName e –ResourceGroupName.
+Entrambe le opzioni precedenti consentono di specificare la zona usando i parametri –ZoneName e –ResourceGroupName, come illustrato, oppure specificando un oggetto zona:
+
+	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
+	PS C:\> $list = Get-AzureRmDnsRecordSet -Zone $zone
 
 ## Aggiungere un record a un set di record
 
@@ -93,29 +98,29 @@ I record vengono aggiunti ai set di record usando il cmdlet Add-AzureRmDnsRecord
 
 I parametri per l'aggiunta di record a un set di record variano a seconda del tipo del set di record. Ad esempio, quando si usa un set di record di tipo "A" sarà possibile specificare solo i record con il parametro "IPv4Address".
 
-Le chiamate aggiuntive al componente Add-AzureRmDnsRecordConfig possono aggiungere altri record a ogni set di record. È possibile aggiungere fino a 100 record a qualsiasi set di record. Tuttavia, i set di record di tipo CNAME possono contenere al massimo 1 record e un set di record non può contenere due record identici. È possibile creare set di record vuoti (con zero record), che non vengono però visualizzati nei server dei nomi DNS di Azure.
+Le chiamate aggiuntive al componente Add-AzureRmDnsRecordConfig possono aggiungere altri record a ogni set di record. È possibile aggiungere fino a 20 record a qualsiasi set di record. Tuttavia, i set di record di tipo CNAME possono contenere al massimo 1 record e un set di record non può contenere due record identici. È possibile creare set di record vuoti (con zero record), che non vengono però visualizzati nei server dei nomi DNS di Azure.
 
 Quando il set di record contiene la raccolta di record preferita, è necessario eseguirne il commit usando il cmdlet Set-AzureRmDnsRecordSet, che sostituisce il set di record esistente nel servizio DNS di Azure con il set di record specificato. Gli esempi seguenti illustrano come creare un set di record di ogni tipo di record che contiene un singolo record.
 
 ### Creare un set di record A con un singolo record
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zone $zone -Ttl 60
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup 
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 La sequenza delle operazioni per creare un record può anche essere "reindirizzata", passando l'oggetto del set di record usando il pipe anziché come parametro. Ad esempio:
 
-	PS C:\> New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zone $zone -Ttl 60 | Add-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
+	PS C:\> New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Add-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
 
 ### Creare un set di record AAAA con un singolo record
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -Zone $zone -Ttl 60
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### Creare un set di record CNAME con un singolo record
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -Zone $zone -Ttl 60
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
@@ -123,13 +128,13 @@ La sequenza delle operazioni per creare un record può anche essere "reindirizza
 
 In questo esempio viene usato il nome del set di record "@" per creare il record MX all'apice della zona (ad esempio "contoso.com"). Questo comportamento è comune per i record MX.
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "@" -RecordType MX -Zone $zone -Ttl 60
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "@" -RecordType MX -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### Creare un set di record NS con un singolo record
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -Zone $zone -Ttl 60
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
@@ -137,13 +142,13 @@ In questo esempio viene usato il nome del set di record "@" per creare il record
 
 Se si crea un record SRV nella radice della zona, specificare solo \_servizio e \_protocollo nel nome del record, non è necessario includere anche ".@" nel nome del record
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone -Ttl 60
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### Creare un set di record TXT con un singolo record
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -Zone $zone -Ttl 60
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
@@ -161,7 +166,7 @@ Questo è illustrato nell'esempio seguente:
 
 Per questo esempio si modificherà l'indirizzo IP di un record A esistente:
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-a" -RecordType A -Zone $zone 
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> $rs.Records[0].Ipv4Address = "134.170.185.46"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs 
 
@@ -169,11 +174,11 @@ Il cmdlet Set-AzureRmDnsRecordSet usa i controlli "etag" per verificare che le m
 
 ### Modificare il record SOA
 
->[AZURE.NOTE] Non è possibile aggiungere o rimuovere i record dal set di record SOA creato automaticamente set al vertice della zona (name = ‘@’), ma è possibile modificare i parametri all'interno del record SOA e la durata (TTL) del set di record.
+>[AZURE.NOTE] Non è possibile aggiungere o rimuovere i record dal set di record SOA creato automaticamente al vertice della zona (name = ‘@’), ma è possibile modificare i parametri all'interno del record SOA, ad eccezione di 'Host', e la durata (TTL) del record.
 
 L'esempio seguente mostra come modificare la proprietà "Email" del record SOA:
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType SOA -Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType SOA -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> $rs.Records[0].Email = "admin.contoso.com"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs 
 
@@ -183,7 +188,7 @@ L'esempio seguente mostra come modificare la proprietà "Email" del record SOA:
 
 L'esempio seguente illustra come modificare la proprietà della durata (TTL) del set di record NS:
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> $rs.Ttl = 300
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs 
 
@@ -191,7 +196,7 @@ L'esempio seguente illustra come modificare la proprietà della durata (TTL) del
 
 In questo esempio verranno aggiunti due ulteriori record MX al set di record esistente:
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType MX -Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType MX -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail2.contoso.com" -Preference 10
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail3.contoso.com" -Preference 20
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs 
@@ -203,17 +208,17 @@ In questo esempio verranno aggiunti due ulteriori record MX al set di record esi
 La rimozione dell'ultimo record da un set di record non elimina il set di record. Per altre informazioni, vedere [Eliminare un set di record](#delete-a-record-set) qui di seguito.
 
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A –Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 La sequenza delle operazioni per rimuovere un record da un set di record può anche essere "reindirizzata", passando l'oggetto del set di record usando il pipe anziché come parametro. Ad esempio:
 
-	PS C:\> Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zone $zone | Remove-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
+	PS C:\> Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
 
 ### Rimuovere un record AAAA da un set di record esistente
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA –Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
@@ -221,31 +226,31 @@ La sequenza delle operazioni per rimuovere un record da un set di record può an
 
 Dal momento che un set di record CNAME può contenere al massimo un record, la rimozione di tale record lascerà un set di record vuoto.
 
-	PS C:\> $rs =  Get-AzureRmDnsRecordSet -name "test-cname" -RecordType CNAME –Zone $zone	
+	PS C:\> $rs =  Get-AzureRmDnsRecordSet -name "test-cname" -RecordType CNAME -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup	
 	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### Rimuovere un record MX da un set di record esistente
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType 'MX' –Zone $zone	
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType MX -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup	
 	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### Rimuovere un record NS da un set di record esistente
 	
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### Rimuovere un record SRV da un set di record esistente
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### Rimuovere un record TXT da un set di record esistente
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
@@ -260,7 +265,7 @@ Usare uno dei tre metodi seguenti per rimuovere un set di record:
 
 Specificare tutti i parametri per nome:
 
-	PS C:\> Remove-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zonename "contoso.com" -ResourceGroupName MyAzureResourceGroup [-Force]
+	PS C:\> Remove-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup [-Force]
 
 L'opzione "-Force" facoltativa può essere usata per eliminare la richiesta di conferma.
 
@@ -268,23 +273,25 @@ L'opzione "-Force" facoltativa può essere usata per eliminare la richiesta di c
 
 Specificare il set di record per nome e tipo, specificare la zona in base all'oggetto:
 
+	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Remove-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zone $zone [-Force]
 
 ### Opzione 3
 
 Specificare il set di record in base all'oggetto:
 
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Remove-AzureRmDnsRecordSet –RecordSet $rs [-Overwrite] [-Force]
 
 Specificare il set di record usando un oggetto consente di abilitare i controlli "etag" per garantire che le modifiche simultanee non vengano eliminate. Il flag "-Overwrite" facoltativo disattiva questi controlli. Per altre informazioni, vedere [Etag e tag](../dns-getstarted-create-dnszone#Etags-and-tags).
 
 L'oggetto del set di record può essere anche reindirizzato invece che passato come parametro:
 
-	PS C:\> Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zone $zone | Remove-AzureRmDnsRecordSet [-Overwrite] [-Force]
+	PS C:\> Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsRecordSet [-Overwrite] [-Force]
 
 ##Vedere anche
 
 [Creare record DNS](dns-getstarted-create-recordset.md)<BR> [Come gestire le zone DNS utilizzando PowerShell](dns-operations-dnszones.md)<BR> [Creazione di zone e set di record DNS con .NET SDK](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

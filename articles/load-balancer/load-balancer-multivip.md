@@ -18,7 +18,7 @@
 # Indirizzi VIP multipli per un servizio cloud
 È possibile accedere ai servizi cloud di Azure tramite la rete Internet pubblica usando un indirizzo IP fornito da Azure. Questo indirizzo IP pubblico è detto indirizzo VIP (Virtual IP, IP virtuale) poiché è collegato al bilanciamento del carico di Azure e non alle istanze di macchine virtuali nel servizio cloud. È possibile accedere a qualsiasi istanza di macchina virtuale in un servizio cloud usando un singolo indirizzo VIP.
 
-Vi sono tuttavia scenari in cui potrebbe essere necessario più di un indirizzo VIP come punto di ingresso allo stesso servizio cloud. Ad esempio, il servizio cloud può ospitare più siti Web che richiedono connettività SSL tramite la porta SSL predefinita 443, con ogni sito ospitato per un cliente, o tenant, diverso. In tale scenario, è necessario disporre di un indirizzo IP pubblico diverso per ogni sito Web. Il diagramma seguente mostra un tipico caso di hosting Web multi-tenant che richiede più certificati SSL sulla stessa porta pubblica.
+Vi sono tuttavia scenari in cui potrebbe essere necessario più di un indirizzo VIP come punto di ingresso allo stesso servizio cloud. Ad esempio, il servizio cloud può ospitare più siti Web che richiedono connettività SSL tramite la porta predefinita 443, con ogni sito ospitato per un cliente, o tenant, diverso. In tale scenario, è necessario disporre di un indirizzo IP pubblico diverso per ogni sito Web. Il diagramma seguente mostra un tipico caso di hosting Web multi-tenant che richiede più certificati SSL sulla stessa porta pubblica.
 
 ![Scenario SSL con più indirizzi VIP](./media/load-balancer-multivip/Figure1.png)
 
@@ -148,11 +148,11 @@ L'output sarà simile ai risultati seguenti:
 
 [Panoramica del bilanciamento del carico Internet](load-balancer-internet-overview.md)
 
-[Introduzione al bilanciamento del carico Internet](load-balancer-internet-getstarted.md)
+[Introduzione al bilanciamento del carico Internet](load-balancer-get-started-internet-arm-ps.md)
 
 [Panoramica di Rete virtuale.](../virtual-network/virtual-networks-overview.md)
 
 [API REST di IP riservati](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

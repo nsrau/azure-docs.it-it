@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Spostare dati da e verso Azure SQL Data Warehouse | Data factory di Azure" 
+	pageTitle="Spostare i dati da/in Azure SQL Data Warehouse | Microsoft Azure" 
 	description="Informazioni su come spostare i dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -531,4 +531,4 @@ Il mapping è uguale al [mapping del tipo di dati di SQL Server per ADO.NET](htt
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

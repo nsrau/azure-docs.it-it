@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# Creare una nuova API di SharePoint Online nell’ambiente del servizio app dell'organizzazione
+# Creare una nuova API SharePoint Online in PowerApps Enterprise
+
+Aggiungere l'API SharePoint Online all'ambiente del servizio app dell'organizzazione (tenant).
 
 ## Creare l'API nel portale di Azure
 
@@ -39,7 +41,7 @@
 
 9. Immettere l’*Id client* e il *segreto app* dell'applicazione di SharePoint Online Azure Active Directory (ADD). Se non è disponibile, vedere la sezione "Registrare un'app di ADD per l'utilizzo con PowerApps" in questo argomento per creare i valori ID e segreto necessari.
 
-	> [AZURE.IMPORTANT]Salvare l'**URL di reindirizzamento**. Questo valore potrebbe essere necessario più avanti in questo argomento.
+	> [AZURE.IMPORTANT] Salvare l'**URL di reindirizzamento**. Questo valore potrebbe essere necessario più avanti in questo argomento.
 
 10. Selezionare **OK** per completare i passaggi.
 
@@ -52,7 +54,7 @@ Al termine, verrà aggiunta una nuova API di SharePoint Online all'ambiente del 
 
 2. Selezionare **Sfoglia** e quindi selezionare **Active Directory**:
 
-	> [AZURE.NOTE]Questo consente di aprire Active Directory nel portale di Azure classico.
+	> [AZURE.NOTE] Questo consente di aprire Active Directory nel portale di Azure classico.
 
 3. Selezionare il nome tenant dell'organizzazione: ![Avviare Azure Active Directory][6]
 
@@ -110,4 +112,4 @@ In questo argomento, è stata aggiunta l'API di SharePoint Online alla PowersApp
 [14]: ./media/powerapps-create-api-sharepointonline/browseall.png
 [15]: ./media/powerapps-create-api-sharepointonline/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

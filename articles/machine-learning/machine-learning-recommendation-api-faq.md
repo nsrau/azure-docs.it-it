@@ -3,7 +3,7 @@
 	description="API Recommendations Microsoft create con le domande frequenti su Azure Machine Learning" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/01/2016" 
 	ms.author="luisca"/>
 
 #Domande frequenti sulla configurazione e sull'uso dell'API Recommendations di Machine Learning
@@ -31,7 +31,12 @@ RECOMMENDATIONS accetta come input un elemento o un insieme di elementi e restit
 
 **Sono previste limitazioni per l'utilizzo?**
 
-L'utilizzo di Recommendations ha le limitazioni seguenti: * Numero massimo di modelli per sottoscrizione: 10 * Numero massimo di elementi contenuti in un catalogo: 100.000 * Numero massimo di punti di utilizzo mantenuti ~5.000.000. I meno recenti saranno eliminati se ne vengono caricati o segnalati di nuovi. * Le dimensioni massime dei dati che possono essere inviati per posta elettronica (ad esempio, importazione dei dati di catalogo o dei dati di utilizzo) sono pari a 200 MB * Il numero di transazioni al secondo (TPS) per una compilazione di un modello di raccomandazioni non attiva è pari a ~2 TPS. Una compilazione del modello di raccomandazioni attiva può includere un massimo di 20 TPS.
+L'utilizzo di Recommendations ha le limitazioni seguenti:
+* Numero massimo di modelli per ogni sottoscrizione: 10
+* Numero massimo di elementi che possono essere inclusi nel catalogo: 100.000
+* Il numero massimo di punti di utilizzo mantenuti è ~5.000.000. I meno recenti saranno eliminati se ne vengono caricati o segnalati di nuovi.
+* La dimensione massima dei dati che possono essere inviati per posta elettronica (ad esempio, importazione dei dati del catalogo o dei dati di utilizzo) è di 200 MB.
+* Il numero di transazioni al secondo (TPS) per una compilazione di un modello di raccomandazioni non attiva è di ~2 TPS. Una compilazione del modello di raccomandazioni attiva può includere un massimo di 20 TPS.
 
 ##Acquisto e fatturazione 
 
@@ -130,4 +135,4 @@ Il supporto tecnico è disponibile tramite il sito del [supporto tecnico di Micr
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

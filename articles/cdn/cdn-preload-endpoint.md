@@ -40,11 +40,11 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
 
 	![Pannello di caricamento della rete CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
 
-4. Immettere il percorso completo di ogni asset da caricare, ad esempio */pictures/kitten.png*, nella casella di testo **Percorso**.
+4. Immettere il percorso completo di ogni asset da caricare, ad esempio `/pictures/kitten.png`, nella casella di testo **Percorso**.
 
 	> [AZURE.TIP] Dopo l'immissione di testo verranno visualizzate altre caselle di testo **Percorso** che consentono di compilare un elenco di più asset. È possibile eliminare gli asset dall'elenco facendo clic sul pulsante con i puntini di sospensione (...).
 	>
-	> I percorsi devono essere URL relativi. L'asterisco (*) può essere usato come carattere jolly.
+	> I percorsi devono essere un URL relativo che soddisfi la seguente [espressione regolare](https://msdn.microsoft.com/library/az24scfc.aspx): `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$`. Ogni asset deve avere il proprio percorso. Non esiste alcuna funzionalità con caratteri jolly per il pre-caricamento degli asset.
 
     ![Pulsante Carica](./media/cdn-preload-endpoint/cdn-load-paths.png)
 
@@ -52,9 +52,10 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
 
 	![Pulsante Carica](./media/cdn-preload-endpoint/cdn-load-button.png)
 
+> [AZURE.NOTE] Le richieste di caricamento sono limitate a un massimo di 10 al minuto per ogni profilo di rete CDN.
 
 ## Vedere anche
 - [Ripulire un endpoint della rete CDN di Azure](cdn-purge-endpoint.md)
 - [Riferimento API REST della rete CDN di Azure - Ripulire o precaricare un endpoint](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

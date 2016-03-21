@@ -84,17 +84,17 @@ In questa sezione si modificherà l’app **SendCloudToDevice** per richiedere f
 
         commandMessage.Ack = DeliveryAcknowledgement.Full;
 
-4.  Eseguire le app premendo **F5** e dovrebbe essere visualizzato l’avvio di tutte le tre applicazioni. Selezionare le finestre **SendCloudToDevice** e premere **INVIO**: dovrebbe essere visualizzato il messaggio che viene ricevuto dall'app simulata e dopo alcuni secondi il messaggio del feedback che viene ricevuto dall’app **SendCloudToDevice**.
+4.  Eseguire le app premendo **F5** e dovrebbe essere visualizzato l’avvio di tutte le tre applicazioni. Selezionare le finestre **SendCloudToDevice** e premere **INVIO**. Viene visualizzata la ricezione del messaggio da parte dell'app simulata e, dopo alcuni secondi, la ricezione del messaggio di feedback da parte dell'applicazione **SendCloudToDevice**.
 
     ![][22]
 
-> [AZURE.NOTE]Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovo tentativo. Nel codice di produzione è consigliato implementare criteri di nuovi tentativi (ad esempio backoff esponenziale), come indicato nell'articolo MSDN [Gestione degli errori temporanei].
+> [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovo tentativo. Nel codice di produzione è consigliato implementare criteri di nuovi tentativi (ad esempio backoff esponenziale), come indicato nell'articolo MSDN [Gestione degli errori temporanei].
 
 <!-- Links -->
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [pacchetto NuGet Azure IoT - Service SDK]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[Gestione degli errori temporanei]: https://msdn.microsoft.com/it-IT/library/hh680901(v=pandp.50).aspx
+[Gestione degli errori temporanei]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Introduzione all’hub IoT]: iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->
@@ -102,4 +102,4 @@ In questa sezione si modificherà l’app **SendCloudToDevice** per richiedere f
 [21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

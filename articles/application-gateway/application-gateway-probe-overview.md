@@ -16,7 +16,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/17/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # Panoramica del monitoraggio dell'integrità del gateway applicazione
@@ -67,4 +67,4 @@ I probe personalizzati consentono un controllo più granulare sul monitoraggio d
 
 Dopo avere acquisito familiarità con il monitoraggio dell'integrità del gateway applicazione, è possibile configurare un [probe di integrità personalizzato](application-gateway-create-probe-ps.md) per Gestione risorse di Azure o un [probe di integrità personalizzato](application-gateway-create-probe-classic-ps.md) per il modello di distribuzione classica di Azure.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -28,6 +28,11 @@ Connettersi a Dropbox per gestire file, ad esempio creare i file, recuperarli e 
 - [App per la logica](../articles/connectors/create-api-dropbox.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-dropbox.md)
 
+&nbsp;
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic sul [connettore Dropbox](../app-service-logic/app-service-logic-connector-dropbox.md).
+
+
 Con Dropbox è possibile:
 
 - Creare il flusso aziendale in base ai dati ottenuti da Dropbox. 
@@ -35,7 +40,7 @@ Con Dropbox è possibile:
 - Usare le azioni per creare un file, eliminarlo e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando viene creato un nuovo file in Dropbox, è possibile inviare tale file come messaggio di posta elettronica tramite Office 365.
 - Aggiungere l'API di Dropbox a PowerApps Enterprise, in modo che gli utenti possano usarla nelle proprie app. 
 
-Per informazioni su come aggiungere un'API in PowerApps Enterprise, vedere l'articolo relativo alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Per informazioni su come aggiungere un'API in PowerApps Enterprise, accedere alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -44,42 +49,18 @@ Dropbox include i trigger e le azioni seguenti.
 
 Trigger | Azioni
 --- | ---
-<ul><li>Quando un file viene creato</li><li>Quando un file viene modificato</li></ul> | <ul><li>Crea file</li><li>Quando un file viene creato</li><li>Copia file</li><li>Elimina file</li><li>Estrai archivio in una cartella</li><li>Recupera contenuto di file tramite ID</li><li>Recupera file tramite percorso</li><li>Recupera metadati di file tramite ID</li><li>Recupera metadati di file tramite percorso</li><li>Aggiorna file</li><li>Quando un file viene modificato</li></ul>
+<ul><li>Quando un file viene creato</li><li>Quando un file viene modificato</li></ul> | <ul><li>Crea file</li><li>Quando un file viene creato</li><li>Copia file</li><li>Elimina file</li><li>Estrai archivio in una cartella</li><li>Ottieni contenuto di file tramite ID</li><li>Ottieni file tramite percorso</li><li>Ottieni metadati di file tramite ID</li><li>Ottieni metadati di file tramite percorso</li><li>Aggiorna file</li><li>Quando un file viene modificato</li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
 ## Creare una connessione a Dropbox
 
-### Aggiungere configurazioni aggiuntive in PowerApps
-Quando si aggiunge Dropbox a PowerApps Enterprise, si immettono i valori **Chiave app** e **Chiave privata app** dell'applicazione Dropbox. Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione Dropbox. Se non si ha un'applicazione Dropbox, è possibile usare la procedura seguente per creare l'applicazione:
-
-1. Accedere a [Dropbox][1].
-2. Visitare il sito per sviluppatori Dropbox e selezionare **My Apps**: ![Sito per sviluppatori Dropbox][8]  
-3. Selezionare **Crea app**: ![Creare app Dropbox][9]  
-4. In **Crea una nuova app sulla piattaforma Dropbox**:  
-
-	1. In **Scegliere l'API** selezionare **API Dropbox**.
-	2. In **Scegliere il tipo di accesso necessario** selezionare **Dropbox completo**.  
-	3. Immettere un nome per l'app.  
-
-	![Creare app Dropbox pagina 1][10]
-
-5. Nella pagina delle impostazioni dell’app:
-
-	1. In **OAuth 2** immettere l'**URL di reindirizzamento** visualizzato quando si aggiunge l'API di Dropbox nel portale di Azure. Selezionare **Aggiungi**.  
-	2. Selezionare il collegamento **Mostra** per visualizzare **Chiave privata app**:  
-
-	![Creare app Dropbox pagina 2][11]
-
-A questo punto, copiare e incollare i valori di **Chiave app** e **Chiave privata app** nella configurazione di Dropbox nel portale di Azure.
-
-### Aggiungere configurazioni aggiuntive nelle app per la logica
 Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Dropbox.
 
 1. Accedere all'account Dropbox.
 2. Selezionare **Autorizza** e consentire alle app per la logica di connettersi e usare Dropbox. 
 
-Dopo aver creato la connessione immettere le proprietà di Dropbox, ad esempio nome file o percorso cartella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
+Dopo aver creato la connessione immettere le proprietà di Dropbox, ad esempio nome file o percorso cartella. Tali proprietà vengono descritte nelle **Informazioni di riferimento sulle API REST** in questo argomento.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di Dropbox in altre app per la logica.
 
@@ -103,7 +84,7 @@ Carica un file in Dropbox. ```POST: /datasets/default/files```
 
 
 ### Quando un file viene creato    
-Quando un nuovo file viene creato in una cartella di Dropbox, attiva un flusso. ```GET: /datasets/default/triggers/onnewfile```
+Attiva un flusso quando un nuovo file viene creato in una cartella di Dropbox. ```GET: /datasets/default/triggers/onnewfile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -234,7 +215,7 @@ Aggiorna un file in Dropbox. ```PUT: /datasets/default/files/{id}```
 
 
 ### Quando un file viene modificato    
-Quando un file viene modificato in una cartella di Dropbox, attiva un flusso. ```GET: /datasets/default/triggers/onupdatedfile```
+Attiva un flusso quando un file viene modificato in una cartella di Dropbox. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -290,9 +271,10 @@ Quando un file viene modificato in una cartella di Dropbox, attiva un flusso. ``
 |FileLocator|string|no|
 
 ## Passaggi successivi
-Dopo aver aggiunto l'API di Dropbox a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle app.
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Tornare all'[elenco di API](apis-list.md).
 
 
 <!--References-->
@@ -304,4 +286,4 @@ Dopo aver aggiunto l'API di Dropbox a PowerApps Enterprise, [concedere autorizza
 [10]: ./media/create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="03/07/2016"
 	ms.author="glenga"/>
 
 # Aggiungere Servizi mobili a un'app esistente
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
+ 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Come usare il client gestito per App per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md).
 
 ##Panoramica
 
@@ -31,9 +31,7 @@ Questo argomento illustra come usare Servizi mobili di Azure come origine dati d
 
 Il servizio mobile che viene creato in questa esercitazione è un servizio mobile back-end .NET. Il back-end .NET consente di usare i linguaggi .NET e Visual Studio per la logica di business sul lato server nel servizio mobile, nonché di eseguire il servizio mobile ed effettuarne il debugging sul computer locale in uso. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la versione per back-end JavaScript di questo argomento.
 
->[AZURE.NOTE]Questo argomento descrive come usare gli strumenti in Visual Studio Professional 2013 con aggiornamento 3 per connettere un nuovo servizio mobile a un'app di Windows universale. È possibile eseguire la stessa procedura per connettere un servizio mobile a un'app di Windows Store o Windows Phone Store 8.1. Per connettere un servizio mobile a un'app di Windows Phone 8.0 o Windows Phone Silverlight 8.1, vedere [Introduzione ai dati per Windows Phone](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
-
-> Se non è possibile eseguire l'aggiornamento a Visual Studio Professional 2013 aggiornamento 3 o si preferisce aggiungere manualmente il progetto di servizio mobile a una soluzione app di Windows Store, vedere [questa versione](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md) dell'argomento.
+>[AZURE.NOTE]Questo argomento descrive come usare gli strumenti in Visual Studio Professional 2013 con aggiornamento 3 per connettere un nuovo servizio mobile a un'app di Windows universale. È possibile eseguire la stessa procedura per connettere un servizio mobile a un'app di Windows Store o Windows Phone Store 8.1. Per connettere un servizio mobile a un'app di Windows Phone 8.0 o Windows Phone Silverlight 8.1, vedere [Introduzione ai dati per Windows Phone](mobile-services-windows-phone-get-started-data.md).
 
 ##Prerequisiti
 
@@ -119,11 +117,11 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di
 [Introduzione all'autenticazione]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Introduzione alle notifiche push]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[sincronizzazione dei dati offline]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[sito degli esempi di codice di Developer Network]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,7 +3,7 @@
 	description="Recommendations di Azure ML - Applicazione di esempio" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/02/2016" 
 	ms.author="luisca"/>
 
 
-# Operazioni comuni nell'API Recommendations di Machine Learning
+# Applicazione di esempio dell'API Recommendations
 
 ##Scopo
 
-Questo documento illustra l'utilizzo dell'API Recommendations di Azure Machine Learning, tramite un'[applicazione di esempio](http://1drv.ms/1xeO2F3).
+Questo documento illustra l'utilizzo dell'API Recommendations di Azure Machine Learning, tramite un'[applicazione di esempio](https://code.msdn.microsoft.com/Recommendations-144df403).
 
 Questa applicazione non è concepita per includere tutte le funzionalità, né per l'uso di tutte le API, ma serve solo per dimostrare alcune delle operazioni comuni da eseguire quando si vuole provare il servizio di raccomandazione di Machine Learning.
 
@@ -90,4 +90,4 @@ Per una descrizione completa delle API, vedere la documentazione di Microsoft Az
 L'app di esempio non è destinata all'esecuzione in un ambiente di produzione. I dati forniti nel catalogo sono molto limitati e non offrono un modello di raccomandazione significativo. Vengono forniti per fini dimostrativi.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

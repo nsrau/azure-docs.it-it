@@ -3,8 +3,8 @@
    description="Eventi controllati disponibili per la visualizzazione e il download dalla propria istanza di Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Eventi del report di controllo di Azure Active Directory
 
@@ -122,4 +122,4 @@ TelephoneNumber | Numero di telefono dell'utente.
 
 I record di controllo rappresentano un controllo obbligatorio per molte normative per la conformità. Per i clienti che usano i report di controllo di Azure Active Directory per garantire la conformità alle normative, è consigliabile inviare una copia di questo argomento della guida insieme al report di controllo esportato del cliente per fornire una descrizione delle informazioni contenute nel report. Per altre informazioni sulle normative di conformità attualmente soddisfatte da Azure, suggerire al revisore di visitare la pagina relativa alla [conformità](https://azure.microsoft.com/support/trust-center/compliance/) del Centro protezione Microsoft Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ L'obiettivo di questa esercitazione è illustrare come integrare Alcumus Info Ex
 
 - È possibile controllare in Azure AD chi può accedere ad Alcumus Info Exchange. 
 - È possibile abilitare gli utenti per l'accesso automatico ad Alcumus Info Exchange (Single Sign-On) con i propri account Azure AD.
-- È possibile gestire gli account in una posizione centrale, il portale di Azure Active Directory.
+- È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -56,7 +56,7 @@ Per configurare l'integrazione di Alcumus Info Exchange in Azure AD, è necessar
 
 **Per aggiungere Alcumus Info Exchange dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Active Directory][1]<br>
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Active Directory][1]<br>
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -87,11 +87,11 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Alcumus Info 
 
 ### Configurazione dell'accesso Single Sign-On di Azure AD
 
-In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel portale di Azure AD e configurare l'accesso Single Sign-On nell'applicazione Alcumus Info Exchange.<br>
+In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Alcumus Info Exchange.<br>
 
 **Per configurare Single Sign-On di Azure AD con Alcumus Info Exchange, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **Alcumus Info Exchange** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.<br><br> ![Configura accesso Single Sign-On][6]
+1. Nella pagina di integrazione dell'applicazione **Alcumus Info Exchange** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.<br><br> ![Configura accesso Single Sign-On][6]
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano ad Alcumus Info Exchange** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.<br><br> ![Accesso Single Sign-On di Azure AD][7]
 
@@ -99,7 +99,7 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
  
      3\.1 Nella casella di testo **URL di risposta** digitare l'URL del consumer configurato dal team di supporto di Alcumus Info Exchange.
 
-     >[AZURE.NOTE] Se non si conosce il valore corretto, contattare il team di supporto di Alcumus Info Exchange tramite [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
+     > [AZURE.NOTE] Se non si conosce il valore corretto, contattare il team di supporto di Alcumus Info Exchange tramite [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
 
      3\.2. Fare clic su **Avanti**.
  
@@ -108,19 +108,19 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
 5. Contattare il team di supporto di Alcumus Info Exchange tramite [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com), fornire il file di metadati e chiedere di abilitare SSO.
 
 
-6. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Cos'è Azure AD Connect][10]
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Cos'è Azure AD Connect][10]
 
-7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**. <br><br>![Cos'è Azure AD Connect][11]
+7. Nella pagina **Conferma Single Sign-On** fare clic su **Completa**. <br><br>![Cos'è Azure AD Connect][11]
 
 
 
 
 ### Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test nel portale di Azure denominato Britta Simon.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creare un utente di Azure AD][20]<br>
 
-**Per creare un utente test in Azure AD, seguire questa procedura:**
+**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel pannello di navigazione sinistro.<br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_02.png) 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_02.png) 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -204,4 +204,4 @@ L'obiettivo di questa sezione è testare la configurazione dell'accesso Single S
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
 [400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

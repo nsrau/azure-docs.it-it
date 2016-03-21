@@ -13,14 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/04/2016" 
     ms.author="robmcm" />
 
 # Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse
 
 In questa guida verrà descritto come usare il Servizio di controllo di accesso di Azure (ACS) nel plug-nel Toolkit di Azure per Eclipse. Per altre informazioni su ACS, vedere la sezione [Passaggi successivi](#next_steps).
 
-> [AZURE.NOTE]Il filtro dei Servizi di controllo di accesso di Azure è una Community Technology Preview. Come versione preliminare, non è formalmente supportata da Microsoft.
+> [AZURE.NOTE]
+Il filtro dei Servizi di controllo di accesso di Azure è una Community Technology Preview. Come versione preliminare, non è formalmente supportata da Microsoft.
 
 ## Informazioni su ACS
 
@@ -309,4 +310,4 @@ A questo punto, il certificato verrà incluso nella distribuzione. Si noti che a
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

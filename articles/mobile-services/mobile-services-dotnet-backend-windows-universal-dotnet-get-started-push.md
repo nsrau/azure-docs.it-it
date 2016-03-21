@@ -4,7 +4,7 @@
 	services="mobile-services,notification-hubs"
 	documentationCenter="windows"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="03/05/2016"
 	ms.author="glenga"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Aggiungere notifiche push all'app Windows](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
 
 ##Panoramica
 In questo argomento viene illustrato come usare Servizi mobili di Azure con un back-end .NET per inviare notifiche push a un'app universale di Windows. In questa esercitazione si usa Hub di notifica di Azure per abilitare le notifiche push nel progetto di app universale di Windows. Al termine dell'esercitazione, il servizio mobile in uso invierà una notifica push dal back-end .NET a tutte le app di Windows Store e Windows Phone Store registrate ogni volta che viene inserito un record nella tabella TodoList. L'hub di notifica creato può essere utilizzato gratuitamente con il servizio mobile, può essere gestito indipendentemente da quest'ultimo e può essere utilizzato da altri servizi e applicazioni.
@@ -31,7 +31,7 @@ In questo argomento viene illustrato come usare Servizi mobili di Azure con un b
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un [account di Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045) attivo.
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>.
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934).
 
 ##<a id="register"></a>Registrare l'app per le notifiche push
 
@@ -43,7 +43,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 &nbsp;&nbsp;8. Ripetere i passaggi precedenti per aggiungere notifiche push al progetto di app di Windows Phone Store, quindi nel file App.xaml.cs condiviso rimuovere la chiamata supplementare a **UploadChannel** e il wrapper condizionale `#if...#endif` restante. Ora entrambi i progetti possono condividere un'unica chiamata a **UploadChannel**.
 
-> [AZURE.NOTE]È anche possibile semplificare il codice generato unendo le definizioni con wrapping `#if...#endif` [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) in un'unica definizione senza wrapping usata da entrambe le versioni dell'app.
+> [AZURE.NOTE] È anche possibile semplificare il codice generato unendo le definizioni con wrapping `#if...#endif` [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) in un'unica definizione senza wrapping usata da entrambe le versioni dell'app.
 
 Ora che le notifiche push sono abilitate nell'app, è necessario aggiornare il servizio mobile per l'invio delle notifiche push.
 
@@ -112,4 +112,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Come usare un client .NET per Servizi mobili di Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

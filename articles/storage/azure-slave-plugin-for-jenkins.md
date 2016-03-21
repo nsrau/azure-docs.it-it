@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="02/22/2016"
     ms.author="robmcm"/>
 
 # Come usare il plug-in slave di Azure con una soluzione di integrazione continua Jenkins
@@ -41,7 +41,7 @@ Un profilo di sottoscrizione, noto anche come impostazioni di pubblicazione, è 
 * ID sottoscrizione
 * Certificato di gestione per la sottoscrizione
 
-Tali elementi sono reperibili nel profilo di sottoscrizione. Se non si ha una copia del profilo di sottoscrizione, è possibile scaricarla dal [sito della sottoscrizione](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0). Di seguito è riportato un esempio di un profilo di sottoscrizione.
+Tali elementi sono reperibili nel [profilo di sottoscrizione](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0). Di seguito è riportato un esempio di un profilo di sottoscrizione.
 
 	<?xml version="1.0" encoding="utf-8"?>
 
@@ -204,4 +204,4 @@ In questa sezione si creerà un'attività di Jenkins che verrà eseguita in un n
 
 Jenkins creerà quindi un nodo slave usando il modello creato nella sezione precedente ed eseguirà lo script specificato nell'istruzione di compilazione di questa attività.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

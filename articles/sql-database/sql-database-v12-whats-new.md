@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="03/08/2016" 
 	ms.author="genemi"/>
 
 
@@ -37,15 +37,20 @@ Le informazioni più recenti sui limiti delle risorse per il Database SQL sono d
 ## Miglioramento della compatibilità delle applicazioni con SQL Server
 
 
-Uno degli obiettivi principali della versione 12 del database SQL è stato il miglioramento della compatibilità con Microsoft SQL Server 2014. Tra le altre aree, la versione 12 raggiunge la parità con SQL Server nell'importante ambito della programmabilità. Ad esempio:
+Migliorare la compatibilità con Microsoft SQL Server 2014 e gestirla man mano che vengono rilasciate nuove versioni di SQL Server era tra gli obiettivi chiave della versione 12 del database SQL. Tra le altre aree, la versione 12 raggiunge la parità con SQL Server nell'importante ambito della programmabilità. Ad esempio:
 
 
 - [Funzioni finestra](http://msdn.microsoft.com/library/bb934097.aspx) con [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+
 - [Indici XML](http://msdn.microsoft.com/library/bb934097.aspx) e [indici XML selettivi](http://msdn.microsoft.com/library/jj670104.aspx)
+
 - [Rilevamento modifiche](http://msdn.microsoft.com/library/bb933875.aspx)
+
 - [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
+
 - [Ricerca full-text](http://msdn.microsoft.com/library/ms142571.aspx)
 
+- [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.microsoft.com/library/mt629158.aspx)
 
 Per informazioni sul piccolo set di funzionalità non ancora supportate nel database SQL, fare clic [qui](sql-database-transact-sql-information.md).
 
@@ -161,4 +166,4 @@ Se ancora non si usa la versione 12, è possibile aggiornare il server logico se
 
 [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

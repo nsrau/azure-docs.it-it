@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creazione, monitoraggio e gestione delle istanze di Data factory di Azure mediante Data Factory SDK" 
+	pageTitle="Creare, monitorare e gestire le istanze di Azure Data Factory mediante Data Factory SDK | Microsoft Azure" 
 	description="Informazioni su come creare, monitorare e gestire a livello di codice le istanze di Data factory di Azure usando Data Factory SDK." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -394,4 +394,4 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

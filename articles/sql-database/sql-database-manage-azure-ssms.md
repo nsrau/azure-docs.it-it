@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="03/07/2016" 
 	ms.author="jeffreyg"/>
 
 
@@ -21,56 +21,13 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-manage-portal.md)
+- [Portale di Azure](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-È possibile utilizzare SQL Server Management Studio (SSMS) per amministrare i server logici e i database del database SQL di Azure. In questo argomento vengono illustrate le attività comuni con SSMS. Prima di iniziare, è necessario disporre già di un server logico e di un database creati nel database SQL di Azure. Per iniziare, leggere [Creare il primo database SQL di Azure](sql-database-get-started.md), quindi tornare e proseguire.
+È possibile utilizzare SQL Server Management Studio (SSMS) per amministrare i server logici e i database del database SQL di Azure. In questo argomento vengono illustrate le attività comuni con SSMS. Prima di iniziare, è necessario disporre già di un server logico e di un database creati nel database SQL di Azure. Per informazioni su come connettersi ed eseguire una query SELECT semplice, vedere gli articoli relativi alla [creazione del primo database SQL Azure](sql-database-get-started.md) e alla [connessione ed esecuzione di query con SSMS](sql-database-connect-query-ssms.md).
 
 Quando si lavora con il database SQL di Azure, si consiglia di utilizzare la versione più recente di SSMS. Per ottenerla, visitare [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-
-
-## Connessione a un server logico del database SQL
-
-Per la connessione al database SQL è necessario conoscere il nome del server in Azure. Potrebbe essere necessario accedere al portale per ottenere questa informazione.
-
-1.  Accedere al [portale di Azure classico](http://manage.windowsazure.com).
-
-2.  Nel riquadro sinistro fare clic su **Database SQL**.
-
-3.  Nella home page dei database SQL fare clic su **SERVERS** nella parte superiore della pagina per elencare tutti i server associati alla sottoscrizione. Trovare il nome del server a cui si desidera connettersi e copiarlo negli Appunti.
-
-	Configurare al firewall del database SQL in modo da consentire le connessioni dal computer locale. A tale scopo, aggiungere gli indirizzi IP dei computer locali all'elenco di eccezioni del firewall.
-
-1.  Nella home page dei database SQL fare clic su **SERVERS**, quindi fare clic sul server a cui si desidera connettersi.
-
-2.  Fare clic su **Configure** nella parte superiore della pagina.
-
-3.  Copiare l'indirizzo IP in CURRENT CLIENT IP ADDRESS.
-
-4.  Nell'area **Allowed IP Addresses** della pagina di configurazione, sono presenti tre caselle in cui è possibile specificare un nome di regola e un intervallo di indirizzi IP come valori di inizio e fine. Come nome di regola, è possibile immettere il nome del computer in uso. Come valori di inizio e fine dell'intervallo, incollare gli indirizzi IP del computer in entrambe le caselle, quindi fare clic sulla casella di controllo che viene visualizzata.
-
-	Il nome di regola deve essere univoco. Se il computer in uso è il computer di sviluppo, è possibile immetterne l'indirizzo IP sia nella casella di inizio intervallo IP che in quella di fine. In caso contrario, potrebbe essere necessario immettere un intervallo di indirizzi IP più ampio per ospitare connessioni da altri computer dell'organizzazione.
- 
-5. Fare clic su **SAVE** nella parte inferiore della pagina.
-
-    **Nota:** le modifiche alle impostazioni del firewall potrebbero impiegare fino a cinque minuti prima di avere effetto.
-
-	È ora possibile effettuare la connessione al database SQL usando Management Studio.
-
-1.  Nella barra delle applicazioni fare clic su **Start**, scegliere **Tutti i programmi**, **Microsoft SQL Server 2014**, quindi fare clic su **SQL Server Management Studio**.
-
-2.  In **Connetti al server**, specificare il nome server completo come *serverName*.database.windows.net. In Azure, il nome del server è una stringa autogenerata composta da caratteri alfanumerici.
-
-3.  Selezionare **Autenticazione di SQL Server**.
-
-4.  Nella casella **Accesso** immettere l'account di accesso amministratore di SQL Server specificato nel portale durante la creazione del server.
-
-5.  Nella casella **Password** immettere la password specificata nel portale durante la creazione del server.
-
-8.  Fare clic su **Connetti** per stabilire la connessione.
-
-SQL Server 2014 SSMS con gli aggiornamenti più recenti offre ampio supporto per attività come la creazione e la modifica dei database di Azure SQL. Inoltre, è possibile usare anche le istruzioni Transact-SQL al fine di completare tali attività. Nei passaggi successivi vengono forniti esempi di tali istruzioni. Per altre informazioni sull'uso di Transact-SQL con database SQL, compresi i dettagli sui comandi supportati, vedere [Riferimento a Transact-SQL (database SQL)](http://msdn.microsoft.com/library/bb510741.aspx).
 
 ## Creazione e gestione dei database SQL di Azure
 
@@ -102,7 +59,7 @@ Fare clic su **Execute** per eseguire la query.
 
 -   Nel database SQL l'istruzione **USE** non è supportata per passare da un database a un altro. È necessario stabilire invece una connessione diretta al database di destinazione.
 
->[AZURE.NOTE]Molte delle istruzioni Transact-SQL che consentono di creare o modificare un database devono essere eseguite nell'ambito del proprio batch e non possono essere raggruppate insieme ad altre istruzioni Transact-SQL. Per altre informazioni, vedere i dettagli specifici di ogni istruzione forniti nei collegamenti elencati sopra.
+>[AZURE.NOTE] Molte delle istruzioni Transact-SQL che consentono di creare o modificare un database devono essere eseguite nell'ambito del proprio batch e non possono essere raggruppate insieme ad altre istruzioni Transact-SQL. Per altre informazioni, vedere i dettagli specifici di ogni istruzione forniti nei collegamenti elencati sopra.
 
 ## Creare e gestire gli account di accesso
 
@@ -192,4 +149,4 @@ Il database SQL supporta diverse viste a gestione dinamica che possono essere us
  
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

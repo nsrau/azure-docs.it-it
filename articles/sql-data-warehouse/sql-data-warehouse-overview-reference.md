@@ -13,14 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # Argomenti di riferimento per SQL Data Warehouse
 
 Questi articoli contengono informazioni di riferimento per SQL Data Warehouse.
 
-[Elementi del linguaggio Transact-SQL][] [Istruzioni Transact-SQL][] [Viste di sistema Transact-SQL][] [Cmdlet di PowerShell][]
+[Elementi del linguaggio Transact-SQL][]
+
+[Istruzioni Transact-SQL][]
+
+[Viste di sistema Transact-SQL][]
+
+[Cmdlet PowerShell][]
 
 
 
@@ -34,9 +40,9 @@ Per informazioni relative allo sviluppo, vedere la [panoramica sullo sviluppo][]
 [Elementi del linguaggio Transact-SQL]: sql-data-warehouse-reference-tsql-language-elements.md
 [Istruzioni Transact-SQL]: sql-data-warehouse-reference-tsql-statements.md
 [Viste di sistema Transact-SQL]: sql-data-warehouse-reference-tsql-system-views.md
-[Cmdlet di PowerShell]: sql-data-warehouse-reference-powershell-cmdlets.md
+[Cmdlet PowerShell]: sql-data-warehouse-reference-powershell-cmdlets.md
 
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

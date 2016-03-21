@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
@@ -95,7 +95,7 @@ Poiché si tratta di una distribuzione in un ambiente di gestione temporanea, il
 
 Anche se questa procedura dettagliata è stata studiata per una distribuzione nell'ambiente di gestione temporanea, una distribuzione nell'ambiente di produzione segue gli stessi passaggi, tranne che nella finestra di dialogo **Publish to Azure** sarà necessario selezionare l'opzione **Production** anziché **Staging** per **Target environment**. In una distribuzione nell'ambiente di produzione l'URL si basa sul nome DNS scelto dall'utente anziché su un GUID come quello usato per la gestione temporanea.
 
->[AZURE.WARNING]A questo punto l'applicazione Azure è stata distribuita nel cloud. Prima di continuare, tuttavia, tenere presente che per un'applicazione distribuita, anche se non in esecuzione, viene accumulato tempo fatturabile per la sottoscrizione. È quindi estremamente importante eliminare le distribuzioni indesiderate dalla sottoscrizione Azure.
+>[AZURE.WARNING] A questo punto l'applicazione Azure è stata distribuita nel cloud. Prima di continuare, tuttavia, tenere presente che per un'applicazione distribuita, anche se non in esecuzione, viene accumulato tempo fatturabile per la sottoscrizione. È quindi estremamente importante eliminare le distribuzioni indesiderate dalla sottoscrizione Azure.
 
 ## Informazioni sui progetti di distribuzione di Azure ##
 
@@ -124,7 +124,7 @@ Indipendentemente dal fatto che la procedura di configurazione server sia stata 
 
 ## Solo Windows: per distribuire l'applicazione nell'emulatore di calcolo ##
 
->[AZURE.NOTE]L'emulatore di Azure è disponibile solo per Windows. Ignorare questa sezione se si usa un sistema operativo diverso da Windows.
+>[AZURE.NOTE] L'emulatore di Azure è disponibile solo per Windows. Ignorare questa sezione se si usa un sistema operativo diverso da Windows.
 
 Se si è creato un nuovo progetto di distribuzione di Azure seguendo la procedura descritta sopra, ovvero in modo implicito pubblicando l'applicazione in Azure, il pacchetto JDK e il server applicazioni sono stati configurati per il cloud, ma non per l'emulazione locale. Per preparare il progetto per il test nell'emulatore locale, seguire questa procedura:
 
@@ -138,10 +138,10 @@ Se si è creato un nuovo progetto di distribuzione di Azure seguendo la procedur
 1. Fare clic su **OK**.
 1. Nella barra degli strumenti di Eclipse fare clic sul pulsante **Run in Azure Emulator**, ![][ic710879]. Se il pulsante **Run in Azure Emulator** non è abilitato, verificare che **MyHelloWorld\_onAzure** sia selezionato in Project Explorer di Eclipse e assicurarsi che Project Explorer di Eclipse abbia lo stato attivo come finestra corrente. Verrà avviata prima una build completa del progetto e quindi verrà avviata l'applicazione Web Java nell'emulatore di calcolo. Si noti che a seconda delle caratteristiche delle prestazioni del computer, la prima build può richiedere da alcuni secondi fino ad alcuni minuti, mentre le build successive risulteranno più rapide. Una volta completato il passaggio relativo alla prima build, Controllo dell'account utente di Windows richiederà di consentire l'applicazione di apportare modifiche al computer in uso. Fare clic su **Yes**.
 
->[AZURE.IMPORTANT]Se non viene visualizzato il prompt di Controllo dell'account utente, verificare che sulla barra delle applicazioni di Windows sia presente l'icona corrispondente e selezionarla prima. Talvolta il prompt di Controllo dell'account utente non viene visualizzato come finestra in primo piano, ma è visibile solo come icona sulla barra delle applicazioni.
+>[AZURE.IMPORTANT] Se non viene visualizzato il prompt di Controllo dell'account utente, verificare che sulla barra delle applicazioni di Windows sia presente l'icona corrispondente e selezionarla prima. Talvolta il prompt di Controllo dell'account utente non viene visualizzato come finestra in primo piano, ma è visibile solo come icona sulla barra delle applicazioni.
 
 1. Esaminare l'output dell'interfaccia utente dell'emulatore di calcolo per determinare se sono presenti errori nel progetto. In base al contenuto della distribuzione, l'avvio completo dell'applicazione all'interno dell'emulatore di calcolo potrebbe richiedere alcuni minuti.
-1. Avviare il browser e usare l'URL `http://localhost:8080/MyHelloWorld` come indirizzo (per la parte `MyHelloWorld` dell'URL viene fatta distinzione tra maiuscole e minuscole). L'applicazione MyHelloWorld (output di index.jsp) dovrebbe essere visualizzata in modo simile all'immagine seguente:
+1. Avviare il browser e usare l'URL `http://localhost:8080/MyHelloWorld` come indirizzo (per la parte `MyHelloWorld` dell'URL viene fatta distinzione tra maiuscole e minuscole). L'applicazione MyHelloWorld (output di index.jsp) dovrebbe essere visualizzata in modo simile all'immagine seguente: 
 
     ![][ic589579]
 
@@ -196,4 +196,4 @@ Per altre informazioni sull'uso di Azure con Java, visitare il [centro per svilu
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

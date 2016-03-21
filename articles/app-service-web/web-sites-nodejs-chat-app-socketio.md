@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creare un'applicazione di chat Node.js con Socket.IO nel servizio app di Azure"
+	pageTitle="Creazione di un'applicazione di chat Node.js con Socket.IO in Servizio app di Azure"
 	description="Esercitazione che illustra l'uso di socket.io in un'applicazione Web node.js ospitata in Azure."
 	services="app-service\web"
 	documentationCenter="nodejs"
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="03/04/2016"
 	ms.author="robmcm"/>
 
 
 
 
-# Creare un'applicazione di chat Node.js con Socket.IO nel servizio app di Azure
+# Creazione di un'applicazione di chat Node.js con Socket.IO in Servizio app di Azure
 
-Socket.IO fornisce comunicazioni in tempo reale tra il server node.js e i client usando WebSocket. Supporta inoltre il fallback in altri tipi di trasporto (ad esempio il polling prolungato) che funzionano con browser precedenti. In questa esercitazione verrà illustrato l'hosting di un'applicazione di chat basata su Socket.IO come sito Web di Azure e verrà indicato come applicare la [scalabilità](#scale-out) alle app utilizzando [Cache Redis di Azure](/documentation/services/cache). Per altre informazioni su Socket.IO, vedere [http://socket.io/][socketio].
+Socket.IO fornisce comunicazioni in tempo reale tra il server node.js e i client usando WebSocket. Supporta inoltre il fallback in altri tipi di trasporto (ad esempio il polling prolungato) che funzionano con browser precedenti. In questa esercitazione verrà illustrato l'hosting di un'applicazione di chat basata su Socket.IO come sito Web di Azure e verrà indicato come applicare la [scalabilità](#scale-out) alle app utilizzando [Cache Redis di Azure](/documentation/services/cache). Per ulteriori informazioni su Socket.IO, vedere [http://socket.io/][socketio].
 
-> [AZURE.NOTE] Le procedure descritte in questa attività si applicano ad [App Web del servizio app](http://go.microsoft.com/fwlink/?LinkId=529714). Per Servizi cloud, vedere <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Creare un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure</a>.
+> [AZURE.NOTE] Le procedure descritte in questa attività si applicano alle [app Web App di Servizio Web](http://go.microsoft.com/fwlink/?LinkId=529714); per Servizi cloud, vedere <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Creazione di un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure</a>.
 
 
 ## Scaricare l'esempio di chat
@@ -286,4 +286,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js]
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

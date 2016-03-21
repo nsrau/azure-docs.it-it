@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse - TSQL | Microsoft Azure" 
-   description="Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse - TSQL" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse - TSQL | Microsoft Azure"
+   description="Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse - TSQL"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-data-warehouse" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-data-warehouse"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
+
 # Introduzione a Transparent Data Encryption (TDE)
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](sql-data-warehouse-encryption-tde.md)
+- [Portale di Azure classico](sql-data-warehouse-encryption-tde.md)
 - [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
 
 La funzionalità Transparent Data Encryption (TDE) di SQL Data Warehouse di Azure consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei database, dei backup associati e dei file di log delle transazioni inattivi, senza dover apportare modifiche all'applicazione.
@@ -64,7 +64,7 @@ FROM
 
 Il risultato ```1``` indica un database crittografato, ```0``` indica un database non crittografato.
 
- 
+
 <!--Anchors-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
@@ -73,4 +73,4 @@ Il risultato ```1``` indica un database crittografato, ```0``` indica un databas
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

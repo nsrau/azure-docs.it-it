@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 
@@ -40,7 +40,7 @@ Questa soluzione include i seguenti **componenti di Cortana Analytics** e illust
 - **Hub eventi** per l'inserimento di milioni di eventi di telemetria del veicolo in Azure.
 - **Analisi di flusso** per ottenere informazioni dettagliate in tempo reale sul funzionamento del veicolo e salvare i dati in modo permanente nello spazio di archiviazione a lungo termine per un'analisi batch avanzata.
 - **Machine Learning** per il rilevamento di anomalie in tempo reale e l'elaborazione batch per ottenere informazioni predittive.
-- **HDInsight** viene utilizzato per trasformare i dati su larga scala
+- **HDInsight** per trasformare i dati su larga scala
 - **Data Factory** gestisce l'orchestrazione, la pianificazione, la gestione delle risorse e il monitoraggio della pipeline di elaborazione batch.
 - **Power BI** offre alla soluzione un dashboard completo per la visualizzazione di dati in tempo reale e di analisi predittiva.
 
@@ -49,4 +49,4 @@ La soluzione accede a due **origini dati** diverse:
 - **Segnali e diagnostica simulati del veicolo**: un simulatore di dati telematici del veicolo genera informazioni di diagnostica e segnali che corrispondono allo stato del veicolo e al modello di guida in un determinato momento. 
 - **Catalogo del veicolo**: un set di dati di riferimento contenente il VIN (Vehicle Identification Number, numero di identificazione del veicolo) per il mapping del modello
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

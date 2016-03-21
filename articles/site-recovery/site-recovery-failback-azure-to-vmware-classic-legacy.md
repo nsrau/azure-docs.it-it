@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Eseguire il failback di server fisici e macchine virtuali VMware da Azure a VMware | Microsoft Azure" 
+   pageTitle="Eseguire il failback di server fisici e macchine virtuali VMware da Azure a VMware (legacy) | Microsoft Azure" 
    description="Questo articolo descrive come eseguire il failback di una macchina virtuale VMware replicata in Azure con Azure Site Recovery." 
    services="site-recovery" 
    documentationCenter="" 
@@ -13,35 +13,49 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="storage-backup-recovery" 
-   ms.date="12/14/2015"
+   ms.date="03/06/2016"
    ms.author="ruturajd@microsoft.com"/>
 
 # Failback di server fisici e macchine virtuali VMware da Azure a VMware con Azure Site Recovery (legacy)
 
 > [AZURE.SELECTOR]
-- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
+- [Avanzato](site-recovery-failback-azure-to-vmware-classic.md)
 - [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 
+Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una panoramica rapida, vedere [Che cos'è Azure Site Recovery?](site-recovery-overview.md)
 
 ## Panoramica
 
-Questo documento descrive come eseguire il failback di macchine virtuali VMware e server fisici Windows/Linux da Azure al sito locale.
+Questo articolo descrive come eseguire il failback di macchine virtuali VMware e server fisici Windows/Linux da Azure al sito locale dopo aver eseguito la replica dal sito locale ad Azure.
 
-Per configurare la replica e il failover per questo scenario, seguire le istruzioni in [questo articolo](site-recovery-vmware-to-azure.md). Dopo un failover riuscito di macchine virtuali VMware o di server fisici in Azure con Site Recovery, i computer saranno disponibili nella scheda delle macchine virtuali di Azure.
+>[AZURE.NOTE] Questo articolo descrive uno scenario legacy. Se è stata eseguita la replica ad Azure tramite [queste istruzioni legacy](site-recovery-vmware-to-azure-classic-legacy.md), è consigliabile usare solo le istruzioni in questo articolo. Se si configura la replica mediante la [distribuzione avanzata](site-recovery-vmware-to-azure-classic-legacy.md), seguire le istruzioni in [questo articolo](site-recovery-failback-azure-to-vmware-classic.md) per eseguire il failback.
 
->[AZURE.NOTE]È possibile eseguire il failback solo di macchine virtuali VMware e di server fisici Windows/Linux da Azure a macchine virtuali VMware nel sito primario locale. Se si esegue il failback di un computer fisico, il failover in Azure lo convertirà in una VM di Azure e il failback in VMware lo convertirà in una VM VMware.
+
+## Architettura
 
 Questo diagramma rappresenta lo scenario di failover e di failback. Le linee blu sono le connessioni utilizzate durante il failover. Le linee rosse indicano le connessioni utilizzate durante il failback. Le righe con frecce indicano la connessione a internet.
 
 ![](./media/site-recovery-failback-azure-to-vmware/vconports.png)
+
+## Prima di iniziare 
+
+- È necessario aver eseguito il failover delle VM VMware o dei server fisici e che questi vengano eseguiti in Azure.
+- Si noti che è possibile eseguire il failback solo di macchine virtuali VMware e di server fisici Windows/Linux da Azure a macchine virtuali VMware nel sito primario locale. Se si esegue il failback di un computer fisico, il failover in Azure lo convertirà in una VM di Azure e il failback in VMware lo convertirà in una VM VMware.
+
+Ecco come configurare il failback:
+
+1. **Configurare i componenti di failback**: è necessario configurare un server vContinuum locale e associarlo alla VM del server di configurazione in Azure. Deve essere configurato anche un server di elaborazione come VM di Azure per inviare dati al server di destinazione master locale. Registrare il server di elaborazione con il server di configurazione che ha gestito il failover e installare un server di destinazione master locale. Se è necessario un server di destinazione master Windows, questo viene configurato automaticamente durante l'installazione di vContinuum. Se è necessario Linux, configurarlo manualmente in un server separato.
+2. **Abilitare la protezione e il failback**: dopo aver configurato i componenti, in vContinuum è necessario abilitare la protezione per le VM di Azure sottoposte a failover. È necessario eseguire una verifica di conformità sulle VM e un failover da Azure al sito locale. Al termine del failback riproteggere i computer locali in modo che inizino la replica in Azure.
+
+
 
 ## Passaggio 1: Installare vContinuum in locale
 
 Sarà necessario installare un server vContinuum in locale e associarlo al server di configurazione.
 
 1.  [Scaricare vContinuum](http://go.microsoft.com/fwlink/?linkid=526305). 
-2.  Scaricare quindi la versione [aggiornata di vContinuum](http://go.microsoft.com/fwlink/?LinkID=533813).
-3.  Eseguire il programma di installazione dell'ultima versione per installare vContinuum. Nella pagina **Welcome** fare clic su **Next**. ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+2.  Quindi scaricare la versione [di aggiornamento di vContinuum](http://go.microsoft.com/fwlink/?LinkID=533813).
+3. Installare la versione più recente di vContinuum. Nella pagina **Welcome** fare clic su **Next**. ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
 4.  Nella prima pagina della procedura guidata specificare l'indirizzo IP e la porta del server CX. Selezionare **Use HTTPS**.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image3.png)
@@ -84,7 +98,7 @@ Sarà necessario installare un server vContinuum in locale e associarlo al serve
 
 	![](./media/site-recovery-failback-azure-to-vmware/image12.png)
 
->[AZURE.NOTE]I server registrati durante il failback non saranno visibili nelle proprietà della VM in Site Recovery. Sono visibili solo nella scheda **Server** del server di configurazione in cui sono stati registrati. La visualizzazione del server di elaborazione nella scheda può richiedere circa 10-15 minuti.
+>[AZURE.NOTE] I server registrati durante il failback non saranno visibili nelle proprietà della VM in Site Recovery. Sono visibili solo nella scheda **Server** del server di configurazione in cui sono stati registrati. La visualizzazione del server di elaborazione nella scheda può richiedere circa 10-15 minuti.
 
 
 ## Passaggio 3: Installare un server di destinazione master in locale
@@ -237,7 +251,7 @@ Se per qualche motivo non è stato possibile registrare il server di destinazion
 
 È possibile convalidare la registrazione del server di destinazione master nel server di configurazione nell'insieme di credenziali di Azure Site Recovery > **Server di configurazione** > **Dettagli server**.
 
->[AZURE.NOTE]Dopo avere registrato il server di destinazione master, se vengono visualizzati errori di configurazione che informano che la macchina virtuale potrebbe essere stata eliminata da Azure o che gli endpoint non sono configurati correttamente, il motivo è che, anche se la configurazione di destinazione master viene rilevata dagli endpoint di Azure quando la destinazione master viene distribuita in Azure, questo non vale per un server di destinazione master locale. Dato che non ci saranno conseguenze per il failback, è possibile ignorare questi errori.
+>[AZURE.NOTE] Dopo avere registrato il server di destinazione master, se vengono visualizzati errori di configurazione che informano che la macchina virtuale potrebbe essere stata eliminata da Azure o che gli endpoint non sono configurati correttamente, il motivo è che, anche se la configurazione di destinazione master viene rilevata dagli endpoint di Azure quando la destinazione master viene distribuita in Azure, questo non vale per un server di destinazione master locale. Dato che non ci saranno conseguenze per il failback, è possibile ignorare questi errori.
 
 
 
@@ -406,8 +420,10 @@ Dopo avere completato il failback, è opportuno proteggere ancora le macchine vi
  
 ## Passaggi successivi
 
-[Informazioni](site-recovery-vmware-to-azure-classic-legacy.md) sulla replica di macchine virtuali VMware in Azure
+
+
+- [Informazioni](site-recovery-vmware-to-azure-classic.md) sulla replica di server fisici e macchine virtuali VMware in Azure tramite la distribuzione avanzata.
 
  
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0309_2016-->

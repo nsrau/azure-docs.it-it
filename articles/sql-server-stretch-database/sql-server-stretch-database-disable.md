@@ -3,9 +3,9 @@
 	description="Scoprire come disabilitare Database Estensione per una tabella e scegliere di recuperare i dati remoti."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -30,23 +30,25 @@ Dopo aver disabilitato Database Estensione per una tabella, la migrazione di dat
 
 Se si desidera sospendere la migrazione dei dati, vedere l'articolo su come [sospendere e riprendere Database Estensione](sql-server-stretch-database-pause.md).
 
+**Nota:** la disabilitazione dell'estensione non rimuove gli oggetti remoti. Per eliminare la tabella o il database remoto è necessario rimuoverli usando il portale di gestione di Azure.
+
 ## Disabilitare Database Estensione per una tabella
 
 ### Con SQL Server Management Studio disabilitare Database Estensione per una tabella
 
 1.  In SQL Server Management Studio, in Esplora oggetti, selezionare la tabella per cui si desidera disabilitare Database Estensione.
 
-2.  Fare clic con il pulsante destro del mouse e selezionare **Estensione**, quindi selezionare una delle opzioni seguenti.
+2.  Fare clic con il pulsante destro del mouse e selezionare **Stretch**, quindi selezionare una delle opzioni seguenti.
 
-    -   **Disabilita | Recupera i dati da Azure**. Copiare i dati remoti per la tabella da Azure a SQL Server, quindi disabilitare Database Estensione per la tabella. Questo comando non può essere annullato.
+    -   **Disabilita | Ripristina dati da Azure**. Copiare i dati remoti per la tabella da Azure a SQL Server, quindi disabilitare Database Estensione per la tabella. Questo comando non può essere annullato.
 
         Questa operazione comporta costi di trasferimento dati. Per altre informazioni, vedere [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
 
         Dopo aver copiato tutti i dati remoti da Azure a SQL Server, l'estensione per la tabella risulta disabilitata.
 
-    -   **Disabilita | Lascia i dati in Azure**. Disabilitare Database Estensione per la tabella. Abbandonare i dati remoti per la tabella in Azure.
+    -   **Disabilita | Lascia dati in Azure**. Disabilitare Database Estensione per la tabella. Abbandonare i dati remoti per la tabella in Azure.
 
-        L'abbandono dei dati remoti e la disabilitazione dell'estensione non consentono la rimozione dei dati remoti. Se si desidera eliminare i dati remoti, è necessario rimuovere la tabella remota tramite il portale di gestione di Azure.
+    La disabilitazione dell'estensione non rimuove la tabella remota. Per eliminare la tabella remota è necessario rimuoverla usando il portale di gestione di Azure.
 
 ### Con Transact-SQL disabilitare Database Estensione per una tabella
 
@@ -66,16 +68,18 @@ Se si desidera sospendere la migrazione dei dati, vedere l'articolo su come [sos
     ALTER TABLE <table_name>
        SET ( REMOTE_DATA_ARCHIVE = OFF_WITHOUT_DATA_RECOVERY ( MIGRATION_STATE = PAUSED ) ) ;
     ```
-    L'abbandono dei dati remoti e la disabilitazione dell'estensione non consentono la rimozione dei dati remoti. Se si desidera eliminare i dati remoti, è necessario rimuovere la tabella remota tramite il portale di gestione di Azure.
+La disabilitazione dell'estensione non rimuove la tabella remota. Per eliminare la tabella remota è necessario rimuoverla usando il portale di gestione di Azure.
 
 ## Disabilitare Database Estensione per un database
 Prima di disabilitare Database Estensione per un database, è necessario disabilitare Database Estensione su singole tabelle con estensione abilitata nel database.
+
+La disabilitazione dell'estensione non rimuove il database remoto. Per eliminare il database remoto è necessario rimuoverlo usando il portale di gestione di Azure.
 
 ### Con SQL Server Management Studio disabilitare Database Estensione per un database
 
 1.  In SQL Server Management Studio, in Esplora oggetti, selezionare il database per cui si desidera disabilitare Database Estensione.
 
-2.  Fare clic con il pulsante destro del mouse e selezionare **Attività**, quindi **Estensione** e **Disabilita**.
+2.  Fare clic con il pulsante destro del mouse e selezionare **Attività**, quindi **Stretch** e **Disabilita**.
 
 ### Con Transact-SQL disabilitare Database Estensione per un database
 Eseguire il comando indicato di seguito.
@@ -85,10 +89,7 @@ ALTER DATABASE <database name>
     SET REMOTE_DATA_ARCHIVE = OFF ;
 ```
 
-## Rimuovere un database con estensione abilitata
-La rimozione di un database abilitato per Database Estensione consente di rimuovere il database locale, ma non di eliminare i dati remoti. Se si desidera eliminare i dati remoti, è necessario rimuovere il database remoto tramite il portale di gestione di Azure.
-
 ## Vedere anche
-Gli articoli relativi alle [opzioni ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx) e a come [sospendere e riprendere Database Estensione](sql-server-stretch-database-pause.md)
+Gli articoli relativi alle [opzioni ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx) e a come [sospendere e riprendere l'estensione database](sql-server-stretch-database-pause.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

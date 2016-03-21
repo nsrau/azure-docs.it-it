@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Clonazione di app Web"
-	description="Come clonare le app Web in nuove app Web."
+	pageTitle="Clonazione di app Web con PowerShell"
+	description="Come clonare le app Web in nuove app Web con PowerShell."
 	services="app-service\web"
 	documentationCenter=""
 	authors="ahmedelnably"
@@ -16,9 +16,9 @@
 	ms.date="01/13/2016"
 	ms.author="ahmedelnably"/>
 
-# Clonazione di app del servizio app di Azure #
+# Clonazione di app del servizio app di Azure con PowerShell#
 
-Con il rilascio di Microsoft Azure PowerShell versione 1.1.0 è stata aggiunta una nuova opzione a New-AzureRMWebApp che consente all'utente di clonare un'app Web esistente in un'app appena creata in un'area diversa o nella stessa area. In questo modo i clienti possono distribuire rapidamente e con facilità una quantità di app in aree geografiche diverse.
+Con il rilascio di Microsoft Azure PowerShell versione 1.1.0 è stata aggiunta una nuova opzione a New-AzureRMWebApp che consente all'utente di clonare un'app Web esistente in un'app appena creata in un'area diversa o nella stessa area. In questo modo i clienti possono distribuire una quantità di app in aree geografiche diverse rapidamente e con facilità.
 
 La clonazione di app è attualmente supportata solo per i piani di servizio app Premium. La nuova funzionalità usa le stesse limitazioni della funzionalità di backup di App Web. Vedere [Eseguire il backup di un'app Web nel servizio app di Azure](web-sites-backup.md).
 
@@ -109,9 +109,10 @@ Questa funzionalità è attualmente in anteprima e sono allo studio nuove funzio
 
 
 ### Riferimenti ###
+- [Clonazione di app Web con il portale di Azure](app-service-web-app-cloning-portal.md)
 - [Eseguire il backup di un'app Web nel servizio app di Azure](web-sites-backup.md)
 - [Supporto di Gestione risorse di Azure per la versione di anteprima di Gestione traffico di Azure](../../articles/traffic-manager/traffic-manager-powershell-arm.md)
 - [Introduzione all'ambiente del servizio app](app-service-app-service-environment-intro.md)
 - [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

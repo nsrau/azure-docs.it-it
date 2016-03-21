@@ -1,10 +1,10 @@
 <properties
    pageTitle="Configurare una rete virtuale e un gateway per ExpressRoute | Microsoft Azure"
-   description="In questo articolo viene illustrata la configurazione di una rete virtuale (VNet) per ExpressRoute"
+   description="Questo articolo illustra come configurare una rete virtuale (VNet) per ExpressRoute usando il modello di distribuzione classica."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,16 +14,22 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="03/08/2016"
    ms.author="cherylmc"/>
 
-# Configurare una rete virtuale per ExpressRoute
+# Configurare una rete virtuale per ExpressRoute nel portale classico
 
-Questa procedura illustra la configurazione di una rete virtuale e un gateway da utilizzare con ExpressRoute, usando il modello classico di distribuzione e Gestione servizi. Attualmente, non è disponibile la documentazione per la configurazione di una rete virtuale per ExpressRoute tramite il modello di distribuzione di Gestione risorse. Quando si dispone di un articolo pubblicato, ad esso si aggiungerà un collegamento.
+La procedura disponibile in questo articolo illustra come configurare una rete virtuale e un gateway da usare con ExpressRoute mediante il modello di distribuzione classica e il portale classico.
 
->[AZURE.IMPORTANT]Prima di creare una rete virtuale, è importante comprendere che Azure attualmente funziona con due modelli di distribuzione: Gestione delle risorse e Classico. Prima di iniziare la configurazione, assicurarsi di comprendere i modelli di distribuzione e gli strumenti. Per informazioni sui modelli di distribuzione, vedere [Modelli di distribuzione di Azure](../azure-classic-rm.md).
+Se sono necessarie istruzioni per il modello di distribuzione di Resource Manager, è possibile vedere gli articoli seguenti, che illustrano come [Creare una rete virtuale usando PowerShell](../virtual-network/virtual-networks-create-vnet-arm-ps.md) e [Aggiungere un gateway VPN a una VNet di Resource Manager per ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
 
-1. Accedere al **portale di Azure classico**.
+**Informazioni sui modelli di distribuzione di Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+## Per configurare una VNet e un gateway
+
+1. Accedere al [portale di Azure classico](http://manage.windowsazure.com).
 
 2. Nell'angolo inferiore sinistro della schermata fare clic su **New**. Nel riquadro di spostamento, fare clic su **Servizi di rete**, quindi fare clic su **Rete virtuale**. Fare clic su **Custom Create** per avviare la configurazione guidata.
 
@@ -70,4 +76,4 @@ Questa procedura illustra la configurazione di una rete virtuale e un gateway da
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

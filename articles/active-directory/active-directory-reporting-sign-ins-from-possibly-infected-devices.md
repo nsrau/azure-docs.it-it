@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.date="03/04/2016"
 	ms.author="saah;kenhoff"/>
 
 
 # Accessi da dispositivi potenzialmente infetti
-Questo report tenta di identificare i dispositivi degli utenti che sono stati infettati e fanno ora parte di una botnet (nota anche come un esercito di zombie). Gli indirizzi IP di accesso degli utenti vengono messi in correlazione con gli indirizzi IP in contatto con i server della botnet.
+Questo report tenta di identificare i dispositivi degli utenti che sono stati infettati e fanno ora parte di una botnet. Gli indirizzi IP di accesso degli utenti vengono messi in correlazione con gli indirizzi IP in contatto con i server della botnet.
 
 Raccomandazione: questo report contrassegna gli indirizzi IP, non i dispositivi dell'utente. Per verificarlo, si consiglia di contattare l'utente e di eseguire la scansione di tutti i dispositivi dell'utente. È inoltre possibile che un dispositivo personale dell'utente sia stato infettato o che un altro utente, che stava usando lo stesso indirizzo IP, abbia un dispositivo infetto.
 
@@ -26,4 +26,4 @@ Per altre informazioni su come risolvere problemi correlati alle infezioni malwa
 
 ![Accessi da dispositivi potenzialmente infetti](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0309_2016-->

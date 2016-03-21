@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="mimig"/>
 
 # Automatizzare la creazione dell'account DocumentDB con i modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](documentdb-create-account.md)
-- [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
+- [Portale di Azure](documentdb-create-account.md)
+- [Interfaccia della riga di comando di Azure e Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
 
 In questo articolo viene illustrato come creare un account DocumentDB utilizzando modelli di Gestione risorse di Azure o l'interfaccia della riga di comando di Azure (CLI). Per creare un account DocumentDB nel portale di Azure, vedere [Creare un account database di DocumentDB nel portale di Azure](documentdb-create-account.md).
 
@@ -75,9 +75,10 @@ Una volta effettuato l'accesso, verrà visualizza la schermata di conferma segue
 
 La shell dei comandi fornisce inoltre l'output seguente.
 
-    -info:    Added subscription Visual Studio Ultimate with MSDN
-	+
-	info:    login command OK
+    /info:    Added subscription Visual Studio Ultimate with MSDN
+    info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
+    +
+    info:    login command OKK
 
 Oltre al metodo di accesso interattivo descritto di seguito, sono disponibili altri metodi di accesso all'interfaccia della riga di comando di Azure. Per altre informazioni su altri metodi e per informazioni sulla gestione di più sottoscrizioni, vedere [Connettersi a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 
@@ -89,7 +90,9 @@ Per impostazione predefinita, l'interfaccia della riga di comando di Azure viene
 
 L'output ottenuto sarà il seguente:
 
-	info:    New mode is arm
+    info:    Executing command config mode
+    info:    New mode is arm
+    info:    config mode command OK
 
 È possibile passare nuovamente al set predefinito di comandi digitando `azure config mode asm`.
 
@@ -268,8 +271,8 @@ Per utilizzare un file dei parametri:
 
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
 
- - `<PathToTemplate>` è il percorso del file azuredeploy.json creato nel passaggio 1.
- - `<PathToParameterFile>` è il percorso del file azuredeploy.parameters.json creato nel passaggio 1.
+ - `<PathToTemplate>` è il percorso del file azuredeploy.json creato nel passaggio 1. Se il nome del percorso include spazi, racchiudere il parametro tra virgolette doppie.
+ - `<PathToParameterFile>` è il percorso del file azuredeploy.parameters.json creato nel passaggio 1. Se il nome del percorso include spazi, racchiudere il parametro tra virgolette doppie.
  - `<resourcegroupname>` è il nome del gruppo di risorse esistente in cui si desidera aggiungere un account database di DocumentDB. 
  - `<deploymentname>` è il nome facoltativo della distribuzione.
 
@@ -351,4 +354,4 @@ Per ulteriori informazioni su DocumentDB, esplorare queste risorse:
 
 Per altri modelli da poter usare, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

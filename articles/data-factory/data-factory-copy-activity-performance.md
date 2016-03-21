@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Guida alle prestazioni delle attività di copia e all'ottimizzazione"
+	pageTitle="Guida alle prestazioni delle attività di copia e all'ottimizzazione | Microsoft Azure"
 	description="Informazioni sui fattori chiave che influiscono sulle prestazioni di spostamento dei dati in Data factory di Azure tramite l'attività di copia."
 	services="data-factory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/07/2016"
 	ms.author="spelluru"/>
 
 
@@ -224,4 +224,4 @@ Ecco alcune informazioni di riferimento sul monitoraggio e sull'ottimizzazione d
 - SQL Server locale: [Monitorare e ottimizzare le prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
 - File server locale: [Ottimizzazione delle prestazioni per i file server](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

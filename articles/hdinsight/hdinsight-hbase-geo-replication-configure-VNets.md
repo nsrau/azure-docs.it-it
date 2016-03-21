@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
 # Configurare una connessione VPN tra due reti virtuali di Azure  
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
+- [Configurare la connettività VPN](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [Configurare DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [Configurare la replica di HBase](hdinsight-hbase-geo-replication.md) 
 
 La connettività di rete virtuale di Azure Site-To-Site usa un gateway VPN per fornire un tunnel sicuro tramite Ipsec/IKE. Le reti virtuali possono trovarsi in diverse sottoscrizioni e aree geografiche diverse. È anche possibile combinare una comunicazione tra reti virtuali con configurazioni multisito. Esistono diversi motivi per la connettività tra reti virtuali:
 
@@ -29,7 +29,7 @@ La connettività di rete virtuale di Azure Site-To-Site usa un gateway VPN per f
 - Applicazioni multilivello in singole aree geografiche con alto grado di isolamento 
 - Comunicazione tra sottoscrizioni e organizzazioni in Azure
 
-Per altre informazioni, vedere [Configurare una connessione tra reti virtuali](../virtual-network/virtual-networks-configure-vnet-to-vnet-connection.md).
+Per altre informazioni, vedere [Configurare una connessione tra reti virtuali](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 Per visualizzare un video:
 
@@ -270,4 +270,4 @@ In questa esercitazione si è appreso come configurare una connessione VPN tra d
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

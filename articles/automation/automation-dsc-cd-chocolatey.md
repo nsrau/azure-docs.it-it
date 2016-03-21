@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="03/04/2016"
    ms.author="golive"/>
 
 # Esempio di utilizzo: Distribuzione continua in macchine virtuali tramite Automation DSC e Chocolatey
@@ -78,7 +78,7 @@ PowerShell Gallery è instrumentata per l'installazione delle risorse DSC nell'a
 In alternativa, è disponibile l'approccio manuale. La struttura di cartelle di un modulo di integrazione di PowerShell per un computer Windows è leggermente diversa da quella prevista da Automation DSC per Azure, perciò richiede alcune modifiche da parte dell'utente. Non è un'operazione difficile e viene eseguita una sola volta per risorsa, a meno che non si voglia aggiornarla in futuro. Per altre informazioni sulla creazione di moduli di integrazione di PowerShell, vedere l'articolo relativo alla [creazione di moduli di integrazione per Automazione di Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   Installare il modulo necessario nella workstation, come indicato di seguito:
-    -   Installare [Windows Management Framework versione 5](http://www.microsoft.com/download/details.aspx?id=48729) (non necessario per Windows 10).
+    -   Installare [Windows Management Framework versione 5](http://aka.ms/wmf5latest) (non necessario per Windows 10)
     -   `Install-Module  –ModuleName MODULENAME` <—estrae il modulo da PowerShell Gallery. 
 -   Copiare la cartella del modulo da `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` in una cartella temporanea. 
 -   Eliminare esempi e documentazione dalla cartella principale. 
@@ -185,4 +185,4 @@ Il codice sorgente completo per questo esempio di utilizzo si trova in [questo p
 - [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

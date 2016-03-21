@@ -65,7 +65,7 @@ Tornando all'esempio, si può osservare facilmente che la partizione con i voti 
 Per evitarle, si consiglia di effettuare due azioni nell'ambito del partizionamento:
 
 - Cercare di partizionare lo stato in modo che venga distribuito uniformemente tra tutte le partizioni.
-- [Creare report sulle metriche da ogni replica del servizio](service-fabric-resource-balancer-dynamic-load-reporting.md). L'infrastruttura di servizi consente di creare report sulle metriche, ad esempio la quantità di memoria o il numero di record, in un servizio. In base alle metriche segnalate, Service Fabric rileva che alcune partizioni gestiscono carichi maggiori di altre e ribilancia il cluster spostando le repliche in nodi più adatti.
+- Segnalare il carico da ognuna delle repliche per il servizio. Per informazioni su come fare, vedere l'articolo relativo a [metriche e carico](service-fabric-cluster-resource-manager-metrics.md). Service Fabric consente di segnalare il carico utilizzato dai servizi, ad esempio la quantità di memoria o il numero di record. In base alle metriche segnalate, Service Fabric rileva che alcune partizioni gestiscono carichi maggiori di altre e ribilancia il cluster spostando le repliche in nodi più adatti, per evitare il sovraccarico dei nodi in generale.
 
 A volte non è possibile sapere quanti dati saranno presenti in una determinata partizione e quindi si consiglia di eseguire entrambe le operazioni, adottando prima una strategia di partizionamento che distribuisca i dati in modo uniforme nelle partizioni e poi creando un report del carico. Il primo metodo consente di evitare le situazioni descritte nell'esempio delle votazioni, il secondo invece di ridurre le differenze temporanee nell'accesso o nel carico nel corso del tempo.
 
@@ -131,9 +131,9 @@ Prima di scrivere il codice, considerare le partizioni e le chiavi di partizione
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
-    
+
     È anche necessario aggiornare le proprietà LowKey e HighKey dell'elemento StatefulService, come illustrato di seguito.
-    
+
     ```xml
     <Service Name="Processing">
       <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
@@ -184,7 +184,7 @@ Prima di scrivere il codice, considerare le partizioni e le chiavi di partizione
     ```
 
     È anche importante notare che l'URL pubblicato è leggermente diverso dal prefisso dell'URL di ascolto. L'URL in ascolto viene assegnato a HttpListener. L'URL pubblicato è l'URL che viene pubblicato nel servizio Naming dell'infrastruttura di servizi, usato per l'individuazione dei servizi. I client richiederanno questo indirizzo con questo servizio di individuazione. Poiché l'indirizzo ottenuto dai client deve avere l'IP o il nome FQDN effettivo del nodo per connettersi, è necessario sostituire "+" con l'IP o il nome FQDN del nodo, come mostrato sotto.
-    
+
 9. L'ultimo passaggio consiste nell'aggiungere la logica di elaborazione al servizio, come mostrato sotto.
 
     ```CSharp
@@ -228,17 +228,17 @@ Prima di scrivere il codice, considerare le partizioni e le chiavi di partizione
         }
     }
     ```
-        
+
     `ProcessInternalRequest` legge i valori del parametro della stringa di query usato per chiamare la partizione e chiama `AddUserAsync` per aggiungere il cognome al dizionario attendibile `dictionary`.
-    
+
 10. Ora si aggiungerà un servizio senza stato al progetto per verificare se sia possibile chiamare una determinata partizione.
 
     Questo servizio viene usato come semplice interfaccia Web che accetta il cognome come parametro della stringa di query, determina la chiave di partizione e la invia al servizio Alphabet.Processing per l'elaborazione.
-    
+
 11. Nella finestra di dialogo per la **creazione di un servizio** scegliere il servizio **senza stato** e assegnargli il nome "Alphabet.WebApi", come illustrato di seguito.
-    
+
     ![Schermata di servizio senza stato](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
-    
+
 12. Aggiornare le informazioni sull'endpoint nel file ServiceManifest.xml del servizio Alphabet.WebApi per aprire una porta, come mostrato sotto.
 
     ```xml
@@ -261,7 +261,7 @@ Prima di scrivere il codice, considerare le partizioni e le chiavi di partizione
         return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
     }
     ```
-     
+
 14. Ora è necessario implementare la logica di elaborazione. HttpCommunicationListener chiama `ProcessInputRequest` quando arriva una richiesta. Ora aggiungere il codice seguente.
 
     ```CSharp
@@ -294,7 +294,7 @@ Prima di scrivere il codice, considerare le partizioni e le chiavi di partizione
                     primaryReplicaAddress);
         }
         catch (Exception ex) { output = ex.Message; }
-        
+
         using (var response = context.Response)
         {
             if (output != null)
@@ -351,11 +351,11 @@ Prima di scrivere il codice, considerare le partizioni e le chiavi di partizione
     ```
 
 16. Al termine del processo di distribuzione, è possibile controllare il servizio e tutte le partizioni in Service Fabric Explorer.
-    
+
     ![Schermata di Service Fabric Explorer](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-    
+
 17. Per testare la logica di partizionamento, immettere `http://localhost:8090/?lastname=somename` in un browser. Ogni cognome che inizia con la stessa lettera risulta archiviato nella stessa partizione.
-    
+
     ![Schermata del browser](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 L'intero codice sorgente dell'esempio è disponibile in [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
@@ -372,4 +372,4 @@ Per informazioni sui concetti relativi a Service Fabric, vedere gli articoli seg
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

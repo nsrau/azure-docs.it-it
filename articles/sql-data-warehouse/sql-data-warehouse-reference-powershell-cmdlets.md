@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/22/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;mausher;sonyama"/>
 
 # Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse
@@ -26,7 +26,7 @@ Allo stesso modo, le API REST per il **database di Azure SQL** possono essere us
 
 ## Ottenere ed eseguire i cmdlet di Azure PowerShell
 
-1. Per scaricare il modulo di Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
+1. Per scaricare il modulo di Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 2. Per eseguire il modulo, nella finestra di avvio digitare **Windows PowerShell**.
 3. Se non si è ancora provveduto ad aggiungere il proprio account al computer, eseguire il cmdlet seguente. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell]().
 
@@ -42,14 +42,14 @@ Allo stesso modo, le API REST per il **database di Azure SQL** possono essere us
 
 ## Suspend-AzureRmSqlDatabase
 
-Per i riferimenti ai comandi, vedere [Suspend-AzureRmSQLDatabase](https://msdn.microsoft.com/library/mt619337.aspx).
+Per i riferimenti ai comandi, vedere [Suspend-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619337.aspx).
 
 ### Esempio 1: Sospensione di un database per nome in un server
 
 Questo esempio sospende un database denominato "Database02" ospitato in un server denominato "Server01". Il server si trova in un gruppo di risorse di Azure denominato "ResourceGroup1".
 
 ```
-Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 ### Esempio 2: Sospensione di un oggetto di database
@@ -57,7 +57,7 @@ Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName 
 Questo esempio recupera un database denominato "Database02" da un server denominato "Server01" incluso in un gruppo di risorse denominato "ResourceGroup1". In questo modo si invia tramite pipe l'oggetto recuperato a **Suspend-AzureRmSqlDatabase**. Il database viene pertanto sospeso. Il comando finale mostra i risultati.
 
 ```
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
@@ -71,7 +71,7 @@ Per i riferimenti ai comandi, vedere [Resume-AzureRmSqlDatabase](https://msdn.mi
 Questo esempio fa riprendere le operazioni di un database denominato "Database02" ospitato in un server denominato "Server01". Il server è incluso in un gruppo di risorse denominato "ResourceGroup1".
 
 ```
-Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" -DatabaseName "Database02"
+Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
 ### Esempio 2: Ripresa di un oggetto di database
@@ -79,7 +79,7 @@ Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "
 Questo esempio recupera un database denominato "Database02" da un server denominato "Server01" incluso in un gruppo di risorse denominato "ResourceGroup1". L'oggetto viene inviato tramite pipe a **Resume-AzureRmSqlDatabase**.
 
 ```
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ```
 
@@ -96,8 +96,8 @@ RestorePointCreationDate |Ora dello snapshot di backup (popolato quando restoreP
 ### Esempio 1: Recupero dei punti di ripristino di un database per nome in un server
 Questo esempio recupera i punti di ripristino per un database denominato "Database02" da un server denominato "Server01" incluso in un gruppo di risorse denominato "ResourceGroup1".
 
-```	
-$restorePoints = Get-AzureRmSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
+$restorePoints = Get-AzureRmSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints
 ```
 
@@ -107,13 +107,13 @@ $restorePoints
 Questo esempio recupera un database denominato "Database02" da un server denominato "Server01" incluso in un gruppo di risorse denominato "ResourceGroup1". L'oggetto di database viene inviato tramite pipe a **Get-AzureRmSqlDatabase** e come risultato si ottengono i punti di ripristino del database. Il comando finale stampa i risultati.
 
 ```
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints = $database | Get-AzureRmSqlDatabaseRestorePoints
 $retorePoints
 ```
 
 
-> [AZURE.NOTE] Se il server è foo.database.windows.net, utilizzare "foo" come NomeServer nei cmdlet di powershell.
+> [AZURE.NOTE] Se il server è foo.database.windows.net, usare "foo" come nome server nei cmdlet di PowerShell.
 
 
 ## Passaggi successivi
@@ -133,4 +133,4 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

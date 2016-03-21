@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Spostare dati da e verso le tabelle di Azure | Data factory di Azure" 
+	pageTitle="Spostare dati in/da una tabella di Azure | Microsoft Azure" 
 	description="Informazioni su come spostare i dati da e verso l'archiviazione tabelle di Azure mediante Data factory di Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -380,7 +380,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 
 Proprietà | Descrizione | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Usare la query personalizzata per leggere i dati. | <p>Stringa di query della tabella di Azure. Vedere gli esempi seguenti. | No
+azureTableSourceQuery | Usare la query personalizzata per leggere i dati. | Stringa di query della tabella di Azure. Vedere gli esempi seguenti. | No
 azureTableSourceIgnoreTableNotFound | Indica se ignorare l'eccezione di tabella inesistente. | TRUE<br/>FALSE | No |
 
 ### esempi di azureTableSourceQuery
@@ -526,4 +526,4 @@ In questo caso Data Factory eseguirà automaticamente la conversione del tipo in
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,13 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.date="03/04/2016"
 	ms.author="saah;kenhoff"/>
 
 # Utenti con anomalie dell'attività di accesso
-Si tratta di un rapporto di aggregazione che combina gli accessi sospetti dai report seguenti: <ul><li>Accessi da origini sconosciute</li> <li>Accessi dopo più errori</li> <li>Accessi da più aree geografiche</li> <li>Accessi da indirizzi IP con attività sospetta</li> <li>Accessi da dispositivi potenzialmente infetti</li> <li>Attività di accesso irregolare</li> </ul>
+Questo è un report aggregato che combina gli accessi sospetti dei report seguenti:
+
+<ul><li>Accessi da origini sconosciute</li>
+<li>Accessi dopo più errori</li>
+<li>Accessi da più aree geografiche</li>
+<li>Accessi da indirizzi IP con attività sospette</li>
+<li>Accessi da dispositivi potenzialmente infetti</li>
+<li>Attività di accesso irregolare</li>
+</ul>
 
 
 ![Utenti con anomalie dell'attività di accesso](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0309_2016-->

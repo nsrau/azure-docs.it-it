@@ -73,14 +73,14 @@ Per creare un'attività personalizzata .NET da usare in una pipeline di Data fac
 ### Procedura: 
 1.	Creare un progetto della libreria di classi .NET.
 	<ol type="a">
-	<li>Avviare <b>Visual Studio 2012</b> o <b>Visual Studio 2013</b>.</li>
-	<li>Fare clic su <b>File</b>, scegliere <b>Nuovo</b> e quindi fare clic su <b>Progetto</b>.</li>
-	<li>Espandere <b>Modelli</b> e selezionare <b>Visual C#</b>. In questa procedura dettagliata viene usato C#, ma è possibile usare qualsiasi linguaggio .NET per sviluppare l'attività personalizzata.</li>
-	<li>Selezionare la <b>libreria di classi</b> dall'elenco relativo ai tipi di progetto visualizzato a destra.</li>
-	<li>Immettere <b>MyDotNetActivity</b> nel campo <b>Nome</b>.</li>
-	<li>Selezionare <b>C:\ADFGetStarted</b> per <b>Percorso</b>.</li>
-	<li>Fare clic su <b>OK</b> per creare il progetto.</li>
-</ol>
+		<li>Avviare <b>Visual Studio 2012</b> o <b>Visual Studio 2013</b>.</li>
+		<li>Fare clic su <b>File</b>, scegliere <b>Nuovo</b> e quindi fare clic su <b>Progetto</b>.</li>
+		<li>Espandere <b>Modelli</b> e selezionare <b>Visual C#</b>. In questa procedura dettagliata viene usato C#, ma è possibile usare qualsiasi linguaggio .NET per sviluppare l'attività personalizzata.</li>
+		<li>Selezionare la <b>libreria di classi</b> dall'elenco relativo ai tipi di progetto visualizzato a destra.</li>
+		<li>Immettere <b>MyDotNetActivity</b> nel campo <b>Nome</b>.</li>
+		<li>Selezionare <b>C:\ADFGetStarted</b> per <b>Percorso</b>.</li>
+		<li>Fare clic su <b>OK</b> per creare il progetto.</li>
+	</ol>
 2.  Fare clic su <b>Strumenti</b>, puntare a <b>Gestione pacchetti NuGet</b>, quindi fare clic sulla <b>console di gestione pacchetti</b>.
 3.	Nella <b>console di gestione pacchetti</b>, eseguire il seguente comando per importare <b>Microsoft.Azure.Management.DataFactories</b>.
 
@@ -608,7 +608,7 @@ In questo passaggio viene creato un set di dati per rappresentare i dati di inpu
 	- **AssemblyName** è impostato sul nome del DLL: **MyActivities.dll**.
 	- **EntryPoint** è impostato su **MyDotNetActivityNS.MyDotNetActivity.**
 	- **PackageLinkedService** è impostato su **StorageLinkedService** che punta all'archiviazione BLOB contenente il file ZIP dell'attività personalizzata. Se vengono usati account di archiviazione di Azure diversi per i file di input/output e per il file ZIP dell'attività personalizzata, è necessario creare un altro servizio collegato Archiviazione di Azure. Questo articolo presuppone che venga usato stesso account di archiviazione di Azure.
-	- **PackageFile** è impostato su **customactivitycontainer/MyDotNetActivity.zip**. È nel formato: <containerforthezip>/<nameofthezip.zip>.
+	- **PackageFile** è impostato su **customactivitycontainer/MyDotNetActivity.zip**. Ha il formato: contenitoreperlozip/nomedellozip.zip.
 	- L'attività personalizzata accetta **InputDataset** come input e **OutputDataset** come output.
 	- La proprietà linkedServiceName dell'attività personalizzata punta a **HDInsightLinkedService**, che indica a Data Factory di Azure che l'attività personalizzata deve essere eseguita in un cluster HDInsight di Azure.
 	- La proprietà **isPaused** è **false** per impostazione predefinita. In questo esempio la pipeline viene eseguita immediatamente perché le sezioni hanno inizio nel passato. È possibile impostare questa proprietà su true per sospendere la pipeline e reimpostarla su false per riavviare la pipeline. 
@@ -728,7 +728,7 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 	- Specificare **2** come valore per l'impostazione del **numero massimo di attività per nodo di calcolo**.
 	- Specificare **2** come valore per l'impostazione del **numero di destinazioni dedicate**. 
 
-	Il servizio Data factory crea un processo in Azure Batch denominato adf-<pool name>:job-xxx. Per ogni esecuzione attività di una sezione viene creata un'attività. Se sono presenti 10 sezioni pronte per l'elaborazione, vengono create 10 attività nel processo. È possibile eseguire più sezioni in parallelo se sono disponibili più nodi di calcolo nel pool. È anche possibile eseguire più sezioni nello stesso nodo di calcolo se l'impostazione per il numero massimo di attività per nodo di calcolo è > 1.
+	Il servizio Data factory crea un processo in Azure Batch denominato adf-<pool name>:job-xxx. Per ogni esecuzione attività di una sezione viene creata un'attività. Se sono presenti 10 sezioni pronte per l'elaborazione, vengono create 10 attività nel processo. È possibile eseguire più sezioni in parallelo se sono disponibili più nodi di calcolo nel pool. È anche possibile eseguire più sezioni nello stesso nodo di calcolo se l'impostazione per il numero massimo di attività per nodo di calcolo è > 1.
 	
 	![Attività di Batch Explorer](./media/data-factory-use-custom-activities/BatchExplorerTasks.png)
 
@@ -803,4 +803,4 @@ Di seguito sono riportati i passaggi generali per usare il servizio collegato Az
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

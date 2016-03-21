@@ -3,8 +3,8 @@
 	description="Come cercare la sicurezza, l’attività e i report di controllo dell'Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
+	authors="dhanyahk"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,18 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/07/2015"
-	ms.author="kenhoff"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
 # Ricerca di Report di Azure Active Directory
 
 *Questo documento fa parte della [guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).*
 
-Azure Active Directory fornisce i amministratori di directory la capacità di ricercare la sicurezza l’attività e dell'utente, attività e gli eventi di controllo in più report.
+Azure Active Directory (Azure AD) offre agli amministratori di directory la capacità di cercare in più report gli eventi relativi alla sicurezza, alle attività e al controllo dell’utente.
 
-Per trovare il pannello di ricerca, passare a **Portale di gestione di Azure -> Azure Active Directory -> Report.** Il pannello è disponibile nella parte superiore dell'elenco di report.
+Per trovare il pannello di ricerca, passare a **Portale di Azure classico > Azure Active Directory > Report.** Il pannello è disponibile nella parte superiore dell'elenco di report.
 
-Per cercare le attività o gli eventi di controllo per un determinato utente, selezionare un intervallo di date nei campi Da e A, digitare nell’UPN dell’utente o nel nome visualizzato e fare clic sul pulsante di segno di spunta.
+Per cercare gli eventi di attività o controllo per un determinato utente, selezionare un intervallo di date nei campi Da e A, immettere l’UPN dell’utente o il nome visualizzato e selezionare il pulsante con il segno di spunta (OK).
 
 ## Report inclusi nella ricerca
 
@@ -35,7 +35,7 @@ Report | Incluso
 Accessi da origini sconosciute | No
 Accessi dopo più errori | No
 Accessi da più aree geografiche | No
-Accessi da indirizzi IP con attività sospetta | No
+Accessi da indirizzi IP con attività sospette | No
 Accessi da dispositivi potenzialmente infetti | No
 Attività di accesso irregolare | No
 Utenti con anomalie dell'attività di accesso | No
@@ -58,4 +58,4 @@ Utilizzo dispositivi RMS | No
  - [Report di Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Enti di controllo per il report di Azure Active Directory](active-directory-reporting-audit-events.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

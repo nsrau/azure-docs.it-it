@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/15/2016"
+	ms.date="03/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -126,6 +126,7 @@ Prima di poter configurare l'asserzione SAML, è necessario contattare il team d
 
     a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione HR2day by Merces usando il modello seguente: **"https://<nome tenant>.force.com/<nome istanza>"**.
 
+    b. Fare clic su **Avanti**.
 
 4. Nella pagina **Configura accesso Single Sign-On in HR2day by Merces** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_05.png) <br>
 
@@ -245,4 +246,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="03/04/2016"
 	ms.author="jgao"/>
 
 
@@ -85,7 +85,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	<tr><td>Nome del database SQL</td><td>$sqlDatabaseName</td><td></td><td>Il database SQL di Azure in cui Sqoop esporterà i dati. </td></tr>
 	</table>
 
-	> [AZURE.NOTE] Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di Azure. Per istruzioni sulla creazione di un database SQL e sulla configurazione di regole del firewall, vedere [Come creare e configurare un database SQL]\[sqldatabase-create-configure].
+	> [AZURE.NOTE] Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di Azure. Per istruzioni sulla creazione di un database SQL e sulla configurazione di regole del firewall, vedere [Come creare e configurare un database SQL][sqldatabase-create-configure].
 
 
 > [AZURE.NOTE] L'inserimento dei valori nelle tabelle potrà essere utile per completare questa esercitazione.
@@ -192,12 +192,18 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
 	<tr><td>${jobTracker}</td><td>Specifica l'URL dell'utilità di analisi dei processi Hadoop. Usare <strong>jobtrackerhost:9010</strong> nel cluster HDInsight versione 3.0 e 2.0.</td></tr>
 	<tr><td>${nameNode}</td><td>Specifica l'URL del nodo dei nomi di Hadoop. Usare l'indirizzo wasb:// del file system predefinito, ad esempio <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>.</td></tr>
 	<tr><td>${queueName}</td><td>Consente di specificare il nome della coda alla quale verrà inviato il processo. Usare <strong>default</strong>.</td></tr>
-	</table><table border = "1">
+	</table>
+
+
+	<table border = "1">
 	<tr><th>Variabile azione Hive</th><th>Descrizione</th></tr>
 	<tr><td>${hiveDataFolder}</td><td>La directory di origine per il comando Hive Create Table.</td></tr>
 	<tr><td>${hiveOutputFolder}</td><td>La cartella di output per l'istruzione INSERT OVERWRITE.</td></tr>
 	<tr><td>${hiveTableName}</td><td>Il nome della tabella di Hive che fa riferimento ai file di dati log4j.</td></tr>
-	</table><table border = "1">
+	</table>
+
+
+	<table border = "1">
 	<tr><th>Variabile azione Sqoop</th><th>Descrizione</th></tr>
 	<tr><td>${sqlDatabaseConnectionString}</td><td>Stringa di connessione del database SQL.</td></tr>
 	<tr><td>${sqlDatabaseTableName}</td><td>La tabella del database SQL di Azure in cui verranno esportati i dati.</td></tr>
@@ -738,4 +744,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

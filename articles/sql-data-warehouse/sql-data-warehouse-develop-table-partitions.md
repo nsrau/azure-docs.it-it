@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Partizioni della tabella in SQL Data Warehouse
@@ -109,7 +109,7 @@ AND     rp.[name]    = 'SloDWPool'
 ;
 ```
 
-> [AZURE.NOTE]Evitare se possibile di dimensionare le partizioni oltre la concessione di memoria fornita dalla classe di risorse molto grande. Se le partizioni aumentano oltre questa cifra, si rischia un utilizzo elevato di memoria che a sua volta determina una compressione non ottimale.
+> [AZURE.NOTE] Evitare se possibile di dimensionare le partizioni oltre la concessione di memoria fornita dalla classe di risorse molto grande. Se le partizioni aumentano oltre questa cifra, si rischia un utilizzo elevato di memoria che a sua volta determina una compressione non ottimale.
 
 ## Cambio di partizione
 Per il cambio di partizione tra due tabelle, è necessario verificare che le partizioni siano allineate sui rispettivi limiti e che le definizioni delle tabelle corrispondano. Poiché non sono disponibili vincoli CHECK per imporre l'intervallo di valori in una tabella, la tabella di origine deve contenere gli stessi limiti di partizione della tabella di destinazione. In caso contrario, il cambio di partizione non riuscirà, perché i metadati della partizione non vengono sincronizzati.
@@ -150,7 +150,7 @@ VALUES (1,20000101,1,1,1,1,1,1);
 CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
 
-> [AZURE.NOTE]Con la creazione dell'oggetto Statistic, si assicura una maggiore accuratezza dei metadati della tabella. Se si omette la creazione di statistiche, SQL Data Warehouse userà i valori predefiniti. Per altre informazioni, vedere l'articolo relativo alla gestione delle [statistiche][].
+> [AZURE.NOTE] Con la creazione dell'oggetto Statistic, si assicura una maggiore accuratezza dei metadati della tabella. Se si omette la creazione di statistiche, SQL Data Warehouse userà i valori predefiniti. Per altre informazioni, vedere l'articolo relativo alla gestione delle [statistiche][].
 
 È quindi possibile eseguire una query per il conteggio delle righe usando la vista del catalogo `sys.partitions`:
 
@@ -312,7 +312,7 @@ DROP TABLE #partitions;
 
 Con questo approccio, il codice nel controllo del codice sorgente rimane statico, mentre i valori dei limiti del partizionamento possono essere dinamici, evolvendo con il warehouse nel tempo.
 
->[AZURE.NOTE]Il cambio di partizione presenta alcune differenze rispetto a SQL Server. Per altre informazioni su questo argomento, vedere [Eseguire la migrazione del codice][].
+>[AZURE.NOTE] Il cambio di partizione presenta alcune differenze rispetto a SQL Server. Per altre informazioni su questo argomento, vedere [Eseguire la migrazione del codice][].
 
 
 ## Passaggi successivi
@@ -333,4 +333,4 @@ Dopo la migrazione dello schema del database a SQL Data Warehouse, è possibile 
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

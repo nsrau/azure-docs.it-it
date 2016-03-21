@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
+   ms.date="02/29/2016"
    ms.author="sumukhs"/>
 
 # Configurazione di Reliable Services con stato
@@ -52,7 +52,7 @@ ReplicatorConfig
 |ReplicatorEndpoint|N/D|Nessun valore predefinito: parametro obbligatorio|Indirizzo IP e porta che il replicatore principale/secondario userà per comunicare con altri replicatori nel set di repliche. Deve fare riferimento a un endpoint di risorsa TCP nel manifesto del servizio. Per altre informazioni sulla definizione delle risorse dell'endpoint in un manifesto del servizio, vedere [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md). |
 |MaxPrimaryReplicationQueueSize|Numero di operazioni|8192|Numero massimo di operazioni nella coda principale. Un'operazione viene liberata quando il replicatore principale riceve un acknowledgement da tutti i replicatori secondari. Questo valore deve essere maggiore di 64 ed essere una potenza di 2.|
 |MaxSecondaryReplicationQueueSize|Numero di operazioni|16384|Numero massimo di operazioni nella coda secondaria. Un'operazione viene liberata quando il relativo stato viene reso altamente disponibile tramite persistenza. Questo valore deve essere maggiore di 64 ed essere una potenza di 2.|
-|CheckpointThresholdInMB|MB|200|Quantità di spazio del file di log dopo il quale viene eseguito un checkpoint dello stato.|
+|CheckpointThresholdInMB|MB|50|Quantità di spazio del file di log dopo il quale viene eseguito un checkpoint dello stato.|
 |MaxRecordSizeInKB|KB|1024|La dimensione massima dei record che il replicatore può scrivere nel log. Questo valore deve essere un multiplo di 4 ed essere maggiore di 16.|
 |OptimizeLogForLowerDiskUsage|Boolean|true|Se il valore è true, il log viene configurato in modo che il file di log dedicato della replica venga creato mediante un file NTFS sparse. Questo riduce l'utilizzo effettivo di spazio su disco per il file. Se il valore è false, il file viene creato con allocazioni predefinite che assicurano le migliori prestazioni in scrittura.|
 |MaxRecordSizeInKB|KB|1024|La dimensione massima dei record che il replicatore può scrivere nel log. Questo valore deve essere un multiplo di 4 ed essere maggiore di 16.|
@@ -107,4 +107,4 @@ L'impostazione MaxRecordSizeInKB definisce la dimensione massima dei record che 
 
 Le impostazioni SharedLogId e SharedLogPath vengono sempre usate insieme e consentono a un servizio di usare un log condiviso separato dal log condiviso predefinito per il nodo. Per ottenere migliori prestazioni, il maggior numero di servizi possibile dovrebbe specificare lo stesso log condiviso. I file di log condivisi devono essere memorizzati su dischi riservati esclusivamente a questo tipo di file, in modo da ridurre le situazioni di contesa della testina. È probabile che questo valore debba essere modificato solo in rari casi.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

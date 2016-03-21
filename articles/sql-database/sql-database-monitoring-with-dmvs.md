@@ -3,7 +3,7 @@
    description="Informazioni su come rilevare e diagnosticare i problemi di prestazioni comuni utilizzando visualizzazioni a gestione dinamica per monitorare il Database SQL di Microsoft Azure."
    services="sql-database"
    documentationCenter=""
-   authors="BYHAM"
+   authors="carlrabeler"
    manager="jeffreyg"
    editor=""
    tags=""/>
@@ -137,4 +137,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Introduzione al Database SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

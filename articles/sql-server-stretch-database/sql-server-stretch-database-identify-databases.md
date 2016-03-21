@@ -3,9 +3,9 @@
 	description="Informazioni su come identificare database e tabelle candidati per Database Estensione."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -63,4 +63,4 @@ Abilitare Database Estensione.
 ## Vedere anche
 [Limitazioni della superficie di attacco e problemi di blocco per Database Estensione](sql-server-stretch-database-limitations.md) [Abilitazione di Database Estensione per un database](sql-server-stretch-database-enable-database.md) [Abilitazione di Database Estensione per una tabella](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

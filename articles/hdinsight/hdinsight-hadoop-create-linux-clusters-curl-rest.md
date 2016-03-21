@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="02/05/2016"
+   	ms.date="03/08/2016"
    	ms.author="larryfr"/>
 
 #Creare cluster basati su Linux in HDInsight tramite cURL e l’API REST di Azure
@@ -27,7 +27,10 @@ L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospit
 >
 > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-###Prerequisiti
+##Prerequisiti
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -355,4 +358,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Usare i componenti di Python in Storm in HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Distribuire e monitorare le topologie con Storm in HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

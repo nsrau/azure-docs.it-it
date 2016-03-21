@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -147,9 +147,9 @@ Il pool di thread fornisce nuovi thread di lavoro o thread di completamento I/O 
 Quando il numero di thread esistenti, o occupati, raggiunge il minimo, l'oggetto ThreadPool limita la frequenza di inserimento dei nuovi thread a uno ogni 500 millisecondi. Ciò significa che se il sistema riceve un picco di lavoro che necessita di un thread IOCP, il lavoro viene elaborato molto rapidamente. Tuttavia, se il picco di lavoro è superiore all'impostazione minima configurata, ci sarà un ritardo nell'elaborazione di una parte del lavoro mentre l'oggetto ThreadPool attende che si verifichi una delle condizioni seguenti.
 
 1. Un thread esistente diventa disponibile per elaborare il lavoro.
-1. Nessun thread esistente diventa disponibile per 500 ms e viene creato un nuovo thread.
+1. Nessun thread esistente diventa disponibile per 500 ms e viene creato un nuovo thread.
 
-In sostanza, ciò significa che quando il numero dei thread occupati è maggiore del numero minimo di thread, è probabile che si verifichi un ritardo di 500 ms prima che il traffico di rete venga elaborato dall'applicazione. È anche importante notare che quando un thread esistente rimane inattivo per più di 15 secondi viene pulito e il ciclo di crescita e riduzione si ripete.
+In sostanza, ciò significa che quando il numero dei thread occupati è maggiore del numero minimo di thread, è probabile che si verifichi un ritardo di 500 ms prima che il traffico di rete venga elaborato dall'applicazione. È anche importante notare che quando un thread esistente rimane inattivo per più di 15 secondi viene pulito e il ciclo di crescita e riduzione si ripete.
 
 Se si osserva un messaggio di errore di esempio da StackExchange.Redis, build 1.0.450 o versione successiva, si noterà che ora le statistiche dell'oggetto ThreadPool vengono stampate. Di seguito sono riportati i dettagli relativi a IOCP e WORKER.
 
@@ -158,7 +158,7 @@ Se si osserva un messaggio di errore di esempio da StackExchange.Redis, build 1.
 	IOCP: (Busy=6,Free=994,Min=4,Max=1000), 
 	WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 
-Nell'esempio precedente sono presenti 6 thread IOCP occupati e il sistema è configurato per consentire un minimo di 4 thread. In questo caso si verificheranno probabilmente due ritardi di 500 ms, perché 6 > 4.
+Nell'esempio precedente sono presenti 6 thread IOCP occupati e il sistema è configurato per consentire un minimo di 4 thread. In questo caso si verificheranno probabilmente due ritardi di 500 ms, perché 6 > 4.
 
 Si noti che StackExchange.Redis può raggiungere il timeout se la crescita dei thread IOCP o WORKER viene limitata.
 
@@ -282,4 +282,4 @@ Cache nel ruolo è destinato al ritiro il 30 novembre 2016.
 
 [impostazione di configurazione "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

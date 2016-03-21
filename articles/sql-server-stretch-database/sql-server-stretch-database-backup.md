@@ -3,9 +3,9 @@
 	description="Scoprire come eseguire backup e ripristino di database con estensione abilitata."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -67,4 +67,4 @@ Articoli relativi a [gestione e risoluzione problemi di Database Estensione](sql
 [StretchBackupImage3]: ./media/sql-server-stretch-database-backup/StretchDBBackup3.png
 [StretchBackupImage4]: ./media/sql-server-stretch-database-backup/StretchDBBackup4.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

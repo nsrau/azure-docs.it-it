@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
+     ms.date="02/03/2016"
      ms.author="elioda"/>
 
 # Esercitazione: inviare messaggi da cloud a dispositivo con l'hub IoT
@@ -37,7 +37,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 + Microsoft Visual Studio 2015
 
-+ Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere [Versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank").
++ Un account Azure attivo. <br/>Se non si ha un account, è possibile creare un account gratuito in pochi minuti. Per informazioni dettagliate, vedere [Versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank").
 
 [AZURE.INCLUDE [iot-hub-c2d-device-csharp](../../includes/iot-hub-c2d-device-csharp.md)]
 
@@ -46,7 +46,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 ## Passaggi successivi
 
-In questa esercitazione è stato descritto come inviare e ricevere messaggi da cloud a dispositivo. È possibile continuare a esplorare le funzionalità e lo scenario dell’hub IoT con le esercitazioni seguenti:
+In questa esercitazione è stato descritto come inviare e ricevere messaggi da cloud a dispositivo. È possibile continuare a esplorare le funzionalità e gli scenari dell'hub IoT con le esercitazioni seguenti:
 
 - [Elaborare messaggi da dispositivo a cloud], illustra come elaborare in modo affidabile telemetria e messaggi interattivi provenienti dai dispositivi.
 - [Caricamento di file da dispositivi], descrive un modello che utilizza i messaggi da cloud a dispositivo per facilitare il caricamento di file dai dispositivi.
@@ -82,4 +82,4 @@ Altre informazioni sull'hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

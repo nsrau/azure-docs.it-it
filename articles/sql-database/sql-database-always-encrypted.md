@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Proteggere i dati sensibili nel database SQL con la crittografia del database | Microsoft Azure"
 	description="Proteggere i dati sensibili nel database SQL in pochi minuti."
-	keywords="database sql, crittografia sql, crittografia database, chiave crittografia, dati sensibili, crittografia sempre attiva"	
+	keywords="crittografia dati, crittografia sql, crittografia database, dati sensibili, crittografia sempre attiva"	
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
 # Proteggere i dati sensibili nel database SQL con la crittografia del database e archiviare le chiavi di crittografia nell'archivio certificati di Windows
@@ -24,9 +24,10 @@
 - [Insieme di credenziali chiave Azure](sql-database-always-encrypted-azure-key-vault.md)
 - [Archivio certificati di Windows](sql-database-always-encrypted.md)
 
+
 Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia di database tramite la [procedura guidata per la crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx) di [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) e archiviare le chiavi di crittografia nell'archivio certificati di Windows.
 
-La crittografia sempre attiva è una nuova tecnologia di crittografia del database SQL di Azure e di SQL Server, che protegge i dati sensibili inattivi sul server durante lo spostamento tra client e server e durante l'uso, assicurando che i dati sensibili non vengano mai visualizzati come testo non crittografato all'interno del sistema di database. Solo le applicazioni client o i server delle app, che hanno accesso alle chiavi, possono accedere ai dati di testo non crittografato. Per informazioni dettagliate, vedere l'articolo relativo alla [crittografia sempre attiva (motore di database)](https://msdn.microsoft.com/library/mt163865.aspx).
+La crittografia sempre attiva è una nuova tecnologia di crittografia dei dati del database SQL di Azure e di SQL Server, che protegge i dati sensibili inattivi sul server durante lo spostamento tra client e server e durante l'uso, assicurando che i dati sensibili non vengano mai visualizzati come testo non crittografato all'interno del sistema di database. Dopo aver crittografato i dati solo le applicazioni client o i server applicazioni, che hanno accesso alle chiavi, possono accedere ai dati di testo non crittografato. Per informazioni dettagliate, vedere l'articolo relativo alla [crittografia sempre attiva (motore di database)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 
 Dopo aver configurato il database per usare la crittografia sempre attiva, verrà creata un'applicazione client in C# con Visual Studio per lavorare con i dati crittografati.
@@ -547,6 +548,6 @@ Dopo aver creato un database che usa la crittografia sempre attiva, è possibile
 - [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
 - [Crittografia di SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Procedura guidata della crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx)
-- [Blog della crittografia sempre attiva](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
+- [Blog della crittografia sempre attiva](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

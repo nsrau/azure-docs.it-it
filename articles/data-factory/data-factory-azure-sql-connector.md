@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Spostare dati da e verso il database SQL di Azure | Data factory di Azure" 
+	pageTitle="Spostare dati in/dal database SQL di Azure | Microsoft Azure" 
 	description="Informazioni su come spostare i dati da e verso il database SQL di Azure mediante Data factory di Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -630,4 +630,4 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 
 	 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

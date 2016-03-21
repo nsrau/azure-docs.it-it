@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/02/2016"
 	ms.author="mithal;garye" />
 
 # Foglio informativo sulla pipeline di dati automatizzati per le stime di Azure Machine Learning
@@ -41,4 +41,4 @@ Scaricare il foglio informativo qui: **[Foglio informativo sulla pipeline di dat
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

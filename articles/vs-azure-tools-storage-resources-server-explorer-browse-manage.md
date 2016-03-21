@@ -21,7 +21,7 @@ Se sono stati installati gli Strumenti di Azure per Microsoft Visual Studio, è 
 
 Per visualizzare Esplora Server in Visual Studio, nella barra dei menu scegliere **Visualizza**, **Esplora server**. Il nodo di archiviazione mostra tutti gli account di archiviazione esistenti in ogni sottoscrizione/certificato di Azure a cui si è connessi. Se l'account di archiviazione non è visualizzato, è possibile aggiungerlo seguendo le istruzioni riportate [più avanti in questo argomento](#add-storage-accounts-by-using-server-explorer).
 
-A partire da Azure SDK 2.7, è anche possibile usare il nuovo Cloud Explorer per visualizzare e gestire le risorse di Azure. Per altre informazioni, vedere [Gestione delle risorse di Azure con Cloud Explorer](https://msdn.microsoft.com/library/azure/mt185741.aspx).
+A partire da Azure SDK 2.7, è anche possibile usare il nuovo Cloud Explorer per visualizzare e gestire le risorse di Azure. Per altre informazioni, vedere [Gestione delle risorse di Azure con Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer).
 
 
 ## Visualizzare e gestire le risorse di archiviazione in Visual Studio
@@ -193,7 +193,8 @@ La tabella è organizzata in entità (mostrate nelle righe) e proprietà (mostra
 
     ![Aggiunta o modifica di un'entità di tabella](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC656238.png)
 
-    Le entità di una tabella non devono avere lo stesso set di proprietà (colonne). Tenere presente le restrizioni seguenti sulla visualizzazione e la modifica dei dati della tabella. - Non è possibile visualizzare o modificare i dati binari (tipo byte), ma è possibile archiviarli in una tabella.
+    Le entità di una tabella non devono avere lo stesso set di proprietà (colonne). Tenere presenti le limitazioni seguenti relative alla visualizzazione e alla modifica dei dati della tabella.
+    - I dati binari (tipo byte) non possono essere visualizzati o modificati, ma possono essere archiviati in una tabella.
 
     - Non è possibile modificare i valori **PartitionKey** o **RowKey**, perché l'archiviazione tabelle in Azure non supporta tale operazione.
 
@@ -313,4 +314,4 @@ Sono disponibili due modi per aggiungere gli account di archiviazione usando Esp
 
 Per altre informazioni sui servizi di archiviazione di Azure, vedere [Uso dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -65,7 +65,7 @@ Per scrivere una funzione che viene chiamata da WebJobs SDK quando viene ricevut
 
 L'SDK riceve un messaggio in modalità `PeekLock` e chiama `Complete` sul messaggio se la funzione viene completata correttamente oppure `Abandon` se la funzione ha esito negativo. Se il tempo di esecuzione della funzione supera il timeout di `PeekLock`, il blocco viene rinnovato automaticamente.
 
-Il bus di servizio esegue la gestione della propria coda non elaborabile, in modo che non sia controllata né configurabile in WebJobs SDK.
+Bus di servizio esegue la gestione della propria coda non elaborabile che non può essere controllata o configurata da WebJobs SDK.
 
 ### Messaggio stringa in coda
 
@@ -186,4 +186,4 @@ Gli argomenti trattati in questo articolo includono quanto segue:
 In questa guida sono stati forniti esempi di codice che illustrano come gestire scenari comuni per l'uso del bus di servizio di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

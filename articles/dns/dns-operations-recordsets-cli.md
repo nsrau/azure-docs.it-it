@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gestire set di record e record DNS in DNS di Azure utilizzando CLI | Microsoft Azure" 
+   pageTitle="Gestire set di record e record DNS in DNS di Azure usando l'interfaccia della riga di comando | Microsoft Azure" 
    description="Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure. Tutti i comandi di CLI per le operazioni sui set di record e i record." 
    services="dns" 
    documentationCenter="na" 
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/21/2016"
+   ms.date="03/04/2016"
    ms.author="joaoma"/>
 
 # Come gestire i record DNS utilizzando CLI
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-operations-recordsets-cli.md)
+- [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
 
-Questa guida descrive come gestire i set di record e i record per la zona DNS.
+Questa guida descrive come gestire i set di record e i record per la zona DNS usando l'interfaccia della riga di comando multipiattaforma di Azure.
 
 >[AZURE.NOTE] DNS di Azure è un servizio solo di Gestione risorse di Azure. Non include un’API ASM. È pertanto necessario garantire che l’interfaccia della riga di comando di Azure sia configurata per utilizzare la modalità di gestione risorse, utilizzando il comando 'azure config mode arm'.
 
@@ -242,4 +242,4 @@ Dopo aver creato la zona e i record DNS, è possibile [delegare il dominio a DNS
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

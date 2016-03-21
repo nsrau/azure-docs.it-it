@@ -14,17 +14,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="mandia"/>
 
 
 # Introduzione all'API di Twitter
 Connettersi a Twitter per pubblicare un tweet, recuperare la sequenza temporale dell'utente e così via. L'API di Twitter può essere usata da:
 
-- PowerApps 
 - App per la logica 
+- PowerApps
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore di Twitter](../app-service-logic/app-service-logic-connector-twitter.md).
+> [AZURE.SELECTOR]
+- [App per la logica](../articles/connectors/create-api-twitter.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-twitter.md)
+
+&nbsp;
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore Twitter](../app-service-logic/app-service-logic-connector-twitter.md).
 
 Con Twitter è possibile:
 
@@ -33,7 +39,7 @@ Con Twitter è possibile:
 - Usare le azioni per pubblicare un tweet, cercare tweet e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando viene visualizzato un nuovo tweet, è possibile pubblicarlo su Facebook.
 - Aggiungere l'API di Twitter a PowerApps Enterprise, in modo che gli utenti possano usarla nelle proprie app. 
 
-Per informazioni su come aggiungere un'API in PowerApps Enterprise, vedere l'articolo relativo alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Per informazioni su come aggiungere un'API in PowerApps Enterprise, accedere alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -50,25 +56,6 @@ Tutte le API supportano i dati nei formati JSON e XML.
 
 ## Creare una connessione a Twitter
 
-### Aggiungere configurazioni aggiuntive in PowerApps
-Quando si aggiunge Twitter a PowerApps Enterprise, immettere i valori **Chiave utente** e **Segreto Consumer** dell'applicazione Twitter. Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione Twitter. Se non si ha un'applicazione Twitter, è possibile usare la procedura seguente per creare l'applicazione:
-
-1. Accedere a [Twitter](https://apps.twitter.com).
-
-2. Fare clic su **Crea nuova app**: ![Pagina app di Twitter][6]
-
-3. In **Creare un'applicazione**:
-   
-	1. Immettere qualsiasi valore in **Name**, **Description** e **Website**.
-	2. In **Callback url** immettere il valore dell'**URL di reindirizzamento** visualizzato quando si aggiunge l'API di Twitter nel portale di Azure.
-	5. Accettare il contratto e **Creare l'applicazione Twitter**.  
-
-	![Creare app di Twitter][7]
-
-A questo punto, copiare e incollare i valori di **Chiave utente** e **Segreto Consumer** nella configurazione di Twitter nel portale di Azure.
-
-
-### Aggiungere configurazioni aggiuntive nelle app per la logica
 Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione all'account Twitter.
 
 1. Accedere all'account Twitter.
@@ -83,7 +70,7 @@ Dopo aver creato la connessione immettere le proprietà di Twitter, ad esempio t
 Si applica alla versione 1.0.
 
 ### Pubblica un nuovo tweet 
-Invia tweet. ```POST: /posttweet```
+Invia un tweet. ```POST: /posttweet```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -103,7 +90,7 @@ Invia tweet. ```POST: /posttweet```
 
 
 ### Quando viene visualizzato un nuovo tweet 
-Quando viene pubblicato un nuovo tweet corrispondente alla query di ricerca, attiva un flusso di lavoro. ```GET: /onnewtweet```
+Attiva un flusso di lavoro quando viene pubblicato un nuovo tweet corrispondente alla query di ricerca. ```GET: /onnewtweet```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -318,13 +305,14 @@ Recupera gli utenti seguiti dall'utente principale. ```GET: /myfriends```
 
 
 ## Passaggi successivi
-Dopo aver aggiunto l'API di Dropbox a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle app.
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Tornare all'[elenco di API](apis-list.md).
 
 <!--References-->
 
 [6]: ./media/create-api-twitter/twitter-apps-page.png
 [7]: ./media/create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -40,7 +40,16 @@ Le app per le API offrono le funzionalità seguenti:
 
 Inoltre, le funzionalità offerte da App per le API, App Web e app per dispositivi mobili sono intercambiabili. Questo significa che un'istanza di App per le API può sfruttare i vantaggi delle funzionalità per il web e per lo sviluppo di dispositivi mobili e l'hosting offerto dalle app Web e dalle app per dispositivi mobili. È anche vero il contrario: ad esempio, è possibile usare un'app web per ospitare un'API e sfruttare comunque i vantaggi dei metadati di Swagger per CORS e per la generazione del codice client per l'accesso a browser tra domini. Per altre informazioni, vedere [Panoramica di App Web](../app-service-web/app-service-web-overview.md) e [Informazioni sulle app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md).
 
->[AZURE.NOTE]È possibile usare [Gestione API di Azure](../api-management/api-management-key-concepts.md) per controllare l'accesso client alle API ospitate dalle app per le API del servizio app. Anche se le app per le API forniscono servizi di autenticazione, non offrono altre funzionalità di gestione degli accessi offerte da Gestione API, ad esempio consolidamento di endpoint e limitazione delle richieste.
+## Aumento delle app per le API con Gestione API 
+
+Le app per le api e la [Gestione API di Azure](../api-management/api-management-key-concepts.md) sono servizi complementari:
+
+* Gestione API permette di gestire le API. I front-end di Gestione API vengono applicati su un'API per controllare e limitare l'utilizzo, modificare l'input e output, raggruppare diverse API in un'unica API e così via. Le API gestite possono essere ospitate in qualsiasi punto.
+* Le app per le api consentono l'hosting delle API. Questo servizio offre funzionalità che semplificano lo sviluppo e l'utilizzo delle API, ma non offre le funzionalità di monitoraggio, limitazione o consolidamento della Gestione API. 
+
+È possibile usare Gestione API per gestire le API ospitate dalle app per le API oppure usare le app per le API senza Gestione API.
+
+Gestione API e le app per le API talvolta offrono funzionalità simili. Ad esempio, entrambe permettono di automatizzare il supporto CORS. Quando i due servizi vengono usati insieme, per CORS si usa Gestione API perché funziona da front-end per le app per le API.
 
 ## Concetti delle app per le API <a id="concepts"></a>
 
@@ -57,4 +66,4 @@ Per visualizzare un elenco di problemi noti relativi alle app per le API, vedere
 
 Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

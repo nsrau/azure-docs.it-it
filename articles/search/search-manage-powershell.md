@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Gestire Ricerca di Azure con script di PowerShell | Microsoft Azure | Servizio di ricerca cloud ospitato" 
-	description="Gestire il servizio Ricerca di Azure in Microsoft Azure con script di PowerShell. Creare o aggiornare un servizio Ricerca di Azure e gestire le relative chiavi amministratore"  
+	description="Gestire il servizio Ricerca di Azure con script di PowerShell. Creare o aggiornare un servizio Ricerca di Azure e gestire le relative chiavi amministratore" 
 	services="search" 
 	documentationCenter="" 
 	authors="seansaleh" 
@@ -14,10 +14,10 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="02/25/2016" 
+	ms.date="03/08/2016" 
 	ms.author="seasa"/>
 
-# Gestire il servizio di ricerca in Microsoft Azure con PowerShell
+# Gestire il servizio Ricerca di Azure con PowerShell
 > [AZURE.SELECTOR]
 - [Portale](search-manage.md)
 - [PowerShell](search-manage-powershell.md)
@@ -49,7 +49,7 @@ Per specificare la sottoscrizione, eseguire il comando seguente. Nell'esempio se
 ## Comandi utili per iniziare
 
 	$serviceName = "your-service-name-lowercase-with-dashes"
-	$sku = "free" # or "standard" for a paid service
+	$sku = "free" # or "basic" or "standard" for paid services
 	$location = "West US"
 	# You can get a list of potential locations with
 	# (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Search'}).Locations
@@ -136,4 +136,4 @@ Dopo aver creato il servizio, è possibile eseguire i passaggi successivi: compi
 
 - [Analizzare il traffico di Ricerca di Azure](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

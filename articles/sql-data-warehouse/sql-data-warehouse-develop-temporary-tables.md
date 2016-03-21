@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Tabelle temporanee in SQL Data Warehouse
@@ -124,7 +124,7 @@ DROP TABLE #stats_ddl;
 
 In alcuni casi le funzioni inline e con più istruzioni possono anche essere sostituite usando questa tecnica.
 
-> [AZURE.NOTE]È anche possibile estendere questa soluzione. Se ad esempio si vuole solo aggiornare una singola tabella, è semplicemente necessario filtrare la tabella #stats\_ddl.
+> [AZURE.NOTE] È anche possibile estendere questa soluzione. Se ad esempio si vuole solo aggiornare una singola tabella, è semplicemente necessario filtrare la tabella #stats\_ddl.
 
 ## Limitazioni della tabella temporanea
 SQL Data Warehouse impone un paio di limitazioni quando si implementano tabelle temporanee.
@@ -147,4 +147,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,10 +12,10 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="java"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="03/07/2016"
    ms.author="larryfr"/>
 
 
@@ -25,7 +25,9 @@ Apache Storm è un sistema di calcolo in tempo reale scalabile, a tolleranza di 
 
 > [AZURE.NOTE] I passaggi descritti in questo articolo si basano sull'uso di un cluster HDInsight basato su Windows. Per i passaggi per creare uno Storm basato su Linux nel cluster HDInsight, vedere [Esercitazione Apache Storm: Iniziare a utilizzare l'esempio Storm Starter mediante l’analisi di dati in HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md)
 
-## Prerequisiti
+## Prima di iniziare
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Per completare correttamente questa esercitazione di Apache Storm, è necessario quanto segue:
 
@@ -203,6 +205,10 @@ L'interfaccia utente di Storm consente di monitorare la topologia.
 
 Tornare alla pagina **Topology summary** per la topologia relativa al conteggio parole e quindi selezionare **Kill** nella sezione **Topology actions**. Quando richiesto, immettere 10 per il numero di secondi di attesa prima dell'arresto della topologia. Dopo il periodo di timeout, la topologia non viene più visualizzata nella sezione **Interfaccia utente di Storm** del dashboard.
 
+##Eliminazione del cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## Riepilogo
 
 In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere come creare un cluster Storm in HDInsight e usare Storm Dashboard per distribuire, monitorare e gestire topologie Storm.
@@ -239,4 +245,4 @@ In questa esercitazione di Apache Storm si è usato Storm Starter per apprendere
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

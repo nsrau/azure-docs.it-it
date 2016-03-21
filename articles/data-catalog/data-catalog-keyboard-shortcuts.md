@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/12/2016"
+   ms.date="03/07/2016"
    ms.author="derrickv"/>
 
 # Scelte rapide da tastiera per Catalogo dati di Azure
@@ -24,8 +24,8 @@ Di seguito sono riportate le scelte rapide da tastiera per Catalogo dati di Azur
 
 |Per|Premere
 |---|---
-|Passare da un controllo a un altro in una pagina.|TAB
-|Scegliere un'opzione.|INVIO o BARRA SPAZIATRICE
+|Passare da un controllo a un altro in una pagina|TAB
+|Scegliere un'opzione|INVIO o BARRA SPAZIATRICE
 |Ingrandire la pagina.|Tasto WINDOWS+Freccia SU
 |Ripristinare o ridurre a icona la pagina. | Tasto WINDOWS+Freccia GIÙ
 |Aprire il menu della pagina.| ALT+BARRA SPAZIATRICE
@@ -35,32 +35,32 @@ Di seguito sono riportate le scelte rapide da tastiera per Catalogo dati di Azur
 
 |Per|Premere
 |---|---
-|Accedere al servizio.|ALT+S
+|Accedere al servizio|ALT+S
 
 ## Pagina di selezione dell'origine dati
 
 |Per|Premere
 |---|---
-|Passare alla pagina successiva (se abilitata).|ALT+N
-|Cambiare il tipo selezionato quando lo stato attivo è su un riquadro.|Freccia SINISTRA, freccia SU, freccia DESTRA o freccia GIÙ
+|Passare alla pagina successiva (se abilitata)|ALT+N
+|Cambiare il tipo selezionato quando lo stato attivo è su un riquadro|Freccia SINISTRA, freccia SU, freccia DESTRA o freccia GIÙ
 
 ## Pagina di connessione all'origine dati
 
 |Per|Premere
 |---|---
-|Passare alla pagina precedente (se abilitata).|ALT+P
+|Passare alla pagina precedente (se abilitata)|ALT+P
 |Scegliere il pulsante Connetti.| ALT+C
 
 ## Pagina di contesto della connessione
 
 |Per|Premere
 |---|---
-|Scegliere il pulsante Registra (se abilitato).| ALT+R
-|Selezionare la casella di controllo Includi anteprima (se disponibile).|ALT+P
-|Selezionare la casella di controllo Includi profilo dati (se disponibile).|ALT+D
+|Scegliere il pulsante Registra (se abilitato)| ALT+R
+|Selezionare la casella di controllo Includi anteprima (se disponibile)|ALT+P
+|Selezionare la casella di controllo Includi profilo dati (se disponibile)|ALT+D
 |Passare da un elemento all'altro dell'elenco.|Freccia SU o freccia GIÙ
 | Espandere un nodo della visualizzazione albero nella gerarchia server. |Freccia DESTRA
-| Spostare gli elementi selezionati per "Oggetti disponibili" oppure "Oggetti da registrare". | BARRA SPAZIATRICE
+| Spostare gli elementi selezionati per **Oggetti disponibili** oppure **Oggetti da registrare** | BARRA SPAZIATRICE
 
 ## Pagina di stato della pubblicazione
 
@@ -77,4 +77,18 @@ Di seguito sono riportate le scelte rapide da tastiera per Catalogo dati di Azur
 |Scegliere il pulsante Salva (se abilitato).| ALT+S
 |Scegliere il pulsante Annulla.|ALT+C
 
-<!---HONumber=AcomDC_0218_2016-->
+## Pagina del portale
+|Per|Premere
+|---|---
+|Esplorare| TAB e MAIUSC+TAB
+|Fare clic su un elemento| BARRA SPAZIATRICE o INVIO
+|Drill-down in una sezione| BARRA SPAZIATRICE o INVIO
+|Uscire da una sezione| ESC
+|Aggiungere/rimuovere un asset| ALT+P
+|Selezionare un asset con stato attivo nella pagina di ricerca| BARRA SPAZIATRICE o INVIO
+|Aggiunge o rimuove asset da una selezione multipla| CTRL+BARRA SPAZIATRICE o INVIO
+|Menu di corrispondenze di ricerca ON/OFF| ALT+S
+|Menu **Apri In** ON/OFF | ALT + O
+|Esplorare contenitore, se l'asset è un contenitore | ALT+L
+
+<!---HONumber=AcomDC_0309_2016-->

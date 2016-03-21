@@ -17,7 +17,7 @@
    ms.date="11/01/2015"
    ms.author="kundanap"/>
 
-# Utilizzo dell’estensione di script personalizzato con modelli di gestione risorse di Azure
+# Uso dell'estensione script personalizzata con modelli di Azure Resource Manager
 
 In questo articolo viene fornita una panoramica sulla scrittura di modelli di gestione risorse di Azure con l’estensione di script personalizzato per l'avvio di carichi di lavoro in una macchina virtuale Linux o Windows.
 
@@ -45,7 +45,7 @@ I modelli di Gestione risorse di Azure consentono di specificare in modo dichiar
 
 ## Utilizzo dell'estensione Script personalizzato
 
-Per la distribuzione con i modelli si utilizza la stessa versione dell'estensione di script personalizzato disponibile per l'API di gestione dei servizi di Azure. L'estensione supporta gli stessi parametri e scenari, come il caricamento dei file nell’account di archiviazione di Azure o nel percorso Github. La differenza principale quando si utilizzano i modelli consiste nella versione esatta dell'estensione che deve essere specificata anziché specificare la versione nel formato majorversion.*.
+Per la distribuzione con i modelli, usare la stessa versione dell'estensione script personalizzata disponibile per le API Gestione dei servizi di Azure. L'estensione supporta gli stessi parametri e scenari, come il caricamento dei file nell’account di archiviazione di Azure o nel percorso Github. La differenza principale quando si utilizzano i modelli consiste nella versione esatta dell'estensione che deve essere specificata anziché specificare la versione nel formato majorversion.*.
 
  ## Esempio di modello per una VM Linux
 
@@ -96,10 +96,10 @@ Definire la seguente risorsa nella sezione delle risorse del modello
 
 Negli esempi precedenti, sostituire l'URL di file e il nome del file con le proprie impostazioni.
 
-Dopo la creazione del modello, è possibile distribuirlo tramite l’interfaccia della riga di comando di Azure oppure Azure Powershell.
+Dopo aver creato il modello, è possibile distribuirlo usando l'interfaccia della riga di comando di Azure oppure Azure PowerShell.
 
 Consultare gli esempi seguenti per configurare applicazioni in una macchina virtuale utilizzando l'estensione di script personalizzato.
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Estensione di script personalizzato in una macchina virtuale Linux</a>. </br><a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Estensione di script personalizzato in una macchina virtuale Windows</a>.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

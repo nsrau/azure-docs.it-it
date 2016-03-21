@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Come monitorare Cache Redis di Azure
@@ -28,7 +28,7 @@ Per visualizzare le metriche della cache, [passare](cache-configure.md) all'ista
 
 ![Monitoraggio][redis-cache-monitor-overview]
 
->[AZURE.IMPORTANT]Se viene visualizzato il messaggio seguente nel portale di Azure, seguire i passaggi nella sezione [Abilitare la diagnostica della cache](#enable-cache-diagnostics) per abilitare la diagnostica della cache.
+>[AZURE.IMPORTANT] Se viene visualizzato il messaggio seguente nel portale di Azure, seguire i passaggi nella sezione [Abilitare la diagnostica della cache](#enable-cache-diagnostics) per abilitare la diagnostica della cache.
 >
 >`Monitoring may not be enabled. Click here to turn on Diagnostics.`
 
@@ -54,11 +54,11 @@ Fare clic sulla freccia a destra di **Account di archiviazione** per selezionare
 
 Dopo aver configurate le impostazioni di diagnostica, fare clic su **Salva** per salvare la configurazione. Si noti che per rendere effettive le modifiche potrebbero essere necessari alcuni minuti.
 
->[AZURE.IMPORTANT]Le cache nella stessa area e nella stessa sottoscrizione condividono lo stesso account di archiviazione di diagnostica e quando viene modificata la configurazione, la modifica viene applicata a tutte le cache della sottoscrizione che si trovano in tale area.
+>[AZURE.IMPORTANT] Le cache nella stessa area e nella stessa sottoscrizione condividono lo stesso account di archiviazione di diagnostica e quando viene modificata la configurazione, la modifica viene applicata a tutte le cache della sottoscrizione che si trovano in tale area.
 
 Per visualizzare le metriche archiviate, esaminare le tabelle dell'account di archiviazione con i nomi che iniziano con `WADMetrics`. Per altre informazioni sull'accesso alle metriche archiviate all'esterno del portale di Azure, vedere l'esempio relativo all'[accesso ai dati di monitoraggio di Cache Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
 
->[AZURE.NOTE]Solo le metriche archiviate nell'account di archiviazione selezionato vengono visualizzate nel portale di Azure. Se si modificano gli account di archiviazione, i dati nell'account di archiviazione configurato in precedenza rimangono disponibili per il download, ma non vengono visualizzati nel portale di Azure.
+>[AZURE.NOTE] Solo le metriche archiviate nell'account di archiviazione selezionato vengono visualizzate nel portale di Azure. Se si modificano gli account di archiviazione, i dati nell'account di archiviazione configurato in precedenza rimangono disponibili per il download, ma non vengono visualizzati nel portale di Azure.
 
 ## Metriche disponibili e intervalli di report
 
@@ -66,7 +66,7 @@ Le metriche della cache vengono segnalate mediante vari intervalli di report, tr
 
 In ogni metrica sono incluse due versioni. Una metrica misura la prestazione per l'intera cache e per le cache che utilizzano [clustering](cache-how-to-premium-clustering.md), una seconda versione della metrica che include `(Shard 0-9)` nel nome misura la prestazione per una singola partizione in una cache. Se ad esempio una cache ha 4 partizioni, `Cache Hits` è la quantità totale di riscontri per l'intera cache e `Cache Hits (Shard 3)` rappresenta le occorrenze di tale partizionamento della cache.
 
->[AZURE.NOTE]Anche quando la cache è inattiva senza applicazioni client attive connesse, è possibile osservare una certa attività della cache, ad esempio client connessi, uso della memoria e operazioni eseguite. Questa attività è normale durante il funzionamento di un'istanza di Cache Redis di Azure.
+>[AZURE.NOTE] Anche quando la cache è inattiva senza applicazioni client attive connesse, è possibile osservare una certa attività della cache, ad esempio client connessi, uso della memoria e operazioni eseguite. Questa attività è normale durante il funzionamento di un'istanza di Cache Redis di Azure.
 
 | Metrica | Descrizione |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -212,11 +212,11 @@ Immettere i criteri della regola desiderati nel pannello **Aggiungi un avviso** 
 
 ![Aggiungi regola di avviso][redis-cache-add-alert]
 
->[AZURE.NOTE]Quando viene creata una regola di avviso facendo clic su **Aggiungi avviso** dal pannello **Metrica**, nell’elenco a discesa **Metrica** sono disponibili solo le metriche visualizzate sul grafico in tale pannello. Quando viene creata una regola di avviso facendo clic su **Aggiungi avviso** dal pannello **Regole di avviso**, nell’elenco a discesa **Metrica** sono disponibili tutte le metriche della cache.
+>[AZURE.NOTE] Quando viene creata una regola di avviso facendo clic su **Aggiungi avviso** dal pannello **Metrica**, nell’elenco a discesa **Metrica** sono disponibili solo le metriche visualizzate sul grafico in tale pannello. Quando viene creata una regola di avviso facendo clic su **Aggiungi avviso** dal pannello **Regole di avviso**, nell’elenco a discesa **Metrica** sono disponibili tutte le metriche della cache.
 
 Una volta salvata, una regola di avviso viene visualizzata nel pannello **Regole di avviso** nonché nel pannello **Metrica** per i grafici in cui viene visualizzata la metrica utilizzata nella regola di avviso. Per modificare una regola di avviso, fare clic sul nome della regola di avviso per visualizzare il pannello **Modifica regola**. Il pannello **Modifica regola** consente di modificare le proprietà della regola, eliminare o disabilitare la regola di avviso o riattivare la regola se è stata precedentemente disabilitata.
 
->[AZURE.NOTE]Affinché le modifiche apportate alle proprietà della regola vengano riflesse nel pannello **Regole di avviso** o nel pannello **Metrica** sono necessari alcuni minuti.
+>[AZURE.NOTE] Affinché le modifiche apportate alle proprietà della regola vengano riflesse nel pannello **Regole di avviso** o nel pannello **Metrica** sono necessari alcuni minuti.
 
 Quando viene attivata una regola di avviso, a seconda della configurazione della regola di avviso viene inviato un messaggio di posta elettronica e viene visualizzata un'icona di avviso in **Regole di avviso** nel pannello **Cache Redis**.
 
@@ -259,4 +259,4 @@ Per ulteriori informazioni sugli avvisi in Azure, vedere [Ricevere notifiche di 
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

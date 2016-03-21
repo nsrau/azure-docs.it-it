@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="03/04/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Esplorare i dati nell'archiviazione BLOB di Azure con Pandas
@@ -38,7 +38,7 @@ Per esplorare e modificare un set di dati, i dati devono essere scaricati dall'o
 
 1. Scaricare i dati da BLOB Azure con l’esempio di codice Python riportato di seguito utilizzando il servizio BLOB. Sostituire la variabile nel codice riportato di seguito con i valori specifici: 
 
-	    from azure.storage import BlobService
+	    from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -117,4 +117,4 @@ Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzand
 		#correlation between column_a and column_b
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

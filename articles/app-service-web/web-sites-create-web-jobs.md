@@ -76,7 +76,7 @@ Sono consentiti i tipi di file seguenti:
 
 ## <a name="CreateScheduledCRON"></a>Creare un processo Web pianificato utilizzando un'espressione CRON
 
-Questa tecnica è disponibile per App Web in esecuzione in modalità Standard o Premium e richiede l’impostazione **Always On** per attivare l'applicazione.
+Questa tecnica è disponibile per App Web in esecuzione in modalità Basic, Standard o Premium e richiede l’impostazione **Always On** per attivare l'applicazione.
 
 Per trasformare un processo Web On Demand in un processo Web pianificato, includere semplicemente un file `settings.job` nella directory principale del file zip del processo Web. Questo file JSON deve includere una `schedule` proprietà con un [espressione CRON](https://en.wikipedia.org/wiki/Cron), per esempio quanto riportato di seguito.
 
@@ -239,4 +239,4 @@ Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

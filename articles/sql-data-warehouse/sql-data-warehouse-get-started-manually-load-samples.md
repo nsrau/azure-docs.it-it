@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Caricare i dati di esempio in SQL Data Warehouse
@@ -84,4 +84,4 @@ Ora che sono state sperimentate alcune query con i dati di esempio, è possibile
 <!--Other Web references-->
 [script di esempio Adventure Works per SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

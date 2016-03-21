@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="01/22/2016"
+   ms.date="03/02/2016"
    ms.author="coreyp"/>
 
 # Panoramica della piattaforma DSC di Automazione di Azure #
@@ -116,6 +116,9 @@ L'immagine seguente illustra in dettaglio il processo nel ciclo di vita di DSC. 
 
 - Durante l'aggiornamento a WMF 5 RTM, se il computer è già registrato come nodo in Automation DSC per Azure, annullare la registrazione da Automation DSC per Azure e ripeterla dopo l'aggiornamento di WMF 5 RTM. Prima di ripetere la registrazione, eliminare il file $env:windir\\system32\\configuration\\DSCEngineCache.mof.
 
+- I cmdlet PowerShell DSC potrebbero non funzionare se WMF 5 RTM è installato su WMF 5 Production Preview. Per risolvere il problema, eseguire il seguente comando in una sessione di PowerShell con privilegi elevati (eseguirla come amministratore): `mofcomp $env:windir\system32\wbem\DscCoreConfProv.mof`
+ 
+
 ##Articoli correlati##
 
 - [Caricamento di computer per la gestione con Automation DSC per Azure](../automation/automation-dsc-onboarding.md)
@@ -124,4 +127,4 @@ L'immagine seguente illustra in dettaglio il processo nel ciclo di vita di DSC. 
 - [Prezzi di Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 - [La distribuzione continua nelle macchine virtuali IaaS tramite Azure Automation DSC e Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

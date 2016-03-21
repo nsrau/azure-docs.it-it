@@ -3,9 +3,9 @@
 	description="Come utilizzare le notifiche di report di Azure Active Directory per gli accessi sospetti."
 	services="active-directory"
 	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor="LisaToft"/>
+	authors="dhanyahk"
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2015"
-	ms.author="saah;kenhoff"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
 # Notifiche di Report di Azure Active Directory
 
@@ -24,7 +24,7 @@ A questo punto, solo il report dell’attività di accesso irregolare attiva le 
 
 ## Che cos'è un "Accesso irregolare"?
 
-Gli accessi irregolari sono quelli che sono stati individuati dagli algoritmi di apprendimento automatico, in base a una condizione di tipo "tempo di spostamento impossibile" combinata con una posizione e un dispositivo di accesso anomali. È possibile che un pirata informatico abbia tentato di accedere con questo account.
+Gli accessi irregolari sono quelli individuati dagli algoritmi di Machine Learning in base a una condizione di tipo "tempo di spostamento impossibile" combinata con una posizione e un dispositivo di accesso anomali. È possibile che un pirata informatico abbia tentato di accedere con questo account.
 
 ## A chi vengono inviate le notifiche tramite posta elettronica?
 
@@ -36,18 +36,19 @@ Il messaggio di posta elettronica viene inviato se si verificano 10 nuove attivi
 
 ## Come si accede al report indicato nel messaggio di posta elettronica?
 
-Quando si fa clic sul collegamento, si verrà reindirizzati alla pagina del report nel portale di gestione di Azure. Per accedere al report, è necessario essere:
+Quando si fa clic sul collegamento, si verrà reindirizzati alla pagina del report nel portale di Azure classico. Per accedere al report, è necessario essere:
 
 - Un amministratore o un coamministratore della sottoscrizioni di Azure
-- Un amministratore globale nella directory e assegnata una licenza di Active Directory Premium. Per altre informazioni, vedere Informazioni su Azure Active Directory.
+
+- Un amministratore globale nella directory e assegnata una licenza di Active Directory Premium. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 ## È possibile disattivare questi messaggi di posta elettronica?
 
-Sì, per disattivare le notifiche correlate a anomali accessi all'interno del portale di gestione di Azure, fare clic su **Configura** e quindi selezionare **Disabilitato** sotto la sezione **Notifiche**.
+Sì, per disattivare le notifiche correlate ad accessi anomali all'interno del portale di Azure classico, fare clic su **Configura** e quindi selezionare **Disabilitato** sotto la sezione **Notifiche**.
 
 ## Passaggi successivi
 - Per informazioni sui report di sicurezza, controllo e attività disponibili, vedere [Report di sicurezza, controllo e attività di Azure AD](active-directory-view-access-usage-reports.md)
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0309_2016-->

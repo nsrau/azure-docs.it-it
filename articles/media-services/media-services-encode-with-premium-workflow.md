@@ -18,9 +18,9 @@
 
 #Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale
 
->[AZURE.NOTE]Per domande relative al codificatore Premium, inviare mepd tramite un messaggio di posta elettronica a Microsoft.com.
+>[AZURE.NOTE]- Per domande relative al codificatore Premium, inviare mepd tramite posta elettronica a Microsoft.com.
 >
->Il processore di contenuti multimediali del flusso di lavoro Premium del codificatore multimediale descritto in questo argomento non è disponibile in Cina.
+>- Il processore di contenuti multimediali del flusso di lavoro Premium del codificatore multimediale descritto in questo argomento non è disponibile in Cina.
 
 ##Panoramica
 
@@ -35,8 +35,6 @@ Nei seguenti argomenti sono incluse informazioni dettagliate su **Flusso di lavo
 Questo argomento illustra come codificare con **Flusso di lavoro Premium del codificatore multimediale** mediante .NET.
 
 Le attività di codifica per **Flusso di lavoro Premium del codificatore multimediale** richiedono un file di configurazione separato, denominato file del flusso di lavoro. Questi file con estensione workflow vengono creati mediante lo strumento [Progettazione flussi di lavoro](media-services-workflow-designer.md).
-
->[AZURE.NOTE]Per domande relative al codificatore Premium, inviare mepd tramite un messaggio di posta elettronica a Microsoft.com.
 
 ##Codificare
 
@@ -279,4 +277,4 @@ Di seguito è riportato un esempio completo. Per informazioni sulla configurazio
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

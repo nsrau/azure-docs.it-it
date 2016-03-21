@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016"
+	ms.date="03/04/2016"
 	ms.author="robmcm" />
 
 # Come utilizzare io.js con Azure applicazione servizio Web App
@@ -31,7 +31,7 @@ Lo [script di distribuzione io.js](https://github.com/felixrieseberg/iojs-azure)
 
 Il primo file, **.deployment**, indica a Siti Web di Azure di eseguire **deploy.cmd** durante la distribuzione. Questo script esegue tutti i passaggi abituali per un applicazione Node.js, ma scarica anche la versione più recente di io.js. Infine, **IISNode.yml** configura App Web in modo da usare il file binario io.js appena scaricato anziché un file binario Node.js preinstallato.
 
-> [AZURE.NOTE]Per aggiornare il file binario io.js usato, eseguire nuovamente la distribuzione dell'applicazione; lo script scaricherà una nuova versione di io.js ogni volta che l'applicazione viene distribuita.
+> [AZURE.NOTE] Per aggiornare il file binario io.js usato, eseguire nuovamente la distribuzione dell'applicazione; lo script scaricherà una nuova versione di io.js ogni volta che l'applicazione viene distribuita.
 
 <a id="manualinstallation"></a>
 ## Utilizzo dell'installazione manuale
@@ -47,12 +47,12 @@ Per configurare Siti Web di Azure in modo da usare **iojs.exe** anziché una ver
 
 In questo articolo si è appreso come usare io.js con Siti Web di Azure, usando sia gli script di distribuzione forniti sia l'installazione manuale.
 
-> [AZURE.NOTE]io.js è in fase di intenso sviluppo e viene aggiornato più di frequente rispetto a Node.js. Una serie di moduli Node.js potrebbe non funzionare con[ io.js; consultare io.js su GitHub] per la risoluzione dei problemi.
+> [AZURE.NOTE] io.js è in fase di intenso sviluppo e viene aggiornato più di frequente rispetto a Node.js. Una serie di moduli Node.js potrebbe non funzionare con[ io.js; consultare io.js su GitHub] per la risoluzione dei problemi.
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
->[AZURE.NOTE]Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 [io.js]: https://iojs.org
 [distribuzione io.js]: https://iojs.org/dist/
@@ -60,4 +60,4 @@ In questo articolo si è appreso come usare io.js con Siti Web di Azure, usando 
 [io.js Deployment Script]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

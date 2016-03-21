@@ -3,9 +3,9 @@
 	description="Informazioni sui problemi di blocco che è necessario risolvere prima di abilitare Database Estensione."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -92,4 +92,4 @@ Nella versione di anteprima corrente di SQL Server 2016, le tabelle con l'estens
 ## Vedere anche
 [Identificare database e tabelle per Database Estensione eseguendo l'ottimizzazione guidata Database Estensione](sql-server-stretch-database-identify-databases.md) [Abilitare Database Estensione per un database](sql-server-stretch-database-enable-database.md) [Abilitare Database Estensione per una tabella](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

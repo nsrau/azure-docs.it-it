@@ -11,10 +11,10 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/25/2016"
+   ms.date="03/07/2016"
    ms.author="nitinme"/>
 
 
@@ -29,6 +29,8 @@ Per informazioni su Hadoop in Windows e per iniziare a usare HDInsight, questa e
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
 * [Introduzione all'uso di Hadoop in HDInsight su Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Obiettivi di questa esercitazione di Hadoop
 
@@ -207,6 +209,9 @@ Per completare questa parte dell'esercitazione, è necessario disporre di Excel 
 
 9. Fare clic su **Carica e chiudi** nell'angolo superiore sinistro per importare l'output del processo Hive in Excel.
 
+##Eliminazione del cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##<a name="nextsteps"></a>Passaggi successivi
 In questa esercitazione di Hadoop si è appreso come effettuare il provisioning di un cluster Hadoop in Windows in HDInsight, eseguire una query Hive sui dati e importare i risultati in Excel per elaborarli ulteriormente e visualizzarli graficamente mediante gli strumenti di business intelligence. Per altre informazioni, vedere le esercitazioni seguenti:
@@ -280,4 +285,4 @@ In questa esercitazione di Hadoop si è appreso come effettuare il provisioning 
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0302_2016---->
+<!---HONumber=AcomDC_0309_2016-->

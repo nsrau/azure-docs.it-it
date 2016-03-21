@@ -3,8 +3,8 @@
    description="L'API REST di Ricerca di Azure versione 2015-02-28-Preview include funzionalità sperimentali come gli analizzatori del linguaggio naturale e le ricerche moreLikeThis."
    services="search"
    documentationCenter="na"
-   authors="HeidiSteen"
-   manager="mblythe"
+   authors="brjohnstmsft"
+   manager="pablocas"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="02/16/2016"
-   ms.author="heidist"/>
+   ms.date="03/08/2016"
+   ms.author="brjohnst"/>
 
 # API REST del servizio Ricerca di Azure: versione 2015-02-28-Preview
 
@@ -1054,7 +1054,7 @@ Il corpo della richiesta contiene uno o più documenti da indicizzare. I documen
 - `upload`: questa azione è simile a "upsert", in cui il documento viene inserito se è nuovo e aggiornato o sostituito se già esistente. Si noti che nel caso dell'aggiornamento vengono sostituiti tutti i campi.
 - `merge`: questa azione aggiorna un documento esistente con i campi specificati. Se il documento non esiste, l'unione ha esito negativo. I campi specificati in un'azione di unione sostituiscono i campi esistenti nel documento. Sono inclusi anche i campi di tipo `Collection(Edm.String)`. Ad esempio, se il documento contiene un campo "tags" con valore `["budget"]` e si esegue un'azione di unione con valore `["economy", "pool"]` per "tags", il valore finale del campo "tag" sarà `["economy", "pool"]` e **non** `["budget", "economy", "pool"]`.
 - `mergeOrUpload`: questa azione si comporta come `merge` se nell'indice esiste già un documento con la chiave specificata. Se invece il documento non è presente, l'azione si comporta come `upload` con un nuovo documento.
-- `delete`: questa azione rimuove il documento specificato dall'indice. Si noti che in un'operazione `delete` è possibile specificare solo il valore del campo chiave. Se si tenta di specificare altri campi, verrà generato un errore HTTP 400. Se si vuole rimuovere un singolo campo da un documento, usare invece `merge` e impostare il campo su `null` in modo esplicito.
+- `delete`: questa azione rimuove il documento specificato dall'indice. Si noti che tutti i campi diversi dal campo chiave specificati in un'operazione `delete` verranno ignorati. Se si vuole rimuovere un singolo campo da un documento, usare invece `merge` e impostare il campo su `null` in modo esplicito.
 
 **Risposta**
 
@@ -1219,7 +1219,7 @@ La codifica dell'URL è necessaria solo quando si chiama direttamente l'API REST
   - Esempio: `facet=rating,sort:-value` genera bucket per tutte le classificazioni possibili, in ordine decrescente in base al valore. Se le classificazioni sono da 1 a 5, i bucket avranno l'ordine 5, 4, 3, 2, 1, indipendentemente dal numero di documenti corrispondenti a ogni classificazione.
 - `values` (valori numerici delimitati da pipe o valori `Edm.DateTimeOffset` che specificano un set dinamico di valori di immissione di facet)
   - Esempio: `facet=baseRate,values:10|20` genera tre bucket, uno per la tariffa di base da 0 a 10 escluso, uno da 10 a 20 escluso e uno per 20 e oltre.
-  - Esempio: `facet=lastRenovationDate,values:2010-02-01T00:00:00Z` genera due bucket, uno per hotel rinnovati prima del febbraio 2010 e uno per hotel rinnovati a partire dal 1 febbraio 2010.
+  - Esempio: `facet=lastRenovationDate,values:2010-02-01T00:00:00Z` genera due bucket, uno per hotel rinnovati prima del febbraio 2010 e uno per hotel rinnovati a partire dal 1° febbraio 2010.
 - `interval` (intervallo di tipo Integer maggiore di 0 per i numeri o `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year` per i valori di tipo data/ora)
   - Esempio: `facet=baseRate,interval:100` genera bucket in base agli intervalli di tariffe di base con dimensioni pari a 100. Se le tariffe di base sono tutte comprese tra € 60 e € 600, saranno presenti bucket per 0-100, 100-200, 200-300, 300-400, 400-500 e 500-600.
   - Esempio: `facet=lastRenovationDate,interval:year` genera un bucket per ogni anno in cui gli hotel sono stati rinnovati.
@@ -1774,4 +1774,4 @@ Recuperare 5 suggerimenti per cui l'input di ricerca parziale è 'lux':
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

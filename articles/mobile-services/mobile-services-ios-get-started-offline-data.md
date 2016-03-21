@@ -3,7 +3,7 @@
 	description="Informazioni su come usare Servizi mobili di Azure per memorizzare nella cache e sincronizzare i dati offline nell'applicazione per iOS"
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="mobile-services"/>
 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/05/2016"
 	ms.author="krisragh;donnam"/>
 
 # Introduzione alla sincronizzazione dei dati offline in Servizi mobili
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+ 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Abilitare la sincronizzazione offline per l'app per dispositivi mobili di iOS](../app-service-mobile/app-service-mobile-ios-get-started-offline-data.md).
 
 La sincronizzazione offline consente di visualizzare, aggiungere o modificare i dati in un'app mobile anche se non è presente alcuna connessione di rete. Questa esercitazione descrive la capacità dell'app di memorizzare automaticamente le modifiche apportate in un database locale offline e di sincronizzare le modifiche ogni volta che torna online.
 
@@ -275,4 +275,4 @@ Per sincronizzare l'archivio locale con il server, usare `MSSyncTable.pullWithQu
 
 [Guida introduttiva per Servizi mobili]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="02/16/2016"
+    ms.date="03/08/2016"
     ms.author="elizapo" />
 
 # Novità di Azure RemoteApp
@@ -29,7 +29,7 @@ Microsoft è costantemente impegnata a migliorare Azure RemoteApp in base ai com
 |Supporto per Gestione risorse di Azure||X|
 |Supporto delle risorse di Azure versione 2| |X|
 |Provider di soluzioni cloud (CSP)||X|
-|Disponibilità in area India|X||
+|Disponibilità in area India||X|
 |Disponibilità in area Regno Unito||X|
 
 
@@ -47,4 +47,4 @@ Altri miglioramenti aggiunti all'inizio dell'anno:
 - Disponibilità nei data center australiani
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

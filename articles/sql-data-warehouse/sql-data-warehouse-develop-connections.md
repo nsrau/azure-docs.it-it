@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Connettersi a SQL Data Warehouse 
+# Connettersi a SQL Data Warehouse
 Per connettersi a SQL Data Warehouse sarà necessario passare le credenziali di sicurezza per scopi di autenticazione. Al momento di stabilire una connessione si potrà notare che alcune impostazioni di connessione sono configurate come parte della creazione della sessione di query.
 
 In questo articolo vengono illustrati i seguenti aspetti della connessione a SQL Data Warehouse:
@@ -29,9 +29,9 @@ In questo articolo vengono illustrati i seguenti aspetti della connessione a SQL
 ## Autenticazione
 Per connettersi a SQL Data Warehouse è necessario fornire le informazioni seguenti:
 
-- Nome del server completo 
+- Nome del server completo
 - Specificare l'autenticazione di SQL
-- Nome utente 
+- Nome utente
 - Password
 - Database predefinito (facoltativo)
 
@@ -42,7 +42,7 @@ Per impostazione predefinita la connessione si connetterà al database master e 
 1. Specificare il database predefinito per la registrazione del server con Esplora oggetti di SQL Server in SSDT o nella stringa di connessione dell’applicazione. Ad esempio, includendo il parametro InitialCatalog per una connessione ODBC.
 2. Selezionare innanzitutto il database utente prima di creare una sessione in SSDT.
 
-> [AZURE.NOTE]Per informazioni sulla connessione a SQL Data Warehouse con SSDT, consultare nuovamente l’articolo dell’introduzione [Connettersi ed eseguire query][].
+> [AZURE.NOTE] Per informazioni sulla connessione a SQL Data Warehouse con SSDT, consultare nuovamente l’articolo dell’introduzione [Connettersi ed eseguire query][].
 
 Anche in questo caso è importante notare che l'istruzione Transact-SQL **USE <your DB>** non è supportata per la modifica del database per una connessione
 
@@ -98,7 +98,7 @@ Ogni query viene rappresentata da uno o più identificatori di richiesta. Tutte 
 Tuttavia, poiché SQL Data Warehouse è un sistema MPP distribuito, gli identificatori di sessione e di richiesta vengono esposti in modo leggermente diverso rispetto a SQL Server.
 
 Le sessioni e le richieste sono rappresentate logicamente dai rispettivi identificatori.
-	
+
 | Identificatore | Valore di esempio |
 | :--------- | :------------ |
 | ID sessione | SID123456 |
@@ -158,4 +158,4 @@ Una volta connessi, è possibile iniziare a progettare le tabelle. Per ulteriori
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

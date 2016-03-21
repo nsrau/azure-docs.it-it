@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="03/02/2016"
    ms.author="terrylan"/>
 
 # Aggiungere un Web application firewall al Centro sicurezza di Azure
@@ -42,7 +42,7 @@
 10. Selezionare **Finalizzare la configurazione di Web application firewall**. Viene visualizzato un nuovo pannello. Come si può vedere, è presente un'applicazione Web il cui traffico deve essere reindirizzato.
 11. Selezionare l'applicazione Web. Viene visualizzato un pannello in cui è possibile eseguire la procedura per finalizzare la configurazione del Web application firewall. Completare i passaggi e quindi selezionare **Limita il traffico**. Il Centro sicurezza eseguirà quindi la connessione automaticamente. ![][6]
 
-> [AZURE.NOTE] Il processo di provisioning automatico si basa su pacchetti WAF, creati con il modello di distribuzione di Resource Manager, che vengono distribuiti in una rete virtuale separata. L'accesso alle applicazioni Web protette presenti in macchine virtuali (versione classica) viene limitato ai dispositivi WAF solo tramite NSG. In futuro tale supporto verrà esteso a una distribuzione completamente personalizzata di pacchetti WAF (versione classica). È consigliabile leggere altre informazioni sui [modelli di distribuzione di Azure Resource Manager e classico](../azure-classic-rm.md) per le risorse di Azure.
+> [AZURE.NOTE] Per proteggere più applicazioni Web in Centro sicurezza, è possibile aggiungerle alle distribuzioni WAF esistenti. Le appliance WAF (create con il modello di distribuzione di Resource Manager) devono essere distribuite in una rete virtuale separata. Le appliance WAF (create con il modello di distribuzione classica) sono limitate all'uso di un gruppo di sicurezza di rete. In futuro tale supporto verrà esteso a una distribuzione completamente personalizzata di un'appliance WAF (versione classica). È consigliabile leggere altre informazioni sui [modelli di distribuzione di Azure Resource Manager e classico](../azure-classic-rm.md) per le risorse di Azure.
 
 I log generati dal WAF sono ora completamente integrati. Il Centro sicurezza può avviare automaticamente la raccolta e l'analisi dei log, per mettere in evidenza eventuali avvisi di sicurezza importanti.
 
@@ -54,7 +54,7 @@ In questo documento è stato illustrato come implementare la raccomandazione "Ag
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza.
+- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 - [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
 - [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 - [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni facilitano la protezione delle risorse di Azure.
@@ -69,4 +69,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

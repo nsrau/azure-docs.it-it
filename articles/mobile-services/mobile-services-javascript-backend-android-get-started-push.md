@@ -23,6 +23,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Aggiungere notifiche push all'app Android](../app-service-mobile/app-service-mobile-android-get-started-push.md).
+
 ## Riepilogo
 
 Questo argomento descrive come usare Servizi mobili di Azure per inviare notifiche push a un'app per Android tramite Google Cloud Messaging ("GCM"). Le notifiche push verranno aggiunte al progetto di guida introduttiva che costituisce un prerequisito per questa esercitazione. Le notifiche push vengono abilitate tramite Hub di notifica di Azure, incluso nel servizio mobile. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
@@ -156,4 +161,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

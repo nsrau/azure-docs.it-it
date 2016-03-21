@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"  
+ 	ms.date="03/02/2016"  
 	ms.author="juliako"/>
 
 #Guida alla risoluzione dei problemi relativi allo streaming live 
@@ -24,6 +24,14 @@ In questo argomento sono disponibili suggerimenti per la risoluzione di alcuni p
 
 In questa sezione sono disponibili suggerimenti su come risolvere i problemi relativi ai codificatori locali configurati per l'invio di un flusso a velocità in bit singola ai canali AMS abilitati per la codifica live.
 
+###Problema: i log non sono reperibili 
+
+- **Problema potenziale**: non è possibile trovare i log del codificatore che potrebbero essere utili per risolvere problemi di debug.
+	
+	- **Telestream Wirecast**: in genere è possibile trovare i log di in C:\\Utenti{nome utente}\\AppData\\Roaming\\Wirecast\\ 
+	- **Elemental Live**: è possibile trovare i collegamenti ai log nel portale di gestione. Fare clic su **Stats**, quindi su **Logs**. Nella pagina **Log Files** verrà visualizzato un elenco di log per tutti gli elementi LiveEvent. Selezionare quello corrispondente alla sessione corrente. 
+	- **Flash Media Live Encoder**: per trovare **Log Directory**, passare alla scheda **Encoding Log**.
+	
 ###Problema: non esiste alcuna opzione per l'output di un flusso progressivo
 
 - **Potenziale problema**: il codificatore usato non esegue automaticamente il deinterlacciamento. 
@@ -65,11 +73,7 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 
 	**Passaggi per la risoluzione dei problemi**: passare alla scheda "Endpoint streaming" nello strumento AMSE e verificare che vi sia un endpoint di streaming in esecuzione con una unità di streaming.
 	
-###Problema: i log del codificatore non sono reperibili 
 
-- **Problema potenziale**: non è possibile trovare i log che potrebbero essere utili per risolvere problemi di debug.
-
-	**Passaggi per la risoluzione dei problemi**: in genere è possibile trovare i log di Wirecast in C:\\Utenti{nome utente}\\AppData\\Roaming\\Wirecast\\
 
 >[AZURE.NOTE] Se dopo aver seguito le procedure di risoluzione dei problemi non è ancora possibile eseguire correttamente il flusso, inviare un ticket di supporto tramite il portale di Azure classico.
 
@@ -81,4 +85,4 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

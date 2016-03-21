@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/04/2016"
-	ms.author="yuaxu"/>
+	ms.date="03/04/2016"
+	ms.author="yuaxu;ricksal"/>
 
 # Aggiungere notifiche push all'app Android
 
@@ -80,4 +80,4 @@ Se il test verrà eseguito con un dispositivo meno recente, fare riferimento all
 
 [configurazione di Google Play Services SDK]: https://developers.google.com/android/guides/setup
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

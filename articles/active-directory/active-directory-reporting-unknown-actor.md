@@ -3,7 +3,7 @@
    description="Descrizione dell'evento 'Attore Sconosciuto' nei report di Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="SSalahAhmed"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/04/2016"
+   ms.author="saah"/>
 
 # Evento ’Attore Sconosciuto’ per il report di Azure Active Directory
 
@@ -32,7 +32,7 @@ Si tratta di un bug noto e si sta lavorando per risolvere il problema.
 
 ## Un utente è stato eliminato dalla directory prima dell'elaborazione dell'evento
 
-In questo caso, un utente è stato eliminato dalla directory prima dell’elaborazione dell'evento e prima che gli venisse associato un nome utente. Ad esempio:
+In questo caso un utente è stato eliminato dalla directory prima dell’elaborazione dell'evento e prima che gli venisse associato un nome utente. Ad esempio:
 
 ![](./media/active-directory-reporting-unknown-actor/unknown-actor.png)
 
@@ -40,4 +40,4 @@ Si tratta di un bug noto e si sta lavorando per risolvere il problema.
 
 <!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

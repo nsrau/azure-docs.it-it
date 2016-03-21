@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/16/2016"
+   ms.date="03/04/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -107,7 +107,7 @@ Se si usano le impostazioni rapide, verrà creato un account in Active Directory
 ![Account AD](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 ### Account del servizio di sincronizzazione Azure AD Connect
-Mediante l'installazione guidata viene creato un account di servizio locale (a meno che non si specifichi l'account da usare nelle impostazioni personalizzate). L'account è preceduto da **AAD\_** e viene usato per l'esecuzione come servizio di sincronizzazione effettiva. Se si installa Azure AD Connect in un Controller di dominio, l'account viene creato nel dominio. Se si usa un server remoto che esegue SQL Server, l'account del servizio **AAD\_** deve trovarsi nel dominio.
+Mediante l'installazione guidata viene creato un account di servizio locale (a meno che non si specifichi l'account da usare nelle impostazioni personalizzate). L'account è preceduto da **AAD\_** e viene usato per l'esecuzione come servizio di sincronizzazione effettiva. Se si installa Azure AD Connect in un Controller di dominio, l'account viene creato nel dominio. Se si usa un server remoto che esegue SQL Server o un proxy che richiede l'autenticazione, l'account del servizio **AAD\_** deve trovarsi nel dominio.
 
 ![Account del servizio di sincronizzazione](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
@@ -134,4 +134,4 @@ L'account del servizio viene creato con una password lunga e complessa priva di 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->
