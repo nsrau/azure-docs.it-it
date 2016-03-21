@@ -3,8 +3,8 @@
    description="Come iniziare a usare l'API di creazione report di Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 
 # Introduzione all'API di creazione report di Azure AD
@@ -35,7 +35,7 @@ L'API di creazione report usa l'autenticazione [OAuth](https://msdn.microsoft.co
 
 
 ### Creare un'applicazione
-- Passare al [portale di gestione di Azure](https://manage.windowsazure.com/).
+- Passare al [portale di Azure classico](https://manage.windowsazure.com/).
 - Passare alla directory.
 - Passare alle applicazioni.
 - Nella barra inferiore fare clic su "Aggiungi".
@@ -52,7 +52,7 @@ L'API di creazione report usa l'autenticazione [OAuth](https://msdn.microsoft.co
 - Passare all'applicazione appena creata.
 - Fare clic sulla scheda **Configura**.
 - Nella sezione "Autorizzazioni per altre applicazioni":
-	- In Microsoft Azure Active Directory > Autorizzazioni applicazione selezionare **Leggi i dati della directory**.
+	- In Azure Active Directory > Autorizzazioni applicazione selezionare **Leggi i dati della directory**.
 - Fare clic su **Salva** nella barra inferiore.
 
 
@@ -67,9 +67,9 @@ La procedura seguente illustra come ottenere l'ID client e il segreto client del
 - L'ID client dell'applicazione è visualizzato nel campo **ID client**.
 
 #### Segreto client dell'applicazione
-- Passare alla scheda Applicazioni.
+- Passare alla scheda **Applicazioni**.
 - Passare all'applicazione appena creata.
-- Passare alla scheda Configura.
+- Passare alla scheda **Configura**.
 - Generare una nuova chiave privata per l'applicazione selezionando una durata nella sezione "Chiavi".
 - La chiave verrà visualizzata al momento del salvataggio. Assicurarsi di copiarla e incollarla in un luogo sicuro, perché non è possibile recuperarla in un secondo momento.
 
@@ -141,38 +141,38 @@ Modificare uno degli script seguenti in modo che funzioni con la directory, sost
 	# Author: Michael McLaughlin (michmcla@microsoft.com)
 	# Date: January 20, 2016
 	# This requires the Python Requests module: http://docs.python-requests.org
-	
+
 	import requests
 	import datetime
 	import sys
-	
+
 	client_id = 'your-application-client-id-here'
 	client_secret = 'your-application-client-secret-here'
 	login_url = 'https://login.windows.net/'
-	tenant_domain = 'your-directory-name-here.onmicrosoft.com' 
-	
+	tenant_domain = 'your-directory-name-here.onmicrosoft.com'
+
 	# Get an OAuth access token
 	bodyvals = {'client_id': client_id,
 	            'client_secret': client_secret,
 	            'grant_type': 'client_credentials'}
-	
+
 	request_url = login_url + tenant_domain + '/oauth2/token?api-version=1.0'
 	token_response = requests.post(request_url, data=bodyvals)
-	
+
 	access_token = token_response.json().get('access_token')
 	token_type = token_response.json().get('token_type')
-	
+
 	if access_token is None or token_type is None:
 	    print "ERROR: Couldn't get access token"
 	    sys.exit(1)
-	
+
 	# Use the access token to make the API request
 	yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
-	
+
 	header_params = {'Authorization': token_type + ' ' + access_token}
 	request_string = 'https://graph.windows.net/' + tenant_domain + '/reports/auditEvents?api-version=beta&filter=eventTime%20gt%20' + yesterday   
 	response = requests.get(request_string, headers = header_params)
-	
+
 	if response.status_code is 200:
 	    print response.content
 	else:
@@ -195,4 +195,4 @@ Lo script restituisce l'elenco di tutti i report disponibili e restituisce l'out
 - Per informazioni dettagliate sul report di controllo, vedere [Eventi dei report di controllo di Azure AD](active-directory-reporting-audit-events.md)
 - Per informazioni dettagliate sul servizio REST dell'API Graph, vedere [Report ed eventi di Azure AD (anteprima)](https://msdn.microsoft.com/library/azure/mt126081.aspx)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

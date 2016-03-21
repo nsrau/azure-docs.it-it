@@ -91,6 +91,8 @@ Se l'applicazione può tollerare un'entità del bus di servizio temporaneamente 
 
 Una coda permanente sul lato client, quindi, mantiene l'ordine dei messaggi e protegge l'applicazione client da possibili eccezioni nel caso in cui l'entità del bus di servizio diventi non disponibile. Può essere usata con transazioni semplici e distribuite.
 
+> [AZURE.NOTE] Questo esempio è adatto agli scenari IaaS in cui viene eseguito il mapping del disco locale o del disco per MSMQ a un account di archiviazione e i messaggi vengono archiviati in modo affidabile con MSMQ. Non è invece adatto agli scenari PaaS, ad esempio Servizi cloud e le applicazioni Web.
+
 ## Passaggi successivi
 
 Per altre informazioni sul ripristino di emergenza, vedere gli articoli seguenti:
@@ -109,4 +111,4 @@ Per altre informazioni sul ripristino di emergenza, vedere gli articoli seguenti
   [Continuità aziendale del database SQL di Azure]: ../sql-database/sql-database-business-continuity.md
   [Informazioni tecniche sulla continuità aziendale di Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

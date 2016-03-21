@@ -4,7 +4,7 @@
    services="redis-cache"
    documentationCenter="na"
    authors="steved0x"
-   manager="dwrede"
+   manager="erikre"
    editor="tysonn" />
 <tags 
    ms.service="cache"
@@ -81,4 +81,4 @@ Dopo l'esecuzione di questi passaggi, l'applicazione è configurata per l'uso de
 
 Vedere [Provider di stato della sessione ASP.NET per Cache Redis di Azure](cache-asp.net-session-state-provider.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

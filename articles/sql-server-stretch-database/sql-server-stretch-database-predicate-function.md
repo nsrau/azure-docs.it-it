@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Scrivere una funzione con valori di tabella inline per selezionare le righe di cui eseguire la migrazione (Database Estensione) | Microsoft Azure"
-	description="Informazioni su come creare un predicato del filtro per selezionare le righe di cui eseguire la migrazione."
+	pageTitle="Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (estensione database) | Microsoft Azure"
+	description="Informazioni su come usare un predicato del filtro per selezionare le righe di cui eseguire la migrazione."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -16,7 +16,7 @@
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
-# Scrivere una funzione con valori di tabella inline per selezionare le righe di cui eseguire la migrazione (Database Estensione)
+# Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (estensione database)
 
 Se si archiviano dati cronologici in una tabella separata, è possibile configurare il Database Estensione per eseguire la migrazione dell'intera tabella. Se la tabella contiene dati attuali e cronologici, è tuttavia possibile specificare un predicato del filtro per selezionare le righe di cui eseguire la migrazione. Il predicato del filtro deve chiamare una funzione con valori di tabella inline. Questo argomento descrive come scrivere una funzione con valori di tabella inline per selezionare le righe di cui eseguire la migrazione.
 
@@ -409,4 +409,4 @@ Per controllare il predicato del filtro applicato a una tabella, aprire la vista
 ## Vedere anche
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

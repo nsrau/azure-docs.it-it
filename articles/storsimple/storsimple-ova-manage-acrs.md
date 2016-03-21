@@ -3,7 +3,7 @@
    description="In questo articolo viene descritto come gestire i record di controllo di accesso (ACR) che consentono di specificare quali host possono connettersi a un volume nell'array virtuale StorSimple."
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# Usare il servizio StorSimple Manager per gestire i record di controllo di accesso per l'array virtuale StorSimple (anteprima)
+# Usare il servizio StorSimple Manager per gestire i record di controllo di accesso per l'array virtuale StorSimple 
 
 ## Panoramica
 
@@ -114,4 +114,4 @@ Attenersi alla procedura seguente per eliminare un record di controllo di access
 
 - Altre informazioni sull'[aggiunta di volumi e la configurazione di record di controllo di accesso](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

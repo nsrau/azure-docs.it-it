@@ -3,7 +3,7 @@
    description="Come trasferire una sottoscrizione di Azure a un altro utente e alcune domande frequenti sul processo"
    services="billing"
    documentationCenter=""
-   authors="curtand"
+   authors="genlin"
    manager="stevenpo"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="12/21/2015"
-   ms.author="curtand;kareni;ruchic"/>
+   ms.date="03/04/2015"
+   ms.author="genli"/>
 
 # Trasferimento di una sottoscrizione di Azure
 
@@ -59,19 +59,18 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 
     Il trasferimento non incide in alcun modo sul servizio. In pratica, viene annullata la sottoscrizione dell'attuale amministratore account e ne viene creata una nuova con l'account del destinatario, associando però i servizi di Azure sottostanti alla nuova sottoscrizione. L'ID sottoscrizione rimane invariato.
 
--   **Come utilizzare questo meccanismo per cambiare la directory per la sottoscrizione?**-   
-    Una sottoscrizione di Azure viene creata nella directory a cui appartiene l'account amministratore. Pertanto, per modificare la directory, è sufficiente trasferire la sottoscrizione a un account utente nella directory di destinazione. Quando tale utente ha completato i passaggi per accettare il trasferimento, la sottoscrizione passerà automaticamente alla directory di destinazione.
-   
+-   **Come utilizzare questo meccanismo per cambiare la directory per la sottoscrizione?**- Una sottoscrizione di Azure viene creata nella directory a cui appartiene l'account amministratore. Pertanto, per modificare la directory, è sufficiente trasferire la sottoscrizione a un account utente nella directory di destinazione. Quando tale utente ha completato i passaggi per accettare il trasferimento, la sottoscrizione passerà automaticamente alla directory di destinazione.
+
 -   **Se si rileva la proprietà della fatturazione di una sottoscrizione da un'altra organizzazione, quest'ultima continuerà ad avere accesso alle risorse del nuovo proprietario?**
 
-    Se la sottoscrizione viene trasferita a un altro tenant, gli utenti associati al tenant precedente perderanno l'accesso alla sottoscrizione. Anche se un utente non è più amministratore del servizio o coamministratore, potrebbe avere ancora accesso alla sottoscrizione tramite altri meccanismi di sicurezza, ad esempio: 
-    - Certificati di gestione che concedono all'utente diritti di amministrazione per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx) 
-    -	Chiavi di accesso per servizi come Archiviazione. Per altre informazioni, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys) 
-    -	Credenziali di accesso remoto per servizi come Macchine virtuali di Azure
+    Se la sottoscrizione viene trasferita a un altro tenant, gli utenti associati al tenant precedente perderanno l'accesso alla sottoscrizione. Anche se un utente non è più amministratore del servizio o coamministratore, potrebbe avere ancora accesso alla sottoscrizione tramite altri meccanismi di sicurezza, Sono state illustrate le seguenti operazioni:
+    - Certificati di gestione che concedono all'utente diritti di amministrazione per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+    -	Chiavi di accesso per servizi quali Archiviazione. Per ulteriori informazioni, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso all’archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
+    -	Le credenziali di accesso remote per servizi quali macchine virtuali di Azure
 
     L'elenco non è completo. Il destinatario dovrà prendere in considerazione l'aggiornamento degli eventuali segreti associati al servizio se deve limitare l'accesso alle proprie risorse. La maggior parte delle risorse può essere aggiornata come segue:
 
-    1.   Accedere al portale di Azure: [*https://portal.azure.com*](https://portal.azure.com)
+    1.   Accedere al portale di Azure: [**https://portal.azure.com*](https://portal.azure.com)
 
     2.    Fare clic su Esplora tutto -&gt; Tutte le risorse
 
@@ -105,10 +104,10 @@ Ora è possibile eseguire facilmente queste operazioni nel Centro account di Mic
 1. A questo punto si è l'amministratore dell'account. Rivedere e aggiornare l’amministratore del servizio e i co-amministratori. Gestire gli amministratori nel [portale di Azure classico](https://manage.windowsazure.com) accedendo alle impostazioni. [Altre informazioni](http://go.microsoft.com/fwlink/?LinkID=533293)
 2. Inoltre, è possibile utilizzare il controllo di accesso basato sui ruoli (RBAC) per la sottoscrizione e i servizi. Visitare il [portale di Azure](https://portal.azure.com) [Ulteriori informazioni su RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
 3. Aggiornare le credenziali associate ai servizi della sottoscrizione. Sono state illustrate le seguenti operazioni:
-    -   Certificati di gestione che concedono all'utente diritti di amministrazione per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+    - Certificati di gestione che concedono all'utente diritti di amministrazione per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
     -	Chiavi di accesso per servizi quali Archiviazione. Per ulteriori informazioni, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso all’archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
     -	Le credenziali di accesso remote per servizi quali macchine virtuali di Azure
 4. Aggiornare gli avvisi di fatturazione per questa sottoscrizione, nel [Centro Account Azure](https://account.windowsazure.com/Subscriptions) [Ulteriori informazioni](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se si lavora con un partner, è consigliabile aggiornare l'ID partner alla sottoscrizione. È possibile farlo nel [Centro Account di Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

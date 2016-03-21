@@ -106,7 +106,7 @@ La categoria di comandi da cloud a dispositivo tiene traccia degli errori che si
 
 ### Connessioni
 
-La categoria Connessioni tiene traccia degli eventi causati da dispositivi che si connettono a un hub IoT o se ne disconnettono. Il rilevamento di questa categoria è utile per identificare i tentativi di connessione non autorizzati e per rilevare quando una connessione viene persa dai dispositivi in aree di scarsa connettività.
+La categoria Connessioni tiene traccia degli errori che si verificano quando i dispositivi si connettono o disconnettono da un hub IoT. Il rilevamento di questa categoria è utile per identificare i tentativi di connessione non autorizzati e per rilevare quando una connessione viene persa dai dispositivi in aree di scarsa connettività.
 
     {
          "durationMs": 1234,
@@ -139,4 +139,4 @@ Al termine di questa panoramica del monitoraggio delle operazioni, è possibile 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="03/04/2016"
    ms.author="larryfr"/>
 
 #Usare la visualizzazione Hive con Hadoop in HDInsight
@@ -23,7 +23,7 @@
 
 Ambari è un'utilità per la gestione e il monitoraggio fornita con i cluster HDInsight basati su Linux. Una delle funzionalità fornite da Ambari è un'interfaccia utente Web che può essere usata per eseguire query Hive. Questa è la parte __Hive View__ delle visualizzazioni di Ambari fornite con il cluster HDInsight.
 
-> [AZURE.NOTE]Ambari include numerose funzionalità che non verranno illustrate in questo documento. Per altre informazioni, vedere [Gestire i cluster HDInsight usando l'interfaccia utente Web di Ambari](hdinsight-hadoop-manage-ambari.md).
+> [AZURE.NOTE] Ambari include numerose funzionalità che non verranno illustrate in questo documento. Per altre informazioni, vedere [Gestire i cluster HDInsight usando l'interfaccia utente Web di Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ##Prerequisiti
 
@@ -39,7 +39,7 @@ Per passare direttamente ad Ambari, andare a https://CLUSTERNAME.azurehdinsight.
 
 ![Selezione delle visualizzazioni di Ambari](./media/hdinsight-hadoop-use-hive-ambari-view/selecthiveview.png).
 
-> [AZURE.NOTE]Quando si accede ad Ambari, verrà richiesto di eseguire l'autenticazione al sito. Immettere il nome dell'account amministratore (il valore predefinito è `admin`) e la password usati durante la creazione del cluster.
+> [AZURE.NOTE] Quando si accede ad Ambari, verrà richiesto di eseguire l'autenticazione al sito. Immettere il nome dell'account amministratore (il valore predefinito è `admin`) e la password usati durante la creazione del cluster.
 
 Verrà visualizzata una pagina simile alla seguente:
 
@@ -73,21 +73,21 @@ Usare i passaggi seguenti nella vista Hive per eseguire una query Hive sui dati 
 	- **STORED AS TEXTFILE LOCATION**: indica a Hive dove sono archiviati i dati (la directory example/data) e che sono archiviati come testo.
 	- **SELECT**: seleziona un numero di tutte le righe in cui la colonna t4 include il valore [ERROR].
 
-	>[AZURE.NOTE]È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti. L'eliminazione di una tabella esterna *non* comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
+	>[AZURE.NOTE] È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo automatico di caricamento dei dati, oppure da un'altra operazione MapReduce, ma si vuole che le query Hive usino sempre i dati più recenti. L'eliminazione di una tabella esterna *non* comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
 2. Usare il pulsante __Execute__ nella parte inferiore di Query Editor per avviare la query. Il colore diventerà arancione e il testo cambierà in __Stop execution__. Sotto Query Editor verrà visualizzata una sezione __Query Process Results__ che conterrà le informazioni sul processo.
 
-    > [AZURE.IMPORTANT]È possibile che alcuni browser non aggiornino correttamente il log o le informazioni sui risultati. Se si esegue un processo che prosegue all'infinito senza aggiornare il log o restituire risultati, provare a usare Mozilla FireFox o Google Chrome.
-    
+    > [AZURE.IMPORTANT] È possibile che alcuni browser non aggiornino correttamente il log o le informazioni sui risultati. Se si esegue un processo che prosegue all'infinito senza aggiornare il log o restituire risultati, provare a usare Mozilla FireFox o Google Chrome.
+
 3. Una volta completata la query, la sezione __Query Process Results__ visualizzerà i risultati dell'operazione. Il pulsante __Stop execution__ verrà sostituito da un pulsante __Execute__ verde. La scheda __Results__ conterrà le informazioni seguenti:
 
         sev       cnt
         [ERROR]   3
 
     La scheda __Logs__ può essere usata per visualizzare le informazioni sulla registrazione create dal processo, che possono essere utili per la risoluzione di eventuali problemi con una query.
-    
-    > [AZURE.TIP]Si noti l'elenco a discesa __Save results__ in alto a sinistra nella sezione __Query Process Results__, che può essere usato per scaricare i risultati o per salvarli nell'archivio HDInsight come file con estensione CSV.
-    
+
+    > [AZURE.TIP] Si noti l'elenco a discesa __Save results__ in alto a sinistra nella sezione __Query Process Results__, che può essere usato per scaricare i risultati o per salvarli nell'archivio HDInsight come file con estensione CSV.
+
 3. Selezionare le prime quattro righe di questa query, quindi selezionare __Execute__. Si noti che, al termine del processo, non viene visualizzato alcun risultato. Se infatti si usa il pulsante __Execute__ quando parte della query è selezionata, verranno eseguite solo le istruzioni selezionate. In questo caso, la selezione non include l'istruzione finale che recupera le righe dalla tabella. Se si seleziona solo tale riga e si usa __Execute__, verranno visualizzati i risultati previsti.
 
 3. Usare il pulsante __New Worksheet__ nella parte inferiore di __Query Editor__ per creare un nuovo foglio di lavoro. Nel nuovo foglio di lavoro immettere le istruzioni HiveQL seguenti:
@@ -100,7 +100,7 @@ Usare i passaggi seguenti nella vista Hive per eseguire una query Hive sui dati 
 	- **CREATE TABLE IF NOT EXISTS**: crea una tabella, se non esiste già. Poiché non viene usata la parola chiave **EXTERNAL**, questa è una tabella interna che viene archiviata nel data warehouse di Hive e gestita completamente da Hive. A differenza di quanto accade con le tabelle esterne, se si elimina una tabella interna verranno eliminati anche i dati sottostanti.
 	- **STORED AS ORC**: archivia i dati nel formato ORC (Optimized Row Columnar). Questo è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
 	- **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti [ERROR], quindi inserisce i dati nella tabella **errorLogs**.
-    
+
     Usare il pulsante __Execute__ per eseguire la query. La scheda __Results__ non conterrà alcuna informazione perché questa query non restituisce alcuna riga, ma lo stato visualizzato sarà __SUCCEEDED__.
 
 ###Settings di Hive
@@ -116,7 +116,7 @@ Questa opzione può essere usata per modificare diverse impostazioni di Hive, ad
 Selezionare l'icona __Visual Explain__ a destra dell'editor.
 
 ![Icone](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplainicon.png)
-    
+
 Questa è la visualizzazione __Visual Explain__ della query, che può essere utile per conoscere il flusso delle query complesse. Per un equivalente testuale di questa visualizzazione, usare il pulsante __Explain__ in Query Editor.
 
 ![Immagine di Visual Explain](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
@@ -127,7 +127,7 @@ Selezionare l'icona __Tez__ a destra dell'editor.
 
 ![Icone](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
 
-Verrà visualizzato il grafo aciclico diretto (DAG) usato da Tez per questa query, se disponibile. Se si vuole visualizzare il DAG per le query eseguiti in passato, usare invece __Tez View__.
+Verrà visualizzato il grafo aciclico diretto (DAG) usato da Tez per questa query, se disponibile. Se si vuole visualizzare il DAG per le query eseguite in passato o eseguire il debug del processo Tez, usare invece [Tez View](hdinsight-debug-ambari-tez-view.md).
 
 ###Notifiche
 
@@ -142,7 +142,7 @@ Le notifiche sono messaggi generati quando si eseguono query. Ad esempio, si ric
 1. In Query Editor creare un nuovo foglio di lavoro e immettere la query seguente:
 
         SELECT * from errorLogs;
-    
+
     Eseguire la query per verificare che funzioni. I risultati saranno i seguenti:
 
         errorlogs.t1 	errorlogs.t2 	errorlogs.t3 	errorlogs.t4 	errorlogs.t5 	errorlogs.t6 	errorlogs.t7
@@ -151,7 +151,7 @@ Le notifiche sono messaggi generati quando si eseguono query. Ad esempio, si ric
         2012-02-03 	19:25:27 	SampleClass4 	[ERROR] 	incorrect 	id
 
 2. Usare il pulsante __Save as__ nella parte inferiore dell'editor. Assegnare a questa query il nome __Errorlogs__ e selezionare __OK__. Si noti che il nome del foglio di lavoro diventa __Errorlogs__.
-    
+
 3. Selezionare la scheda __Saved Queries__ nella parte superiore della pagina della visualizzazione Hive. Si noti che ora __Errorlogs__ viene elencato come una query salvata e rimarrà in questo elenco fino a quando non viene rimosso. Selezionando il nome, la query verrà aperta in Query Editor.
 
 ##Cronologia delle query
@@ -172,7 +172,7 @@ Ad esempio, se è stata specificata una funzione definita dall'utente con le pro
 * Percorso della risorsa: wasb:///myudfs.jar
 * Nome della funzione definita dall'utente: myawesomeudf
 * Nome della classe per la funzione definita dall'utente: com.myudfs.Awesome
-    
+
 Se si usa il pulsante __Insert udfs__, verrà visualizzata una voce denominata __myudfs__, con un altro elenco a discesa per ogni funzione definita dall'utente specificato per tale risorsa. In questo caso, __myawesomeudf__. Se si seleziona questa voce, verrà aggiunto quanto segue all'inizio della query:
 
     add jar wasb:///myudfs.jar;
@@ -199,4 +199,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

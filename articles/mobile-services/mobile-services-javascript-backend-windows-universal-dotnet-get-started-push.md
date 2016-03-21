@@ -4,7 +4,7 @@
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="03/05/2016" 
 	ms.author="glenga"/>
 
 
@@ -21,6 +21,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Aggiungere notifiche push all'app Windows](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
+ 
 Questo argomento illustra come usare Servizi mobili di Azure con un back-end JavaScript per inviare notifiche push a un'app di Windows universale. In questa esercitazione si usa Hub di notifica di Azure per abilitare le notifiche push nel progetto di app di Windows universale. Al termine dell'esercitazione, il servizio mobile invierà una notifica push dal back-end JavaScript a tutte le app Windows Store e Windows Phone Store registrate ogni volta che viene inserita una tabella TodoList. L'hub di notifica creato può essere utilizzato gratuitamente con il servizio mobile, può essere gestito indipendentemente da quest'ultimo e può essere utilizzato da altri servizi e applicazioni.
 
 >[AZURE.NOTE]Questo argomento descrive come usare gli strumenti in Visual Studio 2013 con aggiornamento 3 per aggiungere il supporto per le notifiche push di Servizi mobili a un'app di Windows universale. La stessa procedura può essere eseguita per aggiungere le notifiche push da Servizi mobili a un'app di Windows Store o Windows Phone Store 8.1. Per aggiungere le notifiche push a un'app di Windows Phone 8 o Windows Phone Silverlight 8.1, vedere questa versione della guida [Introduzione alle notifiche push in Servizi mobili](mobile-services-javascript-backend-windows-phone-get-started-push.md).
@@ -67,13 +72,13 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di
 
 + [Inviare notifiche push agli utenti autenticati](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) <br/>Informazioni sull'uso dei tag per inviare notifiche push dal servizio mobile solo agli utenti autenticati.
 
-+ [Inviare notifiche di trasmissione ai sottoscrittori](../notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>Informazioni su come gli utenti possono registrarsi e ricevere notifiche push per le categorie a cui sono interessati.
++ [Inviare notifiche di trasmissione ai sottoscrittori](../notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>Informazioni su come gli utenti possono registrarsi e ricevere notifiche push per le categorie a cui sono interessati.
 
-+ [Inviare notifiche indipendenti dalla piattaforma ad altri sottoscrittori](../notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Informazioni su come usare i modelli per inviare notifiche push dal servizio mobile senza che sia necessario creare payload specifici della piattaforma nel back-end.
++ [Inviare notifiche indipendenti dalla piattaforma ad altri sottoscrittori](../notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Informazioni su come usare i modelli per inviare notifiche push dal servizio mobile senza che sia necessario creare payload specifici della piattaforma nel back-end.
 
 Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento ai seguenti argomenti:
 
-* [Hub di notifica di Azure - Linee guida sulla diagnostica](../notification-hubs-diagnosing.md) <br/>Informazioni sulla risoluzione dei problemi relativi alle notifiche push.
+* [Hub di notifica di Azure - Linee guida sulla diagnostica](../notification-hubs/notification-hubs-diagnosing.md) <br/>Informazioni sulla risoluzione dei problemi relativi alle notifiche push.
 
 * [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi tramite Servizi mobili.
 
@@ -100,4 +105,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0309_2016-->

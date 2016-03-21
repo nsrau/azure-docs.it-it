@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma"/>
 
 
@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-getstarted-create-recordset-cli.md)
+- [Interfaccia della riga di comando di Azure](dns-getstarted-create-recordset-cli.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
 
 Dopo aver creato la zona DNS, è necessario aggiungere i record DNS per il dominio. A tale scopo, è necessario comprendere i record e i set di record DNS.
@@ -32,7 +32,7 @@ Ogni record DNS ha un nome e un tipo.
 
 Un nome _completo_ include il nome della zona, mentre un nome _relativo_ non lo include. Ad esempio, il nome del record relativo "www" nella zona "contoso.com" genera il nome di record completo "www.contoso.com".
 
->[AZURE.NOTE]Nel servizio DNS di Azure, i record vengono specificati usando nomi relativi.
+>[AZURE.NOTE] Nel servizio DNS di Azure, i record vengono specificati usando nomi relativi.
 
 I record possono essere di tipi diversi in base ai dati in essi contenuti. Il tipo più comune è un record "A", che associa un nome a un indirizzo IPv4. Un altro tipo è un record "MX", che associa un nome a un server di posta elettronica.
 
@@ -47,7 +47,7 @@ Questo è un esempio di un set di record. Un set di record è la raccolta di rec
 
 La durata Time-to-Live o TTL specifica per quanto tempo ogni record viene memorizzato nella cache da parte dei client prima che venga eseguita nuovamente la query. Nell'esempio precedente, il valore TTL è 3600 secondi o 1 ora. Il valore TTL viene specificato per il set di record, non per ogni record, quindi lo stesso valore viene usato per tutti i record all'interno di tale set di record.
 
->[AZURE.NOTE]DNS di Azure gestisce i record DNS usando il set di record.
+>[AZURE.NOTE] DNS di Azure gestisce i record DNS usando il set di record.
 
 
 
@@ -64,7 +64,7 @@ Creare un set di record e assegnarlo a una variabile $rs:
 
 Il set di record ha il nome relativo "www" nella zona DNS "contoso.com" in modo che il nome completo dei record sarà "www.contoso.com". Il tipo di record è "A" e il valore TTL è 60 secondi.
 
->[AZURE.NOTE]Per creare un set di record nell'apice della zona (in questo caso "contoso.com"), usare il nome del record "@", incluse le virgolette. Si tratta di una convenzione comune di DNS.
+>[AZURE.NOTE] Per creare un set di record nell'apice della zona (in questo caso "contoso.com"), usare il nome del record "@", incluse le virgolette. Si tratta di una convenzione comune di DNS.
 
 Il set di record è vuoto ed è necessario aggiungere record per poter usare il set di record "www" appena creato.<BR>
 
@@ -102,7 +102,7 @@ Le modifiche sono state completate. È possibile recuperare il set di record dal
 
 È anche possibile usare nslookup o altri strumenti DNS per eseguire una query sul nuovo set di record.
 
->[AZURE.NOTE]Come durante la creazione della zona, se il dominio non è stato ancora delegato ai server dei nomi DNS di Azure, sarà necessario specificare in maniera esplicita l'indirizzo del server dei nomi per la propria zona.
+>[AZURE.NOTE] Come durante la creazione della zona, se il dominio non è stato ancora delegato ai server dei nomi DNS di Azure, sarà necessario specificare in maniera esplicita l'indirizzo del server dei nomi per la propria zona.
 
 
 	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
@@ -125,4 +125,4 @@ Le modifiche sono state completate. È possibile recuperare il set di record dal
 [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0309_2016-->

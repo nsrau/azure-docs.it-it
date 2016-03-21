@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Usare Azure Machine Learning con SQL Data Warehouse
@@ -23,7 +23,7 @@ Azure Machine Learning è un servizio di analisi predittive completamente gestit
 In questo articolo verrà descritto come fare quanto segue utilizzando il [Azure Machine Learning Studio][]\:
 
 - Leggere i dati dal database da creare, eseguire il training e il punteggio di un modello di stima
-- Scrivere dati nel database 
+- Scrivere dati nel database
 
 
 ## Leggere dati da SQL Data Warehouse
@@ -47,8 +47,8 @@ Selezionare il modulo Reader e compilare il riquadro delle proprietà.
 
 ![][server_name]
 
-3. Database name: digitare il nome del database nel server specificato. 
-4. Server user account name: digitare il nome utente di un account con autorizzazioni di accesso al database. 
+3. Database name: digitare il nome del database nel server specificato.
+4. Server user account name: digitare il nome utente di un account con autorizzazioni di accesso al database.
 5. Server user account password: fornire la password per l'account utente specificato.
 6. Accept any server certificate: usare questa opzione (meno sicura) se si vuole evitare di rivedere il certificato del sito prima di leggere i dati.
 7. Database query: immettere un'istruzione SQL che descriva i dati da leggere. In questo caso si leggeranno i dati dalla tabella Product usando la query seguente.
@@ -80,7 +80,7 @@ A questo punto è possibile utilizzare questo set di dati per:
 - Creare un modello: elaborare i dati e definire le funzionalità
 - Il training del modello: selezionare e applicare un algoritmo di apprendimento
 - Assegnare un punteggio e testare il modello: stima di un nuovo prezzo di biciclette
- 
+
 
 ![][model]
 
@@ -101,9 +101,9 @@ Cercare il modulo Writer nella tavolozza dei set di dati e moduli a sinistra del
 Selezionare il modulo Writer e compilare il riquadro delle proprietà.
 
 1. Selezionare il database SQL di Azure in Data Destination.
-2. Database server name: digitare il nome del server. Per trovarlo, è possibile usare il [portale di Azure classico][]. 
-3. Database name: digitare il nome del database nel server specificato. 
-4. Server user account name: digitare il nome utente di un account con autorizzazioni di scrittura nel database. 
+2. Database server name: digitare il nome del server. Per trovarlo, è possibile usare il [portale di Azure classico][].
+3. Database name: digitare il nome del database nel server specificato.
+4. Server user account name: digitare il nome utente di un account con autorizzazioni di scrittura nel database.
 5. Server user account password: fornire la password per l'account utente specificato.
 6. Accept any server certificate (insecure): selezionare questa opzione se non si vuole visualizzare il certificato.
 7. Comma-separated list of columns to be saved: fornire un elenco del set di dati o delle colonne dei risultati da generare.
@@ -116,7 +116,7 @@ Selezionare il modulo Writer e compilare il riquadro delle proprietà.
 ### Passaggio 3
 
 1. Eseguire l'esperimento facendo clic su Run sotto l'area di disegno dell'esperimento.
-2. Al termine dell'esperimento, tutti i moduli saranno contraddistinti da un segno di spunta verde per indicarne il corretto completamento. 
+2. Al termine dell'esperimento, tutti i moduli saranno contraddistinti da un segno di spunta verde per indicarne il corretto completamento.
 
 ## Passaggi successivi
 
@@ -149,4 +149,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

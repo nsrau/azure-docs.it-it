@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure
@@ -32,7 +32,7 @@ Passare quindi alla scheda **Configura** per il nuovo hub eventi e creare due ti
 
 ![Criterio Invio][sending-policy]
 
-Denominare il secondo tipo di criteri **Ricezione**, assegnare ad essi le autorizzazioni di **ascolto** e quindi fare clic su **Salva**.
+Denominare il secondo criterio **Ricezione**, assegnare al criterio le autorizzazioni **Listen**, quindi fare clic su **Salva**.
 
 ![Criterio Ricezione][receiving-policy]
 
@@ -80,7 +80,7 @@ Specificare il corpo della richiesta usando il modello seguente.
 
 Quando si esegue la richiesta, se viene creato il logger, verrà visualizzato un codice di stato `201 Created`.
 
->[AZURE.NOTE]Per altri possibili codici restituiti e i relativi motivi, vedere [Creare un logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Per informazioni su come eseguire altre operazioni, ad esempio elencare, aggiornare o eliminare, vedere la documentazione relativa all'entità [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx).
+>[AZURE.NOTE] Per altri possibili codici restituiti e i relativi motivi, vedere [Creare un logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Per informazioni su come eseguire altre operazioni, ad esempio elencare, aggiornare o eliminare, vedere la documentazione relativa all'entità [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx).
 
 ## Configurare i criteri log-to-eventhubs
 
@@ -104,7 +104,7 @@ Posizionare il cursore nella sezione dei criteri `inbound` e fare clic sui crite
 
 Sostituire `logger-id` con il nome del logger di Gestione API configurato nel passaggio precedente.
 
-È possibile usare qualsiasi espressione che restituisca una stringa come valore dell'elemento `log-to-eventhub`. In questo esempio viene registrata una stringa contenente data e ora, nome del servizio, ID richiesta, indirizzo IP della richiesta e nome dell'operazione.
+È possibile usare qualsiasi espressione che restituisce una stringa come valore dell'elemento `log-to-eventhub`. In questo esempio viene registrata una stringa contenente data e ora, nome del servizio, ID richiesta, indirizzo IP della richiesta e nome dell'operazione.
 
 Fare clic su **Salva** per salvare la configurazione aggiornata dei criteri. Il criterio risulta attivo immediatamente dopo il salvataggio e gli eventi vengono registrati nell'hub eventi designato.
 
@@ -133,4 +133,4 @@ Fare clic su **Salva** per salvare la configurazione aggiornata dei criteri. Il 
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

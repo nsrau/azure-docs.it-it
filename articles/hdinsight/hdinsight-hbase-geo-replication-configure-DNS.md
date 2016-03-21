@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
 # Configurare DNS tra due reti virtuali di Azure
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
+- [Configurare la connettività VPN](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [Configurare DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [Configurare la replica di HBase](hdinsight-hbase-geo-replication.md) 
 
 
 Informazioni su come aggiungere e configurare i server DNS nelle reti virtuali di Azure per gestire la risoluzione dei nomi all'interno e tra le reti virtuali.
@@ -220,4 +220,4 @@ In questa esercitazione si è appreso come configurare la risoluzione dei nomi t
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

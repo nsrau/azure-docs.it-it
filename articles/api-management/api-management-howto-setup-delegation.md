@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="antonba" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="antonba"/>
 
 # Come delegare la registrazione utente e la sottoscrizione ai prodotti
@@ -46,7 +46,11 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
 
 	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL della pagina di origine}&salt={string}&sig={string}*
 
-	Parametri di query per l'accesso o l'iscrizione: - **operation**: identifica il tipo di richiesta di delega; in questo caso può essere solo **SignIn** - **returnUrl**: URL della pagina in cui l'utente ha fatto clic sul collegamento per l'accesso o l'iscrizione - **salt**: stringa salt speciale usata per il calcolo di un hash di sicurezza - **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
+	Parametri di query per l'accesso o l'iscrizione:
+	- **operation**: identifica il tipo di richiesta di delega; in questo caso può essere solo di tipo **SignIn**
+	- **returnUrl**: l'URL della pagina in cui l'utente ha selezionato il collegamento per l'accesso o l'iscrizione
+	- **salt**: stringa salt speciale usata per il calcolo di un hash di sicurezza
+	- **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
 
 2. Verificare che la richiesta provenga da Gestione API di Azure. Questa operazione è facoltativa ma altamente consigliata per motivi di sicurezza.
 
@@ -101,7 +105,15 @@ Assicurarsi quindi che l'endpoint di delega esegua le operazioni seguenti:
 
 	> *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={utente che invia la richiesta}&salt={string}&sig={string}*
 
-	Parametri di query per la sottoscrizione ai prodotti: - **operation**: identifica il tipo di richiesta di delega. Per le richieste di sottoscrizione ai prodotti le opzioni valide sono: - "Subscribe": richiesta di sottoscrizione a un prodotto specifico con l'ID fornito (vedere sotto) - "Unsubscribe": richiesta di annullamento della sottoscrizione a un prodotto - "Renew": richiesta di rinnovo di una sottoscrizione, ad esempio perché è scaduta - **productId**: ID del prodotto a cui effettuare la sottoscrizione - **userId**: ID dell'utente per il quale viene eseguita la richiesta - **salt**: stringa salt speciale usata per il calcolo di un hash di sicurezza - **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
+	Parametri di query per la sottoscrizione ai prodotti:
+	- **operation**: identifica il tipo di richiesta di delega. Per le richieste di sottoscrizione ai prodotti le opzioni valide sono:
+		- "Subscribe": richiesta di sottoscrizione a un prodotto specifico con l'ID fornito (vedere sotto)
+		- "Unsubscribe": richiesta di annullamento della sottoscrizione a un prodotto
+		- "Renew": richiesta di rinnovo di una sottoscrizione, ad esempio perché è scaduta
+	- **productId**: ID del prodotto a cui effettuare la sottoscrizione
+	- **userId**: ID dell'utente per il quale viene effettuata la richiesta
+	- **salt**: stringa salt speciale usata per il calcolo di un hash di sicurezza
+	- **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
 
 
 2. Verificare che la richiesta provenga da Gestione API di Azure. Questa operazione è facoltativa ma altamente consigliata per motivi di sicurezza.
@@ -166,4 +178,4 @@ Per altre informazioni sulla delega, vedere il video seguente.
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

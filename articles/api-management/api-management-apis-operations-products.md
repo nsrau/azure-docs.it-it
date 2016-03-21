@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -62,4 +62,4 @@ In Gestione API un prodotto contiene una o più API, oltre a una quota di utiliz
 [Come importare la definizione di un'API con le operazioni]: api-management-howto-import-api.md
 [Come creare e configurare le impostazioni avanzate del prodotto]: api-management-howto-product-with-rules.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Eseguire la migrazione del codice SQL in SQL Data Warehouse
@@ -55,9 +55,23 @@ Fortunatamente è possibile ovviare alla maggior parte di queste limitazioni. Le
 ### Espressioni di tabella comune
 L'implementazione corrente delle espressioni di tabella comune (CTE) all'interno di SQL Data Warehouse presenta le funzionalità e le limitazioni seguenti:
 
-**Funzionalità delle CTE**: una CTE può essere specificata in un'istruzione SELECT, in un'istruzione CREATE VIEW, in un'istruzione CREATE TABLE AS SELECT (CTAS), in un'istruzione CREATE REMOTE TABLE AS SELECT (CRTAS) e in un'istruzione CREATE EXTERNAL TABLE AS SELECT (CETAS). Da una CTE è possibile fare riferimento a una tabella remota e a una tabella esterna. Più definizioni di query CTE possono essere definite in una CTE.
+**Funzionalità CTE**
++ Un'espressione CTE può essere specificata in un'istruzione SELECT.
++ Un'espressione CTE può essere specificata in un'istruzione CREATE VIEW.
++ Un'espressione CTE può essere specificata in un'istruzione CREATE TABLE AS SELECT (CTAS).
++ Un'espressione CTE può essere specificata in un'istruzione CREATE REMOTE TABLE AS SELECT (CRTAS).
++ Un'espressione CTE può essere specificata in un'istruzione CREATE EXTERNAL TABLE AS SELECT (CETAS).
++ È possibile fare riferimento a una tabella remota da un'espressione CTE.
++ È possibile fare riferimento a una tabella esterna da un'espressione CTE.
++ In un'espressione CTE possono essere definite più definizioni di query CTE.
 
-**Limitazioni delle CTE**: una CTE deve essere seguita da una singola istruzione SELECT. Le istruzioni INSERT, UPDATE, DELETE e MERGE non sono supportate. Non è supportata un'espressione di tabella comune che include riferimenti a se stessa (espressione di tabella comune ricorsiva). A tale proposito, vedere la sezione seguente. Non è consentito specificare più di una clausola WITH in una CTE. Ad esempio, se un oggetto CTE\_query\_definition contiene una sottoquery, la sottoquery non può contenere una clausola WITH nidificata che definisce un'altra CTE. Non è possibile usare una clausola ORDER BY in un oggetto CTE\_query\_definition, se non quando viene specificata una clausola TOP. Quando una CTE viene usata in un'istruzione che fa parte di un batch, l'istruzione precedente deve essere seguita da un punto e virgola. Se usate in istruzioni preparate da sp\_prepare, le CTE si comportano come altre istruzioni SELECT in PDW. Tuttavia, se le CTE vengono usate come parte di istruzioni CETAS preparate da sp\_prepare, il comportamento può variare rispetto a SQL Server e altre istruzioni PDW per la modalità di implementazione del binding per sp\_prepare. Se l'istruzione SELECT che fa riferimento alla CTE usa una colonna non corretta che non esiste nella CTE, sp\_prepare passa senza rilevare l'errore, che invece viene generato durante sp\_execute.
+**Limitazioni CTE**
++ Un'espressione CTE deve essere seguita da una singola istruzione SELECT. Le istruzioni INSERT, UPDATE, DELETE e MERGE non sono supportate.
++ Un'espressione di tabella comune che include riferimenti a se stessa (un'espressione di tabella comune ricorsiva) non è supportata (vedere la sezione sotto).
++ Non è consentito specificare più di una clausola WITH in un'espressione CTE. Se, ad esempio, CTE\_query\_definition contiene una sottoquery, tale sottoquery non può contenere una clausola WITH annidata che definisce un'altra CTE.
++ Una clausola ORDER BY non può essere usata in CTE\_query\_definition, tranne quando viene specificata una clausola TOP.
++ Quando un'espressione CTE viene usata in un'istruzione che fa parte di un batch, l'istruzione precedente deve essere seguita da un punto e virgola.
++ Quando vengono usate in istruzioni preparate da sp\_prepare, le espressioni CTE si comporteranno esattamente come le altre istruzioni SELECT in PDW. Tuttavia, se le CTE vengono usate come parte di istruzioni CETAS preparate da sp\_prepare, il comportamento può variare rispetto a SQL Server e altre istruzioni PDW per la modalità di implementazione del binding per sp\_prepare. Se l'istruzione SELECT che fa riferimento alla CTE usa una colonna non corretta che non esiste nella CTE, sp\_prepare passa senza rilevare l'errore, che invece viene generato durante sp\_execute.
 
 ### Espressioni tabella comune ricorsive
 
@@ -80,17 +94,17 @@ Anche per questi problemi è possibile trovare una soluzione.
 Il codice seguente ad esempio è una soluzione alternativa per recuperare informazioni @@ROWCOUNT:
 
 ```
-SELECT  SUM(row_count) AS row_count 
-FROM    sys.dm_pdw_sql_requests 
-WHERE   row_count <> -1 
-AND     request_id IN 
-                    (   SELECT TOP 1    request_id 
-                        FROM            sys.dm_pdw_exec_requests 
-                        WHERE           session_id = SESSION_ID() 
+SELECT  SUM(row_count) AS row_count
+FROM    sys.dm_pdw_sql_requests
+WHERE   row_count <> -1
+AND     request_id IN
+                    (   SELECT TOP 1    request_id
+                        FROM            sys.dm_pdw_exec_requests
+                        WHERE           session_id = SESSION_ID()
                         ORDER BY end_time DESC
                     )
 ;
-``` 
+```
 
 ## Passaggi successivi
 Per suggerimenti sullo sviluppo di codice, vedere la [panoramica dello sviluppo][].
@@ -116,4 +130,4 @@ Per suggerimenti sullo sviluppo di codice, vedere la [panoramica dello sviluppo]
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

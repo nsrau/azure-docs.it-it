@@ -20,7 +20,7 @@
 
 Gli stili dell'architettura orientata ai microservizi e ai servizi vengono visualizzati naturalmente in Azure Service Fabric. In questi tipi di architetture distribuite, le applicazioni di microservizi con componenti sono in genere costituite da più servizi che devono comunicare tra loro. Anche nei casi più semplici, in genere si ha almeno un servizio Web senza stato e un servizio di archiviazione dei dati con stato che devono comunicare.
 
-La comunicazione da servizio a servizio è un punto di integrazione critico di un'applicazione, in quanto ogni servizio espone un'API remota ad altri servizi. L'uso di un set di limiti di API che coinvolgono l'I/O in genere richiede particolare attenzione e una buona dose di test e di convalida.
+La comunicazione da servizio a servizio è un punto di integrazione critico di un'applicazione, in quanto ogni servizio espone un'API remota ad altri servizi. L'uso di un set di limiti di API che coinvolgono l'I/O richiede in genere particolare attenzione e diverse operazioni di test e di convalida.
 
 Quando questi limiti di servizio sono raggruppati in un sistema distribuito, è necessario fare numerose considerazioni:
 
@@ -85,11 +85,11 @@ La perdita di quorum può essere indotta mediante il cmdlet di PowerShell **Invo
 
 ```powershell
 
-PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode PartialQuorumLoss -QuorumLossDurationInSeconds 20
+PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode QuorumReplicas -QuorumLossDurationInSeconds 20
 
 ```
 
-In questo esempio viene impostato `QuorumLossMode` su `PartialQuorumLoss`, per indicare che si vuole causare la perdita di quorum senza interrompere tutte le repliche. In questo modo è comunque possibile eseguire le operazioni di lettura. Per testare uno scenario in cui un'intera partizione non è disponibile, è possibile impostare questa opzione su `FullQuorumLoss`.
+In questo esempio `QuorumLossMode` viene impostato su `QuorumReplicas`, per indicare che si vuole causare la perdita di quorum senza interrompere tutte le repliche. In questo modo è comunque possibile eseguire le operazioni di lettura. Per testare uno scenario in cui un'intera partizione non è disponibile, è possibile impostare questa opzione su `AllReplicas`.
 
 ## Passaggi successivi
 
@@ -97,4 +97,4 @@ In questo esempio viene impostato `QuorumLossMode` su `PartialQuorumLoss`, per i
 
 [Scenari di Testabilità](service-fabric-testability-scenarios.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

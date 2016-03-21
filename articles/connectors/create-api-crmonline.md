@@ -47,52 +47,17 @@ Tutte le API supportano i dati nei formati JSON e XML.
 
 ## Creare una connessione a CRM Online
 
+Quando si aggiunge questa API alle app per la logica, è necessario accedere a Dynamics CRM Online. Seguire questi passaggi per accedere a CRM Online e completare la configurazione della **connessione** nell'app per la logica:
 
-### Aggiungere configurazioni aggiuntive in PowerApps
-Quando si aggiunge CRM Online a PowerApps Enterprise, immettere i valori **ID client** e **Chiave app** dell'applicazione Dynamics CRM Online per Azure Active Directory (AAD). Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione CRM Online. Se non si ha un'applicazione, è possibile usare la procedura seguente per creare l'applicazione:
-
-1. Nel [Azure Portal](https://portal.azure.com) aprire **Active Directory** e selezionare il nome del tenant dell'organizzazione.
-2. Nella scheda Applicazioni selezionare **Aggiungi**. In **Aggiungi applicazione**:  
-
-	1. Immettere un **Nome** per l'applicazione.  
-	2. Lasciare il tipo di applicazione come **Web**.  
-	3. Selezionare **Avanti**.
-
-	![Aggiunta dell'applicazione AAD - info app][9]
-
-3. In **Proprietà app**:
-
-	1. Immettere l'**URL DI ACCESSO** dell'applicazione. Poiché si intende eseguire l'autenticazione con AAD per PowerApps, impostare l'URL di accesso su _https://login.windows.net_.
-	2. Immettere un valore valido di **URI ID APP** per l'app.  
-	3. Selezionare **OK**.  
-
-	![Aggiunta dell'applicazione AAD - proprietà app][10]
-
-4. Nella nuova applicazione, selezionare **Configura**.
-5. In _OAuth 2_ impostare l'**URL di risposta** sul valore dell'URL di reindirizzamento visualizzato quando si aggiunge l'API di CRM Online nel portale di Azure: ![Configurazione dell'app AAD Contoso][12]
-
-A questo punto, copiare e incollare i valori di **ID client** e **Chiave app** nella configurazione di CRM Online nel portale di Azure.
-
-### Aggiungere configurazioni aggiuntive nelle app per la logica
-Quando si aggiunge questa API alle app per la logica, è necessario accedere a Dynamics CRM Online.
-
-Seguire questi passaggi per accedere a CRM Online e completare la configurazione della **connessione** nell'app per la logica:
-
-1. Selezionare **Ricorrenza**
-2. Selezionare una **Frequenza** e immettere un **Intervallo**
-3. Selezionare **Aggiungi un'azione**  
-![Configurare CRM Online][13]
-4. Immettere CRM nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con CRM nel nome
-5. Selezionare **Dynamics CRM Online - Crea un nuovo record**
-6. Selezionare **Accedi a Dynamics CRM Online**:  
-![Configurare CRM Online][14]
-7. Fornire le credenziali di CRM Online per accedere e autorizzare l'applicazione
-![Configurare CRM Online][15]  
+1. Nell'app per la logica, selezionare **Aggiungi un'azione**: ![Configurare CRM Online][13]
+4. Immettere CRM nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con CRM nel nome.
+5. Selezionare **Dynamics CRM Online - Crea un nuovo record**.
+6. Selezionare **Accedi a Dynamics CRM Online**: ![Configurare CRM Online][14]
+7. Immettere le credenziali di CRM Online per accedere e autorizzare l'applicazione: ![Configurare CRM Online][15]  
 8. Dopo l'accesso, tornare all'app per la logica per completarla aggiungendo gli altri trigger e azioni necessari.
 9. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.
 
-
-Dopo aver creato la connessione immettere le proprietà di CRM Online, ad esempio tabella o set di dati. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
+Dopo aver creato la connessione immettere le proprietà di CRM Online, ad esempio tabella o set di dati. Tali proprietà vengono descritte nelle **Informazioni di riferimento sulle API REST** in questo argomento.
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
@@ -116,7 +81,7 @@ Crea un nuovo record in un'entità. ```POST: /datasets/{dataset}/tables/{table}/
 
 
 ### Recupera record 
- Recupera record per un'entità. ```GET: /datasets/{dataset}/tables/{table}/items```
+ Ottiene record per un'entità. ```GET: /datasets/{dataset}/tables/{table}/items```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -150,7 +115,7 @@ Non sono disponibili parametri per questa chiamata.
 
 
 ### Recupera un elemento tabella 
-Usata per recuperare un record specifico presente per un'entità CRM. ```GET: /datasets/{dataset}/tables/{table}/items/{id}```
+Usata per ottenere un record specifico presente per un'entità CRM. ```GET: /datasets/{dataset}/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -182,7 +147,7 @@ Elimina un elemento da un elenco. ```DELETE: /datasets/{dataset}/tables/{table}/
 
 
 ### Aggiungi patch a un elemento tabella esistente 
-Usato per l'aggiornamento parziale di un record esistente per un'entità CRM. ```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
+Usata per l'aggiornamento parziale di un record esistente per un'entità CRM. ```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -198,7 +163,7 @@ Usato per l'aggiornamento parziale di un record esistente per un'entità CRM. ``
 |default|Operazione non riuscita.|
 
 ### Recupera entità 
-Usato per recuperare l'elenco delle entità presenti in un'istanza CRM. ```GET: /datasets/{dataset}/tables```
+Usata per ottenere l'elenco delle entità presenti in un'istanza CRM. ```GET: /datasets/{dataset}/tables```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -290,9 +255,10 @@ Usato per recuperare l'elenco delle entità presenti in un'istanza CRM. ```GET: 
 
 
 ## Passaggi successivi
-Dopo aver aggiunto l'API di CRM Online a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle app.
 
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+Tornare all'[elenco di API](apis-list.md).
 
 
 [9]: ./media/create-api-crmonline/aad-tenant-applications-add-appinfo.png
@@ -302,6 +268,4 @@ Dopo aver aggiunto l'API di CRM Online a PowerApps Enterprise, [concedere autori
 [14]: ./media/create-api-crmonline/crmconfig2.png
 [15]: ./media/create-api-crmonline/crmconfig3.png
 
-<!---HONumber=AcomDC_0302_2016-->
-
-
+<!---HONumber=AcomDC_0309_2016-->

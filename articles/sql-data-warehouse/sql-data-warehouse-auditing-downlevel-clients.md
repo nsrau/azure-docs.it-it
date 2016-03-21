@@ -1,22 +1,22 @@
-<properties 
-   pageTitle="SQL Data Warehouse supporto client di livello inferiore per controllo dati | Microsoft Azure" 
-   description="Informazioni sul supporto di client di livello inferiore di SQL Data Warehouse per il controllo dati" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="SQL Data Warehouse supporto client di livello inferiore per controllo dati | Microsoft Azure"
+   description="Informazioni sul supporto di client di livello inferiore di SQL Data Warehouse per il controllo dati"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-database" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-database"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
-# SQL Data Warehouse - Supporto client di livello inferiore per controllo e maschera dati dinamica 
+
+# SQL Data Warehouse - Supporto client di livello inferiore per controllo e maschera dati dinamica
 
 
 [Controllo](sql-data-warehouse-auditing-get-started.md) funziona con i client SQL che supportano il reindirizzamento TDS.
@@ -38,6 +38,4 @@ Un elenco parziale di "client di livello inferiore" include:
 
 **Nota:** la modifica del nome di dominio completo del server citata in precedenza può risultare utile per applicare un criterio di controllo a livello di server SQL senza la necessità di una procedura di configurazione in ogni database (attenuazione temporanea).
 
- 
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

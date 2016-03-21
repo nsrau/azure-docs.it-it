@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure
@@ -24,7 +24,7 @@ Per informazioni sulla gestione dei certificati con l'API REST di Gestione API, 
 
 ## <a name="prerequisites"> </a>Prerequisiti
 
-In questa guida viene illustrato come configurare un'istanza del servizio di Gestione API per l'uso dell'autenticazione con certificati client per accedere al servizio back-end di un'API. Prima di eseguire le procedure di questo argomento, è necessario aver configurato il servizio back-end per l'autenticazione con certificati client e avere l'accesso al certificato e alla relativa password per il caricamento nel portale di pubblicazione di Gestione API.
+In questa guida viene illustrato come configurare un'istanza del servizio di Gestione API per l'uso dell'autenticazione con certificati client per accedere al servizio back-end di un'API. Prima di seguire i passaggi indicati in questo argomento, è consigliabile aver configurato il servizio back-end per l’autenticazione con certificati client ([per la configurazione dell'autenticazione con certificati client nei siti Web di Azure, vedere questo articolo][]) e disporre dell'accesso al certificato e alla relativa password per il caricamento nel portale di pubblicazione di Gestione API.
 
 ## <a name="step1"> </a>Caricare un certificato client
 
@@ -129,6 +129,7 @@ Per ulteriori informazioni su altri modi per proteggere il servizio back-end, ad
 
 [Entità certificato dell'API REST di Gestione API di Azure]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
+[per la configurazione dell'autenticazione con certificati client nei siti Web di Azure, vedere questo articolo]: https://azure.microsoft.com/it-IT/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
@@ -138,7 +139,6 @@ Per ulteriori informazioni su altri modi per proteggere il servizio back-end, ad
 [Next steps]: #next-steps
 
 
-
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

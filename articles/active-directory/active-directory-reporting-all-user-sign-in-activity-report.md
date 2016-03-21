@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
-   manager="mbaldwin"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/17/2016"
+   ms.date="03/07/2016"
    ms.author="dhanyahk"/>
 
 # Report Tutta l'attività di accesso degli utenti di Azure Active Directory
@@ -32,4 +32,4 @@ Il report Tutta l'attività di accesso degli utenti elenca tutti gli accessi all
  >
  - Il report Tutta l'attività di accesso degli utenti è attualmente disponibile solo tramite l'API di creazione report. Per altre informazioni, vedere la pagina [Introduzione all'API di creazione report](active-directory-reporting-api-getting-started.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

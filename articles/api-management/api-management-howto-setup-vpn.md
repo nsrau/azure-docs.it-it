@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="antonba"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -68,4 +68,4 @@ Dopo che il servizio Gestione API è stato connesso alla VPN, l'accesso ai servi
 [Esercitazione: Creazione di una rete virtuale cross-premise per la connettività da sito a sito]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

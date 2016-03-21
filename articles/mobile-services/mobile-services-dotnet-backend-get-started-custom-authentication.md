@@ -19,8 +19,7 @@
 # Introduzione all'autenticazione personalizzata
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
+> Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Procedura: Usare l'autenticazione personalizzata per l'applicazione](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
 
 
 ## Panoramica
@@ -424,4 +423,4 @@ L'esercitazione è terminata.
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

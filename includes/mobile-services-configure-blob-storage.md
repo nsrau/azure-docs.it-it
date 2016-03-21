@@ -1,6 +1,6 @@
 Viene registrato un nuovo script insert che genera una firma di accesso condiviso quando viene inserito un nuovo elemento Todo.
 
-0. Se non è ancora stato creato un account di archiviazione, vedere [Come creare un account di archiviazione](../storage/storage-create-storage-account.md).
+0. Se non è ancora stato creato un account di archiviazione, vedere [Come creare un account di archiviazione](../articles/storage/storage-create-storage-account.md).
 
 1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Archiviazione**, sull'account di archiviazione e quindi su **Gestisci chiavi**.
 
@@ -78,7 +78,7 @@ Viene registrato un nuovo script insert che genera una firma di accesso condivis
 
    	La funzione richiamata quando si verifica un inserimento nella tabella TodoItem verrà sostituita da un nuovo script. Il nuovo script genera una nuova firma di accesso condiviso per l'inserimento, valida per 5 minuti, quindi assegna il valore della firma generata alla proprietà `sasQueryString` dell'elemento restituito. La proprietà `imageUri` viene impostata anche sul percorso risorse del nuovo BLOB, per abilitare la visualizzazione di immagini durante l'associazione nell'interfaccia utente client.
 
-	>[AZURE.NOTE]Questo codice consente di creare una firma di accesso condiviso per un singolo BLOB. Per caricare più BLOB in un contenitore usando la stessa firma di accesso condiviso, chiamare il metodo [generateSharedAccessSignature con un nome risorse](http://go.microsoft.com/fwlink/?LinkId=390455)</a> BLOB vuoto, ad esempio:
+	>[AZURE.NOTE] Questo codice consente di creare una firma di accesso condiviso per un singolo BLOB. Per caricare più BLOB in un contenitore usando la stessa firma di accesso condiviso, chiamare il metodo [generateSharedAccessSignature con un nome risorse](http://go.microsoft.com/fwlink/?LinkId=390455)</a> BLOB vuoto, ad esempio:
 	>                 
 	>     blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);
 
@@ -91,4 +91,4 @@ In seguito, l'app della Guida introduttiva verrà aggiornata per aggiungere funz
 <!-- URLs. -->
 [Impostazioni app]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

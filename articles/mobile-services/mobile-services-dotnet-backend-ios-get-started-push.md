@@ -19,12 +19,12 @@
 
 # Aggiungere notifiche push all'app per iOS e al back-end .NET
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Aggiungere notifiche push all'app iOS](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 
 In questo argomento viene illustrato come aggiungere notifiche push per il [progetto di guida introduttiva](mobile-services-dotnet-backend-ios-get-started.md), in modo che il servizio mobile sia in grado di inviare una notifica push ogni volta che viene inserito un record. È necessario completare prima di tutto l'esercitazione [Introduzione a Servizi mobili].
 
@@ -132,4 +132,4 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

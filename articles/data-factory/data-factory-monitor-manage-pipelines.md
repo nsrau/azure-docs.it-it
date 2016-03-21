@@ -19,8 +19,8 @@
 
 # Monitorare e gestire le pipeline di Data factory di Azure
 > [AZURE.SELECTOR]
-- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+- [Con il portale di Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md)
 
 Il servizio Data factory offre una visione completa dei servizi di archiviazione, elaborazione e spostamento dei dati e consente di valutare rapidamente l'integrità della pipeline di dati end-to-end, individuare i problemi e adottare le eventuali misure correttive necessarie. È anche possibile tenere visivamente traccia della derivazione dei dati e delle relazioni tra i dati delle diverse origini, nonché visualizzare una presentazione cronologica completa di esecuzione dei processi, integrità del sistema e dipendenze da un unico dashboard di monitoraggio.
 
@@ -275,9 +275,9 @@ Se non è possibile eseguire la convalida della sezione a causa di un errore rel
 
 ### Uso di Azure PowerShell
 
-È possibile eseguire nuovamente le operazioni non riuscite usando il cmdlet Set-AzureRmDataFactorySliceStatus. Per la sintassi e altre informazioni sul cmdlet, vedere l'argomento [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx).
+È possibile eseguire nuovamente le operazioni non riuscite usando il cmdlet Set-AzureRmDataFactorySliceStatus. Per informazioni sulla sintassi e altri dettagli sul cmdlet, vedere l'argomento [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx).
 
-**Esempio:** l'esempio seguente mostra come impostare lo stato di tutte le sezioni per la tabella "DAWikiAggregatedData" su "Waiting" nella data factory "WikiADF" di Azure.
+**Esempio:** l'esempio seguente imposta lo stato di tutte le sezioni per la tabella 'DAWikiAggregatedData' in 'Waiting' nella data factory 'WikiADF' di Azure.
 
 **Nota:** UpdateType è impostato su UpstreamInPipeline. Ciò significa che lo stato di ogni sezione della tabella e di tutte le tabelle dipendenti (upstream) usate come tabelle di input per le attività nella pipeline viene impostato su "Waiting". Un altro possibile valore per questo parametro è "Individual".
 
@@ -349,7 +349,7 @@ La tabella seguente fornisce l'elenco di operazioni e di stati (e degli stati se
 Nome operazione | Stato | Stato secondario
 -------------- | ------ | ----------
 RunStarted | Started | Starting
-RunFinished | Failed/Succeeded | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
+RunFinished | Failed/Succeeded | FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned
 OnDemandClusterCreateStarted | Started
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
@@ -357,7 +357,7 @@ OnDemandClusterDeleted | Succeeded
 Vedere [Crea regola di avviso](https://msdn.microsoft.com/library/azure/dn510366.aspx) per informazioni dettagliate sugli elementi JSON usati nell'esempio precedente.
 
 #### Distribuzione dell'avviso 
-Per distribuire l'avviso, usare il cmdlet di Azure PowerShell **New-AzureRmResourceGroupDeployment**, come mostrato nell'esempio seguente:
+Per distribuire l'avviso, usare il cmdlet **New-AzureRmResourceGroupDeployment** di Azure PowerShell, come mostrato nell'esempio seguente:
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
@@ -545,13 +545,13 @@ Questo comportamento è diverso da quello degli eventi in cui verrà inviata una
  
 Sostituire subscriptionId resourceGroupName e dataFactoryName dell'esempio precedente con i valori appropriati.
 
-*metricName* supporta al momento 2 valori:
+*metricName* supporta attualmente due valori:
 - FailedRuns
 - SuccessfulRuns
 
 **Distribuzione dell'avviso:**
 
-Per distribuire l'avviso, usare il cmdlet di Azure PowerShell **New-AzureRmResourceGroupDeployment**, come mostrato nell'esempio seguente:
+Per distribuire l'avviso, usare il cmdlet **New-AzureRmResourceGroupDeployment** di Azure PowerShell, come mostrato nell'esempio seguente:
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
@@ -575,7 +575,7 @@ Dopo il completamento della distribuzione, verrà visualizzato il messaggio segu
 È anche possibile usare il cmdlet **Add-AlertRule** per distribuire una regola di avviso. Per informazioni dettagliate ed esempi, vedere l'argomento [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
 
 ## Spostare una data factory in un gruppo di risorse o una sottoscrizione diversa
-È possibile spostare una data factory in un gruppo di risorse diverso o una sottoscrizione diversa usando il pulsante della barra dei comandi **Sposta** nella home page della data factory.
+È possibile spostare una data factory in un gruppo di risorse diverso o una sottoscrizione diversa usando il pulsante **Sposta** della barra dei comandi nella home page della data factory.
 
 ![Spostare una data factory](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
 
@@ -583,4 +583,4 @@ Dopo il completamento della distribuzione, verrà visualizzato il messaggio segu
 
 ![Finestra di dialogo Sposta risorse](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

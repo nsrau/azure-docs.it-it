@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="billmath"/>
 
 # Determinare i requisiti dell'autenticazione a più fattori per la soluzione di identità ibrida
@@ -58,4 +58,4 @@ Dopo aver risposto a queste domande, sarà possibile capire se l'autenticazione 
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

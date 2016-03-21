@@ -464,6 +464,10 @@ L'esportazione di un'importazione consente di rendere persistenti i dati del pun
 
 > [AZURE.NOTE] Poiché i dati vengono mantenuti nel contenitore di archiviazione predefinito, il nuovo cluster **deve** usare gli stessi account e contenitore di archiviazione del cluster precedente.
 
+## Eliminare il cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##Risoluzione dei problemi
 
 Se non vengono visualizzati file archiviati nel percorso /devicedata, tramite il comando `hadoop fs -ls /devicedata` o il comando Hive nella Console query, usare l'Interfaccia utente di Storm per vedere gli eventuali errori restituiti dalle topologie.
@@ -478,4 +482,4 @@ Per altre informazioni sull'uso dell'Interfaccia utente di Storm, vedere gli arg
 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

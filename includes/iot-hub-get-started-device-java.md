@@ -27,7 +27,7 @@ In questa sezione si creerà un'app console di Java che simula un dispositivo ch
 
 4. Salvare e chiudere il file pom.xml.
 
-5. Usando un editor di testo, aprire il file simulated-device\src\main\java\com\mycompany\app\App.java.
+5. Usando un editor di testo, aprire il file simulated-device\\src\\main\\java\\com\\mycompany\\app\\App.java.
 
 6. Aggiungere al file le istruzioni **import** seguenti:
 
@@ -156,6 +156,6 @@ In questa sezione si creerà un'app console di Java che simula un dispositivo ch
 > [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN relativo alla [gestione degli errori temporanei][lnk-transient-faults].
 
 <!-- Links -->
-[lnk-transient-faults]: https://msdn.microsoft.com/it-IT/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

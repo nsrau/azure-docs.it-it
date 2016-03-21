@@ -14,10 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# Creare una nuova API di Microsoft Translator nell’ambiente del servizio app dell'organizzazione
+# Creare una nuova API Microsoft Translator in PowerApps Enterprise
+
+> [AZURE.SELECTOR]
+- [App per la logica](../articles/connectors/create-api-microsofttranslator.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-microsofttranslator.md)
+
+Aggiungere l'API Microsoft Translator API nell'ambiente del servizio app dell'organizzazione (tenant).
 
 ## Creare l'API nel portale di Azure
 
@@ -55,12 +61,19 @@ Se non si dispone di un'app Microsoft Translator esistente con i valori ID e seg
 
 3. In **Registrare l'applicazione**:
 
-	a) Immettere un valore per **Id client**. b) Immettere il **nome** dell'applicazione. c) Immettere un valore fittizio per **url di reindirizzamento**. Ad esempio, immettere **https://contosoredirecturl*. d) Immettere una **descrizione**. e) Selezionare **Crea**.
+	1. Immettere un valore per **ID client**.  
+	2. Immettere il **nome** dell'applicazione.  
+	3. Immettere un valore fittizio per l'**URL di reindirizzamento**, Ad esempio, immettere: **https://contosoredirecturl*.
+4. Immettere una **descrizione**.  
+	5. Selezionare **Create**.  
 
 	![Registrare l'applicazione][6]
 
 Viene creata una nuova applicazione Microsoft Translator. È possibile utilizzare questa app nella configurazione dell'API di Microsoft Translator nel portale di Azure.
 
+## Vedere le API REST
+
+Informazioni di riferimento sull'[API REST Microsoft Translator](../connectors/create-api-microsofttranslator.md).
 
 ## Riepilogo e passaggi successivi
 In questo argomento, è stata aggiunta l'API di Microsoft Translator alla PowersApps Enterprise. Successivamente, fornire agli utenti accesso all'API, in modo che sia possibile aggiungerla alle loro app:
@@ -78,4 +91,4 @@ In questo argomento, è stata aggiunta l'API di Microsoft Translator alla Powers
 [7]: ./media/powerapps-create-api-microsofttranslator/browseall.png
 [8]: ./media/powerapps-create-api-microsofttranslator/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

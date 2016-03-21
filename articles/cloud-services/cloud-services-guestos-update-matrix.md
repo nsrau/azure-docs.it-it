@@ -40,13 +40,13 @@ L'implementazione del sistema operativo guest di gennaio è iniziata il 18 genna
 Il sistema operativo guest del 2 novembre 2015 è stato rilasciato per la distribuzione il 4 gennaio 2016. Questa versione del sistema operativo non è impostata come sistema operativo predefinito per l'aggiornamento automatico, quindi i tempi di provisioning della distribuzione del sistema operativo guest alla versione del 2 novembre 2015 sono leggermente più lunghi.
 
 ###### **18 dicembre 2015**
-La data di rilascio del sistema operativo guest 201511-02 novembre è stata posticipata dal 16 dicembre 2015 al 4 gennaio 2016.
+La data di rilascio della versione 2 novembre 2015 del sistema operativo guest è stata posticipata dal 16 dicembre 2015 al 4 gennaio 2016.
 
 ###### **9 dicembre 2015**
-L’implementazione del sistema operativo guest di dicembre è iniziata il 10 dicembre 2015 e dovrebbe essere rilasciata l’8 gennaio 2016.
+L’implementazione del sistema operativo guest di dicembre è iniziata il 10 dicembre 2015; il rilascio è programmato per l’8 gennaio 2016.
 
 ###### **12 novembre 2015**  
-Il 7 agosto 2014 Microsoft ha annunciato che il supporto per .NET Framework 4, 4.5 e 4.5.1 terminerà il 12 gennaio 2016. Per i clienti e gli sviluppatori è consigliabile completare l'aggiornamento locale a .NET Framework 4.5.2 12 entro il 12 gennaio 2016 per continuare a ricevere supporto tecnico e aggiornamenti della sicurezza. Per maggiori dettagli, visitare il sito dedicato ai criteri relativi al ciclo di vita del supporto per Microsoft .NET Framework.
+Il 7 agosto 2014 Microsoft ha annunciato che il supporto per .NET Framework 4, 4.5 e 4.5.1 terminerà il 12 gennaio 2016. Si consiglia a clienti e sviluppatori di completare l'aggiornamento locale a .NET Framework 4.5.2 entro il 12 gennaio 2016 per continuare a ricevere supporto tecnico e aggiornamenti della sicurezza. Per maggiori dettagli, visitare il sito dedicato ai criteri relativi al ciclo di vita del supporto per Microsoft .NET Framework.
 
 Il 27 ottobre abbiamo annunciato che Azure aggiornerà .NET Framework all'interno della famiglia di sistemi operativi guest Azure (sistema operativo guest) 2. x, 3.x e 4. x a .NET Framework 4.5.2 nella prossima versione del sistema operativo guest di novembre. Da allora, commenti e suggerimenti dei clienti ci hanno consigliato di rimandare l'aggiornamento automatico a una versione del sistema operativo con .NET 4.5.2 e di fornire un'immagine con .NET 4.5.2 per il test di convalida.
 
@@ -156,7 +156,7 @@ In questa sezione sono elencate le versioni del sistema operativo guest attualme
 
 Microsoft supporta almeno le due versioni più recenti di ogni famiglia del sistema operativo guest supportata. La data di disabilitazione di una versione di sistema operativo guest esistente può essere posticipata per garantire che almeno due versioni rilasciate rimangano sempre disponibili per la distribuzione.
 
-> [AZURE.WARNING] Il ritiro della famiglia di sistemi operativi guest 1 è iniziato il 1 giugno 2013 e il completamento è previsto a breve. Non creare nuove installazioni e aggiornare quelle precedenti mediante questa famiglia di sistemi operativi guest. Per altre informazioni, vedere [Informazioni sul ritiro della famiglia di sistemi operativi guest Azure 1][fam1retire]
+> [AZURE.WARNING] Il ritiro della famiglia di sistemi operativi guest 1 è iniziato il 1° giugno 2013 e il completamento è previsto a breve. Non creare nuove installazioni e aggiornare quelle precedenti mediante questa famiglia di sistemi operativi guest. Per altre informazioni, vedere [Informazioni sul ritiro della famiglia di sistemi operativi guest Azure 1][fam1retire]
 
 
 ### Famiglia, versione e rilascio del sistema operativo guest
@@ -420,4 +420,4 @@ A seguito dell'implementazione parziale delle ultime due versioni, gli utenti ch
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

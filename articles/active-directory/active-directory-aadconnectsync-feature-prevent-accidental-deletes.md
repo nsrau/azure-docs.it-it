@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/07/2016"
    ms.author="andkjell"/>
 
 # Servizio di sincronizzazione Azure AD Connect: Impedire eliminazioni accidentali
@@ -27,7 +27,7 @@ Gli scenari comuni in cui si verifica questa situazione comprendono:
 - Vengono eliminati tutti gli oggetti in un'unità organizzativa.
 - Un'unità organizzativa viene rinominata in modo che tutti gli oggetti in essa contenuti vengano considerati al di fuori dell'ambito di sincronizzazione.
 
-Il valore predefinito di 500 oggetti può essere modificato con PowerShell utilizzando `Enable-ADSyncExportDeletionThreshold`. È consigliabile configurare questo valore in base alle dimensioni dell'organizzazione. Poiché l'utilità di pianificazione di sincronizzazione verrà eseguita ogni 3 ore, il valore è il numero di eliminazioni visualizzate in 3 ore.
+Il valore predefinito di 500 oggetti può essere modificato con PowerShell utilizzando `Enable-ADSyncExportDeletionThreshold`. È consigliabile configurare questo valore in base alle dimensioni dell'organizzazione. Poiché l'utilità di pianificazione di sincronizzazione verrà eseguita ogni 30 minuti, il valore è il numero di eliminazioni visualizzate in 30 minuti.
 
 Con questa funzionalità abilitata, in caso di un numero eccessivo di eliminazioni da esportare ad Azure AD, l'esportazione non continuerà e si riceverà un messaggio di posta elettronica simile a quello riportato di seguito:
 
@@ -56,4 +56,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

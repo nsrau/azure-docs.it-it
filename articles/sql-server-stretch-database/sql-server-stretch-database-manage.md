@@ -3,9 +3,9 @@
 	description="Scoprire come gestire e risolvere i problemi di Database Estensione."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -53,4 +53,4 @@ Per avere suggerimenti sulla risoluzione dei problemi, vedere l'articolo relativ
 ## Vedere anche
 [Monitorare Database Estensione](sql-server-stretch-database-monitor.md) [Eseguire backup e ripristino di database con estensione abilitata](sql-server-stretch-database-backup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

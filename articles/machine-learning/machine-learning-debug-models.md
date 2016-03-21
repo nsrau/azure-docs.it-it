@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="03/02/2016" 
 	ms.author="bradsev;garye" />
 
 # Debug del modello in Azure Machine Learning
@@ -47,7 +47,7 @@ Questo modulo genera un errore nei casi seguenti:
 
 ![Immagine2](./media/machine-learning-debug-models/train_test-2.png)
 
-In un tipico grafico di training/testing per l'apprendimento sorvegliato, il modulo [Split][split] separa il set di dati originale in due parti: una usata per eseguire il training del modello e l'altra riservata alla classificazione delle prestazioni del modello sottoposto a training sui dati. Il modello sottoposto a training viene quindi usato per calcolare il punteggio dei dati di test, dopo il quale vengono valutati i risultati per determinare la precisione del modello.
+In un tipico grafico di training/testing per l'apprendimento sorvegliato, il modulo [Split Data][split] separa il set di dati originale in due parti: una usata per eseguire il training del modello e l'altra riservata alla classificazione delle prestazioni del modello sottoposto a training sui dati. Il modello sottoposto a training viene quindi usato per calcolare il punteggio dei dati di test, dopo il quale vengono valutati i risultati per determinare la precisione del modello.
 
 Il modulo [Score Model][score-model] richiede due input:
 
@@ -69,4 +69,4 @@ Può accadere che, nonostante il buon esito dell'esperimento, il modulo [Score M
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

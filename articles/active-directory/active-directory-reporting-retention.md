@@ -3,8 +3,8 @@
 	description="Criteri di conservazione dei dati di report in Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
+	authors="dhanyahk"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,21 +13,21 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/07/2015"
-	ms.author="kenhoff"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
 # Criteri di conservazione dei report di Azure Active Directory
 
 *Questo documento fa parte della [guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).*
 
-I report di Azure AD conservano i dati per un determinato numero di giorni, come indicato di seguito.
+I report di Azure Active Directory (Azure AD) conservano i dati per un determinato numero di giorni, come indicato di seguito.
 
 Report | Descrizione
 ------------------------------------------------------- | -----------
 Accessi da origini sconosciute | 30 giorni
 Accessi dopo più errori | 30 giorni
 Accessi da più aree geografiche | 30 giorni
-Accessi da indirizzi IP con attività sospetta | 30 giorni
+Accessi da indirizzi IP con attività sospette | 30 giorni
 Accessi da dispositivi potenzialmente infetti | 30 giorni
 Attività di accesso irregolare | 30 giorni
 Utenti con anomalie dell'attività di accesso | 30 giorni
@@ -48,4 +48,4 @@ Utenti RMS più attivi | 30 giorni
 Utilizzo dispositivi RMS | 30 giorni
 Utilizzo applicazioni abilitate per RMS | 30 giorni
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

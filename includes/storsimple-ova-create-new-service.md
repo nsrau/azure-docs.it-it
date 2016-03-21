@@ -23,7 +23,7 @@
 
 	1.  Fare clic su **Crea StorSimple Manager** per creare il servizio.
 
-		![](./media/storsimple-ova-create-new-service/image1-include.png)
+		![](./media/storsimple-ova-create-new-service/image1m-include.png)
 
 	Si verrà indirizzati alla pagina di destinazione del **Servizio**. La creazione del servizio richiederà alcuni minuti. Dopo aver creato correttamente il servizio, si riceverà la relativa notifica.
 
@@ -31,4 +31,4 @@
 
 	Lo stato del servizio si trasformerà in **Attivo**.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

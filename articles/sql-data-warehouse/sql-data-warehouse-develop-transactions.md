@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transazioni in SQL Data Warehouse
@@ -26,7 +26,7 @@ SQL Data Warehouse implementa le transazioni ACID. Tuttavia, l'isolamento del su
 ## Stato della transazione
 SQL Data Warehouse usa la funzione XACT\_STATE() per segnalare una transazione non riuscita con il valore -2. Ciò significa che la transazione non è riuscita ed è contrassegnata solo per il rollback.
 
-> [AZURE.NOTE]L'uso di -2 da parte della funzione XACT\_STATE per indicare una transazione non riuscita rappresenta un comportamento diverso da SQL Server. SQL Server usa il valore -1 per rappresentare una transazione di cui non è possibile eseguire il commit. SQL Server è in grado di tollerare alcuni errori all'interno di una transazione senza doverne indicare l'impossibilità di eseguire il commit. Ad esempio, SELECT 1/0 causa un errore, ma non applica alla transazione lo stato per cui non è possibile eseguire il commit. SQL Server consente anche letture nella transazione di cui non è possibile eseguire il commit. In SQL Data Warehouse ciò non è possibile. Se si verifica un errore in una transazione di SQL Data Warehouse, passerà automaticamente allo stato -2, inclusi gli errori di SELECT 1/0. È quindi importante verificare il codice dell'applicazione per vedere se usa XACT\_STATE().
+> [AZURE.NOTE] L'uso di -2 da parte della funzione XACT\_STATE per indicare una transazione non riuscita rappresenta un comportamento diverso da SQL Server. SQL Server usa il valore -1 per rappresentare una transazione di cui non è possibile eseguire il commit. SQL Server è in grado di tollerare alcuni errori all'interno di una transazione senza doverne indicare l'impossibilità di eseguire il commit. Ad esempio, SELECT 1/0 causa un errore, ma non applica alla transazione lo stato per cui non è possibile eseguire il commit. SQL Server consente anche letture nella transazione di cui non è possibile eseguire il commit. In SQL Data Warehouse ciò non è possibile. Se si verifica un errore in una transazione di SQL Data Warehouse, passerà automaticamente allo stato -2, inclusi gli errori di SELECT 1/0. È quindi importante verificare il codice dell'applicazione per vedere se usa XACT\_STATE().
 
 In SQL Server può essere visualizzato un frammento di codice simile al seguente:
 
@@ -112,4 +112,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

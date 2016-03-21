@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016" 
+	ms.date="03/08/2016" 
 	ms.author="johnmac"/>
 
 #Livelli di prestazioni in DocumentDB
@@ -122,4 +122,4 @@ Per altre informazioni su DocumentDB, vedere la [documentazione](https://azure.m
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

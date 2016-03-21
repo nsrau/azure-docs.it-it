@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter="na"
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor="tysonn" />
 <tags 
 	ms.service="cache"
@@ -12,14 +12,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="12/16/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie" />
 
 # Come configurare Cache Redis di Azure
 
 In questo argomento viene descritto come esaminare e aggiornare la configurazione per le istanze di Cache Redis di Azure e viene illustrata la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
 
->[AZURE.NOTE]Per ulteriori informazioni sulla configurazione e sull'utilizzo delle funzionalità della cache premium, vedere [Come configurare la persistenza per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md),e [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md), e [Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md).
+>[AZURE.NOTE] Per ulteriori informazioni sulla configurazione e sull'utilizzo delle funzionalità della cache premium, vedere [Come configurare la persistenza per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md),e [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md), e [Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md).
 
 ## Configurare le impostazioni di Cache Redis di Azure
 
@@ -90,7 +90,7 @@ Per altre informazioni sui criteri maxmemory, vedere [Criteri di eliminazione](h
 
 L'impostazione **maxmemory-reserved** consente di configurare la quantità di memoria in MB riservata per le operazioni non appartenenti alla cache, ad esempio la replica durante il failover. Può essere utilizzata anche in caso di elevato rapporto di frammentazione. L’impostazione di questo valore consente di avere un'esperienza più coerente del server Redis quando il carico varia. Questo valore deve essere impostato per i carichi di lavoro ad intensa attività di scrittura. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
 
->[AZURE.IMPORTANT]L'impostazione **maxmemory-reserved** è disponibile solo per le cache Premium e Standard.
+>[AZURE.IMPORTANT] L'impostazione **maxmemory-reserved** è disponibile solo per le cache Premium e Standard.
 
 ## Notifiche di Keyspace (impostazioni avanzate)
 
@@ -98,7 +98,7 @@ Per configurare le notifiche di Keyspace Redis, fare clic su **Impostazioni avan
 
 ![Impostazioni avanzate di Cache Redis](./media/cache-configure/IC808319.png)
 
->[AZURE.IMPORTANT]Le notifiche di Keyspace e l'impostazione **notify-keyspace-events** sono disponibili solo per le cache Premium e Standard.
+>[AZURE.IMPORTANT] Le notifiche di Keyspace e l'impostazione **notify-keyspace-events** sono disponibili solo per le cache Premium e Standard.
 
 Per altre informazioni, vedere [Notifiche di Keyspace Redis](http://redis.io/topics/notifications). Per un esempio di codice, vedere il file [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) nell'esempio di [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
@@ -116,20 +116,20 @@ Fare clic su **Account di archiviazione** per selezionare l'account di archiviaz
 
 Fare clic su **OK** per salvare la configurazione della persistenza.
 
->[AZURE.IMPORTANT]La persistenza dei dati Redis è disponibile solo per le cache Premium. Per altre informazioni, vedere [Come configurare la persistenza dei dati per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md).
+>[AZURE.IMPORTANT] La persistenza dei dati Redis è disponibile solo per le cache Premium. Per altre informazioni, vedere [Come configurare la persistenza dei dati per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md).
 
 <a name="cluster-size"></a>
 ## Dimensione del Cluster Redis
 
 Fare clic su **(ANTEPRIMA) dimensione del cluster Redis** per modificare la dimensione di un cluster per una cache premium in esecuzione con il clustering abilitato.
 
->[AZURE.NOTE]Si noti che mentre il livello Premium della Cache Redis di Azure è stato rilasciato pubblicamente, la funzionalità dimensione del Cluster Redis è attualmente in anteprima.
+>[AZURE.NOTE] Si noti che mentre il livello Premium della Cache Redis di Azure è stato rilasciato pubblicamente, la funzionalità dimensione del Cluster Redis è attualmente in anteprima.
 
 ![Dimensione del cluster Redis](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
 Per modificare le dimensioni del cluster, usare il dispositivo di scorrimento oppure digitare un numero compreso tra 1 e 10 nella casella di testo **Numero di partizioni** e fare clic su **OK** per salvare.
 
->[AZURE.IMPORTANT]Il clustering Redis è disponibile esclusivamente per le cache Premium. Per ulteriori informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
+>[AZURE.IMPORTANT] Il clustering Redis è disponibile esclusivamente per le cache Premium. Per ulteriori informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
 
 
 ## Utenti e tag
@@ -144,7 +144,7 @@ La sezione **Tag** consente di organizzare le risorse. Per altre informazioni, v
 
 Le nuove istanze di Cache Redis di Azure sono configurate con i seguenti valori predefiniti di configurazione di Redis.
 
->[AZURE.NOTE]Le impostazioni in questa sezione non possono essere modificate con il metodo `StackExchange.Redis.IServer.ConfigSet`. Se questo metodo viene chiamato con uno dei comandi indicati in questa sezione, viene generata un'eccezione simile alla seguente:
+>[AZURE.NOTE] Le impostazioni in questa sezione non possono essere modificate con il metodo `StackExchange.Redis.IServer.ConfigSet`. Se questo metodo viene chiamato con uno dei comandi indicati in questa sezione, viene generata un'eccezione simile alla seguente:
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
@@ -178,7 +178,7 @@ Il valore di <sup>1</sup>`maxclients` è diverso per ogni piano tariffario di Ca
 
 ## Comandi di Redis non supportati in Cache Redis di Azure
 
->[AZURE.IMPORTANT]Poiché la configurazione e gestione delle istanze di Cache Redis di Azure viene gestita da Microsoft, i comandi seguenti sono disabilitati. Se si prova a richiamarli, si riceverà un messaggio di errore simile a `"(error) ERR unknown command"`.
+>[AZURE.IMPORTANT] Poiché la configurazione e gestione delle istanze di Cache Redis di Azure viene gestita da Microsoft, i comandi seguenti sono disabilitati. Se si prova a richiamarli, si riceverà un messaggio di errore simile a `"(error) ERR unknown command"`.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
@@ -195,12 +195,12 @@ Per ulteriori informazioni sui comandi di Redis, vedere [http://redis.io/command
 
 È possibile eseguire comandi in modo sicuro per le istanze di Cache Redis di Azure usando la **Console di Redis** disponibile per le cache Premium e Standard.
 
->[AZURE.IMPORTANT]La Console di Redis non funziona con la rete virtuale o il servizio cluster.
+>[AZURE.IMPORTANT] La Console di Redis non funziona con la rete virtuale o il servizio cluster.
 >
 >-	[VNET](cache-how-to-premium-vnet.md): quando la cache fa parte di una rete virtuale, solo i client nella rete virtuale possono accedere alla cache. Poiché la Console di Redis utilizza il client di redis cli.exe ospitato su macchine virtuali che non fanno parte di una rete virtuale, è impossibile connettersi alla cache.
->-	[Clustering](cache-how-to-premium-clustering.md): la Console di Redis utilizza il client redis-cli.exe che non supporta il clustering in questo momento. L'utilità del redis-cli nel ramo [instabile](http://redis.io/download) del repository Redis in GitHub implementa il supporto di base quando avviato con il passaggio `-c`. Per ulteriori informazioni vedere [Prove con il cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) su [http://redis.io](http://redis.io) nell’[Esercitazione cluster Redis](http://redis.io/topics/cluster-tutorial).
+>-	[Clustering](cache-how-to-premium-clustering.md): la Console di Redis utilizza il client redis-cli.exe che non supporta il clustering in questo momento. L'utilità del cli redis nel ramo [instabile](http://redis.io/download) del repository Redis in GitHub implementa il supporto di base quando avviato con il passaggio `-c`. Per ulteriori informazioni vedere [Giocare con cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) su [http://redis.io](http://redis.io) nell’[Esercitazione cluster Redis](http://redis.io/topics/cluster-tutorial).
 
-Per accedere alla Console di Redis, fare clic su **Console** dal pannello **Cache Redis**.
+Per accedere alla Console Redis, fare clic su **Console** dal pannello **Cache Redis**.
 
 ![Console Redis](./media/cache-configure/redis-console-menu.png)
 
@@ -211,6 +211,6 @@ Per eseguire comandi con l'istanza di cache, digitare semplicemente il comando d
 Per un elenco dei comandi di Redis disabilitati per Cache Redis di Azure, vedere la precedente sezione [Comandi di Redis non supportati in Cache Redis di Azure](#redis-commands-not-supported-in-azure-redis-cache). Per ulteriori informazioni sui comandi di Redis, vedere [http://redis.io/commands](http://redis.io/commands).
 
 ## Passaggi successivi
--	Per ulteriori informazioni sull'uso dei comandi di Redis, vedere [Come è possibile eseguire i comandi di Redis?](cache-faq.md#how-can-i-run-redis-commands).
+-	Per altre informazioni sull'uso dei comandi di Redis, vedere [Come è possibile eseguire i comandi di Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

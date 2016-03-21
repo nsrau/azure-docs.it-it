@@ -22,6 +22,6 @@ Di seguito sono illustrati i concetti e le funzionalità più importanti di Serv
 + **Scala:** possibilità di aggiungere, a un costo aggiuntivo, potenza di elaborazione, prestazioni e spazio di archiviazione quando l'app acquisisce popolarità.
 + **Processo pianificato:** codice personalizzato eseguito in base a una pianificazione predeterminata o su richiesta.
 
-Per ulteriori informazioni, vedere la pagina [Concetti sui servizi mobili](mobile-services-concepts-links.md).
+Per ulteriori informazioni, vedere la pagina [Concetti sui servizi mobili](../articles/mobile-services/mobile-services-concepts-links.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0309_2016-->

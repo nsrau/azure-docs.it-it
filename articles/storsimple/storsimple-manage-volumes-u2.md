@@ -3,7 +3,7 @@
    description="Viene illustrato come aggiungere, modificare, monitorare ed eliminare i volumi StorSimple e come portarli offline, se necessario."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/25/2016"
-   ms.author="v-sharos" />
+   ms.date="02/29/2016"
+   ms.author="alkohli" />
 
 # Per gestire il volume è possibile usare il servizio StorSimple Manager (aggiornamento 2)
 
@@ -40,7 +40,7 @@ Se necessario, è possibile passare da un tipo di volume locale a uno a livelli 
 
 I volumi aggiunti in locale sono volumi con provisioning completo che non dispongono i dati su livelli nel cloud, assicurando così garanzie locali per i dati primari, indipendentemente dalla connettività cloud. I dati nei volumi aggiunti in locale non vengono deduplicati e compressi, mentre gli snapshot dei volumi aggiunti in locale vengono deduplicati.
 
-Poiché viene effettuato il provisioning completo dei volumi aggiunti in locale, è necessario avere spazio sufficiente nel dispositivo quando li si crea. È possibile effettuare il provisioning dei volumi aggiunti in locale fino a una dimensione massima di 9 TB nel dispositivo StorSimple 8100 e di 24 TB nel dispositivo 8600. StorSimple riserva lo spazio locale restante nel dispositivo a snapshot, metadati ed elaborazione dati. È possibile aumentare la dimensione di un volume aggiunto in locale fino alla massima quantità di spazio disponibile, ma non è possibile ridurre la dimensione di un volume una volta creato.
+Poiché viene effettuato il provisioning completo dei volumi aggiunti in locale, è necessario avere spazio sufficiente nel dispositivo quando li si crea. È possibile effettuare il provisioning dei volumi aggiunti in locale fino a una dimensione massima di 8 TB nel dispositivo StorSimple 8100 e di 20 TB nel dispositivo 8600. StorSimple riserva lo spazio locale restante nel dispositivo a snapshot, metadati ed elaborazione dati. È possibile aumentare la dimensione di un volume aggiunto in locale fino alla massima quantità di spazio disponibile, ma non è possibile ridurre la dimensione di un volume una volta creato.
 
 Quando si crea un volume aggiunto in locale, viene ridotto lo spazio disponibile per la creazione di volumi a livelli. È anche vero il contrario: se esistono già volumi a livelli, lo spazio disponibile per la creazione di volumi aggiunti in locale sarà inferiore ai limiti massimi definiti prima.
 
@@ -59,11 +59,11 @@ Fare riferimento alla tabella seguente per conoscere la capacità massima di cui
 | | Dimensione massima volume a livelli | Dimensione massima volume aggiunto in locale |
 |-------------|----------------------------|------------------------------------|
 | **Dispositivi fisici** | | |
-| 8100 | 64 TB | 9 TB |
-| 8600 | 64 TB | 24 TB |
+| 8100 | 64 TB | 8 TB |
+| 8600 | 64 TB | 20 TB |
 | **Dispositivi virtuali** | | |
 | 8010 | 30 TB | N/D |
-| 8020 | 64 TB | N/D | 
+| 8020 | 64 TB | N/D |
 
 ## La pagina Volumi
 
@@ -198,14 +198,14 @@ Si tratta in genere di piccoli volumi esistenti a cui è necessario accedere spe
 La conversione da un volume a livelli a un volume aggiunto in locale può influire negativamente sulle prestazioni dei dispositivi. Inoltre, i seguenti fattori possono aumentare il tempo necessario per la conversione:
 
 - Larghezza di banda insufficiente.
-- Dispositivo pieno e distribuzione nel cloud già in atto.
+
 - Nessun backup corrente disponibile.
 
 Per ridurre al minimo gli effetti di questi fattori:
 
 - Rivedere i criteri di limitazione della larghezza di banda e verificare che sia disponibile una larghezza di banda dedicata di 40 Mbps.
 - Pianificare la conversione in orari di scarso traffico.
-- Eseguire un backup prima di iniziare la conversione.
+- Acquisire uno snapshot cloud prima di iniziare la conversione.
 
 Se si desidera convertire più volumi che supportano diversi carichi di lavoro, è necessario specificare le priorità della conversione in modo che i volumi a priorità più elevata vengano convertiti per primi. Ad esempio, è necessario convertire i volumi che ospitano macchine virtuali o con carichi di lavoro SQL prima dei volumi con carichi di lavoro di condivisione file.
 
@@ -299,4 +299,4 @@ Per abilitare o disabilitare il monitoraggio per un volume, eseguire i passaggi 
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

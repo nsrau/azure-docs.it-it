@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Come usare Hub di notifica con Node.js"
+	pageTitle="Invio di notifiche push con Hub di notifica di Azure e Node.js"
 	description="Informazioni su come usare Hub di notifica per inviare notifiche push da un'applicazione Node.js."
+    keywords="notifica push,notifiche push,push node.js,push ios"
 	services="notification-hubs"
 	documentationCenter="nodejs"
 	authors="wesmc7777"
@@ -13,33 +14,44 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="03/08/2015"
 	ms.author="wesmc"/>
 
-# Come usare Hub di notifica da Node.js
+# Invio di notifiche push con Hub di notifica di Azure e Node.js
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 ##Panoramica
 
-In questa guida verrà descritto come usare Hub di notifica da applicazioni Node.js. Gli scenari presentati includono **invio di notifiche ad applicazioni per Android, iOS, Windows Phone e Windows Store**. Per ulteriori informazioni sugli hub di notifica, vedere la sezione [Passaggi successivi](#next).
+> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs).
+
+Questa guida illustra come inviare notifiche push con Hub di notifica di Azure direttamente da un'applicazione Node.js.
+
+Gli scenari presentati includono l'invio di notifiche push ad applicazioni nelle piattaforme seguenti:
+
+* Android
+* iOS
+* Windows Phone
+* Piattaforma UWP (Universal Windows Platform) 
+
+Per ulteriori informazioni sugli hub di notifica, vedere la sezione [Passaggi successivi](#next).
 
 ##Informazioni su Hub di notifica
 
-Hub di notifica di Azure offre un'infrastruttura scalabile, multipiattaforma e di semplice utilizzo per l'invio di notifiche push ai dispositivi mobili. Per ulteriori informazioni, vedere [Hub di notifica di Azure](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx).
+Hub di notifica di Azure offre un'infrastruttura scalabile, multipiattaforma e di semplice utilizzo per l'invio di notifiche push ai dispositivi mobili. Per informazioni dettagliate sull'infrastruttura del servizio, vedere la pagina [Hub di notifica di Azure](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx).
 
 ##Creare un'applicazione Node.js
 
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][nodejswebsite], [Servizio cloud Node.js][Node.js Cloud Service] (utilizzando Windows PowerShell) o [Sito Web con WebMatrix].
+Il primo passaggio in questa esercitazione consiste nel creare una nuova applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure][nodejswebsite], [Servizio cloud Node.js][Node.js Cloud Service] (usando Windows PowerShell) o [Sito Web con WebMatrix].
 
 ##Configurare l'applicazione per l'uso di Hub di notifica
 
-Per usare Hub di notifica di Azure, è necessario scaricare e utilizzare il pacchetto Azure Node.js, che include un set di librerie di riferimento che comunicano con i servizi REST.
+Per usare Hub di notifica di Azure, è necessario scaricare e usare il [pacchetto Azure](https://www.npmjs.com/package/azure) di Node.js, che comprende un set integrato di librerie di supporto che comunicano con i servizi REST di notifica push.
 
 ### Usare Node Package Manager (NPM) per ottenere il pacchetto
 
-1.  Utilizzare un'interfaccia della riga di comando come **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) e spostarsi nella cartella in cui è stata creata l'applicazione di esempio.
+1.  Usare un'interfaccia della riga di comando come **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Linux) e passare alla cartella in cui è stata creata l'applicazione vuota.
 
-2.  Digitare **npm install azure** nella finestra di comando, che dovrebbe restituire il seguente output:
+2.  Digitare **npm install azure** nella finestra di comando, che dovrebbe restituire un output simile al seguente (i numeri di versione possono variare):
 
         azure@0.7.0 node_modules\azure
 		|-- dateformat@1.0.2-1.2.3
@@ -55,6 +67,8 @@ Per usare Hub di notifica di Azure, è necessario scaricare e utilizzare il pacc
 
 3.  È possibile eseguire manualmente il comando **ls** o **dir** per verificare che sia stata creata una cartella **node\_modules**. All'interno di tale cartella trovare il pacchetto **azure**, che contiene le librerie necessarie per accedere a Hub di notifica.
 
+>[AZURE.NOTE] Altre informazioni sull'installazione di NPM sono disponibili nel [blog NPM](http://blog.npmjs.org/post/85484771375/how-to-install-npm) ufficiale.
+
 ### Importare il modulo
 
 Utilizzando un editor di testo, aggiungere quanto segue nella parte superiore del file **server.js** dell'applicazione:
@@ -67,38 +81,40 @@ L'oggetto **NotificationHubService** consente di lavorare con gli hub di notific
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-Il valore **connectionstring** della connessione può essere recuperato dal [portale di Azure classico], eseguendo la procedura seguente:
+Il valore **connectionstring** della connessione può essere recuperato dal [portale di Azure] seguendo questa procedura:
 
-1. Nel [portale di Azure classico] selezionare **Bus di servizio** e quindi lo spazio dei nomi che contiene l'hub di notifica.
+1. Nel riquadro di spostamento a sinistra fare clic su **Sfoglia**.
 
-2. Selezionare **NOTIFICATION HUBS** e quindi selezionare l'hub che si desidera utilizzare.
+2. Selezionare **Hub di notifica** e quindi individuare l'hub da usare per l'esempio. Per informazioni sulla creazione di un nuovo hub di notifica, vedere l'[esercitazione introduttiva per Windows Store](notification-hubs-windows-store-dotnet-get-started.md).
 
-3. Selezionare **View Connection String** nella sezione **quick glance** e copiare il valore della stringa di connessione.
+3. Selezionare **Impostazioni**.
 
-> [AZURE.NOTE]È inoltre possibile recuperare la stringa di connessione usando il cmdlet **Get-AzureSbNamespace** fornito da Azure PowerShell o il comando **azure sb namespace show** con l’interfaccia della riga di comando di Azure.
+4. Fare clic su **Criteri di accesso**. Verranno visualizzate la stringhe di connessione di accesso completo e condiviso.
 
-</div>
+![Portale di Azure - Hub di notifica](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
-##Come inviare notifiche
+> [AZURE.NOTE] La stringa di connessione può essere recuperata anche usando il cmdlet **Get-AzureSbNamespace** fornito da [Azure PowerShell](../powershell-install-configure.md) o il comando **azure sb namespace show** con l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
-Di seguito sono illustrate le istanze di oggetto esposte dall'oggetto **NotificationHubService** per l'invio di notifiche a dispositivi e applicazioni specifiche.
+##Architettura generale
+
+L'oggetto **NotificationHubService** espone le istanze seguenti dell'oggetto per l'invio di notifiche push a specifici dispositivi e specifiche applicazioni:
 
 * **Android**: utilizzare l'oggetto **GcmService**, disponibile in **notificationHubService.gcm**
 * **iOS**: utilizzare l'oggetto **GcmService**, accessibile in **notificationHubService.apns**
 * **Windows Phone**: utilizzare l'oggetto **MpnsService**, disponibile in **notificationHubService.mpns**
-* **Applicazioni di Windows Store**: utilizzare l'oggetto **WnsService**, disponibile in **notificationHubService.wns**
+* **Piattaforma UWP (Universal Windows Platform)**: usare l'oggetto **WnsService** disponibile in **notificationHubService.wns**
 
-### Come inviare notifiche alle applicazioni per Android
+### Procedura: Inviare notifiche push ad applicazioni Android
 
-L'oggetto **GcmService** fornisce un metodo **send** che è possibile utilizzare per l'invio di notifiche alle applicazioni per Android. Di seguito sono illustrati i parametri accettati dal metodo **send**.
+L'oggetto **GcmService** fornisce un metodo **send** che è possibile usare per inviare notifiche push alle applicazioni Android. Di seguito sono illustrati i parametri accettati dal metodo **send**.
 
-* Tags: l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client
-* Payload: il payload JSON o stringa del messaggio
-* Callback: la funzione di richiamata
+* **Tags**: l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client.
+* **Payload**: il payload JSON o stringa non elaborata del messaggio.
+* **Callback**: la funzione di richiamata.
 
-Per ulteriori informazioni sul formato di payload, vedere la sezione Payload di [Implementazione del server GCM](http://developer.android.com/google/gcm/server.html#payload).
+Per altre informazioni sul formato di payload, vedere la sezione **Payload** del documento relativo all'[implementazione del server GCM](http://developer.android.com/google/gcm/server.html#payload).
 
-Nel codice seguente viene utilizzata l'istanza **GcmService** esposta dall'oggetto **NotificationHubService** per inviare un messaggio a tutti i client.
+Nel codice seguente viene usata l'istanza **GcmService** esposta dall'oggetto **NotificationHubService** per inviare una notifica push a tutti i client registrati.
 
 	var payload = {
 	  data: {
@@ -111,15 +127,15 @@ Nel codice seguente viene utilizzata l'istanza **GcmService** esposta dall'ogget
 	  }
 	});
 
-### Come inviare notifiche alle applicazioni per iOS
+### Procedura: Inviare notifiche push ad applicazioni iOS
 
-L'oggetto **ApnsService** fornisce un metodo **send** che è possibile utilizzare per l'invio di notifiche alle applicazioni per iOS. Di seguito sono illustrati i parametri accettati dal metodo **send**.
+Come per le applicazioni Android descritte sopra, l'oggetto **ApnsService** fornisce un metodo **send** che è possibile usare per inviare notifiche push alle applicazioni iOS. Di seguito sono illustrati i parametri accettati dal metodo **send**.
 
-* Tags: l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client
-* Payload: il payload JSON o stringa del messaggio
-* Callback: la funzione di richiamata
+* **Tags**: l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client.
+* **Payload**: il payload JSON o stringa del messaggio.
+* **Callback**: la funzione di richiamata.
 
-Per ulteriori informazioni sul formato di payload, vedere la sezione relativa al payload di notifica nella [guida alla programmazione di notifiche push e locali](http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html).
+Per altre informazioni sul formato di payload, vedere la sezione relativa al **payload di notifica** nella [guida alla programmazione di notifiche push e locali](http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html).
 
 Nel codice seguente viene utilizzata l'istanza **ApnsService** esposta dall'oggetto **NotificationHubService** per inviare un messaggio di avviso a tutti i client:
 
@@ -132,20 +148,20 @@ Nel codice seguente viene utilizzata l'istanza **ApnsService** esposta dall'ogge
       }
 	});
 
-### Come inviare notifiche alle applicazioni per Windows Phone
+### Procedura: Inviare notifiche push ad applicazioni Windows Phone
 
-L'oggetto **MpnsService** fornisce un metodo **send** che è possibile utilizzare per l'invio di notifiche alle applicazioni per Windows Phone. Di seguito sono illustrati i parametri accettati dal metodo **send**.
+L'oggetto **MpnsService** fornisce un metodo **send** che è possibile usare per inviare notifiche push alle applicazioni Windows Phone. Di seguito sono illustrati i parametri accettati dal metodo **send**.
 
-* Tags: l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client
-* Payload: il payload XML del messaggio
-* TargetName: 'toast' per le notifiche di tipo avviso popup, 'token' le notifiche di tipo riquadro.
-* NotificationClass: la priorità della notifica. Per i valori validi, vedere la sezione relativa agli elementi dell'intestazione HTTP di [Push di notifiche da un server](http://msdn.microsoft.com/library/hh221551.aspx).
-* Options: intestazioni delle richieste facoltative
-* Callback: la funzione di richiamata
+* **Tags**: l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client.
+* **Payload**: il payload XML del messaggio.
+* **TargetName**: `toast` per le notifiche di tipo avviso popup, `token` per le notifiche di tipo riquadro.
+* **NotificationClass**: la priorità della notifica. Per i valori validi, vedere la sezione relativa agli **elementi dell'intestazione HTTP** nel documento sul [push di notifiche da un server](http://msdn.microsoft.com/library/hh221551.aspx).
+* **Options**: intestazioni delle richieste facoltative.
+* **Callback**: la funzione di richiamata.
 
-Per un elenco dei valori validi per TargetName, NotificationClass e le opzioni di intestazione, vedere [Push di notifiche da un server](http://msdn.microsoft.com/library/hh221551.aspx).
+Per un elenco dei valori validi per **TargetName**, **NotificationClass** e le opzioni di intestazione, vedere la pagina relativa al [push di notifiche da un server](http://msdn.microsoft.com/library/hh221551.aspx).
 
-Nel codice seguente viene utilizzata l'istanza **MpnsService** esposta dall'oggetto **NotificationHubService** per inviare una notifica di tipo avviso popup:
+Nel codice di esempio seguente viene usata l'istanza **MpnsService** esposta dall'oggetto **NotificationHubService** per inviare una notifica push di tipo avviso popup:
 
 	var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
 	notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
@@ -154,19 +170,19 @@ Nel codice seguente viene utilizzata l'istanza **MpnsService** esposta dall'ogge
 	  }
 	});
 
-### Come inviare notifiche alle applicazioni di Windows Store
+### Procedura: Inviare notifiche push alle applicazioni della piattaforma UWP (Universal Windows Platform)
 
-L'oggetto **WnsService** fornisce un metodo **send** che è possibile utilizzare per l'invio di notifiche alle applicazioni di Windows Store. Di seguito sono illustrati i parametri accettati dal metodo **send**.
+L'oggetto **WnsService** fornisce un metodo **send** che è possibile usare per inviare notifiche push alle applicazioni della piattaforma UWP (Universal Windows Platform). Di seguito sono illustrati i parametri accettati dal metodo **send**.
 
-* Tags: l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client
-* Payload: il payload XML del messaggio
-* Type: il tipo di notifica
-* Options: intestazioni delle richieste facoltative
-* Callback: la funzione di richiamata
+* **Tags**: l'identificatore tag. Se non viene specificato alcun tag, la notifica verrà inviata a tutti i client registrati.
+* **Payload**: il payload XML del messaggio.
+* **Type**: il tipo di notifica.
+* **Options**: intestazioni delle richieste facoltative.
+* **Callback**: la funzione di richiamata.
 
-Per un elenco dei valori validi per i tipi e le intestazioni delle richieste, vedere [Intestazioni delle richieste e delle risposte per il servizio di notifica Push](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
+Per un elenco dei valori validi per i tipi e le intestazioni delle richieste, vedere [Intestazioni delle richieste e delle risposte per il servizio di notifica push](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
 
-Nel codice seguente viene utilizzata l'istanza **WnsService** esposta dall'oggetto **NotificationHubService** per inviare una notifica di tipo avviso popup.
+Nel codice seguente viene usata l'istanza **WnsService** esposta dall'oggetto **NotificationHubService** per inviare una notifica push di tipo avviso popup a un'app UWP:
 
 	var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
 	notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
@@ -177,10 +193,10 @@ Nel codice seguente viene utilizzata l'istanza **WnsService** esposta dall'ogget
 
 ## Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base sull'uso di Hub di notifica, usare i seguenti collegamenti per altre informazioni.
+I frammenti di codice di esempio riportati sopra consentono di creare facilmente l'infrastruttura del servizio per recapitare notifiche push a un'ampia gamma di dispositivi. A questo punto, dopo aver appreso le nozioni di base dell'uso di Hub di notifica con Node.js, usare i collegamenti seguenti per scoprire come estendere ulteriormente queste funzionalità.
 
--   Vedere il riferimento in MSDN: [Hub di notifica di Azure][].
--   Archivio [Azure SDK for Node] su GitHub
+-   Vedere la documentazione MSDN su [Hub di notifica di Azure](https://msdn.microsoft.com/library/azure/jj927170.aspx).
+-   Visitare il repository [Azure SDK for Node] su GitHub per altri esempi e dettagli relativi all'implementazione.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Next Steps]: #nextsteps
@@ -197,7 +213,7 @@ A questo punto, dopo aver appreso le nozioni di base sull'uso di Hub di notifica
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
   [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-  [portale di Azure classico]: http://manage.windowsazure.com
+  [Azure Classic Portal]: http://manage.windowsazure.com
   [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
   [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
   [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
@@ -212,5 +228,6 @@ A questo punto, dopo aver appreso le nozioni di base sull'uso di Hub di notifica
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
+  [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

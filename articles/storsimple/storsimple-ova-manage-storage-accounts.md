@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/05/2016"
+   ms.date="03/02/2016"
    ms.author="alkohli" />
 
-# Usare il servizio StorSimple Manager per gestire l'account di archiviazione (anteprima)
+# Utilizzare il servizio StorSimple Manager per gestire l’account di archiviazione
 
 ## Panoramica
 
@@ -24,7 +24,7 @@ La pagina **Configura** presenta i parametri di servizio globali che possono ess
 - Account di archiviazione 
 - Record di controllo di accesso 
 
-Questa esercitazione illustra come usare la pagina **Configura** per aggiungere, modificare o eliminare gli account di archiviazione per l'array virtuale StorSimple. Le informazioni contenute in questa esercitazione si applicano solo all'array virtuale StorSimple su cui è in esecuzione il software di anteprima pubblica.
+Questa esercitazione illustra come usare la pagina **Configura** per aggiungere, modificare o eliminare gli account di archiviazione per l'array virtuale StorSimple. Le informazioni contenute in questa esercitazione si applicano solo all'array virtuale StorSimple che esegue il software della versione di disponibilità generale di marzo 2016.
 
  ![Pagina Configura](./media/storsimple-ova-manage-storage-accounts/configure_service_page.png)
 
@@ -101,4 +101,4 @@ Di seguito è riportata la procedura per aggiungere un account di archiviazione.
 
 - Informazioni sulla [gestione dell'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

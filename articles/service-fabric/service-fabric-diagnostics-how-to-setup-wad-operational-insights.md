@@ -31,7 +31,9 @@ Operational Insights identifica le origini dei diversi tipi di log caricati da u
 * [Gestione risorse di Azure](https://azure.microsoft.com/resource-group-overview/)
 
 ## Prerequisiti
-Questi strumenti verranno usati per eseguire alcune operazioni nel documento: * [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/) * [Client Gestione risorse di Azure](https://github.com/projectkudu/ARMClient)
+Questi strumenti verranno usati per eseguire alcune operazioni nel documento:
+* [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/)
+* [Client di Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 
 ## Diverse origini di log da raccogliere
 1. **Log di Service Fabric:** emessi dalla piattaforma in canali ETW ed EventSource standard. I log possono essere di diversi tipi:
@@ -123,7 +125,7 @@ Se in un cluster esistente non è stata distribuita l’estensione Diagnostica, 
                 }
             }
     },
-                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountNamee')]"
+                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountName')]"
                 },
                 "protectedSettings": {
                     "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",
@@ -167,7 +169,7 @@ Sostituire il valore vmNamePrefix con il prefisso scelto per i nomi di VM durant
 
 Dopo la creazione dei file JSON, come illustrato in precedenza, modificarli in base alle specifiche dell'ambiente, quindi chiamare questo comando passando il nome del gruppo di risorse per il cluster Service Fabric. Dopo l'esecuzione corretta del comando, Diagnostica verrà distribuito in tutte le VM e inizierà a caricare i log dal cluster alle tabelle disponibili nell'account di archiviazione di Azure specificato.
 
-Prima di chiamare questo comando di distribuzione, inoltre, può essere necessario eseguire operazioni di configurazione, ad esempio aggiungere l'account di Azure (`Add-AzureAccount`), scegliere la sottoscrizione corretta (`Select-AzureSubscription`) e passare alla modalità Gestione risorse (`Switch-AzureMode AzureResourceManager`).
+Prima di chiamare questo comando di distribuzione, potrebbe essere necessario eseguire alcune operazioni di configurazione, ad esempio aggiungere l'account di Azure(`Add-AzureAccount`), scegliere la sottoscrizione corretta(`Select-AzureSubscription`) e passare alla modalità Azure Resource Manager(`Switch-AzureMode AzureResourceManager`).
 
 ```ps
 
@@ -286,7 +288,7 @@ if ($existingConfig) {
 }
 ```
 
-Dopo aver configurato l'area di lavoro di Operational Insights in modo che esegua la lettura da tabelle di Azure nell'account di archiviazione, è necessario accedere al portale e passare alla scheda **Archiviazione** per la risorsa di Operational Insights. Dovrebbe avere un aspetto analogo al seguente: ![Configurazione dell'archiviazione di Operational Insights nel portale di Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
+Dopo aver configurato l'area di lavoro di Operational Insights in modo che esegua la lettura da tabelle di Azure nell'account di archiviazione, è consigliabile accedere al portale e passare alla scheda **Archiviazione** per la risorsa di Operational Insights. Dovrebbe avere un aspetto analogo al seguente: ![Configurazione dell'archiviazione di Operational Insights nel portale di Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
 
 ### Eseguire ricerche e visualizzare i log in Operational Insights
 Dopo la configurazione dell'area di lavoro di Operational Insights per la lettura dei log dall'account di archiviazione specificato, la visualizzazione dei log nell'interfaccia utente di Operational Insights potrebbe richiedere fino a 10 minuti. Per assicurarsi che vengano generati nuovi log, è consigliabile distribuire un'applicazione Service Fabric nel cluster, perché ciò genererà eventi operativi dalla piattaforma di Service Fabric.
@@ -325,4 +327,4 @@ Sarà necessario aggiornare la sezione EtwEventSourceProviderConfiguration nel f
 ## Passaggi successivi
 Verificare gli eventi di diagnostica emessi per [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) e [Reliable Services](service-fabric-reliable-services-diagnostics.md) per ottenere informazioni più dettagliate sugli eventi da esaminare durante la risoluzione dei problemi.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

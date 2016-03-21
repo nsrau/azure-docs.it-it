@@ -24,10 +24,10 @@ Numero massimo di JOIN per ogni query* |5
 Numero massimo di clausole AND per ogni query* |20
 Numero massimo di clausole OR per ogni query* |20
 Numero massimo di valori per ogni espressione IN* |200
-Numero massimo di punti in un argomento del poligono in una query ST\_WITHIN* |16
+Numero massimo di punti in un argomento del poligono in una query ST\_WITHIN* |256
 Numero massimo di raccolte create al minuto* |5
 Numero massimo di operazioni di scalabilità al minuto* |5
 
 Le quote elencate con un asterisco (*) [possono essere modificate contattando il supporto tecnico Azure](../articles/documentdb/documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

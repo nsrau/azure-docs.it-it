@@ -3,7 +3,7 @@
    description="Informazioni su come rilevare e diagnosticare i problemi di prestazioni comuni utilizzando visualizzazioni a gestione dinamica per monitorare il Database SQL di Microsoft Azure."
    services="sql-database"
    documentationCenter=""
-   authors="BYHAM"
+   authors="carlrabeler"
    manager="jeffreyg"
    editor=""
    tags=""/>
@@ -33,9 +33,7 @@ Per informazioni dettagliate sulle visualizzazioni a gestione dinamica, vedere [
 
 Nel Database SQL, l'esecuzione di query in una visualizzazione a gestione dinamica richiede autorizzazioni **VIEW DATABASE STATE**. Le autorizzazioni **VIEW DATABASE STATE** restituiscono informazioni su tutti gli oggetti all'interno del database corrente. Per concedere le autorizzazioni **VIEW DATABASE STATE** a un utente di database specifico, eseguire la query seguente:
 
-```
-GRANT VIEW DATABASE STATE TO database_user;
-```
+```GRANT VIEW DATABASE STATE TO database_user; ```
 
 In un'istanza di SQL Server locale, le viste a gestione dinamica restituiscono informazioni sullo stato del server. Nel database SQL, restituiscono informazioni relative esclusivamente al database logico corrente.
 
@@ -137,4 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Introduzione al Database SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -68,7 +68,7 @@ Quando si usano gli SDK o le integrazioni del prodotto non compatibili con l'hub
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] A volte l'SDK richiede un valore per **Nome host** o **Spazio dei nomi**. In tal caso sarà necessario rimuovere lo schema dall'**Endpoint compatibile con l'hub eventi**. Ad esempio, se l'endpoint compatibile con l'hub eventi è **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, il **Nome host** sarà **iothub-ns-myiothub-1234.servicebus.windows.net** e lo **Spazio dei nomi** sarà **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] A volte l'SDK richiede un valore per **Nome host** o **Spazio dei nomi**. In tal caso sarà necessario rimuovere lo schema dall'**Endpoint compatibile con l'hub eventi**. Ad esempio, se l'endpoint compatibile con l'hub eventi è ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, il **Nome host** sarà **iothub-ns-myiothub-1234.servicebus.windows.net** e lo **Spazio dei nomi** sarà **iothub-ns-myiothub-1234**.
 
 È quindi possibile usare qualsiasi tipo di criteri di sicurezza di accesso condiviso con autorizzazioni **ServiceConnect** per la connessione all'hub eventi specificato.
 
@@ -272,7 +272,11 @@ Per concedere le autorizzazioni è possibile procedere nei modi seguenti:
 
 * **Credenziali di sicurezza specifiche del dispositivo**. Ogni hub IoT contiene un [registro delle identità dei dispositivi](#device-identity-registry). Per ogni dispositivo in questo registro è possibile configurare credenziali di sicurezza che concedono autorizzazioni **DeviceConnect** con ambito agli endpoint di dispositivo corrispondenti.
 
-**Esempio**. In una tipica soluzione IoT: - Il componente di gestione dei dispositivi usa i criteri *registryReadWrite*. Il componente processore di eventi usa i criteri *service*. - Il componente della logica di business di runtime del dispositivo usa i criteri *service*. - I singoli dispositivi si connettono con le credenziali archiviate nel registro delle identità dell'hub IoT.
+**Esempio**. In una soluzione IoT tipica:
+- Il componente di gestione dei dispositivi usa i criteri *registryReadWrite*.
+- Il componente processore di eventi usa i criteri *service*.
+- Il componente della logica di business del dispositivo di runtime usa i criteri *service*.
+- I singoli dispositivi si connettono usando le credenziali archiviate nel registro delle identità dell'hub IoT.
 
 Per indicazioni sugli argomenti relativi alla sicurezza per l'hub IoT, vedere la sezione sulla sicurezza in [Progettare la soluzione][lnk-guidance-security].
 
@@ -294,7 +298,7 @@ Questi sono i valori previsti:
 
 | Valore | Descrizione |
 | ----- | ----------- |
-| {signature} | Stringa della firma HMAC-SHA256 nel formato: `{URL-encoded-resourceURI} + "\n" + expiry` **Importante**: la chiave viene decodificata dalla codifica Base 64 e usata come chiave per eseguire il calcolo di HMAC-SHA256. |
+| {signature} | Stringa della firma HMAC-SHA256 nel formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: la chiave viene decodificata dalla codifica Base 64 e usata come chiave per eseguire il calcolo di HMAC-SHA256. |
 | {resourceURI} | Prefisso URI (per segmento) degli endpoint a cui è possibile accedere tramite questo token. Ad esempio, `/events` |
 | {expiry} | Stringhe UTF8 per il numero di secondi trascorsi dalle 00:00:00 UTC dell'1 gennaio 1970. |
 | {URL-encoded-resourceURI} | Codifica URL con lettere minuscole dell'URI della risorsa con lettere minuscole |
@@ -327,6 +331,12 @@ In entrambi i casi il campo della password contiene il token, come illustrato ne
 
 Quando si usa MQTT, il pacchetto CONNECT ha come valore di deviceId ClientId, {iothubhostname}/{deviceId} nel campo Username e un token di firma di accesso condiviso nel campo Password. Il valore di {iothubhostname} deve essere il record CName completo dell'hub IoT, ad esempio contoso.azure-devices.net.
 
+##### Esempio: #####
+
+Nome utente (DeviceId fa distinzione tra maiuscole e minuscole): `iothubname.azure-devices.net/DeviceId`
+
+Password (genera una firma di accesso condiviso con Esplora dispositivo): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+
 > [AZURE.NOTE] Gli [Azure IoT Hub SDK][lnk-apis-sdks] generano automaticamente i token durante la connessione al servizio. In alcuni casi, gli SDK non supportano tutti i protocolli o tutti i metodi di autenticazione.
 
 #### Confronto tra SASL PLAIN e CBS
@@ -344,7 +354,9 @@ Questo meccanismo è simile ai [criteri delle entità di pubblicazione di Hub ev
 
 ## Messaggistica
 
-L'hub IoT fornisce le primitive di messaggistica per la comunicazione: - [Da cloud a dispositivo](#c2d): da un back-end dell'applicazione (*servizio* o *cloud*). - [Da dispositivo a cloud](#d2c): da un dispositivo a un back-end dell'applicazione.
+L'hub IoT fornisce le primitive di messaggistica per comunicare:
+- [Cloud-dispositivo](#c2d): da un'applicazione back-end (*servizio* o *cloud*).
+- [Dispositivo-cloud](#d2c): da un dispositivo a un'applicazione back-end.
 
 Le proprietà di base della funzionalità di messaggistica dell'hub IoT sono l'affidabilità e la durabilità dei messaggi. Ciò consente la resilienza in caso di connettività intermittente sul lato dispositivo e picchi di carico durante l'elaborazione degli eventi sul lato cloud. L'hub IoT implementa *almeno una volta* le garanzie di recapito per la messaggistica da dispositivo a cloud e da cloud a dispositivo.
 
@@ -481,7 +493,9 @@ Il diagramma seguente illustra il grafico sullo stato del ciclo di vita per un m
 
 Quando il servizio invia un messaggio, questo viene considerato *Accodato*. Quando un dispositivo accetta di *ricevere* un messaggio, l'hub IoT lo *blocca* impostando lo stato su **Invisibile**, per consentire ad altri thread nello stesso dispositivo di iniziare a ricevere altri messaggi. Quando un thread del dispositivo termina l'elaborazione, invia una notifica all'hub IoT *completando* il messaggio.
 
-Un dispositivo può anche: - *Rifiutare* il messaggio e in tal caso l'hub IoT ne imposta lo stato su **Non recapitabile**. - *Abbandonare* il messaggio e in tal caso l'hub IoT lo inserisce nuovamente nella coda e ne imposta lo stato su **Accodato**.
+Un dispositivo può anche:
+- *Rifiutare* il messaggio. In questo modo, l'hub IoT ne imposta lo stato su **Non recapitabile**.
+- *Abbandonare* il messaggio. In questo modo, l'hub IoT inserisce nuovamente il messaggio nella coda con lo stato impostato su **Accodato**.
 
 Un thread potrebbe non riuscire a elaborare un messaggio senza inviare una notifica all'hub IoT. In tal caso, i messaggi passano automaticamente di nuovo dallo stato **Invisibile** allo stato **Accodato** dopo un *timeout di visibilità o di blocco* con un valore predefinito di un minuto. Un messaggio può passare dallo stato **Accodato** allo stato **Invisibile** e viceversa per il numero massimo di volte specificato nella proprietà *max delivery count* nell'hub IoT. Dopo tale numero di transizioni, l'hub IoT imposta lo stato del messaggio su **Non recapitabile**. Analogamente, l'hub IoT imposta lo stato del messaggio su **Non recapitabile** dopo la relativa scadenza. Vedere la sezione [Durata (TTL)](#ttl).
 
@@ -497,11 +511,11 @@ Ogni messaggio da cloud a dispositivo ha una scadenza. Questa impostazione può 
 
 Durante l'invio di messaggi da cloud a dispositivo, il servizio può richiedere il recapito di commenti specifici per ogni messaggio in merito allo stato finale del messaggio.
 
-- Se si imposta la proprietà **Ack** su **positive**, l'hub IoT genera un messaggio di commenti se e solo se il messaggio da cloud a dispositivo ha raggiunto lo stato **Completato**.
-- Se si imposta la proprietà **Ack** su **negative**, l'hub IoT genera un messaggio di commenti se e solo se il messaggio da cloud a dispositivo ha raggiunto lo stato **Non recapitabile**.
-- Se si imposta la proprietà **Ack** su **full**, l'hub IoT genera un messaggio di commenti in entrambi i casi.
+- Se si imposta la proprietà **Ack** su **positive**, l'hub IoT genera un messaggio con commenti e suggerimenti se e solo se il messaggio da cloud a dispositivo ha raggiunto lo stato **Completato**.
+- Se si imposta la proprietà **Ack** su **negative**, l'hub IoT genera un messaggio con commenti e suggerimenti se e solo se il messaggio da cloud a dispositivo ha raggiunto lo stato **Non recapitabile**.
+- Se si imposta la proprietà **Ack** su **full**, l'hub IoT genera un messaggio con commenti e suggerimenti in entrambi i casi.
 
-> [AZURE.NOTE] Se **Ack** è **full** e non viene ricevuto alcun messaggio di feedback significa che il messaggio di feedback è scaduto e il servizio non può sapere che cosa è successo al messaggio originale. In pratica, un servizio deve garantire che sia possibile elaborare i commenti prima della scadenza. Poiché il periodo di scadenza massimo è di due giorni, è disponibile un tempo sufficiente per garantire il funzionamento del servizio in caso di errore.
+> [AZURE.NOTE] Se **Ack** è **full** e non viene ricevuto alcun messaggio con commenti e suggerimenti significa che quest'ultimo è scaduto e il servizio non può sapere che cosa è successo al messaggio originale. In pratica, un servizio deve garantire che sia possibile elaborare i commenti prima della scadenza. Poiché il periodo di scadenza massimo è di due giorni, è disponibile un tempo sufficiente per garantire il funzionamento del servizio in caso di errore.
 
 Come illustrato nella sezione [Endpoint](#endpoints), l'hub IoT invia commenti tramite un endpoint per il servizio (**/messages/servicebound/feedback**) sotto forma di messaggi. La semantica di ricezione per i commenti è uguale a quella dei messaggi da cloud a dispositivo e ha lo stesso [Ciclo di vita dei messaggi](#ciclo di vita dei messaggi). Quando possibile, i commenti sul messaggio vengono riuniti in un singolo messaggio con il formato seguente.
 
@@ -636,7 +650,7 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
-[lnk-eventhub-partitions]: event-hubs-overview.md#partitions
+[lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

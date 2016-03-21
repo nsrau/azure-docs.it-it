@@ -14,17 +14,23 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="mandia"/>
 
 # Introduzione all'API di OneDrive
 
 Connettersi a OneDrive per gestire i file, ad esempio, caricare, recuperare ed eliminare i file e altro ancora. L'API di OneDrive può essere usata da:
 
-- PowerApps 
 - App per la logica 
+- PowerApps
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic su [API di OneDrive](../app-service-logic/app-service-logic-connector-onedrive.md).
+> [AZURE.SELECTOR]
+- [App per la logica](../articles/connectors/create-api-onedrive.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
+
+&nbsp;
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic sull'[API di OneDrive](../app-service-logic/app-service-logic-connector-onedrive.md).
 
 Con OneDrive è possibile:
 
@@ -33,7 +39,7 @@ Con OneDrive è possibile:
 - Usare le azioni per creare un file, eliminarlo e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando viene creato un nuovo file in OneDrive, è possibile inviare tale file come messaggio di posta elettronica tramite Office 365.
 - Aggiungere l'API di OneDrive a PowerApps Enterprise, in modo che gli utenti possano usarla nelle proprie app. 
 
-Per informazioni su come aggiungere un'API in PowerApps Enterprise, vedere l'articolo relativo alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Per informazioni su come aggiungere un'API in PowerApps Enterprise, accedere alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -48,32 +54,12 @@ Tutte le API supportano i dati nei formati JSON e XML.
 
 ## Creare una connessione a OneDrive
 
-### Aggiungere configurazioni aggiuntive in PowerApps
-Quando si aggiunge OneDrive a PowerApps Enterprise, si immettono i valori **Chiave app** e **Chiave privata app** dell'applicazione di OneDrive. Il valore dell'**URL di reindirizzamento** viene usato anche nell'applicazione OneDrive. Se non si ha un'applicazione OneDrive, è possibile usare la procedura seguente per creare l'applicazione:
-
-1. Passare alla [pagina di creazione app][5] in _Centro per sviluppatori di account Microsoft_ e accedere con il proprio _Account Microsoft_.
-
-2. Immettere il **nome dell'applicazione** e accettare il contratto:
-
-	![Nuova app di OneDrive][6]
-
-3. Nelle impostazioni:
-
-	1. Selezionare **Impostazioni API**.  
-	2. Impostare l'**URL di reindirizzamento** sul valore visualizzato quando si aggiunge la nuova API di OneDrive nel portale di Azure.  
-	3. **Salvare** le modifiche.  
-
-	![Impostazioni dell’app API di OneDrive][7]
-
-A questo punto, copiare e incollare i valori di **ID client** e **Chiave privata app** nella configurazione di OneDrive nel portale di Azure.
-
-### Aggiungere configurazioni aggiuntive nelle app per la logica
 Quando si aggiunge questa API alle app per la logica, è necessario autorizzare le app per la logica per la connessione a OneDrive.
 
 1. Accedere all'account OneDrive.
 2. Consentire alle app per la logica di connettersi e usare OneDrive. 
 
-Dopo aver creato la connessione immettere le proprietà di OneDrive, ad esempio nome file o percorso cartella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
+Dopo aver creato la connessione immettere le proprietà di OneDrive, ad esempio nome file o percorso cartella. Tali proprietà vengono descritte nelle **Informazioni di riferimento sulle API REST** in questo argomento.
 
 >[AZURE.TIP] È possibile usare la stessa connessione in altre app per la logica.
 
@@ -217,7 +203,7 @@ Copia un file in OneDrive. ```POST: /datasets/default/copyFile```
 
 
 ### Quando un file viene creato
-Quando un nuovo file viene creato in una cartella di OneDrive, attiva un flusso. ```GET: /datasets/default/triggers/onnewfile```
+Attiva un flusso quando un nuovo file viene creato in una cartella di OneDrive. ```GET: /datasets/default/triggers/onnewfile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -234,7 +220,7 @@ Quando un nuovo file viene creato in una cartella di OneDrive, attiva un flusso.
 
 
 ### Quando un file viene modificato in una cartella di OneDrive, attiva un flusso
-Quando un file viene modificato in una cartella di OneDrive, attiva un flusso. ```GET: /datasets/default/triggers/onupdatedfile```
+Attiva un flusso quando un file viene modificato in una cartella di OneDrive. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -317,13 +303,13 @@ Estrae una cartella in OneDrive. ```POST: /datasets/default/extractFolderV2```
 
 
 ## Passaggi successivi
-Dopo aver aggiunto l'API di OneDrive a PowerApps Enterprise, [concedere autorizzazioni agli utenti](../power-apps/powerapps-manage-api-connection-user-access.md) per l'uso dell'API nelle app.
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
+Tornare all'[elenco di API](apis-list.md).
 
 [5]: https://account.live.com/developers/applications/create
 [6]: ./media/create-api-onedrive/onedrive-new-app.png
 [7]: ./media/create-api-onedrive/onedrive-app-api-settings.png
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

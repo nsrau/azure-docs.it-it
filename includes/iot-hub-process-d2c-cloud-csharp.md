@@ -19,7 +19,7 @@ Per fare in modo che nessun messaggio venga inviato di nuovo al di fuori della f
 ### Effettuare il provisioning di un account di archiviazione di Azure e di una coda del bus di servizio
 Per usare la classe [EventProcessorHost], è necessario un account di archiviazione di Azure per abilitare la registrazione delle informazioni sui checkpoint da parte di **EventProcessorHost**. È possibile usare un account di archiviazione esistente o seguire le istruzioni in [Informazioni sugli account di archiviazione di Azure] per crearne uno nuovo. Prendere nota della stringa di connessione dell'account di archiviazione.
 
-Per abilitare l'elaborazione affidabile dei messaggi interattivi, è necessaria anche una coda del bus di servizio. È possibile creare una coda a livello di programmazione con una finestra di deduplicazione di 1 ora, come illustrato in [Come usare le code del bus di servizio][Service Bus Queue], o usare il [portale di Azure], seguendo questa procedura:
+Per abilitare l'elaborazione affidabile dei messaggi interattivi, è necessaria anche una coda del bus di servizio. È possibile creare una coda a livello di codice con una finestra di deduplicazione di un'ora, come illustrato in [Come usare le code del bus di servizio][Service Bus Queue], oppure usare il [portale di Azure classico] seguendo questa procedura:
 
 1. Fare clic su **NUOVO** nell'angolo inferiore sinistro, quindi scegliere **Servizi app**, **Bus di servizio**, **Coda** e infine **Creazione personalizzata**. Immettere il nome **d2ctutorial**, selezionare un'area, usare uno spazio dei nomi esistente o crearne uno nuovo, quindi nella pagina successiva selezionare **Abilita rilevamento duplicati** e impostare la **Finestra temporale cronologia di rilevamento duplicata** su un'ora. Fare quindi clic sul segno di spunta per salvare la configurazione della coda.
 
@@ -294,7 +294,7 @@ In questa sezione si scriverà un'app console di Windows che riceve i messaggi i
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Guida alla programmazione di Hub eventi]: ../event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[portale di Azure]: https://manage.windowsazure.com/
+[Azure Portal]: https://manage.windowsazure.com/
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 [creazione di applicazioni a più livelli con il Bus di servizio]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 [Esercitazione: Introduzione all'hub IoT di Azure]: iot-hub-csharp-csharp-getstarted.md
@@ -312,4 +312,4 @@ In questa sezione si scriverà un'app console di Windows che riceve i messaggi i
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

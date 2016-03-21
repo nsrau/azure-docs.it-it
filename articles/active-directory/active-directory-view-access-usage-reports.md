@@ -3,7 +3,7 @@
 	description="Illustra come visualizzare i report di accesso e utilizzo per ottenere informazioni sull'integrità e sicurezza della directory dell'organizzazione."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
+	authors="dhanyahk"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="kenhoff;Justinha;curtand"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
 
 # Visualizzare i report di accesso e utilizzo
@@ -99,7 +99,15 @@ Nel portale di gestione di Azure i report sono suddivisi nei seguenti modi:
 ## Report Anomalie dell'attività
 <p>I report relativi ad attività di acceso anomale segnalano le attività di accesso sospette ad Office 365, al portale di gestione di Azure, al pannello di accesso di Azure AD, a Office 365, a SharePoint Online, a Dynamics CRM Online e ad altri servizi online Microsoft.</p>
 <p>Tutti questi report, ad eccezione del report "Accessi dopo errori multipli", segnalano inoltre gli accessi <i>federati</i> ai servizi menzionati in precedenza, indipendentemente dal provider di federazione. </p>
-<p>Sono disponibili i report seguenti: </p><ul> <li>[Accessi da origini sconosciute](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Accessi dopo più errori](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Accessi da più aree geografiche](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Accessi da indirizzi IP con attività sospetta](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Attività di accesso irregolare](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Accessi da dispositivi potenzialmente infetti](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Utenti con anomalie dell'attività di accesso](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Utenti con credenziali perse</li></ul>
+<p>Sono disponibili i seguenti report: </p><ul>
+<li>[Accessi da origini sconosciute](active-directory-reporting-sign-ins-from-unknown-sources.md).</li>
+<li>[Accessi dopo più errori] (active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
+<li>[Accessi da più aree geografiche] (active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
+<li>[Accessi da indirizzi IP con attività sospetta] (active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li>
+<li>[Attività di accesso irregolare](active-directory-reporting-irregular-sign-in-activity.md).</li>
+<li>[Accessi da dispositivi potenzialmente infetti](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li>
+<li>[Utenti con anomalie dell'attività di accesso](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li>
+<li>Utenti con credenziali perse</li></ul>
 
 
 
@@ -246,11 +254,11 @@ Se si sospetta che un account utente potrebbe essere compromesso o qualsiasi tip
 
 - Contattare l'utente per verificare l'attività
 - Reimpostare la password dell'utente
-- [Abilitare l'autenticazione a più fattori](multi-factor-authentication-get-started.md) per una maggiore sicurezza
+- [Abilitare l'autenticazione a più fattori](../multi-factor-authentication/multi-factor-authentication-get-started.md) per una maggiore sicurezza
 
 ## Visualizzare o scaricare un report
 
-1. Nel portale di gestione di Azure, fare clic su **Active Directory**, fare clic sul nome della directory dell'organizzazione e quindi fare clic su **Report**.
+1. Nel portale di Azure classico, fare clic su **Active Directory**, poi sul nome della directory dell'organizzazione e quindi su **Report**.
 2. Nella pagina Report, fare clic sul report che si desidera visualizzare e/o scaricare.
 
     > [AZURE.NOTE] Se questa è la prima volta che si usa la funzionalità di creazione di report di Azure Active Directory, verrà visualizzato un messaggio relativo al consenso esplicito. Se si accetta, fare clic sull'icona del segno di spunta per continuare.
@@ -260,7 +268,7 @@ Se si sospetta che un account utente potrebbe essere compromesso o qualsiasi tip
     - Ultimi 7 giorni
     - Ultimi 30 giorni
 4. Fare clic sull'icona del segno di spunta per eseguire il report.
-	- Fino a 1000 eventi saranno visualizzati nel portale di gestione di Azure.
+	- Nel portale di Azure classico vengono visualizzati fino a 1000 eventi.
 5. Se applicabile, fare clic su **Download** per scaricare il report in un file compresso in formato valori separati da virgole (CSV) per visualizzarlo offline o a scopo di archiviazione.
 	- Fino a 75.000 eventi verranno inclusi nel file scaricato.
 	- Per altri dati, vedere [Introduzione all'API di creazione report](active-directory-reporting-api-getting-started.md).
@@ -278,4 +286,4 @@ Per altre informazioni sulle notifiche della funzionalità di creazione di repor
 - [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

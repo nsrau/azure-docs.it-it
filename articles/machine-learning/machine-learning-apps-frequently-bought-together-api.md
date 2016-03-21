@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/07/2016" 
 	ms.author="luisca"/>
 
 # App di esempio di Machine Learning: Frequently Bought Together
@@ -21,7 +21,7 @@
 
 ## IMPORTANTE: QUESTO SERVIZIO È STATO DEPRECATO
 
-La funzionalità Frequently Bought Together fornita da questo servizio ora è stata integrata nella più estesa [API Recommendations](http://gallery.azureml.net/MachineLearningAPI/3574432384684cac9cc766e57729ea4c). È consigliabile usare Recommendations invece di questo servizio.
+**La funzionalità Frequently Bought Together fornita da questo servizio ora è stata integrata nella più estesa [API Recommendations](http://gallery.azureml.net/MachineLearningAPI/3574432384684cac9cc766e57729ea4c). È consigliabile usare Recommendations invece di questo servizio.**
 
 ##Panoramica
 
@@ -39,4 +39,4 @@ Questo servizio contiene le API per creare modelli di Spesso acquistati insieme,
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,7 +3,7 @@
    description="Report di Azure Active Directory nell'anteprima pubblica e privata"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="dhanyahk"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Anteprime dei report di Azure Active Directory
 
@@ -27,7 +27,7 @@ Attività di accesso irregolare | Disponibilità generale
 Accessi da origini sconosciute | Disponibilità generale
 Accessi dopo più errori | Disponibilità generale
 Accessi da più aree geografiche | Disponibilità generale
-Accessi da indirizzi IP con attività sospetta | Disponibilità generale
+Accessi da indirizzi IP con attività sospette | Disponibilità generale
 Accessi da dispositivi potenzialmente infetti | Disponibilità generale
 Utenti con anomalie dell'attività di accesso | Anteprima pubblica
 Utenti con credenziali perse | Anteprima pubblica
@@ -54,4 +54,4 @@ Utilizzo applicazioni abilitate per RMS | Anteprima pubblica
 **Report di anteprima personalizzati** |
 Attività di accesso di tutti gli utenti | Anteprima privata
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

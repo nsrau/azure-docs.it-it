@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Monitoraggio del carico di lavoro mediante DMV
@@ -38,10 +38,10 @@ Utilizzare la query seguente per recuperare le informazioni sulla connessione co
 
 ```
 
-SELECT * 
-FROM sys.dm_pdw_nodes_exec_connections AS c 
-   JOIN sys.dm_pdw_nodes_exec_sessions AS s 
-   ON c.session_id = s.session_id 
+SELECT *
+FROM sys.dm_pdw_nodes_exec_connections AS c
+   JOIN sys.dm_pdw_nodes_exec_sessions AS s
+   ON c.session_id = s.session_id
 WHERE c.session_id = @@SPID;
 
 ```
@@ -70,7 +70,7 @@ SELECT * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 Salvare l'ID richiesta della query.
 
 
-  
+
 ### PASSAGGIO 2: verificare se la query è in attesa di risorse
 
 ```
@@ -81,15 +81,15 @@ Salvare l'ID richiesta della query.
 SELECT waits.session_id,
       waits.request_id,  
       requests.command,
-      requests.status, 
+      requests.status,
       requests.start_time,  
       waits.type,  
-      waits.object_type, 
+      waits.object_type,
       waits.object_name,  
       waits.state  
-FROM   sys.dm_pdw_waits waits 
+FROM   sys.dm_pdw_waits waits
    JOIN  sys.dm_pdw_exec_requests requests
-   ON waits.request_id=requests.request_id 
+   ON waits.request_id=requests.request_id
 WHERE waits.request_id = 'QID33188'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 
@@ -112,7 +112,7 @@ Utilizzare l'ID richiesta per recuperare un elenco di tutte le istruzioni della 
 
 -- Find the distributed query plan steps for a specific query.
 -- Replace request_id with value from Step 1.
- 
+
 SELECT * FROM sys.dm_pdw_request_steps
 WHERE request_id = 'QID33209'
 ORDER BY step_index;
@@ -148,7 +148,7 @@ Utilizzare la query seguente per recuperare il piano di esecuzione di SQL Server
 
 ```
 
--- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node. 
+-- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
 -- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
@@ -165,13 +165,13 @@ Utilizzare l'ID richiesta e l'indice dell'istruzione per recuperare informazioni
 
 -- Find the information about all the workers completing a Data Movement Step.
 -- Replace request_id and step_index with values from Step 1 and 3.
- 
+
 SELECT * FROM sys.dm_pdw_dms_workers
 WHERE request_id = 'QID33209' AND step_index = 2;
 
 ```
 
-- Controllare la colonna *total\_elapsed\_time* per verificare se una distribuzione particolare richiede più tempo per lo spostamento dati rispetto alle altre. 
+- Controllare la colonna *total\_elapsed\_time* per verificare se una distribuzione particolare richiede più tempo per lo spostamento dati rispetto alle altre.
 - Per la distribuzione con esecuzione prolungata, esaminare la colonna *rows\_processed* e controllare se il numero di righe spostato da tale distribuzione è significativamente più grande rispetto alle altre. Ciò indica che la query presenta una differenza di dati.
 
 
@@ -203,4 +203,4 @@ Per ulteriori suggerimenti sulla gestione di SQL Data Warehouse, vedere [panoram
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

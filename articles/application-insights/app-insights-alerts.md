@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/05/2016" 
 	ms.author="awills"/>
  
 # Impostare gli avvisi in Application Insights
@@ -48,6 +48,8 @@ Per ricevere un messaggio di posta elettronica quando una metrica supera una sog
 
 *Il pulsante Aggiungi avviso non viene visualizzato*: si sta usando un account aziendale? È possibile impostare gli avvisi se si ha l'accesso come proprietario o come collaboratore a questa risorsa dell'applicazione. Controllare in Impostazioni -> Utenti. [Informazioni sul controllo di accesso][roles].
 
+> [AZURE.NOTE] Nel pannello degli avvisi si noterà che è già presente un avviso: [Diagnostica proattiva quasi in tempo reale](app-insights-nrt-proactive-diagnostics.md). Si tratta di un avviso automatico che controlla una particolare metrica, la frequenza di errori delle richieste. Pertanto, a meno che non si decida di disabilitare questa opzione, non è necessario impostare un proprio avviso relativo alla frequenza di errori delle richieste.
+
 ## Visualizzare gli avvisi
 
 Si riceve un messaggio di posta elettronica quando lo stato dell'avviso passa da inattivo ad attivo e viceversa.
@@ -58,13 +60,10 @@ Nell'elenco a discesa Avvisi è disponibile un riepilogo delle attività recenti
 
 ![](./media/app-insights-alerts/010-alert-drop.png)
 
-La cronologia delle modifiche di stato si trova nel log eventi delle operazioni:
+La cronologia delle modifiche di stato si trova nel log di controllo:
 
-![Nella parte inferiore del pannello Panoramica fare clic su 'Eventi nella settimana precedente'](./media/app-insights-alerts/09-alerts.png)
+![Nel pannello Panoramica fare clic su Impostazioni, Log di controllo](./media/app-insights-alerts/09-alerts.png)
 
-*Questi "eventi" sono correlati a eventi di telemetria o a eventi personalizzati?*
-
-* No. Questi eventi operativi sono semplicemente un log delle operazioni che si sono verificate in questa risorsa dell'applicazione. 
 
 
 ## Funzionamento degli avvisi
@@ -127,4 +126,4 @@ Gli avvisi più diffusi includono:
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

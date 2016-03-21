@@ -122,7 +122,7 @@ Per altri dettagli, vedere [Condivisione di un circuito ExpressRoute tra più so
 No. Tutte le reti virtuali collegate allo stesso circuito ExpressRoute appartengono allo stesso dominio di routing e non sono isolate tra loro dal punto di vista del routing. Se è necessario l'isolamento delle route, creare un circuito ExpressRoute separato.
 
 ### È possibile connettere una sola rete virtuale a più circuiti ExpressRoute?
-Sì. È possibile collegare una singola rete virtuale con un massimo di quattro circuiti ExpressRoute. Essi devono essere ordinati in 4 posizioni diverse.
+Sì. È possibile collegare una singola rete virtuale con un massimo di quattro circuiti ExpressRoute. Devono essere ordinati tramite 4 [località per ExpressRoute](expressroute-locations.md) diverse.
 
 ### Si può accedere a Internet usando le reti virtuali connesse a circuiti ExpressRoute?
 Sì. Se non è stata eseguita la pubblicazione di route predefinite (0.0.0.0/0) o prefissi di route Internet tramite la sessione BGP, sarà possibile connettersi a Internet da una rete virtuale collegata a un circuito ExpressRoute.
@@ -221,7 +221,7 @@ Sì. Gli addebiti per ExpressRoute Premium vengono sommati agli addebiti per Exp
 1. Per assicurarsi di soddisfare i requisiti previsti, vedere la [pagina relativa ai prerequisiti di ExpressRoute](expressroute-prerequisites.md).
 2. Per assicurarsi di soddisfare le esigenze specifiche a livello di connettività, vedere l'elenco di provider di servizi e località in [Partner e località per ExpressRoute](expressroute-locations.md).
 3. Per pianificare i requisiti relativi alla capacità, vedere la pagina relativa alla [pianificazione e al perfezionamento delle prestazioni di rete per Office 365](http://aka.ms/tune/).
-4. Seguire i passaggi elencati nei flussi di lavoro seguenti per configurare la connettività [Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito](expressroute-workflows.md).
+4. Seguire i passaggi elencati nei flussi di lavoro seguenti per configurare la connettività dei [Flussi di lavoro di ExpressRoute per il provisioning di circuiti e stati dei circuiti](expressroute-workflows.md).
 
 >[AZURE.IMPORTANT] Assicurarsi che sia stato abilitato il componente aggiuntivo ExpressRoute Premium quando si configura la connettività ai servizi di Office 365 e a CRM Online.
 
@@ -230,7 +230,7 @@ Sì. È possibile configurare i circuiti ExpressRoute esistenti per supportare l
 
 ### A quali servizi di Office 365 è possibile accedere tramite una connessione ExpressRoute?
 
-Per un elenco aggiornato dei servizi supportati tramite ExpressRoute, fare riferimento alla pagina [URL e intervalli di indirizzi IP per Office 365](http://aka.ms/o365endpoints).
+Per un elenco aggiornato dei servizi supportati tramite ExpressRoute, vedere la pagina [URL e intervalli di indirizzi IP per Office 365](http://aka.ms/o365endpoints).
 
 ### Quanto costa ExpressRoute per i servizi di Office 365 e CRM Online?
 Per i servizi di Office 365 e CRM Online deve essere abilitato il componente aggiuntivo Premium. Per informazioni dettagliate sui costi di ExpressRoute, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/expressroute/).
@@ -241,4 +241,4 @@ Per altre informazioni sull'elenco di partner e località in cui è supportato E
 ### È possibile accedere a Office 365 tramite Internet anche se ExpressRoute è stato configurato per l'organizzazione specifica?
 Sì. Gli endpoint di Office 365 sono raggiungibili tramite Internet anche se ExpressRoute è stato configurato per la rete specifica. Se ci si trova in una località configurata per la connessione ai servizi di Office 365 tramite ExpressRoute, la connessione verrà effettuata tramite ExpressRoute.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

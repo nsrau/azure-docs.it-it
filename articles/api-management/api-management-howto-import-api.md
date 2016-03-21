@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Come importare la definizione di un'API con le operazioni in Gestione API di Azure
@@ -54,7 +54,7 @@ Quindi, immettere un **Suffisso dell'URL dell'API Web**. Il suffisso viene aggiu
 
 Dopo aver immesso tutti i valori, fare clic su **Salva** per creare l'API e le operazioni associate.
 
->[AZURE.NOTE]Per un'esercitazione relativa all'importazione di un'API di calcolatrice di base in formato Swagger, vedere [Gestire la prima API in Gestione API di Azure](api-management-get-started.md).
+>[AZURE.NOTE] Per un'esercitazione relativa all'importazione di un'API di calcolatrice di base in formato Swagger, vedere [Gestire la prima API in Gestione API di Azure](api-management-get-started.md).
 
 ## <a name="export-api"> </a> Esportare un'API
 
@@ -95,4 +95,4 @@ Dopo aver creato un'API ed importato le operazioni, è possibile rivedere e conf
 [Come creare le API]: api-management-howto-create-apis.md
 [Come configurare le impostazioni API]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

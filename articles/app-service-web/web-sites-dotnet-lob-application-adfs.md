@@ -40,7 +40,7 @@ Si creerà un'applicazione ASP.NET di base nelle app Web di Servizio app di Azur
 
 Per completare questa esercitazione sarà necessario quanto segue:
 
-- Distribuzione locale di ADFS (per una procedura dettagliata end-to-end dell'ambiente di testing in uso, vedere [Test Lab: Istanza autonoma del servizio token di sicurezza con ADFS in Azure VM, solo per i test](TODO))
+- Distribuzione locale di ADFS (per una procedura dettagliata end-to-end dell'ambiente di testing in uso, vedere [Test Lab: Istanza autonoma del servizio token di sicurezza con ADFS in Azure VM, solo per i test](https://blogs.msdn.microsoft.com/cephalin/2014/12/21/test-lab-standalone-sts-with-ad-fs-in-azure-vm-for-test-only/))
 - Autorizzazioni per creare una o più attendibilità della relying party nel componente di gestione di ADFS
 - Visual Studio 2013
 - [Azure SDK 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) o versioni successive
@@ -356,4 +356,4 @@ App Web del servizio app di Azure supporta l'accesso ai database locali mediante
  
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

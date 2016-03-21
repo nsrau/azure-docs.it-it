@@ -3,9 +3,9 @@
 	description="Informazioni sul modo in cui il Database Estensione esegue la migrazione dei dati cronologici in modo trasparente e sicuro al cloud di Microsoft Azure."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -20,16 +20,18 @@
 
 Il Database Estensione esegue la migrazione dei dati cronologici in modo trasparente e sicuro al cloud di Microsoft Azure.
 
+Per iniziare subito a usare l'estensione database, vedere [Introduzione all'esecuzione della procedura guidata Abilitare il database per l'estensione](sql-server-stretch-database-wizard.md).
+
 ## Vantaggi del Database Estensione
 Il Database Estensione offre i vantaggi seguenti:
 
-**Fornisce disponibilità conveniente per i dati non attivi** I dati transazionali attivi e non attivi vengono estesi dinamicamente da SQL Server a Microsoft Azure con il Database Estensione SQL Server. A differenza dell'archiviazione dati non attivi, i dati sono sempre online e disponibili per le query. È possibile fornire più sequenze temporali di conservazione dei dati senza interrompere la banca dati per le tabelle di grandi dimensioni come la cronologia degli ordini dei clienti. È possibile trarre vantaggio dal costo contenuto di Azure invece di ridimensionare una costosa risorsa di archiviazione locale. Per mantenere il controllo sulla velocità di accesso e sui prezzi, si sceglie il piano tariffario e si configurano le impostazioni nel portale di Azure. Passare a un piano superiore o inferiore secondo le esigenze. Per altri dettagli, vedere la pagina [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+**Fornisce disponibilità conveniente per i dati non attivi.** I dati transazionali attivi e non attivi vengono estesi dinamicamente da SQL Server a Microsoft Azure con il Database Estensione SQL Server. A differenza dell'archiviazione dati non attivi, i dati sono sempre online e disponibili per le query. È possibile fornire più sequenze temporali di conservazione dei dati senza interrompere la banca dati per le tabelle di grandi dimensioni come la cronologia degli ordini dei clienti. È possibile trarre vantaggio dal costo contenuto di Azure invece di ridimensionare una costosa risorsa di archiviazione locale. Per mantenere il controllo sulla velocità di accesso e sui prezzi, si sceglie il piano tariffario e si configurano le impostazioni nel portale di Azure. Passare a un piano superiore o inferiore secondo le esigenze. Per altri dettagli, vedere la pagina [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
-**Non richiede modifiche a query o applicazioni** È possibile accedere ai dati di SQL Server direttamente, sia in locale o estesi al cloud. Si impostano i criteri che determinano dove vengono archiviati i dati e SQL Server gestisce lo spostamento dei dati in background. L'intera tabella è sempre online e disponibile per le query. Database Estensione non richiede modifiche apportate alle query o alle applicazioni esistenti, il percorso dei dati è completamente trasparente per l'applicazione.
+**Non richiede modifiche a query o applicazioni.** È possibile accedere ai dati di SQL Server direttamente, sia in locale o estesi al cloud. Si impostano i criteri che determinano dove vengono archiviati i dati e SQL Server gestisce lo spostamento dei dati in background. L'intera tabella è sempre online e disponibile per le query. Database Estensione non richiede modifiche apportate alle query o alle applicazioni esistenti, il percorso dei dati è completamente trasparente per l'applicazione.
 
-**Semplifica la gestione dei dati locali** Viene ridotta la gestione e l'archiviazione in locale dei dati. I backup per la parte cloud dei dati vengono eseguiti automaticamente. I backup per i dati in locale vengono eseguiti più velocemente e completati entro la finestra di manutenzione. Le esigenze di archiviazione locale sono notevolmente ridotte. Archiviazione di Azure può essere dell'80% meno costosa dell'aggiunta di un'unità SSD locale.
+**Semplifica la gestione dei dati locali.** Viene ridotta la gestione e l'archiviazione in locale dei dati. I backup per la parte cloud dei dati vengono eseguiti automaticamente. I backup per i dati in locale vengono eseguiti più velocemente e completati entro la finestra di manutenzione. Le esigenze di archiviazione locale sono notevolmente ridotte. Archiviazione di Azure può essere dell'80% meno costosa dell'aggiunta di un'unità SSD locale.
 
-**Protegge i dati anche durante la migrazione** L'estensione nel cloud delle applicazioni più importanti può essere eseguita in modo sicuro e senza problemi. Crittografia sempre attiva di SQL Server fornisce la crittografia per i dati in movimento. La sicurezza a livello di riga e altre funzionalità di sicurezza avanzate di SQL Server sono utilizzabili anche con Database Estensione per proteggere i dati.
+**Protegge i dati anche durante la migrazione.** L'estensione nel cloud delle applicazioni più importanti può essere eseguita in modo sicuro e senza problemi. Crittografia sempre attiva di SQL Server fornisce la crittografia per i dati in movimento. La sicurezza a livello di riga e altre funzionalità di sicurezza avanzate di SQL Server sono utilizzabili anche con Database Estensione per proteggere i dati.
 
 ## Funzionalità del Database Estensione
 Dopo avere abilitato il Database Estensione per un'istanza di SQL Server, un database e almeno una tabella, inizia automaticamente la migrazione dei dati cronologici in Azure.
@@ -61,17 +63,17 @@ Il Database Estensione è destinato a database transazionali con grandi quantit�
 
 Se si usa la funzionalità tabella temporale di SQL Server 2016, usare il Database Estensione per eseguire la migrazione di tutta o parte della tabella della cronologia associata per un'archiviazione economica in Azure. Per altre informazioni, vedere l'articolo su come [gestire la conservazione dei dati cronologici nelle tabelle temporali con controllo delle versioni di sistema](https://msdn.microsoft.com/library/mt637341.aspx).
 
-Per identificare i database e le tabelle candidati per il Database Estensione, usare l'ottimizzazione guidata Database Estensione di SQL Server 2016 Upgrade Advisor. Per altre informazioni, vedere l'articolo relativo all'[identificazione di database e tabelle per il Database Estensione](sql-server-stretch-database-identify-databases.md). Per altre informazioni sui possibili problemi di blocco, vedere l'articolo relativo alle [limitazioni della superficie di attacco e problemi di blocco per il Database Estensione](sql-server-stretch-database-limitations.md).
+Per identificare i database e le tabelle candidati per il Database Estensione, usare l'ottimizzazione guidata Database Estensione di SQL Server 2016 Upgrade Advisor. Per altre informazioni, vedere l'articolo relativo all'[identificazione di database e tabelle per l'estensione database](sql-server-stretch-database-identify-databases.md). Per altre informazioni sui possibili problemi di blocco, vedere l'articolo relativo alle [limitazioni della superficie di attacco e problemi di blocco per l'estensione database](sql-server-stretch-database-limitations.md).
 
-## <a name="FAQ"></a>Domande frequenti sul Database Estensione
+## <a name="FAQ"></a>Domande frequenti sull'estensione database
 **Il Database Estensione funziona con & lt;Nome funzionalità di SQL Server& gt;?**
--   Per un elenco delle funzionalità di SQL Server che rendono una tabella non idonea per l'estensione, vedere l'articolo relativo alle [limitazioni della superficie di attacco e problemi di blocco per il Database Estensione](sql-server-stretch-database-limitations.md).
+-   Per un elenco delle funzionalità di SQL Server che rendono una tabella non idonea per l'estensione, vedere l'articolo relativo alle [limitazioni della superficie di attacco e problemi di blocco per l'estensione database](sql-server-stretch-database-limitations.md).
 
--   È possibile scaricare SQL Server 2016 Upgrade Advisor ed eseguire l'ottimizzazione guidata Database Estensione per identificare i database e le tabelle candidati per il Database Estensione. Per altre informazioni, vedere l'articolo relativo all'[identificazione di database e tabelle per il Database Estensione](sql-server-stretch-database-identify-databases.md).
+-   È possibile scaricare SQL Server 2016 Upgrade Advisor ed eseguire l'ottimizzazione guidata Database Estensione per identificare i database e le tabelle candidati per il Database Estensione. Per altre informazioni, vedere l'articolo relativo all'[identificazione di database e tabelle per l'estensione database](sql-server-stretch-database-identify-databases.md).
 
 **È possibile usare come destinazione un'altra istanza di SQL Server locale per il Database Estensione?** No. Il Database estensione non supporta un'altra istanza di SQL Server locale come endpoint remoto.
 
-**È possibile disabilitare l'estensione e ripristinare i dati di cui è stata effettuata la migrazione nella tabella locale?** Sì. Per altre informazioni, vedere [Disabilitare Database Estensione e recuperare i dati remoti](sql-server-stretch-database-disable.md)
+**È possibile disabilitare l'estensione e ripristinare i dati di cui è stata effettuata la migrazione nella tabella locale?** Sì. Per altre informazioni, vedere l'articolo relativo alla [disabilitazione dell'estensione database e recupero dei dati remoti](sql-server-stretch-database-disable.md).
 
 ## Termini
 **Database locale**. Il database SQL Server locale.
@@ -114,11 +116,11 @@ Il Database Estensione non modifica il modello di autorizzazioni di un database 
 **Test Drive del Database Estensione con il database di esempio AdventureWorks.** Per ottenere il database di esempio AdventureWorks, scaricare almeno il file di database e il file di script e gli esempi [qui](https://www.microsoft.com/download/details.aspx?id=49502). Dopo aver ripristinato il database di esempio per un'istanza di SQL Server 2016, decomprimere il file degli esempi e aprire il file Stretch DB Samples dalla cartella Stretch DB. Eseguire gli script in questo file per controllare lo spazio usato dai dati prima e dopo aver abilitato il Database Estensione per tenere traccia dell'avanzamento della migrazione dei dati e per verificare se è possibile continuare a eseguire query sui dati esistenti e inserire nuovi dati durante e dopo la migrazione dei dati.
 
 ## Passaggio successivo
-**Identificare database e tabelle candidati per il Database Estensione.** Scaricare SQL Server 2016 Upgrade Advisor ed eseguire l'ottimizzazione guidata Database Estensione per identificare i database e le tabelle candidati per il Database Estensione. L'ottimizzazione guidata Database Estensione consente anche di identificare i problemi di blocco. Per altre informazioni, vedere l'articolo relativo all'[identificazione di database e tabelle per il Database Estensione](sql-server-stretch-database-identify-databases.md).
+**Identificare database e tabelle candidati per il Database Estensione.** Scaricare SQL Server 2016 Upgrade Advisor ed eseguire l'ottimizzazione guidata Database Estensione per identificare i database e le tabelle candidati per il Database Estensione. L'ottimizzazione guidata Database Estensione consente anche di identificare i problemi di blocco. Per altre informazioni, vedere l'articolo relativo all'[identificazione di database e tabelle per l'estensione database](sql-server-stretch-database-identify-databases.md).
 
 <!--Image references-->
 [StretchOverviewImage1]: ./media/sql-server-stretch-database-overview/StretchDBOverview.png
 [StretchOverviewImage2]: ./media/sql-server-stretch-database-overview/StretchDBOverview1.png
 [StretchOverviewImage3]: ./media/sql-server-stretch-database-overview/StretchDBOverview2.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 
@@ -46,6 +46,10 @@ Il monitoraggio predefinito delle dipendenze attualmente segnala chiamate ai seg
 È necessaria una sottoscrizione di [Microsoft Azure](http://azure.com).
 
 ### Se l'app è in esecuzione nel server IIS
+
+Se l'app Web viene eseguita su .NET 4.6 o versione successiva e si [installa Application Insights SDK](app-insights-asp-net.md), nell'app viene automaticamente applicato il rilevamento delle dipendenze. Non è necessario altro.
+
+Altrimenti, installare Application Insights Status Monitor sul server:
 
 1. Nel server Web IIS accedere con le credenziali di amministratore.
 2. Scaricare e installare il [programma di installazione di Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
@@ -91,7 +95,7 @@ Nel pannello di controllo dell'app Web di Azure aggiungere l'estensione di Appli
 
 ### è un progetto di Servizi cloud di Azure
 
-[Aggiungere gli script ai ruoli web e di lavoro](app-insights-cloudservices.md)
+[Aggiungere gli script ai ruoli Web e di lavoro](app-insights-cloudservices.md#dependencies) Oppure [installare .NET Framework 4.6 o versione successiva](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 ## <a name="diagnosis"></a>Diagnosi dei problemi relativi alle prestazioni delle dipendenze
 
@@ -185,7 +189,6 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md
@@ -193,4 +196,4 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,23 +1,22 @@
-##<a name="create-client"></a>How to: Create Client
+##<a name="create-client"></a>Procedura: creare Client
 
-Create a client connection by creating a `WindowsAzure.MobileServicesClient` object.  Replace `appUrl` with the URL to your Mobile App.
+Creare una connessione client creando un oggetto `WindowsAzure.MobileServicesClient`. Sostituire `appUrl` con l'URL dell'app per dispositivi mobili.
 
 ```
 var client = WindowsAzure.MobileServicesClient(appUrl);
 ```
 
-##<a name="table-reference"></a>How to: Create Table Reference
+##<a name="table-reference"></a>Procedura: Creare un riferimento alla tabella
 
-To access or update data, create a reference to the backend table. Replace `tableName` with the name of your table
+Per l'accesso o l'aggiornamento dei dati, creare un riferimento alla tabella di back-end. Sostituire `tableName` con il nome della tabella
 
 ```
 var table = client.getTable(tableName);
 ```
 
-##<a name="querying"></a>How to: Query a Table Reference
+##<a name="querying"></a>Procedura: Eseguire query su un riferimento a tabella
 
-Once you have a table reference, you can use it to query for data on the server.  Queries are made in a "LINQ-like" language.
-To return all data from the table, use the following:
+Dopo aver creato un riferimento a tabella, è possibile usarlo per eseguire una query sui dati nel server. Le query vengono eseguite in un linguaggio "simile a LINQ". Per restituire tutti i dati dalla tabella, usare quanto segue:
 
 ```
 /**
@@ -45,15 +44,13 @@ table
     .then(success, failure);
 ```
 
-The success function is called with the results.   Do not use `for (var i in results)` in
-the success function as that will iterate over information that is included in the results
-when other query functions (such as `.includeTotalCount()`) are used.
+La funzione success viene chiamata con l'oggetto results. Non usare `for (var i in results)` nella funzione success, perché scorre le informazioni incluse nei risultati quando si usano altre funzioni di query, ad esempio `.includeTotalCount()`.
 
-For more information on the Query syntax, refer to the [Query object documentation].
+Per altre informazioni sulla sintassi delle query, vedere la [documentazione relativa all'oggetto Query].
 
-### Filtering Data on the server
+### Filtro dei dati nel server
 
-You can use a `where` clause on the table reference:
+È possibile usare una clausola `where` nel riferimento alla tabella:
 
 ```
 table
@@ -62,8 +59,7 @@ table
     .then(success, failure);
 ```
 
-You can also use a function that filters the object.  In this case the `this` variable is assigned to the
-current object being filtered.  The following is functionally equivalent to the prior example:
+È anche possibile usare una funzione che filtra l'oggetto. In questo caso la variabile `this` viene assegnata all'oggetto che si sta filtrando. A livello funzionale, l'esempio seguente è equivalente al precedente:
 
 ```
 function filterByUserId(currentUserId) {
@@ -76,9 +72,9 @@ table
     .then(success, failure);
 ```
 
-### Paging through data
+### Paging dei dati
 
-Utilize the take() and skip() methods.  For example, if you wish to split the table into 100-row records:
+Usare i metodi take() e skip(). Ad esempio, se si vuole dividere la tabella in record di 100 righe:
 
 ```
 var totalCount = 0, pages = 0;
@@ -101,18 +97,14 @@ function loadPage(pageNum) {
 }
 ```
 
-The `.includeTotalCount()` method is used to add a totalCount field to the results object.  The
-totalCount field is filled with the total number of records that would be returned if no paging
-is used.
+Il metodo `.includeTotalCount()` viene usato per aggiungere un campo totalCount all'oggetto results. Se non si usa il paging, il campo totalCount viene compilato con il numero totale di record restituiti.
 
-You can then use the pages variable and some UI buttons to provide a page list; use loadPage() to
-load the new records for each page.  You should implement some sort of caching to speed access to
-records that have already been loaded.
+Si potrà quindi usare la variabile pages e alcuni pulsanti dell'interfaccia utente per fornire un elenco di pagine. Usare loadPage() per caricare i nuovi record per ogni pagina. È necessario implementare una sorta di caching per velocizzare l'accesso ai record già caricati.
 
 
-###<a name="sorting-data"></a>How to: Return data sorted
+###<a name="sorting-data"></a>Procedura: Restituire dati ordinati
 
-Use the .orderBy() or .orderByDescending() query methods:
+Usare i metodi di query .orderBy() o .orderByDescending():
 
 ```
 table
@@ -121,11 +113,11 @@ table
     .then(success, failure);
 ```
 
-For more information on the Query object, refer to the [Query object documentation].
+Per altre informazioni sull'oggetto Query, vedere la [documentazione relativa all'oggetto Query].
 
-##<a name="inserting"></a>How to: Insert Data
+##<a name="inserting"></a>Procedura: Inserire dati
 
-Create a JavaScript object with the appropriate date and call table.insert() asynchronously:
+Creare un oggetto JavaScript con la data appropriata e chiamare table.insert() in modo asincrono:
 
 ```
 var newItem = {
@@ -140,19 +132,13 @@ table
     }, failure);
 ```
 
-On successful insertion, the inserted item is returned with the additional fields that are required
-for sync operations.  You should update your own cache with this information for later updates.
+Una volta completato l'inserimento, viene restituito l'elemento inserito con i campi aggiuntivi necessari per le operazioni di sincronizzazione. È necessario aggiornare la cache con queste informazioni per gli aggiornamenti successivi.
 
-Note that the Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.
-In the case of dynamic schema, the schema of the table is updated on the fly, allowing you to add
-columns to the table just by specifying them in an insert or update operation.  We recommend that
-you turn off dynamic schema before moving your application to production.
+Si noti che Node. js Server SDK per le app per dispositivi mobili supporta lo schema dinamico per scopi di sviluppo. Nel caso di schema dinamico, lo schema della tabella viene aggiornato in tempo reale, consentendo di aggiungere colonne alla tabella specificandole semplicemente in un'operazione di inserimento o aggiornamento. È consigliabile disattivare lo schema dinamico prima di trasferire l'applicazione in produzione.
 
-##<a name="modifying"></a>How to: Modify Data
+##<a name="modifying"></a>Procedura: Modificare dati
 
-Similar to the .insert() method, you should create an Update object and then call .update().  The update
-object must contain the ID of the record to be updated - this is obtained when reading the record or
-when calling .insert().
+In modo analogo al metodo .insert(), è consigliabile creare un oggetto Update e quindi chiamare .update(). L'oggetto update deve contenere l'ID del record da aggiornare, che si ottiene durante la lettura del record o quando si chiama .insert().
 
 ```
 var updateItem = {
@@ -167,9 +153,9 @@ table
     }, failure);
 ```
 
-##<a name="deleting"></a>How to: Delete Data
+##<a name="deleting"></a>Procedura: Eliminare dati
 
-Call the .del() method to delete a record.  Pass the ID in an object reference:
+Chiamare il metodo .del() per eliminare un record. Passare l'ID in un riferimento all'oggetto:
 
 ```
 table
@@ -178,3 +164,5 @@ table
         // Record is now deleted - update your cache
     }, failure);
 ```
+
+<!---HONumber=AcomDC_0309_2016-->

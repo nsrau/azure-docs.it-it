@@ -3,7 +3,7 @@
 	description="Fornisce l'elenco degli attributi sincronizzati con Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="andkjell"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/07/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
 
-Questo argomento descrive gli attributi sincronizzati dal servizio di sincronizzazione Azure AD Connect.<br> Gli attributi sono raggruppati in base alle app Azure AD correlate.
+Questo argomento descrive gli attributi sincronizzati dal servizio di sincronizzazione Azure AD Connect. Gli attributi sono raggruppati in base alle app Azure AD correlate.
 
+## Attributi da sincronizzare
+Spesso viene chiesto *Qual è l'elenco degli attributi minimi per sincronizzare*. La metodologia predefinita e consigliata consiste nel mantenere gli attributi predefiniti per creare un elenco indirizzi globale completo nel cloud. Talvolta l'organizzazione preferisce non sincronizzare alcuni attributi con il cloud. In questo caso, partire dal seguente elenco di attributi e individuare gli attributi che potrebbero contenere informazioni personali e non possono pertanto essere sincronizzati. Deselezionarli durante l'installazione tramite [Filtro attributi e app di Azure AD](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+
+Quando si deselezionano gli attributi, prestare grande attenzione e deselezionare soltanto quelli che non devono assolutamente essere sincronizzati.
 
 ## Office 365 ProPlus
 
@@ -456,4 +460,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

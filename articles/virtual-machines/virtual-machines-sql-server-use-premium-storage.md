@@ -380,7 +380,7 @@ Sono disponibili due strategie per eseguire la migrazione delle distribuzioni di
 1. **Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn**
 1. **Eseguire la migrazione a un nuovo cluster di AlwaysOn**
 
-#### 1. Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn
+#### 1\. Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn
 
 Una strategia consiste nell'aggiungere ulteriori repliche secondarie al gruppo di disponibilità AlwaysOn. È necessario aggiungere questi elementi in un nuovo servizio cloud e aggiornare il listener con il nuovo IP del servizio di bilanciamento carico.
 
@@ -427,7 +427,7 @@ Se si utilizzano pool di archiviazione di Windows nella macchina virtuale per un
 - Il tempo di trasferimento dei dati SQL potrebbe essere molto lungo durante la configurazione di repliche secondarie.
 - Esiste un costo aggiuntivo durante la migrazione mentre le nuove macchine vengono eseguite in parallelo.
 
-#### 2. Eseguire la migrazione a un nuovo cluster di AlwaysOn
+#### 2\. Eseguire la migrazione a un nuovo cluster di AlwaysOn
 
 Un'altra strategia consiste nel creare un nuovo cluster AlwaysOn con nuovi nodi nel nuovo servizio cloud e quindi reindirizzare i client per poterlo utilizzare.
 
@@ -458,7 +458,7 @@ Sono disponibili due strategie per la migrazione delle distribuzioni di AlwaysOn
 1. **Utilizzare una replica secondaria esistente: singolo sito**
 1. **Utilizzare repliche secondarie esistenti: multisito**
 
-#### 1. Usare una replica secondaria esistente: sito singolo
+#### 1\. Usare una replica secondaria esistente: sito singolo
 
 Una strategia per il tempo di inattività minimo consiste nel rimuovere una replica secondaria del cloud esistente dal servizio cloud corrente. Successivamente si copiano i dischi rigidi virtuali nel nuovo account di Archiviazione Premium e si crea la macchina virtuale nel nuovo servizio cloud. A questo punto, si aggiorna il listener in clustering e failover.
 
@@ -504,7 +504,7 @@ In questo documento non viene illustrato un esempio end-to-end completo. In [App
 - Se si utilizzano i passaggi 5ii, aggiungere SQL1 come possibile proprietario per la risorsa indirizzo IP aggiunto
 - Testare i failover.
 
-#### 2. Usare una o più repliche secondarie esistenti: multisito
+#### 2\. Usare una o più repliche secondarie esistenti: multisito
 
 Se si dispone di nodi in più centri dati Azure o se si dispone di un ambiente ibrido, è possibile utilizzare una configurazione AlwaysOn in questo ambiente per ridurre al minimo i tempi di inattività.
 
@@ -1148,4 +1148,4 @@ Per aggiungere l'indirizzo IP, vedere l’[Appendice](#appendix-migrating-a-mult
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->
