@@ -70,7 +70,8 @@ Dopo aver creato la connessione, immettere le proprietà di Office 365 Users, ad
 Si applica alla versione 1.0.
 
 ### Recupera il mio profilo 
-Recupera il profilo dell'utente corrente. ```GET: /users/me```
+Recupera il profilo dell'utente corrente. 
+	```GET: /users/me```
 
 Non sono disponibili parametri per questa chiamata.
 
@@ -88,7 +89,8 @@ Non sono disponibili parametri per questa chiamata.
 
 
 ### Recupera profilo utente 
-Recupera il profilo di un utente specifico. ```GET: /users/{userId}```
+Recupera il profilo di un utente specifico.  
+```GET: /users/{userId}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -108,7 +110,8 @@ Recupera il profilo di un utente specifico. ```GET: /users/{userId}```
 
 
 ### Recupera manager 
-Recupera il profilo utente del manager dell'utente specificato. ```GET: /users/{userId}/manager```
+Recupera il profilo utente del manager dell'utente specificato.  
+```GET: /users/{userId}/manager```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -129,7 +132,8 @@ Recupera il profilo utente del manager dell'utente specificato. ```GET: /users/{
 
 
 ### Recupera i dipendenti diretti 
-Recupera i dipendenti diretti. ```GET: /users/{userId}/directReports```
+Recupera i dipendenti diretti.  
+```GET: /users/{userId}/directReports```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -150,7 +154,8 @@ Recupera i dipendenti diretti. ```GET: /users/{userId}/directReports```
 
 
 ### Ricerca utenti 
-Recupera i risultati di ricerca dei profili utente. ```GET: /users```
+Recupera i risultati di ricerca dei profili utente.  
+```GET: /users```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|

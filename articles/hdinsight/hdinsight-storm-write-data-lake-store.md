@@ -207,7 +207,7 @@ Da una sessione SSH al cluster, usare il comando seguente:
 
 __Per HDInsight basato su Windows__:
 
-1. Nel Dashboard di Storm (https://CLUSTERNAME.azurehdinsight.net,) selezionare il collegamento __Interfaccia utente di Storm__ nella parte superiore della pagina.
+1. Nel Dashboard di Storm (https://clustername.azurehdinsight.net) selezionare il collegamento __Interfaccia utente di Storm__ nella parte superiore della pagina.
 
 2. Al termine del caricamento dell'interfaccia utente di Storm, selezionare il collegamento __datalakewriter__.
 

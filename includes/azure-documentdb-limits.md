@@ -3,8 +3,8 @@ Entità|Quota (offerta Standard)
 ---|---
 Account di database*|5
 Numero di database per ogni account di database|100
-Numero di utenti per ogni account di database (in tutti i database)|500\.000
-Numero di autorizzazioni per ogni account di database (in tutti i database)|2\.000.000
+Numero di utenti per ogni account di database (in tutti i database)|500.000
+Numero di autorizzazioni per ogni account di database (in tutti i database)|2.000.000
 Archiviazione allegati per ogni account di database (funzionalità di anteprima)|2 GB
 Numero massimo di unità di richiesta/secondi per ogni raccolta|2500
 Numero di stored procedure, trigger e UDF per ogni raccolta* |25 ciascuna

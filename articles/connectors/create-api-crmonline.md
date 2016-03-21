@@ -52,8 +52,10 @@ Quando si aggiunge questa API alle app per la logica, è necessario accedere a D
 1. Nell'app per la logica, selezionare **Aggiungi un'azione**: ![Configurare CRM Online][13]
 4. Immettere CRM nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con CRM nel nome.
 5. Selezionare **Dynamics CRM Online - Crea un nuovo record**.
-6. Selezionare **Accedi a Dynamics CRM Online**: ![Configurare CRM Online][14]
-7. Immettere le credenziali di CRM Online per accedere e autorizzare l'applicazione: ![Configurare CRM Online][15]  
+6. Selezionare **Accedi a Dynamics CRM Online**: 
+	![Configurare CRM Online][14]
+7. Immettere le credenziali di CRM Online per accedere e autorizzare l'applicazione: 
+	![Configurare CRM Online][15]  
 8. Dopo l'accesso, tornare all'app per la logica per completarla aggiungendo gli altri trigger e azioni necessari.
 9. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.
 

@@ -185,12 +185,12 @@ Supporta .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 4\.29 | WA-GUEST-OS-4.29\_201602-01 | Prevista: 9 marzo 2016 | Verrà aggiornata al momento del rilascio della versione 4.31 | Da definire |
-| 4\.28 | WA-GUEST-OS-4.28\_201601-01 | 12 febbraio 2016 | Verrà aggiornata al momento del rilascio della versione 4.30 | Da definire |
-| 4\.27 | WA-GUEST-OS-4.27\_201512-01 | 12 gennaio 2016 | Verrà aggiornata al momento del rilascio della versione 4.29 | Da definire |
-| 4\.26 | WA-GUEST-OS-4.26\_201511-02 | 4 gennaio 2016 | 12 marzo 2016| Da definire |
-| 4\.26 | WA-GUEST-OS-4.26\_201511-01 | 10 dicembre 2015 | 12 marzo 2016| Da definire |
-| 4\.25 | WA-GUEST-OS-4.25\_201510-01 | 6 novembre 2015 | 12 febbraio 2016 | Da definire |
+| 4.29 | WA-GUEST-OS-4.29_201602-01 | Prevista: 9 marzo 2016 | Verrà aggiornata al momento del rilascio della versione 4.31 | Da definire |
+| 4.28 | WA-GUEST-OS-4.28_201601-01 | 12 febbraio 2016 | Verrà aggiornata al momento del rilascio della versione 4.30 | Da definire |
+| 4.27 | WA-GUEST-OS-4.27_201512-01 | 12 gennaio 2016 | Verrà aggiornata al momento del rilascio della versione 4.29 | Da definire |
+| 4.26 | WA-GUEST-OS-4.26_201511-02 | 4 gennaio 2016 | 12 marzo 2016| Da definire |
+| 4.26 | WA-GUEST-OS-4.26_201511-01 | 10 dicembre 2015 | 12 marzo 2016| Da definire |
+| 4.25 | WA-GUEST-OS-4.25_201510-01 | 6 novembre 2015 | 12 febbraio 2016 | Da definire |
 | 4\.24 | WA-GUEST-OS-4.24\_201509-01 | 1 ottobre 2015 | 10 gennaio 2016 | Da definire |
 | 4\.23 | WA-GUEST-OS-4.23\_201508-02 | 9 settembre 2015 | 6 dicembre 2015 | Da definire |
 | 4\.22 | WA-GUEST-OS-4.22\_201507-02 | 7 agosto 2015 | 1 novembre 2015 | Da definire |
@@ -217,12 +217,12 @@ Supporta .NET 4.0, 4.5
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 3\.36 | WA-GUEST-OS-3.36\_201602-01 | Prevista: 9 marzo 2016 | Verrà aggiornata al momento del rilascio della versione 3.38 | Da definire |
-| 3\.35 | WA-GUEST-OS-3.35\_201601-01 | 12 febbraio 2016 | Verrà aggiornata al momento del rilascio della versione 3.37 | Da definire |
-| 3\.34 | WA-GUEST-OS-3.34\_201512-01 | 12 gennaio 2016 | Verrà aggiornata al momento del rilascio della versione 3.36 | Da definire |
-| 3\.33 | WA-GUEST-OS-3.33\_201511-02 | 4 gennaio 2016 | 12 marzo 2016| Da definire |
-| 3\.33 | WA-GUEST-OS-3.33\_201511-01 | 10 dicembre 2015 | 12 marzo 2016| Da definire |
-| 3\.32 | WA-GUEST-OS-3.32\_201510-01 | 6 novembre 2015 | 12 febbraio 2016 | Da definire |
+| 3.36 | WA-GUEST-OS-3.36_201602-01 | Prevista: 9 marzo 2016 | Verrà aggiornata al momento del rilascio della versione 3.38 | Da definire |
+| 3.35 | WA-GUEST-OS-3.35_201601-01 | 12 febbraio 2016 | Verrà aggiornata al momento del rilascio della versione 3.37 | Da definire |
+| 3.34 | WA-GUEST-OS-3.34_201512-01 | 12 gennaio 2016 | Verrà aggiornata al momento del rilascio della versione 3.36 | Da definire |
+| 3.33 | WA-GUEST-OS-3.33_201511-02 | 4 gennaio 2016 | 12 marzo 2016| Da definire |
+| 3.33 | WA-GUEST-OS-3.33_201511-01 | 10 dicembre 2015 | 12 marzo 2016| Da definire |
+| 3.32 | WA-GUEST-OS-3.32_201510-01 | 6 novembre 2015 | 12 febbraio 2016 | Da definire |
 | 3\.31 | WA-GUEST-OS-3.31\_201509-01 | 1 ottobre 2015 | 10 gennaio 2016 | Da definire |
 | 3\.30 | WA-GUEST-OS-3.30\_201508-02 | 9 settembre 2015 | 6 dicembre 2015 | Da definire |
 | 3\.29 | WA-GUEST-OS-3.29\_201507-02 | 7 agosto 2015 | 1 novembre 2015 | Da definire |
@@ -250,12 +250,12 @@ Supporta .NET 3.5, 4.0
 
 | Versione sistema operativo guest | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 2\.48 | WA-GUEST-OS-2.48\_201602-01 | Prevista: 9 marzo 2016 | Verrà aggiornata al momento del rilascio della versione 2.50 | Da definire |
-| 2\.47 | WA-GUEST-OS-2.47\_201601-01 | 12 febbraio 2016 | Verrà aggiornata al momento del rilascio della versione 2.49 | Da definire |
-| 2\.46 | WA-GUEST-OS-2.46\_201512-01 | 12 gennaio 2016 | Verrà aggiornata al momento del rilascio della versione 2.48 | Da definire |
-| 2\.45 | WA-GUEST-OS-2.45\_201511-02 | 4 gennaio 2016 | 12 marzo 2016| Da definire |
-| 2\.45 | WA-GUEST-OS-2.45\_201511-01 | 10 dicembre 2015 | 12 marzo 2016| Da definire |
-| 2\.44 | WA-GUEST-OS-2.44\_201510-01 | 6 novembre 2015 | 12 febbraio 2016 | Da definire |
+| 2.48 | WA-GUEST-OS-2.48_201602-01 | Prevista: 9 marzo 2016 | Verrà aggiornata al momento del rilascio della versione 2.50 | Da definire |
+| 2.47 | WA-GUEST-OS-2.47_201601-01 | 12 febbraio 2016 | Verrà aggiornata al momento del rilascio della versione 2.49 | Da definire |
+| 2.46 | WA-GUEST-OS-2.46_201512-01 | 12 gennaio 2016 | Verrà aggiornata al momento del rilascio della versione 2.48 | Da definire |
+| 2.45 | WA-GUEST-OS-2.45_201511-02 | 4 gennaio 2016 | 12 marzo 2016| Da definire |
+| 2.45 | WA-GUEST-OS-2.45_201511-01 | 10 dicembre 2015 | 12 marzo 2016| Da definire |
+| 2.44 | WA-GUEST-OS-2.44_201510-01 | 6 novembre 2015 | 12 febbraio 2016 | Da definire |
 | 2\.43 | WA-GUEST-OS-2.43\_201509-01 | 1 ottobre 2015 | 10 gennaio 2016 | Da definire |
 | 2\.42 | WA-GUEST-OS-2.42\_201508-02 | 9 settembre 2015 | 6 dicembre 2015 | Da definire |
 | 2\.41 | WA-GUEST-OS-2.41\_201507-02 | 7 agosto 2015 | 1 novembre 2015 | Da definire |

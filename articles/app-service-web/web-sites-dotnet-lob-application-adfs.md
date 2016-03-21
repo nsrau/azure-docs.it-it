@@ -61,7 +61,7 @@ L'applicazione di esempio in questa esercitazione, [WebApp-WSFederation-DotNet](
 
 	> [AZURE.NOTE] Le istruzioni fornite nel file [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) mostrano come configurare l'applicazione con Azure Active Directory, ma in questa esercitazione si eseguirà la configurazione senza ADFS, pertanto i passaggi da eseguire sono quelli riportati in questo articolo.
 
-3.	Aprire la soluzione e quindi aprire Controllers\\AccountController.cs in **Esplora soluzioni**.
+3.	Aprire la soluzione e quindi aprire Controllers\AccountController.cs in **Esplora soluzioni**.
 
 	Si noterà che il codice genera semplicemente una richiesta di autenticazione per l'utente mediante WS-Federation. Tutte le autenticazioni sono configurate in App\_Start\\Startup.Auth.cs.
 

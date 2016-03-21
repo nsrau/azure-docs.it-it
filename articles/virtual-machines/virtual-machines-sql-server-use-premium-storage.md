@@ -380,7 +380,7 @@ Sono disponibili due strategie per eseguire la migrazione delle distribuzioni di
 1. **Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn**
 1. **Eseguire la migrazione a un nuovo cluster di AlwaysOn**
 
-#### 1\. Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn
+#### 1. Aggiungere più repliche secondarie a un cluster esistente di AlwaysOn
 
 Una strategia consiste nell'aggiungere ulteriori repliche secondarie al gruppo di disponibilità AlwaysOn. È necessario aggiungere questi elementi in un nuovo servizio cloud e aggiornare il listener con il nuovo IP del servizio di bilanciamento carico.
 
@@ -427,7 +427,7 @@ Se si utilizzano pool di archiviazione di Windows nella macchina virtuale per un
 - Il tempo di trasferimento dei dati SQL potrebbe essere molto lungo durante la configurazione di repliche secondarie.
 - Esiste un costo aggiuntivo durante la migrazione mentre le nuove macchine vengono eseguite in parallelo.
 
-#### 2\. Eseguire la migrazione a un nuovo cluster di AlwaysOn
+#### 2. Eseguire la migrazione a un nuovo cluster di AlwaysOn
 
 Un'altra strategia consiste nel creare un nuovo cluster AlwaysOn con nuovi nodi nel nuovo servizio cloud e quindi reindirizzare i client per poterlo utilizzare.
 

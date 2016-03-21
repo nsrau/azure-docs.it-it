@@ -96,11 +96,14 @@ L'esercitazione è terminata.
 
 Questa esercitazione ha illustrato le nozioni di base per consentire a un'app di Windows universale di usare dati in Servizi mobili. Successivamente, è consigliabile leggere uno di questi altri argomenti:
 
-* [Introduzione all'autenticazione] <br/>Informazioni sull'autenticazione degli utenti dell'app.
+* [Introduzione all'autenticazione] 
+  <br/>Informazioni sull'autenticazione degli utenti dell'app.
 
-* [Introduzione alle notifiche push] <br/>Informazioni sull'invio di una notifica push di base all'app.
+* [Introduzione alle notifiche push] 
+  <br/>Informazioni sull'invio di una notifica push di base all'app.
 
-* [Informazioni di riferimento sui concetti e sulle procedure di Servizi mobili con C#](mobile-services-dotnet-how-to-use-client-library.md) <br/>Altre informazioni sull'uso di Servizi mobili con .NET.
+* [Informazioni di riferimento sui concetti e sulle procedure di Servizi mobili con C#](mobile-services-windows-dotnet-how-to-use-client-library.md)
+  <br/>Altre informazioni sull'uso di Servizi mobili con .NET.
 
 
 <!-- Images. -->

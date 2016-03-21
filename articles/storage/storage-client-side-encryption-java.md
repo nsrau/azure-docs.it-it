@@ -35,7 +35,8 @@ La crittografia tramite la tecnica basata su envelope funziona nel modo seguente
 
 2.	I dati utente vengono crittografati con questa chiave CEK.
 
-3.	Viene quindi eseguito il wrapping della chiave CEK mediante la chiave di crittografia della chiave (KEK). La chiave KEK è identificata con un identificatore di chiave e può essere costituita da una coppia di chiavi asimmetriche o da una chiave simmetrica. Può essere gestita localmente o archiviata in insiemi di credenziali chiave di Azure. La libreria del client Archiviazione non ha mai accesso alla chiave KEK. Richiama solo l'algoritmo di wrapping della chiave fornito dall'insieme di credenziali chiave. Gli utenti possono scegliere di usare provider personalizzati per il wrapping o la rimozione del wrapping delle chiavi, se lo desiderano.
+3.	Viene quindi eseguito il wrapping della chiave CEK mediante la chiave di crittografia della chiave (KEK). La chiave KEK è identificata con un identificatore di chiave e può essere costituita da una coppia di chiavi asimmetriche o da una chiave simmetrica. Può essere gestita localmente o archiviata in insiemi di credenziali chiave di Azure. 
+	La libreria del client Archiviazione non ha mai accesso alla chiave KEK. Richiama solo l'algoritmo di wrapping della chiave fornito dall'insieme di credenziali chiave. Gli utenti possono scegliere di usare provider personalizzati per il wrapping o la rimozione del wrapping delle chiavi, se lo desiderano.
 
 4.	I dati crittografati vengono quindi caricati nel servizio Archiviazione di Azure. La chiave con wrapping assieme ad alcuni metadati di crittografia aggiuntivi viene archiviata come metadati (su un BLOB) o interpolata con i dati crittografati (entità della tabella e messaggi in coda).
 
@@ -118,7 +119,8 @@ Esistono tre pacchetti insieme di credenziali chiave:
 
 2.	Utilizzare l’identificatore di base del segreto come parametro per risolvere la versione corrente del segreto per la crittografia e memorizzare nella cache queste informazioni in locale. Utilizzare CachingKeyResolver per la memorizzazione nella cache; non è previsto che gli utenti implementino la propria logica di memorizzazione nella cache.
 
-3.	Utilizzare il resolver di memorizzazione nella cache come input durante la creazione del criterio di crittografia. Altre informazioni sull'uso dell'insieme di credenziali delle chiavi sono disponibili negli esempi di codice di crittografia. <fix URL>
+3.	Utilizzare il resolver di memorizzazione nella cache come input durante la creazione del criterio di crittografia.
+Altre informazioni sull'uso dell'insieme di credenziali delle chiavi sono disponibili negli esempi di codice di crittografia. <fix URL>
 
 ## Procedure consigliate  
 Il supporto della crittografia è disponibile solo nella libreria client di archiviazione per Java.

@@ -70,7 +70,8 @@ Si applica alla versione 1.0.
 
 
 ### All'avvio imminente di un evento 
-Attiva un flusso all'avvio di un evento del calendario imminente. ```GET: /Events/OnUpcomingEvents```
+Attiva un flusso all'avvio di un evento del calendario imminente. 
+	```GET: /Events/OnUpcomingEvents```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -90,7 +91,8 @@ Attiva un flusso all'avvio di un evento del calendario imminente. ```GET: /Event
 
 
 ### Ottenere messaggi di posta elettronica 
-Recupera i messaggi di posta elettronica da una cartella. ```GET: /Mail```
+Recupera i messaggi di posta elettronica da una cartella. 
+	```GET: /Mail```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -115,7 +117,8 @@ Recupera i messaggi di posta elettronica da una cartella. ```GET: /Mail```
 
 
 ### Invia messaggio di posta elettronica 
-Invia un messaggio di posta elettronica. ```POST: /Mail```
+Invia un messaggio di posta elettronica. 
+	```POST: /Mail```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -135,7 +138,8 @@ Invia un messaggio di posta elettronica. ```POST: /Mail```
 
 
 ### Eliminare i messaggi di posta elettronica 
-Elimina un messaggio di posta elettronica in base all'ID. ```DELETE: /Mail/{messageId}```
+Elimina un messaggio di posta elettronica in base all'ID. 
+	```DELETE: /Mail/{messageId}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -154,7 +158,8 @@ Elimina un messaggio di posta elettronica in base all'ID. ```DELETE: /Mail/{mess
 
 
 ### Contrassegnare come già letto 
-Contrassegna un messaggio di posta elettronica come già letto. ```POST: /Mail/MarkAsRead/{messageId}```
+Contrassegna un messaggio di posta elettronica come già letto. 
+	```POST: /Mail/MarkAsRead/{messageId}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -173,7 +178,8 @@ Contrassegna un messaggio di posta elettronica come già letto. ```POST: /Mail/M
 
 
 ### Rispondere al messaggio 
-Risponde a un messaggio di posta elettronica. ```POST: /Mail/ReplyTo/{messageId}```
+Risponde a un messaggio di posta elettronica. 
+	```POST: /Mail/ReplyTo/{messageId}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -194,7 +200,8 @@ Risponde a un messaggio di posta elettronica. ```POST: /Mail/ReplyTo/{messageId}
 
 
 ### Ottenere l'allegato 
-Recupera l'allegato al messaggio in base all'ID. ```GET: /Mail/{messageId}/Attachments/{attachmentId}```
+Recupera l'allegato al messaggio in base all'ID.
+ ```GET: /Mail/{messageId}/Attachments/{attachmentId}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -214,7 +221,8 @@ Recupera l'allegato al messaggio in base all'ID. ```GET: /Mail/{messageId}/Attac
 
 
 ### All'arrivo di un nuovo messaggio di posta elettronica 
-Attiva un flusso quando arriva un nuovo messaggio di posta elettronica. ```GET: /Mail/OnNewEmail```
+Attiva un flusso quando arriva un nuovo messaggio di posta elettronica.
+	 ```GET: /Mail/OnNewEmail```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -240,7 +248,8 @@ Attiva un flusso quando arriva un nuovo messaggio di posta elettronica. ```GET: 
 
 
 ### Inviare posta elettronica con opzioni 
-Invia un messaggio di posta elettronica con più opzioni e attende che il destinatario risponda con una delle opzioni. ```POST: /mailwithoptions/$subscriptions```
+Invia un messaggio di posta elettronica con più opzioni e attende che il destinatario risponda con una delle opzioni. 
+	```POST: /mailwithoptions/$subscriptions```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -260,7 +269,8 @@ Invia un messaggio di posta elettronica con più opzioni e attende che il destin
 
 
 ### Inviare messaggio di posta elettronica di approvazione 
-Invia un messaggio di approvazione e attende una risposta dal destinatario A. ```POST: /approvalmail/$subscriptions```
+Invia un messaggio di approvazione e attende una risposta dal destinatario A. 
+	```POST: /approvalmail/$subscriptions```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -283,7 +293,8 @@ Invia un messaggio di approvazione e attende una risposta dal destinatario A. ``
 
 
 ### Ottenere calendari 
-Recupera i calendari. ```GET: /datasets/calendars/tables```
+Recupera i calendari. 
+	```GET: /datasets/calendars/tables```
 
 Non sono disponibili parametri per questa chiamata.
 
@@ -298,7 +309,8 @@ Non sono disponibili parametri per questa chiamata.
 
 
 ### Ottenere eventi 
-Recupera gli elementi da un calendario. ```GET: /datasets/calendars/tables/{table}/items```
+Recupera gli elementi da un calendario. 
+	```GET: /datasets/calendars/tables/{table}/items```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -317,7 +329,8 @@ Recupera gli elementi da un calendario. ```GET: /datasets/calendars/tables/{tabl
 
 
 ### Creare un evento 
-Crea un nuovo evento. ```POST: /datasets/calendars/tables/{table}/items```
+Crea un nuovo evento. 
+	```POST: /datasets/calendars/tables/{table}/items```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -333,7 +346,8 @@ Crea un nuovo evento. ```POST: /datasets/calendars/tables/{table}/items```
 
 
 ### Ottenere un evento 
-Recupera un elemento specifico da un calendario. ```GET: /datasets/calendars/tables/{table}/items/{id}```
+Recupera un elemento specifico da un calendario. 
+	```GET: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -349,7 +363,8 @@ Recupera un elemento specifico da un calendario. ```GET: /datasets/calendars/tab
 
 
 ### Eliminare un evento 
-Elimina un elemento del calendario. ```DELETE: /datasets/calendars/tables/{table}/items/{id}```
+Elimina un elemento del calendario. 
+	```DELETE: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -365,7 +380,8 @@ Elimina un elemento del calendario. ```DELETE: /datasets/calendars/tables/{table
 
 
 ### Aggiornare un evento 
-Aggiorna parzialmente un elemento del calendario. ```PATCH: /datasets/calendars/tables/{table}/items/{id}```
+Aggiorna parzialmente un elemento del calendario. 
+	```PATCH: /datasets/calendars/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -382,7 +398,8 @@ Aggiorna parzialmente un elemento del calendario. ```PATCH: /datasets/calendars/
 
 
 ### In presenza di nuovi elementi 
-Si attiva quando viene creato un nuovo elemento del calendario. ```GET: /datasets/calendars/tables/{table}/onnewitems```
+Si attiva quando viene creato un nuovo elemento del calendario. 
+	```GET: /datasets/calendars/tables/{table}/onnewitems```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -401,7 +418,8 @@ Si attiva quando viene creato un nuovo elemento del calendario. ```GET: /dataset
 
 
 ### In presenza di elementi aggiornati 
-Si attiva quando viene modificato un elemento del calendario. ```GET: /datasets/calendars/tables/{table}/onupdateditems```
+Si attiva quando viene modificato un elemento del calendario. 
+	```GET: /datasets/calendars/tables/{table}/onupdateditems```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -420,7 +438,8 @@ Si attiva quando viene modificato un elemento del calendario. ```GET: /datasets/
 
 
 ### Ottenere cartelle dei contatti 
-Recupera le cartelle dei contatti. ```GET: /datasets/contacts/tables```
+Recupera le cartelle dei contatti. 
+	```GET: /datasets/contacts/tables```
 
 Non sono disponibili parametri per questa chiamata.
 
@@ -433,7 +452,8 @@ Non sono disponibili parametri per questa chiamata.
 
 
 ### Ottenere contatti 
-Recupera i contatti da una cartella di contatti. ```GET: /datasets/contacts/tables/{table}/items```
+Recupera i contatti da una cartella di contatti. 
+	```GET: /datasets/contacts/tables/{table}/items```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -452,7 +472,8 @@ Recupera i contatti da una cartella di contatti. ```GET: /datasets/contacts/tabl
 
 
 ### Creare un contatto 
-Crea un nuovo contatto. ```POST: /datasets/contacts/tables/{table}/items```
+Crea un nuovo contatto. 
+	```POST: /datasets/contacts/tables/{table}/items```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -468,7 +489,8 @@ Crea un nuovo contatto. ```POST: /datasets/contacts/tables/{table}/items```
 
 
 ### Ottenere un contatto 
-Recupera un contatto specifico da una cartella di contatti. ```GET: /datasets/contacts/tables/{table}/items/{id}```
+Recupera un contatto specifico da una cartella di contatti. 
+	```GET: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -484,7 +506,8 @@ Recupera un contatto specifico da una cartella di contatti. ```GET: /datasets/co
 
 
 ### Eliminare un contatto 
-Elimina un contatto. ```DELETE: /datasets/contacts/tables/{table}/items/{id}```
+Elimina un contatto. 
+	```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -500,7 +523,8 @@ Elimina un contatto. ```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 
 ### Aggiornare un contatto 
-Aggiorna parzialmente un contatto. ```PATCH: /datasets/contacts/tables/{table}/items/{id}```
+Aggiorna parzialmente un contatto. 
+	```PATCH: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|

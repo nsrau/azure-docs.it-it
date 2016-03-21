@@ -26,7 +26,10 @@
 
 ---
 
-[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) <br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull) <br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) <br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
+[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor)
+<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull)
+<br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt)
+<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
 
 ---
 
@@ -40,7 +43,9 @@ Le espressioni scalari differiscono dalle [query](app-analytics-queries.md) i cu
 
 ## Scalari
 
-[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons)
+<br/>
+[gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 I tipi supportati sono:
 
@@ -158,7 +163,10 @@ Questa funzione restituisce il valore di *ifTrue* se *predicate* restituisce `tr
 iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ```
 
-<a name="isnull"/></a> <a name="isnotnull"/></a> <a name="notnull"/></a>
+<a name="isnull"/></a>
+<a name="isnotnull"/></a>
+<a name="notnull"/></a>
+
 ### isnull, isnotnull, notnull
 
     isnull(parsejson("")) == true
@@ -218,7 +226,8 @@ Si noti che esistono altri modi per ottenere questo risultato:
 
 ## Numeri
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) |
+[todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Valori letterali numerici
 
@@ -232,7 +241,17 @@ Si noti che esistono altri modi per ottenere questo risultato:
 || |
 |---|-------------|
 | + | Aggiungi |
-| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
+| - | Sottrai |
+| * | Moltiplica |
+| / | Dividi |
+| % | Modulo |
+||
+|`<` |Minore 
+|`<=`|Minore o uguale a 
+|`>` |Maggiore 
+|`>=`|Maggiore o uguale a 
+|`<>`|Non uguale a 
+|`!=`|Non uguale a
 
 
 
@@ -650,7 +669,9 @@ Questo esempio è equivalente a `substring(Text, 2, 4)`:
 extract("^.{2,2}(.{4,4})", 1, Text)
 ```
 
-<a name="notempty"></a> <a name="isnotempty"></a> <a name="isempty"></a>
+<a name="notempty"></a>
+<a name="isnotempty">
+</a> <a name="isempty"></a>
 ### isempty, isnotempty, notempty
 
     isempty("") == true
@@ -824,7 +845,9 @@ Converte una stringa in lettere maiuscole.
 
 ## Matrici e oggetti - tipi dinamici
 
-[valori letterali](#dynamic-literals) | [cast](#casting-dynamic-objects) | [operatori](#operators) | [clausole let](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[valori letterali](#dynamic-literals) | [cast](#casting-dynamic-objects) | [operatori](#operators) | [clausole let](#dynamic-objects-in-let-clauses)
+<br/>
+[arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 Di seguito il risultato di una query su un'eccezione di Application Insights. Il valore in `details` è una matrice.
@@ -1129,4 +1152,4 @@ Si noti che "[0]" indica la presenza di una matrice, ma non specifica l'indice u
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----HONumber=AcomDC_0309_2016-->
