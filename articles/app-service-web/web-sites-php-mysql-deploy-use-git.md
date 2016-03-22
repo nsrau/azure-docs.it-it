@@ -214,7 +214,7 @@ Per creare ed eseguire l'applicazione in locale, attenersi alla procedura seguen
 
 		php -S localhost:8000
 
-A questo punto è possibile passare a ****http://localhost:8000/** per testare l'applicazione.
+A questo punto è possibile passare a **http://localhost:8000/** per testare l'applicazione.
 
 
 ##Pubblicare l'app
