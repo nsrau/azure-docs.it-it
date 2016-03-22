@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare una pipeline con l’attività Copia utilizzando Azure PowerShell
@@ -22,11 +22,11 @@
 - [Con l'editor di Data factory](data-factory-get-started-using-editor.md)
 - [Con Visual Studio](data-factory-get-started-using-vs.md)
 - [Tramite PowerShell](data-factory-monitor-manage-using-powershell.md)
-
+- [Con la Copia guidata](data-factory-copy-data-wizard-tutorial.md)
 
 L'esercitazione [Introduzione a Data factory di Azure][adf-get-started] illustra come creare e monitorare una data factory di Azure mediante il [portale di Azure][azure-portal]. In questa esercitazione verrà creata e monitorata una data factory di Azure mediante i cmdlet di Azure PowerShell. La pipeline nella data factory creata in questa esercitazione usa un'attività di copia per copiare i dati da un BLOB di Azure e inserirli in un database SQL di Azure.
 
-L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate sull'attività di copia, vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md).
+L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate sull'attività di copia, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md).
 
 > [AZURE.IMPORTANT] 
 Leggere l'articolo [Panoramica dell'esercitazione](data-factory-get-started.md) e completare i prerequisiti prima di eseguire questa esercitazione.
@@ -425,7 +425,7 @@ In questo passaggio viene usato Azure PowerShell per monitorare le attività in 
 Vedere [Riferimento ai cmdlet di Data factory][cmdlet-reference] per la documentazione completa sui cmdlet di Data factory.
 
 ## Vedere anche
-Vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per informazioni dettagliate sull'**Attività di copia** in Azure Data Factory.
+Vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per informazioni dettagliate sull'**Attività di copia** in Azure Data Factory.
 
 
 [adf-tutorial]: data-factory-tutorial.md
@@ -447,4 +447,4 @@ Vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

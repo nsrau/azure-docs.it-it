@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Importazione di dati in Ricerca di Azure tramite l'API REST | Microsoft Azure | Servizio di ricerca cloud ospitato"
-    description="Come caricare dati in un indice di Ricerca di Azure tramite l'API REST."
+    pageTitle="Caricamento di dati in Ricerca di Azure tramite l'API REST | Microsoft Azure | Servizio di ricerca cloud ospitato"
+    description="Informazioni su come caricare dati in un indice di Ricerca di Azure tramite l'API REST."
     services="search"
     documentationCenter=""
     authors="ashmaka"
@@ -14,19 +14,18 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="ashmaka"/>
 
-# Importare dati in Ricerca di Azure tramite l'API REST
+# Caricare dati in Ricerca di Azure tramite l'API REST
 > [AZURE.SELECTOR]
 - [Panoramica](search-what-is-data-import.md)
-- [Portale](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
+Questo articolo illustra come usare l'[API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) per importare dati in un indice di Ricerca di Azure.
 
-Questo articolo illustra come usare l'[API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) per importare dati in un indice di Ricerca di Azure. Prima di iniziare questa procedura dettagliata, è necessario avere [creato un indice di Ricerca di Azure](search-create-index-rest-api.md).
+Prima di iniziare questa procedura dettagliata, è necessario avere [creato un indice di Ricerca di Azure](search-what-is-an-index.md).
 
 Per effettuare il push dei documenti nell'indice con l'API REST, inviare una richiesta HTTP POST all'endpoint dell'URL dell'indice. Il corpo della richiesta HTTP è un oggetto JSON che contiene i documenti da aggiungere, modificare o eliminare.
 
@@ -52,9 +51,8 @@ Ogni oggetto JSON nella matrice "value" rappresenta un documento da indicizzare.
 @search.action | Descrizione | Campi necessari per ogni documento | Note
 --- | --- | --- | ---
 `upload` | L'azione `upload` è simile a "upsert", in cui il documento viene inserito se è nuovo e aggiornato o sostituito se esiste già. | chiave, oltre a tutti gli altri campi da definire | Quando si aggiorna o si sostituisce un documento esistente, qualsiasi campo non specificato nella richiesta avrà il campo impostato su `null`. Ciò si verifica anche quando il campo è stato precedentemente impostato su un valore diverso da null.
-`merge` | Aggiorna un documento esistente con i campi specificati. Se il documento non esiste nell'indice, l'unione non riuscirà. | chiave, oltre a tutti gli altri campi da definire | I campi specificati in un'azione di unione sostituiscono i campi esistenti nel documento. Sono inclusi anche i campi di tipo `Collection(Edm.String)`. Ad esempio, se il documento contiene un campo `tags` con valore `["budget"]` e si esegue un'unione con valore `["economy", "pool"]` per `tags`, il valore finale del campo `tags` sarà `["economy", "pool"]`. Non sarà `["budget", "economy", "pool"]`.
-`mergeOrUpload` | Questa azione si comporta come `merge` se nell'indice esiste già un documento con la chiave specificata. Se il documento non esiste, si comporta come `upload` con un nuovo documento. | chiave, oltre a tutti gli altri campi da definire |- 
-`delete` | Rimuove il documento specificato dall'indice. | solo chiave | Tutti i campi specificati oltre al campo della chiave verranno ignorati. Se si vuole rimuovere un singolo campo da un documento, usare invece `merge` e impostare il campo su Null in modo esplicito.
+`merge` | Aggiorna un documento esistente con i campi specificati. Se il documento non esiste nell'indice, l'unione non riuscirà. | chiave, oltre a tutti gli altri campi da definire | I campi specificati in un'azione di unione sostituiscono i campi esistenti nel documento. Sono inclusi anche i campi di tipo `Collection(Edm.String)`. Ad esempio, se il documento contiene un campo `tags` con valore `["budget"]` e si esegue un'unione con valore `["economy", "pool"]` per `tags`, il valore finale del campo `tags` sarà `["economy", "pool"]` e non `["budget", "economy", "pool"]`.
+`mergeOrUpload` | Questa azione si comporta come `merge` se nell'indice esiste già un documento con la chiave specificata. Se il documento non esiste, si comporta come `upload` con un nuovo documento. | chiave, oltre a tutti gli altri campi da definire |- `delete` | Rimuove il documento specificato dall'indice. | solo chiave | Tutti i campi specificati oltre al campo della chiave verranno ignorati. Se si vuole rimuovere un singolo campo da un documento, usare invece `merge` e impostare il campo su Null in modo esplicito.
 
 ## III. Creare la richiesta HTTP e il corpo della richiesta
 Ora che sono stati raccolti i valori dei campi necessari per le operazioni sull'indice, si è pronti per creare la richiesta HTTP effettiva e il corpo della richiesta JSON per importare i dati.
@@ -167,6 +165,6 @@ Il codice di stato `503` viene restituito se nessuno degli elementi nella richie
 Per altre informazioni su azioni sui documenti e risposte di esito positivo/errore, vedere [Aggiungere, aggiornare o eliminare documenti](https://msdn.microsoft.com/library/azure/dn798930.aspx). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [Codici di stato HTTP (Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
 ## Avanti
-Dopo il popolamento dell'indice di Ricerca di Azure, si potrà iniziare a eseguire una query per la ricerca di documenti. Per i dettagli, vedere [Eseguire query su un indice di Ricerca di Azure con l'API REST](search-query-rest-api.md).
+Dopo il popolamento dell'indice di Ricerca di Azure, si potrà iniziare a eseguire una query per la ricerca di documenti. Per informazioni dettagliate, vedere [Eseguire query su un indice di Ricerca di Azure](search-query-overview.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

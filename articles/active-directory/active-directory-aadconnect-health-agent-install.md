@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.date="03/08/2016"
 	ms.author="billmath"/>
 
 
@@ -121,13 +121,31 @@ L'Agente di integrità di Azure AD Connect per la sincronizzazione è installato
 
 Per verificare che l'agente sia stato installato, aprire i servizi e cercare quanto segue. Questi servizi dovrebbero essere in esecuzione se la configurazione è stata completata. In caso contrario, non verranno avviati fino al completamento della configurazione.
 
-- Azure AD Connect Health AadSync Insights Service
-- Azure AD Connect Health AadSync Monitoring Service
+- Azure AD Connect Health Sync Insights Service
+- Azure AD Connect Health Sync Monitoring Service
 
 ![Verificare Azure AD Connect Health per la sincronizzazione](./media/active-directory-aadconnect-health-sync/services.png)
 
 >[Azure.NOTE] Si tenga presente che l'utilizzo di integrità di Azure AD Connect richiede Azure AD Premium. Se non si dispone di Azure AD Premium non sarà possibile completare la configurazione nel portale di Azure. Per altre informazioni vedere i requisiti [qui](active-directory-aadconnect-health.md#requirements).
 
+
+## Registrazione manuale di Azure AD Connect Health per la sincronizzazione
+Se la registrazione dell'agente Azure AD Connect Health per la sincronizzazione non riesce pur dopo avere installato correttamente Azure AD Connect, è possibile usare il comando di PowerShell seguente per registrare manualmente l'agente.
+
+>[AZURE.IMPORTANT] È necessario usare questo comando di PowerShell solo se la registrazione dell'agente non riesce dopo avere installato Azure AD Connect.
+
+Il comando di PowerShell seguente è necessario SOLO quando la registrazione dell'agente per l'integrità non riesce anche se l'installazione e la configurazione di Azure AD Connect sono state eseguite correttamente. In questi casi, i servizi di Azure AD Connect Health NON verranno avviati se non dopo la corretta registrazione dell'agente.
+ 	
+È possibile registrare manualmente l'agente Azure AD Connect Health per la sincronizzazione usando il comando di PowerShell seguente:
+
+`Register-AzureADConnectHealthSyncAgent -AttributeFiltering $false -StagingMode $false`
+
+Il comando accetta i parametri seguenti:
+
+- AttributeFiltering: $true (impostazione predefinita): se Azure AD Connect non sincronizza il set di attributi predefiniti ed è stato personalizzato per usare un set di attributi filtrati; in caso contrario, $false.
+- StagingMode: $false (impostazione predefinita) se il server Azure AD Connect NON è in modalità di staging, $true se il server è configurato per la modalità di staging.
+ 
+Quando viene chiesta l'autenticazione, è consigliabile usare lo stesso account amministratore globale (ad esempio, admin@domain.onmicrosoft.com) usato per configurare Azure AD Connect.
 
 
 
@@ -194,7 +212,7 @@ Il parametro role accetta attualmente i valori seguenti:
 
     Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
 
->[AZURE.NOTE]Per usare lo strumento di connettività, è prima di tutto necessario completare la registrazione dell'agente. Se non si riesce a completare la registrazione dell'agente, assicurarsi che siano stati soddisfatti tutti i [requisiti](active-directory-aadconnect-health.md#requirements) per Azure AD Connect Health. Questo test di connettività viene eseguito per impostazione predefinita durante la registrazione dell'agente.
+>[AZURE.NOTE]Per usare lo strumento di connettività, è prima di tutto necessario completare la registrazione dell'agente. Se non è possibile completare la registrazione dell'agente, verificare che siano stati soddisfatti tutti i [requisiti](active-directory-aadconnect-health.md#requirements) per Azure AD Connect Health. Questo test di connettività viene eseguito per impostazione predefinita durante la registrazione dell'agente.
 
 
 ## Collegamenti correlati
@@ -206,4 +224,4 @@ Il parametro role accetta attualmente i valori seguenti:
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="12/04/2015"
+ ms.date="03/09/2016" 
  ms.author="krisragh"/>
 
 # Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione
@@ -190,7 +190,7 @@ L'intervallo tra tentativi, specificato con l'oggetto **retryInterval**, è l'in
 ## Vedere anche
 
  [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
- 
+
  [Introduzione all'uso dell'Utilità di pianificazione nel portale di Azure](scheduler-get-started-portal.md)
 
  [Piani e fatturazione nell'utilità di pianificazione di Azure](scheduler-plans-billing.md)
@@ -207,4 +207,4 @@ L'intervallo tra tentativi, specificato con l'oggetto **retryInterval**, è l'in
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

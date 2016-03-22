@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/16/2016"
+	ms.date="03/15/2016"
 	ms.author="raynew"/>
 
 #  Replicare macchine virtuali Hyper-V nei cloud VMM in Azure
@@ -26,7 +26,7 @@ Questo articolo descrive come distribuire Site Recovery per replicare le macchin
 
 Questo articolo include i prerequisiti per lo scenario e mostra come configurare un insieme di credenziali di Site Recovery, installare il provider di Azure Site Recovery nel server VMM di origine, registrare il server nell'insieme di credenziali, aggiungere un account di archiviazione di Azure, installare l'agente di Servizi di ripristino di Azure nei server host Hyper-V, configurare le impostazioni di protezione per i cloud VMM che verranno applicate a tutte le macchine virtuali protette e quindi abilitare la protezione per tali macchine virtuali. Terminare con il test del failover, per accertarsi che tutti gli elementi funzionino come previsto.
 
-Eventuali domande o commenti domande possono essere inviati nella parte inferiore di questo articolo oppure nei [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Per inviare commenti o domande, è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Architettura
 
@@ -43,7 +43,7 @@ Ecco gli elementi richiesti in Azure.
 **Prerequisito** | **Dettagli**
 --- | ---
 **Account di Azure**| È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). [Altre informazioni](https://azure.microsoft.com/pricing/details/site-recovery/) sui prezzi di Azure Site Recovery. 
-**Archiviazione di Azure** | Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure. I dati replicati vengono memorizzati nell'archiviazione di Azure e le macchine virtuali di Azure vengono attivate quando si verifica il failover. <br/><br/>È necessario un [account di archiviazione con ridondanza geografica Standard](../storage/storage-redundancy.md#geo-redundant-storage). L'account deve trovarsi nella stessa area del servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione. Si noti che la replica in account di archiviazione Premium non è attualmente supportata e non deve essere usata.<br/><br/>[Informazioni](../storage/storage-introduction.md) sull'archiviazione di Azure.
+**Archiviazione di Azure** | Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure. I dati replicati vengono memorizzati nell'archiviazione di Azure e le macchine virtuali di Azure vengono attivate quando si verifica il failover. <br/><br/>È necessario un [account di archiviazione con ridondanza geografica Standard](../storage/storage-redundancy.md#geo-redundant-storage). L'account deve trovarsi nella stessa area del servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione. Si noti che la replica in account di archiviazione Premium non è attualmente supportata e non deve essere usata. Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.<br/><br/>[Altre informazioni](../storage/storage-introduction.md) su archiviazione di Azure.
 **Rete di Azure** | È necessaria una rete virtuale di Azure a cui le macchine virtuali di Azure possano connettersi quando si verifica il failover. La rete virtuale di Azure deve essere nella stessa area dell'insieme di credenziali di Site Recovery. 
 
 ## Prerequisiti locali
@@ -71,7 +71,7 @@ Per distribuire il mapping di rete sarà necessario quanto segue:
 
 Preparare il mapping di rete come segue:
 
-1. [Leggere le informazioni](site-recovery-network-mapping.md) sui requisiti per il mapping di rete.
+1. [Altre informazioni](site-recovery-network-mapping.md) sui requisiti per il mapping di rete.
 2. Preparare le reti VM in VMM:
 
 	- [Configurare le reti logiche](https://technet.microsoft.com/library/jj721568.aspx).
@@ -137,7 +137,7 @@ Generare una chiave di registrazione nell'insieme di credenziali. Dopo aver scar
 - **.backup.windowsazure.com
 - **.blob.core.windows.net
 - **.store.core.windows.net
-- Consentire gli indirizzi IP descritti nella pagina relativa agli [intervalli di indirizzi IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) e il protocollo HTTPS (443). È anche consigliabile aggiungere all'elenco di indirizzi consentiti gli IP dell'area di Azure che si prevede di usare e quello degli Stati Uniti occidentali.
+- Consentire gli indirizzi IP descritti nella pagina relativa a [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) e nel protocollo HTTPS (443). È anche consigliabile aggiungere all'elenco di indirizzi consentiti gli IP dell'area di Azure che si prevede di usare e quello degli Stati Uniti occidentali.
 
 	- Se si usa un proxy personalizzato, un account RunAs di VMM (DRAProxyAccount) verrà creato automaticamente con le credenziali del proxy specificate. Configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione. Le impostazioni dell'account RunAs di VMM possono essere modificate nella console VMM. A tale scopo, aprire l'area di lavoro Impostazioni, espandere Sicurezza, fare clic su Account RunAs, quindi modificare la password di DRAProxyAccount. È necessario riavviare il servizio VMM per rendere effettiva l'impostazione.
 
@@ -196,6 +196,8 @@ I parametri sono i seguenti:
 
 	![Account di archiviazione](./media/site-recovery-vmm-to-azure/storage.png)
 
+>[AZURE.NOTE] Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.
+
 ## Passaggio 5: Installare l'agente di Servizi di ripristino di Azure
 
 Installare l'agente di Servizi di ripristino di Azure su ogni server host Hyper-V nel cloud VMM.
@@ -229,7 +231,10 @@ Dopo la registrazione del server VMM, sarà possibile configurare le impostazion
 1. Nella pagina Avvio rapido fare clic su **Configurare la protezione per i cloud VMM**.
 2. Nella scheda **Elementi protetti** fare clic sul cloud da configurare e passare alla scheda **Configurazione**.
 3. In **Destinazione** selezionare **Azure**.
-4. In **Account di archiviazione** selezionare l'account di archiviazione di Azure usato per la replica.
+4. In **Account di archiviazione** selezionare l'account di archiviazione di Azure usato per la replica. 
+
+	>[AZURE.NOTE] Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.
+
 5. Impostare **Crittografa dati archiviati** su **Disattivato**. Questa impostazione specifica che i dati devono essere replicati crittografati tra il sito locale e Azure.
 6. In **Frequenza di copia** lasciare l'impostazione predefinita. Questo valore consente di specificare la frequenza della sincronizzazione dei dati tra il percorso di origine e di destinazione.
 7. In **Mantieni punti di ripristino per** lasciare l'impostazione predefinita. Il valore predefinito zero indica che solo il punto di ripristino più recente per una macchina virtuale primaria viene archiviato in un server host di replica.
@@ -275,7 +280,7 @@ Dopo la configurazione corretta di server, cloud e reti, sarà possibile abilita
 
 	![Abilitare la protezione delle macchine virtuali](./media/site-recovery-vmm-to-azure/select-vm.png)
 
-	Tenere traccia dell'avanzamento dell'azione **Abilita protezione** nella scheda **Processi**, inclusa la replica iniziale. Dopo l'esecuzione del processo di **finalizzazione della protezione**, la macchina virtuale è pronta per il failover. Al termine dell'operazione di abilitazione della protezione e di replica delle macchine virtuali, sarà possibile visualizzarle in Azure.
+	Tenere traccia dell'avanzamento dell'azione **Abilita protezione**, inclusa la replica iniziale, nella scheda **Processi** Dopo l'esecuzione del processo di **finalizzazione della protezione** la macchina virtuale è pronta per il failover. Al termine dell'operazione di abilitazione della protezione e di replica delle macchine virtuali, sarà possibile visualizzarle in Azure.
 
 
 	![Processo di protezione delle macchine virtuali](./media/site-recovery-vmm-to-azure/vm-jobs.png)
@@ -363,4 +368,4 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 
 Informazioni su [configurazione dei piani di ripristino](site-recovery-create-recovery-plans.md) e [failover](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

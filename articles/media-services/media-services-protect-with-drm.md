@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="03/01/2016"" ms.author="juliako"/>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="03/15/2016"" ms.author="juliako"/>
 
 
 #Uso della crittografia comune dinamica PlayReady e/o Widevine
@@ -253,7 +253,7 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 		
 		            // You can use the http://amsplayer.azurewebsites.net/azuremediaplayer.html player to test streams.
 		            // Note that DASH works on IE 11 (via PlayReady), Edge (via PlayReady), Chrome (via Widevine).
-		
+		             
 		            string url = GetStreamingOriginLocator(encodedAsset);
 		            Console.WriteLine("Encrypted DASH URL: {0}/manifest(format=mpd-time-csf)", url);
 		
@@ -295,45 +295,31 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 		        }
 		
 		
-		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
 		        {
-		            // Declare a new job.
-		            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-		            // Get a media processor reference, and pass to it the name of the 
-		            // processor to use for the specific task.
-		            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+		            var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
 		
-		            // Create a task with the encoding details, using a string preset.
-		            // In this case "H264 Multiple Bitrate 720p" preset is used.
-		            ITask task = job.Tasks.AddNew("My encoding task",
-		                processor,
-		                "H264 Multiple Bitrate 720p",
-		                TaskOptions.None);
+		            IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
+		                                    inputAsset.Name,
+		                                    encodingPreset));
 		
-		            // Specify the input asset to be encoded.
-		            task.InputAssets.Add(asset);
-		            // Add an output asset to contain the results of the job. 
-		            // This output is specified as AssetCreationOptions.None, which 
-		            // means the output asset is not encrypted. 
-		            task.OutputAssets.AddNew("Output asset",
-		                AssetCreationOptions.None);
+		            var mediaProcessors =
+		                _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
+		
+		            var latestMediaProcessor =
+		                mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
+		
+		
+		
+		            ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
+		            encodeTask.InputAssets.Add(inputAsset);
+		            encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
 		
 		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
 		            job.Submit();
 		            job.GetExecutionProgressTask(CancellationToken.None).Wait();
 		
 		            return job.OutputMediaAssets[0];
-		        }
-		
-		        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-		        {
-		            var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-		            ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-		
-		            if (processor == null)
-		                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-		
-		            return processor;
 		        }
 		
 		
@@ -362,14 +348,14 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 		            // and create authorization policy          
 		
 		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
-		                    {
-		                        new ContentKeyAuthorizationPolicyRestriction
-		                        {
-		                            Name = "Open",
-		                            KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
-		                            Requirements = null
-		                        }
-		                    };
+		            {
+		                new ContentKeyAuthorizationPolicyRestriction
+		                {
+		                    Name = "Open",
+		                    KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
+		                    Requirements = null
+		                }
+		            };
 		
 		            // Configure PlayReady and Widevine license templates.
 		            string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
@@ -382,8 +368,8 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 		                        restrictions, PlayReadyLicenseTemplate);
 		
 		            IContentKeyAuthorizationPolicyOption WidevinePolicy =
-		                _context.ContentKeyAuthorizationPolicyOptions.Create("",
-		                    ContentKeyDeliveryType.Widevine,
+		                _context.ContentKeyAuthorizationPolicyOptions.Create("", 
+		                    ContentKeyDeliveryType.Widevine, 
 		                    restrictions, WidevineLicenseTemplate);
 		
 		            IContentKeyAuthorizationPolicy contentKeyAuthorizationPolicy = _context.
@@ -404,14 +390,14 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 		            string tokenTemplateString = GenerateTokenRequirements();
 		
 		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
-		                    {
-		                        new ContentKeyAuthorizationPolicyRestriction
-		                        {
-		                            Name = "Token Authorization Policy",
-		                            KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
-		                            Requirements = tokenTemplateString,
-		                        }
-		                    };
+		            {
+		                new ContentKeyAuthorizationPolicyRestriction
+		                {
+		                    Name = "Token Authorization Policy",
+		                    KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
+		                    Requirements = tokenTemplateString,
+		                }
+		            };
 		
 		            // Configure PlayReady and Widevine license templates.
 		            string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
@@ -510,13 +496,13 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 		                allowed_track_types = AllowedTrackTypes.SD_HD,
 		                content_key_specs = new[]
 		                {
-		                            new ContentKeySpecs
-		                            {
-		                                required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
-		                                security_level = 1,
-		                                track_type = "SD"
-		                            }
-		                        },
+		                    new ContentKeySpecs
+		                    {
+		                        required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+		                        security_level = 1,
+		                        track_type = "SD"
+		                    }
+		                },
 		                policy_overrides = new
 		                {
 		                    can_play = true,
@@ -531,13 +517,20 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 		
 		        static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
 		        {
+		            // Get the PlayReady license service URL.
 		            Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
-		            Uri widevineURl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
+			    
+		            // Build the Widevine license service URL.
+		            Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
+		            UriBuilder uriBuilder = new UriBuilder(widevineUrl);
+		            uriBuilder.Query = String.Empty;
+		            widevineUrl = uriBuilder.Uri;
+		
 		            Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
 		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 		                {
-		                            {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-		                            {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl, widevineURl.ToString()},
+		                    {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+		                    {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl, widevineUrl.ToString()}
 		
 		                };
 		
@@ -552,7 +545,6 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 		            asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 		
 		        }
-		
 		
 		        /// <summary>
 		        /// Gets the streaming origin locator.
@@ -570,7 +562,6 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 		                                         FirstOrDefault();
 		
 		            // Create a 30-day readonly access policy. 
-                	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 		            IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
 		                TimeSpan.FromDays(30),
 		                AccessPermissions.Read);
@@ -607,6 +598,7 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 		    }
 		}
 
+
 ##Percorsi di apprendimento di Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -624,4 +616,4 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 
 [Annuncio dei servizi di distribuzione delle licenze Google Widevine in Servizi multimediali di Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

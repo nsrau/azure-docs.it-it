@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Come annotare le origini dati"
+   pageTitle="Come annotare le origini dati | Microsoft Azure"
    description="Articolo sulle procedure di annotazione di asset di dati nel catalogo di dati di Azure, compresi esperti, tag, descrizioni e nomi descrittivi."
    services="data-catalog"
    documentationCenter=""
@@ -20,7 +20,7 @@
 # Come annotare le origini dati
 
 ## Introduzione
-**Catalogo dati di Microsoft Azure** è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per origini dati aziendali. In altre parole, il **Catalogo dati di Azure** consente agli utenti di individuare, comprendere e usare origini dati e aiuta le organizzazioni a ottenere maggior valore dai dati esistenti. Quando un'origine dati è stata registrata con **Catalogo dati Azure**, i relativi metadati vengono copiati e indicizzati dal servizio, ma non è tutto. **Catalogo dati azure** consente agli utenti di fornire i propri metadati descrittivi, ad esempio descrizioni e tag – per integrare i metadati estratti dall'origine dati e rendere più comprensibile l'origine dati a più persone.
+**Catalogo dati di Microsoft Azure** è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per origini dati aziendali. In altre parole, il **Catalogo dati di Azure** consente agli utenti di individuare, comprendere e usare origini dati e aiuta le organizzazioni a ottenere maggior valore dai dati esistenti. Quando un'origine dati è stata registrata con **Azure Data Catalog**, i relativi metadati vengono copiati e indicizzati dal servizio, ma non è tutto. **Catalogo dati azure** consente agli utenti di fornire i propri metadati descrittivi, ad esempio descrizioni e tag – per integrare i metadati estratti dall'origine dati e rendere più comprensibile l'origine dati a più persone.
 
 ## Annotazione e crowdsourcing
 Oggi tutti hanno un parere. E questo è positivo. **Catalogo dati azure** riconosce che utenti diversi hanno prospettive diverse sulle origini dati aziendali e ognuna di queste prospettive può essere utile. Si consideri lo scenario seguente:
@@ -61,4 +61,4 @@ La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più
 ## Vedere anche
 - Per altre informazioni dettagliate sull'annotazione delle origini dati, vedere [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

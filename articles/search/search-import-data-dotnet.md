@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Importazione di dati in Ricerca di Azure tramite .NET SDK | Microsoft Azure | Servizio di ricerca cloud ospitato"
-    description="Come caricare dati in un indice di Ricerca di Azure tramite .NET SDK."
+    pageTitle="Caricamento di dati in Ricerca di Azure tramite .NET SDK | Microsoft Azure | Servizio di ricerca cloud ospitato"
+    description="Informazioni su come caricare dati in un indice di Ricerca di Azure tramite .NET SDK."
     services="search"
     documentationCenter=""
     authors="brjohnstmsft"
@@ -17,17 +17,17 @@
     ms.date="03/09/2016"
     ms.author="brjohnst"/>
 
-# Importare dati in Ricerca di Azure tramite .NET SDK
+# Caricare dati in Ricerca di Azure tramite .NET SDK
 > [AZURE.SELECTOR]
 - [Panoramica](search-what-is-data-import.md)
-- [Portale](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
-Questo articolo illustra come usare [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) per importare dati in un indice di Ricerca di Azure. Prima di iniziare questa procedura dettagliata, è necessario avere [creato un indice di Ricerca di Azure](search-create-index-dotnet.md). Questo articolo presuppone anche che sia già stato creato un oggetto `SearchServiceClient`, come illustrato nell'articolo relativo alla [creazione di un indice di Ricerca di Azure con .NET SDK](search-create-index-dotnet.md#CreateSearchServiceClient).
+Questo articolo illustra come usare [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) per importare dati in un indice di Ricerca di Azure.
 
-Si noti che tutto il codice di esempio in questo articolo è scritto in C#. Il codice sorgente completo è disponibile [su GitHub](http://aka.ms/search-dotnet-howto).
+Prima di iniziare questa procedura dettagliata, è necessario avere [creato un indice di Ricerca di Azure](search-what-is-an-index.md). Questo articolo presuppone anche che sia già stato creato un oggetto `SearchServiceClient`, come illustrato nell'articolo relativo alla [creazione di un indice di Ricerca di Azure con .NET SDK](search-create-index-dotnet.md#CreateSearchServiceClient).
+
+Si noti che tutto il codice di esempio in questo articolo è scritto in C#. Il codice sorgente completo è disponibile [in GitHub](http://aka.ms/search-dotnet-howto).
 
 Per eseguire il push di documenti nell'indice usando .NET SDK, è necessario:
 
@@ -51,10 +51,9 @@ Per importare i dati usando .NET SDK, è necessario inserirli in un pacchetto in
 
 Azione | Descrizione | Campi necessari per ogni documento | Note
 --- | --- | --- | ---
-`Upload` | L'azione `Upload` è simile a "upsert", in cui il documento viene inserito se è nuovo e aggiornato o sostituito se esiste già. | chiave, oltre a tutti gli altri campi da definire | Quando si aggiorna o si sostituisce un documento esistente, qualsiasi campo non specificato nella richiesta sarà impostato su `null`. Ciò si verifica anche quando il campo è stato precedentemente impostato su un valore diverso da null.
+`Upload` | L'azione `Upload` è simile a "upsert", in cui il documento viene inserito se è nuovo e aggiornato o sostituito se esiste già. | chiave, oltre a tutti gli altri campi da definire | Quando si aggiorna o si sostituisce un documento esistente, qualsiasi campo non specificato nella richiesta avrà il campo impostato su `null`. Ciò si verifica anche quando il campo è stato precedentemente impostato su un valore diverso da null.
 `Merge` | Aggiorna un documento esistente con i campi specificati. Se il documento non esiste nell'indice, l'unione non riuscirà. | chiave, oltre a tutti gli altri campi da definire | I campi specificati in un'azione di unione sostituiscono i campi esistenti nel documento. Sono inclusi anche i campi di tipo `DataType.Collection(DataType.String)`. Ad esempio, se il documento contiene un campo `tags` con valore `["budget"]` e si esegue un'unione con valore `["economy", "pool"]` per `tags`, il valore finale del campo `tags` sarà `["economy", "pool"]` e non `["budget", "economy", "pool"]`.
-`MergeOrUpload` | Questa azione si comporta come `Merge` se nell'indice esiste già un documento con la chiave specificata. Se il documento non esiste, si comporta come `Upload` con un nuovo documento. | chiave, oltre a tutti gli altri campi da definire |-
-`Delete` | Rimuove il documento specificato dall'indice. | solo chiave | Tutti i campi specificati oltre al campo della chiave verranno ignorati. Se si vuole rimuovere un singolo campo da un documento, usare invece `Merge` e impostare il campo su Null in modo esplicito.
+`MergeOrUpload` | Questa azione si comporta come `Merge` se nell'indice esiste già un documento con la chiave specificata. Se il documento non esiste, si comporta come `Upload` con un nuovo documento. | chiave, oltre a tutti gli altri campi da definire |- `Delete` | Rimuove il documento specificato dall'indice. | solo chiave | Tutti i campi specificati oltre al campo della chiave verranno ignorati. Se si vuole rimuovere un singolo campo da un documento, usare invece `Merge` e impostare il campo su Null in modo esplicito.
 
 È possibile specificare l'azione da usare con i vari metodi statici delle classi `IndexBatch` e `IndexAction`, come mostrato nella sezione successiva.
 
@@ -67,24 +66,24 @@ var actions =
     {
         IndexAction.Upload(
             new Hotel()
-            { 
-                HotelId = "1", 
-                BaseRate = 199.0, 
+            {
+                HotelId = "1",
+                BaseRate = 199.0,
                 Description = "Best hotel in town",
                 DescriptionFr = "Meilleur hôtel en ville",
                 HotelName = "Fancy Stay",
-                Category = "Luxury", 
+                Category = "Luxury",
                 Tags = new[] { "pool", "view", "wifi", "concierge" },
-                ParkingIncluded = false, 
+                ParkingIncluded = false,
                 SmokingAllowed = false,
-                LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
-                Rating = 5, 
+                LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero),
+                Rating = 5,
                 Location = GeographyPoint.Create(47.678581, -122.131577)
             }),
         IndexAction.Upload(
             new Hotel()
-            { 
-                HotelId = "2", 
+            {
+                HotelId = "2",
                 BaseRate = 79.99,
                 Description = "Cheapest hotel in town",
                 DescriptionFr = "Hôtel le moins cher en ville",
@@ -98,9 +97,9 @@ var actions =
                 Location = GeographyPoint.Create(49.678581, -122.131577)
             }),
         IndexAction.MergeOrUpload(
-            new Hotel() 
-            { 
-                HotelId = "3", 
+            new Hotel()
+            {
+                HotelId = "3",
                 BaseRate = 129.99,
                 Description = "Close to town hall and the river"
             }),
@@ -194,15 +193,15 @@ La possibilità di usare classi personalizzate come documenti funziona in entram
 
 **Nota importante sui tipi di dati**
 
-Quando si progettano classi di modello personalizzate per eseguire il mapping a un indice di Ricerca di Azure, si consiglia di dichiarare le proprietà dei tipi di valore quali `bool` e `int` come nullable, ad esempio `bool?` anziché `bool`. Se si usa una proprietà che non ammette valori Null, è necessario **garantire** che nessun documento nell'indice contenga un valore Null per il campo corrispondente. Né l'SDK né il servizio di Ricerca di Azure consentiranno di applicare questo valore.
+Quando si progettano classi di modello personalizzate per eseguire il mapping a un indice di Ricerca di Azure, è consigliabile dichiarare le proprietà dei tipi di valore, ad esempio `bool` e `int` da rendere nullable (ad esempio, `bool?` invece di `bool`). Se si usa una proprietà che non ammette i valori Null, è necessario **garantire** che nessun documento nell'indice contenga un valore Null per il campo corrispondente. Né l'SDK né il servizio di Ricerca di Azure consentiranno di applicare questo valore.
 
-Non è solo un problema ipotetico: si pensi a uno scenario in cui si aggiunge un nuovo campo a un indice esistente di tipo `DataType.Int32`. Dopo l'aggiornamento della definizione dell'indice, tutti i documenti avranno un valore Null per il nuovo campo (perché tutti i tipi sono nullable in Ricerca di Azure). Se quindi si usa una classe di modelli con una proprietà `int` che non ammette i valori Null per quel campo, si otterrà un'eccezione `JsonSerializationException` come questa quando si cercherà di recuperare i documenti:
+Non è solo un problema ipotetico: si pensi a uno scenario in cui si aggiunge un nuovo campo a un indice esistente di tipo `DataType.Int32`. Dopo l'aggiornamento della definizione dell'indice, tutti i documenti avranno un valore Null per il nuovo campo (perché tutti i tipi sono nullable in Ricerca di Azure). Se quindi si usa una classe di modelli con una proprietà `int` che non ammette i valori Null per tale campo, verrà restituita un'eccezione `JsonSerializationException`, come questa, quando si cercherà di recuperare i documenti:
 
     Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 
 Per questo motivo, è consigliabile usare tipi nullable nelle classi di modelli.
 
 ## Avanti
-Dopo il popolamento dell'indice di Ricerca di Azure, si potrà iniziare a eseguire una query per la ricerca di documenti. Per informazioni dettagliate, vedere [Eseguire query su un indice di Ricerca di Azure con .NET SDK](search-query-dotnet.md).
+Dopo il popolamento dell'indice di Ricerca di Azure, si potrà iniziare a eseguire una query per la ricerca di documenti. Per informazioni dettagliate, vedere [Eseguire query su un indice di Ricerca di Azure](search-query-overview.md).
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

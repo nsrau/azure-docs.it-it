@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare una pipeline con l’attività Copia utilizzando Data Factory Editor
@@ -22,7 +22,7 @@
 - [Con l'editor di Data factory](data-factory-get-started-using-editor.md)
 - [Con Visual Studio](data-factory-get-started-using-vs.md)
 - [Tramite PowerShell](data-factory-monitor-manage-using-powershell.md)
-
+- [Con la Copia guidata](data-factory-copy-data-wizard-tutorial.md)
 
 
 ##Contenuto dell'esercitazione:
@@ -33,7 +33,7 @@ Passaggio | Descrizione
 [Passaggio 1: Creare un'istanza di Data factory di Azure](#CreateDataFactory) | In questo passaggio verrà creata un'istanza di Data factory di Azure denominata **ADFTutorialDataFactory**.  
 [Passaggio 2: Creare servizi collegati](#CreateLinkedServices) | In questo passaggio verranno creati due servizi collegati: **StorageLinkedService** e **AzureSqlLinkedService**. StorageLinkedService collega la risorsa di archiviazione di Azure e AzureSqlLinkedService collega il database SQL di Azure ad ADFTutorialDataFactory. I dati di input per la pipeline si trovano in un contenitore BLOB nell'archivio BLOB di Azure e i dati di output verranno archiviati in una tabella nel database SQL di Azure. Questi due archivi dati vengono quindi aggiunti alla data factory come servizi collegati.      
 [Passaggio 3: Creare tabelle di input e di output](#CreateInputAndOutputDataSets) | Nel passaggio precedente sono stati creati servizi collegati che fanno riferimento agli archivi dati che includono dati di input/output. In questo passaggio verranno definite due tabelle di data factory, ovvero **EmpTableFromBlob** e **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati. Per EmpTableFromBlob verrà specificato il contenitore BLOB che include un BLOB con i dati di origine, mentre per EmpSQLTable verrà specificata la tabella SQL in cui verranno archiviati i dati di output. Verranno specificate anche altre proprietà, ad esempio la struttura e la disponibilità dei dati e così via. 
-[Passaggio 4: Creare ed eseguire una pipeline](#CreateAndRunAPipeline) | In questo passaggio si creerà una pipeline denominata **ADFTutorialPipeline** in ADFTutorialDataFactory. La pipeline includerà un'**attività di copia** che copia i dati di input dal BLOB di Azure e li inserisce nella tabella di output SQL di Azure. L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate sull'attività di copia, vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md). 
+[Passaggio 4: Creare ed eseguire una pipeline](#CreateAndRunAPipeline) | In questo passaggio si creerà una pipeline denominata **ADFTutorialPipeline** in ADFTutorialDataFactory. La pipeline includerà un'**attività di copia** che copia i dati di input dal BLOB di Azure e li inserisce nella tabella di output SQL di Azure. L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate sull'attività di copia, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md). 
 [Passaggio 5: Monitorare le sezioni e la pipeline](#MonitorDataSetsAndPipeline) | In questo passaggio verranno monitorate sezioni delle tabelle di input e di output mediante il portale di Azure.
 
 > [AZURE.IMPORTANT] 
@@ -381,7 +381,7 @@ In questa esercitazione è stata creata una data factory di Azure per copiare da
 
 
 ## Vedere anche
-Vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per informazioni dettagliate sull'**Attività di copia** in Azure Data Factory.
+Vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per informazioni dettagliate sull'**Attività di copia** in Azure Data Factory.
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -459,4 +459,4 @@ Vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

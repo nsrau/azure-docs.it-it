@@ -53,8 +53,8 @@ In questo passaggio è possibile usare Azure PowerShell per creare una data fact
 
 1. Aprire Azure PowerShell ed eseguire il comando seguente. Mantenere aperto Azure PowerShell fino alla fine dell'esercitazione. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.
 	- Eseguire **Login-AzureRmAccount** e immettere il nome utente e la password usati per accedere al portale di Azure.  
-	- Eseguire **Get-AzureSubscription** per visualizzare tutte le sottoscrizioni per l'account.
-	- Eseguire **Select-AzureSubscription <Name of the subscription>** per selezionare la sottoscrizione da usare. La sottoscrizione deve corrispondere a quella usata nel portale di Azure.
+	- Eseguire **Get-AzureRmSubscription** per visualizzare tutte le sottoscrizioni per l'account.
+	- Eseguire **Select-AzureRmSubscription <Name of the subscription>** per selezionare la sottoscrizione da usare. La sottoscrizione deve corrispondere a quella usata nel portale di Azure.
 3. Creare un gruppo di risorse di Azure denominato **ADFTutorialResourceGroup** eseguendo il comando seguente.
 
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -356,4 +356,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

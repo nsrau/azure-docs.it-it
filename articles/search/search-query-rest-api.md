@@ -12,18 +12,19 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="ashmaka"/>
 
 # Eseguire query su un indice di Ricerca di Azure con l'API REST
 > [AZURE.SELECTOR]
 - [Panoramica](search-query-overview.md)
-- [Esplora ricerche](search-explorer.md)
-- [Fiddler](search-fiddler.md)
+- [Portale](search-explorer.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-Questo articolo illustra come eseguire query su un indice con l'[API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). Prima di iniziare questa procedura dettagliata, è necessario avere [creato un indice di Ricerca di Azure](search-create-index-rest-api.md) e [averlo popolato con dati](search-import-data-rest-api.md).
+Questo articolo illustra come eseguire query su un indice con l'[API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+
+Prima di iniziare questa procedura dettagliata, è necessario avere [creato un indice di Ricerca di Azure](search-what-is-an-index.md) e [averlo popolato con dati](search-what-is-data-import.md).
 
 ## I. Identificare la chiave API di query del servizio Ricerca di Azure
 Un componente chiave di ogni operazione di ricerca con l'API REST di Ricerca di Azure è la *chiave API* generata per il servizio di cui è stato effettuato il provisioning. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
@@ -48,15 +49,7 @@ Sia per POST che per GET è necessario fornire il *nome del servizio*, il *nome 
 
 Il formato per POST è lo stesso, ma con solo la versione dell'API nei parametri della stringa di query.
 
-#### Tipi di query
 
-Ricerca di Azure offre numerose opzioni per creare query estremamente avanzate. I due tipi di query principali che si useranno sono `search` e `filter`. Una query `search` cerca uno o più termini in tutti i campi _ricercabili_ dell'indice e funziona come un motore di ricerca, ad esempio Google o Bing. Una query `filter` valuta un'espressione booleana su tutti i campi _filtrabili_ di un indice. Diversamente dalle query `search`, le query `filter` ricercano la corrispondenza esatta con il contenuto di un campo e quindi supportano la distinzione tra lettere maiuscole e minuscole per i campi di tipo stringa.
-
-È possibile usare le ricerche e i filtri insieme o separatamente. Se si usano insieme, prima viene applicato il filtro all'intero indice e quindi viene eseguita la ricerca sui risultati del filtro. I filtri quindi possono essere un'utile tecnica per migliorare le prestazioni delle query perché riducono il set di documenti che la query di ricerca deve elaborare.
-
-La sintassi per le espressioni di filtro è un subset del [linguaggio di filtro OData](https://msdn.microsoft.com/library/azure/dn798921.aspx). Per le query di ricerca è possibile usare la [sintassi semplificata](https://msdn.microsoft.com/library/azure/dn798920.aspx) o la [sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
-
-Per altre informazioni su tutti i diversi parametri di una query, vedere [Eseguire ricerche nei documenti](https://msdn.microsoft.com/library/azure/dn798927.aspx). Di seguito sono disponibili anche alcune query di esempio.
 
 #### Query di esempio
 
@@ -166,4 +159,4 @@ Una richiesta di query riuscita restituirà un codice di stato `200 OK` e i risu
 
 Per altre informazioni, vedere la sezione "Risposta" di [Eseguire ricerche nei documenti](https://msdn.microsoft.com/library/azure/dn798927.aspx). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [Codici di stato HTTP (Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # Introduzione all'Hub eventi
@@ -38,27 +38,27 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 2. Fare clic su **Servizi app**, **Bus di servizio**, **Hub eventi** e infine **Creazione rapida**.
 
-   	![][1]
+	![][1]
 
 3. Digitare un nome per l'hub eventi, selezionare l'area desiderata, quindi fare clic su **Crea un nuovo hub eventi**.
 
-   	![][2]
+	![][2]
 
 4. Fare clic sullo spazio dei nomi appena creato (in genere ***nome hub eventi*-ns**).
 
-   	![][3]
+	![][3]
 
 5. Fare clic sulla scheda **Hub eventi** nella parte superiore della pagina, quindi selezionare l'hub eventi appena creato.
 
-   	![][4]
+	![][4]
 
 6. Fare clic sulla scheda **Configura** nella parte superiore, aggiungere una regola denominata **SendRule** con diritti *Send*, aggiungere un'altra regola denominata **ReceiveRule** con diritti *Manage, Send, Listen* e quindi fare clic su **Salva**.
 
-   	![][5]
+	![][5]
 
 7. Fare clic sulla scheda **Dashboard** nella parte superiore della pagina e quindi su **Informazioni di connessione**. Prendere nota di due stringhe di connessione o copiarle in un punto per usarle in un secondo momento in questa esercitazione.
 
-   	![][6]
+	![][6]
 
 L'hub eventi è stato creato e sono disponibili le stringhe di connessione necessarie per inviare e ricevere eventi.
 
@@ -73,11 +73,11 @@ A questo punto è possibile eseguire le applicazioni.
 
 1.	In Visual Studio eseguire il progetto **Receiver**, quindi attendere che il progetto avvii i ricevitori per tutte le partizioni.
 
-   	![][21]
+	![][21]
 
 2.	Eseguire il progetto **Sender** e premere **Invio** nella finestra della console. Gli eventi verranno visualizzati nella finestra del ricevitore.
 
-   	![][22]
+	![][22]
 
 ## Passaggi successivi
 
@@ -105,7 +105,7 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [Panoramica di Hub eventi]: event-hubs-overview.md
 [applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[soluzione di messaggistica accodata]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->
