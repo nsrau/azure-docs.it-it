@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015" 
+	ms.date="03/09/2016" 
 	ms.author="sethm"/>
 
 # Bus di servizio di Azure
 
-Indipendentemente dal fatto che sia eseguito nel cloud o in locale, spesso è necessario che un'applicazione o un servizio interagisca con altre applicazioni o servizi. Per semplificare questa operazione, in Azure è disponibile il bus di servizio. In questo articolo verrà illustrata questa tecnologia, verrà descritto di che cosa si tratta e perché potrebbe essere necessario usarla.
+Indipendentemente dal fatto che sia eseguito nel cloud o in locale, spesso è necessario che un'applicazione o un servizio interagisca con altre applicazioni o servizi. Per semplificare questa operazione, in Microsoft Azure è disponibile il bus di servizio. In questo articolo verrà illustrata questa tecnologia, verrà descritto di che cosa si tratta e perché potrebbe essere necessario usarla.
 
 ## Dati fondamentali del bus di servizio
 
@@ -125,4 +125,4 @@ A questo punto, dopo aver appreso le nozioni di base del bus di servizio di Azur
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

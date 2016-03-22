@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="ashmaka"/>
 
 # Creare un indice di Ricerca di Azure con l'API REST
@@ -25,9 +25,12 @@
 - [REST](search-create-index-rest-api.md)
 
 
-Questo articolo illustra il processo di creazione di un [indice](https://msdn.microsoft.com/library/azure/dn798941.aspx) di Ricerca di Azure mediante l'[API REST di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx). Per creare un indice di Ricerca di Azure usando l'API REST, verrà inviata una singola richiesta HTTP POST all'endpoint dell'URL del servizio Ricerca di Azure. La definizione dell'indice verrà inclusa nel corpo della richiesta come contenuto JSON ben formato.
+Questo articolo illustra il processo di creazione di un [indice](https://msdn.microsoft.com/library/azure/dn798941.aspx) di Ricerca di Azure mediante l'API REST di Ricerca di Azure.
 
 Prima di seguire le indicazioni di questa guida e creare un indice, è necessario [creare un servizio Ricerca di Azure](search-create-service-portal.md).
+
+Per creare un indice di Ricerca di Azure usando l'API REST, verrà inviata una singola richiesta HTTP POST all'endpoint dell'URL del servizio Ricerca di Azure. La definizione dell'indice verrà inclusa nel corpo della richiesta come contenuto JSON ben formato.
+
 
 ## I. Identificare la chiave API amministratore del servizio Ricerca di Azure
 Dopo avere effettuato il provisioning di un servizio Ricerca di Azure, è possibile inviare richieste HTTP rispetto all'endpoint dell'URL del servizio usando l'API REST. Tuttavia, *tutte* le richieste API devono includere la chiave API amministratore generata per il servizio di ricerca di cui è stato effettuato il provisioning. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
@@ -84,7 +87,13 @@ La definizione di indice precedente usa un analizzatore personalizzato della lin
 2. Nelle intestazioni della richiesta specificare `Content-Type` come `application/json`. Sarà anche necessario specificare la chiave amministratore del servizio identificata nel Passaggio I nell'intestazione `api-key`.
 
 
-    POST https://[service name].search.windows.net/indexes?api-version=2015-02-28 Content-Type: application/json api-key: [api-key]
+È necessario fornire il nome servizio e la chiave API per inviare la richiesta seguente:
+
+
+    POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+    Content-Type: application/json
+    api-key: [api-key]
+
 
 Per una richiesta riuscita, verrà visualizzato il codice di stato 201 (Creato). Per altre informazioni sulla creazione di un indice tramite l'API REST, vedere le informazioni di riferimento sulle API su [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). Per altre informazioni su altri codici di stato HTTP che possono essere restituiti in caso di errore, vedere [Codici di stato HTTP (Ricerca di Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
@@ -93,7 +102,8 @@ Dopo avere usato un indice, se si vuole eliminarlo è sufficiente inviare una ri
     DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2015-02-28
     api-key: [api-key]
 
-## Avanti
-Dopo avere creato un indice di Ricerca di Azure, sarà possibile caricare il contenuto nell'indice, in modo che si possa iniziare a eseguire ricerche nei dati. Per informazioni dettagliate, vedere [Importare dati in Ricerca di Azure tramite l'API REST](search-import-data-rest-api.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+## Avanti
+Dopo avere creato un indice di Ricerca di Azure, sarà possibile [caricare il contenuto nell'indice](search-what-is-data-import.md), in modo che si possa iniziare a eseguire ricerche nei dati.
+
+<!---HONumber=AcomDC_0316_2016-->

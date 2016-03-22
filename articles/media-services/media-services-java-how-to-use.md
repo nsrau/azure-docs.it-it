@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="02/03/2016"  
+ 	ms.date="03/10/2016"  
 	ms.author="robmcm"/>
 
 #Come usare Servizi multimediali con Java
@@ -78,7 +78,8 @@ Sostituire le variabili `clientId` e `clientSecret` con i valori personali. Ques
 		private static String clientId = "account name";
 		private static String clientSecret = "account key";
 		private static String scope = "urn:WindowsAzureMediaServices";
-		
+		private static MediaContract mediaService;
+		    
 		// Encoder configuration
 		private static String preferedEncoder = "Media Encoder Standard";
 		private static String encodingPreset = "H264 Multiple Bitrate 720p";
@@ -275,4 +276,4 @@ Per la documentazione Java per Servizi multimediali, vedere le [librerie di Azur
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

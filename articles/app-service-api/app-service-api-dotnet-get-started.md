@@ -255,7 +255,9 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
 
 	![](./media/app-service-api-dotnet-get-started/apptype.png)
 
-	Le funzionalità disponibili per la nuova app per le API, app Web o app per dispositivi mobili non sono determinate dal tipo di app. Tutte le funzionalità dell'app per le API illustrate in questa esercitazione sono disponibili per tutti e tre i tipi. La sola differenza è data dell'icona e dal testo visualizzati nel portale di Azure per identificare il tipo di app e l'ordine in cui le funzionalità vengono elencate in alcune pagine nel portale. Il portale di Azure verrà illustrato più avanti nell'esercitazione. Si tratta di un'interfaccia Web per la gestione delle risorse di Azure.
+	<a id="apptype"></a> Le funzionalità disponibili per la nuova app per le API, app Web o app per dispositivi mobili non sono determinate dal tipo di app. Tutte le funzionalità dell'app per le API illustrate in questa esercitazione sono disponibili per tutti e tre i tipi. La sola differenza è data dell'icona e dal testo visualizzati nel portale di Azure per identificare il tipo di app e l'ordine in cui le funzionalità vengono elencate in alcune pagine nel portale. Il portale di Azure verrà illustrato più avanti nell'esercitazione. Si tratta di un'interfaccia Web per la gestione delle risorse di Azure.
+
+	Per queste esercitazioni il front-end dell'applicazione a singola pagina è in esecuzione in un'app Web e ogni back-end dell'API Web è in esecuzione in un'app per le API, ma sarebbe esattamente lo stesso se si trattasse di tre app Web o di tre app per le API. Una singola app per le API o app Web può anche ospitare sia il front-end dell'applicazione a singola pagina che il back-end di livello intermedio.
 
 4. Immettere un **Nome app per le API** univoco nel dominio *azurewebsites.net*, ad esempio ToDoListDataAPI più un numero che lo renda univoco.
 
@@ -309,13 +311,13 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
 
 	![](./media/app-service-api-dotnet-get-started/connnext.png)
 
-	La scheda successiva è la scheda **Impostazioni**, dove è possibile modificare la scheda di configurazione della build per distribuire una build di debug per il [debug remoto](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). La scheda include anche alcune **Opzioni pubblicazione file**:
+	La scheda successiva è **Impostazioni**, dove è possibile modificare la configurazione della build per distribuire una build di debug per il [debug remoto](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). La scheda include anche alcune **Opzioni pubblicazione file**:
 
 	* Rimuovi i file aggiuntivi nella destinazione
 	* Precompila durante la pubblicazione
 	* Escludi file dalla cartella App\_Data
 
-	Per questa esercitazione non ne è necessaria nessuna. Per informazioni dettagliate su come funzionano, vedere [Procedura: Distribuire un progetto Web tramite la pubblicazione con un clic in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
+	Per questa esercitazione non ne è necessaria nessuna. Per una descrizione dettagliata del funzionamento di queste opzioni, vedere [Procedura: Distribuire un progetto di applicazione Web tramite la pubblicazione con un clic in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
 
 14. Fare clic su **Avanti**.
 
@@ -463,7 +465,7 @@ Se l'app per le API di livello intermedio venisse chiamata ora, cercherebbe di c
 
 	| **Chiave** | toDoListDataAPIURL |
 	|---|---|
-	| **Valore** | https://{your dell'app per le API di livello dati}.azurewebsites.net |
+	| **Valore** | https://{your nome dell'app per le API di livello dati}.azurewebsites.net |
 	| **Esempio** | https://todolistdataapi0121.azurewebsites.net |
 
 4. Fare clic su **Save**.
@@ -484,6 +486,8 @@ Se l'app per le API di livello intermedio venisse chiamata ora, cercherebbe di c
 
 	![](./media/app-service-api-dotnet-get-started/midtierget.png)
 
+Per altre informazioni sul client generato, vedere il [repository di GitHub AutoRest](https://github.com/azure/autorest). Per informazioni sui problemi relativi all'uso del client generato, aprire un [problema nel repository AutoRest](https://github.com/azure/autorest/issues).
+
 ## <a id="creating"></a> Facoltativo: Creazione di un progetto app per le API da zero
 
 In questa esercitazione si scaricano progetti API Web ASP.NET per la distribuzione nel servizio app, invece di creare nuovi progetti da zero. Per creare un progetto da distribuire in un'app per le API, è possibile creare un tipico progetto API Web e installare il pacchetto Swashbuckle oppure è possibile usare il modello di nuovo progetto **App per le API di Azure**. Per usare tale modello, fare clic su **File > Nuovo > Progetto > Applicazione Web ASP.NET > App per le API di Azure**.
@@ -494,7 +498,7 @@ Scegliere il modello di progetto **App per le API di Azure** equivale a sceglier
 
 ## Facoltativo: Modifica di un tipo di app
 
-Come illustrato prima, la sola differenza tra le app per le API, le app Web e le app per dispositivi mobili è il modo in cui sono rappresentate nel portale. Poiché hanno tutte le stesse funzionalità, non è mai necessario modificare un tipo di app.
+Come illustrato [prima](#apptype), la sola differenza tra le app per le API, le app Web e le app per dispositivi mobili è il modo in cui sono rappresentate nel portale. Poiché hanno tutte le stesse funzionalità, non è mai necessario modificare un tipo di app.
 
 Se, tuttavia, si vuole modificare la rappresentazione nel portale, è possibile farlo facilmente. Ad esempio, per sostituire una delle app per le API appena create con un'app Web, eseguire questa procedura.
 
@@ -528,6 +532,6 @@ Per un esempio di modello di Azure Resource Manager che imposta la proprietà di
 
 ## Passaggi successivi
 
-Questa esercitazione ha illustrato come creare app per le API, distribuire il codice in queste app, generare il relativo codice client e usarle dai client .NET. L'esercitazione successiva della serie di esercitazioni introduttive sulle app per le API mostra come [utilizzare app per le API da client JavaScript tramite CORS](app-service-api-cors-consume-javascript.md).
+Questa esercitazione ha illustrato come creare app per le API, distribuire il codice in queste app, generare il relativo codice client e usarle dai client .NET. L'esercitazione successiva della serie di esercitazioni introduttive sulle app per le API mostra come [utilizzare app per le API da client JavaScript tramite CORS](app-service-api-cors-consume-javascript.md). Le esercitazioni successive della serie illustrano come implementare l'autenticazione e l'autorizzazione.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

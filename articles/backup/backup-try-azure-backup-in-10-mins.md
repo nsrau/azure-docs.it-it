@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Primo approccio: Come eseguire il backup di un server o di un client Windows in Azure | Microsoft Azure"
-   description="Informazioni su come eseguire il backup di un server Windows usando Backup di Azure con questi semplici passaggi"
+   pageTitle="Eseguire il backup di file e cartelle da Windows in Azure | Microsoft Azure"
+   description="Proteggere i dati di Windows Server creando un insieme di credenziali, installando l'agente di backup ed eseguendo il backup di file e cartelle in Azure."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
@@ -14,17 +14,19 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="hero-article"
-	 ms.date="02/21/2016"
+	 ms.date="03/09/2016"
 	 ms.author="jimpark;"/>
 
-# Eseguire il backup di un client o server Windows in Azure
+# Primi passi: eseguire il backup di file e cartelle da un server o client Windows in Azure
 
-Bastano pochi passaggi per eseguire il backup del computer Windows (client Windows o server Windows) in Azure. Con i 4 passaggi seguenti si eseguiranno queste operazioni:
+Bastano pochi passaggi per eseguire il backup del computer Windows (client Windows o server Windows) in Azure.
 
-- Configurazione di una sottoscrizione di Azure (se necessario).
-- Creazione di un insieme di credenziali di backup e download dei componenti necessari.
-- Preparazione del server o client Windows tramite l'installazione e la registrazione di tali componenti.
-- Backup dei dati.
+È sufficiente seguire questa procedura:
+
+![Passaggio 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Ottenere una sottoscrizione di Azure, se necessario.<br> ![Passaggio 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Creare un insieme di credenziali di backup e scaricare i componenti necessari.<br> ![Passaggio 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Preparare il server o client Windows tramite l'installazione e la registrazione dei componenti.<br> ![Passaggio 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Proteggere i dati.
+
+
+![Processo di backup di server e client Windows](./media/backup-try-azure-backup-in-10-mins/windows-machine-backup-process.png)
 
 ## Passaggio 1: Ottenere una sottoscrizione di Azure
 
@@ -32,7 +34,7 @@ Se non è disponibile una sottoscrizione di Azure, è possibile creare un [accou
 
 >[AZURE.NOTE] Se è già disponibile una sottoscrizione di Azure, è possibile ignorare questo passaggio.
 
-## Passaggio 2: Creare un insieme di credenziali per il backup
+## Passaggio 2: Creare un insieme di credenziali di backup e scaricare i componenti necessari
 
 Per eseguire il backup di file e dati da un computer Windows ad Azure, è necessario creare un insieme di credenziali per il backup nell'area geografica in cui archiviare i dati.
 
@@ -54,17 +56,17 @@ Per eseguire il backup di file e dati da un computer Windows ad Azure, è necess
 
     ![Creazione dell'insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/creatingvault1.png)
 
-    Una volta creato, l'insieme di credenziali di backup verrà elencato nelle risorse per Servizi di ripristino come **Attivo**.
+    L'insieme di credenziali di backup appena creato viene elencato tra le risorse per Servizi di ripristino come **Attivo**.
 
     ![Creazione dello stato dell'insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
 
-3. Selezionare le opzioni per la **ridondanza di archiviazione**.
+3. Selezionare le opzioni di **ridondanza di archiviazione**.
 
     È consigliabile selezionare l'opzione per la ridondanza dell'archiviazione subito dopo la creazione di un insieme di credenziali e prima che i computer vengano registrati nell'insieme di credenziali. Dopo la registrazione di un elemento nell'insieme di credenziali, l'opzione di ridondanza di archiviazione è bloccata e non può essere modificata.
 
-    Se si usa Azure come endpoint primario di archiviazione dei backup (se, ad esempio, si esegue il backup in Azure da Windows Server), è consigliabile scegliere l'opzione predefinita di [archiviazione con ridondanza geografica](../storage/storage-redundancy.md#geo-redundant-storage).
+    Se si usa Azure come endpoint primario di archiviazione dei backup, ad esempio quando si esegue il backup in Azure da Windows Server, è consigliabile scegliere l'opzione predefinita di [archiviazione con ridondanza geografica](../storage/storage-redundancy.md#geo-redundant-storage).
 
-    Se si usa Azure come endpoint terziario di archiviazione dei backup (se, ad esempio, si usa SCDPM per avere una copia locale del backup e si usa Azure per la conservazione a lungo termine), è consigliabile scegliere l'[archiviazione con ridondanza locale](../storage/storage-redundancy.md#locally-redundant-storage). In questo modo vengono ridotti i costi di archiviazione dei dati in Azure e viene offerta una durabilità dei dati inferiore che può essere accettabile per le copie terziarie.
+    Se si usa Azure come endpoint terziario di archiviazione dei backup, ad esempio quando si usa System Center Data Protection Manager per avere una copia locale del backup e si usa Azure per la conservazione a lungo termine, è consigliabile scegliere l'[archiviazione con ridondanza locale](../storage/storage-redundancy.md#locally-redundant-storage). In questo modo vengono ridotti i costi di archiviazione dei dati in Azure e viene offerta una durabilità dei dati inferiore che può essere accettabile per le copie terziarie.
 
     a. Fare clic sull'insieme di credenziali appena creato.
 
@@ -78,7 +80,7 @@ Per eseguire il backup di file e dati da un computer Windows ad Azure, è necess
 
     ![Archiviazione con ridondanza geografica](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
 
-    d. Fare clic su **Servizi di ripristino** nel riquadro di spostamento sinistro per tornare all'elenco di risorse per **Servizi di ripristino**.
+    d. Fare clic su **Servizi di ripristino** nel riquadro di spostamento sinistro per tornare all'elenco di risorse per i **Servizi di ripristino**.
 
     ![Selezione dell'insieme di credenziali di backup](./media/backup-try-azure-backup-in-10-mins/rs-left-nav.png)
 
@@ -96,7 +98,7 @@ Per eseguire il backup di file e dati da un computer Windows ad Azure, è necess
 
     >[AZURE.NOTE] Il file delle credenziali dell'insieme di credenziali viene usato solo durante il flusso di lavoro di registrazione e scade dopo 48 ore.
 
-6. Fare clic su **Salva** per scaricare le credenziali dell'insieme di credenziali nella cartella **Download** dell'account locale. In alternativa, scegliere **Salva con nome** dal menu **Salva** per specificare un percorso per le credenziali dell'insieme di credenziali.
+6. Fare clic su **Salva** per scaricare le credenziali di insieme nella cartella **Download** dell'account locale. In alternativa, scegliere **Salva con nome** dal menu **Salva** per specificare un percorso per le credenziali di insieme.
 
     ![Selezione dell'insieme di credenziali di backup](./media/backup-try-azure-backup-in-10-mins/save.png)
 
@@ -106,25 +108,25 @@ Per eseguire il backup di file e dati da un computer Windows ad Azure, è necess
 
     Ora è necessario scaricare l'agente di backup.
 
-7. Fare clic su **Servizi di ripristino** nel riquadro di spostamento sinistro e quindi fare clic sull'insieme di credenziali per il backup che si vuole registrare con un server.
+7. Fare clic su **Servizi di ripristino** nel riquadro di spostamento sinistro e quindi fare clic sull'insieme di credenziali di backup da registrare con un server.
 
     ![Selezione dell'insieme di credenziali di backup](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
 
-8. Nella pagina Avvio rapido fare clic su **Agente per Windows Server, System Center Data Protection Manager o client Windows > Salva** (oppure scegliere **Salva con nome** dal menu **Salva** per specificare un percorso per l'agente).
+8. Nella pagina Avvio rapido fare clic su **Agente per Windows Server, System Center Data Protection Manager o client Windows > Salva**. In alternativa, scegliere **Salva con nome** nel menu **Salva** per specificare un percorso per l'agente.
 
     ![Salva agente](./media/backup-try-azure-backup-in-10-mins/agent.png)
 
 A questo punto, la creazione di un insieme di credenziali di backup e il download dei componenti necessari sono stati completati. Ora si installerà l'agente di backup.
 
-## Passaggio 3: Installare l'agente di Backup di Azure nel server o nel client Windows
+## Passaggio 3: Preparare il server o client Windows tramite l'installazione e la registrazione dei componenti
 
-1. Al termine del download, fare doppio clic su **MARSagentinstaller.exe** nel percorso in cui è stato salvato (oppure fare clic su **Esegui** invece di salvare il file nel passaggio precedente).
+1. Dopo aver completato il download, fare doppio clic su **MARSagentinstaller.exe** nel percorso in cui è stato salvato. In alternativa è possibile fare clic su **Esegui** anziché salvare il file nel passaggio precedente.
 
-2. Scegliere la **cartella di installazione** e la **cartella della cache** necessarie per l'agente.
+2. Scegliere la **cartella di installazione** e la **cartella cache** necessarie per l'agente.
 
     Il percorso della cache specificato deve avere uno spazio disponibile pari almeno al 5% dei dati di backup.
 
-    Fare clic su **Next**.
+    Fare clic su **Avanti**.
 
     ![Cartella della cache](./media/backup-try-azure-backup-in-10-mins/recovery-services-agent-setup-wizard-1.png)
 
@@ -142,7 +144,7 @@ A questo punto, la creazione di un insieme di credenziali di backup e il downloa
 
     Per completare l'installazione, l'agente Backup di Azure installerà .NET Framework 4.5 e Windows PowerShell (se non sono già installati).
 
-5. Dopo avere installato l'agente, fare clic su **Procedi alla registrazione** per continuare con il flusso di lavoro.
+5. Dopo aver installato l'agente, fare clic su **Continua con la registrazione** per continuare con il flusso di lavoro.
 
     ![Registra](./media/backup-try-azure-backup-in-10-mins/register.png)
 
@@ -164,15 +166,15 @@ A questo punto, la creazione di un insieme di credenziali di backup e il downloa
 
     ![Crittografia](./media/backup-try-azure-backup-in-10-mins/registering-server.png)
 
-8. Una volta impostata la **chiave di crittografia**, lasciare selezionata la casella di controllo **Avvia agente di Servizi di ripristino di Microsoft Azure** e fare clic su **Chiudi**.
+8. Dopo aver impostato la **chiave di crittografia**, lasciare selezionata la casella di controllo **Avvia agente di Servizi di ripristino di Microsoft Azure** e fare clic su **Chiudi**.
 
     ![Crittografia](./media/backup-try-azure-backup-in-10-mins/close-server-registration.png)
 
     Il computer ora risulta registrato nell'insieme di credenziali ed è possibile configurare e pianificare le opzioni di backup.
 
-## Passaggio 4: Eseguire il backup di file e cartelle
+## Passaggio 4: Proteggere i dati
 
-1. Nello snap-in MMC (che si apre automaticamente se si lascia selezionata la casella di controllo **Avvia agente di Servizi di ripristino di Microsoft Azure**) fare clic su **Pianifica backup**.
+1. Nell'**agente di backup** che viene aperto automaticamente se si lascia selezionata la casella di controllo **Avvia agente di Servizi di ripristino di Microsoft Azure** fare clic su **Pianifica backup**.
 
     ![Pianificare un backup di Windows Server](./media/backup-try-azure-backup-in-10-mins/snap-in-schedule-backup-closeup.png)
 
@@ -192,7 +194,7 @@ A questo punto, la creazione di un insieme di credenziali di backup e il downloa
 
     ![Elementi per il backup di Windows Server](./media/backup-try-azure-backup-in-10-mins/selected-items.png)
 
-4. Specificare la **pianificazione backup** e fare clic su **Avanti**.
+4. Specificare la **pianificazione del backup** e fare clic su **Avanti**.
 
     È possibile pianificare backup giornalieri (non più di 3 al giorno) o settimanali.
 
@@ -208,7 +210,7 @@ A questo punto, la creazione di un insieme di credenziali di backup e il downloa
 
 6. Scegliere il tipo di backup iniziale.
 
-    È possibile eseguire il backup automaticamente in rete oppure offline. Il resto di questo articolo segue il processo di backup automatico. Se si preferisce eseguire un backup offline, vedere questo articolo per altre informazioni sul [flusso di lavoro di backup offline in Azure Backup](backup-azure-backup-import-export.md).
+    È possibile eseguire il backup automaticamente in rete oppure offline. Il resto di questo articolo segue il processo di backup automatico. Se si preferisce eseguire un backup offline, vedere questo articolo per altre informazioni sul [flusso di lavoro di backup offline in Backup di Azure](backup-azure-backup-import-export.md).
 
     Fare clic su **Avanti**
 
@@ -218,11 +220,11 @@ A questo punto, la creazione di un insieme di credenziali di backup e il downloa
 
     ![Backup iniziale di Windows Server](./media/backup-try-azure-backup-in-10-mins/confirmation.png)
 
-8. Quando la procedura guidata termina la creazione della **pianificazione backup**, fare clic su **Chiudi**.
+8. Al termine della creazione della **pianificazione del backup** da parte della procedura guidata, fare clic su **Chiudi**.
 
     ![Backup iniziale di Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-schedule-created.png)
 
-9. Nello snap-in MMC fare clic su **Esegui backup** per completare il seeding iniziale sulla rete.
+9. Nell'**agente di backup** fare clic su **Esegui backup** per completare il seeding iniziale sulla rete.
 
     ![Eseguire ora il backup di Windows Server](./media/backup-try-azure-backup-in-10-mins/snap-in-backup-now.png)
 
@@ -230,11 +232,11 @@ A questo punto, la creazione di un insieme di credenziali di backup e il downloa
 
     ![Eseguire ora il backup di Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-now-confirmation.png)
 
-11. Fare clic su **Chiudi** per chiudere la procedura guidata. È possibile eseguire questa operazione prima che venga completato il **processo di backup** che continuerà a essere eseguito in background.
+11. Fare clic su **Chiudi** per chiudere la procedura guidata. È possibile eseguire questa operazione prima che venga completato il **processo di backup**, che continuerà in background.
 
     ![Eseguire ora il backup di Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-progress.png)
 
-12. Dopo avere completato il backup iniziale, la visualizzazione **Processi** nella console di Backup di Azure indica lo stato "Processo completato".
+12. Dopo aver completato il backup iniziale, la visualizzazione **Processi** nella console di Backup di Azure indica lo stato "Processo completato".
 
     ![Completamento infrarossi](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
@@ -246,4 +248,4 @@ Il backup dei file e delle cartelle è stato eseguito in Backup di Azure.
 - Sono disponibili altre informazioni sul [backup di un server Windows](backup-azure-backup-windows-server.md)
 - Visitare il [Forum su Backup di Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -18,14 +18,15 @@
 # Eseguire query su un indice di Ricerca di Azure con .NET SDK
 > [AZURE.SELECTOR]
 - [Panoramica](search-query-overview.md)
-- [Esplora ricerche](search-explorer.md)
-- [Fiddler](search-fiddler.md)
+- [Portale](search-explorer.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-Questo articolo illustra come eseguire query su un indice con [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx). Prima di iniziare questa procedura dettagliata, è necessario avere [creato un indice di Ricerca di Azure](search-create-index-dotnet.md) e [averlo popolato con dati](search-import-data-dotnet.md).
+Questo articolo illustra come eseguire query su un indice con [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx).
 
-Si noti che tutto il codice di esempio in questo articolo è scritto in C#. Il codice sorgente completo è disponibile [su GitHub](http://aka.ms/search-dotnet-howto).
+Prima di iniziare questa procedura dettagliata, è necessario avere [creato un indice di Ricerca di Azure](search-what-is-an-index.md) e [averlo popolato con dati](search-what-is-data-import.md).
+
+Si noti che tutto il codice di esempio in questo articolo è scritto in C#. Il codice sorgente completo è disponibile su [GitHub](http://aka.ms/search-dotnet-howto).
 
 ## I. Identificare la chiave API di query del servizio Ricerca di Azure
 Dopo avere creato un indice di Ricerca di Azure, si è quasi pronti per eseguire query con .NET SDK. Prima di tutto è necessario ottenere una delle chiavi API di query generate per il servizio di ricerca di cui è stato effettuato il provisioning. .NET SDK invierà questa chiave API a ogni richiesta al servizio. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
@@ -36,10 +37,10 @@ Dopo avere creato un indice di Ricerca di Azure, si è quasi pronti per eseguire
 
 Il servizio avrà *chiavi amministratore* e *chiavi di query*.
 
-  - Le *chiavi amministratore* primarie e secondarie concedono diritti completi per tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati. Sono disponibili due chiavi, quindi è possibile continuare a usare la chiave secondaria se si decide di rigenerare la chiave primaria e viceversa.
+  - Le *chiavi amministratore* primarie e secondarie concedono diritti completi a tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati. Sono disponibili due chiavi, quindi è possibile continuare a usare la chiave secondaria se si decide di rigenerare la chiave primaria e viceversa.
   - Le *chiavi di query* concedono l'accesso in sola lettura agli indici e ai documenti e vengono in genere distribuite alle applicazioni client che inviano richieste di ricerca.
 
-Ai fini di una query su un indice, è possibile usare una delle chiavi di query. Si possono anche usare le chiavi amministratore per le query, ma è necessario usare una chiave di query nel codice dell'applicazione perché questo approccio è più coerente con il [principio del privilegio minimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
+Ai fini di una query su un indice, è possibile usare una delle chiavi di query. Si possono anche usare le chiavi amministratore per le query, ma è necessario usare una chiave di query nel codice dell'applicazione, perché questo approccio è più coerente con il [principio del privilegio minimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
 ## II. Creare un'istanza della classe SearchIndexClient
 Per eseguire query con Azure Search .NET SDK, è necessario creare un'istanza della classe `SearchIndexClient`. Questa classe ha diversi costruttori. Quello appropriato accetta il nome del servizio di ricerca, il nome dell'indice e un oggetto `SearchCredentials` come parametri. `SearchCredentials` esegue il wrapping della chiave API.
@@ -59,16 +60,9 @@ SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels
 Per eseguire una ricerca con .NET SDK è sufficiente chiamare il metodo `Documents.Search` sull'oggetto `SearchIndexClient`. Questo metodo accetta alcuni parametri, incluso il testo di ricerca, nonché un oggetto `SearchParameters` che può essere usato per perfezionare ulteriormente la query.
 
 #### Tipi di query
-
-Ricerca di Azure offre numerose opzioni per creare query estremamente avanzate. I due tipi di query principali che si useranno sono `search` e `filter`. Una query `search` cerca uno o più termini in tutti i campi _ricercabili_ dell'indice e funziona come un motore di ricerca, ad esempio Google o Bing. Una query `filter` valuta un'espressione booleana su tutti i campi _filtrabili_ di un indice. Diversamente dalle query `search`, le query `filter` ricercano la corrispondenza esatta con il contenuto di un campo e quindi supportano la distinzione tra lettere maiuscole e minuscole per i campi di tipo stringa.
-
-È possibile usare le ricerche e i filtri insieme o separatamente. Se si usano insieme, prima viene applicato il filtro all'intero indice e quindi viene eseguita la ricerca sui risultati del filtro. I filtri quindi possono essere un'utile tecnica per migliorare le prestazioni delle query perché riducono il set di documenti che la query di ricerca deve elaborare.
+I due [tipi di query](search-query-overview.md#types-of-queries) principali che si useranno sono `search` e `filter`. Una query `search` esegue la ricerca di uno o più termini in tutti i campi_ricercabile_ nell'indice. Una query `filter` valuta un'espressione booleana su tutti i campi _filtrabili_ di un indice.
 
 Ricerche e filtri vengono eseguiti usando il metodo `Documents.Search`. Una query di ricerca può essere passata nel parametro `searchText`, mentre un'espressione di filtro può essere passata nella proprietà `Filter` della classe `SearchParameters`. Per filtrare senza eseguire ricerche, passare semplicemente `"*"` per il parametro `searchText`. Per eseguire una ricerca senza filtrare, lasciare la proprietà `Filter` non impostata oppure non passare un'istanza di `SearchParameters`.
-
-La sintassi per le espressioni di filtro è un subset del [linguaggio di filtro OData](https://msdn.microsoft.com/library/azure/dn798921.aspx). Per le query di ricerca è possibile usare la [sintassi semplificata](https://msdn.microsoft.com/library/azure/dn798920.aspx) o la [sintassi di query Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
-
-Per altre informazioni su tutti i diversi parametri di una query, vedere la [documentazione di riferimento relativa a .NET SDK su MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.searchparameters.aspx). Di seguito sono disponibili anche alcune query di esempio.
 
 #### Query di esempio
 
@@ -80,9 +74,9 @@ DocumentSearchResult<Hotel> results;
 
 Console.WriteLine("Search the entire index for the term 'budget' and return only the hotelName field:\n");
 
-parameters = 
-    new SearchParameters() 
-    { 
+parameters =
+    new SearchParameters()
+    {
         Select = new[] { "hotelName" }
     };
 
@@ -168,4 +162,4 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 
 Il codice di esempio precedente usa la console per restituire i risultati della ricerca. Analogamente, sarà necessario visualizzare i risultati della ricerca nella propria applicazione. Per un esempio di rendering dei risultati di ricerca in un'applicazione Web basata su ASP.NET MVC, vedere [questo esempio su GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

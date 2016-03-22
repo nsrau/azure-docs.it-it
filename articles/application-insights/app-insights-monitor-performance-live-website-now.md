@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/01/2016"
+	ms.date="03/09/2016"
 	ms.author="awills"/>
 
 
@@ -154,7 +154,7 @@ Se l'applicazione invia una grande quantità di dati ed è in uso Application In
  -	`management.azure.com:443`
  -	`login.windows.net:443`
  -	`login.microsoftonline.com:443`
- -	`secure.addcdn.microsoftonline-p.com:443`
+ -	`secure.aadcdn.microsoftonline-p.com:443`
  -	`auth.gfx.ms:443`
  -	`login.live.com:443`
 + Installazione:
@@ -219,4 +219,4 @@ Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0302_2016---->
+<!---HONumber=AcomDC_0316_2016-->

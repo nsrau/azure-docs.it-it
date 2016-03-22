@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="02/25/2016"
+	ms.date="03/11/2016"
 	ms.author="yidingz;marsma"/>
 
 # Cenni preliminari sulle funzionalità di Azure Batch
@@ -44,7 +44,7 @@ Le sezioni seguenti illustrano ognuna delle risorse citate nel flusso di lavoro 
 
 ## <a name="resource"></a> Risorse del servizio Batch
 
-Quando si usa il servizio Azure Batch, è possibile usare le risorse seguenti:
+Quando si usa il servizio Batch, si usano molte delle risorse seguenti. Alcune di queste risorse, ad esempio gli account, i nodi di calcolo, i pool, i processi e le attività, vengono usate in tutte le soluzioni del servizio Batch. Altre risorse, ad esempio le pianificazioni di processi e i pacchetti dell'applicazione, sono funzionalità utili ma facoltative.
 
 - [Account](#account)
 - [Nodo di calcolo](#computenode)
@@ -55,7 +55,9 @@ Quando si usa il servizio Azure Batch, è possibile usare le risorse seguenti:
 	- [Attività di gestione dei processi](#jobmanagertask)
 	- [Attività di preparazione e rilascio dei processi](#jobpreprelease)
 	- [Attività a istanze multiple](#multiinstance)
-- [Pianificazione processo](#jobschedule)
+    - [Dipendenze dell'attività](#taskdep)
+- [Pianificazioni dei processi](#jobschedule)
+- [Pacchetti dell'applicazione](#appkg)
 
 ### <a name="account"></a>Account
 
@@ -89,7 +91,7 @@ Quando si crea un pool, è possibile specificare gli attributi seguenti:
 	- Tutti i nodi in un pool devono avere le stesse dimensioni. Se è necessario eseguire applicazioni diverse con requisiti di sistema diversi e/o carichi diversi, è consigliabile creare pool separati.
 	- È possibile configurare tutte le [dimensioni dei nodi del servizio cloud][cloud_service_sizes] per un pool, ad eccezione di A0.
 
-- **Famiglia del sistema operativo** e **versione** in esecuzione nei nodi.
+- **Famiglia del sistema operativo** e **versione ** in esecuzione nei nodi.
 	- Come con i ruoli di lavoro all'interno di Servizi cloud, si possono specificare la *famiglia del sistema operativo* e la *versione del sistema operativo*. Per altre informazioni sui ruoli di lavoro, vedere la sezione [Informazioni sui servizi cloud][about_cloud_services] in *Opzioni di hosting di calcolo fornite da Azure*.
 	- La famiglia del sistema operativo determina anche le versioni di .NET installate con il sistema operativo.
 	- Analogamente ai ruoli di lavoro, è consigliabile specificare `*` per la versione del sistema operativo, così che i nodi vengano aggiornati automaticamente senza doversi occupare delle nuove versioni rilasciate. Il caso d'uso principale per la scelta di una versione specifica del sistema operativo consiste nell'assicurare il mantenimento della compatibilità delle applicazioni, abilitando l'esecuzione del test di compatibilità con le versioni precedenti prima di consentire l'aggiornamento della versione. Dopo la convalida, la versione del sistema operativo per il pool può essere aggiornata ed è possibile installare la nuova immagine del sistema operativo. Eventuali attività in esecuzione saranno interrotte e accodate di nuovo.
@@ -141,10 +143,11 @@ Oltre alle attività definite dall'utente per eseguire il calcolo in un nodo, il
 - [Attività di gestione dei processi](#jobmanagertask)
 - [Attività di preparazione e rilascio dei processi](#jobmanagertask)
 - [Attività a istanze multiple](#multiinstance)
+- [Dipendenze dell'attività](#taskdep)
 
 #### <a name="starttask"></a>Attività di avvio
 
-Associando un'**attività di avvio** a un pool, è possibile configurare l'ambiente operativo dei nodi, eseguendo azioni come l'installazione di software o l'avvio di processi in background. L'attività di avvio viene eseguita a ogni avvio di un nodo per tutto il tempo in cui questa rimane nel pool, incluso il momento in cui il nodo viene aggiunto al pool. Il vantaggio principale dell'attività di avvio consiste nel fatto che contiene tutte le informazioni necessarie per configurare i nodi di calcolo e installare le applicazioni necessarie per l'esecuzione dell'attività di processo. In questo modo, l'aumento del numero di nodi in un pool è semplice come quando si specifica il nuovo conteggio dei nodi di destinazione. Batch ha già tutte le informazioni necessarie per configurare i nuovi nodi e prepararli perché accettino le attività.
+Associando un'**attività di avvio ** a un pool, è possibile configurare l'ambiente operativo dei nodi, eseguendo azioni come l'installazione di software o l'avvio di processi in background. L'attività di avvio viene eseguita a ogni avvio di un nodo per tutto il tempo in cui questa rimane nel pool, incluso il momento in cui il nodo viene aggiunto al pool. Il vantaggio principale dell'attività di avvio consiste nel fatto che contiene tutte le informazioni necessarie per configurare i nodi di calcolo e installare le applicazioni necessarie per l'esecuzione dell'attività di processo. In questo modo, l'aumento del numero di nodi in un pool è semplice come quando si specifica il nuovo conteggio dei nodi di destinazione. Batch ha già tutte le informazioni necessarie per configurare i nuovi nodi e prepararli perché accettino le attività.
 
 Come per qualsiasi attività Batch, è possibile specificare un elenco di **file di risorse** in [Archiviazione di Azure][azure_storage], oltre a una **riga di comando** da eseguire. Azure Batch copierà prima di tutto i file da Archiviazione di Azure, quindi eseguirà la riga di comando. Per un'attività di avvio del pool, l'elenco di file include in genere il pacchetto o i file dell'applicazione, ma può anche includere dati di riferimento da usare in tutte le attività in esecuzione nei nodi di calcolo. La riga di comando dell'attività di avvio potrebbe eseguire uno script di PowerShell o eseguire un'operazione `robocopy`, ad esempio, copiare i file dell'applicazione nella cartella "condivisa", quindi eseguire successivamente un file MSI o `setup.exe`.
 
@@ -185,11 +188,23 @@ Per altre informazioni sulle attività di preparazione e rilascio dei processi, 
 
 Un'[attività a istanze multiple](batch-mpi.md) è un'attività configurata per l'esecuzione contemporanea in più nodi di calcolo. Con le attività a istanze multiple è possibile abilitare scenari high performance computing, ad esempio MPI (Message Passing), che richiedono l'allocazione di un gruppo di nodi di calcolo per l'elaborazione di un singolo carico di lavoro.
 
-Per una discussione dettagliata sull'esecuzione di processi MPI in Batch usando la libreria Batch .NET, vedere l'articolo relativo all'[uso di attività a istanze multiple per l'esecuzione di applicazioni MPI (Message Passing Interface) in Azure Batch](batch-mpi.md).
+Per una discussione dettagliata sull'esecuzione di processi MPI in Batch usando la libreria Batch .NET, vedere [Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Azure Batch](batch-mpi.md).
+
+#### <a name="taskdep"></a>Relazioni tra attività
+
+Le relazioni tra attività consentono di specificare che un'attività dipende dal completamento di una o più attività diverse prima della rispettiva esecuzione. L'attività "downstream" potrebbe utilizzare l'output dell'attività "upstream" oppure potrebbe dipendere da inizializzazioni eseguite dall'attività upstream. In uno scenario di questo tipo è possibile specificare che il processo usa le relazioni tra attività, quindi per ogni attività che dipende da una o più attività è possibile specificare le attività da cui dipende.
 
 ### <a name="jobschedule"></a>Processi pianificati
 
 Le pianificazioni dei processi consentono di creare processi ricorrenti nel servizio Batch. Una pianificazione del processo specifica quando eseguire i processi e include le specifiche per i processi da eseguire. Una pianificazione del processo consente di specificare la durata della pianificazione, per quanto tempo e quando è effettiva la pianificazione, e con quale frequenza devono essere creati i processi durante quell'intervallo di tempo.
+
+### <a name="appkg"></a>Pacchetti dell'applicazione
+
+La funzionalità relativa ai [pacchetti dell'applicazione](batch-application-packages.md) consente di gestire e distribuire con facilità le applicazioni ai nodi di calcolo nei pool. I pacchetti dell'applicazione consentono di caricare e gestire con facilità più versioni delle applicazioni eseguite dalle attività, inclusi i file binari e i file di supporto, quindi di distribuire automaticamente una o più applicazioni nei nodi di calcolo del pool.
+
+Il servizio Batch gestisce i dettagli dell'uso in background dell'Archiviazione di Azure, per archiviare e distribuire in modo sicuro i pacchetti dell'applicazione ai nodi di calcolo, in modo che sia possibile semplificare il codice e l'overhead di gestione.
+
+Per altre informazioni sulla funzionalità relativa ai pacchetti dell'applicazione, vedere [Distribuzione di applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md).
 
 ## <a name="files"></a>File e directory
 
@@ -222,7 +237,7 @@ Un approccio combinato, usato in genere per gestire un carico variabile ma conti
 
 ## <a name="scaling"></a>Scalabilità delle applicazioni
 
-Con il [ridimensionamento automatico](batch-automatic-scaling.md), è possibile fare in modo che il servizio Batch modifichi dinamicamente il numero di nodi di calcolo in un pool in base al carico di lavoro corrente e all'utilizzo delle risorse dello scenario di calcolo. In questo modo è possibile ridurre il costo complessivo dell'esecuzione dell'applicazione usando solo le risorse necessarie e rilasciando quelle non necessarie. È possibile specificare le impostazioni di ridimensionamento automatico per un pool quando viene creato oppure abilitare il ridimensionamento in seguito ed è possibile aggiornare le impostazioni di ridimensionamento in un pool abilitato per il ridimensionamento automatico.
+Con il [ridimensionamento automatico](batch-automatic-scaling.md) è possibile fare in modo che il servizio Batch modifichi dinamicamente il numero di nodi di calcolo in un pool in base al carico di lavoro corrente e all'utilizzo delle risorse dello scenario di calcolo. In questo modo è possibile ridurre il costo complessivo dell'esecuzione dell'applicazione usando solo le risorse necessarie e rilasciando quelle non necessarie. È possibile specificare le impostazioni di ridimensionamento automatico per un pool quando viene creato oppure abilitare il ridimensionamento in seguito ed è possibile aggiornare le impostazioni di ridimensionamento in un pool abilitato per il ridimensionamento automatico.
 
 Il ridimensionamento automatico viene eseguito specificando una **formula di ridimensionamento automatico** per un pool. Il servizio Batch usa questa formula per determinare il numero di nodi di destinazione nel pool per l'intervallo di ridimensionamento successivo (un intervallo che è possibile specificare).
 
@@ -332,7 +347,7 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 
 - **Disabilitare la pianificazione delle attività nel nodo** ([REST][rest_offline] | [.NET][net_offline])
 
-	In questo modo il nodo in realtà passa "offline" e non è possibile assegnargli altre attività, ma può rimanere in esecuzione e nel pool. È quindi possibile eseguire altre indagini sulla causa degli errori senza perdere i dati delle attività non riuscite e senza che il nodo generi altri errori delle attività. È possibile, ad esempio, disabilitare la pianificazione delle attività nel nodo, quindi accedere in remoto per esaminare i registri eventi del nodo o eseguire altre operazioni di risoluzione dei problemi. Una volta completata l'indagine, è possibile riportare il nodo online abilitando la pianificazione delle attività ([REST][rest_online], [.NET][net_online]) o eseguire una delle altre azioni illustrate sopra.
+	In questo modo il nodo in realtà passa "offline" e non è possibile assegnargli altre attività, ma può rimanere in esecuzione e nel pool. È quindi possibile eseguire altre indagini sulla causa degli errori senza perdere i dati delle attività non riuscite e senza che il nodo generi altri errori delle attività. È possibile, ad esempio, disabilitare la pianificazione delle attività nel nodo, quindi accedere in remoto per esaminare i registri eventi del nodo o eseguire altre operazioni di risoluzione dei problemi. Al termine dell'indagine, è possibile riportare il nodo online abilitando la pianificazione delle attività ([REST][rest_online], [.NET][net_online]) o eseguire una delle altre azioni illustrate in precedenza.
 
 > [AZURE.IMPORTANT] Con ogni azione precedente (riavvio, ricreazione dell'immagine, rimozione, disabilitazione della pianificazione delle attività) è possibile specificare come gestire le attività attualmente in esecuzione nel nodo quando si esegue l'azione. Ad esempio, quando si disabilita la pianificazione delle attività in un nodo con la libreria client Batch .NET, è possibile specificare un valore enum [DisableComputeNodeSchedulingOption][net_offline_option] per specificare se eseguire l'operazione **Terminate** per terminare le attività in esecuzione o **Requeue** per riaccodarle per la pianificazione in altri nodi oppure consentire il completamento delle attività in esecuzione prima di eseguire l'azione (**TaskCompletion**).
 
@@ -387,4 +402,4 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

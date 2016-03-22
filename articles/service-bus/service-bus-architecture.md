@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/06/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Architettura del bus di servizio
@@ -69,4 +69,4 @@ A questo punto, dopo aver letto una panoramica del funzionamento del bus di serv
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 - [Una soluzione di messaggistica accodata che usa le code del bus di servizio](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->
