@@ -103,4 +103,4 @@ Usare Notification Hubs SDK per inviare notifiche push dal server. Non inviare m
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [documentazione relativa all'oggetto Query]: https://msdn.microsoft.com/it-IT/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

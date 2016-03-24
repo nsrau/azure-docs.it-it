@@ -70,4 +70,4 @@ In questa sezione verrà modificata l’app console **SendCloudtoDevice** creata
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
