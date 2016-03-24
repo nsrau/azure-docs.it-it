@@ -249,4 +249,4 @@ Si noti che la crittografia dei dati di archiviazione restituisce un overhead de
 	- Pacchetto [client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
 - Vedere la [documentazione sull'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-whatis.md)  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
