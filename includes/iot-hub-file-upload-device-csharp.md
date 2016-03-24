@@ -68,7 +68,7 @@ In questa sezione verrà modificata l'applicazione del dispositivo simulato crea
 
 > [AZURE.NOTE] Si noti come questa implementazione del dispositivo simulato completa il messaggio da cloud a dispositivo solo dopo che il BLOB è stato caricato. Questo approccio semplifica l'elaborazione dei file caricati nel back-end, in quanto il riconoscimento del recapito rappresenta la disponibilità del file caricato per l'elaborazione. Come spiegato nella [Guida per sviluppatori di hub IoT][IoT Hub Developer Guide - C2D], tuttavia, un messaggio che non viene completato prima del *timeout della visibilità* (in genere 1 minuto) viene reinserito nella coda del dispositivo e il metodo **ReceiveAsync()** lo riceverà nuovamente. Per gli scenari in cui il caricamento del file può richiedere più tempo, potrebbe essere preferibile per il dispositivo simulato mantenere un archivio durevole dei processi di caricamento correnti. In questo modo il dispositivo simulato completa il messaggio da cloud a dispositivo prima del completamento del caricamento del file, quindi invia un messaggio da dispositivo a cloud notificando al back-end il completamento.
 
-<!-- Links -->
+<!--- Links -->
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Archiviazione di Azure - Come utilizzare i BLOB]: ../storage/storage-dotnet-how-to-use-blobs.md#upload-a-blob-into-a-container
 
