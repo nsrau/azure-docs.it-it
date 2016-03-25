@@ -81,8 +81,8 @@ Al termine, verrà aggiunta una nuova API di Dynamics CRM Online all'ambiente de
 
 6. In **Proprietà app**:
 
-	1. Immettere l'**URL DI ACCESSO** dell'applicazione. Poiché si intende eseguire l'autenticazione con AAD per PowerApps, impostare l'URL di accesso su \__https://login.windows.net_.
-2. Immettere un valore valido di **URI ID APP** per l'app.  
+	1. Immettere l'**URL DI ACCESSO** dell'applicazione. Poiché si intende eseguire l'autenticazione con AAD per PowerApps, impostare l'URL di accesso su _https://login.windows.net_.
+	2. Immettere un valore valido di **URI ID APP** per l'app.  
 	3. Selezionare **OK**.  
 
 	![Aggiungere l'applicazione ADD - proprietà app][10]
