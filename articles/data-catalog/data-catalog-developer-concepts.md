@@ -95,7 +95,8 @@ Queste proprietà si applicano a tutti i tipi di asset radice e a tutti i tipi d
 |**Nome proprietà**|**Tipo di dati**|**Commenti**
 |---|---|---
 |modifiedTime|DateTime|Data e ora dell'ultima modifica apportata alla radice. Viene impostato dal client. Il server non gestisce questo valore.
-|__id|String|ID dell'elemento (sola lettura). Questo ID è univoco per l'asset all'interno di un catalogo. |__type|String|Tipo di asset (sola lettura).
+|__id|String|ID dell'elemento (sola lettura). Questo ID è univoco per l'asset all'interno di un catalogo.
+|__type|String|Tipo di asset (sola lettura).
 |__\_\_creatorId|String|Stringa usata dall'autore dell'asset per identificare in modo univoco l'asset.
 
 ### Proprietà radice comuni
@@ -240,7 +241,7 @@ Le richieste di elemento di visualizzazione **PUT** e **POST** possono essere us
 
 > [AZURE.NOTE]
 >
-> **__**\_autorizzazioni** si applica solo a un elemento radice.
+> **\_\_autorizzazioni** si applica solo a un elemento radice.
 >
 > Il ruolo **Proprietario** si applica solo a un elemento radice.
 >
@@ -327,3 +328,4 @@ Le richieste per **Azure Data Catalog (ADC)** potrebbe restituire una risposta H
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
 <!---HONumber=AcomDC_0316_2016-->
+
