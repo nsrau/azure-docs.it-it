@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2016" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
 
 # Gestire i prezzi e la quota per Application Insights
@@ -136,8 +136,8 @@ Se si verificano i limiti della limitazione, ecco alcune operazioni da eseguire:
 Il livello di prezzo determina quanto tempo viene mantenuti i dati sul retro del portale e pertanto su quanto è possibile impostare intervalli di tempo.
 
 
-* Punti dati non elaborati (cioè elementi di dati ispezionabili nella ricerca diagnostica): tra 7 e 30 giorni.
-* I dati aggregati, ovvero conteggi, medie e altri dati statistici visualizzati in Esplora metriche, vengono conservati con livello di dettaglio di un minuto per 30 giorni e con livello di dettaglio di un'ora o un giorno, a seconda del tipo, per almeno 13 mesi.
+* I punti dati non elaborati, ovvero le istanze ispezionabili nella ricerca diagnostica, vengono conservati per 7 giorni.
+* I dati aggregati, ovvero conteggi, medie e altri dati statistici visualizzati in Esplora metriche, vengono conservati con livello di dettaglio di un minuto per 30 giorni e con livello di dettaglio di un'ora o un giorno, a seconda del tipo, per 90 giorni.
 
 
 ## Campionamento
@@ -173,4 +173,4 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

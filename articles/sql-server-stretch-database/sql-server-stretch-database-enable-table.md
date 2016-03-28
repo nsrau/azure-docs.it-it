@@ -18,7 +18,7 @@
 
 # Abilitare Database Estensione per una tabella
 
-Per configurare una tabella per Database Estensione, selezionare **Estensione | Abilita** per una tabella in SQL Server Management Studio per aprire la procedura guidata **Abilita estensione per la tabella**. È possibile anche usare Transact-SQL per abilitare Database Estensione in una tabella.
+Per configurare una tabella per Database Estensione, selezionare **Estensione | Abilita** per una tabella in SQL Server Management Studio per aprire la procedura guidata **Abilitare la tabella per l’estensione**. È possibile anche usare Transact-SQL per abilitare Database Estensione in una tabella.
 
 -   Se si archiviano dati cronologici in una tabella separata, è possibile eseguire la migrazione dell'intera tabella.
 
@@ -72,6 +72,7 @@ ALTER TABLE <table name>
 ```
 
 ## Vedere anche
+
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

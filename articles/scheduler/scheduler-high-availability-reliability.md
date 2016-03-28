@@ -1,21 +1,21 @@
-<properties 
- pageTitle="Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
- 
+
+
 # Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione
 
 ## Livelli elevati di disponibilità dell'Utilità di pianificazione
@@ -63,7 +63,7 @@ Per informazioni su come configurare un endpoint alternativo, fare riferimento a
 ## Vedere anche
 
  [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
- 
+
  [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
 
  [Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure](scheduler-get-started-portal.md)
@@ -79,12 +79,10 @@ Per informazioni su come configurare un endpoint alternativo, fare riferimento a
  [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
- 
- 
+
+
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

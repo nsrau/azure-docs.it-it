@@ -19,7 +19,7 @@
 
 Un elenco di controllo di accesso (ACL) di endpoint è un miglioramento della sicurezza disponibile per la distribuzione di Azure. Offre la possibilità di consentire o negare in modo selettivo il traffico per un endpoint di macchina virtuale. Questa funzionalità di filtro per i pacchetti garantisce un ulteriore livello di sicurezza. È possibile specificare elenchi di controllo di accesso di rete solo per gli endpoint e non per una rete virtuale o una subnet specifica in essa contenuta.
 
-> [AZURE.IMPORTANT]È consigliabile usare i gruppi di sicurezza di rete anziché gli elenchi di controllo di accesso di rete, laddove possibile. Per altre informazioni sui gruppi di accesso di rete, vedere l'articolo relativo alla [descrizione dei gruppi di accesso di rete](../virtual-networks-nsg).
+> [AZURE.IMPORTANT] È consigliabile usare i gruppi di sicurezza di rete anziché gli elenchi di controllo di accesso di rete, laddove possibile. Per altre informazioni sui gruppi di accesso di rete, vedere l'articolo relativo alla [descrizione dei gruppi di accesso di rete](../virtual-networks-nsg).
 
 Gli elenchi di controllo di accesso possono essere configurati tramite PowerShell o il portale di gestione. Per la configurazione di un elenco di controllo di accesso di rete tramite PowerShell, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](virtual-networks-acl-powershell.md). Se si intende configurare un elenco di controllo di accesso di rete tramite il portale di gestione, vedere [Come configurare gli endpoint a una macchina virtuale](../virtual-machines-set-up-endpoints/).
 
@@ -51,7 +51,7 @@ Quando viene creata una macchina virtuale, viene creato anche un elenco di contr
 
 ## Consentire e negare
 
-È possibile consentire o negare in modo selettivo il traffico di rete per un endpoint di input di macchina virtuale creando regole che specificano "consenti" o "nega". È importante notare che per impostazione predefinita, quando viene creato un endpoint, tutto il traffico per l'endpoint viene negato. Per questo motivo, è importante capire come creare regole di autorizzazione/rifiuto e posizionarle secondo un ordine di precedenza appropriato per esercitare un controllo granulare sul traffico di rete che si sceglie di consentire per l'endpoint della macchina virtuale.
+È possibile consentire o negare in modo selettivo il traffico di rete per un endpoint di input di macchina virtuale creando regole che specificano "consenti" o "nega". È importante notare che per impostazione predefinita, quando viene creato un endpoint, tutto il traffico per l'endpoint viene consentito. Per questo motivo, è importante capire come creare regole di autorizzazione/rifiuto e posizionarle secondo un ordine di precedenza appropriato per esercitare un controllo granulare sul traffico di rete che si sceglie di consentire per l'endpoint della macchina virtuale.
 
 Elementi da considerare:
 
@@ -99,4 +99,4 @@ Poiché è possibile specificare più regole per un endpoint, è necessario trov
 
 [Come gestire gli elenchi di controllo di accesso per gli endpoint tramite PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

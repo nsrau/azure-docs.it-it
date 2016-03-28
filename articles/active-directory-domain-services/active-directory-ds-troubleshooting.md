@@ -49,6 +49,9 @@ Se si verifica una situazione in cui uno o più utenti nel tenant di Azure AD no
     - È stata eseguita la distribuzione o l'aggiornamento all'[ultima versione consigliata di Azure AD Connect](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect).
     - Azure AD Connect è stato configurato per [eseguire una sincronizzazione completa](active-directory-ds-getting-started-password-sync.md).
     - A seconda delle dimensioni della directory, potrebbero essere necessari alcuni minuti prima che gli account utente e gli hash delle credenziali siano disponibili in Servizi di dominio di Azure AD. Assicurarsi di attendere il tempo sufficiente prima di ritentare l'autenticazione (il tempo può variare a seconda delle dimensioni della directory - da alcune ore fino a un giorno o due per directory di grandi dimensioni).
+    - Se il problema persiste dopo la verifica dei passaggi precedenti, provare a riavviare il servizio Microsoft Azure AD Sync. Dal computer di sincronizzazione avviare un prompt dei comandi ed eseguire i comandi seguenti:
+      1. net stop 'Microsoft Azure AD Sync'
+      2. net start 'Microsoft Azure AD Sync'
 
 - **Account solo cloud**: se l'account utente interessato è un account utente solo cloud, assicurarsi che l'utente abbia modificato la password dopo l'abilitazione di Servizi di dominio di Azure AD. Questa operazione comporta la generazione degli hash delle credenziali necessari per Servizi di dominio di Azure AD.
 
@@ -56,7 +59,7 @@ Se si verifica una situazione in cui uno o più utenti nel tenant di Azure AD no
 ### Contattaci
 In caso di problemi con il dominio gestito, verificare se è possibile risolvere il problema tramite i passaggi descritti in questa Guida alla risoluzione dei problemi. Se si verificano ancora problemi, è possibile contattare Microsoft tramite:
 
-- **Posta elettronica:** è possibile contattare Microsoft all'indirizzo di posta elettronica per [commenti su Servizi di dominio di Azure AD](mailto:aaddsfb@microsoft.com). Assicurarsi di includere l'ID tenant per la directory Azure AD e il nome di dominio configurato per Servizi di dominio AAD, per consentire a Microsoft di esaminare il problema.
+- **Posta elettronica:** è possibile contattare Microsoft all'indirizzo di posta elettronica per [commenti su Servizi di dominio Azure AD](mailto:aaddsfb@microsoft.com). Assicurarsi di includere l'ID tenant per la directory Azure AD e il nome di dominio configurato per Servizi di dominio AAD, per consentire a Microsoft di esaminare il problema.
 - **[Suggerimenti degli utenti per Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/):** per contattare Microsoft, assicurarsi di anteporre alla domanda le parole **'AADDS'**.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

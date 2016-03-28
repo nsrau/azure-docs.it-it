@@ -3,8 +3,8 @@
 	description="Informazioni su come eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="AnuragMehrotra"
+	manager="shivamg"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/08/2015"
-	ms.author="jimpark;delhan"/>
+	ms.author="anuragm;jimpark;delhan"/>
 
 
 # Eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
@@ -23,7 +23,7 @@ Questo articolo descrive come configurare un server di System Center 2012 R2 Dat
 ## Aggiornamenti
 Per registrare correttamente il server DPM con Backup di Azure, è necessario installare l'aggiornamento cumulativo più recente per System Center 2012 R2 DPM e la versione più recente dell'agente di Backup di Azure. Ottenere l'aggiornamento cumulativo più recente dal [catalogo Microsoft](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
 
->[AZURE.NOTE]Per gli esempi in questo articolo, è installata la versione 2.0.8719.0 dell'agente di Backup di Azure e l'aggiornamento cumulativo 6 è installato in System Center 2012 R2 DPM.
+>[AZURE.NOTE] Per gli esempi in questo articolo, è installata la versione 2.0.8719.0 dell'agente di Backup di Azure e l'aggiornamento cumulativo 6 è installato in System Center 2012 R2 DPM.
 
 ## Prerequisiti
 Prima di continuare, assicurarsi che tutti i [prerequisiti ](backup-azure-dpm-introduction.md#prerequisites) per l'uso di Backup di Microsoft Azure per proteggere i carichi di lavoro siano stati soddisfatti. I prerequisiti includono i seguenti:
@@ -50,7 +50,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
 
 4. Selezionare il database di Exchange Server che si vuole proteggere e fare clic su **Avanti**.
 
-    >[AZURE.NOTE]Se si vuole proteggere Exchange 2013, controllare i [Prerequisiti di Exchange 2013](https://technet.microsoft.com/library/dn751029.aspx).
+    >[AZURE.NOTE] Se si vuole proteggere Exchange 2013, controllare i [Prerequisiti di Exchange 2013](https://technet.microsoft.com/library/dn751029.aspx).
 
     Nell'esempio seguente è selezionato il database di Exchange 2010.
 
@@ -69,13 +69,13 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
 
     Dopo aver selezionato questa opzione, la verifica coerenza del backup verrà eseguito nel server DPM per evitare il traffico di I/O che viene generato eseguendo il comando **eseutil** sul server di Exchange.
 
-    >[AZURE.NOTE]Per usare questa opzione, è necessario copiare i file Ese.dll and Eseutil.exe nella directory C:\\Programmi\\Microsoft System Center 2012 R2\\DPM\\DPM\\bin nel server DPM. In caso contrario, viene generato l'errore seguente: ![Errore di Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
+    >[AZURE.NOTE] Per usare questa opzione, è necessario copiare i file Ese.dll and Eseutil.exe nella directory C:\\Programmi\\Microsoft System Center 2012 R2\\DPM\\DPM\\bin nel server DPM. In caso contrario, viene generato l'errore seguente: ![Errore di Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
 
 8. Fare clic su **Avanti**.
 
 9. Selezionare il database per **Backup di copia**, quindi fare clic su **Avanti**.
 
-    >[AZURE.NOTE]Se non si seleziona "Backup completo" per almeno una copia del gruppo di disponibilità dei database di un database, i registri non verranno troncati.
+    >[AZURE.NOTE] Se non si seleziona "Backup completo" per almeno una copia del gruppo di disponibilità dei database di un database, i registri non verranno troncati.
 
 10. Configurare gli obiettivi per **Backup a breve termine**, quindi fare clic su **Avanti**.
 
@@ -93,7 +93,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
 
     ![Specificare la pianificazione dei backup online](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
-    >[AZURE.NOTE]Tenere presente che i punti di ripristino online sono basati sui punti di ripristino di backup completo rapido. È quindi necessario pianificare il punto di ripristino in linea dopo il tempo specificato per il punto di ripristino di backup completo rapido.
+    >[AZURE.NOTE] Tenere presente che i punti di ripristino online sono basati sui punti di ripristino di backup completo rapido. È quindi necessario pianificare il punto di ripristino in linea dopo il tempo specificato per il punto di ripristino di backup completo rapido.
 
 16. Configurare i criteri di conservazione per **Backup di Azure**, quindi fare clic su **Avanti**.
 
@@ -131,4 +131,4 @@ Per i punti di ripristino online sono disponibili cinque tipi:
 
 - [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0316_2016-->

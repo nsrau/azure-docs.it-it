@@ -42,7 +42,7 @@ Il Gateway di gestione dati offre le funzionalità seguenti:
 ## Installare Gateway di gestione dati
 
 ### Installazione del gateway - Prerequisiti
-1.	Sono supportati i **sistemi operativi** Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2.
+1.	Sono supportati i **sistemi operativi** Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. L’installazione di Gateway di gestione dati sul controller di dominio al momento non è supportata.
 2.	La **configurazione** consigliata per il computer gateway è di almeno 2 GHz, 4 core, 8 GB di RAM e un disco da 80 GB.
 3.	Se il computer host entra in stato di ibernazione, il gateway non può rispondere alla richiesta di dati. Pertanto, configurare una **combinazione per il risparmio di energia** appropriata nel computer prima di installare il gateway. L'installazione del gateway invia un messaggio se il computer è configurato per l'ibernazione.
 
@@ -104,12 +104,12 @@ A livello di firewall aziendale è necessario configurare le porte in uscita e i
 
 | Nomi di dominio | Porte | Descrizione |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443, 80 | Listener in Inoltro del bus di servizio su TCP (richiede 443 per l'acquisizione del token di Controllo di accesso) |
-| *.servicebus.windows.net | 9350-9354 | Inoltro del bus di servizio su TCP facoltativo |
-| *.core.windows.net | 443 | HTTPS |
-| *.clouddatahub.net | 443 | HTTPS |
-| graph.windows.net | 443 | HTTPS |
-| login.windows.net | 443 | HTTPS |
+| **.servicebus.windows.net | 443, 80 | Listener in Inoltro del bus di servizio su TCP (richiede 443 per l'acquisizione del token di Controllo di accesso) | 
+| *.servicebus.windows.net | 9350-9354 | Inoltro del bus di servizio su TCP facoltativo | 
+| *.core.windows.net | 443 | HTTPS | 
+| *.clouddatahub.net | 443 | HTTPS | 
+| graph.windows.net | 443 | HTTPS | 
+| login.windows.net | 443 | HTTPS | 
 
 A livello di Windows Firewall queste porte in uscita sono generalmente abilitate. In caso contrario, è possibile configurare le porte e i domini nel modo appropriato nel computer gateway.
 
@@ -120,7 +120,7 @@ Se si usa un firewall di terze parti, è possibile aprire manualmente la porta 8
 
 	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Se si sceglie di non aprire la porta 8050 in ingresso nel computer gateway, per configurare un servizio collegato locale sarà necessario usare meccanismi diversi dall'uso dell'applicazione **Impostazione credenziali** per configurare le credenziali dell'archivio dati. Ad esempio, è possibile usare il cmdlet di PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Per informazioni su come impostare le credenziali dell'archivio dati, vedere la sezione [Impostazione delle credenziali e della sicurezza](#setting-credentials-and-security).
+Se si sceglie di non aprire la porta 8050 in ingresso nel computer gateway, per configurare un servizio collegato locale sarà necessario usare meccanismi diversi dall'uso dell'applicazione **Impostazione credenziali** per configurare le credenziali dell'archivio dati. Ad esempio, è possibile usare il cmdlet di PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Per informazioni su come impostare le credenziali dell’archivio dati, vedere [Impostazione delle credenziali e della sicurezza](#set-credentials-and-securityy).
 
 **Per copiare dati da un archivio dati di origine a un archivio dati sink:**
 
@@ -255,7 +255,7 @@ In questo passaggio si usa il portale di Azure per creare un'istanza di Data fac
 	
 
 ### Passaggio 3: Creare servizi collegati 
-In questo passaggio verranno creati due servizi collegati: **StorageLinkedService** e **SqlServerLinkedService**. Il servizio **SqlServerLinkedService** collega un database di SQL Server locale, mentre il servizio collegato **StorageLinkedService** collega un archivio BLOB di Azure alla data factory. Più avanti nella procedura dettagliata verrà creata una pipeline che copia i dati dal database SQL Server locale all'archivio BLOB di Azure.
+In questo passaggio verranno creati due servizi collegati: **AzureStorageLinkedService** e **SqlServerLinkedService**. Il servizio **SqlServerLinkedService** collega un database di SQL Server locale, mentre il servizio collegato **AzureStorageLinkedService** collega un archivio BLOB di Azure alla data factory. Più avanti nella procedura dettagliata verrà creata una pipeline che copia i dati dal database SQL Server locale all'archivio BLOB di Azure.
 
 #### Aggiungere un servizio collegato a un database di SQL Server locale
 1.	Nell'**editor di Data Factory** fare clic su **Nuovo archivio dati** sulla barra degli strumenti e selezionare **SQL Server**. 
@@ -286,7 +286,9 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
 	           		"gatewayName": "<Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database>"
     		    }
-	   
+	
+		Le credenziali saranno **crittografate** utilizzando un certificato di proprietà del servizio Data Factory. Se si desidera invece usare il certificato associato Gateway di gestione dati, vedere [Impostare le credenziali in modo sicuro](#set-credentials-and-security).
+    
 2.	Fare clic su **Distribuisci** nella barra dei comandi per distribuire il servizio collegato di SQL Server.
 
 #### Aggiungere un servizio collegato per un account di archiviazione di Azure
@@ -294,7 +296,7 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
 1. Nell'**editor di Data factory** fare clic su **Nuovo archivio dati** nella barra dei comandi e quindi su **Archiviazione di Azure**.
 2. Nel campo **Nome account** immettere il nome dell'account di archiviazione di Azure.
 3. Nel campo **Chiave account** immettere la chiave per l'account di archiviazione di Azure.
-4. Fare clic su **Distribuisci** per distribuire **StorageLinkedService**.
+4. Fare clic su **Distribuisci** per distribuire **AzureStorageLinkedService**.
    
  
 ### Passaggio 4: Creare set di dati di input e di output
@@ -375,7 +377,7 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 		  "name": "OutputBlobTable",
 		  "properties": {
 		    "type": "AzureBlob",
-		    "linkedServiceName": "StorageLinkedService",
+		    "linkedServiceName": "AzureStorageLinkedService",
 		    "typeProperties": {
 		      "folderPath": "adftutorial/outfromonpremdf",
 		      "format": {
@@ -393,7 +395,7 @@ In questo passaggio vengono creati i set di dati di input e di output che rappre
 	Tenere presente quanto segue:
 	
 	- L’oggetto **type** è impostato su **AzureBlob**.
-	- **linkedServiceName** è impostato su **StorageLinkedService**; questo servizio collegato è stato creato nel passaggio 2.
+	- **linkedServiceName** è impostato su **AzureStorageLinkedService**; questo servizio collegato è stato creato nel passaggio 2.
 	- **folderPath** è impostato su **adftutorial/outfromonpremdf** dove outfromonpremdf è la cartella nel contenitore adftutorial. È necessario creare solo il contenitore **adftutorial**.
 	- L'oggetto **availability** è impostato su **hourly** (l'oggetto **frequency** è impostato su **hour** e l'oggetto **interval** è impostato su **1**). Il servizio Data factory genererà una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure. 
 
@@ -586,46 +588,39 @@ Questa sezione illustra la procedura per spostare il client del gateway da un co
 10. Dopo la registrazione del gateway, nella home page di Gestione configurazione di Gateway di gestione dati verranno visualizzati **Registrazione** impostato su **Registrato** e **Stato** impostato su **Avviato**. 
 
 ## Impostare le credenziali e la sicurezza
+Per crittografare le credenziali in Data Factory Editor, seguire questa procedura:
 
-È inoltre possibile creare un servizio collegato di SQL Server tramite il pannello Servizi collegati anziché l'editor di Data Factory.
- 
-3.	Nella home page di Data Factory fare clic sul riquadro **Servizi collegati**. 
-4.	Nel pannello **Servizi collegati** fare clic su **Nuovo archivio dati** nella barra dei comandi. 
-4.	Immettere **SqlServerLinkedService** come **nome**. 
-2.	Fare clic sulla freccia accanto a **Tipo** e selezionare **SQL Server**.
-
-	![Crea nuovo archivio dati](./media/data-factory-move-data-between-onprem-and-cloud/new-data-store.png)
-3.	Si dovrebbero visualizzare altre impostazioni sotto a **Tipo**.
-4.	Per l'impostazione **Gateway dati** selezionare il gateway appena creato. 
-
-	![Impostazioni di SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-settings.png)
-4.	Per l'impostazione **Server** immettere il nome del server di database.
-5.	Per l'impostazione **Database** immettere il nome del database.
-6.	Fare clic sulla freccia accanto a **Credenziali**.
-
-	![Pannello Credenziali](./media/data-factory-move-data-between-onprem-and-cloud/credentials-dialog.png)
-7.	Nel pannello **Credenziali** fare clic su **Fare clic qui per impostare le credenziali**.
-8.	Nella finestra di dialogo **Impostazione credenziali** seguire questa procedura:
-
-	![Finestra di dialogo Impostazione credenziali](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+1. Fare clic su un **servizio collegato** esistente nella visualizzazione ad albero per vedere la sua definizione JSON o creare un nuovo servizio collegato che richieda un gateway di gestione dati (ad esempio SQL Server o Oracle). 
+2. Nell’editor JSON per la proprietà **gatewayName** specificare il nome del gateway. 
+3. Immettere il nome del server per la proprietà **Origine dati** in **connectionString**.
+4. Immettere il nome del server per la proprietà **Catalogo iniziale** in **connectionString**.    
+5. Fare clic sul pulsante **Crittografa** sulla barra dei comandi. Si aprirà la finestra di dialogo **Impostazione credenziali**. ![Finestra di dialogo Impostazione credenziali](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+6. Nella finestra di dialogo **Impostazione credenziali** seguire questa procedura:  
 	1.	Selezionare l'**autenticazione** che sarà usata dal servizio Data Factory per connettersi al database. 
 	2.	Per l'impostazione **NOME UTENTE** immettere il nome dell'utente che ha accesso al database. 
 	3.	Per l'impostazione **PASSWORD** immettere la password dell'utente.  
-	4.	Fare clic su **OK** per chiudere la finestra di dialogo. 
-4. Fare clic su **OK** per chiudere il pannello **Credenziali**. 
-5. Fare clic su **OK** nel pannello **Nuovo archivio dati**. 	
-6. Verificare che nel pannello Servizi collegati lo stato di **SqlServerLinkedService** sia impostato su Online.
- ![Stato del servizio collegato SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+	4.	Fare clic su **OK** per crittografare le credenziali e chiudere la finestra di dialogo. 
+5.	Sarà ora visualizzata una proprietà **encryptedCredential** in **connectionString**.		
+		
+			{
+	    		"name": "SqlServerLinkedService",
+		    	"properties": {
+		        	"type": "OnPremisesSqlServer",
+			        "description": "",
+		    	    "typeProperties": {
+		    	        "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
+		            	"gatewayName": "adftutorialgateway"
+		        	}
+		    	}
+			}
 
 Se si accede al portale da un computer diverso dal computer del gateway, è necessario assicurarsi che l'applicazione di gestione credenziali possa connettersi al computer del gateway. Se l'applicazione non riesce a raggiungere il computer del gateway, non sarà possibile impostare le credenziali per l'origine dati e per testare la connessione all'origine dati.
 
-Quando si usa l'applicazione "Impostazione credenziali" avviata dal portale di Azure per impostare le credenziali per un'origine dati locale, il portale crittografa le credenziali usando il certificato specificato nella scheda Certificato di Gestione configurazione del Gateway di gestione dati del computer del gateway.
+Quando si usa l'applicazione **Impostazione credenziali** avviata dal portale di Azure per impostare le credenziali per un'origine dati locale, il portale crittografa le credenziali usando il certificato specificato nella scheda **Certificato** di **Gestione configurazione del Gateway di gestione dati** del computer del gateway.
 
-Se si vuole un approccio basato su API per crittografare le credenziali, è possibile usare il cmdlet di PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. È possibile aggiungere le credenziali crittografate restituite da questo cmdlet all'elemento EncryptedCredential di connectionString nel file JSON da usare con il cmdlet [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) oppure nel frammento di codice JSON dell'editor di Data factory nel portale.
+Se si vuole un approccio basato su API per crittografare le credenziali, è possibile usare il cmdlet di PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. È possibile aggiungere le credenziali crittografate restituite da questo cmdlet all'elemento **EncryptedCredential** di **connectionString** nel file JSON da usare con il cmdlet [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) oppure nel frammento di codice JSON dell'editor di Data factory nel portale.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
-
-**Nota:** se si usa l'applicazione "Impostazione credenziali", le credenziali crittografate verranno automaticamente impostate nel servizio collegato come illustrato in precedenza.
 
 Esiste un altro approccio per impostare le credenziali usando l'editor delle data factory. Se si crea un servizio collegato di SQL Server usando l'editor e si immettono le credenziali in testo normale, le credenziali vengono crittografate tramite un certificato che appartiene al servizio Data factory, NON tramite il certificato usato dal gateway. Anche se questo approccio potrebbe apparire leggermente più veloce, in alcuni casi risulta meno sicuro. È pertanto consigliabile seguire questo approccio solo per scopi di sviluppo o di test.
 
@@ -688,7 +683,7 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 Quando si usa un'attività di copia in una pipeline di dati per inserire dati locali nel cloud ai fini di una successiva elaborazione o per esportare nuovamente i dati memorizzati nel cloud in un archivio dati locale, l'attività di copia usa un gateway per trasferire i dati dall'origine dati locale nel cloud e viceversa.
 
 Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi per la copia con il gateway di dati:
- ![Flusso di dati mediante gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+![Flusso di dati mediante gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	Viene creato un nuovo gateway per l'istanza di Data factory di Azure usando il [portale di Azure](https://portal.azure.com) oppure un [cmdlet di PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	Tramite il pannello "Servizi collegati" viene definito un nuovo servizio collegato per un archivio dati locale all'interno del gateway. Una parte della configurazione del servizio collegato consiste nell'uso dell'applicazione Impostazione credenziali per specificare i tipi di autenticazione e le credenziali come illustrato nella procedura dettagliata. La finestra di dialogo dell'applicazione Impostazione credenziali comunicherà con l'archivio dati per eseguire il test della connessione e con il gateway per salvare le credenziali.
@@ -697,4 +692,4 @@ Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi
 5.	Il gateway decrittografa le credenziali tramite lo stesso certificato e quindi si connette all'archivio dati locale con il tipo di autenticazione appropriato.
 6.	Il gateway copia i dati dall'archivio dati locale in una risorsa di archiviazione cloud o viceversa in base alla configurazione dell'attività di copia nella pipeline di dati. Nota: per questo passaggio il gateway comunica direttamente con un servizio di archiviazione basato sul cloud, ad esempio BLOB di Azure, database SQL di Azure e così via, su un canale protetto (HTTPS).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0316_2016-->

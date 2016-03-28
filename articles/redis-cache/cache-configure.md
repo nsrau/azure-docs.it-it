@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="03/04/2016"
+	ms.date="03/10/2016"
 	ms.author="sdanie" />
 
 # Come configurare Cache Redis di Azure
@@ -25,57 +25,72 @@ In questo argomento viene descritto come esaminare e aggiornare la configurazion
 
 È possibile accedere alle cache nel [portale di Azure](https://portal.azure.com) tramite il pannello **Sfoglia**.
 
-![Pannello Sfoglia di Cache Redis di Azure](./media/cache-configure/IC796920.png)
+![Pannello Sfoglia di Cache Redis di Azure](./media/cache-configure/redis-cache-browse.png)
 
-Fare clic su **Cache Redis** per visualizzare le cache.
+Fare clic su **Cache Redis** per visualizzare le cache. Se di recente è stata visitata una Cache Redis, è possibile fare clic su **Cache Redis** direttamente dall'elenco senza fare clic su **Sfoglia**.
 
-![Elenco Sfoglia cache di Cache Redis di Azure](./media/cache-configure/IC796921.png)
+![Elenco Sfoglia cache di Cache Redis di Azure](./media/cache-configure/redis-caches.png)
 
 Selezionare la cache desiderata per visualizzarne le proprietà.
 
-![Tutte le impostazioni di Cache Redis](./media/cache-configure/IC808312.png)
+![Tutte le impostazioni di Cache Redis](./media/cache-configure/redis-cache-blade.png)
 
 Fare clic su **Impostazioni** o su **Tutte le impostazioni** per visualizzare e configurare la cache.
 
-![Impostazioni di Cache Redis](./media/cache-configure/IC808313.png)
+![Impostazioni di Cache Redis](./media/cache-configure/redis-cache-settings.png)
 
-## Proprietà
+Cache Redis di Azure fornisce le impostazioni seguenti nel pannello **Impostazioni**.
+
+-	[Supporto e impostazioni di risoluzione dei problemi](#support-amp-troubleshooting-settings)
+-	[Impostazioni generali](#general-settings)
+	-	[Proprietà](#properties)
+	-	[Chiavi di accesso](#access-keys)
+	-	[Porte di accesso](#access-ports)
+	-	[Criterio per la memoria massima](#maxmemory-policy-and-maxmemory-reserved)
+	-	[Impostazioni avanzate (notifiche dello spazio delle chiavi)](#keyspace-notifications-advanced-settings)
+	-	[Indicazioni](#recommendations)
+-	[Impostazioni di gestione dati](#data-management-settings)
+	-	[Persistenza dei dati Redis:](#redis-data-persistence)
+-	[Impostazioni di rete](#network-settings)
+-	[Impostazioni di diagnostica](#diagnostics-settings)
+-	[Impostazioni di scalabilità](#scale-settings)
+	-	[Pricing tier](#pricing-tier)
+	-	[Dimensione del cluster Redis](#cluster-size)
+-	[Impostazioni di gestione delle risorse](#resource-management-settings)
+
+## Supporto e impostazioni di risoluzione dei problemi
+
+Fare clic su **Log di controllo** per visualizzare le operazioni eseguite nella cache. È possibile inoltre utilizzare il filtro per espandere la visualizzazione in modo da includere altre risorse. Per altre informazioni sull'utilizzo dei log di controllo, vedere [Visualizzare eventi e log di controllo](../azure-portal/insights-debugging-with-events.md) e [Operazioni di controllo con Gestione risorse](../resource-group-audit.md). Per altre informazioni sul monitoraggio degli eventi di Cache Redis di Azure, vedere [Operazioni e avvisi](cache-how-to-monitor.md#operations-and-alerts).
+
+## Impostazioni generali
+
+Le impostazioni nella sezione **Generale** consentono di visualizzare e configurare le impostazioni seguenti relative alla cache.
+
+![Impostazioni generali](./media/cache-configure/redis-cache-general-settings.png)
+
+### Proprietà
 
 Fare clic su **Proprietà** per visualizzare le informazioni sulla cache, incluse porte ed endpoint della cache.
 
-![Proprietà di Cache Redis](./media/cache-configure/IC808314.png)
+![Proprietà di Cache Redis](./media/cache-configure/redis-cache-properties.png)
 
-## Chiavi di accesso
+### Chiavi di accesso
 
 Fare clic su **Chiavi di accesso** per visualizzare o rigenerare le chiavi di accesso per la cache. Tali chiavi vengono utilizzate insieme al nome host e alle porte indicate nel pannello **Proprietà** dai client che si connettono alla cache.
 
-![Chiavi di accesso di Cache Redis](./media/cache-configure/IC808315.png)
+![Chiavi di accesso di Cache Redis](./media/cache-configure/redis-cache-manage-keys.png)
 
-## Porte di accesso
+### Porte di accesso
 
 Per le nuove cache la porta senza SSL è disabilitata per impostazione predefinita. Per abilitare la porta non SSL, fare clic sul pannello **Porte di accesso** e quindi fare clic su **No**.
 
-![Porte di accesso di Cache Redis](./media/cache-configure/IC808316.png)
+![Porte di accesso di Cache Redis](./media/cache-configure/redis-cache-access-ports.png)
 
-## Livello di prezzo
-
-Fare clic su **Livello di prezzo** per visualizzare o modificare il livello di prezzo della cache. Per altre informazioni sulla scalabilità, vedere [Come monitorare Cache Redis di Azure](cache-how-to-scale.md).
-
-![Livello di prezzo di Cache Redis](./media/cache-configure/pricing-tier.png)
-
-## Diagnostica
-
-Fare clic su **Diagnostica** per configurare l'account di archiviazione usato per archiviare la diagnostica della cache.
-
-![Diagnostica di Cache Redis](./media/cache-configure/IC808317.png)
-
-Per altre informazioni, vedere [Come monitorare Cache Redis di Azure](cache-how-to-monitor.md).
-
-## Maxmemory-policy e maxmemory-reserved
+### Maxmemory-policy e maxmemory-reserved
 
 Fare clic su **Criterio per la memoria massima** per configurare i criteri di memoria per la cache. L'impostazione **maxmemory-policy** consente di configurare i criteri di eliminazione per la cache mentre **maxmemory-reserved** consente di configurare la memoria riservata per i processi non appartenenti alla cache.
 
-![Criterio maxmemory di Cache Redis](./media/cache-configure/IC808318.png)
+![Criterio maxmemory di Cache Redis](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
 **Criterio per la memoria massima** consente di scegliere tra i criteri di eliminazione seguenti.
 
@@ -92,17 +107,50 @@ L'impostazione **maxmemory-reserved** consente di configurare la quantità di me
 
 >[AZURE.IMPORTANT] L'impostazione **maxmemory-reserved** è disponibile solo per le cache Premium e Standard.
 
-## Notifiche di Keyspace (impostazioni avanzate)
+### Notifiche di Keyspace (impostazioni avanzate)
 
 Per configurare le notifiche di Keyspace Redis, fare clic su **Impostazioni avanzate**. Le notifiche di Keyspace consentono ai client di ricevere notifiche quando si verificano determinati eventi.
 
-![Impostazioni avanzate di Cache Redis](./media/cache-configure/IC808319.png)
+![Impostazioni avanzate di Cache Redis](./media/cache-configure/redis-cache-advanced-settings.png)
 
 >[AZURE.IMPORTANT] Le notifiche di Keyspace e l'impostazione **notify-keyspace-events** sono disponibili solo per le cache Premium e Standard.
 
 Per altre informazioni, vedere [Notifiche di Keyspace Redis](http://redis.io/topics/notifications). Per un esempio di codice, vedere il file [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) nell'esempio di [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
-## Persistenza dei dati Redis:
+### Indicazioni
+
+Il pannello **Raccomandazioni** mostra le raccomandazioni per la cache. Durante il normale funzionamento non viene visualizzata nessuna raccomandazione.
+
+![Indicazioni](./media/cache-configure/redis-cache-no-recommendations.png)
+
+Se durante l'utilizzo della cache si verifica una condizione come ad esempio utilizzo elevato della memoria, larghezza di banda di rete o carico del server, nel pannello **Cache Redis** viene visualizzato un avviso.
+
+![Indicazioni](./media/cache-configure/redis-cache-recommendations-alert.png)
+
+Per altre informazioni vedere il pannello **Raccomandazioni**.
+
+![Indicazioni](./media/cache-configure/redis-cache-recommendations.png)
+
+È possibile monitorare le metriche nelle sezioni [Grafici di monitoraggio](cache-how-to-monitor.md#monitoring-charts) e [Grafici di utilizzo](cache-how-to-monitor.md#usage-charts) del pannello **Cache Redis**.
+
+Ogni piano tariffario presenta diversi limiti di connessioni client, memoria e larghezza di banda. Se la cache rasenta la capacità massima di queste metriche per un periodo prolungato, viene creata una raccomandazione. Per altre informazioni sulle metriche e sui limiti considerati dallo strumento **Raccomandazioni**, vedere la tabella seguente.
+
+| Metrica della cache Redis | Per altre informazioni vedere |
+|-------------------------|---------------------------------------------------------------------------|
+| Uso della larghezza di banda di rete | [Prestazioni della cache - Larghezza di banda disponibile](cache-faq.md#cache-performance) |
+| Client connessi | [Configurazione predefinita del server Redis - maxclients](#maxclients) |
+| Carico del server | [Grafici di utilizzo - Carico server Redis](cache-how-to-monitor.md#usage-charts) |
+| Utilizzo della memoria | [Prestazioni della cache - Dimensioni](cache-faq.md#cache-performance) |
+
+Per aggiornare la cache, fare clic su **Aggiorna ora** per modificare il [piano tariffario](#pricing-tier) e ridimensionare la cache. Per maggiori informazioni su come scegliere un piano tariffario, vedere [Quali offerte e dimensioni della Cache Redis è consigliabile usare?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+
+## Impostazioni di gestione dati
+
+Le impostazioni nella sezione **Gestione dati** consentono di visualizzare e configurare le impostazioni seguenti relative alla cache.
+
+![Gestione dati](./media/cache-configure/redis-cache-data-management.png)
+
+### Persistenza dei dati Redis:
 
 Fare clic su **Persistenza dati Redis** per abilitare, disabilitare o configurare la persistenza dei dati per la cache premium.
 
@@ -118,8 +166,40 @@ Fare clic su **OK** per salvare la configurazione della persistenza.
 
 >[AZURE.IMPORTANT] La persistenza dei dati Redis è disponibile solo per le cache Premium. Per altre informazioni, vedere [Come configurare la persistenza dei dati per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md).
 
+## Impostazioni di rete
+
+Le impostazioni nella sezione **Rete** consentono di visualizzare e configurare le impostazioni seguenti relative alla cache.
+
+![Rete](./media/cache-configure/redis-cache-network.png)
+
+>[AZURE.IMPORTANT] Le impostazioni della rete virtuale sono disponibili solo per le cache di livello Premium configurate con il supporto della rete virtuale durante la creazione della cache. Per informazioni sulla creazione di una cache di livello Premium che supporti la rete virtuale e sull'aggiornamento delle impostazioni, vedere [Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium](cache-how-to-premium-vnet.md).
+
+## Impostazioni di diagnostica
+
+La sezione **Diagnostica** consente di configurare la diagnostica per la cache Redis.
+
+![Diagnostica](./media/cache-configure/redis-cache-diagnostics.png)
+
+Fare clic su **Diagnostica** per configurare l'account di archiviazione usato per archiviare la diagnostica della cache.
+
+![Diagnostica di Cache Redis](./media/cache-configure/redis-cache-diagnostics-settings.png)
+
+Per altre informazioni, vedere [Come monitorare Cache Redis di Azure](cache-how-to-monitor.md).
+
+## Impostazioni di scalabilità
+
+Le impostazioni nella sezione **Scalabilità** consentono di visualizzare e configurare le impostazioni seguenti relative alla cache.
+
+![Rete](./media/cache-configure/redis-cache-scale.png)
+
+### Livello di prezzo
+
+Fare clic su **Livello di prezzo** per visualizzare o modificare il livello di prezzo della cache. Per altre informazioni sulla scalabilità, vedere [Come monitorare Cache Redis di Azure](cache-how-to-scale.md).
+
+![Livello di prezzo di Cache Redis](./media/cache-configure/pricing-tier.png)
+
 <a name="cluster-size"></a>
-## Dimensione del Cluster Redis
+### Dimensione del Cluster Redis
 
 Fare clic su **(ANTEPRIMA) dimensione del cluster Redis** per modificare la dimensione di un cluster per una cache premium in esecuzione con il clustering abilitato.
 
@@ -129,12 +209,12 @@ Fare clic su **(ANTEPRIMA) dimensione del cluster Redis** per modificare la dime
 
 Per modificare le dimensioni del cluster, usare il dispositivo di scorrimento oppure digitare un numero compreso tra 1 e 10 nella casella di testo **Numero di partizioni** e fare clic su **OK** per salvare.
 
->[AZURE.IMPORTANT] Il clustering Redis è disponibile esclusivamente per le cache Premium. Per ulteriori informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
+>[AZURE.IMPORTANT] Il clustering Redis è disponibile esclusivamente per le cache Premium. Per altre informazioni, vedere [Come configurare il clustering per una Cache Redis di Azure Premium](cache-how-to-premium-clustering.md).
 
 
-## Utenti e tag
+## Impostazioni di gestione delle risorse
 
-![Utenti e tag di Cache Redis](./media/cache-configure/IC808320.png)
+![Utenti e tag di Cache Redis](./media/cache-configure/redis-cache-resource-management.png)
 
 La sezione **Utenti** fornisce il supporto del controllo di accesso in base al ruolo (RBAC) nel portale di Azure per aiutare le organizzazioni a soddisfare i requisiti di gestione degli accessi in maniera semplice e precisa. Per altre informazioni, vedere[Controllo di accesso in base al ruolo nel portale di Azure](http://go.microsoft.com/fwlink/?LinkId=512803).
 
@@ -160,7 +240,7 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i seguenti valori 
 |lua-event-limit|500|Questa è la dimensione massima della coda di eventi di script.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|I limiti del buffer di output del client possono essere utilizzati per forzare la disconnessione dei client che per qualche motivo non leggono i dati dal server in modo sufficientemente rapido. Ad esempio, è frequente che un client di pubblicazione o sottoscrizione non possa utilizzare i messaggi con la stessa velocità con cui il server di pubblicazione li produce. Per ulteriori informazioni, vedere [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
-Il valore di <sup>1</sup>`maxclients` è diverso per ogni piano tariffario di Cache Redis di Azure.
+Il valore di <a name="maxclients"></a> <sup>1</sup>`maxclients` è diverso per ogni piano tariffario di Cache Redis di Azure.
 
 -	Cache di base e Standard
 	-	Cache C0 (250 MB): fino a 256 connessioni
@@ -210,7 +290,15 @@ Per eseguire comandi con l'istanza di cache, digitare semplicemente il comando d
 
 Per un elenco dei comandi di Redis disabilitati per Cache Redis di Azure, vedere la precedente sezione [Comandi di Redis non supportati in Cache Redis di Azure](#redis-commands-not-supported-in-azure-redis-cache). Per ulteriori informazioni sui comandi di Redis, vedere [http://redis.io/commands](http://redis.io/commands).
 
+## Spostare la cache in una nuova sottoscrizione
+
+È possibile spostare la cache in una nuova sottoscrizione facendo clic su **Sposta**.
+
+![Spostare la cache Redis](./media/cache-configure/redis-cache-move.png)
+
+Per informazioni sullo spostamento delle risorse da un gruppo di risorse all'altro e da una sottoscrizione all'altra, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../resource-group-move-resources.md).
+
 ## Passaggi successivi
 -	Per altre informazioni sull'uso dei comandi di Redis, vedere [Come è possibile eseguire i comandi di Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0316_2016-->

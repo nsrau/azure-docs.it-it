@@ -378,6 +378,8 @@ Una volta completata la distribuzione del gruppo di risorse, si noteranno i mess
 	Parameters        :
 	Outputs           :
 
+> [AZURE.NOTE] È possibile usare la REST API di [Crea regola avviso](https://msdn.microsoft.com/library/azure/dn510366.aspx) per creare una regola di avviso. Il payload JSON è simile all’esempio JSON riportato sopra.
+
 #### Recupero dell'elenco di distribuzioni del gruppo di risorse Azure
 Per recuperare l'elenco di distribuzioni del gruppo di risorse di Azure distribuite, usare il cmdlet **Get-AzureRmResourceGroupDeployment**, come mostrato nell'esempio seguente:
 
@@ -575,7 +577,7 @@ Dopo il completamento della distribuzione, verrà visualizzato il messaggio segu
 È anche possibile usare il cmdlet **Add-AlertRule** per distribuire una regola di avviso. Per informazioni dettagliate ed esempi, vedere l'argomento [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
 
 ## Spostare una data factory in un gruppo di risorse o una sottoscrizione diversa
-È possibile spostare una data factory in un gruppo di risorse diverso o una sottoscrizione diversa usando il pulsante **Sposta** della barra dei comandi nella home page della data factory.
+È possibile spostare una data factory in un gruppo di risorse diverso o in una sottoscrizione diversa usando il pulsante **Sposta** della barra dei comandi nella home page della data factory.
 
 ![Spostare una data factory](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
 
@@ -583,4 +585,4 @@ Dopo il completamento della distribuzione, verrà visualizzato il messaggio segu
 
 ![Finestra di dialogo Sposta risorse](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

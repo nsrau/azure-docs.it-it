@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # Eseguire la migrazione del database del server SQL al database SQL tramite la procedura guidata Distribuire il database nel database di Microsoft Azure
@@ -22,7 +22,7 @@ La procedura guidata Distribuire il database nel database di Microsoft Azure in 
 
 ## Usare la procedura guidata Distribuire il database nel database di Microsoft Azure
 
-> [AZURE.NOTE] La procedura seguente presuppone la presenza di un [server del database SQL con provisioning](sql-database-get-started.md).
+> [AZURE.NOTE] La procedura seguente presuppone la presenza di un [server del database SQL con provisioning](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database/).
 
 1. Verificare di essere in possesso della versione più recente di SQL Server Management Studio. Le nuove versioni di Management Studio vengono aggiornate ogni mese per rimanere sincronizzate con gli aggiornamenti apportati al portale di Azure.
 
@@ -45,7 +45,7 @@ La procedura guidata Distribuire il database nel database di Microsoft Azure in 
 
 	![Impostazioni di esportazione](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
 
-6.	Completare la procedura guidata per la migrazione del database. A seconda delle dimensioni e della complessità del database la distribuzione può richiedere da pochi minuti a diverse ore. Se questa procedura guidata rileva i problemi di compatibilità, gli errori verranno visualizzati sullo schermo e la migrazione non continuerà. Per indicazioni su come risolvere problemi di compatibilità del database, vedere [Risolvere i problemi di compatibilità del database](sql-database-cloud-migrate-fix-compatibility-issues.md).
+6.	Completare la procedura guidata per la migrazione del database. A seconda delle dimensioni e della complessità del database la distribuzione può richiedere da pochi minuti a diverse ore. Se questa procedura guidata rileva i problemi di compatibilità, gli errori verranno visualizzati sullo schermo e la migrazione non continuerà. Per indicazioni su come risolvere i problemi di compatibilità del database, passare a [Risolvere i problemi di compatibilità del database](sql-database-cloud-migrate-fix-compatibility-issues.md).
 
 7.	Usando Esplora oggetti, connettersi al database sottoposto a migrazione nel server del database SQL di Azure.
 8.	Usando il portale di Azure visualizzare il database e le relative proprietà.
@@ -54,4 +54,4 @@ La procedura guidata Distribuire il database nel database di Microsoft Azure in 
 
 [Risolvere i problemi di compatibilità del database](sql-database-cloud-migrate-fix-compatibility-issues.md), se presenti.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -208,19 +208,19 @@ AzureSearch\_SkipContent | "true" | Indica all'indicizzatore BLOB di indicizzare
 <a name="IndexerParametersConfigurationControl"></a>
 ## Uso dei parametri dell'indicizzatore per controllare l'estrazione dei documenti
 
-Per ignorare l'estrazione del contenuto per tutti i BLOB, è possibile usare l'oggetto di configurazione dell'indicizzatore, invece di aggiungere metadati personalizzati a ogni singolo BLOB. A tale scopo, impostare la proprietà di configurazione `SkipContent` su `true` nell'oggetto `parameters`:
+Per estrarre i metadati ma ignorare l'estrazione del contenuto per tutti i BLOB, è possibile richiedere questo comportamento tramite la configurazione dell'indicizzatore, invece di aggiungere metadati `AzureSearch_SkipContent` a ogni singolo BLOB. A tale scopo, impostare la proprietà di configurazione `skipContent` su `true` nell'oggetto `parameters`:
 
- 	PUT https://[service name].search.windows.net/indexers/<your indexer name>?api-version=2015-02-28-Preview
+ 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
 	api-key: [admin key]
 
 	{
 	  ... other parts of indexer definition
-	  "parameters" : { "configuration" : { "SkipContent" : true } }
+	  "parameters" : { "configuration" : { "skipContent" : true } }
 	}
 
 ## Come contribuire al miglioramento di Ricerca di Azure
 
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

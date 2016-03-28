@@ -81,7 +81,7 @@ Usare un modello JSON e un file di parametri per creare un nuovo hub IoT nel gru
 
     ```
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
         "hubName": {
@@ -119,7 +119,7 @@ Usare un modello JSON e un file di parametri per creare un nuovo hub IoT nel gru
 
     ```
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
         "hubName": { "value": "mynewiothub" }
@@ -215,4 +215,4 @@ Dopo aver distribuito un hub IoT usando un modello di Gestione risorse di Azure 
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

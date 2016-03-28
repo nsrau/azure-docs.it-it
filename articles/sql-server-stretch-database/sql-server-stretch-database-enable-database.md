@@ -18,7 +18,7 @@
 
 # Abilitare Database Estensione per un database
 
-Per configurare un database per Database Estensione, selezionare **Attività | Estensione | Abilita** per un database in SQL Server Management Studio per aprire la procedura guidata **Abilita estensione per il database**. È possibile anche usare Transact-SQL per abilitare Database Estensione per un database.
+Per configurare un database per Database Estensione, selezionare **Attività | Estensione | Abilita** per un database in SQL Server Management Studio per aprire la procedura guidata **Abilitare il database per l’estensione**. È possibile anche usare Transact-SQL per abilitare Database Estensione per un database.
 
 Se si seleziona **Attività | Estensione | Abilita** per una tabella e non è stato ancora abilitato il database per Database Estensione, la procedura guidata consente di configurare il database per Database Estensione e le tabelle come parte del processo. Seguire la procedura illustrata in questo argomento anziché quella descritta nell'articolo relativo all'[abilitazione di Database Estensione per una tabella](sql-server-stretch-database-enable-database.md).
 
@@ -37,7 +37,7 @@ Per abilitare Database Estensione in un database o una tabella è necessario dis
 ## <a name="EnableTSQLServer"></a>Prerequisito: Autorizzazioni per abilitare Database Estensione sul server
 Prima di abilitare Database Estensione in un database o una tabella, è necessario abilitarla nel server locale. Per eseguire questa operazione è necessario disporre delle autorizzazioni sysadmin o serveradmin.
 
--   Se si dispone delle autorizzazioni amministrative necessarie, la procedura guidata **Abilita estensione per il database** consente di configurare il server per l'estensione.
+-   Se si dispone delle autorizzazioni amministrative necessarie, la procedura guidata **Abilitare il database per l’estensione** consente di configurare il server per l'estensione.
 
 -   Se non si dispone delle autorizzazioni necessarie, un amministratore deve abilitare l'opzione manualmente eseguendo **sp\_configure** prima di eseguire la procedura guidata o eseguire la procedura guidata stessa.
 
@@ -128,8 +128,9 @@ Abilitare tabelle aggiuntive per Database Estensione. Monitorare la migrazione d
 -   [Eseguire backup e ripristino di database con estensione abilitata](sql-server-stretch-database-backup.md)
 
 ## Vedere anche
+
 Articolo relativo all'[identificazione di database e tabelle per l'estensione database](sql-server-stretch-database-identify-databases.md)
 
 [Opzioni ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

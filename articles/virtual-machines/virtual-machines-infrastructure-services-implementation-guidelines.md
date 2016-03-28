@@ -27,7 +27,7 @@ Questa guida identifica molte aree per le quali la pianificazione è fondamental
 
 Questo articolo è stato adattato sulla base del contenuto del post di blog relativo alle [linee guida sull'implementazione di Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Un ringraziamento a Santiago Cánepa (Application Development Manager per Microsoft) e Hugo Salcedo (Application Development Manager per Microsoft) per il materiale originale.
 
-> [AZURE.NOTE]I gruppi di affinità sono stati deprecati e il loro uso non è illustrato in questo articolo. Per altre informazioni, vedere [Informazioni sulle reti virtuali di area e sui gruppi di affinità](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+> [AZURE.NOTE] I gruppi di affinità sono stati deprecati e il loro uso non è illustrato in questo articolo. Per altre informazioni, vedere [Informazioni sulle reti virtuali di area e sui gruppi di affinità](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ## 1\. Convenzioni di denominazione
 
@@ -161,7 +161,7 @@ Archiviazione di Azure è parte integrante di molte soluzioni di Azure. Archivia
 
 In Azure sono disponibili due tipi di archiviazione: Un account di archiviazione standard consente di accedere all'archiviazione BLOB (usata per archiviare dischi delle macchine virtuali di Azure), all'archiviazione tabelle, all'archiviazione coda e all'archiviazione file. L'archiviazione Premium è progettata per le applicazioni a prestazioni elevate, ad esempio SQL Server in un cluster AlwaysOn, e attualmente supporta solo i dischi di macchine virtuali di Azure.
 
-Gli account di archiviazione sono associati a obiettivi di scalabilità. Vedere [Limiti, quote e vincoli delle sottoscrizioni e dei servizi di Microsoft Azure](../azure-subscription-service-limits.md#storage-limits) per acquisire familiarità con i limiti di archiviazione correnti di Azure. Vedere anche [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../storage-scalability-targets.md).
+Gli account di archiviazione sono associati a obiettivi di scalabilità. Vedere [Limiti, quote e vincoli delle sottoscrizioni e dei servizi di Microsoft Azure](../azure-subscription-service-limits.md#storage-limits) per acquisire familiarità con i limiti di archiviazione correnti. Vedere anche [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../storage-scalability-targets.md).
 
 Azure consente di creare macchine virtuali con un disco del sistema operativo, un disco temporaneo e zero o più dischi dati facoltativi. Il disco del sistema operativo e i dischi dati sono BLOB di Azure, mentre il disco temporaneo è archiviato localmente sul nodo in cui si trova il computer. Ciò rende il disco temporaneo non idoneo per i dati che devono essere salvati in modo permanente, poiché il computer potrebbe essere sottoposto a migrazione automatica da un nodo all'altro, perdendo tutti i dati in tale disco. Non archiviare alcun elemento nell’unità temporanea.
 
@@ -212,7 +212,7 @@ I servizi cloud sono un blocco predefinito fondamentale in Gestione servizi di A
 
 Nel caso di IaaS, i servizi cloud offrono una funzionalità simile, sebbene nella maggior parte dei casi, la funzionalità di bilanciamento del carico sia usata per inoltrare il traffico a porte TCP o UDP specifiche da Internet alle numerose macchine virtuali all'interno di tale servizio cloud.
 
-> [AZURE.NOTE]I servizi cloud non sono disponibili in Gestione risorse di Azure. Per un'introduzione ai vantaggi di Gestione risorse, vedere [Provider di calcolo di Azure, rete e archiviazione in Gestione risorse di Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+> [AZURE.NOTE] I servizi cloud non sono disponibili in Gestione risorse di Azure. Per un'introduzione ai vantaggi di Gestione risorse, vedere [Provider di calcolo di Azure, rete e archiviazione in Gestione risorse di Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 I nomi dei servizi cloud sono particolarmente importanti in IaaS, dal momento che Azure li usa come parte della convenzione di denominazione per i dischi. Il nome del servizio cloud può contenere solo lettere, numeri e trattini. Il primo e l'ultimo carattere nel campo devono essere una lettera o un numero.
 
@@ -274,7 +274,7 @@ Numero di macchine virtuali necessarie | Numero di bit di host necessari | Dimen
 28–59 | 6 | /26
 60–123 | 7 | /25
 
-> [AZURE.NOTE]Per le normali subnet locali, il numero massimo di indirizzi host per una subnet con n bit di host è 2<sup>n</sup> – 2. Per una subnet Azure, il numero massimo di indirizzi host per una subnet con n bit di host è 2<sup>n</sup> – 5 (2 più 3 per gli indirizzi che Azure utilizza in ogni subnet).
+> [AZURE.NOTE] Per le normali subnet locali, il numero massimo di indirizzi host per una subnet con n bit di host è 2<sup>n</sup> – 2. Per una subnet Azure, il numero massimo di indirizzi host per una subnet con n bit di host è 2<sup>n</sup> – 5 (2 più 3 per gli indirizzi che Azure utilizza in ogni subnet).
 
 Se si sceglie una dimensione subnet troppo piccola, è necessario rinumerare e ridistribuire le macchine virtuali nella subnet.
 
@@ -406,11 +406,11 @@ Contoso ha optato per i seguenti nomi per le macchine virtuali di Azure:
 
 - **azfae-use-vm-dc01**, per il primo controller di dominio
 - **azfae-use-vm-dc02**, per il secondo controller di dominio
-- **azfae-use-vm-web01**, per il primo server web
-- **azfae-use-vm-web02**, per il secondo server web
+- **azfae-use-vm-web01**, per il primo server Web
+- **azfae-use-vm-web02**, per il secondo server Web
 - **azfae-use-vm-app01**, per il primo server applicazioni
 - **azfae-use-vm-app02**, per il secondo server applicazioni
-- **azfae-use-vm-sql01**, per il primo server SQL nel cluster SQL Server
+- **azfae-use-vm-sql01**, per il primo server SQL del cluster SQL Server
 - **azfae-use-vm-sql02**, per il secondo server SQL nel cluster SQL Server
 - **azfae-use-vm-sqlmn01**, per il server di controllo della maggioranza dei nodi nel cluster SQL Server
 
@@ -436,10 +436,8 @@ Questa configurazione include:
 
 [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../storage-scalability-targets.md)
 
-[Framework di integrazione piattaforma cloud (Modelli di architettura di Azure)](../azure-architectures-cpif-overview.md)
-
 [Diagramma dell'architettura di riferimento per l'estensione di un data center](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 [Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

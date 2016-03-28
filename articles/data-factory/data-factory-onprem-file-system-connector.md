@@ -442,7 +442,7 @@ password | Specificare la password per l'utente (userid) | No (se si sceglie enc
 encryptedCredential | Specificare le credenziali crittografate che è possibile ottenere eseguendo il cmdlet New-AzureRmDataFactoryEncryptValue<br/><br/>**Nota:** è necessario usare Azure PowerShell 0.8.14 o versione successiva per usare cmdlet come New-AzureRmDataFactoryEncryptValue con il parametro type impostato su OnPremisesFileSystemLinkedService | No (se si sceglie di specificare ID utente e password in testo normale)
 gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi al database del file server locale | Sì
 
-Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati file system locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
+Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati file system locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
 
 **Esempio: Uso di nome utente e password in testo normale**
 	
@@ -608,4 +608,4 @@ false | mergeFiles | Per una cartella di origine Cartella1 con la struttura segu
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

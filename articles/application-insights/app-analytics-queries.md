@@ -545,6 +545,11 @@ Ad esempio, il risultato di `reduce by city` può includere:
 | Parigi | 27163 |
 
 
+## Direttiva render
+
+    T | render [ table | timechart  | barchart | piechart ]
+
+Indica al livello di presentazione la modalità di visualizzazione della tabella. Deve essere l'ultimo elemento della pipe. Si tratta di una valida alternativa all'uso dei controlli su schermo che consente di salvare una query con un metodo di presentazione specifico.
 
 
 ## Operatore sort 
@@ -761,4 +766,4 @@ Si noti che il confronto tra due colonne viene inserito per ultimo, perché non 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="nitinme"/>
 
 # Protezione dei dati presenti in Archivio Data Lake di Azure
 
 La protezione dei dati presenti in Archivio Data Lake di Azure prevede un approccio suddiviso in tre fasi.
 
-1. Creazione di gruppi di sicurezza in Azure Active Directory, che consentono di implementare il controllo degli accessi in base al ruolo (RBAC) nel portale di Azure. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Microsoft Azure](role-based-access-control-configure.md).
+1. Creazione di gruppi di sicurezza in Azure Active Directory, che consentono di implementare il controllo degli accessi in base al ruolo (RBAC) nel portale di Azure. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
 2. Assegnazione dei gruppi di sicurezza AAD all'account di Archivio Data Lake di Azure. In questo modo è possibile controllare l'accesso all'account di Archivio Data Lake dal portale e le operazioni di gestione dal portale o dalle API.
 
@@ -37,7 +37,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 ## Creare gruppi di sicurezza in Azure Active Directory
 
-Per istruzioni su come creare gruppi di sicurezza AAD e come aggiungere utenti ai gruppi, vedere [Gestione dei gruppi di sicurezza in Azure Active Directory](active-directory-accessmanagement-manage-groups.md).
+Per istruzioni su come creare gruppi di sicurezza AAD e come aggiungere utenti ai gruppi, vedere [Gestione dei gruppi di sicurezza in Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
 ## Assegnare utenti o gruppi di sicurezza ad account di Archivio Data Lake di Azure
 
@@ -160,9 +160,9 @@ Quando si rimuovono gli elenchi di controllo di accesso dei gruppi di sicurezza 
 
 - [Panoramica di Archivio Data Lake di Azure](data-lake-store-overview.md)
 - [Copiare i dati da BLOB di archiviazione di Azure ad Archivio Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
-- [Usare Azure Data Lake Analytics con Data Lake Store](data-lake-analytics-get-started-portal.md)
+- [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Introduzione ad Archivio Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
 - [Introduzione ad Archivio Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

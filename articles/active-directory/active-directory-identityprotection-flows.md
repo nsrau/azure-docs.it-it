@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/10/2016"
 	ms.author="markvi"/>
 
 #Flussi di Azure Active Directory Identity Protection
@@ -89,7 +89,7 @@ Se un amministratore ha configurato dei criteri per i rischi di accesso, gli ute
 
  
 ## Accesso rischioso bloccato
-Gli amministratori possono anche impostare criteri di rischio di accesso per bloccare gli utenti al momento dell'accesso in base al livello di rischio. Per essere sbloccati, gli utenti finali devono contattare un amministratore o il supporto tecnico oppure possono provare a eseguire l'accesso da una posizione o un dispositivo noto. Il ripristino automatico tramite l'autenticazione a più fattori non è possibile in questo caso. <br><br> ![Correzione](./media/active-directory-identityprotection-flows/130.png "Correzione") <br>
+Gli amministratori possono anche impostare criteri di rischio di accesso per bloccare gli utenti al momento dell'accesso in base al livello di rischio. Per essere sbloccati, gli utenti finali devono contattare un amministratore o il supporto tecnico oppure possono provare a eseguire l'accesso da una posizione o un dispositivo noto. Il ripristino automatico tramite l'autenticazione a più fattori non è possibile in questo caso. <br><br> ![Correzione](./media/active-directory-identityprotection-flows/200.png "Correzione") <br>
 
 
 
@@ -158,4 +158,4 @@ Se l’accesso degli utenti compromessi è bloccato, un amministratore può gene
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

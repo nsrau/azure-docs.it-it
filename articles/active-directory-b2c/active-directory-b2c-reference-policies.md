@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/15/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Framework di criteri estendibile
@@ -119,5 +119,27 @@ Per abilitare la modifica del profilo nell'applicazione, è necessario creare i 
 
     > [AZURE.NOTE]
     La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+    
+## Creare i criteri di reimpostazione delle password
 
-<!---HONumber=AcomDC_0224_2016-->
+Per abilitare una reimpostazione dettagliata delle password nell'applicazione, è necessario creare criteri di reimpostazione delle password. Si noti che l'opzione di reimpostazione delle password a livello di tenant specificata [qui](active-directory-b2c-reference-sspr.md) è comunque applicabile per i criteri di accesso. Questi criteri descrivono l'esperienza utente durante la procedura di reimpostazione delle password e il contenuto dei token che l'applicazione riceverà al completamento della procedura.
+
+1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Fare clic su **Criteri di reimpostazione password**.
+3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
+4. Il **Nome** determina il nome dei criteri di reimpostazione delle password usati dall'applicazione. Ad esempio, immettere "SSPR".
+5. Fare clic su **Provider di identità** e selezionare "Reimposta la password usando l'indirizzo di posta elettronica". Fare clic su **OK**.
+6. Fare clic su **Attestazioni applicazione**. Qui si scelgono le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di reimpostazione delle password. Ad esempio, selezionare "ID oggetto dell'utente".
+7. Fare clic su **Crea**. Si noti che il criterio appena creato viene visualizzato come "**B2C\_1\_SSPR**" (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Criteri di reimpostazione password**.
+8. Aprire il criterio facendo clic su "**B2C\_1\_SSPR**".
+9. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni** e `https://localhost:44321/` nel menu a discesa **URL di risposta / URI di reindirizzamento**.
+10. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di reimpostazione delle password nell'applicazione.
+
+    > [AZURE.NOTE]
+    La creazione e gli aggiornamenti dei criteri avranno effetto dopo circa un minuto.
+
+## Risorse aggiuntive
+
+- [Configurazione di token, sessione e accesso Single Sign-On](active-directory-b2c-token-session-sso.md).
+
+<!---HONumber=AcomDC_0316_2016-->

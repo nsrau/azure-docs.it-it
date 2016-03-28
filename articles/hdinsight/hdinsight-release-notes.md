@@ -14,11 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="03/10/2016"
 	ms.author="nitinme"/>
 
 
 # Note sulla versione di componenti Hadoop in Azure HDInsight
+
+## Note sulla versione di HDInsight rilasciata il 10/03/2016
+
+Numeri di versione completi per i cluster HDInsight distribuiti con questa versione:
+
+* HDInsight (Windows) 2.1.10.859.2123216 (HDP 1.3.12.0-01795 - non modificato)
+* HDInsight (Windows) 3.0.6.859.2123216 (HDP 2.0.13.0-2117 - non modificato)
+* HDInsight (Windows) 3.1.4.859.2123216 (HDP 2.1.15.0-2374 - non modificato)
+* HDInsight (Windows) 3.2.7.859.2123216 (HDP 2.2.9.1-7)
+* HDInsight (Windows) 3.3.0.859.2123216 (HDP 2.3.3.1-5 - non modificato)
+* HDInsight (Linux) 3.2.1000.7076817 (HDP 2.2.9.1-8)
+* HDInsight (Linux) 3.3.1000.7076817 (HDP 2.3.3.1-7)
+* SDK 1.5.8
+
+Questa versione contiene gli aggiornamenti seguenti.
+
+| Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Versioni aggiornate di HDInsight per tutti i cluster HDInsight | Con questo rilascio sono state aggiornate le versioni di HDInsight per tutti i cluster HDInsight| Servizio | Tutti| N/D
 
 ## Note per la versione di HDInsight rilasciata il 27/01/2016
 
@@ -1184,7 +1203,19 @@ Questa versione dell'hotfix ha risolto una perdita di memoria in Templeton che i
 
 * Sono state fornite nuove impostazioni di memoria per l'implementazione predefinita del cluster HDInsight. Le precedenti impostazioni di memoria predefinite non tenevano adeguatamente conto delle indicazioni relative al numero di core CPU implementati. Queste nuove impostazioni di memoria dovrebbero offrire valori predefiniti migliori, sulla base delle raccomandazioni di Hortonworks. Per modificare queste impostazioni, consultare la documentazione di riferimento dell'SDK sulla modifica della configurazione del cluster. Le nuove impostazioni di memoria usate dal cluster HDInsight predefinito con 4 core CPU (8 contenitori) sono elencate nella tabella seguente. Vengono forniti tra parentesi anche i valori usati prima di questa versione.
 
-<table border="1"> <tr><th>Componente</th><th>Allocazione della memoria</th></tr> <tr><td> yarn.scheduler.minimum-allocation</td><td>768 MB (in precedenza 512 MB)</td></tr> <tr><td> yarn.scheduler.maximum-allocation</td><td>6144 MB (invariato)</td></tr> <tr><td>yarn.nodemanager.resource.memory</td><td>6144 MB (invariato)</td></tr> <tr><td>mapreduce.map.memory</td><td>768 MB (in precedenza 512 MB)</td></tr> <tr><td>mapreduce.map.java.opts</td><td>opts=-Xmx512m (in precedenza -Xmx410m)</td></tr> <tr><td>mapreduce.reduce.memory</td><td>1536 MB (in precedenza 1024 MB)</td></tr> <tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m (in precedenza -Xmx819m)</td></tr> <tr><td>yarn.app.mapreduce.am.resource</td><td>768 MB (in precedenza 1024 MB)</td></tr> <tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m (in precedenza -Xmx819m)</td></tr> <tr><td>mapreduce.task.io.sort</td><td>256 MB (in precedenza 200 MB)</td></tr> <tr><td>tez.am.resource.memory</td><td>1536 MB (invariato)</td></tr>
+<table border="1">
+<tr><th>Componente</th><th>Allocazione della memoria</th></tr>
+<tr><td> yarn.scheduler.minimum-allocation</td><td>768 MB (in precedenza 512 MB)</td></tr>
+<tr><td> yarn.scheduler.maximum-allocation</td><td>6.144 MB (invariato)</td></tr>
+<tr><td>yarn.nodemanager.resource.memory</td><td>6.144 MB (invariato)</td></tr>
+<tr><td>mapreduce.map.memory</td><td>768 MB (in precedenza 512 MB)</td></tr>
+<tr><td>mapreduce.map.java.opts</td><td>opts=-Xmx512m (in precedenza -Xmx410m)</td></tr>
+<tr><td>mapreduce.reduce.memory</td><td>1.536 MB (in precedenza 1.024 MB)</td></tr>
+<tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m (in precedenza -Xmx819m)</td></tr>
+<tr><td>yarn.app.mapreduce.am.resource</td><td>768 MB (in precedenza 1.024 MB)</td></tr>
+<tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m (in precedenza -Xmx819m)</td></tr>
+<tr><td>mapreduce.task.io.sort</td><td>256 MB (in precedenza 200 MB)</td></tr>
+<tr><td>tez.am.resource.memory</td><td>1.536 MB (invariato)</td></tr>
 
 </table><br>
 
@@ -1238,7 +1269,11 @@ Questi problemi di compatibilità sono stati risolti nelle versioni più recenti
 * HDInsight versione 1.6 (HDP 1.1 e Hadoop 1.0.3) e HDInsight versione 2.1 (HDP1.3 e Hadoop 1.2) verranno rimossi dal portale di gestione di Azure. È possibile continuare a creare cluster Hadoop per queste versioni usando il cmdlet di Azure PowerShell [New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) oppure usando [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx). Per altre informazioni, fare riferimento alla pagina relativa al [controllo delle versioni del componente HDInsight](../hdinsight-component-versioning/).
 * Modifiche a Hortonworks Data Platform (HDP) in questa versione:
 
-<table border="1"> <tr><th>Modifiche</th><th>a HDP</th></tr> <tr><td>HDP 1.3/HDI 2.1</td><td>Nessuna modifica</td></tr> <tr><td>HDP 2.0/HDI 3.0</td><td>Nessuna modifica</td></tr> <tr><td>HDP 2.1/HDI 3.1</td><td>zookeeper: ['3.4.5.2.1.3.0-1948'] -> ['3.4.5.2.1.3.2-0002']</td></tr>
+<table border="1">
+<tr><th>HDP</th><th>Modifiche</th></tr>
+<tr><td>HDP 1.3/HDI 2.1</td><td>Nessuna modifica</td></tr>
+<tr><td>HDP 2.0/HDI 3.0</td><td>Nessuna modifica</td></tr>
+<tr><td>HDP 2.1/HDI 3.1</td><td>zookeeper: ['3.4.5.2.1.3.0-1948'] -> ['3.4.5.2.1.3.2-0002']</td></tr>
 
 
 </table><br>
@@ -1295,9 +1330,30 @@ I metastore Oozie vengono collegati a cluster specifici e non possono essere con
 
 **Porte**: le porte usate dal servizio HDInsight sono state cambiate. I numeri di porta usati in precedenza erano compresi nell'intervallo di porte temporanee del sistema operativo Windows. Per le comunicazioni di breve durata basate su IP, le porte vengono allocate automaticamente da un intervallo di porte temporanee predefinito. Il nuovo set di numeri di porta per il servizio Hortonworks Data Platform (HDP) sono esterne a questo intervallo, per evitare conflitti con le porte usate dai servizi in esecuzione sul nodo head. I nuovi numeri di porta non dovrebbero provocare modifiche di rilievo. I nuovi numeri in uso sono i seguenti:
 
- **HDInsight 1.6 (HDP 1.1)** <table border="1"> <tr><th>Nome</th><th>Valore</th></tr> <tr><td>dfs.http.address</td><td>namenodehost:30070</td></tr> <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr> <tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr> <tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr> <tr><td>dfs.secondary.http.address</td><td>0.0.0.0:30090</td></tr> <tr><td>mapred.job.tracker.http.address</td><td>jobtrackerhost:30030</td></tr> <tr><td>mapred.task.tracker.http.address</td><td>0.0.0.0:30060</td></tr> <tr><td>mapreduce.history.server.http.address</td><td>0.0.0.0:31111</td></tr> <tr><td>templeton.port</td><td>30111</td></tr> </table><br>
+ **HDInsight 1.6 (HDP 1.1)** <table border="1">
+<tr><th>Nome</th><th>Valore</th></tr>
+<tr><td>dfs.http.address</td><td>namenodehost:30070</td></tr>
+<tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>
+<tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr>
+<tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr>
+<tr><td>dfs.secondary.http.address</td><td>0.0.0.0:30090</td></tr>
+<tr><td>mapred.job.tracker.http.address</td><td>jobtrackerhost:30030</td></tr>
+<tr><td>mapred.task.tracker.http.address</td><td>0.0.0.0:30060</td></tr>
+<tr><td>mapreduce.history.server.http.address</td><td>0.0.0.0:31111</td></tr>
+<tr><td>templeton.port</td><td>30111</td></tr>
+</table><br>
 
- **HDInsight 3.1 e 3.0 (HDP 2.1 e 2.0)** <table border="1"> <tr><th>Nome</th><th>Valore</th></tr> <tr><td>dfs.namenode.http-address</td><td>namenodehost:30070</td></tr> <tr><td>dfs.namenode.https-address</td><td>headnodehost:30470</td></tr> <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr> <tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr> <tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr> <tr><td>dfs.namenode.secondary.http-address</td><td>0.0.0.0:30090</td></tr> <tr><td>yarn.nodemanager.webapp.address</td><td>0.0.0.0:30060</td></tr> <tr><td>templeton.port</td><td>30111</td></tr> </table><br>
+ **HDInsight 3.1 e 3.0 (HDP 2.1 e 2.0)** <table border="1">
+<tr><th>Nome</th><th>Valore</th></tr>
+<tr><td>dfs.namenode.http-address</td><td>namenodehost:30070</td></tr>
+<tr><td>dfs.namenode.https-address</td><td>headnodehost:30470</td></tr>
+<tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>
+<tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr>
+<tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr>
+<tr><td>dfs.namenode.secondary.http-address</td><td>0.0.0.0:30090</td></tr>
+<tr><td>yarn.nodemanager.webapp.address</td><td>0.0.0.0:30060</td></tr>
+<tr><td>templeton.port</td><td>30111</td></tr>
+</table><br>
 
 ###Dipendenze
 
@@ -1399,7 +1455,7 @@ Tra HDInsight 2.x (HDP1.x) e HDInsight 3.x (HDP2.x) sono state apportate le segu
 
 
 ### Driver
-Il driver JDBC Java Database Connnectivity) per SQL Server viene usato internamente da HDInsight e non viene usato per operazioni esterne. Se si desidera connettersi a HDInsight mediante ODBC (Open Database Connectivity), usare Microsoft Hive ODBC Driver. Per altre informazioni, vedere [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver](../hdinsight-connect-excel-hive-odbc-driver.md).
+Il driver JDBC Java Database Connnectivity) per SQL Server viene usato internamente da HDInsight e non viene usato per operazioni esterne. Se si desidera connettersi a HDInsight mediante ODBC (Open Database Connectivity), usare Microsoft Hive ODBC Driver. Per altre informazioni, vedere [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Correzioni di bug
@@ -1441,4 +1497,4 @@ Le note sulla versione relative alle piattaforme HDP (Hortonworks Data Platform)
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

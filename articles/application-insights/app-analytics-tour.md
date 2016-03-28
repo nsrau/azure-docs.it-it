@@ -33,7 +33,7 @@ Aprire Analytics dal [pannello di panoramica](app-insights-dashboards.md) dell'a
 
 ![In portal.azure.com, aprire la risorsa di Application Insights e scegliere Analytics.](./media/app-analytics/001.png)
 
-## Conteggio delle righe
+## [Conteggio](app-analytics-aggregations.md#count) delle righe
 
 Le metriche, ad esempio i contatori delle prestazioni, vengono archiviate in una tabella denominata metriche. Ogni riga è un punto dati di telemetria ricevuto da Application Insights SDK in un'applicazione. Per scoprire le dimensioni della tabella, si invia una pipe del contenuto in un operatore che semplicemente conteggia le righe:
 
@@ -50,9 +50,9 @@ Il risultato è il seguente:
 ![](./media/app-analytics-tour/010.png)
 
 	
-`Count` è uno dei molti [operatori di query](app-analytics-queries.md) che è possibile disporre in una pipe quando si filtrano, si modificano e si uniscono i dati di più fasi.
+[`Count`](app-analytics-aggregations.md#count) è uno dei molti [operatori di query](app-analytics-queries.md) che è possibile disporre in una pipe quando si filtrano, si modificano e si uniscono i dati di più fasi.
 	
-## Take: mostrare n righe
+## [Take](app-analytics-aggregations.md#take): mostrare n righe
 
 
 Osserviamo alcuni dati. Che cosa c'è in 5 righe di esempio?
@@ -75,7 +75,7 @@ Espandere un elemento per visualizzare i dettagli:
 ![Scegliere Tabella e utsare Configura colonne](./media/app-analytics-tour/040.png)
 
 
-## Top e sort
+## [Top](app-analytics-aggregations.md#top) e [sort](app-analytics-aggregations.md#sort)
 
 `take` è utile per ottenere un rapido esempio di un risultato, ma mostra le righe della tabella senza un ordine particolare. Per ottenere una visualizzazione ordinata, usare `top` (per un esempio) o `sort` (per l'intera tabella).
 
@@ -103,9 +103,9 @@ Il risultato sarebbe stato lo stesso, ma l'esecuzione sarebbe risultata più len
 Le intestazioni di colonna nella visualizzazione tabella possono essere usate anche per ordinare i risultati sullo schermo. Naturalmente, se è stato usato `take` o `top` per recuperare solo parte di una tabella, verranno ordinati soltanto i record recuperati.
 
 
-## Project: selezionare, rinominare e calcolare le colonne
+## [Project](app-analytics-aggregations.md#project): selezionare, rinominare e calcolare le colonne
 
-Usare `project` per selezionare solo le colonne desiderate:
+Usare [`project`](app-analytics-aggregations.md#project) per selezionare solo le colonne desiderate:
 
 ```AIQL
 
@@ -138,9 +138,9 @@ Nell'espressione scalare:
 
 Le [espressioni](app-analytics-scalars.md) possono includere tutti gli operatori consueti (`+`, `-`, ...) ed è disponibile una gamma di funzioni utili.
 
-## Extend: calcolare le colonne
+## [Extend](app-analytics-aggregations.md#extend): calcolare le colonne
 
-Se si desidera aggiungere colonne a quelli esistenti, usare `extend`:
+Se si desidera aggiungere colonne a quelli esistenti, usare [`extend`](app-analytics-aggregations.md#extend):
 
 ```AIQL
 
@@ -149,9 +149,9 @@ Se si desidera aggiungere colonne a quelli esistenti, usare `extend`:
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-`extend` è meno dettagliato di `project` se si desidera mantenere tutte le colonne esistenti.
+[`extend`](app-analytics-aggregations.md#extend) è meno dettagliato di [`project`](app-analytics-aggregations.md#project) se si desidera mantenere tutte le colonne esistenti.
 
-## Summarize: aggregare gruppi di righe
+## [Summarize](app-analytics-aggregations.md#summarize): aggregare gruppi di righe
 
 Esaminando un esempio di tabella è possibile vedere i campi in cui sono riportati i diversi dati di telemetria. Ad esempio, `exception | take 20` mostra immediatamente che i messaggi di eccezione vengono riportati in un campo denominato `outerExceptionType`.
 
@@ -214,7 +214,7 @@ Il risultato di summarize include:
 Si noti che anche se i risultati non sono stati ordinati in base all'ora (come è possibile osservare nella visualizzazione tabella), la visualizzazione grafico mostra sempre i dati data/ora nell'ordine corretto.
 
 
-## Where: filtrare una condizione
+## [Where](app-analytics-aggregations.md#where): filtrare una condizione
 
 Se Application Insights è stato configurato per il monitoraggio di entrambi i lati [client](app-insights-javascript.md) e server dell'applicazione, alcuni dati di telemetria del database provengono dai browser.
 
@@ -357,7 +357,7 @@ La clausola `where` esclude le sessioni monofase (sessionDuration==0) e imposta 
 
 
 
-## Percentili
+## [Percentili](app-analytics-aggregations.md#percentiles)
 
 Quali intervalli di durate coprono le diverse percentuali delle sessioni?
 
@@ -403,9 +403,9 @@ Per ottenere una suddivisione separata per ogni paese, è sufficiente visualizza
 ![](./media/app-analytics-tour/190.png)
 
 
-## Join
+## [Join](app-analytics-aggregations.md#join)
 
-È possibile accedere a tre tabelle: metriche, eccezioni ed eventi. `event` contiene i report di richiesta, le visualizzazioni di pagina, gli eventi personalizzati e così via.
+È possibile accedere a più tabelle, incluse le richieste e le eccezioni.
 
 Per individuare le eccezioni correlate a una richiesta che ha restituito una risposta di errore, è possibile eseguire il join delle tabelle in `session_Id`:
 
@@ -422,7 +422,7 @@ Per individuare le eccezioni correlate a una richiesta che ha restituito una ris
 
 
 
-## Let: assegnare un risultato a una variabile
+## [Let](app-analytics-aggregations.md#let): assegnare un risultato a una variabile
 
 Usare [let](./app-analytics-syntax.md#let-statements) per separare le parti dell'espressione precedente. I risultati rimangono invariati:
 
@@ -441,4 +441,4 @@ Usare [let](./app-analytics-syntax.md#let-statements) per separare le parti dell
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

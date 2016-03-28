@@ -44,7 +44,7 @@ Le risorse create tramite Gestione risorse condividono le caratteristiche seguen
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Nel caso delle risorse di rete, archiviazione e calcolo, è possibile usare sia Gestione risorse sia la distribuzione classica. Selezionare **Gestione risorse**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -52,7 +52,7 @@ Le risorse create tramite Gestione risorse condividono le caratteristiche seguen
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-  - Per Azure PowerShell 1.0, usare la versione di Gestione risorse dei comandi. Questi comandi hanno il formato *verb-AzureRm*, come illustrato di seguito.
+  - Per Azure PowerShell 1.0, usare la versione di Gestione risorse dei comandi. Questi comandi hanno il formato *Verb-AzureRmNoun*, come illustrato di seguito.
 
             PS C:\> Get-AzureRmResourceGroupDeployment
 
@@ -97,11 +97,11 @@ Le risorse create nel modello di distribuzione classica condividono le caratteri
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - Per le versioni di Azure PowerShell precedenti alla versione 1.0, i comandi vengono eseguiti nella modalità **AzureServiceManagement** (che è la modalità predefinita, pertanto, se non si passa in modo specifico a AzureResourceManager, viene eseguito in modalità AzureServiceManagement).
+  - Per le versioni di Azure PowerShell precedenti alla versione 1.0, i comandi vengono eseguiti nella modalità **AzureServiceManagement** (che è la modalità predefinita, quindi, se non si passa in modo specifico ad AzureResourceManager, il comando viene eseguito in modalità AzureServiceManagement).
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
-  - Per Azure PowerShell 1.0, usare la versione di Gestione servizi dei comandi. Questi nomi di comandi **non** hanno il formato *verb-AzureRm*, come illustrato di seguito.
+  - Per Azure PowerShell 1.0, usare la versione di Gestione servizi dei comandi. Questi nomi di comando hanno il formato *Verb-AzureNoun*, come illustrato di seguito.
 
             PS C:\> Get-AzureDeployment
 
@@ -111,7 +111,7 @@ Le risorse create nel modello di distribuzione classica condividono le caratteri
 
     ![tipo classico](./media/resource-manager-deployment-model/classic-type.png)
 
-È comunque possibile utilizzare il portale per gestire le risorse che sono state create tramite la distribuzione classica.
+È tuttavia possibile usare il portale di Azure per gestire le risorse che sono state create con la distribuzione classica.
 
 Questi sono i componenti e le relative relazioni per Gestione servizi di Azure.
 
@@ -125,7 +125,7 @@ Gestione risorse ha aggiunto il concetto di gruppo di risorse. Tutte le risorse 
 - è possibile distribuire l'applicazione in tutto il ciclo di vita dell'app ripetutamente e avere la certezza che le risorse vengano distribuite in uno stato coerente.
 - È possibile utilizzare modelli dichiarativi per definire la distribuzione.
 - È possibile definire le dipendenze tra risorse e pertanto esse vengono distribuite nell'ordine corretto.
-- è possibile applicare il controllo di accesso a tutti i servizi nel gruppo di risorse perché il controllo di accesso basato sui ruoli (RBAC) è integrato in modo nativo nella piattaforma di gestione.
+- È possibile applicare il controllo di accesso a tutte le risorse nel gruppo di risorse perché il controllo degli accessi in base al ruolo è integrato in modo nativo nella piattaforma di gestione.
 - È possibile applicare i tag alle risorse per organizzare logicamente tutte le risorse nella sottoscrizione.
 
 
@@ -155,9 +155,9 @@ Le risorse create con il modello di distribuzione classica non supportano le ope
      ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
     ...
 
-Tuttavia, se si esegue il comando Get-AzureVM, si otterranno solo macchine virtuali che sono state create con Gestione risorse.
+Tuttavia, se si esegue il comando Get-AzureRmVM, si otterranno solo macchine virtuali che sono state create con Resource Manager.
 
-    PS C:\> Get-AzureVM -ResourceGroupName ExampleGroup
+    PS C:\> Get-AzureRmVM -ResourceGroupName ExampleGroup
     ...
     Id       : /subscriptions/xxxx/resourceGroups/ExampleGroup/providers/Microsoft.Compute/virtualMachines/ExampleResourceVM
     Name     : ExampleResourceVM
@@ -169,7 +169,7 @@ Quando si utilizzano le risorse create tramite Gestione risorse, è necessario u
 
 ## Considerazioni sulle macchine virtuali
 
-Esistono alcune importanti considerazioni da tenere presente quando si utilizzano le macchine virtuali.
+Esistono alcune importanti considerazioni da tenere presente quando si usano le macchine virtuali.
 
 - Le macchine virtuali distribuite con il modello di distribuzione classica non possono essere incluse in una rete virtuale distribuita con Gestione risorse.
 - Le macchine virtuali distribuite con il modello di distribuzione di Gestione risorse deve essere incluso in una rete virtuale.
@@ -188,4 +188,4 @@ Per informazioni sulla connessione di reti virtuali da diversi modelli di distri
 - Per altre informazioni sulla creazione dei modelli di distribuzione dichiarativa, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per vedere i comandi per la distribuzione di un modello, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/04/2016"
+   ms.date="03/15/2016"
    ms.author="alkohli"/>
 
 # Software, disponibilità elevata e requisiti di rete di StorSimple
@@ -73,6 +73,24 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 
 > [AZURE.IMPORTANT] Verificare che il firewall non modifichi o decrittografi il traffico SSL tra il dispositivo StorSimple e Azure.
 
+### Modelli URL per le regole del firewall 
+
+Gli amministratori di rete possono spesso configurare regole del firewall avanzate in base ai modelli URL in modo da filtrare il traffico in entrata e in uscita. Il dispositivo StorSimple e il servizio StorSimple Manager dipendono da altre applicazioni Microsoft, come ad esempio il bus di servizio di Azure, il controllo di accesso di Azure Active Directory, gli account di archiviazione e i server di Microsoft Update. I modelli URL associati a queste applicazioni possono essere usati per configurare le regole del firewall. È importante comprendere che i modelli di URL associati alle suddette applicazioni possono variare. Questo a sua volta richiederà, da parte dell'amministratore di rete, il monitoraggio e l'aggiornamento delle regole del firewall per StorSimple a seconda delle esigenze.
+
+Nella maggior parte dei casi è consigliabile impostare liberamente le regole del firewall. Tuttavia, è possibile utilizzare le informazioni seguenti per impostare regole del firewall avanzate indispensabili per creare ambienti protetti.
+
+> [AZURE.NOTE] Gli indirizzi IP (di origine) del dispositivo devono essere sempre impostati su tutte le interfacce di rete abilitate. Gli indirizzi IP di destinazione devono essere impostati sugli [intervalli IP dei data center di Azure](https://www.microsoft.com/it-IT/download/confirmation.aspx?id=41653).
+
+
+| Modello URL | Componente/funzionalità | Indirizzi IP dispositivo |
+|------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Servizio StorSimple Manager<br>Servizio di controllo di accesso<br>Bus di servizio di Azure| Interfacce di rete abilitate per il cloud |
+|`http://crl.microsoft.com/pki/*` |Revoca del certificato |Interfacce di rete abilitate per il cloud |
+| `https://*.core.windows.net/*` | Account di archiviazione di Azure e monitoraggio | Interfacce di rete abilitate per il cloud |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Server di Microsoft Update<br> | Solo indirizzi IP fissi del controller |
+| `http://*.deploy.akamaitechnologies.com` |Rete CDN di Akamai |Solo indirizzi IP fissi del controller |
+| `https://*.partners.extranet.microsoft.com/*` | Pacchetto di supporto | Interfacce di rete abilitate per il cloud |
+
 ### Metrica di routing
 
 Una metrica di routing è associata alle interfacce e al gateway che instrada i dati alle reti specificate. La metrica di routing è usata dal protocollo di routing per calcolare il percorso migliore per una determinata destinazione, se apprende dell'esistenza di più percorsi per la stessa destinazione. Minore è la metrica di routing, maggiore è la preferenza.
@@ -103,7 +121,7 @@ L'aggiornamento 2 presenta diversi miglioramenti correlati alle reti e le metric
 
 - È stato assegnato un set di valori predefiniti alle interfacce di rete. 	
 		
-- Si consideri la tabella di esempio seguente con valori assegnati alle varie interfacce di rete quando sono abilitate o disabilitate per il cloud, ma con un gateway configurato. Si noti che i valori assegnati sono puramente esemplificativi.
+- Si consideri la tabella di esempio seguente con valori assegnati alle varie interfacce di rete quando sono abilitate o disabilitate per il cloud, ma con un gateway configurato. Si noti che i valori assegnati qui sono puramente esemplificativi.
 
 		
 	| Interfaccia di rete | Abilitata per il cloud | Disabilitata per il cloud con gateway |
@@ -261,4 +279,4 @@ Esaminare attentamente le procedure consigliate seguenti per assicurare la dispo
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0316_2016-->

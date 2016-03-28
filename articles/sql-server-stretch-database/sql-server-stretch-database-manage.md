@@ -51,6 +51,9 @@ Per avere suggerimenti sulla risoluzione dei problemi, vedere l'articolo relativ
 -   Possibile danneggiamento delle condizioni della rete. Per informazioni su problemi o interruzioni recenti, contattare l'amministratore di rete.
 
 ## Vedere anche
-[Monitorare Database Estensione](sql-server-stretch-database-monitor.md) [Eseguire backup e ripristino di database con estensione abilitata](sql-server-stretch-database-backup.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+[Monitorare Database Estensione](sql-server-stretch-database-monitor.md)
+
+[Eseguire backup e ripristino di database con estensione abilitata](sql-server-stretch-database-backup.md)
+
+<!---HONumber=AcomDC_0316_2016-->

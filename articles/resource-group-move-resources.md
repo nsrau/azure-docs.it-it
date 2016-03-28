@@ -29,22 +29,22 @@ In questo argomento viene illustrato come spostare le risorse da un gruppo di ri
 Prima di spostare una risorsa è necessario tenere presenti alcuni importanti problemi:
 
 1. Non è possibile modificare il percorso della risorsa. Lo spostamento di una risorsa comporta solo il suo spostamento in un nuovo gruppo di risorse. Il nuovo gruppo di risorse può avere un percorso diverso, ma ciò non modifica la posizione della risorsa.
-2. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa. Ad esempio, se si sposta un'istanza del servizio Gestione API in una sottoscrizione che non ha registrato il provider di risorse **Microsoft.ApiManagement**, lo spostamento avrà esito negativo. Per informazioni su come controllare lo stato della registrazione e registrare i provider di risorse, vedere [Provider e tipi di risorse](../resource-manager-supported-services/#resource-providers-and-types).
-2. Il gruppo di risorse di destinazione deve contenere solo le risorse che condividono un ciclo di vita dell'applicazione uguale a quello delle risorse che si desidera spostare.
-3. Se si utilizza Azure PowerShell o CLI di Azure, assicurarsi di usare la versione più recente. Per aggiornare la versione, eseguire l'Installazione guidata piattaforma Web Microsoft e verificare se è disponibile una nuova versione. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e [Installare il CLI di Azure](xplat-cli-install.md).
-4. L'operazione di spostamento può richiedere alcuni minuti e durante tale intervallo il prompt attenderà il completamento dell'operazione.
-5. Durante lo spostamento di risorse, sia il gruppo di origine che il gruppo di destinazione sono bloccati per la durata dell'operazione. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi fino al completamento dello spostamento.
+2. Attualmente non tutti i servizi supportano lo spostamento di risorse. Vedere l'elenco seguente per informazioni sui servizi che supportano lo spostamento di risorse.
+3. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa. Ad esempio, se si sposta un'istanza del servizio Gestione API in una sottoscrizione che non ha registrato il provider di risorse **Microsoft.ApiManagement**, lo spostamento avrà esito negativo. Per informazioni su come controllare lo stato della registrazione e registrare i provider di risorse, vedere [Provider e tipi di risorse](../resource-manager-supported-services/#resource-providers-and-types).
+4. Il gruppo di risorse di destinazione deve contenere solo le risorse che condividono un ciclo di vita dell'applicazione uguale a quello delle risorse che si desidera spostare.
+5. Se si utilizza Azure PowerShell o CLI di Azure, assicurarsi di usare la versione più recente. Per aggiornare la versione, eseguire l'Installazione guidata piattaforma Web Microsoft e verificare se è disponibile una nuova versione. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e [Installare il CLI di Azure](xplat-cli-install.md).
+6. L'operazione di spostamento può richiedere alcuni minuti e durante tale intervallo il prompt attenderà il completamento dell'operazione.
+7. Durante lo spostamento di risorse, sia il gruppo di origine che il gruppo di destinazione sono bloccati per la durata dell'operazione. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi fino al completamento dello spostamento.
 
-## Servizi supportati
-
-Attualmente non tutti i servizi supportano lo spostamento di risorse.
+## Servizi che supportano lo spostamento
 
 Di seguito sono elencati i servizi che supportano lo spostamento in un gruppo di risorse e in una sottoscrizione nuovi:
 
 - Gestione API
-- App del servizio app (vedere [Limitazioni del servizio app](#app-service-limitations) più avanti)
+- App del servizio app (vedere le [limitazioni del servizio app](#app-service-limitations) più avanti)
 - Automazione
 - Batch
+- RETE CDN
 - Data factory
 - DocumentDB
 - Cluster HDInsight
@@ -54,7 +54,9 @@ Di seguito sono elencati i servizi che supportano lo spostamento in un gruppo di
 - Operational Insights
 - Cache Redis
 - Search
-- Server del database SQL (vedere [Limitazioni del database SQL](#sql-database-limitations) più avanti)
+- Server del database SQL (vedere le [limitazioni del database SQL](#sql-database-limitations) più avanti)
+
+## Servizi che supportano parzialmente lo spostamento
 
 I servizi che supportano lo spostamento di un nuovo gruppo di risorse, ma non una nuova sottoscrizione sono:
 
@@ -62,6 +64,8 @@ I servizi che supportano lo spostamento di un nuovo gruppo di risorse, ma non un
 - Archiviazione (classico)
 - Reti virtuali
 - Microsoft Azure
+
+## Servizi che non supportano lo spostamento
 
 I servizi che attualmente non supportano lo spostamento di una risorsa sono:
 
@@ -133,4 +137,4 @@ Specificare dove si vuole spostare la risorsa. Se insieme a tale risorsa devono 
 - [Utilizzo del portale di Azure per gestire le risorse](azure-portal/resource-group-portal.md)
 - [Utilizzo dei tag per organizzare le risorse](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # Determinare la compatibilità del database SQL utilizzando SqlPackage.exe
@@ -51,4 +51,4 @@ In questo articolo viene illustrato come determinare se un database del server S
 
 [Risolvere i problemi di compatibilità del database](sql-database-cloud-migrate-fix-compatibility-issues.md), se presenti.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

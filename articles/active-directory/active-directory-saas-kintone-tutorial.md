@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/05/2016" 
+    ms.date="03/16/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Kintone
@@ -37,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Kint
 
 ###Per abilitare l'integrazione dell'applicazione per Kintone, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-kintone-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Kintone** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Kintone** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-kintone-tutorial/IC785872.png "Configura accesso Single Sign-On")
 
@@ -106,12 +106,12 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![SAML Authentication](./media/active-directory-saas-kintone-tutorial/IC785883.png "SAML Authentication")
 
-    1.  Nella finestra di dialogo **Configura accesso Single Sign-On in Kintone** del portale di Azure copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Login URL**.
-    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Kintone** del portale di Azure copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **URL di disconnessione**.
+    1.  Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Kintone** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Login URL**.
+    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in Kintone** del portale di Azure classico copiare il valore di **URL disconnessione remota** e incollarlo nella casella di testo **Logout URL**.
     3.  Per caricare il certificato scaricato, fare clic su **Sfoglia**.
-    4.  Fare clic su **Save**.
+    4.  Fare clic su **Salva**.
 
-11. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+11. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-kintone-tutorial/IC785884.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -145,7 +145,7 @@ Per consentire agli utenti di Azure AD di accedere a Kintone, è necessario eseg
     1.  Nelle caselle di testo **Nome visualizzato**, **Nome di accesso**, **Nuova Password**, **Conferma Password** ed **indirizzo e-mail** digitare il nome visualizzato, il nome di accesso, la nuova password, la conferma password e l'indirizzo di posta elettronica oltre a tutti gli altri dettagli di un account AAD valido di cui si vuole eseguire il provisioning.
     2.  Fare clic su **Save**.
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Kintone per eseguire il provisioning degli account utente di AAD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Kintone per eseguire il provisioning degli account utente di AAD.
 
 ##Assegnazione degli utenti
   
@@ -153,7 +153,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ###Per assegnare gli utenti a Kintone, seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Kintone** fare clic su **Assegna utenti**.
 
@@ -165,4 +165,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

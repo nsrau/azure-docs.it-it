@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016" 
+	ms.date="03/11/2016" 
 	ms.author="jeannt"/>
 
 # Analisi della varianza del cliente tramite Azure Machine Learning
@@ -172,11 +172,11 @@ Il grafico seguente illustra i risultati non elaborati della valutazione usando 
 
 La tabella seguente riepiloga le prestazioni degli algoritmi:
 
-*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi*
+*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi *
 
-**LR**|	**BT**|	**AP**|	**SVM**|
---|--|--|--|
-Modello medio|	Modello migliore|	Prestazioni scarse|	Modello medio
+| LR|BT|AP|SVM|
+|---|---|---|---|
+|Modello medio|Modello migliore|Prestazioni scarse|Modello medio|
 
 I modelli ospitati in Machine Learning Studio hanno superato il livello SAS del 15-25% in velocità di esecuzione ma l'accuratezza è risultata praticamente alla pari.
 
@@ -190,7 +190,7 @@ Nel settore delle telecomunicazioni sono state sviluppate numerose pratiche per 
 	-	**Dati commerciali e competitivi**. Ottenere qualunque informazione possibile in merito al cliente (ad esempio, se non è disponibile o difficile da monitorare).
 -	Usare l'importanza per alimentare la selezione delle funzionalità. Ciò implica che il modello di albero decisionale incrementato è sempre un approccio promettente.  
 
-L'uso di queste quattro categorie crea l'illusione che un semplice approccio *deterministico*, basato su indici formati su fattori ragionevoli per categoria, dovrebbe essere sufficiente per identificare i clienti a rischio di varianza. Sfortunatamente, per quanto questa nozione appaia plausibile, si tratta di un intendimento errato. Il motivo è dato dal fatto che la varianza è un effetto temporale e i fattori che contribuiscono ad essa si trovano in genere in uno stato temporaneo. Ciò che induce un cliente a valutare un cambio di gestore oggi, potrebbe essere diverso domani e sicuramente sarà ancora diverso tra sei mesi. Pertanto, un modello *probabilistico* è una necessità.
+L'uso di queste quattro categorie crea l'illusione che un semplice approccio *deterministico*, basato su indici formati su fattori ragionevoli per categoria, sia sufficiente per identificare i clienti a rischio di varianza. Sfortunatamente, per quanto questa nozione appaia plausibile, si tratta di un intendimento errato. Il motivo è dato dal fatto che la varianza è un effetto temporale e i fattori che contribuiscono ad essa si trovano in genere in uno stato temporaneo. Ciò che induce un cliente a valutare un cambio di gestore oggi, potrebbe essere diverso domani e sicuramente sarà ancora diverso tra sei mesi. Pertanto, un modello *probabilistico* è una necessità.
 
 Questa importante osservazione è spesso sottovalutata dalle aziende, dove in genere si preferisce un approccio di tipo business intelligence, principalmente perché è una soluzione più semplice e ammette un'automazione semplificata.
 
@@ -240,4 +240,4 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0316_2016-->

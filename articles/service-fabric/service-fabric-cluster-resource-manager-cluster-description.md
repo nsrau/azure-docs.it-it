@@ -1,6 +1,6 @@
 <properties
    pageTitle="Descrizione del cluster di Resource Balancer | Microsoft Azure"
-   description="Descrizione di un cluster Service Fabric specificando i domini di errore, i domini di aggiornamento, le proprietà del nodo e le capacità del nodo per Resource Balancer."
+   description="Descrizione di un cluster di Service Fabric specificando i domini di errore, i domini di aggiornamento, le proprietà del nodo e le capacità del nodo per Cluster Resource Manager."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -13,22 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# Descrivere un cluster di Service Fabric
-
+# Descrizione di un cluster di Service Fabric
 Cluster Resource Manager di Service Fabric fornisce alcuni meccanismi per descrivere un cluster. Durante la fase di esecuzione, Resource Manager verifica queste informazioni per assicurare la disponibilità elevata dei servizi in esecuzione sul cluster, assicurando anche che le risorse del cluster vengano usate correttamente.
 
 ## Concetti chiave
 Le funzionalità di Resource Manager per i cluster che descrivono un cluster sono le seguenti:
+
 - Domini di errore
 - Domini di aggiornamento
 - Proprietà del nodo
 - Capacità del nodo
 
-### Domini di errore
-
+## Domini di errore
 Un dominio di errore (FD, Fault Domain) è un'area di errore coordinato. Un singolo computer è un dominio di errore, perché il solo computer si può arrestare per molti motivi diversi, da interruzioni dell'alimentazione a errori delle unità o firmware NIC non valido. Alcuni computer connessi allo stesso commutatore Ethernet si trovano nello stesso dominio di errore, analogamente ai computer connessi a una singola fonte di alimentazione.
 
 Se si configura un cluster personalizzato, è necessario prendere in considerazione tutte queste diverse aree di errore e assicurarsi che i domini di errore siano configurati correttamente, in modo che Service Fabric sia in grado di individuare una posizione sicura per i servizi. Per "sicura" si intende efficiente. Si vuole infatti evitare di posizionare i servizi in modo che la perdita di un dominio di errore provochi l'interruzione del servizio. Nell'ambiente di Azure si sfruttano le informazioni del dominio di errore fornite dal controller di infrastruttura/Resource Manager per configurare in modo corretto i nodi nel cluster per conto dell'utente. Nel grafico seguente (Figura 7) vengono colorate tutte le entità che restituiscono ragionevolmente come risultato un dominio di errore come semplice esempio e vengono elencati tutti i diversi domini di errore risultanti. In questo esempio sono presenti data center (DC), rack (R) e pannelli (B). Se ogni pannello include più macchine virtuali, è possibile che la gerarchia del dominio di errore includa un altro livello.
@@ -45,8 +44,7 @@ Se si configura un cluster personalizzato, è necessario prendere in considerazi
 
  ![Due layout diversi per i cluster][Image2]
 
-### Domini di aggiornamento
-
+## Domini di aggiornamento
 I domini di aggiornamento (UD, Upgrade Domain) sono un'altra funzionalità che consente a Resource Manager di Service Fabric di comprendere il layout del cluster, in modo da pianificare una strategia per la gestione degli errori. I domini di aggiornamento definiscono aree, in realtà set di nodi, che risulteranno contemporaneamente inattive durante un aggiornamento.
 
 I domini di aggiornamento sono molto simili ai domini di errore, ma con un paio di differenze essenziali. I domini di aggiornamento, prima di tutto, vengono in genere definiti tramite criteri, mentre i domini di errore vengono rigorosamente definiti dalle aree di errori coordinati e quindi in genere dal layout hardware dell'ambiente. Nel caso dei domini di aggiornamento, tuttavia, è possibile deciderne il numero. Un'altra differenza consiste nel fatto che, almeno attualmente, i domini di aggiornamento non sono gerarchici. Sono molto più simili a un semplice tag che a una gerarchia.
@@ -159,7 +157,7 @@ Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstr
 
 I vincoli di posizionamento, oltre a molte altre proprietà che verranno illustrate, vengono specificati per ogni istanza diversa del servizio. Gli aggiornamenti sostituiscono (sovrascrivono) sempre quanto specificato in precedenza.
 
-### Capacità
+## Capacità
 Uno dei processi più importanti di un agente di orchestrazione consiste nel semplificare la gestione dell'utilizzo delle risorse del cluster. Per eseguire in modo efficiente i servizi, occorre evitare una serie di nodi attivi, con conseguente conflitto per le risorse e prestazioni ridotte, mentre altri nodi sono inattivi, con conseguente spreco di risorse. Il bilanciamento verrà illustrato più avanti, ma occorre prima di tutto assicurarsi che i nodi non esauriscano le risorse.
 
 Service Fabric rappresenta le risorse come "metriche". Per metrica si intende qualsiasi risorsa logica o fisica che deve essere descritta per Service Fabric, ad esempio "WorkQueueDepth" o "MemoryInMb". Le metriche sono diverse dai vincoli e dalle proprietà del nodo, perché le proprietà del nodo sono in genere descrittori statici dei nodi stessi, mentre le metriche sono relative alle risorse fisiche utilizzate dai servizi durante l'esecuzione su un nodo. Una proprietà può quindi essere ad esempio HasSSD e può essere impostata su True o False, ma la quantità di spazio disponibile sull'unità SSD e utilizzato dai servizi sarà indicata da una metrica come "DriveSpaceInMb". La capacità del nodo imposterebbe la metrica "DriveSpaceInMb" sulla quantità di spazio totale non riservato sull'unità e i servizi segnalerebbero la quantità di metrica usata durante la fase di esecuzione.
@@ -204,8 +202,7 @@ ClusterManifest.xml
 
 È anche possibile che il carico di un servizio cambi in modo dinamico. In questo caso è possibile che la posizione in cui si trova una replica o un'istanza non risulti più valida perché l'utilizzo combinato di tutte le repliche e le istanze del nodo supera la capacità del nodo. Lo scenario che consente di cambiare dinamicamente il carico verrà illustrato più avanti, ma per quanto riguarda la capacità, viene gestita nello stesso modo. Le funzionalità di gestione delle risorse di Service Fabric vengono attivate automaticamente e riportano il nodo sotto la soglia massima di capacità, spostando una o più repliche o istanze del nodo in nodo diversi. Durante questa operazione, Resource Manager prova a ridurre al minimo il costo di tutti gli spostamenti. Il concetto di costo verrà illustrato più avanti.
 
-###Capacità del cluster
-
+##Capacità del cluster
 Se si vuole impedire che complessivamente il cluster sia troppo pieno, con il carico dinamico non sono effettivamente disponibili molte alternative. Poiché i servizi possono presentare picchi di carico indipendentemente dalle azioni effettuate da Resource Manager, è possibile che il cluster che attualmente non include molte risorse risulti insufficiente in seguito. Sono però disponibili alcuni controlli specifici che consentono di evitare errori di base. È prima di tutto possibile impedire la creazione di nuovi carichi di lavoro che riempirebbero il cluster.
 
 Si supponga di creare un semplice servizio senza stato con alcuni carichi associati. La creazione di report sul carico predefinito e dinamico verrà illustrata in seguito. Per questo servizio specifico, si supponga che vengano ritenute rilevanti alcune risorse, ad esempio DiskSpace, e che per impostazione predefinita vengano utilizzate 5 unità di DiskSpace per ogni istanza del servizio. Si vogliono creare 3 istanze del servizio. L'installazione è riuscita. È quindi necessario che 15 unità di DiskSpace siano presenti nel cluster per consentire semplicemente di creare queste istanze del servizio. Service Fabric calcola continuamente la capacità complessiva e l'utilizzo di ogni metrica, quindi è possibile prendere facilmente una decisione e rifiutare la chiamata di creazione del servizio se lo spazio è insufficiente.
@@ -251,11 +248,11 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
-- [Informazioni sull'architettura di Cluster Resource Manager](service-fabric-cluster-resource-manager-architecture.md)
-- [Informazioni sulle metriche di deframmentazione](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- [Introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+- Per informazioni sull'architettura e sul flusso di informazioni in Cluster Resource Manager, leggere [questo articolo ](service-fabric-cluster-resource-manager-architecture.md)
+- Definire la metrica di deframmentazione rappresenta un modo per consolidare il carico sui nodi anziché distribuirlo. Per informazioni su come configurare la deframmentazione, leggere [questo articolo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- Partire dall'inizio e leggere l'[Introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+- Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png
@@ -265,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

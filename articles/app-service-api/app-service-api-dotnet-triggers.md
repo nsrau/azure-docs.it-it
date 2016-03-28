@@ -22,8 +22,6 @@
 
 Questo articolo spiega come implementare i trigger delle app per le API e usarli da un'app per la logica.
 
-Se non si ha familiarità con le [app per le API](app-service-api-apps-why-best-platform.md) nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md), è consigliabile leggere la serie in più parti sulla [creazione di app per le API](app-service-dotnet-create-api-app.md)
-
 Tutti i frammenti di codice in questo argomento sono stati copiati dall'[esempio di codice di app per le API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
 Per la corretta compilazione ed esecuzione del codice riportato in questo articolo, sarà inoltre necessario scaricare il pacchetto NuGet seguente: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
@@ -341,4 +339,4 @@ Di seguito è riportato un esempio di come è possibile implementare questa clas
     }
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -227,7 +227,7 @@ type | La proprietà type deve essere impostata su: **OnPremisesOracle** | Sì
 connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà connectionString. | Sì 
 gatewayName | Nome del gateway che verrà usato per connettersi al server Oracle locale | Sì
 
-Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati Oracle locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
+Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati Oracle locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
 ## Proprietà del tipo di set di dati Oracle
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, fare riferimento all'articolo [Creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati (Oracle, BLOB di Azure, tabelle di Azure e così via).
@@ -312,4 +312,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

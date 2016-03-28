@@ -68,7 +68,7 @@ Quando si usano gli SDK o le integrazioni del prodotto non compatibili con l'hub
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] A volte l'SDK richiede un valore per **Nome host** o **Spazio dei nomi**. In tal caso sarà necessario rimuovere lo schema dall'**Endpoint compatibile con l'hub eventi**. Ad esempio, se l'endpoint compatibile con l'hub eventi è ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, il **Nome host** sarà **iothub-ns-myiothub-1234.servicebus.windows.net** e lo **Spazio dei nomi** sarà **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] A volte l'SDK richiede un valore per **Nome host** o **Spazio dei nomi**. In tal caso sarà necessario rimuovere lo schema dall'**Endpoint compatibile con l'hub eventi**. Ad esempio, se l'endpoint compatibile con l'hub eventi è **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, il **Nome host** sarà **iothub-ns-myiothub-1234.servicebus.windows.net** e lo **Spazio dei nomi** sarà **iothub-ns-myiothub-1234**.
 
 È quindi possibile usare qualsiasi tipo di criteri di sicurezza di accesso condiviso con autorizzazioni **ServiceConnect** per la connessione all'hub eventi specificato.
 
@@ -288,29 +288,7 @@ Le credenziali di sicurezza, ad esempio le chiavi asimmetriche, non vengono mai 
 
 > [AZURE.NOTE] Il provider di risorse dell'hub IoT di Azure viene protetto tramite la sottoscrizione di Azure, analogamente a tutti i provider in [Gestione risorse di Azure][lnk-azure-resource-manager].
 
-#### Formato del token di sicurezza <a id="tokenformat"></a>
-
-Il token di sicurezza ha il formato seguente:
-
-	SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}
-
-Questi sono i valori previsti:
-
-| Valore | Descrizione |
-| ----- | ----------- |
-| {signature} | Stringa della firma HMAC-SHA256 nel formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: la chiave viene decodificata dalla codifica Base 64 e usata come chiave per eseguire il calcolo di HMAC-SHA256. |
-| {resourceURI} | Prefisso URI (per segmento) degli endpoint a cui è possibile accedere tramite questo token. Ad esempio, `/events` |
-| {expiry} | Stringhe UTF8 per il numero di secondi trascorsi dalle 00:00:00 UTC dell'1 gennaio 1970. |
-| {URL-encoded-resourceURI} | Codifica URL con lettere minuscole dell'URI della risorsa con lettere minuscole |
-| {policyName} | Nome del criterio di accesso condiviso a cui fa riferimento il token. Assente nel caso in cui i token facciano riferimento a credenziali del registro dei dispositivi. |
-
-**Nota sul prefisso**: il prefisso dell'URI viene calcolato in base al segmento e non in base al carattere. Ad esempio `/a/b` è un prefisso per `/a/b/c` ma non per `/a/bc`.
-
-È possibile trovare le implementazioni dell'algoritmo di firma negli IoT SDK per dispositivi e servizi:
-
-* [IoT SDK per servizi per Java](https://github.com/Azure/azure-iot-sdks/tree/master/java/service/iothub-service-sdk/src/main/java/com/microsoft/azure/iot/service/auth)
-* [IoT SDK per dispositivi per Java](https://github.com/Azure/azure-iot-sdks/tree/master/java/device/iothub-java-client/src/main/java/com/microsoft/azure/iothub/auth)
-* [IoT SDK per dispositivi e servizi per Node. js](https://github.com/Azure/azure-iot-sdks/blob/master/node/common/core/lib/shared_access_signature.js)
+Per maggiori informazioni sulla creazione e sull'uso di token di sicurezza, vedere l'articolo sui [token di sicurezza dell'hub IoT][lnk-sas-tokens].
 
 #### Specifiche del protocollo
 
@@ -327,7 +305,7 @@ Per SASL PLAIN **username** può essere:
 * `{policyName}@sas.root.{iothubName}` nel caso di token a livello di hub.
 * `{deviceId}` nel caso di token con ambito relativo al dispositivo.
 
-In entrambi i casi il campo della password contiene il token, come illustrato nella sezione [Formato del token](#tokenformat).
+In entrambi i casi il campo della password contiene il token, come indicato nell'articolo sui [token di sicurezza dell'hub IoT][lnk-sas-tokens].
 
 Quando si usa MQTT, il pacchetto CONNECT ha come valore di deviceId ClientId, {iothubhostname}/{deviceId} nel campo Username e un token di firma di accesso condiviso nel campo Password. Il valore di {iothubhostname} deve essere il record CName completo dell'hub IoT, ad esempio contoso.azure-devices.net.
 
@@ -348,15 +326,15 @@ Quando si usa SASL PLAIN, un client che si connette a un hub IoT potrà usare un
 
 ### Definizione dell'ambito delle credenziali a livello hub
 
-È possibile definire l'ambito dei criteri di sicurezza a livello hub creando token con URI di risorsa con limitazioni. Ad esempio, l'endpoint per l'invio di messaggi da dispositivo a cloud da un dispositivo è **/devices/{deviceId}/events**. È anche possibile usare criteri di accesso condiviso a livello di hub con autorizzazioni **DeviceConnect** per firmare un token il cui valore resourceURI è **/devices/{deviceId}**, creando un token che può essere usato solo per inviare messaggi per conto del **deviceId** del dispositivo.
+È possibile definire l'ambito dei criteri di sicurezza a livello hub creando token con URI di risorsa con limitazioni. Ad esempio, l'endpoint per l'invio di messaggi da dispositivo a cloud da un dispositivo è **/devices/{deviceId}/messages/events**. È anche possibile usare criteri di accesso condiviso a livello di hub con autorizzazioni **DeviceConnect** per firmare un token il cui valore resourceURI è **/devices/{deviceId}**, creando un token che può essere usato solo per inviare messaggi per conto del **deviceId** del dispositivo.
 
 Questo meccanismo è simile ai [criteri delle entità di pubblicazione di Hub eventi][lnk-event-hubs-publisher-policy] e consente di implementare metodi di autenticazione personalizzati, come illustrato nella sezione sulla sicurezza in [Progettare la soluzione][lnk-guidance-security].
 
 ## Messaggistica
 
 L'hub IoT fornisce le primitive di messaggistica per comunicare:
-- [Cloud-dispositivo](#c2d): da un'applicazione back-end (*servizio* o *cloud*).
-- [Dispositivo-cloud](#d2c): da un dispositivo a un'applicazione back-end.
+- [Da cloud a dispositivo](#c2d): da un'applicazione back-end (*servizio* o *cloud*).
+- [Da dispositivo a cloud](#d2c): da un dispositivo a un'applicazione back-end.
 
 Le proprietà di base della funzionalità di messaggistica dell'hub IoT sono l'affidabilità e la durabilità dei messaggi. Ciò consente la resilienza in caso di connettività intermittente sul lato dispositivo e picchi di carico durante l'elaborazione degli eventi sul lato cloud. L'hub IoT implementa *almeno una volta* le garanzie di recapito per la messaggistica da dispositivo a cloud e da cloud a dispositivo.
 
@@ -408,7 +386,7 @@ L'hub IoT implementa il protocollo MQTT v3.1.1 con le limitazioni e il comportam
   * **QoS 2 non è supportato**: quando un client del dispositivo pubblica un messaggio con **QoS 2**, l'hub IoT chiude la connessione di rete. Quando un client del dispositivo sottoscrive un argomento con **QoS 2**, l'hub IoT concede il livello QoS 1 massimo nel pacchetto **SUBACK**.
   * **Mantenimento**: se un client del dispositivo pubblica un messaggio con il flag RETAIN impostato su 1, l'hub IoT aggiunge al messaggio la proprietà dell'applicazione **x-opt-retain**. Ciò significa che l'hub IoT non rende persistente il messaggio di mantenimento, ma lo passa invece all'applicazione back-end.
 
-È infine consigliabile vedere [Gateway del protocollo Azure IoT][lnk-azure-protocol-gateway], che descrive come sia possibile distribuire un gateway del protocollo personalizzato a prestazioni elevate che si interfaccia direttamente con l'hub IoT. Il gateway del protocollo Azure IoT consente di personalizzare il protocollo del dispositivo per supportare le distribuzioni di MQTT cosiddette "brownfield" o altri protocolli personalizzati. Questo approccio comporta un compromesso a causa del requisito relativo al self-hosting e alla gestione di un gateway del protocollo personalizzato.
+È infine consigliabile vedere [Gateway del protocollo IoT Azure][lnk-azure-protocol-gateway], che descrive come sia possibile distribuire un gateway del protocollo personalizzato a prestazioni elevate che si interfaccia direttamente con l'hub IoT. Il gateway del protocollo Azure IoT consente di personalizzare il protocollo del dispositivo per supportare le distribuzioni di MQTT cosiddette "brownfield" o altri protocolli personalizzati. Questo approccio comporta un compromesso a causa del requisito relativo al self-hosting e alla gestione di un gateway del protocollo personalizzato.
 
 ### Dispositivo a cloud <a id="d2c"></a>
 
@@ -440,7 +418,7 @@ Per informazioni dettagliate sull'uso della messaggistica da dispositivo a cloud
 
 In molti casi, oltre ai punti dati di telemetria, i dispositivi inviano anche messaggi e richieste che devono essere eseguiti e gestiti dal livello della logica di business dell'applicazione. Ad esempio, avvisi critici che devono attivare un'azione specifica nel back-end o risposte a comandi inviati dal back-end.
 
-Per altre informazioni sul modo migliore per elaborare questo tipo di messaggi, vedere [Elaborazione di messaggi da dispositivo a cloud][lnk-guidance-d2c-processing].
+Per altre informazioni, vedere l'articolo su come [elaborare messaggi da dispositivo a cloud][lnk-guidance-d2c-processing] in modo ideale.
 
 #### Opzioni di configurazione da dispositivo a cloud <a id="d2cconfiguration"></a>
 
@@ -491,13 +469,13 @@ Il diagramma seguente illustra il grafico sullo stato del ciclo di vita per un m
 
 ![Ciclo di vita dei messaggi da cloud a dispositivo][img-lifecycle]
 
-Quando il servizio invia un messaggio, questo viene considerato *Accodato*. Quando un dispositivo accetta di *ricevere* un messaggio, l'hub IoT lo *blocca* impostando lo stato su **Invisibile**, per consentire ad altri thread nello stesso dispositivo di iniziare a ricevere altri messaggi. Quando un thread del dispositivo termina l'elaborazione, invia una notifica all'hub IoT *completando* il messaggio.
+Quando il servizio invia un messaggio, questo viene considerato *Accodato*. Quando un dispositivo accetta di *ricevere* un messaggio, l'hub IoT *blocca* il messaggio impostando lo stato su **Invisibile**, per consentire ad altri thread nello stesso dispositivo di iniziare a ricevere altri messaggi. Quando un thread del dispositivo termina l'elaborazione, invia una notifica all'hub IoT *completando* il messaggio.
 
 Un dispositivo può anche:
 - *Rifiutare* il messaggio. In questo modo, l'hub IoT ne imposta lo stato su **Non recapitabile**.
 - *Abbandonare* il messaggio. In questo modo, l'hub IoT inserisce nuovamente il messaggio nella coda con lo stato impostato su **Accodato**.
 
-Un thread potrebbe non riuscire a elaborare un messaggio senza inviare una notifica all'hub IoT. In tal caso, i messaggi passano automaticamente di nuovo dallo stato **Invisibile** allo stato **Accodato** dopo un *timeout di visibilità o di blocco* con un valore predefinito di un minuto. Un messaggio può passare dallo stato **Accodato** allo stato **Invisibile** e viceversa per il numero massimo di volte specificato nella proprietà *max delivery count* nell'hub IoT. Dopo tale numero di transizioni, l'hub IoT imposta lo stato del messaggio su **Non recapitabile**. Analogamente, l'hub IoT imposta lo stato del messaggio su **Non recapitabile** dopo la relativa scadenza. Vedere la sezione [Durata (TTL)](#ttl).
+Un thread potrebbe non riuscire a elaborare un messaggio senza inviare una notifica all'hub IoT. In questo caso, i messaggi passano automaticamente di nuovo dallo stato **Invisibile** allo stato **Accodato** dopo un *timeout di visibilità o di blocco* con un valore predefinito di un minuto. Un messaggio può passare dallo stato **Accodato** allo stato **Invisibile** e viceversa per il numero massimo di volte specificato nella proprietà *max delivery count* nell'hub IoT. Dopo il numero di transizioni specificato, l'hub IoT imposta lo stato del messaggio su **Non recapitabile**. Analogamente, l'hub IoT imposta lo stato del messaggio su **Non recapitabile** dopo la relativa scadenza. Vedere la sezione [Durata (TTL)](#ttl).
 
 Per un'esercitazione sui messaggi da cloud a dispositivo, vedere [Introduzione ai messaggi da cloud a dispositivo dell'hub IoT di Azure][lnk-getstarted-c2d-tutorial]. Per argomenti di riferimento sul modo in cui le diverse API e i vari SDK espongono la funzionalità da cloud a dispositivo, vedere [API e SDK dell'hub IoT][lnk-apis-sdks].
 
@@ -507,15 +485,17 @@ Per un'esercitazione sui messaggi da cloud a dispositivo, vedere [Introduzione a
 
 Ogni messaggio da cloud a dispositivo ha una scadenza. Questa impostazione può essere definita esplicitamente dal servizio nella proprietà **ExpiryTimeUtc** oppure viene configurata dall'hub IoT usando il valore di *durata (TTL)* predefinito specificato come proprietà dell'hub IoT. Vedere [Opzioni di configurazione da cloud a dispositivo](#c2dconfiguration).
 
+> [AZURE.NOTE] Un modo comune per sfruttare i vantaggi della scadenza del messaggio consiste nell'impostare una breve durata dei valori per evitare l'invio di messaggi a dispositivi disconnessi. Consente di ottenere lo stesso risultato del mantenimento dello stato di connessione del dispositivo, pur essendo molto più efficiente. Richiedendo gli acknowledgement dei messaggi, è anche possibile ricevere una notifica tramite l'hub IoT indicante i dispositivi in grado di ricevere i messaggi, i dispositivi offline o quelli mal funzionanti.
+
 #### Commenti sul messaggio <a id="feedback"></a>
 
 Durante l'invio di messaggi da cloud a dispositivo, il servizio può richiedere il recapito di commenti specifici per ogni messaggio in merito allo stato finale del messaggio.
 
 - Se si imposta la proprietà **Ack** su **positive**, l'hub IoT genera un messaggio con commenti e suggerimenti se e solo se il messaggio da cloud a dispositivo ha raggiunto lo stato **Completato**.
-- Se si imposta la proprietà **Ack** su **negative**, l'hub IoT genera un messaggio con commenti e suggerimenti se e solo se il messaggio da cloud a dispositivo ha raggiunto lo stato **Non recapitabile**.
+- Se si imposta la proprietà **Ack** su **negative**, l'hub IoT genera un messaggio con commenti e suggerimenti solo se il messaggio da cloud a dispositivo ha raggiunto lo stato **Non recapitabile**.
 - Se si imposta la proprietà **Ack** su **full**, l'hub IoT genera un messaggio con commenti e suggerimenti in entrambi i casi.
 
-> [AZURE.NOTE] Se **Ack** è **full** e non viene ricevuto alcun messaggio con commenti e suggerimenti significa che quest'ultimo è scaduto e il servizio non può sapere che cosa è successo al messaggio originale. In pratica, un servizio deve garantire che sia possibile elaborare i commenti prima della scadenza. Poiché il periodo di scadenza massimo è di due giorni, è disponibile un tempo sufficiente per garantire il funzionamento del servizio in caso di errore.
+> [AZURE.NOTE] Se **Ack** è impostato su **full** e non si ricevono messaggi con commenti, significa che il messaggio è scaduto e il servizio non può sapere cosa è successo al messaggio originale. In pratica, un servizio deve garantire che sia possibile elaborare i commenti prima della scadenza. Poiché il periodo di scadenza massimo è di due giorni, è disponibile un tempo sufficiente per garantire il funzionamento del servizio in caso di errore.
 
 Come illustrato nella sezione [Endpoint](#endpoints), l'hub IoT invia commenti tramite un endpoint per il servizio (**/messages/servicebound/feedback**) sotto forma di messaggi. La semantica di ricezione per i commenti è uguale a quella dei messaggi da cloud a dispositivo e ha lo stesso [Ciclo di vita dei messaggi](#ciclo di vita dei messaggi). Quando possibile, i commenti sul messaggio vengono riuniti in un singolo messaggio con il formato seguente.
 
@@ -571,7 +551,7 @@ Ogni hub IoT espone le opzioni di configurazione seguenti per la messaggistica d
 | feedback.ttlAsIso8601 | Conservazione per messaggi con commenti diretti al servizio. | Intervallo ISO\_8601 fino a 2D (almeno 1 minuto). Predefinito: 1 ora. |
 | feedback.maxDeliveryCount | Numero massimo di recapiti per la coda di commenti. | Da 1 a 100. Predefinito: 100. |
 
-Per altre informazioni, vedere [Gestire hub IoT][lnk-manage].
+Per altre informazioni, vedere [Gestire hub IoT tramite il portale di Azure][lnk-manage].
 
 ## Quote e limitazione <a id="throttling"></a>
 
@@ -621,6 +601,7 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
+[lnk-sas-tokens]: iot-hub-sas-tokens
 [lnk-azure-gateway-guidance]: iot-hub-guidance.md#field-gateways
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
 [lnk-guidance-scale]: iot-hub-scaling.md
@@ -653,4 +634,4 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

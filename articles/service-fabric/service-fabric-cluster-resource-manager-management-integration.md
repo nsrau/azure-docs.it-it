@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Cluster Resource Manager di Service Fabric: Integrazione della gestione"
+   pageTitle="Cluster Resource Manager di Service Fabric - Integrazione della gestione | Microsoft Azure"
    description="Panoramica dei punti di integrazione tra Cluster Resource Manager e le funzionalità di gestione di Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
 
-# Integrazione della gestione
+# Integrazione di Cluster Resource Manager con la gestione dei cluster di Service Fabric
 Pur non essendo il componente principale di Service Fabric che si occupa delle operazioni di gestione, come gli aggiornamenti dell'applicazione, Resource Manager è tuttavia coinvolto. Il primo modo in cui Resource Manager contribuisce alla gestione è tracciando lo stato desiderato del cluster e dei servizi al suo interno da una prospettiva di assegnazione delle risorse e bilanciamento del carico per poi procedere all'alterazione tramite il sottosistema di integrità di Service Fabric quando rileva degli errori. Un altro fattore di integrazione riguarda il funzionamento degli aggiornamenti. In particolare durante gli aggiornamenti, alcune modalità di funzionamento di Resource Manager cambiano e vengono richiamati alcuni comportamenti speciali. Parleremo di entrambi questi aspetti di seguito.
 
 ## Integrazione di integrità
@@ -78,6 +78,7 @@ Supponiamo, tuttavia, di voler creare un servizio o che Resource Manager stia te
 2.	I requisiti del servizio non sono configurati correttamente e non possono essere soddisfatti.
 
 In ognuna di queste condizioni si disporrà di un rapporto di integrità di Resource Manager con informazioni utili per determinare che cosa sta succedendo e perché il servizio non può essere inserito. Questo processo viene definito "sequenza di eliminazione del vincolo". Durante la procedura si esaminano i singoli vincoli che agiscono sul servizio e si vede che cosa eliminano. In questo modo, quando non si riesce a inserire gli elementi, è possibile visualizzare i nodi eliminati e perché. Esaminiamo ciascuno dei vincoli indicati nei rapporti di integrità per capire che cosa ognuno verifica. Si noti che, nella maggior parte dei casi, non si assisterà all'eliminazione dei nodi da parte di questi vincoli poiché, per impostazione predefinita, i vincoli sono al livello soft o ottimizzato (come indicato in precedenza). Sarebbe possibile vederli se fossero capovolti o considerati vincoli rigidi. Vengono pertanto presentati qui per motivi di completezza:
+
 -	ReplicaExclusionStatic e ReplicaExclusionDynamic: vincolo interno che indica che durante la ricerca è stato deciso che due repliche dovevano essere posizionate sul nodo, operazione che non è consentita. ReplicaExclusionStatic e ReplicaExclusionDynamic sono regole quasi identiche. Il vincolo ReplicaExclusionDynamic afferma che è stato impossibile collocare nel nodo questa replica perché l'unica soluzione proposta già aveva inserito una replica. Questa affermazione è diversa dall'esclusione di ReplicaExclusionStatic che indica non un possibile ma un effettivo conflitto: esiste già una replica nel nodo. È ambiguo? Sì. È molto importante? No. Basti sapere che se si nota una sequenza di eliminazione del vincolo contenente ReplicaExclusionStatic o ReplicaExclusionDynamic significa che Resource Manager ritiene che non vi siano nodi sufficienti per inserire tutte le repliche. Gli altri vincoli possono, in genere, indicarci come è possibile che il numero di nodi sia insufficiente.
 -	PlacementConstraint: se viene visualizzato questo messaggio significa che sono stati eliminati alcuni nodi perché non rispettavano i vincoli di posizionamento del servizio. I vincoli di posizionamento attualmente configurati vengono indicati come parte di questo messaggio.
 -	NodeCapacity: se viene visualizzato questo vincolo significa che non è stato possibile inserire le repliche nei nodi indicati perché l'operazione avrebbe fatto superare la capacità del nodo
@@ -100,9 +101,7 @@ Un'altra cosa che si verifica durante gli aggiornamenti è che Resource Manager 
 ### Regole meno severe
 Quello che accade spesso durante gli aggiornamenti è che si desidera che l'aggiornamento venga portato a termine anche se il cluster è nel complesso piuttosto pieno o carico di vincoli. L'aspetto di come farlo è già stato affrontato ma durante gli aggiornamenti questa necessità è ancora più importante perché in genere la percentuale del cluster resa inattiva in un dato momento è tra il 5 e il 20 percento e il carico di lavoro deve essere spostato da qualche parte. È qui che entra in gioco il concetto di capacità di memorizzazione nel buffer che abbiamo citato prima. Mentre la capacità di memorizzazione nel buffer viene rispettata durante il normale funzionamento, durante gli aggiornamenti Resource Manager sfrutta la capacità totale del buffer.
 
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
-- [Cenni iniziali su Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+- Partire dall'inizio e leggere l'[Introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

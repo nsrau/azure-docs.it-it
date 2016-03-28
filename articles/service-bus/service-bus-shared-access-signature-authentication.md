@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Autenticazione della firma di accesso condiviso con il bus di servizio
@@ -94,7 +94,7 @@ Per un esempio pratico completo di un'applicazione del bus di servizio che illus
 
 ## Accesso alle regole di autorizzazione per l'accesso condiviso in uno spazio dei nomi
 
-Per le operazioni nella radice dello spazio dei nomi del bus di servizio è necessaria l'autenticazione tramite certificati. È necessario caricare un certificato di gestione per la sottoscrizione di Azure. Per caricare un certificato di gestione, fare clic su **Impostazioni** nel riquadro a sinistra del [portale di Azure classico][]. Per altre informazioni sui certificati di gestione di Azure, vedere [Creare un certificato di gestione per Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+Per le operazioni nella radice dello spazio dei nomi del bus di servizio è necessaria l'autenticazione tramite certificati. È necessario caricare un certificato di gestione per la sottoscrizione di Azure. Per caricare un certificato di gestione, fare clic su **Impostazioni** nel riquadro a sinistra del [portale di Azure classico][]. Per altre informazioni sui certificati di gestione di Azure, vedere la [Panoramica sui certificati di Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 L'endpoint per l'accesso alle regole di autorizzazione per l'accesso condiviso in uno spazio dei nomi del bus di servizio è il seguente:
 
@@ -258,4 +258,4 @@ Vedere [Autenticazione e autorizzazione del bus di servizio](service-bus-authent
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

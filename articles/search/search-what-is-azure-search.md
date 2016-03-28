@@ -30,7 +30,7 @@ L’**evidenziazione** [consente](https://msdn.microsoft.com/library/azure/dn798
 
 L’**esplorazione in base a facet** può essere aggiunta facilmente alle pagine dei risultati della ricerca con Ricerca di Azure. Usando [un singolo parametro di query](https://msdn.microsoft.com/library/azure/dn798927.aspx), Ricerca di Azure restituirà tutte le informazioni necessarie per creare un'esperienza di ricerca basata su facet nell'interfaccia utente dell'applicazione in modo da consentire agli utenti di eseguire il drill-down e filtrare i risultati di ricerca, ad esempio filtrando gli articoli del catalogo per fascia di prezzo o marca.
 
-Con il **supporto** [geospaziale](search-create-geospatial.md) è possibile elaborare, filtrare e visualizzare le posizioni geografiche in modo intelligente. Ricerca di Azure consente agli utenti di esplorare i dati in base alla prossimità di un risultato della ricerca in una posizione specificata o in base a una specifica area geografica.
+Con il supporto **geospaziale** è possibile elaborare, filtrare e visualizzare le posizioni geografiche in modo intelligente. Ricerca di Azure consente agli utenti di esplorare i dati in base alla prossimità di un risultato della ricerca in una posizione specificata o in base a una specifica area geografica. Il funzionamento viene spiegato nel video [Channel 9: Ricerca di Azure e dati geospaziali](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
 È possibile utilizzare i **filtri** per incorporare facilmente l'esplorazione in base a facet nell'interfaccia utente dell'applicazione, migliorare la formulazione di query e filtrare in base a criteri specificati dall'utente o dallo sviluppatore. Creare filtri efficaci mediante la [sintassi OData](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
@@ -83,4 +83,4 @@ Dopo avere compilato l'indice di Ricerca di Azure, è ora possibile [eseguire qu
 
 Se non si dispone di un account Azure, è possibile provare una sessione gratuita di 60 minuti senza effettuare l'iscrizione obbligatoria. Andare al sito [Prova il Servizio app di Azure](http://go.microsoft.com/fwlink/p/?LinkId=618214) e selezionare "App Web". Quindi selezionare il modello di "ASP.NET + Ricerca di Azure" per iniziare.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

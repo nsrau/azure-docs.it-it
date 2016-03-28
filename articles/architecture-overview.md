@@ -19,34 +19,11 @@
 #Architettura delle applicazioni in Microsoft Azure
 Risorse per la creazione di applicazioni che usano Microsoft Azure. Include strumenti che consentono di creare diagrammi per descrivere visivamente i sistemi software.
 
-
-
-##Modelli di progettazione architetturale di Azure
-Microsoft pubblica serie di modelli di progettazione architetturale che consentono di creare progettazioni personalizzate. I modelli rappresentano linee guida sintetiche di progettazione architetturale che congiuntamente forniscono indicazioni per sfruttare al meglio la piattaforma Microsoft Azure per far fronte a esigenze aziendali specifiche dell'organizzazione.
-
-
-[Panoramica](../azure-architectures-cpif-overview/) - [Reti ibride](../azure-architectures-cpif-infrastructure-hybrid-networking/) - [Elaborazione batch esterna](../azure-architectures-cpif-foundation-offsite-batch-processing-tier/) - [Livello Dati multisito](../azure-architectures-cpif-foundation-multi-site-data-tier/) - [Livello Web globale con carico bilanciato](../azure-architectures-cpif-foundation-global-load-balanced-web-tier/) - [Livello Ricerca di Azure](../azure-architectures-cpif-foundation-azure-search-tier/)
- 
-Ogni modello contiene
- 
-- Una descrizione del servizio
-- Un elenco di servizi di Azure necessari per usare il modello
-- Diagrammi di architettura
-- Dipendenze dell'architettura
-- Limitazioni o considerazioni sulla progettazione che possono influire sul modello
-- Interfacce ed endpoint
-- Anti-modelli
-- Considerazioni fondamentali di alto livello sull'architettura, tra cui disponibilità e resilienza, contratti di servizio compositi per i servizi usati, scalabilità e prestazioni, costi e considerazioni operative.
-
-![Modelli di progettazione di Azure Architecture](./media/architecture-overview/AzureArchPatterns.jpg)
-
-
 ##Poster di modelli di progettazione
+
 Microsoft Patterns and Practices ha pubblicato il libro [Cloud Design Patterns](http://msdn.microsoft.com/library/dn568099.aspx), disponibile su MSDN e come file in formato PDF per il download. È inoltre disponibile un poster di grande formato in cui sono elencati tutti i modelli.
 
 ![Poster sui modelli cloud di Patterns and Practices](./media/architecture-overview/PnPPatternPosterThumb.jpg)
-
-
 
 ##Corso di certificazione per Microsoft Architecture
 
@@ -108,4 +85,4 @@ Microsoft pubblica vari poster/infografiche relativi all'architettura, tra cui [
 
 ![Infografiche relative all'architettura di Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

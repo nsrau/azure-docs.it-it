@@ -81,7 +81,9 @@ Nella versione di anteprima corrente di SQL Server 2016, le tabelle con l'estens
 
 -   Non è possibile eseguire le operazioni UPDATE o DELETE in una tabella abilitata per l'estensione.
 
--   Non è possibile eseguire INSERT nella tabella del database SQL di Azure remoto.
+-   Non è possibile eseguire l'operazione INSERT in remoto in una tabella abilitata per l'estensione su un server collegato.
+
+-   Non è possibile usare la replica con una tabella abilitata per l'estensione.
 
 -   Non è possibile creare un indice per una vista che include tabelle abilitate per l'estensione.
 
@@ -90,6 +92,11 @@ Nella versione di anteprima corrente di SQL Server 2016, le tabelle con l'estens
 -   I filtri sugli indici non vengono propagati alla tabella remota.
 
 ## Vedere anche
-[Identificare database e tabelle per Database Estensione eseguendo l'ottimizzazione guidata Database Estensione](sql-server-stretch-database-identify-databases.md) [Abilitare Database Estensione per un database](sql-server-stretch-database-enable-database.md) [Abilitare Database Estensione per una tabella](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+[Identificare database e tabelle per Database Estensione eseguendo l'ottimizzazione guidata Database Estensione](sql-server-stretch-database-identify-databases.md)
+
+[Abilitare Database Estensione per un database](sql-server-stretch-database-enable-database.md)
+
+[Abilitare Database Estensione per una tabella](sql-server-stretch-database-enable-table.md)
+
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="03/11/2016"
 	ms.author="daleche"/>
 
 
@@ -67,4 +67,4 @@ Potrebbe verificarsi una situazione in cui alcuni dati sono stati modificati acc
 ## Passaggio di verifica
 1. Eseguire query e verificare la tabella appena copiata per assicurarsi che i dati siano inalterati. Dopo la conferma, è possibile rimuovere la tabella rinominata nella sezione **Passaggi preliminari** (ad esempio, &lt;nome tabella&gt;\_vecchia).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

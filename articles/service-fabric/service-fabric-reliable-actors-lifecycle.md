@@ -3,7 +3,7 @@
    description="Informazioni sul ciclo di vita e sull'operazione di Garbage Collection per Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="myamanbh"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/15/2016"
    ms.author="amanbha"/>
 
 
@@ -32,7 +32,7 @@ Cosa accade al momento della disattivazione di un attore?
 - Quando un attore rimane inutilizzato per un determinato periodo di tempo, viene rimosso dalla tabella degli attori attivi.
 - Viene chiamato il metodo `OnDeactivateAsync` (che può essere sottoposto a override nell'implementazione dell'attore). Ciò elimina tutti i timer dell'attore.
 
-> [AZURE.TIP]Il runtime di Fabric Actors emette alcuni [eventi relativi all'attivazione e alla disattivazione degli attori](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events), che sono utili per la diagnostica e il monitoraggio delle prestazioni.
+> [AZURE.TIP] Il runtime di Fabric Actors emette alcuni [eventi relativi all'attivazione e alla disattivazione degli attori](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events), che sono utili per la diagnostica e il monitoraggio delle prestazioni.
 
 ## Garbage Collection degli attori
 Il runtime di Actors esegue periodicamente un'analisi per identificare gli attori che sono rimasti inutilizzati per un determinato periodo di tempo e li disattiva. Una volta disattivati, gli attori possono essere sottoposti a garbage collection da Common Language Runtime (CLR).
@@ -90,4 +90,4 @@ Si noti che un attore non viene mai sottoposto a Garbage Collection mentre è in
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

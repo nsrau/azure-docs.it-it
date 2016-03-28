@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Cluster Resource Manager di Service Fabric: Affinità"
+   pageTitle="Cluster Resource Manager di Service Fabric - Affinità | Microsoft Azure"
    description="Panoramica su altre politiche e regole per i servizi di Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# Affinità
+# Configurazione e utilizzo dell'affinità del servizio in Service Fabric
 
 Il concetto di affinità è uno dei tanti che, almeno a prima vista, non ha molto senso per un ambiente di microservizi. Perché in effetti non ha molto senso in un ambiente di microservizi. Il controllo di affinità è disponibile principalmente per facilitare la transizione di grandi applicazioni monolitiche tradizionali verso ambienti cloud e di microservizi.
 
@@ -48,25 +48,24 @@ L'affinità è rappresentata tramite vari possibili schemi di correlazione e ha 
 
 ![Modalità di affinità e loro effetti][Image1]
 
-#### Stato desiderato del massimo sforzo
+### Stato desiderato del massimo sforzo
 Esistono alcune differenze tra il servizio di affinità e le architetture monolitiche. Il tutto si riduce al fatto che una relazione di affinità rappresenta il massimo sforzo, poiché si tratta sostanzialmente di collegare tra loro servizi diversi in cui si possono verificare, ad esempio, degli errori in modo indipendente. Altri fattori possono provocare la separazione delle diverse repliche del servizio, ad esempio i limiti di capacità.
 
 
-#### Modelli a catena o a stella
+### Modelli a catena o a stella
 Ad oggi non siamo in grado di modellare catene di relazioni di affinità. Ciò significa che un servizio che è un elemento figlio in una relazione di affinità non potrà essere un elemento padre in un'altra relazione di affinità. Ne consegue che, se si desidera modellare questo tipo di relazione, sarà necessario scegliere un modello a stella anziché un modello a catena, in cui il genitore dell'elemento figlio inferiore è anche genitore dell'elemento figlio "intermedio".
 
-![Modelli a catena e a stella nel contesto delle relazioni di affinità][Image2]
+![Modelli a catena o a stella nel contesto delle relazioni di affinità][Image2]
 
 Un altro aspetto da notare circa le relazioni di affinità attuali è che sono direzionali. Questo aspetto è particolare, ma significa che la regola di "affinità" impone solo che l'elemento figlio risieda dove si trova l'elemento padre. Se l'elemento padre è improvvisamente soggetto a failover su un altro nodo o a qualsiasi altra azione limitata che ne determina lo spostamento, Resource Manager non rileva alcun problema fino a quando non nota che l'elemento figlio non risiede dove si trova l'elemento padre. Ciò significa che la relazione non viene applicata immediatamente.
 
-#### Supporto del partizionamento
+### Supporto del partizionamento
 L'ultimo aspetto da notare è che le relazioni di affinità non sono supportate nelle situazioni in cui l'elemento padre è partizionato. È possibile che in futuro venga attivato il supporto per questo aspetto, ma attualmente non è previsto.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
-- [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
+- Per maggiori informazioni sulle altre opzioni disponibili per la configurazione dei servizi, consultare l'articolo relativo alle altre configurazioni disponibili di Cluster Resource Manager [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

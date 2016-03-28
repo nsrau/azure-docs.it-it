@@ -56,6 +56,7 @@ ALTER TABLE <table name>
 ```
 
 ## Vedere anche
+
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

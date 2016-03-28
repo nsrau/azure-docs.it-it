@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="03/09/2016" 
 	ms.author="sethm"/>
 
 # Come usare l'API JMS (Java Message Service) con il bus di servizio e AMQP 1.0
@@ -22,7 +22,7 @@ AMQP (Advanced Message Queuing Protocol) 1.0 è un protocollo di messaggistica w
 
 Grazie al protocollo AMQP 1.0 è ora possibile usare le funzionalità di accodamento e di messaggistica negoziata di pubblicazione/sottoscrizione del bus di servizio da numerose piattaforme, usando un protocollo binario efficiente. Inoltre, è possibile creare applicazioni costituite da componenti creati con un insieme di linguaggi, framework e sistemi operativi.
 
-Questa guida dettagliata illustra come usare le funzionalità di messaggistica negoziata (code e pubblicazione/sottoscrizione di argomenti) da applicazioni Java tramite la diffusa API standard JMS (Java Message Service).
+In questa guida dettagliata viene illustrato come utilizzare le funzionalità di messaggistica negoziata (code e pubblicazione/sottoscrizione di argomenti) da applicazioni Java tramite la diffusa API standard JMS (Java Message Service).
 
 ## Introduzione al bus di servizio
 
@@ -30,7 +30,7 @@ In questa guida si presuppone che si disponga già di uno spazio dei nomi del bu
 
 ### Download della libreria client JMS basata su AMQP 1.0
 
-Per informazioni sul download dell'ultima versione della libreria client JMS basata su AMQP 1.0 di Apache Qpid, visitare il sito Web all'indirizzo [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
+Per informazioni su dove scaricare l'ultima versione della libreria client JMS basata su AMQP 1.0 di Apache Qpid, visitare il sito Web all'indirizzo [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
 È necessario aggiungere i seguenti quattro file JAR dall'archivio di distribuzione AMQP 1.0 di Apache Qpid al CLASSPATH Java durante la compilazione e l'esecuzione di applicazioni JMS con il bus di servizio:
 
@@ -68,7 +68,7 @@ connectionfactory.[jndi_name] = [ConnectionURL]
 
 Dove **[jndi\_name]** e **[ConnectionURL]** hanno i significati seguenti:
 
-- **[jndi\_name]**: nome logico dell'oggetto ConnectionFactory. Tale nome viene risolto nell'applicazione Java mediante l'utilizzo del metodo JNDI IntialContext.lookup().
+- **[jndi\_name]**: Nome logico dell'oggetto ConnectionFactory. Tale nome viene risolto nell'applicazione Java mediante l'utilizzo del metodo JNDI IntialContext.lookup().
 - **[ConnectionURL]**: URL che fornisce alla libreria JMS le informazioni necessarie per il broker AMQP.
 
 Il formato di **ConnectionURL** è il seguente:
@@ -81,9 +81,9 @@ Dove **[namespace]**, **[username]** e **[password]** hanno i significati seguen
 
 - **[namespace]**: spazio dei nomi del bus di servizio.
 - **[username]**: nome dell'autorità emittente del bus di servizio.
-- **[password]**: formato con codifica URL della chiave dell'autorità emittente del bus di servizio.
+- **[password]**: formato con codifica URL della chiave dell'autorità emittente del Bus di servizio.
 
-> [AZURE.NOTE]è necessario applicare manualmente la codifica URL alla password. Un'efficace utilità di codifica URL è disponibile all'indirizzo [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> [AZURE.NOTE] è necessario applicare manualmente la codifica URL alla password. Un'efficace utilità di codifica URL è disponibile all'indirizzo [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 #### Configurare le destinazioni
 
@@ -103,7 +103,7 @@ Dove **[jndi\_name]** e **[physical\_name]** hanno i significati seguenti:
 - **[jndi\_name]**: nome logico della destinazione. Tale nome viene risolto nell'applicazione Java mediante l'utilizzo del metodo JNDI IntialContext.lookup().
 - **[physical\_name]**: nome dell'entità del bus di servizio a cui l'applicazione invia messaggi o da cui l'applicazione riceve messaggi.
 
-> [AZURE.NOTE]In caso di ricezione da una sottoscrizione a un argomento del bus di servizio, il nome fisico specificato in JNDI deve essere il nome dell'argomento. Il nome della sottoscrizione viene fornito al momento della creazione della sottoscrizione durevole nel codice dell'applicazione JMS. Nella [guida per sviluppatori di AMQP 1.0 per il bus di servizio](service-bus-amqp-dotnet.md) sono disponibili istruzioni dettagliate sull'uso delle sottoscrizioni ad argomenti del bus di servizio da JMS.
+> [AZURE.NOTE] In caso di ricezione da una sottoscrizione a un argomento del bus di servizio, il nome fisico specificato in JNDI deve essere il nome dell'argomento. Il nome della sottoscrizione viene fornito al momento della creazione della sottoscrizione durevole nel codice dell'applicazione JMS. Nella [guida per sviluppatori di AMQP 1.0 per il bus di servizio](service-bus-amqp-dotnet.md) sono disponibili istruzioni dettagliate sull'uso delle sottoscrizioni ad argomenti del bus di servizio da JMS.
 
 ### Scrivere l'applicazione JMS
 
@@ -332,4 +332,4 @@ In questa guida dettagliata è stato illustrato come accedere alle funzionalità
 * [Come usare le code del bus di servizio](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

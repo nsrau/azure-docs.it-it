@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="03/11/2016"
 	ms.author="danlep"/>
 
 # Quote e limiti per il servizio Azure Batch
@@ -35,7 +35,12 @@ Account Batch per area per sottoscrizione|1|50
 ## Altri limiti
 Risorsa|Limite massimo
 ---|---
-Attività per nodo di calcolo|4 x numero di core del nodo
+Attività per nodo di calcolo | 4 x numero di core del nodo
+Applicazioni per account Batch | 20
+Pacchetti dell'applicazione per applicazione | 40
+Dimensioni del pacchetto dell'applicazione (ciascuno) | Circa 195GB<sup>1</sup>
+
+<sup>1</sup> Limite di archiviazione di Azure per le dimensioni massime del BLOB in blocchi
 
 ## Visualizzare le quote Batch
 
@@ -55,7 +60,7 @@ Usare i passaggi seguenti per richiedere un aumento di quota nel portale di Azur
 
 1. Nel dashboard del portale fare clic su **Guida e supporto**.
 
-2. Fare clic su **Nuova richiesta di supporto > Informazioni di base**.
+2. Fare clic su **Nuova richiesta di supporto > Nozioni di base**.
 
 3. Nel pannello **Dati principali** eseguire le operazioni seguenti:
 
@@ -93,4 +98,4 @@ Si verrà contatti dal supporto di Azure. Il completamento della richiesta può 
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

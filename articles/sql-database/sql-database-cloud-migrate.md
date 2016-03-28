@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="01/05/2016"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # Migrazione di un database SQL Server al database SQL nel cloud
@@ -47,10 +47,10 @@ Se si rilevano problemi di compatibilità, è necessario risolverli prima di pro
 Per eseguire la migrazione di un database di SQL Server compatibile, Microsoft fornisce diversi metodi di migrazione per i vari scenari. Il metodo scelto dipende dalla tolleranza per i tempi di inattività, dalle dimensioni e dalla complessità del database di SQL Server e dalla connettività al cloud di Microsoft Azure.
 
 > [AZURE.SELECTOR]
-- [SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-- [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-- [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [Transactional Replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+- [Migrazione guidata in SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+- [Esportare in un file BACPAC.](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [Importare da file BACPAC.](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Replica transazionale](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
 Per scegliere il metodo di migrazione, è necessario stabilire innanzitutto se è possibile portare il database fuori produzione durante la migrazione. La migrazione di un database mentre si verificano transazioni attive può causare problemi di coerenza e un possibile danneggiamento del database. Per disattivare un database sono disponibili vari metodi, dalla disabilitazione della connettività client alla creazione di uno [snapshot del database](https://msdn.microsoft.com/library/ms175876.aspx).
 
@@ -65,4 +65,4 @@ Per eseguire la migrazione con tempi di inattività minimi, usare la [replica di
 
 	 ![Migrazione di database SQL Server - Migrazione di database SQL nel cloud.](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

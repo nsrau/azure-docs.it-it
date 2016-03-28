@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/27/2015"
+   ms.date="01/27/2016"
    ms.author="cawa" />
 
 # Configurare l'integrazione continua per un'applicazione Service Fabric con Visual Studio Team Services (VSTS)
@@ -208,7 +208,7 @@ Per installare Azure PowerShell, seguire la procedura nella sezione precedente *
 
 1.	Scaricare agent.zip. A tale scopo, effettuare l'operazione seguente:
 
-    a. Accedere al progetto team, ad esempio ****https://[your-VSTS-account-name].visualstudio.com**.
+    a. Accedere al progetto team, ad esempio **https://[your-VSTS-account-name].visualstudio.com**.
 
     b. Fare clic sull'icona a forma di ingranaggio nell'angolo in alto a destra della schermata.
 
@@ -298,7 +298,7 @@ Per installare Azure PowerShell, seguire la procedura nella sezione precedente *
 3.  Salvare la definizione di compilazione e assegnare un nome. È possibile modificare questo nome in seguito.
 
 ### Aggiungere un passaggio "Compilazione"
-@<Author GitHub alias> – Please review the copy edit to your article, address any questions I’ve entered in the comments, and let me know if I’ve changed the technical meaning anywhere.
+@<Author GitHub alias> –Rivedere le modifiche apportate al testo dell'articolo, rispondere alle domande immesse nei commenti e comunicare se casualmente non sia stato modificato il significato tecnico.
 
 1.	Nella scheda **Compilazione** scegliere il comando **Aggiungi istruzione di compilazione**.
 
@@ -411,4 +411,4 @@ Per sapere di più sull'integrazione continua con applicazioni di Service Fabric
 - [Articolo sulla distribuzione di un agente di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
 - [Articolo sulla creazione e configurazione di una definizione di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

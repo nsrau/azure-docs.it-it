@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Supporto dei client di livello inferiore del Database SQL per Controllo | Microsoft Azure" 
-	description="Informazioni sul supporto dei client di livello inferiore del Database SQL per Controllo." 
+	pageTitle="Supporto dei client di livello inferiore del database SQL per Controllo | Microsoft Azure" 
+	description="Informazioni sul supporto dei client di livello inferiore del database SQL per Controllo." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="11/12/2015" 
-	ms.author="nadavhelfman; ronitr"/>
+	ms.author="nadavh;ronitr"/>
  
 # Database SQL - Supporto dei client di livello inferiore per Controllo
 
@@ -38,4 +38,4 @@ Un elenco parziale di "client di livello inferiore" include:
 
 **Nota:** la modifica del nome di dominio completo del server citata in precedenza può risultare utile per applicare un criterio di controllo a livello di server SQL senza la necessità di una procedura di configurazione in ogni database (attenuazione temporanea).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0316_2016-->

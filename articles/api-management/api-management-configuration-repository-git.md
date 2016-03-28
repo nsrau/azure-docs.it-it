@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/14/2016" 
 	ms.author="sdanie"/>
 
 
 # Come salvare e configurare la configurazione del servizio Gestione API tramite Git
+
+>[AZURE.IMPORTANT] La configurazione di Git per Gestione API è attualmente disponibile in anteprima. Completata dal punto di vista funzionale, questa funzionalità è disponibile in anteprima perché ancora in attesa di commenti e suggerimenti. Poiché è possibile che vengano apportate modifiche sostanziali basate sui suggerimenti dei clienti, si consiglia di non dipendere dall'uso di questa funzionalità negli ambienti di produzione. Per eventuali commenti o domande, scrivere all'indirizzo `apimgmt@microsoft.com`.
 
 Ogni istanza del servizio Gestione API gestisce un database di configurazione che contiene informazioni sulla configurazione e i metadati dell'istanza del servizio. Per apportare modifiche all'istanza del servizio è possibile modificare un'impostazione nel portale di pubblicazione, usare un cmdlet di PowerShell o eseguire una chiamata all'API REST. Oltre a questi metodi, è possibile gestire la configurazione dell'istanza del servizio tramite Git. Ciò consente scenari di gestione del servizio diversi, ad esempio:
 
@@ -43,13 +45,17 @@ Questo articolo descrive come abilitare e usare Git per gestire la configurazion
 
 ## Per abilitare l'accesso a Git
 
-Per configurare l'accesso a Git, fare clic sul menu **Security** e passare alla scheda **Configuration repository**.
+È possibile visualizzare rapidamente lo stato della configurazione di Git visualizzando l'icona Git nell'angolo superiore destro del portale di pubblicazione. Nell'esempio l'accesso a Git non è ancora stato abilitato.
+
+![Stato Git][api-management-git-icon-enable]
+
+Per visualizzare e configurare le impostazioni di configurazione di Git, è possibile fare clic sull'icona Git o fare clic sul menu **Security** e passare alla scheda **Configuration repository**.
 
 ![Abilitare GIT][api-management-enable-git]
 
 Per abilitare l'accesso a Git, selezionare la casella di controllo **Enable Git access**.
 
-Dopo qualche istante la modifica viene salvata e viene visualizzato un messaggio di conferma.
+Dopo qualche istante la modifica viene salvata e viene visualizzato un messaggio di conferma. Si noti che l'icona Git appare colorata per indicare che l'accesso Git è abilitato, mentre il messaggio di stato ora indica che sono presenti modifiche non salvate nel repository. Questo avviene perché il database di configurazione del servizio Gestione API non è ancora stato salvato nel repository.
 
 ![GIT abilitato][api-management-git-enabled]
 
@@ -286,5 +292,6 @@ Per informazioni su altri metodi di gestione dell'istanza del servizio, vedere:
 [api-management-configuration-deploy]: ./media/api-management-configuration-repository-git/api-management-configuration-deploy.png
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
+[api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

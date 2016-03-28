@@ -1,4 +1,4 @@
-Risorsa|Free|Basic (anteprima) <sup>6</sup>|S1|S2
+Risorsa|Free|Basic (anteprima) <sup>6</sup>|S1|S2 <sup>7</sup>
 ---|---|---|---|----
 Servizi di ricerca massima|N/D|---|12 per ogni sottoscrizione di Azure|12 per ogni sottoscrizione di Azure 
 Dimensioni massime di archiviazione <sup>1</sup>|50 MB o 10.000 documenti|2 GB per servizio|25 GB per partizione o 300 GB di documenti per servizio|100 GB per partizione o 1.2 TB per servizio 
@@ -19,7 +19,7 @@ Prezzi <sup>4</sup>|N/D|$75 per SU al mese|$250 per SU al mese|$1000 per SU al m
 
 <sup>2</sup> Query al secondo è un'approssimazione basata sull'euristica, che usa carichi di lavoro simulati ed effettivi per calcolare i valori stimati. La velocità di query al secondo effettiva varia a seconda dei dati e della natura della query.
 
-<sup>3</sup> Le unità di ricerca sono l'unità fatturabile per una replica o una partizione. Sono necessarie entrambe per l'archiviazione, l'indicizzazione e le operazioni di query. Vedere [Pianificazione della capacità](../articles/search/search-capacity-planning.md) per le combinazioni valide di repliche e partizioni entro il limite massimo di 3 o 36 unità di base e standard.
+<sup>3</sup> Le unità di ricerca sono l'unità fatturabile per una replica o una partizione. Sono necessarie entrambe per l'archiviazione, l'indicizzazione e le operazioni di query. Per le combinazioni valide di repliche e partizioni entro il limite massimo di 3 o 36 unità di base e standard, vedere [Pianificazione della capacità](../articles/search/search-capacity-planning.md).
 
 <sup>4</sup> Il prezzo è per il mercato degli Stati Uniti e illustra i costi relativi dei diversi livelli. I prezzi variano a seconda del mercato. Consultare la [pagina Prezzi](https://azure.microsoft.com/pricing/details/search/) per i prezzi in altre valute. La velocità si riferisce alla singola unità di ricerca (SU). A livello S1, una configurazione di 3 unità di ricerca (ad esempio 3 repliche e 1 partizione) avrebbe un costo medio di $750 al mese. Se si passa a un numero inferiore di unità di ricerca entro il mese, la fattura viene ripartita in modo da addebitare solo ciò che si utilizza.
 
@@ -27,4 +27,6 @@ Prezzi <sup>4</sup>|N/D|$75 per SU al mese|$250 per SU al mese|$1000 per SU al m
 
 <sup>6</sup> Il [livello di base](http://aka.ms/azuresearchbasic) è disponibile nel periodo di anteprima con uno sconto del 50% rispetto al prezzo intero.
 
-<!-----HONumber=AcomDC_0302_2016-->
+<sup>7</sup> S2 richiede un ticket di servizio. Non può essere fornito nel portale. Per ottenere assistenza su come iniziare, inviare un messaggio di posta elettronica all’indirizzo azuresearch_contact@microsoft.com.
+
+<!----HONumber=AcomDC_0316_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestione delle metriche con Cluster Resource Manager di Azure Service Fabric"
+   pageTitle="Gestione delle metriche con Cluster Resource Manager di Azure Service Fabric | Microsoft Azure"
    description="Informazioni su come configurare e usare le metriche in Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# Metrica
+# Gestione dell'utilizzo delle risorse e del carico in Service Fabric con le metriche
 Le metriche sono il termine generico usato in Service Fabric per le risorse rilevanti per i servizi. In genere, una metrica è un qualsiasi elemento che si vuole gestire in termini di risorsa, per gestire le prestazioni dei servizi.
 
 In tutti gli esempi precedenti si fa implicitamente riferimento alle metriche. La memoria, il disco, l'utilizzo della CPU sono tutti esempi di metriche. In questo caso si tratta di metriche fisiche, ovvero risorse che corrispondono a risorse fisiche sul nodo e che devono essere gestite. Le metriche possono anche essere metriche logiche, ad esempio "MyWorkQueueDepth", ovvero possono essere definite dall'applicazione e corrispondenti a un livello di utilizzo della risorsa. In questo caso, tuttavia, l'applicazione non è effettivamente consapevole della metrica o non sa come misurarla.
@@ -109,7 +109,7 @@ Si noti che se si vogliono usare solo le metriche predefinite, non è necessario
 ## Load
 Il carico è un concetto generale che indica la quantità di una metrica specifica utilizzata da un'istanza del servizio o da una replica in un nodo specifico.
 
-### Carico predefinito
+## Carico predefinito
 Il carico predefinito corrisponde alla quantità di carico che Resource Manager deve presupporre venga utilizzata da ogni istanza del servizio o replica del servizio, fino a quando non riceve eventuali aggiornamenti dalle istanze del servizio o dalle repliche effettive. Per i servizi più semplici, si tratta di una definizione statica che non viene mai aggiornata dinamicamente e che verrà quindi usata per la durata del servizio. Questo approccio è ottimale per la pianificazione della capacità semplice, perché corrisponde alle operazioni consuete, ovvero dedicare determinate risorse a determinati carichi di lavoro. Il vantaggio è però costituito dal fatto che almeno ora si adotta un approccio basato su microservizi, in cui le risorse non sono effettivamente assegnate in modo statico a carichi di lavoro specifici e gli utenti non vengono coinvolti nel processo decisionale.
 
 Si consente ai servizi con stato di specificare il carico predefinito per le repliche primarie e secondarie. Realisticamente, per molti servizi questi valori sono diversi a causa dei diversi carichi di lavoro eseguiti dalle repliche primarie e dalle repliche secondarie. Poiché le repliche primarie gestiscono in genere operazioni di lettura e scrittura, oltre alla maggior parte delle operazioni di calcolo, il carico predefinito per una replica primaria è maggiore rispetto a quello delle repliche secondarie.
@@ -117,7 +117,6 @@ Si consente ai servizi con stato di specificare il carico predefinito per le rep
 Si supponga di avere eseguito il servizio per un certo periodo di tempo e che si sia notato che alcune istanze o repliche del servizio utilizzano molte più risorse rispetto alle altre o che il rispettivo utilizzo varia nel tempo, ad esempio perché sono associate a un cliente specifico o corrispondono semplicemente a carichi di lavoro che presentano variazioni nel corso della giornata, come traffico di messaggistica o transazioni azionarie. Ad ogni modo, si nota che non è disponibile alcun "numero singolo" utilizzabile per il carico che non presenti differenze significative rispetto a quanto previsto. Si nota anche che le differenze rispetto alle stime iniziali provocano in Service Fabric un'allocazione eccessiva o insufficiente delle risorse al servizio e che quindi alcuni nodi sono utilizzati in modo eccessivo o insufficiente. Cosa fare? È ad esempio possibile fare in modo che il servizio segnali in tempo reale il carico.
 
 ## Carico dinamico
-
 I report relativi al carico dinamico consentono alle repliche o alle istanze di modificare la rispettiva allocazione o il rispettivo utilizzo segnalato delle metriche nel cluster nel corso del proprio ciclo di vita. Una replica o un'istanza del servizio che risultava inattiva e non eseguiva alcuna operazione segnalerà in genere un utilizzo ridotto delle risorse, mentre le repliche o le istanza occupate segnalano un utilizzo superiore. Questo livello generale di varianza nel cluster consente di riorganizzare in tempo reale le repliche e le istanze del servizio nel cluster, in modo da assicurare che i servizi e le istanze ottengano le risorse necessarie, affinché i servizi occupati possano recuperare risorse da altre repliche o istanze attualmente inattive o meno occupate. La segnalazione in tempo reale del carico può essere eseguita mediante il metodo ReportLoad, disponibile in ServicePartition, disponibile come proprietà nel servizio StatefulService di base. Il codice nel servizio avrà un aspetto analogo al seguente:
 
 Codice:
@@ -128,6 +127,7 @@ this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory",
 
 Le repliche o le istanze del servizio possono segnalare il carico solo per le metriche disponibili per l'uso in base alla rispettiva configurazione. L'elenco di metriche viene definito in fase di creazione di ogni servizio. Se una replica o un'istanza del servizio prova a segnalare il carico per una metrica non ancora disponibile per l'uso in base alla rispettiva configurazione, Service Fabric registra il report ma lo ignora. Non verrà quindi usato durante il calcolo o la creazione di report sullo stato del cluster. Questo approccio consente maggiori sperimentazioni. Il codice può misurare e segnalare tutti gli aspetti configurati e l'operatore può configurare, modificare e aggiornare le regole di bilanciamento delle risorse per il servizio in tempo reale, senza dover modificare il codice. È ad esempio possibile disabilitare una metrica con un report anomalo, riconfigurare i pesi in base al comportamento oppure abilitare una nuova metrica solo dopo che il codice è già stato distribuito e convalidato.
 
+## Combinazione di valori di carico predefiniti e report sul carico dinamico
 Specificare un carico predefinito per un servizio che crea report in modo dinamico per il carico offre molti vantaggi. In questo caso il carico predefinito viene usato come una stima, fino a quando i report effettivi non risultano disponibili dalla replica o dall'istanza del servizio. Questo approccio è ottimale perché fornisce a Resource Manager alcuni elementi su cui lavorare durante il posizionamento della replica o dell'istanza in fase di creazione. Il carico predefinito viene usato come stima iniziale e ciò consente a Resource Manager di posizionare in modo ottimale fin da subito le istanze o le repliche del servizio. Se non venisse fornita alcuna informazione, il posizionamento sarebbe effettivamente casuale ed è molto probabile che sarebbe necessario spostare elementi immediatamente dopo la ricezione dei report effettivi sul carico.
 
 Partendo dall'esempio precedente, è possibile verificare le conseguenze dell'aggiunta di carico personalizzato e quindi dell'aggiornamento dinamico di un servizio dopo la creazione. In questo esempio verrà usata la metrica "Memory" e si presuppone di avere creato inizialmente il servizio con stato con il comando seguente:
@@ -145,6 +145,7 @@ Un layout di cluster può avere un aspetto analogo al seguente:
 ![Cluster bilanciato con le metriche predefinite e personalizzate][Image2]
 
 Occorre notare alcuni aspetti:
+
 -	Poiché le repliche o le istanze usano il carico predefinito del servizio fino a quando non viene segnalato il rispettivo carico, si sa che le repliche all'interno della partizione 1 del servizio con stato non hanno segnalato alcun carico specifico.
 -	Le repliche secondarie in una partizione possono avere un carico specifico.
 -	Le metriche sono complessivamente buone, con una differenza tra il carico massimo e minimo su un nodo, per la metrica più rilevante Memory, pari solamente a un fattore di 1,75. Il nodo con il carico maggiore per la memoria è N3, quello con il carico minore è N2 e 28/16 = 1,75. La configurazione è abbastanza bilanciata.
@@ -183,17 +184,16 @@ Nel secondo esempio le repliche sono state distribuite in base al bilanciamento 
 
 Prendendo in considerazione i pesi delle metriche, il bilanciamento globale viene calcolato in base alla media dei pesi delle metriche. Un servizio viene bilanciato rispetto ai pesi definiti specifici per le metriche.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
-- [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
-- [Informazioni sulle metriche di deframmentazione](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- [Informazioni sul bilanciamento del carico nel cluster di Cluster Resource Manager](service-fabric-cluster-resource-manager-balancing.md)
-- [Introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
-- [Informazioni su costo dello spostamento dei servizi](service-fabric-cluster-resource-manager-movement-cost.md)
+- Per maggiori informazioni sulle altre opzioni disponibili per la configurazione dei servizi, consultare l'articolo relativo alle altre configurazioni disponibili di Cluster Resource Manager [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
+- Definire la metrica di deframmentazione rappresenta un modo per consolidare il carico sui nodi anziché distribuirlo. Per informazioni su come configurare la deframmentazione, leggere [questo articolo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
+- Partire dall'inizio e leggere l'[Introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+- Il costo dello spostamento è un modo per segnalare a Cluster Resource Manager che alcuni servizi sono più costosi da spostare rispetto ad altri. Per altre informazioni sui costi di spostamento, leggere [questo articolo](service-fabric-cluster-resource-manager-movement-cost.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
 [Image3]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->
