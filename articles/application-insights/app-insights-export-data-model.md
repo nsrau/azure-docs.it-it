@@ -32,9 +32,9 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Un contenitore delle proprietà di coppia chiave valore (KVP) che fornisce l'estensibilità sugli articoli di telemetria di AppInsights per l’aggiunta di metriche personalizzate. 
 
-    *Derivazione:* i nomi delle misurazioni hanno dimensioni massime pari a 100
+    *Derivazione* : i nomi delle misurazioni hanno dimensioni massime pari a 100
 
-    *Predefinito:* in presenza di una chiave esistente, il valore mancante è quindi count = 1, value = 0, min/max = 0
+    *Predefinito* : in presenza di una chiave esistente, il valore mancante è quindi count = 1, value = 0, min/max = 0
 
 **<property>**
 
@@ -42,7 +42,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Un contenitore delle proprietà di coppia chiave valore (KVP) che fornisce l'estensibilità sugli articoli di telemetria di AppInsights per l’aggiunta di proprietà personalizzate. Lo sviluppatore è in grado di fornire un elenco di coppia chiave-valore associato a un elemento di dati di telemetria. Ogni chiave viene rilevata e possono essere fornite massimo 200 chiavi univoche per ogni AppInsights ikey (applicazione). Una chiave può avere una lunghezza massima di 100 caratteri. Tutti i valori vengono considerati come stringa e può essere fornita una dimensione massima di 1000 caratteri. Ogni proprietà inizialmente è classificata come una dimensione, che abilita le funzionalità di segmentazione in base a ogni set di valore della proprietà. Ogni set di valore è registrato per ogni chiave di proprietà per la cardinalità. Quando la cardinalità di una chiave supera 100 valori univoci, la proprietà viene classificata come un attributo. Un attributo può essere ricercato, ma non può essere la destinazione di segmentazione (aggregazione o raggruppamento). 
 
-    *Derivazione:* i nomi delle proprietà hanno dimensioni massime pari a 100; i valori delle proprietà hanno dimensioni massime pari a 1024
+    *Derivazione* : i nomi delle proprietà hanno dimensioni massime pari a 100; i valori delle proprietà hanno dimensioni massime pari a 1024
 
     *Predefinito:* in presenza di una chiave esistente, il valore mancante è quindi value = null
 
@@ -52,7 +52,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Il count dell'elemento di telemetria.   
 
-    *Derivazione:* se null, count = 1
+    *Derivazione* : se null, count = 1
 
 **duration**
 
@@ -60,7 +60,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     La durata dell'elemento di telemetria. Per la richiesta, questo è il tempo di esecuzione della richiesta. 
 
-    *Predefinito:* R1, per la visualizzazione questo campo è facoltativo
+    *Predefinito* : R1, per la visualizzazione questo campo è facoltativo
 
 **message**
 
@@ -88,7 +88,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     L'URL del pageview, evento, richiesta o RDD. L'URL completo ed è supportato nella ricerca full-text e nell'esportazione. Questo campo può avere una cardinalità elevata ed è un attributo. Viene analizzato in un set di elementi di dati urlData che può essere utilizzato per le aggregazioni in Esplorazione di metrica. 
 
-    *Predefinito:* R2: in remotedepencyType se dependencyType = HTTP questo campo è obbligatorio<br/> In clientperformanceType questo campo è obbligatorio
+    *Predefinito* : R2: in remotedepencyType se dependencyType = HTTP questo campo è obbligatorio<br/> In clientperformanceType questo campo è obbligatorio
 
     *Esempi*<br/> https://icecream.contoso.com/main.aspx?etc=3&extraqs=%3fetc%3d3%26formid%3dc40d07a7-1cf1-4e1d-b00e-e61876d1284e&pagemode=iframe&pagetype=entityrecord<br/>http://fabrikam-oats.azurewebsites.net/index.htm
 
@@ -98,7 +98,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Una parte dell'elemento di dati URL esclusi host, parametri di query. È la radice URI. Questo valore può essere utilizzato per la segmentazione/aggregazione. 
 
-    *Derivazione:* vedere l'appendice per la trasformazione di URL
+    *Derivazione* : vedere l'appendice per la trasformazione di URL
 
     *Esempi*<br/> /main.aspx?etc=3&extraqs=%3fetc%3d3%26formid%3dc40d07a7-1cf1-4e1d-b00e-e61876d1284e&pagemode=iframe&pagetype=entityrecord<br/>/default.aspx<br/>/Patients/Search/<br/>
 
@@ -108,7 +108,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Il testo di hashtag dell'elemento di dati URL 
 
-    *Derivazione:* vedere l’appendice per la trasformazione di URL
+    *Derivazione* : vedere l’appendice per la trasformazione di URL
 
 **urlData.host**
 
@@ -116,7 +116,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     L'host dell'elemento di dati URL. Se l'elemento di dati URL è un URI locale, allora è rappresentato come vuoto 
 
-    *Derivazione:* vedere l'appendice per la trasformazione di URL
+    *Derivazione* : vedere l'appendice per la trasformazione di URL
 
     *Esempi*<br/> www.fabrikam.com<br/>www.contoso.com<br/>bretwpc711.azurewebsites.net<br/>
 
@@ -218,7 +218,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 
     string basicexception.problemid      Max: 100
 * 
-    *Derivazione:* vedere l'appendice per l'analisi dello stack di chiamate 
+    *Derivazione* : vedere l'appendice per l'analisi dello stack di chiamate 
 
 **Exceptions.Assembly**
 
@@ -330,7 +330,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Un identificatore univoco dell'elemento di telemetria. Assegnato all'endpoint della raccolta dei dati. 
 
-    *Derivazione:* UUID4 generato
+    *Derivazione* : UUID4 generato
 
     *Esempi*<br/> edc6eaf3-3459-46a0-bb81-bedc24913864
 
@@ -354,7 +354,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Il browser del client 
 
-    *Predefinito:* se null, questo viene impostato in base all’elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
+    *Predefinito* : se null, questo viene impostato in base all’elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
 
     *Esempi*<br/> Opera<br/>Mobile Safari<br/>Ovi Browser<br/>Chrome<br/>Firefox<br/>Internet Explorer
 
@@ -364,7 +364,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     La versione del browser del client 
 
-    *Predefinito:* se null, questo viene impostato in base all’elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
+    *Predefinito* : se null, questo viene impostato in base all’elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
 
     *Esempi*<br/> Opera 12.17<br/>Mobile Safari 8.0<br/>Ovi Browser 5.5<br/>Chrome 37.0<br/>Firefox 21.0<br/>Internet Explorer 7.0
 
@@ -402,7 +402,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Il sistema operativo del client 
 
-    *Predefinito:* se Null, viene impostato in base all'elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
+    *Predefinito* : se Null, viene impostato in base all'elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
 
     *Esempi*<br/> Windows<br/>iOS iPad<br/>Nokia
 
@@ -412,7 +412,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Versione del sistema operativo del client 
 
-    *Predefinito:* se Null, viene impostato in base all'elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
+    *Predefinito* : se Null, viene impostato in base all'elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
 
     *Esempi*<br/> Windows XP<br/>iOS 8.3<br/>Nokia Series 40<br/>Windows 7<br/>Windows 8
 
@@ -434,7 +434,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     L'altezza dello schermo dell'applicazione su hardware client nel momento in cui l'elemento di telemetria viene registrato. Se non è esplicitamente fornito proviene da una trasformazione dell'elemento di dati screenresolution. 
 
-    *Derivazione:* analizzato da context.device.screenresolution, se presente
+    *Derivazione* : analizzato da context.device.screenresolution, se presente
 
     *Esempi*<br/> 360<br/>1280<br/>1920
 
@@ -452,7 +452,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     La larghezza dello schermo dell'applicazione sull’hardware del client nel momento in cui l'elemento di telemetria viene registrato. Se non è esplicitamente fornito proviene da una trasformazione dell'elemento di dati screenresolution. 
 
-    *Derivazione:* analizzato da context.device.screenresolution, se presente
+    *Derivazione* : analizzato da context.device.screenresolution, se presente
 
     *Esempi*<br/> 640<br/>800<br/>1080
 
@@ -479,7 +479,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 
      L'ultimo ottetto è sempre impostato su 0 per risolvere eventuali problemi di privacy.
 
-    *Predefinito:* se Null, impostare l'indirizzo IP HTTP acquisito nell'endpoint della raccolta dati
+    *Predefinito* : se Null, impostare l'indirizzo IP HTTP acquisito nell'endpoint della raccolta dati
 
     *Esempi*<br/> 186.123.63.0<br/>123.203.131.0
 
@@ -532,7 +532,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Se issynthetic = true, questo elemento di dati rappresenta l'origine dei dati sintetici. 
 
-    *Predefinito:* se null, l'agente utente viene controllato per origini sintetiche note (classificazione di documenti Web ecc.) e in base a ciò, si può impostare l’origine.
+    *Predefinito* : se null, l'agente utente viene controllato per origini sintetiche note (classificazione di documenti Web ecc.) e in base a ciò, si può impostare l’origine.
 
 **syntheticTransaction**
 
@@ -540,7 +540,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Un elemento che indica che l'elemento di telemetria è stato generato da test sintetici e non da attività reali degli utenti. 
 
-    *Predefinito:* se Null, viene effettuata la ricerca nell'agente utente rispetto a un elenco di agenti sintetici noto. Se viene trovata una corrispondenza, il valore è impostato su true.<br/>Se l'agente utente è Null, il valore viene impostato su false
+    *Predefinito* : se Null, viene effettuata la ricerca nell'agente utente rispetto a un elenco di agenti sintetici noto. Se viene trovata una corrispondenza, il valore è impostato su true.<br/>Se l'agente utente è Null, il valore viene impostato su false
 
 **session.Id**
 
@@ -676,7 +676,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Indica se la richiesta ha esito positivo. Il codice di risposta nel gruppo 200 viene considerato corretto. 
 
-    *Predefinito:* se Null, impostare su true
+    *Predefinito* : se Null, impostare su true
 
 
 ## sessionmetric
@@ -743,7 +743,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Il primo URL della sessione. Questo viene originato dalla urlData.base ed è disponibile come una segmentazione/aggregazione per le metriche sessionMetric 
 
-    *Derivazione:* originato da &lt;telemetryType&gt;.Url
+    *Derivazione* : originato da &lt;telemetryType&gt;.Url
 
 **eventCount**
 
@@ -763,7 +763,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     L'ultimo evento della sessione. Questo viene originato dalla event.name ed è disponibile come una segmentazione/aggregazione per le metriche sessionMetric 
 
-    *Derivazione:* Originato da event.name
+    *Derivazione* : Originato da event.name
 
 **exitUrl**
 
@@ -771,7 +771,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     L'ultimo URL della sessione. Questo viene originato dalla urlData.base ed è disponibile come una segmentazione/aggregazione per le metriche sessionMetric 
 
-    *Derivazione:* originato da &lt;telemetryType&gt;.Url
+    *Derivazione* : originato da &lt;telemetryType&gt;.Url
 
 **pageBounceCount**
 
@@ -779,7 +779,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Il count di sessioni di rimbalzo che questo elemento di telemetria sessionMetric rappresenta. Una sessione di rimbalzo è una sessione che viene creata in base a un singolo elemento di telemetria di visualizzazione. 
 
-    *Derivazione:* se sessionMetric.viewCount + sessionMetric.requestCount = 1, then 1 else 0
+    *Derivazione* : se sessionMetric.viewCount + sessionMetric.requestCount = 1, then 1 else 0
 
 **pageCount**
 
@@ -931,7 +931,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Una parte dell'URL di riferimento di esclusione di host, parametri di query. È la radice URI. Questo valore può essere utilizzato per la segmentazione/aggregazione. 
 
-    *Derivazione:* vedere l'appendice per la trasformazione di URL
+    *Derivazione* : vedere l'appendice per la trasformazione di URL
 
 **referrerData.hashTag**
 
@@ -939,7 +939,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Il testo dell’hashtag dell’URL di riferimento 
 
-    *Derivazione:* vedere l'appendice per la trasformazione di URL
+    *Derivazione* : vedere l'appendice per la trasformazione di URL
 
 **referrerData.host**
 
@@ -947,7 +947,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     L'host dell'URL di riferimento. Se l'URL è un URI locale, allora è rappresentato come vuoto 
 
-    *Derivazione:* vedere l'appendice per la trasformazione di URL
+    *Derivazione* : vedere l'appendice per la trasformazione di URL
 
 **referrerData.port**
 
@@ -963,7 +963,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Il protocollo (HTTP, FTP e così via) dell'URL di riferimento 
 
-    *Derivazione:* vedere l'appendice per la trasformazione di URL
+    *Derivazione* : vedere l'appendice per la trasformazione di URL
 
     *Esempi*<br/> http<br/>https
 
@@ -973,7 +973,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Una matrice dei nomi di parametro di query dell'URL di riferimento 
 
-    *Derivazione:* vedere l'appendice per la trasformazione di URL
+    *Derivazione* : vedere l'appendice per la trasformazione di URL
 
 **referrerData.queryParameters.value**
 
@@ -981,7 +981,7 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * 
     Una matrice di valori del parametro di query analizzati dall'URL referringData. 
 
-    *Derivazione:* vedere l'appendice per la trasformazione di URL
+    *Derivazione* : vedere l'appendice per la trasformazione di URL
 
 
 
