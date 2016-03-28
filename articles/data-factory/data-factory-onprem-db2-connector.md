@@ -229,7 +229,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | password | Specificare la password per l'account utente specificato per il nome utente. | No |
 | gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi al database DB2 locale. | Sì |
 
-Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati DB2 locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
+Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati DB2 locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
 
 
 ## Proprietà del tipo di set di dati DB2
@@ -314,4 +314,4 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

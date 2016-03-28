@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="03/14/2016"
 	ms.author="antonba"/>
 
 # Come configurare connessioni VPN in Gestione API di Azure
@@ -48,11 +48,25 @@ Dopo che il servizio Gestione API è stato connesso alla VPN, l'accesso ai servi
 
 ![Aggiungere un'API dalla VPN][api-management-setup-vpn-add-api]
 
+## Porte necessarie per il supporto VPN di Gestione API
+
+Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, vengono usate le porte indicate nella tabella seguente. Se le porte sono bloccate, il servizio potrebbe non funzionare correttamente. Il blocco di una o più di queste porte è il problema di configurazione più comune nell'uso di Gestione API in una rete virtuale.
+
+| Porte | Direzione | Protocollo di trasporto | Scopo | Origine/Destinazione |
+|------------------------------|------------------|--------------------|------------------------------------------------------------------|-----------------------------------|
+| 80, 443 | In ingresso | TCP | Comunicazione tra client e Gestione API | INTERNET / VIRTUAL\_NETWORK |
+| 80,443 | In uscita | TCP | Dipendenza di Gestione API in archiviazione di Azure e bus di servizio di Azure | VIRTUAL\_NETWORK / INTERNET |
+| 1433 | In uscita | TCP | Dipendenze di Gestione API in SQL | VIRTUAL\_NETWORK / INTERNET |
+| 9350, 9351, 9352, 9353, 9354 | In uscita | TCP | Dipendenze di Gestione API nel bus di servizio | VIRTUAL\_NETWORK / INTERNET |
+| 5671 | In uscita | AMQP | Dipendenza di Gestione API per il criterio Registra a Hub eventi | VIRTUAL\_NETWORK / INTERNET |
+| 6381, 6382, 6383 | In ingresso/In uscita | UDP | Dipendenze di Gestione API nella cache Redis | VIRTUAL\_NETWORK / VIRTUAL\_NETWORK |
+| 445 | In uscita | TCP | Dipendenza di Gestione API nella condivisione file di Azure per GIT | VIRTUAL\_NETWORK / INTERNET |
+
 
 ## <a name="related-content"> </a>Contenuti correlati
 
 
-* [Esercitazione: Creazione di una rete virtuale cross-premise per la connettività da sito a sito][]
+* [Creare una rete virtuale con una connessione VPN da sito a sito con il portale di Azure classico][]
 * [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
@@ -65,7 +79,7 @@ Dopo che il servizio Gestione API è stato connesso alla VPN, l'accesso ai servi
 
 [portale di Azure classico]: https://manage.windowsazure.com/
 
-[Esercitazione: Creazione di una rete virtuale cross-premise per la connettività da sito a sito]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
+[Creare una rete virtuale con una connessione VPN da sito a sito con il portale di Azure classico]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

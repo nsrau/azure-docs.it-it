@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Introduzione a Cluster Resource Manager di Service Fabric"
+   pageTitle="Introduzione a Cluster Resource Manager di Service Fabric | Microsoft Azure"
    description="Un'introduzione a Cluster Resource Manager di Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,11 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
 # Introduzione a Cluster Resource Manager di Service Fabric
-
 Tradizionalmente, la gestione dei sistemi IT o di un gruppo di servizi comportava dedicare alcuni computer a tali sistemi o i servizi specifici. La maggiore parte dei servizi principali erano suddivisi in un livello "web" e un livello "dati" o "archiviazione", magari con alcuni altri componenti specializzati come una cache. Altri tipi di applicazioni avrebbero avuto un livello "messaggistica" che gestiva le richieste in entrata e uscita connesso a un livello "lavoro" per le attività di analisi o trasformazione necessarie per la messaggistica. A ogni livello venivano assegnati due o più computer dedicati. Al database venivano assegnati un paio di computer dedicati, ai server web qualcuno in più. Se un particolare tipo di carico di lavoro provocava il sovraccarico del computer che lo ospitava, si aggiungevano altri computer configurati per quel particolare tipo di carico di lavoro oppure si sostituivano alcuni computer con equivalenti più potenti. Semplice. Se si verificava un problema su un computer, la parte dell'applicazione interessata veniva gestita con una capacità inferiore fino a quando il computer non veniva ripristinato. Ancora piuttosto semplice, anche se non necessariamente divertente.
 
 Supponiamo ora che a un certo punto si presentasse la necessità di aumentare la capacità del proprio sistema adottando contenitori e/o microservizi. Improvvisamente ci si ritrova con centinaia o addirittura migliaia di computer, decine di diversi tipi di servizi, magari centinaia di diverse istanze di tali servizi, ognuna con una o più istanze o repliche per disponibilità elevata.
@@ -28,7 +27,7 @@ La conseguenza della separazione e suddivisione di quella che era un'applicazion
 
 Cosa fare?
 
-## Introduzione degli agenti di orchestrazione
+## Introduzione agli agenti di orchestrazione
 Un "agente di orchestrazione" è il termine generale con cui ci si riferisce a un componente software che aiuta gli amministratori a gestire questi tipi di distribuzioni. Gli agenti di orchestrazione sono i componenti che si fanno carico di richieste come "Vorrei avere in esecuzione 5 copie di questo servizio nel mio ambiente", le realizzano e provano a mantenerle efficaci. Sono gli agenti di orchestrazione, e non gli esseri umani, che entrano in gioco quando un computer si arresta o un flusso di lavoro si blocca per qualche motivo non previsto. La maggior parte degli agenti di orchestrazione si occupa di ben più che più risolvere gli errori, ad esempio contribuiscono ad attivare le nuove distribuzioni, gestiscono gli aggiornamenti e il consumo di risorse, ma servono fondamentalmente a mantenere nello stato desiderato la configurazione nell'ambiente. L'utente deve dire all'agente di orchestrazione che cosa fare e lasciargli fare i lavori pesanti. Chronos su Mesosphere, Fleet, Swarm, Kubernetes e Service Fabric sono agenti di orchestrazione o contengono degli agenti di orchestrazione. Ne vengono creati sempre di nuovi per fare fronte alle crescenti e mutevoli complessità legate alla gestione delle distribuzioni del mondo reale in diversi tipi di ambienti.
 
 ## Orchestrazione come servizio
@@ -50,12 +49,12 @@ Si noti che questo era, nel migliore dei casi, il meccanismo per garantire che i
 
 Anche se alcune di queste strategie sono interessanti, Cluster Resource Manager di Service Fabric non assomiglia affatto a un servizio di bilanciamento del carico di rete né a una cache. Mentre un servizio di bilanciamento del carico di rete assicura che i front-end siano bilanciati spostando il traffico dove sono in esecuzione i servizi, Resource Manager di Service Fabric adotta un approccio completamente diverso spostando, sostanzialmente, i servizi dove ha più senso. Può trattarsi, ad esempio, di nodi attualmente inattivi in quanto i servizi presenti al loro interno non stanno eseguendo tante operazioni. Può trattarsi di spostare i servizi da un nodo che sta per essere aggiornato o che è sovraccarico a causa di un picco nell'utilizzo dei servizi in esecuzione su di esso. Poiché è responsabile dello spostamento dei servizi e non di spostare il traffico di rete dove i servizi sono già presenti, Resource Manager di Service Fabric è più versatile e contiene anche funzionalità aggiuntive per controllare dove e come spostare i servizi.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
-- [Informazioni sull'architettura di Cluster Resource Manager](service-fabric-cluster-resource-manager-architecture.md)
-- [Descrizione del cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-- [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
-- [Informazioni sulle metriche](service-fabric-cluster-resource-manager-metrics.md)
-- [Informazioni su come Cluster Resource Manager si integra con il resto delle funzionalità di gestione di Service Fabric](service-fabric-cluster-resource-manager-management-integration.md)
+- Per informazioni sull'architettura e sul flusso di informazioni in Cluster Resource Manager, leggere [questo articolo ](service-fabric-cluster-resource-manager-architecture.md)
+- Cluster Resource Manager dispone di molte opzioni per la descrizione del cluster. Per altre informazioni a riguardo vedere l'articolo [Descrivere un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+- Per maggiori informazioni sulle altre opzioni disponibili per la configurazione dei servizi, consultare l'articolo relativo alle altre configurazioni disponibili di Cluster Resource Manager [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
+- Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, leggere [questo articolo](service-fabric-cluster-resource-manager-metrics.md)
+- Cluster Resource Manager sfrutta le funzionalità di gestione di Service Fabric. Per altre informazioni sull'integrazione, leggere [questo articolo](service-fabric-cluster-resource-manager-management-integration.md)
+- Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

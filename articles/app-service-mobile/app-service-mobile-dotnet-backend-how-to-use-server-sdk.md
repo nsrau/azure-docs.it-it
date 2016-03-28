@@ -5,7 +5,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 # Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure
@@ -160,7 +160,7 @@ Questa sezione illustra come pubblicare il progetto back-end .NET da Visual Stud
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-## Procedura: Definire un controller tabelle
+##<a name="define-table-controller"></a> Procedura: Definire un controller tabelle
 
 Un controller tabelle fornisce l'accesso ai dati delle entità in un archivio dati basato su tabelle, ad esempio il database SQL o l'Archivio tabelle di Azure. I controller della tabella ereditano dalla classe generica **TableController**, dove il tipo generico è un'entità nel modello che rappresenta lo schema della tabella, come indicato di seguito:
 
@@ -217,6 +217,7 @@ App per dispositivi mobili usa le funzionalità di autenticazione del servizio a
 + [Procedura: Aggiungere l'autenticazione a un progetto server](#add-auth)
 + [Procedura: Usare l'autenticazione personalizzata per la propria applicazione](#custom-auth)
 + [Procedura: Recuperare le informazioni sull'utente autenticato](#user-info)
++ [Procedura: Limitare l’accesso ai dati per gli utenti autorizzati](#authorize)
 
 ### <a name="add-auth"></a>Procedura: Aggiungere l'autenticazione a un progetto server
 
@@ -324,6 +325,9 @@ Il codice seguente chiama il metodo di estensione **GetAppServiceIdentityAsync**
 
 Si noti che affinché il metodo di estensione **GetAppServiceIdentityAsync** funzioni, è necessario aggiungere un'istruzione using per `System.Security.Principal`.
 
+###<a name="authorize"></a>Procedura: Limitare l’accesso ai dati per gli utenti autorizzati
+
+Spesso si desidera limitare i dati che vengono restituiti a un determinato utente autenticato. Questo tipo di partizionamento dei dati viene eseguito includendo una colonna userId nella tabella e memorizzando il SID dell'utente quando i dati vengono inseriti
 
 ## Procedura: Aggiungere notifiche push a un progetto server
 
@@ -397,7 +401,7 @@ Se un utente autenticato esegue la registrazione per le notifiche push, viene au
 
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
-    
+
 Durante la registrazione per le notifiche push da un client autenticato, assicurarsi che l'autenticazione sia stata completata prima di tentare la registrazione. Per altre informazioni, vedere [Eseguire il push agli utenti](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) nell'esempio di avvio rapido completato in app per dispositivi mobili del servizio app per back-end .NET.
 
 ## Procedura: Eseguire il debug e risolvere i problemi di .NET Server SDK
@@ -457,4 +461,4 @@ Il server eseguito in locale ora è in grado di convalidare i token che il clien
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

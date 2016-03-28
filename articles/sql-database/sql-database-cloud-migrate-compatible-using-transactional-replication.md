@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # Eseguire la migrazione del database del server SQL al database SQl tramite la replica transazionale
@@ -29,8 +29,8 @@ La replica transazionale è una tecnologia integrata in SQL Server a partire dal
  - SQL Server 2014 SP1 CU3 e versioni successive
  - SQL Server 2014 RTM CU10 e versioni successive
  - SQL Server 2012 SP2 CU8 e versioni successive
- - SQL Server 2012 SP3 
+ - SQL Server 2013 SP3 quando verrà rilasciata
 
 È inoltre possibile usare la replica transazionale per eseguire la migrazione di un subset del database locale. La pubblicazione di cui si esegue la replica nel database SQL di Azure può essere limitata a un subset delle tabelle nel database replicato. Inoltre, per ogni tabella replicata, è possibile limitare i dati a un subset di righe e/o di colonne.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

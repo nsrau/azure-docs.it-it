@@ -3,7 +3,7 @@
 	description="Domande frequenti relative alle competizioni su Microsoft Azure Machine Learning."
 	services="machine-learning"
 	documentationCenter=""
-	authors="garyericson"
+	authors="hning86"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
 # Domande frequenti relative alla competizione su Microsoft Azure Machine Learning
@@ -70,4 +70,4 @@ Microsoft verificherà i risultati della classifica privata e contatterà i vinc
 
 I vincitori della competizione devono firmare una dichiarazione di idoneità, autorizzazione e liberatoria. Questo modulo riporta le regole della competizione. I vincitori devono compilare il modulo fiscale W-9 se sono contribuenti degli Stati Uniti o il modulo W-8BEN se non sono contribuenti degli Stati Uniti.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

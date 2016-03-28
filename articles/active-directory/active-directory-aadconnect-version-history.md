@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/29/2016"
+   ms.date="03/15/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Cronologia delle versioni
@@ -28,13 +28,22 @@ Collegamenti correlati:
 - Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## 1\.1.119.0
+Data di rilascio: marzo 2016
+
+**Problemi risolti:**
+
+- È stato verificato che non sia possibile usare l'installazione rapida in Windows Server 2008 (pre-R2), poiché la sincronizzazione delle password non è supportata in questo sistema operativo.
+- L'aggiornamento da DirSync con una configurazione personalizzata del filtro non funzionava come previsto.
+- Durante l'aggiornamento a una versione più recente, senza modifiche alla configurazione, è consigliabile non pianificare una importazione/sincronizzazione completa.
+
 ## 1\.1.110.0
 Data di rilascio: febbraio 2016
 
 **Problemi risolti:**
 
 - L'aggiornamento da versioni precedenti non funziona se l'installazione non è stata eseguita nella cartella predefinita **C:\\Programmi**.
-- Se si esegue l'installazione e si deseleziona **Avvia il processo di sincronizzazione..** al termine dell'installazione guidata, una nuova esecuzione dell'installazione guidata non abilita l'utilità di pianificazione.
+- Se si esegue l'installazione e si deseleziona **Avvia il processo di sincronizzazione** al termine dell'installazione guidata, una nuova esecuzione dell'installazione guidata non abilita l'utilità di pianificazione.
 - L'utilità di pianificazione non funzionerà come previsto nei server in cui il formato di data/ora non è US-en. `Get-ADSyncScheduler` non potrà restituire gli orari corretti.
 - Se è stata installata una versione precedente di Azure AD Connect con ADFS come opzione di accesso e aggiornamento, non è possibile eseguire nuovamente l'installazione guidata.
 
@@ -53,7 +62,7 @@ Data di rilascio: febbraio 2016
 
 **Funzionalità passate dal livello di anteprima al livello di disponibilità generale:**
 
-- [Writeback dispositivi](active-directory-aadconnect-feature-device-writeback.md).
+- [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md).
 - [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md).
 
 **Nuove funzionalità di anteprima:**
@@ -248,4 +257,4 @@ Data di rilascio: settembre 2014
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -545,6 +545,11 @@ Ad esempio, il risultato di `reduce by city` può includere:
 | Parigi | 27163 |
 
 
+## Direttiva render
+
+    T | render [ table | timechart  | barchart | piechart ]
+
+Indica al livello di presentazione la modalità di visualizzazione della tabella. Deve essere l'ultimo elemento della pipe. Si tratta di una valida alternativa all'uso dei controlli su schermo che consente di salvare una query con un metodo di presentazione specifico.
 
 
 ## Operatore sort 
@@ -602,7 +607,7 @@ Tabella che indica quanti elementi presentano prezzi in ogni intervallo [0,10.0]
 
 **Argomenti**
 
-* *Colonna:* nome facoltativo per una colonna di risultati. Il valore predefinito è un nome derivato dall'espressione.
+* *Column:* nome facoltativo per una colonna di risultati. Il valore predefinito è un nome derivato dall'espressione.
 * *Aggregation:* chiamata a una [funzione di aggregazione](app-analytics-aggregations.md), ad esempio `count()` o `avg()` con nomi di colonna come argomenti. Vedere l'[elenco delle funzioni di aggregazione](app-analytics-aggregations.md).
 * *GroupExpression:* espressione sulle colonne che fornisce un set di valori distinti. Si tratta in genere di un nome di colonna che fornisce già un set di valori limitato oppure di `bin()` con una colonna numerica o di data e ora come argomento. 
 
@@ -761,4 +766,4 @@ Si noti che il confronto tra due colonne viene inserito per ultimo, perché non 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

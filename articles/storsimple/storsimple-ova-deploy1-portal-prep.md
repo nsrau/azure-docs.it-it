@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/10/2016"
    ms.author="alkohli"/>
 
 # Distribuire StorSimple Virtual Array: preparare il portale
@@ -26,8 +26,8 @@ Le informazioni contenute in questo articolo si applicano solo a Microsoft Azure
 
 Per completare il processo di installazione e configurazione sono necessari privilegi di amministratore. Si consiglia di consultare l'elenco di controllo configurazione della distribuzione prima di iniziare. La preparazione del portale richiede meno di 10 minuti.
 
-Le informazioni sulla distribuzione di StorSimple pubblicate in questo articolo si applicano solo agli array virtuali di StorSimple.
-
+Le informazioni pubblicate in questo articolo si applicano alla distribuzione di StorSimple Virtual Arrays nel portale di Azure classico nonché nel cloud di Microsoft Azure per enti pubblici.
+ 
 ### Introduzione
 
 Il flusso di lavoro di distribuzione consiste nella preparazione del portale, nel provisioning di un array virtuale nell'ambiente virtualizzato e nel completamento dell'installazione. Per iniziare la distribuzione di StorSimple Virtual Array come file server o server iSCSI, è necessario fare riferimento alle seguenti risorse catalogate (articoli e video).
@@ -38,7 +38,7 @@ Consultare gli articoli seguenti nella sequenza indicata per distribuire StorSim
 
 | **#** | **In questo passaggio** | **Contenuto dell'esercitazione** | **Usare questi documenti**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
-|1\. | **Configurare il portale di Azure classico** | Creare e configurare il servizio StorSimple Manager prima di eseguire il provisioning di un dispositivo virtuale StorSimple. |[Preparare il portale](storsimple-ova-deploy1-portal-prep.md)| 
+|1\. | **Configurare il portale di Azure classico** | Creare e configurare il servizio StorSimple Manager prima di eseguire il provisioning di un dispositivo virtuale StorSimple. |[Preparare il portale](storsimple-ova-deploy1-portal-prep.md)|
 |2\. | **Eseguire il provisioning dell'array virtuale** | Per Hyper-V, eseguire il provisioning e connettersi a un dispositivo virtuale StorSimple in un sistema host che esegue Hyper-V 2008 R2, Hyper-V 2012 o Hyper-V 2012 R2. <br></br> <br></br> Per VMware, eseguire il provisioning e connettersi a un dispositivo virtuale locale StorSimple in un sistema host che esegue VMware ESXi 5.5 e versioni successive.<br></br>| [Eseguire il provisioning di un array virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Eseguire il provisioning di un array virtuale in VMware](storsimple-ova-deploy2-provision-vmware.md)|
 |3\. | **Configurare l'array virtuale** | Per il file server, eseguire l'installazione iniziale, registrare il file server StorSimple e completare l'installazione del dispositivo. È quindi possibile eseguire il provisioning delle condivisioni SMB. <br></br> <br></br> Per il server iSCSI, eseguire l'installazione iniziale, registrare il server iSCSI StorSimple e completare l'installazione del dispositivo. È quindi possibile eseguire il provisioning dei volumi iSCSI.| [Configurare l'array virtuale come file server](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Configurare l'array virtuale come server iSCSI](storsimple-ova-deploy3-iscsi-setup.md)|
 
@@ -211,4 +211,4 @@ Il passaggio successivo riguarda il provisioning di una macchina virtuale per il
 
 -   [Eseguire il provisioning di StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

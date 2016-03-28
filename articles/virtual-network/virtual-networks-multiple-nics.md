@@ -33,6 +33,7 @@ Attualmente, la funzionalità Multi-NIC presenta i requisiti e i vincoli seguent
 - All'interno di un singolo servizio cloud (distribuzioni classiche) o un gruppo di risorse (distribuzione di Gestione risorse), sono consentite solo le impostazioni seguenti: 
 	- In tutte le macchine virtuali del servizio cloud deve essere abilitata la funzionalità Multi-NIC oppure 
 	- Tutte le macchine virtuali nel servizio cloud devono disporre di una singola NIC 
+	- Inoltre, una macchina virtuale senza interfacce di rete secondarie non può essere aggiornata in modo da presentare interfacce di rete secondarie e viceversa.
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
  
@@ -265,4 +266,4 @@ Per le macchine virtuali Linux, poiché è stato utilizzato il comportamento pre
 - Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione di Gestione risorse](virtual-network-deploy-multinic-arm-template.md).
 - Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione classica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

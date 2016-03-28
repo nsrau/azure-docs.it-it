@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="02/07/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Autorizzazione sul lato servizio degli utenti in Servizi mobili
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> [AZURE.SELECTOR]
+- [Back-end .NET](mobile-services-dotnet-backend-service-side-authorization.md)
+- [Back-end JavaScript](mobile-services-javascript-backend-service-side-authorization.md)
 
 &nbsp;
 
-
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Per la versione di questo argomento equivalente per le app per dispositivi mobili, vedere la [procedura di limitazione dell'accesso ai dati per gli utenti autorizzati](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#authorize) nell'argomento Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure.
 
 Questo argomento illustra come usare la logica sul lato servizio per autorizzare gli utenti. In questa esercitazione vengono modificati i controller di tabella, vengono filtrate le query in base agli ID utente e si consente agli utenti di accedere solo ai propri dati. Il filtro dei risultati di query dell'utente per ID utente è la forma più elementare di autorizzazione. A seconda dello scenario specifico, è possibile creare tabelle di utenti e ruoli al fine di tenere traccia delle informazioni di autorizzazione utente più dettagliate, ad esempio gli endpoint a cui un determinato utente può accedere.
 
@@ -84,4 +83,4 @@ Questa esercitazione si basa sull'esercitazione di introduzione di Servizi mobil
 <!-- URLs. -->
 [Aggiungere l'autenticazione all'app di Servizi mobili esistente]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -3,8 +3,8 @@
 	description="La libreria Enterprise è progettata per semplificare diverse attività per i programmi client dei servizi cloud, inclusa l'integrazione della logica di ripetizione dei tentativi per gli errori temporanei."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor="" />
 
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
 # Codice di esempio: logica di ripetizione tentativi della libreria Enterprise 6, in C&#x23; per la connessione al database SQL
@@ -326,4 +326,4 @@ SELECT TOP 3
 
 - [Esempi di codice di avvio rapido del client per il database SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

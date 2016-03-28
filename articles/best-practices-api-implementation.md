@@ -155,7 +155,7 @@ Una volta che una richiesta è stata inviata correttamente da un’applicazione 
 
 - **Le azioni GET, PUT, DELETE, HEAD e PATCH devono essere idempotenti**.
 
-	Il codice che implementa queste richieste non deve causare effetti collaterali. La stessa richiesta ripetuta sulla stessa risorsa deve produrre lo stesso stato. Ad esempio, inviare più richieste DELETE allo stesso URI deve avere lo stesso effetto, anche se il codice di stato HTTP nei messaggi di risposta può essere diverso (la prima richiesta DELETE potrebbe restituire il codice di stato 204 (nessun contenuto), mentre una successiva richiesta DELETE potrebbe restituire il codice di stato 404 (non trovato)).
+	Il codice che implementa queste richieste non deve causare effetti collaterali. La stessa richiesta ripetuta sulla stessa risorsa deve produrre lo stesso stato. Ad esempio, inviare più richieste DELETE allo stesso URI deve avere lo stesso effetto, anche se il codice di stato HTTP nei messaggi di risposta può essere diverso. La prima richiesta DELETE potrebbe restituire il codice di stato 204, nessun contenuto, mentre una successiva richiesta DELETE potrebbe restituire il codice di stato 404, non trovato.
 
 > [AZURE.NOTE] L'articolo [Modelli di idempotenza](http://blog.jonathanoliver.com/idempotency-patterns/) sul blog di Oliver Jonathan fornisce una panoramica sull’idempotenza e sul modo in cui è correlata alle operazioni di gestione dati.
 
@@ -955,7 +955,7 @@ La stessa API Web può essere utilizzata da numerose applicazioni client in esec
 
 	6. Mentre l'attività è in esecuzione, il client può continuare a eseguire la propria elaborazione. Periodicamente può inviare una richiesta all'URI _/polling/ {guid}_ dove _{guid}_ è il GUID restituito nel messaggio di 202 risposta dall’API Web.
 
-	7. L'API web nell’URI _/polling {guid}_ esegue query sullo stato dell'attività corrispondente nella tabella e restituisce un messaggio di risposta con codice di stato HTTP 200 (OK) che contiene questo stato (_In esecuzione_, _Operazione completata_, o _Operazione non riuscita_). Se l'attività è stata completato o ha avuto esito negativo, il messaggio di risposta può includere anche i risultati dell'elaborazione oppure le informazioni disponibili relative al motivo dell'esito negativo.
+	7. L'API Web nell'URI _/polling/{guid}_ esegue query sullo stato dell'attività corrispondente nella tabella e restituisce un messaggio di risposta con codice di stato HTTP 200 (OK) che contiene lo stato _In esecuzione_, _Operazione completata_ oppure _Operazione non riuscita_. Se l'attività è stata completato o ha avuto esito negativo, il messaggio di risposta può includere anche i risultati dell'elaborazione oppure le informazioni disponibili relative al motivo dell'esito negativo.
 
 	Se si preferisce implementare le notifiche, le opzioni disponibili includono:
 
@@ -1152,4 +1152,4 @@ Se l'API Web è stata pubblicata mediante il Servizio di gestione API, la pagina
 - La pagina [Verifica codice utilizzando Unit test ](https://msdn.microsoft.com/library/dd264975.aspx) sul sito Web Microsoft fornisce informazioni dettagliate sulla creazione e gestione di unit test utilizzando Visual Studio.
 - La pagina [Eseguire test delle prestazioni in un'applicazione prima del rilascio](https://msdn.microsoft.com/library/dn250793.aspx) sul sito Web Microsoft descrive come utilizzare Visual Studio Ultimate per creare un prestazioni Web e caricare il progetto di test.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

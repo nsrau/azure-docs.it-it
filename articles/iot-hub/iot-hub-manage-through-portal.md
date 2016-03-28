@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="10/19/2015"
+	 ms.date="03/14/2016"
 	 ms.author="nasing"/>
 
 # Gestire hub IoT tramite il portale di Azure
@@ -44,11 +44,11 @@ Per creare un hub IoT, è necessario assegnare un nome all'hub. Si noti che ques
 
 ### Scegliere il piano tariffario
 
-È possibile scegliere fra 3 piani: **Gratuito**, **Standard 1** e **Standard 2**. Il piano gratuito consente la connessione solo di 10 dispositivi all'hub IoT.
+È possibile scegliere fra 3 piani: **Gratuito**, **Standard 1** e **Standard 2**. Il piano gratuito consente la connessione di solo 500 dispositivi all'hub IoT e di un massimo di 8.000 messaggi al giorno.
 
-**S1 (frequenza ridotta)**: l'edizione Hub IoT S1 (frequenza ridotta) è progettata per le soluzioni IoT con un numero elevato di dispositivi che generano quantità relativamente limitate di dati per dispositivo. Ogni unità dell'edizione S1 (frequenza ridotta) consente la connessione di un massimo di 500 dispositivi o un massimo di 50.000 messaggi al giorno per tutti i dispositivi connessi.
+**S1 (frequenza ridotta)**: l'edizione Hub IoT S1 (frequenza ridotta) è progettata per le soluzioni IoT con un numero elevato di dispositivi che generano quantità relativamente limitate di dati per dispositivo. Ogni unità dell'edizione S1 (frequenza ridotta) consente fino a 400.000 messaggi al giorno tra tutti i dispositivi connessi.
 
-**S2 (frequenza elevata)**: l'edizione Hub IoT S2 (frequenza elevata) è progettata per le soluzioni IoT in cui i dispositivi generano grandi quantità di dati. Ogni unità dell'edizione S2 (frequenza elevata) consente la connessione di un massimo di 500 dispositivi o di un massimo di 1,5 milioni di messaggi al giorno per tutti i dispositivi connessi.
+**S2 (frequenza elevata)**: l'edizione Hub IoT S2 (frequenza elevata) è progettata per le soluzioni IoT in cui i dispositivi generano grandi quantità di dati. Ogni unità dell'edizione S2 (frequenza elevata) consente fino a 6 milioni di messaggi al giorno tra tutti i dispositivi connessi.
 
 ![][4]
 
@@ -56,7 +56,7 @@ Per creare un hub IoT, è necessario assegnare un nome all'hub. Si noti che ques
 
 ### Unità hub IoT
 
-Un'unità hub IoT include 500 dispositivi, quindi la scelta del numero di unità IoT significa che il numero totale di dispositivi supportati per questo hub corrisponde al numero di unità moltiplicato per 500. Ad esempio, se si vuole che l'hub IoT supporti 1000 dispositivi, scegliere 2 unità.
+Un'unità hub IoT include un certo numero di messaggi al giorno, quindi la scelta del numero di unità IoT significa che il numero totale di messaggi supportati per questo hub corrisponde al numero di unità moltiplicato per il numero di messaggi al giorno per il piano. Ad esempio, se si desidera che l'hub IoT supporti 700.000 messaggi in entrata, selezionare 2 unità del piano S1.
 
 ### Partizioni da dispositivo a cloud e gruppo di risorse
 
@@ -129,7 +129,7 @@ I prezzi di un hub IoT esistente possono essere modificati tramite le impostazio
 
 ![][12]
 
-Il passaggio da un piano elevato (S2) a un piano ridotto (S1) è consentito solo quando il numero di messaggi inviati per un dato giorno non sono in conflitto. Ad esempio, se il numero di messaggi al giorno supera 50.000, il piano per l'hub IoT non può essere cambiato da S2 in S1.
+Il passaggio da un piano elevato (S2) a un piano ridotto (S1) è consentito solo quando il numero di messaggi inviati per un dato giorno non sono in conflitto. Ad esempio, se il numero di messaggi al giorno supera 400.000, il piano per l'hub IoT non può essere cambiato da S2 in S1.
 
 ## Eliminare l'hub IoT
 
@@ -153,4 +153,4 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l'hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -7,8 +7,8 @@ Altri punti dati al mese | 5 milioni | 50 milioni<sup>2</sup>
 Velocità dati di traccia o di log | 200 dp/s | 500 dp/s
 Velocità dati di eccezione | 50 dp/s | 50 dp/s
 Altre velocità dati di telemetria | 200 dp/s | 500 dp/s
-Conservazione dati non elaborati |7 giorni| 30 giorni
-Conservazione dati aggregati | 13 mesi | senza limiti
+Conservazione dati non elaborati | 7 giorni
+Conservazione dati aggregati | 90 giorni
 Numero nome proprietà nell'app | 100 | 100
 Lunghezza nome proprietà | 100 | 100
 Lunghezza valore proprietà | 1000 | 1000
@@ -22,4 +22,4 @@ Test della disponibilità | 10 | 10
  
 [Informazioni su prezzi e quote in Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

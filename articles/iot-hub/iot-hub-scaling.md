@@ -13,14 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="01/20/2016"
+ ms.date="03/14/2016"
  ms.author="elioda"/>
 
 # Ridimensionamento dell'hub IoT
 
-L'hub IoT può supportare fino a un milione di dispositivi connessi simultaneamente incrementando il numero di unità di livello S1 o S2 dell'hub IoT fino a 2.000. Per ulteriori informazioni, vedere [prezzi di dell’hub IoT][lnk-pricing].
-
-Ogni unità dell'hub IoT consente un certo numero di dispositivi nel relativo registro, che possono essere tutti connessi simultaneamente. Ogni unità consente inoltre un numero di messaggi giornalieri.
+Hub IoT di Azure può supportare fino a un milione di dispositivi connessi contemporaneamente. Per ulteriori informazioni, vedere [prezzi di dell’hub IoT][lnk-pricing]. Ogni unità hub IoT mette a disposizione, inoltre, un numero di messaggi giornalieri.
 
 Per il ridimensionamento corretto della soluzione, considerare l'uso specifico che viene fatto dell'hub IoT. In particolare, considerare la velocità effettiva di picco richiesta per le categorie di operazioni seguenti:
 
@@ -38,8 +36,8 @@ I messaggi da dispositivo a cloud seguono queste linee guida in caso di velocit�
 
 | Livello | Velocità effettiva sostenuta | Frequenza di invio sostenuta |
 | ---- | -------------------- | ------------------- |
-| S1 | Fino a 1111 KB al minuto per unità<br/>(1,5 GB al giorno per unità) | Una media di 278 messaggi al minuto per unità<br/>(400.000 messaggi al giorno per unità) |
-| S2 | Fino a 16 MB al minuto per unità<br/>(22,8 GB al giorno per unità) | Una media di 4167 messaggi al minuto per unità<br/>(6 milioni di messaggi al giorno per unità) |
+| S1 | Fino a 1.111 KB al minuto per unità<br/>(1,5 GB al giorno per unità) | Una media di 278 messaggi al minuto per unità<br/>(400.000 messaggi al giorno per unità) |
+| S2 | Fino a 16 MB al minuto per unità<br/>(22,8 GB al giorno per unità) | Una media di 4.167 messaggi al minuto per unità<br/>(6 milioni di messaggi al giorno per unità) |
 
 Le prestazioni dei messaggi da cloud a dispositivo vengono ridimensionate per dispositivo, con ogni dispositivo che riceve al massimo 5 messaggi al minuto.
 
@@ -66,4 +64,4 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

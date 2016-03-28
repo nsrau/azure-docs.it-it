@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="03/08/2016"
+	ms.date="03/15/2016"
 	ms.author="heidist"/>
 
 #Ricerca di Azure: esempi di codice, demo, video ed esercitazioni
@@ -79,16 +79,14 @@ Collegamento|Rilasciata|Dettagli
 Procedura dettagliata|Descrizione
 -----------|-----------
 [Come utilizzare Ricerca di Azure in .NET](search-howto-dotnet-sdk.md)|Configurare ed eseguire un'applicazione Web di esempio di Visual Studio che si integra con Ricerca di Azure.
-[Come cercare dati di StackExchange con Ricerca di Azure](search-howto-stackexchange-data.md)|Ricerca full-text su dati di StackExchange in un'applicazione integrata con la Ricerca di Azure.
 [Come utilizzare Ricerca di Azure con D3.js per creare visualizzazioni di dati interattivi](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|Post di blog e codice di esempio che illustra come aggiungere funzionalità di ricerca visiva all'app personalizzata.
 [Introduzione a Ricerca di Azure in NodeJS](search-get-started-nodejs.md)|Acquisire familiarità con la ricerca di Azure in NodeJS.
 [Introduzione a Ricerca di Azure in Java](search-get-started-java.md)|Esercitazione per programmatori Java che utilizzano server Eclipse e Apache Tomcat per compilare ed eseguire un'applicazione di esempio che utilizza Ricerca di Azure.
 [Funzionalità e scenari di Ricerca di azure](https://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/)|Post di blog che illustra i principali scenari abilitati per la funzionalità corrente.
 [Come aggiungere suggerimenti alle applicazioni di ricerca](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)|Informazioni su come implementare i suggerimenti, comunemente denominati completamento automatico. In questa demo vengono illustrati alcuni argomenti compresa la creazione di applicazioni MVC4 che sfruttano i suggerimenti di Ricerca di Azure, l'uso della libreria typeahead.js di Twitter per creare un componente efficace di suggerimenti automatici in JavaScript e l'uso dei suggerimenti fuzzy per consentire di offrire suggerimenti anche se la parola contiene errori di digitazione.
 [Laboratorio virtuale TechNet: creazione di un'applicazione di Ricerca di Microsoft Azure](http://go.microsoft.com/?linkid=9874663)|Laboratorio virtuale che fornisce un ambiente di sviluppo, strumenti, documentazione e dati. È necessario un account Azure, una sottoscrizione di valutazione o sottoscrizione di Azure personale, per completare il laboratorio.
-[Sviluppo di app di ricerca geospaziale tramite Ricerca di Azure](search-create-geospatial.md)|Usare le mappe e le coordinte di Bing per supportare ricerche geospaziale.
 [Sincronizzare i dati di SQL Server con Ricerca di Azure](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/)|Post di blog che spiega come caricare i dati dai database relazionali SQL Server in un indice di Ricerca di Azure.
 [Esercitazione sui profili di punteggio](search-get-started-scoring-profiles.md)|Provare i profili di punteggio usando un'app console.
 [Esercitazione dell'API REST di gestione di Ricerca di Azure](search-get-started-management-api.md)|Come utilizzare l'API REST di gestione per eseguire il provisioning del servizio e gestire chiavi API di query o di amministrazione.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 
@@ -70,4 +70,4 @@ Il [simulatore iOS non supporta le notifiche push](https://developer.apple.com/l
 <!-- URLs. -->
 [avvio rapido di iOS]: app-service-mobile-ios-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

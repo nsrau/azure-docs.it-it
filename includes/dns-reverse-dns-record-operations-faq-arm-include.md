@@ -1,22 +1,24 @@
-<BR> 
-## FAQ 
-### How much do reverse DNS records cost?
-They’re free!  There is no additional cost for reverse DNS records or queries.
-### Will my reverse DNS records resolve from the internet?
-Yes. Once you set the reverse DNS property for your Public IP Address, Azure manages all the DNS delegations and DNS zones required to ensure that reverse DNS record resolves for all internet users.
-### Will a default reverse DNS record be created for my Public IP Addresses?
-No. Reverse DNS is an opt-in feature. No default reverse DNS records are created if you choose not to configure them.
-### What is the format for the fully-qualified domain name (FQDN)?
-FQDNs are specified in forward order, and must be terminated by a dot (e.g., “app1.contoso.com.”).
-### What happens if the validation checks for the reverse DNS I’ve specified fail?
-Where the validation for reverse DNS checks fail, the service management operation will fail. Please correct the reverse DNS value as required, and retry.
-### Can I manage reverse DNS for my Azure Website?
-Reverse DNS is not supported for Azure Websites. Reverse DNS is supported for Azure Virtual Machines.
-### Can I configure multiple reverse DNS records for my Public IP Address?
-No. Azure supports a single reverse DNS record for each Public IP Address. Each Public IP Address however can have their own reverse DNS record.
-### Can I configure a reverse DNS record for my Public IP Address without having a DomainNameLabel specified?
-No. To leverage reverse DNS records for your Public IP Addresses, you must specify the DomainNameLabel property.
-### Can I host the ARPA zones for my Azure-assigned IPs on Azure DNS within my own subscription, or on my own authoritative DNS servers?
-No. Azure does not support the onward delegation of ARPA zones. Azure hosts the ARPA zones for all available IPs, and enables customers to create reverse DNS records within these ARPA zones.
-### Can I host ARPA zones for my ISP-assigned IP blocks on Azure DNS?
-No. Azure DNS does not currently support reverse DNS records in customers DNS zones.
+<BR>
+## Domande frequenti 
+### Quanto costano i record DNS inversi?
+Sono gratuiti! Non sono previsti costi aggiuntivi per i record DNS inversi o le query.
+### I record DNS inversi verranno risolti da Internet?
+Sì. Dopo aver impostato la proprietà DNS inverso per l'indirizzo IP pubblico, Azure gestisce tutte le deleghe DNS e le zone DNS richieste per assicurare che il record DNS inverso si risolva per tutti gli utenti di Internet.
+### Verrà creato un record DNS inverso predefinito per gli indirizzi IP pubblici?
+No. Il DNS inverso sarà una funzionalità che prevede il consenso esplicito. Se si sceglie di non configurare alcun record DNS inverso predefinito, non ne verrà creato alcuno.
+### Qual è il formato per il nome di dominio completo (FQDN)?
+I nomi di dominio completi sono specificati seguendo l’ordine in avanti e devono terminare con un punto (ad esempio, "app1.contoso.com.").
+### Cosa accade se i controlli di convalida per il DNS inverso specificati danno esito negativo?
+Se i controlli di convalida per il DNS inverso danno esito negativo, l'operazione di gestione del servizio non andrà a buon fine. Correggere il valore DNS inverso come richiesto e riprovare.
+### È possibile gestire il DNS inverso per il sito Web di Azure?
+Il DNS inverso non è supportato per i siti Web di Azure. Il DNS inverso è supportato per le macchine virtuali di Azure.
+### È possibile configurare più record DNS inversi per l'indirizzo IP pubblico?
+No. Azure supporta un singolo record DNS inverso per ogni indirizzo IP pubblico. Ogni indirizzo IP pubblico tuttavia può avere un proprio record DNS inverso.
+### È possibile configurare un record DNS inverso per l'indirizzo IP pubblico senza una proprietà domainNameLabel specificata?
+No. Per sfruttare i record DNS inversi per indirizzi IP pubblici, è necessario specificare la proprietà domainNameLabel.
+### È possibile ospitare zone ARPA per gli IP assegnati da Azure sul DNS di Azure all’interno della propria sottoscrizione o sui propri server DNS autorevoli?
+No. Azure non supporta la delega successiva delle zone ARPA. Azure ospita le zone ARPA per tutti gli indirizzi IP disponibili e consente ai clienti di creare record DNS inversi all'interno di queste zone ARPA.
+### È possibile ospitare zone ARPA per i blocchi IP assegnati dall’ISP sul DNS di Azure?
+No. Il DNS di Azure attualmente non supporta i record DNS inversi nelle zone DNS dei clienti.
+
+<!---HONumber=AcomDC_0316_2016-->

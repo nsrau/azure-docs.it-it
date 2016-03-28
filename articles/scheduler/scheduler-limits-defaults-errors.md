@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="12/04/2015"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione
@@ -55,7 +55,7 @@ Le operazioni API possono inoltre restituire informazioni aggiuntive sugli error
 
 
  [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
- 
+
  [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
 
  [Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure](scheduler-get-started-portal.md)
@@ -69,7 +69,5 @@ Le operazioni API possono inoltre restituire informazioni aggiuntive sugli error
  [Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione di Azure](scheduler-high-availability-reliability.md)
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
- 
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

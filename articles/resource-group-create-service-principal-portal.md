@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/27/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # Creare un'applicazione e un'entità servizio di Active Directory tramite il portale
@@ -77,9 +77,17 @@ Quando si accede a livello di codice all'applicazione, è necessario l'ID dell'a
   
    ![id client][5]
 
-In alcuni casi, è necessario passare l'id tenant con la richiesta di autenticazione. È possibile recuperare l'ID tenant selezionando **Visualizza endpoint** nella parte inferiore della schermata e recuperare l'ID come illustrato di seguito.
+In alcuni casi, è necessario passare l'id tenant con la richiesta di autenticazione. Per le app Web e le app per le API, è possibile recuperare l'ID tenant selezionando **Visualizza endpoint** nella parte inferiore della schermata e recuperare l'ID come illustrato di seguito.
 
    ![tenant id](./media/resource-group-create-service-principal-portal/save-tenant.png)
+
+Gli endpoint non sono disponibili per le applicazioni client native. È invece possibile recuperare l'ID tenant usando PowerShell:
+
+    PS C:\> Get-AzureRmSubscription
+
+Oppure l'interfaccia della riga di comando di Azure:
+
+    azure account show --json
 
 ## Crea una chiave di autenticazione
 
@@ -112,7 +120,7 @@ Se l'applicazione accede alle risorse per conto dell'utente connesso, è necessa
 
 1. Selezionare **Aggiungi applicazione**.
 
-2. Nell'elenco selezionare il **API di gestione del servizio Microsoft Azure**.
+2. Nell'elenco selezionare **API di gestione del servizio Microsoft Azure**.
 
       ![seleziona app](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -229,4 +237,4 @@ Per accedere per conto dell'utente, usare il metodo seguente per recuperare il t
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

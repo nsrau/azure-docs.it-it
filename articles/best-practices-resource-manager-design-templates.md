@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure"
+	pageTitle="Procedure consigliate per modelli di Azure Resource Manager | Microsoft Azure"
 	description="Visualizzazione dei modelli di progettazione per i modelli di Gestione risorse di Azure"
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/17/2015"
-	ms.author="mmercuri"/>
+	ms.author="tomfitz"/>
 
 # Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure
 
@@ -381,6 +381,6 @@ Se si desidera pubblicare il modello in marketplace, è sufficiente stabilire co
 
 - Per vedere esempi contestuali di come implementare i principi di progettazione presentati in questo argomento, vedere [Esempi contestuali di procedure consigliate per implementare i modelli](best-practices-resource-manager-examples.md).
 - Per consigli su come gestire la protezione in Gestione risorse di Azure, vedere[Considerazioni sulla protezione per Gestione risorse di Azure](best-practices-resource-manager-security.md)
-- Per ulteriori informazioni sulla condivisione dello stato all’interno e all'esterno di modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md).
+- Per ulteriori informazioni sulla condivisione dello stato all’interno e all'esterno dei modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

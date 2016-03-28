@@ -17,7 +17,7 @@
 	ms.author="douglasl"/>
 
 
-# Eseguire backup e ripristino di database con estensione abilitata 
+# Eseguire backup e ripristino di database con estensione abilitata
 
 Per eseguire il backup e il ripristino di database con estensione abilitata, è possibile continuare a usare i metodi attualmente in uso. Per sapere di più su backup e ripristino di SQL Server, vedere l'articolo su come [eseguire il backup e il ripristino di database di SQL Server](https://msdn.microsoft.com/library/ms187048.aspx).
 
@@ -59,7 +59,12 @@ Dopo aver ristabilito la connessione, Database Estensione tenta di riconciliare 
 ![Database Estensione dopo il backup][StretchBackupImage4]
 
 ## Vedere anche
-Articoli relativi a [gestione e risoluzione problemi di Database Estensione](sql-server-stretch-database-manage.md), [sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx) ed [esecuzione di backup e ripristino di database SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
+
+[Gestire e risolvere i problemi di Database Estensione](sql-server-stretch-database-manage.md)
+
+[sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
+
+[Backup e ripristino di database SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
 <!--Image references-->
 [StretchBackupImage1]: ./media/sql-server-stretch-database-backup/StretchDBBackup1.png
@@ -67,4 +72,4 @@ Articoli relativi a [gestione e risoluzione problemi di Database Estensione](sql
 [StretchBackupImage3]: ./media/sql-server-stretch-database-backup/StretchDBBackup3.png
 [StretchBackupImage4]: ./media/sql-server-stretch-database-backup/StretchDBBackup4.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

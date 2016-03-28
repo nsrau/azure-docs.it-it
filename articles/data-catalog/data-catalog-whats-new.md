@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Novità di Catalogo dati di Azure"
+   pageTitle="Novità di Catalogo dati di Azure | Microsoft Azure"
    description="Panoramica delle nuove funzionalità nell'anteprima di Catalogo dati di Azure."
    services="data-catalog"
    documentationCenter=""
@@ -13,20 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/19/2016"
+   ms.date="03/14/2016"
    ms.author="maroche"/>
 
 # Novità di Catalogo dati di Azure
 
 Gli aggiornamenti su **Catalogo dati di Azure** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includeranno nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio **Catalogo dati di Azure**.
 
+## Novità della versione della settimana del 11 marzo 2016
+
+Nella settimana del 11 marzo 2016 sono state aggiunte a **Catalogo dati di Azure** le funzionalità seguenti:
+
+- Un endpoint API REST consolidato per l'accesso a livello di codice alle funzionalità di ricerca e alle funzionalità di gestione degli asset di catalogo del servizio **Catalogo dati di Azure**. L'endpoint API di ricerca e l'endpoint API di catalogo esistenti verranno dichiarati obsoleti e interrotti il 21 marzo 2016. Non sono state apportate modifiche alla semantica dell'API. Verrà modificato solo l'URI degli endpoint. Per altre informazioni, vedere il riferimento dell'[API REST del Catalogo dati di Azure](https://msdn.microsoft.com/library/azure/mt267595.aspx). Per esempi di API, vedere [Esempi per sviluppatori del Catalogo dati di Azure](data-catalog-samples.md).
+
 ## Novità della versione della settimana del 19 febbraio 2016
 
 Nella settimana del 19 febbraio 2016 sono state aggiunte al **Catalogo dati di Azure** le funzionalità seguenti:
 
-- Una nuova esperienza di selezione dell'origine dati riprogettata nello strumento di registrazione delle origini dati **Catalogo dati di Azure**. Lo strumento di registrazione delle origini dati è stato aggiornato per rendere più semplice per gli utenti individuare e selezionare dalle origini dati supportate dal **Catalogo dati di Azure**.
+- Una nuova esperienza di selezione dell'origine dati riprogettata nello strumento di registrazione delle origini dati del **Catalogo dati di Azure**. Lo strumento di registrazione delle origini dati è stato aggiornato per rendere più semplice per gli utenti individuare e selezionare dalle origini dati supportate dal **Catalogo dati di Azure**.
 - Supporto di dieci lingue aggiuntive nel portale **Catalogo dati di Azure** e nello strumento di registrazione delle origini dati. Oltre all'inglese, l'esperienza del **Catalogo dati di Azure** è ora disponibile in tedesco, spagnolo, francese, italiano, giapponese, coreano, portoghese (Brasile), russo, cinese semplificato e cinese tradizionale. L'esperienza utente del **Catalogo dati di Azure** sarà localizzata in base alle preferenze della lingua configurate in Windows o nel browser Web dell'utente.
-- Supporto della replica geografica dei dati del **Catalogo dati di Azure** per il ripristino di emergenza e la continuità aziendale. Tutti i contenuti del **Catalogo dati di Azure**, compresi i metadati delle origini dati e le annotazioni di crowdsourcing vengono ora replicati tra due aree di Azure senza alcun costo aggiuntivo per i clienti. Le aree di Azure sono pre-abbinate, ad almeno 500 miglia di distanza, e seguono il mapping come descritto in [Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure](../best-practices-availability-paired-regions.md). 
+- Supporto della replica geografica dei dati del **Catalogo dati di Azure** per il ripristino di emergenza e la continuità aziendale. Tutti i contenuti del **Catalogo dati di Azure**, compresi i metadati delle origini dati e le annotazioni di crowdsourcing vengono ora replicati tra due aree di Azure senza alcun costo aggiuntivo per i clienti. Le aree di Azure sono pre-abbinate, ad almeno 500 miglia di distanza, e seguono il mapping come descritto in [Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure](../best-practices-availability-paired-regions.md).
 
 
 ## Novità della versione della settimana del 5 febbraio 2016
@@ -210,4 +216,4 @@ Nella settimana del 21 agosto 2015 sono state aggiunte a **Catalogo dati di Azur
 - Edizione Standard: quando si aggiungono proprietari agli asset di dati, il **Catalogo dati di Azure** ora supporta sia gli account utente che i gruppi di sicurezza come proprietari. Per aggiungere un gruppo di sicurezza come proprietario di asset di dati selezionati, è possibile immettere il nome visualizzato o l'indirizzo di posta elettronica UPN del gruppo, se presente.
 - Supporto per le origini dati dell'archivio BLOB di Azure. Gli utenti possono ora registrarsi e individuare i BLOB e le directory di archiviazione di Azure.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

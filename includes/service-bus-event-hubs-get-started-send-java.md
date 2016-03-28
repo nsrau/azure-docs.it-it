@@ -1,8 +1,8 @@
 ## Inviare messaggi all'hub eventi
 
-In questa sezione viene scritta un'app di console Java per inviare eventi all'hub eventi. Si usa il provider JMS AMQP dal [progetto Apache Qpid](http://qpid.apache.org/). Il procedimento è simile a quello impiegato per l'uso di code e argomenti del bus di servizio con AMQP tramite Java, indicato [qui](../service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Per altre informazioni, vedere la [documentazione di Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) e la [pagina relativa al servizio di messaggistica Java](http://www.oracle.com/technetwork/java/jms/index.html).
+In questa sezione viene scritta un'app di console Java per inviare eventi all'hub eventi. Si usa il provider JMS AMQP dal [progetto Apache Qpid](http://qpid.apache.org/). Il procedimento è simile a quello impiegato per l'uso di code e argomenti del bus di servizio con AMQP tramite Java e indicato [qui](../articles/service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Per altre informazioni, vedere la [documentazione di Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) e la [pagina relativa al servizio di messaggistica Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
-1. In Eclipse installare [Azure Toolkit per Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx). Include le librerie client Qpid JMS AMQP.
+1. In Eclipse installare [Azure Toolkit per Eclipse](../articles/azure-toolkit-for-eclipse.md). Include le librerie client Qpid JMS AMQP.
 
 2. In Eclipse creare un nuovo progetto Java denominato **Sender**.
 
@@ -92,4 +92,4 @@ In questa sezione viene scritta un'app di console Java per inviare eventi all'hu
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0316_2016-->

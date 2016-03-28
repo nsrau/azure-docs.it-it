@@ -24,7 +24,7 @@
 
 
 
-## Operatore `summarize`
+## Operatore summarize
 
 Produce una tabella che aggrega il contenuto della tabella di input.
 
@@ -42,19 +42,19 @@ Produce una tabella che aggrega il contenuto della tabella di input.
 ### Sintassi
 
     T | summarize
-         [  [Column =] Aggregation [`,` ...]]
+         [  [ Column = ] Aggregation [ , ... ]]
          [ by
-            [Column =] GroupExpression [`,` ...]]
+            [ Column = ] GroupExpression [ , ... ]]
 
 **Argomenti**
 
-* *Colonna:* nome facoltativo per una colonna di risultati. Il valore predefinito è un nome derivato dall'espressione.
-* *Aggregazione:* chiamata a una funzione di aggregazione, ad esempio `count()` o `avg()` con nomi di colonna come argomenti. Vedere l'elenco delle funzioni di aggregazione riportato di seguito.
-* *Espressione di gruppo:* espressione sulle colonne che fornisce un set di valori distinct. Si tratta in genere di un nome di colonna che fornisce già un set di valori limitato oppure di `bin()` con una colonna numerica o di data e ora come argomento. 
+* *Column:* nome facoltativo per una colonna di risultati. Il valore predefinito è un nome derivato dall'espressione.
+* *Aggregation:* chiamata a una funzione di aggregazione, ad esempio `count()` o `avg()` con nomi di colonna come argomenti. Vedere l'elenco delle funzioni di aggregazione riportato di seguito.
+* *GroupExpression:* espressione sulle colonne che fornisce un set di valori distinti. Si tratta in genere di un nome di colonna che fornisce già un set di valori limitato oppure di `bin()` con una colonna numerica o di data e ora come argomento. 
 
 Se si specifica un'espressione numerica o di data e ora senza usare `bin()`, AI Analytics applica automaticamente l'espressione con un intervallo di `1h` per gli orari o `1.0` per i numeri.
 
-Se non si specifica un'*espressione di gruppo*, l'intera tabella viene riepilogata in un'unica riga di output.
+Se non si specifica *GroupExpression*, l'intera tabella viene riepilogata in un'unica riga di output.
 
 Nella clausola `by` è necessario usare un tipo semplice anziché un tipo dinamico. Ad esempio, il cast `tostring` specificato di seguito è fondamentale:
 
@@ -82,10 +82,11 @@ Se si desidera raggruppare in base a un valore scalare continuo, ad esempio un n
 
     requests
     | summarize count() 
-      by duration_range=bin(duration, 1)
+      by bin(duration, 1000)/1000
 
 ![risultato](./media/app-analytics-aggregations/04.png)
 
+Il campo di durata richiesto è un numero in millisecondi.
  
 ## Suggerimenti
 
@@ -171,7 +172,7 @@ requests
 | sort by max_pop_tod asc
 ```
 
-## FUNZIONI DI AGGREGAZIONE
+## AGGREGAZIONI
 
 ## qualsiasi 
 
@@ -191,6 +192,7 @@ traces
 | top 10 by count_level desc 
 ```
 
+<a name="argmin"></a> <a name="argmax"></a>
 ## argmin, argmax
 
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
@@ -226,7 +228,7 @@ Trovare il valore più basso di ogni metrica, con timestamp e altri dati:
 
     avg(Expression)
 
-Calcola la media dii *Expression* all'interno del gruppo.
+Calcola la media di *Expression* all'interno del gruppo.
 
 ## buildschema
 
@@ -384,6 +386,8 @@ Calcola il valore minimo di *Expr*.
 
 **Suggerimento**: viene restituito solo il valore minimo o massimo, ad esempio il prezzo maggiore o minore. Ma se si desidera inserire altre colonne nella riga, ad esempio il nome del fornitore con il prezzo più basso, usare [argmin o argmax](#argmin-argmax).
 
+
+<a name="percentile"></a> <a name="percentiles"></a>
 ## percentile, percentiles
 
     percentile(Expression, Percentile)
@@ -459,4 +463,4 @@ Restituisce la somma di *Expr* del gruppo.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -43,9 +43,25 @@ La tabella seguente include i collegamenti a esempi di codice per ogni linguaggi
 
 Se un dispositivo non può usare gli SDK per client per dispositivi, può comunque connettersi agli endpoint pubblici del dispositivo tramite il protocollo MQTT. Nel pacchetto **CONNECT** il dispositivo deve usare i valori seguenti:
 
-- Valore **deviceId** come **ClientId**
-- `{iothubhostname}/{device_id}` nel campo **Username**, dove {iothubhostname} è il record CName completo dell'hub IoT, ad esempio contoso.azure-devices.net.
-- Un token di firma di accesso condiviso nel campo **Password**. Il [formato del token di firma di accesso condiviso][lnk-iothub-security] è identico a quello descritto per i protocolli HTTP e AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
+- Per il campo **ClientId** usare **deviceId**. 
+- Per il campo **Username** usare `{iothubhostname}/{device_id}`, dove {iothubhostname} rappresenta il record CName completo dell'hub IoT.
+
+    Ad esempio, se il nome dell'hub IoT è **contoso.azure-devices.net** e il nome del dispositivo è **MyDevice01**, il campo **Username** completo deve contenere `contoso.azure-devices.net/MyDevice01`.
+
+- Per il campo **Password** usare un token di firma di accesso condiviso. Il [formato del token di firma di accesso condiviso][lnk-iothub-security] è identico a quello descritto per i protocolli HTTP e AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
+
+    Per altre informazioni su come generare i token di firma di accesso condiviso, vedere l'articolo relativo all'[uso dei token di sicurezza hub IoT][lnk-sas-tokens].
+    
+    Durante il test, è inoltre possibile usare lo strumento [Device Explorer][lnk-device-explorer] per generare rapidamente un token di firma di accesso condiviso da copiare e incollare direttamente nel codice:
+    
+    1. Andare alla scheda **Management** di Device Explorer.
+    2. Fare clic su **SAS Token** in alto a destra.
+    3. In **SASTokenForm** selezionare il dispositivo nell'elenco a discesa **DeviceID**. Impostare il **TTL**.
+    4. Fare clic su **Generate** per creare il token.
+    
+    Il token di firma di accesso condiviso generato avrà l'aspetto seguente: `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fMyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
+
+    La porzione da usare nel campo **Password** per connettersi usando MQTT è: `SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802g%3d&se=1456481802`.
 
 Per i pacchetti di connessione e disconnessione di MQTT l'hub IoT genera un evento nel canale **Monitoraggio operazioni**.
 
@@ -56,18 +72,18 @@ Dopo aver stabilito correttamente una connessione, un dispositivo può inviare m
 ```
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
 ```
- 
+
 > [AZURE.NOTE] È la stessa codifica usata per le stringhe di query nel protocollo HTTP.
 
 L'applicazione client per dispositivi può anche usare `devices/{did}/messages/events/{property_bag}` come **nome dell'argomento Will** per definire *i messaggi Will* da inoltrare come messaggio di telemetria.
 
 ### Ricezione di messaggi
 
-Per ricevere messaggi dall'hub IoT un dispositivo deve eseguire la sottoscrizione con `devices/{did}/messages/devicebound/#”` come **Topic Filter**. L'hub IoT recapita i messaggi con il **Nome argomento** `devices/{did}/messages/devicebound/` o `devices/{did}/messages/devicebound/{property_bag}` se sono presenti proprietà del messaggio. `{property_bag}` contiene coppie chiave/valore con codifica URL di proprietà del messaggio. Solo le proprietà dell'applicazione e le proprietà di sistema configurabili dall'utente, ad esempio **messageId** o **correlationId**, sono incluse nel contenitore delle proprietà. I nomi delle proprietà di sistema hanno il prefisso **$**, le proprietà dell'applicazione usano il nome della proprietà originale senza il prefisso.
+Per ricevere messaggi dall'hub IoT un dispositivo deve eseguire la sottoscrizione con `devices/{did}/messages/devicebound/#”` come **Filtro argomento**. L'hub IoT recapita i messaggi con il **Nome argomento** `devices/{did}/messages/devicebound/` o `devices/{did}/messages/devicebound/{property_bag}` se sono presenti proprietà del messaggio. `{property_bag}` contiene coppie chiave/valore con codifica URL di proprietà del messaggio. Solo le proprietà dell'applicazione e le proprietà di sistema configurabili dall'utente, ad esempio **messageId** o **correlationId**, sono incluse nel contenitore delle proprietà. I nomi delle proprietà di sistema hanno il prefisso **$**. Le proprietà dell'applicazione usano il nome della proprietà originale senza il prefisso.
 
 ## Passaggi successivi
 
-Per altre informazioni sull'uso degli SDK per client per dispositivi per comunicare con l'hub IoT, vedere [Introduzione all'hub IoT di Azure per .NET][lnk-iot-get-stated].
+Per altre informazioni sull'uso degli SDK per client dispositivi per comunicare con l'hub IoT, vedere [Introduzione all'hub IoT di Azure per .NET][lnk-iot-get-stated].
 
 Per altre informazioni sul protocollo MQTT, vedere la [documentazione di MQTT][lnk-mqtt-docs].
 
@@ -80,5 +96,7 @@ Per altre informazioni sul protocollo MQTT, vedere la [documentazione di MQTT][l
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
+[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
+[lnk-sas-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

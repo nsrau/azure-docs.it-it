@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Bilanciamento del carico del cluster con Cluster Resource Manager di Azure Service Fabric"
+   pageTitle="Bilanciamento del carico del cluster con Cluster Resource Manager di Azure Service Fabric | Microsoft Azure"
    description="Introduzione al bilanciamento del carico del cluster con Cluster Resource Manager di Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# Bilanciare il carico nel cluster di Service Fabric
+# Bilanciamento del carico nel cluster di Service Fabric
 Cluster Resource Manager di Service Fabric consente di segnalare il carico dinamico, di reagire alle modifiche nel cluster e di generare piani per il bilanciamento. Ma quando esegue queste operazioni? Che cosa determina il ribilanciamento nel cluster se i servizi vengono inseriti in base ai loro valori di carico predefiniti al momento della creazione? Sono previsti diversi controlli per questa situazione.
 
 La prima serie di controlli che governa il bilanciamento del carico è costituita da timer che controllano la frequenza con cui Cluster Resource Manager esamina lo stato del cluster alla ricerca di problemi da risolvere. Questi timer riguardano le diverse fasi del lavoro che vengono sempre eseguite. Si tratta di:
@@ -25,6 +25,7 @@ La prima serie di controlli che governa il bilanciamento del carico è costituit
 2.	Verifiche dei vincoli: in questa fase vengono controllate e corrette le violazioni dei vincoli (regole) di posizionamento all'interno del sistema. Le regole servono, ad esempio, per controllare che i nodi non superino la capacità o che i vincoli di posizionamento del servizio vengano rispettati. Più avanti verranno fornite altre informazioni sui vincoli di posizionamento.
 3.	Bilanciamento del carico: questa fase verifica se è necessario applicare il ribilanciamento proattivo sulla base del livello di bilanciamento configurato per le diverse metriche e, in tal caso, tenta di trovare una disposizione più bilanciata all'interno del cluster.
 
+## Configurazione delle fasi e dei timer di Cluster Resource Manager
 Ogni fase è controllata da un timer diverso che ne regola la frequenza. Poniamo, ad esempio, che si desideri gestire ogni ora solo l'inserimento di nuovi carichi di lavoro del servizio nel cluster (raggruppandoli), ma applicare controlli di bilanciamento standard ogni pochi secondi. I vari timer consentono di farlo. Quando ogni timer si attiva, viene impostato un flag per segnalare che è necessario occuparsi di quella porzione dei compiti di Resource Manager. Il flag viene rilevato nella scansione globale dello stato del computer seguente ed è per questo che queste configurazioni sono definite "intervalli minimi". Per impostazione predefinita, Resource Manager analizza il suo stato e applica gli aggiornamenti ogni 1/10 di secondo, imposta i flag di posizionamento e di verifica dei vincoli ogni secondo e imposta il flag di bilanciamento del carico ogni 5 secondi.
 
 ClusterManifest.xml:
@@ -60,7 +61,10 @@ In questo semplice esempio ogni servizio usa solo un'unità di una metrica. Nell
 
 ![Azioni sull'esempio di soglia di bilanciamento][Image2]
 
-Si noti che rimanere sotto la soglia di bilanciamento del carico non è un obiettivo esplicito, in quanto le soglie di bilanciamento del carico sono solo il trigger. Soglie di attività A volte accade che anche se i nodi sono relativamente sbilanciati, la quantità totale di carico nel cluster sia bassa. Ciò può essere legato all'ora del giorno oppure dipendere dal fatto che il cluster è nuovo e non ancora avviato automaticamente. In entrambi i casi, potrebbe essere superfluo dedicare del tempo al bilanciamento del carico poiché il guadagno sarebbe contenuto visto che si tratterebbe di usare risorse di rete e di calcolo per spostare oggetti da una parte all'altra. In Resource Manager esiste un altro controllo definito soglia di attività, che consente di specificare un limite inferiore assoluto di attività. Se in nessun nodo è presente almeno questa quantità di attività minima, il bilanciamento del carico non verrà attivato anche se la soglia di bilanciamento viene raggiunta. Come esempio, si supponga di avere dei rapporti con i seguenti totali di consumo su questi nodi. Supponiamo inoltre di mantenere la nostra soglia di bilanciamento del carico a 3, ma aggiungendo una soglia di attività di 1536. Nel primo caso, mentre il cluster è sbilanciato in base alla soglia di bilanciamento, nessun nodo raggiunge la soglia minima di attività, pertanto il cluster non viene toccato. Nell'esempio in basso, Node1 è ben oltre la soglia di attività, pertanto, il bilanciamento del carico verrà eseguito.
+Si noti che rimanere sotto la soglia di bilanciamento del carico non è un obiettivo esplicito, in quanto le soglie di bilanciamento del carico sono solo il trigger.
+
+## Soglie di attività
+A volte, sebbene i nodi siano relativamente sbilanciati, la quantità totale di carico nel cluster è bassa. Ciò può essere legato all'ora del giorno oppure dipendere dal fatto che il cluster è nuovo e non ancora avviato automaticamente. In entrambi i casi, potrebbe essere superfluo dedicare del tempo al bilanciamento del carico poiché il guadagno sarebbe contenuto visto che si tratterebbe di usare risorse di rete e di calcolo per spostare oggetti da una parte all'altra. In Resource Manager esiste un altro controllo definito soglia di attività, che consente di specificare un limite inferiore assoluto di attività. Se in nessun nodo è presente almeno questa quantità di attività minima, il bilanciamento del carico non verrà attivato anche se la soglia di bilanciamento viene raggiunta. Come esempio, si supponga di avere dei rapporti con i seguenti totali di consumo su questi nodi. Supponiamo inoltre di mantenere la nostra soglia di bilanciamento del carico a 3, ma aggiungendo una soglia di attività di 1536. Nel primo caso, mentre il cluster è sbilanciato in base alla soglia di bilanciamento, nessun nodo raggiunge la soglia minima di attività, pertanto il cluster non viene toccato. Nell'esempio in basso, Node1 è ben oltre la soglia di attività, pertanto, il bilanciamento del carico verrà eseguito.
 
 ![Esempio di soglia di attività][Image3]
 
@@ -87,11 +91,10 @@ Resource Manager determina automaticamente a ogni esecuzione quali servizi sono 
 
 ![Bilanciamento composto dei servizi][Image5]
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
-- [Informazioni sulle metriche](service-fabric-cluster-resource-manager-metrics.md)
-- [Informazioni sulle limitazioni di Resource Manager](service-fabric-cluster-resource-manager-advanced-throttling.md)
-- [Informazioni su costo dello spostamento dei servizi](service-fabric-cluster-resource-manager-movement-cost.md)
+- Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, leggere [questo articolo](service-fabric-cluster-resource-manager-metrics.md)
+- Il costo dello spostamento è un modo per segnalare a Cluster Resource Manager che alcuni servizi sono più costosi da spostare rispetto ad altri. Per altre informazioni sui costi di spostamento, leggere [questo articolo](service-fabric-cluster-resource-manager-movement-cost.md)
+- Cluster Resource Manager dispone di diverse limitazioni da configurare per rallentare la varianza del cluster. In genere queste limitazioni non sono necessarie, ma eventualmente sono disponibili altre informazioni [qui](service-fabric-cluster-resource-manager-advanced-throttling.md)
 
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
@@ -100,4 +103,4 @@ Resource Manager determina automaticamente a ogni esecuzione quali servizi sono 
 [Image4]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

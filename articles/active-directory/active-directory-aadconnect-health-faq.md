@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/08/2016"
 	ms.author="billmath;vakarand"/>
 
 
@@ -92,6 +92,11 @@ Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizi
 
 È necessario che siano aperte le porte TCP/UDP 80, 443 e 5671 perché l'agente di Azure AD Connect Health possa comunicare con gli endpoint del servizio Azure AD Connect Health.
 
+
+**D: Perché vengono visualizzati due server con lo stesso nome nel portale di Azure AD Connect Health?**
+
+Quando si rimuove un agente da un server, il server non viene rimosso automaticamente dal portale di Azure AD Connect. Se è stato quindi rimosso manualmente un agente da un server o se è stato rimosso il server stesso, sarà necessario eliminare manualmente la voce relativa al server dal portale di Azure AD Connect Health. Per altre informazioni, vedere [Eliminare un server o un'istanza del servizio](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance). Se è stata inoltre creata una nuova immagine di un server o se è stato creato un nuovo server con gli stessi dettagli, ad esempio il nome del computer, ma non è stato rimosso il server dal portale di Azure AD Connect Health e quindi è stato installato l'agente sul nuovo server, è possibile che siano ora visualizzate due voci per il server. In questo caso è consigliabile eliminare manualmente la voce appartenente al server precedente. I dati associati a questa voce saranno in genere obsoleti.
+
 ## Collegamenti correlati
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
@@ -101,4 +106,4 @@ Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizi
 * [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

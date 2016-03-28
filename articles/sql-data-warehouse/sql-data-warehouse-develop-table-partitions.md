@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Partizioni della tabella in SQL Data Warehouse
@@ -22,6 +22,9 @@ Per eseguire la migrazione delle definizioni delle partizioni di SQL Server a SQ
 
 - Rimuovere le funzioni e gli schemi di partizione di SQL Server, perché questa operazione viene eseguita automaticamente quando si crea la tabella.
 - Definire le partizioni quando si crea la tabella. Specificare semplicemente le delimitazioni della partizione e se si vuole che la delimitazione abbia effetto come `RANGE RIGHT` o `RANGE LEFT`.
+
+NOTA: per altre informazioni su SQL Server, vedere [Tabelle e indici partizionati](https://msdn.microsoft.com/library/ms190787.aspx).
+
 
 ### Dimensionamento della partizione
 SQL DW offre a un amministratore di database diverse opzioni per i tipi di tabella: heap, indice cluster (CI) e indice archivio colonne in cluster (ICC). Per ognuno di questi tipi di tabella, l'amministratore di database può inoltre partizionare la tabella, ovvero suddividerla in più sezioni per migliorare le prestazioni. Tuttavia, la creazione di una tabella con un numero eccessivo di partizioni in realtà potrebbe provocare un calo delle prestazioni o errori di query in alcune circostanze. Questi problemi valgono soprattutto per le tabelle ICC. Affinché il partizionamento sia utile, per un amministratore di database è importante capire quando utilizzare il partizionamento e il numero di partizioni da creare. Queste linee guida consentono agli amministratori di database di prendere le decisioni migliori per i loro scenari.
@@ -333,4 +336,4 @@ Dopo la migrazione dello schema del database a SQL Data Warehouse, è possibile 
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

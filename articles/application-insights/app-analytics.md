@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/11/2016" 
 	ms.author="awills"/>
 
 
@@ -47,7 +47,20 @@ Verranno visualizzati i risultati in una presentazione con grafico a barre, con 
 
 L'app sembra riscuotere molto successo a Hyderabad all'ora di pranzo e prima di andare a dormire. (Si dovrebbe anche esaminare quei 500 codici).
 
-Il linguaggio include molte delle funzionalità di SQL e altro ancora. Analogamente a SQL, è possibile filtrare dati, raggruppare record, ordinare e unire tabelle. È anche possibile eseguire calcoli sui campi. A differenza di SQL, queste funzioni sono suddivise in diverse operazioni e, anziché annidare le query, si reindirizzano i dati da un'operazione alla successiva in modo molto intuitivo. Questo rende più semplice la scrittura di query piuttosto complesse.
+
+Sono inoltre disponibili operazioni statistiche avanzate:
+
+![](./media/app-analytics/025.png)
+
+
+Il linguaggio include diverse funzionalità utili, è possibile:
+
+* [Filtrare](app-analytics-queries.md) i dati di telemetria app non elaborati in base a qualsiasi campo, inserendo proprietà personalizzate e metriche.
+* [Unire](app-analytics-queries.md#join-operator) più tabelle: correlare le richieste a visualizzazioni di pagina, chiamate di dipendenze, eccezioni e tracce di log.
+* [Aggregazioni](app-analytics-aggregations.md) statistiche avanzate.
+* Altrettanto efficace come SQL, ma molto più semplice per le query complesse: anziché nidificare le istruzioni, i dati vengono inviati tramite pipe da un'operazione semplice alla successiva.
+* Visualizzazioni immediate e avanzate.
+
 
 
 >[AZURE.NOTE] È consigliabile iniziare con una [panoramica sul linguaggio](app-analytics-tour.md).
@@ -66,4 +79,4 @@ Aprire Analytics dal [pannello Panoramica](app-insights-dashboards.md) dell'app 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

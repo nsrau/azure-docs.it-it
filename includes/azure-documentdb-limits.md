@@ -1,10 +1,10 @@
 =======
 Entità|Quota (offerta Standard)
 ---|---
-Account di database*|5
+Account di database*|50
 Numero di database per ogni account di database|100
-Numero di utenti per ogni account di database (in tutti i database)|500.000
-Numero di autorizzazioni per ogni account di database (in tutti i database)|2.000.000
+Numero di utenti per ogni account di database (in tutti i database)|500\.000
+Numero di autorizzazioni per ogni account di database (in tutti i database)|2\.000.000
 Archiviazione allegati per ogni account di database (funzionalità di anteprima)|2 GB
 Numero massimo di unità di richiesta/secondi per ogni raccolta|2500
 Numero di stored procedure, trigger e UDF per ogni raccolta* |25 ciascuna
@@ -30,4 +30,4 @@ Numero massimo di operazioni di scalabilità al minuto* |5
 
 Le quote elencate con un asterisco (*) [possono essere modificate contattando il supporto tecnico Azure](../articles/documentdb/documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

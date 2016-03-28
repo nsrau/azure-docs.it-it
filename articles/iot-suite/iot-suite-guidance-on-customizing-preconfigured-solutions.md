@@ -28,10 +28,7 @@ Il codice sorgente per le soluzioni preconfigurate è disponibile in GitHub nei 
 - Monitoraggio remoto: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
 - Manutenzione predittiva: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 
-Il codice sorgente per le soluzioni preconfigurate viene fornito per illustrare i modelli e le procedure usate per implementare la funzionalità end-to-end di una soluzione IoT tramite Azure IoT Suite. Informazioni aggiuntive sulla creazione e distribuzione dalla riga di comando sono disponibili nella wiki di GitHub per ogni soluzione preconfigurata:
-
-- [Wiki sul monitoraggio remoto](https://github.com/Azure/azure-iot-remote-monitoring/wiki)
-- [Wiki sulla manutenzione predittiva](https://github.com/Azure/azure-iot-predictive-maintenance/wiki)
+Il codice sorgente per le soluzioni preconfigurate viene fornito per illustrare i modelli e le procedure usate per implementare la funzionalità end-to-end di una soluzione IoT tramite Azure IoT Suite. È possibile trovare altre informazioni su come compilare e distribuire le soluzioni in repository GitHub.
 
 ## Gestire le autorizzazioni in una soluzione preconfigurata
 Il portale della soluzione per ogni soluzione preconfigurata viene creato come nuova applicazione Azure Active Directory. È possibile gestire le autorizzazioni per il portale della soluzione (applicazione AAD) come indicato di seguito:
@@ -56,7 +53,7 @@ I tre processi di analisi di flusso e la relativa sintassi sono descritti in det
 4. Arrestare il processo selezionando **Arresta** nel set di comandi. 
 5. Modificare i valori di input, query e output.
 
-    Una modifica semplice consiste nel modificare la query per il processo **Regole** in modo da usare **"<"** anziché **">"**. Il portale della soluzione visualizzerà ancora **">"** quando si modifica una regola, ma si noterà che il comportamento viene capovolto a causa della modifica del processo sottostante.
+    Una modifica semplice consiste nel cambiare la query per il processo **Regole** in modo da usare **"<"** anziché **">"**. Il portale della soluzione visualizzerà ancora **">"** quando si modifica una regola, ma si noterà che il comportamento viene capovolto a causa della modifica del processo sottostante.
 
 6. Avviare il processo
 
@@ -86,10 +83,10 @@ Gli [SDK Azure IoT](https://github.com/Azure/azure-iot-sdks) forniscono librerie
 
 ## Passaggi successivi
 
-Per altre informazioni relative a una personalizzazione, aggiungere suggerimenti sulle funzionalità in [Suggerimenti dell'utente](https://feedback.azure.com/forums/321918-azure-iot), inserire commenti su questo articolo nella parte finale della pagina o inviare un messaggio di posta elettronica all'indirizzo iotsolhelp@microsoft.com.
+Per altre informazioni relative a una personalizzazione, Aggiungere suggerimenti sulle funzionalità nella sezione per i [Suggerimenti dell'utente](https://feedback.azure.com/forums/321918-azure-iot), inserire commenti su questo articolo nella parte finale della pagina o inviare un messaggio di posta elettronica all'indirizzo iotsolhelp@microsoft.com.
 
 Per altre informazioni sui dispositivi IoT, vedere il [Sito per sviluppatori Azure IoT](https://azure.microsoft.com/develop/iot/) per trovare collegamenti e documentazione.
 
 [SDK per dispositivi IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

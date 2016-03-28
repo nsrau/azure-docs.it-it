@@ -72,7 +72,7 @@ Autenticazione con il servizio back-end | Dopo la registrazione del servizio bac
 
 Questo criterio è lo stesso supportato da [Gestione API di Azure](https://azure.microsoft.com/services/api-management/). Il criterio corrente è nell'editor XML integrato. È possibile modificare in linea o caricare un nuovo file XML. Dopo aver **salvato** le modifiche, gli eventuali errori vengono visualizzati in questo pannello, compresi gli errori del criterio dell'API.
 
-[Criteri in Gestione API di Azure](../api-management-howto-policies.md) è un'ottima risorsa per ulteriori informazioni sulla configurazione e sui criteri.
+[Criteri in Gestione API di Azure](../api-management/api-management-howto-policies.md) è un'ottima risorsa per ulteriori informazioni sulla configurazione e sui criteri.
 
 
 ## Riepilogo e passaggi successivi
@@ -88,4 +88,4 @@ Per altre informazioni sulle PowerApps, vedere gli articoli e le risorse correla
 [13]: ./media/powerapps-configure-apis/api-settings-api-definition.png
 [14]: ./media/powerapps-configure-apis/api-settings-policy.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

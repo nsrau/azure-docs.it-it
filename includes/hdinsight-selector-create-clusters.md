@@ -1,6 +1,7 @@
 > [AZURE.SELECTOR-LIST (OS | Creation method)]
 - [Linux | Panoramica](hdinsight-hadoop-provision-linux-clusters.md)
 - [Linux | Portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md)
+- [Linux | Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md)
 - [Linux | Interfaccia della riga di comando di Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
 - [Linux | Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 - [Linux | API REST](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
@@ -13,4 +14,4 @@
 - [Windows | .NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
 - [Windows | Modelli di Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

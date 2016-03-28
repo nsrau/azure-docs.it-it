@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/02/2016"
+	ms.date="03/16/2016"
 	ms.author="jeffstok"/>
 
 # Destinare gli output di trasformazione dei dati di Analisi di flusso a strumenti di analisi e opzioni di archiviazione dei dati
@@ -23,10 +23,60 @@ Quando si crea un processo di Analisi di flusso, una considerazione da fare rigu
 
 Per poter abilitare un'ampia gamma di modelli dell'applicazione, Analisi di flusso di Azure offre metodi diversi per archiviare l'output e visualizzare i risultati dell'analisi. In questo modo è possibile sia visualizzare facilmente l'output del processo che ottenere flessibilità nell'uso e nell'archiviazione dell'output del processo per il data warehouse e altri scopi. Qualsiasi elemento output configurato nel processo deve esistere prima che il processo venga avviato e gli eventi avviino il flusso. Ad esempio, se si utilizza l'archiviazione Blob come output, il processo non creerà un account di archiviazione automaticamente. Deve essere creato dall'utente prima che venga avviato il processo ASA.
 
+## Archivio Azure Data Lake
 
-## Database SQL ##
+Analisi di flusso supporta [Archivio Data Lake di Azure](https://azure.microsoft.com/services/data-lake-store/). Questa archiviazione consente di archiviare dati di qualsiasi dimensione, tipo e velocità di inserimento per le analisi esplorative e operative. Attualmente la creazione e la configurazione di output di Archivio Data Lake è supportata solo nel portale di Azure classico. Inoltre, Analisi di flusso deve essere autorizzato ad accedere ad Archivio Data Lake. I dettagli sull'autorizzazione e su come iscriversi per l'anteprima di Archivio Data Lake (se necessario) sono forniti nell'[articolo relativo agli output di Archivio Data Lake](stream-analytics-data-lake-output.md).
 
-Un [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) può essere usato come output per i dati di natura relazionale o per applicazioni che dipendono dal contesto ospitato in un database relazionale. I processi di Analisi di flusso eseguiranno la scrittura in una tabella esistente di un database SQL di Azure. Si noti che lo schema della tabella deve corrispondere esattamente ai campi e ai relativi tipi generati dal processo. La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un database SQL di output.
+La tabella seguente elenca i nomi delle proprietà e la relativa descrizione necessari per la creazione di un output di Archivio Data Lake.
+
+<table>
+<tbody>
+<tr>
+<td><B>NOME PROPRIETÀ</B></td>
+<td><B>DESCRIZIONE</B></td>
+</tr>
+<tr>
+<td>Alias di output</td>
+<td>È un nome descrittivo usato nelle query per indirizzare l'output delle query ad Archivio Data Lake in uso.</td>
+</tr>
+<tr>
+<td>Account di Archivio Data Lake</td>
+<td>Nome dell'account di archiviazione a cui si sta inviando l'output. Verrà visualizzato un elenco a discesa degli account di Archivio Data Lake ai quali ha accesso l'utente connesso al portale.</td>
+</tr>
+<tr>
+<td>Schema prefisso percorso [<I>facoltativo</I>]</td>
+<td>Percorso del file usato per scrivere i file nell'account di Archivio Data Lake specificato. <BR>{date}, {time}<BR>Esempio 1: folder1/logs/{date}/{time}<BR>Esempio 2: folder1/logs/{date}</td>
+</tr>
+<tr>
+<td>Formato data [<I>facoltativo</I>]</td>
+<td>Se nel percorso di prefisso viene usato il token di data, è possibile selezionare il formato della data in cui sono organizzati i file. Esempio: AAAA/MM/GG</td>
+</tr>
+<tr>
+<td>Formato ora [<I>facoltativo</I>]</td>
+<td>Se nel percorso di prefisso viene usato il token dell'ora, specificare il formato dell'ora in cui sono organizzati i file. Al momento, l'unico valore supportato è HH.</td>
+</tr>
+<tr>
+<td>Formato di serializzazione eventi</td>
+<td>Formato di serializzazione per i dati di output. Sono supportati i formati JSON, CSV e Avro.</td>
+</tr>
+<tr>
+<td>Codifica</td>
+<td>Se il formato è CSV o JSON, è necessario specificare un formato di codifica. Al momento UTF-8 è l'unico formato di codifica supportato.</td>
+</tr>
+<tr>
+<td>Delimitatore</td>
+<td>Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale.</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Applicabile solo per la serializzazione JSON. Separato da righe specifica che l'output verrà formattato separando ciascun oggetto JSON con una nuova riga. Array specifica che l'output verrà formattato come array di oggetti JSON.</td>
+</tr>
+</tbody>
+</table>
+
+## Database SQL
+
+Un [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) può essere usato come output per i dati di natura relazionale o per applicazioni che dipendono dal contesto ospitato in un database relazionale. I processi di Analisi di flusso eseguiranno la scrittura in una tabella esistente di un database SQL di Azure. Si noti che lo schema della tabella deve corrispondere esattamente ai campi e ai relativi tipi generati dal processo. Un [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) può anche essere specificato come output tramite l'opzione di output del database SQL (si tratta di una funzionalità di anteprima). La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un database SQL di output.
 
 | Nome proprietà | Descrizione |
 |---------------|-------------|
@@ -37,7 +87,7 @@ Un [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) p
 | Password | Password per connettersi al database |
 | Tabella | Nome della tabella in cui verrà scritto l'output. Il nome della tabella fa distinzione tra maiuscole e minuscole e lo schema della tabella deve corrispondere esattamente al numero di campi e ai relativi tipi generati dall'output del processo. |
 
-## Archiviazione BLOB ##
+## Archiviazione BLOB
 
 L'archiviazione BLOB offre una soluzione conveniente e scalabile per archiviare grandi quantità di dati non strutturati nel cloud. Per un'introduzione all'archivio BLOB di Azure e al relativo utilizzo, vedere la documentazione in [Come usare i BLOB](../storage/storage-dotnet-how-to-use-blobs.md).
 
@@ -114,6 +164,7 @@ Per configurare i flussi dei dati dell'hub eventi, sono necessari alcuni paramet
 | Codifica | Al momento UTF-8 è l'unico formato di codifica supportato per i formati CSV e JSON |
 | Delimitatore | Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
 | Format | Applicabile solo per il tipo JSON. Separato da righe specifica che l'output verrà formattato separando ciascun oggetto JSON con una nuova riga. Array specifica che l'output verrà formattato come array di oggetti JSON. |
+
 ## Power BI
 
 [Power BI](https://powerbi.microsoft.com/) può essere usato come output per un processo di Analisi di flusso per offrire un'esperienza di visualizzazione avanzata dei risultati di analisi. Questa funzionalità può essere usata per i dashboard operativi, la generazione di report e la creazione di report basati sulle metriche.
@@ -267,4 +318,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

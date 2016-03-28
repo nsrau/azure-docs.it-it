@@ -2,10 +2,10 @@
 
 | | **Distribuzione classica** | **Distribuzione di Gestione risorse** | **Distribuzione classica e distribuzione di Gestione risorse** |
 |----------------------------------------|-------------|----------------------|---------------------------------|
-| **Portale classico** | Non supportato | Non supportato | Non supportato |
+| **Portale classico** | [Articolo](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) | Non supportato | Non supportato |
 | **Portale di Azure** | Non supportato | Sì+ | Non supportato |
 | **PowerShell** | [Articolo](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) | [Articolo](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) | [Articolo](../articles/virtual-network/virtual-networks-arm-asm-s2s.md)
 
 "+" indica che questo metodo di distribuzione è disponibile solo per le reti virtuali nella stessa sottoscrizione.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

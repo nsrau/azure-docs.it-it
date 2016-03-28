@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
  
 # Diagnostica proattiva quasi in tempo reale
 
-[Visual Studio Application Insights](app-insights-overview.md) avvisa automaticamente l'utente quasi in tempo reale se la frequenza delle richieste non riuscite dell'app Web aumenta in modo significativo. Per poter valutare e diagnosticare il problema, la notifica include un'analisi delle caratteristiche delle richieste non riuscite e i dati di telemetria correlati. Sono disponibili anche collegamenti al portale di Application Insights per un'ulteriore diagnosi. La funzionalità non necessita di alcuna installazione o configurazione, perché usa algoritmi di Machine Learning per stimare la normale percentuale di errori di base. Per poter funzionare, è necessario un determinato volume di traffico minimo.
+[Visual Studio Application Insights](app-insights-overview.md) avvisa automaticamente l'utente quasi in tempo reale se viene rilevato un incremento anomalo delle richieste non riuscite. Per poter valutare e diagnosticare il problema, la notifica include un'analisi delle caratteristiche delle richieste non riuscite e i dati di telemetria correlati. Sono disponibili anche collegamenti al portale di Application Insights per un'ulteriore diagnosi. La funzionalità non necessita di alcuna installazione o configurazione, perché usa algoritmi di Machine Learning per stimare la normale frequenza degli errori.
 
 Questa funzionalità funziona per le app Web Java e ASP.NET ospitate nel cloud o nei server aziendali. Funziona anche per qualsiasi app che genera dati di telemetria di richiesta, ad esempio, un ruolo di lavoro che chiama [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request).
 
-La diagnostica proattiva viene attivata appena si imposta [Application Insights per il progetto](app-insights-get-started.md), purché l'app generi una quantità minima di dati di telemetria.
+Dopo aver configurato [Application Insights per il progetto](app-insights-get-started.md) e non appena l’applicazione genera una determinata quantità minima di dati telemetrici, la funzionalità di diagnostica proattiva impiega 24 ore per apprendere il comportamento normale dell’applicazione, dopodiché viene attivato e può inviare avvisi.
 
 Ecco un avviso di esempio:
 
@@ -29,45 +29,46 @@ Ecco un avviso di esempio:
 
 Le informazioni fornite includono:
 
+* La frequenza degli errori confrontata al comportamento normale dell’applicazione.
 * Il numero di utenti interessati, per far comprendere la portata del problema.
-* Un modello caratteristico associato agli errori. In questo esempio è presente un nome di richiesta particolare (URL richiesto), che indica immediatamente in quale punto del codice cercare. In alternativa, si può usare un tipo di dispositivo client o un browser specifico.
-* Eccezioni, tracce dei log ed errori nelle dipendenze (database o altri componenti esterni) che sembrano associati alle richieste non riuscite.
+* Un modello caratteristico associato agli errori. In questo esempio sono presenti un codice di risposta, un nome di richiesta (operazione) e una versione dell’applicazione specifici. che indica immediatamente in quale punto del codice cercare. In alternativa si può usare un browser o un sistema operativo client specifico.
+* Eccezioni, tracce di log ed errori di dipendenza (database o altri componenti esterni) che sembrano associati alle particolari richieste non riuscite.
 * Collegamenti diretti alle ricerche rilevanti nei dati di telemetria in Application Insights.
 
 I normali [avvisi relativi alla metrica](app-insights-alerts.md) indicano che potrebbe essersi verificato un problema. Tuttavia, la funzionalità di diagnostica proattiva quasi in tempo reale avvia automaticamente i processi di diagnostica ed esegue diverse analisi che altrimenti l'utente dovrebbe eseguire manualmente. Si ottengono risultati ben strutturati che consentono individuare rapidamente le cause del problema.
 
 ## Funzionamento
 
-La funzionalità di diagnostica proattiva quasi in tempo reale monitora i dati di telemetria ricevuti dall'app e, in particolare, la frequenza delle richieste non riuscite. Questa metrica indica in genere il numero di richieste HTTP che hanno restituito un codice di risposta pari o superiore a 400, a meno che non sia stato scritto codice personalizzato per applicare un [filtro](app-insights-api-filtering-sampling.md#filtering) o generare chiamate [TrackRequest](app-insights-api-custom-events-metrics.md#track-request) personalizzate.
+La funzionalità di diagnostica proattiva quasi in tempo reale monitora i dati di telemetria ricevuti dall'app e, in particolare, la frequenza delle richieste non riuscite. Questa metrica conta il numero di richieste per cui la proprietà `Successful request` è false. Per impostazione predefinita `Successful request== (resultCode < 400)` (a meno che sia stato scritto codice personalizzato per [filtrare](app-insights-api-filtering-sampling.md#filtering) o generare particolari chiamate [TrackRequest](app-insights-api-custom-events-metrics.md#track-request)).
 
-Le prestazioni dell'applicazione hanno un modello di comportamento tipico. Alcune richieste saranno più soggette a errori rispetto ad altre e la percentuale complessiva di errori può aumentare con l'incremento del carico. La funzionalità di diagnostica proattiva quasi in tempo reale usa Machine Learning per individuare queste correlazioni.
+Le prestazioni dell'applicazione hanno un modello di comportamento tipico. Alcune richieste saranno più soggette a errori rispetto ad altre e la percentuale complessiva di errori può aumentare con l'incremento del carico. La funzionalità di diagnostica proattiva quasi in tempo reale usa Machine Learning per individuare queste anomalie.
 
-Man mano che i dati di telemetria vengono inviati dall'app Web ad Application Insights, la funzionalità di diagnostica proattiva quasi in tempo reale confronta il comportamento corrente con i modelli rilevati negli ultimi giorni. Se la percentuale di errori aumenta in modo significativo rispetto alla previsione stimata in base alle prestazioni precedenti, viene generato un avviso.
+Man mano che i dati di telemetria vengono inviati dall'app Web ad Application Insights, la funzionalità di diagnostica proattiva quasi in tempo reale confronta il comportamento corrente con i modelli rilevati negli ultimi giorni. Se viene osservato un incremento anomalo della frequenza degli errori rispetto alle prestazioni precedenti, viene attivata un’analisi.
 
-Quando viene generato un avviso, il servizio esegue un'analisi a cluster su più dimensioni delle richieste, per provare a identificare un modello dei valori che caratterizzano gli errori. Nell'esempio precedente l'analisi ha rilevato che la maggior parte degli errori riguarda un nome della richiesta specifico, rilevando tuttavia che il numero di errori è indipendente dell'istanza dell'host o del server.
+Quando l’analisi viene attivata, il servizio esegue un'analisi cluster della richiesta non riuscita per provare a identificare un modello dei valori che caratterizzano gli errori. Nell'esempio precedente l'analisi ha rivelato che la maggior parte degli errori riguardano un codice risultato, un nome richiesta, un URL del server host e un’istanza del ruolo specifici. L’analisi ha anche determinato che la proprietà sistema operativo client è distribuita su più valori e perciò non è presente nell’elenco.
 
-L'analizzatore cerca quindi le eccezioni e gli errori di dipendenza associati alle richieste identificati nel cluster, insieme a un esempio degli eventuali log di traccia associati a queste richieste.
+Quando il servizio viene instrumentato con questi dati telemetrici, l'analizzatore cerca un’eccezione e un errore di dipendenza associati alle richieste identificate nel cluster, insieme a un esempio di qualsiasi log di traccia associato a queste richieste.
 
-I risultati dell'analisi vengono inviati all'utente con un messaggio di posta elettronica, a meno che sia stato configurato di non eseguire questa operazione.
+I risultati dell'analisi vengono inviati all'utente come avviso, a meno che la configurazione attiva preveda di non eseguire questa operazione.
 
 Analogamente agli [avvisi impostati manualmente](app-insights-alerts.md), è possibile esaminare lo stato dell'avviso e configurarlo nel pannello Avvisi della risorsa di Application Insights. A differenza degli altri avvisi, tuttavia, non è necessario impostare o configurare la funzionalità di diagnostica proattiva quasi in tempo reale. Se necessario, è possibile disabilitarlo o modificare gli indirizzi di posta elettronica di destinazione.
 
 ## Valutazione e diagnosi di un avviso
 
-Un avviso indica che è stata rilevata un'anomalia nella frequenza delle richieste non riuscite. È probabile che si sia verificato un problema con l'app o il relativo ambiente.
+Un avviso indica che è stato rilevato un incremento anomalo nella frequenza delle richieste non riuscite. È probabile che si sia verificato un problema con l'app o il relativo ambiente.
 
-Dalla percentuale delle richieste e dal numero di utenti interessati è possibile decidere il livello di priorità del problema. Nell'esempio precedente, la percentuale di errori del 15% viene confrontata alla percentuale normale dell'1,3% ed evidenzia sicuramente un'anomalia. L'errore interessava 22 utenti distinti in una particolare operazione. Se si fosse trattato di un'app personale, sarebbe stato più semplice valutare la gravità del problema.
+Dalla percentuale delle richieste e dal numero di utenti interessati è possibile decidere il livello di priorità del problema. Nell'esempio precedente si ha una percentuale di errori del 15% rispetto alla percentuale normale dell'1,3% e ciò evidenzia sicuramente un'anomalia. L'errore interessava 22 utenti distinti in una particolare operazione. Se si fosse trattato di un'app personale, sarebbe stato più semplice valutare la gravità del problema.
 
-In molti casi, è possibile diagnosticare rapidamente il problema in base al nome della richiesta, alle eccezioni, alle dipendenze e ad altri dati di traccia forniti.
+In molti casi è possibile diagnosticare rapidamente il problema in base al nome della richiesta, alle eccezioni, agli errori di dipendenza e ad altri dati di traccia forniti.
 
 Esistono alcune altre indicazioni. Ad esempio, la percentuale di errori di dipendenza in questo esempio è uguale alla percentuale di eccezioni (89,3%). Ne consegue che l'eccezione è collegata direttamente all'errore di dipendenza e questo indica chiaramente il punto di partenza per la ricerca dell'errore nel codice.
 
-Per approfondire l'analisi, i collegamenti in ogni sezione consentono di passare direttamente a una [pagina di ricerca](app-insights-diagnostic-search.md) filtrata in base alle richieste, all'eccezione, alle dipendenze o alla traccia rilevante. In alternativa, è possibile aprire il [portale di Azure](https://portal.azure.com), passare alla risorsa di Application Insights per l'app e aprire il pannello Errori.
+Per approfondire l'analisi, i collegamenti in ogni sezione consentono di passare direttamente a una [pagina di ricerca](app-insights-diagnostic-search.md) filtrata in base alle richieste, all'eccezione, alla dipendenza o alla traccia pertinenti. In alternativa è possibile aprire il [portale di Azure](https://portal.azure.com), passare alla risorsa di Application Insights per l'app e aprire il pannello Errori.
 
-In questo esempio, facendo clic sul collegamento di ricerca si apre il pannello di ricerca di Application Insights nell'istruzione SQL con la causa radice: i valori Null sono stati forniti nei campi obbligatori e non hanno superato la convalida durante l'operazione di salvataggio.
+In questo esempio facendo clic sul collegamento per la visualizzazione dei dettagli degli errori di dipendenza si apre il pannello di ricerca di Application Insights nell'istruzione SQL con la causa radice: i valori Null sono stati forniti nei campi obbligatori e non hanno superato la convalida durante l'operazione di salvataggio.
 
 
-![Ricerca diagnostica](./media/app-insights-nrt-proactive-diagnostics/050.png)
+![Ricerca diagnostica](./media/app-insights-nrt-proactive-diagnostics/051.png)
 
 ## Esaminare gli avvisi recenti
 
@@ -80,15 +81,15 @@ Fare clic su un avviso per visualizzarne i dettagli completi.
 
 ## Configurare gli avvisi 
 
-Aprire la pagina degli avvisi. L'avviso di errore adattivo è disponibile insieme agli eventuali avvisi impostati manualmente e si può vedere se attualmente è in uno stato di avviso.
+Aprire la pagina degli avvisi. La funzionalità di diagnostica proattiva è disponibile insieme agli eventuali avvisi impostati manualmente e si può vedere se attualmente è in uno stato di avviso.
 
-![Nella pagina Panoramica fare clic sul riquadro Avvisi. In alternativa, in qualsiasi pagina di Metrica fare clic su pulsante Avvisi.](./media/app-insights-nrt-proactive-diagnostics/020.png)
+![Nella pagina Panoramica fare clic sul riquadro Avvisi. In alternativa, in qualsiasi pagina di Metrica fare clic su pulsante Avvisi.](./media/app-insights-nrt-proactive-diagnostics/021.png)
 
 Fare clic sull'avviso per configurarlo.
 
-![Configurazione](./media/app-insights-nrt-proactive-diagnostics/030.png)
+![Configurazione](./media/app-insights-nrt-proactive-diagnostics/031.png)
 
-Si noti che è possibile disabilitare l'avviso di errore adattivo, ma non eliminarlo o crearne un altro.
+Si noti che è possibile disabilitare la diagnostica proattiva, ma non eliminarla (o crearne un’altra).
 
 
 ## Qual è la differenza
@@ -106,7 +107,7 @@ La diagnostica proattiva quasi in tempo reale integra altre funzionalità simili
 
 *Perché ho ricevuto questo avviso?*
 
-*	È stato rilevato un aumento anomalo delle richieste non riuscite rispetto al valore normale del periodo precedente. Dopo aver analizzato errori e dati di telemetria associati, si consiglia di esaminare più approfonditamente l'eventuale problema. 
+*	È stato rilevato un incremento anomalo delle richieste non riuscite rispetto al valore normale del periodo precedente. Dopo aver analizzato errori e dati di telemetria associati, si consiglia di esaminare più approfonditamente l'eventuale problema. 
 
 *La notifica indica la sicura presenza di un problema?*
 
@@ -122,11 +123,11 @@ La diagnostica proattiva quasi in tempo reale integra altre funzionalità simili
 
 *È possibile annullare la sottoscrizione oppure ottenere le notifiche inviate ai colleghi?*
 
-*	Sì. In Regole di avviso fare clic sulla regola Diagnostica proattiva quasi in tempo reale per configurarla. È possibile disabilitare l'avviso o modificare i destinatari dell'avviso. 
+*	Sì. In Regole di avviso fare clic sulla regola Diagnostica proattiva per configurarla. È possibile disabilitare l'avviso o modificare i destinatari dell'avviso. 
 
 *Non trovo più il messaggio di posta elettronica. Dove trovo le notifiche nel portale?*
 
-*	In Log di controllo. Fare clic su Impostazioni, Log di controllo, quindi su un avviso per visualizzarne i dettagli completi.
+*	In Log di controllo. Fare clic su Impostazioni, Log di controllo e poi su qualsiasi avviso per vedere le sue occorrenze, ma con una visualizzazione limitata dei dettagli.
 
 *Alcuni avvisi segnalano problemi noti che è inutile ricevere.*
 
@@ -137,4 +138,4 @@ La diagnostica proattiva quasi in tempo reale integra altre funzionalità simili
 
 *L'invio di commenti e suggerimenti sarà molto apprezzato. Usare l'indirizzo di posta elettronica:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

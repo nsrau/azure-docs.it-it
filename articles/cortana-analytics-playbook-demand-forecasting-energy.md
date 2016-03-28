@@ -3,7 +3,7 @@
 	description="Modello di soluzione di Cortana Analytics utile per la previsione della domanda di energia per un'azienda di pubblici servizi."
 	services="cortana-analytics"
 	documentationCenter=""
-	authors="yijichen"
+	authors="ireiter"
 	manager="ireiter"
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="yijichen;garye"/>
+	ms.author="ireiter;yijichen;garye"/>
 
 # Studio del modello di soluzione Cortana Analytics per la previsione della domanda di energia  
 
@@ -384,4 +384,4 @@ Il diagramma seguente illustra una tipica architettura basata su Cortana Analyti
 
 Per altre informazioni su ognuno dei componenti e sull'intera architettura, vedere il modello di soluzione energetica.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

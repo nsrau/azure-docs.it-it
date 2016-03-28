@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/14/2016"
    ms.author="alkohli"/>
 
 # Ripristino di emergenza e failover del dispositivo per StorSimple Virtual Array
@@ -25,7 +25,7 @@ Questo articolo illustra il ripristino di emergenza per Microsoft Azure StorSimp
 
 Il failover del dispositivo viene gestito tramite la funzionalità di ripristino di emergenza e viene inizializzato nella pagina **Dispositivi**. In questa pagina sono riportati tutti i dispositivi StorSimple connessi al servizio StorSimple Manager. Per ogni dispositivo, vengono visualizzati il nome descrittivo, lo stato, la capacità sottoposta a provisioning e massima, il tipo e il modello.
 
-![](./media/storsimple-ova-failover-dr/image16.png)
+![](./media/storsimple-ova-failover-dr/image15.png)
 
 Il contenuto di questo articolo si applica solo a StorSimple Virtual Array. Per eseguire il failover di un dispositivo serie 8000, andare a [Failover e ripristino di emergenza per il dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
 
@@ -48,9 +48,7 @@ Per qualsiasi failover del dispositivo, devono essere soddisfatti i prerequisiti
 
 - Il dispositivo di destinazione deve essere visualizzato come **Attivo** nel portale di Azure classico. È necessario eseguire il provisioning di un dispositivo virtuale di destinazione della stessa capacità o superiore. È quindi necessario usare l'interfaccia utente Web locale per configurare e registrare correttamente il dispositivo virtuale.
 
-	> [AZURE.IMPORTANT]
-	> 
-	> Non si deve tentare di configurare il dispositivo virtuale registrato tramite il servizio facendo clic su **installazione dispositivo completata**. Non si deve eseguire nessuna configurazione del dispositivo tramite questo servizio.
+	> [AZURE.IMPORTANT] Non si deve tentare di configurare il dispositivo virtuale registrato tramite il servizio facendo clic su **Completare la configurazione del dispositivo**. Non si deve eseguire nessuna configurazione del dispositivo tramite questo servizio.
 
 - Il dispositivo di origine e quello di destinazione devono essere dello stesso tipo. Il failover di un dispositivo virtuale configurato come file server può essere eseguito solo su un altro file server. Lo stesso vale per un server iSCSI.
 
@@ -91,13 +89,16 @@ Si consiglia di disporre di un dispositivo virtuale StorSimple sottoposto a prov
 
 > [AZURE.IMPORTANT]
 > 
-> Non è consentito eseguire il failover da un dispositivo StorSimple serie 8000 a un dispositivo virtuale.
+> - Non è consentito eseguire il failover da un dispositivo StorSimple serie 8000 a un dispositivo virtuale 1200.
+> - È possibile eseguire il failover da un dispositivo virtuale abilitato FIPS (Federal informazioni Processing Standard) distribuito nel portale per enti pubblici a un dispositivo virtuale nel portale di Azure classico. È anche vero il contrario.
 
 Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo virtuale StorSimple di destinazione.
 
-1. Portare i volumi o le condivisioni offline nell'host. Vedere le istruzioni specifiche del sistema operativo sull'host per portare offline i volumi o le condivisioni. Se non ancora offline, è necessario portare offline tutti i volumi o tutte le condivisioni nel dispositivo andando a **Dispositivi > Condivisioni** (o **Dispositivo > Volumi**). Selezionare una condivisione o un volume e fare clic su **Porta offline** nella parte inferiore della pagina. Alla richiesta di conferma fare clic su **Sì**. Ripetere questo processo per tutte le condivisioni o per tutti i volumi nel dispositivo.
+1. Portare i volumi o le condivisioni offline nell'host. Vedere le istruzioni specifiche del sistema operativo sull'host per portare offline i volumi o le condivisioni. Se non ancora offline, è necessario portare offline tutti i volumi o tutte le condivisioni nel dispositivo selezionando **Dispositivi > Condivisioni** (o **Dispositivo > Volumi**). Selezionare una condivisione o un volume e fare clic su **Porta offline** nella parte inferiore della pagina. Alla richiesta di conferma fare clic su **Sì**. Ripetere questo processo per tutte le condivisioni o per tutti i volumi nel dispositivo.
 
-2. Nella pagina **Dispositivi**, selezionare il dispositivo di origine per il failover e fare clic su **Disattiva**. Verrà richiesto di confermare. La disattivazione del dispositivo è un processo permanente che non può essere annullato. Viene inoltre ricordato di portare offline le condivisioni o i volumi nell'host.
+2. Nella pagina **Dispositivi**, selezionare il dispositivo di origine per il failover e fare clic su **Disattiva**. ![](./media/storsimple-ova-failover-dr/image16.png)
+
+3. Verrà richiesto di confermare. La disattivazione del dispositivo è un processo permanente che non può essere annullato. Viene inoltre ricordato di portare offline le condivisioni o i volumi nell'host.
 
 	![](./media/storsimple-ova-failover-dr/image18.png)
 
@@ -105,7 +106,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 
 	![](./media/storsimple-ova-failover-dr/image19.png)
 
-4. Nella pagina **Dispositivi**, lo stato del dispositivo viene modificato con **Disattivato**.
+4. Nella pagina **Dispositivi**, lo stato del dispositivo viene modificato in **Disattivato**.
 
 	![](./media/storsimple-ova-failover-dr/image20.png)
 
@@ -172,6 +173,6 @@ Se non viene soddisfatta una delle verifiche preliminari, vengono visualizzati d
 
 ## Passaggi successivi
 
-Scoprire di più su come [amministrare StorSimple Virtual Array tramite l'interfaccia utente Web locale](storsimple-ova-web-ui-admin.md).
+Informazioni su come [Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

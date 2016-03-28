@@ -3,8 +3,8 @@
    description="Viene descritto come impostare una risorsa come dipendente da un'altra risorsa durante la distribuzione."
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="mmercuri"
-   manager="wpickett"
+   authors="tfitzmac"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="12/07/2015"
-   ms.author="mmercuri"/>
+   ms.author="tomfitz"/>
 
 # Definizione delle dipendenze nei modelli di gestione risorse di Azure
 
@@ -53,7 +53,7 @@ Ogni risorsa padre accetta solo determinati tipi di risorse come risorse figlio.
 
 ## funzione di riferimento
 
-La funzione di riferimento consente un'espressione per derivare il valore da altri nomi JSON e coppie valore o risorse di runtime. Le Espressioni di riferimento in modo implicito dichiarano che una risorsa dipende da un altro. Se non diversamente specificato, la proprietà rappresentata da **propertyPath** di seguito è facoltativa, il riferimento riguarda la risorsa.
+La funzione di riferimento consente un'espressione per derivare il valore da altri nomi JSON e coppie valore o risorse di runtime. Le Espressioni di riferimento in modo implicito dichiarano che una risorsa dipende da un altro. La proprietà rappresentata dal**propertyPath** allegato di seguito è facoltativa, se non è specificato, il riferimento riguarda la risorsa.
 
     reference('resourceName').propertyPath
 
@@ -66,4 +66,4 @@ Per altre informazioni, vedere la [funzione del riferimento](../resource-group-t
 - Per informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](resource-group-authoring-templates.md). 
 - Per un elenco delle funzioni disponibili in un modello, vedere [Funzioni di modelli](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0316_2016-->

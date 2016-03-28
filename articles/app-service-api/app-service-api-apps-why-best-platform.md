@@ -38,11 +38,11 @@ Le app per le API offrono le funzionalità seguenti:
 
 - **Uso dell'API esistente**: è possibile usare le API esistenti così come sono, senza modificarne il codice. Per sfruttare le funzionalità delle app per le API, è sufficiente distribuire il codice in un'app per le API. L'API può usare qualsiasi linguaggio o framework supportato dal servizio app, inclusi ASP.NET, C#, Java, PHP, Node. js e Python.
 
-Inoltre, le funzionalità offerte da App per le API, App Web e app per dispositivi mobili sono intercambiabili. Questo significa che un'istanza di App per le API può sfruttare i vantaggi delle funzionalità per il web e per lo sviluppo di dispositivi mobili e l'hosting offerto dalle app Web e dalle app per dispositivi mobili. È anche vero il contrario: ad esempio, è possibile usare un'app web per ospitare un'API e sfruttare comunque i vantaggi dei metadati di Swagger per CORS e per la generazione del codice client per l'accesso a browser tra domini. Per altre informazioni, vedere [Panoramica di App Web](../app-service-web/app-service-web-overview.md) e [Informazioni sulle app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md).
+Inoltre, un'app per le API può avvalersi delle funzionalità offerte dalle [app Web](../app-service-web/app-service-web-overview.md) e dalle [app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md). È anche vero il contrario: se si usa un'app Web o un’app per dispositivi mobili per ospitare un'API, questa può sfruttare i vantaggi di funzionalità delle app per le API come i metadati Swagger per la generazione di codice client e CORS per l'accesso browser tra domini. L’unica differenza fra i tre tipi di app (API, Web e mobile) è data dal nome e dall’icona con cui sono contraddistinte nel portale di Azure. Poiché tutti i tipi hanno le stesse funzioni, non è mai necessario cambiare un’app da un tipo all’altro per ottenere le funzioni richieste. In ogni caso modificare il tipo di un’app esistente è facile. Per altre informazioni, vedere **Modifica del tipo di app** in [Introduzione alle app per le API e ad ASP.NET nel servizio app di Azure](app-service-api-dotnet-get-started.md#optional-changing-an-app-type).
 
 ## Aumento delle app per le API con Gestione API 
 
-Le app per le api e la [Gestione API di Azure](../api-management/api-management-key-concepts.md) sono servizi complementari:
+Le app per le API e la [Gestione API di Azure](../api-management/api-management-key-concepts.md) sono servizi complementari:
 
 * Gestione API permette di gestire le API. I front-end di Gestione API vengono applicati su un'API per controllare e limitare l'utilizzo, modificare l'input e output, raggruppare diverse API in un'unica API e così via. Le API gestite possono essere ospitate in qualsiasi punto.
 * Le app per le api consentono l'hosting delle API. Questo servizio offre funzionalità che semplificano lo sviluppo e l'utilizzo delle API, ma non offre le funzionalità di monitoraggio, limitazione o consolidamento della Gestione API. 
@@ -60,10 +60,8 @@ Gestione API e le app per le API talvolta offrono funzionalità simili. Ad esemp
 
 ## Introduzione
 
-Per iniziare a usare le app per le API, seguire l'esercitazione [Introduzione alle app per le API](app-service-api-dotnet-get-started.md).
+Per iniziare a usare le app per le API, seguire una delle esercitazioni [Introduzione alle app per le API](app-service-api-dotnet-get-started.md).
 
-Per visualizzare un elenco di problemi noti relativi alle app per le API, vedere [il post del forum sui problemi noti delle app per le API](https://social.msdn.microsoft.com/Forums/it-IT/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
+Per porre domande sulle app per le API, avviare un thread nel [forum sulle app per le API](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureAPIApps).
 
-Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
-
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->
