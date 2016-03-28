@@ -35,7 +35,8 @@ La colonna **Stato** mostra le informazioni più importanti e riporta il problem
 | --- | --- |
 | stopped-* | Impossibile completare l'esecuzione. Ad esempio se il sistema remoto è inattivo e non può essere contattato. |
 | stopped-error-limit | Sono presenti più di 5.000 errori. L'esecuzione è stata arrestata automaticamente a causa dell'elevato numero di errori. |
-| completed-*-errors | L’esecuzione è stata completata, ma sono presenti errori (meno di 5.000) che devono essere analizzati. | | completed-*-warnings | L'esecuzione è stata completata, ma alcuni dati non si trovano nello stato previsto. Se sono presenti errori, questo in genere è solo un sintomo. Evitare di analizzare gli avvisi fino a quando gli errori non sono stati risolti. |
+| completed-*-errors | L’esecuzione è stata completata, ma sono presenti errori (meno di 5.000) che devono essere analizzati. | 
+| completed-*-warnings | L'esecuzione è stata completata, ma alcuni dati non si trovano nello stato previsto. Se sono presenti errori, questo in genere è solo un sintomo. Evitare di analizzare gli avvisi fino a quando gli errori non sono stati risolti. |
 | esito positivo | Non sono presenti problemi. |
 
 Quando si seleziona una riga, la parte inferiore viene aggiornata per visualizzare i dettagli di quella esecuzione. All'estrema sinistra della parte inferiore è possibile avere un elenco con voci del tipo **Passaggio #**. L’elenco è mostrato solo quando più domini sono presenti nella foresta e ogni dominio è rappresentato da un passaggio. Il nome di dominio è visibile sotto l'intestazione **Partizione**. Sotto **Statistiche di sincronizzazione** sono disponibili ulteriori informazioni sul numero di modifiche che sono state elaborate. È possibile fare clic sui collegamenti per ottenere un elenco degli oggetti modificati. Se ci sono oggetti con un errore, questi saranno mostrati sotto **Errori di sincronizzazione**.
@@ -56,4 +57,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

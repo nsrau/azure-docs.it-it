@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Come configurare il clustering Redis per una Cache Redis di Azure Premium
@@ -58,7 +58,9 @@ Una volta creata la cache è possibile connettersi alla cache e usarla come una 
 
 Per un codice di esempio sull'utilizzo del clustering con il client StackExchange.Redis, vedere la porzione [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) dell'esempio [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
->[AZURE.IMPORTANT]Durante la connessione a Cache Redis di Azure con il clustering abilitato usando Stackexchange.Redis, è possibile riscontrare un problema e ricevere eccezioni `MOVE`. Ciò si verifica perché utilizza un intervallo breve per la raccolta di informazioni sui nodi del cluster della cache da parte del client della cache Stackexchange.Redis. Queste eccezioni possono verificarsi se si connettono alla cache per la prima volta e si effettuano immediatamente chiamate alla cache prima che il client abbia completato la raccolta di queste informazioni. Il modo più semplice per risolvere il problema nell'applicazione è la connessione alla cache e quindi l’attesa di un secondo prima di effettuare chiamate alla cache. È possibile eseguire questa operazione mediante l'aggiunta di `Thread.Sleep(1000)` come illustrato nell'esempio di codice seguente. Si noti che `Thread.Sleep(1000)` si verifica solo durante la connessione iniziale alla cache. Per altre informazioni, vedere [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248). Una soluzione per questo problema è in fase di sviluppo e tutti gli aggiornamenti verranno pubblicati qui.
+<a name="move-exceptions"></a>
+>[AZURE.IMPORTANT] Durante la connessione a Cache Redis di Azure con il clustering abilitato usando Stackexchange.Redis, è possibile riscontrare un problema e ricevere eccezioni `MOVE`. Ciò si verifica perché utilizza un intervallo breve per la raccolta di informazioni sui nodi del cluster della cache da parte del client della cache Stackexchange.Redis. Queste eccezioni possono verificarsi se si connettono alla cache per la prima volta e si effettuano immediatamente chiamate alla cache prima che il client abbia completato la raccolta di queste informazioni. Il modo più semplice per risolvere il problema nell'applicazione è la connessione alla cache e quindi l’attesa di un secondo prima di effettuare chiamate alla cache. È possibile eseguire questa operazione mediante l'aggiunta di `Thread.Sleep(1000)` come illustrato nell'esempio di codice seguente. Si noti che `Thread.Sleep(1000)` si verifica solo durante la connessione iniziale alla cache. Per altre informazioni, vedere [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248). Una soluzione per questo problema è in fase di sviluppo e tutti gli aggiornamenti verranno pubblicati qui. **Aggiornamento**: questo problema è stato risolto nell'ultima build in [versione preliminare 1.1.572-alpha](https://www.nuget.org/packages/StackExchange.Redis/1.1.572-alpha) di StackExchange.Redis. Vedere la [pagina StackExchange.Redis in NuGet](https://www.nuget.org/packages/StackExchange.Redis/) per la build più recente.
+
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -85,7 +87,7 @@ Per un codice di esempio sull'utilizzo del clustering con il client StackExchang
 
 Per modificare la dimensione di una cache premium in esecuzione con il clustering abilitato, fare clic su **(ANTEPRIMA) dimensione del cluster Redis** dal pannello **Impostazioni**.
 
->[AZURE.NOTE]Si noti che mentre il livello Premium della Cache Redis di Azure è stato rilasciato pubblicamente, la funzionalità dimensione del Cluster Redis è attualmente in anteprima.
+>[AZURE.NOTE] Si noti che mentre il livello Premium della Cache Redis di Azure è stato rilasciato pubblicamente, la funzionalità dimensione del Cluster Redis è attualmente in anteprima.
 
 ![Dimensione del cluster Redis][redis-cache-redis-cluster-size]
 
@@ -105,7 +107,7 @@ Nell'elenco seguente sono fornite le risposte alle domande poste comunemente sul
 
 ## Come vengono distribuite le chiavi in un cluster?
 
-In base alla documentazione relativa al [modello di distribuzione delle chiavi](http://redis.io/topics/cluster-spec#keys-distribution-model) di Redis, lo spazio della chiave viene suddiviso in 16384 slot. Viene eseguito l'hashing di ogni chiave e le chiavi vengono assegnate a uno di questi slot, che vengono distribuiti in tutti i nodi del cluster. È possibile configurare la parte della chiave sottoposta a hashing, per assicurare che più chiavi vengano inserite nella stessa partizione mediante i tag hash.
+In base alla documentazione relativa al [modello di distribuzione delle chiavi](http://redis.io/topics/cluster-spec#keys-distribution-model) di Redis, lo spazio delle chiavi è suddiviso in 16384 slot. Viene eseguito l'hashing di ogni chiave e le chiavi vengono assegnate a uno di questi slot, che vengono distribuiti in tutti i nodi del cluster. È possibile configurare la parte della chiave sottoposta a hashing, per assicurare che più chiavi vengano inserite nella stessa partizione mediante i tag hash.
 
 -	Chiavi con tag hash: se una parte della chiave è racchiusa tra `{` e `}`, solo tale parte della chiave verrà sottoposta a hashing allo scopo di determinare lo slot hash di una chiave. Ad esempio, le 3 chiavi seguenti, `{key}1`, `{key}2` e `{key}3`, si troveranno nella stessa partizione poiché solo la parte `key` del nome viene sottoposta a hashing. Per un elenco completo di specifiche dei tag hash per le chiavi, vedere la pagina relativa ai [tag hash per le chiavi](http://redis.io/topics/cluster-spec#keys-hash-tags).
 -	Chiavi senza tag hash: l'intero nome della chiave viene usato per l'hashing. Si otterrà una distribuzione statisticamente uniforme nelle partizioni della cache.
@@ -124,7 +126,7 @@ Le dimensioni massime per la cache Premium sono 53 GB. È possibile creare fino 
 
 Non tutti i client supportano attualmente il clustering Redis. StackExchange.Redis è uno dei client che supporta questa funzionalità. Per altre informazioni su altri client, vedere la sezione dedicata alle [prove con il cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) nell'[esercitazione per il cluster Redis](http://redis.io/topics/cluster-tutorial).
 
->[AZURE.NOTE]Se si usa StackExchange.Redis come client, assicurarsi di usare la versione più recente di [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 o versione successiva per il corretto funzionamento del clustering.
+>[AZURE.NOTE] Se si usa StackExchange.Redis come client, assicurarsi di usare la versione più recente di [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 o versione successiva per il corretto funzionamento del clustering. Per altre informazioni in caso di problemi con le eccezioni MOVE, vedere la sezione relativa alle [eccezioni MOVE](#move-exceptions).
 
 ## Come ci si connette alla cache quando il clustering è abilitato?
 

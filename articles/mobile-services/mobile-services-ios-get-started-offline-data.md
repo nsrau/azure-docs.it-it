@@ -165,7 +165,9 @@ Quando si usa l'archivio offline Core Data, è necessario definire particolari t
     | id (obbligatorio) | Stringa | chiave primaria nell'archivio remoto (obbligatoria) |
     | complete | Boolean | campo elemento ToDo |
     | text | String | campo elemento ToDo |
-    | ms\_createdAt | Date | (optional) maps to \_\_createdAt system property | | ms\_updatedAt | Date | (optional) maps to \_\_updatedAt system property | | ms\_version | String | (optional) used to detect conflicts, maps to \_\_version |
+    | ms\_createdAt | Date | (optional) maps to \_\_createdAt system property | 
+	| ms\_updatedAt | Date | (optional) maps to \_\_updatedAt system property | 
+	| ms\_version | String | (optional) used to detect conflicts, maps to \_\_version |
 
 
 
@@ -275,4 +277,4 @@ Per sincronizzare l'archivio locale con il server, usare `MSSyncTable.pullWithQu
 
 [Guida introduttiva per Servizi mobili]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->
