@@ -607,7 +607,7 @@ Tabella che indica quanti elementi presentano prezzi in ogni intervallo [0,10.0]
 
 **Argomenti**
 
-* *Column:* nome facoltativo per una colonna di risultati. Il valore predefinito è un nome derivato dall'espressione.
+* *Colonna:* nome facoltativo per una colonna di risultati. Il valore predefinito è un nome derivato dall'espressione.
 * *Aggregation:* chiamata a una [funzione di aggregazione](app-analytics-aggregations.md), ad esempio `count()` o `avg()` con nomi di colonna come argomenti. Vedere l'[elenco delle funzioni di aggregazione](app-analytics-aggregations.md).
 * *GroupExpression:* espressione sulle colonne che fornisce un set di valori distinti. Si tratta in genere di un nome di colonna che fornisce già un set di valori limitato oppure di `bin()` con una colonna numerica o di data e ora come argomento. 
 

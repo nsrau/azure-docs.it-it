@@ -52,7 +52,19 @@ Supporta .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.30\_201603-01 | **8 apr 2016 | Post 4.32 | TBD | | WA-GUEST-OS-4.29\_201602-01 | 12 mar 2016 | Post 4.31 | TBD | | WA-GUEST-OS-4.28\_201601-01 | 12 feb 2016 | Post 4.30 | TBD | | WA-GUEST-OS-4.27\_201512-01 | 12 gen 2016 | 12 apr 2016 | TBD | | ~~WA-GUEST-OS-4.26\_201511-02~~ | 4 gen 2016 | 12 mar 2016 | TBD | | ~~WA-GUEST-OS-4.26\_201511-01~~ | 10 dic 2015 | 12 mar 2016 | TBD | | ~~WA-GUEST-OS-4.25\_201510-01~~ | 6 nov 2015 | 12 feb 2016 | TBD | | ~~WA-GUEST-OS-4.24\_201509-01~~ | 1 ott 2015 | 10 gen 2016 | TBD | | ~~WA-GUEST-OS-4.23\_201508-02~~ | 9 set 2015 | 6 dic 2015 | TBD | | ~~WA-GUEST-OS-4.22\_201507-02~~ | 7 ago 2015 | 1 nov 2015 | TBD | | ~~WA-GUEST-OS-4.21\_201506-01~~ | 9 lug 2015 | 9 ott 2015 | TBD | | ~~WA-GUEST-OS-4.20\_201505-02~~ | 12 giu 2015 | 7 set 2015 | TBD | | ~~WA-GUEST-OS-4.19\_201504-01~~ | 17 apr 2015 | 9 ago 2015 | TBD |
+| WA-GUEST-OS-4.30\_201603-01 | **8 apr 2016 | Post 4.32 | TBD | 
+| WA-GUEST-OS-4.29\_201602-01 | 12 mar 2016 | Post 4.31 | TBD | 
+| WA-GUEST-OS-4.28\_201601-01 | 12 feb 2016 | Post 4.30 | TBD | 
+| WA-GUEST-OS-4.27\_201512-01 | 12 gen 2016 | 12 apr 2016 | TBD | 
+| ~~WA-GUEST-OS-4.26\_201511-02~~ | 4 gen 2016 | 12 mar 2016 | TBD | 
+| ~~WA-GUEST-OS-4.26\_201511-01~~ | 10 dic 2015 | 12 mar 2016 | TBD | 
+| ~~WA-GUEST-OS-4.25\_201510-01~~ | 6 nov 2015 | 12 feb 2016 | TBD | 
+| ~~WA-GUEST-OS-4.24\_201509-01~~ | 1 ott 2015 | 10 gen 2016 | TBD | 
+| ~~WA-GUEST-OS-4.23\_201508-02~~ | 9 set 2015 | 6 dic 2015 | TBD | 
+| ~~WA-GUEST-OS-4.22\_201507-02~~ | 7 ago 2015 | 1 nov 2015 | TBD | 
+| ~~WA-GUEST-OS-4.21\_201506-01~~ | 9 lug 2015 | 9 ott 2015 | TBD | 
+| ~~WA-GUEST-OS-4.20\_201505-02~~ | 12 giu 2015 | 7 set 2015 | TBD | 
+| ~~WA-GUEST-OS-4.19\_201504-01~~ | 17 apr 2015 | 9 ago 2015 | TBD |
 
 ## Versioni della famiglia 3
 
@@ -64,7 +76,19 @@ Supporta .NET 4.0, 4.5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.37\_201603-01 | **8 apr 2016 | Post 3.39 | TBD | | WA-GUEST-OS-3.36\_201602-01 | 12 mar 2016 | Post 3.38 | TBD | | WA-GUEST-OS-3.35\_201601-01 | 12 feb 2016 | Post 3.37 | TBD | | WA-GUEST-OS-3.34\_201512-01 | 12 gen 2016 | 12 apr 2016 | TBD | | ~~WA-GUEST-OS-3.33\_201511-02~~ | 4 gen 2016 | 12 mar 2016 | TBD | | ~~WA-GUEST-OS-3.33\_201511-01~~ | 10 dic 2015 | 12 mar 2016 | TBD | | ~~WA-GUEST-OS-3.32\_201510-01~~ | 6 nov 2015 | 12 feb 2016 | TBD | | ~~WA-GUEST-OS-3.31\_201509-01~~ | 1 ott 2015 | 10 gen 2016 | TBD | | ~~WA-GUEST-OS-3.30\_201508-02~~ | 9 set 2015 | 6 dic 2015 | TBD | | ~~WA-GUEST-OS-3.29\_201507-02~~ | 7 ago 2015 | 1 nov 2015 | TBD | | ~~WA-GUEST-OS-3.28\_201506-01~~ | 9 lug 2015 | 9 ott 2015 | TBD | | ~~WA-GUEST-OS-3.27\_201505-02~~ | 12 giu 2015 | 7 set 2015 | TBD | | ~~WA-GUEST-OS-3.26\_201504-01~~ | 17 apr 2015 | 9 ago 2015 | TBD |
+| WA-GUEST-OS-3.37\_201603-01 | **8 apr 2016 | Post 3.39 | TBD | 
+| WA-GUEST-OS-3.36\_201602-01 | 12 mar 2016 | Post 3.38 | TBD | 
+| WA-GUEST-OS-3.35\_201601-01 | 12 feb 2016 | Post 3.37 | TBD | 
+| WA-GUEST-OS-3.34\_201512-01 | 12 gen 2016 | 12 apr 2016 | TBD | 
+| ~~WA-GUEST-OS-3.33\_201511-02~~ | 4 gen 2016 | 12 mar 2016 | TBD | 
+| ~~WA-GUEST-OS-3.33\_201511-01~~ | 10 dic 2015 | 12 mar 2016 | TBD | 
+| ~~WA-GUEST-OS-3.32\_201510-01~~ | 6 nov 2015 | 12 feb 2016 | TBD | 
+| ~~WA-GUEST-OS-3.31\_201509-01~~ | 1 ott 2015 | 10 gen 2016 | TBD | 
+| ~~WA-GUEST-OS-3.30\_201508-02~~ | 9 set 2015 | 6 dic 2015 | TBD | 
+| ~~WA-GUEST-OS-3.29\_201507-02~~ | 7 ago 2015 | 1 nov 2015 | TBD | 
+| ~~WA-GUEST-OS-3.28\_201506-01~~ | 9 lug 2015 | 9 ott 2015 | TBD | 
+| ~~WA-GUEST-OS-3.27\_201505-02~~ | 12 giu 2015 | 7 set 2015 | TBD | 
+| ~~WA-GUEST-OS-3.26\_201504-01~~ | 17 apr 2015 | 9 ago 2015 | TBD |
 
 
 ## Versioni della famiglia 2
@@ -77,7 +101,19 @@ Supporta .NET 3.5, 4.0
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.49\_201603-01 | **8 apr 2016 | Post 2.51 | TBD | | WA-GUEST-OS-2.48\_201602-01 | 12 mar 2016 | Post 2.50 | TBD | | WA-GUEST-OS-2.47\_201601-01 | 12 feb 2016 | Post 2.49 | TBD | | WA-GUEST-OS-2.46\_201512-01 | 12 gen 2016 | 12 apr 2016 | TBD | | ~~WA-GUEST-OS-2.45\_201511-02~~ | 4 gen 2016 | 12 mar 2016 | TBD | | ~~WA-GUEST-OS-2.45\_201511-01~~ | 10 dic 2015 | 12 mar 2016 | TBD | | ~~WA-GUEST-OS-2.44\_201510-01~~ | 6 nov 2015 | 12 feb 2016 | TBD | | ~~WA-GUEST-OS-2.43\_201509-01~~ | 1 ott 2015 | 10 gen 2016 | TBD | | ~~WA-GUEST-OS-2.42\_201508-02~~ | 9 set 2015 | 6 dic 2015 | TBD | | ~~WA-GUEST-OS-2.41\_201507-02~~ | 7 ago 2015 | 1 nov 2015 | TBD | | ~~WA-GUEST-OS-2.40\_201506-01~~ | 9 lug 2015 | 9 ott 2015 | TBD | | ~~WA-GUEST-OS-2.39\_201505-02~~ | 12 giu 2015 | 7 set 2015 | TBD | | ~~WA-GUEST-OS-2.38\_201504-01~~ | 17 apr 2015 | 9 ago 2015 | TBD |
+| WA-GUEST-OS-2.49\_201603-01 | **8 apr 2016 | Post 2.51 | TBD | 
+| WA-GUEST-OS-2.48\_201602-01 | 12 mar 2016 | Post 2.50 | TBD | 
+| WA-GUEST-OS-2.47\_201601-01 | 12 feb 2016 | Post 2.49 | TBD | 
+| WA-GUEST-OS-2.46\_201512-01 | 12 gen 2016 | 12 apr 2016 | TBD 
+| | ~~WA-GUEST-OS-2.45\_201511-02~~ | 4 gen 2016 | 12 mar 2016 
+| TBD | | ~~WA-GUEST-OS-2.45\_201511-01~~ | 10 dic 2015 | 12 mar 2016 | TBD 
+| | ~~WA-GUEST-OS-2.44\_201510-01~~ | 6 nov 2015 | 12 feb 2016 | TBD 
+| | ~~WA-GUEST-OS-2.43\_201509-01~~ | 1 ott 2015 | 10 gen 2016 | TBD 
+| | ~~WA-GUEST-OS-2.42\_201508-02~~ | 9 set 2015 | 6 dic 2015 | TBD 
+| | ~~WA-GUEST-OS-2.41\_201507-02~~ | 7 ago 2015 | 1 nov 2015 | TBD 
+| | ~~WA-GUEST-OS-2.40\_201506-01~~ | 9 lug 2015 | 9 ott 2015 | TBD 
+| | ~~WA-GUEST-OS-2.39\_201505-02~~ | 12 giu 2015 | 7 set 2015 | TBD 
+| | ~~WA-GUEST-OS-2.38\_201504-01~~ | 17 apr 2015 | 9 ago 2015 | TBD |
 
 ## Patch di aggiornamento MSRC
 L'elenco di patch incluse con il rilascio del sistema operativo di ogni mese è disponibile [qui][patches].
