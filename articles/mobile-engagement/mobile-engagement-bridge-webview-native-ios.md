@@ -41,7 +41,7 @@ Seguire la procedura riportata sotto per un esempio di bridge iOS:
 
 2. Verificare che l'app ibrida visualizzi WebView sulla schermata. È possibile aggiungerla a `Main.storyboard` dell'applicazione.
 
-3. Associare questa WebView a **ViewController** facendo clic sulla WebView e trascinandola da View Controller Scene alla schermata di modifica `ViewController.h` per posizionarla appena sotto la riga `@interface`.
+3. Associare questa WebView a **ViewController** facendo clic sulla WebView e trascinandola da finestra del controller alla schermata di modifica `ViewController.h` per posizionarla appena sotto la riga `@interface`.
 
 4. Dopo aver eseguito questa operazione viene visualizzata una finestra di dialogo con la richiesta di un nome. Assegnare il nome **webView**. Il file `ViewController.h` deve apparire come segue:
 
