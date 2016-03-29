@@ -312,7 +312,7 @@ Per implementare e distribuire un'applicazione basata su SQL Server a più livel
 
 La tabella seguente illustra un confronto tra lo sviluppo Web tradizionale con Servizi cloud di Azure e App Web di Azure per quanto riguarda SQL Server in Macchine virtuali di Azure. La tabella include App Web di Azure, in quanto è possibile usare SQL Server nella macchina virtuale di Azure come origine dati per App Web di Azure tramite l'indirizzo IP virtuale pubblico o il nome DNS.
 
-|Sviluppo Web tradizionale nelle macchine virtuali di Azure|Servizi cloud in Azure|Hosting Web con app Web di Azure|
+||Sviluppo Web tradizionale nelle macchine virtuali di Azure|Servizi cloud in Azure|Hosting Web con app Web di Azure|
 |---|---|---|---|
 |**Migrazione delle applicazioni in locale**|Applicazioni esistenti così come sono.|Le applicazioni devono disporre di ruoli Web e di ruoli di lavoro.|Applicazioni esistenti così come sono, ma adatte per applicazioni e servizi Web indipendenti che richiedono una rapida scalabilità.|
 |**Sviluppo e distribuzione**|Visual Studio, WebMatrix, Visual Web Developer, WebDeploy, FTP, TFS, Gestione IIS, PowerShell.|Visual Studio, Azure SDK, TFS, PowerShell. Ogni servizio cloud dispone di due ambienti in cui è possibile distribuire il pacchetto e la configurazione del servizio: gestione temporanea e produzione. È possibile distribuire un servizio cloud nell'ambiente di gestione temporanea per testarlo prima di promuoverlo alla produzione.|Visual Studio, WebMatrix, Visual Web Developer, FTP, GIT, BitBucket, CodePlex, DropBox, GitHub, Mercurial, TFS, Web Deploy, PowerShell.|

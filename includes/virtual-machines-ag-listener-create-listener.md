@@ -22,5 +22,4 @@ In questo passaggio si creerà manualmente il listener del gruppo di disponibili
 	>[AZURE.NOTE] Se il listener non riesce in un secondo momento a portarsi in linea a causa di un indirizzo IP in conflitto selezionato da DHCP, è possibile configurare un indirizzo IP statico valido in questa finestra Proprietà.
 
 1. Nella stessa finestra delle proprietà dell’**Indirizzo IP** modificare il**Nome dell’indirizzo IP**. Verrà utilizzato questo nome di indirizzo IP nella variabile **$IPResourceName**dello script di PowerShell. Ripetere questo passaggio per ogni risorsa IP se la soluzione si estende su più reti virtuali di Azure.
-
 <!------HONumber=Oct15_HO3-->

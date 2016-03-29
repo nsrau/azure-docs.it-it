@@ -25,7 +25,7 @@
 
 <br/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modello Gestione risorse.
 
 
 Le macchine virtuali di Azure possono consentire agli amministratori di database di implementare un sistema di SQL Server a disponibilità elevata con costi inferiori. Questa esercitazione illustra come implementare un gruppo di disponibilità end-to-end basato su SQL Server AlwaysOn in un ambiente Azure. Al termine dell'esercitazione, la soluzione SQL Server AlwaysOn in Azure sarà composta dagli elementi seguenti:
