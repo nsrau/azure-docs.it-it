@@ -84,7 +84,7 @@ Se non si dispone di un'app ADD esistente con i valori chiave e segreto, utilizz
 
 6. In **Proprietà app**:  
 
-	1. Immettere l'**URL DI ACCESSO** dell'applicazione. Poiché si intende eseguire l'autenticazione con AAD per PowerApps, impostare l'URL di accesso su _https://login.windows.net_.  
+	1. Immettere l'**URL DI ACCESSO** dell'applicazione. Poiché si intende eseguire l'autenticazione con AAD per PowerApps, impostare l'URL di accesso su \_https://login.windows.net_.  
 	2. Immettere un valore valido di **URI ID APP** per l'app.  
 	3. Selezionare **OK**.  
 
@@ -144,6 +144,6 @@ In questo argomento, è stata aggiunta l'API di Office 365 Outlook alla PowersAp
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
 
 
