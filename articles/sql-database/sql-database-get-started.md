@@ -23,7 +23,7 @@
 **Database singolo**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-get-started.md)
+- [Portale di Azure](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -34,7 +34,7 @@ Questa esercitazione sul database SQL mostra come creare il primo database SQL i
 
 Per iniziare, sono necessari un account e una sottoscrizione di Azure. Nel caso in cui non siano disponibili, è possibile usare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-> [AZURE.NOTE] Questa esercitazione sul database SQL descrive come configurare un database usando il sistema di gestione di database relazionali (RDBMS) di Microsoft nel cloud, ovvero il database SQL di Azure. È anche possibile eseguire SQL Server in una macchina virtuale di Azure Per un veloce confronto, vedere [Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure](data-management-azure-sql-database-and-sql-server-iaas.md). Per iniziare a usare una macchina virtuale, vedere [Effettuare il provisioning di una macchina virtuale SQL Server](virtual-machines-provision-sql-server.md).
+> [AZURE.NOTE] Questa esercitazione sul database SQL descrive come configurare un database usando il sistema di gestione di database relazionali (RDBMS) di Microsoft nel cloud, ovvero il database SQL di Azure. È anche possibile eseguire SQL Server in una macchina virtuale di Azure Per un veloce confronto, vedere [Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure](data-management-azure-sql-database-and-sql-server-iaas.md). Per iniziare a usare una macchina virtuale, vedere [Effettuare il provisioning di una macchina virtuale SQL Server](../virtual-machines/virtual-machines-windows-classic-portal-sql.md).
 
 ## Passaggio 1: Eseguire l'accesso e avviare la configurazione del database SQL
 1. Accedere al [portale di Azure](https://portal.azure.com/).
@@ -117,4 +117,4 @@ Al termine dell'esercitazione sul database SQL e dopo aver creato un database co
 
 - Per spostare i database SQL Server locali in Azure, vedere l'articolo relativo alla [migrazione di un database al database SQL di Azure](sql-database-cloud-migrate.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

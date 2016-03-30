@@ -271,7 +271,7 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
 
 	Un gruppo di risorse è una raccolta di risorse di Azure, ad esempio app per le api, database, VM e così via. Per questa esercitazione è consigliabile creare un nuovo gruppo di risorse, per eliminare facilmente tutte le risorse di Azure create per l'esercitazione in un unico passaggio.
 
-	Questa casella consente di selezionare un [gruppo di risorse](../azure-preview-portal-using-resource-groups.md) esistente o crearne uno nuovo digitando un nome diverso da qualsiasi gruppo di risorse esistente nella sottoscrizione.
+	Questa casella consente di selezionare un [gruppo di risorse](../azure-portal/resource-group-portal.md) esistente o crearne uno nuovo digitando un nome diverso da qualsiasi gruppo di risorse esistente nella sottoscrizione.
 
 4. Fare clic sul pulsante **Nuovo** accanto all'elenco a discesa **Piano di servizio app**.
 
@@ -534,4 +534,4 @@ Per un esempio di modello di Azure Resource Manager che imposta la proprietà di
 
 Questa esercitazione ha illustrato come creare app per le API, distribuire il codice in queste app, generare il relativo codice client e usarle dai client .NET. L'esercitazione successiva della serie di esercitazioni introduttive sulle app per le API mostra come [utilizzare app per le API da client JavaScript tramite CORS](app-service-api-cors-consume-javascript.md). Le esercitazioni successive della serie illustrano come implementare l'autenticazione e l'autorizzazione.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

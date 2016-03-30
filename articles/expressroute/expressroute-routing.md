@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="03/21/2016"
    ms.author="cherylmc"/>
 
 
@@ -78,7 +78,7 @@ Lo scambio di routing avviene tramite il protocollo eBGP. Vengono stabilite sess
 
 ## Numeri AS (Autonomous System)
 
-Microsoft userà il numero AS 12076 per il peering pubblico di Azure, il peering privato di Azure e il peering Microsoft. Il numero AS 65515 è riservato per l'uso interno. Sono supportati sia i numeri AS a 16 bit che a 32 bit. È possibile usare i numeri AS privati per il peering privato di Azure. È necessario usare i numeri AS pubblici intestati all'utente per il peering Microsoft e il peering pubblico di Azure.
+Microsoft userà il numero AS 12076 per il peering pubblico di Azure, il peering privato di Azure e il peering Microsoft. Il numero AS 65515 è riservato per l'uso interno. Sono supportati sia i numeri AS a 16 bit che a 32 bit.
 
 Non sono previsti requisiti per la simmetria del trasferimento dei dati. I percorsi di andata e ritorno possono transitare attraverso coppie di router diverse. Le route identiche devono essere annunciate da entrambi i lati in più coppie di circuiti appartenenti all'utente. Non è necessario che le metriche delle route siano identiche.
 
@@ -178,4 +178,4 @@ Microsoft non riconosce eventuali valori della community BGP impostati dall'uten
 	- [Configurare il routing per il modello di distribuzione classica](expressroute-howto-routing-classic.md) o [Configurare il routing per il modello di distribuzione di Azure Resource Manager](expressroute-howto-routing-arm.md)
 	- [Collegare una rete virtuale classica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Collegare una rete virtuale di Azure Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

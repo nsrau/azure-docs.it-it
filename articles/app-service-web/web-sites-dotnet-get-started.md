@@ -38,7 +38,7 @@ Si apprenderà come:
 
 * Creare una nuova app Web del servizio app durante la creazione di un nuovo progetto Web in Visual Studio.
 * Distribuire un progetto Web in un'app Web del servizio app usando Visual Studio.
-* Usare il [portale di Azure](/overview/preview-portal/) per monitorare e gestire la propria app Web.
+* Usare il [portale di Azure](/features/azure-portal/) per monitorare e gestire la propria app Web.
 
 Alla fine dell'esercitazione la sezione [Risoluzione dei problemi](#troubleshooting) fornisce indicazioni su cosa procedere in caso di problemi, mentre la sezione [Passaggi successivi](#next-steps) include i collegamenti ad altre esercitazioni che approfondiscono i concetti relativi all'uso del servizio app di Azure.
 
@@ -108,7 +108,7 @@ Il diagramma illustra le operazioni eseguite nei passaggi di creazione e di dist
 
 	Questa casella combinata consente di selezionare un gruppo di risorse esistente o crearne uno nuovo digitando un nome diverso da qualsiasi gruppo di risorse esistente nella sottoscrizione.
 
-	Un gruppo di risorse è una raccolta di risorse di Azure, ad esempio app per le api, database, VM e così via. Per un'esercitazione in genere è consigliabile creare un nuovo gruppo di risorse, per eliminare facilmente tutte le risorse di Azure create per l'esercitazione in un unico passaggio. Per altre informazioni, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md)
+	Un gruppo di risorse è una raccolta di risorse di Azure, ad esempio app Web, database e macchine virtuali. Per un'esercitazione in genere è consigliabile creare un nuovo gruppo di risorse. In questo modo sarà possibile eliminare facilmente tutte le risorse di Azure create per l'esercitazione in un unico passaggio. Per altre informazioni, vedere [Panoramica di Azure Resource Manager](../resource-group-overview.md).
 
 4. Fare clic sul pulsante **Nuovo** accanto all'elenco a discesa **Piano di servizio app**.
 
@@ -116,7 +116,7 @@ Il diagramma illustra le operazioni eseguite nei passaggi di creazione e di dist
 
 	Lo screenshot mostra i valori di esempio per **Nome app Web**, **Sottoscrizione** e **Gruppo di risorse**. I valori personalizzati saranno diversi.
 
-	Nei passaggi seguenti si crea un piano di servizio app per il nuovo gruppo di risorse. Un piano di servizio app specifica le risorse di calcolo in cui viene eseguita l'app per le API. Se, ad esempio, si sceglie il livello gratuito, l'app per le API viene eseguita in VM condivise, mentre con alcuni livelli a pagamento viene eseguita in VM dedicate. Per altre informazioni, vedere [Panoramica approfondita dei piani del servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Nei passaggi seguenti si crea un piano di servizio app per il nuovo gruppo di risorse. Un piano di servizio app specifica le risorse di calcolo in cui viene eseguita l'app Web. Se, ad esempio, si sceglie il livello gratuito, l'app per le API viene eseguita in VM condivise, mentre con alcuni livelli a pagamento viene eseguita in VM dedicate. Per altre informazioni, vedere [Panoramica approfondita dei piani del servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 5. Nella finestra di dialogo **Configura piano di servizio app** immettere "MyExamplePlan" o un altro nome, se si preferisce.
 
@@ -146,9 +146,11 @@ Il diagramma illustra le operazioni eseguite nei passaggi di creazione e di dist
 
 	![App Web creata nella finestra Attività del servizio app di Azure](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
-	L'app Web verrà visualizzata in **Cloud Explorer**.
+	È possibile visualizzare l'app Web nella finestra **Cloud Explorer** di Visual Studio.
 
 	![App Web creata in Cloud Explorer](./media/web-sites-dotnet-get-started/siteinse.png)
+	
+	Questa finestra consente di visualizzare e gestire un'ampia gamma di risorse di Azure. La schermata mostra solo le app Web, ma nella finestra di **Cloud Explorer** sono disponibili anche altri tipi di risorse. Fare clic con il pulsante destro del mouse su una risorsa, ad esempio l'app Web, per visualizzare le relative opzioni di gestione disponibili.
 
 ## Distribuire il progetto Web nell'app Web di Azure
 
@@ -162,7 +164,7 @@ In questa sezione si distribuisce il progetto Web nell'app Web, come illustrato 
 
 	Dopo pochi secondi verrà visualizzata la procedura guidata **Pubblica sul Web** che visualizza un *profilo di pubblicazione* con le impostazioni per la distribuzione del progetto Web nella nuova app Web. Per eseguire la distribuzione in un'app Web diversa, è possibile scegliere la scheda **Profilo** per creare un altro profilo. Per questa esercitazione, accettare le impostazioni per la distribuzione nell'app Web creata in precedenza.
 
-	Il profilo di pubblicazione include un nome utente e una password per la distribuzione. Queste credenziali sono state generate automaticamente, ma è possibile sostituirle con valori personalizzati. Si vedrà come eseguire questa operazione nella sezione dell'esercitazione che illustra il portale di Azure. La password viene crittografata in un file nascosto specifico dell'utente nella cartella `Properties\PublishProfiles`.
+	Il profilo di pubblicazione include un nome utente e una password per la distribuzione. Queste credenziali sono state generate automaticamente e non è necessario immetterle o modificarle. La password viene crittografata in un file nascosto specifico dell'utente nella cartella `Properties\PublishProfiles`.
 
 8. Nella scheda **Connessione** della procedura guidata **Pubblica sul Web** fare clic su **Avanti**.
 
@@ -180,7 +182,7 @@ In questa sezione si distribuisce il progetto Web nell'app Web, come illustrato 
 
 	![Scheda Impostazioni della procedura guidata Pubblica sito Web](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
-	La scheda successiva è **Anteprima**, che consente di visualizzare quali file verranno copiati dal progetto all'app per le API. Quando si distribuisce un progetto in un'app per le API che è già stato distribuito prima, vengono copiati solo i file modificati. Per visualizzare un elenco di quelli che verranno copiati, è possibile fare clic sul pulsante **Avvia anteprima**.
+	La scheda successiva è **Anteprima**, che consente di visualizzare quali file verranno copiati dal progetto all'app per le API. Quando si distribuisce un progetto in un'app per le API che è già stato distribuito prima, vengono copiati solo i file modificati. Per visualizzare un elenco di ciò che verrà copiato, è possibile fare clic sul pulsante **Avvia anteprima**.
 
 11. Nella scheda **Anteprima** fare clic su **Pubblica**.
 
@@ -196,9 +198,9 @@ In questa sezione si distribuisce il progetto Web nell'app Web, come illustrato 
 
 	![Applicazione Web in esecuzione in Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-> [AZURE.TIP] È possibile abilitare la barra degli strumenti **Sito Web - Pubblicazione con un clic** per una distribuzione ancora più rapida. Fare clic su **Visualizza > Barre degli strumenti** e quindi selezionare **Sito Web - Pubblicazione con un clic**. È possibile usare la barra degli strumenti per selezionare un profilo, fare clic su un pulsante per procedere alla pubblicazione o per aprire la procedura guidata **Pubblica sito Web**.![Barra degli strumenti Sito Web - Pubblicazione con un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+> [AZURE.TIP] È possibile abilitare la barra degli strumenti **Sito Web - Pubblicazione con un clic** per una distribuzione ancora più rapida. Fare clic su **Visualizza > Barre degli strumenti** e quindi selezionare **Sito Web - Pubblicazione con un clic**. È possibile usare la barra degli strumenti per selezionare un profilo, fare clic su un pulsante per procedere alla pubblicazione o per aprire la procedura guidata **Pubblica sul Web**.![Barra degli strumenti Sito Web - Pubblicazione con un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
-## Monitorare e gestire l'app Web nel portale di Azure
+## <a id="portal"></a>Monitorare e gestire l'app Web nel portale di Azure
 
 Il [portale di Azure](/services/management-portal/) è un'interfaccia Web che consente di gestire e monitorare i servizi di Azure, ad esempio l'app Web appena creata. Questa sezione dell'esercitazione illustra alcune delle operazioni che è possibile eseguire nel portale.
 
@@ -218,8 +220,8 @@ Il [portale di Azure](/services/management-portal/) è un'interfaccia Web che co
 
 	![Pannello Impostazioni nel portale di Azure](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
-	Si noti il collegamento **Credenziali per la distribuzione** nella sezione **Pubblicazione** sezione. Qui è possibile creare un nuovo nome utente e una password per la distribuzione. È possibile immettere un nome utente e una password personalizzati, quindi immettere gli stessi valori nella scheda **Connessione** della procedura guidata **Pubblica sito Web** nel progetto Web.
-
+	Si noti il collegamento **Credenziali per la distribuzione** nella sezione **Pubblicazione**. Qui è possibile creare un nome utente e una password personalizzati per la distribuzione. Fare clic sul pulsante **Salva** nella parte superiore del pannello per salvare la modifica. Se si creano un nome utente e una password personalizzati, è necessario immettere gli stessi valori nella scheda **Connessione** della procedura guidata **Pubblica sul Web** nel progetto Web.
+	
 	Lo screenshot è solo una visualizzazione parziale del pannello **Impostazioni**. Questo pannello contiene più sezioni di quelle visualizzate.
 
 4. Fare clic su **Impostazioni applicazione** nella sezione **Generale** del pannello **Impostazioni** per visualizzare un esempio dei tipi di impostazioni che è possibile configurare nel portale.
@@ -250,11 +252,11 @@ Un modo semplice per eliminare l'app Web consiste nel fare clic sul pulsante **E
 
 ## Risoluzione dei problemi
 
-Se si verifica un problema durante l'esecuzione di questa esercitazione, assicurarsi che sia in uso la versione più recente di Azure SDK per .NET. Il modo più semplice per farlo consiste nel procedere al [download di Azure SDK per Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Se è installata la versione corrente, l'Installazione guidata piattaforma Web informerà che non è necessaria alcuna installazione.
+Se si verifica un problema durante l'esecuzione di questa esercitazione, assicurarsi che sia in uso la versione più recente di Azure SDK per .NET. Il modo più semplice per farlo consiste nel procedere al [download di Azure SDK per Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Se è installata la versione corrente, l'Installazione guidata piattaforma Web informa che non è necessaria alcuna installazione.
 
 Se si ha una rete aziendale e si prova a eseguire la distribuzione nel servizio app di Azure tramite un firewall, assicurarsi che le porte 443 e 8172 siano aperte per la distribuzione Web. Se non è possibile aprire queste porte, vedere la sezione Passaggi successivi seguente per altre opzioni di distribuzione.
 
-Una volta che l'app Web ASP.NET è in esecuzione nel servizio app di Azure, è possibile approfondire la conoscenza delle funzionalità di Visual Studio che semplificano la risoluzione dei problemi. Per informazioni sulla registrazione, il debug remoto e altro ancora, vedere [Risoluzione dei problemi delle app Web in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Una volta che l'app Web ASP.NET è in esecuzione nel servizio app di Azure, è possibile approfondire la conoscenza delle funzionalità di Visual Studio che semplificano la risoluzione dei problemi. Per informazioni sulla registrazione, il debug remoto e altro ancora, vedere [Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Passaggi successivi
 
@@ -270,7 +272,7 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 * Come creare app per le API
 
-	È stato illustrato come creare un'istanza del servizio app di Azure progettata principalmente per ospitare un sito Web. Il servizio app include anche funzionalità progettate per rendere più semplice sviluppare, testare e ospitare le API. Per altre informazioni, vedere [Introduzione alle app per le API e ad ASP.NET nel servizio app di Azure](../app-service-api/app-service-api-dotnet-get-started.md).
+	È stato illustrato come creare un'istanza del servizio app di Azure progettata principalmente per ospitare un sito Web. Tali istanze sono dette app Web. Il servizio app include anche funzionalità progettate per rendere più semplice sviluppare, testare e ospitare le API. Le istanze del servizio app destinate principalmente a ospitare le API sono dette app per le API. Per altre informazioni, vedere [Introduzione alle app per le API e ad ASP.NET nel servizio app di Azure](../app-service-api/app-service-api-dotnet-get-started.md).
 
 * Altri modi per distribuire un progetto Web
 
@@ -289,6 +291,6 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 * Come scegliere tra Servizio app, Servizi cloud di Azure e Macchine virtuali di Azure per le applicazioni Web
 
-	In Azure è possibile eseguire applicazioni Web in app Web del servizio app, come descritto in questa esercitazione, oppure in Servizi cloud o Macchine virtuali. Per altre informazioni, vedere [Confronto tra Servizio app di Azure, servizi cloud e macchine virtuali di Azure](/manage/services/web-sites/choose-web-app-service/).
+	In Azure è possibile eseguire applicazioni Web in app Web del servizio app, come descritto in questa esercitazione, oppure in Servizi cloud o Macchine virtuali. Per altre informazioni, vedere [Confronto tra app Web, servizi cloud e macchine virtuali di Azure](/manage/services/web-sites/choose-web-app-service/).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -91,7 +91,7 @@ Quando si crea un pool, è possibile specificare gli attributi seguenti:
 	- Tutti i nodi in un pool devono avere le stesse dimensioni. Se è necessario eseguire applicazioni diverse con requisiti di sistema diversi e/o carichi diversi, è consigliabile creare pool separati.
 	- È possibile configurare tutte le [dimensioni dei nodi del servizio cloud][cloud_service_sizes] per un pool, ad eccezione di A0.
 
-- **Famiglia del sistema operativo** e **versione ** in esecuzione nei nodi.
+- **Famiglia del sistema operativo** e **versione** in esecuzione nei nodi.
 	- Come con i ruoli di lavoro all'interno di Servizi cloud, si possono specificare la *famiglia del sistema operativo* e la *versione del sistema operativo*. Per altre informazioni sui ruoli di lavoro, vedere la sezione [Informazioni sui servizi cloud][about_cloud_services] in *Opzioni di hosting di calcolo fornite da Azure*.
 	- La famiglia del sistema operativo determina anche le versioni di .NET installate con il sistema operativo.
 	- Analogamente ai ruoli di lavoro, è consigliabile specificare `*` per la versione del sistema operativo, così che i nodi vengano aggiornati automaticamente senza doversi occupare delle nuove versioni rilasciate. Il caso d'uso principale per la scelta di una versione specifica del sistema operativo consiste nell'assicurare il mantenimento della compatibilità delle applicazioni, abilitando l'esecuzione del test di compatibilità con le versioni precedenti prima di consentire l'aggiornamento della versione. Dopo la convalida, la versione del sistema operativo per il pool può essere aggiornata ed è possibile installare la nuova immagine del sistema operativo. Eventuali attività in esecuzione saranno interrotte e accodate di nuovo.
@@ -124,7 +124,6 @@ Un processo è una raccolta di attività e specifica la modalità di esecuzione 
 	- Azure Batch può rilevare attività con esito negativo e provare a eseguirle di nuovo. Il **numero massimo di tentativi per l'attività** può essere specificato sotto forma di vincolo, indicando anche se un'attività viene sempre ripetuta o mai. Per nuovo tentativo si intende che l'attività viene riaccodata per essere eseguita di nuovo.
 - Le attività possono essere aggiunte al processo dall'applicazione client oppure si può specificare un'[attività del gestore di processi](#jobmanagertask). Un'attività del gestore di processi usa l'API Batch e contiene le informazioni necessarie per creare le attività necessarie per un processo. L'attività viene eseguita in uno dei nodi di calcolo del pool. L'attività del gestore di processi viene gestita in modo specifico da Batch, ovvero viene accodata non appena si crea il processo e viene riavviata se l'operazione non riesce. Per i processi creati in base a una pianificazione del processo è obbligatorio usare un'attività del gestore di processi, perché è l'unico modo per definire le attività prima di creare istanze del processo. Di seguito sono riportate altre informazioni sulle attività del gestore di processi.
 
-
 ### <a name="task"></a>Attività
 
 Un'attività è un'unità di calcolo associata a un processo ed eseguita in un nodo. Le attività vengono assegnate a un nodo per l'esecuzione o vengono accodate fino a quando non diventa disponibile un nodo. Un'attività usa le risorse seguenti:
@@ -147,7 +146,7 @@ Oltre alle attività definite dall'utente per eseguire il calcolo in un nodo, il
 
 #### <a name="starttask"></a>Attività di avvio
 
-Associando un'**attività di avvio ** a un pool, è possibile configurare l'ambiente operativo dei nodi, eseguendo azioni come l'installazione di software o l'avvio di processi in background. L'attività di avvio viene eseguita a ogni avvio di un nodo per tutto il tempo in cui questa rimane nel pool, incluso il momento in cui il nodo viene aggiunto al pool. Il vantaggio principale dell'attività di avvio consiste nel fatto che contiene tutte le informazioni necessarie per configurare i nodi di calcolo e installare le applicazioni necessarie per l'esecuzione dell'attività di processo. In questo modo, l'aumento del numero di nodi in un pool è semplice come quando si specifica il nuovo conteggio dei nodi di destinazione. Batch ha già tutte le informazioni necessarie per configurare i nuovi nodi e prepararli perché accettino le attività.
+Associando un'**attività di avvio** a un pool, è possibile configurare l'ambiente operativo dei nodi, eseguendo azioni come l'installazione di software o l'avvio di processi in background. L'attività di avvio viene eseguita a ogni avvio di un nodo per tutto il tempo in cui questa rimane nel pool, incluso il momento in cui il nodo viene aggiunto al pool. Il vantaggio principale dell'attività di avvio consiste nel fatto che contiene tutte le informazioni necessarie per configurare i nodi di calcolo e installare le applicazioni necessarie per l'esecuzione dell'attività di processo. In questo modo, l'aumento del numero di nodi in un pool è semplice come quando si specifica il nuovo conteggio dei nodi di destinazione. Batch ha già tutte le informazioni necessarie per configurare i nuovi nodi e prepararli perché accettino le attività.
 
 Come per qualsiasi attività Batch, è possibile specificare un elenco di **file di risorse** in [Archiviazione di Azure][azure_storage], oltre a una **riga di comando** da eseguire. Azure Batch copierà prima di tutto i file da Archiviazione di Azure, quindi eseguirà la riga di comando. Per un'attività di avvio del pool, l'elenco di file include in genere il pacchetto o i file dell'applicazione, ma può anche includere dati di riferimento da usare in tutte le attività in esecuzione nei nodi di calcolo. La riga di comando dell'attività di avvio potrebbe eseguire uno script di PowerShell o eseguire un'operazione `robocopy`, ad esempio, copiare i file dell'applicazione nella cartella "condivisa", quindi eseguire successivamente un file MSI o `setup.exe`.
 
@@ -192,7 +191,15 @@ Per una discussione dettagliata sull'esecuzione di processi MPI in Batch usando 
 
 #### <a name="taskdep"></a>Relazioni tra attività
 
-Le relazioni tra attività consentono di specificare che un'attività dipende dal completamento di una o più attività diverse prima della rispettiva esecuzione. L'attività "downstream" potrebbe utilizzare l'output dell'attività "upstream" oppure potrebbe dipendere da inizializzazioni eseguite dall'attività upstream. In uno scenario di questo tipo è possibile specificare che il processo usa le relazioni tra attività, quindi per ogni attività che dipende da una o più attività è possibile specificare le attività da cui dipende.
+Le relazioni tra attività consentono di specificare che un'attività dipende dal completamento di altre attività prima della rispettiva esecuzione. Questa funzionalità fornisce il supporto nelle situazioni in cui un'attività di "downstream" utilizza l'output di un'attività di "upstream" oppure quando un'attività di upstream esegue un'inizializzazione richiesta da un'attività di downstream. Per usare questa funzionalità, prima è necessario abilitare le relazioni tra attività nel processo batch. Per ogni attività che dipende da un'altra (o da più altre), specificare quindi le attività da cui dipende tale attività.
+
+Con le relazioni tra attività, è possibile configurare scenari come i seguenti:
+
+* L'*attivitàB* dipende dall'*attivitàA* (l'esecuzione dell'*attivitàB* inizierà solo dopo il completamento dell'*attivitàA*)
+* L'*attivitàC* dipende sia dall'*attivitàA* che dall'*attivitàB*
+* L'*attivitàD* dipende da un intervallo di attività, ad esempio le attività da *1* a *10*, prima che venga eseguita
+
+Vedere l'esempio di codice [TaskDependencies][github_sample_taskdeps] nel repository di GitHub [azure-batch-samples][github_samples], in cui viene illustrato come configurare le attività che dipendono da altre attività usando la libreria [Batch .NET][batch_net_api].
 
 ### <a name="jobschedule"></a>Processi pianificati
 
@@ -366,6 +373,8 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -392,7 +401,7 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
-[rest_multiinstance]: https://msdn.microsoft.com/it-IT/library/azure/mt637905.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
@@ -402,4 +411,4 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

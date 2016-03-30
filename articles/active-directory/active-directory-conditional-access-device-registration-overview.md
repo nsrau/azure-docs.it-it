@@ -1,7 +1,8 @@
 <properties
-	pageTitle="Panoramica di Registrazione dispositivo di Azure Active Directory| Microsoft Azure"
+	pageTitle="Panoramica di Registrazione dispositivo Azure Active Directory | Microsoft Azure"
 	description="rappresenta il fondamento per gli scenari di accesso condizionale basato su dispositivo. Quando un dispositivo viene registrato, Registrazione dispositivo di Azure Active Directory effettua il provisioning del dispositivo con un'identità che viene usata per autenticare il dispositivo quando l'utente esegue l'accesso."
 	services="active-directory"
+	keywords="registrazione dispositivo, abilitare registrazione dispositivo"
 	documentationCenter=""
 	authors="femila"
 	manager="stevenpo"
@@ -12,8 +13,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.topic="get-started-article"
+	ms.date="03/18/2016"
 	ms.author="femila"/>
 
 # Panoramica di Registrazione dispositivo di Azure Active Directory
@@ -36,15 +37,16 @@ I dispositivi Windows trovano il servizio effettuando la ricerca di record DNS n
 
 ## Abilitare Registrazione dispositivo di Azure Active Directory
 La sezione seguente illustra come abilitare il servizio Registrazione dispositivo di Azure Active Directory per la propria directory.
-Per abilitare il servizio Registrazione dispositivo di Azure Active Directory
--------------------------------------------------------------
-1. Accedere al Portale di Azure come Amministratore.
-1. Nel riquadro sinistro selezionare **Active Directory**.
-1. Selezionare la propria directory nella scheda **Directory**.
-1. Selezionare la scheda **Configura**.
-1. Scorrere fino alla sezione **Dispositivi**.
-1. Selezionare **TUTTI ** per **GLI UTENTI POSSONO AGGIUNGERE DISPOSITIVI ALL'AREA DI LAVORO**.
-1. Selezionare il numero massimo di dispositivi da autorizzare per l'utente.
+
+###Per abilitare il servizio Registrazione dispositivo di Azure Active Directory
+
+1. Accedere al portale di Azure come amministratore.
+2. Nel riquadro sinistro selezionare **Active Directory**.
+3. Selezionare la propria directory nella scheda **Directory**.
+4. Selezionare la scheda **Configura**.
+5. Scorrere fino alla sezione **Dispositivi**.
+6. Selezionare **TUTTI ** per **GLI UTENTI POSSONO AGGIUNGERE DISPOSITIVI ALL'AREA DI LAVORO**.
+7. Selezionare il numero massimo di dispositivi da autorizzare per l'utente.
 
 >[AZURE.NOTE]
 La registrazione con Microsoft Intune o con Gestione dispositivi mobili per Office 365 richiede l'aggiunta all'area di lavoro. Se è stato configurato uno di questi servizi, sarà selezionata l'opzione TUTTI e il pulsante sarà disabilitato.
@@ -85,4 +87,4 @@ Ad esempio, se nell'organizzazione si usano due suffissi UPN denominati @contoso
 - [Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
 - [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows 10 aggiunti a un dominio](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

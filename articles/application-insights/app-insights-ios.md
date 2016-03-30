@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Analisi per app iOS | Microsoft Azure"
+    pageTitle="Analisi per le app iOS"
     description="Analizzare l'utilizzo e le prestazioni dell'app iOS."
     services="application-insights"
     documentationCenter="ios"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/04/2016"
+    ms.date="03/17/2016"
     ms.author="awills"/>
 
 # Analisi per le app iOS
@@ -24,13 +24,14 @@ Microsoft offre due soluzioni di sviluppo per i dispositivi: [HockeyApp](http://
 Passare a:
 
 * [HockeyApp](http://support.hockeyapp.net/kb)
+* [HockeyApp per iOS](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-ios)
 * [Blog di HockeyApp](http://hockeyapp.net/blog/)
 * Partecipando a [HockeyApp Preseason](http://hockeyapp.net/preseason/) è possibile accedere ai rilasci anticipati.
 
 Se l'app ha un lato server, usare [Application Insights](app-insights-overview.md) per monitorare il lato server Web dell'app in [ASP.NET](app-insights-asp-net.md) o [J2EE](app-insights-java-get-started.md).
 
+> [AZURE.NOTE] A partire dal 15 giugno 2016 non verranno più visualizzati in Application Insights i dati relativi alle app per iOS, Android, Windows Store e Windows Phone.
+>
+> [Altre informazioni su questa modifica.](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
 
-
-Un [Application Insights SDK per iOS](https://github.com/Microsoft/ApplicationInsights-iOS) non è più supportato.
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

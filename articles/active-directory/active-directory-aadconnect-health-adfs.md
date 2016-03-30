@@ -4,9 +4,9 @@
 	description="Questa è la pagina di Azure AD Connect Health che illustra come monitorare l'infrastruttura AD FS locale."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="karavar"
 	manager="stevenpo"
-	editor="curtand"/>
+	editor="karavar"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
-	ms.author="billmath"/>
+	ms.date="03/21/2016"
+	ms.author="vakarand"/>
 
 # Uso di Azure AD Connect Health con AD FS
 La documentazione seguente è specifica per il monitoraggio dell'infrastruttura AD FS con Azure AD Connect Health.
@@ -32,7 +32,7 @@ Selezionando un avviso, vengono fornite informazioni aggiuntive, nonché la proc
 ## Analisi di utilizzo per AD FS
 Analisi di utilizzo di Azure AD Connect Health analizza il traffico di autenticazione dei server federativi. Selezionando la casella relativa all'analisi di utilizzo, verrà visualizzato il pannello corrispondente, che contiene le metriche e i raggruppamenti.
 
->[AZURE.NOTE] Per poter usare l'analisi di utilizzo con ADFS, è necessario verificare che il controllo di ADFS sia abilitato. Per altre informazioni, vedere [Abilitare il controllo per AD FS](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs).
+>[AZURE.NOTE] Per poter usare l'analisi di utilizzo con ADFS, è necessario verificare che il controllo di ADFS sia abilitato. Per altre informazioni, vedere [Abilitare il controllo per AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
 
 ![Portale di Azure AD Connect Health](./media/active-directory-aadconnect-health/report1.png)
 
@@ -79,13 +79,13 @@ Azure AD Connect Health per AD FS fornisce un report sui primi 50 utenti con ten
 All'interno del report è possibile accedere facilmente alle informazioni seguenti:
 
 - Numero totale di richieste non riuscite con nome utente o password non valida negli ultimi 30 giorni.
-- Numero medio di utenti che non sono riusciti ad accedere con un nome utente o una password non valida ogni giorno. 
- 
+- Numero medio di utenti che non sono riusciti ad accedere con un nome utente o una password non valida ogni giorno.
+
 Facendo clic su questa parte si passa al pannello principale del report che fornisce dettagli aggiuntivi. Ad esempio, un grafico contenente informazioni sulle tendenze per stabilire una baseline relativa alle richieste con nome utente o password non valida e l'elenco dei primi 50 utenti con il numero di tentativi non riusciti.
- 
+
 Il grafico fornisce le informazioni seguenti:
 
-- Numero totale di accessi non riusciti a causa di un nome utente o una password non valida ogni giorno. 
+- Numero totale di accessi non riusciti a causa di un nome utente o una password non valida ogni giorno.
 - Numero totale di utenti univoci con accessi non riusciti ogni giorno.
 
 ![Portale di Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report2a.png)
@@ -93,10 +93,10 @@ Il grafico fornisce le informazioni seguenti:
 Il report fornisce le informazioni seguenti:
 
 | Elemento del report | Descrizione
-| ------ | -------- | 
+| ------ | -------- |
 |ID utente| Mostra l'ID utente che è stato usato. Si noti che il valore è quello digitato dall'utente. In alcuni casi viene visualizzato anche l'ID utente errato che è stato usato.|
 |Tentativi non riusciti|Mostra il numero totale di tentativi non riusciti per l'ID utente specifico. La tabella è riportata in ordine decrescente a partire dal numero maggiore di tentativi non riusciti.|
-|Ultimo errore|Mostra il timestamp del momento in cui si è verificato l'ultimo errore. 
+|Ultimo errore|Mostra il timestamp del momento in cui si è verificato l'ultimo errore.
 
 
 
@@ -113,4 +113,4 @@ Il report fornisce le informazioni seguenti:
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

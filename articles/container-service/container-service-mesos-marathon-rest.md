@@ -46,9 +46,9 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## Distribuzione di un contenitore Docker
+## Distribuzione di un contenitore Docker formattato
 
-I contenitori Docker vengono distribuiti tramite Marathon usando un file JSON che descrive la distribuzione prevista. L'esempio seguente mostra come distribuire il contenitore nginx associando la porta 80 dell'agente di Mesos alla porta 80 del contenitore.
+I contenitori Docker formattati vengono distribuiti tramite Marathon usando un file JSON che descrive la distribuzione prevista. L'esempio seguente mostra come distribuire il contenitore nginx associando la porta 80 dell'agente di Mesos alla porta 80 del contenitore.
 
 ```json
 {
@@ -69,7 +69,7 @@ I contenitori Docker vengono distribuiti tramite Marathon usando un file JSON ch
 }
 ```
 
-Per distribuire un contenitore Docker, creare un file JSON o usare l'esempio fornito nella [demo per ACS di Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json) e archiviarlo in un percorso accessibile. Successivamente, eseguire questo comando per distribuire il contenitore, specificando il nome del file JSON.
+Per distribuire un contenitore Docker formattato, creare un file JSON o usare l'esempio fornito nella [demo per ACS di Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json) e archiviarlo in un percorso accessibile. Successivamente, eseguire questo comando per distribuire il contenitore, specificando il nome del file JSON.
 
 ```
 curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-type: application/json"
@@ -87,7 +87,7 @@ Se ora si esegue una query per cercare applicazioni in Marathon, la nuova applic
 curl localhost/marathon/v2/apps
 ```
 
-## Ridimensionare un contenitore Docker
+## Ridimensionare i contenitori
 
 L'API Marathon può anche essere usata per aumentare o ridurre il numero di istanze delle distribuzioni di applicazioni. Nell'esempio precedente è stata distribuita un'istanza di una applicazione. Ora il numero di istanze verrà aumentato a tre. A tale scopo, creare un file JSON con il testo JSON seguente e archiviarlo in un percorso accessibile.
 
@@ -119,7 +119,7 @@ Per raccogliere informazioni sul cluster Mesos, ad esempio il nome e lo stato de
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-I contenitori Docker vengono distribuiti tramite Marathon usando un file JSON che descrive la distribuzione prevista. L'esempio seguente mostra come distribuire il contenitore nginx associando la porta 80 dell'agente di Mesos alla porta 80 del contenitore.
+I contenitori Docker formattati vengono distribuiti tramite Marathon usando un file JSON che descrive la distribuzione prevista. L'esempio seguente mostra come distribuire il contenitore nginx associando la porta 80 dell'agente di Mesos alla porta 80 del contenitore.
 
 ```json
 {
@@ -160,4 +160,4 @@ Eseguire questo comando per aumentare il numero di istanze dell'applicazione.
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

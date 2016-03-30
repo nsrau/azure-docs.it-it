@@ -111,6 +111,10 @@ Il modello di app per le API precedente contiene API per l'individuazione di alt
 3. Compilare un'app per le API di individuazione e fare in modo che le altre app per le API eseguano la registrazione nell'app di individuazione all'avvio.
 4. In fase di distribuzione, popolare le impostazioni app di tutte le app per le API (e dei client) con gli endpoint delle altre app per le API. Questo è possibile nelle distribuzioni di modelli, anche grazie al controllo dell'URL ora offerto dalle app per le API.
 
+## Uso delle app per le API con app per la logica
+
+Il nuovo modello di app per le API interagisce in modo ottimale con lo [schema delle app per la logica versione 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md).
+
 ## Passaggi successivi
 
 Per altre informazioni, leggere gli articoli nella sezione [Documentazione di App per le API](https://azure.microsoft.com/documentation/services/app-service/api/). Gli articoli sono stati aggiornati in base al nuovo modello di app per le API. Per informazioni dettagliate o indicazioni sulla migrazione è possibile rivolgersi ai forum:
@@ -118,4 +122,4 @@ Per altre informazioni, leggere gli articoli nella sezione [Documentazione di Ap
 - [Forum MSDN](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureAPIApps)
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

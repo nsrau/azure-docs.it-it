@@ -25,7 +25,7 @@ Per iniziare subito a usare l'estensione database, vedere [Introduzione all'esec
 ## Vantaggi del Database Estensione
 Il Database Estensione offre i vantaggi seguenti:
 
-**Fornisce disponibilità conveniente per i dati non attivi.** I dati transazionali attivi e non attivi vengono estesi dinamicamente da SQL Server a Microsoft Azure con il Database Estensione SQL Server. A differenza dell'archiviazione dati non attivi, i dati sono sempre online e disponibili per le query. È possibile fornire più sequenze temporali di conservazione dei dati senza interrompere la banca dati per le tabelle di grandi dimensioni come la cronologia degli ordini dei clienti. È possibile trarre vantaggio dal costo contenuto di Azure invece di ridimensionare una costosa risorsa di archiviazione locale. Per mantenere il controllo sulla velocità di accesso e sui prezzi, si sceglie il piano tariffario e si configurano le impostazioni nel portale di Azure. Passare a un piano superiore o inferiore secondo le esigenze. Per altri dettagli, vedere la pagina [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+**Fornisce disponibilità conveniente per i dati non attivi.** I dati transazionali attivi e non attivi vengono estesi dinamicamente da SQL Server a Microsoft Azure con il Database Estensione SQL Server. A differenza dell'archiviazione dati non attivi, i dati sono sempre online e disponibili per le query. È possibile fornire più sequenze temporali di conservazione dei dati senza interrompere la banca dati per le tabelle di grandi dimensioni come la cronologia degli ordini dei clienti. È possibile trarre vantaggio dal costo contenuto di Azure invece di ridimensionare una costosa risorsa di archiviazione locale. Per mantenere il controllo sui costi, si sceglie il piano tariffario e si configurano le impostazioni nel portale di Azure. Passare a un piano superiore o inferiore secondo le esigenze. Per informazioni dettagliate, vedere la [pagina relativa ai prezzi di Estensione database SQL Server](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
 
 **Non richiede modifiche a query o applicazioni.** È possibile accedere ai dati di SQL Server direttamente, sia in locale o estesi al cloud. Si impostano i criteri che determinano dove vengono archiviati i dati e SQL Server gestisce lo spostamento dei dati in background. L'intera tabella è sempre online e disponibile per le query. Database Estensione non richiede modifiche apportate alle query o alle applicazioni esistenti, il percorso dei dati è completamente trasparente per l'applicazione.
 
@@ -123,4 +123,4 @@ Il Database Estensione non modifica il modello di autorizzazioni di un database 
 [StretchOverviewImage2]: ./media/sql-server-stretch-database-overview/StretchDBOverview1.png
 [StretchOverviewImage3]: ./media/sql-server-stretch-database-overview/StretchDBOverview2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

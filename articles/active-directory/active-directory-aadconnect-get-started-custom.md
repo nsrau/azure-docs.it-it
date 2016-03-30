@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="03/22/2016"
 	ms.author="billmath;andkjell"/>
 
 # Installazione personalizzata di Azure AD Connect
@@ -68,7 +68,7 @@ Se viene visualizzato un errore e si hanno problemi relativi alla connettività,
 ## Pagine della sezione di sincronizzazione
 
 ### Connessione delle directory
-Per connettersi a Servizi di dominio di Active Directory, Azure AD Connect richiede le credenziali di un account con autorizzazioni sufficienti. Questo account può essere un account utente normale, perché richiede solo autorizzazioni di lettura predefinite. Tuttavia, a seconda dello scenario, potrebbero essere necessarie autorizzazioni aggiuntive. Per altre informazioni, vedere [Autorizzazioni e account di Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account).
+Per connettersi a Servizi di dominio di Active Directory, Azure AD Connect richiede le credenziali di un account con autorizzazioni sufficienti. È possibile immettere la parte relativa al dominio in formato NetBios o FQDN, ad esempio FABRIKAM\\syncuser o fabrikam.com\\syncuser. Questo account può essere un account utente normale, perché richiede solo autorizzazioni di lettura predefinite. Tuttavia, a seconda dello scenario, potrebbero essere necessarie autorizzazioni aggiuntive. Per altre informazioni, vedere [Autorizzazioni e account di Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account).
 
 ![Directory di connessione](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
@@ -130,6 +130,8 @@ Se si desidera limitare gli attributi da sincronizzare con Azure AD, selezionare
 In base ai servizi selezionati nel passaggio precedente, questa pagina visualizzerà tutti gli attributi che verranno sincronizzati. Questo elenco è una combinazione di tutti i tipi di oggetti da sincronizzare. Se sono presenti alcuni attributi particolari che non è necessario sincronizzare, è possibile deselezionarli.
 
 ![Funzionalità facoltative](./media/active-directory-aadconnect-get-started-custom/azureadattributes2.png)
+
+>[AZURE.WARNING] La rimozione degli attributi può influire sulle funzionalità. Per procedure consigliate e indicazioni, vedere gli [attributi sincronizzati](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
 
 ### Sincronizzazione attributi estensione della directory
 Con le estensioni di directory è possibile estendere lo schema in Azure AD con attributi personalizzati aggiunti dall'organizzazione o altri attributi in Active Directory. Per usare questa funzionalità, selezionare **Sincronizzazione attributi estensione della directory** nella pagina **Funzionalità facoltative**. In tal modo, verrà visualizzata questa pagina che consente di selezionare gli attributi aggiuntivi.
@@ -238,4 +240,4 @@ Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

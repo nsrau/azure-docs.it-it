@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso"
-	description="Argomento che illustra come molte aziende possano applicare un look e un aspetto coerenti a tutti i siti Web e servizi che gestiscono, in modo da evitare la confusione degli utenti finali ogni volta che usano tali siti."
+	description="Informazioni su come aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso di Azure e al pannello di accesso"
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -13,62 +13,70 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/12/2016" 
+	ms.date="03/22/2016" 
 	ms.author="MarkVi"/>
 
 # Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso
+
+Molte aziende vogliono applicare un look e un aspetto coerenti a tutti i siti Web e servizi che gestiscono, in modo da evitare la confusione degli utenti finali ogni volta che questi usano tali siti. Azure Active Directory offre questa funzionalità permettendo di personalizzare l'aspetto delle pagine Web rivolte all'utente finale indicate di seguito, in modo da poter includere il logo e le combinazioni di colori personalizzate dell'azienda:
+
+- **Pagina di accesso**: a questa pagina vengono reindirizzati gli utenti dopo che accedono a Office 365 o ad altre applicazioni moderne e basate sul Web che usano Azure AD come provider di identità. La maggior parte degli utenti interagirà con questa pagina si per passare da Individuazione area di autenticazione principale, che permette al sistema di reindirizzare gli utenti federati ai propri servizi token di sicurezza locali (come ADFS), sia per immettere le proprie credenziali.
+
+- **Pannello di accesso**: questa pagina è un portale basato sul Web che permette a un utente finale il cui account aziendale o dell'istituto di istruzione si trova in una directory di Azure AD di visualizzare e avviare applicazioni basate sul cloud a cui l'amministratore di Azure AD gli ha concesso l'accesso. Al pannello di accesso possono accedere tutti gli utenti dell'organizzazione tramite l'indirizzo myapps.microsoft.com.
+
+Questo argomento illustra come personalizzare la pagina di accesso e il pannello di accesso.
 
 > [AZURE.NOTE]
 >
 - La possibilità di aggiungere informazioni personalizzate distintive dell'azienda è disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 - Le edizioni Premium e Basic di Azure Active Directory sono disponibili per i clienti in Cina che usano l'istanza globale di Azure Active Directory. Azure Active Directory Premium e le edizioni Basic non sono attualmente supportati nel servizio di Microsoft Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-Molte aziende vogliono applicare un look e un aspetto coerenti a tutti i siti Web e servizi che gestiscono, in modo da evitare la confusione degli utenti finali ogni volta che questi usano tali siti. Azure Active Directory offre questa funzionalità permettendo di personalizzare l'aspetto delle pagine Web rivolte all'utente finale indicate di seguito, in modo da poter includere il logo e le combinazioni di colori dell'azienda:
 
-- **Pagina di accesso**: a questa pagina vengono reindirizzati gli utenti dopo che accedono a Office 365 o ad altre applicazioni moderne e basate sul Web che usano Azure AD come provider di identità. La maggior parte degli utenti interagirà con questa pagina si per passare da Individuazione area di autenticazione principale, che permette al sistema di reindirizzare gli utenti federati ai propri servizi token di sicurezza locali (come ADFS), sia per immettere le proprie credenziali.
-
-- **Pannello di accesso**: questa pagina è un portale basato sul Web che permette a un utente finale il cui account aziendale o dell'istituto di istruzione si trova in una directory di Azure AD di visualizzare e avviare applicazioni basate sul cloud a cui l'amministratore di Azure AD gli ha concesso l'accesso. Al pannello di accesso possono accedere tutti gli utenti dell'organizzazione tramite l'indirizzo myapps.microsoft.com.
 
 ## Personalizzazione della pagina di accesso
 
-Poiché la pagina di accesso è in genere la pagina Web usata più di frequente dagli utenti finali che devono accedere con un browser alle app e ai servizi cloud sottoscritti dall'organizzazione, è essenziale che abbia un aspetto corretto. Se si vuole usare l'esperienza della pagina di accesso senza personalizzazione, non è necessario eseguire alcuna operazione.
+La pagina di accesso è in genere la pagina Web usata più di frequente dagli utenti finali che devono accedere con un browser alle app e ai servizi cloud sottoscritti dall'organizzazione. <br> Se sono state apportate modifiche alla pagina di accesso, è possibile che trascorra fino a un'ora prima che gli utenti visualizzino qualsiasi nuova modifica alla personalizzazione della pagina di accesso.
 
-### Quanto tempo è necessario perché le modifiche di personalizzazione siano visibili nelle pagine di accesso?
-
-Può trascorrere fino a un'ora prima che gli utenti visualizzino qualsiasi nuova modifica apportata per la personalizzazione della pagina di accesso.
-
-### In quali casi gli utenti visualizzano una pagina di accesso personalizzata?
-
-Gli utenti visualizzano una pagina di accesso personalizzata quando visitano un servizio con un URL specifico del tenant, come https://outlook.com/**contoso**.com o https://mail.**contoso**.com (se è stato creato un record CNAME).
+Gli utenti visualizzano una pagina di accesso personalizzata quando visitano un servizio con un URL specifico del tenant, come https://outlook.com/**contoso**.com o https://mail.**contoso**.com, se è stato creato un record CNAME.
 
 Se gli utenti visitano un servizio con URL non specifici del tenant, come https://mail.office365.com, visualizzeranno una pagina di accesso non personalizzata. La pagina di accesso verrà aggiornata per mostrare la personalizzazione dopo che gli utenti immettono il proprio ID utente o selezionano un'icona utente.
 
 > [AZURE.NOTE]
 >
-- Il nome di dominio deve essere visualizzato come "Attivo" nella sezione **Active Directory** > **Directory** > **Domini** del portale di gestione di Azure una volta configurata la personalizzazione.
+- Il nome di dominio deve essere visualizzato come "Attivo" nella sezione **Active Directory** > **Directory** > **Domini** del portale di Azure classico dopo la configurazione della personalizzazione.
 - La personalizzazione della pagina di accesso non si applica alla pagina di accesso degli utenti di Microsoft. Questo significa che gli utenti che accedono con un account Microsoft personale (in precedenza chiamato Windows Live ID) potrebbero visualizzare un elenco personalizzato di icone utente reso disponibile da Azure AD, ma le informazioni di personalizzazione distintive dell'organizzazione non verranno applicate alla pagina di accesso degli account Microsoft.
 
-### Che cosa viene visualizzato dagli utenti finali una volta personalizzata la pagina di accesso?
 
 Se si vuole mostrare il marchio, i colori e altri elementi personalizzabili dell'azienda in questa pagina, vedere le immagini seguenti per capire la differenza tra le due esperienze.
 
-Quando un utente prova ad accedere da un computer desktop, ecco un esempio di cosa visualizza nella pagina di accesso di Office 365 *prima* della personalizzazione:
+La schermata seguente mostra un esempio della pagina di accesso di Office 365 su un computer desktop *prima* di una personalizzazione:
 
-![][1]
+![Pagina di accesso di Office 365 prima della personalizzazione][1]
 
-Ed ecco cosa visualizza lo stesso utente *dopo* la personalizzazione:
+Dopo una personalizzazione, la pagina avrà un aspetto analogo al seguente:
 
-![][2]
+![Pagina di accesso di Office 365 dopo la personalizzazione][2]
 
-Quando un utente prova ad accedere da un dispositivo mobile, ecco un esempio di cosa visualizza nella pagina di accesso di Office 365 *prima* della personalizzazione:
+La schermata seguente mostra un esempio della pagina di accesso di Office 365 su un dispositivo mobile prima di una personalizzazione:
 
-![][3]
+![Pagina di accesso di Office 365 prima della personalizzazione][3]
 
-Ed ecco cosa visualizza lo stesso utente *dopo* la personalizzazione:
+Dopo una personalizzazione, la pagina avrà un aspetto analogo al seguente:
 
-![][4]
+![Pagina di accesso di Office 365 dopo la personalizzazione][4]
 
-### Quali elementi della pagina è possibile personalizzare?
+
+Quando si ridimensiona la finestra del browser, l'immagine di grandi dimensioni, come quella mostrata sopra, verrà quasi sempre ritagliata in base alle diverse proporzioni dello schermo. Tenendo presente questo aspetto, è consigliabile cercare di mantenere gli elementi visivi principali dell'immagine in modo che appaiano sempre nell'angolo superiore sinistro (o superiore destro per le lingue da destra a sinistra). Questo è importante perché il ridimensionamento viene eseguito in genere dall'angolo inferiore destro verso quello superiore sinistro oppure dal basso verso l'alto.
+
+La figura seguente mostra il modo in cui l'immagine viene ritagliata quando si ridimensiona la finestra del browser verso sinistra:
+
+![][6]
+
+Ecco come appare l'immagine dopo aver ridimensionato la finestra del browser dal basso verso l'alto:
+
+![][7]
+
+## Quali elementi della pagina è possibile personalizzare?
 
 Ecco gli elementi che è possibile personalizzare nella pagina di accesso:
 
@@ -88,60 +96,63 @@ Tutti gli elementi sono facoltativi. Se, ad esempio, si specifica un logo del ba
 - Creare un'immagine di grandi dimensioni "predefinita" adatta per tutte le impostazioni cultura, quindi creare versioni specifiche per l'inglese e il francese. Gli utenti i cui browser sono impostati su una di queste due lingue visualizzeranno l'immagine specifica, mentre tutti gli altri visualizzeranno quella predefinita.
 - Configurare logo diversi per l'organizzazione, ad esempio una versione giapponese o ebraica.
 
-### Come apparirà l'immagine dopo aver ridimensionato il browser?
 
-Durante il ridimensionamento della finestra del browser, l'immagine di grandi dimensioni, come quella mostrata sopra, verrà quasi sempre ritagliata in base alle diverse proporzioni dello schermo. Tenendo presente questo aspetto, è consigliabile cercare di mantenere gli elementi visivi principali dell'immagine in modo che appaiano sempre nell'angolo superiore sinistro (o superiore destro per le lingue da destra a sinistra). Questo è importante perché il ridimensionamento viene eseguito in genere dall'angolo inferiore destro verso quello superiore sinistro oppure dal basso verso l'alto.
-
-La figura seguente mostra il modo in cui l'immagine viene ritagliata quando si ridimensiona la finestra del browser verso sinistra:
-
-![][6]
-
-Ed ecco come appare l'immagine dopo aver ridimensionato la finestra del browser dal basso verso l'alto:
-
-![][7]
 
 ## Personalizzazione del pannello di accesso
 
-Il pannello di accesso è essenzialmente una pagina del portale per tutti gli utenti finali che devono accedere rapidamente, facendo clic sulle icone applicazione, alle diverse app cloud cui è stato loro concesso l'accesso. Se si vuole usare l'esperienza del pannello di accesso senza personalizzazione, non è necessario eseguire alcuna operazione.
+Il pannello di accesso è essenzialmente una pagina del portale per tutti gli utenti finali che devono accedere rapidamente, facendo clic sulle icone applicazione, alle diverse app cloud cui è stato loro concesso l'accesso.
 
-### Che cosa viene visualizzato dagli utenti finali una volta personalizzato il pannello di accesso?
+La schermata seguente mostra un esempio di pagina del pannello di accesso dopo la personalizzazione.
 
 ![][8]
 
 ## Configurare la directory con informazioni personalizzate distintive dell'azienda
 
-È possibile configurare un set predefinito di elementi personalizzabili per ogni directory nel portale di gestione. Dopo aver salvato gli elementi predefiniti, un amministratore può anche scegliere di aggiungere versioni localizzate di ogni elemento per lingue/impostazioni locali diverse. Tutti gli elementi personalizzabili sono facoltativi.
+È possibile configurare un set predefinito di elementi personalizzabili per ogni directory nel portale di Azure classico. Dopo aver salvato gli elementi predefiniti, un amministratore può anche scegliere di aggiungere versioni localizzate di ogni elemento per lingue/impostazioni locali diverse. Tutti gli elementi personalizzabili sono facoltativi.
 
 Se, ad esempio, si configura un logo del banner predefinito senza immagine di grandi dimensioni, nella pagina di accesso il logo apparirà nell'angolo superiore destro, indipendentemente da come verrà visualizzata l'immagine predefinita del sito. Se si configura un logo del banner predefinito e il testo della pagina di accesso in inglese, ma si configura anche un testo della pagina di accesso specifico per la lingua tedesca, gli utenti la cui preferenza per la lingua è impostata sul tedesco visualizzeranno il logo del banner predefinito, ma il testo in tedesco. Benché sia tecnicamente possibile configurare un set diverso per ogni lingua supportata da Azure AD, è preferibile mantenere ridotto il numero di variazioni, per motivi di manutenzione e prestazioni.
 
-Per aggiungere informazioni personalizzate distintive dell'azienda alla directory:
+**Per aggiungere informazioni personalizzate distintive della società alla directory, seguire questa procedura:**
 
-1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com) come amministratore della directory che si vuole personalizzare.
-2. Selezionare la directory che si vuole personalizzare.
-3. Selezionare la scheda **Configura** e quindi fare clic su **Modifica personalizzazione**.
-4. Modificare gli elementi che si vuole personalizzare. Notare che tutti i campi sono facoltativi.
-5. Fare clic su **Salva**.
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com) come amministratore della directory da personalizzare.
+2. Selezionare la directory da personalizzare.
+3. Sulla barra degli strumenti in alto fare clic su **Configura**.
+4. Fare clic su **Modifica personalizzazione**.
+4. Modificare gli elementi da personalizzare. Notare che tutti i campi sono facoltativi.
+5. Fare clic su **Save**.
 
 Può trascorrere fino a un'ora prima che gli utenti visualizzino qualsiasi nuova modifica apportata per la personalizzazione della pagina di accesso.
 
-Per aggiungere informazioni personalizzate distintive dell'azienda specifiche della lingua:
+**Per aggiungere informazioni personalizzate distintive della società specifiche per una lingua, seguire questa procedura:**
 
-1. Nel [portale di gestione di Azure](https://manage.windowsazure.com) selezionare **Modifica personalizzazione** nella scheda **Configura**.
-2. Selezionare **Aggiungi personalizzazione per una lingua specifica**, selezionare la lingua per cui si vuole personalizzare il logo e quindi fare clic su **Avanti**.
-3. Modificare solo gli elementi per cui si vuole configurare sostituzioni specifiche della lingua. Notare che tutti i campi sono facoltativi. Se un campo viene lasciato vuoto, al suo posto verrà visualizzato il valore personalizzato predefinito (o quello predefinito Microsoft se non è configurato alcun valore predefinito).
-4. Fare clic su **Salva**.
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com) come amministratore della directory da personalizzare.
+2. Selezionare la directory da personalizzare.
+3. Sulla barra degli strumenti in alto fare clic su **Configura**.
+4. Fare clic su **Modifica personalizzazione**.
+2. Fare clic su **Aggiungi impostazioni di personalizzazione per una lingua specifica**.
+3. Selezionare la lingua per cui si vuole personalizzare il logo, quindi fare clic su **Avanti**.
+3. Modificare solo gli elementi per cui si vogliono configurare sostituzioni specifiche della lingua. Notare che tutti i campi sono facoltativi. Se un campo viene lasciato vuoto, al suo posto verrà visualizzato il valore personalizzato predefinito (o quello predefinito Microsoft se non è configurato alcun valore predefinito).
+4. Fare clic su **Save**.
 
-Per rimuovere informazioni personalizzate distintive dell'azienda dalla directory:
+**Per rimuovere informazioni personalizzate distintive della società dalla directory, seguire questa procedura:**
 
-1. Nel [portale di gestione di Azure](https://manage.windowsazure.com) selezionare **Modifica personalizzazione** nella scheda **Configura**.
-2. Nella pagina Modifica personalizzazione selezionare **Modifica impostazioni di personalizzazione esistenti** e quindi passare alla pagina successiva.
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com) come amministratore della directory da personalizzare.
+2. Selezionare la directory da personalizzare.
+3. Sulla barra degli strumenti in alto fare clic su **Configura**.
+4. Fare clic su **Modifica personalizzazione**.
+5. Nella pagina Modifica personalizzazione selezionare **Modifica impostazioni di personalizzazione esistenti** e quindi passare alla pagina successiva.
 3. A seconda degli elementi che si vuole rimuovere, eseguire una o più delle operazioni seguenti:
-	1. Per Logo banner, fare clic sulla casella di controllo accanto a **Rimuovi logo caricato**.
-    2. Per Logo icona, fare clic sulla casella di controllo accanto a **Rimuovi logo caricato**.
-    3. Per Etichetta nome utente pagina di accesso, cancellare tutto il testo.
-    4. Per Testo pagina di accesso, cancellare tutto il testo.
-    5. Per Illustrazione pagina di accesso, fare clic sulla casella di controllo accanto a **Rimuovi illustrazione**.
-    6. Per Colore di sfondo della pagina di accesso, cancellare tutto il testo.
+
+	a. In **Logo banner** selezionare **Rimuovi logo caricato**.
+
+    b. In **Logo icona** selezionare **Rimuovi logo caricato**.
+
+    c. Rimuovere il testo da tutte le caselle di testo.
+
+    d. Fare clic su **Avanti**.
+
+    e. Rimuovere il testo da tutte le caselle di testo.
+
 4. Fare clic su **Salva** per rimuovere gli elementi.
 5. Se necessario, fare di nuovo clic su **Modifica personalizzazione** e ripetere gli stessi passaggi per tutte le personalizzazioni specifiche della lingua da rimuovere. Tutte le impostazioni di personalizzazione sono state rimosse quando dopo aver fatto clic su **Modifica personalizzazione**, il modulo **Modifica personalizzazione predefinita** non contiene più alcuna impostazione configurata.
 
@@ -186,4 +197,4 @@ Colore di sfondo della pagina di accesso | Il colore di sfondo della pagina di a
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Panoramica di Rete virtuale
@@ -91,11 +91,8 @@ L'uso di reti virtuali in Azure non comporta costi aggiuntivi. Le istanze di cal
 ## Passaggi successivi
 
 - [Creare una rete virtuale](virtual-networks-create-vnet-arm-pportal.md) e subnet.
-- [Creare una macchina virtuale in una rete virtuale](../virtual-machines/virtual-machines-windows-tutorial.md).
+- [Creare una macchina virtuale in una rete virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 - Informazioni sui [gruppi di sicurezza di rete](virtual-networks-nsg.md).
-- Informazioni sui [servizi di bilanciamento del carico](../load-balancer/load-balancer-overview.md).
-- [Riservare un indirizzo IP interno](virtual-networks-reserved-private-ip.md)
-- [Riservare un indirizzo IP pubblico](virtual-networks-reserved-public-ip.md).
 - Informazioni su [route e inoltro IP definiti dall'utente](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -34,7 +34,7 @@ Per molte aziende e app, la possibilità di creare database e connettere o disco
 
 [Pool di database elastici](sql-database-elastic-pool.md) nel Database SQL per risolvere questo problema. Il concetto è semplice. È possibile allocare delle prestazioni a un pool e pagare le prestazioni collettive dei pool di piuttosto che le prestazioni del database singolo. Non è necessario connettere o disconnettere le prestazioni del database. I database nel pool, chiamati *database elastici*, aumentano e diminuiscono automaticamente per soddisfare la domanda. I database elastici consumano, ma non superano i limiti del pool, pertanto il costo rimane prevedibile anche se l'utilizzo del database non lo è. Inoltre, è possibile [aggiungere e rimuovere i database al pool](sql-database-elastic-pool-portal.md), con la scalabilità dell’app da un numero limitato di database a migliaia, tutto all'interno di un budget che è possibile controllare.
 
-In qualsiasi caso-o singolo o elastico-non è vincolante. È possibile mescolare database singoli con pool di database elastici e modificare i livelli di servizio di singoli database e pool per creare progettazioni innovative. Inoltre, con la potenza e la portata di Azure, è possibile combinare e integrare i servizi di Azure con il database SQL per soddisfare le esigenze esclusive di progettazione di app moderne dell'azienda, promuovere l'efficienza in termini di costi e di risorse e sfruttare nuove opportunità commerciali.
+In qualsiasi caso-o singolo o elastico-non è vincolante. È combinare mescolare database singoli con pool di database elastici e modificare i livelli di servizio di singoli database e pool per creare progettazioni innovative. Inoltre, con la potenza e la portata di Azure, è possibile combinare e integrare i servizi di Azure con il database SQL per soddisfare le esigenze esclusive di progettazione di app moderne dell'azienda, promuovere l'efficienza in termini di costi e di risorse e sfruttare nuove opportunità commerciali.
 
 Ma come è possibile confrontare le prestazioni relative di database e i pool di database? Come si conosce il giusto arresto quando si connette e si disconnette? La risposta è l'unità di transazione di database (DTU) per singoli database e il valore di DTU di database elastico (eDTU) per i database elastici e i pool di database.
 
@@ -63,4 +63,4 @@ Dopo avere letto l'introduzione al database SQL e avere ottenuto informazioni su
 
 - Vedere un indice dei titoli e le descrizioni in [Tutti gli argomenti per il servizio di database SQL di Azure](sql-database-index-all-articles.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

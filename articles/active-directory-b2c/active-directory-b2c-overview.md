@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/06/2016"
+	ms.date="03/22/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: iscrizione e accesso degli utenti alle applicazioni
@@ -37,6 +37,7 @@ Per compilare un'applicazione che accetta l'iscrizione e l'accesso dell'utente, 
 Visitare spesso questa pagina per rimanere aggiornati sulle modifiche all'anteprima di Azure Active Directory B2C. Gli aggiornamenti saranno anche resi noti su Twitter con @AzureAD.
 
 - Informazioni sul [framework di criteri estendibili](active-directory-b2c-reference-policies.md) e sui tipi di criteri che è possibile creare e usare nelle applicazioni.
+- Aggiungere la [pagina sull'integrità dei servizi](active-directory-b2c-service-health.md) ai segnalibri per ricevere notifiche relative a problemi secondari del servizio, allo stato e alle mitigazioni. Continuare a monitorare anche il [dashboard dello stato di Azure](https://azure.microsoft.com/status/).
 - [Limitazioni, restrizioni e vincoli della versione di anteprima](active-directory-b2c-limitations.md) corrente.
 
 ## Procedure
@@ -63,4 +64,4 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita del ser
 - Vedere le [Domande frequenti su Azure Active Directory B2C](active-directory-b2c-faqs.md).
 - [Inviare richieste di supporto per Azure Active Directory B2C](active-directory-b2c-support.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

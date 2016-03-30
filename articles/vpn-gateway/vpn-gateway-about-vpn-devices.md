@@ -106,7 +106,7 @@ Dopo aver scaricato l'esempio di configurazione di dispositivo VPN fornito, è n
 | Metodo di autenticazione | Chiave precondivisa | Chiave precondivisa |
 | Algoritmi di crittografia | AES256 AES128 3DES | AES256 3DES |
 | Algoritmo di hash | SHA1(SHA128) | SHA1(SHA128), SHA2(SHA256) |
-| Fase 1 Associazione di sicurezza (SA) durata (tempo) | 28,800 secondi | 28,800 secondi |
+| Durata (tempo) associazione di sicurezza (SA) fase 1 | 28\.800 secondi | 10\.800 secondi |
 
 
 ### Configurazione fase 2 IKE
@@ -115,10 +115,10 @@ Dopo aver scaricato l'esempio di configurazione di dispositivo VPN fornito, è n
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
 | Versione IKE | IKEv1 | IKEv2 |
 | Algoritmo di hash | SHA1(SHA128) | SHA1(SHA128) |
-| Fase 2 Associazione di sicurezza (SA) durata (tempo) | 3,600 secondi | - |
-| Fase 2 Associazione di sicurezza (SA) durata (produttività) | 102,400,000 KB | - |
-| Offerte di autenticazione e crittografia SA IPsec (in ordine di preferenza) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Vedere *Offerte di associazione di sicurezza (SA) IPsec gateway basato su route* (di seguito) |
-| Perfect Forward Secrecy (PFS) | No | Sì (DH Gruppo1) |
+| Durata (tempo) associazione di sicurezza (SA) fase 2 | 3\.600 secondi | 3\.600 secondi |
+| Durata (velocità effettiva) associazione di sicurezza (SA) fase 2 | 102.400.000 KB | - | 
+| Offerte di autenticazione e crittografia SA IPsec (in ordine di preferenza) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Vedere *Offerte di associazione di sicurezza (SA) IPsec gateway basato su route* di seguito | 
+| Perfect Forward Secrecy (PFS) | No | Sì (DH Gruppo1, 2, 5, 14, 24) | 
 | Dead Peer Detection | Non supportato | Supportato |
 
 ### Offerte di associazione di sicurezza (SA) IPsec gateway basato su route
@@ -143,7 +143,7 @@ Nella tabella seguente sono elencate le offerte di autenticazione e crittografia
 | 14 | AH MD5 con ESP DES Null HMAC, nessuna durata proposta | AH MD5 con ESP DES MD5, nessuna durata |
 | 15 | AH SHA1 con ESP DES SHA1, nessuna durata | ESP SHA, nessuna durata |
 | 16 | AH MD5 con ESP DES MD5, nessuna durata | ESP MD5, nessuna durata |
-| 17 | - | AH SHA, nessuna durata |
+| 17 | - | AH SHA, nessuna durata | 
 | 18 | - | AH MD5, nessuna durata |
 
 
@@ -151,4 +151,4 @@ Nella tabella seguente sono elencate le offerte di autenticazione e crittografia
 
 - Per la connettività cross-premises tramite Internet, utilizzare le impostazioni del gateway VPN di Azure predefinite con la crittografia e gli algoritmi di hash elencati nelle tabelle precedenti, per garantire la sicurezza delle comunicazioni critiche.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->
