@@ -66,7 +66,7 @@ Per usare i pacchetti dell’applicazione, è prima necessario collegare un acco
 
 ![Avviso. Nessun account di archiviazione configurato nel portale di Azure][9]
 
-Il servizio Batch usa l'account di archiviazione associato per archiviare e recuperare i pacchetti dell’applicazione. Dopo aver collegato i due account, Batch può distribuire automaticamente i pacchetti archiviati nell'account di archiviazione collegato sui nodi di calcolo. Selezionare le **impostazioni dell'account di archiviazione** nel pannello *Avviso* e quindi fare clic su **Account di archiviazione** nel pannello *Account di archiviazione * per collegare un account di archiviazione esistente ad un account Batch.
+Il servizio Batch usa l'account di archiviazione associato per archiviare e recuperare i pacchetti dell’applicazione. Dopo aver collegato i due account, Batch può distribuire automaticamente i pacchetti archiviati nell'account di archiviazione collegato sui nodi di calcolo. Selezionare le **impostazioni dell'account di archiviazione** nel pannello *Avviso* e quindi fare clic su **Account di archiviazione** nel pannello *Account di archiviazione* per collegare un account di archiviazione esistente ad un account Batch.
 
 ![Selezionare il pannello Account di archiviazione nel portale di Azure][10]
 

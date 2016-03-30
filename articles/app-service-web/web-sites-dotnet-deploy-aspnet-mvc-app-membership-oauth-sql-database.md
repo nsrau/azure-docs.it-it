@@ -445,7 +445,7 @@ In questa sezione verranno aggiunti al database di appartenenza un utente locale
 
 	![Immagine del codice](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	Questo codice consente di creare un nuovo ruolo denominato *canEdit*, quindi di creare un nuovo utente locale **user1@contoso.com* e infine di aggiungere **user1@contoso.com* al ruolo *canEdit*. Per altre informazioni, vedere la pagina relativa alle [esercitazioni per ASP.NET Identity](http://www.asp.net/identity/overview/features-api) nel sito ASP.NET.
+	Questo codice consente di creare un nuovo ruolo denominato *canEdit*, quindi di creare un nuovo utente locale *user1@contoso.com* e infine di aggiungere *user1@contoso.com* al ruolo *canEdit*. Per altre informazioni, vedere la pagina relativa alle [esercitazioni per ASP.NET Identity](http://www.asp.net/identity/overview/features-api) nel sito ASP.NET.
 
 ## Utilizzo di codice temporaneo per aggiungere al ruolo canEdit nuovi utenti di accesso a social networking  ##
 
@@ -501,7 +501,7 @@ In **Console di Gestione pacchetti** fare clic sul tasto di direzione per visual
 
 		Update-Database
 
-Il comando **Update-Database** esegue il metodo **Seed**, che a sua volta esegue il metodo **AddUserAndRole** aggiunto in precedenza. Il metodo **AddUserAndRole** crea l'utente **user1@contoso.com* e lo aggiunge al ruolo *canEdit*.
+Il comando **Update-Database** esegue il metodo **Seed**, che a sua volta esegue il metodo **AddUserAndRole** aggiunto in precedenza. Il metodo **AddUserAndRole** crea l'utente *user1@contoso.com* e lo aggiunge al ruolo *canEdit*.
 
 ## Protezione dell'applicazione con SSL e l'attributo Authorize ##
 
@@ -580,7 +580,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 1. Fare clic sui collegamenti **About** o **Contact**. Si verrà reindirizzati alla pagina di accesso perché gli utenti anonimi non sono autorizzati a visualizzare tali pagine.
 
-1. Fare clic sul collegamento **Esegui la registrazione come nuovo utente** e aggiungere un utente locale con l'indirizzo di posta elettronica **joe@contoso.com*. Assicurarsi che *Joe* sia in grado di visualizzare le pagine Home, About e Contact.
+1. Fare clic sul collegamento **Esegui la registrazione come nuovo utente** e aggiungere un utente locale con l'indirizzo di posta elettronica *joe@contoso.com*. Assicurarsi che *Joe* sia in grado di visualizzare le pagine Home, About e Contact.
 
 	![Accesso](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
@@ -588,9 +588,9 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 1. Fare clic su un collegamento di modifica nella pagina. Si verrà reindirizzati alla pagina di accesso, perché il nuovo utente locale non è stato aggiunto al ruolo *canEdit*.
 
-1. Accedere usando il nome utente **user1@contoso.com* e la password "P\_assw0rd1" (il carattere "0" in "word" è uno zero). Si verrà reindirizzati alla pagina di modifica selezionata in precedenza.
+1. Accedere usando il nome utente *user1@contoso.com* e la password "P\_assw0rd1" (il carattere "0" in "word" è uno zero). Si verrà reindirizzati alla pagina di modifica selezionata in precedenza.
 
-	Se non è possibile effettuare l'accesso con tale account e password, provare a copiare la password dal codice sorgente e incollarla. Se ancora non è possibile accedere, verificare la colonna **UserName** della tabella **AspNetUsers** per accertarsi che **user1@contoso.com* sia stato aggiunto.
+	Se non è possibile effettuare l'accesso con tale account e password, provare a copiare la password dal codice sorgente e incollarla. Se ancora non è possibile accedere, verificare la colonna **UserName** della tabella **AspNetUsers** per accertarsi che *user1@contoso.com* sia stato aggiunto.
 
 1. Verificare che sia possibile apportare modifiche ai dati.
 
@@ -614,7 +614,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 1. Fare clic su **Pubblica**.
 
-1. Effettuare l'accesso come **user1@contoso.com* (usando la password "P\_assw0rd1") e verificare che sia possibile modificare i dati.
+1. Effettuare l'accesso come *user1@contoso.com* (usando la password "P\_assw0rd1") e verificare che sia possibile modificare i dati.
 
 1. Effettuare la disconnessione.
 
@@ -698,7 +698,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 	![Pagina CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. Prendere nota dell'ID dell'account Google usato per la registrazione nel ruolo **canEdit** e dell'ID di **user1@contoso.com*. È necessario che questi siano gli unici utenti nel ruolo **canEdit**. Questa verifica verrà eseguita nel passaggio successivo.
+1. Prendere nota dell'ID dell'account Google usato per la registrazione nel ruolo **canEdit** e dell'ID di *user1@contoso.com*. È necessario che questi siano gli unici utenti nel ruolo **canEdit**. Questa verifica verrà eseguita nel passaggio successivo.
 
 	![Pagina CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -706,7 +706,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 	![Pagina CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-3. Verificare che i valori di **UserId** provengano da **user1@contoso.com* e dall'account Google registrato.
+3. Verificare che i valori di **UserId** provengano da *user1@contoso.com* e dall'account Google registrato.
 
 ## Risoluzione dei problemi
 
