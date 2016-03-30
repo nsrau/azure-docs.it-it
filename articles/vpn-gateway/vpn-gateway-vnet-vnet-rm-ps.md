@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/04/2016"
+   ms.date="03/15/2016"
    ms.author="cherylmc"/>
 
 # Configurare una connessione da VNet a VNet tramite Azure Resource Manager e PowerShell
@@ -23,13 +23,18 @@
 - [Portale di Azure classico](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-Questo articolo illustra i passaggi per creare una connessione tra reti virtuali usando il modello di distribuzione di **Gestione risorse** e PowerShell. Le reti virtuali possono trovarsi in aree geografiche uguali o diverse e in sottoscrizioni uguali o diverse.
+Questo articolo illustra i passaggi per creare una connessione tra reti virtuali usando il modello di distribuzione di Azure Resource Manager e PowerShell. Le reti virtuali possono trovarsi in aree geografiche uguali o diverse e in sottoscrizioni uguali o diverse.
 
-[AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 **Informazioni sui modelli di distribuzione di Azure**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+**Strumenti e modelli di distribuzione per la connessione tra reti virtuali**
+
+È possibile configurare una connessione tra reti virtuali in entrambi i modelli di distribuzione e tramite numerosi strumenti. Per altre informazioni, vedere la tabella seguente. La tabella verrà aggiornata man mano che per questa configurazione risultano disponibili nuovi articoli, modelli di distribuzione e strumenti. Quando un articolo risulterà disponibile, nella tabella sarà presente un collegamento diretto.
+
+[AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 
 ## Informazioni sulla connessione da rete virtuale a rete virtuale
@@ -102,7 +107,7 @@ Questa configurazione si applica alle reti virtuali che si trovano nella stessa 
 	
 - È necessario installare i cmdlet di PowerShell per Gestione risorse di Azure. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-### <a name ="Step1"/>Passaggio 1 - Pianificare gli intervalli di indirizzi IP
+### <a name ="Step1"/>Passaggio 1: Pianificare gli intervalli di indirizzi IP
 
 
 È importante definire gli intervalli che verranno utilizzati per impostare la configurazione di rete. Tenere presente che è necessario assicurarsi che nessuno di intervalli di rete virtuale o intervalli di rete locale si sovrappongano in alcun modo.
@@ -147,7 +152,7 @@ Per questo esercizio, utilizzare i valori seguenti per le reti virtuali:
 
 
 
-### <a name ="Step2"/>Passaggio 2 - Creare e configurare TestVNet1
+### <a name ="Step2"/>Passaggio 2: Creare e configurare TestVNet1
 
 1. Dichiarare le variabili
 
@@ -318,7 +323,7 @@ L'esempio seguente illustra come verificare la connessione. Assicurarsi di modif
 
 ### Per verificare la connessione tramite PowerShell
 
-È possibile verificare che la connessione abbia avuto esito positivo anche tramite *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. Si può usare l'esempio seguente, modificando i valori in modo che corrispondano ai propri. Quando richiesto, selezionare A per eseguirli tutti.
+È possibile verificare che la connessione abbia avuto esito positivo anche usando *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. Si può usare l'esempio seguente, modificando i valori in modo che corrispondano ai propri. Quando richiesto, selezionare A per eseguirli tutti.
 
 	Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1 -Debug
 
@@ -523,6 +528,6 @@ In questo esempio, dato che i gateway si trovano in sottoscrizioni diverse, il p
 
 ## Passaggi successivi
 
-Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-tutorial.md).
+Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

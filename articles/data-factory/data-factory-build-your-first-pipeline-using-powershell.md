@@ -47,7 +47,7 @@ Se si usa una **versione precedente alla 1.0** di Azure PowerShell, sarà necess
 Per informazioni dettagliate, vedere la pagina relativa alla [deprecazione di Switch-AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 
-## Passaggio 1: Creare la data factory
+## Creare un'istanza di Data Factory
 
 In questo passaggio è possibile usare Azure PowerShell per creare una data factory di Azure denominata **FirstDataFactoryPSH**. Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, attività di copia per copiare dati da un'origine a un archivio dati di destinazione e attività Hive di HDInsight per eseguire uno script Hive e trasformare i dati di input in dati di output di prodotto. In questo passaggio iniziale viene creata la data factory.
 
@@ -70,7 +70,7 @@ In questo passaggio è possibile usare Azure PowerShell per creare una data fact
 
 Prima di creare una pipeline è necessario creare alcune entità di Data factory. Creare prima di tutto i servizi collegati per collegare archivi dati/servizi di calcolo all'archivio dati, definire i set di dati di input e di output per rappresentare i dati negli archivi dati collegati e quindi creare la pipeline con un'attività che usa questi set di dati.
 
-## Passaggio 2: Creare servizi collegati 
+## Creazione di servizi collegati 
 In questo passaggio l'account di archiviazione di Azure e un cluster HDInsight su richiesta di Azure vengono collegati alla data factory. In questo esempio l'account di archiviazione di Azure contiene i dati di input e di output per la pipeline. In questo esempio il servizio collegato HDInsight viene usato per eseguire lo script Hive specificato nell'attività della pipeline. È necessario identificare l'archivio dati/i servizi di calcolo usati nello scenario e collegare tali servizi alla data factory creando servizi collegati.
 
 ### Creare il servizio collegato Archiviazione di Azure
@@ -147,10 +147,10 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
 		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
 
 
-## Passaggio 3: Creare set di dati
+## Creare set di dati
 In questo passaggio vengono creati set di dati per rappresentare i dati di input e di output per l'elaborazione Hive. I set di dati fanno riferimento all'oggetto **StorageLinkedService** creato in precedenza in questa esercitazione. Il servizio collegato punta a un account di archiviazione di Azure e i set di dati specificano il contenitore, la cartella e il nome del file nella risorsa di archiviazione che contiene i dati di input e di output.
 
-### Creare il set di dati di input
+### Creare set di dati di input
 1. Creare un file JSON denominato **InputTable.json** nella cartella **C:\\ADFGetStarted** con il contenuto seguente:
 
 		{
@@ -223,7 +223,7 @@ Viene creato ora il set di dati di output per rappresentare i dati di output arc
 
 		New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
 
-## Passaggio 3: Creare la prima pipeline
+## Creare una pipeline
 In questo passaggio viene creata la prima pipeline con un'attività **HDInsightHive**. Si noti che la sezione di input è disponibile ogni mese (frequenza: Month, intervallo: 1), la sezione di output viene generata ogni mese e anche la proprietà dell'utilità di pianificazione dell'attività è impostata su una frequenza mensile (vedere sotto). Le impostazioni per il set di dati di output e l'utilità di pianificazione dell'attività devono corrispondere. In questo momento la pianificazione è basata sul set di dati di output, quindi è necessario creare un set di dati di output anche se l'attività non genera alcun output. Se l'attività non richiede input, è possibile ignorare la creazione del set di dati di input. Le proprietà usate nel codice JSON seguente sono illustrate in fondo a questa sezione.
 
 
@@ -290,7 +290,7 @@ In questo passaggio viene creata la prima pipeline con un'attività **HDInsightH
 		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 5. La creazione della prima pipeline tramite Azure PowerShell è così completata.
 
-### <a name="MonitorDataSetsAndPipeline"></a> Monitorare i set di dati e la pipeline
+## Monitorare la pipeline
 In questo passaggio viene usato Azure PowerShell per monitorare le attività in un'istanza di Data factory di Azure.
 
 1. Eseguire **Get-AzureRmDataFactory** e assegnare l'output a una variabile **$df**.
@@ -356,4 +356,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -24,26 +24,21 @@
 - [Tramite PowerShell](data-factory-monitor-manage-using-powershell.md)
 - [Con la Copia guidata](data-factory-copy-data-wizard-tutorial.md)
 
-##Contenuto dell'esercitazione:
 In questa esercitazione verranno effettuate le operazioni seguenti utilizzando Visual Studio 2013:
 
 1. Creare due servizi collegati: **AzureStorageLinkedService1** e **AzureSqlinkedService1**. AzureStorageLinkedService1 collega una risorsa di archiviazione di Azure e AzureSqlLinkedService1 collega un database SQL di Azure alla data factory **ADFTutorialDataFactoryVS**. I dati di input per la pipeline si trovano in un contenitore BLOB nell'archivio BLOB di Azure e i dati di output verranno archiviati in una tabella nel database SQL di Azure. Questi due archivi dati vengono quindi aggiunti alla data factory come servizi collegati.
 2. Creare due tabelle di data factory, ovvero **EmpTableFromBlob** e **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati. Per EmpTableFromBlob verrà specificato il contenitore BLOB che include un BLOB con i dati di origine, mentre per EmpSQLTable verrà specificata la tabella SQL in cui verranno archiviati i dati di output. Verranno specificate anche altre proprietà, ad esempio la struttura e la disponibilità dei dati e così via.
-3. Creare una pipeline denominata **ADFTutorialPipeline** in ADFTutorialDataFactoryVS. La pipeline includerà un'**attività di copia** che copia i dati di input dal BLOB di Azure e li inserisce nella tabella di output SQL di Azure. L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate sull'attività di copia, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md). 
+3. Creare una pipeline denominata **ADFTutorialPipeline** in ADFTutorialDataFactoryVS. La pipeline includerà un'**attività di copia** che copia i dati di input dal BLOB di Azure e li inserisce nella tabella di output SQL di Azure. L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate su Attività di copia, vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md). 
 4. Creare una data factory e distribuire servizi collegati, tabelle e la pipeline.    
 
-## Creare e distribuire entità della data factory usando Visual Studio 
-
-### Prerequisiti
+## Prerequisiti
 Leggere l'articolo [Panoramica dell'esercitazione](data-factory-get-started.md) e completare i prerequisiti prima di eseguire questa esercitazione.
 
 È necessario disporre dei seguenti prodotti installati nel computer in uso:
 - Visual Studio 2013
 - Scaricare Azure SDK per Visual Studio 2013. Passare alla [pagina di download di Azure](https://azure.microsoft.com/downloads/) e fare clic su **VS 2013 - Installazione** nella sezione **.NET**.
 
-### Procedura dettagliata
-
-#### Creare il progetto di Visual Studio 
+## Creare un progetto di Visual Studio 
 1. Avviare **Visual Studio 2013**. Fare clic su **File**, scegliere **Nuovo** e quindi fare clic su **Progetto**. Si dovrebbe vedere la finestra di dialogo **Nuovo progetto**.  
 2. Nella finestra di dialogo **Nuovo progetto** selezionare il modello **DataFactory** e fare clic su **Progetto data factory vuoto**. Se il modello DataFactory non è visibile, chiudere Visual Studio, installare Azure SDK per Visual Studio 2013 e riaprire Visual Studio.  
 
@@ -53,12 +48,12 @@ Leggere l'articolo [Panoramica dell'esercitazione](data-factory-get-started.md) 
 
 	![Esplora soluzioni](./media/data-factory-get-started-using-vs/solution-explorer.png)
 
-#### Creazione di servizi collegati
+## Creazione di servizi collegati
 I servizi collegati collegano archivi dati o servizi di calcolo a una data factory di Azure. Un archivio dati può essere un'archiviazione di Azure, un database SQL di Azure o un database di SQL Server locale.
 
 In questo passaggio verranno creati due servizi collegati: **AzureStorageLinkedService1** e **AzureSqlLinkedService1**. Il servizio collegato AzureStorageLinkedService1 collega un account di archiviazione di Azure e AzureSqlLinkedService collega un database SQL di Azure alla data factory **ADFTutorialDataFactory**.
 
-##### Creare il servizio collegato di archiviazione di Azure
+### Creare il servizio collegato di archiviazione di Azure
 
 4. Fare clic con il pulsante destro del mouse su **Servizi collegati** in Esplora soluzioni, scegliere **Aggiungi** e fare clic su **Nuovo elemento**.      
 5. Nella finestra di dialogo **Aggiungi nuovo elemento** selezionare **Servizio collegato Archiviazione di Azure** nell'elenco e fare clic su **Aggiungi**. 
@@ -71,7 +66,7 @@ In questo passaggio verranno creati due servizi collegati: **AzureStorageLinkedS
 
 4. Salvare il file **AzureStorageLinkedService1.json**.
 
-#### Creare il servizio collegato SQL di Azure
+### Creare il servizio collegato SQL di Azure
 
 5. Fare nuovamente clic con il pulsante destro del mouse sul nodo **Servizi collegati** in **Esplora soluzioni**, scegliere **Aggiungi** e fare clic su **Nuovo elemento**. 
 6. Questa volta selezionare **Servizio collegato SQL Azure** e fare clic su **Aggiungi**. 
@@ -79,10 +74,10 @@ In questo passaggio verranno creati due servizi collegati: **AzureStorageLinkedS
 8.  Salvare il file **AzureSqlLinkedService1.json**. 
 
 
-### Creazione di tabelle di input e di output
+## Creare set di dati
 Nel passaggio precedente sono stati creati i servizi collegati **AzureStorageLinkedService1** e **AzureSqlLinkedService1** per collegare un account di archiviazione di Azure e un database SQL di Azure alla data factory **ADFTutorialDataFactory**. In questo passaggio verranno definite due tabelle di data factory, ovvero **EmpTableFromBlob** e **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati a cui fanno riferimento rispettivamente AzureStorageLinkedService1 e AzureSqlLinkedService1. Per EmpTableFromBlob verrà specificato il contenitore BLOB che include un BLOB con i dati di origine e per EmpSQLTable verrà specificata la tabella SQL in cui verranno archiviati i dati di output.
 
-#### Creare la tabella di input
+### Creare set di dati di input
 
 9. Fare clic con il pulsante destro del mouse su **Tabelle** in **Esplora soluzioni**, scegliere **Aggiungi** e fare clic su **Nuovo elemento**.
 10. Nella finestra di dialogo **Aggiungi nuovo elemento** selezionare **BLOB di Azure** e fare clic su **Aggiungi**.   
@@ -118,7 +113,7 @@ Nel passaggio precedente sono stati creati i servizi collegati **AzureStorageLin
 		  }
 		}
 
-#### Creare la tabella di output
+### Creare il set di dati di output
 
 11. Fare nuovamente clic con il pulsante destro del mouse su **Tabelle** in **Esplora soluzioni**, scegliere **Aggiungi** e fare clic su **Nuovo elemento**.
 12. Nella finestra di dialogo **Aggiungi nuovo elemento** selezionare **Azure SQL** e fare clic su **Aggiungi**. 
@@ -149,7 +144,7 @@ Nel passaggio precedente sono stati creati i servizi collegati **AzureStorageLin
 		  }
 		}
 
-#### Creare la pipeline 
+## Creare una pipeline 
 Finora sono stati creati i servizi collegati e le tabelle di input/output. Ora verrà creata una pipeline con un'**attività di copia** per copiare i dati dal BLOB di Azure al database SQL di Azure.
 
 
@@ -201,7 +196,7 @@ Finora sono stati creati i servizi collegati e le tabelle di input/output. Ora v
 		  }
 		}
 
-#### Pubblicare/Distribuire le entità della data factory
+## Pubblicare/Distribuire le entità della data factory
   
 18. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Pubblica**. 
 19. Se viene visualizzato **Accedere al proprio account Microsoft** nella finestra di dialogo immettere le credenziali per l'account che dispone di sottoscrizione di Azure e fare clic su **accedi**.
@@ -226,7 +221,7 @@ Finora sono stati creati i servizi collegati e le tabelle di input/output. Ora v
 25. Nella pagina **Stato della distribuzione**, è possibile visualizzare lo stato del processo di distribuzione. Fare clic su Fine dopo il termine della distribuzione. 
 
 
-## Usare Esplora Server per esaminare le entità della data factory
+## Usare Esplora Server per visualizzare le data factory
 
 1. In **Visual Studio** fare clic su **Visualizza** nel menu e fare clic su **Esplora server**.
 2. Nella finestra Esplora server espandere **Azure** e **Data factory**. Se viene visualizzata la finestra **Accedi a Visual Studio**, immettere l'**account** associato alla sottoscrizione di Azure e fare clic su **Continua**. Immettere la **password** e fare clic su **Accedi**. Visual Studio cerca di ottenere le informazioni su tutte le data factory di Azure nella sottoscrizione. Lo stato di questa operazione verrà visualizzato nella **finestra **Elenco attività data factory![Esplora server](./media/data-factory-get-started-using-vs/server-explorer.png).
@@ -239,9 +234,9 @@ Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguir
 2. Selezionare **Aggiornamenti** nel riquadro sinistro e quindi selezionare **Visual Studio Gallery**.
 4. Selezionare **Strumenti di Data factory di Azure per Visual Studio** e fare clic su **Aggiorna**. Se questa voce non è visibile, si dispone già della versione più recente dello strumento. 
 
-Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione, vedere [Monitorare i set di dati e la pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline).
+Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione, vedere [Monitorare i set di dati e la pipeline](data-factory-get-started-using-editor.md#monitor-pipeline).
 
 ## Vedere anche
-Vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per informazioni dettagliate sull'**Attività di copia** in Azure Data Factory.
+Vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per informazioni dettagliate su **Attività di copia** in Azure Data Factory.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

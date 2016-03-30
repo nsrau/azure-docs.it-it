@@ -210,8 +210,9 @@ Quando un client accede al servizio Archiviazione file, la versione di SMB usata
 
 Per illustrare come si monta una condivisione file di Azure, viene creata una macchina virtuale di Azure che esegue Windows e viene eseguito l'accesso remoto per montare la condivisione.
 
-1. Creare prima di tutto una nuova macchina virtuale di Azure seguendo le istruzioni in [Creare una macchina virtuale di Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-tutorial.md).
-2. Creare prima di tutto una nuova macchina virtuale di Azure seguendo le istruzioni in [Accedere a una macchina virtuale di Windows tramite il portale di Azure](../virtual-machines/virtual-machines-arm-log-on-windows-vm.md).
+
+1. Creare prima di tutto una nuova macchina virtuale di Azure seguendo le istruzioni in [Creare una macchina virtuale di Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+2. Creare prima di tutto una nuova macchina virtuale di Azure seguendo le istruzioni in [Accedere a una macchina virtuale di Windows tramite il portale di Azure](../virtual-machines/virtual-machines-windows-log-on.md).
 3. Aprire una finestra di PowerShell nella macchina virtuale.
 
 ### Mantenere le credenziali dell'account di archiviazione per la macchina virtuale
@@ -646,4 +647,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

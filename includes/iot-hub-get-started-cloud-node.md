@@ -95,7 +95,7 @@ In questa sezione si creerà un'app console di Node.js che legge i messaggi da d
     var Promise = require('bluebird');
     ```
 
-5. Aggiungere le dichiarazioni di variabili seguenti, sostituendo i segnaposto con i valori annotati in precedenza. Il valore del segnaposto **{your event hub-compatible namespace}** proviene dall'**Endpoint compatibile con l'hub eventi** ed è espresso nel formato **xxxxnamespace.servicebus.windows.net**.
+5. Aggiungere le dichiarazioni di variabili seguenti, sostituendo i segnaposto con i valori annotati in precedenza. Il valore del segnaposto **{your event hub-compatible namespace}** proviene dal campo **Endpoint compatibile con l'hub eventi** del portale. È espresso nel formato **namespace.servicebus.windows.net** (senza il prefisso **sb://*).
 
     ```
     var protocol = 'amqps';
@@ -108,7 +108,7 @@ In questa sezione si creerà un'app console di Node.js che legge i messaggi da d
 
     > [AZURE.NOTE] Questo codice presuppone che l'hub IoT sia stato creato nel livello F1 gratuito. Un hub IoT gratuito ha due partizioni denominate "0" e "1". Se l'hub IoT è stato creato con un altro piano tariffario, è consigliabile modificare il codice per creare un elemento **MessageReceiver** per ogni partizione.
 
-6. Aggiungere la definizione di filtro seguente. Questa applicazione usa un filtro quando crea un ricevitore, in modo che il ricevitore legga i messaggi inviati all'hub IoT soltanto dopo l'avvio dell'esecuzione del ricevitore. Ciò è utile in un ambiente di test perché consente di visualizzare il set di messaggi corrente, ma in un ambiente di produzione il codice deve verificare l'elaborazione di tutti i messaggi. Per altre informazioni, vedere l'esercitazione [Elaborare messaggi da dispositivo a cloud dell'hub IoT][lnk-processd2c-tutorial].
+6. Aggiungere la definizione di filtro seguente. Questa applicazione usa un filtro quando crea un ricevitore, in modo che il ricevitore legga i messaggi inviati all'hub IoT soltanto dopo l'avvio dell'esecuzione del ricevitore. Ciò è utile in un ambiente di test perché consente di visualizzare il set di messaggi corrente, ma in un ambiente di produzione il codice deve verificare di elaborare tutti i messaggi. Per altre informazioni, vedere l'esercitazione [Come elaborare messaggi da dispositivo a cloud dell'hub IoT][lnk-processd2c-tutorial].
 
     ```
     var filterOffset = new Date().getTime();
@@ -182,4 +182,4 @@ In questa sezione si creerà un'app console di Node.js che legge i messaggi da d
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

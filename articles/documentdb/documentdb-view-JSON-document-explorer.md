@@ -158,4 +158,4 @@ Per altre informazioni sulla grammatica SQL di DocumentDB supportata in Esplora 
 
 Anche il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) è una risorsa utile che assiste l'utente nell'apprendimento di DocumentDB.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

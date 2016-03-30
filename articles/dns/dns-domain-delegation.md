@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/15/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma"/>
 
 
@@ -28,7 +28,7 @@ DNS di Azure è un servizio di hosting per i domini DNS. Per consentire l'esecuz
 
 Un dominio è un nome univoco nel Domain Name System, ad esempio "contoso.com". Un registrar è una società che può fornire nomi di dominio Internet e verificare se il dominio Internet richiesto è disponibile, consentendo all'utente di acquistarlo. Una volta registrato il nome di dominio, si sarà il legittimo proprietario del nome di dominio. Se si ha già un dominio Internet, si userà il registrar corrente per delegare al NS di Azure.
 
->[AZURE.NOTE]Per altre informazioni sul proprietario di un determinato nome di dominio o su come acquistare un dominio, vedere [Gestione dei domini Internet in Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
+>[AZURE.NOTE] Per altre informazioni sul proprietario di un determinato nome di dominio o su come acquistare un dominio, vedere [Gestione dei domini Internet in Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
 
 Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Ad esempio, il dominio "contoso.com" può contenere una serie di record DNS, come "mail.contoso.com" (per un server di posta elettronica) e "www.contoso.com" (per un sito Web).
 
@@ -63,7 +63,7 @@ Ogni delega include effettivamente due copie dei record NS: una nella zona padre
 
 Dopo aver creato la zona DNS nel servizio DNS di Azure, è necessario configurare i record NS nella zona padre per rendere DNS di Azure l'origine autorevole per la risoluzione dei nomi per la propria zona. Per i domini acquistati da un registrar, il registrar offre la possibilità di configurare questi record NS.
 
->[AZURE.NOTE]Non è necessario essere proprietari di un dominio per creare una zona DNS con tale nome di dominio in DNS di Azure, tuttavia è necessario esserlo per configurare la delega in DNS di Azure con il registrar.
+>[AZURE.NOTE] Non è necessario essere proprietari di un dominio per creare una zona DNS con tale nome di dominio in DNS di Azure, tuttavia è necessario esserlo per configurare la delega in DNS di Azure con il registrar.
 
 Si supponga, ad esempio, che si acquisti il dominio "contoso.com" e si crei una zona con nome "contoso.com" nel servizio DNS di Azure. In qualità di proprietario del dominio, il registrar offrirà l'opzione di configurare gli indirizzi del server dei nomi (cioè i record NS) per il dominio. Il registrar archivierà questi record NS nel dominio padre, in questo caso ".com". I clienti di tutto il mondo verranno quindi reindirizzato al dominio nella zona DNS di Azure quando provano a risolvere i record DNS in "contoso.com".
 
@@ -71,8 +71,8 @@ Per configurare la delega, è necessario conoscere i nomi dei server dei nomi pe
 
 È possibile recuperare i record NS autorevoli usando Azure PowerShell, come segue (il nome del record "#" viene usato per fare riferimento ai record al vertice della zona).
 
-	PS C:> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:\> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -88,7 +88,7 @@ In questo esempio, alla zona "contoso.com" sono stati assegnati i server dei nom
 
 Ogni registrar prevede i propri strumenti di gestione DNS per modificare i record del server dei nomi per un dominio. Nella pagina di gestione DNS del registrar, modificare i record NS e sostituirli con quelli creati da DNS di Azure.
 
->[AZURE.NOTE]Quando si delega un dominio a DNS di Azure, è necessario usare i nomi dei server dei nomi forniti da DNS di Azure. È consigliabile non usare "glue record" per puntare agli indirizzi IP del server dei nomi DNS di Azure, perché questi indirizzi IP possono cambiare in futuro. Le deleghe che usano nomi dei server dei nomi nella propria zona, definiti a volte "server dei nomi personalizzati", non sono attualmente supportate in DNS di Azure.
+>[AZURE.NOTE] Quando si delega un dominio a DNS di Azure, è necessario usare i nomi dei server dei nomi forniti da DNS di Azure. È consigliabile non usare "glue record" per puntare agli indirizzi IP del server dei nomi DNS di Azure, perché questi indirizzi IP possono cambiare in futuro. Le deleghe che usano nomi dei server dei nomi nella propria zona, definiti a volte "server dei nomi personalizzati", non sono attualmente supportate in DNS di Azure.
 
 Dopo aver completato la delega, è possibile verificare il corretto funzionamento della risoluzione dei nomi usando uno strumento come "nslookup" per eseguire una query sul record SOA per la zona (che viene creato automaticamente quando viene creata la zona).
 
@@ -159,4 +159,4 @@ Come nel caso della delega con un registrar, è possibile verificare che tutto s
 
 [Informazioni di riferimento sulle API REST di DNS di Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

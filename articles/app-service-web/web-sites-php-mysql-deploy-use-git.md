@@ -3,9 +3,9 @@
 	description="Un'esercitazione in cui viene illustrato come creare un'app Web PHP che archivia i dati in MySQL e come utilizzare la distribuzione Git in Azure.";"
 	services="app-service\web"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"
+	editor=""
 	tags="mysql"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="PHP"
 	ms.topic="hero-article"
 	ms.date="02/09/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Creazione di un'app Web PHP-MySQL in Servizio app di Azure e distribuzione tramite Git
 
@@ -214,7 +214,7 @@ Per creare ed eseguire l'applicazione in locale, attenersi alla procedura seguen
 
 		php -S localhost:8000
 
-A questo punto è possibile passare a **http://localhost:8000/** per testare l'applicazione.
+A questo punto è possibile passare a ****http://localhost:8000/** per testare l'applicazione.
 
 
 ##Pubblicare l'app
@@ -325,4 +325,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

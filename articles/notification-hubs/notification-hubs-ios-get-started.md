@@ -39,7 +39,7 @@ Il codice completo per questa esercitazione è disponibile in [GitHub](https://g
 
 Per completare questa esercitazione, è necessario disporre di:
 
-+ [Mobile Services iOS SDK versione 2.x].
++ [Mobile Services iOS SDK versione 1.2.4]
 + Ultima versione di [Xcode].
 + Un dispositivo con iOS 8 o versione successiva.
 + Iscrizione a [Apple Developer Program](https://developer.apple.com/programs/).
@@ -86,7 +86,7 @@ L'hub di notifica è ora configurato per l'uso con il servizio APN e sono dispon
 
    	![Xcode - Profilo di provisioning][9]
 
-4. Scaricare [Mobile Services iOS SDK versione 2.x] e decomprimere il file. In Xcode fare clic con il pulsante destro del mouse sul progetto e scegliere l'opzione **Add Files to** per aggiungere la cartella **WindowsAzureMessaging.framework** al progetto Xcode. Selezionare **Copy items if needed** e fare clic su **Add**.
+4. Scaricare la versione 1.2.4 di [Mobile Services iOS SDK] e decomprimere il file. In Xcode fare clic con il pulsante destro del mouse sul progetto e scegliere l'opzione **Add Files to** per aggiungere la cartella **WindowsAzureMessaging.framework** al progetto Xcode. Selezionare **Copy items if needed** e fare clic su **Add**.
 
 	>[AZURE.NOTE] Notification Hubs SDK non supporta attualmente bitcode Xcode 7. È necessario impostare **Enable Bitcode** su **No** in **Build Options** per il progetto.
 
@@ -486,8 +486,8 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 
 
 <!-- URLs. -->
-[Mobile Services iOS SDK version 1.2.4]: http://aka.ms/kymw2g
-[Mobile Services iOS SDK versione 2.x]: https://github.com/Azure/azure-mobile-services/blob/master/CHANGELOG.ios.md#sdk-downloads
+[Mobile Services iOS SDK]: http://aka.ms/kymw2g
+[Mobile Services iOS SDK versione 1.2.4]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -506,4 +506,4 @@ Per informazioni generali su Hub di notifica, vedere [Panoramica dell'Hub di not
 [guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

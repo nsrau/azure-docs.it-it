@@ -28,10 +28,10 @@ In questa esercitazione viene usata la Copia guidata di Data Factory per creare 
 
 > [AZURE.IMPORTANT] Leggere l'articolo [Panoramica dell'esercitazione](data-factory-get-started.md) e completare i prerequisiti prima di eseguire questa esercitazione.
 
-## <a name="CreateDataFactory"></a>Passaggio 1: Creare un'istanza di Azure Data Factory
+## Creare un'istanza di Data Factory
 In questo passaggio viene usato il portale di Azure per creare un'istanza di Data factory di Azure denominata **ADFTutorialDataFactory**.
 
-1.	Dopo l'accesso al [portale di Azure](https://portal.azure.com), fare clic su **+ NUOVO** nell'angolo superiore sinistro, selezionare **Analisi dei dati** nel pannello **Crea**, quindi fare clic su **Data Factory** nel pannello **Analisi dei dati**. 
+1.	Dopo l'accesso al [portale di Azure](https://portal.azure.com), fare clic su **+ NUOVO** nell'angolo in alto a sinistra, selezionare **Analisi dei dati** nel pannello **Crea**, quindi fare clic su **Data Factory** nel pannello **Analisi dei dati**. 
 
 	![Nuovo->DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 
@@ -60,7 +60,7 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Dat
 
     ![Home page di Data factory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## Creare una pipeline usando la procedura guidata di copia
+## Creare una pipeline
 
 1. Nella home page di Data Factory fare clic sul riquadro **Copia dati** per avviare la **Copia guidata**. 
 2. Nella pagina **Proprietà**:
@@ -76,13 +76,13 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Dat
 5. Nella pagina **Specificare l'account di archiviazione BLOB di Azure**:
 	1. Immettere **AzureStorageLinkedService** per **Nome del servizio collegato**.
 	2. Confermare il valore **Da sottoscrizioni di Azure** per **Metodo di selezione dell'account**. 
-	3. Selezionare un **Account di archiviazione di Azure** dall'elenco di account di archiviazione di Azure disponibili nella sottoscrizione selezionata. È anche possibile scegliere di immettere manualmente le impostazioni dell'account di archiviazione, selezionando l'opzione **Inserimento manuale** per il **Metodo di selezione dell'account**, quindi fare clic su **Avanti**. 
+	3. Selezionare un **Account di archiviazione di Azure** dall'elenco di quelli disponibili nella sottoscrizione selezionata. È anche possibile scegliere di immettere manualmente le impostazioni dell'account di archiviazione, selezionando l'opzione **Inserimento manuale** per il **Metodo di selezione dell'account**, quindi fare clic su **Avanti**. 
 
 	![Strumento di copia - Specificare l'account di archiviazione BLOB di Azure](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
 6. Nella pagina **Scegliere il file o la cartella di input**:
 	1. Passare alla cartella **adftutorial**.
 	2. Selezionare **emp.txt** e fare clic su **Scegli**.
-	3. Fare clic su **Avanti**. 
+	3. Fare clic su **Next**. 
 
 	![Strumento di copia - Scegliere il file o la cartella di input](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
 7. Nella pagina **Impostazioni di formattazioni del file** selezionare i valori per le impostazioni **predefinite** e fare clic su **Avanti**.
@@ -91,11 +91,11 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Dat
 8. Nella pagina Archivio dati di destinazione fare clic sul riquadro **Database SQL di Azure** e quindi su **Avanti**.
 9. Nella pagina **Specificare il database SQL di Azure**:
 	1. Immettere **AzureSqlLinkedService** nel campo **Nome del servizio collegato**. 
-	2. Confermare che il **Metodo di selezione del server/database** sia impostato su **Da sottoscrizioni di Azure**.
+	2. Verificare che il **Metodo di selezione del server/database** sia impostato su **Da sottoscrizioni di Azure**.
 	3. Selezionare **Nome server** e **Database**.
 	4. Immettere un **Nome utente** e una **Password**.
 	5. Fare clic su **Avanti**.  
-9. Nella pagina **Mapping tabella** selezionare **emp** dall'elenco a discesa per il campo **Destinazione**, fare clic sulla **freccia GIÙ** (facoltativo) per visualizzare lo schema e l'anteprima dei dati.
+9. Nella pagina **Mapping tabella** selezionare **emp** dall'elenco a discesa per il campo **Destinazione**, fare clic sulla **freccia giù** (facoltativo) per visualizzare lo schema e l'anteprima dei dati.
 
 	![Strumento di copia - Mapping tabella](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
 10. Nella pagina **Mapping dello schema** fare clic su **Avanti**.
@@ -108,4 +108,4 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Dat
 	![App di monitoraggio](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
   
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

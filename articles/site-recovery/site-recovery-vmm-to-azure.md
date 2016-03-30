@@ -13,10 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/15/2016"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 #  Replicare macchine virtuali Hyper-V nei cloud VMM in Azure
+
+> [AZURE.SELECTOR]
+- [Portale di Azure classico](site-recovery-vmm-to-azure.md)
+- [PowerShell - Classico](site-recovery-deploy-with-powershell.md)
+- [PowerShell - Gestione risorse](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una panoramica rapida, vedere [Che cos'è Azure Site Recovery?](site-recovery-overview.md).
 
@@ -42,8 +48,8 @@ Ecco gli elementi richiesti in Azure.
 
 **Prerequisito** | **Dettagli**
 --- | ---
-**Account di Azure**| È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). [Altre informazioni](https://azure.microsoft.com/pricing/details/site-recovery/) sui prezzi di Azure Site Recovery. 
-**Archiviazione di Azure** | Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure. I dati replicati vengono memorizzati nell'archiviazione di Azure e le macchine virtuali di Azure vengono attivate quando si verifica il failover. <br/><br/>È necessario un [account di archiviazione con ridondanza geografica Standard](../storage/storage-redundancy.md#geo-redundant-storage). L'account deve trovarsi nella stessa area del servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione. Si noti che la replica in account di archiviazione Premium non è attualmente supportata e non deve essere usata. Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.<br/><br/>[Altre informazioni](../storage/storage-introduction.md) su archiviazione di Azure.
+**Account di Azure**| È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). [Altre informazioni](https://azure.microsoft.com/pricing/details/site-recovery/) sui prezzi di Site Recovery. 
+**Archiviazione di Azure** | Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure. I dati replicati vengono memorizzati nell'archiviazione di Azure e le macchine virtuali di Azure vengono attivate quando si verifica il failover. <br/><br/>È necessario un [account di archiviazione con ridondanza geografica standard](../storage/storage-redundancy.md#geo-redundant-storage). L'account deve trovarsi nella stessa area del servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione. Si noti che la replica in account di archiviazione Premium non è attualmente supportata e non deve essere usata.<br/><br/>[Altre informazioni](../storage/storage-introduction.md) sull'archiviazione di Azure.
 **Rete di Azure** | È necessaria una rete virtuale di Azure a cui le macchine virtuali di Azure possano connettersi quando si verifica il failover. La rete virtuale di Azure deve essere nella stessa area dell'insieme di credenziali di Site Recovery. 
 
 ## Prerequisiti locali
@@ -132,12 +138,12 @@ Generare una chiave di registrazione nell'insieme di credenziali. Dopo aver scar
 	- Se si vuole usare un server proxy personalizzato, configurarlo prima di installare il provider. Quando si configurano impostazioni proxy personalizzate, verrà eseguito un test per verificare la connessione proxy.
 	- Se si usa un proxy personalizzato oppure se il proxy predefinito richiede l'autenticazione, sarà necessario immettere i dettagli del proxy, tra cui l'indirizzo e la porta.
 	- Gli URL seguenti devono essere accessibili dal server VMM e dagli host Hyper-V
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- Consentire gli indirizzi IP descritti nella pagina relativa a [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) e nel protocollo HTTPS (443). È anche consigliabile aggiungere all'elenco di indirizzi consentiti gli IP dell'area di Azure che si prevede di usare e quello degli Stati Uniti occidentali.
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- Consentire gli indirizzi IP descritti nella pagina relativa a [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) e nel protocollo HTTPS (443). È anche consigliabile aggiungere all'elenco di indirizzi consentiti gli IP dell'area di Azure che si prevede di usare e quello degli Stati Uniti occidentali.
 
 	- Se si usa un proxy personalizzato, un account RunAs di VMM (DRAProxyAccount) verrà creato automaticamente con le credenziali del proxy specificate. Configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione. Le impostazioni dell'account RunAs di VMM possono essere modificate nella console VMM. A tale scopo, aprire l'area di lavoro Impostazioni, espandere Sicurezza, fare clic su Account RunAs, quindi modificare la password di DRAProxyAccount. È necessario riavviare il servizio VMM per rendere effettiva l'impostazione.
 
@@ -196,13 +202,11 @@ I parametri sono i seguenti:
 
 	![Account di archiviazione](./media/site-recovery-vmm-to-azure/storage.png)
 
->[AZURE.NOTE] Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.
-
 ## Passaggio 5: Installare l'agente di Servizi di ripristino di Azure
 
 Installare l'agente di Servizi di ripristino di Azure su ogni server host Hyper-V nel cloud VMM.
 
-1. Fare clic su **Avvio rapido** > **Scarica l'agente di Servizi di ripristino di Microsoft Azure ed esegui l'installazione negli host** per ottenere la versione più recente del file di installazione dell'agente.
+1. Fare clic su **Avvio rapido** > **Scarica l'agente di servizi di Azure Site Recovery per l'installazione negli host** per ottenere la versione più recente del file di installazione dell'agente.
 
 	![Installare l'agente di Servizi di ripristino](./media/site-recovery-vmm-to-azure/install-agent.png)
 
@@ -231,10 +235,7 @@ Dopo la registrazione del server VMM, sarà possibile configurare le impostazion
 1. Nella pagina Avvio rapido fare clic su **Configurare la protezione per i cloud VMM**.
 2. Nella scheda **Elementi protetti** fare clic sul cloud da configurare e passare alla scheda **Configurazione**.
 3. In **Destinazione** selezionare **Azure**.
-4. In **Account di archiviazione** selezionare l'account di archiviazione di Azure usato per la replica. 
-
-	>[AZURE.NOTE] Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.
-
+4. In **Account di archiviazione** selezionare l'account di archiviazione di Azure usato per la replica.
 5. Impostare **Crittografa dati archiviati** su **Disattivato**. Questa impostazione specifica che i dati devono essere replicati crittografati tra il sito locale e Azure.
 6. In **Frequenza di copia** lasciare l'impostazione predefinita. Questo valore consente di specificare la frequenza della sincronizzazione dei dati tra il percorso di origine e di destinazione.
 7. In **Mantieni punti di ripristino per** lasciare l'impostazione predefinita. Il valore predefinito zero indica che solo il punto di ripristino più recente per una macchina virtuale primaria viene archiviato in un server host di replica.
@@ -280,7 +281,7 @@ Dopo la configurazione corretta di server, cloud e reti, sarà possibile abilita
 
 	![Abilitare la protezione delle macchine virtuali](./media/site-recovery-vmm-to-azure/select-vm.png)
 
-	Tenere traccia dell'avanzamento dell'azione **Abilita protezione**, inclusa la replica iniziale, nella scheda **Processi** Dopo l'esecuzione del processo di **finalizzazione della protezione** la macchina virtuale è pronta per il failover. Al termine dell'operazione di abilitazione della protezione e di replica delle macchine virtuali, sarà possibile visualizzarle in Azure.
+	Tenere traccia dell'avanzamento dell'azione **Abilita protezione**, inclusa la replica iniziale, nella scheda **Processi**. Dopo l'esecuzione del processo di **finalizzazione della protezione** la macchina virtuale è pronta per il failover. Al termine dell'operazione di abilitazione della protezione e di replica delle macchine virtuali, sarà possibile visualizzarle in Azure.
 
 
 	![Processo di protezione delle macchine virtuali](./media/site-recovery-vmm-to-azure/vm-jobs.png)
@@ -289,11 +290,14 @@ Dopo la configurazione corretta di server, cloud e reti, sarà possibile abilita
 
 	![Verifica macchine virtuali](./media/site-recovery-vmm-to-azure/vm-properties.png)
 
+
 4. Nella scheda **Configura** delle proprietà della macchina virtuale è possibile modificare le proprietà di rete seguenti.
 
 
 
-- **Numero di schede di rete nella macchina virtuale di destinazione**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per il numero di schede supportate dalle dimensioni della macchina virtuale, vedere le [specifiche sulle dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-size-specs.md#size-tables). Quando si modificano le dimensioni di una macchina virtuale e si salvano le impostazioni, il numero di schede di rete cambia alla successiva apertura della pagina **Configura**. Il numero di schede di rete delle macchine virtuali di destinazione corrisponde al numero minimo di schede di rete nella macchina virtuale di origine e al numero massimo di schede di rete supportate dalla dimensione della macchina virtuale selezionata, come segue:
+
+
+- **Numero di schede di rete nella macchina virtuale di destinazione**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per il numero di schede supportate dalle dimensioni della macchina virtuale, vedere le [specifiche sulle dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md#size-tables). Quando si modificano le dimensioni di una macchina virtuale e si salvano le impostazioni, il numero di schede di rete cambia alla successiva apertura della pagina **Configura**. Il numero di schede di rete delle macchine virtuali di destinazione corrisponde al numero minimo di schede di rete nella macchina virtuale di origine e al numero massimo di schede di rete supportate dalla dimensione della macchina virtuale selezionata, come segue:
 
 	- Se il numero di schede di rete nella macchina di origine è minore o uguale al numero di schede consentite per la macchina di destinazione, la destinazione avrà lo stesso numero di schede dell’origine.
 	- Se il numero di schede per la macchina virtuale di origine supera il numero consentito per le dimensioni di destinazione, verrà utilizzata la dimensione di destinazione massima.
@@ -368,4 +372,4 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 
 Informazioni su [configurazione dei piani di ripristino](site-recovery-create-recovery-plans.md) e [failover](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

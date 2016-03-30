@@ -124,7 +124,6 @@ Un processo è una raccolta di attività e specifica la modalità di esecuzione 
 	- Azure Batch può rilevare attività con esito negativo e provare a eseguirle di nuovo. Il **numero massimo di tentativi per l'attività** può essere specificato sotto forma di vincolo, indicando anche se un'attività viene sempre ripetuta o mai. Per nuovo tentativo si intende che l'attività viene riaccodata per essere eseguita di nuovo.
 - Le attività possono essere aggiunte al processo dall'applicazione client oppure si può specificare un'[attività del gestore di processi](#jobmanagertask). Un'attività del gestore di processi usa l'API Batch e contiene le informazioni necessarie per creare le attività necessarie per un processo. L'attività viene eseguita in uno dei nodi di calcolo del pool. L'attività del gestore di processi viene gestita in modo specifico da Batch, ovvero viene accodata non appena si crea il processo e viene riavviata se l'operazione non riesce. Per i processi creati in base a una pianificazione del processo è obbligatorio usare un'attività del gestore di processi, perché è l'unico modo per definire le attività prima di creare istanze del processo. Di seguito sono riportate altre informazioni sulle attività del gestore di processi.
 
-
 ### <a name="task"></a>Attività
 
 Un'attività è un'unità di calcolo associata a un processo ed eseguita in un nodo. Le attività vengono assegnate a un nodo per l'esecuzione o vengono accodate fino a quando non diventa disponibile un nodo. Un'attività usa le risorse seguenti:
@@ -192,7 +191,15 @@ Per una discussione dettagliata sull'esecuzione di processi MPI in Batch usando 
 
 #### <a name="taskdep"></a>Relazioni tra attività
 
-Le relazioni tra attività consentono di specificare che un'attività dipende dal completamento di una o più attività diverse prima della rispettiva esecuzione. L'attività "downstream" potrebbe utilizzare l'output dell'attività "upstream" oppure potrebbe dipendere da inizializzazioni eseguite dall'attività upstream. In uno scenario di questo tipo è possibile specificare che il processo usa le relazioni tra attività, quindi per ogni attività che dipende da una o più attività è possibile specificare le attività da cui dipende.
+Le relazioni tra attività consentono di specificare che un'attività dipende dal completamento di altre attività prima della rispettiva esecuzione. Questa funzionalità fornisce il supporto nelle situazioni in cui un'attività di "downstream" utilizza l'output di un'attività di "upstream" oppure quando un'attività di upstream esegue un'inizializzazione richiesta da un'attività di downstream. Per usare questa funzionalità, prima è necessario abilitare le relazioni tra attività nel processo batch. Per ogni attività che dipende da un'altra (o da più altre), specificare quindi le attività da cui dipende tale attività.
+
+Con le relazioni tra attività, è possibile configurare scenari come i seguenti:
+
+* L'*attivitàB* dipende dall'*attivitàA* (l'esecuzione dell'*attivitàB* inizierà solo dopo il completamento dell'*attivitàA*)
+* L'*attivitàC* dipende sia dall'*attivitàA* che dall'*attivitàB*
+* L'*attivitàD* dipende da un intervallo di attività, ad esempio le attività da *1* a *10*, prima che venga eseguita
+
+Vedere l'esempio di codice [TaskDependencies][github_sample_taskdeps] nel repository di GitHub [azure-batch-samples][github_samples], in cui viene illustrato come configurare le attività che dipendono da altre attività usando la libreria [Batch .NET][batch_net_api].
 
 ### <a name="jobschedule"></a>Processi pianificati
 
@@ -366,6 +373,8 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -392,7 +401,7 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
-[rest_multiinstance]: https://msdn.microsoft.com/it-IT/library/azure/mt637905.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
@@ -402,4 +411,4 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

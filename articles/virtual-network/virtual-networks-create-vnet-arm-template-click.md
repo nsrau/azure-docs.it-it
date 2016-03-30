@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="03/15/2016"
    ms.author="telmos"/>
 
 # Creare una rete virtuale usando un modello di Gestione risorse di Azure
@@ -39,4 +39,4 @@ Se si sta distribuendo semplicemente il modello di Gestione risorse di Azure dir
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-template-click-include](../../includes/virtual-networks-create-vnet-arm-template-click-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

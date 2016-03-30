@@ -18,9 +18,9 @@
 # Distribuire e gestire un dispositivo virtuale StorSimple in Azure
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
-- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
-- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
+- [Aggiornamento 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Aggiornamento 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [Versione di disponibilità generale (GA)](../articles/storsimple/storsimple-virtual-device.md)
 
 ## Panoramica
 
@@ -77,7 +77,7 @@ Prima di eseguire il provisioning del dispositivo virtuale, è necessario effett
 
 >[AZURE.IMPORTANT] **Assicurarsi che la rete virtuale sia presente nella stessa area degli account di archiviazione cloud che verranno utilizzati con il dispositivo virtuale.**
 
-- È possibile creare[Macchine virtuali di Azure](../virtual-machines/virtual-machines-about.md)(server host) nella rete virtuale che possono utilizzare i volumi esposti dal dispositivo virtuale. Tali server devono soddisfare i seguenti requisiti:
+- È possibile creare[Macchine virtuali di Azure](../virtual-machines/virtual-machines-linux-about.md)(server host) nella rete virtuale che possono utilizzare i volumi esposti dal dispositivo virtuale. Tali server devono soddisfare i seguenti requisiti:
 	- Svolgere il ruolo di macchine virtuali Windows o Linux nelle quali è installato il software iSCSI Initiator
 	- Essere in esecuzione nella stessa rete virtuale del dispositivo virtuale
 	- Essere in grado di connettersi alla destinazione iSCSI del dispositivo virtuale utilizzando l'indirizzo IP interno del dispositivo virtuale
@@ -391,4 +391,4 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 
 Per amministrare il dispositivo virtuale, fare riferimento a un elenco dettagliato dei flussi di lavoro in [Amministrare il dispositivo StorSimple utilizzando il servizio di gestione di StorSimple](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

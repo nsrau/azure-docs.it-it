@@ -37,7 +37,7 @@ Per visualizzare l'interfaccia utente di Marathon, passare a http://localhost/Ma
 
 ![Creare una distribuzione](media/ui2.png)
 
-## Distribuire un contenitore Docker
+## Distribuire un contenitore Docker formattato
 
 Per usare Marathon per l'avvio di un nuovo contenitore nel cluster Mesos, fare clic sul pulsante `Create Application`. Il modulo New Application viene usato per definire i parametri del contenitore o dell'applicazione. In questo esempio verrà distribuito un semplice contenitore nginx. Immettere le seguenti informazioni. Al termine fare clic su Create.
  
@@ -56,11 +56,11 @@ Tornare alla pagina principale di Marathon, dove ora viene visualizzato lo stato
 
 ![Creare una distribuzione](media/ui4.png)
 
-Se si passa nuovamente all'app Mesos (http://localhost/Mesos) è possibile notare un'attività, in questo caso un contenitore Docker, in esecuzione nel cluster Mesos. Viene anche visualizzato il nodo del cluster in cui viene eseguita l'attività.
+Se si passa nuovamente all'app Mesos (http://localhost/Mesos) è possibile notare un'attività, in questo caso un contenitore Docker formattato, in esecuzione nel cluster Mesos. Viene anche visualizzato il nodo del cluster in cui viene eseguita l'attività.
 
 ![Creare una distribuzione](media/ui5.png)
 
-## Ridimensionare un contenitore Docker
+## Ridimensionare i contenitori
 
 L'interfaccia utente Web di Marathon consente anche di ridimensionare il numero di istanze di un contenitore. A tale scopo, passare alla pagina di Marathon, selezionare il contenitore da ridimensionare e quindi fare clic sul pulsante `scale`. Nella finestra Scale Application immettere il numero di istanze del contenitore previste e selezionare `Scale Application`.
 
@@ -70,4 +70,4 @@ Al termine dell'operazione di ridimensionamento verranno visualizzate più istan
 
 ![Creare una distribuzione](media/ui8.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

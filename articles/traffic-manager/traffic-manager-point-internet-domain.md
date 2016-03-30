@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico di Azure
@@ -35,4 +35,4 @@ Tutto il traffico indirizzato a *www.contoso.com* verrà ora reindirizzato a *co
 
 [Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

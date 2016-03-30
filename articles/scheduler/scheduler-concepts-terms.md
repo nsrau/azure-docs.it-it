@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="03/09/2016" 
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione
@@ -23,9 +23,8 @@ Nella tabella seguente vengono descritte le risorse principali esposte o usate d
 
 |Risorsa | Descrizione |
 |---|---|
-|**Servizio cloud**|Concettualmente, un servizio cloud rappresenta un'applicazione. Una sottoscrizione può includere diversi servizi cloud.|
 |**Raccolta di processi**|Una raccolta di processi contiene un gruppo di processi e gestisce le impostazioni, le quote e le limitazioni condivise dai processi all'interno della raccolta. Le raccolte di processi vengono create dal proprietario della sottoscrizione e raggruppano i processi in base ai limiti di utilizzo o di applicazione. È vincolata a un'area. Consente inoltre di applicare quote per vincolare l'uso di tutti i processi in tale raccolta. Le quote includono MaxJobs e MaxRecurrence.|
-|**Processo**|Un processo definisce una singola azione ricorrente, con strategie semplici o complesse per l'esecuzione. Le azioni possono includere richieste HTTP o code di archiviazione.|
+|**Processo**|Un processo definisce una singola azione ricorrente, con strategie semplici o complesse per l'esecuzione. Le azioni possono includere HTTP, coda di archiviazione, coda del bus di servizio o richieste di argomento del bus di servizio.|
 |**Cronologia processi**|Una cronologia processi rappresenta i dettagli per l'esecuzione di un processo. Contiene esito positivo o negativo, nonché i dettagli della risposta.|
 
 ## Gestione di entità dell'utilità di pianificazione
@@ -34,14 +33,13 @@ A un livello elevato, l'utilità di pianificazione e l'API di gestione servizio 
 
 |Funzionalità|Descrizione e indirizzo URI|
 |---|---|
-|**Gestione dei servizi cloud**|Supporto di GET, PUT e DELETE per la creazione e modifica di servizi cloud <p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}`</p>|
-|**Gestione delle raccolte di processi**|Supporto di GET, PUT e DELETE per la creazione e la modifica di raccolte di processi e i processi in essi contenuti. Una raccolta di processi è un contenitore per i processi, e mappa quote e impostazioni condivise. Esempi di quote, descritti più avanti, sono il numero massimo di processi e l'intervallo minimo delle ricorrenze. <p>PUT e DELETE: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/jobcollections/{jobCollectionName}`</p><p>GET: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}`</p>
-|**Gestione dei processi**|Supporto di GET, PUT, POST, PATCH e DELETE per la creazione e modifica di processi. Tutti i processi devono appartenere a una raccolta di processi che esiste già, e che non viene creata implicitamente. <p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}`</p>|
-|**Gestione della cronologia dei processi**|Supporto GET per il recupero di 60 giorni di cronologia di esecuzioni del processo, ad esempio il tempo di esecuzione del processo e i risultati dell'esecuzione del processo. Aggiunge il supporto del parametro della stringa di query per filtrare in base a stato e status. <P>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}/history`</p>|
+|**Gestione delle raccolte di processi**|Supporto di GET, PUT e DELETE per la creazione e la modifica di raccolte di processi e i processi in essi contenuti. Una raccolta di processi è un contenitore per i processi, e mappa quote e impostazioni condivise. Esempi di quote, descritti più avanti, sono il numero massimo di processi e l'intervallo minimo delle ricorrenze. <p>PUT e DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p>
+|**Gestione dei processi**|Supporto di GET, PUT, POST, PATCH e DELETE per la creazione e modifica di processi. Tutti i processi devono appartenere a una raccolta di processi che esiste già, e che non viene creata implicitamente. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p>|
+|**Gestione della cronologia dei processi**|Supporto GET per il recupero di 60 giorni di cronologia di esecuzioni del processo, ad esempio il tempo di esecuzione del processo e i risultati dell'esecuzione del processo. Aggiunge il supporto del parametro della stringa di query per filtrare in base a stato e status. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p>|
 
 ## Tipi di processo
 
-Esistono due tipi di processi: processi HTTP (inclusi i processi HTTPS che supportano SSL) e i processi sulle code di archiviazione. I processi HTTP sono ideali se si dispone di un endpoint di un carico di lavoro o di un servizio esistente. I processi sulle code di archiviazione consentono di inviare messaggi a code di archiviazione, per cui sono processi ideali per i carichi di lavoro che usano le code di archiviazione.
+Sono disponibili più tipi di processi: processi HTTP (inclusi i processi HTTPS che supportano SSL), i processi della coda di archiviazione, processi della coda del bus di servizio e processi di argomenti del bus di servizio. I processi HTTP sono ideali se si dispone di un endpoint di un carico di lavoro o di un servizio esistente. I processi sulle code di archiviazione consentono di inviare messaggi a code di archiviazione, per cui sono processi ideali per i carichi di lavoro che usano le code di archiviazione. Analogamente, i processi del bus di servizio sono ideali per i carichi di lavoro che usano argomenti e code del bus di servizio.
 
 ## L'entità "processo" in dettaglio
 
@@ -131,7 +129,7 @@ Esaminiamo ciascuna in modo dettagliato:
 
 ## action ed errorAction
 
-"action" è l'azione richiamata a ogni occorrenza, e descrive un tipo di chiamata di servizio. L'azione è ciò che verrà eseguito nella pianificazione specificata. L'utilità di pianificazione supporta azioni HTTP e sulla coda di archiviazione.
+"action" è l'azione richiamata a ogni occorrenza, e descrive un tipo di chiamata di servizio. L'azione è ciò che verrà eseguito nella pianificazione specificata. L'Utilità di pianificazione supporta azioni HTTP, coda di archiviazione, coda del bus di servizio e coda del bus di servizio.
 
 L'azione nell'esempio precedente è un'azione HTTP. Di seguito è riportato un esempio di un'azione in coda di archiviazione:
 
@@ -146,6 +144,15 @@ L'azione nell'esempio precedente è un'azione HTTP. Di seguito è riportato un e
 					"My message body",
 			},
 	}
+
+Di seguito è riportato un esempio di azione di argomento del bus di servizio.
+
+  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1", "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+
+Di seguito è riportato un esempio di azione di coda del bus di servizio.
+
+
+  "action": { "serviceBusQueueMessage": { "queueName": "q1", "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
 
 "errorAction" è il gestore degli errori, l'azione viene richiamata quando l'azione principale ha esito negativo. È possibile usare questa variabile per chiamare un endpoint di gestione degli errori o per inviare una notifica all'utente. Ciò può essere usato per raggiungere un endpoint secondario in caso quello primario non sia disponibile (ad esempio, in caso di emergenza nel sito dell'endpoint) o può essere usato per notificare un endpoint che si occupi di gestire gli errori. Proprio come l'azione principale, l'azione di errore può essere semplice o a logica composita basata su altre azioni. Per informazione su come creare un token SAS, fare riferimento a [Creare e utilizzare una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
@@ -207,4 +214,4 @@ L'intervallo tra tentativi, specificato con l'oggetto **retryInterval**, è l'in
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -26,6 +26,8 @@
 
 Informazioni su come gestire un [pool di database elastici](sql-database-elastic-pool.md) con i cmdlet di PowerShell.
 
+Per i codici di errore comuni, vedere [Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database](sql-database-develop-error-messages.md).
+
 > [AZURE.NOTE] I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12. Se si usa un server di database SQL V11 è possibile [usare PowerShell per eseguire l'aggiornamento a V12 e creare un pool](sql-database-upgrade-server-portal.md) in un unico passaggio.
 
 
@@ -91,4 +93,4 @@ Questo script crea un nuovo server, quindi quando viene richiesto un nome utente
 
 Per altre informazioni sui database elastici e sui pool di database elastici, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->
