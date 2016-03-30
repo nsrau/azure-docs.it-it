@@ -71,7 +71,7 @@ Date | EndOfDay(X) | X: DateTime | Ottiene la data e ora che rappresenta la fine
 Date | EndOfMonth(X) | X: DateTime | Ottiene la fine del mese rappresentato dal componente mese del parametro X. <br/><br/>Esempio: EndOfMonth di 15/09/2013 17:10:23 è 30/09/2013 23:59:59 (data e ora che rappresentano la fine del mese di settembre)
 Date | StartOfDay(X) | X: DateTime | Ottiene l'inizio del giorno rappresentato dal componente giorno del parametro X.<br/><br/>Esempio: StartOfDay di 15/09/2013 17:10:23 è 15/09/2013 00:00:00.
 DateTime | From(X) | X: String | Analizza la stringa X fino a una data/ora.
-DateTime | Ticks(X) | X: DateTime | Ottiene la proprietà dei tick del parametro X. Un tick equivale a 100 nanosecondi. Il valore di questa proprietà rappresenta il numero di tick trascorsi dalla mezzanotte 00.00.00 del 1° gennaio 0001. 
+DateTime | Ticks(X) | X: DateTime | Ottiene la proprietà dei tick del parametro X. Un tick equivale a 100 nanosecondi. Il valore di questa proprietà rappresenta il numero di tick trascorsi dalla mezzanotte 00.00.00 del 1ª gennaio 0001. 
 Text | Format(X) | X: variabile stringa | Formatta il testo.
 
 #### Esempio di Text.Format
@@ -88,4 +88,4 @@ Vedere l'argomento [Stringhe di formato di data e ora personalizzato](https://ms
 > [AZURE.NOTE] Quando si usa una funzione all'interno di un'altra funzione, non è necessario usare il prefisso **$$** per la funzione interna. Ad esempio: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In questo esempio, il prefisso **$$** non viene usato per la funzione **Time.AddHours**.
   
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

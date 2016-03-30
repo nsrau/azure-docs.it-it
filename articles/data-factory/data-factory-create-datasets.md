@@ -136,7 +136,7 @@ Sezionamenti giornalieri che iniziano alle 6:00 anziché alla mezzanotte predefi
 		"offset": "06:00:00"
 	}
 
-**frequency** è impostato su **Month** e **interval** è impostato su **1** (una volta al mese): se si vuole che la sezione venga prodotta il 9° giorno di ogni mese alle 06:00, impostare offset su "09.06:00:00". Tenere presente che questo valore è definito in base all'ora UTC.
+**frequency** è impostato su **Month** e **interval** è impostato su **1** (una volta al mese): se si vuole che la sezione venga prodotta il 9ª giorno di ogni mese alle 06:00, impostare offset su "09.06:00:00". Tenere presente che questo valore è definito in base all'ora UTC.
 
 Per un programma di 12 mesi (frequency = month, interval = 12), offset: 60.00:00:00 significa ogni anno l'1 o il 2 marzo (60 giorni dall'inizio dell'anno se style = StartOfInterval), a seconda che l'anno sia bisestile o meno.
 
@@ -207,4 +207,4 @@ Se è necessario eseguire una pipeline su base mensile a una data e ora specific
 	  }
 	}
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

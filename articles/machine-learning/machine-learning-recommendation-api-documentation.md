@@ -2681,8 +2681,8 @@ Codice stato HTTP: 200
 La risposta include una voce per ogni set di elementi consigliati (un set di elementi che in genere vengono acquistati con l'elemento del valore di inizializzazione/input). Ogni voce include i dati seguenti:
 - `Feed\entry\content\properties\Id1`: ID elemento raccomandato.
 - `Feed\entry\content\properties\Name1`: nome dell'elemento.
-- `Feed\entry\content\properties\Id2`: ID 2° elemento raccomandato (facoltativo).
-- `Feed\entry\content\properties\Name2`: nome del 2° elemento (facoltativo).
+- `Feed\entry\content\properties\Id2`: ID 2ª elemento raccomandato (facoltativo).
+- `Feed\entry\content\properties\Name2`: nome del 2ª elemento (facoltativo).
 - `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto indica una maggiore affidabilità.
 - `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione, ad esempio le spiegazioni delle raccomandazioni.
 
@@ -2773,8 +2773,8 @@ Codice stato HTTP: 200
 La risposta include una voce per ogni set di elementi consigliati (un set di elementi che in genere vengono acquistati con l'elemento del valore di inizializzazione/input). Ogni voce include i dati seguenti:
 - `Feed\entry\content\properties\Id1`: ID elemento raccomandato.
 - `Feed\entry\content\properties\Name1`: nome dell'elemento.
-- `Feed\entry\content\properties\Id2`: ID 2° elemento raccomandato (facoltativo).
-- `Feed\entry\content\properties\Name2`: nome del 2° elemento (facoltativo).
+- `Feed\entry\content\properties\Id2`: ID 2ª elemento raccomandato (facoltativo).
+- `Feed\entry\content\properties\Name2`: nome del 2ª elemento (facoltativo).
 - `Feed\entry\content\properties\Rating`: classificazione della raccomandazione. Un numero più alto indica una maggiore affidabilità.
 - `Feed\entry\content\properties\Reasoning`: motivazione della raccomandazione, ad esempio le spiegazioni delle raccomandazioni.
 
@@ -3086,4 +3086,4 @@ Codice stato HTTP: 200
 Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Web Internet, sono soggette a modifica senza preavviso.<br><br> Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta.<br><br> Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento.<br><br> © 2015 Microsoft. Tutti i diritti sono riservati.
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
