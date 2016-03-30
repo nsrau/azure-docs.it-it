@@ -172,7 +172,7 @@ Il grafico seguente illustra i risultati non elaborati della valutazione usando 
 
 La tabella seguente riepiloga le prestazioni degli algoritmi:
 
-*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi *
+*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi*
 
 | LR|BT|AP|SVM|
 |---|---|---|---|
@@ -209,9 +209,10 @@ Il documento è stato di aiuto? Gradiremmo ricevere commenti e suggerimenti. Ind
 -	Si sta assegnando un punteggio alto perché l'articolo contiene degli ottimi esempi, schermate eccellenti, il linguaggio è chiaro o per un altro motivo?
 -	Si sta assegnando un punteggio basso perché gli esempi sono scarsi, le schermate poco chiare o il linguaggio è incomprensibile?  
 
-Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei white paper prodotti.
+Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei white paper prodotti.   
 
 [Invia commenti e suggerimenti](mailto:sqlfback@microsoft.com).
+
 ##Riferimenti
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, luglio/agosto 2011, pp.18-20.
 
