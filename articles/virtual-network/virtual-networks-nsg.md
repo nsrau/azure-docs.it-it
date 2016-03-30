@@ -249,9 +249,9 @@ Tutti i precedenti requisiti da 1 a 6 (ad eccezione del 3) sono limitati agli sp
 
 |Regola|Access|Priorità|Intervallo di indirizzi di origine|Porta di origine|Intervallo di indirizzi di destinazione|Porta di destinazione|Protocollo|
 |---|---|---|---|---|---|---|---|
-|Consenti RDP da Internet|Consenti|100|INTERNET|**|*|3389|TCP|
+|Consenti RDP da Internet|Consenti|100|INTERNET|*|\*|3389|TCP|
 
->[AZURE.NOTE] Si noti che l'intervallo di indirizzi di origine per questa regola è **Internet** e non l'indirizzo VIP per il servizio di bilanciamento del carico. La porta di origine è ***** e non 500001. Non confondere le regole NAT/regole di bilanciamento del carico con le regole dei gruppi di sicurezza di rete. Le regole dei gruppi di sicurezza di rete sono sempre correlate all'origine e alla destinazione finale del traffico, **NON** al servizio di bilanciamento del carico tra le due.
+>[AZURE.NOTE] Si noti che l'intervallo di indirizzi di origine per questa regola è **Internet** e non l'indirizzo VIP per il servizio di bilanciamento del carico. La porta di origine è **\*** e non 500001. Non confondere le regole NAT/regole di bilanciamento del carico con le regole dei gruppi di sicurezza di rete. Le regole dei gruppi di sicurezza di rete sono sempre correlate all'origine e alla destinazione finale del traffico, **NON** al servizio di bilanciamento del carico tra le due.
 
 ### Gruppo di sicurezza di rete per le schede di interfaccia di rete di gestione in BackEnd
 
@@ -259,7 +259,7 @@ Tutti i precedenti requisiti da 1 a 6 (ad eccezione del 3) sono limitati agli sp
 
 |Regola|Access|Priorità|Intervallo di indirizzi di origine|Porta di origine|Intervallo di indirizzi di destinazione|Porta di destinazione|Protocollo|
 |---|---|---|---|---|---|---|---|
-|Consenti RDP dal front-end|Consenti|100|192\.168.1.0/24|**|*|3389|TCP|
+|Consenti RDP dal front-end|Consenti|100|192\.168.1.0/24|*|\*|3389|TCP|
 
 ### Gruppo di sicurezza di rete per le schede di interfaccia di rete di accesso al database nel back-end
 
@@ -267,7 +267,7 @@ Tutti i precedenti requisiti da 1 a 6 (ad eccezione del 3) sono limitati agli sp
 
 |Regola|Access|Priorità|Intervallo di indirizzi di origine|Porta di origine|Intervallo di indirizzi di destinazione|Porta di destinazione|Protocollo|
 |---|---|---|---|---|---|---|---|
-|Consenti SQL dal front-end|Consenti|100|192\.168.1.0/24|**|*|1433|TCP|
+|Consenti SQL dal front-end|Consenti|100|192\.168.1.0/24|*|\*|1433|TCP|
 
 Poiché alcuni gruppi di sicurezza di rete devono essere associati a singole schede di interfaccia di rete, è necessario distribuire questo scenario come distribuzione di Gestione risorse. Si noti che le regole vengono combinate a livello di subnet e di scheda di interfaccia di rete, in base a come è necessario applicarle.
 

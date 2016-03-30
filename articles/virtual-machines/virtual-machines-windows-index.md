@@ -53,7 +53,7 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 
 
 ### Introduzione
-[Percorso di apprendimento per le macchine virtuali Windows](https://azure.microsoft.com/it-IT/documentation/learning-paths/virtual-machines/)
+[Percorso di apprendimento per le macchine virtuali Windows](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
 [Creare una macchina virtuale di Windows nel portale di Azure](virtual-machines-windows-classic-tutorial.md)
 
@@ -228,7 +228,7 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 
 
 ### Introduzione
-[Percorso di apprendimento per le macchine virtuali Windows](https://azure.microsoft.com/it-IT/documentation/learning-paths/virtual-machines/)
+[Percorso di apprendimento per le macchine virtuali Windows](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
 [Creare una macchina virtuale Windows nel portale di Azure classico](virtual-machines-windows-classic-tutorial.md)
 
@@ -375,4 +375,4 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 
 [Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una VM in Azure](virtual-machines-windows-allocation-failure.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->
