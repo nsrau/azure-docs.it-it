@@ -95,7 +95,7 @@ Per autenticare richieste API, è necessario aggiungere un'intestazione di autor
 1. Chiamare l'API con i parametri seguenti e assicurarsi di sostituire il TENANT\_ID, CLIENT\_ID e CLIENT\_SECRET:
 
 	- **URL richiesta** come **https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
-- **Intestazione Content-Type HTTP** come *application/x-www-form-urlencoded*
+	- **Intestazione Content-Type HTTP** come *application/x-www-form-urlencoded*
 	- **Corpo richiesta HTTP** come *grant\_type=client\_credentials&client\_id={CLIENT\_ID}&client\_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
 
 	Di seguito è riportata una richiesta di esempio:
@@ -154,4 +154,4 @@ Ora che si dispone di un token valido, è possibile eseguire chiamate API.
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

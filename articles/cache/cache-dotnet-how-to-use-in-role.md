@@ -38,7 +38,7 @@ Cache nel ruolo fornisce un livello di memorizzazione nella cache per le applica
 
 Cache nel ruolo fornisce un nuovo modo di eseguire la memorizzazione nella cache mediante l'utilizzo di una parte della memoria delle macchine virtuali che ospitano le istanze del ruolo nei servizi cloud di Azure, noti anche come servizi ospitati. Offre maggiore flessibilità in termini di opzioni di distribuzione, le cache possono avere dimensioni molto elevate e non sono previste limitazioni di quota specifiche della cache.
 
->[AZURE.IMPORTANT] A partire da Azure SDK 2.6, Cache nel ruolo utilizza l'SDK Archiviazione di Microsoft Azure versione 4.3. Nelle versioni precedenti di Azure SDK, Cache nel ruolo utilizzava l'SDK Archiviazione di Azure 1.7. Le applicazioni che utilizzano Cache nel ruolo con le versioni di Azure SDK precedenti alla versione 2.6 devono eseguire la migrazione all'SDK Azure 2.6 prima della rimozione delle autorizzazioni per Archiviazione di Azure versione 18/08/2011. -il 1° agosto 2016. Per altre informazioni, vedere [Note sulla versione di Azure SDK 2.6 - Cache nel ruolo](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) e [Aggiornamento della rimozione della versione del servizio di archiviazione di Microsoft Azure: estensione al 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
+>[AZURE.IMPORTANT] A partire da Azure SDK 2.6, Cache nel ruolo utilizza l'SDK Archiviazione di Microsoft Azure versione 4.3. Nelle versioni precedenti di Azure SDK, Cache nel ruolo utilizzava l'SDK Archiviazione di Azure 1.7. Le applicazioni che utilizzano Cache nel ruolo con le versioni di Azure SDK precedenti alla versione 2.6 devono eseguire la migrazione all'SDK Azure 2.6 prima della rimozione delle autorizzazioni per Archiviazione di Azure versione 18/08/2011. -il 1ª agosto 2016. Per altre informazioni, vedere [Note sulla versione di Azure SDK 2.6 - Cache nel ruolo](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) e [Aggiornamento della rimozione della versione del servizio di archiviazione di Microsoft Azure: estensione al 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 La memorizzazione nella cache basata su istanze del ruolo presenta i vantaggi seguenti:
 
@@ -413,4 +413,4 @@ A questo punto, dopo aver appreso le nozioni di base di Cache nel ruolo, visitar
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
