@@ -287,7 +287,7 @@ Ad esempio:
 Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_delivery_policy)
 
 
-##<a id="types">Tipi usati durante la definizione di AssetDeliveryPolicy</a>
+##<a id="types"></a>Tipi usati durante la definizione di AssetDeliveryPolicy
 
 ###AssetDeliveryProtocol 
 
@@ -456,4 +456,4 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

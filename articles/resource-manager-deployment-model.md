@@ -44,7 +44,7 @@ Le risorse create tramite Gestione risorse condividono le caratteristiche seguen
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
+        Nel caso delle risorse di rete, archiviazione e calcolo, è possibile usare sia Gestione risorse sia la distribuzione classica. Selezionare **Gestione risorse**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -188,4 +188,4 @@ Per informazioni sulla connessione di reti virtuali da diversi modelli di distri
 - Per altre informazioni sulla creazione dei modelli di distribuzione dichiarativa, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per vedere i comandi per la distribuzione di un modello, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!-----HONumber=AcomDC_0316_2016-->
