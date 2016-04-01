@@ -17,4 +17,4 @@
 		Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
 
 	Una volta importato il file di impostazioni di pubblicazione, è possibile gestire la sottoscrizione di Azure nella sessione di PowerShell.
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->
