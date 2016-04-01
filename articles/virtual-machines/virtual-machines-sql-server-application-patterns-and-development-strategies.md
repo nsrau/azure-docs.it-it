@@ -327,4 +327,4 @@ Per altre informazioni sulla scelta tra i metodi di programmazione disponibili, 
 
 Per altre informazioni sull'esecuzione di SQL Server in Macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->
