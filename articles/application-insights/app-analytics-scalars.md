@@ -194,7 +194,7 @@ True o false a seconda se il valore è null o not null.
 | "" | false
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 **Esempio**
