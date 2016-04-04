@@ -550,7 +550,7 @@ Le regole sono le stesse di JavaScript.
 
 Le stringhe possono essere racchiuse tra virgolette singole o doppie.
 
-La barra rovesciata (``) viene usata per i caratteri escape, ad esempio `\t` (tabulazione), `\n` (nuova riga) e le istanze del carattere delle virgolette.
+La barra rovesciata (`\`) viene usata per i caratteri escape, ad esempio `\t` (tabulazione), `\n` (nuova riga) e le istanze del carattere delle virgolette.
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -698,7 +698,7 @@ Indica se l'argomento è una stringa vuota o isnull.
 | "" | true
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 
