@@ -31,10 +31,10 @@ I comandi di esempio PowerShell riportati di seguito prevedono un ambiente sempl
 
 ## Creare il gruppo di sicurezza di rete NSG-FrontEnd
 
-Per creare il gruppo di sicurezza di rete \(NSG, Network Security Group\) **NSG-FrontEnd** come illustrato nello scenario precedente, seguire questa procedura.
+Per creare il gruppo di sicurezza di rete (NSG, Network Security Group) **NSG-FrontEnd** come illustrato nello scenario precedente, seguire questa procedura.
 
 1. Da un browser, passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
-2. Fare clic su **Sfoglia \>** \> **Gruppi di sicurezza di rete**.
+2. Fare clic su **Sfoglia >** > **Gruppi di sicurezza di rete**.
 
 	![Portale di Azure - Gruppi di sicurezza di rete](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
 
@@ -50,9 +50,9 @@ Per creare il gruppo di sicurezza di rete \(NSG, Network Security Group\) **NSG-
 
 Per creare regole in un gruppo di sicurezza di rete esistente dal portale di Azure, seguire questa procedura.
 
-2. Fare clic su **Sfoglia \>** \> **Gruppi di sicurezza di rete**.
+2. Fare clic su **Sfoglia >** > **Gruppi di sicurezza di rete**.
 
-3. Nell'elenco dei gruppi di sicurezza di rete, fare clic su **NSG-FrontEnd** \> **Regole di sicurezza in ingresso**
+3. Nell'elenco dei gruppi di sicurezza di rete, fare clic su **NSG-FrontEnd** > **Regole di sicurezza in ingresso**
 
 	![Portale di Azure - NSG-FrontEnd](./media/virtual-networks-create-nsg-arm-pportal/figure2.png)
 
@@ -72,12 +72,12 @@ Per creare regole in un gruppo di sicurezza di rete esistente dal portale di Azu
 
 ## Associare il gruppo di sicurezza di rete alla subnet FrontEnd
 
-1. Fare clic su **Sfoglia \>** \> **Gruppi di risorse** \> **RG-NSG**.
-2. Nel pannello **RG-NSG** fare clic su **...** \> **TestVNet**.
+1. Fare clic su **Sfoglia >** > **Gruppi di risorse** > **RG-NSG**.
+2. Nel pannello **RG-NSG** fare clic su **...** > **TestVNet**.
 
 	![Portale di Azure - TestVNet](./media/virtual-networks-create-nsg-arm-pportal/figure14.png)
 
-3. Nel pannello **Impostazioni** fare clic su **Subnet** \> **FrontEnd** \> **Gruppo di sicurezza di rete** \> **NSG-FrontEnd**.
+3. Nel pannello **Impostazioni** fare clic su **Subnet** > **FrontEnd** > **Gruppo di sicurezza di rete** > **NSG-FrontEnd**.
 
 	![Portale di Azure - Impostazioni della subnet](./media/virtual-networks-create-nsg-arm-pportal/figure15.png)
 

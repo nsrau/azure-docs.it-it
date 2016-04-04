@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Risoluzione dei problemi relativi alle distribuzioni con l&#39;API REST | Microsoft Azure"
-   description="Illustra come usare l&#39;API REST di Azure Resource Manager per rilevare e correggere i problemi relativi alla distribuzione di Resource Manager."
+   pageTitle="Risoluzione dei problemi relativi alle distribuzioni con l'API REST | Microsoft Azure"
+   description="Illustra come usare l'API REST di Azure Resource Manager per rilevare e correggere i problemi relativi alla distribuzione di Resource Manager."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -70,7 +70,7 @@ Se è stato riscontrato un errore durante la distribuzione di risorse in Azure, 
             ...
             "error":{
               "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see http://aka.ms/arm-debug for usage details.",
-              "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
+              "details":[{"code":"Conflict","message":"{\r\n  "error": {\r\n    "message": "Conflict",\r\n    "code": "Conflict"\r\n  }\r\n}"}]
             }  
           }
         }

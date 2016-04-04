@@ -87,8 +87,8 @@ Recupera il valore dell'impostazione di configurazione specificata.
 
 | Tipo | Esempio |
 | ----- | ------- |
-| XPath | xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting\[@name='Setting1'\]/@value" |
-| Codice | var setting = RoleEnvironment.GetConfigurationSettingValue\("Setting1"\); |
+| XPath | xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting[@name='Setting1']/@value" |
+| Codice | var setting = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
  
 ## Percorso di archiviazione locale
 
@@ -96,8 +96,8 @@ Recupera il percorso di archiviazione locale per l'istanza.
 
 | Tipo | Esempio |
 | ----- | ------- |
-| XPath | xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource\[@name='LocalStore1'\]/@path" |
-| Codice | var localResourcePath = RoleEnvironment.GetLocalResource\("LocalStore1"\).RootPath; |
+| XPath | xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@path" |
+| Codice | var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1").RootPath; |
 
 
 ## Dimensioni di archiviazione locale
@@ -106,8 +106,8 @@ Recupera le dimensioni di archiviazione locale per l'istanza.
 
 | Tipo | Esempio |
 | ----- | ------- |
-| XPath | xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource\[@name='LocalStore1'\]/@sizeInMB" |
-| Codice | var localResourceSizeInMB = RoleEnvironment.GetLocalResource\("LocalStore1"\).MaximumSizeInMegabytes; |
+| XPath | xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@sizeInMB" |
+| Codice | var localResourceSizeInMB = RoleEnvironment.GetLocalResource("LocalStore1").MaximumSizeInMegabytes; |
 
 ## Protocollo di endpoint 
 
@@ -115,8 +115,8 @@ Recupera il protocollo di endpoint per l'istanza.
 
 | Tipo | Esempio |
 | ----- | ------- |
-| XPath | xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint\[@name='Endpoint1'\]/@protocol" |
-| Codice | var prot = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints\["Endpoint1"\].Protocol; |
+| XPath | xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@protocol" |
+| Codice | var prot = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].Protocol; |
 
 ## IP dell'endpoint
 
@@ -124,8 +124,8 @@ Ottiene l'indirizzo IP dell'endpoint specificato.
 
 | Tipo | Esempio |
 | ----- | ---- |
-| XPath | xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint\[@name='Endpoint1'\]/@address" |
-| Codice | var address = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints\["Endpoint1"\].IPEndpoint.Address |
+| XPath | xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@address" |
+| Codice | var address = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Address |
 
 ## Porta dell'endpoint 
 
@@ -133,8 +133,8 @@ Recupera la porta dell'endpoint per l'istanza.
 
 | Tipo | Esempio |
 | ----- | ------- |
-| XPath | xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint\[@name='Endpoint1'\]/@port" |
-| Codice | var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints\["Endpoint1"\].IPEndpoint.Port; |
+| XPath | xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@port" |
+| Codice | var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Port; |
 
 
 

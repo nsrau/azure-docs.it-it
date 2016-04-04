@@ -51,7 +51,8 @@ Dopo aver creato l'app per le API, è possibile usare il connettore OneDrive com
 	![][2]
 4.	È possibile trascinare l'app per le API del connettore OneDrive nell'editor facendo clic su "OneDrive Connector". Fare clic sul pulsante Authorize. Fornire le credenziali di Microsoft (se non è stata eseguita la connessione automatica). Fare clic su "Sì" per consentire l'accesso.
 
-	![][3] ![][4]
+	![][3]
+	![][4]
 
 5.	È ora possibile usare il connettore OneDrive nel flusso. Attualmente nel connettore OneDrive non sono disponibili trigger. Le azioni disponibili sono: Get File, Upload File, Delete File e List Files.
 

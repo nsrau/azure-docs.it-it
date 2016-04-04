@@ -3,7 +3,7 @@
 
 Se è impossibile accedere a un'applicazione in esecuzione in una macchina virtuale di Azure, in questo articolo viene descritto un approccio metodico per isolare l'origine del problema e risolverlo.
 
-> [AZURE.NOTE]  Per supporto alla connessione a una macchina virtuale di Azure, vedere [Risolvere i problemi di connessione a Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-windows-troubleshoot-rdp-connection.md) o [Risolvere i problemi relativi alle connessioni Secure Shell \(SSH\) a una macchina virtuale di Azure basata su Linux](virtual-machines-linux-troubleshoot-ssh-connection.md).
+> [AZURE.NOTE]  Per supporto alla connessione a una macchina virtuale di Azure, vedere [Risolvere i problemi di connessione a Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-windows-troubleshoot-rdp-connection.md) o [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Andare al [sito di supporto di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
 
@@ -21,7 +21,7 @@ Per i computer client che accedono all'applicazione tramite una connessione site
 
 ## Passaggio 1: È possibile accedere all'applicazione dalla macchina virtuale di destinazione?
 
-Provare ad accedere all'applicazione con il programma client appropriato dalla macchina virtuale in cui è in esecuzione. Usare il nome host locale, l'indirizzo IP locale o l'indirizzo di loopback \(127.0.0.1\).
+Provare ad accedere all'applicazione con il programma client appropriato dalla macchina virtuale in cui è in esecuzione. Usare il nome host locale, l'indirizzo IP locale o l'indirizzo di loopback (127.0.0.1).
 
 ![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
 
@@ -65,16 +65,16 @@ Ad esempio, se l'applicazione è un server web, tentare di accedere a una pagina
 
 Se non è possibile accedere all'applicazione, verificare quanto segue:
 
-- Per le macchine virtuali create con il modello di distribuzione classica, verificare che la configurazione dell'endpoint per la macchina virtuale consenta il traffico in ingresso, in particolare il protocollo \(TCP o UDP\) e i numeri di porta pubblica e privata. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](virtual-machines-windows-classic-setup-endpoints.md).
-- Per le macchine virtuali create con il modello di distribuzione classica, verificare che gli elenchi di controllo di accesso \(ACL\) nell'endpoint non impediscano il traffico in ingresso da Internet. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](virtual-machines-windows-classic-setup-endpoints.md).
-- Per le macchine virtuali create con il modello di distribuzione di Resource Manager, verificare che la configurazione della regola NAT in ingresso per la macchina virtuale consenta il traffico in ingresso, in particolare il protocollo \(TCP o UDP\) e i numeri di porta pubblica e privata.
-- Che i Gruppi di sicurezza di rete consentano il traffico della richiesta in ingresso e della risposta in uscita. Per altre informazioni, vedere [Che cos’è un Gruppo di sicurezza di rete \(NSG\)?](../virtual-network/virtual-networks-nsg.md).
+- Per le macchine virtuali create con il modello di distribuzione classica, verificare che la configurazione dell'endpoint per la macchina virtuale consenta il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](virtual-machines-windows-classic-setup-endpoints.md).
+- Per le macchine virtuali create con il modello di distribuzione classica, verificare che gli elenchi di controllo di accesso (ACL) nell'endpoint non impediscano il traffico in ingresso da Internet. Per altre informazioni, vedere la pagina [Come configurare gli endpoint a una macchina virtuale](virtual-machines-windows-classic-setup-endpoints.md).
+- Per le macchine virtuali create con il modello di distribuzione di Resource Manager, verificare che la configurazione della regola NAT in ingresso per la macchina virtuale consenta il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
+- Che i Gruppi di sicurezza di rete consentano il traffico della richiesta in ingresso e della risposta in uscita. Per altre informazioni, vedere [Che cos’è un Gruppo di sicurezza di rete (NSG)?](../virtual-network/virtual-networks-nsg.md).
 
 Se la macchina virtuale o un endpoint è un membro di un set con carico bilanciato:
 
-- Verificare che il protocollo di probe \(TCP o UDP\) e il numero di porta siano corretti.
+- Verificare che il protocollo di probe (TCP o UDP) e il numero di porta siano corretti.
 - Se il protocollo e porta di probe è diverso rispetto al set con carico bilanciato protocollo e porta:
-	- Verificare che l'applicazione sia in ascolto sul protocollo probe \(TCP o UDP\) e il numero di porta, usare **netstat –a** nella macchina virtuale di destinazione.
+	- Verificare che l'applicazione sia in ascolto sul protocollo probe (TCP o UDP) e il numero di porta, usare **netstat –a** nella macchina virtuale di destinazione.
 	- Verificare che il firewall host nella macchina virtuale di destinazione consenta il traffico delle richieste probe in ingresso e delle risposte probe in uscita.
 
 Se è possibile accedere all'applicazione, verificare che il dispositivo periferico di Internet consenta:
@@ -92,7 +92,7 @@ Se si verificano problemi durante la connessione a un Endpoint come ad esempio l
 - Ridimensionare la macchina virtuale
 - Ricreare la macchina virtuale
 
-Per ulteriori informazioni, vedere [Risoluzione dei problemi di connettività dell’Endpoint \(errori RDP/SSH/HTTP, ecc.\)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
+Per ulteriori informazioni, vedere [Risoluzione dei problemi di connettività dell’Endpoint (errori RDP/SSH/HTTP, ecc.)](https://social.msdn.microsoft.com/Forums/azure/it-IT/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
 
 
 
@@ -100,6 +100,6 @@ Per ulteriori informazioni, vedere [Risoluzione dei problemi di connettività de
 
 [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-[Risolvere i problemi relativi alle connessioni Secure Shell \(SSH\) a una macchina virtuale di Azure basata su Linux](virtual-machines-linux-troubleshoot-ssh-connection.md)
+[Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-linux-troubleshoot-ssh-connection.md)
 
 <!---HONumber=AcomDC_0323_2016-->

@@ -68,7 +68,8 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SFTP come tr
 - **Exclude File Mask**: specificare il filtro file da applicare per escludere i file. Se è impostata anche la proprietà "File Mask", Exclude File Mask verrà applicata per prima.
 
 
-	![][9] ![][10]
+	![][9]  
+	![][10]
 
 7.	È possibile usare le azioni SFTP nel flusso in modo analogo. È possibile usare l'azione "Upload File" per caricare un file nel server SFTP. Configurare le proprietà di input per l'azione "Upload File" nel modo indicato di seguito:
 
@@ -79,7 +80,8 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SFTP come tr
 	- ****Append If Exists**: specificare "true" o "false". Se il parametro è impostato su "true", i dati vengono aggiunti al file, se esistente. Se impostato su "false", il file, se esistente, viene sovrascritto.
 - **Temporary Folder**: se specificato, l'adattatore caricherà il file in 'Temporary Folder Path'. Al termine del caricamento, il file verrà spostato in 'Folder Path'. Per garantire che l'operazione di spostamento sia atomica, Temporary Folder Path deve trovarsi nello stesso disco fisico di Folder Path. È possibile usare Temporary Folder solo quando la proprietà Aggiungi se esiste è disabilitata.
 
-	![][11] ![][12]
+	![][11]  
+	![][12]
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)

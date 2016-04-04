@@ -133,10 +133,10 @@ Usare [`project`](app-analytics-aggregations.md#project) per selezionare solo le
 Nell'espressione scalare:
 
 * `%` è il consueto operatore modulo. 
-* `1d` \(la cifra uno seguita da "d"\) è il valore letterale di un intervallo di tempo che indica un giorno. Ecco altri valori letterali di intervallo di tempo: `12h`, `30m`, `10s`, `0.01s`.
-* `floor` \(alias `bin`\) arrotonda un valore per difetto al multiplo più vicino del valore di base specificato. `floor(aTime, 1s)` arrotonderà un'ora per difetto al secondo più vicino.
+* `1d` (la cifra uno seguita da "d") è il valore letterale di un intervallo di tempo che indica un giorno. Ecco altri valori letterali di intervallo di tempo: `12h`, `30m`, `10s`, `0.01s`.
+* `floor` (alias `bin`) arrotonda un valore per difetto al multiplo più vicino del valore di base specificato. `floor(aTime, 1s)` arrotonderà un'ora per difetto al secondo più vicino.
 
-Le [espressioni](app-analytics-scalars.md) possono includere tutti gli operatori consueti \(`+`, `-`, ...\) ed è disponibile una gamma di funzioni utili.
+Le [espressioni](app-analytics-scalars.md) possono includere tutti gli operatori consueti (`+`, `-`, ...) ed è disponibile una gamma di funzioni utili.
 
 ## [Extend](app-analytics-aggregations.md#extend): calcola le colonne
 
@@ -194,7 +194,7 @@ Il risultato di summarize include:
 ## Riepilogare per valori scalari
 
 
-È possibile usare valori scalari \(numerici, di ora o intervallo\) nella clausola by. I numeri tuttavia si presentano in genere in un intervallo continuo. Per raggruppare i punti dati, è necessario assegnarli utenti a contenitori di valori discreti. La funzione `bin` è utile a tale scopo:
+È possibile usare valori scalari (numerici, di ora o intervallo) nella clausola by. I numeri tuttavia si presentano in genere in un intervallo continuo. Per raggruppare i punti dati, è necessario assegnarli utenti a contenitori di valori discreti. La funzione `bin` è utile a tale scopo:
 
 ```AIQL
 
@@ -211,7 +211,7 @@ Il risultato di summarize include:
 
 ![Fare clic su Grafico, quindi scegliere Grafico a barre verticali e assegnare gli assi x e y](./media/app-analytics-tour/230.png)
 
-Si noti che anche se i risultati non sono stati ordinati in base all'ora \(come è possibile osservare nella visualizzazione tabella\), la visualizzazione grafico mostra sempre i dati data/ora nell'ordine corretto.
+Si noti che anche se i risultati non sono stati ordinati in base all'ora (come è possibile osservare nella visualizzazione tabella), la visualizzazione grafico mostra sempre i dati data/ora nell'ordine corretto.
 
 
 ## [Where](app-analytics-aggregations.md#where): filtra in base a una condizione
@@ -350,7 +350,7 @@ Quante sessioni esistono di lunghezze diverse?
 
 L'ultima riga è necessaria per la conversione in datetime: l'asse x di un grafico a linee può essere solo un valore datetime.
 
-La clausola `where` esclude le sessioni monofase \(sessionDuration==0\) e imposta la lunghezza dell'asse x.
+La clausola `where` esclude le sessioni monofase (sessionDuration==0) e imposta la lunghezza dell'asse x.
 
 
 ![](./media/app-analytics-tour/290.png)

@@ -19,7 +19,7 @@
 
 
 # Eseguire il backup di macchine virtuali di Azure
-Questo articolo include le procedure per eseguire il backup delle macchine virtuali \(VM\) di Azure.
+Questo articolo include le procedure per eseguire il backup delle macchine virtuali (VM) di Azure.
 
 Prima di poter eseguire il backup di una macchina virtuale di Azure, è necessario occuparsi di alcuni aspetti. Se non è già stato fatto, completare i [prerequisiti](backup-azure-vms-prepare.md) per preparare l'ambiente per il backup delle VM.
 
@@ -32,7 +32,7 @@ L'esecuzione del backup di macchine virtuali di Azure prevede tre passaggi princ
 >[AZURE.NOTE] Il backup di macchine virtuali è un processo locale. Non è possibile eseguire il backup di macchine virtuali di un'area in un insieme di credenziali per il backup in un'altra area. È quindi necessario creare un insieme di credenziali per il backup in ogni area di Azure dove sono presenti VM di cui sarà seguito il backup.
 
 ## Passaggio 1: Individuare le macchine virtuali di Azure
-Per assicurarsi che prima della registrazione vengano identificate le eventuali nuove macchine virtuali \(VM\) aggiunte alla sottoscrizione, eseguire il processo di individuazione. Il processo esegue una query su Azure per ottenere l'elenco delle macchine virtuali disponibili nella sottoscrizione, insieme ad altre informazioni come il nome del servizio cloud e l'area.
+Per assicurarsi che prima della registrazione vengano identificate le eventuali nuove macchine virtuali (VM) aggiunte alla sottoscrizione, eseguire il processo di individuazione. Il processo esegue una query su Azure per ottenere l'elenco delle macchine virtuali disponibili nella sottoscrizione, insieme ad altre informazioni come il nome del servizio cloud e l'area.
 
 1. Passare all'insieme di credenziali per il backup disponibile in **Servizi di ripristino** nel portale di Azure e fare clic su **Elementi registrati**.
 
@@ -129,7 +129,7 @@ Gli insiemi di credenziali di Backup di Azure creati dopo maggio 2015 includono 
     ![Configure protection job](./media/backup-azure-vms/protect-configureprotection.png)
 
 ## Backup iniziale
-Dopo avere applicato i criteri di protezione alla macchina virtuale, questa verrà visualizzata nella scheda **Elementi protetti** e avrà lo stato *Protetto \(backup iniziale in sospeso\)*. Per impostazione predefinita, il primo backup pianificato è il *backup iniziale*.
+Dopo avere applicato i criteri di protezione alla macchina virtuale, questa verrà visualizzata nella scheda **Elementi protetti** e avrà lo stato *Protetto (backup iniziale in sospeso)*. Per impostazione predefinita, il primo backup pianificato è il *backup iniziale*.
 
 Per attivare il backup iniziale immediatamente dopo la configurazione della protezione:
 

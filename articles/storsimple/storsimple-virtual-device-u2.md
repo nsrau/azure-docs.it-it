@@ -146,7 +146,8 @@ Per creare il dispositivo virtuale StorSimple, eseguire la procedura riportata d
 
 Prima di iniziare questa procedura, assicurarsi di avere una copia della chiave DEK del servizio. La chiave DEK del servizio è stata creata durante la procedura di configurazione del primo dispositivo StorSimple ed è stata salvata in un luogo sicuro. Se non si dispone di una copia della chiave DEK del servizio, è necessario contattare il supporto tecnico Microsoft e richiedere assistenza.
 
-Per configurare e registrare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito.[AZURE.INCLUDE [Configurare e registrare il dispositivo virtuale](../../includes/storsimple-configure-register-virtual-device.md)]
+Per configurare e registrare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito.
+[AZURE.INCLUDE [Configurare e registrare il dispositivo virtuale](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Passaggio 3: (Facoltativo) Modificare le impostazioni di configurazione del dispositivo
 
@@ -280,5 +281,7 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
 - Informazioni su come [Usare il servizio StorSimple Manager per gestire un dispositivo virtuale](storsimple-manager-service-administration.md).
  
 - Informazioni su come [Ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
+
+<!----HONumber=AcomDC_0323_2016-->
 
 <!---HONumber=AcomDC_0323_2016-->

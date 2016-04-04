@@ -98,7 +98,7 @@ Per altri suggerimenti relativi alla gestione, vedere la panoramica sulla [gesti
 [gestione]: sql-data-warehouse-manage-monitor.md
 
 <!--MSDN references-->
-[ALTER INDEX]: https://msdn.microsoft.com/en-us/library/ms188388.aspx
+[ALTER INDEX]: https://msdn.microsoft.com/it-IT/library/ms188388.aspx
 
 <!--Other Web references-->
 

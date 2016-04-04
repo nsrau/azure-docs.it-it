@@ -96,7 +96,7 @@ Gli script di Azione script possono essere usati dal portale di Azure, da Azure 
 
 Name | Script
 ----- | -----
-**Installare Hue.** | https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Vedere [Installare e usare Hue in cluster HDInsight](hdinsight-hadoop-hue-linux.md).
+**Installare Hue** | https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Vedere [Installare e usare Hue in cluster HDInsight](hdinsight-hadoop-hue-linux.md).
 **Installare R** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. Vedere [Installare e usare R nei cluster Hadoop HDInsight](hdinsight-hadoop-r-scripts-linux.md).
 **Installare Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. Vedere [Installare e usare Solr in cluster HDInsight](hdinsight-hadoop-solr-install-linux.md).
 **Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Vedere [Installare Giraph nei cluster HDInsight Hadoop](hdinsight-hadoop-giraph-install-linux.md).
@@ -384,7 +384,7 @@ Eseguire la procedura seguente:
 	| --------- | ---------- |
 	| Config | Oggetto di configurazione a cui vengono aggiunte le informazioni dell'azione di script. |
 	| Nome | Nome dell'azione di script. |
-	| Tipo di nodo | Specifica il nodo su cui viene eseguito lo script di personalizzazione. I valori validi sono **HeadNode** (per l'installazione nel nodo head) o **WorkerNode** (per l'installazione in tutti i nodi dati) o **ZookeeperNode** (per l'installazione nel nodo zookeeper). |
+	| Tipo di nodo | Specifica il nodo su cui viene eseguito lo script di personalizzazione. I valori validi sono **HeadNode** (per l'installazione nel nodo head) , **WorkerNode** (per l'installazione in tutti i nodi dati) o **ZookeeperNode** (per l'installazione nel nodo zookeeper). |
 	| Parametri | Parametri richiesti dallo script. |
 	| Uri | Specifica l'URI per lo script eseguito. |
 
@@ -564,10 +564,10 @@ Se la creazione del cluster non è riuscita a causa di un errore nell'azione di 
 
 	![Schermata delle operazioni](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-	In questo percorso i registri sono organizzati per nodi head, nodi di lavoro e nodi zookeeper. Di seguito sono riportati alcuni esempi:
-	* **Nodo head**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
-	* **Nodo di lavoro**: `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
-	* **Nodo zookeeper**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+	In questo percorso i registri sono organizzati per nodi head, nodi di lavoro e nodi zookeeper. Alcuni esempi sono:
+	* **Nodo head** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+	* **Nodo di lavoro** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+	* **Nodo zookeeper** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
 * Tutti i file stdout e stderr dell'host corrispondente vengono caricati nell'account di archiviazione. Per ogni azione di script esiste un file **output-*.txt** e uno **errors-*.txt**. Il file output-*.txt contiene informazioni relative all'URI dello script che è stato eseguito nell'host. Ad esempio
 

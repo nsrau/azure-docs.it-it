@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Risoluzione dei problemi relativi alle distribuzioni con l&#39;interfaccia della riga di comando di Azure | Microsoft Azure"
-   description="Questa sezione descrive come usare l&#39;interfaccia della riga di comando di Azure per rilevare e correggere i problemi relativi alla distribuzione di Gestione risorse."
+   pageTitle="Risoluzione dei problemi relativi alle distribuzioni con l'interfaccia della riga di comando di Azure | Microsoft Azure"
+   description="Questa sezione descrive come usare l'interfaccia della riga di comando di Azure per rilevare e correggere i problemi relativi alla distribuzione di Gestione risorse."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -75,9 +75,9 @@ Per visualizzare gli errori per una distribuzione, seguire questa procedura:
         },
         "properties": {
           "statusCode": "Conflict",
-          "statusMessage": "{\"Code\":\"Conflict\",\"Message\":\"Website with given name mysite already exists.\",\"Target\":null,\"Details\":[{\"Message\":\"Website with given name
-            mysite already exists.\"},{\"Code\":\"Conflict\"},{\"ErrorEntity\":{\"Code\":\"Conflict\",\"Message\":\"Website with given name mysite already exists.\",\"ExtendedCode\":
-            \"54001\",\"MessageTemplate\":\"Website with given name {0} already exists.\",\"Parameters\":[\"mysite\"],\"InnerErrors\":null}}],\"Innererror\":null}"
+          "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name
+            mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
+            "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
         },
         ...
 
@@ -87,7 +87,7 @@ Per visualizzare gli errori per una distribuzione, seguire questa procedura:
 
 3. Per concentrarsi sul messaggio di stato delle voci con esito negativo, usare il comando seguente:
 
-        azure group log show ExampleGroup --json | jq -r ".[] | select(.status.value == \"Failed\") | .properties.statusMessage"
+        azure group log show ExampleGroup --json | jq -r ".[] | select(.status.value == "Failed") | .properties.statusMessage"
 
 
 ## Usare le operazioni di distribuzione per risolvere i problemi
@@ -114,7 +114,7 @@ Per visualizzare gli errori per una distribuzione, seguire questa procedura:
 
 2. Per visualizzare il messaggio relativo alle operazioni non riuscite per una distribuzione, usare:
 
-        azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json  | jq ".[] | select(.properties.provisioningState == \"Failed\") | .properties.statusMessage.Message"
+        azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json  | jq ".[] | select(.properties.provisioningState == "Failed") | .properties.statusMessage.Message"
 
 
 ## Passaggi successivi

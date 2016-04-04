@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [selettore](../../includes/hdinsight-selector-create-clusters.md)]
 
-Un cluster Hadoop è costituito da alcune macchine virtuali \(nodi\) che vengono usate per l'elaborazione distribuita di attività sul cluster. Azure consente di astrarre i dettagli di implementazione dell'installazione e della configurazione dei singoli nodi. È quindi necessario specificare solo le informazioni di configurazione generali. Questo articolo illustra queste impostazioni di configurazione.
+Un cluster Hadoop è costituito da alcune macchine virtuali (nodi) che vengono usate per l'elaborazione distribuita di attività sul cluster. Azure consente di astrarre i dettagli di implementazione dell'installazione e della configurazione dei singoli nodi. È quindi necessario specificare solo le informazioni di configurazione generali. Questo articolo illustra queste impostazioni di configurazione.
 
 ##Tipi di cluster
 
@@ -30,19 +30,19 @@ Attualmente, HDInsight offre 4 tipi diversi di cluster, ognuno con un set di com
 
 | Tipo di cluster | Usare questo per... |
 | ------------ | ----------------------------- |
-| Hadoop | Query e analisi \(processi batch\) |
+| Hadoop | Query e analisi (processi batch) |
 | HBase | Archiviazione di dati NoSQL |
 | Storm | Elaborazione di eventi in tempo reale |
-| Spark \(anteprima\) | Elaborazione in memoria, query interattive, elaborazione di flussi di micro batch |
+| Spark (anteprima) | Elaborazione in memoria, query interattive, elaborazione di flussi di micro batch |
 
 Ogni tipo di cluster usa una terminologia specifica per i nodi nel cluster, oltre a un numero di nodi specifico e a dimensioni predefinite per le VM per ogni tipo di nodo:
 
-| Tipo| Nodi \(numero di nodi\)| Diagramma|
+| Tipo| Nodi (numero di nodi)| Diagramma|
 |-----|------|--------|
-|Hadoop| Nodo head \(2\), nodo dati \(1+\)|![Nodi del cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)|
-|HBase|Server head \(2\), server di area \(1+\), nodo Master/Zookeeper \(3\)|![Nodi del cluster HDInsight HBase](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)|
-|Storm|Nodo Nimbus \(2\), server Supervisor \(1+\), nodo Zookeeper \(3\)|![Nodi del cluster HDInsight Storm](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
-|Spark|Nodo head \(2\), nodo Worker \(1+\), nodo Zookeeper \(3\) \(gratuito per le VM Zookeeper con dimensioni A1\)|![Nodi del cluster HDInsight Spark](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
+|Hadoop| Nodo head (2), nodo dati (1+)|![Nodi del cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)|
+|HBase|Server head (2), server di area (1+), nodo Master/Zookeeper (3)|![Nodi del cluster HDInsight HBase](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)|
+|Storm|Nodo Nimbus (2), server Supervisor (1+), nodo Zookeeper (3)|![Nodi del cluster HDInsight Storm](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
+|Spark|Nodo head (2), nodo Worker (1+), nodo Zookeeper (3) (gratuito per le VM Zookeeper con dimensioni A1)|![Nodi del cluster HDInsight Spark](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
 
 * Tra parentesi è indicato il numero di nodi per ogni tipo di nodo.
 
@@ -68,8 +68,8 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 - **Sistema operativo**
 
 	È possibile creare cluster HDInsight in uno dei due sistemi operativi seguenti:
-	- **HDInsight in Linux \(Ubuntu 12.04 LTS per Linux\)**: HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
-	- **HDInsight in Windows \(Windows Server 2012 R2 Datacenter\)**:
+	- **HDInsight in Linux (Ubuntu 12.04 LTS per Linux)**: HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+	- **HDInsight in Windows (Windows Server 2012 R2 Datacenter)**:
     
 - **Versione HDInsight**
 
@@ -81,22 +81,22 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
     
 - **Nome del gruppo di risorse**
 
-	[Azure Resource Manager \(ARM\)](resource-group-overview.md) consente di usare le risorse dell'applicazione come gruppo, detto gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione con una singola operazione coordinata.
+	[Azure Resource Manager (ARM)](resource-group-overview.md) consente di usare le risorse dell'applicazione come gruppo, detto gruppo di risorse di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione con una singola operazione coordinata.
 
 - **Credenziali**
 
 	I cluster HDInsight consentono di configurare due account utente durante la creazione del cluster:
 
 	- Utente HTTP. Il nome utente predefinito è admin con la configurazione di base nel portale di Azure. In alcuni casi è detto "utente cluster".
-	- Utente SSH \(cluster Linux\): usato per la connessione ai cluster tramite SSH. È possibile creare account utente SSH aggiuntivi dopo la creazione del cluster tramite l'esecuzione dei passaggi illustrati in [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+	- Utente SSH (cluster Linux): usato per la connessione ai cluster tramite SSH. È possibile creare account utente SSH aggiuntivi dopo la creazione del cluster tramite l'esecuzione dei passaggi illustrati in [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
     >[AZURE.NOTE] Per i cluster basati su Windows, è possibile creare un utente RDP e usarlo per connettersi al cluster tramite RDP.
 
 - **Origine dati**
 
-	L'interfaccia HDFS originale usa molti dischi locali nel cluster. HDInsight usa invece l'archivio BLOB di Azure per l'archiviazione dei dati. L'archiviazione BLOB di Azure è una soluzione di archiviazione affidabile, con finalità generali che si integra facilmente con HDInsight. Grazie a un'interfaccia HDFS \(Hadoop Distributed File System\), tutti i componenti disponibili in HDInsight possono agire direttamente sui dati strutturati o non strutturati presenti nell'archiviazione BLOB. L'archiviazione dei dati nell'archiviazione BLOB consente l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
+	L'interfaccia HDFS originale usa molti dischi locali nel cluster. HDInsight usa invece l'archivio BLOB di Azure per l'archiviazione dei dati. L'archiviazione BLOB di Azure è una soluzione di archiviazione affidabile, con finalità generali che si integra facilmente con HDInsight. Grazie a un'interfaccia HDFS (Hadoop Distributed File System), tutti i componenti disponibili in HDInsight possono agire direttamente sui dati strutturati o non strutturati presenti nell'archiviazione BLOB. L'archiviazione dei dati nell'archiviazione BLOB consente l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
 
-	Durante la configurazione è necessario specificare un account di archiviazione di Azure e un contenitore di archiviazione BLOB di Azure nell'account di archiviazione di Azure. Alcuni processi di creazione richiedono prima di tutto la creazione dell'account di archiviazione di Azure e del contenitore di archiviazione BLOB. Il contenitore di archiviazione BLOB viene usato dal cluster come posizione di archiviazione predefinita. Facoltativamente, è possibile specificare account di archiviazione di Azure aggiuntivi \(account di archiviazione collegati\) a cui il cluster potrà accedere. Il cluster può accedere anche a eventuali contenitori BLOB configurati con accesso in lettura pubblico completo o accesso in lettura pubblico solo per i BLOB. Per altre informazioni sull'accesso con limitazioni, vedere [Gestire l'accesso alle risorse di archiviazione di Azure](storage-manage-access-to-resources.md).
+	Durante la configurazione è necessario specificare un account di archiviazione di Azure e un contenitore di archiviazione BLOB di Azure nell'account di archiviazione di Azure. Alcuni processi di creazione richiedono prima di tutto la creazione dell'account di archiviazione di Azure e del contenitore di archiviazione BLOB. Il contenitore di archiviazione BLOB viene usato dal cluster come posizione di archiviazione predefinita. Facoltativamente, è possibile specificare account di archiviazione di Azure aggiuntivi (account di archiviazione collegati) a cui il cluster potrà accedere. Il cluster può accedere anche a eventuali contenitori BLOB configurati con accesso in lettura pubblico completo o accesso in lettura pubblico solo per i BLOB. Per altre informazioni sull'accesso con limitazioni, vedere [Gestire l'accesso alle risorse di archiviazione di Azure](storage-manage-access-to-resources.md).
 
 	![Archiviazione di HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
@@ -112,7 +112,7 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 
     Oltre all'archivio BLOB di Azure, è possibile usare anche l'[Archivio Azure Data Lake](data-lake-store-overview.md) come account di archiviazione predefinito per il cluster HBase in HDInsight e come spazio di archiviazione collegato per tutti e 4 i tipi di cluster HDInsight. Per istruzioni, vedere [Creare un cluster HDInsight con Archivio Data Lake tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
     
-- **Località \(Area\)**
+- **Località (Area)**
 
 	Il cluster HDInsight e l'account di archiviazione predefinito devono trovarsi nella stessa località di Azure.
 	
@@ -140,12 +140,12 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 
         Nel modello di distribuzione classico alcune dimensioni delle macchine virtuali sono leggermente diverse in PowerShell e nell'interfaccia della riga di comando.
 
-        * Standard\_A3 è Large
-        * Standard\_A4 è ExtraLarge
+        * Standard_A3 è Large
+        * Standard_A4 è ExtraLarge
 
         <br>
 
-        |Dimensione |Core CPU|Memoria|NIC \(Max\)|Dimensione disco max.|Dischi di dati max. \(1023 GB ciascuno\)|Max. IOPS \(500 per disco\)|
+        |Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
         |---|---|---|---|---|---|---|
         |Standard\_A3\\Large|4|7 GB|2|Temporaneo = 285 GB |8|8x500|
         |Standard\_A4\\ExtraLarge|8|14 GB|4|Temporaneo = 605 GB |16|16x500|
@@ -155,23 +155,23 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 
     - Livello Standard: serie D
 
-        |Dimensione |Core CPU|Memoria|NIC \(Max\)|Dimensione disco max.|Dischi di dati max. \(1023 GB ciascuno\)|Max. IOPS \(500 per disco\)|
+        |Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
         |---|---|---|---|---|---|---|
-        |Standard\_D3 |4|14 GB|4|Temporaneo \(SSD\) = 200 GB |8|8x500|
-        |Standard\_D4 |8|28 GB|8|Temporaneo \(SSD\) = 400 GB |16|16x500|
-        |Standard\_D12 |4|28 GB|4|Temporaneo \(SSD\) = 200 GB |8|8x500|
-        |Standard\_D13 |8|56 GB|8|Temporaneo \(SSD\) = 400 GB |16|16x500|
-        |Standard\_D14 |16|112 GB|8|Temporaneo \(SSD\) = 800 GB |32|32x500|
+        |Standard\_D3 |4|14 GB|4|Temporaneo (SSD) = 200 GB |8|8x500|
+        |Standard\_D4 |8|28 GB|8|Temporaneo (SSD) = 400 GB |16|16x500|
+        |Standard\_D12 |4|28 GB|4|Temporaneo (SSD) = 200 GB |8|8x500|
+        |Standard\_D13 |8|56 GB|8|Temporaneo (SSD) = 400 GB |16|16x500|
+        |Standard\_D14 |16|112 GB|8|Temporaneo (SSD) = 800 GB |32|32x500|
 
     - Livello standard: serie Dv2
 
-        |Dimensione |Core CPU|Memoria|NIC \(Max\)|Dimensione disco max.|Dischi di dati max. \(1023 GB ciascuno\)|Max. IOPS \(500 per disco\)|
+        |Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)|
         |---|---|---|---|---|---|---|
-        |Standard\_D3\_v2 |4|14 GB|4|Temporaneo \(SSD\) = 200 GB |8|8x500|
-        |Standard\_D4\_v2 |8|28 GB|8|Temporaneo \(SSD\) = 400 GB |16|16x500|
-        |Standard\_D12\_v2 |4|28 GB|4|Temporaneo \(SSD\) = 200 GB |8|8x500|
-        |Standard\_D13\_v2 |8|56 GB|8|Temporaneo \(SSD\) = 400 GB |16|16x500|
-        |Standard\_D14\_v2 |16|112 GB|8|Temporaneo \(SSD\) = 800 GB |32|32x500|    
+        |Standard\_D3\_v2 |4|14 GB|4|Temporaneo (SSD) = 200 GB |8|8x500|
+        |Standard\_D4\_v2 |8|28 GB|8|Temporaneo (SSD) = 400 GB |16|16x500|
+        |Standard\_D12\_v2 |4|28 GB|4|Temporaneo (SSD) = 200 GB |8|8x500|
+        |Standard\_D13\_v2 |8|56 GB|8|Temporaneo (SSD) = 400 GB |16|16x500|
+        |Standard\_D14\_v2 |16|112 GB|8|Temporaneo (SSD) = 800 GB |32|32x500|    
  
     Per considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse, vedere l'articolo relativo alle [dimensioni per le macchine virtuali](../virtual-machines/virtual-machines-size-specs.md). Per informazioni sui prezzi delle varie dimensioni, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
     
@@ -197,11 +197,11 @@ Il metastore contiene metadati Hive e Oozie, tra cui tabelle di Hive, partizioni
 
 Una [rete virtuale di Azure](https://azure.microsoft.com/documentation/services/virtual-network/) consente di creare una rete sicura e persistente che contiene le risorse necessarie per la propria soluzione. Una rete virtuale consente di:
 
-* Connettere le risorse cloud tra loro in una rete privata \(solo cloud\).
+* Connettere le risorse cloud tra loro in una rete privata (solo cloud).
 
 	![Diagramma di una configurazione solo cloud](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-cloud-only.png)
 
-* Connettere le risorse cloud alla rete del data center locale \(da sito a sito o da punto a sito\) usando una rete privata virtuale \(VPN\).
+* Connettere le risorse cloud alla rete del data center locale (da sito a sito o da punto a sito) usando una rete privata virtuale (VPN).
 
     | Configurazione da sito a sito | Configurazione da punto a sito |
     | -------------------------- | --------------------------- |
@@ -209,7 +209,7 @@ Una [rete virtuale di Azure](https://azure.microsoft.com/documentation/services/
 
 Per altre informazioni sull'uso di HDInsight con una rete virtuale, inclusi i requisiti di configurazione specifici per la rete virtuale, vedere [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-## Personalizzare i cluster mediante la personalizzazione dei cluster HDInsight \(Bootstrap\)
+## Personalizzare i cluster mediante la personalizzazione dei cluster HDInsight (Bootstrap)
 
 A volte potrebbe essere necessario modificare i file di configurazione:
 

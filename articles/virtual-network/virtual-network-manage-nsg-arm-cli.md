@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Gestire gruppi di sicurezza di rete con l&#39;interfaccia della riga di comando di Azure in Resource Manager | Microsoft Azure"
-   description="Informazioni su come gestire gruppi di sicurezza di rete con l&#39;interfaccia della riga di comando di Azure in Resource Manager"
+   pageTitle="Gestire gruppi di sicurezza di rete con l'interfaccia della riga di comando di Azure in Resource Manager | Microsoft Azure"
+   description="Informazioni su come gestire gruppi di sicurezza di rete con l'interfaccia della riga di comando di Azure in Resource Manager"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -31,7 +31,7 @@
 
 ## Recuperare le informazioni
 
-È possibile visualizzare i gruppi di sicurezza di rete \(NSG, Network Security Group\) esistenti, recuperare le regole relative a un NSG esistente e trovare le risorse a cui un NSG è associato.
+È possibile visualizzare i gruppi di sicurezza di rete (NSG, Network Security Group) esistenti, recuperare le regole relative a un NSG esistente e trovare le risorse a cui un NSG è associato.
 
 ### Visualizzare NSG esistenti
 
@@ -97,7 +97,7 @@ Cercare le proprietà **networkInterfaces** e **subnets** come illustrato di seg
 	],
 	...
 
-Nell'esempio precedente l'NSG non è associato ad alcuna interfaccia di rete \(scheda di interfaccia di rete\) ed è associato a una subnet denominata **FrontEnd**.
+Nell'esempio precedente l'NSG non è associato ad alcuna interfaccia di rete (scheda di interfaccia di rete) ed è associato a una subnet denominata **FrontEnd**.
 
 ## Gestire le regole
 
@@ -234,7 +234,7 @@ Per annullare l'associazione dell'NSG **NSG-FrontEnd** alla scheda di interfacci
 
 	azure network nic set --resource-group RG-NSG --name TestNICWeb1 --network-security-group-id ""
 
->[AZURE.NOTE] Si noti il valore "" \(vuoto\) per il parametro **network-security-group-id**, che consente di rimuovere un'associazione a un NSG. Non è possibile fare lo stesso con il parametro **network-security-group-name**.
+>[AZURE.NOTE] Si noti il valore "" (vuoto) per il parametro **network-security-group-id**, che consente di rimuovere un'associazione a un NSG. Non è possibile fare lo stesso con il parametro **network-security-group-name**.
 
 Risultato previsto:
 

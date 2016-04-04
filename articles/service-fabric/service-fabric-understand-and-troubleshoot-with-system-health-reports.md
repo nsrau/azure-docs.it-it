@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Risoluzione dei problemi con i report sull&#39;integrità del sistema | Microsoft Azure"
+   pageTitle="Risoluzione dei problemi con i report sull'integrità del sistema | Microsoft Azure"
    description="Descrive i report di integrità inviati dai componenti dell’Infrastruttura dei servizi di Azure e il relativo utilizzo per la risoluzione dei problemi del cluster o dei problemi delle applicazioni."
    services="service-fabric"
    documentationCenter=".net"
@@ -36,7 +36,7 @@ L'entità integrità del cluster viene creata automaticamente nell'archivio inte
 ### Perdita di nodi vicini
 **System.Federation** segnala un errore quando rileva una perdita di nodi vicini. Il report è relativo a singoli nodi e l'ID del nodo è incluso nel nome della proprietà. Se si verifica la perdita di un nodo vicino nell'intero anello di Service Fabric, in genere è possibile prevedere due eventi, ovvero il report viene generato da entrambi i lati del gap. In caso di perdita di più nodi vicini, si verificheranno più eventi.
 
-Il report specifica il timeout di lease globale come durata \(TTL\). Il report viene inviato di nuovo ogni metà della durata TTL finché la condizione rimane attiva. L'evento viene rimosso automaticamente alla scadenza, quindi se il nodo a cui si riferisce il report è inattivo, viene comunque rimosso correttamente dall'archivio integrità.
+Il report specifica il timeout di lease globale come durata (TTL). Il report viene inviato di nuovo ogni metà della durata TTL finché la condizione rimane attiva. L'evento viene rimosso automaticamente alla scadenza, quindi se il nodo a cui si riferisce il report è inattivo, viene comunque rimosso correttamente dall'archivio integrità.
 
 - **SourceId**: System.Federation
 - **Proprietà**: inizia con **Neighborhood** e include informazioni sul nodo.
@@ -46,7 +46,7 @@ Il report specifica il timeout di lease globale come durata \(TTL\). Il report v
 **System.FM**, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sui nodi del cluster. Ogni nodo deve avere un report generato da System.FM che mostra il relativo stato. Le entità del nodo vengono rimosse quando viene rimosso lo stato del nodo. Ad esempio, vedere [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx).
 
 ### Nodo attivo/inattivo
-System.FM restituisce OK quando il nodo viene aggiunto all'anello, ovvero è operativo. Segnala un errore quando il nodo non fa più parte dell'anello, ovvero è inattivo perché è in corso un aggiornamento o semplicemente perché si è verificato un errore. La gerarchia di integrità creata dall'archivio integrità agisce sulle entità distribuite in correlazione con i report sui nodi di System.FM. Considera il nodo un elemento padre virtuale di tutte le entità distribuite. Le entità distribuite in tale nodo non vengono esposte tramite query se il nodo è inattivo o non segnalato oppure se il nodo ha un'istanza diversa rispetto a quella associata alle entità. Quando System.FM segnala che il nodo è inattivo o riavviato \(nuova istanza\), l'archivio integrità elimina automaticamente le entità distribuite eventualmente esistenti solo nel nodo inattivo o nell'istanza precedente del nodo.
+System.FM restituisce OK quando il nodo viene aggiunto all'anello, ovvero è operativo. Segnala un errore quando il nodo non fa più parte dell'anello, ovvero è inattivo perché è in corso un aggiornamento o semplicemente perché si è verificato un errore. La gerarchia di integrità creata dall'archivio integrità agisce sulle entità distribuite in correlazione con i report sui nodi di System.FM. Considera il nodo un elemento padre virtuale di tutte le entità distribuite. Le entità distribuite in tale nodo non vengono esposte tramite query se il nodo è inattivo o non segnalato oppure se il nodo ha un'istanza diversa rispetto a quella associata alle entità. Quando System.FM segnala che il nodo è inattivo o riavviato (nuova istanza), l'archivio integrità elimina automaticamente le entità distribuite eventualmente esistenti solo nel nodo inattivo o nell'istanza precedente del nodo.
 
 - **SourceId**: System.FM
 - **Proprietà**: State
@@ -347,9 +347,9 @@ HealthEvents          :
 ```
 
 ### Stato aperto della replica
-La descrizione di questo report sull'integrità include l'ora \(UTC\) in cui è iniziata l'esecuzione della chiamata API.
+La descrizione di questo report sull'integrità include l'ora (UTC) in cui è iniziata l'esecuzione della chiamata API.
 
-**System.RA** segnala una condizione di avviso se l'apertura della replica richiede più tempo del periodo configurato \(impostazione predefinita: 30 minuti\). Se l'API influisce sulla disponibilità del servizio, il report viene eseguito molto più rapidamente. L'intervallo di tempo è configurabile, con valore predefinito di 30 secondi. Include il tempo impiegato per l'apertura del replicatore e del servizio. Se l'apertura viene completata, la proprietà restituisce OK.
+**System.RA** segnala una condizione di avviso se l'apertura della replica richiede più tempo del periodo configurato (impostazione predefinita: 30 minuti). Se l'API influisce sulla disponibilità del servizio, il report viene eseguito molto più rapidamente. L'intervallo di tempo è configurabile, con valore predefinito di 30 secondi. Include il tempo impiegato per l'apertura del replicatore e del servizio. Se l'apertura viene completata, la proprietà restituisce OK.
 
 - **SourceId**: System.RA
 - **Proprietà**: **ReplicaOpenStatus**

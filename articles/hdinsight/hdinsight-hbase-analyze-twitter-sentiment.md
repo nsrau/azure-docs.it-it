@@ -600,9 +600,9 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 	- **CLUSTERNAME**: nome del cluster HBase, ad esempio *https://<HBaseClusterName>.azurehdinsight.net/*. 
     - **HADOOPUSERNAME**: nome utente del cluster HBase (Hadoop). Il nome predefinito è *admin*.
     - **HADOOPUSERPASSWORD**: password utente del cluster HBase (Hadoop).
-    - **HBASETABLENAME** = "tweets\_by\_words";
+    - **HBASETABLENAME** = "tweets_by_words";
 
-	Il nome della tabella HBase è **"tweets\_by\_words"**. Per consentire all'applicazione Web di leggere i dati dalla stessa tabella HBase, i valori devono corrispondere a quelli inviati nel servizio streaming.
+	Il nome della tabella HBase è **"tweets_by_words"**. Per consentire all'applicazione Web di leggere i dati dalla stessa tabella HBase, i valori devono corrispondere a quelli inviati nel servizio streaming.
 
 
 
@@ -1099,7 +1099,7 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 
 **Per modificare layout.cshtml**
 
-1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Condivise** e fare doppio clic su \__**Layout.cshtml**.
+1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Condivise** e fare doppio clic su _**Layout.cshtml**.
 2. Sostituire il contenuto con i contenuti seguenti:
 
 		<!DOCTYPE html>
@@ -1164,7 +1164,7 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 
 **Per modificare Index.cshtml**
 
-1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Home** e fare doppio clic su \_**Index.cshtml**.
+1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Home** e fare doppio clic su _**Index.cshtml**.
 2. Sostituire il contenuto con i contenuti seguenti:
 
 		@{
@@ -1177,7 +1177,7 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 
 **Per modificare il file site.css**
 
-1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Contenuto** e fare doppio clic su \_**Site.css**.
+1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Contenuto** e fare doppio clic su _**Site.css**.
 2. Aggiungere il seguente codice al file:
 		
 		/* make container, and thus map, 100% width */
@@ -1200,12 +1200,12 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 
 **Per modificare il file global.asax**
 
-1. In **Esplora soluzioni**, espandere **TweetSentimentWeb** e fare doppio clic su \_**Global.asax**.
+1. In **Esplora soluzioni**, espandere **TweetSentimentWeb** e fare doppio clic su _**Global.asax**.
 2. Aggiungere l'istruzione **using** seguente:
 
 		using System.Web.Http;
 
-2. Aggiungere le seguenti righe all'interno della funzione **Application\_Start()**:
+2. Aggiungere le seguenti righe all'interno della funzione **Application_Start()**:
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);

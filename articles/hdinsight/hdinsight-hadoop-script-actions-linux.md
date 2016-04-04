@@ -20,7 +20,7 @@
 
 Le azioni di script consentono di personalizzare i cluster Azure HDInsight specificando le impostazioni di configurazione del cluster oppure installando servizi, strumenti o altri componenti software nel cluster. È possibile usare azioni script durante la creazione del cluster oppure in un cluster in esecuzione.
 
-> [AZURE.NOTE] Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Linux. Per informazioni sull'uso di azioni script con cluster basati su Windows, vedere [Sviluppo di azioni script con HDInsight \(Windows\)](hdinsight-hadoop-script-actions.md).
+> [AZURE.NOTE] Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Linux. Per informazioni sull'uso di azioni script con cluster basati su Windows, vedere [Sviluppo di azioni script con HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
 
 ## Definizione di azioni script
 
@@ -84,7 +84,7 @@ I cluster HDInsight basati su Linux forniscono due nodi head attivi all'interno 
 
 ### <a name="bPS6"></a>Configurare i componenti personalizzati per l'uso dell'archivio BLOB di Azure
 
-I componenti installati nel cluster possono avere una configurazione predefinita che usa l'archiviazione di Hadoop Distributed File System \(HDFS\). HDInsight usa l'archiviazione BLOB di Azure come risorsa di archiviazione predefinita, in modo da offre un file system compatibile con HDFS che rende permanenti i dati anche se il cluster viene eliminato. È consigliabile configurare i componenti installati in modo che usino WASB invece di HDFS.
+I componenti installati nel cluster possono avere una configurazione predefinita che usa l'archiviazione di Hadoop Distributed File System (HDFS). HDInsight usa l'archiviazione BLOB di Azure come risorsa di archiviazione predefinita, in modo da offre un file system compatibile con HDFS che rende permanenti i dati anche se il cluster viene eliminato. È consigliabile configurare i componenti installati in modo che usino WASB invece di HDFS.
 
 Ad esempio, il codice seguente copia il file giraph-examples.jar dal file system locale in WASB:
 
@@ -104,7 +104,7 @@ Per impostazione predefinita, `echo` invia la stringa a STDOUT. Per indirizzarla
 
         >&2 echo "An error occurred installing Foo"
 
-Questo codice reindirizza le informazioni inviate a STDOUT \(1 è il valore predefinito, quindi non indicato qui\) a STDERR \(2\). Per altre informazioni sul reindirizzamento I/O, vedere [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+Questo codice reindirizza le informazioni inviate a STDOUT (1 è il valore predefinito, quindi non indicato qui) a STDERR (2). Per altre informazioni sul reindirizzamento I/O, vedere [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Per altre informazioni sulla visualizzazione delle informazioni registrate tramite azioni di script, vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
@@ -127,10 +127,10 @@ Questo codice rende disponibili gli helper seguenti per l'uso nello script perso
 | Utilizzo dell'helper | Descrizione |
 | ------------ | ----------- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` | Scarica un file dall'URL di origine nel percorso file specificato. Per impostazione predefinita, non sovrascriverà un file esistente. |
-| `untar_file TARFILE DESTDIR` | Estrae un file TAR \(usando `-xf`\) nella directory di destinazione. |
+| `untar_file TARFILE DESTDIR` | Estrae un file TAR (usando `-xf`) nella directory di destinazione. |
 | `test_is_headnode` | Se viene eseguito su un nodo head del cluster restituisce 1; in caso contrario, 0. |
-| `test_is_datanode` | Se il nodo corrente è un nodo dati \(di lavoro\) restituisce 1; in caso contrario, 0. |
-| `test_is_first_datanode` | Se il nodo corrente è il primo nodo dati \(di lavoro\) \(denominato workernode0\) restituisce 1; in caso contrario, 0. |
+| `test_is_datanode` | Se il nodo corrente è un nodo dati (di lavoro) restituisce 1; in caso contrario, 0. |
+| `test_is_first_datanode` | Se il nodo corrente è il primo nodo dati (di lavoro) (denominato workernode0) restituisce 1; in caso contrario, 0. |
 
 ## <a name="commonusage"></a>Modelli di utilizzo comuni
 
@@ -142,7 +142,7 @@ In alcuni casi, lo script potrebbe richiedere l'uso di parametri. Ad esempio, pe
 
 I parametri passati allo script sono noti come _parametri posizionali_ e sono assegnati a `$1` per il primo parametro, a `$2` per il secondo e così via. `$0` contiene il nome dello script stesso.
 
-I valori passati allo script come parametri devono essere racchiusi tra virgolette singole \('\), in modo che il valore passato sia considerato un valore letterale e il carattere tra virgolette, ad esempio '!', non riceva un trattamento speciale.
+I valori passati allo script come parametri devono essere racchiusi tra virgolette singole ('), in modo che il valore passato sia considerato un valore letterale e il carattere tra virgolette, ad esempio '!', non riceva un trattamento speciale.
 
 ### Impostazioni delle variabili di ambiente
 
@@ -162,9 +162,9 @@ Le variabili di ambiente impostate all'interno dello script sono disponibili sol
 
 ### Accedere alle posizioni in cui sono archiviati gli script personalizzati
 
-Gli script usati per personalizzare un cluster devono trovarsi nell'account di archiviazione predefinito per il cluster oppure, se si trovano in un altro account di archiviazione, in un contenitore pubblico di sola lettura. Se lo script accede a risorse che si trovano altrove, queste devono essere in una posizione accessibile pubblicamente \(almeno pubblica e di sola lettura\). Ad esempio, è possibile scaricare un file nel cluster usando `download_file`.
+Gli script usati per personalizzare un cluster devono trovarsi nell'account di archiviazione predefinito per il cluster oppure, se si trovano in un altro account di archiviazione, in un contenitore pubblico di sola lettura. Se lo script accede a risorse che si trovano altrove, queste devono essere in una posizione accessibile pubblicamente (almeno pubblica e di sola lettura). Ad esempio, è possibile scaricare un file nel cluster usando `download_file`.
 
-L'archiviazione di un file in un account di archiviazione di Azure accessibile al cluster \(ad esempio l'account di archiviazione predefinito\) consentirà un accesso rapido, perché questo account di archiviazione si trova nella rete di Azure.
+L'archiviazione di un file in un account di archiviazione di Azure accessibile al cluster (ad esempio l'account di archiviazione predefinito) consentirà un accesso rapido, perché questo account di archiviazione si trova nella rete di Azure.
 
 ## <a name="deployScript"></a>Elenco di controllo per la distribuzione di un'azione script
 
@@ -180,7 +180,7 @@ Di seguito sono indicati i passaggi effettuati durante la preparazione della dis
 
 ## <a name="runScriptAction"></a>Come eseguire un'azione script
 
-È possibile usare le azioni script per personalizzare i cluster HDInsight usando il portale di Azure, Azure PowerShell, i modelli di Azure Resource Manager \(ARM\) o HDInsight .NET SDK. Per le istruzioni, vedere [Come usare l'azione script](hdinsight-hadoop-customize-cluster-linux.md).
+È possibile usare le azioni script per personalizzare i cluster HDInsight usando il portale di Azure, Azure PowerShell, i modelli di Azure Resource Manager (ARM) o HDInsight .NET SDK. Per le istruzioni, vedere [Come usare l'azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="sampleScripts"></a>Esempi di script personalizzati
 
@@ -191,7 +191,7 @@ Microsoft fornisce script di esempio per installare i componenti in un cluster H
 - [Installare e usare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install-linux.md)
 - [Installare e usare Giraph nei cluster HDInsight](hdinsight-hadoop-giraph-install-linux.md)  
 
-> [AZURE.NOTE] I documenti indicati nei collegamenti precedenti sono specifici per i cluster HDInsight basati su Linux. Per gli script che funzionano con HDInsight basato su Windows, vedere [Sviluppo di azioni di script con HDInsight \(Windows\)](hdinsight-hadoop-script-actions.md) oppure usare i collegamenti disponibili all'inizio di ogni articolo.
+> [AZURE.NOTE] I documenti indicati nei collegamenti precedenti sono specifici per i cluster HDInsight basati su Linux. Per gli script che funzionano con HDInsight basato su Windows, vedere [Sviluppo di azioni di script con HDInsight (Windows)](hdinsight-hadoop-script-actions.md) oppure usare i collegamenti disponibili all'inizio di ogni articolo.
 
 ##Risoluzione dei problemi
 
@@ -212,11 +212,11 @@ _Risoluzione_: se nell'editor di testo è disponibile come opzione, selezionare 
 | `unix2dos -b INFILE` | Verrà creata una copia di backup del file originale con estensione BAK |
 | `tr -d '\r' < INFILE > OUTFILE` | OUTFILE conterrà una versione solo con le terminazioni LF |
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | Il file verrà modificato direttamente senza crearne uno nuovo |
-| ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` | OUTFILE conterrà una versione solo con le terminazioni LF.
+| ```sed 's/$'"/`echo \\r`/" INFILE > OUTFILE``` | OUTFILE conterrà una versione solo con le terminazioni LF.
 
 __Errore__: `line 1: #!/usr/bin/env: No such file or directory`.
 
-_Causa_: questo errore si verifica quando lo script è stato salvato in formato UTF-8 con un byte order mark \(BOM\).
+_Causa_: questo errore si verifica quando lo script è stato salvato in formato UTF-8 con un byte order mark (BOM).
 
 _Risoluzione_: salvare il file in formato ASCII o UTF-8 senza un carattere BOM. È anche possibile usare il comando seguente in un sistema Linux o Unix per creare un nuovo file senza il carattere BOM:
 

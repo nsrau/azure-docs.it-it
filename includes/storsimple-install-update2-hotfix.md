@@ -8,7 +8,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
 
 2. Se si usa Microsoft Update Catalog nel computer per la prima volta, fare clic su **Installa** quando viene richiesto di installare il componente aggiuntivo Microsoft Update Catalog. ![Installare il catalogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. Nella casella di ricerca di Microsoft Update Catalog, immettere il numero della Knowledge Base \(KB\) dell'aggiornamento rapido da scaricare, ad esempio **3121901**, quindi fare clic su **Cerca**.
+3. Nella casella di ricerca di Microsoft Update Catalog, immettere il numero della Knowledge Base (KB) dell'aggiornamento rapido da scaricare, ad esempio **3121901**, quindi fare clic su **Cerca**.
 
     Viene visualizzato l'elenco degli aggiornamenti rapidi, ad esempio, **Aggiornamento cumulativo del pacchetto software 2.0 per StorSimple serie 8000**.
 
@@ -16,7 +16,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
 
 4. Fare clic su **Aggiungi**. L'aggiornamento viene aggiunto al carrello.
 
-5. Cercare gli eventuali aggiornamenti rapidi aggiuntivi elencati nella tabella precedente \(**3121900**, **3080728**, **3090322** e **3121899**\) e aggiungerli al carrello.
+5. Cercare gli eventuali aggiornamenti rapidi aggiuntivi elencati nella tabella precedente (**3121900**, **3080728**, **3090322** e **3121899**) e aggiungerli al carrello.
 
 5. Fare clic su **Visualizza carrello**.
 

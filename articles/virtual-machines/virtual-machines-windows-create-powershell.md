@@ -40,7 +40,7 @@ Questi passaggi seguono un approccio basato sul completamento di valori predefin
 
 Per l'installazione sono disponibili due opzioni principali, [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) e [WebPI](http://aka.ms/webpi-azps). WebPI riceverà degli aggiornamenti mensili. La Raccolta di PowerShell riceverà degli aggiornamenti su base continua.
 
-Per altre informazioni, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/it-IT/blog/azps-1-0/).
+Per altre informazioni, vedere [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 ## Passaggio 2: Impostare la sottoscrizione
 
@@ -393,4 +393,4 @@ Ecco il set di comandi di Azure PowerShell per creare la macchina virtuale.
 
 [Come installare e configurare Azure PowerShell](../powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

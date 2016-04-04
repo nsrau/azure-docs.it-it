@@ -83,7 +83,8 @@ L'installazione di software personalizzato nel cluster tramite Connessione Deskt
 	
 	- Per personalizzare il menu, fare clic con il pulsante destro del mouse su un punto qualsiasi del menu e quindi scegliere **Personalizza**.
 	- **Impostazioni** e **Tutte le impostazioni**: visualizzano il pannello**Impostazioni** per il cluster, che consente di accedere a informazioni dettagliate sulla configurazione del cluster.
-	- **Dashboard**, **Dashboard cluster** e **URL: sono tutti modi per accedere al dashboard del cluster, ovvero Ambari Web per cluster basati su Linux. -**Secure Shell * *: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
+	- **Dashboard**, **Dashboard cluster** e **URL: sono tutti modi per accedere al dashboard del cluster, ovvero Ambari Web per cluster basati su Linux.
+	- **Secure Shell * *: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
 	- **Ridimensiona cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
 	- **Elimina**: elimina il cluster.
 	- **Avvio rapido (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
@@ -199,7 +200,8 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
 ##Sospendere/Arrestare i cluster
 
-La maggior parte dei processi Hadoop sono processi batch che vengono eseguito solo occasionalmente. La maggior parte dei cluster Hadoop non viene usata per l'elaborazione per lunghi periodi di tempo. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati.
+La maggior parte dei processi Hadoop sono processi batch che vengono eseguito solo occasionalmente. La maggior parte dei cluster Hadoop non viene usata per l'elaborazione per lunghi periodi di tempo. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato.
+ Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati.
 
 Questo processo può essere programmato in molti modi:
 
@@ -244,7 +246,7 @@ Per impostazione predefinita, a questi servizi è concesso l'accesso. È possibi
 2. Fare clic su **Esplora tutto** dal menu di sinistra, fare clic su **Cluster HDInsight** e quindi sul nome del cluster.
 3. Scegliere **Impostazioni** dal menu in alto, quindi fare clic su **Account di accesso del cluster**.
 4. Se **Account di accesso del cluster** è stato abilitato, è necessario fare clic su **Disabilita** e quindi su **Abilita** prima di poter modificare il nome utente e la password.
-6. Per **Nome utente dell'account di accesso del cluster** e **Password dell'account di accesso del cluster** immettere (rispettivamente) il nuovo nome utente e la nuova password per il cluster.
+6. Per **Nome utente dell'account di accesso del cluster** e **Password dell'account di accesso del cluster** immettere rispettivamente il nuovo nome utente e la nuova password per il cluster.
 7. Fare clic su **SAVE**.
 
 	![hdinsight rimozione complessiva dell’accesso al servizio web http](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)

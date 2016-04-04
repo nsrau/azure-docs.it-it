@@ -184,10 +184,10 @@ Configurare quindi SP1 per una nuova farm di SharePoint e un sito del team prede
 11.	Per **Modalità con cui si desidera configurare la farm di SharePoint**, fare clic su **Avvia la procedura guidata**.
 12.	Nella pagina Configura SharePoint farm in **Account del servizio**, fare clic su **Usa account gestito esistente**.
 13.	In **Servizi**, deselezionare le caselle di controllo eccetto la casella accanto a **Stato servizio**, quindi fare clic su **Avanti**. È possibile che venga visualizzata la pagina Working on it per alcuni secondi prima del completamento.
-14.	Nella pagina Crea raccolta siti in **Titolo e descrizione**, digita **Contoso Corporation** in **Titolo**, specificare l'URL ****http://sp1**/, quindi fare clic su **OK**. È possibile che venga visualizzata la pagina Working on it per alcuni secondi prima del completamento. Questo passaggio crea un sito del team all'URL http://sp1.
+14.	Nella pagina Crea raccolta siti in **Titolo e descrizione**, digita **Contoso Corporation** in **Titolo**, specificare l'URL **http://sp1**/, quindi fare clic su **OK**. È possibile che venga visualizzata la pagina Working on it per alcuni secondi prima del completamento. Questo passaggio crea un sito del team all'URL http://sp1.
 15.	Nella pagina Completamento della configurazione guidata della farm, fare clic su **Termina**. Nella scheda di Internet Explorer viene visualizzato il sito SharePoint 2013 Central Administration.
 16.	Accedere al computer CLIENT1 con le credenziali dell'account CORP\\User1, quindi avviare Internet Explorer.
-17.	Nella barra degli Indirizzi digitare ****http://sp1/** e quindi premere INVIO. Verrà visualizzato il sito del team di SharePoint per Contoso Corporation. Il rendering del sito potrebbe richiedere alcuni minuti.
+17.	Nella barra degli Indirizzi digitare **http://sp1/** e quindi premere INVIO. Verrà visualizzato il sito del team di SharePoint per Contoso Corporation. Il rendering del sito potrebbe richiedere alcuni minuti.
 
 Questa è la configurazione corrente.
 

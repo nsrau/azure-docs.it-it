@@ -167,7 +167,8 @@ Per altre informazioni sulla configurazione di un output di Power BI e per usare
 
 Power BI impiega vincoli di concorrenza e velocità effettiva come descritto qui: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Prezzi di Power BI")
 
-A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati. Si consiglia l'uso di TumblingWindow o di HoppingWindow per garantire che il push di dati sia di massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile usare l'equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi:
+A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati.
+Si consiglia l'uso di TumblingWindow o di HoppingWindow per garantire che il push di dati sia di massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile usare l'equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi:
   
 ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)
   

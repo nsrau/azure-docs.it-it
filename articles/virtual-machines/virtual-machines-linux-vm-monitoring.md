@@ -18,11 +18,11 @@
    
 # Abilitare o disabilitare il monitoraggio delle VM di Azure
 
-Questa sezione descrive come abilitare o disabilitare il monitoraggio nelle macchine virtuali in esecuzione in Azure. Per impostazione predefinita, il monitoraggio è abilitato nelle macchine virtuali di Azure se distribuite dal [portale di Azure](https://portal.azure.com) e grafici sul monitoraggio vengono forniti per impostazione predefinita ogni minuto. È possibile abilitare o disabilitare il monitoraggio usando il portale o l'interfaccia della riga di comando di Azure per Mac, Linux e Windows \(l'interfaccia della riga di comando di Azure\).
+Questa sezione descrive come abilitare o disabilitare il monitoraggio nelle macchine virtuali in esecuzione in Azure. Per impostazione predefinita, il monitoraggio è abilitato nelle macchine virtuali di Azure se distribuite dal [portale di Azure](https://portal.azure.com) e grafici sul monitoraggio vengono forniti per impostazione predefinita ogni minuto. È possibile abilitare o disabilitare il monitoraggio usando il portale o l'interfaccia della riga di comando di Azure per Mac, Linux e Windows (l'interfaccia della riga di comando di Azure).
 
 ## Abilitare/Disabilitare il monitoraggio dal portale di Azure
  
-È possibile abilitare il monitoraggio della VM di Azure, che fornisce dati sull'istanza ogni minuto \(sono incluse le modifiche dell'archivio\). Dati di diagnostica dettagliati sono quindi disponibili per la VM nei grafici del portale o tramite l'API. Per impostazione predefinita, nel portale di Azure il monitoraggio è abilitato, ma è possibile disattivarlo come illustrato di seguito. È possibile abilitare il monitoraggio mentre la VM si trova nello stato in corso di esecuzione o arrestato.
+È possibile abilitare il monitoraggio della VM di Azure, che fornisce dati sull'istanza ogni minuto (sono incluse le modifiche dell'archivio). Dati di diagnostica dettagliati sono quindi disponibili per la VM nei grafici del portale o tramite l'API. Per impostazione predefinita, nel portale di Azure il monitoraggio è abilitato, ma è possibile disattivarlo come illustrato di seguito. È possibile abilitare il monitoraggio mentre la VM si trova nello stato in corso di esecuzione o arrestato.
 
 - Aprire il portale di Azure all'indirizzo **[https://portal.azure.com](https://portal.azure.com)**
 
@@ -52,7 +52,7 @@ Per abilitare il monitoraggio per una VM di Azure.
 
 [Azure.Note] È possibile passare dalla versione 2.0 a una successiva, se disponibile.
 
-Per altri dettagli sulla configurazione della metrica di monitoraggio ed esempi, vedere il documento \*\*[Uso dell'estensione di diagnostica Linux per monitorare le prestazioni delle macchine virtuali Linux e i dati di diagnostica](virtual-machines-linux-diagnostic-extension/).
+Per altri dettagli sulla configurazione della metrica di monitoraggio ed esempi, vedere il documento **[Uso dell'estensione di diagnostica Linux per monitorare le prestazioni delle macchine virtuali Linux e i dati di diagnostica](virtual-machines-linux-diagnostic-extension/).
 
 <!--Image references-->
 [1]: ./media/virtual-machines-linux-vm-monitoring/portal-enable-disable.png

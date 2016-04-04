@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Questo articolo illustra l'estensione DSC \(Desired State Configuration\) per Azure. Una panoramica del gestore estensione DSC è disponibile in [Introduzione al gestore dell'estensione DSC \(Desired State Configuration\) di Azure](virtual-machines-windows-extensions-dsc-overview.md).
+Questo articolo illustra l'estensione DSC (Desired State Configuration) per Azure. Una panoramica del gestore estensione DSC è disponibile in [Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure](virtual-machines-windows-extensions-dsc-overview.md).
 
 Nell'ambito del processo di configurazione, potrebbe essere necessario configurare account utente, servizi di accesso o installare un programma in un contesto utente. Per eseguire queste operazioni, è necessario fornire le credenziali.
 
@@ -56,7 +56,7 @@ configuration Main
 } 
 ```
 
-È importante includere *node localhost* come parte della configurazione. Il gestore estensione cerca specificamente l'istruzione node localhost e non funzionerà senza questa istruzione. È anche importante includere il cast di tipo *\[PsCredential\]*, perché questo tipo specifico attiva l'estensione per crittografare la credenziale come descritto di seguito.
+È importante includere *node localhost* come parte della configurazione. Il gestore estensione cerca specificamente l'istruzione node localhost e non funzionerà senza questa istruzione. È anche importante includere il cast di tipo *[PsCredential]*, perché questo tipo specifico attiva l'estensione per crittografare la credenziale come descritto di seguito.
 
 Pubblicare questo script nell'archivio BLOB:
 
@@ -83,7 +83,7 @@ Questa procedura è diversa dall'uso di configurazioni sicure senza il gestore e
 
 ## Passaggi successivi ##
 
-Per altre informazioni sul gestore estensione DSC, vedere [Introduzione al gestore dell'estensione DSC \(Desired State Configuration\) di Azure](virtual-machines-windows-extensions-dsc-overview.md).
+Per altre informazioni sul gestore estensione DSC, vedere [Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure](virtual-machines-windows-extensions-dsc-overview.md).
 
 Per altre informazioni su PowerShell DSC, vedere il [centro di documentazione di PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
 

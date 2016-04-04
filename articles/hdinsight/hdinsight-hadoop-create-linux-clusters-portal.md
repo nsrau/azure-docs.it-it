@@ -147,13 +147,13 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il
 
 	* **Elimina**: consente di eliminare il cluster HDInsight.
 
-	* **Guide rapide** \(![icona cloud e thunderbolt = guida rapida](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)\): Visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
+	* **Guide rapide** (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)): Visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
 
-	* **Utenti** \(![icona utenti](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png)\): consente di impostare le autorizzazioni per _Gestione portale_ di questo cluster per altri utenti nella sottoscrizione Azure.
+	* **Utenti** (![icona utenti](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png)): consente di impostare le autorizzazioni per _Gestione portale_ di questo cluster per altri utenti nella sottoscrizione Azure.
 
 		> [AZURE.IMPORTANT] Questo influisce _solo_ sull'accesso e sulle autorizzazioni per tale cluster nel portale di Azure e non ha alcun effetto su chi può connettersi o inviare processi al cluster HDInsight.
 
-	* **Tag** \(![icona tag](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)\): consente di impostare coppie chiave/valore per definire una tassonomia dei servizi cloud personalizzata. Ad esempio, è possibile creare una chiave denominata __progetto__ e usare un valore comune per tutti i servizi associati a un progetto specifico.
+	* **Tag** (![icona tag](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): consente di impostare coppie chiave/valore per definire una tassonomia dei servizi cloud personalizzata. Ad esempio, è possibile creare una chiave denominata __progetto__ e usare un valore comune per tutti i servizi associati a un progetto specifico.
 
 ##Personalizzare i cluster
 

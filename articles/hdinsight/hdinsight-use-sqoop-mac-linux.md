@@ -92,13 +92,13 @@ Innanzitutto, sarà necessario esportare la tabella **hivesampletable** nel data
     
     Annotare questi valori. Sarà necessario usarli più avanti nell'esercitazione.
     
-3\. Fare clic su **OK** per salvare i parametri.
+3. Fare clic su **OK** per salvare i parametri.
 
-4\. Nel pannello **Distribuzione personalizzata** fare clic su **Gruppo di risorse** nella casella di riepilogo a discesa e quindi scegliere **Nuovo** per creare un nuovo gruppo di risorse. Il gruppo di risorse è un contenitore che raggruppa il cluster, l'account di archiviazione dipendente e altre risorse collegate.
+4. Nel pannello **Distribuzione personalizzata** fare clic su **Gruppo di risorse** nella casella di riepilogo a discesa e quindi scegliere **Nuovo** per creare un nuovo gruppo di risorse. Il gruppo di risorse è un contenitore che raggruppa il cluster, l'account di archiviazione dipendente e altre risorse collegate.
 
-5\. Fare clic su **Note legali** e quindi su **Crea**.
+5. Fare clic su **Note legali** e quindi su **Crea**.
 
-6\. Fare clic su **Crea**. Verrà visualizzato un nuovo riquadro denominato Invio della distribuzione per Distribuzione modello. La creazione del cluster e del database SQL richiede circa 20 minuti.
+6. Fare clic su **Crea**. Verrà visualizzato un nuovo riquadro denominato Invio della distribuzione per Distribuzione modello. La creazione del cluster e del database SQL richiede circa 20 minuti.
 
 Se si sceglie di utilizzare un database SQL di Azure esistente o un Server SQL di Microsoft
 

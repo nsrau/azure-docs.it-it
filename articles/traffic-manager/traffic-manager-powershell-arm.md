@@ -41,11 +41,11 @@ Sebbene le funzionalità siano identiche, alcune tecnologie hanno subito delle m
 ## Limitazioni
 Attualmente, esistono alcune limitazioni nel supporto ARM per Gestione traffico di Azure:
 
-- I profili di Gestione traffico creati mediante l'API di gestione del servizio Azure esistente \(non ARM\), gli strumenti e il portale "classico" non sono disponibili tramite ARM e viceversa. La migrazione dei profili dalle API di gestione del servizio alle API ARM non è attualmente supportata. È solo possibile eliminare e ricreare il profilo.
+- I profili di Gestione traffico creati mediante l'API di gestione del servizio Azure esistente (non ARM), gli strumenti e il portale "classico" non sono disponibili tramite ARM e viceversa. La migrazione dei profili dalle API di gestione del servizio alle API ARM non è attualmente supportata. È solo possibile eliminare e ricreare il profilo.
 
-- Endpoint di Gestione traffico 'annidati' sono supportati tramite l'interfaccia della riga di comando API ARM, PowerShell ARM e in modalità ARM. Al momento, non sono supportati nel portale di Azure \(che usa anche l'API ARM\).
+- Endpoint di Gestione traffico 'annidati' sono supportati tramite l'interfaccia della riga di comando API ARM, PowerShell ARM e in modalità ARM. Al momento, non sono supportati nel portale di Azure (che usa anche l'API ARM).
 
-- Gli endpoint di Gestione traffico di tipo "AzureEndpoints", quando fanno riferimento a un'app Web, possono fare riferimento solo allo [slot dell'app Web](../app-service-web/web-sites-staged-publishing.md) predefinito \(produzione\). Gli slot personalizzati non sono ancora supportati. In alternativa, gli slot personalizzati possono essere configurati usando il tipo 'ExternalEndpoints'.
+- Gli endpoint di Gestione traffico di tipo "AzureEndpoints", quando fanno riferimento a un'app Web, possono fare riferimento solo allo [slot dell'app Web](../app-service-web/web-sites-staged-publishing.md) predefinito (produzione). Gli slot personalizzati non sono ancora supportati. In alternativa, gli slot personalizzati possono essere configurati usando il tipo 'ExternalEndpoints'.
 
 ## Configurazione di Azure PowerShell
 
@@ -81,7 +81,7 @@ Creare un nuovo gruppo di risorse. Ignorare questo passaggio se si usa un gruppo
 
 	PS C:\> New-AzureRmResourceGroup -Name MyRG -Location "West US"
 
-Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Tuttavia, dal momento che tutte le risorse di Gestione traffico sono globali \(non locali\), la scelta del percorso relativo al gruppo di risorse non ha alcun impatto sul servizio Gestione traffico di Azure.
+Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Tuttavia, dal momento che tutte le risorse di Gestione traffico sono globali (non locali), la scelta del percorso relativo al gruppo di risorse non ha alcun impatto sul servizio Gestione traffico di Azure.
 
 ## Creazione di un profilo di Gestione traffico
 
@@ -152,8 +152,8 @@ In tutti e tre i casi è possibile aggiungere gli endpoint in due modi:<BR>
 
 Gli endpoint di Azure fanno riferimento ad altri servizi ospitati in Azure. Sono attualmente supportati tre tipi di endpoint di Azure:<BR>
 1. App Web di Azure<BR>
-2. Servizi cloud "classici" \(che possono includere un servizio PaaS o macchine virtuali IaaS\)<BR>
-3. Risorse di tipo Microsoft.Network/publicIpAddress ARM \(che possono essere associate a un servizio di bilanciamento del carico o a una NIC di macchina virtuale\). Si noti che è necessario che al valore publicIpAddress sia assegnato un nome DNS, da usare in Gestione traffico.
+2. Servizi cloud "classici" (che possono includere un servizio PaaS o macchine virtuali IaaS)<BR>
+3. Risorse di tipo Microsoft.Network/publicIpAddress ARM (che possono essere associate a un servizio di bilanciamento del carico o a una NIC di macchina virtuale). Si noti che è necessario che al valore publicIpAddress sia assegnato un nome DNS, da usare in Gestione traffico.
 
 In ogni caso:
  - Il servizio viene specificato con il parametro "TargetResourceId" del componente Add-AzureRmTrafficManagerEndpointConfig o New-AzureRmTrafficManagerEndpoint.<BR>
@@ -207,7 +207,7 @@ In questo esempio viene aggiunto un endpoint esterno a un profilo esistente, spe
 
 ### Aggiunta di endpoint 'annidati'
 
-Gestione traffico consente di configurare un profilo di Gestione traffico \(che chiameremo il profilo "figlio"\) come endpoint all'interno di un altro profilo di Gestione traffico \(che chiameremo il profilo "padre"\).
+Gestione traffico consente di configurare un profilo di Gestione traffico (che chiameremo il profilo "figlio") come endpoint all'interno di un altro profilo di Gestione traffico (che chiameremo il profilo "padre").
 
 Gestione traffico di annidamento consente la creazione di routing del traffico e schemi di failover più flessibili e potenti per supportare le esigenze di distribuzioni più grandi e complesse. [Questo post di blog](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/) illustra diversi esempi.
 

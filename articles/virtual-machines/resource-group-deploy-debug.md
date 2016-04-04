@@ -297,7 +297,7 @@ In questi casi, si deve accedere al portale e rivolgersi all'assistenza per rich
 <!-- -->
 Per specificare informazioni dettagliate sui core, è ad esempio possibile controllare le aree per cui occorre richiedere la quota appropriata usando il comando seguente che viene inviato tramite pipe a **jq** per l'analisi JSON.
 <!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+        	azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
         {
           "name": "virtualMachines",
           "apiVersions": [

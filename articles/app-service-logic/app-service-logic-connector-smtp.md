@@ -61,9 +61,12 @@ Nessuno | Send email
 ## Usare il connettore SMTP nell'app per la logica
 Dopo aver creato il connettore, è possibile usare il connettore SMTP come azione per l'app per la logica. A tale scopo, seguire questa procedura:
 
-1.	Creare una nuova app per la logica: ![][2]
-2.	Aprire **Triggers e azioni** per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso di lavoro: ![][3]
-3.	Il connettore SMTP viene elencato nella sezione relativa alle app per le API nel gruppo di risorse della raccolta a destra. Selezionarlo: ![][4]
+1.	Creare una nuova app per la logica: 
+	![][2]
+2.	Aprire **Triggers e azioni** per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso di lavoro: 
+	![][3]
+3.	Il connettore SMTP viene elencato nella sezione relativa alle app per le API nel gruppo di risorse della raccolta a destra. Selezionarlo: 
+	![][4]
 4.	Selezionare il connettore SMTP per aggiungerlo automaticamente alla finestra di progettazione del flusso di lavoro.
 
 È ora possibile configurare il connettore SMTP per usarlo nel flusso di lavoro. Selezionare l'azione **Invia posta elettronica** e configurare le proprietà di input:
@@ -79,7 +82,8 @@ Dopo aver creato il connettore, è possibile usare il connettore SMTP come azion
 	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
 	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
-![][5] ![][6]
+![][5]
+![][6]
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)

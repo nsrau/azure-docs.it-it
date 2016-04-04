@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Panoramica approfondita dei piani di Azure App Service" 
-	description="Informazioni sui piani di servizio app per Azure App Service e sui vantaggi offerti all&#39;esperienza di gestione." 
+	description="Informazioni sui piani di servizio app per Azure App Service e sui vantaggi offerti all'esperienza di gestione." 
 	keywords="servizio app, servizio app di azure, scala, scalabile, piano di servizio app, costo del servizio app"
 	services="app-service" 
 	documentationCenter="" 
@@ -19,7 +19,7 @@
 
 #Panoramica approfondita dei piani di Azure App Service#
 
-Un **piano di servizio app** rappresenta un set di funzionalità e capacità che è possibile condividere tra più app in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), tra cui app Web, per dispositivi mobili, per la logica o per le API. Questi piani supportano 5 piani tariffari \(**Gratuito**, **Condiviso**, **Basic**, **Standard** e **Premium**\) ognuno dei quali offre funzionalità e capacità specifiche. Le app di una stessa sottoscrizione e posizione geografica possono condividere un piano. Tutte le app che condividono un piano possono sfruttare tutte le capacità e funzionalità offerte dal relativo livello. Tutte le app associate a un piano specifico vengono eseguite sulle risorse definite dal piano. Se, ad esempio, il piano è configurato per usare due istanze "piccole" nel livello di servizio Standard, tutte le app associate a tale piano verranno eseguite in entrambe le istanze e disporranno delle funzionalità previste dal livello di servizio Standard. Le istanze del piano in cui le app sono in esecuzione sono completamente gestite e a disponibilità elevata.
+Un **piano di servizio app** rappresenta un set di funzionalità e capacità che è possibile condividere tra più app in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), tra cui app Web, per dispositivi mobili, per la logica o per le API. Questi piani supportano 5 piani tariffari (**Gratuito**, **Condiviso**, **Basic**, **Standard** e **Premium**) ognuno dei quali offre funzionalità e capacità specifiche. Le app di una stessa sottoscrizione e posizione geografica possono condividere un piano. Tutte le app che condividono un piano possono sfruttare tutte le capacità e funzionalità offerte dal relativo livello. Tutte le app associate a un piano specifico vengono eseguite sulle risorse definite dal piano. Se, ad esempio, il piano è configurato per usare due istanze "piccole" nel livello di servizio Standard, tutte le app associate a tale piano verranno eseguite in entrambe le istanze e disporranno delle funzionalità previste dal livello di servizio Standard. Le istanze del piano in cui le app sono in esecuzione sono completamente gestite e a disponibilità elevata.
 
 Questo articolo illustra le principali caratteristiche, come livello e scalabilità, di un piano di servizio app e il modo in cui queste caratteristiche influiscono sulla gestione delle app.
 

@@ -104,9 +104,9 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo
 	- **-a (o --nsg-name)**. Nome del gruppo di sicurezza di rete in cui verrà creata la regola. Per questo scenario, *NSG-FrontEnd*.
 	- **-n (o --name)**. Nome per la nuova regola. Per questo scenario, *rdp-rule*.
 	- **-c (o --access)**. Livello di accesso per la regola (Deny o Allow).
-	- **-p (o --protocol)**. Protocollo (Tcp, Udp o *) per la regola.
-- **-r (o--direction)**. Direzione di connessione (Inbound o Outbound).
-	- **-y (o --priority)**. Priorità per la regola.
+	- **-p (o--protocol)**. Protocollo (Tcp, Udp o *) per la regola.
+	- **-r (o--direction)**. Direzione di connessione (Inbound o Outbound).
+	- **-y (o--priority)**. Priorità per la regola.
 	- **-f (o --source-address-prefix)**. Prefisso dell'indirizzo di origine in CIDR o con tag predefiniti.
 	- **-o (o --source-port-range)**. Porta o intervallo di porte di origine.
 	- **-e (o --destination-address-prefix)**. Prefisso dell'indirizzo di destinazione in CIDR o con tag predefiniti.
@@ -268,5 +268,7 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo 
 		Configurations/ipconfig1
 		data:    
 		info:    network vnet subnet set command OK
+
+<!----HONumber=AcomDC_0323_2016-->
 
 <!---HONumber=AcomDC_0323_2016-->

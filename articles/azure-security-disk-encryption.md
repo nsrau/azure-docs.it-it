@@ -145,21 +145,21 @@ Di seguito sono elencati i prerequisiti per abilitare Azure Disk Encryption nell
 
 	- Esempio di URL del segreto valido:
 
-		**https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- Esempio di URL KEK valido:
 
-		**https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Azure Disk Encryption non supporta l'indicazione dei numeri di porta come parte degli URL KEK e del segreto dell'insieme di credenziali delle chiavi. Ecco alcuni esempi di URL dell'insieme di credenziali delle chiavi supportati:
 
  	- URL dell'insieme di credenziali delle chiavi non accettato:
 
-		**https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- URL dell'insieme di credenziali delle chiavi accettato:
 
-		**https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Per abilitare la funzionalità Azure Disk Encryption, le VM IaaS devono soddisfare i requisiti di configurazione degli endpoint di rete seguenti:
 

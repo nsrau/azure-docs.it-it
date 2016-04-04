@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creare report e verificare l&#39;integrità con Azure Service Fabric | Microsoft Azure"
-   description="Informazioni su come inviare report di integrità dal codice del servizio e verificare l&#39;integrità del servizio usando gli strumenti di monitoraggio dello stato forniti da Azure Service Fabric."
+   pageTitle="Creare report e verificare l'integrità con Azure Service Fabric | Microsoft Azure"
+   description="Informazioni su come inviare report di integrità dal codice del servizio e verificare l'integrità del servizio usando gli strumenti di monitoraggio dello stato forniti da Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="punewa"

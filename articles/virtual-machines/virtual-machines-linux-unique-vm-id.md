@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Accesso all&#39;ID di una VM"
-   description="Descrive l&#39;accesso e l&#39;uso dell&#39;ID univoco di una VM di Azure"
+   pageTitle="Accesso all'ID di una VM"
+   description="Descrive l'accesso e l'uso dell'ID univoco di una VM di Azure"
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="kmouss"
@@ -20,9 +20,9 @@
 
 L'ID univoco di una VM di Azure è un identificatore a 128 bit codificato e archiviato nel sistema SMBIOS di tutte le VM IaaS di Azure e attualmente può essere letto usando i comandi BIOS della piattaforma.
 
-L'ID univoco di una VM di Azure è una proprietà di sola lettura. L'ID univoco di una VM di Azure non verrà modificato in caso di riavvio, arresto \(pianificato o non pianificato\), avvio/arresto della deallocazione, riparazione di servizi o ripristino sul posto. Se, tuttavia, la VM è uno snapshot e viene copiata per creare una nuova istanza, viene configurato l'ID univoco della VM di Azure.
+L'ID univoco di una VM di Azure è una proprietà di sola lettura. L'ID univoco di una VM di Azure non verrà modificato in caso di riavvio, arresto (pianificato o non pianificato), avvio/arresto della deallocazione, riparazione di servizi o ripristino sul posto. Se, tuttavia, la VM è uno snapshot e viene copiata per creare una nuova istanza, viene configurato l'ID univoco della VM di Azure.
 
-> [AZURE.NOTE] Se in precedenza sono state create VM in esecuzione da quando questa nuova funzionalità è stata implementata \(18 settembre 2014\), riavviare ogni VM per ottenere automaticamente un ID univoco di Azure.
+> [AZURE.NOTE] Se in precedenza sono state create VM in esecuzione da quando questa nuova funzionalità è stata implementata (18 settembre 2014), riavviare ogni VM per ottenere automaticamente un ID univoco di Azure.
 
 
 Per accedere all'ID univoco di una VM di Azure dalla VM:
@@ -42,7 +42,7 @@ Per altre informazioni, vedere [SSH da Linux](virtual-machines-linux-ssh-from-li
 
 ## Effettuare una query dell'ID univoco di una VM
 
-Comando \(l'esempio usa **Ubuntu**\):
+Comando (l'esempio usa **Ubuntu**):
 
     sudo dmidecode | grep UUID
     

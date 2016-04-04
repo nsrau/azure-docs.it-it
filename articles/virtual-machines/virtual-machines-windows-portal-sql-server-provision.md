@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Effettuare il provisioning di una macchina virtuale di SQL Server in Gestione risorse di Azure (GUI) | Microsoft Azure"
-	description="Creare una macchina virtuale di SQL Server in modalità Gestione risorse di Azure Questa esercitazione usa principalmente l&#39;interfaccia utente e gli strumenti invece dello scripting."
+	description="Creare una macchina virtuale di SQL Server in modalità Gestione risorse di Azure Questa esercitazione usa principalmente l'interfaccia utente e gli strumenti invece dello scripting."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -31,7 +31,7 @@
 
 Questa esercitazione end-to-end illustra come effettuare il provisioning di una macchina virtuale di Azure nel portale usando il modello di Gestione risorse di Azure e configurare SQL Server da un modello nella raccolta di Azure.
 
-La raccolta di macchine virtuali \(VM\) di Azure include numerose immagini che contengono Microsoft SQL Server. È possibile selezionare una delle immagini di VM disponibili nella raccolta ed effettuare il provisioning della VM nell'ambiente Azure con pochi clic.
+La raccolta di macchine virtuali (VM) di Azure include numerose immagini che contengono Microsoft SQL Server. È possibile selezionare una delle immagini di VM disponibili nella raccolta ed effettuare il provisioning della VM nell'ambiente Azure con pochi clic.
 
 In questa esercitazione si apprenderà come:
 
@@ -108,18 +108,18 @@ Nel pannello **Crea macchina virtuale** configurare le impostazioni e le ottimiz
 - Integrazione dell'insieme di credenziali delle chiavi
 
 ### Connettività
-In **Connettività SQL** specificare **Pubblico \(Internet\)** per consentire le connessioni a SQL Server da computer o servizi in Internet. Selezionando questa opzione, Azure configura automaticamente il firewall e il gruppo di sicurezza di rete per consentire il traffico sulla porta 1433. <br/>![Connettività di Gestione risorse di Azure per SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png) <br/>
+In **Connettività SQL** specificare **Pubblico (Internet)** per consentire le connessioni a SQL Server da computer o servizi in Internet. Selezionando questa opzione, Azure configura automaticamente il firewall e il gruppo di sicurezza di rete per consentire il traffico sulla porta 1433. <br/>![Connettività di Gestione risorse di Azure per SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png) <br/>
 
 Per connettersi a SQL Server tramite Internet, è necessario abilitare anche Autenticazione di SQL Server.
 
->[AZURE.NOTE]Per motivi di sicurezza, limitare la porta di origine usando Gruppo di sicurezza di rete. Per altre informazioni, vedere [Che cos'è un gruppo di sicurezza di rete \(NSG\)?](../virtual-network/virtual-networks-nsg.md).
+>[AZURE.NOTE]Per motivi di sicurezza, limitare la porta di origine usando Gruppo di sicurezza di rete. Per altre informazioni, vedere [Che cos'è un gruppo di sicurezza di rete (NSG)?](../virtual-network/virtual-networks-nsg.md).
 
 Se si preferisce non abilitare automaticamente le connessioni al motore di database con Internet, scegliere una delle opzioni seguenti:
-- **Locale \(solo all'interno della VM\)** per consentire le connessioni a SQL Server solo dalla VM.
-- **Privato \(nella rete virtuale\)** per consentire le connessioni a SQL Server da computer o servizi nella stessa rete virtuale.
+- **Locale (solo all'interno della VM)** per consentire le connessioni a SQL Server solo dalla VM.
+- **Privato (nella rete virtuale)** per consentire le connessioni a SQL Server da computer o servizi nella stessa rete virtuale.
 
 
-Il valore predefinito di **Porta** è 1433, ma è possibile specificare un numero di porta diverso. Per altre informazioni, vedere [Connettersi a una macchina virtuale di SQL Server \(Resource Manager\) \| Microsoft Azure](virtual-machines-windows-sql-connect.md).
+Il valore predefinito di **Porta** è 1433, ma è possibile specificare un numero di porta diverso. Per altre informazioni, vedere [Connettersi a una macchina virtuale di SQL Server (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
 
 
 
@@ -189,7 +189,7 @@ Seguire questa procedura per usare Desktop remoto per aprire la macchina virtual
 1.	Dopo la compilazione della VM di Azure, nel dashboard di Azure verrà visualizzata un'icona per la macchina virtuale. Fare clic sull'icona per visualizzare le informazioni sulla VM.
 1.	Nella parte superiore del pannello della VM fare clic su **Connetti**. Il browser scaricherà un file RDP per la VM. Aprire del file RDP.
 1.	Connessione Desktop remoto informerà l'utente che non è possibile identificare l'autore della connessione remota e chiederà se si vuole connettersi comunque. Fare clic su **Connect**.
-1.	Nella finestra di dialogo **Sicurezza di Windows** fare clic su **Usa un altro account**. Per **Nome utente** digitare <machine name>\<nome utente\> specificato durante la configurazione della VM.
+1.	Nella finestra di dialogo **Sicurezza di Windows** fare clic su **Usa un altro account**. Per **Nome utente** digitare <machine name><nome utente> specificato durante la configurazione della VM.
 
 Dopo essersi connessi alla macchina virtuale di SQL Server, è possibile avviare SQL Server Management Studio e connettersi con l'autenticazione di Windows usando le credenziali di amministratore locale. In questo modo è possibile modificare le impostazioni del firewall o le impostazioni di configurazione di SQL Server post-provisioning, se necessario.
 
@@ -199,7 +199,7 @@ Per connettersi al motore di database di SQL Server da Internet, sono necessari 
 
 Se si usa il portale per effettuare il provisioning di un'immagine di macchina virtuale di SQL Server con Resource Manager, questi passaggi vengono eseguiti automaticamente quando si seleziona **Pubblico** per l'opzione di connettività SQL e si abilita l'autenticazione di SQL Server. Per accedere all'istanza di SQL Server da Internet, è tuttavia necessario completare alcuni passaggi rimanenti.
 
->[AZURE.NOTE] Se non si è selezionato Pubblico durante il provisioning, sono necessari altri passaggi per accedere all'istanza di SQL Server tramite Internet. Per altre informazioni, vedere [Connettersi a una macchina virtuale di SQL Server \(Resource Manager\) \| Microsoft Azure](virtual-machines-windows-sql-connect.md).
+>[AZURE.NOTE] Se non si è selezionato Pubblico durante il provisioning, sono necessari altri passaggi per accedere all'istanza di SQL Server tramite Internet. Per altre informazioni, vedere [Connettersi a una macchina virtuale di SQL Server (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
 
 I passaggi seguenti non sono necessari se si deve solo accedere alla macchina virtuale in locale o dall'interno della stessa rete virtuale.
 
