@@ -1,7 +1,7 @@
 <properties
    pageTitle="Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse | Microsoft Azure"
    description="Vengono descritti i problemi comuni che possono verificarsi durante la distribuzione di risorse create usando il modello di distribuzione di Gestione risorse e viene illustrato come rilevare e risolvere questi problemi."
-   services="azure-resource-manager,virtual-machines"
+   services="azure-resource-manager,virtual-machines-linux"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
@@ -293,12 +293,12 @@ Se si tenta di distribuire un modello che crea più di 4 core nell'area Stati Un
 
 In questi casi, si deve accedere al portale e rivolgersi all'assistenza per richiedere l'aumento della quota per l'area di destinazione della distribuzione.
 
-> [AZURE.NOTE] Tenere presente che per i gruppi di risorse, la quota è riferita alle singole aree e non all'intera sottoscrizione. Se è necessario distribuire 30 core nell'area Stati Uniti occidentali, è necessario richiedere 30 core di gestione delle risorse per Stati Uniti occidentali. Se è necessario distribuire 30 core in qualsiasi area a cui si ha accesso, è necessario richiedere 30 core di gestione delle risorse per tutte le aree. 
-<!-- --> 
-Per essere precisi per i core, ad esempio, è possibile controllare le aree per cui è necessario richiedere la quantità appropriata di quote tramite il comando seguente, che invia pipe a **jq** per l'analisi json.
+> [AZURE.NOTE] Tenere presente che per i gruppi di risorse, la quota è riferita alle singole aree e non all'intera sottoscrizione. Se è necessario distribuire 30 core nell'area Stati Uniti occidentali, è necessario richiedere 30 core di gestione delle risorse per Stati Uniti occidentali. Se è necessario distribuire 30 core in qualsiasi area a cui si ha accesso, è necessario richiedere 30 core di gestione delle risorse per tutte le aree.
 <!-- -->
-		azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' 
-	 { 
+Per specificare informazioni dettagliate sui core, è ad esempio possibile controllare le aree per cui occorre richiedere la quota appropriata usando il comando seguente che viene inviato tramite pipe a **jq** per l'analisi JSON.
+<!-- -->
+        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+        {
           "name": "virtualMachines",
           "apiVersions": [
             "2015-05-01-preview",
@@ -320,7 +320,7 @@ Le risorse vengono gestite dai provider di risorse ed è possibile abilitare un 
 
 ### PowerShell
 
-Per ottenere un elenco di provider di risorse e il proprio stato di registrazione, usare **Get-AzureProvider** per le versioni di PowerShell precedenti alla 1.0.
+Per ottenere un elenco di provider di risorse e lo stato di registrazione corrente, usare **Get-AzureProvider** per le versioni di PowerShell precedenti alla versione 1.0.
 
     PS C:\> Get-AzureProvider
 
@@ -435,4 +435,4 @@ Per informazioni su come creare i modelli, leggere [Creazione di modelli di Gest
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

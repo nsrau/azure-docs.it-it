@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="03/16/2016" 
 	ms.author="guayan"/>
 
 # Trigger delle app per le API del servizio app di Azure
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per le API.
+
 
 ## Panoramica
 
@@ -339,4 +342,4 @@ Di seguito è riportato un esempio di come è possibile implementare questa clas
     }
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

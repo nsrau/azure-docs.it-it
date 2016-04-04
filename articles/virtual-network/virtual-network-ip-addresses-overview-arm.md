@@ -23,7 +23,7 @@ Gli indirizzi IP pubblici consentono di comunicare con Internet e con i servizi 
 
 Gli indirizzi IP privati vengono usati per la comunicazione all'interno di una rete virtuale Azure (VNet) e della rete locale quando si usa un gateway VPN o un circuito ExpressRoute per estendere la rete ad Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [Modello di distribuzione classica](virtual-network-ip-addresses-overview-classic.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
 
 Se si ha familiarità con il modello di distribuzione classico, verificare le [differenze tra gli indirizzi IP nella versione classica e in Gestione risorse](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
@@ -59,7 +59,7 @@ Gli indirizzi IP pubblici statici sono comunemente usati negli scenari seguenti:
 >[AZURE.IMPORTANT] Ogni etichetta di nome di dominio creata deve essere univoca nella relativa posizione di Azure.
 
 ### VM
-È possibile associare un indirizzo IP pubblico a una [macchina virtuale](virtual-machines-about.md) (VM) assegnandola alla relativa **scheda di interfaccia di rete**. In caso di una macchina virtuale con più schede di interfaccia di rete, è possibile assegnarla solo alla scheda di interfaccia di rete *primaria*. A una macchina virtuale è possibile assegnare un indirizzo IP pubblico statico o dinamico.
+È possibile associare un indirizzo IP pubblico a una [macchina virtuale](../virtual-machines/virtual-machines-linux-about.md) (VM) assegnandola alla relativa **scheda di interfaccia di rete**. In caso di una macchina virtuale con più schede di interfaccia di rete, è possibile assegnarla solo alla scheda di interfaccia di rete *primaria*. A una macchina virtuale è possibile assegnare un indirizzo IP pubblico statico o dinamico.
 
 ### Servizi di bilanciamento del carico con connessione Internet
 È possibile associare un indirizzo IP pubblico a un [servizio di bilanciamento del carico di Azure](load-balancer-overview.md), assegnandolo alla configurazione **front-end** del servizio di bilanciamento del carico. Questo indirizzo IP pubblico viene usato come indirizzo IP virtuale (VIP) di bilanciamento del carico. A un servizio di bilanciamento del carico front-end è possibile assegnare un indirizzo IP pubblico statico o dinamico. È anche possibile assegnare più indirizzi IP pubblici a un servizio di bilanciamento del carico front-end, consentendo così scenari con [più indirizzi VIP](load-balancer-multivip.md) come un ambiente multi-tenant con siti Web basati su SSL.
@@ -103,7 +103,7 @@ Gli indirizzi IP privati statici vengono comunemente usati per:
 - Risorse accessibili da altre app o risorse tramite un indirizzo IP.
 
 ### VM
-Un indirizzo IP privato viene assegnato alla **scheda di interfaccia di rete** di una [macchina virtuale](virtual-machines-about.md). Nel caso di una macchina virtuale con più schede di interfaccia di rete, a ogni scheda viene assegnato un indirizzo IP privato. Per una scheda di interfaccia di rete è possibile specificare il metodo di allocazione statico o dinamico.
+Un indirizzo IP privato viene assegnato alla **scheda di interfaccia di rete** di una [macchina virtuale](../virtual-machines/virtual-machines-linux-about.md). Nel caso di una macchina virtuale con più schede di interfaccia di rete, a ogni scheda viene assegnato un indirizzo IP privato. Per una scheda di interfaccia di rete è possibile specificare il metodo di allocazione statico o dinamico.
 
 #### Risoluzione del nome host DNS interno per le macchine virtuali
 Tutte le macchine virtuali di Azure sono configurate con [server DNS gestiti da Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) per impostazione predefinita, a meno che non si configurino in modo esplicito server DNS personalizzati. Questi server DNS forniscono la risoluzione dei nomi interna per le macchine virtuali che risiedono nella stessa rete virtuale.
@@ -137,4 +137,4 @@ Nella maggior parte dei casi, gli indirizzi IP pubblici sono gratuiti. È previs
 - Informazioni su come [distribuire una VM con un IP pubblico statico tramite un modello](virtual-network-deploy-static-pip-arm-template.md).
 - [Distribuire una VM con un indirizzo IP privato statico](virtual-networks-static-private-ip-arm-pportal.md) tramite il portale di Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

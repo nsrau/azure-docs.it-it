@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Analytics - lo strumento di ricerca avanzato per Application Insights." 
-	description="Panoramica di Application Analytics - lo strumento di ricerca avanzato per Application Insights." 
+	pageTitle="Analytics: lo strumento di ricerca avanzato incluso in Application Insights" 
+	description="Panoramica di Analytics: lo strumento di ricerca diagnostica avanzato incluso in Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,21 +12,21 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
 
 
-# Application Insights Analytics: Language Overview
+# Analytics in Application Insights
 
 
-[Application Insights Analytics](app-analytics.md) è un motore di query avanzato per i dati di telemetria di [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Application Insights (AIQL).
+[Analytics](app-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analytics.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
  
-Una query AIQL tipica è composta da una tabella *di origine* seguita da una serie di *operatori* separati da `|`.
+Una query tipica è costituita da una tabella *di origine* seguita da una serie di *operatori* separati da `|`.
 
 Ad esempio, è possibile sapere a che ora del giorno gli abitanti di Hyderabad sperimentano l'app Web. Inoltre, è possibile sapere quali codici di risultato sono restituiti per le richieste HTTP.
 
@@ -79,4 +79,4 @@ Aprire Analytics dal [pannello Panoramica](app-insights-dashboards.md) dell'app 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

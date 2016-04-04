@@ -103,7 +103,7 @@ Prima di eseguire il provisioning del dispositivo virtuale, è necessario effett
 - Nel caso del dispositivo virtuale, [configurare una rete virtuale in Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Se si usa l'archiviazione Premium, sarà necessario creare una rete virtuale in un'area di Azure che supporta l'archiviazione Premium. Altre informazioni sulle [aree attualmente supportate per il modello 8020](#supported-regions-for-8020).
 - È consigliabile utilizzare il server DNS predefinito fornito da Azure invece di specificare il nome del proprio server DNS. Se il nome del server DNS non è valido o se il server DNS non riesce a risolvere correttamente l'indirizzo IP, non sarà possibile creare il dispositivo virtuale.
 - Le opzioni point-to-site e da sito a sito non sono obbligatorie, ma facoltative. Se si desidera, è possibile configurarle per scenari più avanzati. 
-- È possibile creare[Macchine virtuali di Azure](../virtual-machines/virtual-machines-about.md)(server host) nella rete virtuale che possono usare i volumi esposti dal dispositivo virtuale. Tali server devono soddisfare i seguenti requisiti: 							
+- È possibile creare[Macchine virtuali di Azure](../virtual-machines/virtual-machines-linux-about.md)(server host) nella rete virtuale che possono usare i volumi esposti dal dispositivo virtuale. Tali server devono soddisfare i seguenti requisiti: 							
 	- Svolgere il ruolo di macchine virtuali Windows o Linux nelle quali è installato il software iSCSI Initiator
 	- Essere in esecuzione nella stessa rete virtuale del dispositivo virtuale
 	- Essere in grado di connettersi alla destinazione iSCSI del dispositivo virtuale utilizzando l'indirizzo IP interno del dispositivo virtuale
@@ -146,8 +146,7 @@ Per creare il dispositivo virtuale StorSimple, eseguire la procedura riportata d
 
 Prima di iniziare questa procedura, assicurarsi di avere una copia della chiave DEK del servizio. La chiave DEK del servizio è stata creata durante la procedura di configurazione del primo dispositivo StorSimple ed è stata salvata in un luogo sicuro. Se non si dispone di una copia della chiave DEK del servizio, è necessario contattare il supporto tecnico Microsoft e richiedere assistenza.
 
-Per configurare e registrare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito.
-[AZURE.INCLUDE [Configurare e registrare il dispositivo virtuale](../../includes/storsimple-configure-register-virtual-device.md)]
+Per configurare e registrare il dispositivo virtuale StorSimple, eseguire la procedura riportata di seguito.[AZURE.INCLUDE [Configurare e registrare il dispositivo virtuale](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Passaggio 3: (Facoltativo) Modificare le impostazioni di configurazione del dispositivo
 
@@ -282,4 +281,4 @@ Se si elimina o si arresta il dispositivo virtuale, quest'ultimo verrà visualiz
  
 - Informazioni su come [Ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

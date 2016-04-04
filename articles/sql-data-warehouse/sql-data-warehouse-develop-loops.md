@@ -3,7 +3,7 @@
    description="Suggerimenti sui di cicli Transact-SQL e sulla sostituzione di cursori in Azure SQL Data Warehouse per lo sviluppo di soluzioni."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
+   authors="jrowlandjones"
    manager="barbkess"
    editor=""/>
 
@@ -81,4 +81,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

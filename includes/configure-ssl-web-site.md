@@ -44,7 +44,11 @@ Per ottenere un certificato SSL da usare con il servizio app di Azure, è necess
 >
 > I certificati di crittografia a curva ellittica (ECC) sono supportati nel servizio app di Azure, ma sono relativamente nuovi e per la procedura da seguire per la richiesta di firma del certificato è opportuno rivolgersi alla propria Autorità di certificazione.
 
-Potrebbe essere necessario, inoltre, ottenere **[certificati intermedi](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)**, noti anche come certificati della catena, se sono usati dall'Autorità di certificazione. L'uso di certificati intermedi è considerato più sicuro rispetto ai "certificati non in catena", quindi questi certificati sono usati spesso dalle Autorità di certificazione. I certificati intermedi vengono spesso forniti come download separato dal sito Web dell'Autorità di certificazione. Le procedure illustrate in questo articolo includono i passaggi da eseguire per assicurarsi che eventuali certificati intermedi vengano uniti al certificato caricato nelle app.
+Potrebbe essere necessario, inoltre, ottenere **[certificati intermedi](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)**, noti anche come certificati della catena, se sono usati dall'Autorità di certificazione. L'uso di certificati intermedi è considerato più sicuro rispetto ai "certificati non in catena", quindi questi certificati sono usati spesso dalle Autorità di certificazione. I certificati intermedi vengono spesso forniti come download separato dal sito Web dell'Autorità di certificazione. In questo articolo sono descritti i passaggi da eseguire per assicurarsi che eventuali certificati intermedi vengano uniti al certificato caricato nelle app.
+
+> [AZURE.NOTE]
+>
+> Nel caso in cui l’Autorità di certificazione utilizzi certificati intermedi, ciascuno di essi deve essere installato insieme al certificato emesso per il dominio. Se non si installano i certificati intermedi, si potrebbero verificare problemi di interoperabilità di difficile riproduzione per alcuni client.
 
 <a name="bkmk_certreq"></a>
 ### Ottenere un certificato tramite Certreq.exe (solo Windows)
@@ -534,8 +538,7 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 >[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Modifiche apportate
-* Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [customdomain]: ../articles/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
@@ -561,4 +564,4 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

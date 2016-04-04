@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Uso del connettore Yammer nell'app per la logica #
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API Yammer](../connectors/create-api-yammer.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API Yammer](../connectors/connectors-create-api-yammer.md).
 
 Connettersi a Yammer ed eseguire un'azione di pubblicazione dei messaggi e un trigger per recuperare nuovi messaggi.
 
@@ -94,4 +94,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

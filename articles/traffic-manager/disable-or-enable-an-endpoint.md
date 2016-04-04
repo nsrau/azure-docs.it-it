@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/02/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Disabilitare o abilitare un endpoint di Gestione traffico
 
 È anche possibile disabilitare singoli endpoint che appartengono a un profilo di Gestione traffico. Gli endpoint includono servizi cloud e siti Web. Quando si disabilita un endpoint questo continua a far parte del profilo, sebbene quest'ultimo si comporti come se non fosse incluso. Questa azione è particolarmente utile per rimuovere temporaneamente un endpoint che si trova in modalità di manutenzione o è in corso di ridistribuzione. Quando l'endpoint è di nuovo attivo e in esecuzione, è possibile abilitarlo.
 
->[AZURE.NOTE]**La disabilitazione di un endpoint non ha nulla a che vedere con il relativo stato di distribuzione in Azure. Un endpoint integro rimane attivo e in grado di ricevere traffico anche se è disabilitato in Gestione traffico. La disabilitazione di un endpoint in un profilo non influisce sul relativo stato in un altro profilo.**
+>[AZURE.NOTE] **La disabilitazione di un endpoint non ha nulla a che vedere con il relativo stato di distribuzione in Azure. Un endpoint integro rimane attivo e in grado di ricevere traffico anche se è disabilitato in Gestione traffico. La disabilitazione di un endpoint in un profilo non influisce sul relativo stato in un altro profilo.**
 
 ## Per disabilitare un endpoint
 
@@ -44,4 +44,4 @@
 
 [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

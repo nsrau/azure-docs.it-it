@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Configurare il metodo di routing Round Robin
 
-Un modello comune di metodo di routing del traffico consiste nel fornire un set di endpoint identici, che includono servizi cloud e siti Web, e nell'inviare traffico a ciascuno di essi in base a uno schema round robin. Nei passaggi seguenti viene descritto come configurare Gestione traffico per eseguire questo tipo di metodo di routing del traffico. Per altre informazioni sui diversi metodi di routing del traffico, vedere [Informazioni sui metodi di routing del traffico di Gestione traffico](traffic-manager-load-balancing-methods.md).
+Un modello comune di metodo di routing del traffico consiste nel fornire un set di endpoint identici, che includono servizi cloud e siti Web, e nell'inviare traffico a ciascuno di essi in base a uno schema round robin. Nei passaggi seguenti viene descritto come configurare Gestione traffico per eseguire questo tipo di metodo di routing del traffico. Per altre informazioni sui diversi metodi di routing del traffico, vedere [Informazioni sui metodi di routing del traffico di Gestione traffico](traffic-manager-routing-methods.md).
 
->[AZURE.NOTE]Siti Web di Azure offre già funzionalità di bilanciamento del carico round robin per i siti Web che si trovano all'interno di un data center (nota anche come area). Gestione traffico consente di specificare il metodo di routing del traffico round-robin per i siti web che si trovano in data center diversi.
+>[AZURE.NOTE] Siti Web di Azure offre già funzionalità di bilanciamento del carico round robin per i siti Web che si trovano all'interno di un data center (nota anche come area). Gestione traffico consente di specificare il metodo di routing del traffico round-robin per i siti web che si trovano in data center diversi.
 
 ## Routing del traffico in modo equo (round robin) in un set di endpoint
 
@@ -52,4 +52,4 @@ Un modello comune di metodo di routing del traffico consiste nel fornire un set 
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

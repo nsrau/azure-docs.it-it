@@ -66,7 +66,7 @@ Se la macchina virtuale già esiste ed è necessario aggiungere un endpoint per 
 
 ## <a name="run-commands"></a>Passaggio 3: Installare IPython Notebook e altri strumenti di supporto
 
-Dopo aver creato la macchina virtuale, usare Remote Desktop Protocol (RDP) per accedere alla macchina virtuale di Windows. Per informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server](../virtual-machines-log-on-windows-server.md). Aprire il **prompt dei comandi** (**non la finestra di comando di Powershell**) come **amministratore** ed eseguire il comando seguente.
+Dopo aver creato la macchina virtuale, usare Remote Desktop Protocol (RDP) per accedere alla macchina virtuale di Windows. Per informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server](../virtual-machines/virtual-machines-windows-classic-connect-logon.md). Aprire il **prompt dei comandi** (**non la finestra di comando di Powershell**) come **amministratore** ed eseguire il comando seguente.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
@@ -143,4 +143,4 @@ I passaggi successivi del processo di analisi avanzata dei dati sono illustrati 
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

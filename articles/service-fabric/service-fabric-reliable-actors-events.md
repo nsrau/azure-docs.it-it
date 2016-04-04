@@ -60,7 +60,7 @@ Sul client creare il proxy per l'attore che pubblica l'evento e sottoscrivere gl
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
                     new ActorId(Guid.Parse(arg)), ApplicationName);
-proxy.SubscribeAsync(new GameEventsHandler()).Wait();
+proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler()).Wait();
 ```
 
 In caso di failover, l'attore può eseguire il failover su un processo o un nodo diverso. Il proxy dell'attore gestisce le sottoscrizioni attive e le rieffettua in modo automatico. È possibile controllare l'intervallo di risottoscrizione tramite l'API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Per annullare la sottoscrizione usare l'`ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`API.
@@ -72,4 +72,4 @@ var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
 ```
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -32,9 +32,9 @@ Usare le azioni rapide illustrate in questo argomento per concedere e rimuovere 
 - Usare l'istruzione [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) e vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## Per autenticare gli utenti del database indipendente tramite Azure Active Directory
-- Vedere l'argomento Connessione al [database SQL con l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md).
+- Vedere l'argomento [Connessione al database SQL con l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md).
 
 ## Per creare altri account di accesso per utenti con privilegi elevati nel database master virtuale
 -Usare l'istruzione [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) e vedere la sezione Gestione degli account di accesso di [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md) per altri dettagli.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

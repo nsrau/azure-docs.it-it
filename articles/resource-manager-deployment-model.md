@@ -32,7 +32,7 @@ Tuttavia, alcuni provider di risorse offrono due versioni della risorsa (uno per
 - **Archiviazione**: supporta account di archiviazione obbligatori per l'archiviazione dei dischi rigidi virtuali per le macchine virtuali, inclusi il sistema operativo e altri dischi dati.
 - **Rete**: supporta le schede di rete, gli indirizzi IP di macchine virtuali e le subnet all'interno di reti virtuali obbligatori, nonché i servizi di bilanciamento del carico, gli indirizzi IP del servizio di bilanciamento del carico e i gruppi di sicurezza di rete facoltativi.
 
-Per questi tipi di risorsa, è necessario essere consapevoli della versione in uso poiché le operazioni supportate variano. Per ulteriori informazioni sul passaggio di calcolo, l’archiviazione e le risorse di rete, vedere [Provider di calcolo, rete e di archiviazione in Gestione risorse di Microsoft Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+Per questi tipi di risorsa, è necessario essere consapevoli della versione in uso poiché le operazioni supportate variano. Per ulteriori informazioni sul passaggio di calcolo, l’archiviazione e le risorse di rete, vedere [Provider di calcolo, rete e di archiviazione in Gestione risorse di Microsoft Azure](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
 ## Caratteristiche di Gestione risorse
 
@@ -44,7 +44,7 @@ Le risorse create tramite Gestione risorse condividono le caratteristiche seguen
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Nel caso delle risorse di rete, archiviazione e calcolo, è possibile usare sia Gestione risorse sia la distribuzione classica. Selezionare **Gestione risorse**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -93,7 +93,7 @@ Le risorse create nel modello di distribuzione classica condividono le caratteri
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        o portale di anteprima. Specificare la distribuzione **classica** per i servizi di calcolo, archiviazione e rete.
+        Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -177,9 +177,9 @@ Esistono alcune importanti considerazioni da tenere presente quando si usano le 
 
 Se è possibile affrontare i tempi di inattività per le macchine virtuali, è possibile passarle dalla distribuzione classica alla Gestione risorse con gli [script di PowerShell ASM2ARM](https://github.com/fullscale180/asm2arm).
 
-Per un elenco di comandi equivalenti dell'interfaccia della riga di comando di Azure durante la transizione dalla distribuzione classica per Gestione risorse, vedere [Comandi della Gestione risorse equivalente e della gestione dei servizi per le operazioni della macchina virtuale](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
+Per un elenco di comandi equivalenti dell'interfaccia della riga di comando di Azure durante la transizione dalla distribuzione classica per Gestione risorse, vedere [Comandi della Gestione risorse equivalente e della gestione dei servizi per le operazioni della macchina virtuale](./virtual-machines/virtual-machines-linux-cli-manage.md).
 
-Per ulteriori informazioni sul passaggio di calcolo, l'archiviazione e le risorse di rete, vedere [Provider di calcolo, rete e di archiviazione in Gestione risorse di Microsoft Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+Per ulteriori informazioni sul passaggio di calcolo, l'archiviazione e le risorse di rete, vedere [Provider di calcolo, rete e di archiviazione in Gestione risorse di Microsoft Azure](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
 Per informazioni sulla connessione di reti virtuali da diversi modelli di distribuzione, vedere [Connessione di reti virtuali classiche a nuove reti virtuali](./virtual-network/virtual-networks-arm-asm-s2s.md).
 
@@ -188,4 +188,4 @@ Per informazioni sulla connessione di reti virtuali da diversi modelli di distri
 - Per altre informazioni sulla creazione dei modelli di distribuzione dichiarativa, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per vedere i comandi per la distribuzione di un modello, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!-----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

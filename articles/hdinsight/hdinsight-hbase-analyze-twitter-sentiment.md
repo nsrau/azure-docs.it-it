@@ -75,11 +75,11 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 
 	<table border="1">
-<tr><th>Proprietà del cluster</th><th>Descrizione</th></tr>
-<tr><td>HBase cluster name</td><td>Nome del cluster HBase in HDInsight. Ad esempio: https://myhbase.azurehdinsight.net/</td></tr>
-<tr><td>Cluster user name</td><td>Nome dell'account utente di Hadoop. Il nome utente predefinito di Hadoop è <strong>admin</strong>.</td></tr>
-<tr><td>Cluster user password</td><td>La password utente del cluster Hadoop.</td></tr>
-</table>
+	<tr><th>Proprietà del cluster</th><th>Descrizione</th></tr>
+	<tr><td>HBase cluster name</td><td>Nome del cluster HBase in HDInsight. Ad esempio: https://myhbase.azurehdinsight.net/</td></tr>
+	<tr><td>Cluster user name</td><td>Nome dell'account utente di Hadoop. Il nome utente predefinito di Hadoop è <strong>admin</strong>.</td></tr>
+	<tr><td>Cluster user password</td><td>La password utente del cluster Hadoop.</td></tr>
+	</table>
 
 - **Una workstation** in cui sia stato installato Visual Studio 2013. Per le istruzioni, vedere [Installazione di Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -1233,7 +1233,6 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 - [Configurare la replica di HBase in HDInsight](hdinsight-hbase-geo-replication.md) 
 - [Analizzare i dati di Twitter con Hadoop in HDInsight][hdinsight-analyze-twitter-data]
 - [Analizzare i dati sui ritardi dei voli con HDInsight][hdinsight-analyze-flight-delay-data]
-- [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight][hdinsight-develop-streaming]
 - [Sviluppare programmi MapReduce Java per HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -1249,7 +1248,6 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 
 
 
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-analyze-twitter-data]: hdinsight-analyze-twitter-data.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
@@ -1279,4 +1277,4 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

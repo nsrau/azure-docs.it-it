@@ -1,72 +1,72 @@
 
 
-There are two levels of load balancing available for Azure infrastructure services:
+Per i servizi di infrastruttura di Azure sono disponibili due livelli di bilanciamento del carico:
 
-- **DNS Level**:  Load balancing for traffic to different cloud services located in different data centers, to different Azure websites located in different data centers, or to external endpoints. This is done with Azure Traffic Manager and the Round Robin load balancing method.
-- **Network Level**:  Load balancing of incoming Internet traffic to different virtual machines of a cloud service, or load balancing of traffic between virtual machines in a cloud service or virtual network. This is done with the Azure load balancer.
+- **Livello DNS**: bilanciamento del carico per il traffico verso servizi cloud o siti Web Azure diversi ubicati in datacenter differenti o verso endpoint esterni. Questa operazione viene eseguita con Gestione traffico di Azure e usando il metodo di bilanciamento del carico Round robin.
+- **Livello rete**: bilanciamento del carico del traffico Internet in ingresso nelle diverse macchine virtuali di un servizio cloud oppure bilanciamento del carico del traffico esistente tra le macchine virtuali di un servizio cloud o di una rete virtuale. Questa operazione viene eseguita con il servizio di bilanciamento del carico di Azure.
 
-## Traffic Manager load balancing for cloud services and websites##
+## Bilanciamento del carico di Gestione traffico per servizi cloud e siti Web##
 
-Traffic Manager allows you to control the distribution of user traffic to endpoints, which can include cloud services, websites, external sites, and other Traffic Manager profiles. Traffic Manager works by applying an intelligent policy engine to Domain Name System (DNS) queries for the domain names of your Internet resources. Your cloud services or websites can be running in different datacenters across the world.
+Gestione traffico consente di controllare la distribuzione del traffico utenti verso endpoint quali servizi cloud, siti Web, siti esterni o altri profili di Gestione traffico. Gestione traffico applica un motore dei criteri intelligente alle query DNS (Domain Name System) relative ai nomi di dominio delle risorse Internet. È possibile infatti che i servizi cloud o i siti Web siano in esecuzione in datacenter ubicati in aree geografiche diverse.
 
-You must use either REST or Windows PowerShell to configure external endpoints or Traffic Manager profiles as endpoints.
+Per configurare endpoint esterni o profili di Gestione traffico come endpoint, è necessario usare REST o Windows PowerShell.
 
-Traffic Manager uses three load-balancing methods to distribute traffic:
+Gestione traffico usa tre metodi di bilanciamento del carico per distribuire il traffico:
 
-- **Failover**:  Use this method when you want to use a primary endpoint for all traffic, but provide backups in case the primary becomes unavailable.
-- **Performance**:  Use this method when you have endpoints in different geographic locations and you want requesting clients to use the "closest" endpoint in terms of the lowest latency.
-- **Round Robin:**  Use this method when you want to distribute load across a set of cloud services in the same datacenter or across cloud services or websites in different datacenters.
+- **Failover**: questo metodo viene usato quando si desidera servirsi di un endpoint principale per tutto il traffico. È opportuno tuttavia prevedere endpoint di backup nel caso in cui l'endpoint principale non sia disponibile.
+- **Prestazioni**: questo metodo viene usato quando gli endpoint sono ubicati in aree geografiche diverse e si desidera che i client richiedenti si servano dell'endpoint "più vicino" in termini di minor latenza.
+- **Round Robin**: questo metodo viene usato quando si vuole distribuire il carico su un set di servizi cloud eseguiti nello stesso data center oppure su servizi cloud o siti Web eseguiti in data center diversi.
 
-For more information, see [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md).
+Per altre informazioni, vedere [Informazioni sui metodi di bilanciamento del carico di Gestione traffico](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
-The following diagram shows an example of the Round Robin load balancing method for distributing traffic between different cloud services.
+Nel diagramma seguente viene illustrato un esempio di bilanciamento del carico con metodo Round robin per la distribuzione del traffico tra diversi servizi cloud.
 
-![loadbalancing](./media/virtual-machines-common-load-balance/TMSummary.png)
+![bilanciamento del carico](./media/virtual-machines-common-load-balance/TMSummary.png)
 
-The basic process is the following:
+Il processo di base è il seguente:
 
-1.	An Internet client queries a domain name corresponding to a web service.
-2.	DNS forwards the name query request to Traffic Manager.
-3.	Traffic Manager chooses the next cloud service in the Round Robin list and sends back the DNS name. The Internet client's DNS server resolves the name to an IP address and sends it to the Internet client.
-4.	The Internet client connects with the cloud service chosen by Traffic Manager.
+1.	Un client Internet esegue una query relativa a un nome di dominio corrispondente a un servizio Web.
+2.	DNS inoltra la richiesta di query a Gestione traffico.
+3.	Gestione traffico sceglie il servizio cloud successivo nell'elenco round robin e restituisce il nome del server DNS. Il server DNS del client Internet risolve il nome in un indirizzo IP e lo invia al client Internet.
+4.	Il client Internet si connette al servizio cloud scelto da Gestione traffico.
 
-For more information, see [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+Per altre informazioni, vedere [Gestione traffico](../traffic-manager/traffic-manager-overview.md).
 
-## Azure load balancing for virtual machines ##
+## Bilanciamento del traffico di Azure per macchine virtuali ##
 
-Virtual machines in the same cloud service or virtual network can communicate with each other directly using their private IP addresses. Computers and services outside the cloud service or virtual network can only communicate with virtual machines in a cloud service or virtual network with a configured endpoint. An endpoint is a mapping of a public IP address and port to that private IP address and port of a virtual machine or web role within an Azure cloud service.
+Le macchine virtuali appartenenti allo stesso servizio cloud o alla stessa rete virtuale possono comunicare direttamente tra loro usando i relativi indirizzi IP privati. I computer e i servizi esterni al servizio cloud o alla rete virtuale possono comunicare solo con le macchine virtuali di un servizio cloud o di una rete virtuale con un endpoint configurato. Un endpoint è un mapping di una porta o di un indirizzo IP pubblico alla porta o all'indirizzo IP privato di una macchina virtuale o di un ruolo Web all'interno di un servizio cloud di Azure.
 
-The Azure Load Balancer randomly distributes a specific type of incoming traffic across multiple virtual machines or services in a configuration known as a load-balanced set. For example, you can spread the load of web request traffic across multiple web servers or web roles.
+Il servizio di bilanciamento del carico di Azure distribuisce in modo casuale un tipo specifico di traffico in ingresso tra più macchine virtuali o servizi di una configurazione nota come set con carico bilanciato. È ad esempio possibile dividere il carico del traffico delle richieste Web tra più server Web o ruoli Web.
 
-The following diagram shows a load-balanced endpoint for standard (unencrypted) web traffic that is shared among three virtual machines for the public and private TCP port of 80. These three virtual machines are in a load-balanced set.
+Nel diagramma seguente è illustrato un endpoint con carico bilanciato per il traffico Web (non crittografato) standard condiviso tra tre macchine virtuali per la porta TCP 80, pubblica e privata. Queste tre macchine virtuali appartengono a un set con carico bilanciato.
 
-![loadbalancing](./media/virtual-machines-common-load-balance/LoadBalancing.png)
+![bilanciamento del carico](./media/virtual-machines-common-load-balance/LoadBalancing.png)
 
-For more information, see [Azure Load Balancer](../load-balancer/load-balancer-overview.md). For the steps to create a load-balanced set, see [Configure a load-balanced set](../load-balancer/load-balancer-internet-getstarted.md).
+Per altre informazioni, vedere [Bilanciamento del carico di Azure](../load-balancer/load-balancer-overview.md). Per i passaggi da eseguire per creare un set con carico bilanciato, vedere [Configurare un set con carico bilanciato](../load-balancer/load-balancer-internet-getstarted.md).
 
-Azure can also load balance within a cloud service or virtual network. This is known as internal load balancing and can be used in the following ways:
+Azure è inoltre in grado di bilanciare il carico all'interno di un servizio cloud o una rete virtuale. Questo processo, noto come bilanciamento del carico interno, può essere usato per gli scopi seguenti:
 
-- To load balance between servers in different tiers of a multi-tier application (for example, between web and database tiers).
-- To load balance line-of-business (LOB) applications hosted in Azure without requiring additional load balancer hardware or software.
-- To include on-premises servers in the set of computers whose traffic is load balanced.
+- Bilanciamento del carico tra server appartenenti a livelli diversi di un'applicazione multilivello, ad esempio tra il livello Web e quello di database.
+- Per bilanciare il carico per applicazioni line-of-business (LOB) ospitate in Azure senza la necessità di applicazioni software o componenti hardware aggiuntivi per il bilanciamento del carico.
+- Per inserire server locali nel set di computer il cui traffico viene sottoposto a bilanciamento del carico.
 
-Similar to Azure load balancing, internal load balancing is facilitated by configuring an internal load-balanced set.
+Analogamente al bilanciamento del carico di Azure, il bilanciamento del carico interno viene facilitato con la configurazione di un set con carico bilanciato interno.
 
-The following diagram shows an example of an internal load-balanced endpoint for a line of business (LOB) application that is shared among three virtual machines in a cross-premises virtual network.
+Nel diagramma seguente viene illustrato un esempio di endpoint con carico bilanciato interno relativo a un'applicazione line-of-business (LOB) condivisa fra tre macchine virtuali appartenenti a una rete virtuale cross-premise.
 
-![loadbalancing](./media/virtual-machines-common-load-balance/LOBServers.png)
+![bilanciamento del carico](./media/virtual-machines-common-load-balance/LOBServers.png)
 
-## Load balancer considerations
+## Considerazioni sul bilanciamento del carico
 
-A load balancer is configured by default to timeout an idle session in 4 minutes. If your application behind a load balancer leaves a connection idle for more than 4 minutes and it doesn't have a Keep-Alive configuration, the connection will be dropped. You can change the load balancer behavior to allow a [longer timeout setting for Azure load balancer](../load-balancer/load-balancer-tcp-idle-timeout.md).
+Per terminare una sessione inattiva in 4 minuti, è configurato per impostazione predefinita un bilanciamento del carico. Se l'applicazione con bilanciamento del carico lascia una connessione inattiva per più di 4 minuti e non ha una configurazione keep-alive, la connessione viene eliminata. È possibile modificare il comportamento del servizio di bilanciamento del carico per consentire un'[impostazione di timeout più lunga per il bilanciamento del carico di Azure](../load-balancer/load-balancer-tcp-idle-timeout.md).
 
-Other consideration is the type of distribution mode supported by Azure Load Balancer. You can configure source IP affinity (source IP, destination IP) or source IP protocol (source IP , destination IP and protocol). Check out [Azure Load Balancer distribution mode (source IP affinity)](../load-balancer/load-balancer-distribution-mode.md) for more information.
+Un'altra considerazione riguarda il tipo di modalità di distribuzione supportata dal bilanciamento del carico di Azure. È possibile configurare l'affinità IP di origine (IP di origine, IP di destinazione) o il protocollo IP di origine (IP di origine, IP di destinazione e protocollo). Per altre informazioni, vedere l'articolo relativo alla [modalità di distribuzione del servizio di bilanciamento del carico di Azure (affinità IP di origine)](../load-balancer/load-balancer-distribution-mode.md).
 
 
-## Next steps
+## Passaggi successivi
 
-For the steps to create a load-balanced set, see [Configure an internal load-balanced set](../load-balancer/load-balancer-internal-getstarted.md).
+Per i passaggi da eseguire per creare un set con carico bilanciato, vedere [Configurare un set con carico bilanciato interno](../load-balancer/load-balancer-internal-getstarted.md).
 
-For more information about load balancer, see [Internal load balancing](../load-balancer/load-balancer-internal-overview.md).
+Per altre informazioni sul bilanciamento del carico, vedere [Bilanciamento del carico interno](../load-balancer/load-balancer-internal-overview.md).
 
-
+<!---HONumber=AcomDC_0323_2016-->

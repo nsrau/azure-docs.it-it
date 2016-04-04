@@ -38,7 +38,7 @@ In [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](securit
 - Attivare la raccolta dei dati.
 - Scegliere le raccomandazioni da visualizzare nell'ambito dei criteri di sicurezza.
 
-Le raccomandazioni relative ai criteri di sicurezza si basano attualmente su aggiornamenti di sistema, regole della baseline, programmi antimalware, [ACL per gli endpoint](../virtual-machines/virtual-machines-set-up-endpoints.md), [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per subnet e interfacce di rete, controllo del database SQL, Transparent Data Encryption per il database SQL e Web application firewall. L'articolo [Impostazione dei criteri di sicurezza](security-center-policies.md) fornisce una descrizione di ogni opzione relativa alle raccomandazioni.
+Le raccomandazioni relative ai criteri di sicurezza si basano attualmente su aggiornamenti di sistema, regole della baseline, programmi antimalware, [ACL per gli endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md), [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per subnet e interfacce di rete, controllo del database SQL, Transparent Data Encryption per il database SQL e Web application firewall. L'articolo [Impostazione dei criteri di sicurezza](security-center-policies.md) fornisce una descrizione di ogni opzione relativa alle raccomandazioni.
 
 ### Monitorare le raccomandazioni
 Una volta impostato un criterio di sicurezza, il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificare le potenziali vulnerabilità. Il riquadro **Raccomandazioni** nel pannello **Centro sicurezza** consente di conoscere il numero totale di raccomandazioni identificate dal Centro sicurezza.
@@ -122,4 +122,4 @@ Questo documento ha introdotto le raccomandazioni relative alla sicurezza nel Ce
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

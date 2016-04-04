@@ -42,7 +42,7 @@ Aggiungere un endpoint di Azure a una macchina virtuale e impostare la modalità
 
 	Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 
->[AZURE.NOTE] LoadBalancerDistribution può essere impostato su sourceIP per il bilanciamento del carico a 2 tuple (IP di origine, IP di destinazione), su sourceIPProtocol per il bilanciamento del carico a 3 tuple (IP di origine, IP di destinazione, protocollo) o su Nessuno per il comportamento predefinito con bilanciamento del carico a 5 tuple.
+>[AZURE.NOTE] LoadBalancerDistribution può essere impostato su sourceIP per il bilanciamento del carico a 2 tuple (IP di origine, IP di destinazione), su sourceIPProtocol per il bilanciamento del carico a 3 tuple (IP di origine, IP di destinazione, protocollo) o su Nessuno per il comportamento predefinito con bilanciamento del carico a 5 tuple
 
 
 Recuperare una configurazione di modalità di distribuzione del bilanciamento del carico con endpoint
@@ -145,8 +145,8 @@ Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 t
 
 [Panoramica del bilanciamento del carico interno](load-balancer-internal-overview.md)
 
-[Introduzione alla configurazione del bilanciamento del carico Internet](load-balancer-internet-getstarted.md)
+[Introduzione alla configurazione del bilanciamento del carico Internet](load-balancer-get-started-internet-arm-ps.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="Usare le funzionalità delle app per la logica | Microsoft Azure" 
 	description="Informazioni su come usare le funzionalità avanzate delle app per la logica." 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/11/2016"
 	ms.author="stepsic"/>
 	
 # Usare le funzionalità delle app per la logica
@@ -30,9 +30,9 @@ Prima di completare questo argomento, completare i passaggi elencati nell'artico
 
 I seguenti documenti possono essere utili:
 
-- [API REST di gestione e di runtime](https://msdn.microsoft.com/library/azure/dn948513.aspx): contiene anche informazioni su come richiamare direttamente le app per la logica
-- [Riferimento al linguaggio](https://msdn.microsoft.com/library/azure/dn948512.aspx): fornisce un elenco completo di tutte le funzioni/espressioni supportate
-- [Tipi di trigger e azioni](https://msdn.microsoft.com/library/azure/dn948511.aspx): descrive i diversi tipi di azioni e gli input che accettano
+- [API REST di gestione e di runtime](https://msdn.microsoft.com/library/azure/mt643787.aspx): contiene anche informazioni su come richiamare direttamente le app per la logica
+- [Riferimento al linguaggio](https://msdn.microsoft.com/library/azure/mt643789.aspx): fornisce un elenco completo di tutte le funzioni/espressioni supportate
+- [Tipi di trigger e azioni](https://msdn.microsoft.com/library/azure/mt643939.aspx): descrive i diversi tipi di azioni e gli input che accettano
 - [Panoramica del servizio app](../app-service/app-service-value-prop-what-is.md): fornisce informazioni sui componenti da scegliere per la creazione di una soluzione
 
 ## Aggiunta di logica condizionale
@@ -41,11 +41,11 @@ Benché il flusso originale funzioni, vi sono alcune aree che è possibile migli
 
 
 ### Condizionale
-Questa app per la logica può comportare la ricezione di grandi quantità di messaggi di posta elettronica. I passaggi seguenti consentono di aggiungere un'ulteriore logica per assicurarsi di ricevere un messaggio solo quando il tweet proviene da un utente con un determinato numero di follower.
+Questa app per la logica può comportare la ricezione di grandi quantità di messaggi di posta elettronica. Le procedure seguenti consentono di aggiungere la logica per assicurarsi di ricevere un messaggio solo quando il tweet proviene da un utente con un determinato numero di follower.
 
-1. Fare clic sul segno più e trovare l'azione *Get User* per twitter.
+1. Fare clic sul segno più e trovare l'azione *Get User* per Twitter.
 
-2. Passare al campo **Tweeted by** dal trigger per visualizzare le informazioni sull'utente di twitter.
+2. Passare al campo **Tweeted by** del trigger per visualizzare le informazioni sull'utente di Twitter.
 
 	![GetUser](./media/app-service-logic-use-logic-app-features/getuser.png)
 
@@ -89,7 +89,7 @@ Il codice seguente consente di aggiornare l'app per la logica esistente in modo 
     
 2. Scorrere fino all'azione `twitterconnector`, individuare il valore della query e sostituirlo con `#@{parameters('topic')}`. È anche possibile usare la funzione **concat** per unire due o più stringhe, ad esempio `@concat('#',parameters('topic'))` corrisponde a quanto scritto sopra.
  
-I parametri costituiscono un buon metodo per estrarre valori che probabilmente verranno modificati molto. Sono particolarmente utili quando è necessario eseguire l'override dei parametri in diversi ambienti. Per altre informazioni su come eseguire l'override dei parametri in base all'ambiente, vedere la [documentazione sulle API REST](http://msdn.microsoft.com/library/mt643788(Azure.100).aspx).
+I parametri costituiscono un buon metodo per estrarre valori che probabilmente verranno modificati molto. Sono particolarmente utili quando è necessario eseguire l'override dei parametri in diversi ambienti. Per altre informazioni su come eseguire l'override dei parametri in base all'ambiente, vedere la [documentazione sulle API REST](https://msdn.microsoft.com/library/mt643787.aspx).
 
 A questo punto, quando si fa clic su **Save**, ogni ora tutti i nuovi tweet con più di 5 retweet vengono recapitati in una cartella denominata **tweet** nella propria area Dropbox.
 
@@ -102,9 +102,9 @@ Vi sono diverse opzioni per avviare il flusso di lavoro definito nell'app per la
 Un trigger di ricorrenza viene eseguito a un intervallo specificato dall'utente. Quando il trigger è caratterizzato dalla logica condizionale, determina se è necessario o no eseguire il flusso di lavoro. Un trigger indica che deve essere eseguito restituendo un codice di stato `200`. Quando non è necessario eseguirlo, restituisce il codice di stato `202`.
 
 ### Callback tramite le API REST
-I servizi possono chiamare un endpoint dell'app per la logica per avviare un flusso di lavoro. Per altre informazioni, vedere [App per la logica come endpoint che è possibile chiamare](app-service-logic-connector-http.md). Per avviare quel tipo di app per la logica su richiesta, fare clic sul pulsante **Esegui adesso** sulla barra dei comandi.
+I servizi possono chiamare un endpoint dell'app per la logica per avviare un flusso di lavoro. Per altre informazioni, vedere [App per la logica come endpoint che è possibile chiamare](app-service-logic-connector-http.md). Per avviare questa tipologia di app per la logica su richiesta, fare clic sul pulsante **Esegui adesso** sulla barra dei comandi.
 
 <!-- Shared links -->
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

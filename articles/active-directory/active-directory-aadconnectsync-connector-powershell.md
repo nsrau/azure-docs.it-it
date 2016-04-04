@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # Documentazione tecnica sul connettore Windows PowerShell
@@ -22,7 +22,7 @@ Questo articolo descrive il connettore Windows PowerShell ed è applicabile ai p
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   È necessario usare l'hotfix 4.1.3461.0 o versione successiva ([KB2870703](https://support.microsoft.com/kb/2870703)).
+    -   È necessario usare l'hotfix 4.1.3671.0 o versione successiva ([KB3092178](https://support.microsoft.com/kb/3092178)).
 
 Per MIM2016 e FIM2010R2 il connettore è disponibile come download dall'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -213,7 +213,7 @@ Dal connettore, lo script di importazione dei dati riceve i parametri seguenti:
 | OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Fornisce informazioni allo script sul tipo di esecuzione dell'importazione (differenziale o completa), la partizione, la gerarchia, la filigrana e la dimensione della pagina prevista. |
 | Types | [Schema][schema] | Schema per lo spazio del connettore che verrà importato. |
 
-Lo script di importazione dei dati deve scrivere un oggetto List[[CSEntryChange][csec]] nella pipeline. Questa raccolta è costituita da attributi CSEntryChange che rappresentano ogni oggetto da importare. Durante l'esecuzione di una importazione completa, questa raccolta deve avere un set completo di oggetti CSEntryChange con tutti gli attributi per ogni singolo oggetto. Durante un'importazione differenziale, l'oggetto CSEntryChange deve contenere i differenziali a livello di attributo per ogni oggetto da importare oppure una rappresentazione completa degli oggetti modificati (modalità di sostituzione).
+Lo script di importazione dei dati deve scrivere un oggetto List[[[CSEntryChange]]] nella pipeline. Questa raccolta è costituita da attributi CSEntryChange che rappresentano ogni oggetto da importare. Durante l'esecuzione di una importazione completa, questa raccolta deve avere un set completo di oggetti CSEntryChange con tutti gli attributi per ogni singolo oggetto. Durante un'importazione differenziale, l'oggetto CSEntryChange deve contenere i differenziali a livello di attributo per ogni oggetto da importare oppure una rappresentazione completa degli oggetti modificati (modalità di sostituzione).
 
 **Fine importazione**
 
@@ -370,4 +370,4 @@ Sostituire il nome del connettore Windows PowerShell per il segnaposto <Connecto
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

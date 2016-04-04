@@ -1,4 +1,5 @@
 
+
 <properties
 	pageTitle="Flusso del codice di autorizzazione OAuth 2.0 di Azure AD | Microsoft Azure"
 	description="Creazione di applicazioni Web usando l'implementazione del protocollo di autenticazione OAuth 2.0 definita in Azure AD."
@@ -13,7 +14,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
@@ -275,4 +276,4 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 | trace\_id | Identificatore univoco per la richiesta utile per la diagnostica. |
 | correlation\_id | Identificatore univoco per la richiesta utile per la diagnostica tra i componenti. |
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

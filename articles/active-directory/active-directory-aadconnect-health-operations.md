@@ -3,7 +3,7 @@
 	description="Questo articolo descrive le operazioni aggiuntive che possono essere eseguite dopo aver distribuito Azure AD Connect Health."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="karavar"
 	manager="stevenpo"
 	editor="curtand"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
-	ms.author="billmath"/>
+	ms.date="02/21/2016"
+	ms.author="vakarand"/>
 
 # Operazioni di Azure AD Connect Health
 
@@ -22,6 +22,9 @@ Il seguente argomento descrive le varie operazioni che possono essere eseguite c
 
 ## Abilitare le notifiche tramite posta elettronica
 È possibile configurare il servizio Azure AD Connect Health per l'invio di notifiche di posta elettronica quando vengono generati avvisi indicanti che l'infrastruttura di identità non è integra. Questo si verifica quando viene generato un avviso, ma anche quando viene contrassegnato come risolto. Seguire le istruzioni seguenti per configurare le notifiche di posta elettronica.
+
+![Individuazione delle notifiche di posta elettronica di Azure AD Connect Health](./media/active-directory-aadconnect-health/email_noti_discover.png)
+
 >[AZURE.NOTE] Le notifiche di posta elettronica sono disabilitate per impostazione predefinita.
 
 
@@ -116,7 +119,8 @@ Per consentire a un utente l'accesso a livello di *tutte le istanze del servizio
 
 Con questi passaggi verrà consentito l'accesso agli utenti e ai gruppi in base ai relativi ruoli assegnati.
 >[AZURE.NOTE]
-- Gli amministratori globali hanno sempre accesso completo a tutte le operazioni, ma gli account degli amministratori globali non saranno presenti nell'elenco precedente. - La funzionalità per invitare gli utenti NON è supportata in Azure AD Connect Health.
+- Gli amministratori globali hanno sempre accesso completo a tutte le operazioni, ma gli account degli amministratori globali non saranno presenti nell'elenco precedente.
+- La funzionalità "Invita utenti" NON è supportata in Azure AD Connect Health.
 
 #### Passaggio 3: Condividere il percorso del pannello con utenti o gruppi
 1. Dopo l'assegnazione delle autorizzazioni, un utente può accedere ad Azure AD Connect Health passando a [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
@@ -139,4 +143,4 @@ Per rimuovere un utente o un gruppo aggiunto alla parte del controllo degli acce
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Gestione traffico di Azure
@@ -172,4 +172,4 @@ Se si vogliono scaricare le figure presenti in questo argomento come diapositive
 
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

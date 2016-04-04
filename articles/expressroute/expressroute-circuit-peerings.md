@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="03/21/2016"
    ms.author="cherylmc"/>
 
 # Circuiti e domini di routing ExpressRoute
@@ -69,12 +69,12 @@ Per altre informazioni sui servizi supportati, sui costi e sui dettagli per la c
 
 La tabella seguente confronta i tre domini di routing.
 
-|**Peering privato**|**Peering pubblico**|**Peering Microsoft**|
+||**Peering privato**|**Peering pubblico**|**Peering Microsoft**|
 |---|---|---|---|
 |**Numero massimo di prefissi supportati per peering**|4000 per impostazione predefinita, 10.000 con ExpressRoute Premium|200|200|
 |**Intervalli di indirizzi IP supportati**|Qualsiasi indirizzo IPv4 valido entro la rete WAN.|Indirizzi IPv4 pubblici di proprietà dell'utente o del provider di connettività.|Indirizzi IPv4 pubblici di proprietà dell'utente o del provider di connettività.|
-|**Requisiti del numero AS**|Numeri AS pubblici e privati. Il cliente deve essere proprietario di un numero AS pubblico. | Numeri AS pubblici e privati. Il cliente deve essere proprietario di un numero AS pubblico.| Solo numeri AS pubblici. Il numero AS deve essere convalidato rispetto ai registri di routing per confermarne la proprietà.|
-|**Indirizzi IP per l'interfaccia di routing**|Indirizzi IP pubblici e RFC1918|Indirizzi IP pubblici registrati per i clienti in registri di routing.| Indirizzi IP pubblici registrati per i clienti in registri di routing.|
+|**Requisiti del numero AS**|Numeri AS pubblici e privati. È necessario possedere un numero AS pubblico. | Numeri AS pubblici e privati. È tuttavia necessario fornire un numero AS pubblico per convalidare la proprietà degli indirizzi IP pubblici.| Numeri AS pubblici e privati. È tuttavia necessario fornire un numero AS pubblico per convalidare la proprietà degli indirizzi IP pubblici.|
+|**Indirizzi IP per l'interfaccia di routing**|Indirizzi IP pubblici e RFC1918|Indirizzi IP pubblici registrati a nome dell'utente nei registri di routing.| Indirizzi IP pubblici registrati a nome dell'utente nei registri di routing.|
 |**Supporto per Hash MD5**| Sì|Sì|Sì|
 
 È possibile scegliere di abilitare uno o più domini di routing come parte del rispettivo circuito ExpressRoute. È possibile scegliere di posizionare tutti i domini di routing nella stessa rete VPN se si vuole combinarli in un singolo dominio di routing. È anche possibile posizionarli in domini di routing diversi, in modo analogo a quanto illustrato nel diagramma. La configurazione consigliata consiste nel connettere il peering privato direttamente alla rete di base e i collegamenti del peering pubblico e Microsoft al DMZ.
@@ -90,4 +90,4 @@ Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tr
 	- [Configurare il routing (peering del circuito)](expressroute-howto-routing-classic.md)
 	- [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

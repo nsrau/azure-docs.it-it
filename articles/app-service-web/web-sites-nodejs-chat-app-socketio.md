@@ -273,7 +273,6 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js]
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [socketio]: http://socket.io/
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
@@ -286,4 +285,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js]
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

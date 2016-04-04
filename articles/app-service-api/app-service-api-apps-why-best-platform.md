@@ -34,7 +34,7 @@ Le app per le API offrono le funzionalità seguenti:
 
 - **Integrazione con Visual Studio**: gli strumenti dedicati in Visual Studio semplificano il processo di creazione, distribuzione, utilizzo, debug e gestione delle app per le API. Per altre informazioni, vedere [Annuncio di Azure SDK 2.8.1 per Visual Studio](/blog/announcing-azure-sdk-2-8-1-for-net/).
 
-- **Integrazione con app per la logica**: le app per le API create possono essere utilizzate dalle [app per la logica del servizio app](../app-service-logic/app-service-logic-what-are-logic-apps.md). Per altre informazioni, vedere [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../app-service-logic/app-service-logic-custom-hosted-api.md). Per informazioni sulle modifiche in corso nelle modalità di integrazione di app per le API con app per la logica, vedere [App per le API del servizio app: modifiche apportate](app-service-api-whats-changed.md).
+- **Integrazione con app per la logica**: le app per le API create possono essere utilizzate dalle [app per la logica del servizio app](../app-service-logic/app-service-logic-what-are-logic-apps.md). Per altre informazioni, vedere [Uso dell'API personalizzata ospitata nel servizio app con le app per la logica](../app-service-logic/app-service-logic-custom-hosted-api.md) e [Nuova versione dello schema 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md).
 
 - **Uso dell'API esistente**: è possibile usare le API esistenti così come sono, senza modificarne il codice. Per sfruttare le funzionalità delle app per le API, è sufficiente distribuire il codice in un'app per le API. L'API può usare qualsiasi linguaggio o framework supportato dal servizio app, inclusi ASP.NET, C#, Java, PHP, Node. js e Python.
 
@@ -64,4 +64,4 @@ Per iniziare a usare le app per le API, seguire una delle esercitazioni [Introdu
 
 Per porre domande sulle app per le API, avviare un thread nel [forum sulle app per le API](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

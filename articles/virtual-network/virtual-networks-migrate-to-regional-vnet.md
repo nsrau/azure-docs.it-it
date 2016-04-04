@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Come eseguire la migrazione da gruppi di affinità a una rete virtuale (VNet) regionale
@@ -27,27 +27,27 @@ L'uso dei gruppi di affinità inoltre non è consigliabile in generale. Oltre ch
 
 Quando si creano nuove reti virtuali, usare *Regione*, disponibile come opzione nel portale di gestione. Si noti che nel file di configurazione della rete corrisponde a *Location*.
 
->[AZURE.IMPORTANT]Benché sia ancora tecnicamente possibile creare una rete virtuale associata a un gruppo di affinità, non esistono motivi vincolanti per procedere in questo modo. Molte nuove funzionalità, come ad esempio i gruppi di sicurezza di rete, sono disponibili soltanto quando si usa una VNet regionale e non per le reti virtuali associate a gruppi di affinità.
+>[AZURE.IMPORTANT] Benché sia ancora tecnicamente possibile creare una rete virtuale associata a un gruppo di affinità, non esistono motivi vincolanti per procedere in questo modo. Molte nuove funzionalità, come ad esempio i gruppi di sicurezza di rete, sono disponibili soltanto quando si usa una VNet regionale e non per le reti virtuali associate a gruppi di affinità.
 
 ### Informazioni sulle VNet attualmente associate a gruppi di affinità
 
 Le VNet attualmente associate a gruppi di affinità saranno abilitate per la migrazione a reti virtuali regionali nel prossimo futuro. Per eseguire la migrazione a una rete virtuale di area, attenersi alla seguente procedura:
 
-1. Esportare il file di configurazione della rete. È possibile usare PowerShell o il portale di gestione. Per istruzioni sull'uso del portale di gestione, vedere [Configurare una rete virtuale usando un file di configurazione di rete](../virtual-networks-using-network-configuration-file/).
+1. Esportare il file di configurazione della rete. È possibile usare PowerShell o il portale di gestione. Per istruzioni sull'uso del portale di gestione, vedere [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md).
 
 1. Modificare il file di configurazione della rete sostituendo i valori precedenti con quelli nuovi.
 
-	> [AZURE.NOTE]**Location** corrisponde alla regione specificata per il gruppo di affinità associato alla VNet. Ad esempio, se la VNet è associata a un gruppo di affinità posizionato negli Stati Uniti occidentali, quando si esegue la migrazione, Location deve puntare a West US.
+	> [AZURE.NOTE] **Location** corrisponde alla regione specificata per il gruppo di affinità associato alla VNet. Ad esempio, se la VNet è associata a un gruppo di affinità posizionato negli Stati Uniti occidentali, quando si esegue la migrazione, Location deve puntare a West US.
 	
 	Modificare le righe seguenti nel file di configurazione della rete, sostituendo i valori esistenti con i propri:
 
-	**Valore precedente:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\>
+	**Valore precedente:** <VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**Nuovo valore:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+	**Nuovo valore:** <VirtualNetworkSitename="VNetUSWest" Location="West US">
 
-1. Salvare le modifiche e [importare](../virtual-networks-using-network-configuration-file/) la configurazione di rete in Azure.
+1. Salvare le modifiche e [importare](virtual-networks-using-network-configuration-file.md) la configurazione di rete in Azure.
 
->[AZURE.INFO]Questa migrazione NON provoca alcun tempo di inattività per i servizi.
+>[AZURE.INFO] Questa migrazione NON provoca alcun tempo di inattività per i servizi.
 
 ## Gruppi di affinità e macchine virtuali
 
@@ -66,4 +66,4 @@ Le macchine virtuali attualmente incluse in un gruppo di affinità non devono es
 Quando si esegue la distribuzione, una macchina virtuale viene distribuita in una singola unità di scala. I gruppi di affinità possono limitare il set di dimensioni di macchine virtuali disponibili per una nuova distribuzione, ma qualsiasi macchina virtuale esistente che venga distribuita è già limitata al set di dimensioni disponibile nell'unità di scala in cui avviene la distribuzione. Per questo motivo, la rimozione di una macchina virtuale dal gruppo di affinità non avrà alcun effetto.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

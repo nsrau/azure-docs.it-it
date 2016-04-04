@@ -645,7 +645,7 @@ Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei pr
 
 **Per verificare il log degli errori del processo**
 
-Per risolvere i problemi relativi a un flusso di lavoro, consultare il file di log di Oozie in C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log dal nodo head del cluster. Per informazioni su RDP vedere [Amministrazione di cluster HDInsight tramite il portale di anteprima di Azure][hdinsight-admin-portal].
+Per risolvere i problemi relativi a un flusso di lavoro, consultare il file di log di Oozie in C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log dal nodo head del cluster. Per informazioni su RDP vedere [Amministrazione di cluster HDInsight tramite il portale di Azure][hdinsight-admin-portal].
 
 **Per ripetere l'esecuzione dell'esercitazione**
 
@@ -694,7 +694,6 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 - [Usare Sqoop con Hadoop in HDInsight][hdinsight-use-sqoop]
 - [Usare Hive con HDInsight][hdinsight-use-hive]
 - [Usare Pig con HDInsight][hdinsight-use-pig]
-- [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight][hdinsight-develop-streaming-jobs]
 - [Sviluppare programmi MapReduce Java per HDInsight][hdinsight-develop-java-mapreduce]
 
 
@@ -716,7 +715,6 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 
@@ -744,4 +742,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

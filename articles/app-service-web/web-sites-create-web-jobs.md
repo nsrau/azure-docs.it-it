@@ -209,7 +209,6 @@ Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una guida relativa al passaggio dal portale precedente al nuovo portale, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [PSonWebJobs]: http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]: http://go.microsoft.com/fwlink/?LinkId=390226
@@ -239,4 +238,4 @@ Per ulteriori informazioni, vedere l'articolo relativo alle [risorse consigliate
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

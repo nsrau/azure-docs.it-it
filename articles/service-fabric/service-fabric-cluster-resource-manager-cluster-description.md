@@ -36,7 +36,7 @@ Se si configura un cluster personalizzato, è necessario prendere in considerazi
 
  Durante la fase di esecuzione, Cluster Resource Manager di Service Fabric prende in considerazione i domini di errore e prova a distribuire le repliche relative a un determinato servizio in modo che si trovino tutte in domini di errore separati. Questo processo assicura che, in caso di problemi in un dominio di errore, la disponibilità del servizio non verrà compromessa.
 
- Cluster Resource Manager di Service Fabric non è influenzato dal numero di livelli presenti nella gerarchia. Poiché, tuttavia, prova ad assicurare che la perdita di una parte della gerarchia non influisca sul cluster o sui servizi in esecuzione su di esso, è in genere consigliabile inserire lo stesso numero di computer in ogni livello di profondità del dominio di errore. In questo modo si evita che una parte della gerarchia finisca con l'includere più servizi rispetto agli altri.
+ Cluster Resource Manager di Service Fabric non è influenzato dal numero di livelli presenti nella gerarchia. Dal momento che prova ad assicurare che la perdita di una parte della gerarchia non influisca sul cluster o sui servizi in esecuzione su di esso, è in genere consigliabile inserire lo stesso numero di computer in ogni livello di profondità del dominio di errore. In questo modo si evita che una parte della gerarchia finisca con l'includere più servizi rispetto agli altri.
 
  La configurazione del cluster in modo che la "struttura" dei domini di errore non sia bilanciata rende difficile a Resource Manager determinare l'allocazione ottimale delle repliche, in particolare perché ciò significa che la perdita di un dominio specifico potrebbe avere un impatto eccessivo sulla disponibilità del cluster. Resource Manager deve decidere se usare in modo efficiente i computer nel dominio con un numero elevato di servizi oppure se posizionare i servizi in modo che la perdita del dominio non provochi problemi.
 
@@ -262,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

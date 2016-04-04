@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Proteggere i dati sensibili nel database SQL con la crittografia del database | Microsoft Azure"
+	pageTitle="Crittografia sempre attiva - Proteggere i dati sensibili nel database SQL con la crittografia del database"
 	description="Proteggere i dati sensibili nel database SQL in pochi minuti."
 	keywords="crittografia dei dati, chiave di crittografia, crittografia del cloud"	
 	services="sql-database"
@@ -18,7 +18,7 @@
 	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
-# Proteggere i dati sensibili nel database SQL con la crittografia dei dati e archiviare le chiavi di crittografia nell'insieme di credenziali delle chiavi di Azure
+# Crittografia sempre attiva - Proteggere i dati sensibili nel database SQL con la crittografia dei dati e archiviare le chiavi di crittografia nell'insieme di credenziali delle chiavi di Azure
 
 > [AZURE.SELECTOR]
 - [Insieme di credenziali chiave Azure](sql-database-always-encrypted-azure-key-vault.md)
@@ -34,7 +34,7 @@ Dopo aver configurato il database per usare la crittografia sempre attiva, verr�
 
 Seguire i passaggi in questo articolo per imparare come configurare la crittografia sempre attiva per un database SQL di Azure. Questo articolo spiega come eseguire le attività seguenti:
 
-- Usare la procedura guidata per la crittografia sempre attiva in SSMS per creare [chiavi di crittografia sempre attiva](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3)
+- Usare la procedura guidata per la crittografia sempre attiva in SSMS per creare [chiavi con crittografia sempre attiva](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3)
     - Creare una [chiave master di colonna (CMK, Column Master Key)](https://msdn.microsoft.com/library/mt146393.aspx).
     - Creare una [chiave di crittografia di colonna (CEK, Column Encryption Key)](https://msdn.microsoft.com/library/mt146372.aspx).
 - Creare una tabella di database e crittografare alcune colonne.
@@ -70,7 +70,7 @@ Per questa esercitazione occorrono:
 8. Nella sezione delle chiavi, impostare l'elenco a discesa **Seleziona durata** su **1 anno**. La chiave verrà copiata dopo aver salvato come indicato sotto.
 11. Scorrere verso il basso e fare clic su **Aggiungi applicazione**.
 12. Lasciare **MOSTRA** impostato su **App Microsoft**, quindi individuare e selezionare **Gestione servizi di Windows Azure** e fare clic sul segno di spunta per continuare.
-13. Nella riga **Gestione servizi di Windows Azure** fare clic sull'elenco a discesa **Autorizzazioni delegate** e selezionare **Accesso a gestione servizi di Azure**.
+13. Nella riga **Gestione servizi di Windows Azure** fare clic sull'elenco a discesa **Autorizzazioni delegate** e selezionare **Accesso a Gestione dei servizi di Azure**.
 14. Fare clic su **SALVA** nella parte inferiore della pagina.
 15. Dopo aver completato il salvataggio, individuare e copiare il valore della chiave nella sezione **Chiavi**. Sarà necessario immettere questo valore nel codice in un secondo momento. 
 
@@ -78,7 +78,7 @@ Per questa esercitazione occorrono:
 
 ## Creare un insieme di credenziali delle chiavi di Azure per archiviare le chiavi
 
-Quando l'app client è configurata e si dispone dell'id client, è necessario creare un insieme di credenziali delle chiavi di Azure e configurare il criterio di accesso per consentire all'utente e all'applicazione di accedere alle chiavi private dell'insieme di credenziali, ovvero le chiavi di crittografia sempre attiva. Per usare le chiavi con l'insieme di credenziali delle chiavi di Azure, sono necessarie le autorizzazioni *create*, *get*, *list*, *sign*, *verify*, *wrapKey* e *unwrapKey* per creare una nuova chiave master di colonna e per configurare la crittografia con SQL Server Management Studio.
+Quando l'app client è configurata e si dispone dell'id client, è necessario creare un insieme di credenziali delle chiavi di Azure e configurare il criterio di accesso per consentire all'utente e all'applicazione di accedere alle chiavi private dell'insieme di credenziali, ovvero le chiavi con crittografia sempre attiva. Per usare le chiavi con l'insieme di credenziali delle chiavi di Azure, sono necessarie le autorizzazioni *create*, *get*, *list*, *sign*, *verify*, *wrapKey* e *unwrapKey* per creare una nuova chiave master di colonna e per configurare la crittografia con SQL Server Management Studio.
 
 Per creare rapidamente un insieme di credenziali delle chiavi di Azure è possibile eseguire lo script riportato sotto. Per una spiegazione dettagliata di questi cmdlet e altre informazioni sulla creazione e la configurazione di un insieme di credenziali delle chiavi di Azure, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../Key-Vault/key-vault-get-started.md)
 
@@ -209,7 +209,7 @@ Al termine della procedura guidata, il database è configurato per la crittograf
 - È stata creata una chiave di crittografia di colonna (CEK) ed è stata archiviata nell'insieme di credenziali delle chiavi di Azure.
 - Configurazione delle colonne selezionate per la crittografia. La tabella Patients attualmente è vuota, ma i dati esistenti nelle colonne selezionate sono ora crittografati.
 
-È possibile verificare la creazione di chiavi in SSMS espandendo **Clinic** > **Sicurezza** > **Chiavi di crittografia sempre attiva**. Sono ora visibili le nuove chiavi generate dalla procedura guidata.
+È possibile verificare la creazione di chiavi in SSMS espandendo **Clinic** > **Sicurezza** > **Chiavi con crittografia sempre attiva**. Sono ora visibili le nuove chiavi generate dalla procedura guidata.
 
 
 ## Creare un'applicazione client che funziona con i dati crittografati
@@ -689,4 +689,4 @@ Dopo aver creato un database che usa la crittografia sempre attiva, è possibile
 - [Procedura guidata della crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog della crittografia sempre attiva](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

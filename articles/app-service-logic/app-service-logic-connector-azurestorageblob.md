@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
    
 # Uso del connettore Azure Storage Blob e aggiunta all'app per la logica 
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione schema 2015-08-01-preview, fare clic su [API del BLOB di archiviazione di Azure](../connectors/create-api-azureblobstorage.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione schema 2015-08-01-preview, fare clic su [API del BLOB di archiviazione di Azure](../connectors/connectors-create-api-azureblobstorage.md).
 
 Connettersi al BLOB di archiviazione di Azure per caricare, scaricare ed eliminare i BLOB da un contenitore BLOB. È possibile usare i connettori nelle app per la logica come parte di un "flusso di lavoro".
 
@@ -107,4 +107,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

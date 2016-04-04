@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/18/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -35,7 +35,7 @@ L'anteprima di Azure Active Directory Identity Protection presenta le limitazion
 
 - I criteri di protezione non funzionano per i domini federati
 
-- Gli eventi di rischio non vengono rilevati per i domini federati
+- Gli eventi di rischio vengono rilevati solo per le app federate con Azure Active Directory
 
 ##Introduzione
 
@@ -97,8 +97,7 @@ Alcuni di questi eventi di rischio sono disponibili nei report di Anomalie dell'
 | Accessi da dispositivi infetti | Accessi da dispositivi potenzialmente infetti |
 | Accessi da indirizzi IP anonimi | Accessi da origini sconosciute |
 | Accessi da indirizzi IP con attività sospette |	Accessi da indirizzi IP con attività sospette |
-| Accessi da posizioni non note | - | 
-| Eventi di blocco (non nell'anteprima pubblica) | - |
+| Accessi da posizioni non note | - | | Eventi di blocco (non nell'anteprima pubblica) | - |
 
 I report di Anomalie dell'attività di Azure AD seguenti non sono inclusi come eventi di rischio in Azure AD Identity Protection e non sono quindi disponibili in Identity Protection. Questi report sono ancora disponibili nel portale di gestione di Azure, ma in futuro saranno deprecati perché progressivamente sostituiti dagli eventi di rischio di Identity Protection.
 
@@ -410,4 +409,4 @@ Per una panoramica dell'esperienza utente correlata, vedere:
  - [Studio di Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
  - [Glossario di Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md)
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

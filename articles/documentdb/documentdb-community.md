@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="02/24/2016"
+  ms.date="03/18/2016"
   ms.author="andrl"/>
 
 # Portale della community
@@ -89,6 +89,12 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 **Post della community:**
 
+* [**Integrazione con i social con DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *di Matias Quarantaas*
+
+* [**UWP, servizi app di Azure e DocumentDB: un'applicazione per la condivisione di foto**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) - *di Eric Langland*
+
+* [**Notifiche per le risorse di DocumentDB nuove o modificate usando le app per la logica**](documentdb-change-notification.md) - *di Howard Edidin*
+
 * [**Raccolta di log in Azure DocumentDB usando fluent plug-in-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *di Yoichi Kawasaki*
 
 * [**DocumentDB Parte 1/2 – La teoria**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *di Peter Mannerhult*
@@ -140,9 +146,10 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 ### Eventi recenti e futuri
 
 | Nome evento | Relatore | Percorso | Data | Hashtag |
-| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
-| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Andrew Liu | Bellevue, WA | 3 marzo 2016 | n/d
-| SQLBits XV | Da definire | Liverpool, Regno Unito | 4-7 maggio 2016 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
+| [Build 2016](https://build.microsoft.com/) | John Macintyre, Dharma Shukla | San Francisco, CA | 30 marzo - 1 aprile 2016 | [#MicrosoftBuild](https://twitter.com/hashtag/MicrosoftBuild)
+| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | Liverpool, Regno Unito | 4-7 maggio 2016 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| [Meetup: gruppo di utenti di Azure Regno Unito](http://www.meetup.com/UKAzureUserGroup/events/229673468/) | Andrew Liu | Londra, Regno Unito | 12 maggio 2016 | N/D |
 
 *I relatori o coloro che ospitano un evento [possono fare clic qui](mailto:askdocdb@microsoft.com) per ottenere assistenza.*
 
@@ -150,6 +157,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 
 | Nome evento | Relatore | Percorso | Data | Registrazione |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Kirat Pandya | Bellevue, WA | 3 marzo 2016 | N/D |
 | [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, TX | 28 gennaio 2016 | n/d |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | Montreal, QC, Canada | 1 dicembre 2015 | N/D |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | Seattle, WA | 12 novembre 2015 | N/D |
@@ -169,7 +177,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 | [Meetup: London SQL Server User Group](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | Allan Mitchell | Londra, Regno Unito | 19 maggio 2015 | N/D |
 | [DevIntersection](https://devintersection.com/) | Andrew Liu | Scottsdale, Arizona | 18-21 maggio 2015 | N/D |
 | [Ignite](http://ignite.microsoft.com/) | Andrew Hoh, John Macintyre | Chicago, IL | 4-8 maggio 2015 | [SELECT Latest FROM DocumentDB video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB and Azure HDInsight: Better Together video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
-| [Build 2015](http://www.buildwindows.com/) | Ryan Crawcour | San Francisco, CA | 29 aprile - 1 maggio 2015 | [Build the Next Big Thing with Azure’s NoSQL Service: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
+| [Build 2015](http://www.buildwindows.com/) | Ryan Crawcour | San Francisco, CA | 29 aprile - 1° maggio 2015 | [Build the Next Big Thing with Azure’s NoSQL Service: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [Global Azure Bootcamp 2015 - Spagna](http://azurebootcamp.es/) | Luis Ruiz Pavon, Roberto Gonzalez | Madrid, Spagna | 25 aprile 2015 | [#DEAN DocumentDB + Express + AngularJS + NodeJS running on Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
 | [Meetup: Charlotte Microsoft Cloud](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) | Jamie Rance | Charlotte, NC | 8 aprile 2015 | n/d |
 | [Meetup: Azure Usergroup Denmark](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) | Christian Holm Diget | Copenhagen, Danimarca | 19 maggio 2015 | n/d |
@@ -181,8 +189,10 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 ### Video e podcast
 
 | Mostra | Relatore | Data | Episodio |
-| ------------------------------------------- | ----------------------- | ------------------ | ------- |
+| ------------------------------------------- | --------------------------- | ------------------ | ------- |
+| Wired2WinWebinar | Sai Sankar Kunnathukuzhiyil | 9 marzo 2016 | [Sviluppo di soluzioni con Azure DocumentDB](https://www.youtube.com/watch?v=xKttEwXv_bs)
 | Integration User Group | Han Wong | 17 febbraio 2016 | [Analizzare e visualizzare dati non relazionali con DocumentDB e Power BI](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
+| Podcast di Azure | Cale Teeter | 14 gennaio 2016 | [Episodio 110: Uso di DocumentDB e ricerca](http://azpodcast.azurewebsites.net/post/Episode-110-Using-DocumentDB-Search) |
 | Channel 9: Applicazioni moderne | Tara Shankar Jana | 13 dicembre 2016 | [Un approccio moderno ai dati nelle applicazioni](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips | Miguel Quintero | 10 dicembre 2015 | [Panoramica di DocumentDB](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
 | Integration User Group | Howard Edidin | 9 novembre 2015 | [Azure DocumentDB for Healthcare Integration - Parte 2](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
@@ -284,4 +294,4 @@ Gli Wizard di DocumentDB sono leader della community che hanno dimostrato grande
 
 Come fare per diventare un Wizard di DocumentDB? Anche se non ci sono requisiti particolari per diventare Wizard di DocumentDB, tra i criteri presi in considerazione c'è l'impatto del contributo del candidato nei forum online, ad esempio StackOverflow e MSDN, Wiki e contenuti online, conferenze e gruppi di utenti, podcast, siti Web, blog e social media, nonché articoli e documentazione. Per candidare se stessi o qualcun altro, è sufficiente [inviare un messaggio di posta elettronica](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Configurare RAID software in una macchina virtuale che esegue Linux | Microsoft Azure" 
 	description="Informazioni su come usare mdadm per configurare RAID in Linux in Azure." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	writer="szark" 
@@ -10,7 +10,7 @@
 	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
@@ -23,13 +23,11 @@
 # Configurare RAID software in Linux
 I RAID software vengono spesso usati nelle macchine virtuali Linux in Azure per presentare più dischi dati collegati come se si trattasse di un singolo dispositivo RAID. In genere questa configurazione consente di migliorare le prestazioni e la velocità effettiva rispetto all'utilizzo di un unico disco.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
- 
 
 ## Collegamento di dischi dati
-Per configurare un dispositivo RAID sono in genere necessari due dischi dati. In questo articolo non verrà illustrato in dettaglio come collegare dischi dati a una macchina virtuale Linux. Per istruzioni dettagliate su come collegare un disco dati vuoto a una macchina virtuale Linux in Azure, vedere l'articolo di Azure relativo al [collegamento di dischi](storage-windows-attach-disk.md#attachempty).
+Per configurare un dispositivo RAID sono in genere necessari due dischi dati. In questo articolo non verrà illustrato in dettaglio come collegare dischi dati a una macchina virtuale Linux. Per istruzioni dettagliate su come collegare un disco dati vuoto a una macchina virtuale Linux in Azure, vedere l'articolo di Azure relativo al [collegamento di dischi](virtual-machines-windows-classic-attach-disk.md#attachempty).
 
->[AZURE.NOTE]Nelle macchine virtuali di dimensioni ExtraSmall è supportato il collegamento di un solo disco dati. Per informazioni dettagliate sulle dimensioni delle macchine virtuali e sul numero di dischi dati supportati, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+>[AZURE.NOTE] Nelle macchine virtuali di dimensioni ExtraSmall è supportato il collegamento di un solo disco dati. Per informazioni dettagliate sulle dimensioni delle macchine virtuali e sul numero di dischi dati supportati, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
 
 ## Installazione dell'utility mdadm
@@ -125,7 +123,7 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[AZURE.NOTE]Dopo aver apportato queste modifiche nei sistemi SUSE può essere necessario il riavvio. Questo passaggio *non* è obbligatorio su SLES 12.
+	>[AZURE.NOTE] Dopo aver apportato queste modifiche nei sistemi SUSE può essere necessario il riavvio. Questo passaggio *non* è obbligatorio su SLES 12.
 
 
 ## Aggiungere il nuovo file a /etc/fstab
@@ -164,7 +162,7 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 		.................
 		/dev/md127 on /data type ext4 (rw)
 
-5. (Facoltativo) Parametri di avvio di operatore alternativo
+5. (Facoltativo) Parametri di avvio alternativo
 
 	**Configurazione di fstab**
 
@@ -182,4 +180,4 @@ In questo esempio, dopo l'esecuzione del comando verrà creato un nuovo disposit
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

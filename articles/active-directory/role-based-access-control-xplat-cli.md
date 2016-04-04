@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestione del controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure"
+	pageTitle="Guida al controllo di accesso in base al ruolo per l'interfaccia della riga di comando di Azure"
 	description="Gestione del controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,43 +13,33 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="03/17/2016"
 	ms.author="kgremban"/>
 
-# Gestione del controllo di accesso basato sui ruoli con l'interfaccia della riga di comando di Azure (Azure CLI) #
+# Guida al controllo di accesso in base al ruolo per l'interfaccia della riga di comando di Azure
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
+- [PowerShell](role-based-access-control-powershell.md)
 - [Interfaccia della riga di comando di Azure](role-based-access-control-xplat-cli.md)
 
 Il controllo di accesso basato sui ruoli nel portale di Azure e nell'API di Gestione risorse di Azure consentono di gestire l'accesso alle proprie sottoscrizioni e risorse a un livello estremamente dettagliato. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
 
-In questa esercitazione vengono fornite informazioni sull'utilizzo dell’interfaccia della riga di comando di Azure per la gestione del controllo degli accessi in base al ruolo. Verrà inoltre descritto il processo di creazione e controllo delle assegnazioni dei ruoli.
+In questa esercitazione vengono fornite informazioni sull'utilizzo dell’interfaccia della riga di comando di Azure per la gestione di RBAC. Verrà inoltre descritto il processo di creazione e controllo delle assegnazioni dei ruoli.
 
 **Tempo previsto per il completamento:** 15 minuti
 
-## Prerequisiti ##
+## Prerequisiti
 
 Per usare l'interfaccia della riga di comando di Azure per gestire il controllo degli accessi in base al ruolo, è necessario disporre di quanto segue:
 
 - Usare la versione 0.8.8 o successiva dell'interfaccia della riga di comando di Azure. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 - È consigliabile leggere anche le esercitazioni seguenti per acquisire familiarità con la configurazione e l'uso di Azure Resource Manager nell'interfaccia della riga di comando di Azure: [Uso dell'interfaccia della riga di comando di Azure con Resource Manager](../xplat-cli-azure-resource-manager.md)
 
-## Contenuto dell'esercitazione: ##
-
-* [Connettersi alle sottoscrizioni](#connect)
-* [Controllare le assegnazioni di ruoli esistenti](#check)
-* [Creare un'assegnazione di ruolo](#create)
-* [Verificare le autorizzazioni](#verify)
-* [Passaggi successivi](#next)
-
-## <a id="connect"></a>Connettersi alle sottoscrizioni ##
+## <a id="connect"></a>Connettersi alle sottoscrizioni
 
 Poiché il controllo di accesso basato sui ruoli funziona solo con Gestione risorse di Azure, la prima cosa da fare è passare alla modalità Gestione risorse di Azure. Digitare:
 
     azure config mode arm
-
-Per maggiori informazioni, vedere [Utilizzo dell'interfaccia della riga di comando di Azure con Gestione risorse](../xplat-cli-azure-resource-manager.md)
 
 Per connettersi alle sottoscrizioni Azure, digitare:
 
@@ -64,9 +54,7 @@ Se si dispone di più sottoscrizioni e si desidera passare a un'altra, digitare:
     # Use the subscription name to select the one you want to work on.
     azure account set <subscription name>
 
-Per maggiori informazioni, consultare [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
-
-## <a id="check"></a>Controllare le assegnazioni di ruoli esistenti ##
+## <a id="check"></a>Controllare le assegnazioni di ruoli esistenti
 
 Controllare ora quali assegnazioni di ruoli esistono già nella sottoscrizione. Digitare:
 
@@ -84,11 +72,11 @@ Verranno restituite tutte le assegnazioni di ruoli nella sottoscrizione. Si noti
 Verranno restituite tutte le assegnazioni di ruoli per un determinato utente nella directory di Azure AD, con un'assegnazione del ruolo di proprietario ("Owner") per il gruppo di risorse "group1". L'assegnazione del ruolo può avere due origini:
 
 1. Un'assegnazione del ruolo di "Owner" all'utente per il gruppo di risorse.
-2. Un'assegnazione del ruolo di proprietario all'utente per la risorsa padre del gruppo di risorse (in questo caso, la sottoscrizione), poiché se si dispone di qualsiasi autorizzazione in una determinata risorsa padre, si disporrà delle stesse autorizzazioni nelle relative risorse figlio.
+2. Un'assegnazione del ruolo "Proprietario" per l'oggetto padre del gruppo di risorse, in questo caso la sottoscrizione. Se si assegnano autorizzazioni a livello dell'oggetto padre, tutti gli oggetti figlio avranno le stesse autorizzazioni.
 
 Tutti i parametri di questo cmdlet sono facoltativi. È possibile combinarli per controllare le assegnazioni dei ruoli con filtri diversi.
 
-## <a id="create"></a>Creare un'assegnazione di ruolo ##
+## <a id="create"></a>Creare un'assegnazione di ruolo
 
 Per creare un'assegnazione di ruolo, è necessario considerare quanto segue:
 
@@ -116,16 +104,16 @@ Per creare un'assegnazione di ruolo, è necessario considerare quanto segue:
 
 Usare quindi `azure role assignment create` per creare un'assegnazione di ruolo. Ad esempio:
 
- 	#This will create a role assignment at the current subscription level for a user as a reader:
-    `azure role assignment create --upn <user's email> -o Reader`
+ 	#Create a role assignment at the current subscription level for a user as a reader:
+    azure role assignment create --upn <user email> -o Reader
 
-	#This will create a role assignment at a resource group level:
-    `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
+	#Create a role assignment at a resource group level:
+    PS C:\> azure role assignment create --upn <user email> -o Contributor -g group1
 
-	#This will create a role assignment at a resource level:
-    `azure role assignment create --upn <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
+	#Create a role assignment at a resource level:
+    azure role assignment create --upn <user email> -o Owner -g group1 -r Microsoft.Web/sites -u site1
 
-## <a id="verify"></a>Verificare le autorizzazioni ##
+## <a id="verify"></a>Verificare le autorizzazioni
 
 Dopo aver controllato che il proprio account disponga di alcune assegnazioni di ruoli, è possibile visualizzare le autorizzazioni concesse da tali assegnazioni eseguendo:
 
@@ -136,7 +124,7 @@ Questi due cmdlet restituiranno solo i gruppi di risorse o le risorse in cui si 
 
 Quando si tenta di eseguire altri cmdlet come `azure group create`, si riceverà un errore di accesso negato se non si dispone dell'autorizzazione adeguata.
 
-## <a id="next"></a>Passaggi successivi ##
+## <a id="next"></a>Passaggi successivi
 
 Per altre informazioni sulla gestione del controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure e per gli argomenti correlati:
 
@@ -148,4 +136,4 @@ Per altre informazioni sulla gestione del controllo degli accessi in base al ruo
 - [Configurazione del controllo di accesso basato sui ruoli con Windows PowerShell](role-based-access-control-powershell.md)
 - [Risoluzione dei problemi relativi al controllo di accesso basato sui ruoli](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

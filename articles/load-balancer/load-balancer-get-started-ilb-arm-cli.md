@@ -19,11 +19,9 @@
 
 # Introduzione alla creazione di un servizio di bilanciamento del carico interno tramite l’interfaccia di riga di comando di Azure
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
-<BR>
-[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [Modello di distribuzione classica](load-balancer-get-started-ilb-classic-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -45,7 +43,9 @@
 
 ## Configurare l'interfaccia della riga di comando per l'uso di Gestione risorse
 
-1. Se non è mai stata usata l'interfaccia da riga di comando di Azure vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli.md) e seguire le istruzioni fino al passaggio in cui si selezionano l'account e la sottoscrizione di Azure.
+
+1. Se è la prima volta che si usa l'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+
 
 2. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
@@ -105,12 +105,7 @@ Creare un indirizzo IP di front-end per il servizio di bilanciamento del carico 
 
 Parametri utilizzati:
 
-**-g** - gruppo di risorse 
-**-l** - nome del set di bilanciamento del carico interno 
-**-n** - nome dell'IP front-end 
-**-a** - indirizzo IP privato all'interno dell'intervallo di subnet. 
-**-e** - nome della subnet 
-**-m** - nome della rete virtuale
+**-g** - gruppo di risorse **-l** - nome del set di bilanciamento del carico interno **- n** - nome dell'IP front-end **-a** - indirizzo IP privato all'interno dell'intervallo di subnet. **-e** - nome della subnet **-m** - nome della rete virtuale
 
 ### Passaggio 3 
 
@@ -120,9 +115,7 @@ Creare il pool di indirizzi back-end.
 
 Parametri utilizzati:
 
-**-g** - gruppo di risorse 
-**-l** - nome del set di bilanciamento del carico interno 
-**-n** - nome del pool di indirizzi back-end
+**-g** - gruppo di risorse **-l** - nome del set di bilanciamento del carico interno **- n** - nome del pool di indirizzi back-end
 
 Dopo aver definito un indirizzo IP front-end e un pool di indirizzi back-end, è possibile creare regole del servizio di bilanciamento del carico, regole NAT in ingresso e personalizzare i probe di integrità.
 
@@ -135,12 +128,7 @@ Creare una regola del servizio di bilanciamento del carico per il servizio di bi
 
 Parametri utilizzati:
 
-**-g** - gruppo di risorse 
-**-l** - nome del set di bilanciamento del carico interno 
-**-n** - nome della regola di bilanciamento del carico 
-**-p** - protocollo utilizzato per la regola 
-**-f** - porta su cui è in ascolto per il traffico di rete in ingresso nel front-end del servizio di bilanciamento del carico 
-**-b** - porta di ricezione del traffico di rete nel pool di indirizzi back-end
+**-g** - gruppo di risorse **-l** - nome del set di bilanciamento del carico interno **- n** - nome della regola di bilanciamento del carico **-p** - protocollo utilizzato per la regola **-f** - porta su cui è in ascolto per il traffico di rete in ingresso nel front-end del servizio di bilanciamento del carico **-b** - porta di ricezione del traffico di rete nel pool di indirizzi back-end
 
 ### Passaggio 5
 
@@ -152,12 +140,7 @@ Creare regole NAT in ingresso. Le regole NAT in ingresso vengono utilizzate per 
 
 Parametri utilizzati:
 
-**-g** - gruppo di risorse 
-**-l** - nome del set di bilanciamento del carico interno 
-**-n** - nome della regola NAT in ingresso 
-**-p** - protocollo utilizzato per la regola 
-**-f** - porta su cui è in ascolto per il traffico di rete in ingresso nel front-end del servizio di bilanciamento del carico 
-**-b** - porta di ricezione del traffico di rete nel pool di indirizzi back-end
+**-g** - gruppo di risorse **-l** - nome del set di bilanciamento del carico interno **- n** - nome della regola NAT in ingresso **-p** - protocollo utilizzato per la regola **-f** - porta su cui è in ascolto per il traffico di rete in ingresso nel front-end del servizio di bilanciamento del carico **-b** - porta di ricezione del traffico di rete nel pool di indirizzi back-end
 
 ### Passaggio 5 
 
@@ -165,12 +148,7 @@ Creare probe di integrità per il servizio di bilanciamento del carico. Un probe
 
 	azure network lb probe create -g nrprg -l ilbset -n ilbprobe -p tcp -i 300 -c 4
 
-**-g**: gruppo di risorse 
-**-l**: nome del set di bilanciamento del carico interno 
-**-n**: nome del probe di integrità 
-**-p**: protocollo usato dal probe di integrità 
-**-i**: intervallo di probe 
-**-c**: numero di controlli
+**-g**: gruppo di risorse **-l**: nome del set di bilanciamento del carico interno **-n**: nome del probe di integrità **-p**: protocollo usato dal probe di integrità **-i**: intervallo di probe **-c**: numero di controlli
 
 >[AZURE.NOTE] La piattaforma Microsoft Azure usa un indirizzo IPv4 statico e instradabile pubblicamente per un'ampia gamma di scenari di amministrazione. L'indirizzo IP è 168.63.129.16. Questo indirizzo IP non deve essere bloccato da alcun firewall, perché potrebbe causare un comportamento imprevisto. Per quanto riguarda il bilanciamento del carico interno di Azure, questo indirizzo IP viene usato da probe di monitoraggio del servizio di bilanciamento del carico per determinare lo stato di integrità delle macchine virtuali in un set con carico bilanciato. Se si usa un gruppo di sicurezza di rete per limitare il traffico alle macchine virtuali di Azure in un set con carico bilanciato internamente o lo si applica a una subnet di rete virtuale, assicurarsi di aggiungere una regola di sicurezza di rete per consentire il traffico dall'indirizzo 168.63.129.16.
 
@@ -256,4 +234,4 @@ Dove **nrprg** è il gruppo di risorse e **ilbset** è il nome del servizio di b
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

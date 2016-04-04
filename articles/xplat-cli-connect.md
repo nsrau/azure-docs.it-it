@@ -11,7 +11,7 @@
 <tags
 	ms.service="multiple"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/29/2015"
@@ -65,7 +65,7 @@ Copiare il codice offerto in precedenza all'utente e aprire un browser per http:
 ## Utilizzare un log non interattivo con un account aziendale o dell’istituto di istruzione
 
 
-La soluzione basata sull'accesso non interattivo funziona soltanto con un account aziendale o dell'istituto di istruzione, detto anche *account a livello di organizzazione*. L'account è gestito dall'organizzazione e definito nell'Azure Active Directory aziendale. È possibile [creare un account aziendale](#create-an-organizational-account) se non si dispone di uno, o è possibile [creare un ID aziendale o dell’istituto di istruzione a partire dall’ID account di Microsoft](./virtual-machines/resource-group-create-work-id-from-personal.md). Richiede di specificare un nome utente o un nome utente e una password per il comando `azure login`, come illustrato di seguito:
+La soluzione basata sull'accesso non interattivo funziona soltanto con un account aziendale o dell'istituto di istruzione, detto anche *account a livello di organizzazione*. L'account è gestito dall'organizzazione e definito nell'Azure Active Directory aziendale. È possibile [creare un account aziendale](#create-an-organizational-account) se non si dispone di uno, o è possibile [creare un ID aziendale o dell’istituto di istruzione a partire dall’ID account di Microsoft](./virtual-machines/virtual-machines-windows-create-aad-work-id.md). Richiede di specificare un nome utente o un nome utente e una password per il comando `azure login`, come illustrato di seguito:
 
 	azure login -u ahmet@contoso.onmicrosoft.com
 	info:    Executing command login
@@ -156,4 +156,4 @@ Quando si accede con un account aziendale o dell'istituto di istruzione o si imp
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

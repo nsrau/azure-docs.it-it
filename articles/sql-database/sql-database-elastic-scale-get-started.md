@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="03/22/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Iniziare a utilizzare gli strumenti di database elastici
@@ -75,7 +75,7 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://a
 ## Passaggi successivi
 Per ulteriori informazioni sugli strumenti di database elastici, vedere:
 
-* [Mappa della documentazione sugli strumenti di database elastici](../learning-paths/sql-database-elastic-scale.md) 
+* [Mappa della documentazione sugli strumenti di database elastici](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/) 
 -    Esempi di codice: 
     -    [Introduzione al database elastico con SQL di Azure](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Database elastico con SQL di Azure - Integrazione con Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
@@ -98,4 +98,4 @@ Per ulteriori informazioni sugli strumenti di database elastici, vedere:
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

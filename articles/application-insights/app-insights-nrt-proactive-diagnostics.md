@@ -21,7 +21,7 @@
 
 Questa funzionalità funziona per le app Web Java e ASP.NET ospitate nel cloud o nei server aziendali. Funziona anche per qualsiasi app che genera dati di telemetria di richiesta, ad esempio, un ruolo di lavoro che chiama [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request).
 
-Dopo aver configurato [Application Insights per il progetto](app-insights-get-started.md) e non appena l’applicazione genera una determinata quantità minima di dati telemetrici, la funzionalità di diagnostica proattiva impiega 24 ore per apprendere il comportamento normale dell’applicazione, dopodiché viene attivato e può inviare avvisi.
+Dopo aver configurato [Application Insights per il progetto](app-insights-get-started.md) e non appena l’applicazione genera una determinata quantità minima di dati di telemetria, la funzionalità di diagnostica attiva quasi in tempo reale impiega 24 ore per apprendere il comportamento normale dell'app prima di essere attivata e inviare avvisi.
 
 Ecco un avviso di esempio:
 
@@ -41,7 +41,7 @@ I normali [avvisi relativi alla metrica](app-insights-alerts.md) indicano che po
 
 La funzionalità di diagnostica proattiva quasi in tempo reale monitora i dati di telemetria ricevuti dall'app e, in particolare, la frequenza delle richieste non riuscite. Questa metrica conta il numero di richieste per cui la proprietà `Successful request` è false. Per impostazione predefinita `Successful request== (resultCode < 400)` (a meno che sia stato scritto codice personalizzato per [filtrare](app-insights-api-filtering-sampling.md#filtering) o generare particolari chiamate [TrackRequest](app-insights-api-custom-events-metrics.md#track-request)).
 
-Le prestazioni dell'applicazione hanno un modello di comportamento tipico. Alcune richieste saranno più soggette a errori rispetto ad altre e la percentuale complessiva di errori può aumentare con l'incremento del carico. La funzionalità di diagnostica proattiva quasi in tempo reale usa Machine Learning per individuare queste anomalie.
+Le prestazioni dell'applicazione hanno un modello di comportamento tipico. Alcune richieste saranno più soggette a errori rispetto ad altre e la percentuale complessiva di errori può aumentare con l'incremento del carico. La funzionalità di diagnostica attiva quasi in tempo reale si avvale dell'apprendimento automatico per trovare queste anomalie.
 
 Man mano che i dati di telemetria vengono inviati dall'app Web ad Application Insights, la funzionalità di diagnostica proattiva quasi in tempo reale confronta il comportamento corrente con i modelli rilevati negli ultimi giorni. Se viene osservato un incremento anomalo della frequenza degli errori rispetto alle prestazioni precedenti, viene attivata un’analisi.
 
@@ -51,7 +51,7 @@ Quando il servizio viene instrumentato con questi dati telemetrici, l'analizzato
 
 I risultati dell'analisi vengono inviati all'utente come avviso, a meno che la configurazione attiva preveda di non eseguire questa operazione.
 
-Analogamente agli [avvisi impostati manualmente](app-insights-alerts.md), è possibile esaminare lo stato dell'avviso e configurarlo nel pannello Avvisi della risorsa di Application Insights. A differenza degli altri avvisi, tuttavia, non è necessario impostare o configurare la funzionalità di diagnostica proattiva quasi in tempo reale. Se necessario, è possibile disabilitarlo o modificare gli indirizzi di posta elettronica di destinazione.
+Analogamente agli [avvisi impostati manualmente](app-insights-alerts.md), è possibile esaminare lo stato dell'avviso e configurarlo nel pannello Avvisi della risorsa di Application Insights. A differenza degli altri avvisi, tuttavia, non è necessario impostare o configurare la funzionalità di diagnostica attiva quasi in tempo reale. Se necessario, è possibile disabilitarlo o modificare gli indirizzi di posta elettronica di destinazione.
 
 ## Valutazione e diagnosi di un avviso
 
@@ -81,7 +81,7 @@ Fare clic su un avviso per visualizzarne i dettagli completi.
 
 ## Configurare gli avvisi 
 
-Aprire la pagina degli avvisi. La funzionalità di diagnostica proattiva è disponibile insieme agli eventuali avvisi impostati manualmente e si può vedere se attualmente è in uno stato di avviso.
+Aprire la pagina degli avvisi. La funzionalità di diagnostica attiva è disponibile insieme agli eventuali avvisi impostati manualmente e si può vedere se attualmente si trova in uno stato di avviso.
 
 ![Nella pagina Panoramica fare clic sul riquadro Avvisi. In alternativa, in qualsiasi pagina di Metrica fare clic su pulsante Avvisi.](./media/app-insights-nrt-proactive-diagnostics/021.png)
 
@@ -89,7 +89,7 @@ Fare clic sull'avviso per configurarlo.
 
 ![Configurazione](./media/app-insights-nrt-proactive-diagnostics/031.png)
 
-Si noti che è possibile disabilitare la diagnostica proattiva, ma non eliminarla (o crearne un’altra).
+Si noti che è possibile disabilitare la diagnostica attiva, ma non eliminarla (o crearne un'altra).
 
 
 ## Qual è la differenza
@@ -138,4 +138,4 @@ La diagnostica proattiva quasi in tempo reale integra altre funzionalità simili
 
 *L'invio di commenti e suggerimenti sarà molto apprezzato. Usare l'indirizzo di posta elettronica:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

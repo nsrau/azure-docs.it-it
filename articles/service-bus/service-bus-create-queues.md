@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Scrivere applicazioni che utilizzano le code del Bus di servizio | Microsoft Azure"
-   description="Come scrivere una semplice applicazione basata sulle code che utilizza il Bus di servizio."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Scrivere applicazioni che utilizzano le code del Bus di servizio | Microsoft Azure"
+    description="Come scrivere una semplice applicazione basata sulle code che utilizza il Bus di servizio."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Creare applicazioni che utilizzano le code del Bus di servizio
 
@@ -55,15 +55,15 @@ Nella sezione seguente viene illustrato come utilizzare il Bus di servizio per c
 
 ### Iscriversi a un account del Bus di servizio e sottoscrizione
 
-È necessario un account Azure per iniziare a lavorare con il Bus di servizio. Se non si dispone di una sottoscrizione, è possibile iscriversi per una versione di valutazione gratuita [qui](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+È necessario un account Azure per iniziare a lavorare con il Bus di servizio. Se non si dispone di una sottoscrizione, è possibile iscriversi per un account gratuito [qui](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### Creare uno spazio dei nomi del servizio
 
-Dopo aver creato una sottoscrizione, è possibile creare un nuovo spazio dei nomi. È necessario assegnare al nuovo spazio dei nomi un nome univoco tra tutti gli account del Bus di servizio. Ogni spazio dei nomi funge da contenitore per un set di entità del Bus di servizio. Per ulteriori informazioni, vedere [Come creare o modificare uno spazio dei nomi del servizio Bus di servizio](https://msdn.microsoft.com/library/azure/hh690931.aspx).
+Dopo aver creato una sottoscrizione, è possibile creare un nuovo spazio dei nomi. Assegnare al nuovo spazio dei nomi un nome univoco tra tutti gli account del Bus di servizio. Ogni spazio dei nomi funge da contenitore di ambito per un set di entità del Bus di servizio.
 
 ### Installare il pacchetto NuGet
 
-Per utilizzare lo spazio dei nomi del servizio Bus di servizio, un'applicazione deve fare riferimento all'assembly del Bus di servizio, in particolare a Microsoft.ServiceBus.dll. È possibile trovare questa assembly come parte di Microsoft Azure SDK, e il download è disponibile all'indirizzo della [pagina di download di Azure SDK](https://azure.microsoft.com/downloads/). In ogni modo, il pacchetto NuGet del bus di servizio è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio. Per informazioni dettagliate su NuGet e sul pacchetto del bus di servizio, vedere la pagina relativa all'[utilizzo del pacchetto NuGet del bus di servizio](https://msdn.microsoft.com/library/dn741354.aspx).
+Per utilizzare lo spazio dei nomi del Bus di servizio, un'applicazione deve fare riferimento all'assembly del Bus di servizio, in particolare a Microsoft.ServiceBus.dll. È possibile trovare questa assembly come parte di Microsoft Azure SDK, e il download è disponibile all'indirizzo della [pagina di download di Azure SDK](https://azure.microsoft.com/downloads/). In ogni modo, il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) è il modo più semplice per recuperare l'API del bus di servizio e configurare l'applicazione con tutte le dipendenze di tale servizio.
 
 ### Creare la coda
 
@@ -158,6 +158,6 @@ catch (Exception e)
 
 ## Passaggi successivi
 
-Ora che sono state apprese le nozioni di base delle code, vedere [Creare applicazioni che utilizzano argomenti del Bus di servizio e sottoscrizioni](service-bus-create-topics-subscriptions.md) per continuare questa discussione mediante le funzionalità di pubblicazione/sottoscrizione del Bus di servizio di messaggistica negoziata.
+Ora che sono state apprese le nozioni di base delle code, vedere [Creare applicazioni che utilizzano argomenti e sottoscrizioni del bus di servizio](service-bus-create-topics-subscriptions.md) per continuare questa discussione mediante le funzionalità di pubblicazione/sottoscrizione degli argomenti e sottoscrizioni del bus di servizio.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

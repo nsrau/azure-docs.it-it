@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="03/23/2016"
    ms.author="oanapl"/>
 
 # Introduzione al monitoraggio dell'integrità di Service Fabric
@@ -66,7 +66,7 @@ Quando si progetta un servizio cloud di grandi dimensioni, la pianificazione del
 ## Stati di integrità
 Service Fabric usa tre stati di integrità per indicare se un'entità è integra o meno: OK, Warning ed Error. Tutti i report inviati all'archivio integrità devono specificare uno di questi stati. Come risultato della valutazione dell'integrità viene restituito uno di tali stati.
 
-Gli stati di integrità possibili sono i seguenti:
+I possibili [stati di integrità](https://msdn.microsoft.com/library/azure/system.fabric.health.healthstate) sono:
 
 - **OK**. L'entità è integra. Non vengono segnalati problemi noti per l'entità o i relativi elementi figlio (se esistenti).
 
@@ -84,45 +84,48 @@ L'archivio integrità applica criteri di integrità per determinare se un'entit�
 Per impostazione predefinita, per la relazione gerarchica padre-figlio Service Fabric applica regole severe, in base alle quali tutti gli elementi devono essere integri. Se anche uno solo degli elementi figlio presenta un evento non integro, l'elemento padre è considerato non integro.
 
 ### Criteri di integrità del cluster
-I criteri di integrità del cluster vengono usati per valutare lo stato di integrità del cluster e dei nodi e possono essere definiti nel manifesto del cluster. Se non sono definiti, vengono usati i criteri predefiniti, in base ai quali non sono tollerati errori. I criteri di integrità del cluster includono:
+I [criteri di integrità del cluster](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.aspx) vengono usati per valutare lo stato di integrità del cluster e dei nodi e possono essere definiti nel manifesto del cluster. Se non sono definiti, vengono usati i criteri predefiniti, in base ai quali non sono tollerati errori. I criteri di integrità del cluster includono:
 
-- **ConsiderWarningAsError**. Specifica se considerare i report sull'integrità di tipo Warning come errori durante la valutazione dell'integrità. Valore predefinito: false.
+- [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.considerwarningaserror.aspx). Specifica se considerare i report sull'integrità di tipo Warning come errori durante la valutazione dell'integrità. Valore predefinito: false.
 
-- **MaxPercentUnhealthyApplications**. Specifica la percentuale massima tollerata di applicazioni che possono risultare non integre prima che per il cluster venga impostato lo stato Error.
+- [MaxPercentUnhealthyApplications](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications.aspx). Specifica la percentuale massima tollerata di applicazioni che possono risultare non integre prima che per il cluster venga impostato lo stato Error.
 
-- **MaxPercentUnhealthyNodes**. Specifica la percentuale massima tollerata di nodi che possono risultare non integri prima che per il cluster venga impostato lo stato Error. Quando si configura questa percentuale occorre tenere conto anche del fatto che nei cluster di grandi dimensioni ci sono sempre nodi inattivi o in fase di riparazione.
+- [MaxPercentUnhealthyNodes](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes.aspx). Specifica la percentuale massima tollerata di nodi che possono risultare non integri prima che per il cluster venga impostato lo stato Error. Quando si configura questa percentuale occorre tenere conto anche del fatto che nei cluster di grandi dimensioni ci sono sempre nodi inattivi o in fase di riparazione.
 
-Di seguito è riportato un estratto del manifesto di un cluster:
+- [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx). La mappa dei criteri di integrità dei tipi di applicazioni può essere usata durante la valutazione dell'integrità del cluster per descrivere i tipi di applicazioni speciali. Per impostazione predefinita, tutte le applicazioni vengono inserite in un pool e valutate con MaxPercentUnhealthyApplications. Se uno o più tipi di applicazioni sono speciali e devono essere trattati in modo diverso, possono essere estratti dal pool globale e valutati in base alle percentuali associate al loro nome nella mappa. Ad esempio, in un cluster esistono migliaia di applicazioni di tipi diversi e alcune istanze di applicazioni di controllo di un tipo di applicazione speciale. Le applicazioni di controllo non devono mai riscontrare errori. Pertanto, gli utenti possono specificare MaxPercentUnhealthyApplications globale al 20% per tollerare alcuni errori, ma per il tipo di applicazione "ControlApplicationType" devono impostare MaxPercentUnhealthyApplications su 0. In questo modo, se alcune delle numerose applicazioni non sono integre, ma si trovano al di sotto della percentuale di non integrità globale, il cluster verrà valutato come Warning. Uno stato di integrità Warning non influisce sull'aggiornamento del cluster o su altri tipi di monitoraggio attivati dallo stato di integrità Error. Tuttavia, se una sola applicazione di controllo riscontra errori, lo stato di integrità del cluster sarà Error ed è possibile che venga eseguito il ripristino dello stato precedente o impedito un aggiornamento del cluster. Per i tipi di applicazioni definiti nella mappa, tutte le istanze delle applicazioni vengono estratte dal pool globale di applicazioni. Vengono valutate in base al numero totale di applicazioni del tipo di applicazione, usando il valore MaxPercentUnhealthyApplications specifico della mappa. Tutte le altre applicazioni rimangono nel pool globale e vengono valutate con MaxPercentUnhealthyApplications.
+
+Di seguito è riportato un estratto del manifesto di un cluster: Per definire le voci nella mappa dei tipi di applicazioni, anteporre "ApplicationTypeMaxPercentUnhealthyApplications-" al nome del parametro, seguito dal nome del tipo di applicazione.
 
 ```xml
 <FabricSettings>
   <Section Name="HealthManager/ClusterHealthPolicy">
     <Parameter Name="ConsiderWarningAsError" Value="False" />
-    <Parameter Name="MaxPercentUnhealthyApplications" Value="0" />
+    <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
     <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+    <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
   </Section>
 </FabricSettings>
 ```
 
 ### Criteri di integrità dell'applicazione
-I criteri di integrità dell'applicazione descrivono come viene eseguita valutazione dell'aggregazione degli eventi e degli stati degli elementi figlio per le applicazioni e i relativi elementi figlio. Possono essere definiti nel manifesto dell'applicazione, **ApplicationManifest.xml**, nel pacchetto dell'applicazione. Se non vengono specificati criteri, Service Fabric considera l'entità come non integra se presenta un report sull'integrità o un elemento figlio con stato Warning o Error. I criteri configurabili sono i seguenti:
+I [criteri di integrità delle applicazioni](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.aspx) descrivono come viene eseguita la valutazione dell'aggregazione degli eventi e degli stati degli elementi figlio per le applicazioni e i relativi elementi figlio. Possono essere definiti nel manifesto delle applicazioni, **ApplicationManifest.xml**, nel pacchetto delle applicazioni. Se non vengono specificati criteri, Service Fabric considera l'entità come non integra se presenta un report sull'integrità o un elemento figlio con stato Warning o Error. I criteri configurabili sono i seguenti:
 
-- **ConsiderWarningAsError**. Specifica se considerare i report sull'integrità di tipo Warning come errori durante la valutazione dell'integrità. Valore predefinito: false.
+- [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Specifica se considerare i report sull'integrità di tipo Warning come errori durante la valutazione dell'integrità. Valore predefinito: false.
 
-- **MaxPercentUnhealthyDeployedApplications**. Specifica la percentuale massima tollerata di applicazioni distribuite che possono risultare non integre prima che per l'applicazione venga impostato lo stato Error. Tale percentuale viene calcolata dividendo il numero delle applicazioni distribuite non integre per il numero dei nodi in cui tali applicazioni sono attualmente distribuite nel cluster. Il calcolo viene arrotondato per eccesso per tollerare un errore su un numero limitato di nodi. Percentuale predefinita: zero.
+- [MaxPercentUnhealthyDeployedApplications](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications.aspx). Specifica la percentuale massima tollerata di applicazioni distribuite che possono risultare non integre prima che per l'applicazione venga impostato lo stato Error. Tale percentuale viene calcolata dividendo il numero delle applicazioni distribuite non integre per il numero dei nodi in cui tali applicazioni sono attualmente distribuite nel cluster. Il calcolo viene arrotondato per eccesso per tollerare un errore su un numero limitato di nodi. Percentuale predefinita: zero.
 
-- **DefaultServiceTypeHealthPolicy**. Specifica i criteri di integrità predefiniti per il tipo di servizio, che sostituiranno i criteri di integrità predefiniti usati per tutti i tipi di servizi nell'applicazione.
+- [DefaultServiceTypeHealthPolicy](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy.aspx). Specifica i criteri di integrità predefiniti per il tipo di servizio, che sostituiranno i criteri di integrità predefiniti usati per tutti i tipi di servizi nell'applicazione.
 
-- **ServiceTypeHealthPolicyMap**. Fornisce una mappa dei criteri di integrità del servizio per tipo di servizio. Questi sostituiscono i criteri di integrità del tipo di servizio predefiniti per ogni tipo di servizio specificato. Ad esempio, in un'applicazione contenente un tipo di servizio Gateway senza stato e un tipo di servizio Engine con stato, i criteri di integrità per il servizio senza stato e quelli per il servizio con stato possono essere configurati in modo diverso. Specificando i criteri in base al tipo di servizio è possibile ottenere un controllo più granulare sull'integrità del servizio.
+- [ServiceTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap.aspx). Fornisce una mappa dei criteri di integrità del servizio per tipo di servizio. Questi sostituiscono i criteri di integrità del tipo di servizio predefiniti per ogni tipo di servizio specificato. Ad esempio, in un'applicazione contenente un tipo di servizio Gateway senza stato e un tipo di servizio Engine con stato, i criteri di integrità per il servizio senza stato e quelli per il servizio con stato possono essere configurati in modo diverso. Specificando i criteri in base al tipo di servizio è possibile ottenere un controllo più granulare sull'integrità del servizio.
 
 ### Criteri di integrità del tipo di servizio
-I criteri di integrità del tipo di servizio specificano come valutare e aggregare gli elementi figlio dei servizi. I criteri includono:
+I [criteri di integrità dei tipi di servizi](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.aspx) specificano come valutare e aggregare i servizi e i relativi elementi figlio. I criteri includono:
 
-- **MaxPercentUnhealthyPartitionsPerService**. Specifica la percentuale massima tollerata di partizioni che possono risultare non integre prima che un servizio venga considerato non integro. Percentuale predefinita: zero.
+- [MaxPercentUnhealthyPartitionsPerService](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice.aspx). Specifica la percentuale massima tollerata di partizioni che possono risultare non integre prima che un servizio venga considerato non integro. Percentuale predefinita: zero.
 
-- **MaxPercentUnhealthyReplicasPerPartition**. Specifica la percentuale massima tollerata di repliche che possono risultare non integre prima che una partizione venga considerata non integra. Percentuale predefinita: zero.
+- [MaxPercentUnhealthyReplicasPerPartition](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition.aspx). Specifica la percentuale massima tollerata di repliche che possono risultare non integre prima che una partizione venga considerata non integra. Percentuale predefinita: zero.
 
-- **MaxPercentUnhealthyServices**. Specifica la percentuale massima tollerata di servizi che possono risultare non integri prima che l'applicazione venga considerata non integra. Percentuale predefinita: zero.
+- [MaxPercentUnhealthyServices](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices.aspx). Specifica la percentuale massima tollerata di servizi che possono risultare non integri prima che l'applicazione venga considerata non integra. Percentuale predefinita: zero.
 
 Di seguito è riportato un estratto del manifesto di un'applicazione:
 
@@ -156,7 +159,7 @@ Lo stato di integrità aggregato viene attivato dai report sull'integrità *pegg
 
 ![Aggregazione dei report sull'integrità con report di tipo Error.][2]
 
-Un report sull'integrità di tipo Error attiva lo stato Error per l'entità.
+Un report sull'integrità Error o un report sull'integrità scaduto (indipendentemente dal suo stato di integrità) attiva l'entità di integrità nello stato Error.
 
 [2]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-error.png
 
@@ -188,16 +191,16 @@ Dopo aver eseguito la valutazione di tutti gli elementi figlio, l'archivio integ
 - Se gli elementi figlio con stato Error non superano la percentuale massima di elementi figlio non integri consentita, lo stato di integrità aggregato sarà Warning.
 
 ## Creazione di report sull'integrità
-I componenti di sistema e i watchdog interni o esterni possono segnalare tramite report l'integrità delle entità di Service Fabric. I generatori di report determinano *localmente* l'integrità delle entità monitorate in base ad alcune condizioni sottoposte a monitoraggio. Non considerano alcuno stato globale o dato aggregato perché diventerebbero organismi complessi che devono tenere conto di numerosi aspetti per decidere quali informazioni inviare.
+I componenti di sistema, le applicazioni Fabric di sistema e i watchdog interni/esterni possono generare report in base alle entità di Service Fabric. I generatori di report determinano *localmente* l'integrità delle entità monitorate in base alle condizioni sottoposte a monitoraggio. Non considerano alcuno stato globale o dato aggregato perché diventerebbero organismi complessi che devono tenere conto di numerosi aspetti per decidere quali informazioni inviare.
 
-Per inviare i dati di integrità all'archivio integrità, i generatori di report devono identificare l'entità interessata e creare un report sull'integrità. Il report può quindi essere inviato tramite l'API, usando **FabricClient.HealthManager.ReportHealth**, tramite PowerShell o tramite REST.
+Per inviare i dati di integrità all'archivio integrità, i generatori di report devono identificare l'entità interessata e creare un report sull'integrità. Il report può quindi essere inviato tramite l'API, usando [FabricClient.HealthClient.ReportHealth](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient_members.aspx), tramite PowerShell o tramite REST.
 
 ### Report sull'integrità
-I report sull'integrità per ognuna delle entità incluse nel cluster contengono le informazioni seguenti:
+I [report sull'integrità](https://msdn.microsoft.com/library/azure/system.fabric.health.healthreport.aspx) per ognuna delle entità incluse nel cluster contengono le informazioni seguenti:
 
 - **SourceId**. Stringa che identifica in modo univoco il generatore di report per l'evento di integrità.
 
-- **Identificatore dell'entità**. Identifica l'entità a cui viene applicato il report. Varia in base al [tipo di entità](service-fabric-health-introduction.md#health-entities-and-hierarchy):
+- **Entity identifier**. Identifica l'entità a cui viene applicato il report. Varia in base al [tipo di entità](service-fabric-health-introduction.md#health-entities-and-hierarchy):
 
   - Cluster. Nessuno.
 
@@ -230,7 +233,7 @@ I report sull'integrità per ognuna delle entità incluse nel cluster contengono
 SourceId, l'identificatore dell'entità, Property e HealthState sono dati obbligatori per tutti i report sull'integrità. La stringa SourceId non può iniziare con il prefisso "**System.**", che è riservato ai report di sistema. Per la stessa entità è disponibile un solo report per la stessa origine e la stessa proprietà. Se vengono generati più report per la stessa origine e la stessa proprietà, si sostituiscono l'uno all'altro sul lato del client di integrità (se sono in batch) o sul lato dell'archivio integrità. La sostituzione avviene in base al numero di sequenza, quindi i report più recenti con un numero di sequenza più alto sostituiscono quelli meno recenti.
 
 ### Eventi di integrità
-Al suo interno, l'archivio integrità mantiene gli eventi di integrità, che contengono tutte le informazioni provenienti dai report e anche metadati aggiuntivi. Contengono, ad esempio, l'ora in cui un report è stato consegnato al client di integrità e l'ora in cui è stato modificato sul lato server. Gli eventi di integrità vengono restituiti dalle [query sull'integrità](service-fabric-view-entities-aggregated-health.md#health-queries).
+Al suo interno, l'archivio integrità mantiene gli [eventi di integrità](https://msdn.microsoft.com/library/azure/system.fabric.health.healthevent.aspx), che contengono tutte le informazioni provenienti dai report e anche metadati aggiuntivi. Contengono, ad esempio, l'ora in cui un report è stato consegnato al client di integrità e l'ora in cui è stato modificato sul lato server. Gli eventi di integrità vengono restituiti dalle [query sull'integrità](service-fabric-view-entities-aggregated-health.md#health-queries).
 
 I metadati aggiunti includono quanto segue:
 
@@ -251,71 +254,71 @@ I campi di transizione dello stato possono essere usati per ottenere avvisi più
 - Se una proprietà si alterna tra lo stato Warning e lo stato Error, determinare per quanto tempo è risultata non integra, ovvero non OK. Ad esempio, se si vuole un avviso quando la proprietà non risulta integra da più di 5 minuti, è possibile usare: (HealthState != Ok and Now - LastOkTransitionTime > 5 minutes).
 
 ## Esempio: Report e valutazione dell'integrità dell'applicazione
-L'esempio seguente invia tramite PowerShell un report sull'integrità dell'applicazione **fabric:/WordCount** dall'origine **MyWatchdog**. Il report sull'integrità contiene informazioni sulla disponibilità della proprietà di integrità con stato di integrità Error e TimeToLive infinito. Viene quindi eseguita una query sull'integrità dell'applicazione che restituisce Error come stato di integrità aggregato e gli eventi di integrità segnalati nell'elenco degli eventi di integrità.
+L'esempio seguente invia tramite PowerShell un report sull'integrità dell'applicazione **fabric:/WordCount** dall'origine **MyWatchdog**. Il report sull'integrità contiene informazioni sulla "disponibilità" della proprietà di integrità con stato di integrità Error e TimeToLive infinito. Viene quindi eseguita una query sull'integrità dell'applicazione che restituisce Error come stato di integrità aggregato e gli eventi di integrità segnalati nell'elenco degli eventi di integrità.
 
 ```powershell
 PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
 
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
+
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
-UnhealthyEvaluations            :
+UnhealthyEvaluations            : 
                                   Error event: SourceId='MyWatchdog', Property='Availability'.
-
-ServiceHealthStates             :
-                                  ServiceName           : fabric:/WordCount/WordCount.Service
-                                  AggregatedHealthState : Warning
-
-                                  ServiceName           : fabric:/WordCount/WordCount.WebService
+                                  
+ServiceHealthStates             : 
+                                  ServiceName           : fabric:/WordCount/WordCountService
+                                  AggregatedHealthState : Error
+                                  
+                                  ServiceName           : fabric:/WordCount/WordCountWebService
                                   AggregatedHealthState : Ok
-
-DeployedApplicationHealthStates :
+                                  
+DeployedApplicationHealthStates : 
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.4
+                                  NodeName              : _Node_0
                                   AggregatedHealthState : Ok
-
+                                  
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.1
+                                  NodeName              : _Node_2
                                   AggregatedHealthState : Ok
-
+                                  
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.5
+                                  NodeName              : _Node_3
                                   AggregatedHealthState : Ok
-
+                                  
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.2
+                                  NodeName              : _Node_4
                                   AggregatedHealthState : Ok
-
+                                  
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.3
+                                  NodeName              : _Node_1
                                   AggregatedHealthState : Ok
-
-HealthEvents                    :
+                                  
+HealthEvents                    : 
                                   SourceId              : System.CM
                                   Property              : State
                                   HealthState           : Ok
-                                  SequenceNumber        : 5102
-                                  SentAt                : 4/15/2015 5:29:15 PM
-                                  ReceivedAt            : 4/15/2015 5:29:15 PM
+                                  SequenceNumber        : 360
+                                  SentAt                : 3/22/2016 7:56:53 PM
+                                  ReceivedAt            : 3/22/2016 7:56:53 PM
                                   TTL                   : Infinite
                                   Description           : Application has been created.
                                   RemoveWhenExpired     : False
                                   IsExpired             : False
-                                  Transitions           : ->Ok = 4/15/2015 5:29:15 PM
-
+                                  Transitions           : Error->Ok = 3/22/2016 7:56:53 PM, LastWarning = 1/1/0001 12:00:00 AM
+                                  
                                   SourceId              : MyWatchdog
                                   Property              : Availability
                                   HealthState           : Error
-                                  SequenceNumber        : 130736794527105907
-                                  SentAt                : 4/16/2015 5:37:32 PM
-                                  ReceivedAt            : 4/16/2015 5:37:32 PM
+                                  SequenceNumber        : 131032204762818013
+                                  SentAt                : 3/23/2016 3:27:56 PM
+                                  ReceivedAt            : 3/23/2016 3:27:56 PM
                                   TTL                   : Infinite
-                                  Description           :
+                                  Description           : 
                                   RemoveWhenExpired     : False
                                   IsExpired             : False
-                                  Transitions           : ->Error = 4/16/2015 5:37:32 PM
-
+                                  Transitions           : Ok->Error = 3/23/2016 3:27:56 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ## Uso del modello di integrità
@@ -334,4 +337,4 @@ Il modello di integrità viene usato in larga misura per il monitoraggio e la di
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

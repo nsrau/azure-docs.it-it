@@ -35,7 +35,7 @@ Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 - Una sottoscrizione a Microsoft Azure. Se non si dispone di una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](../../../pricing/free-trial).
-- Interfaccia della riga di comando multipiattaforma versione 0.9.1 o successiva. Per installare l'ultima versione e associarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](xplat-cli-install.md).
+- Interfaccia della riga di comando multipiattaforma versione 0.9.1 o successiva. Per installare l'ultima versione e associarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](../xplat-cli-install.md).
 - Un'applicazione che verrà configurata per usare la chiave o la password creata in questa esercitazione. Un'applicazione di esempio è disponibile nell'[Area download Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Per istruzioni, vedere il file Readme associato.
 
 ## Risorse della Guida per l'interfaccia della riga di comando multipiattaforma di Microsoft Azure
@@ -54,8 +54,8 @@ In caso di dubbi sui parametri necessari per un comando, fare riferimento alla G
 
 È consigliabile di leggere anche le seguenti esercitazioni per acquisire familiarità con Gestione risorse di Azure nell'interfaccia della riga di comando multipiattaforma di Azure:
 
-- [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure.](xplat-cli-install.md)
-- [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse di Azure](xplat-cli-azure-resource-manager.md)
+- [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure.](../xplat-cli-install.md)
+- [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse di Azure](../xplat-cli-azure-resource-manager.md)
 
 
 ## Connettersi alle sottoscrizioni
@@ -89,7 +89,7 @@ Quindi, per specificare la sottoscrizione da usare, digitare.
 
     azure account set <subscription name>
 
-Per altre informazioni sulla configurazione dell'interfaccia della riga di comando multipiattaforma di Azure, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](xplat-cli-install.md).
+Per altre informazioni sulla configurazione dell'interfaccia della riga di comando multipiattaforma di Azure, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](../xplat-cli-install.md).
 
 
 ## Passare all'uso di Gestione risorse di Azure
@@ -256,4 +256,4 @@ Ecco un esempio di come rimuovere un segreto specifico:
 
 Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

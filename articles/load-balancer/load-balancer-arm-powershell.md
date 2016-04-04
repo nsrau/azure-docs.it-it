@@ -19,8 +19,8 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Classic steps](load-balancer-internet-getstarted.md)
-- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
+- [Procedure per la modalità di distribuzione classica di Azure](load-balancer-internet-getstarted.md)
+- [Procedure di PowerShell per Resource Manager](load-balancer-arm-powershell.md)
 
 
 La procedura seguente illustra come creare un servizio di bilanciamento del carico Internet usando Gestione risorse di Azure con PowerShell. Con Gestione risorse di Azure gli elementi per creare un servizio di bilanciamento del carico Internet vengono configurati singolarmente e quindi integrati per creare una risorsa.
@@ -242,7 +242,7 @@ PS C:\> $backendnic1
 
 Usare il comando Add-AzureVMNetworkInterface per assegnare la scheda di rete a una macchina virtuale.
 
-È possibile trovare la procedura dettagliata per creare una macchina virtuale e assegnare una scheda di rete nell’opzione di documentazione [Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) 4 o 5.
+È possibile trovare la procedura dettagliata per creare una macchina virtuale e assegnare una scheda di rete nell’opzione di documentazione [Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example) 4 o 5.
 
 ## Aggiornare un bilanciamento del carico esistente
 
@@ -282,4 +282,4 @@ Utilizzare il comando Remove-AzureLoadBalancer per eliminare un bilanciamento de
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

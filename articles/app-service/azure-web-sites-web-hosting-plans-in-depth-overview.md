@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Panoramica approfondita dei piani di Azure App Service" 
-	description="Informazioni sui piani di servizio app per Azure App Service e sui vantaggi offerti all'esperienza di gestione." 
+	description="Informazioni sui piani di servizio app per Azure App Service e sui vantaggi offerti all&#39;esperienza di gestione." 
 	keywords="servizio app, servizio app di azure, scala, scalabile, piano di servizio app, costo del servizio app"
 	services="app-service" 
 	documentationCenter="" 
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/15/2016" 
 	ms.author="byvinyal"/>
 
 #Panoramica approfondita dei piani di Azure App Service#
 
-Un **piano di servizio app** rappresenta un set di funzionalità e capacità che è possibile condividere tra più app in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), tra cui app Web, per dispositivi mobili, per la logica o per le API. Questi piani supportano 5 piani tariffari (**Gratuito**, **Condiviso**, **Basic**, **Standard** e **Premium**) ognuno dei quali offre funzionalità e capacità specifiche. Le app di una stessa sottoscrizione e posizione geografica possono condividere un piano. Tutte le app che condividono un piano possono sfruttare tutte le capacità e funzionalità offerte dal relativo livello. Tutte le app associate a un piano specifico vengono eseguite sulle risorse definite dal piano. Se, ad esempio, il piano è configurato per usare due istanze "piccole" nel livello di servizio Standard, tutte le app associate a tale piano verranno eseguite in entrambe le istanze e disporranno delle funzionalità previste dal livello di servizio Standard. Le istanze del piano in cui le app sono in esecuzione sono completamente gestite e a disponibilità elevata.
+Un **piano di servizio app** rappresenta un set di funzionalità e capacità che è possibile condividere tra più app in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), tra cui app Web, per dispositivi mobili, per la logica o per le API. Questi piani supportano 5 piani tariffari \(**Gratuito**, **Condiviso**, **Basic**, **Standard** e **Premium**\) ognuno dei quali offre funzionalità e capacità specifiche. Le app di una stessa sottoscrizione e posizione geografica possono condividere un piano. Tutte le app che condividono un piano possono sfruttare tutte le capacità e funzionalità offerte dal relativo livello. Tutte le app associate a un piano specifico vengono eseguite sulle risorse definite dal piano. Se, ad esempio, il piano è configurato per usare due istanze "piccole" nel livello di servizio Standard, tutte le app associate a tale piano verranno eseguite in entrambe le istanze e disporranno delle funzionalità previste dal livello di servizio Standard. Le istanze del piano in cui le app sono in esecuzione sono completamente gestite e a disponibilità elevata.
 
 Questo articolo illustra le principali caratteristiche, come livello e scalabilità, di un piano di servizio app e il modo in cui queste caratteristiche influiscono sulla gestione delle app.
 
@@ -49,7 +49,7 @@ Infine, se si desidera creare una nuova app in un'area diversa, in cui non è pr
 
 ## Creare un piano di servizio app
 
-Non è possibile creare un piano di servizio app vuoto. Tuttavia, è possibile creare in modo esplicito un nuovo piano durante la creazione dell'app.
+È possibile creare un **piano di servizio app** vuoto dalla funzionalità di esplorazione del **piano di servizio app** o come parte della creazione di app.
 
 A tale scopo, nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) fare clic su **NUOVO**, quindi selezionare **Web e dispositivi mobili** e infine **App Web**, **App per dispositivi mobili**, **App per la logica** o **app per le API**. ![][createWebApp]
 
@@ -61,15 +61,24 @@ Per creare un nuovo piano del servizio app, fare clic su **+ Crea nuovo**, digit
  
 ## Spostare un'app in un piano di servizio app diverso
 
-È possibile spostare un'app in un piano di servizio app diverso nel [portale di Azure](https://portal.azure.com). Le app possono essere spostate tra i piani nella stessa area geografica.
+È possibile spostare un'app in un piano di servizio app diverso nel [portale di Azure](https://portal.azure.com). Le app possono essere spostate tra i piani, purché i piani si trovino nello stesso gruppo di risorse e nella stessa area geografica.
 
-Per spostare un'app in un altro piano, passare all'app che si intende spostare e fare clic su **Cambia il piano di servizio app**.
+Per spostare un'app in un altro piano, passare all'app che si vuole spostare. Nel menu Impostazioni fare clic su **Cambia il piano di servizio app**.
  
-Verrà aperto il pannello Piano di servizio app. A questo punto, è possibile scegliere un piano esistente o crearne uno nuovo. I piani in posizioni geografiche diverse sono visualizzati in grigio e non possono essere selezionati.
+Verrà aperto il pannello di selezione Piano di servizio app. A questo punto, è possibile scegliere un piano esistente o crearne uno nuovo. Vengono visualizzati solo i piani validi, nello stesso gruppo di risorse e nella stessa località geografica.
 
 ![][change]
 
-Si noti che è previsto un piano tariffario diverso per ogni piano. Quando si sposta un sito dal livello **Gratuito** al livello **Standard**, l'app può sfruttare tutte le funzionalità e le risorse del livello **Standard**.
+Si noti che è previsto un piano tariffario diverso per ogni piano. Quando si sposta un sito dal piano **Gratuito** al piano **Standard**, l'app può sfruttare tutte le funzionalità e le risorse del piano **Standard**.
+
+## Clonare un'app in un piano di servizio app diverso
+Se si vuole spostare l'app in un'area diversa, in alternativa consiste nel clonarla. Con la clonazione si crea una copia dell'app in un piano di servizio app nuovo o esistente o nell'ambiente del servizio app in un'area qualsiasi.
+
+ ![][appclone]
+ 
+È possibile trovare **Clona app** nel menu **Strumenti**.
+
+La clonazione presenta alcune limitazioni. Altre informazioni sono disponibili [qui](../app-service-web/app-service-web-app-cloning-portal.md)
 
 ## Scalare un piano di servizio app
 
@@ -77,9 +86,9 @@ Sono disponibili tre modi per ridimensionare un piano:
 
 - Modificare il relativo **piano tariffario**. Un piano con livello **Basic**, ad esempio, può essere convertito in un livello **Standard** o **Premium** e tutte le app associate al piano potranno sfruttare le funzionalità offerte dal nuovo livello di servizio.
 - Modificare la **dimensione dell'istanza** del piano: ad esempio, un piano con livello **Basic** e istanze **piccole** può essere modificato per usare istanze **grandi**. Tutte le app associate al piano potranno sfruttare le risorse di memoria e CPU aggiuntive offerte dall'istanza di dimensione maggiore.
-- Modificare il numero di **istanze del piano**. Un piano **Standard** esteso a 3 istanze ad esempio può essere ampliato fino a 10 istanze, mentre un piano **Premium** (anteprima) offre scalabilità fino a 20 istanze (con alcune limitazioni). Tutte le app associate a tale piano potranno sfruttare le risorse di memoria e CPU aggiuntive offerte dal numero di istanze maggiore.
+- Modificare il numero di **istanze del piano**. Un piano **Standard** con 3 istanze ad esempio può essere aumentato fino a 10 istanze, mentre un piano **Premium** può essere aumentato a 20 istanze. Tutte le app associate a tale piano potranno sfruttare le risorse di memoria e CPU aggiuntive offerte dal numero di istanze maggiore.
 
-Nell'immagine seguente sono visualizzati il pannello **Piano di servizio app** e il pannello **Piano tariffario**. Se si fa clic sulla sezione **piano tariffario** nel pannello **Piano di servizio app**, si espande il pannello **Piano tariffario**, in cui è possibile modificare il piano tariffario e la dimensione dell'istanza per il piano.
+È possibile modificare le dimensioni del piano tariffario e delle istanze facendo clic sulla voce **Aumenta prestazioni** in Impostazioni per l'app o per il piano di servizio app. Le modifiche verranno applicate al **Piano di servizio app** e interessano tutte le app ospitate dal piano stesso.
  
  ![][pricingtier]
 
@@ -96,5 +105,6 @@ I piani di servizio app rappresentano un set di funzionalità e capacità che è
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
+[appclone]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/app-clone.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

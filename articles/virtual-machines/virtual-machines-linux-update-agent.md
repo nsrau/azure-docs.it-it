@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Aggiornare l'agente Linux di Azure da Github | Microsoft Azure"
 	description="Informazioni su come aggiornare l'agente Linux di Azure per VM Linux in Azure all’ultima versione da Github."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -28,7 +28,7 @@ Per aggiornare l'[agente Linux di Azure](https://github.com/Azure/WALinuxAgent),
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-> [AZURE.NOTE] Se questa attività verrà eseguita da un computer Windows, è possibile usare PuTTY per SSH nel computer Linux. Per altre informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-linux-how-to-log-on.md).
+> [AZURE.NOTE] Se questa attività verrà eseguita da un computer Windows, è possibile usare PuTTY per SSH nel computer Linux. Per altre informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server](virtual-machines-linux-classic-log-on.md).
 
 Distribuzioni Linux da Azure inserite nei loro repository il pacchetto agente Linux di Azure, pertanto verificare e installare la versione più recente da quel repository Distro innanzitutto se possibile.
 
@@ -45,6 +45,20 @@ Per Oracle Linux, verificare che il repository `Addons` sia abilitato. Scegliere
 Installare quindi la versione più recente dell'agente Linux di Azure e digitare:
 
     #sudo yum install WALinuxAgent
+
+Se non si trova il repository del componente aggiuntivo, è possibile aggiungere le righe seguenti alla fine del file con estensione repo in base alla versione di Oracle Linux:
+
+Per macchine virtuali Oracle Linux 6:
+
+  [ol6\_addons] name=Add-Ons for Oracle Linux $releasever ($basearch) baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86\_64 gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6 gpgcheck=1 enabled=1
+
+Per macchine virtuali Oracle Linux 7:
+
+  [ol7\_addons] name=Oracle Linux $releasever Add ons ($basearch) baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle gpgcheck=1 enabled=0
+
+Quindi digitare:
+
+    #sudo yum update WALinuxAgent
 
 In genere è sufficiente, ma se per qualche motivo è necessario installarla da https://github.com direttamente, attenersi alla seguente procedura.
 
@@ -99,12 +113,12 @@ Aprire [la versione dell’agente Linux di Azure in Github](https://github.com/A
     #sudo cp waagent /usr/share/oem/bin/
 
   Se questa è la nuova installazione dell'agente Linux di Azure, eseguire:
-
+ 
     #sudo /usr/sbin/waagent -install -verbose
 
 ### Per la versione 2.1.x, usare:
 
-Può essere necessario installare prima il pacchetto `setuptools`. Vedere prima [qui](https://pypi.python.org/pypi/setuptools). Quindi eseguire:
+Potrebbe essere necessario installare prima il pacchetto `setuptools`. Vedere [qui](https://pypi.python.org/pypi/setuptools). Quindi eseguire:
 
     #sudo python setup.py install
 
@@ -132,4 +146,4 @@ Si noterà che l'agente Linux di Azure è stato aggiornato alla nuova versione.
 
 Per altre informazioni relative all'agente Linux di Azure, vedere [Azure Linux Agent README](https://github.com/Azure/WALinuxAgent).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

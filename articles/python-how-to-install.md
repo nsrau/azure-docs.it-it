@@ -24,7 +24,7 @@ Python è piuttosto semplice da installare in Windows e viene fornito preinstall
 
 Azure SDK per Python include componenti che consentono di sviluppare, distribuire e gestire applicazioni Python per Azure. In particolare, Azure SDK per Python include i componenti seguenti:
 
-* **Librerie client Python per Azure**. Queste librerie di classi forniscono un'interfaccia per accedere alle funzionalità di Azure, ad esempio bus di servizio e di archiviazione e la gestione risorse di Azure, ad esempio gli account di archiviazione, le macchine virtuali e così via.
+* **Librerie client Python per Azure**. Queste librerie di classi forniscono un'interfaccia per accedere alle funzionalità di Azure, ad esempio archiviazione e bus di servizio, e gestire le risorse di Azure, ad esempio account di archiviazione, macchine virtuali e così via.
 * **Emulatori di Azure (solo Windows)**. Gli emulatori di calcolo e archiviazione sono emulatori locali di servizi cloud e di gestione dati che consentono di testare un'applicazione in locale. Gli emulatori di Azure funzionano solo su Windows.
 
 ## Tipo e versione di Python da usare
@@ -104,7 +104,7 @@ Il programma di installazione WebPI fornisce tutti gli strumenti necessari per s
 
 ![how-to-install-python-webpi-34-1](./media/python-how-to-install/how-to-install-python-webpi-34-1.png)
 
-Al termine dell'installazione, immettere python la prompt per verificare se la procedura è stata completata correttamente. A seconda di come è stata eseguita l'installazione, può essere necessario impostare la variabile "path" in modo da individuare la versione corretta di Python:
+Al termine dell'installazione, immettere python al prompt per verificare se la procedura è stata completata correttamente. A seconda di come è stata eseguita l'installazione, può essere necessario impostare la variabile "path" in modo da individuare la versione corretta di Python:
 
 ![how-to-install-python-win-run-34](./media/python-how-to-install/how-to-install-python-win-run-34.png)
 
@@ -114,7 +114,7 @@ Dopo l'installazione, le librerie Python e client dovrebbero essere disponibili 
 
 ### Disinstallazione in Windows
 
-I prodotti WebPI Azure SDK per **Azure SDK per Python** non sono applicazioni in senso stretto, ma costituiscono in realtà una raccolta di prodotti distinti, ad esempio Python 2.7/3.4 a 32 bit, librerie client di Azure per Python e così via, raggruppati in bundle. Di conseguenza, non è disponibile un tradizionale programma di disinstallazione autonomo, pertanto è necessario rimuovere singolarmente i programmi installati dal Pannello di controllo di Windows.
+I prodotti WebPI **Azure SDK per Python** non sono applicazioni in senso stretto, ma costituiscono in realtà una raccolta di prodotti distinti, ad esempio Python 2.7/3.4 a 32 bit, librerie client di Azure per Python e così via, raggruppati in bundle. Di conseguenza, non è disponibile un tradizionale programma di disinstallazione autonomo, pertanto è necessario rimuovere singolarmente i programmi installati dal Pannello di controllo di Windows.
 
 Se si desidera reinstallare **Azure SDK per Python**, è sufficiente aprire un prompt dei comandi di PowerShell come amministratore ed eseguire il comando seguente:
 
@@ -143,19 +143,19 @@ PTVS funziona con la versione di Visual Studio 2013 o 2015 attualmente installat
 
 Per Linux o MacOS, quelli qui riportati sono gli scenari principali di Azure supportati:
 
-1. Utilizzo di Servizi di Azure mediante le librerie client per Python
+1. Uso di Servizi di Azure mediante le librerie client per Python
 
 2. Esecuzione dell'app in una macchina virtuale Linux
 
 3. Sviluppo e pubblicazione nei siti Web di Azure tramite Git
 
-Il primo scenario consente di creare app Web avanzate che sfruttano le funzionalità PaaS di Azure, come l'[archiviazione BLOB][], l'[archiviazione in code][], l'[archiviazione in tabelle][] e così via, tramite wrapper di Python per le API REST di Azure. Il funzionamento è identico in Windows, Mac e Linux. È inoltre possibile utilizzare queste librerie client dal computer di sviluppo locale oppure da una macchina virtuale Linux in esecuzione su Azure.
+Il primo scenario consente di creare app Web avanzate che sfruttano le funzionalità PaaS di Azure, come l'[archiviazione BLOB][], l'[archiviazione in code][], l'[archiviazione in tabelle][] e così via, tramite wrapper di Python per le API REST di Azure. Il funzionamento è identico in Windows, Mac e Linux. È inoltre possibile usare queste librerie client dal computer di sviluppo locale oppure da una macchina virtuale Linux in esecuzione su Azure.
 
 Per lo scenario della macchina virtuale, avviare una VM Linux a scelta (Ubuntu, CentOS, Suse) ed eseguire o gestire i componenti desiderati. È ad esempio possibile eseguire [IPython][] REPL/Notebook nel computer Windows/Mac/Linux e puntare il browser a una macchina virtuale Linux o Max multi-processore che esegue il motore IPython in Azure. Per ulteriori informazioni, vedere l'esercitazione [IPython Notebook in Azure][].
 
 Per informazioni sulla procedura di configurazione di una macchina virtuale di Linux, vedere l'esercitazione [Creare una macchina virtuale che esegue Linux][].
 
-Utilizzando la distribuzione GIT, è possibile sviluppare un'applicazione Web di Python e pubblicarla in un sito Web di Azure da qualsiasi sistema operativo. Quando si effettua il push del repository in Azure, viene creato automaticamente un ambiente virtuale e tramite pip vengono installati i pacchetti necessari.
+Usando la distribuzione GIT, è possibile sviluppare un'applicazione Web di Python e pubblicarla in un sito Web di Azure da qualsiasi sistema operativo. Quando si effettua il push del repository in Azure, viene creato automaticamente un ambiente virtuale e tramite pip vengono installati i pacchetti necessari.
 
 Per ulteriori informazioni su sviluppo e pubblicazione di siti Web di Azure, vedere le esercitazioni [Creazione di siti Web con Django][], [Creazione di siti Web con Bottle][] e [Creazione di siti Web con Flask][]. Per informazioni generali sull'utilizzo di qualsiasi framework compatibile con WSGI, vedere [Configurazione di Python con Siti Web di Azure][].
 
@@ -185,7 +185,7 @@ Per ulteriori informazioni su sviluppo e pubblicazione di siti Web di Azure, ved
 [Progetto Django: framework/CMS Web avanzato]: http://www.djangoproject.com
 [IPython: REPL/Notebook avanzato per Python]: http://ipython.org
 [IPython]: http://ipython.org
-[IPython Notebook in Azure]: virtual-machines-python-ipython-notebook.md
+[IPython Notebook in Azure]: virtual-machines-linux-jupyter-notebook.md
 [Servizi cloud]: cloud-services-python-ptvs.md
 [Siti Web]: web-sites-python-ptvs-django-mysql.md
 [Python Tools per Visual Studio]: http://aka.ms/ptvs
@@ -195,7 +195,7 @@ Per ulteriori informazioni su sviluppo e pubblicazione di siti Web di Azure, ved
 [Microsoft Azure SDK per Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
 [Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
 [How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
-[Creare una macchina virtuale che esegue Linux]: virtual-machines-linux-tutorial.md
+[Creare una macchina virtuale che esegue Linux]: virtual-machines-linux-cli-create.md
 [Creazione di siti Web con Django]: web-sites-python-create-deploy-django-app.md
 [Creazione di siti Web con Bottle]: web-sites-python-create-deploy-bottle-app.md
 [Creazione di siti Web con Flask]: web-sites-python-create-deploy-flask-app.md
@@ -204,4 +204,4 @@ Per ulteriori informazioni su sviluppo e pubblicazione di siti Web di Azure, ved
 [archiviazione in code]: storage-python-how-to-use-queue-storage.md
 [archiviazione BLOB]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

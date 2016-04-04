@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2016" 
+	ms.date="03/18/2016" 
 	ms.author="sdanie"/>
 
 
@@ -132,6 +132,9 @@ Per filtrare l'elenco delle proprietà in base al valore dei tag, immettere uno 
 	-	[Riferimento ai criteri](https://msdn.microsoft.com/library/azure/dn894081.aspx)
 	-	[Espressioni di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
+## Guardare un video introduttivo
+
+> [AZURE.VIDEO use-properties-in-policies]
 
 [api-management-properties]: ./media/api-management-howto-properties/api-management-properties.png
 [api-management-properties-add-property]: ./media/api-management-howto-properties/api-management-properties-add-property.png
@@ -146,4 +149,4 @@ Per filtrare l'elenco delle proprietà in base al valore dei tag, immettere uno 
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="03/15/2016"
    ms.author="cherylmc"/>
 
 
@@ -24,13 +24,15 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 
-Questo articolo illustrerà la procedura per creare e connettere reti virtuali mediante il modello di distribuzione classica (noto anche come Service Management). Nella procedura seguente viene usata una combinazione del portale di Azure classico e PowerShell. Se si desidera connettere reti virtuali create mediante il modello di distribuzione di Resource Manager, vedere [Configurare una connessione da VNet a VNet tramite Azure Resource Manager e PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+Questo articolo illustrerà la procedura per creare e connettere reti virtuali mediante il modello di distribuzione classica (noto anche come Service Management). La procedura seguente usa una combinazione del portale di Azure classico e PowerShell.
 
 **Informazioni sui modelli di distribuzione di Azure**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]È inoltre possibile connettere una rete virtuale creata nel modello di distribuzione classica a una rete virtuale creata mediante il modello di Gestione risorse. Vedere [Connessione di reti virtuali classiche a nuove reti virtuali](../virtual-network/virtual-networks-arm-asm-s2s.md).
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 **Strumenti e modelli di distribuzione per la connessione tra reti virtuali**
+
+È possibile configurare una connessione tra reti virtuali in entrambi i modelli di distribuzione e tramite numerosi strumenti. Per altre informazioni, vedere la tabella seguente. La tabella verrà aggiornata man mano che per questa configurazione risultano disponibili nuovi articoli, modelli di distribuzione e strumenti. Quando un articolo risulterà disponibile, nella tabella sarà presente un collegamento diretto.
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -164,7 +166,7 @@ Quando si crea una configurazione da rete virtuale a rete virtuale, è necessari
 
 4. Dopo aver configurato VNet1 come rete locale, tornare indietro e configurare VNet2 utilizzando i valori corrispondano.
 
-5. È ora verrà puntare ogni rete virtuale per l'altro come una rete locale.È ora verrà puntare ogni rete virtuale per l'altro come una rete locale. Nel portale di Azure classico, passare alla pagina **Configurazione** per VNet1. In **connettività da sito a sito**, selezionare **connessione alla rete locale**, quindi selezionare **VNET2** come rete locale.
+5. È ora verrà puntare ogni rete virtuale per l'altro come una rete locale.È ora verrà puntare ogni rete virtuale per l'altro come una rete locale. Nel portale di Azure classico passare alla pagina **Configurazione** per VNet1. In **connettività da sito a sito**, selezionare **connessione alla rete locale**, quindi selezionare **VNET2** come rete locale.
 
   ![Connetti alla rete locale](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736058.jpg)
 
@@ -223,8 +225,9 @@ Attendere l'inizializzazione delle connessioni. Dopo l'inizializzazione, il gate
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 
+
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

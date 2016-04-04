@@ -18,12 +18,12 @@
 
 # Uso della sincronizzazione dei dati offline in Servizi mobili
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-offline-data.md).
 
 Questo argomento descrive le funzionalità di sincronizzazione offline di Servizi mobili di Azure nell'app di guida introduttiva TodoList. La sincronizzazione offline consente di creare facilmente app utilizzabili anche quando l'utente finale non ha accesso alla rete.
 
@@ -185,4 +185,4 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 [estensione Xamarin]: http://xamarin.com/visual-studio
 [portale di Azure classico]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

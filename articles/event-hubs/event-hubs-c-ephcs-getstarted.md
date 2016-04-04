@@ -30,7 +30,7 @@ Questa esercitazione illustra come inserire messaggi in Hub eventi usando un'app
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
-+ Ambiente di sviluppo in C. Per questa esercitazione si presuppone l'uso di uno stack gcc in una [macchina virtuale Linux di Azure ](../virtual-machines/virtual-machines-linux-tutorial.md) con Ubuntu 14.04. Le istruzioni per gli altri ambienti saranno fornite nei collegamenti esterni.
++ Ambiente di sviluppo in C. Per questa esercitazione si presuppone l'uso di uno stack gcc in una [macchina virtuale Linux di Azure ](../virtual-machines/virtual-machines-linux-cli-create.md) con Ubuntu 14.04. Le istruzioni per gli altri ambienti saranno fornite nei collegamenti esterni.
 
 + Microsoft Visual Studio Express 2013 per Windows
 
@@ -117,4 +117,4 @@ Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve 
 [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [soluzione di messaggistica accodata]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

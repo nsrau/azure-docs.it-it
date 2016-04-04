@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/08/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # Documentazione tecnica sul connettore Generic SQL
@@ -22,7 +22,7 @@ Questo articolo descrive il connettore Generic SQL ed è applicabile ai prodotti
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   È necessario usare l'hotfix 4.1.3461.0 o versione successiva ([KB2870703](https://support.microsoft.com/kb/2870703)).
+    -   È necessario usare l'hotfix 4.1.3671.0 o versione successiva ([KB3092178](https://support.microsoft.com/kb/3092178)).
 
 Per MIM2016 e FIM2010R2 il connettore è disponibile come download dall'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -297,4 +297,4 @@ Se l'utente sceglie l'opzione SQL query, l'esportazione richiede 3 diverse query
 
 -	Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management: Come aggiungere un ruolo a un utente"
+   pageTitle="Come aggiungere o rimuovere un ruolo utente | Microsoft Azure"
    description="Informazioni su come aggiungere ruoli alle identità con privilegi con l'estensione Azure Active Directory Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management: Come aggiungere o rimuovere un ruolo utente
@@ -49,4 +49,4 @@ Dopo essere passati al pannello **Aggiungi utenti gestiti**:
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

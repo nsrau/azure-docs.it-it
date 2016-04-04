@@ -62,7 +62,7 @@ Il flusso di lavoro che si implementerà seguendo le istruzioni in questo docume
 
 ##Creare la directory di lavoro
 
-Oozie prevede che le risorse necessarie per un processo siano archiviate nella stessa directory. Questo esempio usa **wasb:///tutorials/useoozie**. Usare il comando seguente per creare questa directory e la directory dati che conterrà la nuova tabella Hive creata da questo flusso di lavoro:
+Oozie prevede che le risorse necessarie per un processo siano archiviate nella stessa directory. Questo esempio usa ****wasb:///tutorials/useoozie**. Usare il comando seguente per creare questa directory e la directory dati che conterrà la nuova tabella Hive creata da questo flusso di lavoro:
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
@@ -112,7 +112,7 @@ Usare i passaggi seguenti per creare uno script HiveQL che definisca una query, 
 
 2. Premere CTRL+X per uscire dall'editor. Quando richiesto, selezionare **S** per salvare il file, quindi premere **INVIO** per usare il nome di file **useooziewf.hql**.
 
-3. Usare i comandi seguenti per copiare **useooziewf.hql** in **wasb:///tutorials/useoozie/useooziewf.hql**:
+3. Usare i comandi seguenti per copiare **useooziewf.hql** in****wasb:///tutorials/useoozie/useooziewf.hql**:
 
 		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -193,7 +193,7 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte in linguaggio hPDL (XM
 
 2. Usare CTRL+X, quindi **S** e **INVIO** per salvare il file.
 
-3. Usare il comando seguente per copiare il file **workflow.xml** in **wasb:///tutorials/useoozie/workflow.xml**:
+3. Usare il comando seguente per copiare il file **workflow.xml** in ****wasb:///tutorials/useoozie/workflow.xml**:
 
 		hadoop fs -copyFromLocal workflow.xml wasb:///tutorials/useoozie/workflow.xml
 
@@ -284,7 +284,7 @@ La definizione del processo descrive dove trovare il file workflow.xml e altri f
 		<name>fs.defaultFS</name>
 		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	Salvare il valore **wasb://mycontainer@mystorageaccount.blob.core.windows.net**, perché verrà usato nei passaggi successivi.
+	Salvare il valore ****wasb://mycontainer@mystorageaccount.blob.core.windows.net**, perché verrà usato nei passaggi successivi.
 
 2. Usare il comando seguente per ottenere l'FQDN del nodo head del cluster. Verrà usato per l'indirizzo di JobTracker per il cluster. Verrà usato nel file di configurazione tra poco:
 
@@ -361,7 +361,7 @@ La definizione del processo descrive dove trovare il file workflow.xml e altri f
 		  </property>
 		</configuration>
 
-	* Sostituire tutte le istanze di **wasb://mycontainer@mystorageaccount.blob.core.windows.net** con il valore ricevuto in precedenza.
+	* Sostituire tutte le istanze di ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** con il valore ricevuto in precedenza.
 
 	> [AZURE.WARNING] È necessario usare il percorso WASB completo, con l'account di archiviazione e il contenitore come parte del percorso. L'uso del formato breve (wasb:///) impedirà l'esecuzione dell'azione RunHiveScript all'avvio del processo.
 
@@ -392,7 +392,7 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
 		<name>oozie.base.url</name>
 		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	La parte **http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** è l'URL da usare con il comando Oozie.
+	La parte ****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** è l'URL da usare con il comando Oozie.
 
 2. Usare quanto segue per creare una variabile di ambiente per l'URL, in modo che non sia necessario digitarlo per ogni comando:
 
@@ -479,7 +479,7 @@ Per accedere all'interfaccia utente Web di Oozie, attenersi alla procedura segue
 
 1. Creare un tunnel SSH per il cluster HDInsight. Per altre informazioni su come eseguire questa operazione, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce utente Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. Dopo aver creato un tunnel, aprire l'interfaccia utente Web di Ambari nel Web browser. L'URI per il sito Ambari è **https://CLUSTERNAME.azurehdinsight.net**. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight basato su Linux.
+2. Dopo aver creato un tunnel, aprire l'interfaccia utente Web di Ambari nel Web browser. L'URI per il sito Ambari è ****https://CLUSTERNAME.azurehdinsight.net**. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight basato su Linux.
 
 3. Nel lato sinistro della pagina selezionare **Oozie**, quindi **Quick Links** e infine **Oozie Web UI**.
 
@@ -695,7 +695,6 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
 
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [sqldatabase-create-configue]: sql-database-create-configure.md
@@ -721,4 +720,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

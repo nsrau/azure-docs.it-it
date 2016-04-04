@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="03/18/2016"
 	ms.author="dastrock"/>
 
 # Accesso per account Microsoft e utenti di Azure AD nella stessa app
@@ -22,22 +22,19 @@ In passato, gli sviluppatori di app che intendevano supportare sia gli account M
 
 Le applicazioni con l'endpoint v2.0 possono inoltre usare le API REST da [Microsoft Graph](https://graph.microsoft.io) e [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) con entrambi i tipi di account.
 
-> [AZURE.NOTE]
-	Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
-
-
 ## Introduzione
-Scegliere la piattaforma preferita per compilare un'app usando le nostre librerie open source e i framework. In alternativa, è possibile usare la documentazione del protocollo OAuth 2.0 e OpenID Connect per inviare e ricevere i messaggi di protocollo direttamente senza usare una libreria di autenticazione. <!-- TODO: Finalize this table  -->
+Scegliere la piattaforma preferita per compilare un'app usando le nostre librerie open source e i framework. In alternativa, è possibile usare la documentazione relativa al protocollo OAuth 2.0 e OpenID Connect per inviare e ricevere i messaggi di protocollo direttamente senza usare una libreria di autenticazione.
+<!-- TODO: Finalize this table  -->
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-## Novità	
+## Novità
 Le informazioni di carattere generale fornite di seguito saranno utili per individuare le operazioni che possono essere eseguite o meno con l'endpoint v2.0.
 
-- Se l'app viene compilata durante il periodo di anteprima dell'endpoint 2015 v2.0, assicurarsi di [leggere le informazioni sulle modifiche più significative apportate al protocollo](active-directory-v2-preview-oidc-changes.md) di recente.
+- Se l'app è stata creata durante il periodo di anteprima dell'endpoint 2015 v2.0, assicurarsi di [leggere le informazioni sulle modifiche più significative apportate al protocollo](active-directory-v2-preview-oidc-changes.md) di recente.
 - Informazioni sui [tipi di app che si possono creare con l'endpoint v2.0](active-directory-v2-flows.md).
 - Gli sviluppatori che hanno familiarità con Azure Active Directory possono vedere l'articolo che illustra gli [aggiornamenti ai protocolli e le differenze nell'endpoint v2.0](active-directory-v2-compare.md).
-- Comprendere le [limitazioni, le restrizioni e i vincoli](active-directory-v2-limitations.md) dell'endpoint v2.0.
+- Informazioni su [limitazioni, restrizioni e vincoli](active-directory-v2-limitations.md) dell'endpoint v2.0.
 
 ## riferimento
 I collegamenti seguenti sono utili per un'esplorazione più approfondita della piattaforma:
@@ -49,13 +46,15 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita della p
 - [Portale di registrazione delle app Microsoft](https://apps.dev.microsoft.com)
 - [Riferimento all'API REST di Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Microsoft Graph](https://graph.microsoft.io)
-- Di seguito sono elencate le librerie client open source e gli esempi che sono stati testati con l'endpoint v2.0. Si noti che funzionalità quali [la registrazione client dinamica di OpenID Connect](https://openid.net/specs/openid-connect-registration-1_0.html) e gli endpoint di convalida del token non sono ancora supportate e potrebbero dover essere disabilitate nella libreria per poter usare l'endpoint v2:  
+- Di seguito sono elencate le librerie client open source e gli esempi che sono stati testati con l'endpoint 2.0.
 
   - [Java WSO2 Identity Server](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
   - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
   - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
-  - [Client di base PHP OpenID Connect](https://github.com/jumbojett/OpenID-Connect-PHP)
-  - [Esempio Android OpenID Connect](https://github.com/learning-layers/android-openid-connect)
+  - [PHP OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)
+  - [Libreria client OAuth2 per iOS](https://github.com/nxtbgthng/OAuth2Client)
+  - [Libreria client OAuth2 per Android](https://github.com/wuman/android-oauth-client)
+  - [Client OpenID Connect per Android](https://github.com/kalemontes/OIDCAndroidLib)
 
 <!-- TODO: These articles
 - [ADAL Library Reference]()
@@ -63,4 +62,4 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita della p
 - Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
 -->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

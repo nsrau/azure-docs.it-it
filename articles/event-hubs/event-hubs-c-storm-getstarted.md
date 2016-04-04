@@ -30,7 +30,7 @@ Questa esercitazione illustra come inserire messaggi in Hub eventi usando un'app
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
-+ Ambiente di sviluppo in C. Per questa esercitazione si presuppone l'uso di uno stack gcc in una [macchina virtuale Linux di Azure ](../virtual-machines/virtual-machines-linux-tutorial.md) con Ubuntu 14.04. Le istruzioni per gli altri ambienti saranno fornite nei collegamenti esterni.
++ Ambiente di sviluppo in C. Per questa esercitazione si presuppone l'uso di uno stack gcc in una [macchina virtuale Linux di Azure ](../virtual-machines/virtual-machines-linux-cli-create.md) con Ubuntu 14.04. Le istruzioni per gli altri ambienti saranno fornite nei collegamenti esterni.
 
 + Un ambiente di sviluppo Java configurato per l'esecuzione di [Maven](http://maven.apache.org/). Per questa esercitazione si presuppone l'uso di [Eclipse](https://www.eclipse.org/).
 
@@ -111,4 +111,4 @@ Per lo sviluppo di applicazioni per l'integrazione di Hub eventi e Storm sono di
 [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

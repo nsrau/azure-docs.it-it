@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/17/2015"
+   ms.date="03/22/2016"
    ms.author="joaoma" />
 
 # Creare un probe personalizzato per il gateway applicazione di Azure con PowerShell per Gestione risorse di Azure
@@ -238,4 +238,4 @@ Salvare la configurazione nel gateway applicazione usando **Set-AzureRmApplicati
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

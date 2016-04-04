@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Espressioni scalari in Application Insights Analytics" 
-	description="Numeri, stringhe, espressioni dinamiche e tipi in Application Insights Analytics, lo strumento di ricerca avanzato per Application Insights." 
+	pageTitle="Espressioni scalari in Analytics in Application Insights" 
+	description="Numeri, stringhe, espressioni dinamiche e tipi in Analytics, lo strumento di ricerca avanzato per Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,30 +12,27 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Espressioni scalari in Application Insights Analytics
+# Espressioni scalari in Analytics
 
 
-[Application Insights Analytics](app-analytics.md) è un motore di ricerca avanzato per i dati di telemetria di [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Application Insights Analytics (AIQL).
+[Analytics](app-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analytics.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ---
 
-[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor)
-<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull)
-<br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt)
-<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
+[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) <br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull) <br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) <br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
 
 ---
 
 
 
-Il termine "scalare" indica valori come numeri o stringhe che possono occupare una singola cella in una tabella AIQL. Le espressioni scalari sono costituite da operatori e funzioni scalari e restituiscono valori scalari. `sqrt(score)/100 > target+2` è un'espressione scalare.
+Il termine "scalare" indica valori come numeri o stringhe che possono occupare una singola cella in una tabella. Le espressioni scalari sono costituite da operatori e funzioni scalari e restituiscono valori scalari. `sqrt(score)/100 > target+2` è un'espressione scalare.
 
 Il termine "scalare" si riferisce anche a matrici e oggetti compositi che possono essere memorizzati in una singola cella di database.
 
@@ -43,9 +40,7 @@ Le espressioni scalari differiscono dalle [query](app-analytics-queries.md) i cu
 
 ## Scalari
 
-[casts](#casts) | [comparisons](#scalar-comparisons)
-<br/>
-[gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 I tipi supportati sono:
 
@@ -163,10 +158,7 @@ Questa funzione restituisce il valore di *ifTrue* se *predicate* restituisce `tr
 iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ```
 
-<a name="isnull"/></a>
-<a name="isnotnull"/></a>
-<a name="notnull"/></a>
-
+<a name="isnull"/></a> <a name="isnotnull"/></a> <a name="notnull"/></a>
 ### isnull, isnotnull, notnull
 
     isnull(parsejson("")) == true
@@ -194,7 +186,7 @@ True o false a seconda se il valore è null o not null.
 | "" | false
 |"x" | false
 |parsejson("")|true
-|parsejson("[]")|false
+|parsejson("")|false
 |parsejson("{}")|false
 
 **Esempio**
@@ -226,8 +218,7 @@ Si noti che esistono altri modi per ottenere questo risultato:
 
 ## Numeri
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) |
-[todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Valori letterali numerici
 
@@ -241,17 +232,7 @@ Si noti che esistono altri modi per ottenere questo risultato:
 || |
 |---|-------------|
 | + | Aggiungi |
-| - | Sottrai |
-| * | Moltiplica |
-| / | Dividi |
-| % | Modulo |
-||
-|`<` |Minore 
-|`<=`|Minore o uguale a 
-|`>` |Maggiore 
-|`>=`|Maggiore o uguale a 
-|`<>`|Non uguale a 
-|`!=`|Non uguale a
+| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
 
 
 
@@ -550,7 +531,7 @@ Le regole sono le stesse di JavaScript.
 
 Le stringhe possono essere racchiuse tra virgolette singole o doppie.
 
-La barra rovesciata (`\`) viene usata per i caratteri escape, ad esempio `\t` (tabulazione), `\n` (nuova riga) e le istanze del carattere delle virgolette.
+La barra rovesciata (``) viene usata per i caratteri escape, ad esempio `\t` (tabulazione), `\n` (nuova riga) e le istanze del carattere delle virgolette.
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -558,7 +539,7 @@ La barra rovesciata (`\`) viene usata per i caratteri escape, ad esempio `\t` (t
 
 ### Valori letterali di stringhe offuscate
 
-I valori letterali di stringhe offuscate sono stringhe che AI Analytics nasconde durante l'output della stringa (ad esempio, durante la traccia). Il processo di offuscamento sostituisce tutti i caratteri offuscati da un carattere (`*`) di inizio.
+I valori letterali di stringhe offuscate sono stringhe che Analytics nasconde durante l'output della stringa (ad esempio, durante la traccia). Il processo di offuscamento sostituisce tutti i caratteri offuscati da un carattere (`*`) di inizio.
 
 Per creare un valore letterale di stringa offuscata, anteporre `h` o 'H'. Ad esempio:
 
@@ -669,16 +650,12 @@ Questo esempio è equivalente a `substring(Text, 2, 4)`:
 extract("^.{2,2}(.{4,4})", 1, Text)
 ```
 
-<a name="notempty"></a>
-<a name="isnotempty">
-</a> <a name="isempty"></a>
+<a name="notempty"></a> <a name="isnotempty"></a> <a name="isempty"></a>
 ### isempty, isnotempty, notempty
 
     isempty("") == true
 
-True se l'argomento è una stringa vuota o è null.
-
-Vedere anche [isnull](#isnull).
+True se l'argomento è una stringa vuota o è null. Vedere anche [isnull](#isnull).
 
 
 **Sintassi**
@@ -700,7 +677,7 @@ Indica se l'argomento è una stringa vuota o isnull.
 | "" | true
 |"x" | false
 |parsejson("")|true
-|parsejson("[]")|false
+|parsejson("")|false
 |parsejson("{}")|false
 
 
@@ -847,9 +824,7 @@ Converte una stringa in lettere maiuscole.
 
 ## Matrici e oggetti - tipi dinamici
 
-[valori letterali](#dynamic-literals) | [cast](#casting-dynamic-objects) | [operatori](#operators) | [clausole let](#dynamic-objects-in-let-clauses)
-<br/>
-[arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[valori letterali](#dynamic-literals) | [cast](#casting-dynamic-objects) | [operatori](#operators) | [clausole let](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 Di seguito il risultato di una query su un'eccezione di Application Insights. Il valore in `details` è una matrice.
@@ -863,7 +838,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Ma usare `arraylength` e altre funzioni AIQL (non usare ".length")
+* Ma usare `arraylength` e altre funzioni Analytics (non usare ".length")
 
 **Cast** In alcuni casi è necessario eseguire il cast di un elemento estratto da un oggetto poiché il tipo può variare. Ad esempio, `summarize...to` richiede un tipo specifico:
 
@@ -1083,7 +1058,7 @@ Nell'esempio seguente, quando `context_custom_metrics` è un valore `string` sim
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-il seguente frammento AIQL recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e `duration.min` (rispettivamente `118.0` e `110.0`).
+il seguente frammento recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e `duration.min` (rispettivamente `118.0` e `110.0`).
 
 ```AIQL
 T
@@ -1154,4 +1129,4 @@ Si noti che "[0]" indica la presenza di una matrice, ma non specifica l'indice u
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

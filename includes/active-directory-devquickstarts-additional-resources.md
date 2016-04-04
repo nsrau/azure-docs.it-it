@@ -1,7 +1,7 @@
 ## Risorse aggiuntive
 
-- [Guida per sviluppatori di Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/)
+- [Guida per sviluppatori di Azure AD](active-directory-developers-guide.md)
 - [AzureADSamples in GitHub](https://github.com/AzureAdSamples)
 - [CloudIdentity.com](http://cloudidentity.com)
 
-<!---HONumber=AcomDC_0309_2016---->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Utilizzo dell'interfaccia della riga di comando di Azure con Gestione risorse | Microsoft Azure"
-	description="Informazioni sull'uso dell'interfaccia della riga di comando per Mac, Linux e Windows per gestire le risorse di Azure mediante l'interfaccia della riga di comando nella modalità Gestione risorse di Azure."
-	services="virtual-machines,virtual-network,mobile-services,cloud-services"
+	pageTitle="Comandi dell’interfaccia della riga di comando Azure in modalità di gestione risorse | Microsoft Azure"
+	description="Comandi dell’interfaccia della riga di comando Azure (CLI) per gestire le risorse nel modello di distribuzione di gestione risorse"
+	services="virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
@@ -14,43 +14,36 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="03/07/2016"
 	ms.author="danlep"/>
 
-# Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure
+# Comandi dell'interfaccia della riga di comando di Azure in modalità Azure Resource Manager (arm)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines/virtual-machines-command-line-tools.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](../virtual-machines-command-line-tools.md).
 
-Questo articolo illustra come usare l'interfaccia della riga di comando di Azure in modalità Gestione risorse di Azure per creare, gestire ed eliminare servizi nella riga di comando di computer Mac, Linux e Windows. È possibile eseguire molte delle stesse attività usando le diverse librerie di Azure SDK con Azure PowerShell e tramite il portale di Azure.
+In questo articolo vengono fornite sintassi e opzioni per i comandi dell’interfaccia della riga di comando (CLI) di Azure utilizzati comunemente per creare e gestire risorse di Azure nel modello di distribuzione Azure Resource Manager. Accedere ai comandi eseguendo l’interfaccia della riga di comando in modalità di gestione risorse (arm). Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi.
 
-Gestione risorse di Azure consente di creare un gruppo di risorse, ovvero macchine virtuali, siti Web, database e così via, come una singola unità distribuibile. È quindi possibile distribuire, aggiornare o eliminare tutte le risorse per l'applicazione mediante un'unica operazione coordinata. È possibile descrivere le risorse del gruppo in un modello JSON per la distribuzione e quindi usare tale modello per ambienti diversi, ad esempio di testing, gestione temporanea e produzione.
+Per iniziare, innanzitutto [installare l’interfaccia della riga di comando di Azure](xplat-cli-install.md) e [connettersi alla sottoscrizione di Azure](xplat-cli-connect.md) utilizzando un account aziendale o dell'istituto di istruzione o un'identità dell'account Microsoft.
 
-## Ambito dell'articolo
+Per la sintassi e le opzioni dei comandi correnti nella riga di comando in modalità Gestione risorse, digitare `azure help` o `azure help [command]` per visualizzare la Guida per un comando specifico. Sono inoltre disponibili esempi dell'interfaccia della riga di comando nella documentazione per la creazione e la gestione di servizi di Azure specifici.
 
-In questo articolo vengono fornite la sintassi e le opzioni per i comandi dell'interfaccia della riga di comando di Azure usati comunemente per il modello di distribuzione di Gestione dei servizi. Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare alcuni comandi o parametri diversi. Per la sintassi e le opzioni dei comandi correnti nella riga di comando in modalità Gestione risorse, digitare `azure help` o `azure help [command]` per visualizzare la Guida per un comando specifico. Sono inoltre disponibili esempi dell'interfaccia della riga di comando nella documentazione per la creazione e la gestione di servizi di Azure specifici.
+I parametri facoltativi sono indicati tra parentesi quadre (ad esempio `[parameter]`). Tutti gli altri parametri sono obbligatori.
 
-I parametri facoltativi sono indicati tra parentesi quadre (ad esempio [parametro]). Tutti gli altri parametri sono obbligatori.
+Oltre ai parametri facoltativi specifici del comando documentati qui, vi sono tre parametri opzionali che possono essere utilizzati per visualizzare output dettagliato come opzioni richiesta e codici di stato. Il parametro `-v` fornisce output dettagliato, mentre il parametro `-vv` fornisce un output con un dettaglio ancor maggiore. Utilizzando l'opzione `--json` verrà visualizzato il risultato in formato json non elaborato.
 
-Oltre ai parametri facoltativi specifici del comando documentati qui, vi sono tre parametri opzionali che possono essere utilizzati per visualizzare output dettagliato come opzioni richiesta e codici di stato. Il parametro -v fornisce output dettagliato, mentre il parametro -vv fornisce un output con un dettaglio ancor maggiore. Utilizzando l'opzione --json verrà visualizzato il risultato in formato json non elaborato. L'uso con l'opzione --json è molto comune e costituisce un aspetto importante per il recupero e la comprensione dei risultati delle operazioni dell'interfaccia della riga di comando di Azure che restituiscono informazioni sulle risorse, lo stato e i log e per l'applicazione di modelli. È possibile installare gli strumenti parser JSON come **jq** o **jsawk** oppure usare la libreria del linguaggio preferito.
+## Impostazione della modalità di gestione risorse
+
+Utilizzare il comando seguente per abilitare i comandi di gestione risorse dell'interfaccia della riga di comando di Azure.
+
+	azure config mode arm
+
+>[AZURE.NOTE] La modalità Gestione risorse di Azure e la modalità Gestione servizi di Azure si escludono a vicenda, ossia le risorse create in una modalità non possono essere gestite dall'altra.
 
 ## Approccio imperativo e dichiarativo
 
 Come avviene con la [modalità Gestione servizi di Azure](../virtual-machines-command-line-tools.md), la modalità Gestione risorse dell'interfaccia della riga di comando di Azure offre comandi che consentono di creare risorse in modo imperativo nella riga di comando. Ad esempio, se si digita `azure group create <groupname> <location>`, si chiede ad Azure di creare un gruppo di risorse, mentre con `azure group deployment create <resourcegroup> <deploymentname>` si indica ad Azure di creare una distribuzione di un numero qualsiasi di elementi e di inserirli in un gruppo. Poiché per ogni tipo di risorsa sono previsti comandi imperativi, è possibile concatenarli per creare distribuzioni piuttosto complesse.
 
 L'uso di _modelli_ che descrivono un gruppo di risorse costituisce tuttavia un approccio dichiarativo molto più potente che consente di automatizzare distribuzioni complesse indipendentemente dal numero di risorse e quasi per qualunque scopo. Quando si usano modelli, l'unico comando imperativo è per distribuire uno di essi. Per informazioni generali su modelli, risorse e gruppi di risorse, vedere l'articolo relativo alla [panoramica dei gruppi di risorse di Azure](../resource-group-overview.md).
-
-##Requisiti per l'uso
-
-I requisiti di impostazione per l'uso della modalità Gestione risorse con l'interfaccia della riga di comando di Azure sono i seguenti:
-
-- Un account Azure ([per ottenere una versione di valutazione gratuita, fare clic qui](https://azure.microsoft.com/pricing/free-trial/))
-- [Installazione dell'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
-
-
-Dopo aver ottenuto un account e aver installato l'interfaccia della riga di comando di Azure, è necessario eseguire queste operazioni:
-
-- [configurare la CLI di Azure](../xplat-cli-connect.md) per utilizzare un account aziendale o dell'istituto di istruzione o un'identità dell'account Microsoft
-- Passare alla modalità Gestione risorse digitando `azure config mode arm`
 
 
 ## azure account - Gestione delle informazioni relative all'account
@@ -1879,4 +1872,4 @@ Opzioni dei parametri:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

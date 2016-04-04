@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Rilevare e diagnosticare gli arresti anomali nelle app Windows Store e Phone con Application Insights" 
-	description="Analizzare i problemi di prestazioni nell'app per dispositivo Windows con Application Insights." 
+	pageTitle="Rilevare e diagnosticare gli arresti anomali nelle app di Windows Store e Windows Phone" 
+	description="Analizzare i problemi di prestazioni nell'app per dispositivi Windows." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -12,94 +12,28 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/21/2015" 
+	ms.date="03/17/2016" 
 	ms.author="awills"/>
 
-# Rilevare e diagnosticare gli arresti anomali nelle app Windows Store e Phone con Application Insights
+# Analisi per le app di Windows Store
 
-*Application Insights è disponibile in anteprima.*
+Microsoft offre due soluzioni di sviluppo per i dispositivi: [HockeyApp](http://hockeyapp.net/), per i dispositivi client, e [Application Insights](app-insights-overview.md), per il lato server e le pagine Web client.
 
-Se gli utenti incontrano arresti anomali nell'app, si desidera avere rapidamente informazioni e dettagli su cosa è successo. Con Application Insights è possibile monitorare la frequenza con cui si verificano arresti anomali, ricevere avvisi quando si verificano e analizzare i report di singoli incidenti imprevisti.
+[HockeyApp](http://hockeyapp.net/) è la soluzione DevOps mobile per la compilazione di app per dispositivi iOS, OS X, Android e Windows, nonché di app multipiattaforma basate su Xamarin, Cordova e Unity. Permette di distribuire le compilazioni ai beta tester, raccogliere dati sugli arresti anomali del sistema e ottenere commenti e suggerimenti degli utenti. L'integrazione con Visual Studio Team Services semplifica la distribuzione delle compilazioni e l'integrazione degli elementi di lavoro.
 
-"Arresto anomalo" significa che l'applicazione viene terminata a causa di un'eccezione non rilevata. Se l'app rileva un'eccezione, è possibile creare un report con l'[API TrackException][apiexceptions], ma continuare l'esecuzione. In tal caso, non verrà registrata come arresto anomalo.
+Passare a:
 
+* [HockeyApp](http://support.hockeyapp.net/kb)
+* [HockeyApp per Windows](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone)
+* [Blog di HockeyApp](http://hockeyapp.net/blog/)
+* Partecipando a [HockeyApp Preseason](http://hockeyapp.net/preseason/) è possibile accedere ai rilasci anticipati.
 
-## Monitorare la frequenza di arresti anomali
+Se l'app ha un lato server, usare [Application Insights](app-insights-overview.md) per monitorare il lato server Web dell'app in [ASP.NET](app-insights-asp-net.md) o [J2EE](app-insights-java-get-started.md).
 
-Se questa operazione non è stata ancora eseguita, aggiungere [Application Insights al progetto dell'app][windows] e ripubblicarlo.
+È anche possibile usare [Application Insights per app desktop Windows](app-insights-windows-desktop.md).
 
-Gli arresti anomali vengono visualizzati nel pannello della panoramica dell'applicazione nel [portale di Application Insights][portal].
+> [AZURE.NOTE] A partire dal 15 giugno 2016 non verranno più visualizzati in Application Insights i dati relativi alle app per iOS, Android, Windows Store e Windows Phone.
+> 
+> [Altre informazioni su questa modifica](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/).
 
-![](./media/app-insights-windows-crashes/appinsights-d018-oview.png)
-
-È possibile modificare l'intervallo di tempo visualizzato nel grafico.
-
-
-## Impostare un avviso per rilevare arresti anomali
-
-![Dal grafico arresti anomali fare clic su regole di avviso e quindi Aggiungi avviso](./media/app-insights-windows-crashes/appinsights-d023-alert.png)
-
-## Diagnosticare gli arresti anomali
-
-Per scoprire se si verificano arresti anomali di alcune versioni dell'app più di altre, fare clic nel grafico di arresti anomali e quindi segmentare in base alla versione dell'applicazione:
-
-![](./media/app-insights-windows-crashes/appinsights-d26crashSegment.png)
-
-
-Per individuare le eccezioni che causano arresti anomali, aprire la ricerca diagnostica. È possibile rimuovere altri tipi di telemetria per concentrarsi sulle eccezioni:
-
-![](./media/app-insights-windows-crashes/appinsights-d26crashExceptions.png)
-
-[Ulteriori informazioni sull'applicazione di filtri nella ricerca diagnostica][diagnostic]
- 
-
-Fare clic su qualsiasi eccezione per visualizzarne i dettagli, tra cui le proprietà associate e l'analisi dello stack.
-
-![](./media/app-insights-windows-crashes/appinsights-d26crash.png)
-
-Vedere le altre eccezioni e eventi che si sono verificati simili a quell'eccezione:
-
-
-![](./media/app-insights-windows-crashes/appinsights-d26crashRelated.png)
-
-## Inserire gli eventi e log di traccia
-
-Per facilitare la diagnosi dei problemi, è possibile [inserire chiamate di traccia e eseguire una ricerca nei log in Application Insights][diagnostic].
-
-## <a name="debug"></a>Confronto tra la modalità Debug e Release
-
-#### Debug
-
-Se si compila in modalità di debug, gli eventi vengono inviati non appena vengono generati. Se si perde la connessione a Internet e quindi si chiude l'app prima di recuperare la connettività, la telemetria offline viene rimossa.
-
-#### Release
-
-Se si esegue la compilazione nella configurazione di rilascio, gli eventi vengono archiviati nel dispositivo e inviati alla ripresa dell'applicazione. I dati vengono inviati anche al primo uso dell'applicazione. Se dopo l'avvio la connettività Internet non è disponibile, la telemetria precedente, nonché quella per il ciclo di vita corrente, viene archiviata e inviata alla ripresa successiva.
-
-## <a name="next"></a>Passaggi successivi
-
-[Rilevare, valutare e diagnosticare problemi con Application Insights][detect]
-
-[API Application Insights][api]
-
-[Acquisire i log di diagnostica][trace]
-
-[Risoluzione dei problemi](app-insights-windows-troubleshoot.md)
-
-
-
-
-<!--Link references-->
-
-[api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
-[detect]: app-insights-detect-triage-diagnose.md
-[diagnostic]: app-insights-diagnostic-search.md
-[platforms]: app-insights-platforms.md
-[portal]: http://portal.azure.com/
-[trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
-
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

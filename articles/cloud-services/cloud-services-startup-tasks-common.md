@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="03/21/2016" 
 ms.author="adegeo"/>
 
 # Attività di avvio comuni del servizio cloud
@@ -23,7 +23,7 @@ Per comprendere il funzionamento delle attività di avvio e in particolare la mo
 
 Molte di queste attività usano
 
->[AZURE.NOTE]Le attività di avvio non sono applicabili ai ruoli VM, ma solo ai ruoli Web e di lavoro del servizio cloud.
+>[AZURE.NOTE] Le attività di avvio non sono applicabili ai ruoli VM, ma solo ai ruoli Web e di lavoro del servizio cloud.
 
 
 ## Definire le variabili di ambiente prima dell'avvio di un ruolo
@@ -60,7 +60,7 @@ Se è necessario le definire variabili di ambiente per un'attività specifica no
 </ServiceDefinition>
 ```
 
-Le variabili possono inoltre usare un [valore XPath di Azure valido](https://msdn.microsoft.com/library/azure/hh404006.aspx) per fare riferimento a un elemento della distribuzione. Anziché usare l'attributo `value`, definire un elemento figlio [RoleInstanceValue].
+Le variabili possono inoltre usare un [valore XPath di Azure valido](cloud-services-role-config-xpath.md) per fare riferimento a un elemento della distribuzione. Anziché usare l'attributo `value`, definire un elemento figlio [RoleInstanceValue].
 
 ```xml
 <Variable name="PathToStartupStorage">
@@ -503,4 +503,4 @@ Altre informazioni sul funzionamento delle [attività](cloud-services-startup-ta
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

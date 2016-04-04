@@ -65,6 +65,8 @@ Nella versione di anteprima corrente di SQL Server 2016, gli elementi seguenti r
 
 -   Vincoli di chiave esterna che fanno riferimento alla tabella
 
+    La tabella in cui non è possibile abilitare l'estensione database è la tabella a cui fa riferimento un vincolo FOREIGN KEY. In una relazione padre-figlio, ad esempio Orders e Order Details, si tratta della tabella padre (Orders).
+
 **Indici**
 -   Indici full-text
 
@@ -74,7 +76,7 @@ Nella versione di anteprima corrente di SQL Server 2016, gli elementi seguenti r
 
 -   Viste indicizzate che fanno riferimento alla tabella
 
-## <a name="Caveats"></a>Limitazioni e avvertenze per le tabelle con l'estensione abilitata
+## <a name="Caveats"></a>Limitazioni e avvertenze per le tabelle con estensione abilitata
 Nella versione di anteprima corrente di SQL Server 2016, le tabelle con l'estensione abilitata hanno le limitazioni seguenti.
 
 -   L'univocità non viene applicata per i vincoli UNIQUE e i vincoli PRIMARY KEY in una tabella abilitata per l'estensione.
@@ -99,4 +101,4 @@ Nella versione di anteprima corrente di SQL Server 2016, le tabelle con l'estens
 
 [Abilitare Database Estensione per una tabella](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

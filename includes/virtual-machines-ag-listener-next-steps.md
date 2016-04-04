@@ -2,6 +2,6 @@ Oltre a connettere automaticamente i client per la replica primaria, un listener
 
 >[AZURE.NOTE] Per suggerimenti relativi alla risoluzione dei problemi dei listener di Azure, vedere [Risoluzione dei problemi relativi al listener del gruppo di disponibilità in Azure](http://blogs.msdn.com/b/alwaysonpro/archive/2016/02/01/troubleshooting-availability-group-listener-in-azure.aspx) nel [blog](http://blogs.msdn.com/b/alwaysonpro/) del team di supporto AlwaysOn.
 
-Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
+Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

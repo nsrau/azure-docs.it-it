@@ -26,24 +26,24 @@ Per copiare i dati dell'efficacia della campagna di marketing dal BLOB di Azure 
 
 ## Prerequisiti
 
-È **necessario** eseguire la procedura dettagliata in [Esercitazione: spostare ed elaborare file di log con Data factory][datafactorytutorial] prima di eseguire la procedura dettagliata di questo articolo.
+È **necessario** eseguire la procedura dettagliata in [Esercitazione: spostare ed elaborare file di log con Data factory](data-factory-tutorial.md) prima di eseguire la procedura dettagliata di questo articolo.
 
 **(consigliato)** Esaminare ed eseguire la procedura dettagliata per [consentire alla pipeline di usare dati locali][useonpremisesdatasources] nell'articolo sulla creazione di una pipeline per spostare i dati da SQL Server locale a un archivio BLOB di Azure.
 
 
 In questa procedura dettagliata si eseguiranno i passaggi seguenti:
 
-1. [Passaggio 1: Creare un gateway di gestione dati](#OnPremStep1). Il gateway di gestione dati è un agente client che fornisce accesso alle origini dati locali dell'organizzazione dal cloud. Il gateway consente il trasferimento di dati tra un'istanza di SQL Server locale e gli archivi dati di Azure.	
+1. [Creare un gateway di gestione dati](#create-data-management-gateway). Il gateway di gestione dati è un agente client che fornisce accesso alle origini dati locali dell'organizzazione dal cloud. Il gateway consente il trasferimento di dati tra un'istanza di SQL Server locale e gli archivi dati di Azure.	
 
 	È necessario che nell'ambiente aziendale sia installato almeno un gateway che deve anche essere registrato con Data factory di Azure prima di aggiungere il database SQL Server locale come servizio collegato a un'istanza di Data factory di Azure.
 
-2. [Passaggio 2: Creare un servizio collegato per SQL Server locale](#OnPremStep2). In questo passaggio prima si creano un database e una tabella nel computer SQL Server locale e quindi si crea il servizio collegato: **OnPremSqlLinkedService**.
-3. [Passaggio 3: Creare la tabella e la pipeline](#OnPremStep3). In questo passaggio si creeranno una tabella **MarketingCampaignEffectivenessOnPremSQLTable** e una pipeline **EgressDataToOnPremPipeline**. 
+2. [Creare un servizio collegato per SQL Server locale](#create-sql-server-linked-service). In questo passaggio prima si creano un database e una tabella nel computer SQL Server locale e quindi si crea il servizio collegato: **OnPremSqlLinkedService**.
+3. [Creare il set di dati e la pipeline](#create-dataset-and-pipeline). In questo passaggio si creeranno una tabella **MarketingCampaignEffectivenessOnPremSQLTable** e una pipeline **EgressDataToOnPremPipeline**. 
 
-4. [Passaggio 4: Monitorare la pipeline e visualizzare il risultato](#OnPremStep4). In questo passaggio si monitoreranno le pipeline, le tabelle e le sezioni di dati usando il portale di Azure.
+4. [Monitorare la pipeline e visualizzare il risultato](#monitor-pipeline). In questo passaggio si monitoreranno le pipeline, le tabelle e le sezioni di dati usando il portale di Azure.
 
 
-## <a name="OnPremStep1"></a> Passaggio 1: Creare un gateway di gestione dati
+## Creare il gateway di gestione dati
 
 Il gateway di gestione dati è un agente client che fornisce accesso alle origini dati locali dell'organizzazione dal cloud. Il gateway consente il trasferimento di dati tra un'istanza di SQL Server locale e gli archivi dati di Azure.
   
@@ -64,7 +64,7 @@ Se esiste già un gateway di dati che è possibile usare, saltare questo passagg
 
 9. Fare clic su **OK** per chiudere il pannello **Configura** e su **OK** per chiudere il pannello **Crea**. Attendere che lo stato di **MyGateway** nel pannello **Servizi collegati** venga impostato su **RIUSCITO**. È anche possibile avviare lo strumento **Gestione configurazione del gateway di gestione dati (anteprima)** per verificare che il nome del gateway corrisponda al nome nel portale e che lo **stato** sia **Registrato**. Potrebbe essere necessario chiudere e riaprire il pannello Servizi collegati per visualizzare l'ultimo stato. L'aggiornamento della schermata con l'ultimo stato potrebbe richiedere alcuni minuti.
 
-## <a name="OnPremStep2"></a>Passaggio 2: Creare un servizio collegato per SQL Server locale
+## Creare il servizio collegato di SQL Server
 
 In questo passaggio prima si creano il database e la tabella necessari nel computer SQL Server locale e quindi si crea il servizio collegato.
 
@@ -107,11 +107,14 @@ Per iniziare, è necessario creare il database SQL Server, la tabella, i tipi de
 		2.	Rimuovere le ultime due righe (le proprietà JSON **username** e **password** sono necessarie solo se si usa Autenticazione di Windows). 
 		3.	Rimuovere **, (virgola) **alla fine della riga **gatewayName**.
 
-		**Se si usa Autenticazione di Windows:** 1. Impostare il valore di **Sicurezza integrata** su **True** in **connectionString**. Rimuovere "**User ID=<username>;Password=<password>;**" da connectionString. 2. Specificare il nome dell'utente che ha accesso al database per la proprietà **username**. 3. Specificare **password** per l'account utente.   
+		**Se si usa l'autenticazione di Windows:**
+		1. Impostare il valore di **Sicurezza integrata** su **True** in **connectionString**. Rimuovere "**User ID=<username>;Password=<password>;**" da connectionString. 
+		2. Specificare il nome dell'utente che ha accesso al database per la proprietà **username**. 
+		3. Specificare **password** per l'account utente.   
 	4. Specificare il nome del gateway (**MyGateway**) per la proprietà gatewayName. 		  	 
 3.	Fare clic su **Distribuisci** sulla barra degli strumenti per distribuire il servizio collegato. 
 
-## <a name="OnPremStep3"></a> Passaggio 3: Creare la tabella e la pipeline
+## Creare il set di dati e la pipeline
 
 ### Creare la tabella logica locale
 
@@ -134,9 +137,9 @@ Per iniziare, è necessario creare il database SQL Server, la tabella, i tipi de
  
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire la pipeline. Controllare che sulla barra del titolo dell'editor sia visualizzato un messaggio simile a **CREAZIONE PIPELINE COMPLETATA**.
 	
-## <a name="OnPremStep4"></a> Passaggio 4: Monitorare la pipeline e visualizzare il risultato
+## Monitorare la pipeline
 
-Ora si possono seguire gli stessi passaggi illustrati nella sezione **Monitorare le pipeline e le sezioni di dati** dell'[esercitazione principale][datafactorytutorial] per monitorare la nuova pipeline e le sezioni di dati per la nuova tabella ADF locale.
+È ora possibile usare la stessa procedura illustrata nella sezione **Monitorare le pipeline** dell'[esercitazione principale](data-factory-tutorial.md#monitor-pipelines) per monitorare la nuova pipeline e le sezioni dati per la nuova tabella di Azure Data Factory locale.
  
 Quando si vede che lo stato di una sezione della tabella **MarketingCampaignEffectivenessOnPremSQLTable** viene impostato su Ready, significa che la pipeline ha completato l'esecuzione per la sezione. Per visualizzare i risultati, eseguire una query della tabella **MarketingCampaignEffectiveness** nel database **MarketingCampaigns** in SQL Server.
  
@@ -148,7 +151,6 @@ Congratulazioni. È stata completata la procedura dettagliata per usare l'origin
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-[datafactorytutorial]: data-factory-tutorial.md
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
@@ -169,4 +171,4 @@ Congratulazioni. È stata completata la procedura dettagliata per usare l'origin
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="samueld"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
-	ms.author="billmath;vakarand"/>
+	ms.date="03/21/2016"
+	ms.author="vakarand"/>
 
 
 # Domande frequenti su Azure AD Connect Health
@@ -106,4 +106,4 @@ Quando si rimuove un agente da un server, il server non viene rimosso automatica
 * [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -9,7 +9,7 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="02/26/2016"
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="03/18/2016"
 
 	ms.author="femila"/>
 
@@ -30,4 +30,4 @@ I seguenti argomenti forniscono informazioni sulle diverse funzionalità dei dis
 | Distribuzione | [Scenari di utilizzo e considerazioni sulla distribuzione per Aggiunta di Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [Connessione di dispositivi associati al dominio ad Azure AD per esperienze con Windows 10](active-directory-azureadjoin-devices-group-policy.md)<br><br>[Abilitazione di Microsoft Passport per lavorare nell'organizzazione](active-directory-azureadjoin-passport-deployment.md)<br><br> [Abilitazione di Enterprise State Roaming per Windows 10](active-directory-windows-enterprise-state-roaming-overview.md)<br><br> |
 | Attività dell'utente | [Configurazione di un nuovo dispositivo Windows 10 con Azure AD durante l'installazione](active-directory-azureadjoin-user-frx.md) <br><br> [Configurazione di un dispositivo Windows 10 con Azure AD dal menu Impostazioni](active-directory-azureadjoin-user-upgrade.md) <br><br> [Associazione di un dispositivo Windows 10 personale all'organizzazione](active-directory-azureadjoin-personal-device.md) |
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -63,7 +63,7 @@ Il cmdlet PowerShell che è stato eseguito per creare lo spazio dei nomi del bus
 
 ## Creare un'applicazione Ruby
 
-Per istruzioni, vedere [Creazione di un'applicazione Ruby in Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Per istruzioni, vedere [Creazione di un'applicazione Ruby in Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configurare l'applicazione per l'uso del bus di servizio
 
@@ -237,4 +237,4 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
  
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

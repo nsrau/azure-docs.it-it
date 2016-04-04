@@ -32,10 +32,10 @@ L'installazione di JavaScript SDK per le app per dispositivi mobili di Azure pu�
 npm install azure-mobile-apps-client --save
 ```
 
-Dopo l'installazione, la libreria si trova in `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.js`. Copiare questo file nella propria area Web.
+Dopo l'installazione, la libreria sarà disponibile in `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`. Copiare questo file nella propria area Web.
 
 ```
-<script src="path/to/MobileServices.Web.js"></script>
+<script src="path/to/MobileServices.Web.min.js"></script>
 ```
 
 La libreria può anche essere utilizzata come modulo ES2015, all'interno di ambienti CommonJS come ad esempio Browserify e Webpack, e come libreria AMD. Ad esempio:
@@ -103,7 +103,7 @@ Usare Notification Hubs SDK per inviare notifiche push dal server. Non inviare m
 <!-- URLs. -->
 [Avvio rapido alle app per dispositivi mobili di Azure]: app-service-mobile-cordova-get-started.md
 [Introduzione all'autenticazione]: app-service-mobile-cordova-get-started-users.md
-[Aggiungere l'autenticazione all'app]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [your first Apache Cordova app]: http://cordova.apache.org/#getstarted
@@ -111,6 +111,6 @@ Usare Notification Hubs SDK per inviare notifiche push dal server. Non inviare m
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[documentazione relativa all'oggetto Query]: https://msdn.microsoft.com/it-IT/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/it-IT/library/azure/jj613353.aspx
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management: Come richiedere l'autenticazione a più fattori"
+   pageTitle="Come richiedere l'autenticazione a più fattori | Microsoft Azure"
    description="Informazioni su come richiedere l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per identità con privilegi con l'estensione Azure Active Directory Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: Come richiedere l'MFA
+# Azure Privileged Identity Management: Come richiedere l'autenticazione a più fattori (MFA)
 
 È consigliabile richiedere l'autenticazione a più fattori per tutti gli amministratori.
 
@@ -41,4 +41,4 @@ In alternativa, se gli utenti eseguono l'autenticazione in locale, è possibile 
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

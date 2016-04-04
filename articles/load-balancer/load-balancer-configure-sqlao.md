@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/21/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Configurare il bilanciamento del carico per SQL AlwaysOn
@@ -36,15 +36,15 @@ Il bilanciamento del carico interno può essere configurato solo tramite PowerSh
 
 ## Aggiungere al servizio il bilanciamento del carico interno 
 
-### Passaggio 1.
+### Passaggio 1
 
 Nell'esempio seguente, verrà configurata una rete virtuale che contiene una subnet denominata "Subnet-1":
 
 	Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName Subnet-1 -ServiceName SqlSvc
 
-Passaggio 2.
+### Passaggio 2
 
-## Aggiungere gli endpoint con carico bilanciato per ILB in ogni macchina virtuale
+Aggiungere gli endpoint con carico bilanciato per ILB in ogni macchina virtuale
 
 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –
 	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
@@ -53,18 +53,19 @@ Passaggio 2.
 
 Nell'esempio precedente, si dispone di 2 macchine virtuali denominate "sqlsvc1" e "sqlsvc2" in esecuzione nel servizio cloud "Sqlsvc". Dopo la creazione di ILB con l'opzione "DirectServerReturn", verranno aggiunti gli endpoint con carico bilanciato all’ILB per consentire a SQL di configurare i listener per i gruppi di disponibilità.
 
-È possibile trovare ulteriori informazioni dettagliate creando un SQL AlwaysOn [durante la distribuzione di SQL AlwaysOn utilizzando il modello Gestione risorse di Azure](virtual-machines-workload-template-sql-alwayson.md) o [utilizzando la raccolta del portale](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+Per altre informazioni su come creare un gruppo di disponibilità AlwaysOn di SQL, vedere la [raccolta del portale](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+
 
 
 ## Vedere anche
 
-[Introduzione alla configurazione del bilanciamento del carico Internet](load-balancer-internet-getstarted.md)
+[Introduzione alla configurazione del bilanciamento del carico Internet](load-balancer-get-started-internet-arm-ps.md)
 
-[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-internal-getstarted.md)
+[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configurare una modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

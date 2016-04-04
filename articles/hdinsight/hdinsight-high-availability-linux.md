@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="03/18/2016"
 	ms.author="larryfr"/>
 
 #Disponibilità e affidabilità dei cluster Hadoop in HDInsight
@@ -166,4 +166,4 @@ In questo documento si è appreso il modo in cui Azure HDInsight fornisce dispon
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

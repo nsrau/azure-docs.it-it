@@ -1,41 +1,41 @@
 
 
-Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks – an operating system disk and a temporary disk. The operating system disk is created from an image, and both the operating system disk and the image are actually virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs.
+Analogamente a qualsiasi altro computer, le macchine virtuali in Azure utilizzano i dischi come posizioni per archiviare un sistema operativo, le applicazioni e i dati. Tutte le macchine virtuali di Azure dispongono di almeno due dischi: un disco del sistema operativo e un disco temporaneo. Il disco del sistema operativo viene creato da un'immagine e sia il disco del sistema operativo sia l'immagine sono effettivamente dischi rigidi virtuali archiviati in un account di archiviazione di Azure. Anche le macchine virtuali possono disporre di uno o più dischi dati archiviati in dischi rigidi virtuali.
 
-## Operating system disk
+## Disco del sistema operativo
 
-Every virtual machine has one attached operating system disk. It’s registered as a SATA drive and labeled as the C: drive. This disk has a maximum capacity of 1023 gigabytes (GB). When Azure creates an operating system disk, three copies of the disk are created for high durability. Additionally, if you configure the virtual machine for geo-replication, your VHD is also replicated to different sites more than 400 miles apart.
+Tutte le macchine virtuali dispongono di un disco del sistema operativo collegato. È registrato come unità SATA ed etichettato come unità C. Questo disco ha una capacità massima di 1023 GB. Quando in Azure viene creato un disco del sistema operativo, vengono create tre copie del disco per garantire una durabilità elevata. Inoltre, se la macchina virtuale viene configurata per la replica geografica, il disco rigido virtuale viene anche replicato in diversi siti distanti più di 643 km.
 
-##Temporary disk
+##Disco temporaneo
 
-The temporary disk is automatically created for you. On Windows virtual machines, this disk is labeled as the D: drive and it used for storing pagefile.sys. On Linux virtual machines, the disk is typically /dev/sdb and is formatted and mounted to /mnt/resource by the Azure Linux Agent.
+Il disco temporaneo viene creato automaticamente. Nelle macchine virtuali Windows, il disco viene etichettato come unità D: e usato per l'archiviazione di pagefile.sys. Nelle macchine virtuali di Linux, il disco è in genere /dev/sdb e viene formattato e montato in /mnt/resource dall'agente Linux di Azure.
 
->[AZURE.WARNING] Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store data such as page or swap files. To remap this disk for a Windows virtual machine, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md).
+>[AZURE.WARNING] Non archiviare sul disco temporaneo. Quest’ultimo fornisce l'archiviazione temporanea per applicazioni e processi e consente di archiviare solo dati come file di paging o di scambio. Per eseguire un nuovo mapping di questo disco per una macchina virtuale di Windows, vedere [Modifica della lettera di unità del disco temporaneo di Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
-For more information on how Azure uses the temporary disk, see [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+Per altre informazioni sull'uso del disco temporaneo in Azure, vedere l'articolo relativo alle [unità temporanee nelle macchine virtuali di Microsoft Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 
-## Data disk
+## Disco dati
 
-A data disk is a VHD that’s attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose.  Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
+Un disco dati è un disco rigido virtuale collegato a una macchina virtuale per archiviare i dati delle applicazioni o altri dati che è necessario conservare. I dischi dati vengono registrati come unità SCSI ed etichettati con una lettera di propria scelta. Ciascun disco dati ha una capacità massima di 1023 GB. Le dimensioni della macchina virtuale determinano il numero di dischi dati è possibile collegare e il tipo di archiviazione che è possibile utilizzare per ospitare i dischi.
 
->[AZURE.NOTE] For more details about virtual machines capacities, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
+>[AZURE.NOTE] Per ulteriori dettagli sulle capacità delle macchine virtuali, vedere [Dimensioni per le macchine virtuali](virtual-machines-linux-sizes.md).
 
-Azure creates an operating system disk when you create a virtual machine from an image. If you use an image that includes data disks, Azure also creates the data disks when it creates the virtual machine. (You can use an image from Azure or a partner, or one you provide.) Otherwise, you add data disks after you create the virtual machine.
+Quando viene creata una macchina virtuale da un'immagine, Azure crea un disco del sistema operativo. Se si utilizza un'immagine che include dischi dati, anche Azure crea dischi dati quando viene creata la macchina virtuale. (È possibile utilizzare un'immagine da Azure o un partner o un’immagine fornita.) In caso contrario, aggiungere dischi dati dopo aver creato la macchina virtuale.
 
-You can add data disks to a virtual machine at any time, by ‘attaching’ the disk to the virtual machine. You can use a VHD that you’ve uploaded or copied to your storage account, or one that Azure creates for you. Attaching a data disk associates the VHD file from your storage account with the virtual machine, by placing a ‘lease’ on the VHD so it can’t be deleted from storage while it’s attached to a virtual machine.
+È possibile aggiungere dischi dati a una macchina virtuale in qualsiasi momento, «collegando» il disco alla macchina virtuale. È possibile utilizzare un disco rigido virtuale caricato o copiato sull'account di archiviazione o uno creato da Azure. Il collegamento di un disco dati associa il file del disco rigido virtuale dell'account di archiviazione alla macchina virtuale, inserendo un «lease» sul disco rigido virtuale in modo che non possa essere eliminato dalla memoria se collegato a una macchina virtuale.
 
-## About VHDs
+## Informazioni sui dischi rigidi virtuali
 
-The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. (Premium storage is available in certain regions.) For details about page blobs, see [Understanding block blobs and page blobs](https://msdn.microsoft.com/library/ee691964.aspx). For details about premium storage, see [Premium storage: High-performance storage for Azure virtual machine workloads](../storage/storage-premium-storage.md).
+I dischi rigidi virtuali utilizzati in Azure sono file con estensione .vhd archiviati come BLOB di pagine in un account di archiviazione Standard o Premium in Azure. L’archiviazione Premium è disponibile solo in determinate aree geografiche. Per ulteriori dettagli sui BLOB di pagine, vedere [Informazioni sui BLOB in blocchi e sui BLOB di pagine](https://msdn.microsoft.com/library/ee691964.aspx). Per ulteriori dettagli sull’archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage.md).
 
-Azure supports VHD format, fixed disks. The fixed format lays the logical disk out linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. Often, the fixed format wastes space because most disks have large unused ranges in them. However, Azure stores .vhd files in a sparse format, so you receive the benefits of both the fixed and dynamic disks at the same time. For more details, see [Getting started with virtual hard disks](https://technet.microsoft.com/library/dd979539.aspx).
+Azure supporta dischi fissi di formato VHD. In caso di formato fisso, il disco logico viene disposto in modo lineare all'interno del file, in modo che l'offset del disco X venga archiviato in corrispondenza dell'offset del BLOB X. In un piè di pagina alla fine del BLOB vengono descritte le proprietà del disco rigido virtuale. Spesso, con il formato fisso si verifica uno spreco di spazio poiché nella maggior parte dei dischi sono presenti intervalli inutilizzati di grandi dimensioni. Tuttavia, in Azure i file con estensione vhd vengono archiviati in un formato di tipo sparse, pertanto si ottengono contemporaneamente i vantaggi sia dei dischi fissi sia di quelli dinamici. Per ulteriori dettagli, vedere [Introduzione ai dischi rigidi virtuali](https://technet.microsoft.com/library/dd979539.aspx).
 
-All .vhd files in Azure that you want to use as a source to create disks or images are read-only. When you create a disk or image, Azure makes copies of the .vhd files. These copies can be read-only or read-and-write, depending on how you use the VHD.
+Tutti i file con estensione .vhd in Azure che si desidera utilizzare come origine per creare dischi o immagini sono di sola lettura. Quando viene creato un disco o un'immagine, Azure crea copie dei file con estensione .vhd. Queste copie possono essere lette oppure lette e scritte, a seconda di come viene utilizzato il disco rigido virtuale.
 
-When you create a virtual machine from an image, Azure creates a disk for the virtual machine that is a copy of the source .vhd file. To protect against accidental deletion, Azure places a lease on any source .vhd file that’s used to create an image, an operating system disk, or a data disk.
+Quando viene creata una macchina virtuale da un'immagine, Azure crea un disco per la macchina virtuale che è una copia del file con estensione .vhd di origine. Per impedire eliminazioni accidentali, Azure inserisce un lease su qualsiasi file con estensione .vhd di origine utilizzato per creare un'immagine, un disco del sistema operativo o un disco dati.
 
-Before you can delete a source .vhd file, you’ll need to remove the lease by deleting the disk or image. To delete a .vhd file that is being used by a virtual machine as an operating system disk, you can delete the virtual machine, the operating system disk, and the source .vhd file all at once by deleting the virtual machine and deleting all associated disks. However, deleting a .vhd file that’s a source for a data disk requires several steps in a set order -- detach the disk from the virtual machine, delete the disk, and then delete the .vhd file.
+Prima di poter eliminare un file con estensione .vhd di origine, sarà necessario rimuovere il lease eliminando il disco o l'immagine. Per eliminare un file con estensione .vhd utilizzato da una macchina virtuale come disco del sistema operativo, è possibile eliminare la macchina virtuale, il disco del sistema operativo e il file con estensione .vhd di origine in una sola volta eliminando la macchina virtuale e tutti i dischi associati. Tuttavia, l'eliminazione di un file con estensione .vhd che rappresenta l’origine di un disco dati richiede diversi passaggi in un determinato ordine: lo scollegamento del disco dalla macchina virtuale, l'eliminazione del disco, quindi l’eliminazione del file con estensione .vhd.
 
->[AZURE.WARNING] If you delete a source .vhd file from storage, or delete your storage account, Microsoft can't recover that data for you.
+>[AZURE.WARNING] Se si elimina un file con estensione .vdh di origine dalla memoria o l'account di archiviazione, Microsoft non può recuperare tali dati.
 
-
+<!---HONumber=AcomDC_0323_2016-->

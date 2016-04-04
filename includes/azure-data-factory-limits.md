@@ -27,6 +27,6 @@ Valore di timeout del tentativo | 1 secondo | 1 secondo
 
 ### Limiti di chiamata del servizio Web
 
-Gestione risorse di Azure presenta limiti per le chiamate API. È possibile effettuare chiamate API a una velocità all'interno di[limiti API di gestione risorse di Azure](../articles/azure-subscription-service-limits/#resource-group-limits).
+Gestione risorse di Azure presenta limiti per le chiamate API. È possibile effettuare chiamate API a una velocità all'interno di[limiti API di gestione risorse di Azure](../azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

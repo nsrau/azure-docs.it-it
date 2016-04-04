@@ -43,6 +43,8 @@ U-SQL | Illustrare le tecniche per eseguire operazioni di JOIN basate sull’int
 U-SQL | Opzioni di autenticazione ADLS | 1 | In sospeso | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | Invio di processi tramite l'interfaccia della riga di comando multipiattaforma | 1 | In sospeso | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
 U-SQL | Aggiornamenti alla documentazione di riferimento per REDUCE e COMBINE | 1 | In sospeso | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
+Strumenti | Unit test delle funzioni U-SQL definite dall'utente in Azure Data Lake Tools per Visual Studio | 1 | In sospeso | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
+Strumenti | Grafici processo e Visualizzazione esecuzione vertice in Azure Data Lake Tools per Visual Studio | 1 | In sospeso | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
 
 
 
@@ -59,4 +61,4 @@ Sono disponibili alcune opzioni per fornire commenti e suggerimenti per il backl
 * Inviare una richiesta pull su questo documento nell'[Archivio di contenuti di Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Inviare un messaggio di posta elettronica a [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

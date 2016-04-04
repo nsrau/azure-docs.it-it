@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="03/21/2016"
 	ms.author="spelluru"/>
 
 # Spostare dati da e in Archivio Azure Data Lake con Data factory di Azure
@@ -58,7 +58,7 @@ L'esempio copia i dati appartenenti a una serie temporale da un archivio BLOB di
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -69,7 +69,7 @@ L'esempio copia i dati appartenenti a una serie temporale da un archivio BLOB di
 La procedura seguente descrive i passaggi per la creazione di un servizio collegato di Archivio Azure Data Lake usando l'editor di Data factory.
 
 1. Fare clic su **Nuovo archivio dati** sul barra dei comandi e scegliere **Archivio Azure Data Lake**.
-2. Nell'editor JSON immettere l'URI di Data Lake per la proprietà **datalakeUri**.
+2. Nell'editor JSON per la proprietà **dataLakeStoreUri** immettere l'URI per il Data Lake.
 3. Fare clic sul pulsante **Autorizza** sulla barra dei comandi. Verrà visualizzata una finestra popup.
 
 	![Pulsante Autorizza](./media/data-factory-azure-data-lake-connector/authorize-button.png)
@@ -235,7 +235,7 @@ L'esempio copia i dati appartenenti a una serie temporale da un Archivio Azure D
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -405,7 +405,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 | Proprietà | Descrizione | Obbligatorio |
 | :-------- | :----------- | :-------- |
 | type | La proprietà type deve essere impostata su: **AzureDataLakeStore** | Sì |
-| dataLakeUri | Specificare le informazioni sull'account Archivio Azure Data Lake. È nel formato seguente: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Sì |
+| dataLakeStoreUri | Specificare le informazioni sull'account Archivio Azure Data Lake. È nel formato seguente: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Sì |
 | authorization | Fare clic sul pulsante **Autorizza** nell'**Editor di Data factory** e immettere le credenziali, per assegnare l'URL di autorizzazione generato automaticamente a questa proprietà. | Sì |
 | sessionId | ID sessione OAuth dalla sessione di autorizzazione oauth. Ogni ID sessione è univoco e può essere usato solo una volta. Viene generato automaticamente quando si usa l'editor di Data factory. | Sì |  
 | accountName | Nome dell'account Data Lake | No |
@@ -608,4 +608,4 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -15,7 +15,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/25/2016"
+      ms.date="03/18/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Avvio rapido per l'API Graph di Azure AD
@@ -124,6 +124,7 @@ Per altre informazioni sulle entità e i tipi di Azure AD esposti da Graph e sul
 
 ## Passaggi successivi
 
-Altre informazioni su [API di Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
+- Altre informazioni su [API di Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
+- Per altre informazioni, vedere [Ambiti di autorizzazione dell'API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

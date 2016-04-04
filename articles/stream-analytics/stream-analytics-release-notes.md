@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/03/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 #Note sulla versione di analisi di flusso
@@ -62,7 +62,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 Titolo | Descrizione
 ---|---
 Anteprima pubblica di Azure IoT Suite | L’analisi di flusso è inclusa nell’anteprima pubblica di Azure IoT Suite.
-Integrazione del portale di anteprima di Azure | Oltre alla presenza costante nel portale di gestione di Azure, Analisi di flusso è ora integrata nel [portale di anteprima di Azure](https://azure.microsoft.com/overview/preview-portal/). Si noti che la funzionalità di analisi di flusso nel portale di anteprima è attualmente un sottoinsieme delle funzionalità offerte nel portale di gestione di Azure, senza il supporto per il test di query nel browser, la configurazione di output Power BI e l’esplorazione o la creazione di nuove risorse di input e output nelle sottoscrizioni a cui si ha accesso.
+Integrazione del portale di Azure | Oltre a essere sempre presente nel portale di gestione di Azure, Analisi di flusso è ora integrata nel [portale di Azure](https://azure.microsoft.com/overview/preview-portal/). Si noti che la funzionalità di analisi di flusso nel portale di anteprima è attualmente un sottoinsieme delle funzionalità offerte nel portale di gestione di Azure, senza il supporto per il test di query nel browser, la configurazione di output Power BI e l’esplorazione o la creazione di nuove risorse di input e output nelle sottoscrizioni a cui si ha accesso.
 Supporto per l'output di DocumentDB | I processi di Analisi di flusso ora possono inviare output a [DocumentDB](https://azure.microsoft.com/services/documentdb/).
 Supporto per l'input dell’hub IoT | I processi di analisi di flusso sono ora in grado di acquisire dati dagli hub IoT.
 TIMESTAMP BY per eventi eterogenei | Quando un unico flusso di dati contiene più tipi di evento con timestamp in campi diversi, è ora possibile usare [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) con espressioni per specificare i campi di timestamp diversi per ogni caso.
@@ -141,4 +141,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

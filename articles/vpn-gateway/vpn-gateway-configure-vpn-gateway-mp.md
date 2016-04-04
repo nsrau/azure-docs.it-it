@@ -164,10 +164,10 @@ Prima di modificare il tipo di VPN del gateway, verificare che il dispositivo VP
 
 Per altre informazioni sulla connettività cross-premise di rete virtuale, vedere l'articolo [Informazioni sulle connessioni cross-premise protette delle reti virtuali](vpn-gateway-cross-premises-options.md).
 
-È possibile aggiungere macchine virtuali nella rete virtuale. Vedere [Come creare una macchina virtuale personalizzata](../virtual-machines/virtual-machines-create-custom.md).
+È possibile aggiungere macchine virtuali nella rete virtuale. Vedere [Come creare una macchina virtuale personalizzata](../virtual-machines/virtual-machines-windows-classic-createportal.md).
 
 Se si desidera configurare una connessione VPN Point-to-Site, vedere l'articolo relativo alla [configurazione di una connessione VPN Point-to-Site](vpn-gateway-point-to-site-create.md).
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

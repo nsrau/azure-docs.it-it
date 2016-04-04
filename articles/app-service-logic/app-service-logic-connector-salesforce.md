@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Uso del connettore Salesforce e aggiunta all'app per la logica
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API di Salesforce](../connectors/create-api-salesforce.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API Salesforce](../connectors/connectors-create-api-salesforce.md).
 
 Connettersi a Salesforce e creare e modificare entità quali account, clienti potenziali e così via. Di seguito sono riportati gli scenari di integrazione tipici relativi a Salesforce:
 
@@ -108,4 +108,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

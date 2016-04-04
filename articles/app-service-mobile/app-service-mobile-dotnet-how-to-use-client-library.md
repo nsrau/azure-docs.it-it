@@ -83,8 +83,7 @@ Nella sezione seguente viene illustrato come cercare e recuperare i record e mod
 
 Tutti i codici che accedono o modificano i dati nella tabella del back-end chiamano funzioni sull'oggetto `MobileServiceTable`. Per ottenere un riferimento alla tabella, chiamare il metodo [GetTable] su un'istanza dell'oggetto `MobileServiceClient`, come di seguito illustrato:
 
-    IMobileServiceTable<TodoItem> todoTable =
-		client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
 
 Questo è il modello tipizzato di serializzazione. Viene supportato anche un modello di serializzazione non tipizzato. Quanto segue consente di [creare un riferimento a una tabella non tipizzata]\:
 
@@ -128,8 +127,7 @@ La funzione passata al metodo `Where` può avere un numero di condizioni arbitra
 
 	// This query filters out completed TodoItems where Text isn't null
 	List<TodoItem> items = await todoTable
-	   .Where(todoItem => todoItem.Complete == false
-		   && todoItem.Text != null)
+	   .Where(todoItem => todoItem.Complete == false && todoItem.Text != null)
 	   .ToListAsync();
 
 Viene convertita in una query SQL da un SDK del server simile al seguente:
@@ -407,12 +405,11 @@ Questa sezione illustra come visualizzare gli oggetti dati restituiti usando ele
 
 Alcuni controlli del runtime gestito supportano un'interfaccia denominata [ISupportIncrementalLoading]. Questa interfaccia consente ai controlli di richiedere dati aggiuntivi nello scorrimento verso il basso. Per questa interfaccia per le app di Windows universale è disponibile un supporto incorporato tramite [MobileServiceIncrementalLoadingCollection] che gestisce automaticamente le chiamate dai controlli. Per usare `MobileServiceIncrementalLoadingCollection` nelle app di Windows, seguire questa procedura:
 
-			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
-		items =  todoTable.Where(todoItem => todoItem.Complete == false)
-					.ToIncrementalLoadingCollection();
+    MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
+    items = todoTable.Where(todoItem => todoItem.Complete == false).ToIncrementalLoadingCollection();
 
-		ListBox lb = new ListBox();
-		lb.ItemsSource = items;
+    ListBox lb = new ListBox();
+    lb.ItemsSource = items;
 
 Per usare la nuova raccolta in app di Windows Phone 8 e "Silverlight", usare i metodi di estensione `ToCollection` su `IMobileServiceTableQuery<T>` e `IMobileServiceTable<T>`. Per caricare effettivamente i dati, effettuare una chiamata a `LoadMoreItemsAsync()`.
 
@@ -473,7 +470,7 @@ Se si usa un provider di identità diverso da Facebook, sostituire il valore di 
 
 In un flusso server, il servizio app di Azure gestisce il flusso di autenticazione OAuth 2.0 visualizzando la pagina di accesso del provider selezionato e generando un token di autenticazione del servizio app una volta eseguito correttamente l'accesso con il provider di identità. [LoginAsync method] restituisce [MobileServiceUser], che fornisce sia il valore [UserId] dell'utente autenticato sia [MobileServiceAuthenticationToken] come token Web JSON (JWT). È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza. Per ulteriori informazioni, vedere [Memorizzazione nella cache del token di autenticazione](#caching).
 
-###Flusso client
+###<a name="client-flow"></a>Flusso client
 
 L'app può anche contattare il provider di identità in modo indipendente e quindi fornire il token restituito al servizio app per l'autenticazione. Mediante il flusso client è possibile consentire agli utenti di effettuare l'accesso un'unica volta o recuperare dal provider di identità dati utente aggiuntivi.
 
@@ -913,4 +910,4 @@ Per supportare lo scenario specifico dell'app, potrebbe essere necessario person
 [SymbolSource]: http://www.symbolsource.org/
 [istruzioni di SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

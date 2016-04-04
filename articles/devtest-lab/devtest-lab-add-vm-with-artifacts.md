@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/13/2016"
+	ms.date="03/21/2016"
 	ms.author="tarcher"/>
 
 # Aggiungere una macchina virtuale con elementi in un lab di sviluppo/test
@@ -26,11 +26,11 @@ Creare una macchina virtuale in un lab di sviluppo/test a partire da un'immagine
 
 Gli*elementi* del lab di sviluppo/test consentono di specificare le *azioni* eseguite quando viene creata la macchina virtuale.
 
-Le azioni degli elementi possono eseguire procedure quali l'esecuzione di script Powershell e comandi Bash e l'installazione di software.
+Le azioni degli elementi possono eseguire procedure, ad esempio script di Windows Powershell e comandi Bash, e installare software.
 
 Gli elementi *parametri* consentono di personalizzare l'elemento per un determinato scenario.
 
-In questo articolo viene illustrato come creare una macchina virtuale nel lab usando gli elementi.
+Questo articolo descrive come creare una macchina virtuale nel lab usando gli elementi.
 
 ## Aggiungere una macchina virtuale con gli elementi
 
@@ -38,7 +38,7 @@ In questo articolo viene illustrato come creare una macchina virtuale nel lab us
 
 1. Toccare **Sfoglia** e poi **Lab di sviluppo e test** dall'elenco.
 
-1. Dall'elenco dei lab, toccare il lab in cui si desidera creare la nuova macchina virtuale.
+1. Nell'elenco di lab toccare il lab in cui si vuole creare la nuova macchina virtuale.
 
 1. Nel pannello del lab, toccare **+ macchine virtuali di Lab** come illustrato nella figura seguente. ![Pannello iniziale di lab di sviluppo e test](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
 
@@ -123,4 +123,4 @@ I passaggi seguenti illustrano come visualizzare o modificare i parametri di un 
 - Dopo aver creato la macchina virtuale, è possibile connettersi alla macchina virtuale toccando **Connetti** nel pannello della macchina virtuale.
 - Per scoprire come creare gli elementi, vedere l'articolo contenente informazioni su [come creare elementi personalizzati da usare con i lab di sviluppo/test](devtest-lab-artifact-author.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -31,7 +31,7 @@ Con questa flessibilità, l’Utilità di pianificazione di Azure consente di su
 -	Elaborazione immagini – ad esempio, ogni giorno della settimana, durante le ore non di punta, usare Immagine di elaborazione, ad esempio, ogni giorno feriale durante gli orari, utilizzare il cloud computing per comprimere le immagini caricate durante la giornata
 
 
-In questo articolo, presenteremo dei processi di esempio che è possibile creare con l’Utilità di pianificazione di Azure. Verranno forniti i dati JSON che descrivono ciascun processo. Se si utilizza l’[API REST dell'Utilità di pianificazione](https://msdn.microsoft.com/library/azure/dn528946.aspx), è possibile utilizzare questo stesso JSON per [creare un processo pianificato con l’Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/azure/dn528937.aspx).
+In questo articolo, presenteremo dei processi di esempio che è possibile creare con l’Utilità di pianificazione di Azure. Verranno forniti i dati JSON che descrivono ciascun processo. Se si utilizza l’[API REST dell'Utilità di pianificazione](https://msdn.microsoft.com/library/mt629143.aspx), è possibile utilizzare questo stesso JSON per [creare un processo pianificato con l’Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/mt629145.aspx).
 
 ## Scenari Supportati
 
@@ -52,7 +52,7 @@ I riferimenti di tipo Data-Ora nei processi dell'Utilità di pianificazione di A
 
 ## Procedura: Utilizzare JSON e API REST per la creazione di pianificazioni
 
-Per creare una semplice pianificazione utilizzando gli esempi JSON in questo articolo e l'API REST dell'Utilità di pianificazione di Azure, [innanzitutto creare un servizio cloud](https://msdn.microsoft.com/library/azure/dn528943.aspx), [quindi creare una raccolta di processi](https://msdn.microsoft.com/library/azure/dn528940.aspx), e [infine creare un processo](https://msdn.microsoft.com/library/azure/dn528937.aspx). Quando si crea un processo, è possibile specificare la pianificazione e la sua ricorrenza utilizzando un JSON come quello nell’estratto di seguito:
+Per creare una pianificazione semplice con l'[API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/mt629143), è prima necessario [registrare la sottoscrizione con un provider di risorse](https://msdn.microsoft.com/library/azure/dn790548.aspx) (il nome del provider per l'Utilità di pianificazione è _Microsoft.Scheduler_), quindi [creare una raccolta processi](https://msdn.microsoft.com/library/mt629159.aspx) e infine [creare un processo](https://msdn.microsoft.com/library/mt629145.aspx). Quando si crea un processo, è possibile specificare la pianificazione e la sua ricorrenza utilizzando un JSON come quello nell’estratto di seguito:
 
 	{
 	    "startTime": "2012-08-04T00:00Z", // optional
@@ -197,4 +197,4 @@ Le pianificazioni di seguito assumono che l’_intervallo_ sia impostato su 1. I
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

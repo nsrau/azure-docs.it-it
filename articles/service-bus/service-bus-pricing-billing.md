@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Prezzi e fatturazione del Bus di servizio | Microsoft Azure"
-   description="Panoramica della struttura dei prezzi del Bus di servizio."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Prezzi e fatturazione del Bus di servizio | Microsoft Azure"
+    description="Panoramica della struttura dei prezzi del Bus di servizio."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Informazioni sul prezzo e la fatturazione del Bus di servizio
 
 Il Bus di servizio è disponibile nei livelli Basic, Standard, e [Premium](service-bus-premium-messaging.md). È possibile scegliere un livello di servizio per ogni spazio dei nomi del Bus di servizio che si crea e si applica questa selezione del livello in tutte le code, argomenti/sottoscrizioni, inoltri e hub di eventi creati all'interno di tale spazio dei nomi.
 
->[AZURE.NOTE]Per informazioni dettagliate sui prezzi correnti del bus di servizio, vedere [Domande frequenti sui prezzi del bus di servizio](service-bus-pricing-faq.md).
+>[AZURE.NOTE] Per informazioni dettagliate sui prezzi correnti del bus di servizio, vedere la pagina [Prezzi di Bus di servizio di Azure](https://azure.microsoft.com/pricing/details/service-bus/) e le [Domande frequenti sui prezzi del bus di servizio](service-bus-pricing-faq.md).
 
 I Bus di servizio utilizzano i due controlli seguenti per le code e gli argomenti/sottoscrizioni:
 
@@ -77,7 +77,7 @@ I prezzi di seguito sono validi a partire dall’1 novembre 2014:
 |100 milioni-2.500 milioni di operazioni/mese|$0,50 per ogni milione di operazioni|
 |Oltre 2.500 milioni di operazioni/mese|$0,20 per ogni milione di operazioni|
 
->[AZURE.NOTE]Il livello Premium è attualmente in anteprima e il prezzo seguente riflette uno sconto del 50% in anteprima.
+>[AZURE.NOTE] Il livello Premium è attualmente in anteprima e il prezzo seguente riflette uno sconto del 50% in anteprima.
 
 |Premium|Costi|
 |---|---|
@@ -85,7 +85,7 @@ I prezzi di seguito sono validi a partire dall’1 novembre 2014:
 
 ## Connessioni negoziate
 
-*Connessioni negoziate* adatta i modelli di utilizzo cliente che coinvolgono un numero elevato di mittenti/destinatari "connessi in modo permanente" relativamente a code, argomenti/sottoscrizioni o hub eventi. I mittenti/destinatari costantemente connessi sono quelli che si connettono tramite AMQP o HTTP con un timeout di ricezione diverso da zero, ad esempio, HTTP (tempo di polling). Non generano connessioni negoziate HTTP mittenti e destinatari con un timeout immediato.
+*Connessioni negoziate*. Questo contatore è ideale per i modelli di utilizzo dei clienti che prevedono un numero elevato di mittenti/destinatari "connessi in modo permanente" a code, argomenti/sottoscrizioni o hub eventi. I mittenti/destinatari costantemente connessi sono quelli che si connettono tramite AMQP o HTTP con un timeout di ricezione diverso da zero, ad esempio, HTTP (tempo di polling). Non generano connessioni negoziate HTTP mittenti e destinatari con un timeout immediato.
 
 In precedenza, le code e gli argomenti/sottoscrizioni avevano un limite previsto di 100 connessioni simultanee per ciascun URL. Lo schema di fatturazione corrente rimuove il limite per ogni URL per le code e gli argomenti/sottoscrizioni e implementa quote e misurazione sulle connessioni negoziate ai livelli di sottoscrizione di Azure dello spazio dei nomi del Bus di servizio.
 
@@ -98,9 +98,9 @@ Il livello di base include ed è rigorosamente limitato a 100 connessioni negozi
 |100\.000-500.000/mese|$0,025 per ogni connessione/mese|
 |Oltre 500.000/mese|$0.015 per ogni connessione/mese|
 
->[AZURE.NOTE]1.000 connessioni negoziate sono incluse con il livello di messaggistica Standard (tramite l'addebito di base) e possono essere condivise tra tutte le code, gli argomenti e le sottoscrizioni e gli hub di eventi all'interno della sottoscrizione Azure associata.
+>[AZURE.NOTE] 1.000 connessioni negoziate sono incluse con il livello di messaggistica Standard (tramite l'addebito di base) e possono essere condivise tra tutte le code, gli argomenti e le sottoscrizioni e gli hub di eventi all'interno della sottoscrizione Azure associata.
 
->[AZURE.NOTE]La fatturazione si basa sul numero massimo di connessioni simultanee e viene ripartita per ogni ora in base a 744 ore al mese.
+>[AZURE.NOTE] La fatturazione si basa sul numero massimo di connessioni simultanee e viene ripartita per ogni ora in base a 744 ore al mese.
 
 |Livello Premium
 |---|
@@ -145,8 +145,10 @@ Sì. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, 
 
 ## Passaggi successivi
 
-Per altre informazioni sui prezzi del bus di servizio, vedere [Domande frequenti sui prezzi del bus di servizio](service-bus-pricing-faq.md).
+- Per altre informazioni sui prezzi del bus di servizio, vedere la pagina [Prezzi di Bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
+
+- Per le risposte alle domande più frequenti sui prezzi e sulla fatturazione del bus di servizio, vedere le [Domande frequenti sui prezzi del bus di servizio](service-bus-pricing-faq.md).
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

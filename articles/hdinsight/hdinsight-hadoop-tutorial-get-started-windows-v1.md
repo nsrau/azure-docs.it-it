@@ -225,7 +225,6 @@ In questa esercitazione di Hadoop si è appreso come effettuare il provisioning 
 - [Usare Hive con HDInsight][hdinsight-use-hive]
 - [Usare Pig con HDInsight][hdinsight-use-pig]
 - [Usare Oozie con HDInsight][hdinsight-use-oozie]
-- [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight][hdinsight-develop-streaming]
 - [Sviluppare programmi MapReduce Java per HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -243,7 +242,6 @@ In questa esercitazione di Hadoop si è appreso come effettuare il provisioning 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-emulator]: hdinsight-hadoop-emulator-get-started.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
 [hdinsight-weblogs-sample]: hdinsight-hive-analyze-website-log.md
@@ -285,4 +283,4 @@ In questa esercitazione di Hadoop si è appreso come effettuare il provisioning 
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Proteggere i dati sensibili nel database SQL con la crittografia del database | Microsoft Azure"
+	pageTitle="Crittografia sempre attiva - Proteggere i dati sensibili nel database SQL con la crittografia del database"
 	description="Proteggere i dati sensibili nel database SQL in pochi minuti."
 	keywords="crittografia dati, crittografia sql, crittografia database, dati sensibili, crittografia sempre attiva"	
 	services="sql-database"
@@ -18,7 +18,7 @@
 	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
-# Proteggere i dati sensibili nel database SQL con la crittografia del database e archiviare le chiavi di crittografia nell'archivio certificati di Windows
+# Crittografia sempre attiva - Proteggere i dati sensibili nel database SQL con la crittografia del database e archiviare le chiavi di crittografia nell'archivio certificati di Windows
 
 > [AZURE.SELECTOR]
 - [Insieme di credenziali chiave Azure](sql-database-always-encrypted-azure-key-vault.md)
@@ -34,7 +34,7 @@ Dopo aver configurato il database per usare la crittografia sempre attiva, verr�
 
 Seguire i passaggi in questo articolo per imparare come configurare la crittografia sempre attiva per un database SQL di Azure. Questo articolo spiega come eseguire le attività seguenti:
 
-- Usare la procedura guidata per la crittografia sempre attiva in SSMS per creare [chiavi di crittografia sempre attiva](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3)
+- Usare la procedura guidata per la crittografia sempre attiva in SSMS per creare [chiavi con crittografia sempre attiva](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3)
     - Creare una [chiave master di colonna (CMK, Column Master Key)](https://msdn.microsoft.com/library/mt146393.aspx).
     - Creare una [chiave di crittografia di colonna (CEK, Column Encryption Key)](https://msdn.microsoft.com/library/mt146372.aspx).
 - Creare una tabella di database e crittografare alcune colonne.
@@ -550,4 +550,4 @@ Dopo aver creato un database che usa la crittografia sempre attiva, è possibile
 - [Procedura guidata della crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog della crittografia sempre attiva](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

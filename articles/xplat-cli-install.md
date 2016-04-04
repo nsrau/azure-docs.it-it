@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="03/09/2016"
 	ms.author="danlep"/>
 
 # Installare l'interfaccia della riga di comando di Azure
 
-Installare rapidamente l'interfaccia della riga di comando di Azure per usare un set di comandi open source basati sulla shell per creare e gestire le risorse in Microsoft Azure. Usare uno dei pacchetti di installazione forniti per installare l'interfaccia della riga di comando di Azure nel sistema operativo, per installarla usando Node.js e **npm** o per installarla come contenitore in un host Docker. Per altre opzioni e informazioni, vedere l'archivio di progetto in [GitHub](https://github.com/azure/azure-xplat-cli).
+Installare rapidamente l'interfaccia della riga di comando di Azure per usare un set di comandi open source basati sulla shell per creare e gestire le risorse in Microsoft Azure. Sono disponibili diverse opzioni. Usare uno dei pacchetti di installazione forniti per installare l'interfaccia della riga di comando di Azure nel sistema operativo, per installarla usando Node.js e **npm** o per installarla come contenitore in un host Docker. Per altre opzioni e informazioni, vedere l'archivio di progetto in [GitHub](https://github.com/azure/azure-xplat-cli).
 
 
 Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile [connetterla alla sottoscrizione di Azure](xplat-cli-connect.md) ed eseguire i comandi **azure** dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi e così via) per usare le risorse di Azure.
@@ -142,9 +142,9 @@ npm update -g azure-cli
 
 ## Risorse aggiuntive
 
-* [Usare l'interfaccia della riga di comando di Azure con Gestione risorse di Azure][cliarm]
+* [Comandi dell'interfaccia della riga di comando di Azure in modalità Azure Resource Manager (arm)][cliarm]
 
-* [Usare l'interfaccia della riga di comando di Azure con la gestione dei servizi di Azure][cliasm]
+* [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure (asm)][cliasm]
 
 * Per altre informazioni sull'interfaccia della riga di comando di Azure, il download del codice sorgente, la segnalazione dei problemi o la collaborazione al progetto, visitare il [repository GitHub per tale interfaccia](https://github.com/azure/azure-xplat-cli).
 
@@ -155,7 +155,7 @@ npm update -g azure-cli
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
-[cliasm]: virtual-machines/virtual-machines-command-line-tools.md
-[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -19,12 +19,12 @@
 # Configurare una connessione da punto a sito a una rete virtuale con PowerShell
 
 > [AZURE.SELECTOR]
-- [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portal - Classic](vpn-gateway-point-to-site-create.md)
+- [PowerShell - Gestione risorse](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Portale - Classica](vpn-gateway-point-to-site-create.md)
 
 Una configurazione da punto a sito consente di creare una singola connessione sicura alla rete virtuale da un computer client. Una connessione VPN viene stabilita avviando la connessione dal computer client. La configurazione da punto a sito è la soluzione ideale quando ci si vuole connettere alla rete virtuale da una posizione remota, ad esempio da casa o durante una riunione, oppure quando solo pochi client devono connettersi a una rete virtuale. Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico per funzionare. Per altre informazioni sulle connessioni da punto a sito, vedere [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) e [Informazioni sulle connessioni cross-premise](vpn-gateway-cross-premises-options.md).
 
-Questo articolo si applica alle reti virtuali e ai gateway VPN creati con il modello di distribuzione di **Gestione risorse di Azure**. Per configurare una connessione da punto a sito per una rete virtuale creata con Gestione dei servizi, noto anche come modello di distribuzione classica, vedere [Configurare una connessione VPN da punto a sito a una rete virtuale](vpn-gateway-point-to-site-create.md).
+Questo articolo si applica alle reti virtuali e ai gateway VPN creati con il modello di distribuzione di **Azure Resource Manager**. Per configurare una connessione da punto a sito per una rete virtuale creata con Gestione dei servizi, noto anche come modello di distribuzione classica, vedere [Configurare una connessione VPN da punto a sito a una rete virtuale](vpn-gateway-point-to-site-create.md).
 
 [AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -41,7 +41,7 @@ Per questa configurazione si useranno i valori seguenti:
 - Pool di indirizzi client VPN: **172.16.201.0/24**. I client VPN che si connettono alla rete virtuale tramite questa connessione da punto a sito riceveranno un indirizzo IP da questo pool.
 - Sottoscrizione: verificare di avere la sottoscrizione corretta se si dispone di più di una sottoscrizione.
 - Gruppo di risorse: **TestRG**
-- Posizione: **Stati Uniti orientali**
+- Location: **Stati Uniti orientali**
 - Server DNS: **indirizzo IP** del server DNS che si desidera usare per la risoluzione dei nomi.
 - Nome GW: **GW**
 - Nome IP pubblico: **GWIP**
@@ -227,6 +227,6 @@ I certificati vengono usati per autenticare client VPN per VPN da punto a sito. 
 
 ## Passaggi successivi
 
-È possibile aggiungere una macchina virtuale alla rete virtuale. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-tutorial.md).
+È possibile aggiungere una macchina virtuale alla rete virtuale. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

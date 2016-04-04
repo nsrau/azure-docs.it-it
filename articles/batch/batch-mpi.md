@@ -55,7 +55,7 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 
 Le attività a istanze multiple verranno eseguite *soltanto* nei nodi all'interno di **pool creati dopo il 14 dicembre 2015**.
 
-> [AZURE.TIP] Quando si usano [nodi di calcolo di dimensione A8 o A9](./../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) nel pool di Batch, l'applicazione MPI può sfruttare i vantaggi legati alle prestazioni elevate e alla latenza ridotta della rete con Accesso diretto a memoria remota (RDMA) di Azure. Per l'elenco completo delle dimensioni dei nodi di calcolo disponibili per i pool di Batch, vedere [Dimensioni dei servizi cloud](./../cloud-services/cloud-services-sizes-specs.md).
+> [AZURE.TIP] Quando si usano [nodi di calcolo con dimensioni A8 o A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) nel pool Batch, l'applicazione MPI può sfruttare i vantaggi legati alle prestazioni elevate e alla latenza ridotta della rete con Accesso diretto a memoria remota (RDMA) di Azure. Per l'elenco completo delle dimensioni dei nodi di calcolo disponibili per i pool di Batch, vedere [Dimensioni dei servizi cloud](./../cloud-services/cloud-services-sizes-specs.md).
 
 ### Usare StartTask per l'installazione dell'applicazione MPI
 
@@ -247,4 +247,4 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "Panoramica sulle istanze multiple"
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

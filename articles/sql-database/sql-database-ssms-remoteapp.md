@@ -79,7 +79,7 @@ Per altre informazioni sulla creazione di un'immagine di Azure RemoteApp, vedere
 
 Una volta interrotta l'esecuzione della VM, trovarla nel portale corrente e acquisirla.
 
-Per altre informazioni sull'acquisizione di un'immagine, vedere [Acquisire un'immagine di una macchina virtuale Windows di Azure creata con il modello di distribuzione classico](../virtual-machines-capture-image-windows-server.md)
+Per altre informazioni sull'acquisizione di un'immagine, vedere [Acquisire un'immagine di una macchina virtuale Windows di Azure creata con il modello di distribuzione classica](../virtual-machines/virtual-machines-windows-classic-capture-image.md)
 
 
 ### 5\. Aggiungere immagini modello di Azure RemoteApp
@@ -158,4 +158,4 @@ Per altre informazioni su come stabilire la connessione al database SQL, vedere 
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

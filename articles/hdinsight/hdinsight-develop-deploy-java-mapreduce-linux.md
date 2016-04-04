@@ -280,10 +280,6 @@ Per altre informazioni, vedere anche il [Centro per sviluppatori Java](https://a
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
-
-
-
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -292,4 +288,4 @@ Per altre informazioni, vedere anche il [Centro per sviluppatori Java](https://a
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

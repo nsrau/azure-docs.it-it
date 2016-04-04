@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Esempi di query in Application Insights Analytics" 
-	description="Esempi di query in Application Insights Analytics, lo strumento di ricerca avanzato per Application Insights." 
+	pageTitle="Esempi di query in Application Insights - Analytics" 
+	description="Esempi di query in Application Insights - Analytics, lo strumento di ricerca avanzato per Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
-# Esempi per Application Insights Analytics
+# Esempi di Analytics per Application Insights Analytics
 
-[Application Insights Analytics](app-analytics.md) è un motore di ricerca avanzato per i dati di telemetria di [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Application Insights Analytics (AIQL). È inoltre disponibile un'[introduzione al linguaggio](app-analytics-tour.md) utile per la fase iniziale.
+[Analytics](app-analytics.md) è un motore di ricerca avanzato per i dati di telemetria di [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analytics. È inoltre disponibile un'[introduzione al linguaggio](app-analytics-tour.md) utile per la fase iniziale.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -29,7 +29,7 @@ Esistono diverse operazioni consigliate e sconsigliate cui è possibile atteners
 
 OPERAZIONI CONSIGLIATE:
 
--	Usare prima i filtri data/ora. Application Insights Analytics è ottimizzato per l'uso dei filtri data/ora.
+-	Usare prima i filtri data/ora. Application Insights - Analytics è ottimizzato per l'uso dei filtri data/ora.
 -	Inserire i filtri previsti immediatamente dopo i filtri data/ora per escludere la maggior parte dei dati all'inizio della query
 -	Verificare che la maggior parte dei filtri vengono visualizzati all'inizio della query, prima di iniziare a usare 'extend' 
 -	Per la ricerca di token completi, preferire la parola chiave 'has' a 'contains'. 'has' offre migliori prestazioni poiché non richiede la ricerca di sottostringhe.
@@ -104,7 +104,7 @@ Events
 
 Il join consentirà di associare ogni ora di inizio a tutte le ore di fine provenienti dallo stesso indirizzo IP del client. Di conseguenza, vengono prima rimosse le corrispondenze con le ore di fine precedenti.
 
-Si procede quindi a raggruppare in base a ora di inizio e IP per creare un gruppo per ogni sessione. È necessario specificare una funzione `bin` per il parametro StartTime. In caso contrario, AI Analytics userà automaticamente bin di 1 ora che assoceranno alcune ore di inizio a ore di fine errate.
+Si procede quindi a raggruppare in base a ora di inizio e IP per creare un gruppo per ogni sessione. È necessario specificare una funzione `bin` per il parametro StartTime. In caso contrario, Analytics userà automaticamente bin di 1 ora che assoceranno alcune ore di inizio a ore di fine errate.
 
 `argmin` rileva la riga con la durata minore in ogni gruppo, mentre il parametro `*` passa tutte le altre colonne, inserendo il prefisso "min\_" in ogni nome di colonna.
 
@@ -264,7 +264,7 @@ Questi dati possono essere rappresentati come grafico a barre o un grafico di te
 
 ## Tipi di join
 
-Il tipo di operatore join viene specificato con la parola chiave kind. AI Analytics supporta ora sei tipi di operatore join: inner join con deduplicazione lato sinistro (valore predefinito), inner join standard, left outer join, right outer join, full outer join e left anti join.
+Il tipo di operatore join viene specificato con la parola chiave kind. Analytics supporta ora sei tipi di operatore join: inner join con deduplicazione lato sinistro (valore predefinito), inner join standard, left outer join, right outer join, full outer join e left anti join.
  
 Tipo di join predefinito (nessun tipo specificato) Le due tabelle di esempio che seguono descrivono il funzionamento del join:
  
@@ -310,7 +310,7 @@ e il risultato del join sarà:
 
 Si noti che le chiavi 'a' e 'd' non vengono visualizzate nell'output poiché non sono presenti chiavi corrispondenti su entrambi i lati destro e sinistro.
  
-Questa è stata la prima implementazione di join supportata dalla versione iniziale di AI Analytics. Tale implementazione è utile negli scenari di analisi di log/traccia tipici in cui si desidera correlare due eventi (ognuno dei quali corrispondente a un determinato criterio di filtro) con lo stesso ID correlazione e ottenere tutte le occorrenze del fenomeno ricercato, ignorando le occorrenze multiple dei record di traccia interessati.
+Questa è stata la prima implementazione di join supportata dalla versione iniziale di Analytics. Tale implementazione è utile negli scenari di analisi di log/traccia tipici in cui si desidera correlare due eventi (ognuno dei quali corrispondente a un determinato criterio di filtro) con lo stesso ID correlazione e ottenere tutte le occorrenze del fenomeno ricercato, ignorando le occorrenze multiple dei record di traccia interessati.
  
 ### Inner join (kind=inner) 
 
@@ -437,4 +437,4 @@ JobHistory
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

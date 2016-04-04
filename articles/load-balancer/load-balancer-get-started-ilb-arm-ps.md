@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [Modello di distribuzione classica](load-balancer-get-started-ilb-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -241,7 +241,7 @@ Output previsto:
 
 Usare il comando Add-AzureRmVMNetworkInterface per assegnare la scheda di rete a una macchina virtuale.
 
-È possibile trovare la procedura dettagliata per creare una macchina virtuale e assegnare una scheda di rete nell’opzione di documentazione [Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) 4 o 5.
+È possibile trovare la procedura dettagliata per creare una macchina virtuale e assegnare una scheda di rete nell’opzione di documentazione [Creare e preconfigurare una macchina virtuale Windows con Gestione risorse e Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example) 4 o 5.
 
 In alternativa, se è già stata creata una macchina virtuale, è possibile aggiungere l'interfaccia di rete seguendo questa procedura:
 
@@ -316,4 +316,4 @@ Usare il comando Remove-AzureRmLoadBalancer per eliminare un servizio di bilanci
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -236,11 +236,11 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 ## Passaggio 5: Installare il server di gestione
 > [AZURE.TIP] Assicurarsi che questi URL siano accessibili dal server di gestione:
 >
-- *.hypervrecoverymanager.windowsazure.com
-- *.accesscontrol.windows.net
-- *.backup.windowsazure.com
-- *.blob.core.windows.net
-- *.store.core.windows.net
+- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
 - https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi
 - https://www.msftncsi.com/ncsi.txt
 
@@ -303,10 +303,7 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 	![Riepilogo](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 >[AZURE.WARNING] È necessario configurare il proxy dell'agente di Servizi di ripristino di Microsoft Azure. Dopo aver completato l'installazione, avviare un'applicazione denominata "Microsoft Azure Recovery Services Shell" dal menu di avvio di Windows. Nella finestra di comando visualizzata eseguire il set di comandi seguente per configurare le impostazioni del server proxy.
 >
-	$pwd = ConvertTo-SecureString -String ProxyUserPassword
-	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd
-	net stop obengine
-	net start obengine
+	$pwd = ConvertTo-SecureString -String ProxyUserPassword Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd net stop obengine net start obengine
 	 
 
 
@@ -461,8 +458,7 @@ I programmi di installazione sono disponibili in C:\\Programmi (x86)\\Microsoft 
 Sistema operativo di origine | File di installazione del servizio Mobility
 --- | ---
 Windows Server (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
-SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -585,7 +581,9 @@ Lo stato può essere monitorato nella pagina **Processi**.
 3. È possibile modificare le impostazioni descritte di seguito.
 
 	-  **Nome della VM di Azure**: il nome assegnato al computer in Azure dopo il failover. Il nome deve essere conforme ai requisiti di Azure.
-	-  **Dimensioni della VM di Azure**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. [Altre informazioni](../virtual-machines/virtual-machines-size-specs.md#size-tables) sulle dimensioni e sulle schede di rete. Si noti che:
+
+	-  **Dimensioni della VM di Azure**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. [Altre informazioni](../virtual-machines/virtual-machines-linux-sizes.md/#size-tables) su dimensioni e schede di rete. Si noti che:
+
 		- Quando si modificano le dimensioni di una macchina virtuale e si salvano le impostazioni, il numero di schede di rete cambia alla successiva apertura della scheda **Configura**. Il numero di schede di rete delle macchine virtuali di destinazione corrisponde minimo al numero di schede di rete nella macchina virtuale di origine e al numero massimo di schede di rete supportate dalla dimensione della macchina virtuale selezionata. 
 			- Se il numero di schede di rete nella macchina di origine è minore o uguale al numero di schede consentite per la macchina di destinazione, la destinazione avrà lo stesso numero di schede dell’origine.
 			- Se il numero di schede per la macchina virtuale di origine supera il numero consentito per le dimensioni di destinazione, verrà utilizzata la dimensione di destinazione massima.
@@ -757,4 +755,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Altre informazioni sul failback](site-recovery-failback-azure-to-vmware-classic.md) per rendere nuovamente disponibili nell'ambiente locale i computer sottoposti a failover in esecuzione in Azure.
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

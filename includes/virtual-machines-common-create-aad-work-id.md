@@ -1,97 +1,97 @@
 
 
-If you created a personal Azure account or have a personal MSDN subscription and created the Azure account to take advantage of the MSDN Azure credits -- you used a *Microsoft account* identity to create it. Many great features of Azure -- [resource group templates](../resource-group-overview.md) is one example -- require a work or school account (an identity managed by Azure Active Directory) to work. You can follow the instructions below to create a new work or school account because fortunately, one of the best things about your personal Azure account is that it comes with a default Azure Active Directory domain that you can use to create a new work or school account that you can use with Azure features that require it.
+Se si è creato un account Azure personale, oppure si ha un sottoscrizione MSDN personale e si è creato l'account Azure per sfruttare i vantaggi dei crediti MSDN in Azure, si è usata un'identità *account Microsoft*. Numerose funzionalità di Azure (ad esempio i [modelli dei gruppi di risorse](../resource-group-overview.md)) richiedono un account di lavoro o scuola (un'identità gestita da Azure Active Directory) per funzionare. Per creare un nuovo account aziendale o dell’istituto d’istruzione è possibile seguire le seguenti istruzioni poichè fortunatamente, uno degli aspetti migliori dell'account Azure personale sta nel fatto che è dotato di un dominio predefinito di Azure Active Directory, che è possibile usare per creare un nuovo account aziendale o dell’istituto d’istruzione da usare con le funzionalità di Azure che lo richiedono.
 
-However, recent changes make it possible to manage your subscription with any type of Azure account using the `azure login` interactive login method described [here](../xplat-cli-connect.md). You can either use that mechanism, or you can follow the instructions that follow.
+Tuttavia, le modifiche più recenti consentono di gestire la sottoscrizione con qualsiasi tipo di account Azure tramite il metodo di accesso interattivo `azure login` descritto [qui](../xplat-cli-connect.md). È possibile utilizzare tale meccanismo oppure seguire le istruzioni che seguono.
 
-> [AZURE.NOTE] If you were given a user name and password by an administrator, there's a good chance that you already have a work or school ID (also sometimes called an *organizational ID*). If so, you can immediately begin to use your Azure account to access Azure resources that require one. If you find that you cannot use those resources, you may need to return to this article for help. For more information, see [Accounts that you can use for sign in](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) and [How an Azure subscription is related to Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
+> [AZURE.NOTE] Se si sono ricevuti un nome utente e una password da un amministratore, è probabile che si abbia già un ID aziendale o dell’istituto d’istruzione (a volte detto anche *ID dell’organizzazione*). In tal caso, è possibile iniziare immediatamente a usare l'account di Azure per accedere alle risorse di Azure che ne richiedono uno. Se non è possibile usare tali risorse, potrebbe essere necessario tornare a questo articolo. Per altre informazioni, vedere [Account che è possibile usare per l'accesso](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) e [Relazione di una sottoscrizione di Azure e Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
 
-The steps are simple. You need to locate your signed on identity in the Azure classic portal, discover your default Azure Active Directory domain, and add a new user to it as an Azure co-administrator.
+I passaggi sono semplici. È necessario individuare l'identità attiva nel portale di Azure classico, scoprire il dominio di Azure Active Directory predefinito e aggiungere un nuovo utente come co-amministratore di Azure.
 
-## Locate your default directory in the Azure classic portal
+## Individuare la directory predefinita nel portale di Azure classico
 
-Start by logging in to the [Azure classic portal](https://manage.windowsazure.com) with your personal Microsoft account identity. After you are logged in, scroll down the blue panel on the left side and click **ACTIVE DIRECTORY**.
+Per iniziare, accedere al [portale di Azure classico](https://manage.windowsazure.com) con l'identità dell'account Microsoft personale. Dopo l'accesso, scorrere verso il basso nel pannello blu sul lato sinistro e fare clic su **ACTIVE DIRECTORY**.
 
 ![Azure Active Directory](./media/virtual-machines-common-create-aad-work-id/azureactivedirectorywidget.png)
 
-Let's start by finding some information about your identity in Azure. You should see something like the following in the main pane, showing that you have one default directory.
+Occorre innanzitutto trovare alcuni informazioni sulla propria identità in Azure. Nel riquadro principale dovrebbero essere visualizzate informazioni simili alle seguenti, che mostrano la presenza di una directory predefinita.
 
 ![](./media/virtual-machines-common-create-aad-work-id/defaultaadlisting.png)
 
-Let's find out some more information about it. Click the default directory row, which brings you into the default directory properties.  
+È possibile cercare altre informazioni sulla directory facendo clic sulla riga della directory predefinita per visualizzarne le proprietà.
 
 ![](./media/virtual-machines-common-create-aad-work-id/defaultdirectorypage.png)
 
-To view the default domain name, click **DOMAINS**.
+Per visualizzare il nome di dominio predefinito, fare clic su **DOMINI**.
 
 ![](./media/virtual-machines-common-create-aad-work-id/domainclicktoseeyourdefaultdomain.png)
 
-Here you should be able to see that when the Azure account was created, Azure Active Directory created a personal default domain that is a hash value (a number generated from a string of text) of your personal ID used as a subdomain of onmicrosoft.com. That's the domain to which you will now add a new user.
+Da qui si dovrebbe vedere che, al momento della creazione dell'account Azure, Azure Active Directory ha creato un dominio personale predefinito, che è un hash (un numero generato da una stringa di testo) dell'ID personale usato come sottodominio di onmicrosoft.com. Questo è il dominio a cui verrà ora aggiunto un nuovo utente.
 
-## Creating a new user in the default domain
+## Creazione di un nuovo utente nel dominio predefinito
 
-Click **USERS** and look for your single personal account. You should see in the **SOURCED FROM** column that it is a **Microsoft account**. We want to create a user in your default .onmicrosoft.com Azure Active Directory domain.
+Fare clic su **UTENTI** e cercare il proprio account personale. Nella colonna **ORIGINATO DA** dovrebbe essere evidente che si tratta di un **account Microsoft**. Si desidera creare un utente nel dominio predefinito .onmicrosoft.com di Azure Active Directory.
 
 ![](./media/virtual-machines-common-create-aad-work-id/defaultdirectoryuserslisting.png)
 
-We're going to follow [these instructions](https://technet.microsoft.com/library/hh967632.aspx#BKMK_1) in the next few steps, but use a specific example.
+Nei passaggi seguenti si seguiranno [queste istruzioni](https://technet.microsoft.com/library/hh967632.aspx#BKMK_1), ma con un esempio specifico.
 
-At the bottom of the page, click **+ADD USER**. In the page that appears, type the new user name, and make the **Type of User** a **New user in your organization**. In this example, the new user name is `ahmet`. Select the default domain that you discovered previously as the domain for ahmet's email address. Click the next arrow when finished.
+Nella parte inferiore della pagina fare clic su **+AGGIUNGI UTENTE**. Nella pagina visualizzata digitare il nuovo nome utente e selezionare **Nuovo utente nell'organizzazione** per **Tipo di utente**. In questo esempio il nuovo nome utente è `ahmet`. Selezionare il dominio predefinito individuato in precedenza come dominio per l'indirizzo di posta elettronica di Ahmet. Al termine, fare clic sulla freccia Avanti.
 
 ![](./media/virtual-machines-common-create-aad-work-id/addingauserwithdirectorydropdown.png)
 
-Add more details for Ahmet, but make sure to select the appropriate **ROLE** value. It's easy to use **Global Admin** to make sure things are working, but if you can use a lesser role, that's a good idea. This example uses the **User** role. (Find out more at [Administrator permissions by role](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1).) Do not enable multi-factor authentication unless you want to use multifactor authentication for each log in operation. Click the next arrow when you're finished.
+Aggiungere altri dettagli per Ahmet, ma assicurarsi di selezionare il valore appropriato per **RUOLO**. Una soluzione semplice consiste nell'usare **Amministratore globale** per assicurarsi che tutto funzioni, ma è consigliabile usare un ruolo di livello inferiore, se possibile. Questo esempio usa il ruolo **Utente** (Ulteriori informazioni sulle [autorizzazioni degli amministratori dal ruolo](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1).) Non abilitare l'autenticazione a più fattori, a meno che non si desideri usarla per ogni log nell'operazione. Al termine, fare clic sulla freccia Avanti.
 
 ![](./media/virtual-machines-common-create-aad-work-id/userprofileuseradmin.png)
 
-Click the **create** button to generate and display a temporary password for Ahmet.
+Fare clic sul pulsante **Crea** per generare e visualizzare una password temporanea per Ahmet.
 
 ![](./media/virtual-machines-common-create-aad-work-id/gettemporarypasswordforuser.png)
 
-Copy the user name email address, or use **SEND PASSWORD IN EMAIL**. You'll need the information to log on shortly.
+Copiare l'indirizzo di posta elettronica di nome utente o usare **INVIO PASSWORD PER POSTA ELETTRONICA**. Le informazioni saranno necessarie fra breve per l'accesso.
 
 ![](./media/virtual-machines-common-create-aad-work-id/receivedtemporarypassworddialog.png)
 
-Now you should see the new user, **Ahmet the Developer**, sourced from Azure Active Directory. You've created the new work or school identity with Azure Active Directory. However, this identity does not yet have permissions to use Azure resources.
+Ora verrà visualizzato il nuovo utente, **Ahmet the Developer**, originato da Azure Active Directory. Si è creata la nuova identità di lavoro o scuola con Azure Active Directory, ma questa identità non ha ancora le autorizzazioni per usare le risorse di Azure.
 
 ![](./media/virtual-machines-common-create-aad-work-id/defaultdirectoryusersaftercreate.png)
 
-If you use **SEND PASSWORD IN EMAIL**, the following kind of email is sent.
+Se si usa **INVIO PASSWORD PER POSTA ELETTRONICA** viene inviata la tipologia di messaggio di posta elettronica seguente.
 
 ![](./media/virtual-machines-common-create-aad-work-id/emailreceivedfromnewusercreation.png)
 
-## Adding Azure co-administrator rights for subscriptions
+## Aggiunta di diritti di co-amministratore di Azure per le sottoscrizioni
 
-Now you need to add the new user as a co-administrator of your subscription so the new user can sign in to the Management Portal. To do this, in the lower-left panel click **Settings**.
+A questo punto è necessario aggiungere il nuovo utente come co-amministratore della sottoscrizione, in modo che possa accedere al portale di gestione. A tale scopo, fare clic su **Impostazioni** nel pannello in basso a sinistra.
 
 ![](./media/virtual-machines-common-create-aad-work-id/thesettingswidget.png)
 
-In the main settings area, click **ADMINISTRATORS** at the top and you should see only your personal Microsoft account identity. At the bottom of the page, click **+ADD** to specify a co-administrator. Here, enter the email address of the new user you had created, including your default domain. As shown in the next screenshot, a green check mark appears next to the user for the default directory. Remember to select all of the subscriptions that you would like this user to be able to administer.
+Nella parte superiore dell'area principale delle impostazioni fare clic su **AMMINISTRATORI**. Dovrebbe essere visualizzata solo l'identità dell'account Microsoft personale. Nella parte inferiore della pagina fare clic su **+AGGIUNGI** per specificare un co-amministratore. Immettere qui l'indirizzo di posta elettronica del nuovo utente che è stato creato, compreso il dominio predefinito. Come mostrato nel prossimo screenshot, accanto all'utente viene visualizzato un segno di spunta verde per la directory predefinita. Ricordarsi di selezionare tutte le sottoscrizioni che l'utente dovrà essere in grado di gestire.
 
 ![](./media/virtual-machines-common-create-aad-work-id/addingnewuserascoadmin.png)
 
-When you are done, you should now see two users, including your new co-administrator identity. Log out of the portal.
+Al termine dovrebbero essere visibili due utenti, tra cui la nuova identità di co-amministratore. Uscire dal portale.
 
 ![](./media/virtual-machines-common-create-aad-work-id/newuseraddedascoadministrator.png)
 
-## Logging in and changing the new user's password
+## Accesso e modifica della password del nuovo utente
 
-Log in as the new user you created.
+Accedere con le credenziali del nuovo utente creato.
 
 ![](./media/virtual-machines-common-create-aad-work-id/signinginwithnewuser.png)
 
-You will immediately be prompted to create a new password.
+Verrà immediatamente chiesto di creare una nuova password.
 
 ![](./media/virtual-machines-common-create-aad-work-id/mustupdateyourpassword.png)
 
-You should be rewarded with success that looks like the following.
+Dovrebbe essere visualizzato un messaggio simile al seguente, che conferma il completamento dell'operazione.
 
 ![](./media/virtual-machines-common-create-aad-work-id/successtourdialog.png)
 
 
-## Next steps
+## Passaggi successivi
 
-You can now use your new Azure Active Directory identity to use [Azure resource group templates](../xplat-cli-azure-resource-manager.md).
+È ora possibile usare la nuova identità di Azure Active Directory con i [modelli del gruppo di risorse di Azure](../xplat-cli-azure-resource-manager.md).
 
     azure login
     info:    Executing command login
@@ -121,3 +121,5 @@ You can now use your new Azure Active Directory identity to use [Azure resource 
     data:    Tags:
     data:
     info:    group create command OK
+
+<!---HONumber=AcomDC_0323_2016-->

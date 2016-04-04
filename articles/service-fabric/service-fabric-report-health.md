@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Aggiungere report sull'integrità dell’Infrastruttura di servizi personalizzati | Microsoft Azure"
-   description="Questo articolo descrive come inviare report sull'integrità personalizzati alle entità di integrità di Azure Service Fabric. Offre consigli per la progettazione e l'implementazione di report efficaci relativi all'integrità."
+   pageTitle="Aggiungere report sull&#39;integrità dell’Infrastruttura di servizi personalizzati | Microsoft Azure"
+   description="Questo articolo descrive come inviare report sull&#39;integrità personalizzati alle entità di integrità di Azure Service Fabric. Offre consigli per la progettazione e l&#39;implementazione di report efficaci relativi all&#39;integrità."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="03/23/2016"
    ms.author="oanapl"/>
 
 # Aggiungere report sull'integrità di Service Fabric personalizzati
@@ -31,7 +31,7 @@ Per progettare e implementare report sull'integrità, i watchdog e i componenti 
 
 - Definire un'origine usata per identificare il generatore di report.
 
-- Scegliere una strategia di creazione di report (periodicamente o in caso di transizioni). La creazione periodica di report è la scelta consigliata, perché richiede codice più semplice ed è meno soggetta a errori.
+- Scegliere una strategia di creazione di report \(periodicamente o in caso di transizioni\). La creazione periodica di report è la scelta consigliata, perché richiede codice più semplice ed è meno soggetta a errori.
 
 - Determinare per quanto tempo il report sulle condizioni di non integrità deve rimanere nell'archivio integrità e come deve essere eliminato. Questo definisce la durata di conservazione del report e quando deve essere rimosso al verificarsi delle condizioni di scadenza.
 
@@ -47,9 +47,9 @@ Come indicato in precedenza, il report può essere eseguito da:
 
 > [AZURE.NOTE] Per impostazione predefinita, il cluster viene popolato con report sull'integrità inviati dai componenti di sistema. Per altre informazioni, vedere [Uso dei report sull'integrità del sistema per la risoluzione dei problemi](service-fabric-understand-and-troubleshoot-with-system-health-reports.md). I report dell'utente devono essere inviati alle [entità di integrità](service-fabric-health-introduction.md#health-entities-and-hierarchy) già create dal sistema.
 
-Una volta definita la progettazione dei report sull'integrità, è possibile inviarli facilmente. Questa operazione può essere eseguita tramite l'API con **FabricClient.HealthManager.ReportHealth**, tramite PowerShell oppure REST. Internamente, tutti i metodi usano un client di integrità incluso in un client Fabric. Sono disponibili controlli di configurazione che riuniscono i report in batch per migliorare le prestazioni.
+Una volta definita la progettazione dei report sull'integrità, è possibile inviarli facilmente. È possibile usare `FabricClient` per segnalare lo stato dell'integrità se il cluster non è [sicuro](service-fabric-cluster-security.md) o se il client Fabric ha privilegi di amministratore. Questa operazione può essere eseguita tramite l'API con [FabricClient.HealthManager.ReportHealth](https://msdn.microsoft.com/library/system.fabric.fabricclient.healthclient.reporthealth.aspx), tramite PowerShell oppure REST. Sono disponibili controlli di configurazione che riuniscono i report in batch per migliorare le prestazioni.
 
-> [AZURE.NOTE] L'esecuzione di report sull'integrità è un'operazione sincrona e rappresenta solo l'attività di convalida sul lato client. Il fatto che il report venga accettato dal client di integrità non significa che sia applicato nell'archivio. Verrà inviato in modo asincrono e possibilmente in batch con altri report. L'elaborazione sul server può comunque non riuscire, ad esempio un numero di sequenza non è aggiornato, l'entità in cui deve essere applicato il report è stata eliminata e così via.
+> [AZURE.NOTE] L'esecuzione di report sull'integrità è un'operazione sincrona e rappresenta solo l'attività di convalida sul lato client. Il fatto che il report venga accettato dal client di integrità oppure tramite gli oggetti `Partition` o `CodePackageActivationContext` non significa che sia applicato nell'archivio. Verrà inviato in modo asincrono e possibilmente in batch con altri report. L'elaborazione sul server può comunque non riuscire, ad esempio un numero di sequenza non è aggiornato, l'entità in cui deve essere applicato il report è stata eliminata e così via.
 
 ## Client di integrità
 I report sull'integrità vengono inviati all'archivio integrità tramite un client di integrità, che risiede nel client Fabric. Il client di integrità può essere configurato con gli elementi seguenti:
@@ -62,7 +62,7 @@ I report sull'integrità vengono inviati all'archivio integrità tramite un clie
 
 > [AZURE.NOTE] Quando i report vengono riuniti in batch, il client Fabric deve restare attivo almeno per il tempo previsto da HealthReportSendInterval per garantire l'invio dei report. Se il messaggio viene perso o l'archivio integrità non può applicare i report a causa di errori temporanei, il client Fabric deve restare attivo più a lungo per dare la possibilità di riprovare.
 
-La memorizzazione nel buffer sul client tiene conto dell'unicità dei report. Ad esempio, se un particolare reporter non corretto crea 100 report al secondo per la stessa proprietà della stessa entità, i report verranno sostituiti con l'ultima versione. Nella coda del client sarà presente uno solo di questi report. Se è configurato l'invio in batch, il numero di report inviati all'archivio integrità è solo uno per ogni intervallo di trasmissione. Questo è l'ultimo report aggiunto, che riflette lo stato più recente dell'entità. Tutti i parametri di configurazione possono essere specificati quando si crea **FabricClient**, passando **FabricClientSettings** con i valori desiderati per le voci correlate all'integrità.
+La memorizzazione nel buffer sul client tiene conto dell'unicità dei report. Ad esempio, se un particolare reporter non corretto crea 100 report al secondo per la stessa proprietà della stessa entità, i report verranno sostituiti con l'ultima versione. Nella coda del client sarà presente uno solo di questi report. Se è configurato l'invio in batch, il numero di report inviati all'archivio integrità è solo uno per ogni intervallo di trasmissione. Questo è l'ultimo report aggiunto, che riflette lo stato più recente dell'entità. Tutti i parametri di configurazione possono essere specificati quando si crea `FabricClient` passando [FabricClientSettings](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx) con i valori desiderati per le voci correlate all'integrità.
 
 Il comando seguente crea un client dell'infrastruttura e specifica che i report devono essere inviati non appena vengono aggiunti. In caso di timeout ed errori che supportano nuovi tentativi, questi vengono eseguiti ogni 40 secondi.
 
@@ -104,12 +104,29 @@ GatewayInformation   : {
                        }
 ```
 
-> [AZURE.NOTE] Per assicurare che i servizi non autorizzati non eseguano report sull'integrità per le entità del cluster, è possibile configurare il server in modo che accetti solo le richieste dai client protetti. Poiché la creazione di report avviene tramite FabricClient, è necessario abilitare la sicurezza in FabricClient per consentire la comunicazione con il cluster, ad esempio Kerberos o l'autenticazione del certificato.
+> [AZURE.NOTE] Per assicurare che i servizi non autorizzati non eseguano report sull'integrità per le entità del cluster, è possibile configurare il server in modo che accetti solo le richieste dai client protetti. Poiché la creazione di report avviene tramite `FabricClient`, è necessario abilitare la sicurezza in `FabricClient` per consentire la comunicazione con il cluster, ad esempio tramite Kerberos o l'autenticazione del certificato. Per altre informazioni, vedere la pagina relativa alla [sicurezza del cluster](service-fabric-cluster-security.md).
+
+## Report dai servizi con privilegi limitati
+Nei servizi di Service Fabric privi di accesso amministrativo al cluster è possibile segnalare lo stato dell'integrità relativo alle entità dal contesto corrente tramite `Partition` o `CodePackageActivationContext`.
+
+- Per i servizi senza stato usare [IStatelessServicePartition.ReportInstanceHealth](https://msdn.microsoft.com/library/system.fabric.istatelessservicepartition.reportinstancehealth.aspx) per creare report relativi all'istanza del servizio corrente.
+
+- Per i servizi con stato usare [IStatefulServicePartition.ReportReplicaHealth](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.reportreplicahealth.aspx) per creare report relativi alla replica corrente.
+
+- Usare [IServicePartition.ReportPartitionHealth](https://msdn.microsoft.com//library/system.fabric.iservicepartition.reportpartitionhealth.aspx) per creare report relativi all'entità della partizione corrente.
+
+- Usare [CodePackageActivationContext.ReportApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportapplicationhealth.aspx) per creare report relativi all'applicazione corrente.
+
+- Usare [CodePackageActivationContext.ReportDeployedApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth.aspx) per creare report relativi all'applicazione corrente distribuita sul nodo corrente.
+
+- Usare [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth.aspx) per creare report relativi a un pacchetto del servizio per l'applicazione corrente distribuita sul nodo corrente.
+
+> [AZURE.NOTE] Internamente gli oggetti `Partition` e `CodePackageActivationContext` includono un client di integrità che viene configurato con le impostazioni predefinite. Sono applicabili le stesse considerazioni illustrate per il [client di integrità](service-fabric-report-health.md#health-client). I report vengono riuniti in batch e inviati in base a un timer, quindi gli oggetti devono essere mantenuti attivi per avere la possibilità di inviare il report.
 
 ## Creare report sull'integrità
 Il primo passaggio per la creazione di report di alta qualità consiste nell'identificare le condizioni che possono influire sull'integrità del servizio. Tutte le condizioni che facilitano l'identificazione dei problemi nel servizio o nel cluster non appena insorgono, o meglio ancora prima che si verifichino, possono consentire un notevole risparmio, grazie alla riduzione dei tempi di inattività e del numero di ore impiegate per l'analisi e la risoluzione dei problemi, oltre all'aumento della soddisfazione dei clienti.
 
-Dopo aver identificato le condizioni, gli sviluppatori dei watchdog devono stabilire il modo migliore per monitorarle, trovando il giusto equilibrio tra sovraccarico e utilità. Si consideri, ad esempio, un servizio che esegue calcoli complessi usando alcuni file temporanei in una condivisione. Un watchdog può monitorare la condivisione per verificare che sia disponibile spazio sufficiente. Può restare in attesa di notifiche relative a modifiche di file o directory. Può segnalare un avviso se si raggiunge una soglia prestabilita e un errore se la condivisione è piena. In caso di avviso, un sistema di ripristino può avviare la pulizia dei file meno recenti nella condivisione. In caso di errore, un sistema di ripristino può spostare la replica del servizio su un altro nodo. Si noti come vengono descritti gli stati della condizione in termini di integrità: lo stato della condizione può essere considerato integro o non integro (avviso o errore).
+Dopo aver identificato le condizioni, gli sviluppatori dei watchdog devono stabilire il modo migliore per monitorarle, trovando il giusto equilibrio tra sovraccarico e utilità. Si consideri, ad esempio, un servizio che esegue calcoli complessi usando alcuni file temporanei in una condivisione. Un watchdog può monitorare la condivisione per verificare che sia disponibile spazio sufficiente. Può restare in attesa di notifiche relative a modifiche di file o directory. Può segnalare un avviso se si raggiunge una soglia prestabilita e un errore se la condivisione è piena. In caso di avviso, un sistema di ripristino può avviare la pulizia dei file meno recenti nella condivisione. In caso di errore, un sistema di ripristino può spostare la replica del servizio su un altro nodo. Si noti come vengono descritti gli stati della condizione in termini di integrità: lo stato della condizione può essere considerato integro o non integro \(avviso o errore\).
 
 Dopo aver impostato i dettagli di monitoraggio, gli sviluppatori del watchdog devono decidere come implementarlo. Se è possibile determinare le condizioni dall'interno del servizio, il watchdog può far parte del servizio stesso che viene monitorato. Ad esempio, il codice del servizio può controllare l'uso della condivisione e quindi generare report usando un client Fabric locale ogni volta che prova a scrivere un file. Il vantaggio di questo approccio è dato dalla semplicità della creazione di report. È tuttavia necessario prestare attenzione per evitare che gli errori del watchdog influiscano negativamente sulla funzionalità del servizio.
 
@@ -123,32 +140,34 @@ Una volta finalizzati i dettagli del watchdog, stabilire un ID di origine che lo
 
 Il passaggio successivo consiste nel decidere per quale entità creare report. Di solito questa decisione è ovvia, a seconda della condizione. È consigliabile scegliere l'entità con la migliore granularità possibile. Se una condizione influisce su tutte le repliche in una partizione, creare report sulla partizione, non sul servizio. Esistono tuttavia casi particolari che richiedono maggiore attenzione. Se la condizione influisce su un'entità, ad esempio una replica, ma si vuole segnalare la condizione per un tempo superiore alla durata della replica, è necessario creare report sulla partizione. In caso contrario, quando viene eliminata la replica, tutti i report associati vengono eliminati dall'archivio. Questo significa che gli sviluppatori dei watchdog devono anche considerare la durata dell'entità e del report. È necessario specificare chiaramente quando rimuovere un report da un archivio, ad esempio quando un errore segnalato per un'entità non si verifica più.
 
-L'esempio seguente illustra i punti precedenti. Si consideri un'applicazione di Service Fabric composta da un servizio master con stato persistente e servizi slave senza stato distribuiti in tutti i nodi, ovvero un tipo di servizio slave per ogni tipo di attività. Il servizio master ha una coda di elaborazione con i comandi che devono essere eseguiti dai servizi slave. I servizi slave eseguono le richieste in ingresso e restituiscono segnali di acknowledgement. Una condizione che è possibile monitorare è la lunghezza della coda di elaborazione del servizio master. Se la lunghezza della coda master raggiunge una soglia, viene generato un avviso. Ciò indica che i servizi slave non riescono a gestire il carico. Se la coda raggiunge la lunghezza massima e i comandi vengono eliminati, viene generato un errore perché il servizio non può essere ripristinato. I report possono riguardare la proprietà **QueueStatus**. Il watchdog si trova all'interno del servizio e viene inviato periodicamente alla replica primaria del servizio master. La durata (TTL) è di 2 minuti e l'invio avviene periodicamente ogni 30 secondi. Se il servizio primario diventa inattivo, il report viene eliminato automaticamente dall'archivio. Se la replica del servizio è attiva ma con deadlock o presenta altri problemi, il report scade nell'archivio integrità. In questo caso, l'entità viene considerata in stato di errore.
+L'esempio seguente illustra i punti precedenti. Si consideri un'applicazione di Service Fabric composta da un servizio master con stato persistente e servizi slave senza stato distribuiti in tutti i nodi, ovvero un tipo di servizio slave per ogni tipo di attività. Il servizio master ha una coda di elaborazione con i comandi che devono essere eseguiti dai servizi slave. I servizi slave eseguono le richieste in ingresso e restituiscono segnali di acknowledgement. Una condizione che è possibile monitorare è la lunghezza della coda di elaborazione del servizio master. Se la lunghezza della coda master raggiunge una soglia, viene generato un avviso. Ciò indica che i servizi slave non riescono a gestire il carico. Se la coda raggiunge la lunghezza massima e i comandi vengono eliminati, viene generato un errore perché il servizio non può essere ripristinato. I report possono riguardare la proprietà **QueueStatus**. Il watchdog si trova all'interno del servizio e viene inviato periodicamente alla replica primaria del servizio master. La durata \(TTL\) è di 2 minuti e l'invio avviene periodicamente ogni 30 secondi. Se il servizio primario diventa inattivo, il report viene eliminato automaticamente dall'archivio. Se la replica del servizio è attiva ma con deadlock o presenta altri problemi, il report scade nell'archivio integrità. In questo caso, l'entità viene considerata in stato di errore.
 
 Un'altra condizione che può essere monitorata è il tempo di esecuzione delle attività. Il servizio master distribuisce le attività ai server slave in base al tipo di attività. A seconda della progettazione, il servizio master può eseguire il polling dei servizi slave per quanto riguarda lo stato delle attività. Può anche attendere anche servizi slave inviino segnali di acknowledgement al termine dell'operazione. Nel secondo caso, è necessario prestare attenzione a individuare le situazioni in cui i servizi slave vengono interrotti o i messaggi vengono persi. Un'opzione consiste nell'invio di una richiesta ping da parte del master allo stesso slave, che restituisce lo stato. Se non riceve uno stato, il master lo considera un errore e ripianifica l'attività. Questo presuppone che le attività siano idempotenti.
 
-La condizione monitorata può essere riportata come avviso se l'attività non viene eseguita entro un certo periodo di tempo (**t1**, ad esempio 10 minuti), e come errore se l'attività non viene completata entro il periodo di tempo specificato (**t2**, ad esempio 20 minuti). Questo tipo di report può essere creato in diversi modi:
+La condizione monitorata può essere riportata come avviso se l'attività non viene eseguita entro un certo periodo di tempo \(**t1**, ad esempio 10 minuti\), e come errore se l'attività non viene completata entro il periodo di tempo specificato \(**t2**, ad esempio 20 minuti\). Questo tipo di report può essere creato in diversi modi:
 
 - La replica primaria del servizio master genera periodicamente report su se stessa. È possibile configurare una proprietà per tutte le attività in sospeso nella coda. Se almeno una delle attività richiede più tempo, lo stato del report sulla proprietà **PendingTasks** è un avviso o errore, secondo il caso. Se non sono presenti attività in sospeso o se tutte le attività sono state appena avviate, viene segnalato uno stato integro. Le attività sono persistenti, quindi se il servizio primario si arresta, il nuovo servizio alzato di livello al ruolo di primario può continuare a generare report correttamente.
 
-- Un altro processo di watchdog, nel cloud o esterno, verifica le attività dall'esterno, in base al risultato desiderato per l'attività, per controllare se sono state completate. Se non rispettano le soglie, viene inviato un report sul servizio master. Viene inviato anche un report su ogni attività che include l'identificatore dell'attività, ad esempio **PendingTask+taskid**. I report dovranno essere inviati solo sugli stati non integri. Impostare la durata (TTL) su alcuni minuti e contrassegnare i report da rimuovere alla scadenza, per garantire la pulizia
+- Un altro processo di watchdog, nel cloud o esterno, verifica le attività dall'esterno, in base al risultato desiderato per l'attività, per controllare se sono state completate. Se non rispettano le soglie, viene inviato un report sul servizio master. Viene inviato anche un report su ogni attività che include l'identificatore dell'attività, ad esempio **PendingTask+taskid**. I report dovranno essere inviati solo sugli stati non integri. Impostare la durata \(TTL\) su alcuni minuti e contrassegnare i report da rimuovere alla scadenza, per garantire la pulizia
 
 - Il servizio slave che esegue un'attività segnala se l'esecuzione richiede più tempo del previsto. La segnalazione riguarda l'istanza del servizio della proprietà **PendingTasks**. Questo individua l'istanza del servizio che presenta problemi, ma allo scadere dell'istanza non consente di valutare la situazione, in quanto i report vengono eliminati. È possibile creare report sul servizio slave. Se l'attività viene completata, l'istanza di slave elimina il report dall'archivio. Questo non permette di valutare la situazione se il messaggio di acknowledgement viene perso e l'attività non viene completata dal punto di vista del master.
 
 Se però la creazione di report viene eseguita nei casi descritti sopra, i report saranno acquisiti nell'integrità dell'applicazione quando questa viene valutata.
 
 ## Report periodici e report in caso di transizione a confronto
-Usando il modello di report sull'integrità, i watchdog possono inviare report periodicamente o in caso di transizioni. È consigliabile inviarli periodicamente, perché il codice è molto più semplice e meno soggetto a errori. I watchdog devono essere più semplici possibile per evitare bug che generano report non corretti. Eventuali report che segnalano erroneamente la *mancata integrità* influiscono sulla valutazione dell'integrità e sugli scenari basati sull'integrità, inclusi gli aggiornamenti. I report che segnalano erroneamente la *mancata integrità* hanno l'effetto di nascondere problemi del cluster ed è quindi opportuno evitare che vengano generati.
+Usando il modello di report sull'integrità, i watchdog possono inviare report periodicamente o in caso di transizioni. Nel caso dei report watchdog, è consigliabile inviarli periodicamente, perché il codice è molto più semplice e meno soggetto a errori. I watchdog devono essere più semplici possibile per evitare bug che generano report non corretti. Eventuali report che segnalano erroneamente la *mancata integrità* influiscono sulla valutazione dell'integrità e sugli scenari basati sull'integrità, inclusi gli aggiornamenti. I report che segnalano erroneamente la *mancata integrità* hanno l'effetto di nascondere problemi del cluster ed è quindi opportuno evitare che vengano generati.
 
 Per i report periodici, il watchdog può essere implementato con un timer. In caso di callback del timer, il watchdog può controllare lo stato e inviare un report in base allo stato corrente. Non è necessario visualizzare il report inviato in precedenza o eseguire ottimizzazioni in termini di messaggistica. A questo scopo, il client di integrità è dotato di logica per la creazione di batch. Finché il client di integrità viene mantenuto attivo, esegue nuovi tentativi internamente finché il report non riceve un acknowledgement dall'archivio integrità o il watchdog genera un report più recente con entità, proprietà e origine identiche.
 
 La creazione di report in caso di transizioni richiede una gestione attenta dello stato. Il watchdog esegue il monitoraggio di alcune condizioni e segnala soltanto eventuali modifiche di tali condizioni. Il lato positivo di questo approccio è che sono necessari meno report. Il lato negativo è che la logica del watchdog è complessa. È necessario mantenere le condizioni o i report per poterli esaminare e determinare le modifiche dello stato. In caso di failover, prestare attenzione quando si invia un report che potrebbe non essere stato inviato in precedenza, ovvero è in coda, ma non ancora inviato all'archivio integrità. Il numero di sequenza deve essere crescente. In caso contrario, i report verranno rifiutati come non aggiornati. Nei rari casi in cui si verifica una perdita di dati, potrebbe essere necessaria la sincronizzazione tra lo stato del reporter e quello dell'archivio integrità.
 
+La creazione di report relativi alle transizioni risulta utile per i servizi che inviano report relativi a se stessi, tramite `Partition` o `CodePackageActivationContext`. Quando viene rimosso l'oggetto locale, ovvero una replica o un pacchetto del servizio distribuito oppure un'applicazione distribuita, vengono rimossi anche tutti i rispettivi report. Non è quindi strettamente necessario eseguire la sincronizzazione tra il reporter e l'archivio integrità. Se il report è relativo a una partizione o un'applicazione padre, è necessario prestare attenzione in caso di failover, in modo da evitare report obsoleti nell'archivio integrità. Occorre aggiungere la logica per mantenere lo stato corretto e cancellare il report dall'archivio quando non è più necessario.
+
 ## Implementare report sull'integrità
 Dopo aver definito l'entità e i dettagli del report, l'invio dei report sull'integrità può essere eseguito tramite API, PowerShell o REST.
 
 ### API
-Per usare un'API, gli utenti devono creare un report sull'integrità specifico per il tipo di entità per cui vogliono a generare il report e quindi assegnarvi un client di integrità.
+Per usare un'API, gli utenti devono creare un report sull'integrità specifico per il tipo di entità per cui vogliono a generare il report e quindi assegnarvi un client di integrità. In alternativa, gli utenti devono creare informazioni sull'integrità e passarle ai metodi corretti per la creazione di report in `Partition` o `CodePackageActivationContext` per inviare segnalazioni relative alle entità correnti.
 
 L'esempio seguente illustra la generazione periodica di report da un watchdog all'interno del cluster. I controlli del watchdog determinano se è possibile accedere a una risorsa esterna dall'interno di un nodo. La risorsa è richiesta da un manifesto del servizio all'interno dell'applicazione. Se la risorsa non è disponibile, gli altri servizi all'interno dell'applicazione possono comunque funzionare correttamente. Il report viene quindi inviato per l'entità del pacchetto del servizio distribuito ogni 30 secondi.
 
@@ -173,14 +192,17 @@ public static void SendReport(object obj)
         new HealthInformation("ExternalSourceWatcher", "Connectivity", healthState));
 
     // TODO: handle exception. Code omitted for snippet brevity.
+    // Possible exceptions: FabricException with error codes
+    // FabricHealthStaleReport (non-retryable, the report is already queued on the health client),
+    // FabricHealthMaxReportsReached (retryable; user should retry with exponential delay until the report is accepted).
     Client.HealthManager.ReportHealth(deployedServicePackageHealthReport);
 }
 ```
 
 ### PowerShell
-Gli utenti possono inviare report sull'integrità con **Send-ServiceFabric*EntityType*HealthReport**.
+Gli utenti possono inviare report sull'integrità con **Send-ServiceFabric\*EntityType\*HealthReport**.
 
-L'esempio seguente illustra la generazione di report periodica sui valori della CPU in un nodo. I report devono essere inviati ogni 30 secondi e hanno una durata (TTL) di 2 minuti. Se scadono, nel reporter sono presenti problemi e quindi il nodo viene considerato in stato di errore. Quando la CPU è oltre la soglia specificata, il report presenta uno stato di integrità di tipo avviso. Quando la CPU rimane oltre la soglia specificata per più di tempo di quello configurato, verrà segnalato come errore. In caso contrario, il reporter invia uno stato di integrità corretto.
+L'esempio seguente illustra la generazione di report periodica sui valori della CPU in un nodo. I report devono essere inviati ogni 30 secondi e hanno una durata \(TTL\) di 2 minuti. Se scadono, nel reporter sono presenti problemi e quindi il nodo viene considerato in stato di errore. Quando la CPU è oltre la soglia specificata, il report presenta uno stato di integrità di tipo avviso. Quando la CPU rimane oltre la soglia specificata per più di tempo di quello configurato, verrà segnalato come errore. In caso contrario, il reporter invia uno stato di integrità corretto.
 
 ```powershell
 PS C:\> Send-ServiceFabricNodeHealthReport -NodeName Node.1 -HealthState Warning -SourceId PowershellWatcher -HealthProperty CPU -Description "CPU is above 80% threshold" -TimeToLiveSec 120
@@ -275,4 +297,4 @@ In base ai dati sull'integrità, gli sviluppatori del servizio e gli amministrat
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

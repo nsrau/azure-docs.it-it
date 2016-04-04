@@ -2,7 +2,7 @@
 	pageTitle="Creare definizioni di app per la logica | Microsoft Azure" 
 	description="Informazioni su come scrivere la definizione JSON per le app per la logica" 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,18 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/16/2016"
 	ms.author="stepsic"/>
 	
 # Creare definizioni di app per la logica
-Questo argomento illustra come usare le definizioni di [app per la logica dei servizi app](app-service-logic-what-are-logic-apps.md), che costituiscono un semplice linguaggio JSON dichiarativo. Se ancora non è stato fatto, leggere prima di tutto l'articolo su [come creare una nuova app per la logica](app-service-logic-create-a-logic-app.md). È anche possibile leggere il [materiale di riferimento completo del linguaggio di definizione su MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx).
+Questo argomento illustra come usare le definizioni di [app per la logica dei servizi app](app-service-logic-what-are-logic-apps.md), che costituiscono un semplice linguaggio JSON dichiarativo. Se ancora non è stato fatto, leggere prima di tutto l'articolo su [come creare una nuova app per la logica](app-service-logic-create-a-logic-app.md). È anche possibile leggere il [materiale di riferimento completo del linguaggio di definizione su MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx).
 
 ## Più passaggi che si ripetono in un elenco
 
 Un modello comune consiste nell'eseguire un passaggio per ottenere un elenco di elementi e quindi definire una serie di due o più azioni da eseguire per ogni elemento dell'elenco.
 
-![Ripetere in elenchi](./media/app-service-logic-author-definitions/repeatoverlists.png)
+![Ripetere in elenchi](./media/app-service-logic-author-definitions/newrepeatoverlists.png)
 
+![Ripetere in elenchi](./media/app-service-logic-author-definitions/newrepeatoverlists2.png)
+
+![Ripetere in elenchi](./media/app-service-logic-author-definitions/newrepeatoverlists3.png)
+
+![Ripetere in elenchi](./media/app-service-logic-author-definitions/newrepeatoverlists4.png)
+
+ 
 In questo esempio vengono eseguite tre azioni:
 
 1. Un'azione ottiene un elenco di articoli. Restituisce un oggetto che contiene una matrice.
@@ -77,7 +84,7 @@ In questo esempio vengono eseguite tre azioni:
 
 Come descritto nell'articolo [Usare le funzionalità delle app per la logica](app-service-logic-use-logic-app-features.md), scorrere il primo elenco usando la proprietà `forEach:` nella seconda azione. Per la terza azione è tuttavia necessario selezionare la proprietà `@actions('readLinks').outputs`, perché la seconda viene eseguita per ogni articolo.
 
-All'interno dell'azione è possibile usare la funzione [`item()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#item). In questo esempio si vuole ottenere l'intestazione `location`, quindi si usa `@item().outputs.headers` per ottenere gli output dell'esecuzione della seconda azione che si sta scorrendo.
+All'interno dell'azione è possibile usare la funzione [`item()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#item). In questo esempio si vuole ottenere l'intestazione `location`, quindi si usa `@item().outputs.headers` per ottenere gli output dell'esecuzione della seconda azione che si sta scorrendo.
 
 ## Mapping degli elementi di un elenco a una configurazione diversa
 
@@ -134,7 +141,7 @@ A questo punto, si vuole ottenere un contenuto completamente diverso in base al 
 
 In questo caso, si ottiene prima di tutto un elenco di articoli e poi nel secondo passaggio si cerca in una mappa l'URL dal quale ottenere il contenuto, in base alla categoria definita come parametro.
 
-Qui occorre prestare attenzione a due elementi: la funzione [`intersection()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#intersection) viene usata per verificare se la categoria corrisponde a una delle categorie note definite. Secondo, dopo avere ottenuto la categoria è possibile estrarre l'elemento dalla mappa usando parentesi quadre: `parameters[...]`.
+Qui occorre prestare attenzione a due elementi: la funzione [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) viene usata per verificare se la categoria corrisponde a una delle categorie note definite. Secondo, dopo avere ottenuto la categoria è possibile estrarre l'elemento dalla mappa usando parentesi quadre: `parameters[...]`.
 
 ## Concatenare/annidare le app per la logica durante la ripetizione in un elenco
 
@@ -199,7 +206,7 @@ Nell'app per la logica padre:
 }
 ```
 
-Nell'app per la logica figlio si userà quindi la funzione [`triggerBody()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerBody) per ottenere i valori passati nel flusso di lavoro figlio. Si popoleranno quindi gli output con i dati da restituire al flusso padre.
+Nell'app per la logica figlio si userà quindi la funzione [`triggerBody()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerBody) per ottenere i valori passati nel flusso di lavoro figlio. Si popoleranno quindi gli output con i dati da restituire al flusso padre.
 
 ```
 {
@@ -236,7 +243,7 @@ Nell'app per la logica figlio si userà quindi la funzione [`triggerBody()`](htt
 }
 ```
 
-Altre informazioni sono disponibili nell'articolo relativo all'[azione di tipo app per la logica su MSDN](https://msdn.microsoft.com/library/azure/dn948511.aspx).
+Altre informazioni sono disponibili nell'articolo relativo all'[azione di tipo app per la logica su MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx).
 
 >[AZURE.NOTE]La finestra di progettazione di app per la logica non supporta le azioni di tipo app per la logica, quindi sarà necessario modificare la definizione manualmente.
 
@@ -354,7 +361,7 @@ Come si può vedere, il timestamp è identico per entrambi i rami.
 
 È possibile combinare due flussi condizionali di logica (che siano stati eseguiti o meno) mediante una singola azione che accetta i dati da entrambi i rami.
 
-La strategia per questa operazione varia a seconda che venga gestito un elemento o una raccolta di elementi. Nel caso di un singolo elemento, si userà la funzione [`coalesce()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#coalesce):
+La strategia per questa operazione varia a seconda che venga gestito un elemento o una raccolta di elementi. Nel caso di un singolo elemento, si userà la funzione [`coalesce()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#coalesce):
 
 ```
 {
@@ -410,7 +417,7 @@ La strategia per questa operazione varia a seconda che venga gestito un elemento
 }
 ```
  
-In alternativa se i primi due rami agiscono, ad esempio, in un elenco di ordini, si userà la funzione [`union()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#union) per combinare i dati di entrambi i rami.
+In alternativa se i primi due rami agiscono, ad esempio, in un elenco di ordini, si userà la funzione [`union()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#union) per combinare i dati di entrambi i rami.
 
 ```
 {
@@ -514,17 +521,17 @@ Si vuole anche ottenere una sottostringa del nome dell'ordine, perché i primi 5
 
 Descrizione della stringa di codice:
 
-1. Ottiene l'elemento [`length()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#length) del nome dell'autore dell'ordine e restituisce il numero totale di caratteri.
+1. Ottiene l'elemento [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) del nome dell'autore dell'ordine e restituisce il numero totale di caratteri.
 
 2. Sottrae 5 (si vuole ottenere una stringa più breve).
 
-3. Accetta in effetti l'elemento [`substring()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#substring). Inizia dall'indice `5` e procede alla parte rimanente della stringa.
+3. Accetta in effetti l'elemento [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). Inizia dall'indice `5` e procede alla parte rimanente della stringa.
 
-4. Converte la sottostringa in una stringa [`base64()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#base64).
+4. Converte la sottostringa in una stringa [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64).
 
-5. [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace) sostituisce tutti i caratteri `+` con `-`
+5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) sostituisce tutti i caratteri `+` con `-`
 
-6. [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace) sostituisce tutti i caratteri `/` con `_`
+6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) sostituisce tutti i caratteri `/` con `_`
 
 ## Utilizzo di date e ore
 
@@ -571,13 +578,13 @@ Date e ore possono risultare utili, specialmente quando si tenta di eseguire il 
 }
 ```
 
-In questo esempio viene estratto l'elemento `startTime` del passaggio precedente. Si otterrà quindi l'ora corrente sottraendo un secondo:[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/dn948512.aspx#addseconds) (è anche possibile usare altre unità di tempo come `minutes` o `hours`). Infine si potranno confrontare questi due valori. Se il primo è minore del secondo, significa che è trascorso più di un secondo dal momento in cui è stato inserito l'ordine.
+In questo esempio viene estratto l'elemento `startTime` del passaggio precedente. Si otterrà quindi l'ora corrente sottraendo un secondo:[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (è anche possibile usare altre unità di tempo come `minutes` o `hours`). Infine si potranno confrontare questi due valori. Se il primo è minore del secondo, significa che è trascorso più di un secondo dal momento in cui è stato inserito l'ordine.
 
-Notare che è possibile usare formattatori di stringa per formattare le date: nella stringa di query viene usato [`utcnow('r')`](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow) per ottenere RFC1123. Tutta la formattazione delle date [è documentata in MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow).
+Notare che è possibile usare formattatori di stringa per formattare le date: nella stringa di query viene usato [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) per ottenere RFC1123. Tutta la formattazione delle date [è documentata in MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
 
 ## Passaggio di valori in fase di esecuzione per modificare il comportamento
 
-Si supponga di avere diversi comportamenti che si prevede di eseguire in base ai valori usati per l'avvio dell'app per la logica. Per ottenere questi valori da quelli passati, è possibile usare la funzione [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerOutputs):
+Si supponga di avere diversi comportamenti che si prevede di eseguire in base ai valori usati per l'avvio dell'app per la logica. Per ottenere questi valori da quelli passati, è possibile usare la funzione [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerOutputs):
 
 ```
 {
@@ -611,13 +618,7 @@ Si supponga di avere diversi comportamenti che si prevede di eseguire in base ai
 }
 ```
 
-Per eseguire questa operazione, quando si avvia l'esecuzione è necessario passare le proprietà necessarie (nell'esempio `uriToGet` e `doMoreLogic`). Di seguito è riportata la chiamata per cui è possibile [usare l'autenticazione di base](https://msdn.microsoft.com/library/azure/dn948513.aspx#basicAuth):
-
-```
-POST https://<<Logic app endpoint from the Essentials>>/run?api-version=2015-02-01-preview
-Authorization: Basic <<Based 64 encoded username (default) : password (from the Settings blade)>>
-Content-type: application/json
-```
+Per eseguire questa operazione, quando si avvia l'esecuzione è necessario passare le proprietà necessarie (nell'esempio `uriToGet` e `doMoreLogic`).
 
 Il payload è il seguente. Si noti che sono stati forniti all'app per la logica i valori da usare a questo punto:
 
@@ -728,6 +729,6 @@ In ogni ambiente è quindi possibile fornire un valore diverso per il parametro 
 }
 ```
 
-Per tutte le opzioni disponibili per la creazione e la gestione di app per la logica, vedere [documentazione dell'API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx).
+Per tutte le opzioni disponibili per la creazione e la gestione di app per la logica, vedere [documentazione dell'API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

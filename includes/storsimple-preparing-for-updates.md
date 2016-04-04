@@ -1,16 +1,16 @@
 <!--author=jgerend last changed: 03/16/16-->
 
-## Preparing for updates
-You will need to perform the following steps before you scan and apply the update:
+## Preparazione per gli aggiornamenti
+È necessario effettuare le seguenti operazioni prima di analizzare e applicare l'aggiornamento:
 
 
-1. Take a cloud snapshot of the device data.
+1. Creare uno snapshot cloud dei dati del dispositivo.
 
-2. Ensure that your controller fixed IPs are routable and can connect to the Internet. These fixed IPs will be used to service updates to your device. You can test this by running the following cmdlet on each controller from the Windows PowerShell interface of the device:
+2. Assicurarsi che il controller fisso di indirizzi IP sia instradabile e possa connettersi a Internet. Questi indirizzi IP fissi verranno usati per gestire gli aggiornamenti al dispositivo. È possibile effettuare una prova eseguendo il cmdlet seguente su ciascun controller dall'interfaccia di Windows PowerShell del dispositivo:
 
  	`Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
 
-	**Sample output for Test-Connection when fixed IPs can connect to the Internet**
+	**Output di esempio di Test-Connection quando IP fissi non riescono a connettersi a Internet**
 
 
 		Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
@@ -31,4 +31,6 @@ You will need to perform the following steps before you scan and apply the updat
 	    HCSNODE0  204.79.197.200  204.79.197.200
 	    HCSNODE0  204.79.197.200  204.79.197.200
 
-After you have successfully completed these manual pre-checks, you can proceed to scan and install the updates.
+Dopo aver completato correttamente i controlli preliminari manuali, è possibile procedere all'analisi e installazione degli aggiornamenti.
+
+<!---HONumber=AcomDC_0323_2016-->

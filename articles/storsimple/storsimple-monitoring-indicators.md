@@ -3,7 +3,7 @@
     description="Descrive i diodi a emissione luminosa (LED) e gli avvisi sonori utilizzati per monitorare lo stato del dispositivo StorSimple."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
+    authors="alkohli"
     manager="carolz"
     editor="" />
  <tags 
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="01/05/2016"
-    ms.author="v-sharos" />
+    ms.date="03/21/2016"
+    ms.author="alkohli" />
 
 # Utilizzare gli indicatori di monitoraggio StorSimple per gestire il dispositivo   
 
@@ -37,7 +37,7 @@ Il pannello anteriore, noto anche come *pannello operativo* o *pannello delle op
  
 Il pannello anteriore include i seguenti indicatori:
 
-1. Pulsante di alimentazione
+1. Pulsante di disattivazione audio
 2. Indicatore LED (verde/rosso-ambra) di alimentazione
 3. Indicatore LED di errore nel modulo (ACCESO rosso-ambra/SPENTO)
 4. Indicatore LED di errore logico (ACCESO rosso-ambra/SPENTO)
@@ -147,7 +147,8 @@ Utilizzare la tabella seguente per determinare se il modulo controller funziona 
 | LED stato Ethernet | Il lato destro indica un’attività di collegamento/rete: collegamento attivo (verde continuo), attività di rete (verde intermittente). Il lato sinistro indica la velocità di rete: 1000 Mb/s (giallo), 100 Mb/s (verde) e 10 Mb/s (SPENTA). In base al modello del componente, tale indicazione luminosa potrebbe lampeggiare anche se l'interfaccia di rete non è abilitata. |
 | LED POST | Indica lo stato dell’avvio quando il controller è attivato. Se l’avvio del dispositivo StorSimple ha esito negativo, tale LED consente al supporto tecnico Microsoft di identificare il punto del processo di avvio in cui si è verificato l'errore. |
 
->[AZURE.IMPORTANT]Il LED di errore acceso indica un problema con il modulo controller che potrebbe essere risolto tramite riavvio. Se il riavvio del controller non consente di risolvere il problema, contattare il supporto tecnico Microsoft.
+>[AZURE.IMPORTANT] 
+Il LED di errore acceso indica un problema con il modulo controller che potrebbe essere risolto tramite riavvio. Se il riavvio del controller non consente di risolvere il problema, contattare il supporto tecnico Microsoft.
 
 
 ### LED di monitoraggio per EBOD (chassis EBOD)  
@@ -162,12 +163,7 @@ Utilizzare la tabella seguente per determinare se il modulo controller EBOD funz
 
 |Stato | Modulo I/O OK (verde) | Errore modulo I/O (ambra) | Attività porta host (verde) |
 |-------|----------------------|-------------------------------|----------------------------|
-| Modulo controller OK | ACCESO | SPENTO | - |
-| Errore modulo controller | SPENTO | ACCESO | - |
-| Connessione porta hosta esterna assente | - | - | SPENTO |
-| Connessione porta host esterna – nessuna attività | - | - | ACCESO |
-| Connessione porta host esterna - attività | - | - | Intermittente |
-| Errore metadati modulo controller | Intermittente | - | - |
+| Modulo controller OK | ACCESO | SPENTO | - | | Errore modulo controller | SPENTO | ACCESO | - | | Connessione porta hosta esterna assente | - | - | SPENTO | | Connessione porta host esterna – nessuna attività | - | - | ACCESO | | Connessione porta host esterna - attività | - | - | Intermittente | | Errore metadati modulo controller | Intermittente | - | - |
 
 ## Indicatori LED unità disco per lo chassis principale e lo chassis EBOD
 
@@ -214,7 +210,7 @@ Nella tabella seguente vengono descritti i vari stati di allarme.
 | S3 | Modalità disattivato: invisibile all'utente | Nessuno |
 | S4 | Modalità errore critico: allarme continuo | Non disponibile: disattivazione non attiva |
 
-> [AZURE.NOTE]
+> [AZURE.NOTE] 
 
 >  - Nello stato di allarme S1, se non si preme Disattiva entro 2 minuti, lo stato passa automaticamente da S2 a S3.  
 >  - Dopo la risoluzione della condizione di errore, gli stati di allarme da S1 a S4 tornano a S0.  
@@ -261,4 +257,4 @@ Ulteriori informazioni sui [componenti hardware e sullo stato di StorSimple](sto
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

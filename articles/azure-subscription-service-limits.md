@@ -130,7 +130,7 @@ Per altre informazioni sui limiti dell'account di archiviazione, vedere [Obietti
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-Vedere [Dimensioni della macchina virtuale](../articles/virtual-machines/virtual-machines-size-specs.md) per altri dettagli.
+Vedere [Dimensioni della macchina virtuale](../articles/virtual-machines/virtual-machines-linux-sizes.md) per altri dettagli.
 
 **Account di archiviazione standard**
 
@@ -280,8 +280,8 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 
 [Informazioni sui limiti di Azure e su come aumentarli](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Dimensioni delle macchine virtuali e dei servizi cloud per Azure](virtual-machines/virtual-machines-size-specs.md)
+[Dimensioni delle macchine virtuali e dei servizi cloud per Azure](virtual-machines/virtual-machines-linux-sizes.md)
 
 [Dimensioni per i servizi cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

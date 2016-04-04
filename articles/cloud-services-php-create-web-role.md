@@ -3,9 +3,9 @@
 	description="Guida alla creazione di ruoli Web e di lavoro PHP in un servizio cloud di Azure e configurazione del runtime PHP."
 	services=""
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="01/08/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Come creare ruoli Web e di lavoro PHP
 
@@ -52,7 +52,7 @@ Per un ruolo di lavoro, usare il comando seguente:
 
 	PS C:\myProject> Add-AzurePHPWorkerRole roleName
 
-> [AZURE.NOTE]Il parametro `roleName` è facoltativo. se omesso, il nome del ruolo verrà generato automaticamente. Il primo ruolo Web creato sarà `WebRole1`, il secondo sarà `WebRole2` e così via. Il primo ruolo di lavoro creato sarà `WorkerRole1`, il secondo sarà `WorkerRole2` e così via.
+> [AZURE.NOTE] Il parametro `roleName` è facoltativo. se omesso, il nome del ruolo verrà generato automaticamente. Il primo ruolo Web creato sarà `WebRole1`, il secondo sarà `WebRole2` e così via. Il primo ruolo di lavoro creato sarà `WorkerRole1`, il secondo sarà `WorkerRole2` e così via.
 
 ## Specificare la versione PHP incorporata
 
@@ -76,7 +76,7 @@ Il risultato del comando sopra riportato sarà simile al seguente. In questo ese
 
 	PS C:\myProject> Set-AzureServiceProjectRole roleName php 5.4.0
 
-> [AZURE.NOTE]Le versioni PHP disponibili possono cambiare in futuro.
+> [AZURE.NOTE] Le versioni PHP disponibili possono cambiare in futuro.
 
 ## Personalizzare il runtime PHP incorporato
 
@@ -91,7 +91,7 @@ Per personalizzare il runtime PHP incorporato, eseguire la procedura seguente:
 		display_errors=On
 		extension=php_mongo.dll
 
-> [AZURE.NOTE]Qualsiasi impostazione non esplicitamente impostata nel file `php.ini` fornito verrà automaticamente impostata sui valori predefiniti. Si tenga tuttavia presente che è possibile aggiungere un file `php.ini` completo.
+> [AZURE.NOTE] Qualsiasi impostazione non esplicitamente impostata nel file `php.ini` fornito verrà automaticamente impostata sui valori predefiniti. Si tenga tuttavia presente che è possibile aggiungere un file `php.ini` completo.
 
 ## Utilizzare il proprio runtime PHP
 In alcuni casi, invece di selezionare un runtime PHP incorporato e configurarlo come sopra descritto, può essere consigliabile fornire un proprio runtime PHP. È ad esempio possibile usare lo stesso runtime PHP in un ruolo Web o di lavoro usato nell'ambiente di sviluppo. In questo modo sarà più semplice garantire che il comportamento dell'applicazione non cambi nell'ambiente di produzione.
@@ -128,7 +128,7 @@ Per configurare un ruolo Web per l'uso di un runtime PHP fornito dall'utente, se
 
 6. Pubblicare l'applicazione come descritto nella sezione [Pubblicare l'applicazione](#how-to-publish-your-application) più avanti.
 
-> [AZURE.NOTE]Lo script `download.ps1` (nella cartella `bin` della directory radice del proprio ruolo Web) può essere eliminato dopo aver eseguito i passaggi sopra descritti per l'uso del proprio runtime PHP.
+> [AZURE.NOTE] Lo script `download.ps1` (nella cartella `bin` della directory radice del proprio ruolo Web) può essere eliminato dopo aver eseguito i passaggi sopra descritti per l'uso del proprio runtime PHP.
 
 ### Configurare un ruolo di lavoro per l'uso del proprio runtime PHP
 
@@ -211,4 +211,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [sqlsrv drivers]: http://php.net/sqlsrv
 [programma di installazione sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

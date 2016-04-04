@@ -16,8 +16,12 @@
 	ms.date="12/14/2015"
 	ms.author="lauraa"/>
 
-# Replicare le macchine virtuali Hyper-V nei cloud VMM usando Azure Site Recovery e PowerShell
+# Replicare macchine virtuali Hyper-V nei cloud VMM in Azure con PowerShell - Distribuzione classica
 
+> [AZURE.SELECTOR]
+- [Portale di Azure classico](site-recovery-vmm-to-azure.md)
+- [PowerShell - Classico](site-recovery-deploy-with-powershell.md)
+- [PowerShell - Gestione risorse](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
 
 ## Panoramica
 
@@ -28,6 +32,10 @@ In questo articolo viene illustrato come utilizzare PowerShell per automatizzare
 L’articolo include i prerequisiti per lo scenario e mostra come configurare un insieme di credenziali di Azure Site Recovery, installare il provider di Azure Site Recovery sul server VMM di origine, registrare il server nell'insieme di credenziali, aggiungere un account di archiviazione di Azure, installare l'agente di Servizi di ripristino di Azure nei server host Hyper-V, configurare le impostazioni di protezione per i cloud VMM che verranno applicate a tutte le macchine virtuali protette e quindi abilitare la protezione per tali macchine virtuali. Terminare con il test del failover, per accertarsi che tutti gli elementi funzionino come previsto.
 
 Nel caso di problemi di configurazione di questo scenario, inviare le proprie domande al [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+
+
+> [AZURE.NOTE] Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica.
+
 
 
 ## Prima di iniziare
@@ -67,7 +75,7 @@ Per distribuire il mapping di rete sarà necessario quanto segue:
 - Altre informazioni sul [mapping di rete](site-recovery-network-mapping.md):
 
 ###Prerequisiti di PowerShell
-Assicurarsi che Azure PowerShell sia pronto all’uso. Se già si utilizza PowerShell, è necessario eseguire l'aggiornamento alla versione 0.8.10 o successiva. Per informazioni sulla configurazione di PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md). Dopo avere impostato e configurato PowerShell, è possibile vedere tutti i cmdlet disponibili per il servizio [qui](https://msdn.microsoft.com/library/dn850420.aspx).
+Assicurarsi che Azure PowerShell sia pronto all’uso. Se già si utilizza PowerShell, è necessario eseguire l'aggiornamento alla versione 0.8.10 o successiva. Per informazioni sulla configurazione di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Dopo avere impostato e configurato PowerShell, è possibile vedere tutti i cmdlet disponibili per il servizio [qui](https://msdn.microsoft.com/library/dn850420.aspx).
 
 Per i suggerimenti che facilitano l’utilizzo dei cmdlet, ad esempio come i valori dei parametri, gli input e gli output vengono in genere gestiti in Azure PowerShell, vedere [Introduzione ai cmdlet di Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
@@ -245,21 +253,19 @@ marsagentinstaller.exe /q /nu
 	
 4.	Al termine del processo, eseguire il comando seguente:
 
-	```
 	
-	$job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
-	if($job -eq $null -or $job.StateDescription -ne "Completed")
-	{
+		$job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
+		if($job -eq $null -or $job.StateDescription -ne "Completed")
+		{
 		$isJobLeftForProcessing = $true;
-	}
-	
-	```
+		}
+
 
 5.	Al termine del processo, eseguire il comando seguente:
 
-	```
-	Do
-	{
+	
+		Do
+		{
 		$job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
 		Write-Host "Job State:{0}, StateDescription:{1}" -f Job.State, $job.StateDescription;
 		if($job -eq $null -or $job.StateDescription -ne "Completed")
@@ -271,9 +277,9 @@ marsagentinstaller.exe /q /nu
 		{
 			Start-Sleep -Seconds 60
 		}
-	}While($isJobLeftForProcessing)
+		}While($isJobLeftForProcessing)
 		
-	```
+	
 
 Per verificare il completamento dell'operazione, attenersi alla procedura descritta in [Monitorare l'attività](#monitor).
 
@@ -284,42 +290,32 @@ Si noti che, se la rete di destinazione ha più subnet e una di esse ha lo stess
 
 Il primo comando ottiene i server per l’insieme di credenziali corrente di Azure Site Recovery. Il comando archivia i server di Microsoft Azure Site Recovery nella variabile di matrice $Servers.
 
-```
-$Servers = Get-AzureSiteRecoveryServer
+	$Servers = Get-AzureSiteRecoveryServer
 
-```
 
 Il secondo comando ottiene la rete di ripristino del sito per il primo server nella matrice $Servers. Il comando archivia le reti nella variabile $Networks.
 
-```
 
-$Networks = Get-AzureSiteRecoveryNetwork -Server $Servers[0]
-
-```
+	$Networks = Get-AzureSiteRecoveryNetwork -Server $Servers[0]
 
 Il terzo comando ottiene le sottoscrizioni di Azure tramite il cmdlet Get-AzureSubscription e quindi archivia tale valore nella variabile $Subscriptions.
 
-```
+	$Subscriptions = Get-AzureSubscription
 
-$Subscriptions = Get-AzureSubscription
 
-```
 
 Il quarto comando ottiene le reti virtuali di Azure tramite il cmdlet Get-AzureVNetSite e quindi archivia tale valore nella variabile $AzureVmNetworks.
 
-```
 
-$AzureVmNetworks = Get-AzureVNetSite
+	$AzureVmNetworks = Get-AzureVNetSite
 
-```
+
 
 Il cmdlet finale crea un mapping tra la rete primaria e la rete delle macchine virtuali di Azure. Il cmdlet specifica la rete primaria come primo elemento di $Networks. Il cmdlet specifica una rete di macchine virtuali come primo elemento di $AzureVmNetworks utilizzando il relativo ID. Il comando include l'ID sottoscrizione di Azure.
 
-```
 
-PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
+	New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
 
-```
 
 ## Passaggio 9: abilitare la protezione per le macchine virtuali
 
@@ -333,27 +329,24 @@ Per abilitare la protezione, è necessario che le proprietà del sistema operati
 	
 1.	Per abilitare la protezione, eseguire il comando seguente per ottenere il contenitore di protezione:
 		
-	```
+		$ProtectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $CloudName
 	
-	$ProtectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $CloudName
-	
-	```
+
 	
 2. Ottenere l'entità di protezione (VM) eseguendo il comando seguente:
-		
-	```
 	
-	$protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
+	
+		$protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 		
-	```
+	
 		
 3. Abilitare il ripristino di emergenza per la macchina virtuale eseguendo il comando seguente:
 
-	```
+
 	
-	$jobResult = Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity 	-Protection Enable -Force
+		$jobResult = Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity 	-Protection Enable -Force
 	
-	```
+
 	
 ## Testare la distribuzione
 
@@ -371,97 +364,87 @@ Per verificare il completamento dell'operazione, attenersi alla procedura descri
 3. Modificare il PrimaryProtectionEntityId del nodo ProtectionEntity (vmid da VMM).
 4. È possibile aggiungere ulteriori macchine virtuali mediante l'aggiunta di più nodi ProtectionEntity.
 	
-	```
 	
-	<#
-	<?xml version="1.0" encoding="utf-16"?>
-	<RecoveryPlan Id="d0323b26-5be2-471b-addc-0a8742796610" Name="rp-test" 	PrimaryServerId="9350a530-d5af-435b-9f2b-b941b5d9fcd5" 	SecondaryServerId="21a9403c-6ec1-44f2-b744-b4e50b792387" Description="" 	Version="V2014_07">
-	  <Actions />
-	  <ActionGroups>
-	    <ShutdownAllActionGroup Id="ShutdownAllActionGroup">
-	      <PreActionSequence />
-	      <PostActionSequence />
-	    </ShutdownAllActionGroup>
-	    <FailoverAllActionGroup Id="FailoverAllActionGroup">
-	      <PreActionSequence />
-	      <PostActionSequence />
-	    </FailoverAllActionGroup>
-	    <BootActionGroup Id="DefaultActionGroup">
-	      <PreActionSequence />
-	      <PostActionSequence />
-	      <ProtectionEntity PrimaryProtectionEntityId="d4c8ce92-a613-4c63-9b03-	cf163cc36ef8" />
-	    </BootActionGroup>
-	  </ActionGroups>
-	  <ActionGroupSequence>
-	    <ActionGroup Id="ShutdownAllActionGroup" ActionId="ShutdownAllActionGroup" 	Before="FailoverAllActionGroup" />
-	    <ActionGroup Id="FailoverAllActionGroup" ActionId="FailoverAllActionGroup" 	After="ShutdownAllActionGroup" Before="DefaultActionGroup" />
-	    <ActionGroup Id="DefaultActionGroup" ActionId="DefaultActionGroup" After="FailoverAllActionGroup"/>
-	  </ActionGroupSequence>
-	</RecoveryPlan>
-	#>
 	
-	```
+		<#
+		<?xml version="1.0" encoding="utf-16"?>
+		<RecoveryPlan Id="d0323b26-5be2-471b-addc-0a8742796610" Name="rp-test" 	PrimaryServerId="9350a530-d5af-435b-9f2b-b941b5d9fcd5" 	SecondaryServerId="21a9403c-6ec1-44f2-b744-b4e50b792387" Description="" 	Version="V2014_07">
+		  <Actions />
+		  <ActionGroups>
+		    <ShutdownAllActionGroup Id="ShutdownAllActionGroup">
+		      <PreActionSequence />
+		      <PostActionSequence />
+		    </ShutdownAllActionGroup>
+		    <FailoverAllActionGroup Id="FailoverAllActionGroup">
+		      <PreActionSequence />
+		      <PostActionSequence />
+		    </FailoverAllActionGroup>
+		    <BootActionGroup Id="DefaultActionGroup">
+		      <PreActionSequence />
+		      <PostActionSequence />
+		      <ProtectionEntity PrimaryProtectionEntityId="d4c8ce92-a613-4c63-9b03-	cf163cc36ef8" />
+		    </BootActionGroup>
+		  </ActionGroups>
+		  <ActionGroupSequence>
+		    <ActionGroup Id="ShutdownAllActionGroup" ActionId="ShutdownAllActionGroup" 	Before="FailoverAllActionGroup" />
+		    <ActionGroup Id="FailoverAllActionGroup" ActionId="FailoverAllActionGroup" 	After="ShutdownAllActionGroup" Before="DefaultActionGroup" />
+		    <ActionGroup Id="DefaultActionGroup" ActionId="DefaultActionGroup" After="FailoverAllActionGroup"/>
+		  </ActionGroupSequence>
+		</RecoveryPlan>
+		#>
+	
+
 	
 4. Inserire i dati nel modello:
 	
-	```
+		
+		$TemplatePath = "C:\RPTemplatePath.xml";
 	
-	$TemplatePath = "C:\RPTemplatePath.xml";
-	
-	```
+
 	
 5. Creare il RecoveryPlan:
+
+		$RPCreationJob = New-AzureSiteRecoveryRecoveryPlan -File $TemplatePath -WaitForCompletion;
 	
-	```
 	
-	$RPCreationJob = New-AzureSiteRecoveryRecoveryPlan -File $TemplatePath -WaitForCompletion;
-	
-	```
 	
 ### Eseguire un failover di test
 
 1.	Ottenere l'oggetto RecoveryPlan eseguendo il comando seguente:
-	
-	```
-	
-	$RPObject = Get-AzureSiteRecoveryRecoveryPlan -Name $RPName;
-	
-	```
+
+		$RPObject = Get-AzureSiteRecoveryRecoveryPlan -Name $RPName;
+
 	
 2.	Avviare il failover di test eseguendo il comando seguente:
 	
-	```
 	
-	$jobIDResult = Start-AzureSiteRecoveryTestFailoverJob -RecoveryPlan $RPObject -Direction PrimaryToRecovery;
+		$jobIDResult = Start-AzureSiteRecoveryTestFailoverJob -RecoveryPlan $RPObject -Direction PrimaryToRecovery;
 	
-	```
-	
+		
 ## <a name=monitor></a> Monitorare l'attività
 
 Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessario attendere l’esecuzione dei processi per il completamento dell'elaborazione.
 
-```
 
-Do
-{
-        $job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
-        Write-Host "Job State:{0}, StateDescription:{1}" -f Job.State, $job.StateDescription;
-        if($job -eq $null -or $job.StateDescription -ne "Completed")
-        {
-        	$isJobLeftForProcessing = $true;
-        }
+	Do
+	{
+	        $job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
+	        Write-Host "Job State:{0}, StateDescription:{1}" -f Job.State, $job.StateDescription;
+	        if($job -eq $null -or $job.StateDescription -ne "Completed")
+	        {
+	        	$isJobLeftForProcessing = $true;
+	        }
+	
+		if($isJobLeftForProcessing)
+	        {
+	        	Start-Sleep -Seconds 60
+	        }
+	}While($isJobLeftForProcessing)
 
-	if($isJobLeftForProcessing)
-        {
-        	Start-Sleep -Seconds 60
-        }
-}While($isJobLeftForProcessing)
-
-```
 
 
 ## Passaggi successivi
 
 [Altre informazioni](https://msdn.microsoft.com/library/dn850420.aspx) sui cmdlet PowerShell per Azure Site Recovery. </a>.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

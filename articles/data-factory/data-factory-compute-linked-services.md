@@ -142,7 +142,7 @@ dataNodeSize | Specifica le dimensioni del nodo dei dati. Il valore predefinito 
 zookeeperNodeSize | Specifica le dimensioni del nodo Zookeeper. Il valore predefinito è: piccole. | No
  
 #### Specificare le dimensioni dei nodi
-Vedere l’articolo [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-size-specs.md#size-tables) per i valori della stringa che è necessario specificare per le proprietà precedenti. I valori devono essere conformi ai **CMDLET e API** a cui si fa riferimento nell'articolo. Come si vede nell'articolo, il nodo dei dati di grandi dimensioni (per impostazione predefinita) ha 7 GB di memoria, il che potrebbe non andare abbastanza bene per il proprio scenario.
+Vedere l’articolo [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) per i valori della stringa che è necessario specificare per le proprietà precedenti. I valori devono essere conformi ai **CMDLET e API** a cui si fa riferimento nell'articolo. Come si vede nell'articolo, il nodo dei dati di grandi dimensioni (per impostazione predefinita) ha 7 GB di memoria, il che potrebbe non andare abbastanza bene per il proprio scenario.
 
 Se si desidera creare nodi head e nodi del ruolo di lavoro di dimensioni D4, è necessario specificare **Standard\_D4** come valore per le proprietà headNodeSize e dataNodeSize.
 
@@ -177,7 +177,6 @@ Questo tipo di configurazione è supportato per gli ambienti di calcolo seguenti
 	      "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
 	      "userName": "admin",
 	      "password": "<password>",
-	      "location": "WestUS",
 	      "linkedServiceName": "MyHDInsightStoragelinkedService"
 	    }
 	  }
@@ -191,7 +190,6 @@ type | La proprietà type deve essere impostata su **HDInsight**. | Sì
 clusterUri | L'URI del cluster HDInsight. | Sì
 username | Specifica il nome dell'utente da utilizzare per connettersi a un cluster HDInsight esistente. | Sì
 password | Specifica la password per l'account utente. | Sì
-location | Specifica il percorso del cluster HDInsight (ad esempio: WestUS). | Sì
 linkedServiceName | Nome del servizio collegato per l'archiviazione di BLOB utilizzato da questo cluster HDInsight. | Sì
 
 ## Servizio collegato Azure Batch
@@ -309,7 +307,7 @@ Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scaden
 Per evitare/risolvere questo problema, alla **scadenza del token** è necessario ripetere l'autorizzazione con il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà sessionId e authorization a livello di codice usando il codice riportato nella sezione seguente.
 
 ### Per generare valori sessionId e authorization a livello di codice 
-Il codice seguente genera valori **sessionId** e **authorization**.
+Il codice seguente genera i valori **sessionId** e **authorization**.
 
     if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
         linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
@@ -334,11 +332,11 @@ Il codice seguente genera valori **sessionId** e **authorization**.
         }
     }
 
-Vedere gli argomenti [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) sulle classi di Data Factory usate nel codice. È necessario aggiungere un riferimento a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll per la classe WindowsFormsWebAuthenticationDialog.
+Per informazioni dettagliate sulle classi di Data Factory usate nel codice, vedere gli argomenti [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). È necessario aggiungere un riferimento a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll per la classe WindowsFormsWebAuthenticationDialog.
  
 
 ## Servizio collegato di Azure SQL
 
 Si crea un servizio collegato di Azure SQL e lo si utilizza con l’[Attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una procedura stored da una pipeline Data Factory. Vedere l’articolo [Connettore di Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) per informazioni dettagliate su questo servizio collegato.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

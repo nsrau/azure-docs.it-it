@@ -12,976 +12,371 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 # Modello di dati di esportazione di Application Insights
 
 Questa tabella elenca le proprietà di telemetria inviate al portale dagli SDK di [Application Insights](app-insights-overview.md). Queste proprietà saranno visualizzate nell'output dei dati di [Esportazione continua](app-insights-export-telemetry.md). Sono visibili anche nei filtri delle proprietà in [Esplora metriche](app-insights-metrics-explorer.md) e [Ricerca diagnostica](app-insights-diagnostic-search.md).
 
+Punti da notare:
+
+* `[0]` in queste tabelle indica un punto nel percorso in cui è necessario inserire un indice, ma non è sempre 0.
+* Le durate sono espresse in decimi di microsecondo, quindi 10000000 == 1 secondo.
+* Date e ore sono in formato UTC e vengono specificate nel formato ISO `yyyy-MM-DDThh:mm:ss.sssZ`
+
 Ci sono diversi [esempi](app-insights-export-telemetry.md#code-samples) che illustrano come usarle.
 
-La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsiasi nome di tipo di telemetria: visualizzazione, richiesta e così via.
 
 
-## & lt; telemetryType & gt;
-
-**<measurement>**
-
-    KVPs <string, double> <telemetryType>.measurement      Max: 100
-* 
-    Un contenitore delle proprietà di coppia chiave valore (KVP) che fornisce l'estensibilità sugli articoli di telemetria di AppInsights per l’aggiunta di metriche personalizzate. 
-
-    *Derivazione* : i nomi delle misurazioni hanno dimensioni massime pari a 100
-
-    *Predefinito* : in presenza di una chiave esistente, il valore mancante è quindi count = 1, value = 0, min/max = 0
-
-**<property>**
-
-    KVPs <string, string> <telemetryType>.properties      Max: 100
-* 
-    Un contenitore delle proprietà di coppia chiave valore (KVP) che fornisce l'estensibilità sugli articoli di telemetria di AppInsights per l’aggiunta di proprietà personalizzate. Lo sviluppatore è in grado di fornire un elenco di coppia chiave-valore associato a un elemento di dati di telemetria. Ogni chiave viene rilevata e possono essere fornite massimo 200 chiavi univoche per ogni AppInsights ikey (applicazione). Una chiave può avere una lunghezza massima di 100 caratteri. Tutti i valori vengono considerati come stringa e può essere fornita una dimensione massima di 1000 caratteri. Ogni proprietà inizialmente è classificata come una dimensione, che abilita le funzionalità di segmentazione in base a ogni set di valore della proprietà. Ogni set di valore è registrato per ogni chiave di proprietà per la cardinalità. Quando la cardinalità di una chiave supera 100 valori univoci, la proprietà viene classificata come un attributo. Un attributo può essere ricercato, ma non può essere la destinazione di segmentazione (aggregazione o raggruppamento). 
-
-    *Derivazione* : i nomi delle proprietà hanno dimensioni massime pari a 100; i valori delle proprietà hanno dimensioni massime pari a 1024
-
-    *Predefinito:* in presenza di una chiave esistente, il valore mancante è quindi value = null
-
-**count**
-
-    long <telemetryType>.count      
-* 
-    Il count dell'elemento di telemetria.   
-
-    *Derivazione* : se null, count = 1
-
-**duration**
-
-    simpleMetric <telemetryType>.duration   ticks   
-* 
-    La durata dell'elemento di telemetria. Per la richiesta, questo è il tempo di esecuzione della richiesta. 
-
-    *Predefinito* : R1, per la visualizzazione questo campo è facoltativo
-
-**message**
-
-    string <telemetrytype>.message      Max: 10240
-* 
-    Un messaggio di testo nel tipo di telemetria. Questa stringa è disponibile per la ricerca full-text. 
-
-**nome**
-
-    string <telemetrytype>.name      Max: 250
-* 
-    Il nome dell'elemento di telemetria. Questo nome è non univoco tra più istanze e rappresenta un raggruppamento di tipi di telemetria. Per le visualizzazioni, viene specificata la URLData.base. Per gli eventi, questo è un’etichetta fornita dallo sviluppatore. Per le richieste, questa è una forma leggibile della richiesta, ad esempio il controller\\action. 
-
-    *Esempi*<br/> Visualizzare i nomi:<br/>Domanda 1 Esame 70-486<br/>Informazioni su - Applicazione ASP.NET<br/><br/>Nomi di richiesta di esempio:<br/>POST /Components/WebHandlers/ItemCompare.ashx<br/>GET /signalr/poll<br/>GET /signalr/negotiate
-
-**gravità**
-
-    string <telemetryType>.severity      Max: 100
-* 
-    La gravità dell'elemento di telemetria. Ciò è valido per gli elementi di telemetria di Traccia ed Eccezione 
-
-**url**
-
-    string <telemetrytype>.url      Max: 2048
-* 
-    L'URL del pageview, evento, richiesta o RDD. L'URL completo ed è supportato nella ricerca full-text e nell'esportazione. Questo campo può avere una cardinalità elevata ed è un attributo. Viene analizzato in un set di elementi di dati urlData che può essere utilizzato per le aggregazioni in Esplorazione di metrica. 
-
-    *Predefinito* : R2: in remotedepencyType se dependencyType = HTTP questo campo è obbligatorio<br/> In clientperformanceType questo campo è obbligatorio
-
-    *Esempi*<br/> https://icecream.contoso.com/main.aspx?etc=3&extraqs=%3fetc%3d3%26formid%3dc40d07a7-1cf1-4e1d-b00e-e61876d1284e&pagemode=iframe&pagetype=entityrecord<br/>http://fabrikam-oats.azurewebsites.net/index.htm
-
-**urlData.base**
-
-    string <telemetrytype>.urldata.base      Max: 2048
-* 
-    Una parte dell'elemento di dati URL esclusi host, parametri di query. È la radice URI. Questo valore può essere utilizzato per la segmentazione/aggregazione. 
-
-    *Derivazione* : vedere l'appendice per la trasformazione di URL
-
-    *Esempi*<br/> /main.aspx?etc=3&extraqs=%3fetc%3d3%26formid%3dc40d07a7-1cf1-4e1d-b00e-e61876d1284e&pagemode=iframe&pagetype=entityrecord<br/>/default.aspx<br/>/Patients/Search/<br/>
-
-**urldata.hashTag**
-
-    string <telemetrytype>.urldata.hashtag      Max: 100
-* 
-    Il testo di hashtag dell'elemento di dati URL 
-
-    *Derivazione* : vedere l’appendice per la trasformazione di URL
-
-**urlData.host**
-
-    string <telemetrytype>.urldata.host      Max: 200
-* 
-    L'host dell'elemento di dati URL. Se l'elemento di dati URL è un URI locale, allora è rappresentato come vuoto 
-
-    *Derivazione* : vedere l'appendice per la trasformazione di URL
-
-    *Esempi*<br/> www.fabrikam.com<br/>www.contoso.com<br/>bretwpc711.azurewebsites.net<br/>
-
-
-
-## disponibilità
-
-**disponibilità**
-
-    simpleMetric availability.availability      
-* 
-    Un indicatore dell'esito positivo del test di disponibilità 
-
-**dataSize**
-
-    simpleMetric availability.datasize      
-* 
-    Le dimensioni della & lt; telemetry & gt;. messaggio di testo messaggio 
-
-**risultato**
-
-    enum (pass/fail) availability.result      
-* 
-    Un puntatore (chiamata HTTP) per recuperare informazioni dettagliate del test web di disponibilità 
-
-**runLocation**
-
-    string availability.runlocation      Max: 100
-* 
-    Il percorso di esecuzione del test di disponibilità 
-
-**testName**
-
-    string availability.testname      Max: 1024
-* 
-    Il nome del test di disponibilità 
-
-**testRunId**
-
-    string availability.testrunid      Max: 100
-* 
-    Un id univoco per l'istanza dell'esecuzione del test di disponibilità 
-
-**testTimeStamp**
-
-    datetime availability.testtimestamp      
-* 
-    Il timestamp dell'inizio dell'istanza di esecuzione dei test di disponibilità 
-
-
-## basicexception
-
-**assembly**
-
-    string basicexception.assembly      Max: 100
-**exceptionGroup**
-
-    string basicException.exceptionGroup      
-**exceptionType**
-
-    string basicexception.exceptiontype      Max: 100
-**failedUserCodeAssembly**
-
-    string basicException.failedUserCodeAssembly      
-**failedUserCodeMethod**
-
-    string basicException.failedUserCodeMethod      
-**handledAt**
-
-    string basicexception.handledat      Max: 100
-**innerMostExceptionMessage**
-
-    string basicException.innermostExceptionMessage      
-**innerMostExceptionThrownAtAssembly**
-
-    string basicException.innermostExceptionThrownAtAssembly      
-**innerMostExceptionThrownAtMethod**
-
-    string basicException.innermostExceptionThrownAtMethod      
-**innerMostExceptionType**
-
-    string basicException.innermostExceptionType      
-**statico**
-
-    string basicexception.method      Max: 100
-**outerMostExceptionMessage**
-
-    string basicException.outerExceptionMessage      
-**outerMostExceptionThrownAtAssembly**
-
-    string basicException.outerExceptionThrownAtAssembly      
-**outerMostExceptionTrownAtMethod**
-
-    string basicException.outerExceptionThrownAtMethod      
-**outerMostExceptionType**
-
-    string basicException.outerExceptionType      
-**problemid**
-
-    string basicexception.problemid      Max: 100
-* 
-    *Derivazione* : vedere l'appendice per l'analisi dello stack di chiamate 
-
-**Exceptions.Assembly**
-
-    string basicexception.exceptions.assembly      Max: 100
-**Exceptions.fileName**
-
-    string basicexception.exceptions.filename      Max: 100
-**Exceptions.hasFullStack**
-
-    boolean basicexception.exceptions.hasfullstack      
-**Exceptions.Level**
-
-    string basicexception.exceptions.level      Max: 100
-**Exceptions.Line**
-
-    long basicexception.exceptions.line      
-**Exceptions.Message**
-
-    string basicexception.exceptions.message      Max: 10240
-**Exceptions.Method**
-
-    string basicexception.exceptions.method      Max: 100
-**Exceptions.outerId**
-
-    long basicexception.exceptions.outerid      
-**Exceptions.parsedStack**
-
-    List<StackFrame> basicexception.exceptions.parsedstack      
-**Exceptions.Stack**
-
-    string basicexception.exceptions.stack      Max: 10240
-**Exceptions.typeName**
-
-    string basicexception.exceptions.typename      Max: 100
-**parsedStackAssembly**
-
-    string basicException.parsedStack.assembly      
-**parsedStackFilename**
-
-    string basicException.parsedStack.fileName      
-**parsedStackLevel**
-
-    string basicException.parsedStack.level      
-**parsedStackLine**
-
-    string basicException.parsedStack.line      
-**paseStackMethod**
-
-    string basicException.parsedStack.method      
-
-## clientperformance
-
-**domProcessing**
-
-    simpleMetric clientperformance.domprocessing   ms   
-* 
-    Una parte del tempo perTotal. Questa parte rappresenta il tempo che l'applicazione ha impiegato per elaborare la risposta. Per un client web, questo è il tempo di elaborazione del Modello Oggetto del Documento (DOM). Questo intervallo viene acquisito utilizzando l’API perfTiming del browser moderno. 
-
-**networkConnect**
-
-    simpleMetric clientperformance.networkconnect   ms   
-* 
-    Una parte del tempo perTotal. Questa parte rappresenta il tempo che l'applicazione ha impiegato per stabilire la connessione di rete. Questo intervallo viene acquisito utilizzando l’API perfTiming del browser moderno. 
-
-**perfTotal**
-
-    simpleMetric clientperformance.perftotal   ms   
-* 
-    Tempo totale del caricamento della visualizzazione. Per i client web, ciò equivale a ""temo per il caricamento della pagina"". Questo intervallo viene acquisito utilizzando l’API perfTiming del browser moderno. 
-
-**receiveResponse**
-
-    simpleMetric clientperformance.receiveresponse   ms   
-* 
-    Una parte del tempo perTotal. Questa parte rappresenta il tempo dell'applicazione per ricevere la risposta richiesta. Questo intervallo viene acquisito utilizzando l’API perfTiming del browser moderno. 
-
-**sendRequest**
-
-    simpleMetric clientperformance.sendrequest   ms   
-* 
-    Una parte del tempo perTotal. Questa parte rappresenta il tempo che l'applicazione ha impiegato per inviare la richiesta al server. Questo intervallo viene acquisito utilizzando l’API perfTiming del browser moderno. 
-
-
-## contesto
-
-**applicationBuild**
-
-    string context.application.build      Max: 100
-* 
-    Il numero di build dell'applicazione dell'app 
-
-**applicationVersion**
-
-    string context.application.version      Max: 100
-* 
-    La versione di applicazione dell'applicazione client. Non è disponibile se è impostato su Sconosciuto. 
-
-    *Esempi*<br/> 2015.5.21.3<br/>NokiaMailBye\_CD\_20150227.4
-
-**telemetryType**
-
-    string context.billing.telemetrytype      Max: 100
-* 
-    Questo rappresenta il tipo telemetria per il record di fatturazione ed è utilizzato come una segmentazione degli elementi di telemetria fatturabile per un'app 
-
-**dataId**
-
-    string context.data.id      Max: 100
-* 
-    Un identificatore univoco dell'elemento di telemetria. Assegnato all'endpoint della raccolta dei dati. 
-
-    *Derivazione* : UUID4 generato
-
-    *Esempi*<br/> edc6eaf3-3459-46a0-bb81-bedc24913864
-
-**eventTime**
-
-    datetime context.data.eventtime      
-* 
-    L'ora dell'evento telemetria registrato in formato UTC. In genere, questo viene inserito nel client. Se questo campo manca, viene popolato all'endpoint della raccolta dei dati. Il formato del campo AAAA-MM-DDTHH:MM:SS.sssZ.    
-
-    *Esempi*<br/> 2015-05-20T04:00:46.8338283Z
-
-**samplingRate**
-
-    string context.data.samplerate      Max: 100
-* 
-    La frequenza di campionamento del produttore di dati (SDK). Qui un valore diverso da 1 indica che la metrica associata all'elemento di telemetria rappresenta valori campionati. Pertanto, una frequenza campionata pari a 0,05 comporterebbe qualsiasi elemento di dati di telemetria 1 che rappresenta un conteggio pari a 20. 
-
-**browser**
-
-    string context.device.browser      Max: 100
-* 
-    Il browser del client 
-
-    *Predefinito* : se null, questo viene impostato in base all’elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
-
-    *Esempi*<br/> Opera<br/>Mobile Safari<br/>Ovi Browser<br/>Chrome<br/>Firefox<br/>Internet Explorer
-
-**browserVersion**
-
-    string context.device.browserversion      Max: 100
-* 
-    La versione del browser del client 
-
-    *Predefinito* : se null, questo viene impostato in base all’elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
-
-    *Esempi*<br/> Opera 12.17<br/>Mobile Safari 8.0<br/>Ovi Browser 5.5<br/>Chrome 37.0<br/>Firefox 21.0<br/>Internet Explorer 7.0
-
-**deploymentId**
-
-    string context.device.deploymentid      Max: 100
-* 
-    L'id di distribuzione del server 
-
-
-**deviceName**
-
-    string context.device.name      Max: 100
-* 
-    Il nome del dispositivo dell'app è in esecuzione 
-
-**locale**
-
-    string context.device.locale      Max: 100
-* 
-    Il locale dell'applicazione sul client. Se non specificato in modo esplicito per l'elemento di telemetria, proviene dall'elaborazione del campo agente utente. 
-
-    *Esempi*<br/> ru<br/>it-IT<br/>de-DE<br/>sconosciuto
-
-**machineName**
-
-    string context.device.vmname      Max: 100
-* 
-    Il nome del computer del server. Per il calcolo virtualizzato, questo elemento di dati è equivalente all'host sottostante. Per il calcolo dedicato, questo è il nome del computer. 
-
-
-**operatingSystem**
-
-    string context.device.os      Max: 100
-* 
-    Il sistema operativo del client 
-
-    *Predefinito* : se Null, viene impostato in base all'elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
-
-    *Esempi*<br/> Windows<br/>iOS iPad<br/>Nokia
-
-**operatingSystemVersion**
-
-    string context.device.osversion      Max: 100
-* 
-    Versione del sistema operativo del client 
-
-    *Predefinito* : se Null, viene impostato in base all'elaborazione dell'agente utente. Vedere l'appendice per l’analisi dell’agente utente
-
-    *Esempi*<br/> Windows XP<br/>iOS 8.3<br/>Nokia Series 40<br/>Windows 7<br/>Windows 8
-
-**roleInstance**
-
-    string context.device.roleinstance      Max: 100
-* 
-    L'istanza di calcolo del server. In uno scenario cloud/virtualizzato, questo è il nome virtuale dell'istanza di calcolo. In un'istanza di calcolo dedicato, questo è il nome del computer. Per i servizi Cloud di Azure, questo deve passare per impostazione predefinita al nome di istanza di ruolo PaaS o al nome della macchina virtuale IaaS  
-
-**roleName**
-
-    string context.device.rolename      Max: 100
-* 
-    Uno spazio dei nomi logico al server del gruppo di istanze di calcolo. Per i servizi ospitati di Azure, ruoli PaaS devono passare per impostazione predefinita al nome del ruolo PaaS. I ruoli IaaS devono passare per impostazione predefinita al nome della macchina virtuale.  
-
-**screenHeight**
-
-    string context.device.screenresolution.height      Max: 100
-* 
-    L'altezza dello schermo dell'applicazione su hardware client nel momento in cui l'elemento di telemetria viene registrato. Se non è esplicitamente fornito proviene da una trasformazione dell'elemento di dati screenresolution. 
-
-    *Derivazione* : analizzato da context.device.screenresolution, se presente
-
-    *Esempi*<br/> 360<br/>1280<br/>1920
-
-**screenResolution**
-
-    string context.device.screenresolution      Max: 100
-* 
-    La risoluzione dello schermo nel momento in cui l'elemento di telemetria è stato acquisito dall’app. Questo può passare da un ritratto a un paesaggio nel corso di una sessione. Quando questo attributo viene eseguito a livello di sessione, è la prima risoluzione dello schermo acquisita a rappresentare la sessione completa. 
-
-    *Esempi*<br/> Altezza e larghezza per la risoluzione dello schermo<br/>360X640<br/>1280X800<br/>1920x1080
-
-**screenWidth**
-
-    string context.device.screenresolution.width      Max: 100
-* 
-    La larghezza dello schermo dell'applicazione sull’hardware del client nel momento in cui l'elemento di telemetria viene registrato. Se non è esplicitamente fornito proviene da una trasformazione dell'elemento di dati screenresolution. 
-
-    *Derivazione* : analizzato da context.device.screenresolution, se presente
-
-    *Esempi*<br/> 640<br/>800<br/>1080
-
-
-**aiAgentVersion**
-
-    string context.internal.agentversion      Max: 100
-* 
-    L’elemento dei dati e rappresenta la versione dell'agente SDK che ha generato l'elemento di telemetria 
-
-**city**
-
-    string context.location.city      Max: 100
-* 
-    La città della sessione di app. Può essere fornita direttamente sull'elemento di telemetria. Se non è presente, viene popolato in base a IPv4 sull’elemento di telemetria. Se non è presente alcuna IPv4 fornita, il campo viene lasciato vuoto. 
-
-    *Esempi*<br/> Minsk<br/>Haarlem
-
-**clientIpAddress**
-
-    ipv4 context.location.clientip      
-* 
-    L'indirizzo IPv4 del client nel formato xxx.xxx. xxx.xxx.
-
-     L'ultimo ottetto è sempre impostato su 0 per risolvere eventuali problemi di privacy.
-
-    *Predefinito* : se Null, impostare l'indirizzo IP HTTP acquisito nell'endpoint della raccolta dati
-
-    *Esempi*<br/> 186.123.63.0<br/>123.203.131.0
-
-**continent**
-
-    string context.location.continent      Max: 100
-* 
-    Il continente della sessione dell’app. Può essere fornita direttamente sull'elemento di telemetria. Se non è presente, viene popolato in base a IPv4 sull’elemento di telemetria. Se non è presente alcuna IPv4 fornita, il campo viene lasciato vuoto. 
-
-    *Esempi*<br/> Europa<br/>America del Nord
-
-**country**
-
-    string context.location.country      Max: 100
-* 
-    Il paese della sessione dell’app. Può essere fornita direttamente sull'elemento di telemetria. Se non è presente, viene popolato in base a IPv4 sull’elemento di telemetria. Se non è presente alcuna IPv4 fornita, il campo viene lasciato vuoto. 
-
-    *Esempi*<br/> Belarus<br/>Paesi Bassi<br/>Germania
-
-
-**state**
-
-    string context.location.province      Max: 100
-* 
-    La provincia della sessione dell’app. Può essere fornita direttamente sull'elemento di telemetria. Se non è presente, viene popolato in base a IPv4 sull’elemento di telemetria. Se non è presente alcuna IPv4 fornita, il campo viene lasciato vuoto. 
-
-    *Esempi*<br/> Minsk<br/>Oregon<br/>Serbia centrale<br/>Provincia di Oristano
-
-**operationId**
-
-    string context.operation.id      Max: 100
-* 
-    Il operation.id è un id di correlazione che può essere utilizzato tra gli elementi di telemetria. Ad esempio, un id di richiesta può essere compilato nella operation.id di tutti gli elementi di telemetria correlati, consentendo una correlazione tra gli elementi di dati di telemetria, come rdd, eccezione, eventi e così via.  
-
-**operationName**
-
-    string context.operation.name      Max: 100
-* 
-    Un nome di operazione leggibile dall’uomo. Vedere l’Id dell’operazione. Questo consente un raggruppamento di ID di operazioni simili come Acquisto Completo.   
-
-**operationParentId**
-
-     context.operation.parentid      
-* 
-    Una parent id to operation.id, che consente la nidificazione di ID per la correlazione di telemetria.   
-
-**syntheticSource**
-
-    string context.data.syntheticsource      Max: 100
-* 
-    Se issynthetic = true, questo elemento di dati rappresenta l'origine dei dati sintetici. 
-
-    *Predefinito* : se null, l'agente utente viene controllato per origini sintetiche note (classificazione di documenti Web ecc.) e in base a ciò, si può impostare l’origine.
-
-**syntheticTransaction**
-
-    boolean context.data.issynthetic      
-* 
-    Un elemento che indica che l'elemento di telemetria è stato generato da test sintetici e non da attività reali degli utenti. 
-
-    *Predefinito* : se Null, viene effettuata la ricerca nell'agente utente rispetto a un elenco di agenti sintetici noto. Se viene trovata una corrispondenza, il valore è impostato su true.<br/>Se l'agente utente è Null, il valore viene impostato su false
-
-**session.Id**
-
-    String context.session.id      Max: 100
-* 
-    Un identificatore univoco di un'interazione con utenti reali con un'applicazione. Questa interazione è una "" sessione"". Tutta la telemetria che è generata dall'applicazione sottoposta allo stesso iKey deve contenere questo identificatore univoco. <br/><br/>Una sessione è definita dagli eventi consecutivi all'interno dell'interazione dello stesso utente. Un periodo di 30 minuti senza un evento di telemetria segnala la fine di una sessione.   
-
-    *Predefinito:* non valido in MetricType, BillingType
-
-    *Esempi*<br/> CFFC8B21-9828-4F56-AD7C-B6B5AC26B133
-
-**accountAcquisitionDate**
-
-    datetime context.user.accountAcquisitionDate  
-    
-**anonUserId**
-
-    string context.user.anonId      Max: 100
-* 
-    Un identificatore univoco che definisce un utente anonimo all'interno dell'app. Quando viene utilizzato un SDK, questo viene generato automaticamente e mantenuto sul client. Mentre questo non distingue utenti reali quando si condivide un dispositivo con lo stesso account di accesso. Distingue tra utenti reali quando si utilizzano diversi account di accesso e il sistema operativo supporta i profili. Quando non esiste alcuna esperienza di autenticazione è il migliore proxy per gli utenti univoci. 
-
-    *Esempi*<br/> f23854a1b01c4b1fa79fa2d9a5768526
-
-**anonymousUserAcquisitionDate**
-
-    datetime context.user.anonAcquisitionDate      
-
-**authenticatedUserAcquisitionDate**
-
-    datetime context.user.authAcquisitionDate     
- 
-**authUserId**
-
-    string context.user.authId      Max: 100
-* 
-    Un identificatore univoco che definisce un utente autenticato all'interno dell'app. Si tratta di uno sviluppatore fornito. Il vantaggio di un utente autenticato è che l'identificatore può eseguire il roaming tra i dispositivi all'interno dell'app e mantenere comunque l'univocità. 
-
-**storeRegion**
-
-    string context.user.storeregion      Max: 100
-* 
-    L'area di archiviazione in cui è stata generata l'applicazione. 
-
-**userAcountId**
-
-    string context.user.accountId      Max: 100
-* 
-    Un identificatore univoco che definisce un account all'interno dell'applicazione. Si tratta di uno sviluppatore fornito. 
-
-### Metriche personalizzate
-
-    context.custom.metrics.<metric-name>
-
-      double value
-      double count
-      double min
-      double max
-      double stdDev
-      double sampledValue
-      double sum
-
-
-## remotedependency
-
-**async**
-
-    boolean remotedependency.async      
-* 
-    Indica se la chiamata remota di dipendenza era asincrona 
-
-**commandName**
-
-    string remotedependency.commandname      Max: 2048
-* 
-    Il nome del comando SQL della dipendenza remota, se la dipendenza remota è SQL 
-
-**dependencyTypeName**
-
-    string remotedependency.dependencytypename      Max: 2048
-* 
-    Il nome del tipo di dipendenza remota della dipendenza remota 
-
-**remoteDependencyName**
-
-    string remotedependency.remotedependencyname      Max: 2048
-* 
-    Il nome nf della dipendenza remota 
-
-    *Derivazione:* standardizzare su &lt;telemetryType.name&gt;
-
-**type**
-
-    string remotedependency.remotedependencytype      Max: 100
-* 
-    Il tipo di dipendenza remota. I tipi supportati sono SQL, le risorse di AZURE (archiviazione, code e così via) e HTTP. 
-
-**esito positivo**
-
-    boolean remotedependency.success      
-* 
-    Indica se la chiamata di dipendenza remota ha esito positivo o negativo. 
-
-
-## richiesta
-
-**hasdetaileddata**
-
-    boolean request.hasdetaileddata      
-* 
-    Un indicatore che identifica se sono presenti elementi di telemetria correlati in base alla operation.id 
-
-**httpMethod**
-
-    string request.httpmethod      Max: 100
-* 
-    Il metodo HTTP utilizzato nella richiesta.   
-
-**id**
-
-    string request.id      Max: 100
-* 
-    Un identificatore univoco di una richiesta e viene generato dal SDK. È possibile popolare ulteriormente questo id per la proprietà id dell’operazione per correlare gli elementi di telemetria risultanti dalla stessa richiesta. 
-
-**responseCode**
-
-    long request.responsecode      
-* 
-    Il codice di risposta di una richiesta 
-
-**esito positivo**
-
-    boolean request.success      
-* 
-    Indica se la richiesta ha esito positivo. Il codice di risposta nel gruppo 200 viene considerato corretto. 
-
-    *Predefinito* : se Null, impostare su true
-
-
-## sessionmetric
-
-**anonymousUserDurationSinceLastVisit**
-
-    Long sessionmetric.anonymoususerdurationsincelastvisit      
-* 
-    Il tempo trascorso dall'ultima visita da questo identificatore utente anonimo. Nella prima visita, questo valore è vuoto. Ad ogni visita successiva, è il tempo tra le visite rappresentate nel giorno. Il valore 3 indica che sono trascorsi 3 giorni dall'istanza di sessione precedente a questa istanza di sessione 
-
-**anonymousUserSessionCount**
-
-    Long sessionmetric.anonymoususersessioncount      
-* 
-    Il count di visita per l'utente anonimo. È un contatore incrementale della cronologia totale delle sessioni per l'identificatore univoco utente anonimo. Ogni sessione da questo identificatore incrementa il contatore. Questo contatore viene cancellato se l'identificatore dell'utente non viene visualizzato nell’arco di un periodo di 30 giorni, a quel punto il contatore viene reimpostato nuovamente e alla successiva visita l'identificatore utente verrà considerato come un nuovo utente. 
-
-**authenticatedAccountDurationSinceLastVisit**
-
-    Long sessionmetric.authenticatedaccountdurationsincelastvisit      
-* 
-    Il tempo trascorso dall'ultima visita da questo identificatore di account. Nella prima visita, questo valore è vuoto. Ad ogni visita successiva, è il tempo tra le visite rappresentate nel giorno. Il valore 3 indica che sono trascorsi 3 giorni dall'istanza di sessione precedente a questa istanza di sessione 
-
-**authenticatedAccountSessionCount**
-
-    Long sessionmetric.authenticatedaccountsessioncount      
-* 
-    Questo count di visita per l'identificatore di account autenticato. È un contatore incrementale della cronologia totale delle sessioni per questo identificatore univoco dell’account. Ogni sessione da questo identificatore incrementa il contatore. Questo contatore viene cancellato se l'identificatore dell'utente non viene visualizzato nell’arco di un periodo di 30 giorni, a quel punto il contatore viene reimpostato nuovamente e alla successiva visita l'identificatore utente verrà considerato come un nuovo utente. 
-
-**authenticatedUserDurationSinceLastVisit**
-
-    Long sessionmetric.authenticateduserdurationsincelastvisit      
-* 
-    Il tempo trascorso dall'ultima visita da questo identificatore utente autenticato. Nella prima visita, questo valore è vuoto. Ad ogni visita successiva, è il tempo tra le visite rappresentate nel giorno. Il valore 3 indica che sono trascorsi 3 giorni dall'istanza di sessione precedente a questa istanza di sessione 
-
-**authenticatedUserSessionCount**
-
-    Long sessionmetric.authenticatedusersessioncount      
-* 
-    Il count di visita per l'identificatore dell'utente autenticato. È un contatore incrementale della cronologia totale delle sessioni per questo identificatore univoco di utente autenticato. Ogni sessione da questo identificatore incrementa il contatore. Questo contatore viene cancellato se l'identificatore dell'utente non viene visualizzato nell’arco di un periodo di 30 giorni, a quel punto il contatore viene reimpostato nuovamente e alla successiva visita l'identificatore utente verrà considerato come un nuovo utente. 
-
-**crashCount**
-
-    Long sessionmetric.crashcount      
-* 
-    Il numero di arresti anomali che si sono verificati durante l'istanza di sessione. 
-
-**duration**
-
-    timespan sessionmetric.duration      
-* 
-    La durata di un'istanza di sessione 
-
-**entryEvent**
-
-    string sessionmetric.entryevent      Max: 200
-* 
-    Il primo evento della sessione. Questo viene originato dalla event.name ed è disponibile come una segmentazione/aggregazione per le metriche sessionMetric 
-
-    *Derivazione:* originato da event.name
-
-**entryUrl**
-
-    string sessionmetric.entryurl      Max: 2048
-* 
-    Il primo URL della sessione. Questo viene originato dalla urlData.base ed è disponibile come una segmentazione/aggregazione per le metriche sessionMetric 
-
-    *Derivazione* : originato da &lt;telemetryType&gt;.Url
-
-**eventCount**
-
-    Long sessionmetric.eventcount      
-* 
-    Il numero di eventi verificatisi durante questa istanza di sessione 
-
-**exceptionCount**
-
-    Long sessionmetric.exceptioncount      
-* 
-    Il numero di eccezioni che si sono verificate durante l'istanza di sessione 
-
-**exitEvent**
-
-    string sessionmetric.exitevent      Max: 200
-* 
-    L'ultimo evento della sessione. Questo viene originato dalla event.name ed è disponibile come una segmentazione/aggregazione per le metriche sessionMetric 
-
-    *Derivazione* : Originato da event.name
-
-**exitUrl**
-
-    string sessionmetric.exiturl      Max: 2048
-* 
-    L'ultimo URL della sessione. Questo viene originato dalla urlData.base ed è disponibile come una segmentazione/aggregazione per le metriche sessionMetric 
-
-    *Derivazione* : originato da &lt;telemetryType&gt;.Url
-
-**pageBounceCount**
-
-    boolean sessionmetric.pagebouncecount      
-* 
-    Il count di sessioni di rimbalzo che questo elemento di telemetria sessionMetric rappresenta. Una sessione di rimbalzo è una sessione che viene creata in base a un singolo elemento di telemetria di visualizzazione. 
-
-    *Derivazione* : se sessionMetric.viewCount + sessionMetric.requestCount = 1, then 1 else 0
-
-**pageCount**
-
-    Long sessionmetric.pagecount      
-* 
-    Il count di visualizzazione che hanno avuto luogo durante l'istanza di sessione 
-
-**requestCount**
-
-    Long sessionmetric.requestcount      
-* 
-    Il count di richieste che si sono verificate durante l'istanza di sessione 
-
-**sessionCount**
-
-    Long sessionmetric.sessioncount      
-* 
-    Un count di sessioni che rappresenta questa istanza sessionMetric di telemetria 
-
-
-## trace
-
-**contesto**
-
-    string trace.context      Max: 100
-* 
-    Il contesto del capp in fase di analisi/eccezione 
-
-**exception:**
-
-    string trace.exception      Max: 10240
-* 
-    L'eccezione associata all'elemento di telemetria della traccia 
-
-**excerpt**
-
-    string trace.excerpt      Max: 100
-* 
-    Un breve messaggio di testo di un elemento di telemetria di traccia 
-
-**formatMessage**
-
-    string trace.formatmessage      Max: 100
-* 
-    Il format del messaggio per l'elemento di telemetria di traccia 
-
-**formatProvider**
-
-    string trace.formatprovider      Max: 100
-* 
-    Il format del provider per l'elemento di telemetria di traccia 
-
-**hasStackTrace**
-
-    boolean trace.hasstacktrace      
-* 
-    Indica se l'elemento di telemetria di traccia include un'analisi dello stack 
-
-**level**
-
-    string trace.level      Max: 100
-* 
-    Il livello del messaggio di traccia 
-
-**loggerName**
-
-    string trace.loggername      Max: 100
-* 
-    Il nome del logger di traccia 
-
-**loggerShortName**
-
-    string trace.loggershortname      Max: 100
-* 
-    Il nome breve del logger 
-
-**message**
-
-    string trace.message      Max: 10240
-* 
-    Il messaggio di testo completo di un elemento di telemetria di traccia 
-
-**messageId**
-
-    string trace.messageId      Max: 100
-* 
-    Un identificatore univoco dell'elemento di telemetria di traccia 
-
-**parameters**
-
-    string trace.parameters      Max: 100
-* 
-    Questi sono i parametri forniti per la registrazione di traccia per l'elemento di telemetria di traccia 
-
-**processId**
-
-    string trace.processId      Max: 100
-* 
-    L'id del processo dell'applicazione alla registrazione dell'elemento di telemetria 
-
-**sourceType**
-
-    string trace.sourceType      Max: 100
-* 
-    Il Sourcetype di un elemento di telemetria di traccia 
-
-**sqquenceId**
-
-    string trace.sequenceid      Max: 100
-* 
-    Un identificatore di sequenza che potrebbe essere utilizzato da un provider di traccia per registrare la sequenza degli elementi di telemetria di traccia 
-
-**stacktrace**
-
-    string trace.stacktrace      Max: 100
-* 
-    Una traccia dello stack acquisita per l'elemento di telemetria di traccia 
-
-**threadId**
-
-    string trace.threadId      Max: 100
-* 
-    Il threadid dell'applicazione al momento della registrazione dell'elemento di telemetria 
-
-**userStackframe**
-
-    string trace.userstackframe      Max: 100
-* 
-    Lo stack frame utente per l'elemento di telemetria di traccia 
-
-**userStackframNum**
-
-    string trace.userstackframenum      Max: 100
-* 
-    Il numero di frame dello stack utente per l'elemento di telemetria di traccia 
-
-
-## visualizzazione
-
-**referrerDataUrl**
-
-    string view.referralurl      Max: 2048
-* 
-    L’URL di riferimento del pageview. L'URL completo ed è supportato nella ricerca full-text e nell'esportazione. Questo campo può avere una cardinalità elevata ed è un attributo. È analizzato intl un set di elementi di dati referralData che può essere utilizzato per le aggregazioni in esplorazione di metrica. 
-
-**referrerData.base**
-
-    string view.referrerdata.base      Max: 2048
-* 
-    Una parte dell'URL di riferimento di esclusione di host, parametri di query. È la radice URI. Questo valore può essere utilizzato per la segmentazione/aggregazione. 
-
-    *Derivazione* : vedere l'appendice per la trasformazione di URL
-
-**referrerData.hashTag**
-
-    string view.referrerdata.hashtag      Max: 100
-* 
-    Il testo dell’hashtag dell’URL di riferimento 
-
-    *Derivazione* : vedere l'appendice per la trasformazione di URL
-
-**referrerData.host**
-
-    string view.referrerdata.host      Max: 200
-* 
-    L'host dell'URL di riferimento. Se l'URL è un URI locale, allora è rappresentato come vuoto 
-
-    *Derivazione* : vedere l'appendice per la trasformazione di URL
-
-**referrerData.port**
-
-    string view.referrerdata.port      Max: 100
-* 
-    La porta dell'URL di riferimento, se è rappresentata nell'URL completo. In caso contrario, è vuoto. 
-
-    *Derivazione:* vedere l'appendice per la trasformazione di URL
-
-**referrerData.protocol**
-
-    string view.referrerdata.protocol      Max: 100
-* 
-    Il protocollo (HTTP, FTP e così via) dell'URL di riferimento 
-
-    *Derivazione* : vedere l'appendice per la trasformazione di URL
-
-    *Esempi*<br/> http<br/>https
-
-**referrerData.queryParameters.parameter**
-
-    string view.referrerdata.queryparameters.parameter      Max: 100
-* 
-    Una matrice dei nomi di parametro di query dell'URL di riferimento 
-
-    *Derivazione* : vedere l'appendice per la trasformazione di URL
-
-**referrerData.queryParameters.value**
-
-    string view.referrerdata.queryparameters.value      Max: 100
-* 
-    Una matrice di valori del parametro di query analizzati dall'URL referringData. 
-
-    *Derivazione* : vedere l'appendice per la trasformazione di URL
+## Esempio
+
+    // A server report about an HTTP request
+    {
+    "request": [ 
+      {
+        "urlData": { // derived from 'url'
+          "host": "contoso.org",
+          "base": "/",
+          "hashTag": "" 
+        },
+        "responseCode": 200, // Sent to client
+        "success": true, // Default == responseCode<400
+        // Request id becomes the operation id of child events 
+        "id": "fCOhCdCnZ9I=",  
+        "name": "GET Home/Index",
+        "count": 1, // Always 1
+        "durationMetric": {
+          "value": 1046804.0, // 10000000 == 1 second
+          // Currently the following fields are redundant:
+          "count": 1.0,
+          "min": 1046804.0,
+          "max": 1046804.0,
+          "stdDev": 0.0,
+          "sampledValue": 1046804.0
+        },
+        "url": "/"
+      }
+    ],
+    "internal": {
+      "data": {
+        "id": "7f156650-ef4c-11e5-8453-3f984b167d05",
+        "documentVersion": "1.61"
+      }
+    },
+    "context": {
+      "device": { // client browser
+        "type": "PC",
+        "screenResolution": { },
+        "roleInstance": "WFWEB14B.fabrikam.net"
+      },
+      "application": { },
+      "location": { // derived from client ip
+        "continent": "North America",
+        "country": "United States",
+        // last octagon is anonymized to 0 at portal:
+        "clientip": "168.62.177.0", 
+        "province": "",
+        "city": ""
+      },
+      "data": {
+        "isSynthetic": true, // we identified source as a bot
+        // percentage of generated data sent to portal:
+        "samplingRate": 100.0, 
+        "eventTime": "2016-03-21T10:05:45.7334717Z" // UTC
+      },
+      "user": {
+        "isAuthenticated": false,
+        "anonId": "us-tx-sn1-azr", // bot agent id
+        "anonAcquisitionDate": "0001-01-01T00:00:00Z",
+        "authAcquisitionDate": "0001-01-01T00:00:00Z",
+        "accountAcquisitionDate": "0001-01-01T00:00:00Z"
+      },
+      "operation": {
+        "id": "fCOhCdCnZ9I=",
+        "parentId": "fCOhCdCnZ9I=",
+        "name": "GET Home/Index"
+      },
+      "cloud": { },
+      "serverDevice": { },
+      "custom": { // set by custom fields of track calls
+        "dimensions": [ ],
+        "metrics": [ ]
+      },
+      "session": {
+        "id": "65504c10-44a6-489e-b9dc-94184eb00d86",
+        "isFirst": true
+      }
+    }
+  }
+
+
+
+
+## Context
+
+Tutti i tipi di telemetria sono accompagnati da una sezione di contesto. Non tutti questi campi vengono trasmessi con ogni punto dati.
+
+
+
+|Path|Tipo|Note|
+|---|---|---|
+| context.custom.dimensions [0] | oggetto [ ] | Coppie di stringhe chiave-valore impostate dal parametro delle proprietà personalizzate. La lunghezza massima delle chiavi 100, la lunghezza massima dei valori è 1024. Più di 100 valori univoci. La proprietà può essere cercata, ma non può essere usata per la segmentazione. Massimo 200 chiavi per ikey. |
+| context.custom.metrics [0] | oggetto [ ] | Coppie di chiave-valore impostate dai parametri delle misurazioni personalizzate e da TrackMetrics. La lunghezza massima delle chiavi 100, i valori possono essere numerici. |
+| context.data.eventTime | string | UTC |
+| context.data.isSynthetic | boolean | La richiesta proviene da un robot o un test Web. |
+| context.data.samplingRate | number | Percentuale di telemetria generata dall'SDK inviato al portale. L'intervallo è 0,0-100,0.|
+| context.device | oggetto | Dispositivo client |
+| context.device.deviceModel | string | |
+| context.device.deviceName | string | |
+| context.device.id | string | |
+| context.device.locale | string | Ad esempio, en-GB, de-DE |
+| context.device.network | string | |
+| context.device.oemName | string | |
+| context.device.osVersion | string | |
+| context.device.roleInstance | string | |
+| context.device.roleName | string | |
+| context.device.type | string | |
+| context.location | oggetto | Derivato da clientip. |
+| context.location.city | string | |
+| context.location.clientip | string | L'ultimo ottagono viene reso anonimo come 0. |
+| context.location.continent | string | |
+| context.location.country | string | |
+| context.location.province | string | |
+| context.operation.id | string | Gli elementi con lo stesso ID operazione vengono visualizzati come elementi correlati nel portale. In genere è l'ID richiesta. |
+| context.operation.parentId | string | Consente elementi correlati annidati. |
+| context.session.id | string | ID di un gruppo di operazioni con la stessa origine. Un periodo di 30 minuti senza operazioni segnala la fine di una sessione. |
+| context.session.isFirst | boolean | |
+| context.user.accountAcquisitionDate | string | |
+| context.user.anonAcquisitionDate | string | |
+| context.user.anonId | string | |
+| context.user.authAcquisitionDate | string | [Utente autenticato](app-insights-api-custom-events-metrics.md#authenticated-users) |
+| context.user.isAuthenticated | boolean | |
+| internal.data.documentVersion | string | |
+| internal.data.id | string | |
+
+
+
+## Eventi
+
+Eventi personalizzati generati da [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event).
+
+
+|Path|Tipo|Note|
+|---|---|---|
+| event [0] count | integer | |
+| event [0] name | string | Nome evento. Massimo 250 caratteri. |
+| event [0] url | string | |
+| event [0] urlData.base | string | |
+| event [0] urlData.host | string | |
+
+## Eccezioni
+
+Segnala le [eccezioni](app-insights-asp-net-exceptions.md) nel server e nel browser.
+
+
+|Path|Tipo|Note|
+|---|---|---|
+| basicException [0] assembly | string | |
+| basicException [0] count | integer | |
+| basicException [0] exceptionGroup | string | |
+| basicException [0] exceptionType | string | |string | |
+| basicException [0] failedUserCodeMethod | string | |
+| basicException [0] failedUserCodeAssembly | string | |
+| basicException [0] handledAt | string | |
+| basicException [0] hasFullStack | boolean | |
+| basicException [0] id | string | |
+| basicException [0] method | string | |
+| basicException [0] message | string | Messaggio dell'eccezione. Massimo 10.000 caratteri.|
+| basicException [0] outerExceptionMessage | string | |
+| basicException [0] outerExceptionThrownAtAssembly | string | |
+| basicException [0] outerExceptionThrownAtMethod | string | |
+| basicException [0] outerExceptionType | string | |
+| basicException [0] outerId | string | |
+| basicException [0] parsedStack [0] assembly | string | |
+| basicException [0] parsedStack [0] fileName | string | |
+| basicException [0] parsedStack [0] level | integer | |
+| basicException [0] parsedStack [0] line | integer | |
+| basicException [0] parsedStack [0] method | string | |
+| basicException [0] stack | string | Massimo 10.000 caratteri.|
+| basicException [0] typeName | string | |
+
+
+
+## Messaggi di traccia
+
+Inviati da [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) e dagli [adattatori di registrazione](app-insights-asp-net-trace-logs.md).
+
+
+|Path|Tipo|Note|
+|---|---|---|
+| message [0] loggerName | string ||
+| message [0] parameters | string ||
+| message [0] raw | string | Messaggio del log, lunghezza massima 10.000 caratteri. È possibile cercare queste stringhe nel portale. |
+| message [0] severityLevel | string | |
+
+
+
+## Dipendenza remota
+
+Inviata da TrackDependency. Usata per segnalare le prestazioni e l'utilizzo delle [chiamate alle dipendenze](app-insights-asp-net-dependencies.md) nel server e delle chiamate AJAX nel browser.
+
+|Path|Tipo|Note|
+|---|---|---|
+| remoteDependency [0] async | boolean | |
+| remoteDependency [0] baseName | string | |
+| remoteDependency [0] commandName | string | Ad esempio, asp "home/index" |
+| remoteDependency [0] count | integer | |
+| remoteDependency [0] dependencyTypeName | string | HTTP, SQL... |
+| remoteDependency [0] durationMetric.value | number | Tempo intercorso tra la chiamata e il completamento della risposta da parte di una dipendenza |
+| remoteDependency [0] id | string | |
+| remoteDependency [0] name | string | URL. Massimo 250 caratteri.|
+| remoteDependency [0] resultCode | string | Dalla dipendenza HTTP |
+| remoteDependency [0] success | boolean | |
+| remoteDependency [0] type | string | HTTP, SQL... |
+| remoteDependency [0] url | string | Massimo 2.000 caratteri |
+| remoteDependency [0] urlData.base | string | Massimo 2.000 caratteri |
+| remoteDependency [0] urlData.hashTag | string | |
+| remoteDependency [0] urlData.host | string | Massimo 200 caratteri|
+
+
+## Richieste
+
+Inviate da [TrackRequest](app-insights-api-custom-events-metrics.md#track-request). I moduli standard le usano per segnalare il tempo di risposta del server, calcolato nel server.
+
+
+|Path|Tipo|Note|
+|---|---|---|
+| request [0] count | integer | |
+| request [0] durationMetric.value | number | Tempo tra l'arrivo della richiesta e la risposta. 1e7 == 1 s |
+| request [0] id | string | ID operazione |
+| request [0] name | string | GET/POST + base URL. Massimo 250 caratteri. |
+| request [0] responseCode | integer | Risposta HTTP inviata al client |
+| request [0] success | boolean | Valore predefinito == responseCode<400 |
+| request [0] url | string | Host non incluso |
+| request [0] urlData.base | string | |
+| request [0] urlData.hashTag | string | |
+| request [0] urlData.host | string | |
+
+
+## Prestazioni visualizzazioni pagina
+
+Inviate dal browser. Misura il tempo necessario per elaborare una pagina, da quando l'utente avvia la richiesta al completamento della visualizzazione (escluse le chiamate AJAX asincrone).
+
+I valori del contesto indicano la versione del sistema operativo client e del browser.
+
+
+|Path|Tipo|Note|
+|---|---|---|
+| clientPerformance [0] clientProcess.value | integer | Tempo compreso tra la fine della ricezione del codice HTML e la visualizzazione della pagina. |
+| clientPerformance [0] name | string | |
+| clientPerformance [0] networkConnection.value | integer | Tempo necessario per stabilire una connessione di rete. |
+| clientPerformance [0] receiveRequest.value | integer | Tempo compreso tra la fine dell'invio della richiesta e la ricezione del codice HTML nella risposta. |
+| clientPerformance [0] sendRequest.value | integer | Tempo necessario per inviare la richiesta HTTP. |
+| clientPerformance [0] total.value | integer | Tempo compreso tra l'inizio dell'invio della richiesta e la visualizzazione della pagina. |
+| clientPerformance [0] url | string | URL di questa richiesta |
+| clientPerformance [0] urlData.base | string | |
+| clientPerformance [0] urlData.hashTag | string | |
+| clientPerformance [0] urlData.host | string | |
+| clientPerformance [0] urlData.protocol | string | |
+
+## Visualizzazioni pagina
+
+Inviate da trackPageView() o [stopTrackPage](app-insights-api-custom-events-metrics.md#page-view)
+
+|Path|Tipo|Note|
+|---|---|---|
+| view [0] count | integer | |
+| view [0] durationMetric.value | integer | Valore facoltativo impostato in trackPageView() o da start/stopTrackPage. Non corrisponde ai valori di clientPerformance. |
+| view [0] name | string | Titolo della pagina. Massimo 250 caratteri. |
+| view [0] url | string | |
+| view [0] urlData.base | string | |
+| view [0] urlData.hashTag | string | |
+| view [0] urlData.host | string | |
+
+
+
+## Disponibilità
+
+Segnala i [test Web di disponibilità](app-insights-monitor-web-app-availability.md).
+
+|Path|Tipo|Note|
+|---|---|---|
+| availability [0] availabilityMetric.name | string | availability |
+| availability [0] availabilityMetric.value | number |1,0 o 0,0 |
+| availability [0] count | integer | |
+| availability [0] dataSizeMetric.name | string | |
+| availability [0] dataSizeMetric.value | integer | |
+| availability [0] durationMetric.name | string | |
+| availability [0] durationMetric.value | number | Lunghezza del test. 1e7==1 s |
+| availability [0] message | string | Diagnostica di errori |
+| availability [0] result | string | Esito positivo o negativo |
+| availability [0] runLocation | string | Origine geografica della richiesta HTTP |
+| availability [0] testName | string | |
+| availability [0] testRunId | string | |
+| availability [0] testTimestamp | string | |
+
+
+
+
+## Metrica
+
+Generata da TrackMetric().
+
+La metrica è disponibile in context.custom.metrics[0]
+
+Ad esempio:
+
+    {
+     "metric": [ ],
+     "context": {
+     ...
+     "custom": {
+        "dimensions": [
+          { "ProcessId": "4068" }
+        ],
+        "metrics": [
+          {
+            "dispatchRate": {
+              "value": 0.001295,
+              "count": 1.0,
+              "min": 0.001295,
+              "max": 0.001295,
+              "stdDev": 0.0,
+              "sampledValue": 0.001295,
+              "sum": 0.001295
+            }
+          }
+         } ] }
+    }
+
+## Informazioni sui valori della metrica
+
+I valori della metrica, nei report della metrica e altrove, vengono segnalati con una struttura di oggetti standard. Ad esempio:
+
+      "durationMetric": {
+        "name": "contoso.org",
+        "type": "Aggregation",
+        "value": 468.71603053650279,
+        "count": 1.0,
+        "min": 468.71603053650279,
+        "max": 468.71603053650279,
+        "stdDev": 0.0,
+        "sampledValue": 468.71603053650279
+      }
+
+Attualmente (ma la situazione potrebbe cambiare in futuro) in tutti i valori segnalati dai moduli SDK standard, sono utili `count==1` e solo i campi `name` e `value`. L'unico caso in cui sarebbero diversi è quello in cui si scrivono chiamate TrackMetric personalizzate in cui si impostano gli altri parametri.
+
+Lo scopo degli altri campi è quello di consentire l'aggregazione della metrica nell'SDK, per ridurre il traffico verso il portale. È possibile, ad esempio, calcolare la media di diverse letture successive prima di inviare il report di ogni metrica. Si calcolerà quindi la deviazione minima, massima e standard e il valore di aggregazione (somma o media) e si imposterà il conteggio sul numero di letture rappresentate dal report.
+
+Nelle tabelle precedenti sono stati omessi il conteggio dei campi usati raramente, i valori minimo e massimo, stdDev e sampledValue.
+
+Invece di aggregare in anticipo la metrica, è possibile usare il [campionamento](app-insights-sampling.md) se è necessario ridurre il volume della telemetria.
+
+
+### Durate
+
+Se non indicato diversamente, le durate vengono espresse in decimi di microsecondo, quindi 10000000,0 corrisponde a 1 secondo.
 
 
 
@@ -991,4 +386,4 @@ La voce "&lt;telemetryType&gt;" della prima sezione è un segnaposto per qualsia
 * [Esportazione continua](app-insights-export-telemetry.md)
 * [Esempi di codice](app-insights-export-telemetry.md#code-samples)
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

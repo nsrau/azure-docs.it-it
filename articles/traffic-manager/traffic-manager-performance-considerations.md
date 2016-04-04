@@ -75,7 +75,7 @@ http://www.digwebinterface.com - Analogo al sito Watchmouse, ma con informazioni
 ## Passaggi successivi
 
 
-[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-load-balancing-methods.md)
+[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
 
 [Verifica delle impostazioni di Gestione traffico](traffic-manager-testing-settings.md)
 
@@ -84,4 +84,4 @@ http://www.digwebinterface.com - Analogo al sito Watchmouse, ma con informazioni
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/17/2015"
+   ms.date="03/22/2016"
    ms.author="joaoma" />
 
 # Creare un probe personalizzato per il gateway applicazione di Azure (classico) con PowerShell
@@ -69,7 +69,7 @@ Per convalidare la creazione del gateway, è possibile usare il cmdlet **Get-Azu
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Small, Medium e Large.
+>[AZURE.NOTE]  Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Small, Medium e Large.
 
 
  *VirtualIPs* e *DnsName* vengono visualizzati vuoti perché il gateway non è stato ancora avviato. Questi valori verranno creati quando il gateway sarà in esecuzione.
@@ -153,7 +153,7 @@ Modificare i valori tra parentesi per gli elementi di configurazione. Salvare il
 
 L'esempio seguente mostra come usare un file di configurazione per impostare il gateway applicazione per il bilanciamento del carico del traffico HTTP sulla porta pubblica 80 e inviare il traffico di rete alla porta back-end 80 tra due indirizzi IP usando un probe personalizzato.
 
->[AZURE.IMPORTANT]L'elemento del protocollo HTTP o HTTPS deve rispettare la distinzione tra maiuscole e minuscole.
+>[AZURE.IMPORTANT] L'elemento del protocollo HTTP o HTTPS deve rispettare la distinzione tra maiuscole e minuscole.
 
 
 Viene aggiunto un nuovo elemento di configurazione <Probe> per configurare i probe personalizzati.
@@ -222,4 +222,4 @@ Per configurare l'offload SSL (Secure Sockets Layer), vedere [Configurare un gat
 
 Per configurare un gateway applicazione da usare con il servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

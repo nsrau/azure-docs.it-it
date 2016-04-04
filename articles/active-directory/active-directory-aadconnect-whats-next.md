@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/16/2016"
 	ms.author="billmath"/>
 
 # Passaggi successivi e come gestire Azure AD Connect
 Di seguito sono riportati argomenti operativi avanzati che permettono di personalizzare Azure Active Directory Connect per soddisfare le esigenze e i requisiti dell'organizzazione.
+
+## Aggiungere altri amministratori di sincronizzazione
+Per impostazione predefinita, solo l'utente che ha eseguito l'installazione e gli amministratori locali possono gestire il motore di sincronizzazione installato. Per fare in modo che altre persone possano accedere al motore di sincronizzazione e gestirlo, trovare il gruppo denominato ADSyncAdmins nel server locale e aggiungere gli utenti desiderati a questo gruppo.
 
 ## Configurazione facoltativa nel servizio ADFS
 È possibile personalizzare l’illustrazione e l’immagine del logo per le pagine di accesso ADFS effettuando l’accesso ad ADFS e utilizzando PSH per eseguire questa configurazione.
@@ -78,4 +81,4 @@ Abilitazione modalità di gestione temporanea | Consente di inserire in un'area 
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->
