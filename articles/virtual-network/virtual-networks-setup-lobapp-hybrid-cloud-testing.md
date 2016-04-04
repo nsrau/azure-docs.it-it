@@ -182,6 +182,6 @@ Questo ambiente è pronto per la distribuzione dell'applicazione basata su Web i
 
 ## Passaggi successivi
 
-- Configurare l'[ambiente di produzione](../virtual-machines/virtual-machines-workload-high-availability-LOB-application-overview.md).
+- Configurare l'[ambiente di produzione](../virtual-machines/virtual-machines-windows-lob-overview.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

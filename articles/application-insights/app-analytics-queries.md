@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Operatori e query in Application Insights Analytics" 
-	description="Informazioni di riferimento per gli operatori usati per creare query in Application Insights Analytics, lo strumento di ricerca avanzato per Application Insights." 
+	pageTitle="Operatori e query di Analytics in Application Insights" 
+	description="Informazioni di riferimento per gli operatori usati per creare query in Analytics, lo strumento di ricerca avanzato per Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
 
-# Sintassi di query in Application Insights Analytics
+# Query in Analytics
 
 
-[Application Insights Analytics](app-analytics.md) è un motore di ricerca avanzato per i dati di telemetria di [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Application Insights Analytics (AIQL).
+[Analytics](app-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analytics.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -607,11 +607,11 @@ Tabella che indica quanti elementi presentano prezzi in ogni intervallo [0,10.0]
 
 **Argomenti**
 
-* *Colonna:* nome facoltativo per una colonna di risultati. Il valore predefinito è un nome derivato dall'espressione.
+* *Column:* nome facoltativo per una colonna di risultati. Il valore predefinito è un nome derivato dall'espressione.
 * *Aggregation:* chiamata a una [funzione di aggregazione](app-analytics-aggregations.md), ad esempio `count()` o `avg()` con nomi di colonna come argomenti. Vedere l'[elenco delle funzioni di aggregazione](app-analytics-aggregations.md).
 * *GroupExpression:* espressione sulle colonne che fornisce un set di valori distinti. Si tratta in genere di un nome di colonna che fornisce già un set di valori limitato oppure di `bin()` con una colonna numerica o di data e ora come argomento. 
 
-Se si specifica un'espressione numerica o di data e ora senza usare `bin()`, AI Analytics applica automaticamente l'espressione con un intervallo di `1h` per gli orari o `1.0` per i numeri.
+Se si specifica un'espressione numerica o di data e ora senza usare `bin()`, Analytics applica automaticamente l'espressione con un intervallo di `1h` per i valori di data/ora o `1.0` per i numeri.
 
 Se non si specifica *GroupExpression*, l'intera tabella viene riepilogata in un'unica riga di output.
 
@@ -766,4 +766,4 @@ Si noti che il confronto tra due colonne viene inserito per ultimo, perché non 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

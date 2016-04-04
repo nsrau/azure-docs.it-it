@@ -14,16 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
-	ms.author="mimig"/>
+	ms.date="03/22/2016" 
+	ms.author="ryancraw"/>
 
 
 # Esempi di .NET in DocumentDB
 
 > [AZURE.SELECTOR]
-- [.NET Examples](documentdb-dotnet-samples.md)
-- [Node.js Examples](documentdb-nodejs-samples.md)
-- [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
+- [Esempi di .NET](documentdb-dotnet-samples.md)
+- [Esempi di Node.js](documentdb-nodejs-samples.md)
+- [Esempi di Python](documentdb-python-samples.md)
+- [Raccolta di esempi di codice di Azure](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
 Il repository [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) di GitHub include soluzioni di esempio che eseguono operazioni CRUD e altre operazioni comuni su risorse di DocumentDB. Questo articolo include:
 
@@ -34,7 +35,7 @@ Il repository [azure-documentdb-net](https://github.com/Azure/azure-documentdb-n
 
 1. Per usare questi esempi NoSQL, è necessario un account Azure:
     - È possibile [aprire un account Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e, anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio Siti Web. La carta di credito non verrà mai addebitata, a meno l'utente non modifichi le impostazioni e che richieda esplicitamente di essere addebitato.
-   - È possibile [attivare i benefici della sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione di Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+   - È possibile [attivare i benefici della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 2. È necessario anche il [pacchetto NuGet Microsoft.Azure.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
 
 > [AZURE.NOTE]
@@ -178,4 +179,4 @@ Attività | Informazioni di riferimento sulle API
 [Impostare autorizzazioni su una raccolta o un documento](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L85) | [DocumentClient.CreatePermissionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createpermissionasync.aspx)
 [Ottenere un elenco di autorizzazioni di un utente](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L218) | [DocumentClient.ReadUserAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readuserasync.aspx)<br>[DocumentClient.ReadPermissionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpermissionfeedasync.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

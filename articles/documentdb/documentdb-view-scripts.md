@@ -19,7 +19,7 @@
 
 # Creare ed eseguire stored procedure, trigger e funzioni definite dall'utente usando Esplora script di DocumentDB
 
-Questo articolo fornisce una panoramica di Esplora script di [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), un editor JavaScript del portale di Azure che consente di visualizzare elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente. Per altre informazioni sulla programmazione sul lato server di DocumentDB, vedere l'articolo relativo alla [programmazione sul lato server DocumentDB: stored procedure, trigger del database e funzioni definite dall'utente](documentdb-programming.md).
+Questo articolo fornisce una panoramica di Esplora script di [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), un editor JavaScript del portale di Azure che consente di visualizzare ed eseguire elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente. Per altre informazioni sulla programmazione sul lato server di DocumentDB, vedere l'articolo relativo alla [programmazione sul lato server DocumentDB: stored procedure, trigger del database e funzioni definite dall'utente](documentdb-programming.md).
 
 ## Avviare Esplora script
 
@@ -99,7 +99,7 @@ Esplora script consente di eseguire stored procedure lato server dal portale di 
 
 	> [AZURE.NOTE] Il comando **Salva ed esegui** salverà la stored procedure prima dell'esecuzione. Questo significa che le precedenti versioni della stored procedure verranno sovrascritte.
 
-- Le esecuzioni di stored procedure eseguite con esito positivo avranno lo stato *Stored procedure salvata ed eseguita correttamente* e i risultati restituiti verranno visualizzati nel riquadro *Risultati*.
+- Le esecuzioni di stored procedure eseguite con esito positivo avranno lo stato *La stored procedure è stata salvata e l'esecuzione è riuscita* e i risultati restituiti verranno visualizzati nel riquadro *Risultati*.
 
 	![Schermata del pannello Stored procedure di Esplora script per l'esecuzione di una stored procedure](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure.png)
 
@@ -117,4 +117,4 @@ Altre informazioni sulla programmazione sul lato server di DocumentDB sono dispo
 
 Anche il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) è una risorsa utile per l'utente durante l'apprendimento di DocumentDB.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

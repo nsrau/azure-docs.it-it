@@ -13,24 +13,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="03/16/2016"
 	ms.author="raynew"/>
 
-#  Eseguire la migrazione delle macchine virtuali IaaS di Azure tra aree di Azure con Site Recovery
-
-Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una panoramica rapida, vedere [Che cos'è Azure Site Recovery?](site-recovery-overview.md).
+#  Eseguire la migrazione delle macchine virtuali IaaS di Azure tra aree di Azure con Azure Site Recovery
 
 ## Panoramica
 
-In questo articolo viene descritto come utilizzare Site Recovery per eseguire in Azure la migrazione o il failover di istanze di Windows in esecuzione in AWS. L'articolo riepiloga i passaggi descritti in dettaglio in [Eseguire la replica di macchine virtuali VMware o server fisici in Azure](site-recovery-vmware-to-azure-classic.md). L'articolo collegato è la versione avanzata più recente dello scenario che replica VM VMware o server fisici Windows/Linux in Azure. È consigliabile leggere l'articolo collegato per istruzioni dettagliate su ogni fase della distribuzione.
+In questo articolo viene descritto come utilizzare Site Recovery per la migrazione di VM di Azure tra aree di Azure. Prima di iniziare, tenere presente quanto segue:
 
->[AZURE.NOTE] Per la migrazione tra le aree, è consigliabile **non usare più** le istruzioni contenute in questo [articolo legacy](site-recovery-vmware-to-azure-classic-legacy.md).
+- È possibile eseguire la migrazione solo in questo momento. Ciò significa che si può eseguire il failover di VM da un’area di Azure a un’altra ma non da VM ad Azure.
+- Questo articolo riassume e usa molte procedure descritte per intero in [Eseguire la replica di macchine virtuali VMware e server fisici in Azure](site-recovery-vmware-to-azure-classic.md) che fornisce le istruzioni migliorate più recenti per configurare la replica. È consigliabile seguire le istruzioni dettagliate illustrate in questo articolo durante l'esecuzione della migrazione.
+- **Non usare più** le istruzioni contenute in questo [articolo legacy](site-recovery-vmware-to-azure-classic-legacy.md).
 
-## Introduzione
+Per inviare commenti o domande, è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-Di seguito sono riportati i prerequisiti necessari per iniziare:
 
-- **Server di gestione**: una VM locale che esegue Windows Server 2012 R2 e funge da server di gestione. Installare in questo server i componenti di Site Recovery (inclusi il server di configurazione e il server di elaborazione). Per altre informazioni, vedere [Considerazioni relative al server di elaborazione](site-recovery-vmware-to-azure-classic.md#management-server-considerations) e [Prerequisiti locali](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
+## Prerequisiti
+
+Per la distribuzione è necessario quanto segue:
+
+- **Server di gestione**: una VM locale che esegue Windows Server 2012 R2 e agisce da server di gestione. Installare in questo server i componenti di Site Recovery (inclusi il server di configurazione e il server di elaborazione). Per altre informazioni, vedere [Considerazioni relative al server di gestione](site-recovery-vmware-to-azure-classic.md#management-server-considerations) e [Prerequisiti locali](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
 - **Macchine virtuali IaaS**: le VM di cui si desidera eseguire la migrazione.
 
 ## Passaggi di distribuzione
@@ -50,12 +53,12 @@ Di seguito sono riportati i prerequisiti necessari per iniziare:
 
 	![Individuazione EC2](./media/site-recovery-migrate-azure-to-azure/migrate-machine-ip.png)
 	
-Dopo avere aggiunto un computer al gruppo, la protezione verrà abilitata e la replica iniziale verrà eseguita in base alle impostazioni del gruppo di protezione.
+	Dopo avere aggiunto un computer al gruppo, la protezione verrà abilitata e la replica iniziale verrà eseguita in base alle impostazioni del gruppo di protezione.
 
-10. [ Eseguire un failover non pianificato](site-recovery-failover.md#run-an-unplanned-failover). Dopo il completamento della replica iniziale, è possibile eseguire un failover non pianificato da un’area di Azure a un’altra. Facoltativamente, è possibile creare un piano di ripristino ed eseguire un failover non pianificato, per eseguire la migrazione di più macchine virtuali tra regioni. [Ulteriori informazioni](site-recovery-create-recovery-plans.md) sui piani di ripristino.
+10. [Eseguire un failover non pianificato](site-recovery-failover.md#run-an-unplanned-failover). Dopo il completamento della replica iniziale, è possibile eseguire un failover non pianificato da un’area di Azure a un’altra. Facoltativamente, è possibile creare un piano di ripristino ed eseguire un failover non pianificato, per eseguire la migrazione di più macchine virtuali tra regioni. [Ulteriori informazioni](site-recovery-create-recovery-plans.md) sui piani di ripristino.
 		
 ## Passaggi successivi
 
-Inviare commenti o domande nel [forum di Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
+Per altre informazioni sui vari scenari di replica, vedere [Che cos'è Azure Site Recovery](site-recovery-overview.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

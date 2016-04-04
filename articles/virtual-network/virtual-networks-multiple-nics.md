@@ -1,14 +1,14 @@
-<properties 
+<properties
    pageTitle="Creare una macchina virtuale con più NIC"
    description="Vedere come creare e configurare macchine virtuali con più NIC"
    services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
    manager="carmonm"
-   editor="tysonn" 
+   editor="tysonn"
    tags="azure-service-management,azure-resource-manager"
 />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -25,23 +25,13 @@
 
 Nella figura precedente viene illustrata una macchina virtuale con tre NIC, ciascuna connessa a una subnet diversa.
 
-## Requisiti e vincoli
-
-Attualmente, la funzionalità Multi-NIC presenta i requisiti e i vincoli seguenti:
-
-- È necessario creare macchine virtuali con funzionalità Multi-NIC in reti virtuali di Azure (VNet). Le macchine virtuali che non si trovano in reti virtuali non sono supportate. 
-- All'interno di un singolo servizio cloud (distribuzioni classiche) o un gruppo di risorse (distribuzione di Gestione risorse), sono consentite solo le impostazioni seguenti: 
-	- In tutte le macchine virtuali del servizio cloud deve essere abilitata la funzionalità Multi-NIC oppure 
-	- Tutte le macchine virtuali nel servizio cloud devono disporre di una singola NIC 
-	- Inoltre, una macchina virtuale senza interfacce di rete secondarie non può essere aggiornata in modo da presentare interfacce di rete secondarie e viceversa.
-
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
- 
-- L’indirizzo VIP con connessione Internet (distribuzioni classiche) è supportato solo sulla NIC "predefinita". Esiste un solo indirizzo VIP per l'indirizzo IP della NIC predefinita. 
-- Attualmente, gli indirizzi IP pubblici a livello di istanza (LPIP) (distribuzioni classiche) non sono supportati per le macchine virtuali a più NIC. 
-- L'ordine delle NIC all'interno della macchina virtuale sarà casuale e potrebbe cambiare con gli aggiornamenti dell'infrastruttura di Azure. Tuttavia, gli indirizzi IP e gli indirizzi MAC ethernet corrispondenti resteranno invariati. Si supponga, ad esempio, che **Eth1** abbia l’indirizzo IP 10.1.0.100 e l'indirizzo MAC 00-0D-3A-B0-39-0D; dopo un aggiornamento dell'infrastruttura di Azure e il riavvio, potrebbe essere modificato in **Eth2**, ma l’abbinamento di indirizzo IP e MAC resteranno invariati. Quando un riavvio è eseguito dal cliente, l'ordine delle NIC rimane invariato. 
-- L'indirizzo di ciascuna NIC su ciascuna macchina virtuale deve trovarsi in una subnet, a più NIC in una singola macchina virtuale possono essere assegnati indirizzi che si trovano nella stessa subnet. 
-- Le dimensioni della macchina virtuale determinano il numero di NIC che è possibile creare per una macchina virtuale. Nella tabella seguente sono elencati i numeri di NIC corrispondenti alle dimensioni delle macchine virtuali: 
+
+- L’indirizzo VIP con connessione Internet (distribuzioni classiche) è supportato solo sulla NIC "predefinita". Esiste un solo indirizzo VIP per l'indirizzo IP della NIC predefinita.
+- Attualmente, gli indirizzi IP pubblici a livello di istanza (LPIP) (distribuzioni classiche) non sono supportati per le macchine virtuali a più NIC.
+- L'ordine delle NIC all'interno della macchina virtuale sarà casuale e potrebbe cambiare con gli aggiornamenti dell'infrastruttura di Azure. Tuttavia, gli indirizzi IP e gli indirizzi MAC ethernet corrispondenti resteranno invariati. Si supponga, ad esempio, che **Eth1** abbia l’indirizzo IP 10.1.0.100 e l'indirizzo MAC 00-0D-3A-B0-39-0D; dopo un aggiornamento dell'infrastruttura di Azure e il riavvio, potrebbe essere modificato in **Eth2**, ma l’abbinamento di indirizzo IP e MAC resteranno invariati. Quando un riavvio è eseguito dal cliente, l'ordine delle NIC rimane invariato.
+- L'indirizzo di ciascuna NIC su ciascuna macchina virtuale deve trovarsi in una subnet, a più NIC in una singola macchina virtuale possono essere assegnati indirizzi che si trovano nella stessa subnet.
+- Le dimensioni della macchina virtuale determinano il numero di NIC che è possibile creare per una macchina virtuale. Nella tabella seguente sono elencati i numeri di NIC corrispondenti alle dimensioni delle macchine virtuali:
 
 |Dimensioni macchina virtuale (SKU standard)|NIC (numero massimo consentito per ogni macchina virtuale)|
 |---|---|
@@ -95,8 +85,8 @@ In una distribuzione di Gestione risorse, qualsiasi NIC in una macchina virtuale
 
 Se una subnet è associata a un Gruppo di sicurezza di rete e una NIC all'interno di tale subnet è associata singolarmente a un Gruppo di sicurezza di rete, le regole del Gruppo di sicurezza di rete associato vengono applicate in **ordine flusso**, in base alla direzione del traffico in entrata e in uscita dalla NIC:
 
-- ****Il traffico in entrata**, la cui destinazione è la NIC in questione, passa innanzitutto attraverso la subnet, attivando le regole del Gruppo di sicurezza di rete della subnet, prima di passare nella NIC, attivando quindi le regole del Gruppo di sicurezza di rete della NIC.
-- **Il traffico in uscita**, la cui origine è la NIC in questione, fuoriesce innanzitutto dalla subnet, attivando le regole del Gruppo di sicurezza di rete della NIC, prima di passare attraverso la sunet, attivando quindi le regole del Gruppo di sicurezza di rete della subnet. 
+- **Il traffico in entrata**, la cui destinazione è la NIC in questione, passa innanzitutto attraverso la subnet, attivando le regole del Gruppo di sicurezza di rete della subnet, prima di passare nella NIC, attivando quindi le regole del Gruppo di sicurezza di rete della NIC.
+- **Il traffico in uscita**, la cui origine è la NIC in questione, fuoriesce innanzitutto dalla subnet, attivando le regole del Gruppo di sicurezza di rete della NIC, prima di passare attraverso la sunet, attivando quindi le regole del Gruppo di sicurezza di rete della subnet.
 
 Ulteriori informazioni su [Gruppi di sicurezza di rete](virtual-networks-nsg.md) e su come vengono applicati in base alle associazioni con le subnet, con le macchine virtuali e con le schede di rete..
 
@@ -134,8 +124,8 @@ Per tentare di eseguire i comandi PowerShell riportati nell’esempio sono neces
 
 Per creare una macchina virtuale con più NICs, attenersi alla seguente procedura:
 
-1. Selezionare un'immagine di macchina virtuale dalla raccolta immagini della macchina virtuale di Azure. Le immagini cambiano frequentemente e sono disponibili per area geografica. L'immagine specificata nell'esempio riportato di seguito può cambiare o potrebbe non trovarsi nell’area desiderata, assicurarsi pertanto di specificare l'immagine necessaria. 
-	    
+1. Selezionare un'immagine di macchina virtuale dalla raccolta immagini della macchina virtuale di Azure. Le immagini cambiano frequentemente e sono disponibili per area geografica. L'immagine specificata nell'esempio riportato di seguito può cambiare o potrebbe non trovarsi nell’area desiderata, assicurarsi pertanto di specificare l'immagine necessaria.
+
 		$image = Get-AzureVMImage `
 	    	-ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201410.01-en.us-127GB.vhd"
 
@@ -152,13 +142,13 @@ Per creare una macchina virtuale con più NICs, attenersi alla seguente procedur
 1. Aggiungere le schede NIC aggiuntive alla configurazione della macchina virtuale.
 
 		Add-AzureNetworkInterfaceConfig -Name "Ethernet1" `
-			-SubnetName "Midtier" -StaticVNetIPAddress "10.1.1.111" -VM $vm 
+			-SubnetName "Midtier" -StaticVNetIPAddress "10.1.1.111" -VM $vm
 		Add-AzureNetworkInterfaceConfig -Name "Ethernet2" `
 			-SubnetName "Backend" -StaticVNetIPAddress "10.1.2.222" -VM $vm
 
 1. Specificare la subnet e l’indirizzo IP per la NIC predefinita.
 
-		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm 
+		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm
 		Set-AzureStaticVNetIP -IPAddress "10.1.0.100" -VM $vm
 
 1. Creare la macchina virtuale nella rete virtuale.
@@ -167,11 +157,20 @@ Per creare una macchina virtuale con più NICs, attenersi alla seguente procedur
 
 >[AZURE.NOTE] La rete virtuale specificata deve essere già esistente (come indicato nei prerequisiti). Nell'esempio seguente viene specificata una rete virtuale denominata **MultiNIC-VNet**.
 
-## Accesso NIC secondario ad altre subnet
+## Limitazioni
 
-Il modello corrente in Azure prevede che, tutte le NIC in una macchina virtuale siano configurate con un gateway predefinito. In questo modo le schede NIC possono comunicare con gli indirizzi IP al di fuori delle loro subnet. Nei sistemi operativi che utilizzano il modello di routing dell'host vulnerabile, ad esempio Linux, la connettività internet funziona se il traffico in entrata e in uscita utilizza diverse NIC.
+Quando si utilizza la funzionalità Multi-NIC, sono applicabili le seguenti limitazioni:
 
-Per risolvere questo problema, Azure rilascerà nelle prime settimane di luglio del 2015 un aggiornamento alla piattaforma che consente di rimuovere il gateway predefinito dalle schede NIC secondarie. Ciò non influirà sulle macchine virtuali esistenti fino a quando non vengono riavviate. Dopo il riavvio le nuove impostazioni avranno effetto e il flusso del traffico sulle NIC secondarie sarà esclusivamente interno della stessa subnet. Se si desidera abilitare le schede di rete secondarie per la comunicazione all'esterno della propria subnet, si dovrà aggiungere una voce nella tabella di routing per configurare il gateway come descritto di seguito.
+- È necessario creare macchine virtuali con funzionalità Multi-NIC in reti virtuali di Azure (VNet). Non è possibile configurare VM che non si trovano in reti virtuali con più NIC.
+- Tutte le VM in un set di disponibilità devono utilizzare più NIC o una NIC singola. Non può esistere una combinazione di VM con più NIC e VM con una NIC singola all'interno di un set di disponibilità. Le stesse regole sono valide per le VM in un servizio cloud.
+- Non è possibile configurare una VM con una NIC singola con più NIC (e viceversa) dopo la distribuzione, senza eliminarla e crearla di nuovo.
+
+
+## Accesso NIC secondarie ad altre subnet
+
+Per impostazione predefinita, le NIC secondarie non verranno configurate con un gateway predefinito, pertanto il flusso del traffico sulle NIC secondarie sarà limitato esclusivamente all’interno della stessa subnet. Se si desidera abilitare le NIC secondarie per la comunicazione all'esterno della propria subnet, si dovrà aggiungere una voce nella tabella di routing per configurare il gateway come descritto di seguito.
+
+>[AZURE.NOTE] Le VM create prima di luglio 2015 potrebbero avere un gateway predefinito configurato per tutte le NIC. Il gateway predefinito per le NIC secondarie non verrà rimosso fino al riavvio delle VM. Nei sistemi operativi che utilizzano il modello di routing dell'host vulnerabile, ad esempio Linux, la connettività Internet può interrompersi se il traffico in entrata e in uscita utilizza NIC diverse.
 
 ### Configurare le macchine virtuali Windows
 
@@ -208,7 +207,7 @@ La tabella di route IPv4 per questa macchina virtuale sarà analoga alla seguent
 Si noti che la route predefinita (0.0.0.0) è disponibile solo per la NIC primaria. Non sarà possibile accedere alle risorse all'esterno della subnet per la NIC secondaria, come indicato di seguito:
 
 	C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
-	 
+
 	Pinging 192.168.1.7 from 192.165.2.5 with 32 bytes of data:
 	PING: transmit failed. General failure.
 	PING: transmit failed. General failure.
@@ -237,7 +236,7 @@ Per aggiungere una route predefinita nella NIC secondaria, attenersi alla proced
 4. Per verificare la connettività, tornare al prompt dei comandi e provare a effettuare il ping a una subnet diversa dalla NIC secondaria come illustrato nell’esempio riportato di seguito:
 
 		C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
-		 
+
 		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
 		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
 		Reply from 192.168.1.7: bytes=32 time=2ms TTL=128
@@ -266,4 +265,4 @@ Per le macchine virtuali Linux, poiché è stato utilizzato il comportamento pre
 - Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione di Gestione risorse](virtual-network-deploy-multinic-arm-template.md).
 - Distribuire [Macchine virtuali MultiNIC in uno scenario di applicazione a 2 livelli in una distribuzione classica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

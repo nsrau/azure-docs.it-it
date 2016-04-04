@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Istruzioni di Application Analytics" 
-	description="Query, espressioni e istruzioni ";let"; in Application Analytics, lo strumento di ricerca avanzato per Application Insights." 
+	pageTitle="Istruzioni in Analytics Application Insights" 
+	description="Query, espressioni e istruzioni ";let"; in Analytics, lo strumento di ricerca avanzato di Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,21 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Istruzioni di Application Analytics
+# Istruzioni Analytics in Application Insights
 
-[Application Analytics](app-analytics.md) è un motore di ricerca avanzato per i dati di telemetria di [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Application Analytics (CSL).
-
+[Analytics](app-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analytics.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ## Modello di dati
 
-In CSL:
+Nel linguaggio di query di Application Insights:
 
 * Un *database* contiene nessuna o più *tabelle* denominate.
 * Una *tabella* contiene:
@@ -67,7 +66,7 @@ Esistono quattro tipi di istruzioni in CSL:
 
 ### Query di dati
   
-Richieste di sola lettura sui dati archiviati in Application Analytics. Ad esempio:
+Richieste di sola lettura sui dati archiviati in Analytics. Ad esempio:
 
 * `event` : restituisce tutti i record nella tabella denominata "event".
 * `event | count` : restituisce un numero di record nella tabella "event".
@@ -269,4 +268,4 @@ I parametri per le funzioni denominate devono essere valori scalari.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -25,7 +25,7 @@
 
 Ogni richiesta effettuata per il servizio dell’Utilità di pianificazione restituisce un'intestazione di risposta denominata **x-ms-request-id**. Questa intestazione contiene un valore opaco che identifica in modo univoco la richiesta.
 
-Se una richiesta fallisce sistematicamente e si è verificato che la richiesta è formulata in modo appropriato, si può usare questo valore per riportare l'errore a Microsoft. Nel report, includere il valore di x-ms-request-id, l'ora approssimativa in cui è stata effettuata la richiesta, l'identificativo della sottoscrizione, il servizio cloud, la raccolta di processi e/o il processo e il tipo di operazione tentata con la richiesta.
+Se una richiesta fallisce sistematicamente e si è verificato che la richiesta è formulata in modo appropriato, si può usare questo valore per riportare l'errore a Microsoft. Nel report includere il valore di x-ms-request-id, l'ora approssimativa in cui è stata effettuata la richiesta, l'identificativo della sottoscrizione, la raccolta processi e/o il processo e il tipo di operazione tentata con la richiesta.
 
 ## Stato dell'Utilità di pianificazione e codici di errore:
 
@@ -70,4 +70,4 @@ Le operazioni API possono inoltre restituire informazioni aggiuntive sugli error
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

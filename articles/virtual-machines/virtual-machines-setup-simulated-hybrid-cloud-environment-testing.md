@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Ambienti di test cloud ibridi simulati | Microsoft Azure" 
 	description="Creare un ambiente cloud ibrido simulato per test per professionisti IT o test di sviluppo, usando due reti virtuali di Azure e una connessione da rete virtuale a rete virtuale." 
-	services="virtual-network" 
+	services="virtual-machines-windows" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
@@ -50,7 +50,7 @@ Se non si ha ancora una sottoscrizione di Azure, è possibile iscriversi per ott
 
 ## Fase 1: Configurare la rete virtuale TestLab
 
-Utilizzare le istruzioni in[Configurazione base dell’Ambiente di Test](virtual-machines-base-configuration-test-environment-resource-manager.md) per configurare i computer DC1, APP1 e CLIENT1 in una rete virtuale Azure denominata TestLab.
+Utilizzare le istruzioni in[Configurazione base dell’Ambiente di Test](virtual-machines-windows-test-config-env.md) per configurare i computer DC1, APP1 e CLIENT1 in una rete virtuale Azure denominata TestLab.
 
 Avviare un prompt di Azure PowerShell.
 
@@ -213,6 +213,6 @@ L'ambiente cloud ibrido simulato è ora pronto per il testing.
 
 ## Passaggi successivi
 
-- [Aggiungere una nuova macchina virtuale](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md) alla subnet TestVNET, ad esempio una macchina virtuale che esegue Microsoft SQL Server.
+- [Aggiungere una nuova macchina virtuale](virtual-machines-windows-create-powershell.md) alla subnet TestVNET, ad esempio una macchina virtuale che esegue Microsoft SQL Server.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

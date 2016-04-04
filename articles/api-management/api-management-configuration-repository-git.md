@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="03/21/2016" 
 	ms.author="sdanie"/>
 
 
@@ -117,7 +117,7 @@ Per creare il comando git, usare la password codificata con il nome utente e il 
 
 	git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 
-Una volta clonato il repository, è possibile visualizzarlo e usarlo nel file system locale. Per altre informazioni, vedere [Informazioni di riferimento sulla struttura di file e cartelle del repository Git locale](#file-and-folder-structure-overview-of-local-git-repository).
+Una volta clonato il repository, è possibile visualizzarlo e usarlo nel file system locale. Per altre informazioni, vedere [Informazioni di riferimento sulla struttura di file e cartelle del repository Git locale](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## Per aggiornare il repository locale con la configurazione dell'istanza del servizio più recente
 
@@ -279,6 +279,9 @@ Per informazioni su altri metodi di gestione dell'istanza del servizio, vedere:
 -	Gestire l'istanza del servizio tramite l'API REST
 	-	[Informazioni di riferimento sull'API REST di Gestione API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
+## Guardare un video introduttivo
+
+> [AZURE.VIDEO configuration-over-git]
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png
@@ -294,4 +297,4 @@ Per informazioni su altri metodi di gestione dell'istanza del servizio, vedere:
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

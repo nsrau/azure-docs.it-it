@@ -31,7 +31,7 @@ Per creare e gestire le istanze di Cache Redis di Azure utilizzando CLI di Azure
 -	È necessario disporre di un account Azure. Se non è disponibile, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi istanti.
 -	[Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
 -	Connettere l'installazione dell’interfaccia della riga di comando di Azure con un account Azure personale o con un account di lavoro o scolastico di Azure, e accedere dall’interfaccia della riga di comando di Azure utilizzando il comando `azure login`. Per comprendere le differenze e scegliere, vedere [Connettersi a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure (Azure CLI)](../xplat-cli-connect.md).
--	Prima di eseguire uno dei seguenti comandi, passare l’interfaccia della riga di comando di Azure in modalità di Gestione delle risorse eseguendo il comando `azure config mode arm`. Per ulteriori informazioni, vedere [Impostare la modalità di gestione risorse di Azure](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
+-	Prima di eseguire uno dei seguenti comandi, passare l’interfaccia della riga di comando di Azure in modalità di Gestione delle risorse eseguendo il comando `azure config mode arm`. Per ulteriori informazioni, vedere [Impostare la modalità di gestione risorse di Azure](../xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
 
 ## Proprietà di Cache Redis
 
@@ -271,4 +271,4 @@ Per altre informazioni su questo comando, eseguire il comando `azure rediscache 
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

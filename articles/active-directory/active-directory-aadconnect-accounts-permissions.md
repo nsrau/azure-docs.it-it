@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/04/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -113,7 +113,7 @@ Mediante l'installazione guidata viene creato un account di servizio locale (a m
 
 L'account viene creato con una password lunga e complessa priva di scadenza.
 
-Tale account verrà usato da Windows per archiviare le chiavi di crittografia in modo che le password dell'account non vengano reimpostate né modificate.
+Questo account viene usato per archiviare in modo sicuro le password per gli altri account. Le password di questi altri account vengono archiviate crittografate nel database. Le chiavi private per le chiavi di crittografia sono protette tramite la crittografia a chiave segreta dei servizi di crittografia con Windows Data Protection (DPAPI). Non reimpostare la password nell'account del servizio, perché Windows elimina le chiavi di crittografia per motivi di sicurezza.
 
 Se si usa una versione completa di SQL Server, l'account del servizio sarà il DBO del database creato per il motore di sincronizzazione. Il servizio non funzionerà come previsto con tutte le altre autorizzazioni. Viene inoltre creato un account di accesso SQL.
 
@@ -134,4 +134,4 @@ L'account del servizio viene creato con una password lunga e complessa priva di 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

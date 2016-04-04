@@ -1,6 +1,6 @@
-<properties
-	pageTitle="Creare un'immagine personalizzata del lab di sviluppo/test da un file VHD | Microsoft Azure"
-	description="Informazioni su come creare un'immagine personalizzata da un file VHD da usare per la creazione di macchine virtuali in un lab di sviluppo/test"
+    <properties
+	pageTitle="Create a DevTest Lab custom image from a VHD file | Microsoft Azure"
+	description="Learn how to create a custom image from a VHD file, which can then be used to create VMs in a DevTest Lab"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -20,7 +20,7 @@
 
 ## Panoramica
 
-Dopo aver [creato un lab di sviluppo/test](devtest-lab-create-lab.md) è possibile [aggiungere macchine virtuali nel lab](devtest-lab-add-vm-with-artifacts.md). Quando si crea una macchina virtuale, si specifica una *base* che può essere un'*immagine personalizzata* o un'*immagine di Marketplace*. Questo articolo descrive come creare un'immagine personalizzata da un file VHD. Si noti che è necessario accedere a un file VHD valido per eseguire tutti i passaggi di questo articolo.
+Dopo aver [creato un lab di sviluppo/test](devtest-lab-create-lab.md) è possibile [aggiungere macchine virtuali nel lab](devtest-lab-add-vm-with-artifacts.md). Quando si crea una macchina virtuale, si specifica una *base* che può essere un'*immagine personalizzata* o un'*immagine del Marketplace*. Questo articolo descrive come creare un'immagine personalizzata da un file VHD. Si noti che è necessario accedere a un file VHD valido per eseguire tutti i passaggi di questo articolo.
 
 ## Creare un'immagine personalizzata
 
@@ -46,7 +46,7 @@ Dopo aver [creato un lab di sviluppo/test](devtest-lab-create-lab.md) è possibi
 
 1. Toccare **File VHD**.
 
-1. Se si ha accesso a un file VHD che non è elencato, aggiungerlo seguendo le istruzioni della sezione [Caricare un file VHD](#upload-a-vhd-file) e tornare qui al termine.
+1. Se si ha accesso a un file VHD che non è elencato, aggiungerlo seguendo le istruzioni della sezione [Caricare un file VHD](#upload-a-vhd-file) e riprendere da qui al termine della procedura.
 
 1. Selezionare il file VHD desiderato.
 
@@ -78,4 +78,4 @@ Per aggiungere una nuova immagine personalizzata, è necessario accedere a un fi
 
 Dopo aver aggiunto un'immagine personalizzata da usare durante la creazione di una macchina virtuale, il passaggio successivo consiste nell'[aggiungere una macchina virtuale nel lab di sviluppo/test](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

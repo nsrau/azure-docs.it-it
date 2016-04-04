@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nel portale di Azure
@@ -60,10 +60,10 @@ Per creare un modello di distribuzione (classica) del servizio di bilanciamento 
  
 ## Passaggi successivi
 
-[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-internal-getstarted.md)
+[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

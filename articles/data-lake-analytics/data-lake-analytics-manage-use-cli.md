@@ -32,7 +32,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 - **Autenticazione**, utilizzando il comando seguente:
 
 		azure login
-	Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere l'argomento relativo alla [connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](xplat-cli-connect.md).
+	Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere l'argomento relativo alla [connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 - **Passare alla modalità Gestione risorse di Azure**, usando il comando seguente:
 
 		azure config mode arm
@@ -214,4 +214,4 @@ Un account di Analisi Data Lake e gli account di archiviazione dipendenti devono
 - [Gestire Analisi Data Lake di Azure tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
 - [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

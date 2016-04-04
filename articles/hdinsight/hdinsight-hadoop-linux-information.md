@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 # Informazioni sull'uso di HDInsight in Linux
@@ -45,25 +45,25 @@ Viene restituito un documento JSON che descrive il servizio e quindi jq estrae s
 
 	L'autenticazione è in testo non crittografato. Usare sempre HTTPS per garantire che la connessione sia protetta.
 
-	> [AZURE.IMPORTANT]Sebbene Ambari per il cluster sia accessibile direttamente su Internet, alcune funzionalità si basano sull'accesso ai nodi con il nome di dominio interno usato dal cluster. Poiché si tratta di un nome di dominio interno e non pubblico, si riceveranno errori di "server non trovato" se si tenta di accedere ad alcune funzionalità tramite Internet.
+	> [AZURE.IMPORTANT] Sebbene Ambari per il cluster sia accessibile direttamente su Internet, alcune funzionalità si basano sull'accesso ai nodi con il nome di dominio interno usato dal cluster. Poiché si tratta di un nome di dominio interno e non pubblico, si riceveranno errori di "server non trovato" se si tenta di accedere ad alcune funzionalità tramite Internet.
 	>
 	> Per usare le funzionalità complete dell'interfaccia utente Web di Ambari, usare un tunnel SSH per inoltrare il traffico Web al nodo head del cluster. Vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
-	> [AZURE.NOTE]Eseguire l'autenticazione usando il nome utente e la password di amministratore cluster.
+	> [AZURE.NOTE] Eseguire l'autenticazione usando il nome utente e la password di amministratore cluster.
 	>
 	> L'autenticazione è in testo non crittografato. Usare sempre HTTPS per garantire che la connessione sia protetta.
 
 * **WebHCat (Templeton)** - https://&lt;clustername>.azurehdinsight.net/templeton
 
-	> [AZURE.NOTE]Eseguire l'autenticazione usando il nome utente e la password di amministratore cluster.
+	> [AZURE.NOTE] Eseguire l'autenticazione usando il nome utente e la password di amministratore cluster.
 	>
 	> L'autenticazione è in testo non crittografato. Usare sempre HTTPS per garantire che la connessione sia protetta.
 
 * **SSH** - &lt;nome cluster>-ssh.azurehdinsight.net sulla porta 22 o 23. La porta 22 viene usata per connettersi al nodo head 0, mentre la porta 23 viene usata per connettersi al nodo head 1. Per maggiori informazioni sui nodi head, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md).
 
-	> [AZURE.NOTE]È possibile accedere al nodo head del cluster solo tramite SSH da un computer client. Una volta connessi, è quindi possibile accedere ai nodi di lavoro mediante SSH dal nodo head.
+	> [AZURE.NOTE] È possibile accedere al nodo head del cluster solo tramite SSH da un computer client. Una volta connessi, è quindi possibile accedere ai nodi di lavoro mediante SSH dal nodo head.
 
 ## Percorsi dei file
 
@@ -102,7 +102,7 @@ Durante la creazione del cluster si è scelto se usare un account e un contenito
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
     
-    > [AZURE.NOTE]Verrà restituita la prima configurazione applicata al server (`service_config_version=1`) che conterrà queste informazioni. Se si recupera un valore che è stato modificato dopo la creazione del cluster, potrebbe essere necessario elencare le versioni della configurazione e recuperare la versione più recente.
+    > [AZURE.NOTE] Verrà restituita la prima configurazione applicata al server (`service_config_version=1`) che conterrà queste informazioni. Se si recupera un valore che è stato modificato dopo la creazione del cluster, potrebbe essere necessario elencare le versioni della configurazione e recuperare la versione più recente.
 
     Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il contenitore predefinito e __ACCOUNTNAME__ è il nome dell'account di archiviazione di Azure:
 
@@ -114,7 +114,7 @@ Durante la creazione del cluster si è scelto se usare un account e un contenito
     
     Verrà restituito il nome del gruppo di risorse per l'account.
     
-    > [AZURE.NOTE]Se il comando non restituisce risultati, può essere necessario modificare l'interfaccia della riga di comando di Azure in modalità Gestione risorse di Azure ed eseguire nuovamente il comando. Per passare alla modalità Gestione risorse di Azure, usare il comando seguente.
+    > [AZURE.NOTE] Se il comando non restituisce risultati, può essere necessario modificare l'interfaccia della riga di comando di Azure in modalità Gestione risorse di Azure ed eseguire nuovamente il comando. Per passare alla modalità Gestione risorse di Azure, usare il comando seguente.
     >
     > `azure config mode arm`
     
@@ -219,7 +219,6 @@ Le azioni script sono script Bash che vengono eseguiti durante il provisioning d
 * [Giraph,](hdinsight-hadoop-giraph-install-linux.md)
 * [R](hdinsight-hadoop-r-scripts-linux.md)
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
-* [Spark](hdinsight-hadoop-spark-install-linux.md)
 
 Per informazioni su come sviluppare azioni script personalizzate, vedere [Sviluppo di azioni script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
@@ -229,7 +228,7 @@ Alcune tecnologie Hadoop vengono fornite in file con estensione jar indipendenti
 
 Se ad esempio si desidera usare l'ultima versione di [DataFu](http://datafu.incubator.apache.org/), è possibile scaricare un file con estensione jar contenente il progetto e caricarlo nel cluster HDInsight. Seguire quindi la documentazione di DataFu per informazioni sull'uso da Pig o Hive.
 
-> [AZURE.IMPORTANT]Alcuni componenti che sono file con estensione jar autonomi vengono forniti con HDInsight, ma non sono presenti nel percorso. Se si desidera un componente specifico, è possibile usare il comando seguente per cercarlo nel cluster:
+> [AZURE.IMPORTANT] Alcuni componenti che sono file con estensione jar autonomi vengono forniti con HDInsight, ma non sono presenti nel percorso. Se si desidera un componente specifico, è possibile usare il comando seguente per cercarlo nel cluster:
 >
 > ```find / -name *componentname*.jar 2>/dev/null```
 >
@@ -237,7 +236,7 @@ Se ad esempio si desidera usare l'ultima versione di [DataFu](http://datafu.incu
 
 Se il cluster fornisce già una versione di un componente come file con estensione jar autonomo, ma si desidera usare una versione diversa, è possibile caricare una nuova versione del componente nel cluster e provare a usarla nei processi.
 
-> [AZURE.WARNING]I componenti forniti con il cluster HDInsight sono supportati in modo completo e il supporto tecnico Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
+> [AZURE.WARNING] I componenti forniti con il cluster HDInsight sono supportati in modo completo e il supporto tecnico Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
 >
 > I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. È ad esempio possibile ricorrere a molti siti di community, come il [forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/it-IT/home?forum=hdinsight) o [http://stackoverflow.com](http://stackoverflow.com). Per i progetti Apache sono inoltre disponibili siti specifici in [http://apache.org](http://apache.org), ad esempio [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
 
@@ -247,4 +246,4 @@ Se il cluster fornisce già una versione di un componente come file con estensio
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

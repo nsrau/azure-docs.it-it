@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="03/18/2016"
 	ms.author="jahogg"/>
 
 # Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
@@ -666,7 +666,10 @@ L'applicazione client deve usare nomi univoci per i contenitori ogni volta che c
 
 La metrica **PercentSuccess** acquisisce la percentuale di operazioni eseguite correttamente in base al relativo codice di stato HTTP. Le operazioni con codici di stato 2XX hanno avuto esito positivo, mentre le operazioni con codici 3XX, 4XX e 5XX hanno avuto esito negativo e riducono il valore della metrica **PercentSucess**. Nei file di log dell'archiviazione sul lato server, queste operazioni vengono registrate con stato della transazione **ClientOtherErrors**.
 
-È importante notare che queste operazioni sono state completate correttamente e quindi non influiscono sulle altre metriche, ad esempio la disponibilità. Alcuni esempi di operazioni che vengono eseguite correttamente, ma che possono generare codici di stato HTTP non riusciti: - **ResourceNotFound** (Non trovato 404), ad esempio da una richiesta GET per un BLOB che non esiste. - **ResouceAlreadyExists** (Conflitto 409), ad esempio da un’operazione **CreateIfNotExist** in cui la risorsa esiste già. - **ConditionNotMet** (Non modificato 304), ad esempio da un'operazione condizionale, ad esempio quando un client invia un valore **ETag** e un’intestazione HTTP **If-None-Match** per richiedere un'immagine solo se è stata aggiornata dall'ultima operazione.
+È importante notare che queste operazioni sono state completate correttamente e quindi non influiscono sulle altre metriche, ad esempio la disponibilità. Alcuni esempi di operazioni eseguite correttamente ma che possono restituire codici di stato HTTP negativi sono:
+- **ResourceNotFound** (Non trovato 404), ad esempio da una richiesta GET a un oggetto BLOB che non esiste.
+- **ResouceAlreadyExists** (Conflitto 409), ad esempio da un'operazione **CreateIfNotExist** quando la risorsa esiste già.
+- **ConditionNotMet** (Non modificato 304), ad esempio da un'operazione condizionale come quando un client invia un valore **ETag** e un'intestazione HTTP **If-None-Match** per richiedere un'immagine solo se è stata aggiornata dall'ultima operazione.
 
 Per l'elenco dei codici di errore API REST che i servizi di archiviazione restituiscono più di frequente, vedere la pagina <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Codici di errore comuni dell'API REST</a>.
 
@@ -914,4 +917,4 @@ Al momento della redazione di questo documento Application Insights è disponibi
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

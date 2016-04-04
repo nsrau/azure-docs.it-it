@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="03/10/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffstok"
 />
 
@@ -27,7 +27,7 @@ I processi di Analisi di flusso supportano numerosi metodi di output, tra cui [A
 
 ## Autorizzare un account Archivio Data Lake
 
-1.  Quando si seleziona Archivio Data Lake come output nel portale di gestione di Azure, verrà richiesto di autorizzare l'uso di Archivio Data Lake esistente o richiedere l'accesso all'anteprima di Archivio Data Lake tramite il portale di anteprima di Azure.
+1.  Quando si seleziona Archivio Data Lake come output nel portale di gestione di Azure, verrà richiesto di autorizzare l'uso dell'Archivio Data Lake esistente o richiedere l'accesso all'anteprima di Archivio Data Lake tramite il portale di Azure classico.
 
     ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.jpg)
 
@@ -92,4 +92,4 @@ Per risolvere questo problema, arrestare il processo in esecuzione e passare all
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.jpg)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -288,7 +288,7 @@ Le credenziali di sicurezza, ad esempio le chiavi asimmetriche, non vengono mai 
 
 > [AZURE.NOTE] Il provider di risorse dell'hub IoT di Azure viene protetto tramite la sottoscrizione di Azure, analogamente a tutti i provider in [Gestione risorse di Azure][lnk-azure-resource-manager].
 
-Per maggiori informazioni sulla creazione e sull'uso di token di sicurezza, vedere l'articolo sui [token di sicurezza dell'hub IoT][lnk-sas-tokens].
+Per altre informazioni sulla creazione e sull'uso di token di sicurezza, vedere l'articolo sui [token di sicurezza dell'hub IoT][lnk-sas-tokens].
 
 #### Specifiche del protocollo
 
@@ -305,7 +305,7 @@ Per SASL PLAIN **username** può essere:
 * `{policyName}@sas.root.{iothubName}` nel caso di token a livello di hub.
 * `{deviceId}` nel caso di token con ambito relativo al dispositivo.
 
-In entrambi i casi il campo della password contiene il token, come indicato nell'articolo sui [token di sicurezza dell'hub IoT][lnk-sas-tokens].
+In entrambi i casi il campo della password contiene il token, come indicato nell'articolo relativo all'uso dei [token di sicurezza dell'hub IoT][lnk-sas-tokens].
 
 Quando si usa MQTT, il pacchetto CONNECT ha come valore di deviceId ClientId, {iothubhostname}/{deviceId} nel campo Username e un token di firma di accesso condiviso nel campo Password. Il valore di {iothubhostname} deve essere il record CName completo dell'hub IoT, ad esempio contoso.azure-devices.net.
 
@@ -601,7 +601,7 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
-[lnk-sas-tokens]: iot-hub-sas-tokens
+[lnk-sas-tokens]: iot-hub-sas-tokens.md
 [lnk-azure-gateway-guidance]: iot-hub-guidance.md#field-gateways
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
 [lnk-guidance-scale]: iot-hub-scaling.md
@@ -634,4 +634,4 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

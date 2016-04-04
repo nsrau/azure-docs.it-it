@@ -50,7 +50,8 @@ Si tratta dei dati che possono essere generati da origini diverse, ad esempio ap
 
 Di seguito sono elencati gli strumenti che è possibile usare:
  
-* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md). È possibile scrivere i dati direttamente in Archivio Data Lake dal cluster Storm.
+* [Analisi di flusso di Azure](../stream-analytics-data-lake-output) - Gli eventi inseriti nell’hub eventi possono essere scritti in Azure Data Lake utilizzando un output dell’archivio Azure Data Lake.
+* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) - È possibile scrivere i dati direttamente in Archivio Data Lake dal cluster Storm.
 * [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) - È possibile ricevere eventi da Hub eventi e scriverli in Archivio Data Lake usando [.NET SDK di Archivio Data Lake](data-lake-store-get-started-net-sdk.md).
 
 ### Dati relazionali
@@ -133,4 +134,4 @@ In questi casi, è possibile usare le opzioni seguenti:
 * Iniziare usando [Azure Data Factory per spostare i dati da Archivio Data Lake ad Azure SQL Data Warehouse](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)
 * Successivamente, è possibile [integrare Power BI con Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi) per creare la rappresentazione visiva dei dati.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

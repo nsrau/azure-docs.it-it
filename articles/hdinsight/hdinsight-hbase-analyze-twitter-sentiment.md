@@ -75,11 +75,11 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 
 	<table border="1">
-<tr><th>Proprietà del cluster</th><th>Descrizione</th></tr>
-<tr><td>HBase cluster name</td><td>Nome del cluster HBase in HDInsight. Ad esempio: https://myhbase.azurehdinsight.net/</td></tr>
-<tr><td>Cluster user name</td><td>Nome dell'account utente di Hadoop. Il nome utente predefinito di Hadoop è <strong>admin</strong>.</td></tr>
-<tr><td>Cluster user password</td><td>La password utente del cluster Hadoop.</td></tr>
-</table>
+	<tr><th>Proprietà del cluster</th><th>Descrizione</th></tr>
+	<tr><td>HBase cluster name</td><td>Nome del cluster HBase in HDInsight. Ad esempio: https://myhbase.azurehdinsight.net/</td></tr>
+	<tr><td>Cluster user name</td><td>Nome dell'account utente di Hadoop. Il nome utente predefinito di Hadoop è <strong>admin</strong>.</td></tr>
+	<tr><td>Cluster user password</td><td>La password utente del cluster Hadoop.</td></tr>
+	</table>
 
 - **Una workstation** in cui sia stato installato Visual Studio 2013. Per le istruzioni, vedere [Installazione di Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -600,9 +600,9 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 	- **CLUSTERNAME**: nome del cluster HBase, ad esempio *https://<HBaseClusterName>.azurehdinsight.net/*. 
     - **HADOOPUSERNAME**: nome utente del cluster HBase (Hadoop). Il nome predefinito è *admin*.
     - **HADOOPUSERPASSWORD**: password utente del cluster HBase (Hadoop).
-    - **HBASETABLENAME** = "tweets\_by\_words";
+    - **HBASETABLENAME** = "tweets_by_words";
 
-	Il nome della tabella HBase è **"tweets\_by\_words"**. Per consentire all'applicazione Web di leggere i dati dalla stessa tabella HBase, i valori devono corrispondere a quelli inviati nel servizio streaming.
+	Il nome della tabella HBase è **"tweets_by_words"**. Per consentire all'applicazione Web di leggere i dati dalla stessa tabella HBase, i valori devono corrispondere a quelli inviati nel servizio streaming.
 
 
 
@@ -1099,7 +1099,7 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 
 **Per modificare layout.cshtml**
 
-1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Condivise** e fare doppio clic su \__**Layout.cshtml**.
+1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Condivise** e fare doppio clic su _**Layout.cshtml**.
 2. Sostituire il contenuto con i contenuti seguenti:
 
 		<!DOCTYPE html>
@@ -1164,7 +1164,7 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 
 **Per modificare Index.cshtml**
 
-1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Home** e fare doppio clic su \_**Index.cshtml**.
+1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Viste**, espandere **Home** e fare doppio clic su _**Index.cshtml**.
 2. Sostituire il contenuto con i contenuti seguenti:
 
 		@{
@@ -1177,7 +1177,7 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 
 **Per modificare il file site.css**
 
-1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Contenuto** e fare doppio clic su \_**Site.css**.
+1. In **Esplora soluzioni**, espandere **TweetSentimentWeb**, espandere **Contenuto** e fare doppio clic su _**Site.css**.
 2. Aggiungere il seguente codice al file:
 		
 		/* make container, and thus map, 100% width */
@@ -1200,12 +1200,12 @@ In questa sezione verrà creata un'applicazione Web ASP.NET MVC per leggere i da
 
 **Per modificare il file global.asax**
 
-1. In **Esplora soluzioni**, espandere **TweetSentimentWeb** e fare doppio clic su \_**Global.asax**.
+1. In **Esplora soluzioni**, espandere **TweetSentimentWeb** e fare doppio clic su _**Global.asax**.
 2. Aggiungere l'istruzione **using** seguente:
 
 		using System.Web.Http;
 
-2. Aggiungere le seguenti righe all'interno della funzione **Application\_Start()**:
+2. Aggiungere le seguenti righe all'interno della funzione **Application_Start()**:
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -1233,7 +1233,6 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 - [Configurare la replica di HBase in HDInsight](hdinsight-hbase-geo-replication.md) 
 - [Analizzare i dati di Twitter con Hadoop in HDInsight][hdinsight-analyze-twitter-data]
 - [Analizzare i dati sui ritardi dei voli con HDInsight][hdinsight-analyze-flight-delay-data]
-- [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight][hdinsight-develop-streaming]
 - [Sviluppare programmi MapReduce Java per HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -1249,7 +1248,6 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 
 
 
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-analyze-twitter-data]: hdinsight-analyze-twitter-data.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
@@ -1279,4 +1277,4 @@ In questa esercitazione si è appreso come ricevere tweet, analizzare i sentimen
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

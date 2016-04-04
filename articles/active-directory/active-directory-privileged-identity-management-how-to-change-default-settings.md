@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management: Come modificare o visualizzare le impostazioni predefinite per un ruolo"
+   pageTitle="Come modificare o visualizzare le impostazioni predefinite per un ruolo | Microsoft Azure"
    description="Informazioni su come modificare le impostazioni predefinite per identità con privilegi con l'estensione Azure Active Directory Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/10/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management: Come modificare o visualizzare le impostazioni di attivazione predefinite per un ruolo
@@ -52,4 +52,4 @@ Per ulteriori informazioni sull'utilizzo dell’MFA con PIM, vedere [Come richie
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 # Come scrivere query in Analisi di flusso
@@ -27,13 +27,13 @@ La scrittura di query per la logica di elaborazione del flusso in Analisi di flu
 
     ![Query di selezione](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)
 
-    Nel portale di anteprima di Azure fare clic su **Query**.
+    Nel portale di Azure fare clic su **Query**.
 
     ![Selezionare l'anteprima della query](./media/stream-analytics-write-queries/query-preview-portal.png)
 
 2.	I nuovi processi dispongono di un modello di query per rendere più semplice l’inizio. Il modello di query esegue una query "pass-through" che proietta tutti i campi dagli eventi di input nell'output.
 
-    - Se sono stati definiti almeno un input e un output per il processo, è possibile sostituire i campi segnaposto "[YourOutputAlias]" e "[YourInputAlias]" con gli alias dell’input e dell’output che si desidera utilizzare per primi. È inoltre possibile creare e testare la query nel portale di Azure senza la definizione di input e output del processo.
+    - Se sono stati definiti almeno un input e un output per il processo, è possibile sostituire i campi segnaposto "[YourOutputAlias]" e "[YourInputAlias]" con gli alias dell’input e dell’output che si desidera utilizzare per primi. È inoltre possibile creare e testare la query nel portale di Azure classico senza la definizione di input e output del processo.
     - Se si desidera eseguire un'elaborazione più complessa rispetto a un semplice pass-through, è possibile modificare la definizione della query. Per iniziare a usare la creazione di query, esaminiamo alcuni modelli di query comuni [qui](stream-analytics-stream-analytics-query-patterns.md).  
   
     ![Eseguire query sui dati, finestra](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
@@ -42,7 +42,7 @@ La scrittura di query per la logica di elaborazione del flusso in Analisi di flu
 
 È possibile verificare che la query funzioni come previsto eseguendola nel browser su uno o più file JSON locali contenenti i dati di test. Il test non avvia il processo e non ha implicazioni relative alla fatturazione.
 
-> [AZURE.NOTE] Attualmente il test delle query nel browser non è supportato nel portale di anteprima di Azure.
+> [AZURE.NOTE] Attualmente il test delle query nel browser non è supportato nel portale di Azure.
 
 1.	Assicurarsi che non siano presenti errori nella query (in caso contrario il pulsante Test verrà disabilitato) e quindi fare clic sul pulsante Test.  
 
@@ -71,4 +71,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

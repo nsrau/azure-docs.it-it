@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Materiale di riferimento per Application Analytics" 
-	description="Espressioni regolari in Application Analytics, lo strumento di ricerca avanzato per Application Insights." 
+	pageTitle="Materiale di riferimento per Application Insights Analytics" 
+	description="Espressioni regolari in Analytics, lo strumento di ricerca avanzato incluso in Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-# Materiale di riferimento
+# Application Insights: Materiale di riferimento per Analytics
 
-[Application Analytics](app-analytics.md) è un motore di ricerca avanzato per i dati di telemetria di [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Application Analytics (CSL).
-
+[Analytics](app-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analytics.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -416,4 +415,4 @@ Viene inoltre descritta la sintassi accettata da PCRE, PERL e VIM.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -5,23 +5,25 @@
 - [(Windows 10 IoT Core | C#)](../articles/iot-hub/iot-hub-certified-devices-10iot-csharp.md)
 - [(Windows 10 IoT Core | C)](../articles/iot-hub/iot-hub-certified-devices-10iot-c.md)
 - [(Windows 10 IoT Core | Javascript)](../articles/iot-hub/iot-hub-certified-devices-10iot-javascript.md)
-- [(Windows 7,8,10 | C#)](../articles/iot-hub/iot-hub-certified-devices-7810-csharp.md)
-- [(Windows 7,8,10 | C)](../articles/iot-hub/iot-hub-certified-devices-10-c.md)
+- [(Windows 7, 8, 10 | C#)](../articles/iot-hub/iot-hub-certified-devices-7810-csharp.md)
+- [(Windows 7, 8, 10 | C)](../articles/iot-hub/iot-hub-certified-devices-10-c.md)
 - [(Arduino | C)](../articles/iot-hub/iot-hub-certified-devices-arduino-c.md)
-- [(Other | C)](../articles/iot-hub/iot-hub-certified-devices-other-c.md)
-- [(Other | Javascript)](../articles/iot-hub/iot-hub-certified-devices-other-javascript.md)
+- [(Altro | C)](../articles/iot-hub/iot-hub-certified-devices-other-c.md)
+- [(Altro | Javascript)](../articles/iot-hub/iot-hub-certified-devices-other-javascript.md)
 
-*Microsoft Azure Certified for IoT* is the partner program that connects the broader IoT ecosystem with Microsoft Azure so that developers and architects understand the compatibility scenarios. Specifically, it provides a trusted list of OS/device combinations to help you get started quickly with an IoT project – whether you’re in a proof of concept or pilot phase. With certified device and operating system combinations, your IoT project can get started quickly, with less work and customization required to make sure devices are compatible with [Azure IoT Suite][lnk-iot-suite] and Azure IoT Hub.
+*Il programma di certificazione Microsoft Azure per IoT* è il programma per i partner che mette in contatto un ampio ecosistema IoT con Microsoft Azure in modo che sviluppatori e architetti conoscano gli scenari di compatibilità. In particolare, fornisce un elenco attendibile di combinazioni di sistema operativo/dispositivo per iniziare rapidamente a usare un progetto IoT, indipendentemente dal fatto che ci si trovi in fase di modello di prova o pilota. Con le combinazioni certificate di dispositivo e sistema operativo, il progetto IoT può partire rapidamente, riducendo il lavoro e la personalizzazione necessari per garantire la compatibilità dei dispositivi con [Azure IoT Suite][lnk-iot-suite] e l'hub IoT di Azure.
 
-For general information about the Azure IoT SDK compatibility with different OS platforms, see [OS Platforms compatibility with device SDKs][lnk-os-compatibility].
+Per informazioni generali sulla compatibilità di Azure IoT SDK con diverse piattaforme del sistema operativo, vedere [Compatibilità delle piattaforme del sistema operativo con gli SDK per dispositivi][lnk-os-compatibility].
 
-## Certified for IoT devices
+## Dispositivi certificati per IoT
 
-**Certified for IoT** devices have tested compatibility with the Azure IoT SDKs and are ready to be used in your IoT application. Specifically, we identify compatibility based on operating system platform and code language.
+La compatibilità dei dispositivi **certificati per IoT** con gli SDK Azure IoT è stata testata e possono essere usati nell'applicazione IoT. In particolare, la compatibilità viene identificata in base alla piattaforma del sistema operativo e al linguaggio del codice.
 
-#### Devices list
+#### Elenco di dispositivi
 
-Each device has been certified to work with our SDK in the OS and language chosen by the device manufacturer. For example, BeagleBone Black works on Debian using our C, Javascript and Java language. This means that developers can build applications in any of those languages and OS combinations on the specific devices.
+Ogni dispositivo è stato certificato per l'uso dell'SDK nel sistema operativo e nel linguaggio scelti dal produttore del dispositivo. Ad esempio, BeagleBone Black funziona in Debian con il linguaggio C, Javascript e Java. Gli sviluppatori possono quindi compilare le applicazioni in qualsiasi combinazione di linguaggio e sistema operativo sui dispositivi specifici.
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-os-compatibility]: iot-hub-tested-configurations.md
+
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/18/2016"
 	ms.author="meetb"/>
 
 
@@ -42,7 +42,10 @@ Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su
 
 Il programma demo è progettato in modo che un errore temporaneo durante un tentativo di connessione comporti un nuovo tentativo. Ma un errore temporaneo durante un comando di query fa sì che il programma ignori la connessione e crei una nuova connessione, prima di ritentare il comando di query. Non consigliamo né sconsigliamo tale scelta di progettazione. Nel programma demo vengono illustrate alcune flessibilità di progettazione disponibili.
 
-<br>La lunghezza di questo esempio di codice è dovuta principalmente alla logica di eccezione catch. È disponibile una versione più breve del file Program.cs [qui](sql-database-develop-php-simple-windows.md). <br>Il metodo Main è in Program.cs. Lo stack di chiamate viene eseguito nel modo seguente: * Main chiama ConnectAndQuery. * ConnectAndQuery chiama EstablishConnection. * EstablishConnection chiama IssueQueryCommand.
+<br>La lunghezza di questo esempio di codice è dovuta principalmente alla logica di eccezione catch. È disponibile una versione più breve del file Program.cs [qui](sql-database-develop-php-simple-windows.md). <br>Il metodo Main è in Program.cs. Lo stack di chiamate viene eseguito come segue:
+* Main chiama ConnectAndQuery.
+* ConnectAndQuery chiama EstablishConnection.
+* EstablishConnection chiama IssueQueryCommand.
 
 Per recuperare un set di risultati di una query sul database SQL è possibile usare la funzione [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php). Questa funzione accetta essenzialmente qualsiasi query e l'oggetto connection e restituisce un set di risultati su cui è possibile eseguire l'iterazione usando [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
@@ -136,4 +139,4 @@ Per recuperare un set di risultati di una query sul database SQL è possibile us
 
 Per altre informazioni sull'installazione e l'uso di PHP, vedere [Accesso ai database di SQL Server con PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

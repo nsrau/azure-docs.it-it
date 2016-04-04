@@ -68,12 +68,14 @@ Gruppo di sicurezza di rete di esempio in formato JSON:
 	}
 
 ### Regole di sicurezza predefinite
-Le regole di sicurezza predefinite hanno le stesse proprietà disponibili nelle regole di sicurezza. Esistono per fornire la connettività di base tra le risorse a cui sono applicati gruppi di sicurezza di rete. Assicurarsi di conoscere le [regole di sicurezza predefinite](./virtual-networks-nsg.md#Default-Rules) esistenti.
+Le regole di sicurezza predefinite hanno le stesse proprietà disponibili nelle regole di sicurezza. Esistono per fornire la connettività di base tra le risorse a cui sono applicati gruppi di sicurezza di rete. Assicurarsi di conoscere le [regole di sicurezza predefinite](../articles/virtual-network/virtual-networks-nsg.md#Default-Rules) esistenti.
 
 ### Risorse aggiuntive
 
-- Altre informazioni sui [gruppi di sicurezza di rete](virtual-networks-nsg.md).
+- Altre informazioni sui [gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-nsg.md).
 - Leggere [la documentazione di riferimento API REST](https://msdn.microsoft.com/library/azure/mt163615.aspx) per i gruppi di sicurezza di rete.
 - Leggere [la documentazione di riferimento API REST](https://msdn.microsoft.com/library/azure/mt163580.aspx) per le regole di sicurezza.
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=AcomDC_0323_2016-->
+
+<!---HONumber=AcomDC_0323_2016-->

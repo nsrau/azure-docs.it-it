@@ -3,9 +3,9 @@
 	description="Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="storage" 
@@ -14,7 +14,7 @@
 	ms.devlang="ruby" 
 	ms.topic="article" 
 	ms.date="02/23/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # Come usare l'archiviazione di accodamento da Ruby
@@ -31,7 +31,7 @@ In questa guida viene illustrato come eseguire scenari comuni del servizio di ar
 
 ## Creare un'applicazione Ruby
 
-Creare un'applicazione Ruby. Per istruzioni vedere [Applicazione Web Ruby on Rails in una macchina virtuale di Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Creare un'applicazione Ruby. Per istruzioni, vedere l'articolo relativo all'[applicazione Web Ruby on Rails in una macchina virtuale di Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configurare l'applicazione per l'accesso all'archiviazione
 
@@ -162,4 +162,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 Per un confronto tra il Servizio di accodamento di Azure discusso in questo articolo e le code del bus di servizio di Azure discusse nell'articolo [Come usare le code del bus di servizio](/develop/ruby/how-to-guides/service-bus-queues/) vedere [Analogie e differenze tra le code di Azure e le code del bus di servizio](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=AcomDC_0224_2016---->
+<!---HONumber=AcomDC_0323_2016-->

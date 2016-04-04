@@ -9,7 +9,7 @@ Esistono diversi tipi di crittografia di cui è possibile usufruire:
 
 Gli script Transact-SQL seguenti forniscono esempi per ognuna di queste aree.
 
->[AZURE.NOTE]Ogni esempio è basato su due prerequisiti: una chiave asimmetrica dall'insieme di credenziali delle chiavi denominata **CONTOSO\_KEY** e una credenziale creata dalla funzionalità di integrazione di AKV denominata **Azure\_EKM\_TDE\_cred**.
+>[AZURE.NOTE] Ogni esempio è basato su due prerequisiti: una chiave asimmetrica dall'insieme di credenziali delle chiavi denominata **CONTOSO\_KEY** e una credenziale creata dalla funzionalità di integrazione di AKV denominata **Azure\_EKM\_TDE\_cred**.
 
 ### Transparent data encryption (TDE)
 1. Creare un account di accesso di SQL Server che può essere usato dal motore di database per la TDE, quindi aggiungere la credenziale.
@@ -91,8 +91,8 @@ Questo script crea una chiave simmetrica protetta dalla chiave asimmetrica nell'
 	CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 
 ## Risorse aggiuntive
-Per altre informazioni su come usare queste funzionalità di crittografia, vedere [Uso di EKM con le funzionalità di crittografia di SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
+Per altre informazioni su come usare queste funzionalità di crittografia, vedere l'argomento relativo all'[uso di EKM con le funzionalità di crittografia di SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Si noti che i passaggi in questo articolo presuppongono che si disponga già di SQL Server in esecuzione in una macchina virtuale di Azure. In caso contrario, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](../articles/virtual-machines/virtual-machines-provision-sql-server.md). Per altre informazioni dettagliate relative all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server nella panoramica delle Macchine virtuali di Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
+Si noti che i passaggi in questo articolo presuppongono che si disponga già di SQL Server in esecuzione in una macchina virtuale di Azure. In caso contrario, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](../articles/virtual-machines/virtual-machines-windows-classic-portal-sql.md). Per altre informazioni dettagliate relative all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server nella panoramica delle Macchine virtuali di Azure](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

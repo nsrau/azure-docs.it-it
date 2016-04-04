@@ -26,6 +26,8 @@
 
 Informazioni su come gestire un [pool di database elastici](sql-database-elastic-pool.md) tramite i cmdlets PowerShell.
 
+Per i codici di errore comuni, vedere [Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database](sql-database-develop-error-messages.md).
+
 > [AZURE.NOTE] I pool di database elastici sono attualmente in anteprima e sono disponibili unicamente con i server di Database SQL V12. Se si usa un server di database SQL V11 è possibile [usare PowerShell per eseguire l'aggiornamento a V12 e creare un pool](sql-database-upgrade-server-portal.md) in un unico passaggio.
 
 È necessario eseguire Azure PowerShell 1.0 o versione successiva. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
@@ -169,11 +171,11 @@ Esportare in un file CSV:
 
 ## Passaggi successivi
 
-- [Creare processi elastici](sql-database-elastic-jobs-overview.md) I processi elastici facilitano l'esecuzione di script T-SQL su qualsiasi numero di database nel pool.
+- [Creare processi elastici](sql-database-elastic-jobs-overview.md): i processi elastici facilitano l'esecuzione di script T-SQL su un numero qualsiasi di database nel pool.
 
 
 ## Riferimento ai database elastici
 
 Per ulteriori informazioni sui database elastici e sui pool di database elastici, inclusi i dettagli sulle API e sugli errori, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -120,4 +120,4 @@ Se l'app non richiede l'ambito `offline_access`, non riceverà i token di aggior
 
 Per altre informazioni su come ottenere e usare i token di aggiornamento, vedere il [riferimento al protocollo della versione 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

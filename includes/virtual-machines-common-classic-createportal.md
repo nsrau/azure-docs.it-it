@@ -1,15 +1,16 @@
 
 
-A *custom* virtual machine simply means a virtual machine that you create using the **From Gallery** option because it gives you more configuration choices than the **Quick Create** option. These choices include:
+Una macchina virtuale *personalizzata* indica semplicemente una macchina virtuale creata usando l’opzione **Da raccolta**, che offre più possibilità di configurazione rispetto a **Creazione rapida**. Tali opzioni includono:
 
-- Connecting the virtual machine to a virtual network.
-- Installing the Azure Virtual Machine Agent and Azure Virtual Machine Extensions, such as for antimalware.
-- Adding the virtual machine to existing cloud services.
-- Adding the virtual machine to an existing Storage account.
-- Adding the virtual machine to an availability set.
+- Collegare una macchina virtuale a Rete virtuale.
+- Installare l'agente di macchina virtuale di Azure e le estensioni di macchina virtuale di Azure, ad esempio per antimalware.
+- Aggiungere la macchina virtuale ai servizi cloud esistenti.
+- Aggiungere la macchina virtuale a un account di archiviazione esistente.
+- Aggiungere una macchina virtuale a un set di disponibilità.
 
-> [AZURE.IMPORTANT] If you want your virtual machine to use a virtual network so you can connect to it directly by host name or set up cross-premises connections, make sure that you specify the virtual network when you create the virtual machine. A virtual machine can be configured to join a virtual network only when you create the virtual machine. For details on virtual networks, see [Azure Virtual Network overview](virtual-networks-overview.md).
+> [AZURE.IMPORTANT] Se si vuole che la macchina virtuale usi una rete virtuale in modo da connettersi direttamente mediante nome host o per configurare connessioni cross-premise, accertarsi di specificare la rete virtuale quando si crea la macchina virtuale. È possibile configurare una macchina virtuale in modo da aggiungerla a una rete virtuale solo quando viene creata. Per informazioni dettagliate sulle reti virtuali, vedere [Panoramica di Rete virtuale](virtual-networks-overview.md).
 
 
-## To create the virtual machine
+## Per creare la macchina virtuale
 
+<!---HONumber=AcomDC_0323_2016-->

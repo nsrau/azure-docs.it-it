@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/26/2016"
+	ms.topic="article"
+	ms.date="03/18/2016"
 	ms.author="femila"/>
 
 
@@ -120,7 +120,6 @@ Questa procedura permette di integrare il tenant di Azure AD con l'istanza di Ac
   1.	Aggiungere i domini.
   2.	Installare ed eseguire Azure AD Connect. Installare Azure AD Connect seguendo le istruzioni seguenti, [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Verificare e gestire la sincronizzazione della directory. Le istruzioni per l'accesso Single Sign-On sono disponibili in questo passaggio.
-
   >[AZURE.NOTE] Configurare la federazione con AD FS come descritto nel documento accessibile dal collegamento precedente.
   >[AZURE.NOTE] Non è necessario configurare le funzionalità di anteprima.
 
@@ -251,4 +250,4 @@ A questo punto, quando gli utenti accedono all'applicazione da un dispositivo no
 
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

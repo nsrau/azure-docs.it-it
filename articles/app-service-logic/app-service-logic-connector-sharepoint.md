@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 # Uso del connettore SharePoint e aggiunta all'app per la logica
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview nell'API di SharePoint Online, fare clic su [API SharePoint](../connectors/connectors-create-api-sharepointonline.md).
 
 Connettersi a SharePoint Server o SharePoint Online per gestire documenti ed elementi elenco. È possibile eseguire varie azioni, ad esempio creare, aggiornare, ottenere ed eliminare documenti ed elementi elenco. Se si usa un ambiente SharePoint Server locale, immettere la stringa di connessione per il bus di servizio come parte della configurazione del connettore e installare l'agente listener locale per la connessione al server.
 
@@ -36,8 +36,7 @@ Le app per la logica possono essere attivate in base a diverse origini dati e of
 
 	Nome | Obbligatorio | Descrizione
 --- | --- | ---
-Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: *https://microsoft.sharepoint.com/teams/wabstest*.
-URL relativi raccolta/elenco documenti | Sì | Specificare gli URL degli elenchi o delle raccolte documenti, relativi all'URL del sito di SharePoint, che possono essere modificati dal connettore. Ad esempio, immettere: *Elenchi/attività, Documenti condivisi*.
+Site URL | Sì | Immettere l'URL completo del sito Web di SharePoint. Ad esempio, immettere: **https://microsoft.sharepoint.com/teams/wabstest*. URL relativi raccolta/elenco documenti | Sì | Specificare gli URL degli elenchi o delle raccolte documenti, relativi all'URL del sito di SharePoint, che possono essere modificati dal connettore. Ad esempio, immettere: *Elenchi/attività, Documenti condivisi*.
 
 5. Al termine, l'aspetto di Impostazioni pacchetto è simile al seguente:  
 ![][1]
@@ -467,7 +466,7 @@ Vedere l'articolo relativo all'[uso di Gestione connessione ibrida](app-service-
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE] Per iniziare a usare le app per la logica prima di creare un account di Azure, passare alla pagina [Prova l'app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare le app per la logica prima di creare un account di Azure, passare alla pagina di [prova per le app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -483,4 +482,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

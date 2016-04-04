@@ -30,7 +30,7 @@ L’Utilità di pianificazione di Azure è disponibile tramite l'interfaccia ute
 
 Non solo l'Utilità di pianificazione di Azure è disponibile per le richieste di gestione, ma il proprio processo è anche replicato geograficamente. Quando si verifica un'interruzione di servizio in un'area, l’Utilità di pianificazione di Azure va in failover e assicura che il processo venga eseguito da un altro data center nell'area geografica associata.
 
-Ad esempio, se è stato creato un processo negli USA centro-meridionali, l’Utilità di pianificazione di Azure replica automaticamente tale processo negli USA centro-settentrionale. Quando si verifica un errore negli USA centro-meridionali, l’Utilità di pianificazione Azure garantisce che il processo venga eseguito dagli USA centro-settentrionali. [L'elenco delle aree di Azure associate tra di loro è disponibile qui](https://msdn.microsoft.com/library/azure/dn758204.aspx).
+Ad esempio, se è stato creato un processo negli USA centro-meridionali, l’Utilità di pianificazione di Azure replica automaticamente tale processo negli USA centro-settentrionale. Quando si verifica un errore negli USA centro-meridionali, l’Utilità di pianificazione Azure garantisce che il processo venga eseguito dagli USA centro-settentrionali. [Per una spiegazione dettagliata delle funzionalità di replica geografica di Azure, vedere questo argomento.](../sql-database/sql-database-business-continuity-design.md)
 
 ![][1]
 
@@ -56,7 +56,7 @@ Ad esempio, nel diagramma riportato di seguito, l’Utilità di pianificazione A
 
 ![][2]
 
-Si noti che si applica lo stesso criterio di ripetizione dell'azione originale e all'azione alternativa in caso di errore. È inoltre possibile avere un’alternativa con un tipo di azione diverso da quella principale. Ad esempio, mentre l'azione principale può consistere nella chiamata di un endpoint HTTP, l'azione in caso di errore potrebbe essere invece un'azione di coda di archiviazione che effettui la registrazione degli errori.
+Si noti che si applica lo stesso criterio di ripetizione dell'azione originale e all'azione alternativa in caso di errore. È inoltre possibile avere un’alternativa con un tipo di azione diverso da quella principale. Ad esempio, mentre l'azione principale può consistere nella chiamata di un endpoint HTTP, l'azione in caso di errore può essere invece un'azione della coda di archiviazione, della coda del bus di servizio o di un argomento del bus di servizio che esegue la registrazione degli errori.
 
 Per informazioni su come configurare un endpoint alternativo, fare riferimento a [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
 
@@ -85,4 +85,4 @@ Per informazioni su come configurare un endpoint alternativo, fare riferimento a
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

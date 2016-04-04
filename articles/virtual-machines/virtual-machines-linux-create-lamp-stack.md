@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Creare uno stack LAMP con Azure | Microsoft Azure"
 	description="Informazioni su come creare uno stack LAMP con Microsoft Azure usando macchine virtuali (VM) di Azure che eseguono Linux."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="NingKuang"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -456,4 +456,4 @@ Dopo aver installato lo stack LAMP correttamente, è possibile distribuire l'app
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

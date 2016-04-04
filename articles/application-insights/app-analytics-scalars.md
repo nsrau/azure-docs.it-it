@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Espressioni scalari in Application Insights Analytics" 
-	description="Numeri, stringhe, espressioni dinamiche e tipi in Application Insights Analytics, lo strumento di ricerca avanzato per Application Insights." 
+	pageTitle="Espressioni scalari in Analytics in Application Insights" 
+	description="Numeri, stringhe, espressioni dinamiche e tipi in Analytics, lo strumento di ricerca avanzato per Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Espressioni scalari in Application Insights Analytics
+# Espressioni scalari in Analytics
 
 
-[Application Insights Analytics](app-analytics.md) è un motore di ricerca avanzato per i dati di telemetria di [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Application Insights Analytics (AIQL).
+[Analytics](app-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analytics.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -35,7 +35,7 @@
 
 
 
-Il termine "scalare" indica valori come numeri o stringhe che possono occupare una singola cella in una tabella AIQL. Le espressioni scalari sono costituite da operatori e funzioni scalari e restituiscono valori scalari. `sqrt(score)/100 > target+2` è un'espressione scalare.
+Il termine "scalare" indica valori come numeri o stringhe che possono occupare una singola cella in una tabella. Le espressioni scalari sono costituite da operatori e funzioni scalari e restituiscono valori scalari. `sqrt(score)/100 > target+2` è un'espressione scalare.
 
 Il termine "scalare" si riferisce anche a matrici e oggetti compositi che possono essere memorizzati in una singola cella di database.
 
@@ -558,7 +558,7 @@ La barra rovesciata (`\`) viene usata per i caratteri escape, ad esempio `\t` (t
 
 ### Valori letterali di stringhe offuscate
 
-I valori letterali di stringhe offuscate sono stringhe che AI Analytics nasconde durante l'output della stringa (ad esempio, durante la traccia). Il processo di offuscamento sostituisce tutti i caratteri offuscati da un carattere (`*`) di inizio.
+I valori letterali di stringhe offuscate sono stringhe che Analytics nasconde durante l'output della stringa (ad esempio, durante la traccia). Il processo di offuscamento sostituisce tutti i caratteri offuscati da un carattere (`*`) di inizio.
 
 Per creare un valore letterale di stringa offuscata, anteporre `h` o 'H'. Ad esempio:
 
@@ -676,9 +676,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 
     isempty("") == true
 
-True se l'argomento è una stringa vuota o è null.
-
-Vedere anche [isnull](#isnull).
+True se l'argomento è una stringa vuota o è null. Vedere anche [isnull](#isnull).
 
 
 **Sintassi**
@@ -863,7 +861,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Ma usare `arraylength` e altre funzioni AIQL (non usare ".length")
+* Ma usare `arraylength` e altre funzioni Analytics (non usare ".length")
 
 **Cast** In alcuni casi è necessario eseguire il cast di un elemento estratto da un oggetto poiché il tipo può variare. Ad esempio, `summarize...to` richiede un tipo specifico:
 
@@ -1083,7 +1081,7 @@ Nell'esempio seguente, quando `context_custom_metrics` è un valore `string` sim
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-il seguente frammento AIQL recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e `duration.min` (rispettivamente `118.0` e `110.0`).
+il seguente frammento recupera il valore dello slot `duration` nell'oggetto e da tale valore recupera due slot, `duration.value` e `duration.min` (rispettivamente `118.0` e `110.0`).
 
 ```AIQL
 T
@@ -1154,4 +1152,4 @@ Si noti che "[0]" indica la presenza di una matrice, ma non specifica l'indice u
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

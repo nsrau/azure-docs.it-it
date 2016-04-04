@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Usare i privilegi root in macchine virtuali Linux | Microsoft Azure" 
 	description="Informazioni su come usare i privilegi root in una macchina virtuale Linux in Azure." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
@@ -55,4 +55,4 @@ In questo caso, all'utente **non** verrà richiesta una password. Dopo aver prem
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

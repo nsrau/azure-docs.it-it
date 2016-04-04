@@ -1,175 +1,171 @@
 
 
-## Overview
+## Panoramica
 
-This article describes the available sizes and options for the virtual machine-based compute resources you can use to run your apps and workloads.  It also provides deployment considerations to be aware of when you're planning to use these resources. For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+In questo articolo vengono descritte le dimensioni e le opzioni disponibili per le risorse di calcolo basate sulla macchina virtuale che è possibile usare per eseguire le applicazioni e i carichi di lavoro. Offre anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse. Per informazioni sui prezzi di varie dimensioni, vedere [Prezzi di Macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+Per i limiti generali delle macchine virtuali di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
-The standard sizes consist of several series: A, D, DS, G, and GS. Considerations for some of these sizes include:
+Le dimensioni standard sono costituite da più serie: A, D, DS, G e GS. Si tengano presenti le considerazioni seguenti per alcune di queste dimensioni:
 
-*   D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+*   Le macchine virtuali serie D sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD ( solid-state drive) per il disco temporaneo. Per ulteriori informazioni, vedere l'annuncio sul blog di Azure, [Nuove dimensioni delle macchine virtuali serie D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-*   Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.2 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+*   Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswalle) e con tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,2 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 
-*   G-series VMs offer the most memory and run on hosts that have Intel Xeon E5 V3 family processors.
+*   Le macchine virtuali serie G offrono la maggiore quantità di memoria e vengono eseguite su host con processori della famiglia Intel Xeon E5 V3.
 
-*   DS-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache. Premium Storage is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../storage/storage-premium-storage.md).
-
-
-*   The A-series VMs can be deployed on a variety of hardware types and processors. The size is throttled, based upon the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
-
-*   The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may impact the performance of your running workload. The relative performance is outlined below as the expected baseline, subject to an approximate variability of 15 percent.
+*   Le macchine virtuali serie DS e GS possono usare l'archiviazione Premium, che offre un'archiviazione ad alte prestazioni e a bassa latenza per carichi di lavoro con uso intensivo di I/O. Usano le unità SSD (Solid State Drive) per ospitare i dischi della macchina virtuale e offrono una cache del disco SSD locale. L'archiviazione Premium è disponibile solo in determinate aree geografiche. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage.md).
 
 
-The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/). For more details about storage for VMss, see [About disks and VHDs for virtual machines ](virtual-machines-linux-about-disks-vhds.md).
+*   Le VM di serie A possono essere distribuite su una vasta gamma di tipi di hardware e processori. La dimensione è limitata in base all'hardware per offrire prestazioni del processore coerenti per l'istanza in esecuzione, indipendentemente dall'hardware in cui è distribuita. Per determinare l'hardware fisico in cui viene distribuita questa dimensione, eseguire una query nell'hardware virtuale dall'interno della macchina virtuale.
+
+*   La sottoscrizione della dimensione A0 è eccessiva nell'hardware fisico. Solo per questa dimensione specifica, altre distribuzioni dei clienti possono compromettere le prestazioni del carico di lavoro in esecuzione. Le prestazioni relative sono indicate di seguito come linea di base prevista, con variabilità approssimativa del 15%.
 
 
-The following considerations might help you decide on a size:
+La dimensione della macchina virtuale influisce sul prezzo. Influisce, inoltre, sull’elaborazione, sulla memoria e sulla capacità di archiviazione della macchina virtuale. I costi di archiviazione vengono calcolati separatamente in base alle pagine usate nell'account di archiviazione. Per ulteriori informazioni, vedere [Dettagli prezzi per le macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/) e [Dettagli prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage/). Per altre informazioni dettagliate sull'archiviazione per le macchine virtuali, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-linux-about-disks-vhds.md).
 
 
-* The A8-A11 sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. For detailed information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Le considerazioni seguenti potrebbero essere utili all’utente per scegliere una dimensione:
 
 
-*	Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
-
-*   Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11. As a result, you may see the error message **Failed to configure virtual machine <machine name>** or **Failed to create virtual machine <machine name>** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See  [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.  
+* Le dimensioni A8-A11 sono note anche come *istanze a elevato utilizzo di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. Per informazioni e considerazioni dettagliate sull'uso di queste dimensioni, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 
-## Performance considerations
+*	Le serie Dv2, D, G e DS/GS sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale o requisiti di memoria superiori. Offrono una potente combinazione per molte applicazioni di livello aziendale.
 
-We have created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs.  ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark. 
+*   Alcuni degli host fisici nei data center di Azure potrebbero non supportare macchine virtuali di dimensioni superiori, ad esempio da A5 ad A11. Di conseguenza, potrebbe essere visualizzato il messaggio di errore **Impossibile configurare la macchina virtuale <machine name>** o **Impossibile creare la macchina virtuale <machine name>** quando si configura una macchina virtuale esistente in base a una nuova dimensione, si crea una nuova macchina virtuale in una rete virtuale creata prima del 16 aprile 2013 o si aggiunge una nuova macchina a un servizio cloud esistente. Vedere [Errore: "Impossibile configurare la macchina virtuale"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) nel forum di supporto per le soluzioni alternative per ogni scenario di distribuzione.
 
->[AZURE.IMPORTANT] The ACU is only a guideline.  The results for your workload may vary. 
+
+## Considerazioni sulle prestazioni
+
+È stato creato il concetto di unità di elaborazione di Azure (ACU, Azure Compute Unit) per mettere a punto un modo per confrontare le prestazioni di calcolo (CPU) degli SKU di Azure. In questo modo, sarà più semplice identificare lo SKU più adatto a soddisfare le proprie esigenze di prestazioni. L'unità ACU adotta come standard una macchina virtuale Small (Standard\_A1), a cui attribuisce il valore 100. Per tutte le altre SKU sarà quindi possibile valutare la maggiore velocità di elaborazione con cui sono in grado di eseguire un benchmark standard.
+
+>[AZURE.IMPORTANT] L'unità ACU costituisce solo un'indicazione di riferimento. I risultati possono variare in base al carico di lavoro.
 
 <br>
 
-|SKU Family	|ACU/Core |
+|Famiglia SKU |ACU/Core |
 |---|---|
-|[Standard_A0](#standard-tier-a-series)	|50 |
-|[Standard_A1-4](#standard-tier-a-series)	|100 |
-|[Standard_A5-7](#standard-tier-a-series)	|100 |
-|[A8-A11](#standard-tier-a-series)	|225 *|
-|[D1-14](#standard-tier-d-series)	|160 |
-|[D1-14v2](#standard-tier-dv2-series)	|210 - 250 *|
-|[DS1-14](#standard-tier-ds-series)	|160 |
-|[G1-5](#standard-tier-g-series)	|180 - 240 *|
-|[GS1-5](#standard-tier-gs-series)	|180 - 240 *|
+|[Standard\_A0](#standard-tier-a-series) |50 |
+|[Standard\_A1-4](#standard-tier-a-series) |100 |
+|[Standard\_A5-7](#standard-tier-a-series) |100 |
+|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-14v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
-ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
+Le unità ACU contrassegnate con * usano la tecnologia Intel® Turbo per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni. L'entità dell'aumento di prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
 
 
 
-## Size tables
+## Tabelle delle dimensioni
 
-The following tables show the sizes and the capacities they provide.
+Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dimensione.
 
-* Storage capacity is represented by using 1024^3 bytes as the unit of measurement for GB. This is sometimes referred to as gibibyte, or base 2 definition. When comparing sizes that use different base systems, remember that base 2 sizes may appear smaller than base 10 but for any specific size (such as 1 GB) a base 2 system provides more capacity than a base 10 system, because 1024^3 is greater than 1000^3.
+* La capacità di archiviazione è rappresentata usando 1024 ^ 3 byte come unità di misura per GB. Questa unità di misura è definita talvolta gibibyte o definizione di base 2. Quando si confrontano dimensioni che usano sistemi di base diversi, è necessario ricordare che le dimensioni di base 2 potrebbero risultare più piccole di quelli di base 10 ma per qualsiasi dimensione specifica (ad esempio, 1 GB) un sistema di base 2 fornisce maggiore capacità di un sistema di base 10, perché 1024^3 è superiore a 1000^3.
 
-* Maximum network bandwidth is the maximum aggregated bandwidth allocated and assigned per VM type. The maximum bandwidth provides guidance for selecting the right VM type to ensure adequate network capacity is available. When moving between Low, Moderate, High and Very High, the throughput will increase accordingly. Actual network performance will depend on many factors including network and application loads, and application network settings.
+* La larghezza di banda della rete massima è la larghezza di banda aggregata massima allocata e assegnata a ogni tipo di VM. La larghezza di banda massima fornisce indicazioni per selezionare il tipo di VM corretto per garantire la disponibilità della capacità di rete adeguata. Quando si passa da bassa, moderata, alta e molto alta, la velocità effettiva aumenta di conseguenza. Le prestazioni di rete effettive dipenderanno da molti fattori, tra cui carichi di rete e dell’applicazione e le impostazioni di rete dell’applicazione.
 
 
-## Standard tier: A-series
+## Livello Standard: serie A
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
+|Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)| Larghezza di banda della rete max |
 |---|---|---|---|---|---|---|---|
-|Standard_A0 |1|768 MB|1| Temporary = 20 GB |1|1x500| low |
-|Standard_A1 |1|1.75 GB|1|Temporary = 70 GB |2|2x500| moderate |
-|Standard_A2 |2|3.5 GB|1|Temporary = 135 GB |4|4x500| moderate |
-|Standard_A3 |4|7 GB|2|Temporary = 285 GB |8|8x500| high |
-|Standard_A4 |8|14 GB|4|Temporary = 605 GB |16|16x500| high |
-|Standard_A5 |2|14 GB|1|Temporary = 135 GB |4|4X500| moderate |
-|Standard_A6 |4|28 GB|2|Temporary = 285 GB |8|8x500| high |
-|Standard_A7 |8|56 GB|4|Temporary = 605 GB |16|16x500| high |
+|Standard\_A0 |1|768 MB|1| Temporaneo = 20 GB |1|1x500| basso |
+|Standard\_A1 |1|1,75 GB|1|Temporaneo = 70 GB |2|2x500| moderata |
+|Standard\_A2 |2|3,5 GB|1|Temporaneo = 135 GB |4|4x500| moderata |
+|Standard\_A3 |4|7 GB|2|Temporaneo = 285 GB |8|8x500| alto |
+|Standard\_A4 |8|14 GB|4|Temporaneo = 605 GB |16|16x500| alto |
+|Standard\_A5 |2|14 GB|1|Temporaneo = 135 GB |4|4X500| moderata |
+|Standard\_A6 |4|28 GB|2|Temporaneo = 285 GB |8|8x500| alto |
+|Standard\_A7 |8|56 GB|4|Temporaneo = 605 GB |16|16x500| alto |
 
 
-## Standard tier: A-series - compute-intensive instances
+## Livello standard: serie A - Istanze a elevato utilizzo di calcolo
 
-Note: For information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Nota: per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
+|Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)| Larghezza di banda della rete max |
 |---|---|---|---|---|---|---|---|
-|Standard_A8|8|56 GB|2| Temporary = 382 GB  |16|16x500| high |
-|Standard_A9|16|112 GB|4| Temporary = 382 GB  |16|16x500| very high |
-|Standard_A10|8|56 GB|2| Temporary = 382 GB  |16|16x500| high |
-|Standard_A11|16|112 GB|4| Temporary = 382 GB  |16|16x500| very high |
+|Standard\_A8|8|56 GB|2| Temporaneo = 382 GB |16|16x500| alto |
+|Standard\_A9|16|112 GB|4| Temporaneo = 382 GB |16|16x500| molto alta |
+|Standard\_A10|8|56 GB|2| Temporaneo = 382 GB |16|16x500| alto |
+|Standard\_A11|16|112 GB|4| Temporaneo = 382 GB |16|16x500| molto alta |
 
-## Standard tier: D-series
+## Livello Standard: serie D
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
+|Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)| Larghezza di banda della rete max |
 |---|---|---|---|---|---|---|---|
-|Standard_D1 |1|3.5 GB|1|Temporary (SSD) =50 GB |2|2x500| moderate |
-|Standard_D2 |2|7 GB|2|Temporary (SSD) =100 GB |4|4x500| high |
-|Standard_D3 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500| high |
-|Standard_D4 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500| high |
-|Standard_D11 |2|14 GB|2|Temporary (SSD) =100 GB |4|4x500| high |
-|Standard_D12 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500| high |
-|Standard_D13 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500| high |
-|Standard_D14 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500| very high |
+|Standard\_D1 |1|3,5 GB|1|Temporaneo (SSD) = 50 GB |2|2x500| moderata |
+|Standard\_D2 |2|7 GB|2|Temporaneo (SSD) = 100 GB |4|4x500| alto |
+|Standard\_D3 |4|14 GB|4|Temporaneo (SSD) = 200 GB |8|8x500| alto |
+|Standard\_D4 |8|28 GB|8|Temporaneo (SSD) = 400 GB |16|16x500| alto |
+|Standard\_D11 |2|14 GB|2|Temporaneo (SSD) = 100 GB |4|4x500| alto |
+|Standard\_D12 |4|28 GB|4|Temporaneo (SSD) = 200 GB |8|8x500| alto |
+|Standard\_D13 |8|56 GB|8|Temporaneo (SSD) = 400 GB |16|16x500| alto |
+|Standard\_D14 |16|112 GB|8|Temporaneo (SSD) = 800 GB |32|32x500| molto alta |
 
-## Standard tier: Dv2-series
+## Livello standard: serie Dv2
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
+|Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)| Larghezza di banda della rete max |
 |---|---|---|---|---|---|---|---|
-|Standard_D1_v2 |1|3.5 GB|1|Temporary (SSD) =50 GB |2|2x500| moderate |
-|Standard_D2_v2 |2|7 GB|2|Temporary (SSD) =100 GB |4|4x500| high |
-|Standard_D3_v2 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500| high |
-|Standard_D4_v2 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500| high |
-|Standard_D5_v2 |16|56 GB|8|Temporary (SSD) =800 GB |32|32x500| very high |
-|Standard_D11_v2 |2|14 GB|2|Temporary (SSD) =100 GB |4|4x500| high |
-|Standard_D12_v2 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500| high |
-|Standard_D13_v2 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500| high |
-|Standard_D14_v2 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500| very high |
+|Standard\_D1\_v2 |1|3,5 GB|1|Temporaneo (SSD) = 50 GB |2|2x500| moderata |
+|Standard\_D2\_v2 |2|7 GB|2|Temporaneo (SSD) = 100 GB |4|4x500| alto |
+|Standard\_D3\_v2 |4|14 GB|4|Temporaneo (SSD) = 200 GB |8|8x500| alto |
+|Standard\_D4\_v2 |8|28 GB|8|Temporaneo (SSD) = 400 GB |16|16x500| alto |
+|Standard\_D5\_v2 |16|56 GB|8|Temporaneo (SSD) = 800 GB |32|32x500| molto alta |
+|Standard\_D11\_v2 |2|14 GB|2|Temporaneo (SSD) = 100 GB |4|4x500| alto |
+|Standard\_D12\_v2 |4|28 GB|4|Temporaneo (SSD) = 200 GB |8|8x500| alto |
+|Standard\_D13\_v2 |8|56 GB|8|Temporaneo (SSD) = 400 GB |16|16x500| alto |
+|Standard\_D14\_v2 |16|112 GB|8|Temporaneo (SSD) = 800 GB |32|32x500| molto alta |
 
-## Standard tier: DS-series*
+## Livello Standard: serie DS*
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth| Max network bandwidth |
+|Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Dimensione cache (GB)|IOPS max. disco e larghezza di banda| Larghezza di banda della rete max |
 |---|---|---|---|---|---|---|---|---|
-|Standard_DS1 |1|3.5|1|Local SSD disk = 7 GB |2|43| 3,200  32 MB per second | moderate |
-|Standard_DS2 |2|7|2|Local SSD disk = 14 GB |4|86| 6,400  64 MB per second | high |
-|Standard_DS3 |4|14|4|Local SSD disk = 28 GB |8|172| 12,800  128 MB per second | high |
-|Standard_DS4 |8|28|8|Local SSD disk = 56 GB |16|344| 25,600  256 MB per second | high |
-|Standard_DS11 |2|14|2|Local SSD disk = 28 GB |4|72| 6,400  64 MB per second | high |
-|Standard_DS12 |4|28|4|Local SSD disk = 56 GB |8|144| 12,800  128 MB per second | high |
-|Standard_DS13 |8|56|8|Local SSD disk = 112 GB |16|288| 25,600  256 MB per second | high |
-|Standard_DS14 |16|112|8|Local SSD disk = 224 GB |32|576| 50,000  512 MB per second | very high |
+|Standard\_DS1 |1|3,5|1|Disco SSD locale = 7 GB |2|43| 3\.200 32 MB al secondo | moderata |
+|Standard\_DS2 |2|7|2|Disco SSD locale = 14 GB |4|86| 6\.400 64 MB al secondo | alto |
+|Standard\_DS3 |4|14|4|Disco SSD locale = 28 GB |8|172| 12\.800 128 MB al secondo | alto |
+|Standard\_DS4 |8|28|8|Disco SSD locale = 56 GB |16|344| 25\.600 256 MB al secondo | alto |
+|Standard\_DS11 |2|14|2|Disco SSD locale = 28 GB |4|72| 6\.400 64 MB al secondo | alto |
+|Standard\_DS12 |4|28|4|Disco SSD locale = 56 GB |8|144| 12\.800 128 MB al secondo | alto |
+|Standard\_DS13 |8|56|8|Disco SSD locale = 112 GB |16|288| 25\.600 256 MB al secondo | alto |
+|Standard\_DS14 |16|112|8|Disco SSD locale = 224 GB |32|576| 50\.000 512 MB al secondo | molto alta |
 
-*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../storage/storage-premium-storage.md).
+**Il numero massimo di operazioni di input/output al secondo (IOPS) e la velocità effettiva (larghezza di banda) possibili con una macchina virtuale serie DS dipende dalla dimensione del disco. Per ulteriori informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage.md).
 
-## Standard tier: G-series
+## Livello Standard: serie G
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
+|Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Max. IOPS (500 per disco)| Larghezza di banda della rete max |
 |---|---|---|---|---|---|---|---|
-|Standard_G1 |2|28 GB|1|Local SSD disk = 384 GB |4|4 x 500| high |
-|Standard_G2 |4|56 GB|2|Local SSD disk = 768 GB |8|8 x 500| high |
-|Standard_G3 |8|112 GB|4|Local SSD disk = 1,536 GB |16|16 x 500| very high | 
-|Standard_G4 |16|224 GB|8|Local SSD disk = 3,072 GB |32|32 x 500| extremely high |
-|Standard_G5 |32|448 GB|8|Local SSD disk = 6,144 GB |64| 64 x 500 | extremely high |
+|Standard\_G1 |2|28 GB|1|Disco SSD locale = 384 GB |4|4x500| alto |
+|Standard\_G2 |4|56 GB|2|Disco SSD locale = 768 GB |8|8x500| alto |
+|Standard\_G3 |8|112 GB|4|Disco SSD locale = 1.536 GB |16|16x500| molto alta | 
+|Standard\_G4 |16|224 GB|8|Disco SSD locale = 3.072 GB |32|32x500| estremamente alta |
+|Standard\_G5 |32|448 GB|8|Disco SSD locale = 6.144 GB |64| 64 x 500 | estremamente alta |
 
-## Standard tier: GS-series
+## Livello Standard: serie GS
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth| Max network bandwidth |
+|Dimensione |Core CPU|Memoria|NIC (Max)|Dimensione disco max.|Dischi di dati max. (1023 GB ciascuno)|Dimensione cache (GB)|IOPS max. disco e larghezza di banda| Larghezza di banda della rete max |
 |---|---|---|---|---|---|---|---|---|
-|Standard_GS1|2|28|1|Local SSD disk = 56 GB |4|264| 5,000  125 MB per second | high |
-|Standard_GS2|4|56|2|Local SSD disk = 112 GB |8|528| 10,000  250 MB per second | high | 
-|Standard_GS3|8|112|4|Local SSD disk = 224 GB |16|1056| 20,000  500 MB per second | very high |
-|Standard_GS4|16|224|8|Local SSD disk = 448 GB |32|2112| 40,000  1,000 MB per second | extremely high |
-|Standard_GS5|32|448|8|Local SSD disk = 896 GB |64|4224| 80,000  2,000 MB per second | extremely high |
+|Standard\_GS1|2|28|1|Disco SSD locale = 56 GB |4|264| 5\.000 125 MB al secondo | alto |
+|Standard\_GS2|4|56|2|Disco SSD locale = 112 GB |8|528| 10\.000 250 MB al secondo | alto | 
+|Standard\_GS3|8|112|4|Disco SSD locale = 224 GB |16|1056| 20\.000 500 MB al secondo | molto alta |
+|Standard\_GS4|16|224|8|Disco SSD locale = 448 GB |32|2112| 40\.000 1.000 MB al secondo | estremamente alta |
+|Standard\_GS5|32|448|8|Disco SSD locale = 896 GB |64|4224| 80\.000 2.000 MB al secondo | estremamente alta |
 
 
-## Notes: Standard A0 - A4 using CLI and Powershell 
+## Note: Standard A0 - A4 che utilizza l’interfaccia della riga di comando e Powershell 
 
-In the classic deployment model, some VM size names are slightly different in CLI and Powershell:
+Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggermente diversi in Powershell e nell’interfaccia della riga di comando:
 
-* Standard_A0 is ExtraSmall 
-* Standard_A1 is Small
-* Standard_A2 is Medium
-* Standard_A3 is Large
-* Standard_A4 is ExtraLarge
+* Standard\_A0 è ExtraSmall 
+* Standard\_A1 è Small
+* Standard\_A2 è Medium
+* Standard\_A3 è Large
+* Standard\_A4 è ExtraLarge
 
-## Next steps
+## Passaggi successivi
 
-- Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-- Learn more [about the A8, A9, A10, and A11 compute intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md) for workloads like High-performance Computing (HPC).
+- Informazioni su [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+- Altre informazioni [sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-windows-a8-a9-a10-a11-specs.md) per carichi di lavoro come High-performance Computing (HPC).
 
+<!---HONumber=AcomDC_0323_2016-->

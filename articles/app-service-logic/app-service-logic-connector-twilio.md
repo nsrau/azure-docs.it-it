@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Uso del connettore Twilio e aggiunta all'app per la logica
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione schema 2015-08-01-preview, fare clic su [API Twilio](../connectors/create-api-twilio.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione schema 2015-08-01-preview, fare clic su [API Twilio](../connectors/connectors-create-api-twilio.md).
 
 Connettersi all'account Twilio per inviare e ricevere messaggi SMS. È inoltre possibile recuperare numeri di telefono e dati di utilizzo. Le app per la logica possono essere attivate in base a diverse origini dati e offrono connettori per ottenere ed elaborare i dati come parte del flusso. È possibile aggiungere il connettore Twilio al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
 
@@ -79,4 +79,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

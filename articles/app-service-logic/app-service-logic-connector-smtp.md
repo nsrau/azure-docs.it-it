@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 
 # Uso del connettore SMTP e aggiunta all'app per la logica
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API SMTP](../connectors/create-api-smtp.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API SMTP](../connectors/connectors-create-api-smtp.md).
 
 Connettersi a un server SMTP e inviare messaggi di posta elettronica con allegati. L'azione "Send Email" del connettore SMTP consente di inviare e-mail a indirizzi specificati.
 
@@ -71,16 +71,16 @@ Dopo aver creato il connettore, è possibile usare il connettore SMTP come azion
 
 È ora possibile configurare il connettore SMTP per usarlo nel flusso di lavoro. Selezionare l'azione **Invia posta elettronica** e configurare le proprietà di input:
 
-	Proprietà | Descrizione
+	Property | Description
 	--- | ---
-	A |Immettere l'indirizzo e-mail del/dei destinatario/i. Separare più indirizzi e-mail utilizzando il punto e virgola (;). Ad esempio, inserire: *recipient1@domain.com;recipient2@domain.com*.
-	Cc | Immettere l'indirizzo e-mail del/dei destinatario/i in copia per conoscenza. Separare più indirizzi e-mail utilizzando il punto e virgola (;). Ad esempio, inserire: *recipient1@domain.com;recipient2@domain.com*.
-	Oggeto | Inserire l'oggetto dell'e-mail.
-	Corpo | Immettere il corpo del messaggio e-mail.
-	Is HTML | Se questa proprietà è impostata su true, i contenuti del corpo vengono inviati in formato HTML.
-	Bcc | Immettere l'indirizzo e-mail del/dei destinatario/i in copia per conoscenza nascosta.  Separare più indirizzi e-mail utilizzando il punto e virgola (;). Ad esempio, inserire: *recipient1@domain.com;recipient2@domain.com*.
-	Priorità | Selezionare la priorità dell'e-mail. Le opzioni sono Normale, Bassa e Alta.
-	Attaccamento | Allegati da inviare insieme all'e-mail. Include i seguenti campi: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Subject | Enter the subject of the email.
+	Body | Enter body of the email.
+	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
+	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
+	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
 ![][5]
 ![][6]
@@ -102,4 +102,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

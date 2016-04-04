@@ -173,7 +173,7 @@ Tali procedure vengono descritte qui di seguito:
 
 ### Distribuzione di un database di SQL Server a una macchina virtuale di Microsoft Azure
 
-La **Distribuzione di un Database SQL Server in una macchina virtuale di Microsoft Azure** è un modo semplice e consigliato per spostare dati da un'istanza di SQL Server locale a un SQL Server in una macchina virtuale di Azure. Per passaggi dettagliati, nonché per una descrizione delle altre alternative, vedere [Migrazione di un database a SQL Server su una macchina virtuale di Azure](../virtual-machines/virtual-machines-migrate-onpremises-database.md).
+La **Distribuzione di un Database SQL Server in una macchina virtuale di Microsoft Azure** è un modo semplice e consigliato per spostare dati da un'istanza di SQL Server locale a un SQL Server in una macchina virtuale di Azure. Per passaggi dettagliati, nonché per una descrizione delle altre alternative, vedere [Migrazione di un database a SQL Server su una macchina virtuale di Azure](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md).
 
 ### <a name="export-flat-file"></a>Esportazione in un file flat
 
@@ -217,11 +217,11 @@ Seguito è riportata una schermata delle opzioni di backup e ripristino del data
 
 ## Risorse
 
-[Migrazione di un database a SQL Server su una macchina virtuale di Azure](../virtual-machines/virtual-machines-migrate-onpremises-database.md)
+[Migrazione di un database a SQL Server su una macchina virtuale di Azure](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md)
 
-[Panoramica di SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-sql-server-infrastructure-services.md)
+[Panoramica di SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-classic-sql-overview.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

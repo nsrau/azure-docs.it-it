@@ -97,7 +97,7 @@ Se si sceglie di utilizzare un database SQL di Azure esistente o un Server SQL d
 
 - **Database SQL di Azure**: è necessario configurare una regola del firewall per il server di database SQL per consentire l'accesso dalla workstation. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione del firewall, vedere [Introduzione al database SQL di Azure][sqldatabase-get-started]. 
 
-    > [AZURE.NOTE] Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di anteprima di Azure. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione di regole del firewall, vedere [Come creare e configurare un database SQL di Azure][sqldatabase-create-configue].
+    > [AZURE.NOTE] Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di Azure. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione di regole del firewall, vedere [Come creare e configurare un database SQL di Azure][sqldatabase-create-configue].
 
 - **SQL Server**: se il cluster HDInsight si trova sulla stessa rete virtuale di Azure di SQL Server, è possibile usare la procedura descritta in questo articolo per importare ed esportare i dati in un database SQL Server.
 
@@ -288,7 +288,6 @@ In questa sezione, si creerà un'applicazione console c# per esportare la hivesa
 
 		var parameters = new SqoopJobSubmissionParameters
 		{
-		    UserName = ExistingClusterUsername,
 		    Command = cmdExport
 		};
 		
@@ -374,7 +373,7 @@ L'esempio di PowerShell esegue questa procedura:
 
 8. Importare la tabella mobiledata nel cluster HDInsight.
 
-	Per esaminare il file di dati modificato, è possibile usare il portale di anteprima di Azure, uno strumento di Esplora archivi Azure oppure Azure PowerShell. In [Introduzione all'uso di HDInsight][hdinsight-get-started] è presente un esempio di codice relativo all'uso di Azure PowerShell per scaricare un file e visualizzarne il contenuto.
+	Per esaminare il file di dati modificato, è possibile usare il portale di Azure, uno strumento di Esplora archivi Azure oppure Azure PowerShell. In [Introduzione all'uso di HDInsight][hdinsight-get-started] è presente un esempio di codice relativo all'uso di Azure PowerShell per scaricare un file e visualizzarne il contenuto.
 
 
 ### L’esempio di PowerShell.
@@ -791,4 +790,4 @@ L'esempio di PowerShell esegue questa procedura:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

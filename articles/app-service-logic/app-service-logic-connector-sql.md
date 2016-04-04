@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Uso del connettore Microsoft SQL e aggiunta all'app per la logica
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview di Azure SQL, fare clic su [API SQL Azure](../connectors/create-api-sqlazure.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview di Azure SQL, fare clic su [API SQL Azure](../connectors/connectors-create-api-sqlazure.md).
 
 Connettersi a un'istanza di SQL Server in locale o a un database SQL di Azure per creare e modificare le informazioni o i dati. I connettori possono essere usati nelle app per la logica per operazioni di recupero, elaborazione o push di dati nell'ambito di un "flusso di lavoro". Quando si usa il connettore SQL nel flusso di lavoro è possibile ottenere un'ampia gamma di scenari. Ad esempio, è possibile:
 
@@ -75,7 +75,7 @@ Per usare il connettore SQL come trigger, immettere i valori per **Data Availabl
 
 **Poll Data Query** viene eseguita solo quando Data Available Query indica che sono disponibili dati. Questa istruzione viene eseguita all'interno di una transazione e ne viene eseguito il commit solo quando i dati estratti vengono archiviati in modo permanente nel flusso di lavoro. È importante evitare di estrarre sempre gli stessi dati. La natura transazionale di questa esecuzione può essere usata per eliminare o aggiornare i dati per garantire che non vengano raccolti la volta successiva che viene eseguita una query sui dati.
 
-> [AZURE.NOTE]Lo schema restituito da questa istruzione identifica le proprietà disponibili nel connettore. Tutte le colonne devono essere denominate.
+> [AZURE.NOTE] Lo schema restituito da questa istruzione identifica le proprietà disponibili nel connettore. Tutte le colonne devono essere denominate.
 
 #### Esempio di Data Available Query
 
@@ -116,7 +116,7 @@ Per usare il connettore SQL come azione, immettere il nome delle tabelle e/o del
 
 Query SQL | Supportato | Non supportato
 --- | --- | ---
-Clausola Where | <ul><li>Operatori: AND, OR, =, <>, <, <=, >, >= e LIKE</li><li>Più sottocondizioni possono essere combinate con '(' e ')'</li><li>Valori letterali stringa, data/ora (racchiusi tra virgolette singole), numeri (devono contenere solo caratteri numerici)</li><li>Deve essere rigorosamente in un formato di espressione binaria, come ((operando operatore operando) AND/OR (operando operatore operando))*</li></ul> | <ul><li>Operatori: Between, IN</li><li>Tutte le funzioni predefinite, ad esempio ADD(), MAX() NOW(), POWER() e così via</li><li>Operatori matematici, ad esempio *, -, + e così via</li><li>Concatenazioni di stringa con +.</li><li>Tutti i join</li><li>IS NULL e IS NOT Null</li><li>Qualsiasi numero con caratteri non numerici, ad esempio i numeri esadecimali</li></ul>
+Clausola Where | <ul><li>Operatori: AND, OR, =, <>, <, <=, >, >= e LIKE</li><li>Più sottocondizioni possono essere combinate con '(' e ')'</li><li>Valori letterali stringa, data/ora (racchiusi tra virgolette singole), numeri (devono contenere solo caratteri numerici)</li><li>Deve essere rigorosamente in un formato di espressione binaria, come ((operando operatore operando) AND/OR (operando operatore operando))**</li></ul> | <ul><li>Operatori: Between, IN</li><li>Tutte le funzioni predefinite, ad esempio ADD(), MAX() NOW(), POWER() e così via</li><li>Operatori matematici, ad esempio *, -, + e così via</li><li>Concatenazioni di stringa con +.</li><li>Tutti i join</li><li>IS NULL e IS NOT Null</li><li>Qualsiasi numero con caratteri non numerici, ad esempio i numeri esadecimali</li></ul>
 Campi (nella query Select) | <ul><li>Nomi di colonna validi, separati da virgole. Non sono consentiti prefissi di nomi di tabella (il connettore funziona su una sola tabella alla volta).</li><li>I nomi possono essere preceduti dai caratteri di escape '[' e ']'</li></ul> | <ul><li>Parole chiave come TOP, DISTINCT e così via</li><li>Aliasing, ad esempio Via + Città + CAP COME indirizzo</li><li>Tutte le funzioni predefinite, ad esempio ADD(), MAX() NOW(), POWER() e così via</li><li>Operatori matematici, ad esempio *, -, + e così via</li><li>Concatenazioni di stringa con +</li></ul>
 
 #### Suggerimenti
@@ -155,4 +155,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

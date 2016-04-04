@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Uso del connettore Office 365 e aggiunta all'app per la logica
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview fare clic su [API per Office 365 Outlook API](../connectors/connectors-create-api-office365-outlook.md) o [API per gli utenti di Office 365](../connectors/connectors-create-api-office365-users.md).
 
 Connettersi a un account Office 365 per inviare e ricevere messaggi di posta elettronica e gestire il calendario e i contatti. È possibile eseguire diverse azioni, ad esempio inviare, ricevere e ottenere messaggi di posta elettronica, creare ed eliminare eventi nel calendario e creare, aggiornare, ottenere ed eliminare i contatti.
 
@@ -131,4 +131,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

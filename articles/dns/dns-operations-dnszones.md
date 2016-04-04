@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/24/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma"/>
 
 # Come gestire le zone DNS utilizzando PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-operations-dnszones-cli.md)
+- [Interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
 - [PowerShell](dns-operations-dnszones.md)
 
 
@@ -113,4 +113,4 @@ L'oggetto di zona può essere anche reindirizzato invece che passato come parame
 
 [Automatizzare le operazioni usando .NET SDK](dns-sdk.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0323_2016-->

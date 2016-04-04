@@ -36,7 +36,7 @@ Per abilitare il debug remoto in Azure, per i servizi cloud o le macchine virtua
 
 ## Abilitazione del debug remoto per le macchine virtuali
 
-1. Creare una macchina virtuale di Azure. Per informazioni, vedere [Creazione di una macchina virtuale che esegue Windows Server](/virtual-machines/virtual-machines-windows-tutorial.md) o [Creazione e gestione di macchine virtuali di Azure in Visual Studio](/vs-azure-tools-virtual-machines-create-manage.md).
+1. Creare una macchina virtuale di Azure. Per informazioni, vedere [Creazione di una macchina virtuale che esegue Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md) o [Creazione e gestione di macchine virtuali di Azure in Visual Studio](../virtual-machines/virtual-machines-windows-classic-manage-visual-studio.md).
 2. Nella [pagina del portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=269851) visualizzare il dashboard della macchina virtuale per individuare **L’IDENTIFICAZIONE PERSONALE CERTIFICATO RDP** della macchina virtuale. Questo valore viene utilizzato per il valore `ServerThumbprint` nella configurazione dell'estensione.
 3. Creare un certificato client come descritto in [Panoramica sui certificati per i servizi cloud di Azure](cloud-services-certs-create.md) (conservare il file .pfx e l'identificazione personale del certificato RDP).
 4. Installare Azure Powershell (versione 0.7.4 o versione successiva) come descritto in [Come installare e configurare Azure PowerShell](/powershell-install-configure.md).
@@ -91,4 +91,4 @@ Per abilitare il debug remoto in Azure, per i servizi cloud o le macchine virtua
 
 6. Importare il certificato (file PFX) nel computer in cui è installato Visual Studio con Azure SDK per .NET.
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

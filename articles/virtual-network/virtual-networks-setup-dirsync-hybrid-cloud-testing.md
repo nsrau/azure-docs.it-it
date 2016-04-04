@@ -181,8 +181,8 @@ Questo ambiente è ora pronto per eseguire il test delle applicazioni di Office 
 
 [Configurazione di un ambiente cloud ibrido simulato per l'esecuzione di test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
-[Ambienti di test basati su cloud ibrido di Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
+[Ambienti di test basati su cloud ibrido di Azure](../virtual-machines/virtual-machines-windows-classic-hybrid-test-env.md)
 
-[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Linee guida sull'implementazione dei servizi di infrastruttura di Azure](../virtual-machines/virtual-machines-linux-infrastructure-service-guidelines.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

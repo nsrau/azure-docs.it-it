@@ -571,7 +571,6 @@ Al termine del processo sarà possibile esportare i dati in SQL Server o nel dat
 ##<a id="nextsteps"></a>Passaggi successivi
 In questa esercitazione si è appreso come sviluppare un processo MapReduce Java, come testare l'applicazione in HDInsight Emulator e come scrivere uno script di Azure PowerShell per effettuare il provisioning di un cluster HDInsight ed eseguire un processo MapReduce nel cluster. Per altre informazioni, vedere gli articoli seguenti:
 
-- [Sviluppare programmi MapReduce di streaming Hadoop in C# per HDInsight][hdinsight-develop-streaming]
 - [Introduzione ad Azure HDInsight][hdinsight-get-started]
 - [Introduzione a HDInsight Emulator][hdinsight-emulator]
 - [Usare l'archivio BLOB di Azure con HDInsight][hdinsight-storage]
@@ -590,7 +589,6 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce Java
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-emulator]: ../hdinsight-get-started-emulator.md
@@ -610,4 +608,4 @@ In questa esercitazione si è appreso come sviluppare un processo MapReduce Java
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

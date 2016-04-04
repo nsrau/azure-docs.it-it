@@ -1,33 +1,33 @@
-## Load Balancer differences
+## Differenze del servizio di bilanciamento del carico
 
-There are different options to distribute network traffic using Microsoft Azure.  These options work differently from each other, having a different feature set and supports different scenarios.  They can each be used in isolation, or combining them.
+Sono disponibili diverse opzioni per distribuire il traffico di rete tramite Microsoft Azure. Queste opzioni funzionano in modo diverso, vantano un set di funzionalità differenti e supportano diversi scenari. Possono essere utilizzate singolarmente o in combinazione.
 
-- Azure Load Balancer works at the network layer (level 4 in the OSI network reference stack).  It provides network-level distribution of traffic across instances of an application running in the same Azure data center.
+- Il servizio di bilanciamento del carico di Azure funziona a livello di rete (livello 4 nello stack di riferimento di rete OSI). Assicura la distribuzione del traffico a livello di rete tra le istanze di un'applicazione in esecuzione nello stesso data center di Azure.
 
-- Application Gateway works at the application layer (level 7 in the OSI network reference stack).  It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints.
+- Il gateway applicazione funziona a livello di applicazione (livello 7 nello stack di riferimento di rete OSI). Agisce come un servizio di proxy inverso, terminando la connessione di client e inoltrando richieste a endpoint di back-end.
 
-- 	Traffic Manager works at the DNS level.  It uses DNS responses to direct end-user traffic to globally-distributed endpoints.  Clients then connect to those endpoints directly.
-The following table summarizes the features offered by each service:
+- 	Il servizio Gestione traffico funziona a livello DNS. Usa le risposte DNS per indirizzare il traffico degli utenti finali agli endpoint distribuiti a livello globale. I client si connettono quindi direttamente a questi endpoint. La tabella seguente riepiloga le funzionalità offerte da ogni servizio:
 
-|Azure Load Balancer |	Application Gateway | Traffic Manager |
+|Servizio di bilanciamento del carico di Azure |	Gateway applicazione | Gestione traffico |
 |---|---|---|
-|Technology| Network level (level 4) | Application level (level 7) |	DNS level |
-| Application protocols supported |	Any | HTTP and HTTPS | 	Any (An HTTP/S endpoint is required for endpoint monitoring) |
-| Endpoints | Azure VMs and Cloud Services role instances | Any Azure Internal IP address or public internet IP address | Azure VMs, Cloud Services, Azure Web Apps and external endpoints |
-| Vnet support | Can be used for both Internet facing and internal (Vnet) applications | Can be used for both Internet facing and internal (Vnet) applications |	Only supports Internet-facing applications |
-Endpoint Monitoring | supported via probes | supported via probes | supported via HTTP/HTTPS GET | 
-<BR>
-Azure Load Balancer and Application Gateway route network traffic to endpoints but they have different usage scenarios to which traffic to handle. The table below helps understanding the difference between the two load balancers:
+|Tecnologia| Livello di rete (livello 4) | Livello di applicazione (livello 7) |	Livello DNS |
+| Protocolli di applicazioni supportati |	Qualsiasi | HTTP e HTTPS | 	Qualsiasi (è richiesto un endpoint HTTP/S per il monitoraggio degli endpoint) |
+| Endpoint | Istanze del ruolo VM e Servizi cloud di Azure | Qualsiasi indirizzo IP interno di Azure o indirizzo IP Internet pubblico | VM di Azure, Servizi Cloud, App Web di Azure ed endpoint esterni |
+| Supporto della rete virtuale | Può essere utilizzato sia per applicazioni con connessione Internet sia per applicazioni interne (rete virtuale) | Può essere utilizzato sia per applicazioni con connessione Internet sia per applicazioni interne (rete virtuale) |	Supporta solo applicazioni con connessione Internet |
+Monitoraggio degli endpoint | supportato tramite probe | supportato tramite probe | supportato tramite HTTP/HTTPS GET | 
+<BR> Il servizio di bilanciamento del carico e il gateway applicazione di Azure indirizzano il traffico di rete agli endpoint, ma presentano diversi scenari di utilizzo in base al traffico da gestire. La tabella seguente consente di comprendere la differenza tra i due servizi di bilanciamento del carico:
 
 
-| Type | Azure Load Balancer | Application Gateway |
+| Tipo | Servizio di bilanciamento del carico di Azure | Gateway applicazione |
 |---|---|---|
-| Protocols | UDP/TCP | HTTP/ HTTPS |
-| IP reservation | Supported | Not supported | 
-| Load balancing mode | 5 tuple(source IP, source port, destination IP,destination port, protocol type) | CookieBasedAffinity = false,rules = basic (Round-Robin) | 
-| Load balancing mode (source IP /sticky sessions) |  2 tuple (source IP and destination IP), 3 tuple (source IP, destination IP and port). Can scale up or down based on the number of virtual machines | CookieBasedAffinity = true,rules = basic (Roud-Robin) for new connections. |
-| health probes | Default: probe interval - 15 secs. Taken out of rotation: 2 Continuous failures. Supports user defined probes | Idle probe interval 30 secs. Taken out after 5 consecutive live traffic failures or a single probe failure in idle mode. Supports user defined probes | 
-| SSL offloading | not supported | supported | 
+| Protocolli | UDP/TCP | HTTP/HTTPS |
+| Prenotazione IP | Supportato | Non supportato | 
+| Modalità di bilanciamento del carico | 5 tuple (IP di origine, porta di origine, IP di destinazione, porta di destinazione, tipo di protocollo) | CookieBasedAffinity = false,rules = basic (round robin) | 
+| Modalità di bilanciamento del carico (IP di origine / sessioni permanenti) | 2 tuple (IP di origine e IP di destinazione), 3 tuple (IP di origine, IP di destinazione e porta). Possono aumentare o diminuire in base al numero di macchine virtuali | CookieBasedAffinity = true,rules = basic (round robin) per nuove connessioni. |
+| probe di integrità | Predefinito: intervallo di probe - 15 secondi. Esclusione dalla rotazione: 2 errori ripetuti. Supporta le probe definite dall'utente | Inattivo: intervallo di probe - 30 secondi. Esclusione dopo 5 errori consecutivi di traffico live o un errore di probe singolo in modalità di inattività. Supporta le probe definite dall'utente | 
+| Offload SSL | non supportato | supportato | 
 
 
   
+
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,26 +14,26 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 # Informazioni sul monitoraggio dei processi di Analisi di flusso e su come monitorare le query
 
 ## Introduzione: Pagina di monitoraggio
 
-Il portale di gestione di Azure e il portale di anteprima di Azure evidenziano entrambi metriche delle prestazioni chiave che possono essere usate per monitorare e risolvere i problemi di prestazioni delle query e dei processi.
+Il portale di gestione di Azure e il portale di Azure evidenziano entrambi metriche delle prestazioni chiave che possono essere usate per monitorare e risolvere i problemi di prestazioni delle query e dei processi.
 
 Nel portale di gestione di Azure, Fare clic sulla scheda **Monitoraggio** di un processo di Analisi di flusso per visualizzare queste metriche. Si verifica un ritardo di al massimo 1 minuto nella visualizzazione delle metriche delle prestazioni nella pagina Monitoraggio.
 
   ![Monitoraggio del dashboard dei processi](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)
 
-Nel portale di anteprima di Azure esplorare il processo di analisi di flusso di cui si desidera vedere le metriche e visualizzare la sezione **Monitoraggio**.
+Nel portale di Azure, esplorare il processo di analisi di flusso di cui si desidera vedere le metriche e visualizzare la sezione **Monitoraggio**.
 
-  ![Portale di anteprima di Azure, monitoraggio del dashboard dei processi](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)
+  ![Portale di Azure, Monitoraggio del dashboard dei processi](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)
 
 La prima volta che viene creato un processo di analisi di flusso in un'area, è necessario configurare la diagnostica per tale area. A tale scopo, fare clic nella sezione **Monitoraggio** e verrà visualizzato il pannello **Diagnostica**. Qui è possibile abilitare la diagnostica e specificare un account di archiviazione per i dati di monitoraggio.
 
-  ![Portale di anteprima di Azure, configurazione della diagnostica delle query](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
+  ![Portale di Azure, Configurazione della diagnostica query](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
 
 ## Metriche disponibili per l'analisi di flusso
 
@@ -65,15 +65,15 @@ Per modificare l'intervallo di tempo visualizzato sul grafico delle metriche, se
 
 È possibile impostare regole che possono inviare una notifica per posta elettronica nel caso in cui il processo supera una soglia definita.
 
-## Personalizzazione del monitoraggio nel portale di anteprima di Azure ##
+## Personalizzazione del monitoraggio nel portale di Azure ##
 
-È possibile modificare il tipo di grafico, le metriche visualizzate e l’intervallo di tempo nelle impostazioni di Modifica grafico. Per altre informazioni, vedere [Come personalizzare il monitoraggio](./azure-portal/insights-how-to-customize-monitoring.md).
+È possibile modificare il tipo di grafico, le metriche visualizzate e l’intervallo di tempo nelle impostazioni di Modifica grafico. Per altre informazioni, vedere [Come personalizzare il monitoraggio](../azure-portal/insights-how-to-customize-monitoring.md).
 
-  ![Portale di anteprima di Azure, monitoraggio query, scala cronologica](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)
+  ![Portale di Azure, monitoraggio query, scala cronologica](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)
 
 ## Stato processo
 
-Lo stato dei processi di Analisi di flusso può essere esaminato nel portale di Azure quando si visualizza un elenco di processi. Per visualizzare l'elenco dei processi, fare clic sull'icona Analisi di flusso nel Portale di Azure.
+Lo stato dei processi di Analisi di flusso può essere visualizzato nel portale di Azure classico dove appare un elenco di processi. Per visualizzare l'elenco dei processi, fare clic sull'icona Analisi di flusso nel Portale di Azure classico.
 
 | Stato | Definizione |
 |--------|------------|
@@ -107,4 +107,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

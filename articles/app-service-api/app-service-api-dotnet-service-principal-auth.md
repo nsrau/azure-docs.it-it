@@ -365,7 +365,7 @@ Apportare le modifiche seguenti al progetto TodoListDataAPI.
 
 	c. Trovare il valore di objectid per l'entità servizio dell'applicazione TodoListAPI e salvarlo in una posizione da cui poterlo copiare più tardi.
 
-7. Nel portale di Azure passare al pannello App Web per l'app Web in cui è stato distribuito il progetto ToDoListAngular.
+7. Nel portale di Azure passare al pannello App per le API dell'app per le API in cui è stato distribuito il progetto ToDoListDataAPI.
 
 9. Fare clic su **Impostazioni > Impostazioni applicazione**.
 
@@ -417,4 +417,4 @@ Per altre informazioni su Azure Active Directory, vedere le risorse seguenti.
 
 Per informazioni su altre modalità di distribuzione di progetti Visual Studio in app per le API usando Visual Studio o [automatizzando la distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) da un [sistema di controllo del codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), vedere [Come distribuire un'app di Servizio app di Azure](../app-service-web/web-sites-deploy.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

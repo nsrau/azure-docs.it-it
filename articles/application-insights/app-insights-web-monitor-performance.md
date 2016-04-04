@@ -53,7 +53,7 @@ Fare clic su un grafico per scegliere quali metriche visualizzare oppure aggiung
 
 ![Fare clic su un grafico per scegliere le metriche](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
 
-> [AZURE.NOTE]**Deselezionare tutte le metriche** per visualizzare la selezione completa disponibile. Le metriche sono suddivise in gruppi; quando si seleziona qualsiasi membro di un gruppo, vengono visualizzati solo gli altri membri di quel gruppo.
+> [AZURE.NOTE] **Deselezionare tutte le metriche** per visualizzare la selezione completa disponibile. Le metriche sono suddivise in gruppi; quando si seleziona qualsiasi membro di un gruppo, vengono visualizzati solo gli altri membri di quel gruppo.
 
 
 ## <a name="metrics"></a>Interpretazione dei dati Riquadri e report sulle prestazioni
@@ -112,6 +112,8 @@ La selezione di una metrica disabiliterà le altre metriche che non possono esse
 
 Alcune delle metriche selezionabili derivano dai [contatori delle prestazioni](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Oltre ai numerosi contatori delle prestazioni inclusi in Windows, è possibile definire contatori personalizzati.
 
+Per le applicazioni ospitate in Azure, [inviare i dati del servizio Diagnostica di Azure ad Application Insights](app-insights-azure-diagnostics.md).
+
 Questo esempio mostra i contatori delle prestazioni disponibili per impostazione predefinita. È stato [aggiunto un grafico separato](app-insights-metrics-explorer.md#editing-charts-and-grids) per ciascun contatore ed è stato denominato il grafico [salvandolo come preferito](app-insights-metrics-explorer.md#editing-charts-and-grids):
 
 ![](./media/app-insights-web-monitor-performance/sys-perf.png)
@@ -150,12 +152,12 @@ Inoltre, se si desidera raccogliere i contatori delle prestazioni di sistema e i
 
 *Qual è la differenza tra il tasso di eccezione e le metriche delle eccezioni?*
 
-* *Frequenza dell’eccezione* è un contatore delle prestazioni del sistema. Il CLR consente di contare tutte le eccezioni gestite e non gestite generate e divide il totale in un intervallo di campionamento per la lunghezza dell'intervallo. SDK di Application Insights raccoglie questo risultato e lo invia al portale.
+* *Tasso di eccezione* è un contatore delle prestazioni del sistema. Il CLR consente di contare tutte le eccezioni gestite e non gestite generate e divide il totale in un intervallo di campionamento per la lunghezza dell'intervallo. SDK di Application Insights raccoglie questo risultato e lo invia al portale.
 * *Eccezioni* è un conteggio dei report TrackException ricevuti dal portale nell'intervallo di campionamento del grafico. Include solo le eccezioni gestite in cui sono state scritte chiamate TrackException nel codice e non include [le eccezioni non gestite](app-insights-asp-net-exceptions.md). 
 
 ## Impostazione di avvisi
 
-Per ricevere tramite posta elettronica una notifica dei valori insoliti di una metrica, aggiungere un avviso. È possibile scegliere di inviare il messaggio di posta elettronica agli amministratori di account o a indirizzi di posta elettronica specifici.
+Per ricevere tramite posta elettronica una notifica relativa a valori insoliti di una metrica, aggiungere un avviso. È possibile scegliere di inviare il messaggio di posta elettronica agli amministratori di account o a indirizzi di posta elettronica specifici.
 
 ![](./media/app-insights-web-monitor-performance/appinsights-413setMetricAlert.png)
 
@@ -199,4 +201,4 @@ Di seguito vengono riportati alcuni suggerimenti su come trovare e diagnosticare
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

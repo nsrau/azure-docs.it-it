@@ -192,7 +192,7 @@ Per decidere se distribuire le attività in background in una macchina virtuale 
 ### Altre informazioni
 
 - [Macchine virtuali](https://azure.microsoft.com/services/virtual-machines/) in Azure
-- [Domande frequenti su Macchine virtuali di Azure](virtual-machines-questions.md)
+- [Domande frequenti su Macchine virtuali di Azure](virtual-machines/virtual-machines-linux-classic-faq.md)
 
 ## Considerazioni sulla progettazione
 
@@ -317,4 +317,4 @@ Le attività in background devono offrire prestazioni sufficienti a garantire ch
 - [Analogie e differenze tra le code di Azure e le code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Come abilitare il modulo Diagnostica in un servizio cloud](cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

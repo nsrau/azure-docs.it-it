@@ -105,7 +105,7 @@ Vedere la sezione sulle procedure consigliate per l'uso della cache locale.
  
 ### Come è possibile verificare se il sito usa la cache locale? 
 
-Se viene usata la funzionalità della cache locale con gli ambienti di gestione temporanea, l'operazione di scambio non verrà completata fino a quando viene eseguito il riscaldamento della cache locale. Per verificare se il sito viene eseguito nella cache locale, è possibile controllare la variabile di ambiente del processo di lavoro `WEBSITE_LOCALCACHE_READY`. Seguire le istruzioni seguenti per accedere alla variabile di ambiente del processo di lavoro in più istanze.
+Se viene usata la funzionalità della cache locale con gli ambienti di gestione temporanea, l'operazione di scambio non verrà completata fino a quando viene eseguito il riscaldamento della cache locale. Per verificare se il sito viene eseguito nella cache locale, è possibile controllare la variabile di ambiente del processo di lavoro WEBSITE\_LOCALCACHE\_READY. Seguire le istruzioni disponibili nella pagina [variabile di ambiente del processo di lavoro](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) per accedere alle variabili di ambiente del processo di lavoro in più istanze.
  
 ### Ho appena pubblicato nuove modifiche, ma sembra che non siano presenti nell'applicazione Web. Perché? 
 Se l'applicazione Web usa la cache locale, è necessario riavviare il sito per visualizzare le ultime modifiche. Se non si desidera eseguire l'operazione in un sito di produzione, vedere le opzioni di slot descritte sopra.
@@ -118,4 +118,4 @@ Se si usa la cache locale, i log e le cartelle di dati sono leggermente diversi.
 
 La cache locale consente di evitare i riavvii dell'applicazione Web correlati all'archiviazione. Tuttavia, l'applicazione Web può comunque essere sottoposta a riavvii durante gli aggiornamenti di infrastruttura pianificati della macchina virtuale. In generale, il numero di riavvii dell'applicazione con la cache locale abilitata dovrebbe essere inferiore.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -2,7 +2,7 @@
 
 In questa sezione si scriverà un'app C per inviare eventi all'hub eventi. Si userà la libreria Proton AMQP dal [progetto Apache Qpid](http://qpid.apache.org/). Il procedimento è simile a quello adottato per l'uso da C di code e argomenti del bus di servizio con AMQP, come illustrato [qui](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Per altre informazioni, vedere la [documentazione di Qpid Proton](http://qpid.apache.org/proton/index.html).
 
-1. Dalla [pagina di Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) fare clic sul collegamento per l'**installazione di Qpid Proton** e seguire le istruzioni a seconda del proprio ambiente. Si presuppone un ambiente Linux, ad esempio una [macchina virtuale Linux di Azure](../articles/virtual-machines/virtual-machines-linux-tutorial.md) con Ubuntu 14.04.
+1. Dalla [pagina di Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) fare clic sul collegamento per l'**installazione di Qpid Proton** e seguire le istruzioni a seconda del proprio ambiente. Si presuppone un ambiente Linux, ad esempio una [macchina virtuale Linux di Azure](../articles/virtual-machines/virtual-machines-linux-cli-create.md) con Ubuntu 14.04.
 
 2. Per compilare la libreria Proton, installare i seguenti pacchetti:
 
@@ -117,4 +117,4 @@ In questa sezione si scriverà un'app C per inviare eventi all'hub eventi. Si us
 
 > [AZURE.NOTE] In questo codice viene usata una finestra in uscita pari a 1 per imporre un invio dei messaggi il più rapido possibile. In generale l'applicazione dovrebbe cercare di riunire i messaggi in batch per migliorare la velocità effettiva. Vedere la [pagina di Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) per altre informazioni sull'uso della libreria Qpid Proton in questo e in altri ambienti e anche nelle piattaforme per le quali sono fornite associazioni (al momento Perl, PHP, Python e Ruby).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

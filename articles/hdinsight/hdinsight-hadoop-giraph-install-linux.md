@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="02/29/2016"
 	ms.author="larryfr"/>
 
 # Installare Giraph nei cluster HDInsight Hadoop e usarlo per elaborare grafici su vasta scala
 
-È possibile installare Giraph in qualsiasi tipo di cluster in Hadoop su Azure HDInsight usando la personalizzazione dei cluster **Azione script**. Azione script consente di eseguire script per personalizzare un cluster solo durante la creazione. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster-linux.md).
+È possibile installare Giraph in qualsiasi tipo di cluster in Hadoop su Azure HDInsight usando la funzionalità **Azione script** per personalizzare il cluster.
 
 In questo argomento si apprenderà come installare Giraph usando le azioni script. Dopo l'installazione di Giraph, verranno fornite anche informazioni su come usare Giraph per la maggior parte delle applicazioni tipiche, ovvero per l'elaborazione di grafici di grandi dimensioni.
 
@@ -42,9 +42,13 @@ Lo script esegue le azioni seguenti:
 
 ## <a name="install"></a>Installare Giraph mediante azioni script
 
-Uno script di esempio per l'installazione di Giraph in un cluster HDInsight è disponibile in un BLOB di archiviazione di Azure di sola lettura all'indirizzo [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh). Questa sezione fornisce istruzioni su come usare lo script di esempio quando si crea il cluster usando il portale di Azure classico.
+Uno script di esempio per l'installazione di Giraph in un cluster HDInsight è disponibile all'indirizzo seguente.
 
-> [AZURE.NOTE] È anche possibile usare Azure PowerShell o HDInsight .NET SDK per creare un cluster con questo script. Per altre informazioni sull'uso di questi metodi, vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-hadoop-customize-cluster-linux.md).
+    https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+
+Questa sezione descrive come usare lo script di esempio per creare il cluster con il portale di Azure.
+
+> [AZURE.NOTE] Per applicare le azioni script è anche possibile usare Azure PowerShell, HDInsight .NET SDK o i modelli di Azure Resource Manager. È anche possibile applicare azioni script a cluster già in esecuzione. Per altre informazioni, vedere [Personalizzare cluster HDInsight tramite azioni script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Avviare la creazione di un cluster utilizzando la procedura descritta in [Creazione di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal), ma non completare la creazione.
 
@@ -146,10 +150,8 @@ Una volta completata la creazione di un cluster, usare la procedura seguente per
 
 - [Installare e usare Hue nei cluster HDInsight](hdinsight-hadoop-hue-linux.md). Hue è un'interfaccia utente che semplifica la creazione, l'esecuzione e il salvataggio di processi Pig e Hive, nonché l'esplorazione dell'archivio predefinito per il cluster HDInsight.
 
-- [Installare e usare Spark nei cluster HDInsight](hdinsight-hadoop-spark-install-linux.md): istruzioni su come usare la personalizzazione dei cluster per installare e usare Spark nei cluster Hadoop di HDInsight. Spark è un framework open source di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni analitiche di Big Data.
-
 - [Installare R in cluster HDInsight](hdinsight-hadoop-r-scripts-linux.md): istruzioni su come usare la personalizzazione dei cluster per installare e usare R nei cluster Hadoop di HDInsight. R è un linguaggio open source e un ambiente per l'elaborazione statistica. Fornisce centinaia di funzioni statistiche predefinite e un proprio linguaggio che combina aspetti di programmazione funzionale con aspetti di programmazione orientata agli oggetti. Offre inoltre funzionalità complete di grafica.
 
 - [Installare Solr in cluster HDInsight](hdinsight-hadoop-solr-install-linux.md). Usare la personalizzazione cluster per installare Solr in cluster Hadoop di HDInsight. Solr consente di eseguire operazioni di ricerca avanzate sui dati archiviati.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

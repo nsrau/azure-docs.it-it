@@ -50,7 +50,7 @@ Ci sono tre passaggi distinti:
 
 ### Passaggio 1: Acquisire il certificato X.509
 
-1. Per proteggere i cluster che eseguono carichi di lavoro di produzione, è necessario usare un certificato X.509 firmato da un'[Autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority). Per i dettagli su come ottenere questi certificati, vedere [Procedura: ottenere un certificato](http://msdn.microsoft.com/library/aa702761.aspx).
+1. Per proteggere i cluster che eseguono carichi di lavoro di produzione, è necessario usare un certificato X.509 firmato da un'[Autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority). Per i dettagli su come ottenere questi certificati, vedere [Procedura: Ottenere un certificato](http://msdn.microsoft.com/library/aa702761.aspx).
 2. Per i cluster usati solo a scopo di test, è possibile scegliere di usare un certificato autofirmato. Il passaggio 2.5 seguente illustra come eseguire questa operazione.
 
 ### Passaggio 2: Caricare il certificato X.509 nell'insieme di credenziali delle chiavi
@@ -59,9 +59,9 @@ Questo è un processo complesso che viene eseguito con un modulo PowerShell cari
 
 **Passaggio 2.1**: copiare la cartella nel computer da questo [repository Git](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
 
-**Passaggio 2.2**: assicurarsi che nel computer sia installato Azure PowerShell 1.0 o versione successiva. Se non è ancora installato, si consiglia vivamente di seguire la procedura descritta in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+**Passaggio 2.2**: Assicurarsi che nel computer sia installato Azure PowerShell 1.0 o versione successiva. Se non è ancora installato, è consigliabile seguire la procedura descritta in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
-**Passaggio 2.3**: aprire una finestra di PowerShell e importare il file ServiceFabricRPHelpers.psm. Si tratta del modulo scaricato durante il passaggio 2.1.
+**Passaggio 2.3**: Aprire una finestra di PowerShell e importare il file ServiceFabricRPHelpers.psm. Si tratta del modulo scaricato durante il passaggio 2.1.
 
 ```
 Remove-Module ServiceFabricRPHelpers
@@ -73,7 +73,7 @@ Copiare l'esempio seguente e modificare il percorso del file con estensione psm1
 Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 ```
 
-**Passaggio 2.4**: se si usa un certificato già acquisito, seguire la procedura descritta in questo passaggio. In caso contrario, andare al passaggio 2.5, che illustra come creare e distribuire un certificato autofirmato nell'insieme di credenziali delle chiavi.
+**Passaggio 2.4**: Se si usa un certificato già acquisito, seguire la procedura descritta in questo passaggio. In caso contrario, andare al passaggio 2.5, che illustra come creare e distribuire un certificato autofirmato nell'insieme di credenziali delle chiavi.
 
 Accedere all'account Azure. Se per qualche motivo questo comando PowerShell genera un errore, verificare che Azure PowerShell sia installato correttamente.
 
@@ -81,7 +81,10 @@ Accedere all'account Azure. Se per qualche motivo questo comando PowerShell gene
 Login-AzureRmAccount
 ```
 
-Lo script seguente crea un nuovo gruppo di risorse e/o un insieme di credenziali delle chiavi, se non sono già presenti.
+Lo script seguente crea un nuovo gruppo di risorse e/o un insieme di credenziali delle chiavi, se non sono già presenti. **Nota: se si utilizza un insieme di credenziali delle chiavi esistente, deve essere configurato per supportare la distribuzione, tramite questo script.**
+```
+Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForTemplateDeployment -EnabledForDeployment
+```
 
 ```
 Invoke-AddCertToKeyVault -SubscriptionId <your subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -UseExistingCertificate -ExistingPfxFilePath <Full path to the .pfx file>
@@ -98,7 +101,7 @@ Al termine dell'esecuzione dello script si ottiene un output simile al seguente,
 
 - **Insieme di credenziali di origine**/ID risorsa dell'insieme di credenziali delle chiavi: /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
 
-- **URL del certificato**/URL del percorso del certificato nell'insieme di credenziali delle chiavi: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea
+- **URL del certificato** /URL del percorso del certificato nell'insieme di credenziali delle chiavi: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea
 
 A questo punto sono disponibili le informazioni necessarie per configurare un cluster protetto. Andare al passaggio 3.
 
@@ -116,7 +119,7 @@ Lo script seguente crea un nuovo gruppo di risorse e/o un insieme di credenziali
 Invoke-AddCertToKeyVault -SubscriptionId <you subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -CreateSelfSignedCertificate -DnsName <string- see note below.> -OutputPath <Full path to the .pfx file>
 ```
 
-Il percorso di output fornito allo script contiene il nuovo certificato autofirmato caricato dallo script nell'insieme di credenziali delle chiavi.
+Il valore OutputPath fornito allo script contiene il nuovo certificato autofirmato caricato dallo script nell'insieme di credenziali delle chiavi.
 
 >[AZURE.NOTE] La stringa DnsName specifica uno o più nomi DNS da inserire nell'estensione di nome alternativo del soggetto del certificato quando un certificato da copiare non viene specificato con il parametro CloneCert. Il primo nome DNS viene salvato anche come nome del soggetto. Se non viene specificato alcun certificato di firma, il primo nome DNS viene salvato anche come nome dell'autorità emittente.
 
@@ -144,11 +147,11 @@ Al termine dell'esecuzione dello script si ottiene un output simile al seguente,
 
 - **Insieme di credenziali di origine**/ID risorsa dell'insieme di credenziali delle chiavi: /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
 
-- **URL del certificato**/URL del percorso del certificato nell'insieme di credenziali delle chiavi: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/fvc8df6300834326a95d05d90e0720ea
+- **URL del certificato** /URL del percorso del certificato nell'insieme di credenziali delle chiavi: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/fvc8df6300834326a95d05d90e0720ea
 
 ### Passaggio 3: Configurare un cluster sicuro
 
-Seguire la procedura descritta nell'articolo relativo al [processo di creazione del cluster di Service Fabric](service-fabric-cluster-creation-via-portal.md) fino a visualizzare la sezione che descrive le configurazioni di sicurezza. Passare quindi alle istruzioni illustrate qui per impostare le configurazioni di sicurezza:
+Seguire i passaggi descritti nell'articolo [Configurazione di cluster di Service Fabric dal portale di Azure](service-fabric-cluster-creation-via-portal.md) fino a visualizzare la sezione Configurazioni di sicurezza. Passare quindi alle istruzioni illustrate qui per impostare le configurazioni di sicurezza:
 
 >[AZURE.NOTE]
 I certificati necessari sono specificati a livello di tipo di nodo nelle configurazioni di sicurezza. È necessario specificarli per ogni tipo di nodo presente nel cluster. Questo documento illustra come procedere usando il portale, ma è possibile fare lo stesso usando un modello di Gestione risorse di Azure.
@@ -183,25 +186,25 @@ Parametri facoltativi:
 Client amministratore: queste informazioni vengono usate per verificare che il client che si connette all'endpoint di gestione cluster presenti le credenziali corrette per eseguire azioni amministrative e di sola lettura sul cluster. È possibile specificare più di un certificato da autorizzare per le operazioni amministrative.
 
 - **Autorizza in base a.** Indica a Service Fabric se cercare questo certificato usando il nome del soggetto o l'identificazione personale. L'uso del nome del soggetto per l'autorizzazione non è una procedura di sicurezza consigliabile, anche se consente una maggiore flessibilità.
-- **Nome soggetto**. È necessario solo se si è specificato che l'autorizzazione si basa sul nome del soggetto.
+- **Nome soggetto.** È necessario solo se si è specificato che l'autorizzazione si basa sul nome del soggetto.
 - **Identificazione personale autorità di certificazione**. Rappresenta un livello di controllo aggiuntivo che il server può eseguire quando un client presenta le credenziali al server.
 
 Client di sola lettura: queste informazioni vengono usate per verificare che il client che si connette all'endpoint di gestione cluster presenti le credenziali corrette per eseguire azioni di sola lettura sul cluster. È possibile specificare più di un certificato da autorizzare per le operazioni di sola lettura.
 
 - **Autorizza in base a.** Indica a Service Fabric se cercare questo certificato usando il nome del soggetto o l'identificazione personale. L'uso del nome del soggetto per l'autorizzazione non è una procedura di sicurezza consigliabile, anche se consente una maggiore flessibilità.
-- **Nome soggetto**. È necessario solo se si è specificato che l'autorizzazione si basa sul nome del soggetto.
+- **Nome soggetto.** È necessario solo se si è specificato che l'autorizzazione si basa sul nome del soggetto.
 - **Identificazione personale autorità di certificazione.** Consente un livello di controllo aggiuntivo che il server può eseguire quando un client presenta le credenziali al server.
 
 ## Aggiornare i certificati nel cluster
 
-Service Fabric consente di specificare due certificati, uno primario e uno secondario. Per impostazione predefinita, quello specificato in fase di creazione è il certificato primario. Per aggiungere un altro certificato, è necessario distribuirlo nelle macchine virtuali del cluster. Il passaggio 2 (descritto in precedenza) illustra come caricare un nuovo certificato nell'insieme di credenziali delle chiavi. È possibile usare lo stesso insieme di credenziali delle chiavi per questa operazione, come è stato fatto per il primo certificato. Per altre informazioni, vedere il blog relativo alla [distribuzione di certificati nelle macchine virtuali dall'insieme di credenziali delle chiavi gestito dal cliente](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
+Service Fabric consente di specificare due certificati, uno primario e uno secondario. Per impostazione predefinita, quello specificato in fase di creazione è il certificato primario. Per aggiungere un altro certificato, è necessario distribuirlo nelle macchine virtuali del cluster. Il passaggio 2, descritto in precedenza, illustra come caricare un nuovo certificato nell'insieme di credenziali delle chiavi. È possibile usare lo stesso insieme di credenziali delle chiavi per questa operazione, come è stato fatto per il primo certificato. Per altre informazioni, vedere il blog relativo alla [distribuzione di certificati nelle macchine virtuali dall'insieme di credenziali delle chiavi gestito dal cliente](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 Una volta completata l'operazione, usare il portale o Gestione risorse per indicare a Service Fabric che è disponibile per l'uso anche un certificato secondario. Tutto ciò che serve è un'identificazione personale.
 
 Questo è il processo per l'aggiunta di un certificato secondario:
 
 1. Accedere al portale e passare alla risorsa del cluster a cui si vuole aggiungere questo certificato.
-2. In **Impostazioni**, fare clic sull'impostazione relativa ai certificati e immettere l'identificazione personale del certificato secondario.
+2. In **Impostazioni** fare clic sull'impostazione relativa ai certificati e immettere l'identificazione personale del certificato secondario.
 3. Fare clic su **Save**. Verrà avviata una distribuzione. Se questa viene completata correttamente, sarà possibile usare il certificato primario o quello secondario per eseguire operazioni di gestione sul cluster.
 
 ![Schermata delle identificazioni personali del certificato nel portale][SecurityConfigurations_02]
@@ -210,7 +213,7 @@ Ecco la procedura per rimuovere un certificato precedente in modo che il cluster
 
 1. Accedere al portale e passare alle impostazioni di sicurezza del cluster.
 2. Rimuovere uno dei certificati.
-3. Fare clic su **Save**. Verrà avviata una nuova distribuzione. Una volta completata la nuova distribuzione, il certificato rimosso non potrà più essere usato per connettersi al cluster.
+3. Fare clic su **Salva**. Verrà avviata una nuova distribuzione. Una volta completata la nuova distribuzione, il certificato rimosso non potrà più essere usato per connettersi al cluster.
 
 >[AZURE.NOTE] Per un cluster sicuro, sarà sempre necessario almeno un certificato (primario o secondario) valido (non revocato né scaduto) distribuito. In caso contrario, non sarà possibile accedere al cluster.
 
@@ -222,7 +225,9 @@ Ecco la procedura per rimuovere un certificato precedente in modo che il cluster
 I certificati digitali X509 vengono comunemente usati per autenticare client e server e per crittografare e firmare digitalmente i messaggi. Per altri dettagli su questi certificati, vedere la pagina relativa all'[uso dei certificati](http://msdn.microsoft.com/library/ms731899.aspx) in MSDN Library.
 
 >[AZURE.NOTE]
-- I certificati usati per i cluster che eseguono carichi di lavoro di produzione devono essere creati tramite un servizio certificati di Windows Server configurato correttamente oppure ottenuti da una [autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority) approvata. - Non usare mai nell'ambiente di produzione certificati temporanei o di prova creati con strumenti quali MakeCert.exe. - Per i cluster a solo scopo di test, è possibile usare un certificato autofirmato.
+- È consigliabile creare i certificati usati nei cluster che eseguono carichi di lavoro di produzione con un servizio certificati di Windows Server configurato correttamente oppure ottenerli da un'[Autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority) approvata.
+- Non usare mai certificati temporanei o di test creati con strumenti come MakeCert.exe in fase di produzione.
+- Per i cluster usati solo a scopo di test, è possibile scegliere di usare un certificato autofirmato.
 
 ### Certificati server e certificati client
 
@@ -257,4 +262,4 @@ I certificati client in genere non vengono rilasciati da un'autorità di certifi
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

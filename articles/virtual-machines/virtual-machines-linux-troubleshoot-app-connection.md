@@ -1,0 +1,26 @@
+<properties
+	pageTitle="Risoluzione dei problemi di accesso alle applicazioni in una VM | Microsoft Azure"
+	description="Se è impossibile accedere a un'applicazione in esecuzione su una macchina virtuale di Azure, è possibile utilizzare questi passaggi per isolare l'origine del problema."
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
+	editor=""
+	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
+
+<tags
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/17/2016"
+	ms.author="dkshir"/>
+
+# Risoluzione dei problemi di accesso a un'applicazione in esecuzione in una macchina virtuale di Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
+[AZURE.INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
+
+<!---HONumber=AcomDC_0323_2016-->

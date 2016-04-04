@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/18/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -35,7 +35,7 @@ L'anteprima di Azure Active Directory Identity Protection presenta le limitazion
 
 - I criteri di protezione non funzionano per i domini federati
 
-- Gli eventi di rischio non vengono rilevati per i domini federati
+- Gli eventi di rischio vengono rilevati solo per le app federate con Azure Active Directory
 
 ##Introduzione
 
@@ -410,4 +410,4 @@ Per una panoramica dell'esperienza utente correlata, vedere:
  - [Studio di Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
  - [Glossario di Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md)
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

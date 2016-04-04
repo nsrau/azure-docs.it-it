@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/17/2016"   
-	ms.author="juliako;adsolank;johndeu"/>
+	ms.date="03/18/2016"   
+	ms.author="adsolank;juliako;johndeu"/>
 
 
 # Indicizzazione di file multimediali con Azure Media Indexer
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-manage-content.md#index)
+- [Portale](media-services-manage-content.md#index)
 - [.NET](media-services-index-content.md)
 
 
@@ -301,4 +301,4 @@ Attualmente, sono supportate le lingue inglese e spagnolo. Per altre informazion
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

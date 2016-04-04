@@ -1,46 +1,47 @@
-This article shows equivalent Microsoft Azure command-line interface (Azure CLI) commands to create and manage Azure VMs in Azure Service Management and Azure Resource Manager. Use this as a handy guide to migrate scripts from one command mode to the other.
+Questo articolo illustra i comandi equivalenti dell'interfaccia della riga di comando di Microsoft Azure (CLI di Azure) per creare e gestire le macchine virtuali in Gestione dei servizi e Gestione risorse di Azure. Usare questo documento come guida utile per eseguire la migrazione degli script da una modalità di comando all'altra.
 
-* If you haven't already installed the Azure CLI and connected to your subscription, see [Install the Azure CLI](../xplat-cli-install.md) and [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md). When you want to use the Resource Manager mode commands, be sure to connect with the login method.
+* Se l'interfaccia della riga di comando di Azure non è ancora stata installata e connessa alla sottoscrizione, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md). Quando si desidera usare i comandi della modalità Gestione risorse, assicurarsi di connettersi con il metodo di accesso.
 
-* To get started with the Resource Manager mode in the Azure CLI, you might need to switch command modes. By default the CLI starts in Service Management mode. To change to Resource Manager mode, run `azure config mode arm`. To go back to Service Management mode, run `azure config mode asm`.
+* Per iniziare con la modalità di Gestione risorse nell’interfaccia della riga di comando Azure, potrebbe essere necessario cambiare la modalità di comando. Per impostazione predefinita, l'interfaccia della riga di comando viene avviata in modalità Gestione dei servizi. Per passare alla modalità Gestione risorse, eseguire `azure config mode arm`. Per tornare alla modalità Gestione dei servizi, eseguire `azure config mode asm`.
 
-* For online command help and options, type `azure <command> <subcommand> --help` or `azure help <command> <subcommand>`.
+* Per la Guida in linea di comando e le opzioni, digitare `azure <command> <subcommand> --help` o `azure help <command> <subcommand>`.
 
-## VM tasks
-The next table compares common VM tasks you can perform with Azure CLI commands in Service Management and Resource Manager. With many Resource Manager commands you need to pass the name of an existing resource group.
+## Attività della macchina virtuale
+La tabella seguente confronta attività di macchina virtuale comuni che è possibile eseguire con i comandi CLI di Azure in Gestione risorse e Gestione dei servizi. Con molti comandi di Gestione risorse è necessario passare il nome di un gruppo di risorse esistente.
 
-> [AZURE.NOTE] These examples don't include template-based operations which are generally recommended for VM deployments in Resource Manager. For information, see [Use the Azure CLI with Azure Resource Manager](../xplat-cli-azure-resource-manager.md) and [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md).
+> [AZURE.NOTE] Questi esempi non includono operazioni basate su modelli che sono in genere consigliate per distribuzioni di macchine virtuali in Gestione risorse. Per informazioni, vedere [Usare l’interfaccia della riga di comando Azure con la Gestione risorse di Azure](../xplat-cli-azure-resource-manager.md) e [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l’interfaccia della riga di comando di Azure](virtual-machines-linux-cli-deploy-templates.md).
 
-Task | Service Management | Resource Manager
+Attività | Gestione dei servizi | Gestione risorse
 -------------- | ----------- | -------------------------
-Create the most basic VM | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtain the `image-urn` from the `azure vm image list` command. See [this article](virtual-machines-linux-cli-ps-findimage.md) for examples.)
-Create a Linux VM | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
-Create a Windows VM | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
-List VMs | `azure  vm list [options]` | `azure  vm list [options]`
-Get information about a VM | `azure  vm show [options] <vm_name>` | `azure  vm show [options] <resource_group> <name>`
-Start a VM | `azure vm start [options] <name>` | `azure vm start [options] <resource_group> <name>`
-Stop a VM | `azure vm shutdown [options] <name>` | `azure vm stop [options] <resource_group> <name>`
-Deallocate a VM | Not available | `azure vm deallocate [options] <resource-group> <name>`
-Restart a VM | `azure vm restart [options] <vname>` | `azure vm restart [options] <resource_group> <name>`
-Delete a VM | `azure vm delete [options] <name>` | `azure vm delete [options] <resource_group> <name>`
-Capture a VM | `azure vm capture [options] <name>` | `azure vm capture [options] <resource_group> <name>`
-Create a VM from a user image | `azure  vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>`
-Create a VM from a specialized disk | `azure  vm create [options]-d <custom-data-file> <dns-name> [userName] [password]` | `azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>`
-Add a data disk to a VM | `azure  vm disk attach [options] <vm-name> <disk-image-name>` -OR- <br/>  `vm disk attach-new [options] <vm-name> <size-in-gb> [blob-url]` | `azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]`
-Remove a data disk from a VM | `azure  vm disk detach [options] <vm-name> <lun>` | `azure  vm disk detach [options] <resource-group> <vm-name> <lun>`
-Add a generic extension to a VM | `azure  vm extension set [options] <vm-name> <extension-name> <publisher-name> <version>` | `azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>`
-Add VM Access extension to a VM | Not available | `azure vm reset-access [options] <resource-group> <name>`
-Add Docker extension to a VM | `azure  vm docker create [options] <dns-name> <image> <user-name> [password]` | `azure  vm docker create [options] <resource-group> <name> <location> <os-type>`
-Add Chef extension to a VM | `azure  vm extension get-chef [options] <vm-name>` | Not available
-Disable a VM extension | `azure  vm extension set [options] –b <vm-name> <extension-name> <publisher-name> <version>` | Not available
-Remove a VM extension | `azure  vm extension set [options] –u <vm-name> <extension-name> <publisher-name> <version>` | `azure  vm extension set [options] –u <resource-group> <vm-name> <name> <publisher-name> <version>`
-List VM extensions | `azure vm extension list [options]` | Not available
-Show a VM image | `azure vm image show [options]` | Not available
-Get usage of VM resources | Not available | `azure vm list-usage [options] <location>`
-Get all available VM sizes | Not available | `azure vm sizes [options]`
+Creare la macchina virtuale di base | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Ottenere `image-urn` dal comando `azure vm image list`. Vedere [questo articolo](virtual-machines-linux-cli-ps-findimage.md) per informazioni dettagliate).
+Creare una macchina virtuale Linux | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
+Creare un'app Windows | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
+Elenco delle macchine virtuali | `azure  vm list [options]` | `azure  vm list [options]`
+Visualizzare informazioni su una macchina virtuale | `azure  vm show [options] <vm_name>` | `azure  vm show [options] <resource_group> <name>`
+Avviare una macchina virtuale | `azure vm start [options] <name>` | `azure vm start [options] <resource_group> <name>`
+Arrestare una macchina virtuale | `azure vm shutdown [options] <name>` | `azure vm stop [options] <resource_group> <name>`
+Deallocare una macchina virtuale | Non disponibile | `azure vm deallocate [options] <resource-group> <name>`
+Riavviare una macchina virtuale | `azure vm restart [options] <vname>` | `azure vm restart [options] <resource_group> <name>`
+Eliminare una macchina virtuale | `azure vm delete [options] <name>` | `azure vm delete [options] <resource_group> <name>`
+Acquisire una macchina virtuale | `azure vm capture [options] <name>` | `azure vm capture [options] <resource_group> <name>`
+Creare una macchina virtuale da un'immagine dell'utente | `azure  vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>`
+Creare una macchina virtuale da un disco specializzato | `azure  vm create [options]-d <custom-data-file> <dns-name> [userName] [password]` | `azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>`
+Aggiungere un disco dati a una macchina virtuale | `azure  vm disk attach [options] <vm-name> <disk-image-name>` -O- <br/> `vm disk attach-new [options] <vm-name> <size-in-gb> [blob-url]` | `azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]`
+Rimuovere un disco dati da una macchina virtuale | `azure  vm disk detach [options] <vm-name> <lun>` | `azure  vm disk detach [options] <resource-group> <vm-name> <lun>`
+Aggiungere un'estensione generica a una macchina virtuale | `azure  vm extension set [options] <vm-name> <extension-name> <publisher-name> <version>` | `azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>`
+Aggiungere l'estensione accesso alle macchine Virtuali a una macchina virtuale | Non disponibile | `azure vm reset-access [options] <resource-group> <name>`
+Aggiungere Docker estensione a una macchina virtuale | `azure  vm docker create [options] <dns-name> <image> <user-name> [password]` | `azure  vm docker create [options] <resource-group> <name> <location> <os-type>`
+Aggiungere l'estensione Chef a una macchina virtuale | `azure  vm extension get-chef [options] <vm-name>` | Non disponibile
+Disabilitare un'estensione di macchina virtuale | `azure  vm extension set [options] –b <vm-name> <extension-name> <publisher-name> <version>` | Non disponibile
+Rimuovere un'estensione di macchina virtuale | `azure  vm extension set [options] –u <vm-name> <extension-name> <publisher-name> <version>` | `azure  vm extension set [options] –u <resource-group> <vm-name> <name> <publisher-name> <version>`
+Elencare le estensioni di macchina virtuale | `azure vm extension list [options]` | Non disponibile
+Visualizzare un'immagine di macchina virtuale | `azure vm image show [options]` | Non disponibile
+Ottenere l'utilizzo delle risorse della macchina virtuale | Non disponibile | `azure vm list-usage [options] <location>`
+Ottenere tutte le dimensioni delle macchine virtuali disponibili | Non disponibile | `azure vm sizes [options]`
 
 
-## Next steps
+## Passaggi successivi
 
-* For additional examples of the CLI commands, see [Using the Azure Command-Line Interface with Azure Service Management](virtual-machines-command-line-tools.md) and
-[Using the Azure CLI with Azure Resource Manager](azure-cli-arm-commands.md).
+* Per altri esempi di comandi dell’interfaccia della riga di comando, vedere [Uso dell'interfaccia della riga di comando di Azure con Gestione dei servizi di Azure](virtual-machines-command-line-tools.md) e [Uso dell’interfaccia della riga di comando di Azure con Gestione risorse di Azure](azure-cli-arm-commands.md).
+
+<!---HONumber=AcomDC_0323_2016-->

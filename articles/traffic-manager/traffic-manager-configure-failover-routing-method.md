@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Configurare metodo di routing failover
@@ -38,7 +38,7 @@ Tenere presente che i siti Web di Azure forniscono un metodo di routing del traf
 
 [Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico](traffic-manager-point-internet-domain.md)
 
-[Metodi di routing di Gestione traffico](traffic-manager-load-balancing-methods.md)
+[Metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
 
 [Configurare il metodo di routing Round Robin](traffic-manager-configure-round-robin-routing-method.md)
 
@@ -52,4 +52,4 @@ Tenere presente che i siti Web di Azure forniscono un metodo di routing del traf
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

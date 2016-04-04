@@ -33,7 +33,9 @@ Leggere attentamente le informazioni sul processo prima di iniziare e comprender
 - Se si usa Linux, vedere la sezione relativa alla creazione di un disco rigido virtuale (basato su Linux) compatibile con Azure della [Guida alla pubblicazione di un'immagine di macchina virtuale](marketplace-publishing-vm-image-creation.md).
 - Se si usa Windows, vedere la sezione relativa alla creazione di un disco rigido virtuale (basato su Windows) compatibile con Azure della [Guida alla pubblicazione di un'immagine di macchina virtuale](marketplace-publishing-vm-image-creation.md).
 
-> [AZURE.NOTE] Sarà necessario accedere a un computer Windows per: - Eseguire lo strumento di convalida della certificazione - Creare l'URL della firma di accesso condiviso del disco rigido virtuale per l'invio della certificazione del disco rigido virtuale.
+> [AZURE.NOTE] È necessario l'accesso a un computer basato su Windows per:
+- Eseguire lo strumento di convalida della certificazione.
+- Creare l'URL di firma di accesso condiviso del disco rigido virtuale per l'invio della certificazione del disco rigido virtuale.
 
 ## Sviluppare il disco rigido virtuale
 È possibile sviluppare i dischi rigidi virtuali di Azure nel cloud o in locale:
@@ -46,9 +48,9 @@ Dopo avere esaminato i prerequisiti e completato le attività necessarie, ora è
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
-- [Creare una macchina virtuale con Windows nel portale di anteprima di Azure](../virtual-machines/virtual-machines-windows-tutorial/)
+- [Creare una macchina virtuale con Windows nel portale di anteprima di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial/)
 
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

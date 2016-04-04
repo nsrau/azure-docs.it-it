@@ -231,7 +231,7 @@ In primo luogo, è necessario configurare alcuni valori di PowerShell che verran
 <a id="provide-certificate-through-automated-powershell-script" />
 ### Fornire il certificato tramite uno script di PowerShell automatizzato
 
-1. Ottenere l'applicazione di Active Directory Al momento dell'accesso sarà necessario l'ID dell'applicazione.
+1. Ottenere l'applicazione di Active Directory Al momento dell'accesso sarà necessario l'ID dell'applicazione
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
         
@@ -517,4 +517,4 @@ Per ottenere altre informazioni sull'uso dei certificati e dell'interfaccia dell
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

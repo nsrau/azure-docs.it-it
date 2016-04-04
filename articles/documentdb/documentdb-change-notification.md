@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="03/10/2016" 
+    ms.date="03/17/2016" 
     ms.author="b-hoedid"/>
 
 # Notifiche per le risorse di DocumentDB nuove o modificate usando le app per la logica
@@ -624,7 +624,7 @@ L'azione successiva consiste nel salvare i documenti nell'[archiviazione BLOB di
 
 Il codice viene generato dall'azione nella finestra di progettazione. Non è necessario modificare il codice.
 
-Se non si ha familiarità con l'API BLOB di Azure, vedere l'articolo di [introduzione all'API di archiviazione BLOB di Azure](../connectors/create-api-azureblobstorage.md).
+Se non si ha familiarità con l'API BLOB di Azure, vedere l'articolo relativo all'[introduzione all'API di archiviazione BLOB di Azure](../connectors/connectors-create-api-azureblobstorage.md).
 
 #### Operazioni
 
@@ -1156,4 +1156,4 @@ Scaricare e usare il codice delle app per la logica disponibile in [Github](http
 
 Per altre informazioni su DocumentDB, visitare il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

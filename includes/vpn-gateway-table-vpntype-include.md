@@ -1,23 +1,25 @@
-### VPN type for the Resource Manager deployment model
+### Tipo di VPN per il modello di distribuzione di Resource Manager
 
-|      | **Route-based**    | **Policy-based** |
+| | **Basato su route** | **Basato su criteri** |
 |-----------------------------------|--------------------|------------------|
-| **Site-to-Site**                  | yes                | yes              |
-| **VNet-to-VNet**                  | yes                | no               |
-| **Multi-Site**                    | yes                | no               |
-| **S2S and ExpressRoute coexist**  | not yet available  | no               |
-| **Point-to-Site**                 | yes                | no               |
-| **Classic to Resource Manager**   | yes                | no               |
+| **Da sito a sito** | yes | yes |
+| **Tra reti virtuali** | yes | no |
+| **Multisito** | yes | no |
+| **Coesistenza tra Da sito a sito ed ExpressRoute** | non ancora disponibile | no |
+| **Da punto a sito** | yes | no |
+| **Classico a Gestione risorse** | yes | no |
 
 
-### VPN type for the classic deployment model
+### Tipo di VPN per il modello di distribuzione classica
 
 
-|       | **Dynamic**        | **Static**   |
+| | **Dinamico** | **Statico** |
 |---------------------------------------------|--------------------|--------------|
-| **Site-to-Site**                            | yes                | yes          |
-| **VNet-to-VNet**                            | yes                | no           |
-| **Multi-Site**                              | yes                | no           |
-| **S2S and ExpressRoute coexist**            | yes                | no           |
-| **Point-to-Site**                           | yes                | no           |
-| **Classic to Resource Manager**             | yes                | no           |
+| **Da sito a sito** | yes | yes |
+| **Tra reti virtuali** | yes | no |
+| **Multisito** | yes | no |
+| **Coesistenza tra Da sito a sito ed ExpressRoute** | yes | no |
+| **Da punto a sito** | yes | no |
+| **Classico a Gestione risorse** | yes | no |
+
+<!---HONumber=AcomDC_0323_2016-->

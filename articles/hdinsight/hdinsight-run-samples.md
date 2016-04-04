@@ -33,7 +33,6 @@ Sono disponibili alcuni esempi utili per iniziare a eseguire processi MapReduce 
 Sul Web sono disponibili molti altri documenti per le tecnologie relative a Hadoop, ad esempio il flusso e la programmazione MapReduce basati su Java, oltre alla documentazione sui cmdlet usati negli script di Windows PowerShell. Per altre informazioni su queste risorse, vedere:
 
 - [Sviluppare programmi MapReduce Java per Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Inviare processi Hadoop in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Introduzione ad Azure HDInsight][hdinsight-introduction]
 
@@ -114,7 +113,7 @@ Per la procedura di sviluppo di un programma MapReduce Java, vedere [Sviluppare 
 
 3. Impostare le prime 3 variabili, ed eseguire lo script.
 
-## <a name="hdinsight-sample-csharp-streaming"></a>Conteggio delle parole - Flusso in C#
+## <a name="hdinsight-sample-csharp-streaming"></a>Conteggio delle parole - Streaming in C#
 
 In Hadoop è disponibile un'API di flusso per MapReduce che consente di scrivere funzioni di mapping e riduzione in linguaggi diversi da Java.
 
@@ -998,4 +997,4 @@ Il codice per il programma MapReduce TeraSort viene presentato per la verifica i
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

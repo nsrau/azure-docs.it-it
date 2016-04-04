@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Informazioni sul monitoraggio di Gestione traffico
@@ -70,12 +70,12 @@ Di seguito viene visualizzata una sequenza temporale di esempio con un processo 
 
 ![Sequenza monitoraggio di Gestione traffico](./media/traffic-manager-monitoring/IC697947.jpg)
 
-**Figura 1**: Esempio di sequenza di monitoraggio. I numeri nel diagramma corrispondono alla seguente descrizione numerata.
+**Figura 1**: Esempio di sequenza di monitoraggio. I numeri nel diagramma corrispondono alla seguente descrizione numerata.
 
 1. **GET**: il sistema di monitoraggio di Gestione traffico esegue un GET sul percorso e sul file specificati nelle impostazioni di monitoraggio.
 2. **200 OK**: il sistema di monitoraggio prevede un messaggio HTTP 200 OK restituito entro 10 secondi. Alla ricezione della risposta, si presuppone che il servizio cloud è disponibile. 
 
->[AZURE.NOTE]Gestione traffico considera che l'endpoint sarà online solo se il messaggio restituito è un 200 OK. Se viene ricevuta una risposta diversa da 200, si presuppone che l'endpoint non sia disponibile e il controllo non riesce. Per informazioni più dettagliate sulla risoluzione dei problemi relativi ai controlli non riusciti, vedere [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md).
+>[AZURE.NOTE] Gestione traffico considera che l'endpoint sarà online solo se il messaggio restituito è un 200 OK. Se viene ricevuta una risposta diversa da 200, si presuppone che l'endpoint non sia disponibile e il controllo non riesce. Per informazioni più dettagliate sulla risoluzione dei problemi relativi ai controlli non riusciti, vedere [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md).
 
 3. **30 secondi tra i controlli**: questo controllo viene eseguito ogni 30 secondi.
 4. **Servizio cloud non disponibile**: il servizio cloud non è disponibile. Gestione traffico non dispone di informazioni fino al successivo controllo di monitoraggio.
@@ -115,4 +115,4 @@ Nella seguente tabella viene descritto il comportamento del monitoraggio di Gest
 [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

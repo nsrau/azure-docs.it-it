@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introduzione ad Application Insights Analytics" 
-	description="Brevi esempi di tutte le principali query in Application Insights Analytics, lo strumento di ricerca avanzato per Application Insights." 
+	pageTitle="Presentazione dello strumento Analisi in Application Insights" 
+	description="Brevi esempi di tutte le principali query in Analisi, lo strumento di ricerca avanzato di Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Introduzione ad Application Insights Analytics
+# Presentazione dello strumento Analisi in Application Insights
 
 
-Application Insights Analytics è un motore di ricerca di diagnostica avanzato per i dati di telemetria di [Application Insights](app-insights-overview.md).
+[Analisi](app-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analisi.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -29,11 +29,11 @@ Di seguito sono descritte alcune query di base utili per iniziare.
 
 ## Connettersi ai dati di Application Insights
 
-Aprire Analytics dal [pannello di panoramica](app-insights-dashboards.md) dell'applicazione in Application Insights:
+Aprire Analisi dal [pannello Panoramica](app-insights-dashboards.md) dell'app in Application Insights:
 
-![In portal.azure.com, aprire la risorsa di Application Insights e scegliere Analytics.](./media/app-analytics/001.png)
+![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/app-analytics/001.png)
 
-## [Conteggio](app-analytics-aggregations.md#count) delle righe
+## Righe della funzione [Count](app-analytics-aggregations.md#count)
 
 Le metriche, ad esempio i contatori delle prestazioni, vengono archiviate in una tabella denominata metriche. Ogni riga è un punto dati di telemetria ricevuto da Application Insights SDK in un'applicazione. Per scoprire le dimensioni della tabella, si invia una pipe del contenuto in un operatore che semplicemente conteggia le righe:
 
@@ -50,9 +50,9 @@ Il risultato è il seguente:
 ![](./media/app-analytics-tour/010.png)
 
 	
-[`Count`](app-analytics-aggregations.md#count) è uno dei molti [operatori di query](app-analytics-queries.md) che è possibile disporre in una pipe quando si filtrano, si modificano e si uniscono i dati di più fasi.
+[`Count`](app-analytics-aggregations.md#count) è uno dei molti [operatori di query](app-analytics-queries.md) che è possibile inserire in una pipe per filtrare, modificare e unire i dati di più fasi.
 	
-## [Take](app-analytics-aggregations.md#take): mostrare n righe
+## [Take](app-analytics-aggregations.md#take): visualizza n righe
 
 
 Osserviamo alcuni dati. Che cosa c'è in 5 righe di esempio?
@@ -77,7 +77,7 @@ Espandere un elemento per visualizzare i dettagli:
 
 ## [Top](app-analytics-aggregations.md#top) e [sort](app-analytics-aggregations.md#sort)
 
-`take` è utile per ottenere un rapido esempio di un risultato, ma mostra le righe della tabella senza un ordine particolare. Per ottenere una visualizzazione ordinata, usare `top` (per un esempio) o `sort` (per l'intera tabella).
+`take` è utile per ottenere un rapido esempio di un risultato, ma mostra le righe della tabella senza un ordine particolare. Per ottenere una visualizzazione ordinata, usare `top` per un esempio o `sort` per l'intera tabella.
 
 Mostrare le prime n righe, ordinate in base a una colonna specifica:
 
@@ -86,7 +86,7 @@ Mostrare le prime n righe, ordinate in base a una colonna specifica:
 	requests | top 10 by timestamp desc 
 ```
 
-* *Sintassi:* la maggior parte degli operatori dispongono di parametri parola chiave, ad esempio `by`.
+* *Sintassi:* la maggior parte degli operatori hanno di parametri di tipo parola chiave, ad esempio `by`.
 * `desc` = ordine decrescente, `asc` = ordine crescente.
 
 ![](./media/app-analytics-tour/260.png)
@@ -100,10 +100,10 @@ Mostrare le prime n righe, ordinate in base a una colonna specifica:
 
 Il risultato sarebbe stato lo stesso, ma l'esecuzione sarebbe risultata più lenta. Sarebbe stato anche possibile scrivere `order`, che è un alias di `sort`.
 
-Le intestazioni di colonna nella visualizzazione tabella possono essere usate anche per ordinare i risultati sullo schermo. Naturalmente, se è stato usato `take` o `top` per recuperare solo parte di una tabella, verranno ordinati soltanto i record recuperati.
+Le intestazioni di colonna nella visualizzazione tabella possono essere usate anche per ordinare i risultati sullo schermo. Naturalmente, se è stato usato `take` o `top` per recuperare solo parte di una tabella, verranno riordinati solo i record recuperati.
 
 
-## [Project](app-analytics-aggregations.md#project): selezionare, rinominare e calcolare le colonne
+## [Project](app-analytics-aggregations.md#project): consente di selezionare, rinominare e calcolare le colonne
 
 Usare [`project`](app-analytics-aggregations.md#project) per selezionare solo le colonne desiderate:
 
@@ -133,14 +133,14 @@ Usare [`project`](app-analytics-aggregations.md#project) per selezionare solo le
 Nell'espressione scalare:
 
 * `%` è il consueto operatore modulo. 
-* `1d` (la cifra uno seguita da 'd') è il valore letterale di un intervallo di tempo che indica un giorno. Altri valori letterali di intervallo di tempo sono: `12h`, `30m`, `10s`, `0.01s`.
+* `1d` (la cifra uno seguita da "d") è il valore letterale di un intervallo di tempo che indica un giorno. Ecco altri valori letterali di intervallo di tempo: `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (alias `bin`) arrotonda un valore per difetto al multiplo più vicino del valore di base specificato. `floor(aTime, 1s)` arrotonderà un'ora per difetto al secondo più vicino.
 
 Le [espressioni](app-analytics-scalars.md) possono includere tutti gli operatori consueti (`+`, `-`, ...) ed è disponibile una gamma di funzioni utili.
 
-## [Extend](app-analytics-aggregations.md#extend): calcolare le colonne
+## [Extend](app-analytics-aggregations.md#extend): calcola le colonne
 
-Se si desidera aggiungere colonne a quelli esistenti, usare [`extend`](app-analytics-aggregations.md#extend):
+Per aggiungere colonne a quelle esistenti, usare [`extend`](app-analytics-aggregations.md#extend):
 
 ```AIQL
 
@@ -149,9 +149,9 @@ Se si desidera aggiungere colonne a quelli esistenti, usare [`extend`](app-analy
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-[`extend`](app-analytics-aggregations.md#extend) è meno dettagliato di [`project`](app-analytics-aggregations.md#project) se si desidera mantenere tutte le colonne esistenti.
+Per mantenere tutte le colonne esistenti, [`extend`](app-analytics-aggregations.md#extend) è meno dettagliato di [`project`](app-analytics-aggregations.md#project).
 
-## [Summarize](app-analytics-aggregations.md#summarize): aggregare gruppi di righe
+## [Summarize](app-analytics-aggregations.md#summarize): aggrega gruppi di righe
 
 Esaminando un esempio di tabella è possibile vedere i campi in cui sono riportati i diversi dati di telemetria. Ad esempio, `exception | take 20` mostra immediatamente che i messaggi di eccezione vengono riportati in un campo denominato `outerExceptionType`.
 
@@ -165,12 +165,12 @@ Anziché esaminare nel dettaglio le singole istanze, si richiede il numero di ec
 
 ![](./media/app-analytics-tour/210.png)
 
-`Summarize` raggruppa le righe che contengono gli stessi valori nei campi denominati nella clausola `by` producendo una singola riga di risultati per ogni gruppo. Di conseguenza, in questo caso è presente una riga per ogni tipo di eccezione. La funzione di aggregazione `count()` conta le righe in ogni gruppo, inserendo una colonna nel risultato.
+`Summarize` raggruppa le righe che contengono gli stessi valori nei campi denominati nella clausola `by`, producendo una singola riga di risultati per ogni gruppo. Di conseguenza, in questo caso è presente una riga per ogni tipo di eccezione. La funzione di aggregazione `count()` conta le righe in ogni gruppo, inserendo una colonna nel risultato.
 
 
-È disponibile una gamma di [funzioni di aggregazione](app-analytics-aggregations.md) . Molte di esse possono essere usate in un unico operatore summarize per ottenere più colonne calcolate.
+È disponibile una gamma di [funzioni di aggregazione](app-analytics-aggregations.md), molte delle quali possono essere usate in un unico operatore summarize per ottenere diverse colonne calcolate.
 
-È possibile, ad esempio, visualizzare un elenco delle richieste HTTP per le quali si verificano queste eccezioni. Esaminando nuovamente un esempio della tabella di eccezioni, si noterà che i percorsi delle richieste HTTP sono riportati in una colonna denominata `operation_Name`.
+È possibile, ad esempio, visualizzare un elenco delle richieste HTTP per le quali si verificano queste eccezioni. Esaminando di nuovo un esempio della tabella delle eccezioni, si noterà che i percorsi delle richieste HTTP sono riportati in una colonna denominata `operation_Name`.
 
 ```AIQL
 
@@ -186,7 +186,7 @@ La funzione di aggregazione `makeset()` crea un set di tutti i valori specificat
 
 Il risultato di summarize include:
 
-* ogni colonna denominata in `by`;
+* ogni colonna denominata in `by`
 * una colonna per ogni espressione di aggregazione;
 * una riga per ogni combinazione di valori `by`.
 
@@ -205,7 +205,7 @@ Il risultato di summarize include:
 
 ![](./media/app-analytics-tour/225.png)
 
-`bin` riduce tutti i timestamp a intervalli di 1 giorno. È un alias di `floor`, una funzione comune alla maggior parte dei linguaggi. Ogni valore viene ridotto al multiplo più vicino del modulo specificato, in modo che `summarize` possa assegnare le righe a gruppi di dimensione ragionevole. Diversamente, si avrebbe una riga di risultati per ogni frazione di secondo senza alcun riepilogo dei dati.
+`bin` riduce tutti i timestamp a intervalli di 1 giorno. È un alias di `floor`, una funzione comune alla maggior parte dei linguaggi. Ogni valore viene ridotto al multiplo più vicino del modulo specificato, in modo che `summarize` possa assegnare le righe a gruppi di dimensioni ragionevoli. Diversamente, si avrebbe una riga di risultati per ogni frazione di secondo senza alcun riepilogo dei dati.
 
 È possibile ottenere un risultato migliore della visualizzazione tabella riportata sopra. Si osservino i risultati nella visualizzazione grafico con l'opzione delle barre verticali:
 
@@ -214,9 +214,9 @@ Il risultato di summarize include:
 Si noti che anche se i risultati non sono stati ordinati in base all'ora (come è possibile osservare nella visualizzazione tabella), la visualizzazione grafico mostra sempre i dati data/ora nell'ordine corretto.
 
 
-## [Where](app-analytics-aggregations.md#where): filtrare una condizione
+## [Where](app-analytics-aggregations.md#where): filtra in base a una condizione
 
-Se Application Insights è stato configurato per il monitoraggio di entrambi i lati [client](app-insights-javascript.md) e server dell'applicazione, alcuni dati di telemetria del database provengono dai browser.
+Se Application Insights è stato configurato per il monitoraggio di entrambi i lati [client](app-insights-javascript.md) e server dell'app, alcuni dati di telemetria del database provengono dai browser.
 
 Si osservino solo le eccezioni riportate dai browser:
 
@@ -233,10 +233,10 @@ Si osservino solo le eccezioni riportate dai browser:
 L'operatore `where` accetta un'espressione booleana. Tenere presente i punti chiave seguenti:
 
  * `and`, `or`: operatori booleani
- * `==`, `<>` : uguale a e non uguale a
- * `=~`, `!=` : stringa con distinzione maiuscole/minuscole uguale a e non uguale a. Sono disponibili numerosi altri operatori di confronto delle stringhe.
+ * `==`, `<>`: uguale a e non uguale a
+ * `=~`, `!=`: stringa con distinzione maiuscole/minuscole uguale a e non uguale a. Sono disponibili numerosi altri operatori di confronto delle stringhe.
 
-Leggere tutte le informazioni sulle [espressioni scalari](app-analytics-scalars.md).
+Informazioni dettagliate sulle [espressioni scalari](app-analytics-scalars.md).
 
 ### Filtro degli eventi
 
@@ -248,7 +248,7 @@ Individuare le richieste non riuscite:
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` è di tipo stringa, pertanto è necessario [eseguire il cast](app-analytics-scalars.md#casts) per un confronto numerico.
+`responseCode` è di tipo stringa, quindi è necessario [eseguire il cast](app-analytics-scalars.md#casts) per un confronto numerico.
 
 Riepilogare le diverse risposte:
 
@@ -279,7 +279,7 @@ L'asse x per i grafici a linee deve essere di tipo DateTime.
 
 ## Serie multiple 
 
-Usare più valori in una clausola `summarize by` per creare una riga separata per ogni combinazione di valori:
+Usare più valori in una clausola `summarize by` per creare una riga distinta per ogni combinazione di valori:
 
 ```AIQL
 
@@ -407,7 +407,7 @@ Per ottenere una suddivisione separata per ogni paese, è sufficiente visualizza
 
 È possibile accedere a più tabelle, incluse le richieste e le eccezioni.
 
-Per individuare le eccezioni correlate a una richiesta che ha restituito una risposta di errore, è possibile eseguire il join delle tabelle in `session_Id`:
+Per trovare le eccezioni correlate a una richiesta che ha restituito una risposta di errore, è possibile creare un join delle tabelle in `session_Id`:
 
 ```AIQL
 
@@ -422,7 +422,7 @@ Per individuare le eccezioni correlate a una richiesta che ha restituito una ris
 
 
 
-## [Let](app-analytics-aggregations.md#let): assegnare un risultato a una variabile
+## [Let](app-analytics-aggregations.md#let): assegna un risultato a una variabile
 
 Usare [let](./app-analytics-syntax.md#let-statements) per separare le parti dell'espressione precedente. I risultati rimangono invariati:
 
@@ -436,9 +436,9 @@ Usare [let](./app-analytics-syntax.md#let-statements) per separare le parti dell
     | take 30
 ```
 
-> Suggerimento: nel client AI Analytics non inserire righe vuote tra le parti di questo oggetto. Verificare che vengano eseguiti tutti gli elementi.
+> Suggerimento: nel client Analisi non inserire righe vuote tra le parti di questo oggetto. Verificare che vengano eseguiti tutti gli elementi.
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

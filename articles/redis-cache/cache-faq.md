@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="03/17/2016" 
 	ms.author="sdanie"/>
 
 # Domande frequenti sulla Cache Redis di Azure
@@ -220,10 +220,31 @@ Per istruzioni sul download degli strumenti Redis, vedere la sezione [Come si es
 
 -	Se si ha una cache Standard o Premium, è possibile eseguire i comandi di Redis usando la [Console Redis](cache-configure.md#redis-console). Ciò consente di eseguire in modo sicuro i comandi di Redis nel portale di Azure.
 -	È anche possibile usare gli strumenti da riga di comando di Redis. A questo scopo, eseguire la procedura seguente.
-	-	Scaricare gli [strumenti da riga di comando Redis](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
+	-	Scaricare gli [strumenti da riga di comando Redis](https://github.com/MSOpenTech/redis/releases/).
 	-	Connettersi alla cache usando `redis-cli.exe`. Passare l'endpoint della cache mediante l'opzione -h e la chiave mediante -a, come illustrato nell'esempio seguente.
 		-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
 	-	Si noti che gli strumenti da riga di comando Redis non funzionano con la porta SSL, ma è possibile usare un'utilità come `stunnel` per connettere in modo sicuro gli strumenti alla porta SSL seguendo le istruzioni disponibili nel post di blog [Annuncio del provider di stato della sessione ASP.NET per la versione di anteprima di Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+
+<a name="cache-emulator"></a>
+## Esiste un emulatore locale per la cache Redis di Azure?
+
+Non esiste un emulatore locale per la cache Redis di Azure, ma è possibile eseguire la versione MSOpenTech di redis-server.exe dagli [strumenti della riga di comando Redis](https://github.com/MSOpenTech/redis/releases/) sul computer locale del computer e connettersi per ottenere un'esperienza simile a un emulatore cache locale, come illustrato nell'esempio seguente.
+
+	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	{
+		// Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+	    return ConnectionMultiplexer.Connect("127.0.0.1");
+	});
+	
+	public static ConnectionMultiplexer Connection
+	{
+	    get
+	    {
+	        return lazyConnection.Value;
+	    }
+	}
+
+Facoltativamente, è possibile configurare un file [redis.conf](http://redis.io/topics/config) per avvicinarsi maggiormente alle [impostazioni della cache predefinite](cache-configure.md#default-redis-server-configuration) per la cache Redis di Azure online, se si desidera.
 
 <a name="cache-common-patterns"></a>
 ## Quali sono i modelli e le considerazioni comuni sulle cache?
@@ -257,7 +278,7 @@ Cache di Azure presenta attualmente tre offerte:
 >
 >Servizio cache gestita e il servizio Cache nel ruolo rimarranno disponibili per gli attuali clienti per un massimo di 12 mesi dalla data di questo annuncio, 30 novembre 2015, la data di scadenza dei servizi è il 30 novembre 2016. Dopo questa data, Servizio cache gestita e il servizio Cache nel ruolo non saranno più supportati.
 >
->Microsoft rimuoverà il supporto per la creazione di nuove cache nel ruolo nella prima versione di Azure SDK che sarà rilasciata dopo il 1ª febbraio 2016. I clienti potranno aprire i progetti esistenti in cui sono presenti cache nel ruolo.
+>Microsoft rimuoverà il supporto per la creazione di nuove cache nel ruolo nella prima versione di Azure SDK che sarà rilasciata dopo il 1° febbraio 2016. I clienti potranno aprire i progetti esistenti in cui sono presenti cache nel ruolo.
 >
 >Durante questo periodo, si consiglia a tutti gli attuali clienti di Servizio cache gestita e del servizio Cache nel ruolo di eseguire la migrazione a Cache Redis di Azure. Cache Redis di Azure fornisce più funzionalità e un maggiore valore complessivo. Per altre informazioni sulla migrazione, visitare la pagina Web della documentazione [Eseguire la migrazione dal Servizio cache gestita alla Cache Redis di Azure](cache-migrate-to-redis.md).
 >
@@ -282,4 +303,4 @@ Cache nel ruolo è destinato al ritiro il 30 novembre 2016.
 
 [impostazione di configurazione "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

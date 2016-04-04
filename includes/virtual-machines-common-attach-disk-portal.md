@@ -1,55 +1,53 @@
 
 
-This article shows you how to attach both new and existing disks to a virtual machine through the Azure portal. Before you do this, review these tips:
+In questo articolo viene illustrato come collegare dischi sia nuovi che esistenti a una macchina virtuale tramite il portale di Azure. Prima di procedere, rivedere i suggerimenti seguenti:
 
-- The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
-- To use Premium storage, you'll need a DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage-preview-portal.md).
-- Disks attached to virtual machines are actually .vhd files in an Azure storage account. For details, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
-- For a new disk, you don't need to create it first because Azure creates it when you attach it.
-- For an existing disk, the .vhd file must be available in an Azure storage account. You can use a .vhd that's already there, if it's not attached to another virtual machine, or upload your own .vhd file to the storage account.
+- La dimensione della macchina virtuale controlla il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](virtual-machines-linux-sizes.md).
+- Per utilizzare l'archiviazione Premium, è necessario utilizzare una macchina virtuale della serie DS o serie GS. È possibile utilizzare dischi dagli account di archiviazione sia Premium che Standard con queste macchine virtuali. L’archiviazione Premium è disponibile solo in determinate aree geografiche. Per ulteriori informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage-preview-portal.md).
+- Dischi collegati a macchine virtuali sono effettivamente file con estensione .vhd in un account di archiviazione di Azure. Per informazioni dettagliate, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-linux-about-disks-vhds.md).
+- Per un nuovo disco, non è necessario crearlo prima perché Azure lo crea quando lo si collega.
+- Per un disco esistente, il file .vhd deve essere disponibile in un account di archiviazione di Azure. È possibile usare un .vhd già esistente se non è collegato a un'altra macchina virtuale o caricare il proprio file .vhd nell'account di archiviazione.
 
-## Find the virtual machine
+## Trovare la macchina virtuale
 
-1. Sign in to the Azure portal.
+1. Accedere al portale di Azure.
 
-2. On the Hub menu, click **Virtual Machines**.
+2. Nel menu Hub fare clic su **Macchine virtuali**.
 
-3.	Select the virtual machine from the list.
+3.	Selezionare la macchina virtuale dall'elenco.
 
-4. To the right, under **Essentials**, click **All settings**, and then click **Disks**.
+4. A destra, in **Essentials**, fare clic su **Tutte le impostazioni**, quindi fare clic su **Dischi**.
 
-	![Open disk settings](./media/virtual-machines-common-attach-disk-portal/find-disk-settings.png)
+	![Aprire le impostazioni del disco](./media/virtual-machines-common-attach-disk-portal/find-disk-settings.png)
 
-Continue by following instructions for attaching either a new disk or an existing disk.
+Continuare seguendo le istruzioni riportate per collegare un nuovo disco o un disco esistente.
 
-## Option 1: Attach a new disk
+## Opzione 1: Collega un nuovo disco
 
-1.	On the **Disks** blade, click **Attach new**.
+1.	Nel pannello **Dischi** fare clic su **Collega nuovo**.
 
-2.	Review the default settings, update as necessary, and then click **OK**.
+2.	Esaminare le impostazioni predefinite, aggiornare se necessario e quindi fare clic su **OK**.
 
- 	![Review disk settings](./media/virtual-machines-common-attach-disk-portal/attach-new.png)
+ 	![Esaminare le impostazioni del disco](./media/virtual-machines-common-attach-disk-portal/attach-new.png)
 
-3.	After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**.
+3.	Dopo che Azure crea il disco e lo collega alla macchina virtuale, il nuovo disco viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dati**.
 
-## Option 2: Attach an existing disk
+## Opzione 2: Collegare un disco esistente
 
-1.	On the **Disks** blade, click **Attach existing**.
+1.	Nel pannello **Dischi**, fare clic su **Collega esistente**.
 
-2.	Under **Attach existing disk**, click **VHD File**.
+2.	In **Collega un disco esistente** fare clic su **File VHD**.
 
-	![Attach existing disk](./media/virtual-machines-common-attach-disk-portal/attach-existing.png)
+	![Collegare un disco esistente](./media/virtual-machines-common-attach-disk-portal/attach-existing.png)
 
-3.	Under **Storage accounts**, select the account and container that holds the .vhd file.
+3.	In **Account di archiviazione**, selezionare l'account e un contenitore che contiene il file con estensione vhd.
 
-	![Find VHD location](./media/virtual-machines-common-attach-disk-portal/find-storage-container.png)
+	![Individuare il percorso di un VHD](./media/virtual-machines-common-attach-disk-portal/find-storage-container.png)
 
-4.	Select the .vhd file.
+4.	Selezionare il file con estensione vhd.
 
-5.	Under **Attach existing disk**, the file you just selected is listed under **VHD File**. Click **OK**.
+5.	In **Collega un disco esistente** il file appena selezionato è elencato in **File VHD**. Fare clic su **OK**.
 
-6.	After Azure attaches the disk to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.
+6.	Dopo che Azure collega il disco alla macchina virtuale, esso viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dei dati**.
 
-
-
-
+<!---HONumber=AcomDC_0323_2016-->

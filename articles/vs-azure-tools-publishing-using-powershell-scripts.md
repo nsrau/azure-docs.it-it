@@ -37,7 +37,7 @@ Sono disponibili altri strumenti e risorse per l'utilizzo di PowerShell in Visua
 
 ## Come generare script di pubblicazione
 
-È possibile generare gli script di pubblicazione per una macchina virtuale che ospita il sito Web quando si crea un nuovo progetto seguendo [queste istruzioni](/virtual-machines/virtual-machines-dotnet-create-visual-studio-powershell.md). È inoltre possibile [generare script per le app web di pubblicazione nel servizio di Azure App](/app-service-web/web-sites-dotnet-get-started.md).
+È possibile generare gli script di pubblicazione per una macchina virtuale che ospita il sito Web quando si crea un nuovo progetto seguendo [queste istruzioni](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md). È inoltre possibile [generare script per le app web di pubblicazione nel servizio di Azure App](/app-service-web/web-sites-dotnet-get-started.md).
 
 ## Script generati da Visual Studio
 
@@ -351,4 +351,4 @@ Per visualizzare la Guida per le funzioni è possibile utilizzare il prompt dei 
 
 Ulteriori informazioni sulla creazione di script PowerShell leggendo [Scripting con Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) e altri script di Azure PowerShell nello [Script Center](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

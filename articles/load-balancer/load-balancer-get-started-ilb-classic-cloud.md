@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Creare un servizio di bilanciamento del carico interno per i servizi cloud nel modello di distribuzione classica | Microsoft Azure"
    description="Informazioni su come creare un servizio di bilanciamento del carico interno usando PowerShell nel modello di distribuzione classica"
-   services="load-balancer-ilb"
+   services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
    manager="carolz"
@@ -91,4 +91,4 @@ Il traffico di rete verrà configurato per il bilanciamento del carico tramite i
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

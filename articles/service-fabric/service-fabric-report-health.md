@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="03/23/2016"
    ms.author="oanapl"/>
 
 # Aggiungere report sull'integrità di Service Fabric personalizzati
@@ -47,9 +47,9 @@ Come indicato in precedenza, il report può essere eseguito da:
 
 > [AZURE.NOTE] Per impostazione predefinita, il cluster viene popolato con report sull'integrità inviati dai componenti di sistema. Per altre informazioni, vedere [Uso dei report sull'integrità del sistema per la risoluzione dei problemi](service-fabric-understand-and-troubleshoot-with-system-health-reports.md). I report dell'utente devono essere inviati alle [entità di integrità](service-fabric-health-introduction.md#health-entities-and-hierarchy) già create dal sistema.
 
-Una volta definita la progettazione dei report sull'integrità, è possibile inviarli facilmente. Questa operazione può essere eseguita tramite l'API con **FabricClient.HealthManager.ReportHealth**, tramite PowerShell oppure REST. Internamente, tutti i metodi usano un client di integrità incluso in un client Fabric. Sono disponibili controlli di configurazione che riuniscono i report in batch per migliorare le prestazioni.
+Una volta definita la progettazione dei report sull'integrità, è possibile inviarli facilmente. È possibile usare `FabricClient` per segnalare lo stato dell'integrità se il cluster non è [sicuro](service-fabric-cluster-security.md) o se il client Fabric ha privilegi di amministratore. Questa operazione può essere eseguita tramite l'API con [FabricClient.HealthManager.ReportHealth](https://msdn.microsoft.com/library/system.fabric.fabricclient.healthclient.reporthealth.aspx), tramite PowerShell oppure REST. Sono disponibili controlli di configurazione che riuniscono i report in batch per migliorare le prestazioni.
 
-> [AZURE.NOTE] L'esecuzione di report sull'integrità è un'operazione sincrona e rappresenta solo l'attività di convalida sul lato client. Il fatto che il report venga accettato dal client di integrità non significa che sia applicato nell'archivio. Verrà inviato in modo asincrono e possibilmente in batch con altri report. L'elaborazione sul server può comunque non riuscire, ad esempio un numero di sequenza non è aggiornato, l'entità in cui deve essere applicato il report è stata eliminata e così via.
+> [AZURE.NOTE] L'esecuzione di report sull'integrità è un'operazione sincrona e rappresenta solo l'attività di convalida sul lato client. Il fatto che il report venga accettato dal client di integrità oppure tramite gli oggetti `Partition` o `CodePackageActivationContext` non significa che sia applicato nell'archivio. Verrà inviato in modo asincrono e possibilmente in batch con altri report. L'elaborazione sul server può comunque non riuscire, ad esempio un numero di sequenza non è aggiornato, l'entità in cui deve essere applicato il report è stata eliminata e così via.
 
 ## Client di integrità
 I report sull'integrità vengono inviati all'archivio integrità tramite un client di integrità, che risiede nel client Fabric. Il client di integrità può essere configurato con gli elementi seguenti:
@@ -62,7 +62,7 @@ I report sull'integrità vengono inviati all'archivio integrità tramite un clie
 
 > [AZURE.NOTE] Quando i report vengono riuniti in batch, il client Fabric deve restare attivo almeno per il tempo previsto da HealthReportSendInterval per garantire l'invio dei report. Se il messaggio viene perso o l'archivio integrità non può applicare i report a causa di errori temporanei, il client Fabric deve restare attivo più a lungo per dare la possibilità di riprovare.
 
-La memorizzazione nel buffer sul client tiene conto dell'unicità dei report. Ad esempio, se un particolare reporter non corretto crea 100 report al secondo per la stessa proprietà della stessa entità, i report verranno sostituiti con l'ultima versione. Nella coda del client sarà presente uno solo di questi report. Se è configurato l'invio in batch, il numero di report inviati all'archivio integrità è solo uno per ogni intervallo di trasmissione. Questo è l'ultimo report aggiunto, che riflette lo stato più recente dell'entità. Tutti i parametri di configurazione possono essere specificati quando si crea **FabricClient**, passando **FabricClientSettings** con i valori desiderati per le voci correlate all'integrità.
+La memorizzazione nel buffer sul client tiene conto dell'unicità dei report. Ad esempio, se un particolare reporter non corretto crea 100 report al secondo per la stessa proprietà della stessa entità, i report verranno sostituiti con l'ultima versione. Nella coda del client sarà presente uno solo di questi report. Se è configurato l'invio in batch, il numero di report inviati all'archivio integrità è solo uno per ogni intervallo di trasmissione. Questo è l'ultimo report aggiunto, che riflette lo stato più recente dell'entità. Tutti i parametri di configurazione possono essere specificati quando si crea `FabricClient` passando [FabricClientSettings](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx) con i valori desiderati per le voci correlate all'integrità.
 
 Il comando seguente crea un client dell'infrastruttura e specifica che i report devono essere inviati non appena vengono aggiunti. In caso di timeout ed errori che supportano nuovi tentativi, questi vengono eseguiti ogni 40 secondi.
 
@@ -104,7 +104,24 @@ GatewayInformation   : {
                        }
 ```
 
-> [AZURE.NOTE] Per assicurare che i servizi non autorizzati non eseguano report sull'integrità per le entità del cluster, è possibile configurare il server in modo che accetti solo le richieste dai client protetti. Poiché la creazione di report avviene tramite FabricClient, è necessario abilitare la sicurezza in FabricClient per consentire la comunicazione con il cluster, ad esempio Kerberos o l'autenticazione del certificato.
+> [AZURE.NOTE] Per assicurare che i servizi non autorizzati non eseguano report sull'integrità per le entità del cluster, è possibile configurare il server in modo che accetti solo le richieste dai client protetti. Poiché la creazione di report avviene tramite `FabricClient`, è necessario abilitare la sicurezza in `FabricClient` per consentire la comunicazione con il cluster, ad esempio tramite Kerberos o l'autenticazione del certificato. Per altre informazioni, vedere la pagina relativa alla [sicurezza del cluster](service-fabric-cluster-security.md).
+
+## Report dai servizi con privilegi limitati
+Nei servizi di Service Fabric privi di accesso amministrativo al cluster è possibile segnalare lo stato dell'integrità relativo alle entità dal contesto corrente tramite `Partition` o `CodePackageActivationContext`.
+
+- Per i servizi senza stato usare [IStatelessServicePartition.ReportInstanceHealth](https://msdn.microsoft.com/library/system.fabric.istatelessservicepartition.reportinstancehealth.aspx) per creare report relativi all'istanza del servizio corrente.
+
+- Per i servizi con stato usare [IStatefulServicePartition.ReportReplicaHealth](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.reportreplicahealth.aspx) per creare report relativi alla replica corrente.
+
+- Usare [IServicePartition.ReportPartitionHealth](https://msdn.microsoft.com//library/system.fabric.iservicepartition.reportpartitionhealth.aspx) per creare report relativi all'entità della partizione corrente.
+
+- Usare [CodePackageActivationContext.ReportApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportapplicationhealth.aspx) per creare report relativi all'applicazione corrente.
+
+- Usare [CodePackageActivationContext.ReportDeployedApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth.aspx) per creare report relativi all'applicazione corrente distribuita sul nodo corrente.
+
+- Usare [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth.aspx) per creare report relativi a un pacchetto del servizio per l'applicazione corrente distribuita sul nodo corrente.
+
+> [AZURE.NOTE] Internamente gli oggetti `Partition` e `CodePackageActivationContext` includono un client di integrità che viene configurato con le impostazioni predefinite. Sono applicabili le stesse considerazioni illustrate per il [client di integrità](service-fabric-report-health.md#health-client). I report vengono riuniti in batch e inviati in base a un timer, quindi gli oggetti devono essere mantenuti attivi per avere la possibilità di inviare il report.
 
 ## Creare report sull'integrità
 Il primo passaggio per la creazione di report di alta qualità consiste nell'identificare le condizioni che possono influire sull'integrità del servizio. Tutte le condizioni che facilitano l'identificazione dei problemi nel servizio o nel cluster non appena insorgono, o meglio ancora prima che si verifichino, possono consentire un notevole risparmio, grazie alla riduzione dei tempi di inattività e del numero di ore impiegate per l'analisi e la risoluzione dei problemi, oltre all'aumento della soddisfazione dei clienti.
@@ -138,17 +155,19 @@ La condizione monitorata può essere riportata come avviso se l'attività non vi
 Se però la creazione di report viene eseguita nei casi descritti sopra, i report saranno acquisiti nell'integrità dell'applicazione quando questa viene valutata.
 
 ## Report periodici e report in caso di transizione a confronto
-Usando il modello di report sull'integrità, i watchdog possono inviare report periodicamente o in caso di transizioni. È consigliabile inviarli periodicamente, perché il codice è molto più semplice e meno soggetto a errori. I watchdog devono essere più semplici possibile per evitare bug che generano report non corretti. Eventuali report che segnalano erroneamente la *mancata integrità* influiscono sulla valutazione dell'integrità e sugli scenari basati sull'integrità, inclusi gli aggiornamenti. I report che segnalano erroneamente la *mancata integrità* hanno l'effetto di nascondere problemi del cluster ed è quindi opportuno evitare che vengano generati.
+Usando il modello di report sull'integrità, i watchdog possono inviare report periodicamente o in caso di transizioni. Nel caso dei report watchdog, è consigliabile inviarli periodicamente, perché il codice è molto più semplice e meno soggetto a errori. I watchdog devono essere più semplici possibile per evitare bug che generano report non corretti. Eventuali report che segnalano erroneamente la *mancata integrità* influiscono sulla valutazione dell'integrità e sugli scenari basati sull'integrità, inclusi gli aggiornamenti. I report che segnalano erroneamente la *mancata integrità* hanno l'effetto di nascondere problemi del cluster ed è quindi opportuno evitare che vengano generati.
 
 Per i report periodici, il watchdog può essere implementato con un timer. In caso di callback del timer, il watchdog può controllare lo stato e inviare un report in base allo stato corrente. Non è necessario visualizzare il report inviato in precedenza o eseguire ottimizzazioni in termini di messaggistica. A questo scopo, il client di integrità è dotato di logica per la creazione di batch. Finché il client di integrità viene mantenuto attivo, esegue nuovi tentativi internamente finché il report non riceve un acknowledgement dall'archivio integrità o il watchdog genera un report più recente con entità, proprietà e origine identiche.
 
 La creazione di report in caso di transizioni richiede una gestione attenta dello stato. Il watchdog esegue il monitoraggio di alcune condizioni e segnala soltanto eventuali modifiche di tali condizioni. Il lato positivo di questo approccio è che sono necessari meno report. Il lato negativo è che la logica del watchdog è complessa. È necessario mantenere le condizioni o i report per poterli esaminare e determinare le modifiche dello stato. In caso di failover, prestare attenzione quando si invia un report che potrebbe non essere stato inviato in precedenza, ovvero è in coda, ma non ancora inviato all'archivio integrità. Il numero di sequenza deve essere crescente. In caso contrario, i report verranno rifiutati come non aggiornati. Nei rari casi in cui si verifica una perdita di dati, potrebbe essere necessaria la sincronizzazione tra lo stato del reporter e quello dell'archivio integrità.
 
+La creazione di report relativi alle transizioni risulta utile per i servizi che inviano report relativi a se stessi, tramite `Partition` o `CodePackageActivationContext`. Quando viene rimosso l'oggetto locale, ovvero una replica o un pacchetto del servizio distribuito oppure un'applicazione distribuita, vengono rimossi anche tutti i rispettivi report. Non è quindi strettamente necessario eseguire la sincronizzazione tra il reporter e l'archivio integrità. Se il report è relativo a una partizione o un'applicazione padre, è necessario prestare attenzione in caso di failover, in modo da evitare report obsoleti nell'archivio integrità. Occorre aggiungere la logica per mantenere lo stato corretto e cancellare il report dall'archivio quando non è più necessario.
+
 ## Implementare report sull'integrità
 Dopo aver definito l'entità e i dettagli del report, l'invio dei report sull'integrità può essere eseguito tramite API, PowerShell o REST.
 
 ### API
-Per usare un'API, gli utenti devono creare un report sull'integrità specifico per il tipo di entità per cui vogliono a generare il report e quindi assegnarvi un client di integrità.
+Per usare un'API, gli utenti devono creare un report sull'integrità specifico per il tipo di entità per cui vogliono a generare il report e quindi assegnarvi un client di integrità. In alternativa, gli utenti devono creare informazioni sull'integrità e passarle ai metodi corretti per la creazione di report in `Partition` o `CodePackageActivationContext` per inviare segnalazioni relative alle entità correnti.
 
 L'esempio seguente illustra la generazione periodica di report da un watchdog all'interno del cluster. I controlli del watchdog determinano se è possibile accedere a una risorsa esterna dall'interno di un nodo. La risorsa è richiesta da un manifesto del servizio all'interno dell'applicazione. Se la risorsa non è disponibile, gli altri servizi all'interno dell'applicazione possono comunque funzionare correttamente. Il report viene quindi inviato per l'entità del pacchetto del servizio distribuito ogni 30 secondi.
 
@@ -173,6 +192,9 @@ public static void SendReport(object obj)
         new HealthInformation("ExternalSourceWatcher", "Connectivity", healthState));
 
     // TODO: handle exception. Code omitted for snippet brevity.
+    // Possible exceptions: FabricException with error codes
+    // FabricHealthStaleReport (non-retryable, the report is already queued on the health client),
+    // FabricHealthMaxReportsReached (retryable; user should retry with exponential delay until the report is accepted).
     Client.HealthManager.ReportHealth(deployedServicePackageHealthReport);
 }
 ```
@@ -275,4 +297,4 @@ In base ai dati sull'integrità, gli sviluppatori del servizio e gli amministrat
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

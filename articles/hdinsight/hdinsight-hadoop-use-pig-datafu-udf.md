@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/08/2016"
+ms.date="03/18/2016"
 ms.author="larryfr"/>
 
 #Utilizzare DataFu con pig in HDInsight
@@ -30,7 +30,7 @@ DataFu è una raccolta di librerie open source per l'utilizzo con Hadoop. In que
 
 ##Installare DataFu in HDInsight basato su Linux
 
-> [AZURE.NOTE]DataFu è preinstallato nei cluster HDInsight basati su Windows. Se si utilizza un cluster basato su Windows, ignorare questa sezione.
+> [AZURE.NOTE] DataFu è preinstallato nei cluster HDInsight basati su Windows. Se si utilizza un cluster basato su Windows, ignorare questa sezione.
 
 DataFu può essere scaricato e installato dall’archivio Maven. Utilizzare la procedura seguente per aggiungere DataFu al cluster di HDInsight:
 
@@ -47,13 +47,13 @@ DataFu può essere scaricato e installato dall’archivio Maven. Utilizzare la p
 
         hdfs dfs -put datafu-1.2.0.jar /example/jars
     
-    > [AZURE.NOTE]Nell'esempio precedente si archivia il file jar in `wasb:///example/jars` poiché la directory esiste già nell'archivio del cluster. È possibile utilizzare qualsiasi percorso desiderato nell'archiviazione cluster HDInsight.
+    > [AZURE.NOTE] Nell'esempio precedente si archivia il file jar in `wasb:///example/jars` poiché la directory esiste già nell'archivio del cluster. È possibile utilizzare qualsiasi percorso desiderato nell'archiviazione cluster HDInsight.
 
 ##Utilizzare DataFu con Pig
 
 I passaggi in questa sezione presuppongono che si abbia familiarità con l'utilizzo di Pig in HDInsight e fornisce solo le istruzioni Pig Latin, non i passaggi relativi al loro utilizzo con il cluster. Per ulteriori informazioni sull'utilizzo di Pig con HDInsight, vedere [Usare Pig con HDInsight](hdinsight-use-pig.md).
 
-> [AZURE.IMPORTANT]Quando si utilizza DataFu da Pig in un cluster HDInsight basato su Linux, è innanzitutto necessario registrare il file jar utilizzando la seguente istruzione Pig Latin:
+> [AZURE.IMPORTANT] Quando si utilizza DataFu da Pig in un cluster HDInsight basato su Linux, è innanzitutto necessario registrare il file jar utilizzando la seguente istruzione Pig Latin:
 >
 > ```register wasb:///example/jars/datafu-1.2.0.jar```
 >
@@ -107,4 +107,4 @@ Per altre informazioni su DataFu o Pig, vedere i seguenti documenti:
 
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

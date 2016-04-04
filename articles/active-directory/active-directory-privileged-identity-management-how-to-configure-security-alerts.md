@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Privileged Identity Management: Come configurare gli avvisi di sicurezza"
+   pageTitle="Come configurare gli avvisi di sicurezza | Microsoft Azure"
    description="Informazioni su come configurare gli avvisi di sicurezza per l'estensione Azure Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: Come configurare gli avvisi di sicurezza
+# Azure AD Privileged Identity Management: Come configurare gli avvisi di sicurezza
 
 ## Panoramica degli avvisi di sicurezza
 Azure Privileged Identity Management (PIM) consente di configurare gli avvisi seguenti. Gli avvisi di sicurezza possono essere visualizzati nella sezione degli avvisi del dashboard PIM.
@@ -59,4 +59,4 @@ Esistono due impostazioni che possono attivare l'avviso. Se sono presenti più a
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

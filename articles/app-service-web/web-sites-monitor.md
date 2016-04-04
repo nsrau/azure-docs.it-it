@@ -201,7 +201,7 @@ Verranno scaricati i file di log per l'app Web specificata da **webappname** e v
 
 Le informazioni di log verranno visualizzate al prompt dei comandi o nella sessione di PowerShell, bash o terminal da cui viene eseguito il comando.
 
-> [AZURE.NOTE] Se il comando **azure**non è installato, vedere [Come usare l'interfaccia della riga di comando di Azure](../virtual-machines-command-line-tools.md) per informazioni sull'installazione e la configurazione.
+> [AZURE.NOTE] Se il comando **azure**non è installato, vedere [Come usare l'interfaccia della riga di comando di Azure](../virtual-machines/virtual-machines-command-line-tools.md) per informazioni sull'installazione e la configurazione.
 
 ### Lettura dei file di log ###
 
@@ -283,10 +283,9 @@ Per ulteriori informazioni sul monitoraggio degli endpoint dell'app Web, vedere 
 
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

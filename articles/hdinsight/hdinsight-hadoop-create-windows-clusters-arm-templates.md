@@ -133,11 +133,13 @@ Per un'introduzione all'uso di Visual Studio con gruppi di risorse, vedere [Crea
 ##Passaggi successivi
 Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:
 
-- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](../virtual-machines/arm-template-deployment.md).
+
+- Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](../virtual-machines/virtual-machines-windows-csharp-template.md).
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](../solution-dev-test-environments.md).
 - Per informazioni sulle sezioni del modello di Azure Resource Manager, vedere [Creazione di modelli](../resource-group-authoring-templates.md).
 - Per un elenco delle funzioni che è possibile usare in un modello di Azure Resource Manager, vedere [Funzioni di modello](../resource-group-template-functions.md).
+
 
 
 ##Appendice A: Modello di Gestione risorse di Azure
@@ -290,4 +292,4 @@ Il modello di Gestione risorse di Azure seguente crea un cluster Hadoop basato s
         }
     }
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

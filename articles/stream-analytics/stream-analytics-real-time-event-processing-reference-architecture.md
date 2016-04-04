@@ -13,7 +13,7 @@
 	ms.workload="big-data" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
@@ -63,4 +63,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/21/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,7 +64,7 @@ Per configurare l'integrazione di Degreed in Azure AD, è necessario aggiungere 
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **Degreed**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_01.png)<br>
-7. Nel riquadro dei risultati selezionare **Degreed** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>
+7. Nel riquadro dei risultati selezionare **Degreed** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_02.png)<br>
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Degreed con un utente test di nome "Britta Simon".
@@ -103,7 +103,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     a. Fare clic su **Scarica metadati** e quindi salvare il file nel computer.
 
-    b. Fare clic su **Next**.
+    b. Fare clic su **Avanti**.
 
 
 5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto di Degreed all'indirizzo [admin@degreed.com](mailto:admin@degreed.com) allegando il file di metadati al messaggio di posta elettronica.
@@ -155,7 +155,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     a. Prendere nota del valore visualizzato in **Nuova password**.
 
-    b. Fare clic su **Operazione completata**.
+    b. Fare clic su **Complete**.
 
 
 
@@ -188,7 +188,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 ### Test dell'accesso Single Sign-On
 
-L'obiettivo di questa sezione è testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.<br> Quando si fa clic sul riquadro Degreed nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Degreed.
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.<br> Quando si fa clic sul riquadro Degreed nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Degreed.
 
 
 ## Risorse aggiuntive
@@ -216,4 +216,4 @@ L'obiettivo di questa sezione è testare la configurazione dell'accesso Single S
 [204]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

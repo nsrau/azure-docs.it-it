@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="big-data"
-	ms.date="12/09/2015"
+	ms.date="03/21/2016"
 	ms.author="rashimg;cgronlun"/>
 
 # Errori di analisi dello stack di Hadoop in HDInsight: indice degli articoli sulla risoluzione dei problemi
@@ -34,4 +34,4 @@ Utilizzare l'indice di errori di analisi dello stack di Hadoop per risolvere i p
 * [Raccogliere i dump dell'heap nell'archivio BLOB per eseguire il debug e analizzare i servizi Hadoop](hdinsight-hadoop-collect-debug-heap-dumps.md)
 * [Note sulla versione di componenti Hadoop in Azure HDInsight](hdinsight-release-notes.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

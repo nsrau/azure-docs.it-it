@@ -127,7 +127,7 @@ Il contratto di servizio Microsoft relativo alla disponibilità si applica alle 
 
 **Manutenzione pianificata (portale classico)**: per le configurazioni a istanza singola e a istanza multipla Azure invia in anticipo una comunicazione tramite posta elettronica per avvisare della prossima manutenzione pianificata, con un anticipo di una settimana per istanze singole e di 48 ore per istanze multiple. Questo messaggio di posta elettronica viene inviato agli account di posta elettronica dell'amministratore account, dell'amministratore del servizio e del coamministratore forniti nella sottoscrizione.
 
-**NOTA:** per altre informazioni specifiche delle macchine virtuali, vedere l'articolo [Manutenzione pianificata per le macchine virtuali di Azure](./virtual-machines/virtual-machines-planned-maintenance.md).
+**NOTA:** per altre informazioni specifiche delle macchine virtuali, vedere l'articolo [Manutenzione pianificata per le macchine virtuali di Azure](virtual-machines/virtual-machines-linux-planned-maintenance.md).
 
 **Manutenzione non pianificata**: in caso di interruzione imprevista di un servizio sulla piattaforma Azure, gli aggiornamenti dello stato saranno visualizzati nel [dashboard del servizio](http://status.azure.com/) e i clienti riceveranno una notifica anche nel [portale di Azure classico](https://manage.windowsazure.com/).
 
@@ -217,7 +217,10 @@ Per visualizzare e modificare le informazioni dell'account Azure, è necessario 
 2.	Nella pagina delle sottoscrizioni fare clic sulla sottoscrizione per cui si vuole aggiornare il metodo di pagamento.
 3.	Nella pagina di riepilogo della **sottoscrizione** fare clic su Modifica il metodo di pagamento. Viene avviato lo strumento **Modifica il metodo di pagamento** in una finestra separata.
 
-**NOTA:** si può anche accedere al Centro account dal portale di Microsoft Azure classico. A questo scopo, fare clic sul nome dell'account e quindi su Visualizza fattura. 4. Nella pagina **Scegli il metodo di pagamento** fare clic sull'elenco a discesa, selezionare il metodo di pagamento che si vuole aggiornare e quindi fare clic su **Modifica**. 5. Nella pagina dei dettagli verificare di aver selezionato il tipo e il numero di carta di credito corretti. 6. Apportare le modifiche necessarie ai dettagli della carta e quindi fare clic su **Avanti**.
+**NOTA:** si può anche accedere al Centro account dal portale di Microsoft Azure classico. A questo scopo, fare clic sul nome dell'account e quindi su Visualizza fattura.
+4.	Nella pagina **Scegli il metodo di pagamento** fare clic sull'elenco a discesa, selezionare il metodo di pagamento che si vuole aggiornare e quindi fare clic su **Modifica**.
+5.	Nella pagina dei dettagli verificare di aver selezionato il tipo e il numero di carta di credito corretti.
+6.	Apportare le modifiche necessarie ai dettagli della carta e quindi fare clic su **Avanti**.
 
 Per altre informazioni, vedere l'articolo [Come modificare la carta di credito usata per pagare una sottoscrizione di Azure](billing-how-to-change-credit-card.md).
 
@@ -255,4 +258,4 @@ Sì.
 
 Attualmente non si prevede di offrire Azure o il database SQL tramite SPLA.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

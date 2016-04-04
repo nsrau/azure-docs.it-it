@@ -70,10 +70,12 @@ namespace TodoList_WebApp
 	}
 }```
 
--	Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIdConnectAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.  You'll also need to set up Cookie Authentication - the OpenID Connect middleware uses cookies underneath the covers.
+-	Aprire il file `App_Start\Startup.Auth.cs` e implementare il metodo `ConfigureAuth(...)`. I parametri forniti in `OpenIdConnectAuthenticationOptions` fungeranno da coordinate per consentire all'app di comunicare con Azure AD. È inoltre necessario impostare l'autenticazione tramite cookie: il middleware OpenID Connect usa i cookie in background.
 
 ```C#
-public void ConfigureAuth(IAppBuilder app) { app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+public void ConfigureAuth(IAppBuilder app)
+			 {
+					 app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
 					 app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
@@ -102,10 +104,10 @@ public void ConfigureAuth(IAppBuilder app) { app.SetDefaultSignInAsAuthenticatio
 			 }
 ```
 
-## 3. Usare OWIN per inviare le richieste di accesso e disconnessione ad Azure AD
-L'app ora è configurata correttamente per comunicare con l'endpoint 2.0 mediante il protocollo di autenticazione OpenID Connect.  OWIN ha gestito tutte le difficoltà derivanti dalla creazione dei messaggi di autenticazione, dalla convalida dei token da Azure AD e dalla gestione della sessione utente.  Non resta che dare agli utenti un modo per accedere e disconnettersi.
+## Invio di richieste di autenticazione
+L'app ora è configurata correttamente per comunicare con l'endpoint 2.0 mediante il protocollo di autenticazione OpenID Connect. OWIN ha gestito tutte le difficoltà derivanti dalla creazione dei messaggi di autenticazione, dalla convalida dei token da Azure AD e dalla gestione della sessione utente. Non resta che dare agli utenti un modo per accedere e disconnettersi.
 
-- È possibile usare tag di autorizzazione nei controller per obbligare l'utente ad accedere prima di aprire una determinata pagina.  Aprire `Controllers\HomeController.cs` e aggiungere il tag `[Authorize]` al controller About.
+- È possibile usare tag di autorizzazione nei controller per obbligare l'utente ad accedere prima di aprire una determinata pagina. Aprire `Controllers\HomeController.cs` e aggiungere il tag `[Authorize]` al controller About.
 
 ```C#
 [Authorize]
@@ -201,6 +203,8 @@ Ora è possibile passare ad argomenti più avanzati. È possibile:
 
 [Proteggere un'API Web con l'endpoint v2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Per altre risorse consultare: - [la guida per gli sviluppatori versione 2.0 >>](active-directory-appmodel-v2-overview.md) - [il tag "azure-active-directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Per altre risorse, vedere:
+- [Guida per sviluppatori v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [StackOverflow: tag "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

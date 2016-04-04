@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/18/2015"
+   ms.date="03/16/2016"
    ms.author="dkershaw;bryanla"/>
 
 # Informazioni sul manifesto dell'applicazione in Azure Active Directory
@@ -104,7 +104,7 @@ Ora che il manifesto è stato salvato, è possibile fornire a un'applicazione cl
 
 1. Passare innanzitutto alla pagina "Configura" dell'applicazione client in cui si vuole aggiungere l'accesso alla nuova API e fare clic sul pulsante "Aggiungi applicazione".
 2. Verrà quindi visualizzato l'elenco delle applicazioni della risorsa registrate (API) nel tenant. Fare clic sul segno più (+) accanto al nome dell'applicazione della risorsa per selezionarlo.  
-3. Fare quindi clic sul segno di spunta in basso a destra. 
+3. Fare quindi clic sul segno di spunta in basso a destra.
 4. Quando si ritorna alla sezione "Aggiungi applicazione" della pagina di configurazione del client, la nuova applicazione della risorsa verrà visualizzata nell'elenco. Se si passa il mouse sopra la sezione "Autorizzazioni delegate" a destra della riga, verrà visualizzato un elenco a discesa. Fare clic sull'elenco, quindi selezionare la nuova autorizzazione per aggiungerla all'elenco di autorizzazioni richieste dal client. Nota: la nuova autorizzazione verrà archiviata nella configurazione dell'identità dell'applicazione client, nella proprietà della raccolta "requiredResourceAccess".
 
 ![Autorizzazioni per altre applicazioni][PERMS-TO-OTHER-APPS]
@@ -145,4 +145,4 @@ Usare la sezione dei commenti DISQUS di seguito per fornire commenti e suggerime
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

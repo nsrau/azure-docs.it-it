@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/21/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Domande frequenti
@@ -46,6 +46,7 @@ No, ma questa funzionalità verrà implementata in futuro. Gli ambiti predefinit
 
 - Facebook: email
 - Google+: email
+- Account Microsoft: profilo di posta elettronica openid
 - Amazon: profile
 - LinkedIn: r\_emailaddress e r\_basicprofile
 
@@ -55,7 +56,7 @@ No, l'applicazione può essere ospitata ovunque (nel cloud o in locale). Per int
 
 ### Nel caso di più tenant Azure AD B2C, come è possibile gestirli nel portale di Azure?
 
-Ogni tenant di Azure AD B2C ha uno specifico pannello delle funzionalità B2C nel portale di Azure. Per informazioni su come passare al pannello di funzionalità B2C in un tenant specifico nel portale di Azure, vedere [Anteprima di Azure Active Directory B2C: come registrare l'applicazione](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade). Quando si passa da una directory di Azure AD B2C all'altra nel portale di Azure, il pannello delle funzionalità B2C non rimane aperto nella maggior parte dei browser.
+Ogni tenant di Azure AD B2C ha uno specifico pannello delle funzionalità B2C nel portale di Azure. Per informazioni su come passare al pannello delle funzionalità B2C di un tenant specifico nel portale di Azure, vedere [Anteprima di Azure Active Directory B2C: Registrare l'applicazione](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade). Quando si passa da una directory di Azure AD B2C all'altra nel portale di Azure, il pannello delle funzionalità B2C non rimane aperto nella maggior parte dei browser.
 
 ### Come si personalizzano i messaggi di posta elettronica di verifica (il contenuto e il campo "Da:") inviati da Azure AD B2C?
 
@@ -63,7 +64,7 @@ Usare la [funzionalità di personalizzazione della società](../active-directory
 
 ### Come si esegue la migrazione di nomi utente, password e profili esistenti dal database personale in Azure AD B2C?
 
-È possibile usare l'API Graph di Azure AD per creare lo strumento di migrazione. Per informazioni dettagliate, vedere l'[esempio relativo ad API Graph](active-directory-b2c-devquickstarts-graph-dotnet.md). In futuro Microsoft fornirà vari strumenti e opzioni di migrazione pronti per l'uso.
+È possibile usare l'API Graph di Azure AD per creare lo strumento di migrazione. Per informazioni dettagliate, vedere l'[esempio relativo all'API Graph](active-directory-b2c-devquickstarts-graph-dotnet.md). In futuro Microsoft fornirà vari strumenti e opzioni di migrazione pronti per l'uso.
 
 ### Quali sono i criteri password usati per gli account locali in Azure AD B2C?
 
@@ -79,11 +80,11 @@ No, per il momento. L'integrazione di questi sistemi verrà implementata in futu
 
 ### Azure AD B2C è compatibile con SharePoint 2016 locale o versione precedente?
 
-No, per il momento. Azure AD B2C non fornisce i token SAML 1.1 che i portali e le applicazioni e-commerce costruiscono sulla base delle esigenze di SharePoint in locale. Si noti che Azure AD B2C non è usato per lo scenario di condivisione del partner esterno SharePoint. Vedere invece l'articolo relativo ad [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx).
+No, per il momento. Azure AD B2C non fornisce i token SAML 1.1 che i portali e le applicazioni e-commerce costruiscono sulla base delle esigenze di SharePoint in locale. Si noti che Azure AD B2C non è usato per lo scenario di condivisione esterna con i partner di SharePoint. A questo scopo vedere l'articolo relativo ad [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx).
 
 ### È necessario usare Azure AD B2C o B2B per gestire le identità esterne?
 
-Per ottenere informazioni su come applicare le funzionalità appropriate agli scenari relativi a identità esterne, leggere questo articolo sulle [identità esterne](../active-directory/active-directory-b2b-compare-external-identities.md).
+Per altre informazioni su come applicare le funzionalità appropriate agli scenari relativi alle identità esterne, leggere questo articolo sulle [identità esterne](../active-directory/active-directory-b2b-compare-external-identities.md).
 
 ### Quali funzionalità di reporting e controllo offre Azure AD B2C? Offre le stesse funzionalità di Azure AD Premium?
 
@@ -95,7 +96,7 @@ Attualmente, Azure AD B2C è ottimizzato solo per l'inglese. Si prevede di imple
 
 ### È possibile usare l'URL personale nelle pagine di iscrizione e accesso servite da Azure AD B2C? È ad esempio possibile sostituire l'URL login.microsoftonline.com con login.contoso.com?
 
-No, per il momento. Questa funzionalità verrà implementata in futuro. Si noti anche che la verifica del proprio dominio nella scheda **Domini** del tenant nel portale di Azure classico non eseguirà questa operazione.
+No, per il momento. Questa funzionalità verrà implementata in futuro. Si noti anche che la procedura di verifica del dominio personalizzato nella scheda **Domini** del tenant nel portale di Azure classico non eseguirà questa operazione.
 
 ### È possibile ottenere Azure AD B2C come parte di Enterprise Mobility Suite?
 
@@ -103,7 +104,7 @@ No, Azure AD B2C è un servizio di Azure con pagamento in base al consumo e non 
 
 ### Come è possibile segnalare problemi relativi ad Azure AD B2C?
 
-Vedere l'articolo relativo a [come inviare richieste di supporto per Azure Active Directory B2C](active-directory-b2c-support.md).
+Vedere l'articolo che illustra come [inviare richieste di supporto per Azure Active Directory B2C](active-directory-b2c-support.md).
 
 ### Quando sarà disponibile a livello generale Azure AD B2C?
 
@@ -111,6 +112,6 @@ Non è attualmente possibile fornire una stima riguardo alla data di disponibili
 
 ## Altre informazioni
 
-È possibile anche leggere l'articolo relativo alle [limitazioni e restrizioni](active-directory-b2c-limitations.md).
+È consigliabile rivedere le informazioni relative a [vincoli, restrizioni e limitazioni correnti della versione di anteprima](active-directory-b2c-limitations.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->
