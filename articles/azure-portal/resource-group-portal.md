@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Uso del portale di Azure per gestire le risorse di Azure | Microsoft Azure" 
-	description="Informazioni su come raggruppare più risorse in un gruppo logico che diventa il limite del ciclo di vita per le risorse in esso contenute." 
+	description="Usare il portale di Azure e Azure Resource Manager per distribuire e gestire le risorse. Illustra come contrassegnare le risorse e visualizzare i log di controllo." 
 	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
 	authors="tfitzmac" 
-	manager="wpickett" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
@@ -13,24 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/11/2016" 
+	ms.date="03/29/2016" 
 	ms.author="tomfitz"/>
 
 
-# Uso del portale di Azure per gestire le risorse di Azure
+# Uso del portale di Azure per distribuire e gestire le risorse di Azure
 
 ## Introduzione
 
-Gestione risorse di Azure consente di distribuire e gestire le soluzioni attraverso gruppi di risorse. Questo argomento fornisce una panoramica su come usare i gruppi di risorse nel portale di Azure. In genere, un gruppo di risorse contiene risorse correlate a una specifica applicazione. Può ad esempio contenere un'app Web che ospita il sito Web pubblico dell'organizzazione, un database SQL in cui sono archiviati i dati relazionali usati dal sito e un account di archiviazione per le risorse non relazionali. Ogni risorsa in un gruppo di risorse deve condividere lo stesso ciclo di vita. Per altre informazioni su Gestione risorse, vedere la [panoramica di Gestione risorse](../resource-group-overview.md).
+Questo argomento illustra come usare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](../resource-group-overview.md) per distribuire e gestire le risorse di Azure.
 
 Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per questi servizi, sarà necessario usare il [portale classico](https://manage.windowsazure.com). Per lo stato di ogni servizio, vedere il [Grafico della disponibilità dei portali di Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
-È anche possibile gestire le risorse usando Azure PowerShell e l'interfaccia della riga di comando di Azure. Per altre informazioni sull'uso di tali interfacce, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md) e [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](../xplat-cli-azure-resource-manager.md).
+È anche possibile gestire le risorse usando Azure PowerShell e l'interfaccia della riga di comando di Azure. Per altre informazioni sull'uso di queste interfacce, vedere [Uso di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md) e [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](../xplat-cli-azure-resource-manager.md). Per altre informazioni sulla distribuzione di soluzioni con Visual Studio, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
+## Creare e gestire gruppi di risorse
 
-## Creare risorse e un gruppo di risorse
-
-Se è necessario creare un gruppo di risorse vuoto, è possibile selezionare **Nuovo**, **Gestione** e **Gruppo di risorse**.
+Per creare un gruppo di risorse vuoto, selezionare **Nuovo**, **Gestione** e **Gruppo di risorse**.
 
 ![creare un gruppo di risorse vuoto](./media/resource-group-portal/create-empty-group.png)
 
@@ -38,15 +37,35 @@ Assegnare un nome e un percorso e, se necessario, selezionare una sottoscrizione
 
 ![impostare i valori del gruppo](./media/resource-group-portal/set-group-properties.png)
 
-Quando si distribuiscono le risorse, è possibile scegliere di distribuirle al gruppo di risorse creato. L'immagine seguente mostra come creare una nuova app Web in un gruppo di risorse esistente.
+Dopo aver creato il gruppo di risorse, è possibile distribuirvi le risorse. Per avviare la distribuzione, è sufficiente selezionare **Nuovo** e il tipo di risorsa da distribuire.
+
+![distribuire risorse](./media/resource-group-portal/deploy-resource.png)
+
+Se il tipo di risorsa da distribuire non è visualizzato, si può cercarlo nel Marketplace.
+
+![cercare nel Marketplace](./media/resource-group-portal/search-resource.png)
+
+A seconda del tipo di risorsa selezionato, sarà disponibile una raccolta di proprietà rilevanti da impostare prima della distribuzione. Le opzioni non sono visualizzate in questo articolo, perché variano in base al tipo di risorsa. Per tutti i tipi è necessario selezionare un gruppo di risorse di destinazione. L'immagine seguente mostra come creare una nuova app Web e distribuirla nel gruppo di risorse appena creato.
 
 ![creare un gruppo di risorse](./media/resource-group-portal/select-existing-group.png)
 
-In alternativa, è possibile decidere di creare un nuovo gruppo di risorse durante la distribuzione delle risorse. Anziché selezionare uno dei gruppi di risorse esistenti nella sottoscrizione, selezionare **Nuovo** e assegnare un nome al gruppo di risorse.
+In alternativa, è possibile decidere di creare un nuovo gruppo di risorse durante la distribuzione delle risorse. Invece di selezionare uno dei gruppi di risorse esistenti nella sottoscrizione, selezionare **Nuovo** e assegnare un nome al gruppo di risorse.
 
 ![creare un nuovo gruppo di risorse](./media/resource-group-portal/select-new-group.png)
 
-## Esplorare i gruppi di risorse
+Verrà avviata la distribuzione. L'operazione può richiedere alcuni minuti. Al termine della distribuzione, verrà visualizzata una notifica.
+
+![visualizzare notifiche](./media/resource-group-portal/view-notification.png)
+
+### Aggiungere risorse a un gruppo di risorse esistente
+
+È possibile aggiungere risorse a un gruppo usando il comando **Add** nel pannello corrispondente.
+
+![aggiungere una risorsa](./media/resource-group-portal/add-resource.png)
+
+È possibile selezionare la risorsa desiderata dall'elenco disponibile.
+
+### Esplorare i gruppi di risorse
 
 È possibile esplorare tutti i gruppi di risorse facendo clic su **Gruppi di risorse**.
 
@@ -56,41 +75,44 @@ Quando si seleziona un gruppo di risorse specifico, viene visualizzato un pannel
 
 ![riepilogo del gruppo di risorse](./media/resource-group-portal/group-summary.png)
 
-Il pannello del gruppo di risorse offre inoltre una vista unificata delle informazioni di fatturazione e monitoraggio relative a tutte le risorse del gruppo.
+È possibile aggiungere più tabelle e grafici al pannello del gruppo di risorse selezionando **Aggiungi una sezione** sotto il riepilogo.
 
-![monitoraggio e fatturazione](./media/resource-group-portal/monitoring-billing.png)
+![aggiungere una sezione](./media/resource-group-portal/add-section.png)
 
-## Visualizzare la sottoscrizione e i costi
+Viene visualizzata una raccolta di riquadri che consente di selezionare le informazioni da includere nel pannello. I tipi di riquadri visualizzati sono filtrati in base al tipo di risorsa. Se si seleziona una risorsa diversa, i riquadri disponibili cambiano.
 
-È possibile visualizzare informazioni sulla sottoscrizione e un riepilogo dei costi per tutte le risorse. Selezionare **Sottoscrizioni** e la sottoscrizione da visualizzare. Potrebbe essere disponibile una sola sottoscrizione da selezionare.
+![aggiungere una sezione](./media/resource-group-portal/tile-gallery.png)
 
-![subscription](./media/resource-group-portal/select-subscription.png)
+Trascinare il riquadro necessario negli spazi disponibili.
 
-Nel pannello della sottoscrizione viene visualizzata la velocità.
+![trascinare un riquadro](./media/resource-group-portal/drag-tile.png)
 
-![velocità](./media/resource-group-portal/burn-rate.png)
+Dopo aver selezionato **Fatto** nella parte superiore del portale, la nuova vista farà parte del pannello.
 
-E una suddivisione dei costi in base al tipo di risorsa.
+![mostrare un riquadro](./media/resource-group-portal/show-lens.png)
 
-![costo delle risorse](./media/resource-group-portal/cost-by-resource.png)
-
-## Personalizzazione dell'interfaccia
-
-Per accedere rapidamente al riepilogo del gruppo di risorse, è possibile aggiungere il pannello alla schermata iniziale.
+Per accedere rapidamente al gruppo di risorse, è possibile aggiungere il pannello al dashboard.
 
 ![aggiungere un gruppo di risorse](./media/resource-group-portal/pin-group.png)
 
-In alternativa, è possibile aggiungere una sezione del pannello alla schermata iniziale selezionando i puntini di sospensione (...) sopra la sezione. È inoltre possibile personalizzare le dimensioni della sezione nel pannello o rimuoverla completamente. L'immagine seguente illustra come aggiungere, personalizzare o rimuovere la sezione degli eventi.
+In alternativa, è possibile aggiungere una sezione del pannello al dashboard selezionando i puntini di sospensione (...) sopra la sezione. È inoltre possibile personalizzare le dimensioni della sezione nel pannello o rimuoverla completamente. L'immagine seguente illustra come aggiungere, personalizzare o rimuovere la sezione relativa a CPU e memoria.
 
-![sezione di aggiunta](./media/resource-group-portal/pin-section.png)
+![sezione di aggiunta](./media/resource-group-portal/pin-cpu-section.png)
 
-Dopo aver aggiunto la sezione degli eventi alla schermata iniziale, è possibile visualizzare un riepilogo degli eventi nella schermata iniziale.
+Dopo avere aggiunto la sezione al dashboard, ne verrà visualizzato il riepilogo.
 
-![schermata iniziale degli eventi](./media/resource-group-portal/events-startboard.png)
+![visualizzare il dashboard](./media/resource-group-portal/view-startboard.png)
 
-Se si seleziona tale sezione, è possibile visualizzare altri dettagli sugli eventi.
+Selezionandola si potranno vedere altri dettagli sui dati.
 
-## Visualizzazione di distribuzioni precedenti
+### Eliminare un gruppo di risorse
+
+Poiché i gruppi di risorse consentono di gestire il ciclo di vita di tutte le risorse contenute, l'eliminazione di un gruppo comporterà la rimozione di tutte le risorse al suo interno. È anche possibile eliminare singole risorse all'interno di un gruppo. Prestare attenzione quando si elimina un gruppo di risorse, in quanto potrebbe essere collegato ad altre risorse. È possibile visualizzare le risorse collegate nella mappa e quindi eseguire i passaggi necessari per evitare conseguenze involontarie quando si eliminano i gruppi. Le risorse collegate non verranno eliminate, ma è possibile che non funzionino come previsto.
+
+![eliminare un gruppo](./media/resource-group-portal/delete-group.png)
+
+
+## Visualizzare le distribuzioni precedenti
 
 Nel pannello del gruppo di risorse è possibile visualizzare la data e lo stato dell'ultima distribuzione per questo gruppo di risorse. Se si seleziona il collegamento, viene visualizzata la cronologia delle distribuzioni per il gruppo.
 
@@ -104,11 +126,19 @@ Se si seleziona una distribuzione dalla cronologia, vengono visualizzate informa
 
 ![dettagli dell'operazione](./media/resource-group-portal/operation-details.png)
 
-Se si seleziona una delle operazioni, vengono visualizzate altre informazioni dettagliate sull'operazione. Ciò può rivelarsi particolarmente utile quando un'operazione ha esito negativo, come illustrato di seguito. Può consentire di risolvere un problema dovuto all'esito negativo di una distribuzione. Nell'immagine seguente è possibile notare che il sito Web non è stato distribuito perché il nome non era univoco.
+Per informazioni sulla risoluzione dei problemi di una distribuzione, vedere l'articolo relativo alla [risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md).
 
-![messaggio dell'operazione](./media/resource-group-portal/operation-message.png)
+È possibile recuperare il modello usato per la distribuzione selezionando **Esporta modello**.
 
-## Visualizzazione dei log di controllo
+![esportare il modello](./media/resource-group-portal/export-template.png)
+
+Verrà visualizzato il modello esatto usato per questa distribuzione.
+
+![visualizzare il modello](./media/resource-group-portal/show-template.png)
+
+Non è una rappresentazione completa del gruppo di risorse, perché se sono state aggiunte o eliminate risorse all'esterno di questa distribuzione, le azioni non vengono riflesse nel modello. Il pannello include il modello, un file di parametri da usare con il modello e uno script di PowerShell per distribuire il modello. È possibile scaricare questi 3 file selezionando **Salva su file**.
+
+## Visualizzare i log di controllo
 
 Il log di controllo include non solo le operazioni di distribuzione, ma tutte le operazioni di gestione eseguite sulle risorse nella sottoscrizione. Ad esempio, nei log di controllo è possibile visualizzare quando un utente dell'organizzazione ha arrestato un'app. Per visualizzare i log di controllo, selezionare **Esplora tutto** e **Log di controllo**.
 
@@ -120,41 +150,21 @@ Nella sezione delle operazioni è possibile visualizzare le singole operazioni e
 
 Selezionando una delle operazioni, è possibile visualizzare maggiori dettagli, tra cui informazioni sull'utente che ha eseguito l'operazione.
 
-Se si seleziona l'opzione **Filtro**, è possibile filtrare gli elementi da visualizzare nel log di controllo.
+Per altre informazioni sulla visualizzazione dei log di controllo, vedere [Operazioni di controllo con Gestione risorse](../resource-group-audit.md).
 
-![filtrare i log](./media/resource-group-portal/filter-logs.png)
-
-È possibile selezionare il tipo di operazioni da visualizzare, quelle appartenenti a un gruppo di risorse o a una risorsa, quelle eseguite in un intervallo di tempo specificato, quelle avviate da un chiamante specifico oppure i livelli dell'operazione.
-
-![opzioni di filtro](./media/resource-group-portal/filter-options.png)
-
-## Aggiunta di risorse ai gruppi
-
-È possibile aggiungere risorse a un gruppo usando il comando **Add** nel pannello corrispondente.
-
-![aggiungere una risorsa](./media/resource-group-portal/add-resource.png)
-
-È possibile selezionare la risorsa desiderata dall'elenco disponibile.
-
-## Eliminazione di gruppi di risorse
-
-Poiché i gruppi di risorse consentono di gestire il ciclo di vita di tutte le risorse contenute, l'eliminazione di un gruppo comporterà la rimozione di tutte le risorse al suo interno. È anche possibile eliminare singole risorse all'interno di un gruppo. Prestare attenzione quando si elimina un gruppo di risorse, in quanto potrebbe essere collegato ad altre risorse. È possibile visualizzare le risorse collegate nella mappa e quindi eseguire i passaggi necessari per evitare conseguenze involontarie quando si eliminano i gruppi. Le risorse collegate non verranno eliminate, ma è possibile che non funzionino come previsto.
-
-![eliminare un gruppo](./media/resource-group-portal/delete-group.png)
-
-## Aggiunta di tag alle risorse
+## Aggiungere tag alle risorse
 
 È possibile applicare tag ai gruppi di risorse e alle risorse per organizzare logicamente gli asset. Per informazioni sull'utilizzo dei tag tramite il portale, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md).
 
-## Distribuzione di un modello personalizzato
+## Distribuire un modello personalizzato
 
 Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace, è possibile creare un modello personalizzato che definisce l'infrastruttura per la soluzione. Per altre informazioni sui modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../resource-group-authoring-templates.md).
 
-Per distribuire un modello personalizzato attraverso il portale, selezionare **Nuovo** e attendere che sia possibile selezionare l'opzione **Distribuzione modello**.
+Per distribuire un modello personalizzato tramite il portale, selezionare **Nuovo**, cercare **Distribuzione modello** e quindi selezionarlo nelle opzioni disponibili.
 
 ![cercare la distribuzione del modello](./media/resource-group-portal/search-template.png)
 
-Selezionare **Distribuzione modello** dalle risorse disponibili.
+Selezionare **Distribuzione modello** nelle risorse disponibili.
 
 ![selezionare la distribuzione del modello](./media/resource-group-portal/select-template.png)
 
@@ -162,11 +172,32 @@ Dopo aver avviato la distribuzione del modello, è possibile creare il modello p
 
 ![creare un modello](./media/resource-group-portal/show-custom-template.png)
 
+## Visualizzare la sottoscrizione e i costi
+
+È possibile visualizzare informazioni sulla sottoscrizione e un riepilogo dei costi per tutte le risorse. Selezionare **Sottoscrizioni** e quindi la sottoscrizione da visualizzare. Potrebbe essere disponibile una sola sottoscrizione da selezionare.
+
+![subscription](./media/resource-group-portal/select-subscription.png)
+
+Nel pannello della sottoscrizione viene visualizzata la velocità.
+
+![velocità](./media/resource-group-portal/burn-rate.png)
+
+E una suddivisione dei costi in base al tipo di risorsa.
+
+![costo delle risorse](./media/resource-group-portal/cost-by-resource.png)
+
+## Controllo di accesso per i dashboard di Azure
+
+L'accesso alle informazioni visualizzate nella maggior parte dei riquadri del portale è regolato dal [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) di Azure. Per integrare facilmente i dashboard nell'ecosistema, tutti quelli pubblicati vengono implementati come risorse di Azure. Da un punto di vista del controllo di accesso, i dashboard non sono diversi da una macchina virtuale o da un account di archiviazione.
+
+Di seguito è fornito un esempio. Si supponga di avere una sottoscrizione di Azure e che a diversi membri del team siano stati assegnati i ruoli di **proprietario**, **collaboratore** o **lettore** della sottoscrizione. Gli utenti con il ruolo di proprietario o collaboratore possono elencare, visualizzare, creare, modificare o eliminare dashboard nella sottoscrizione. Gli utenti con il ruolo di lettore possono elencare e visualizzare i dashboard, ma non modificarli o eliminarli. Gli utenti con accesso in lettura possono apportare modifiche locali a un dashboard pubblicato, ad esempio per risolvere un problema, ma non pubblicarle nel server. Hanno comunque la possibilità di creare una copia privata del dashboard per se stessi.
+
+Si noti che i singoli riquadri del dashboard applicano requisiti di controllo di accesso personalizzati in base alle risorse per cui visualizzano i dati. Ciò significa che è possibile progettare un dashboard più ampiamente condivisibile, continuando comunque a proteggere i dati nei singoli riquadri.
+
 ## Passaggi successivi
-Introduzione
 
 - Per un'introduzione ai concetti di Gestione risorse, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md).
 - Per un'introduzione all'uso di Azure PowerShell per la distribuzione delle risorse, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
 - Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure per la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](../xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

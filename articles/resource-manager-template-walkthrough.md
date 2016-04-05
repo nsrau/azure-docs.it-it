@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/14/2016"
+   ms.date="03/29/2016"
    ms.author="navale;tomfitz"/>
    
 # Procedura dettagliata per un modello di Azure Resource Manager
 
-Questo argomento descrive la procedura per la creazione di un modello di Azure Resource Manager. Presuppone che si abbia familiarità con i servizi di Azure da distribuire, ma non è necessario avere familiarità con la rappresentazione di tale infrastruttura in un modello. Si creerà un modello basato sul [modello a due macchine virtuali con servizio di bilanciamento del carico e regole di bilanciamento del carico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) nella [raccolta di avvio rapido](https://github.com/Azure/azure-quickstart-templates), ma le tecniche adottate possono essere applicate a qualsiasi modello si voglia creare.
+Questo argomento descrive la procedura per la creazione di un modello di Azure Resource Manager. Si creerà un modello basato sul [modello per 2 VM con servizio di bilanciamento del carico e regole di bilanciamento del carico ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) nella [raccolta di modelli di avvio rapido](https://github.com/Azure/azure-quickstart-templates). Le tecniche apprese possono essere applicate a qualsiasi modello che è necessario creare.
 
 Un'architettura comune è composta dagli elementi seguenti:
 
@@ -310,7 +310,7 @@ Creare due interfacce di rete, una per ogni macchina virtuale. Anziché dover in
 ## Macchina virtuale
 Creare due macchine virtuali usando la funzione copyIndex(), come per la creazione delle [interfacce di rete](#network-interface). La creazione della macchina virtuale dipende dall'account di archiviazione, dall'interfaccia di rete e dal set di disponibilità. Questa macchina virtuale verrà creata da un'immagine del Marketplace, come definito nella proprietà `storageProfile`. L'oggetto `imageReference` viene usato per definire l'editore di immagini, l'offerta, lo SKU e la versione. Infine, è necessario configurare un profilo di diagnostica per abilitare la diagnostica della macchina virtuale.
 
-Per trovare le proprietà pertinenti per un'immagine del marketplace, seguire le indicazioni contenute nell'articolo relativo alla [ricerca di macchine virtuali](./virtual-machines/resource-groups-vm-searching.md). Per le immagini pubblicate da fornitori di terze parti è necessario specificare un'altra proprietà denominata `plan`. Un esempio è disponibile in [questo modello](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic), nella raccolta di avvio rapido.
+Per trovare le proprietà rilevanti per un'immagine del Marketplace, vedere l'articolo relativo alla [selezione di immagini di macchine virtuali Linux](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) o alla [selezione di immagini di macchine virtuali Windows](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md). Per le immagini pubblicate da fornitori di terze parti è necessario specificare un'altra proprietà denominata `plan`. Un esempio è disponibile in [questo modello](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic), nella raccolta di avvio rapido.
 
 
 ```json
@@ -503,4 +503,4 @@ Il modello è stato creato ed è pronto per la distribuzione.
 - Per altre informazioni sulla struttura del modello, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 - Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

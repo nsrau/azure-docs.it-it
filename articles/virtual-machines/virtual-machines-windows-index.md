@@ -195,7 +195,7 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 
 [Risoluzione degli errori delle estensioni di macchina virtuale di Azure](virtual-machines-windows-extensions-troubleshoot.md)
 
-[Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](resource-group-deploy-debug.md)
+[Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione in una macchina virtuale di Azure](virtual-machines-windows-troubleshoot-app-connection.md)
 
@@ -375,4 +375,4 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali basate
 
 [Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una VM in Azure](virtual-machines-windows-allocation-failure.md)
 
-<!-----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

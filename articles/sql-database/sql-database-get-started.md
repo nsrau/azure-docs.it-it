@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Esercitazione sul database SQL: creare un database SQL | Microsoft Azure"
-	description="Esercitazione sul database SQL: creare il primo database SQL in pochi minuti nel portale di Azure con dati di esempio. Informazioni su come configurare un server di hosting e una regola del firewall."
+	description="Esercitazione sul database SQL: Creare il primo database SQL in pochi minuti nel portale di Azure. Informazioni su come configurare un server di hosting e una regola del firewall."
 	keywords="esercitazione sul database sql,creare un database sql"
 	services="sql-database"
 	documentationCenter=""
@@ -15,10 +15,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/01/2015"
+	ms.date="03/27/2015"
 	ms.author="jeffreyg"/>
 
-# Esercitazione sul database SQL: creare un database SQL in pochi minuti usando dati di esempio e il portale di Azure
+# Esercitazione sul database SQL: Creare un database SQL in pochi minuti usando il portale di Azure
 
 **Database singolo**
 
@@ -27,14 +27,16 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Questa esercitazione sul database SQL mostra come creare il primo database SQL in pochi minuti usando dati di esempio nel portale di Azure. Si apprenderà come:
+Questa esercitazione sul database SQL mostra come creare il primo database SQL in pochi minuti usando il portale di Azure. È possibile configurare un database vuoto o un database con dati di esempio.
+
+Si apprenderà come:
 
 - Creare un server per ospitare il nuovo database e quindi configurare una regola firewall per il server.
-- Creare un database SQL da un esempio di AdventureWorks che contiene dati con cui è possibile sperimentare.
+- Creare un database SQL vuoto o un database dall'esempio AdventureWorks che contiene dati con cui è possibile sperimentare.
 
-Per iniziare, sono necessari un account e una sottoscrizione di Azure. Nel caso in cui non siano disponibili, è possibile usare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+Per iniziare, sono necessari un account e una sottoscrizione di Azure. Nel caso in cui non siano disponibili, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
-> [AZURE.NOTE] Questa esercitazione sul database SQL descrive come configurare un database usando il sistema di gestione di database relazionali (RDBMS) di Microsoft nel cloud, ovvero il database SQL di Azure. È anche possibile eseguire SQL Server in una macchina virtuale di Azure Per un veloce confronto, vedere [Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure](data-management-azure-sql-database-and-sql-server-iaas.md). Per iniziare a usare una macchina virtuale, vedere [Effettuare il provisioning di una macchina virtuale SQL Server](../virtual-machines/virtual-machines-windows-classic-portal-sql.md).
+> [AZURE.NOTE] Questa esercitazione sul database SQL descrive come configurare un database usando il sistema di gestione di database relazionali (RDBMS) di Microsoft nel cloud, ovvero il database SQL di Azure. È anche possibile eseguire SQL Server in una macchina virtuale di Azure Per un veloce confronto, vedere [Informazioni sul database SQL di Azure e su SQL Server in Macchine virtuali di Azure](data-management-azure-sql-database-and-sql-server-iaas.md). Per iniziare a usare una macchina virtuale, vedere [Effettuare il provisioning di una macchina virtuale SQL Server](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md).
 
 ## Passaggio 1: Eseguire l'accesso e avviare la configurazione del database SQL
 1. Accedere al [portale di Azure](https://portal.azure.com/).
@@ -65,9 +67,15 @@ Un database SQL in Azure è ospitato in un server di database. Un server può os
 
 5. Fare clic su **OK** per tornare al pannello **Database SQL**.
 
-Il database e il server non sono ancora stati creati. Questo avverrà dopo il passaggio successivo, nel quale si sceglierà di creare il database dall'esempio di AdventureWorks e si confermeranno le impostazioni.
+Il database e il server non sono ancora stati creati. Questo avverrà dopo il passaggio successivo, nel quale si sceglierà di creare il database e si confermeranno le impostazioni.
 
 ## Passaggio 3: Configurare e creare un database SQL
+
+**Per configurare il nuovo database senza dati o tabelle:**
+- Selezionare il pulsante **Create**.
+
+**Per configurare il nuovo database con dati o tabelle:**
+
 1. Nel pannello **Database SQL** fare clic su **Selezionare l'origine** e quindi su **Esempio**.
 
 	![Creare un database SQL da un esempio](./media/sql-database-get-started/new-sample-db.png)
@@ -86,21 +94,19 @@ Congratulazioni. Il database SQL è ora in esecuzione nel cloud. La procedura è
 
 È necessario configurare una regola firewall nel server per consentire le connessioni dall'indirizzo IP del computer client, per poter usare il database. Questo passaggio, oltre a verificare che sia possibile stabilire la connessione, consente anche di visualizzare l'area in cui è possibile ottenere informazioni sui server SQL in Azure.
 
-1. Fare clic su **Esplora tutto**, scorrere verso il basso e fare clic su **SQL Server**, quindi selezionare il nome del server creato in precedenza dall'elenco **SQL Server**.
+1. Fare clic su **Sfoglia**, scorrere verso il basso e quindi fare clic su **SQL Server**. Non fare clic su **Database SQL** inavvertitamente. È un errore comune.
 
 	![Selezionare il server di database](./media/sql-database-get-started/browse_dbservers.png)
 
-
-3. Nel pannello delle proprietà del database visualizzato a destra fare clic su **Impostazioni** e quindi selezionare **Firewall** dall'elenco.
+2. Dall'elenco di istanze di SQL Server fare clic su quello con il **Nome server** scelto nel passaggio 2. Nel pannello delle proprietà del database visualizzato a destra fare clic su **Impostazioni** e quindi selezionare **Firewall** dall'elenco.
 
 	![Apertura delle impostazioni del firewall](./media/sql-database-get-started/db_settings.png)
 
+  In **Impostazioni del firewall** verrà visualizzato l'**Indirizzo IP client** corrente.
 
-	In **Impostazioni del firewall** verrà visualizzato l'**Indirizzo IP client** corrente.
+	![Current IP address](./media/sql-database-get-started/firewall_config_client_ip.png)
 
-	![Indirizzo IP corrente](./media/sql-database-get-started/firewall_config_client_ip.png)
-
-4. Fare clic su **Aggiungi IP client** per consentire ad Azure di creare una regola per l'indirizzo IP specificato e quindi fare clic su **Salva**.
+3. Fare clic su **Aggiungi IP client** per consentire ad Azure di creare una regola per l'indirizzo IP specificato e quindi fare clic su **Salva**.
 
 	![Aggiungere l'indirizzo IP](./media/sql-database-get-started/firewall_config_new_rule.png)
 
@@ -117,4 +123,9 @@ Al termine dell'esercitazione sul database SQL e dopo aver creato un database co
 
 - Per spostare i database SQL Server locali in Azure, vedere l'articolo relativo alla [migrazione di un database al database SQL di Azure](sql-database-cloud-migrate.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+
+## Risorse aggiuntive
+
+- [Tutti gli argomenti per il servizio database SQL di Azure](sql-database-index-all-articles.md) - indice
+
+<!---HONumber=AcomDC_0330_2016-->

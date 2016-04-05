@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
-- [Node.js](documentdb-nodejs-application.md)
+- [Node.JS](documentdb-nodejs-application.md)
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md)
 
@@ -118,7 +118,7 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 		var DocDBUtils = {
 		    getOrCreateDatabase: function (client, databaseId, callback) {
 		        var querySpec = {
-		            query: 'SELECT * FROM root r WHERE r.id=@id',
+		            query: 'SELECT * FROM root r WHERE r.id= @id',
 		            parameters: [{
 		                name: '@id',
 		                value: databaseId
@@ -214,7 +214,6 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 		        docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function (err, db) {
 		            if (err) {
 		                callback(err);
-
 		            } else {
 		                self.database = db;
 		                docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function (err, coll) {
@@ -284,7 +283,7 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 		        var self = this;
 		
 		        var querySpec = {
-		            query: 'SELECT * FROM root r WHERE r.id=@id',
+		            query: 'SELECT * FROM root r WHERE r.id = @id',
 		            parameters: [{
 		                name: '@id',
 		                value: itemId
@@ -546,7 +545,7 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 
 ## <a name="_Toc395783182"></a>Passaggio 7: Distribuire il progetto di sviluppo dell'applicazione in Siti Web di Azure
 
-1. Se non è ancora stato fatto, abilitare un repository Git per il sito Web di Azure. Le istruzioni su come eseguire questa operazione nell'argomento [Distribuzione continua tramite GIT nel servizio app di Azure](../app-service-web/web-sites-publish-source-control.md).
+1. Se non è ancora stato fatto, abilitare un repository Git per il sito Web di Azure. Per istruzioni su come eseguire questa operazione, vedere l'argomento [Distribuzione continua tramite GIT nel servizio app di Azure](../app-service-web/web-sites-publish-source-control.md).
 
 2. Aggiungere il sito Web di Azure come Git remoto.
 
@@ -571,4 +570,4 @@ Per altre informazioni, vedere il [Centro per sviluppatori di Node. js](https://
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

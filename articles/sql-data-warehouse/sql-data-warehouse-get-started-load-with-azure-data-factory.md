@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Caricare i dati con Azure Data Factory
@@ -75,18 +75,18 @@ Collegare l'account di archiviazione di Azure e SQL Data Warehouse alla data fac
 
 2. Per registrare SQL Data Warehouse passare alla sezione "Creare e distribuire", quindi selezionare "Nuovo archivio dati" e infine "Azure SQL Data Warehouse". Copiare e incollare in questo modello e quindi immettere le informazioni specifiche.
 
-    ````
-    {
-        "name": "<Linked Service Name>",
-	    "properties": {
-	        "description": "",
-		    "type": "AzureSqlDW",
-		    "typeProperties": {
-		         "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
-	         }
-        }
+```JSON
+{
+    "name": "<Linked Service Name>",
+    "properties": {
+        "description": "",
+	    "type": "AzureSqlDW",
+	    "typeProperties": {
+	         "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
+         }
     }
-    ````
+}
+```
 
 ### Passaggio 2.2: Definire il set di dati
 
@@ -96,56 +96,56 @@ Dopo avere creato i servizi collegati, sarà necessario definire i set di dati, 
 
 2. Fare clic su 'Nuovo set di dati' e quindi su 'Archivio BLOB di Azure' per collegare la risorsa di archiviazione alla data factory. È possibile usare lo script seguente per definire i dati nell'archivio BLOB di Azure:
 
-    ````
-	{
-	    "name": "<Dataset Name>",
-		"properties": {
-		    "type": "AzureBlob",
-			"linkedServiceName": "<linked storage name>",
-			"typeProperties": {
-			    "folderPath": "<containter name>",
-				"fileName": "FactInternetSales.csv",
-				"format": {
-				"type": "TextFormat",
-				"columnDelimiter": ",",
-				"rowDelimiter": "\n"
-                }
-            },
-		    "external": true,
-		    "availability": {
-			    "frequency": "Hour",
-			    "interval": 1
-		    },
-		    "policy": {
-		        "externalData": {
-			        "retryInterval": "00:01:00",
-			        "retryTimeout": "00:10:00",
-			        "maximumRetry": 3
-		        }
+```JSON
+{
+    "name": "<Dataset Name>",
+	"properties": {
+	    "type": "AzureBlob",
+		"linkedServiceName": "<linked storage name>",
+		"typeProperties": {
+		    "folderPath": "<containter name>",
+			"fileName": "FactInternetSales.csv",
+			"format": {
+			"type": "TextFormat",
+			"columnDelimiter": ",",
+			"rowDelimiter": "\n"
             }
-		}
+        },
+	    "external": true,
+	    "availability": {
+		    "frequency": "Hour",
+		    "interval": 1
+	    },
+	    "policy": {
+	        "externalData": {
+		        "retryInterval": "00:01:00",
+		        "retryTimeout": "00:10:00",
+		        "maximumRetry": 3
+	        }
+        }
 	}
-    ````
+}
+```
 
 
 3. È ora possibile definire anche il set di dati per SQL Data Warehouse. Si inizia sempre facendo clic su 'Nuovo set di dati' e quindi su 'Azure SQL Data Warehouse'.
 
-    ````
-    {
-	    "name": "DWDataset",
-		"properties": {
-		    "type": "AzureSqlDWTable",
-		    "linkedServiceName": "AzureSqlDWLinkedService",
-		    "typeProperties": {
-			    "tableName": "FactInternetSales"
-			},
-		    "availability": {
-		        "frequency": "Hour",
-			    "interval": 1
-	        }
+```JSON
+{
+    "name": "DWDataset",
+	"properties": {
+	    "type": "AzureSqlDWTable",
+	    "linkedServiceName": "AzureSqlDWLinkedService",
+	    "typeProperties": {
+		    "tableName": "FactInternetSales"
+		},
+	    "availability": {
+	        "frequency": "Hour",
+		    "interval": 1
         }
     }
-    ````
+}
+```
 
 ## Passaggio 3: Creare ed eseguire la pipeline
 
@@ -153,7 +153,7 @@ Dopo avere creato i servizi collegati, sarà necessario definire i set di dati, 
 
 Nella sezione 'Creare e distribuire' fare clic su 'Più comandi' e quindi 'Nuova pipeline'. Dopo la creazione della pipeline, è possibile usare il codice seguente per trasferire i dati al data warehouse:
 
-````
+```JSON
 {
     "name": "<Pipeline Name>",
     "properties": {
@@ -199,7 +199,7 @@ Nella sezione 'Creare e distribuire' fare clic su 'Più comandi' e quindi 'Nuova
 	    "isPaused": false
     }
 }
-````
+```
 
 ## Passaggi successivi
 
@@ -215,4 +215,4 @@ Questi argomenti forniscono informazioni dettagliate su Azure Data Factory. Illu
 - [Esercitazione: Copiare i dati di un BLOB di archiviazione di Azure nel database SQL di Azure](../data-factory/data-factory-get-started.md). In questa esercitazione si creerà una pipeline in Azure Data Factory per copiare i dati da un BLOB di archiviazione di Azure in un database SQL di Azure.
 - [Esercitazione in uno scenario reale](../data-factory/data-factory-tutorial.md). Si tratta di un'esercitazione dettagliata per l'uso di Azure Data Factory.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

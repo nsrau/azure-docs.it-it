@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Creare un pool di database elastici (C#) | Microsoft Azure"
-    description="Usare tecniche di sviluppo di database in C# per creare un pool di database elastici per database SQL di Microsoft Azure in modo da poter condividere risorse tra più database."
+    pageTitle="Creare un pool di database elastici con C# | Microsoft Azure"
+    description="Usare tecniche di sviluppo di database in C# per creare un pool di database elastici scalabile nel database SQL di Azure per poter condividere risorse tra più database."
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/22/2016"
+    ms.date="03/24/2016"
     ms.author="sstein"/>
 
-# Creare un pool di database elastici (C&#x23;)
+# Creare un pool di database elastici con C&#x23;
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-elastic-pool-create-portal.md)
@@ -37,7 +37,7 @@ Negli esempi viene usata la [libreria di database SQL per .NET](https://msdn.mic
 
 
 
-## Creare un pool di database elastici
+## Creare un pool
 
 
     // Create elastic pool: configure create or update parameters and properties explicitly
@@ -56,7 +56,7 @@ Negli esempi viene usata la [libreria di database SQL per .NET](https://msdn.mic
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## Spostare un database esistente in un pool di database elastici
+## Spostare un database esistente in un pool
 
 
     // Retrieve current database properties
@@ -82,7 +82,7 @@ Negli esempi viene usata la [libreria di database SQL per .NET](https://msdn.mic
 
 
 
-## Creare un nuovo database in un pool di database elastici
+## Creare un nuovo database in un pool
 
 
     // Create a database: configure create or update parameters and properties explicitly
@@ -105,7 +105,7 @@ Negli esempi viene usata la [libreria di database SQL per .NET](https://msdn.mic
 
 
 
-## Esempio di creazione di un pool di database elastici C&#x23;
+## Creare un pool C&#x23; di esempio
 
 
 Le librerie seguenti sono necessarie per eseguire questo esempio. È possibile installarle con il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio, scegliendo **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**
@@ -145,7 +145,7 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
         static string adminPassword = "<server password (store it securely!)>";
         static string serverVersion = "12.0";
 
-        // elastic database pool variables
+        // pool variables
         static string elasticPoolName = "<pool name>";
         static string poolEdition = "Standard";
         static int poolDtus = 400;
@@ -168,7 +168,7 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
             ServerGetResponse srvr = CreateServer();
             Console.WriteLine("Creation of server " + srvr.Server.Name + ": " + srvr.StatusCode.ToString());
 
-            // Create an elastic database pool
+            // Create a pool
             Console.WriteLine("Creating elastic database pool... ");
             ElasticPoolCreateOrUpdateResponse epool = CreateElasticDatabasePool();
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
@@ -270,7 +270,7 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
 ## Passaggi successivi
 
 - [Gestire il pool](sql-database-elastic-pool-manage-csharp.md)
-- [Creare processi elastici](sql-database-elastic-jobs-overview.md): i processi elastici facilitano l'esecuzione di script T-SQL su un numero qualsiasi di database nel pool.
+- [Creare processi elastici](sql-database-elastic-jobs-overview.md): i processi elastici consentono di eseguire script T-SQL su un numero qualsiasi di database nel pool.
 
 
 ## Risorse aggiuntive
@@ -280,4 +280,4 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
 - [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Riferimento al pool di database elastici](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

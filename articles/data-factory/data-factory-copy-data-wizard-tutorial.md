@@ -63,10 +63,12 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Dat
 ## Creare una pipeline
 
 1. Nella home page di Data Factory fare clic sul riquadro **Copia dati** per avviare la **Copia guidata**. 
+
+	> [AZURE.NOTE] Se il Web browser è bloccato su "Concessione autorizzazioni in corso...", disabilitare/deselezionare l'impostazione di **blocco dei cookie di terze parti e dei dati dei siti** oppure lasciarla abilitata e creare un'eccezione per **login.microsoftonline.com** e quindi provare di nuovo ad avviare la procedura guidata.
 2. Nella pagina **Proprietà**:
 	1. Immettere **CopyFromBlobToAzureSql** per **Nome attività**.
-	2. Immettere un valore per **descrizione** (facoltativo).
-	3. Annotare i valori per **Data e ora di inizio** ed **Data e ora di fine**. Modificare il valore di **Data e ora di fine** per impostarlo sul giorno successivo a **Data e ora di inizio**. 
+	2. Immettere una **descrizione** (facoltativo).
+	3. Annotare i valori per **Data e ora di inizio** e **Data e ora di fine**. Modificare il valore di **Data e ora di fine** per impostarlo sul giorno successivo a **Data e ora di inizio**. 
 	3. Fare clic su **Avanti**.  
 
 	![Strumento di copia - Pagina Proprietà](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
@@ -82,7 +84,7 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Dat
 6. Nella pagina **Scegliere il file o la cartella di input**:
 	1. Passare alla cartella **adftutorial**.
 	2. Selezionare **emp.txt** e fare clic su **Scegli**.
-	3. Fare clic su **Next**. 
+	3. Fare clic su **Avanti**. 
 
 	![Strumento di copia - Scegliere il file o la cartella di input](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
 7. Nella pagina **Impostazioni di formattazioni del file** selezionare i valori per le impostazioni **predefinite** e fare clic su **Avanti**.
@@ -108,4 +110,4 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Dat
 	![App di monitoraggio](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
   
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

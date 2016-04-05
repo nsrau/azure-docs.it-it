@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/17/2016"
+	ms.date="03/28/2016"
 	ms.author="deonhe"/>
 
 # Elenco di API gestite
@@ -52,7 +52,7 @@ Sono disponibili due tipi di trigger:
 Le API possono essere usate anche come azioni nell'ambito delle app. Le azioni sono utili per cercare i dati da usare nell'esecuzione dell'app. Può essere necessario ad esempio cercare in un database SQL dati su un cliente quando si elabora un ordine. Oppure può essere necessario scrivere, aggiornare o eliminare dati in una tabella di destinazione. A tale scopo, usare le azioni fornite dalle API. Le azioni vengono mappate alle operazioni definite nei metadati Swagger.
 
 
-[Novità](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Introduzione alle app di PowerApps](../power-apps/powerapps-get-started-azure-portal.md)
+[Novità](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md) [Introduzione alle app di PowerApps](../power-apps/powerapps-get-started-azure-portal.md) [Eseguire la migrazione delle app per la logica esistenti alla versione dello schema più recente](connectors-schema-migration.md)
 
 <!--API Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Connettersi al BLOB di Azure per gestire file nel contenitore BLOB."
@@ -105,4 +105,4 @@ Le API possono essere usate anche come azioni nell'ambito delle app. Le azioni s
 [twittericon]: ./media/apis-list/twittericon.png
 [yammericon]: ./media/apis-list/yammericon.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

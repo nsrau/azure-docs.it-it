@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/11/2016"
+   ms.date="03/27/2016"
    ms.author="seanmck"/>
 
 # Creare la prima applicazione di Azure Service Fabric in Visual Studio
@@ -58,7 +58,7 @@ Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ogn
 
 	- **Script**: includono uno script di PowerShell per distribuire o aggiornare l'applicazione. Questo script viene eseguito in background da Visual Studio e può essere richiamato direttamente tramite la riga di comando.
 
-	- **Definizione di applicazione**: include il manifesto dell'applicazione e i file di parametri dell'applicazione associati che definiscono l'applicazione e consentono di configurarla appositamente per un ambiente specifico.
+	- **Definizione di applicazione**: include il manifesto dell'applicazione in *ApplicationPackageRoot* e i file di parametri dell'applicazione associati in *ApplicationParameters* che definiscono l'applicazione e consentono di configurarla appositamente per un ambiente specifico.
 
     Per una panoramica del contenuto del progetto di servizio, vedere la [Guida introduttiva a Reliable Services](service-fabric-reliable-services-quick-start.md).
 
@@ -80,13 +80,13 @@ A questo punto, è possibile provare a eseguire l'app creata.
 
 	Nel caso del servizio con stato, i messaggi indicheranno semplicemente il valore del contatore che viene incrementato nel metodo `RunAsync` del file MyStatefulService.cs.
 
-3. Espandere uno degli eventi per visualizzare altri dettagli, incluso il nodo in cui viene eseguito il codice. In questo caso, è il nodo 2, anche se nel computer locale potrebbe essere diverso.
+3. Espandere uno degli eventi per visualizzare altri dettagli, incluso il nodo in cui viene eseguito il codice. In questo caso, è il \_Node\_2, anche se nel computer locale potrebbe essere diverso.
 
 	![Dettaglio del visualizzatore eventi di diagnostica][6]
 
 	Il cluster locale include cinque nodi ospitati in un singolo computer. Simula un cluster di cinque nodi, ognuno dei quali risiede in un computer distinto. Verrà quindi portato offline uno dei nodi del cluster locale per simulare la perdita di una macchina virtuale e provare a eseguire il debugger di Visual Studio.
 
-    >[AZURE.NOTE] Gli eventi di diagnostica dell'applicazione generati dal modello di progetto usano la classe `ServiceEventSource` inclusa. Per altre informazioni, vedere l'articolo che illustra [come monitorare e diagnosticare i servizi in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+    >[AZURE.NOTE] Gli eventi di diagnostica dell'applicazione generati dal modello di progetto usano la classe `ServiceEventSource` inclusa. Per altre informazioni, vedere [Monitorare e diagnosticare servizi in una configurazione di sviluppo con computer locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 4. Nel progetto di servizio trovare la classe che deriva da StatefulService, ad esempio MyStatefulService, e impostare un punto di interruzione sulla prima riga del metodo `RunAsync`.
 
@@ -100,7 +100,7 @@ A questo punto, è possibile provare a eseguire l'app creata.
 
 6. Nel riquadro sinistro espandere **Cluster > Nodes** e trovare il nodo in cui è in esecuzione il codice.
 
-7. Fare clic su **Actions > Deactivate (Restart)** per simulare il riavvio di una macchina virtuale.
+7. Fare clic su **Actions > Deactivate (Restart)** per simulare il riavvio di una macchina virtuale. È anche possibile farlo in un menu di scelta rapida nella vista elenco del nodo nel riquadro a sinistra selezionando i tre punti.
 
 	![Arresto di un nodo in Service Fabric Explorer][sfx-stop-node]
 
@@ -114,11 +114,14 @@ A questo punto, è possibile provare a eseguire l'app creata.
 
   Prima di concludere, è importante ricordare che il cluster locale è molto reale. Anche dopo l'arresto del debugger e la chiusura di Visual Studio, le applicazioni rimarranno in esecuzione in background. A seconda della natura delle app, questa attività in background può richiedere risorse significative del computer. A questo scopo, sono disponibili diverse opzioni di gestione:
 
-  1. Per rimuovere una singola applicazione e tutti i relativi dati, usare l'azione **Remove application** in Service Fabric Explorer.
+  1. Per rimuovere una singola applicazione e tutti i relativi dati, usare l'azione **Delete application** in Service Fabric Explorer con il menu **ACTIONS** o il menu di scelta rapida nella vista elenco dell'applicazione nel riquadro a sinistra.
+  
+    ![Eliminare un'applicazione in Service Fabric Explorer][sfe-delete-application]
+    
+  2. Dopo l'eliminazione dell'applicazione dal cluster, è quindi possibile scegliere **Unprovision Type** per l'applicazione, che rimuove il pacchetto dell'applicazione, inclusi il codice e la configurazione, dall'archivio immagini del cluster.
+  3. Per arrestare il cluster mantenendo i dati dell'applicazione e le tracce, fare clic su **Stop Local Cluster** nell'app dell'area di notifica.
 
-  2. Per arrestare il cluster mantenendo i dati dell'applicazione e le tracce, fare clic su **Stop Cluster** nell'app sulla barra delle applicazioni.
-
-  3. Per eliminare completamente il cluster, fare clic su **Remove Cluster** nell'app sulla barra delle applicazioni. Questa opzione comporterà un'altra distribuzione lenta la prossima volta che si preme F5 in Visual Studio. Usarla solo se non si prevede di usare il cluster locale per un certo periodo o se è necessario recuperare risorse.
+  4. Per eliminare completamente il cluster, fare clic su **Remove Local Cluster** nell'app dell'area di notifica. Questa opzione comporterà un'altra distribuzione lenta la prossima volta che si preme F5 in Visual Studio. Usarla solo se non si prevede di usare il cluster locale per un certo periodo o se è necessario recuperare risorse.
 
 
 
@@ -141,5 +144,6 @@ A questo punto, è possibile provare a eseguire l'app creata.
 [sfx-stop-node]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-deactivate-node.png
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
+[sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

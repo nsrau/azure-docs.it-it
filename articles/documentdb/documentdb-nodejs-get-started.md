@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="hero-article" 
-	ms.date="02/19/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # Esercitazione su Node.js NoSQL: applicazione console Node.js di DocumentDB  
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
-- [Node.js](documentdb-nodejs-get-started.md)
+- [Node.JS](documentdb-nodejs-get-started.md)
 
 Esercitazione su Node.js per DocumentDB Node.js SDK Dopo aver seguito questa esercitazione, si otterrà un'applicazione console che consente di creare ed eseguire query sulle risorse di DocumentDB, incluso un database nodo.
 
@@ -74,7 +74,7 @@ L'installazione è riuscita. Dopo avere completato l'installazione, è possibile
 
 Aprire il file ```config.js``` in un editor di testo.
 
-Creare quindi un oggetto vuoto denominato ```config``` e impostare le proprietà ```config.endpoint``` e ```config.authKey``` sulla chiave endpoint e di autorizzazione di DocumentDB. Entrambe le configurazioni sono disponibili nel [portale di Azure](https://portal.azure.com).
+Creare quindi un oggetto vuoto denominato ```config``` e impostare le proprietà ```config.endpoint``` e ```config.authKey``` sull'endpoint e sulla di chiave autorizzazione di DocumentDB. Entrambe le configurazioni sono disponibili nel [portale di Azure](https://portal.azure.com).
 
 ![Esercitazione su Node.js - Schermata del portale di Azure che mostra un account DocumentDB con l'hub ATTIVO evidenziato, il pulsante CHIAVI evidenziato nel pannello dell'account DocumentDB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi - Database nodo][keys]
 
@@ -85,85 +85,76 @@ Creare quindi un oggetto vuoto denominato ```config``` e impostare le proprietà
 
 Aggiungere ora ```database id```, ```collection id``` e ```JSON documents``` all'oggetto ```config```. Nel punto in cui vengono impostate le proprietà ```config.endpoint``` e ```config.authKey``` aggiungere il codice seguente. Se sono già disponibili dati da archiviare nel database, è possibile usare lo [strumento di migrazione dati](documentdb-import-data.md) di DocumentDB invece di aggiungere le definizioni dei documenti.
 
-    config.dbDefinition = {"id": "FamilyRegistry"};
-    config.collDefinition = {"id": "FamilyCollection"};
+    config.database = {
+        "id": "FamilyDB"
+    };
 
-    var documents = {
-      "Andersen": {
-        "id": "AndersenFamily",
-        "LastName": "Andersen",
-        "Parents": [
-          {
-            "FirstName": "Thomas"
-          },
-          {
-            "FirstName": "Mary Kay"
-          }
-        ],
-        "Children": [
-          {
-            "FirstName": "Henriette Thaulow",
-            "Gender": "female",
-            "Grade": 5,
-            "Pets": [
-              {
-                "GivenName": "Fluffy"
-              }
-            ]
-          }
-        ],
-        "Address": {
-          "State": "WA",
-          "County": "King",
-          "City": "Seattle"
-        }
-      },
-      "Wakefield":   {
-          "id": "WakefieldFamily",
-          "Parents": [
-            {
-              "FamilyName": "Wakefield",
-              "FirstName": "Robin"
-            },
-            {
-              "FamilyName": "Miller",
-              "FirstName": "Ben"
+    config.collection = {
+        "id": "FamilyColl",
+        "partitionKey": { "paths": ["/district"], "kind": "Hash" }
+    };
+
+    config.documents = {
+        "Andersen": {
+            "id": "Anderson.1",
+            "lastName": "Andersen",
+            "district": "WA5",
+            "parents": [{
+                "firstName": "Thomas"
+            }, {
+                    "firstName": "Mary Kay"
+                }],
+            "children": [{
+                "firstName": "Henriette Thaulow",
+                "gender": "female",
+                "grade": 5,
+                "pets": [{
+                    "givenName": "Fluffy"
+                }]
+            }],
+            "address": {
+                "state": "WA",
+                "county": "King",
+                "city": "Seattle"
             }
-          ],
-          "Children": [
-            {
-              "FamilyName": "Merriam",
-              "FirstName": "Jesse",
-              "Gender": "female",
-              "Grade": 8,
-              "Pets": [
-                {
-                  "GivenName": "Goofy"
-                },
-                {
-                  "GivenName": "Shadow"
-                }
-              ]
+        },
+        "Wakefield": {
+            "id": "Wakefield.7",
+            "district": "NY23",
+            "parents": [{
+                "familyName": "Wakefield",
+                "firstName": "Robin"
+            }, {
+                    "familyName": "Miller",
+                    "firstName": "Ben"
+                }],
+            "children": [{
+                "familyName": "Merriam",
+                "firstName": "Jesse",
+                "gender": "female",
+                "grade": 8,
+                "pets": [{
+                    "givenName": "Goofy"
+                }, {
+                        "givenName": "Shadow"
+                    }]
+            }, {
+                    "familyName": "Miller",
+                    "firstName": "Lisa",
+                    "gender": "female",
+                    "grade": 1
+                }],
+            "address": {
+                "state": "NY",
+                "county": "Manhattan",
+                "city": "NY"
             },
-            {
-              "FamilyName": "Miller",
-              "FirstName": "Lisa",
-              "Gender": "female",
-              "Grade": 1
-            }
-          ],
-          "Address": {
-            "State": "NY",
-            "County": "Manhattan",
-            "City": "NY"
-          },
-          "IsRegistered": false
+            "isRegistered": false
         }
     };
 
-    config.docsDefinitions = documents;
 
-Le definizioni del database, della raccolta e dei documenti verranno usate come ```database id```, ```collection id``` e dati dei documenti di DocumentDB.
+Le definizioni del database, della raccolta e del documento verranno usate come ```database id```, ```collection id``` e dati dei documenti di DocumentDB.
 
 Esportare infine l'oggetto ```config``` per farvi riferimento nel file ```app.js```.
 
@@ -173,104 +164,107 @@ Esportare infine l'oggetto ```config``` per farvi riferimento nel file ```app.js
 
 Aprire il file ```app.js``` vuoto nell'editor di testo. Importare il modulo ```documentdb``` e il modulo ```config``` appena creato.
 
+    "use strict";
+
     var documentClient = require("documentdb").DocumentClient;
     var config = require("./config");
+    var url = require('url');
 
 Usare gli oggetti ```config.endpoint``` e ```config.authKey``` salvati in precedenza per creare un nuovo DocumentClient.
 
-    var client = new documentClient(config.endpoint, {"masterKey": config.authKey});
+    var client = new documentClient(config.endpoint, { "masterKey": config.authKey });
 
 Dopo la connessione a un account DocumentDB, è possibile esaminare l'utilizzo delle risorse di DocumentDB.
 
 ## Passaggio 5: Creare un database di Node
 È possibile creare un [database](documentdb-resources.md#databases) con la funzione [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) della classe **DocumentClient**. Un database è un contenitore logico di archiviazione documenti partizionato nelle raccolte. Aggiungere una funzione per la creazione del nuovo database nel file app.js con l'```id``` specificato nell'oggetto ```config```. È necessario assicurarsi prima di tutto che non esista già un database con lo stesso ID ```FamilyRegistry```. Se esiste, verrà restituito il database esistente, invece di procedere con la creazione di un nuovo database.
 
-    var getOrCreateDatabase = function(callback) {
-        var querySpec = {
-            query: 'SELECT * FROM root r WHERE r.id=@id',
-            parameters: [{
-                name: '@id',
-                value: config.dbDefinition.id
-            }]
-        };
+    var HttpStatusCodes = { NOTFOUND: 404 };
+    var databaseUrl = `dbs/${config.database.id}`;
+    var collectionUrl = `${databaseUrl}/colls/${config.collection.id}`;
 
-        client.queryDatabases(querySpec).toArray(function(err, results) {
-            if(err) return callback(err);
+    /**
+     * Get the database by ID, or create if it doesn't exist.
+     * @param {string} database - The database to get or create
+     */
+    function getDatabase() {
+        console.log(`Getting database:\n${config.database.id}\n`);
 
-            if (results.length === 0) {
-                client.createDatabase(config.dbDefinition, function(err, created) {
-                    if(err) return callback(err);
-
-                    callback(null, created);
-                });
-            }
-            else {
-                callback(null, results[0]);
-            }
+        return new Promise((resolve, reject) => {
+            client.readDatabase(databaseUrl, (err, result) => {
+                if (err) {
+                    if (err.code == HttpStatusCodes.NOTFOUND) {
+                        client.createDatabase(config.database, (err, created) => {
+                            if (err) reject(err)
+                            else resolve(created);
+                        });
+                    } else {
+                        reject(err);
+                    }
+                } else {
+                    resolve(result);
+                }
+            });
         });
-    };
-
+    }
 ##<a id="CreateColl"></a>Passaggio 6: Creare una raccolta  
 
-> [AZURE.WARNING] **CreateDocumentCollectionAsync** creerà una nuova raccolta S1, che ha implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
+> [AZURE.WARNING] **CreateDocumentCollectionAsync** crea una nuova raccolta, che ha implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
 
-È possibile creare una [raccolta](documentdb-resources.md#collections) con la funzione [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) della classe **DocumentClient**. Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata. La raccolta appena creata verrà mappata a un [livello di prestazioni S1](documentdb-performance-levels.md). Aggiungere una funzione per la creazione della nuova raccolta nel file app.js con l'```id``` specificato nell'oggetto ```config```. Anche in questo caso è necessario assicurarsi che non esista già una raccolta con lo stesso ID ```FamilyCollection```. Se esiste, verrà restituita la raccolta esistente, invece di procedere con la creazione di una nuova raccolta.
+È possibile creare una [raccolta](documentdb-resources.md#collections) con la funzione [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) della classe **DocumentClient**. Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata. Aggiungere una funzione per la creazione della nuova raccolta nel file app.js con l'```id``` specificato nell'oggetto ```config```. Anche in questo caso è necessario assicurarsi che non esista già una raccolta con lo stesso ID ```FamilyCollection```. Se esiste, verrà restituita la raccolta esistente, invece di procedere con la creazione di una nuova raccolta.
 
-    var getOrCreateCollection = function(callback) {
+    /**
+     * Get the collection by ID, or create if it doesn't exist.
+     */
+    function getCollection() {
+        console.log(`Getting collection:\n${collection.id}\n`);
 
-        var querySpec = {
-            query: 'SELECT * FROM root r WHERE r.id=@id',
-            parameters: [{
-                name: '@id',
-                value: config.collDefinition.id
-            }]
-        };
-
-        var dbUri = "dbs/" + config.dbDefinition.id;
-
-        client.queryCollections(dbUri, querySpec).toArray(function(err, results) {
-            if(err) return callback(err);
-
-            if (results.length === 0) {
-                client.createCollection(dbUri, config.collDefinition, function(err, created) {
-                    if(err) return callback(err);
-                    callback(null, created);
-                });
-            }
-            else {
-                callback(null, results[0]);
-            }
+        return new Promise((resolve, reject) => {
+            client.readCollection(collectionUrl, (err, result) => {
+                if (err) {
+                    if (err.code == HttpStatusCodes.NOTFOUND) {
+                        client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
+                            if (err) reject(err)
+                            else resolve(created);
+                        });
+                    } else {
+                        reject(err);
+                    }
+                } else {
+                    resolve(result);
+                }
+            });
         });
-    };
+    }
 
 ##<a id="CreateDoc"></a>Passaggio 7: Creare un documento
 È possibile creare un [documento](documentdb-resources.md#documents) con la funzione [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) della classe **DocumentClient**. I documenti sono contenuto JSON definito dall'utente (arbitrario). È ora possibile inserire un documento in DocumentDB.
 
 Aggiungere quindi una funzione al file app.js per creare i documenti contenenti i dati JSON salvati nell'oggetto ```config```. Anche in questo caso è necessario assicurarsi che non esista già un documento con lo stesso ID.
 
-    var getOrCreateDocument = function(document, callback) {
-        var querySpec = {
-            query: 'SELECT * FROM root r WHERE r.id=@id',
-            parameters: [{
-                name: '@id',
-                value: document.id
-            }]
-        };
+    /**
+     * Get the document by ID, or create if it doesn't exist.
+     * @param {function} callback - The callback function on completion
+     */
+    function getFamilyDocument(document) {
+        let documentUrl = `${collectionUrl}/docs/${document.id}`;
+        console.log(`Getting document:\n${document.id}\n`);
 
-        var collectionUri = "dbs/" + config.dbDefinition.id + "/colls/" + config.collDefinition.id;
-
-        client.queryDocuments(collectionUri, querySpec).toArray(function(err, results) {
-            if(err) return callback(err);
-
-            if(results.length === 0) {
-                client.createDocument(collectionUri, document, function(err, created) {
-                    if(err) return callback(err);
-
-                    callback(null, created);
-                });
-            } else {
-                callback(null, results[0]);
-            }
+        return new Promise((resolve, reject) => {
+            client.readDocument(documentUrl, { partitionKey: document.district }, (err, result) => {
+                if (err) {
+                    if (err.code == HttpStatusCodes.NOTFOUND) {
+                        client.createDocument(collectionUrl, document, (err, created) => {
+                            if (err) reject(err)
+                            else resolve(created);
+                        });
+                    } else {
+                        reject(err);
+                    }
+                } else {
+                    resolve(result);
+                }
+            });
         });
     };
 
@@ -282,23 +276,29 @@ La procedura è stata completata. Sono ora disponibili funzioni per la creazione
 
 DocumentDB supporta [query complesse](documentdb-sql-query.md) sui documenti JSON archiviati in ogni raccolta. L'esempio di codice seguente illustra una query eseguibile nei documenti della raccolta. Aggiungere la funzione seguente al file ```app.js```. DocumentDB supporta query simili a SQL, come illustrato di seguito. Per altre informazioni sulla creazione di query complesse, vedere la pagina[Query Playground](https://www.documentdb.com/sql/demo) e la [documentazione sulle query](documentdb-sql-query.md).
 
-    var queryCollection = function(documentId, callback) {
-      var querySpec = {
-          query: 'SELECT * FROM root r WHERE r.id=@id',
-          parameters: [{
-              name: '@id',
-              value: documentId
-          }]
-      };
+    /**
+     * Query the collection using SQL
+     */
+    function queryCollection() {
+        console.log(`Querying collection through index:\n${config.collection.id}\n`);
 
-      var collectionUri = "dbs/" + config.dbDefinition.id + "/colls/" + config.collDefinition.id;
-
-      client.queryDocuments(collectionUri, querySpec).toArray(function(err, results) {
-          if(err) return callback(err);
-
-          callback(null, results);
-      });
+        return new Promise((resolve, reject) => {
+            client.queryDocuments(
+                collectionUrl,
+                'SELECT VALUE r.address.city FROM root r WHERE r.lastName = "Andersen"',
+                { enableCrossPartitionQuery: true }
+            ).toArray((err, results) => {
+                if (err) reject(err)
+                else {
+                    for (var queryResult of results) {
+                        console.log(`Query returned ${queryResult}`);
+                    }
+                    resolve(results);
+                }
+            });
+        });
     };
+
 
 Il diagramma seguente illustra il modo in cui la sintassi di query SQL di DocumentDB viene chiamata nella raccolta creata.
 
@@ -310,12 +310,17 @@ La parola chiave [FROM](documentdb-sql-query.md/#from-clause) è facoltativa nel
 
 Se si elimina il database creato, verrà rimosso il database e tutte le risorse figlio (raccolte, documenti e così via). È possibile eliminare il database aggiungendo il frammento di codice seguente.
 
-    // WARNING: this function will delete your database and all its children resources: collections and documents
-    function cleanup(callback) {
-        client.deleteDatabase("dbs/" + config.dbDefinition.id, function(err) {
-            if(err) return callback(err);
+    /**
+     * Cleanup the database and collection on completion
+     */
+    function cleanup() {
+        console.log(`Cleaning up by deleting database ${config.database.id}`);
 
-            callback(null);
+        return new Promise((resolve, reject) => {
+            client.deleteDatabase(databaseUrl, (err) => {
+                if (err) reject(err)
+                else resolve(null);
+            });
         });
     }
 
@@ -323,39 +328,28 @@ Se si elimina il database creato, verrà rimosso il database e tutte le risorse 
 
 Dopo avere configurato tutte le funzioni necessarie per l'applicazione, è possibile chiamarle.
 
-L'ordine delle chiamate delle funzioni sarà * *getOrCreateDatabase* * *getOrCreateCollection* * *getOrCreateDocument* * *getOrCreateDocument* * *queryCollection* * *cleanup*
-
 Aggiungere il frammento di codice seguente alla fine del codice nel file ```app.js```.
 
-    getOrCreateDatabase(function(err, db) {
-        if(err) return console.log(err);
-        console.log('Read or created db:\n' + db.id + '\n');
+    /**
+     * Exit the app with a prompt
+     * @param {message} message - The message to display
+     */
+    function exit(message) {
+        console.log(message);
+        console.log('Press any key to exit');
+        process.stdin.setRawMode(true);
+        process.stdin.resume();
+        process.stdin.on('data', process.exit.bind(process, 0));
+    }
 
-        getOrCreateCollection(function(err, coll) {
-            if(err) return console.log(err);
-            console.log('Read or created collection:\n' + coll.id + '\n');
-
-            getOrCreateDocument(config.docsDefinitions.Andersen, function(err, doc) {
-                if(err) return console.log(err);
-                console.log('Read or created document:\n' + doc.id + '\n');
-
-                getOrCreateDocument(config.docsDefinitions.Wakefield, function(err, doc) {
-                    if(err) return console.log(err);
-                    console.log('Read or created document:\n' + doc.id + '\n');
-
-                    queryCollection("AndersenFamily", function(err, results) {
-                        if(err) return console.log(err);
-                        console.log('Query results:\n' + JSON.stringify(results, null, '\t') + '\n');
-
-                        cleanup(function(err) {
-                            if(err) return console.log(err);
-                            console.log('Done.');
-                        });
-                    });
-                });
-            });
-        });
-    });
+    getDatabase()
+        .then(() => getCollection())
+        .then(() => getFamilyDocument(config.documents.Andersen))
+        .then(() => getFamilyDocument(config.documents.Wakefield))
+        .then(() => queryCollection())
+        .then(() => cleanup())
+        .then(() => { exit(`Completed successfully`); })
+        .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 ##<a id="Run"></a> Passaggio 11: Eseguire l'applicazione Node.js
 
@@ -365,57 +359,26 @@ Nel terminale trovare il file ```app.js``` ed eseguire il comando ```node app.js
 
 Verrà visualizzato l'output dell'app introduttiva. L'output dovrebbe essere analogo al testo di esempio seguente.
 
-    Read or created db:
-    FamilyRegistry
+    Getting database:
+    FamilyDB
 
-    Read or created collection:
-    FamilyCollection
+    Getting collection:
+    FamilyColl
 
-    Read or created document:
-    AndersenFamily
+    Getting document:
+    Anderson.1
 
-    Read or created document:
-    WakefieldFamily
+    Getting document:
+    Wakefield.7
 
-    Query results:
-    [
-            {
-                    "id": "AndersenFamily",
-                    "LastName": "Andersen",
-                    "Parents": [
-                            {
-                                    "FirstName": "Thomas"
-                            },
-                            {
-                                    "FirstName": "Mary Kay"
-                            }
-                    ],
-                    "Children": [
-                            {
-                                    "FirstName": "Henriette Thaulow",
-                                    "Gender": "female",
-                                    "Grade": 5,
-                                    "Pets": [
-                                            {
-                                                    "GivenName": "Fluffy"
-                                            }
-                                    ]
-                            }
-                    ],
-                    "Address": {
-                            "State": "WA",
-                            "County": "King",
-                            "City": "Seattle"
-                    },
-                    "_rid": "tOErANjwoQcBAAAAAAAAAA==",
-                    "_ts": 1444327141,
-                    "_self": "dbs/tOErAA==/colls/tOErANjwoQc=/docs/tOErANjwoQcBAAAAAAAAAA==/",
-                    "_etag": ""00001200-0000-0000-0000-5616aee50000"",
-                    "_attachments": "attachments/"
-            }
-    ]
+    Querying collection through index:
+    FamilyColl
+      Query returned Seattle
 
-    Done.
+    Cleaning up by deleting database FamilyDB
+
+    Completed successfully
+    Press any key to exit
 
 Congratulazioni. È stata completata l'esercitazione su Node.js ed stata creata la prima applicazione console DocumentDB.
 
@@ -425,7 +388,8 @@ Per creare la soluzione GetStarted completa contenente tutti gli esempi riportat
 -   [Account DocumentDB][documentdb-create-account].
 -   La soluzione [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) disponibile su GitHub.
 
-Installare il modulo **documentdb** tramite npm. Usare il comando seguente: * ```npm install documentdb --save```
+Installare il modulo **documentdb** tramite npm. Usare il seguente comando:
+* ```npm install documentdb --save```
 
 Nel file ```config.js``` aggiornare quindi i valori config.endpoint e config.authKey, come illustrato nel [Passaggio 3: Impostare le configurazioni dell'app](#Config).
 
@@ -442,4 +406,4 @@ Nel file ```config.js``` aggiornare quindi i valori config.endpoint e config.aut
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

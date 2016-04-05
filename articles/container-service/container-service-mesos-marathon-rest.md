@@ -32,10 +32,10 @@ Dopo la connessione al cluster ACS, è possibile accedere a Mesos e alle API RES
 
 ## Raccogliere informazioni da Mesos e Marathon
 
-Prima di distribuire contenitori nel cluster Mesos, è necessario raccogliere informazioni relative a tale cluster, ad esempio il nome e lo stato corrente degli agenti di Mesos. A tale scopo, eseguire una query sull'endpoint `master/slaves` in un master Mesos. Se tutto va bene, verrà visualizzato un elenco di agenti di Mesos e varie proprietà per ognuno.
+Prima di distribuire contenitori nel cluster Mesos, è necessario raccogliere informazioni relative a tale cluster, ad esempio il nome e lo stato corrente degli agenti di Mesos. A tale scopo, eseguire una query sull'endpoint `master/slaves` dell'API REST di Mesos. Se tutto va bene, verrà visualizzato un elenco di agenti di Mesos e varie proprietà per ognuno.
 
 ```bash
-curl http://localhost/master/slaves
+curl http://localhost/mesos/master/slaves
 ```
 
 A questo punto, usare l'endpoint `/apps` di Marathon per cercare distribuzioni dell'applicazione correnti nel cluster Mesos. Se si tratta di un nuovo cluster, verrà visualizzata una matrice vuota di app.
@@ -160,4 +160,4 @@ Eseguire questo comando per aumentare il numero di istanze dell'applicazione.
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

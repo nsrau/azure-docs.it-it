@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="03/25/2016"
    ms.author="larryfr"/>
 
 #Uso di SSH con Hadoop basato su Linux in HDInsight da Windows:
@@ -121,7 +121,11 @@ Per altre informazioni sull'uso di questo comando, vedere l'articolo [Provisioni
 
 	![putty interface, select private key](./media/hdinsight-hadoop-linux-use-ssh-windows/puttykey.png)
 
-3. In **Category** selezionare **Session**. Nella schermata **Basic options for your PuTTY session** immettere l'indirizzo SSH del server HDInsight nel campo **Host name (or IP address)**. L'indirizzo SSH è il nome del cluster, quindi **-ssh.azurehdinsight.net**. Ad esempio, **mycluster-ssh.azurehdinsight.net**.
+3. In **Category** selezionare **Session**. Nella schermata **Basic options for your PuTTY session** immettere l'indirizzo SSH del server HDInsight nel campo **Host name (or IP address)**. Quando ci si connette a un cluster è possibile usare due indirizzi SSH.
+
+    * __Indirizzo del nodo head__: per connettersi al nodo head del cluster, usare il nome del cluster seguito da **-ssh.azurehdinsight.net**. Ad esempio, **mycluster-ssh.azurehdinsight.net**.
+    
+    * __Indirizzo del nodo edge__: se ci si connette a un Server R nel cluster HDInsight, è possibile connettersi al nodo edge del Server R usando l'indirizzo __RServer.CLUSTERNAME.ssh.azurehdinsight.net__, dove CLUSTERNAME è il nome del cluster. Ad esempio, __RServer.mycluster.ssh.azurehdinsight.net__.
 
 	![putty interface with ssh address entered](./media/hdinsight-hadoop-linux-use-ssh-windows/puttyaddress.png)
 
@@ -229,4 +233,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

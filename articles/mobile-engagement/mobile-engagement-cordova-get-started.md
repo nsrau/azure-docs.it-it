@@ -12,25 +12,19 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
-	ms.topic="article" 
-	ms.date="02/29/2016"
+	ms.topic="hero-article" 
+	ms.date="03/25/2016"
 	ms.author="piyushjo" />
 
 # Introduzione ad Azure Mobile Engagement per Cordova/Phonegap
 
-> [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS | Obj C](mobile-engagement-ios-get-started.md)
-- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md)
-- [Cordova](mobile-engagement-cordova-get-started.md)
+[AZURE.INCLUDE [Banner per la selezione del tipo di esercitazione](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Questo argomento illustra come usare Azure Mobile Engagement per comprendere l'utilizzo dell'app e inviare notifiche push a utenti segmentati per un'applicazione mobile sviluppata con Cordova.
 
 In questa esercitazione verrà creata un'app Cordova vuota mediante Mac e quindi verrà eseguita l'integrazione di Mobile Engagement SDK. L'app raccoglierà dati analitici di base e riceverà notifiche push tramite Apple Push Notification System (APNS) per iOS e Google Cloud Messaging (GCM) per Android. L'app verrà distribuita in un dispositivo iOS o Android per il test.
 
-> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-IT%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
 
 Per completare questa esercitazione, è necessario disporre di:
 
@@ -64,7 +58,7 @@ Verrà creata un'app di base con Xcode per illustrare l'integrazione.
 		$ cordova platform add ios 
 		$ cordova run ios
 
-3. Eseguire il codice seguente per configurare il progetto per **Android** ed eseguirlo nel simulatore Android. Assicurarsi che le impostazioni dell'emulatore Android SDK abbiano la destinazione Google APIs (Google Inc.) con CPU/ABI come Google APIs ARM.
+3. Eseguire questo codice per configurare il progetto per **Android** ed eseguirlo nel simulatore Android. Assicurarsi che le impostazioni dell'emulatore Android SDK abbiano la destinazione Google APIs (Google Inc.) con CPU/ABI come Google APIs ARM.
 
 		$ cordova platform add android
 		$ cordova run android
@@ -245,4 +239,4 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->
