@@ -231,4 +231,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, 
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!----HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->
