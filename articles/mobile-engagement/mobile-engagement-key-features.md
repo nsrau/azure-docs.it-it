@@ -26,7 +26,7 @@ L'articolo fornisce una panoramica di alto livello sulle funzionalità principal
 
 - **Portale SaaS separato** Consente di contattare in modo semplice il team di marketing senza passare attraverso il portale di gestione Azure.
 
-- **Disponibilità di API REST aperte** Per integrare e automatizzare sistemi CRM/CMS/IT, sono previste API REST aperte e .NET SDK per il relativo utilizzo, consentendo una semplice integrazione e automatizzazione con Mobile Engagement. Vedere [this] per maggiori dettagli (mobile-engagement-api-authentication.md)
+- **Disponibilità di API REST aperte** Per integrare e automatizzare sistemi CRM/CMS/IT, sono previste API REST aperte e .NET SDK per il relativo utilizzo, consentendo una semplice integrazione e automatizzazione con Mobile Engagement. Vedere [this](mobile-engagement-api-authentication.md) per maggiori dettagli
 
 - **Disponibilità del connettore Power BI** È inoltre possibile estrarre i principali grafici analitici in un dashboard di Power BI. Vedere questa [guida](https://powerbi.microsoft.com/it-IT/documentation/powerbi-content-pack-azure-mobile/)
 
