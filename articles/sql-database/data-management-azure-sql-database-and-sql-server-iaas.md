@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/02/2016"
+	ms.date="03/25/2016"
 	ms.author="jeffreyg"/>
 
 # Scegliere un'opzione di SQL Server cloud: database SQL di Azure (PaaS) o SQL Server in VM di Azure (IaaS)
@@ -82,7 +82,7 @@ La tabella seguente riepiloga le caratteristiche principali del database SQL di 
       <li type=round>Applicazioni SQL Server che richiedono l'accesso da Azure alle risorse locali, ad esempio Active Directory, tramite un tunnel sicuro.
       <li type=round>Se è necessario un ambiente IT personalizzato con diritti amministrativi completi.
       <li type=round>Scenari di sviluppo e test rapidi quando non si vuole acquistare hardware SQL Server locale non di produzione.
-      <li type=round>Ripristino di emergenza per le applicazioni SQL Server locali con il [backup nell'archiviazione di Azure] (http://msdn.microsoft.com/library/jj919148.aspx) o le [repliche AlwaysOn nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-classic-sql-dr.md).
+      <li type=round>Ripristino di emergenza per le applicazioni SQL Server locali usando il [backup nell'Archiviazione di Azure](http://msdn.microsoft.com/library/jj919148.aspx) o le repliche AlwaysOn con le macchine virtuali di Azure.
       <li type=round>Grandi database con dimensioni maggiori di 1 TB.
       </ul></td>
 </tr>
@@ -105,7 +105,7 @@ La tabella seguente riepiloga le caratteristiche principali del database SQL di 
 <tr>
    <td valign="middle"><p><b>Continuità aziendale</b></p></td>
    <td valign="middle"><ul><li type=round>Oltre alle capacità di tolleranza di errore predefinite dell'infrastruttura, il database SQL di Azure fornisce funzionalità come Ripristino temporizzato, Ripristino a livello geografico e Replica geografica per migliorare la continuità aziendale. Per altre informazioni, vedere [Panoramica della continuità aziendale del database SQL](sql-database-business-continuity.md).</ul></td>
-   <td valign="middle"><ul><li type=round>SQL Server nelle macchine virtuali di Azure consente di configurare una soluzione con disponibilità elevata e ripristino di emergenza per le esigenze specifiche del database. È quindi possibile avere un sistema altamente ottimizzato per la propria applicazione. È possibile testare ed eseguire i failover autonomamente quando necessario. Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure]((../virtual-machines/virtual-machines-windows-classic-sql-dr.md).</ul></td>
+   <td valign="middle"><ul><li type=round>SQL Server nelle macchine virtuali di Azure consente di configurare una soluzione con disponibilità elevata e ripristino di emergenza per le esigenze specifiche del database. È quindi possibile avere un sistema altamente ottimizzato per la propria applicazione. È possibile testare ed eseguire i failover autonomamente quando necessario. Per altre informazioni, vedere l'articolo relativo a [disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-classic-sql-dr.md).</ul></td>
 
 </tr>
 <tr>
@@ -187,7 +187,7 @@ Scegliere il **database SQL di Azure** se:
 
 - Si vuole che Microsoft si occupi di operazioni di gestione comuni sui database e si richiedono contratti di servizio con disponibilità più elevata per i database.
 
-Per iniziare, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md).
+
 
 Scegliere **SQL Server nelle macchine virtuali di Azure** se:
 
@@ -195,8 +195,13 @@ Scegliere **SQL Server nelle macchine virtuali di Azure** se:
 
 - Si hanno risorse IT esistenti, sono necessari diritti amministrativi completi per SQL Server ed è richiesta la compatibilità totale con SQL Server locale. Questo approccio consente di ridurre i costi per lo sviluppo o la modifica delle applicazioni esistenti e offre la flessibilità necessaria ad eseguire la maggior parte delle applicazioni. Fornisce anche il controllo totale della macchina virtuale, del sistema operativo e della configurazione del database.
 
-Per iniziare, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-classic-portal-sql.md).
+
 
 > [AZURE.NOTE] Per provare SQL Server 2016 CTP2, iscriversi a Microsoft Azure e fare clic [qui](http://aka.ms/sql2016vm "qui") per creare una macchina virtuale con SQL Server 2016 CTP2 già installato.
 
-<!---HONumber=AcomDC_0323_2016-->
+## Passaggi successivi
+- Per un'introduzione al database SQL, vedere [Esercitazione sul database SQL: creare un database SQL in pochi minuti usando dati di esempio e il portale di Azure](sql-database-get-started.md).
+- Vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+- Per un'introduzione a SQL Server nelle macchine virtuali di Azure, vedere l'articolo relativo al [provisioning di una macchina virtuale di SQL Server in Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md).
+
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 
@@ -34,7 +34,7 @@ Oggi tutti hanno un parere. E questo è positivo. **Catalogo dati azure** ricono
 Ognuna di queste prospettive è utile, e **Catalogo dati Azure** utilizza un approccio di crowdsourcing per i metadati che consentono a ciascuno di essi di essere acquisito e utilizzato per fornire un quadro completo delle origini dati registrati. Utilizzando il portale **Catalogo dati Azure**, ogni utente può aggiungere e modificare le proprie annotazioni, avendo inoltre la possibilità di visualizzare annotazioni fornite da altri utenti.
 
 ## Diversi tipi di annotazioni
-Durante l’anteprima **Catalogo dati Azure**, sono supportati i seguenti tipi di annotazioni:
+**Azure Data Catalog** supporta i tipi di annotazione seguenti:
 
 | Annotazione | Note |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -61,4 +61,4 @@ La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più
 ## Vedere anche
 - Per altre informazioni dettagliate sull'annotazione delle origini dati, vedere [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

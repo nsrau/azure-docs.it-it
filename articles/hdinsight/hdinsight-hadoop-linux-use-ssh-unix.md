@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="03/25/2016"
    ms.author="larryfr"/>
 
 #Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X:
@@ -116,11 +116,15 @@ Per altre informazioni sull'uso di questo comando, vedere l'articolo [Provisioni
 
 Da una sessione terminal usare il comando SSH per la connessione al nodo head del cluster specificando l'indirizzo e il nome utente:
 
-* **Indirizzo SSH**: il nome del cluster, seguito da **-ssh.azurehdinsight.net**. Ad esempio, **mycluster-ssh.azurehdinsight.net**.
+* **Indirizzo SSH**. Per connettersi a un cluster tramite SSH è possibile usare due indirizzi:
+
+    * **Connessione al nodo head**: il nome del cluster, seguito da **-ssh.azurehdinsight.net**. Ad esempio, **mycluster-ssh.azurehdinsight.net**.
+    
+    * **Connessione al nodo edge**: se il cluster è Server R in HDInsight, contiene anche un nodo edge a cui è possibile accedere tramite **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, dove __CLUSTERNAME__ è il nome del cluster.
 
 * **Nome utente**: il nome utente SSH fornito durante la creazione del cluster.
 
-L'esempio seguente consentirà di connettersi al cluster **mycluster** come utente **me**:
+L'esempio seguente consente di connettersi al nodo head 0 di **mycluster** come utente **me**:
 
 	ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -132,7 +136,7 @@ Se è stata usata una chiave SSH è protetta con una passphrase, verrà richiest
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-Se non viene specificata alcuna porta, SSH imposterà automaticamente la porta 22, che si connetterà al nodo head 0 nel cluster HDInsight. Se si utilizza la porta 23, si è connessi al nodo head 1. Per maggiori informazioni sui nodi head, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md).
+Se si prova a connettersi usando l'indirizzo del nodo head ma non viene specificata alcuna porta, SSH imposta automaticamente la porta 22, che si connette al nodo head 0 nel cluster HDInsight. Se si utilizza la porta 23, si è connessi al nodo head 1. Per maggiori informazioni sui nodi head, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md).
 
 ###Connettersi ai nodi di lavoro
 
@@ -239,4 +243,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

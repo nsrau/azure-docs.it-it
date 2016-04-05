@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/21/2016"
+	ms.date="03/29/2016"
 	ms.author="vakarand"/>
 
 
@@ -31,7 +31,7 @@ La tabella seguente è un elenco di requisiti per l'uso di Azure AD Connect Heal
 |L'agente di Azure AD Connect Health è installato in ogni server di destinazione| Per Azure AD Connect Health è necessario che nei server di destinazione sia installato un agente, che fornirà i dati visualizzati nel portale. </br></br>Ad esempio, per ottenere i dati sull'infrastruttura locale di AD FS, l'agente deve essere installato nei server di AD FS, nei server proxy di AD FS e nei server proxy applicazione Web. </br></br>**Importante:** l'account usato quando si installano gli agenti deve essere un account aziendale o dell'istituto di istruzione e non può essere un account Microsoft. Per altre informazioni, vedere [Iscrizione ad Azure come organizzazione](sign-up-organization.md)|
 |Connettività in uscita agli endpoint di servizio di Azure|Durante l'installazione e la fase di esecuzione, l'agente richiede la connettività agli endpoint di servizio di Azure AD Connect Health elencati sotto. Se si blocca la connettività in uscita, assicurarsi che gli indirizzi seguenti vengano aggiunti all'elenco degli indirizzi consentiti: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.queue.core.windows.net</li><li>adhsprodwus.servicebus.windows.net - Port: 5671 </li><li>https://management.azure.com </li><li>https://s1.adhybridhealth.azure.com/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |Porte del firewall nel server che esegue l'agente.| Per consentire la comunicazione dell'agente con gli endpoint del servizio Azure AD Connect Health è necessario che le porte del firewall seguenti siano aperte.</br></br><li>Porta TCP/UDP 443</li><li>Porta TCP/UDP 5671</li>
-|Consentire i siti Web seguenti se è abilitata la funzionalità Protezione avanzata di IE|I siti Web seguenti devono essere consentiti se la funzionalità Protezione avanzata di Internet Explorer è abilitata nel server in cui verrà installato l'agente.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Server federativo dell'organizzazione considerato attendibile da Azure Active Directory. Ad esempio: https://sts.contoso.com</li>
+|Consentire i siti Web seguenti se è abilitata la funzionalità Protezione avanzata di IE|I siti Web seguenti devono essere consentiti se la funzionalità Sicurezza avanzata di Internet Explorer è abilitata nel server in cui verrà installato l'agente.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Server federativo dell'organizzazione considerato attendibile da Azure Active Directory. Ad esempio: https://sts.contoso.com</li>
 
 
 
@@ -134,7 +134,7 @@ Per verificare che l'agente sia stato installato, aprire i servizi e cercare qua
 
 ![Verificare Azure AD Connect Health per la sincronizzazione](./media/active-directory-aadconnect-health-sync/services.png)
 
->[Azure.NOTE] Si tenga presente che l'utilizzo di integrità di Azure AD Connect richiede Azure AD Premium. Se non si dispone di Azure AD Premium non sarà possibile completare la configurazione nel portale di Azure. Per altre informazioni vedere i requisiti [qui](active-directory-aadconnect-health-agent-install.md#requirements).
+> [AZURE.NOTE] Si tenga presente che l'utilizzo di integrità di Azure AD Connect richiede Azure AD Premium. Se non si dispone di Azure AD Premium non sarà possibile completare la configurazione nel portale di Azure. Per altre informazioni vedere i requisiti [qui](active-directory-aadconnect-health-agent-install.md#requirements).
 
 
 ## Registrazione manuale di Azure AD Connect Health per la sincronizzazione
@@ -233,4 +233,4 @@ Il parametro role accetta attualmente i valori seguenti:
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

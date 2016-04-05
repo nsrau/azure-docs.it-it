@@ -64,8 +64,9 @@ La connettività tra diverse aree geopolitiche non è supportata nello standard 
 |**Cologix** | Supportato | Presto disponibile | Montreal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supportato | Supportato | Amsterdam, Dublino, Londra |
 | **Comcast** | Supportato | Non supportato | Silicon Valley, Washington DC |
-| **CoreSite** | Supportato | Supportato | Los Angeles | 
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Supportato | Supportato | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supportato | Supportato | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londra, Los Angeles, Melbourne, New York, Osaka, San Paolo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
+| **euNetworks** | Supportato | Supportato | Amsterdam |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** | Supportato | Supportato | Osaka, Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** | Supportato | Supportato | Amsterdam, Londra, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** | Supportato | Supportato | Amsterdam, Londra |
@@ -134,6 +135,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 
 |**Provider di connettività**|**Exchange**|**Località di peering**|
 |---|---|---|
+|**Alaska Communications**|Equinix|Seattle|
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
 
 ## Integratori di sistemi ExpressRoute
@@ -152,4 +154,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 - Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 - Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

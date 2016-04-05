@@ -89,16 +89,13 @@ Questi articoli forniscono riferimenti di base per endpoint, esempi di codice, e
 
 - [Esempi per Azure Active Directory](https://github.com/azure-samples?query=active-directory): per esplorare l'elenco di esempi, è possibile usare l'[indice degli esempi di codice](active-directory-code-samples.md).
 
+- [ADAL per .NET](https://msdn.microsoft.com/library/azure/mt417579.aspx): documentazione per la libreria di autenticazione .NET.
 
 ### API Graph
 
 - [Informazioni di riferimento sull'API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx): informazioni di riferimento su REST per l'API Graph di Azure Active Directory. [Visualizzare l’esperienza interattiva per le informazioni di riferimento sull'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-- [Ambiti di autorizzazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): ambiti di autorizzazione di OAuth 2.0 usati per controllare l'accesso di un'app ai dati della directory in un tenant.
-
-### Librerie di autenticazione
-
-- [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx): documentazione per la libreria di autenticazione .NET.
+- [Ambiti di autorizzazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): ambiti di autorizzazione OAuth 2.0 usati per controllare l'accesso di un'app ai dati della directory in un tenant.
 
 ### Protocolli di autenticazione
 
@@ -142,4 +139,4 @@ Queste presentazioni generali sullo sviluppo di app tramite Azure Active Directo
 
 - [Azure Active Directory su Twitter](https://twitter.com/azuread): annunci relativi ad Azure Active Directory in 140 caratteri o meno.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -70,7 +70,7 @@ Il comando esegue le seguenti fasi (che potrebbero invece essere eseguite [manua
 
 Se inizialmente non si esegue l'accesso ad Azure, l'SDK verrà installato senza che venga connesso a una risorsa. Sarà possibile visualizzare e cercare i dati di telemetria di Application Insights nella finestra di ricerca di Visual Studio durante il debug. Gli altri passaggi possono essere completati in un secondo momento.
 
-## <a name="run"></a> Eseguire il progetto
+## <a name="run"></a> Eseguire il debug del progetto
 
 Eseguire l'applicazione con F5 e provarla aprendo pagine diverse per generare alcuni dati di telemetria.
 
@@ -81,6 +81,16 @@ In Visual Studio verrà visualizzato il conteggio degli eventi che sono stati re
 Fare clic su questo pulsante per aprire la ricerca diagnostica.
 
 
+
+## Debug della telemetria
+
+### Hub diagnostica
+
+In Visual Studio 2015 o versione successiva Hub diagnostica mostra i dati di telemetria del server Application Insights man mano che vengono generati. Questo avviene anche se si è scelto di installare solo l'SDK, senza connetterlo a una risorsa nel portale di Azure.
+
+![Aprire la finestra Strumenti di diagnostica e controllare gli eventi di Application Insights.](./media/app-insights-asp-net/31.png)
+
+
 ### Ricerca diagnostica
 
 La finestra di ricerca mostra gli eventi che sono stati registrati. Se è stato eseguito l'accesso ad Azure durante la configurazione di Application Insights, sarà possibile cercare gli stessi eventi nel portale.
@@ -89,18 +99,43 @@ La finestra di ricerca mostra gli eventi che sono stati registrati. Se è stato 
 
 La ricerca di testo libero funziona in tutti i campi degli eventi. Ad esempio, è possibile cercare parte dell'URL di una pagina, il valore di una proprietà, come la città del client, o parole specifiche in un log di traccia.
 
+È anche possibile aprire la scheda Elementi correlati per poter diagnosticare le richieste non riuscite o le eccezioni.
 
-[Altre informazioni sulla ricerca](app-insights-diagnostic-search.md)
+
+![](./media/app-insights-asp-net/41.png)
+
+
 
 ### Eccezioni
 
-Se è stato [impostato il monitoraggio delle eccezioni](app-insights-asp-net-exceptions.md), i report di eccezione verranno visualizzati nella finestra di ricerca.
+Se è stato [configurato il monitoraggio delle eccezioni](app-insights-asp-net-exceptions.md), i report di eccezione verranno visualizzati nella finestra di ricerca.
 
 Fare clic su un'eccezione per ottenere un'analisi dello stack. Se il codice dell'app è aperto in Visual Studio, è possibile fare clic nell'analisi dello stack per visualizzare la relativa riga del codice.
 
 
 
-## <a name="monitor"></a> Aprire Application Insights
+
+### Monitoraggio locale
+
+
+
+(Da Visual Studio 2015 Update 2) Se l'SDK non è stato configurato per l'invio della telemetria al portale di Application Insights (e quindi non è presente nessuna chiave di strumentazione in ApplicationInsights.config), la finestra di diagnostica visualizzerà la telemetria dalla sessione di debug più recente.
+
+Questo è consigliabile se è già stata pubblicata una versione precedente dell'app. Si vuole però evitare di combinare la telemetria delle sessioni di debug con la telemetria nel portale di Application Insights dell'app pubblicata.
+
+È utile anche se si vuole eseguire il debug di alcuni [dati di telemetria personalizzati](app-insights-api-custom-events-metrics.md) prima di inviarli al portale.
+
+
+* *Application Insights è stato inizialmente configurato per l'invio dei dati di telemetria al portale. Ora però si vuole fare in modo che i dati di telemetria vengano visualizzati solo in Visual Studio.*
+
+ * Nelle impostazioni della finestra di ricerca è disponibile un'opzione per cercare la diagnostica locale anche se l'app invia la telemetria al portale.
+ * Per arrestare l'invio della telemetria al portale, impostare come commento la riga `<instrumentationkey>...` di ApplicationInsights.config. Quando si è pronti a inviare nuovamente i dati di telemetria al portale, rimuovere il commento.
+
+
+
+## <a name="monitor"></a> Visualizzare la telemetria nel portale di Application Insights
+
+Nel portale di Application Insights verrà visualizzata la telemetria una volta pubblicata l'applicazione e durante il debug è opportuno verificare che la telemetria venga inviata correttamente.
 
 Aprire la risorsa Application Insights nel [portale di Azure][portal].
 
@@ -150,22 +185,7 @@ Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipel
 
 Vedere [questa sezione sulla risoluzione dei problemi](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
-> [AZURE.NOTE] Se l'app genera molti dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento](app-insights-sampling.md).
-
-
-## Debug della telemetria
-
-### Hub diagnostica
-
-In Visual Studio 2015 o versione successiva Hub diagnostica mostra i dati di telemetria del server Application Insights man mano che vengono generati. Questo avviene anche se si è scelto di installare solo l'SDK, senza connetterlo a una risorsa nel portale di Azure.
-
-![Aprire la finestra Strumenti di diagnostica e controllare gli eventi di Application Insights.](./media/app-insights-asp-net/31.png)
-
-È particolarmente utile se si vuole eseguire il debug di alcuni [dati di telemetria personalizzati](app-insights-api-custom-events-metrics.md) prima di inviarli al portale.
-
-* *Application Insights è stato inizialmente configurato per l'invio dei dati di telemetria al portale. Ora però si vuole fare in modo che i dati di telemetria vengano visualizzati solo in Visual Studio.*
-
-    Impostare come commento la riga `<instrumentationkey>...` dal file ApplicationInsights.config. Quando si è pronti a inviare nuovamente i dati di telemetria al portale, rimuovere il commento.
+> [AZURE.NOTE] Se l'app genera molti dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. [Informazioni sul campionamento.](app-insights-sampling.md)
 
 
 
@@ -214,4 +234,4 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

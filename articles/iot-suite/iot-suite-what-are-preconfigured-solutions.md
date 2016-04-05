@@ -34,8 +34,7 @@ La tabella seguente mostra quali funzionalità IoT specifiche sono disponibili p
 
 | Soluzione | Inserimento di dati | Identità del dispositivo | Comando e controllo | Regole e azioni | Analisi predittiva |
 |------------------------|-----|-----|-----|-----|-----|
-| [Monitoraggio remoto][lnk-remote-monitoring] | Sì | Sì | Sì | Sì | - |
-| [Manutenzione predittiva][lnk-predictive-maintenance] | Sì | Sì | Sì | Sì | Sì |
+| [Monitoraggio remoto][lnk-remote-monitoring] | Sì | Sì | Sì | Sì | - | | [Manutenzione predittiva][lnk-predictive-maintenance] | Sì | Sì | Sì | Sì | Sì |
 
 - *Inserimento di dati*: inserimento di dati su vasta scala nel cloud.
 - *Identità del dispositivo*: gestione delle identità univoche di ogni dispositivo connesso.
@@ -115,6 +114,8 @@ In questa soluzione preconfigurata il portale della soluzione fa parte del **bac
 
 ## Passaggi successivi
 
+Per altre informazioni sulle architetture delle soluzioni IoT, vedere il documento relativo all'[architettura di riferimento dei servizi IoT di Microsoft Azure][lnk-refarch].
+
 Esplorare queste risorse per altre informazioni sulle soluzioni preconfigurate IoT:
 
 - [Iniziare a usare le soluzioni preconfigurate IoT][lnk-preconf-get-started]
@@ -133,5 +134,6 @@ Esplorare queste risorse per altre informazioni sulle soluzioni preconfigurate I
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!------HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

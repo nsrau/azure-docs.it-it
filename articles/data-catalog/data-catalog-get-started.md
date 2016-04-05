@@ -16,17 +16,17 @@
    ms.date="03/03/2016"
    ms.author="derrickv"/>
 
-# Introduzione al Catalogo dati di Azure
+# Introduzione ad Azure Data Catalog
 
-Questo articolo contiene un'esercitazione end-to-end degli scenari e delle funzionalità dell'anteprima pubblica di **Catalogo dati di Azure**. Quando si effettua l'iscrizione per l'anteprima, seguire questi passaggi per creare un catalogo di dati e per registrare, annotare e individuare le origini dati.
+Questo articolo contiene una panoramica esaustiva degli scenari e delle funzionalità di **Azure Data Catalog**. Dopo aver effettuato l'iscrizione al servizio, seguire questa procedura per creare un catalogo dati e per registrare, annotare e trovare le origini dati.
 
 ## Prerequisiti per l'esercitazione
 
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Sottoscrizione di Azure**: se non si dispone di una sottoscrizione, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- **Azure Active Directory** - Catalogo dati di Azure usa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) per la gestione delle identità e degli accessi.
-- **Origini dati**: il Catalogo dati di Azure include funzionalità per l'individuazione delle origini dati. Questa esercitazione usa il database di esempio Adventure Works, ma è possibile usare qualsiasi origine dati supportata se si preferisce lavorare con dati familiari e più rilevanti per il proprio ruolo. Per un elenco di origini dati supportate, vedere [Origini dati supportate](data-catalog-dsr.md).
+- **Azure Active Directory**: Azure Data Catalog usa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) per la gestione delle identità e degli accessi.
+- **Origini dati**: Azure Data Catalog include funzionalità per l'individuazione delle origini dati. Questa esercitazione usa il database di esempio Adventure Works, ma è possibile usare qualsiasi origine dati supportata se si preferisce lavorare con dati familiari e più rilevanti per il proprio ruolo. Per un elenco di origini dati supportate, vedere [Origini dati supportate](data-catalog-dsr.md).
 
 Per prima cosa, si installa il database di esempio Adventure Works.
 
@@ -36,7 +36,7 @@ In questo esercizio viene installato il database di esempio Adventure Works per 
 
 ### Installare il database OLTP Adventure Works 2014
 
-Il database Adventure Works supporta gli scenari di elaborazione delle transazioni online standard per un produttore di biciclette fittizio (Adventure Works Cycles) che include i settori Prodotti, Vendite e Acquisti. In questa esercitazione vengono registrate le informazioni sui prodotti nel **Catalogo dati di Azure**.
+Il database Adventure Works supporta gli scenari di elaborazione delle transazioni online standard per un produttore di biciclette fittizio (Adventure Works Cycles) che include i settori Prodotti, Vendite e Acquisti. In questa esercitazione vengono registrate le informazioni sui prodotti in **Azure Data Catalog**.
 
 Ecco come installare il database di esempio Adventure Works.
 
@@ -72,16 +72,16 @@ Per installare il database di esempio Adventure Works, è possibile ripristinare
 
 Come alternativa allo script T-SQL, è possibile ripristinare il database usando SQL Server Management Studio. Vedere [Ripristino di un backup del database (SQL Server Management Studio)](http://msdn.microsoft.com/library/ms177429.aspx).
 
-In questo esercizio è stato installato il database di esempio Adventure Works che verrà usato negli esercizi rimanenti. Nel prossimo esercizio verranno fornite informazioni su come registrare le origini dati del **Catalogo dati di Azure** dalle tabelle a un database di esempio Adventure Works.
+In questo esercizio è stato installato il database di esempio Adventure Works che verrà usato negli esercizi rimanenti. Nel prossimo esercizio verranno fornite informazioni su come registrare le origini dati di **Azure Data Catalog** dalle tabelle a un database di esempio Adventure Works.
 
 ## Esercizio 2: registrazione delle origini dati
 
-In questo esercizio viene usato lo strumento di registrazione del **Catalogo dati di Azure** per registrare le origini dati di Adventure Works con il catalogo. La registrazione è il processo di estrazione dei metadati strutturali chiave, quali nomi, tipi e percorsi, dall'origine dati e dall’asset che lo contiene e di copia dei metadati nel catalogo. Le origini dati e i relativi dati rimangono dove sono, ma i metadati vengono usati dal catalogo per renderli più facilmente individuabili e comprensibili.
+In questo esercizio viene usato lo strumento di registrazione di **Azure Data Catalog** per registrare le origini dati di Adventure Works con il catalogo. La registrazione è il processo di estrazione dei metadati strutturali chiave, quali nomi, tipi e percorsi, dall'origine dati e dall’asset che lo contiene e di copia dei metadati nel catalogo. Le origini dati e i relativi dati rimangono dove sono, ma i metadati vengono usati dal catalogo per renderli più facilmente individuabili e comprensibili.
 
 ### Di seguito viene illustrato come registrare un'origine dati
 
 1.	Passare a https://azure.microsoft.com/services/data-catalog e fare clic su **Introduzione**.
-2.	Accedere al portale del **Catalogo dati di Azure** e fare clic su **Pubblica dati**.
+2.	Accedere al portale di **Azure Data Catalog** e fare clic su **Pubblica dati**.
 
     ![](media/data-catalog-get-started/data-catalog-publish-data.png)
 
@@ -90,7 +90,7 @@ In questo esercizio viene usato lo strumento di registrazione del **Catalogo dat
     ![](media/data-catalog-get-started/data-catalog-launch-application.png)
 
 4. Nella pagina **iniziale** fare clic su **Accedi** e immettere le credenziali.
-5. Nella pagina **Catalogo dati di Microsoft Azure** fare doppio clic su **SQL Server** oppure scegliere **SQL Server** e **Avanti**.
+5. Nella pagina **Microsoft Azure Data Catalog** fare doppio clic su **SQL Server** oppure scegliere **SQL Server** e **Avanti**.
 
     ![](media/data-catalog-get-started/data-catalog-data-sources.png)
 
@@ -116,9 +116,9 @@ In questo esercizio viene usato lo strumento di registrazione del **Catalogo dat
 
     e. **Facoltativo**: è possibile **includere un'anteprima** e **aggiungere un esperto di origine dati**.
 
-    f. Fare clic su **REGISTRA**. Il **Catalogo dati di Azure** registra gli oggetti selezionati. In questo esercizio, vengono registrati gli oggetti selezionati di Adventure Works.
+    f. Fare clic su **REGISTRA**. **Azure Data Catalog** registra gli oggetti selezionati. In questo esercizio, vengono registrati gli oggetti selezionati di Adventure Works.
 
-    g. Per visualizzare gli oggetti origine dati registrati, fare clic su **Visualizza portale**. Nel portale del **Catalogo dati di Azure** è possibile visualizzare gli oggetti dell'origine dati in **Riquadri** o in un **Elenco**.
+    g. Per visualizzare gli oggetti origine dati registrati, fare clic su **Visualizza portale**. Nel portale di **Azure Data Catalog** è possibile visualizzare gli oggetti dell'origine dati in **Riquadri** o in un **Elenco**.
 
     ![](media/data-catalog-get-started/data-catalog-view-portal.png)
 
@@ -126,25 +126,25 @@ In questo esercizio sono stati registrati gli oggetti dal database di esempio Ad
 
 ## Esercizio 3: individuazione di asset di dati registrati
 
-In questo esercizio verrà usato il portale del **Catalogo dati di Azure** per individuare gli asset di dati registrati e visualizzare i relativi metadati. Il **Catalogo dati di Azure** fornisce diversi strumenti per l'individuazione degli asset di dati, tra cui la ricerca semplice per parola chiave, i filtri interattivi e una sintassi di ricerca avanzata per gli utenti "avanzati".
+In questo esercizio verrà usato il portale di **Azure Data Catalog** per individuare gli asset di dati registrati e visualizzare i relativi metadati. **Azure Data Catalog** fornisce diversi strumenti per l'individuazione degli asset di dati, tra cui la ricerca semplice per parola chiave, i filtri interattivi e una sintassi di ricerca avanzata per gli utenti "avanzati".
 
 ### Ecco come individuare gli asset di dati registrati
 
-Il **Catalogo dati di Azure** ha una sintassi semplice ma efficace che consente di creare con facilità le query che restituiscono i dati necessari agli utenti. Per informazioni dettagliate sulla ricerca nel **Catalogo dati di Azure**, vedere il [riferimento alla sintassi di ricerca per il catalogo dati](https://msdn.microsoft.com/library/azure/mt267594.aspx).
+**Azure Data Catalog** ha una sintassi semplice ma efficace che consente di creare con facilità le query che restituiscono i dati necessari agli utenti. Per informazioni dettagliate sulla ricerca in **Azure Data Catalog**, vedere il [riferimento alla sintassi di ricerca per il catalogo dati](https://msdn.microsoft.com/library/azure/mt267594.aspx).
 
-Il **Catalogo dati di Azure** ha le seguenti opzioni di ricerca:
+**Azure Data Catalog** ha le seguenti opzioni di ricerca:
 
 - Ricerca per parola chiave
 - Filtro
 - Ricerca avanzata
 
-È inoltre possibile definire gli asset di dati da visualizzare. Il **Catalogo dati di Azure** ha le seguenti opzioni di visualizzazione:
+È inoltre possibile definire gli asset di dati da visualizzare. **Azure Data Catalog** ha le seguenti opzioni di visualizzazione:
 
 - Visualizza proprietà
 - Visualizza colonne
 - Visualizza anteprima
 
-Per questo esempio, si userà una ricerca per parola chiave. La ricerca del **Catalogo dati di Azure** dispone di diverse tecniche di query. In questo esempio viene usata una query di ricerca **raggruppamento**.
+Per questo esempio, si userà una ricerca per parola chiave. La ricerca di **Azure Data Catalog** offre diverse tecniche di query. In questo esempio viene usata una query di ricerca **raggruppamento**.
 
 **Tecniche di query**
 
@@ -157,22 +157,22 @@ Per questo esempio, si userà una ricerca per parola chiave. La ricerca del **Ca
 
 In questo esempio, eseguire una ricerca nel **raggruppamento** degli asset di dati dove nome è prodotto e tags è illustrazione o foto.
 
-1. Passare a https://azure.microsoft.com/services/data-catalog, fare clic su **Introduzione**, quindi accedere al portale del **Catalogo dati di Azure**.
+1. Passare a https://azure.microsoft.com/services/data-catalog, fare clic su **Introduzione**, quindi accedere al portale di **Azure Data Catalog**.
 2. Nella casella **Cerca nel catalogo dati** immettere un **Raggruppamento** come: query: (tags:description OR tags:photo).
-3. Fare clic sull'icona di ricerca o premere INVIO. Nel **Catalogo dati di Azure** vengono visualizzati gli asset di dati per questa query di ricerca.
+3. Fare clic sull'icona di ricerca o premere INVIO. In **Azure Data Catalog** vengono visualizzati gli asset di dati per questa query di ricerca.
 
     ![](media/data-catalog-get-started/data-catalog-search-box.png)
 
-In questo esercizio è stato usato il portale del **Catalogo dati di Azure** per individuare e visualizzare le risorse di dati di Adventure Works registrate con il catalogo.
+In questo esercizio è stato usato il portale di **Azure Data Catalog** per individuare e visualizzare le risorse di dati di Adventure Works registrate con il catalogo.
 
 <a name="annotating"/>
 ## Esercizio 4: annotazione delle origini dati registrate
 
-In questo esercizio si usa il portale del **Catalogo dati di Azure** per annotare gli asset di dati registrati in precedenza nel catalogo. Le annotazioni immesse andranno a integrare e migliorare i metadati strutturali estratti dall'origine dati durante la registrazione e sarà ancora più semplice individuare e comprendere gli asset di dati. Poiché ogni utente del **Catalogo dati** può fornire proprie annotazioni, è facile condividerle per tutti gli utenti con una prospettiva dei dati.
+In questo esercizio si usa il portale di **Azure Data Catalog** per annotare gli asset di dati registrati in precedenza nel catalogo. Le annotazioni immesse andranno a integrare e migliorare i metadati strutturali estratti dall'origine dati durante la registrazione e sarà ancora più semplice individuare e comprendere gli asset di dati. Poiché ogni utente del **Catalogo dati** può fornire proprie annotazioni, è facile condividerle per tutti gli utenti con una prospettiva dei dati.
 
 ### Ecco come è possibile annotare gli asset di dati
 
-1. Passare a https://azure.microsoft.com/services/data-catalog, fare clic su **Introduzione**, quindi accedere al portale del **Catalogo dati di Azure**.
+1. Passare a https://azure.microsoft.com/services/data-catalog, fare clic su **Introduzione**, quindi accedere al portale di **Azure Data Catalog**.
 2. Fare clic su **Individua**.
 3. Scegliere uno o più **Asset di dati**. In questo esempio, scegliere **ProductPhoto** e immettere "Foto di prodotti per materiale di marketing".
 4. Immettere una **Descrizione** che consenta ad altri di individuare e comprendere perché e come usare l'asset di dati selezionato. Ad esempio, immettere "Immagini di prodotto". È inoltre possibile aggiungere ulteriori tag e visualizzare le colonne.
@@ -256,6 +256,6 @@ In questo esercizio sono state analizzate le funzionalità di gestione del **Cat
 
 ## Riepilogo
 
-In questa esercitazione sono state analizzate le funzionalità essenziali dell'anteprima del **Catalogo dati di Azure**, compresa la registrazione, l'annotazione, l'individuazione e la gestione di origini dati aziendali. Ora che è stata completata l'esercitazione, è possibile iniziare. È possibile iniziare subito registrando le origini dati usate personalmente o dal team e invitando i colleghi a usare il catalogo.
+In questa esercitazione sono state analizzate le funzionalità di base di **Azure Data Catalog**, compresa la registrazione, l'annotazione, l'individuazione e la gestione di origini dati aziendali. Ora che è stata completata l'esercitazione, è possibile iniziare. È possibile iniziare subito registrando le origini dati usate personalmente o dal team e invitando i colleghi a usare il catalogo.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

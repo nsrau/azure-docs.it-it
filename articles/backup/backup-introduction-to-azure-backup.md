@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.date="03/28/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # Informazioni su Backup di Azure
@@ -32,7 +32,7 @@ Le soluzioni di backup tradizionali si sono evolute e considerano ora il cloud c
 | Più opzioni di archiviazione | È possibile scegliere l'archivio di backup più adatto alle esigenze: <li>un BLOB in blocchi di archiviazione con ridondanza locale è la soluzione ideale per i clienti attenti ai costi, senza rinunciare alla protezione dei dati da errori hardware locali. <li>Un BLOB in blocchi di archiviazione con replica geografica offre altre tre copie in un data center abbinato. Queste copie aggiuntive assicurano la disponibilità elevata dei dati di backup anche se si verifica un'emergenza a livello di sito di Azure. |
 | Trasferimento dati illimitato | Non è previsto alcun addebito per il trasferimento dati in uscita durante un'operazione di ripristino dall'insieme di credenziali di Backup. Non sono previsti addebiti neanche per i dati in ingresso in Azure. Usa il servizio di importazione, se disponibile. |
 | Crittografia dei dati | La crittografia dei dati consente la trasmissione e l'archiviazione protette dei dati del cliente nel cloud pubblico. La passphrase di crittografia viene archiviata nell'origine e non viene mai trasmessa o archiviata in Azure. La chiave di crittografia è necessaria per ripristinare i dati e solo per il cliente è disponibile l'accesso completo ai dati nel servizio. |  
-| Backup coerente con l'applicazione | I backup coerenti con l'applicazione in Windows assicurano che non siano necessari aggiornamenti in fase di ripristino, riducendo così l'obiettivo del tempo di ripristino e consentendo ai clienti di tornare più rapidamente a uno stato in corso di esecuzione. |
+| Backup coerente con l'applicazione | I backup coerenti con l'applicazione in Windows eliminano la necessità di correzioni al momento del ripristino, riducendo così l'obiettivo del tempo di ripristino. Questo permette ai clienti di tornare più rapidamente a uno stato in corso di esecuzione. |
 | Conservazione a lungo termine | Invece di pagare per soluzioni di backup esterne su nastro, i clienti possono eseguire il backup in Azure, che offre una soluzione interessante simile a nastro a un costo ridotto. |
 
 ## Componenti di Backup di Azure
@@ -54,9 +54,9 @@ Essendo una soluzione di backup ibrida, Backup di Azure è costituita da più co
 | Componente | Vantaggi | Limitazioni | Granularità ripristino |
 | --- | --- | --- | --- |
 | Agente di Backup di Azure (MARS) | <li>Può eseguire il backup di file e cartelle in un computer con sistema operativo Windows, fisico o virtuale (le VM possono essere ovunque, locali o in Azure)<li>Non è necessario un server di backup separato<li>Usa l'insieme di credenziali di Backup di Azure | <li>Ripristino a livello di backup/file tre volte al giorno<li>Solo ripristino a livello di file/cartella/volume, senza riconoscimento dell'applicazione<li>Nessun supporto per Linux | file/cartelle/volumi |
-| System Center Data Protection Manager | <li>Snapshot con riconoscimento dell'app (Servizio Copia Shadow del volume)<li>Flessibilità completa per decidere quando eseguire i backup<li>Granularità ripristino (tutto)<li>Può usare l'insieme di credenziali di Backup di Azure<li>Supporto Linux (se ospitato in Hyper-V) | <li>Mancanza di supporto eterogeneo (backup di VM VMware, backup di carichi di lavoro Oracle). | file/cartelle/volumi<br>/VM/applicazioni |
-| Server Backup di Microsoft Azure | <li>Snapshot con riconoscimento dell'app (Servizio Copia Shadow del volume)<li>Flessibilità completa per decidere quando eseguire i backup<li>Granularità ripristino (tutto)<li>Può usare l'insieme di credenziali di Backup di Azure<li>Supporto Linux (se ospitato in Hyper-V)<li>Non richiede una licenza per System Center | <li>Mancanza di supporto eterogeneo (backup di VM VMware, backup di carichi di lavoro Oracle).<li>Richiede sempre una sottoscrizione di Azure attiva<li>Nessun supporto per il backup su nastro | file/cartelle/volumi<br>/VM/applicazioni |
-| Backup di VM IaaS di Azure | <li>Backup nativi per Windows/Linux<li>Non è necessario installare alcun agente specifico<li>Backup a livello di infrastruttura senza bisogno di un'infrastruttura di backup<li>Usa l'insieme di credenziali di Backup di Azure | <li>Ripristino a livello di backup/disco una volta al giorno<li>Non riesce a eseguire backup in locale | VM<br>Dischi singoli |
+| System Center Data Protection Manager | <li>Snapshot con riconoscimento dell'app (Servizio Copia Shadow del volume)<li>Flessibilità completa per decidere quando eseguire i backup<li>Granularità ripristino (tutto)<li>Può usare l'insieme di credenziali di Backup di Azure<li>Supporto Linux (se ospitato in Hyper-V) | <li>Mancanza di supporto eterogeneo (backup di macchine virtuali VMware, backup di carichi di lavoro Oracle) | file/cartelle/volumi<br>/VM/applicazioni |
+| Server Backup di Microsoft Azure | <li>Snapshot con riconoscimento dell'app (Servizio Copia Shadow del volume)<li>Flessibilità completa per decidere quando eseguire i backup<li>Granularità ripristino (tutto)<li>Può usare l'insieme di credenziali di Backup di Azure<li>Supporto Linux (se ospitato in Hyper-V)<li>Non richiede una licenza per System Center | <li>Mancanza di supporto eterogeneo (backup di macchine virtuali VMware, backup di carichi di lavoro Oracle)<li>Richiede sempre una sottoscrizione di Azure attiva<li>Nessun supporto per il backup su nastro | file/cartelle/volumi<br>/VM/applicazioni |
+| Backup di VM IaaS di Azure | <li>Backup nativi per Windows/Linux<li>Non è necessario installare alcun agente specifico<li>Backup a livello di infrastruttura senza bisogno di un'infrastruttura di backup<li>Usa l'insieme di credenziali di Backup di Azure | <li>Ripristino a livello di backup/disco una volta al giorno<li>Non può eseguire backup in locale | VM<br>Dischi singoli |
 
 ## Applicazioni e carichi di lavoro di cui è possibile eseguire il backup
 
@@ -69,8 +69,7 @@ Essendo una soluzione di backup ibrida, Backup di Azure è costituita da più co
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l'agente di Backup di Azure),</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l'agente di Backup di Azure),</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ l'agente di Backup di Azure),</p> <p>[Server di Backup di Azure](backup-azure-microsoft-azure-backup.md) (include l'agente di Backup di Azure)</p> |
-| Macchine virtuali IaaS di Azure (Windows) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
-| Macchine virtuali IaaS di Azure (Linux) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
+| Macchine virtuali IaaS di Azure (Windows) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) | | Macchine virtuali IaaS di Azure (Linux) | - | [Backup di Azure (estensione VM)](backup-azure-vms-introduction.md) |
 
 ## Supporto Linux e ARM
 
@@ -84,7 +83,7 @@ Essendo una soluzione di backup ibrida, Backup di Azure è costituita da più co
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Funzionalità
-Le cinque tabelle seguenti forniscono un riepilogo di come viene gestita la funzionalità di Backup in ogni componente:
+Le cinque tabelle seguenti forniscono un riepilogo di come viene gestita la funzionalità di backup in ogni componente.
 
 ### Archiviazione
 
@@ -102,7 +101,7 @@ Le cinque tabelle seguenti forniscono un riepilogo di come viene gestita la funz
 L'insieme di credenziali di Backup è la destinazione di archiviazione preferita in tutti i componenti. System Center DPM e il server di Backup consentono anche di avere una copia del disco locale. Solo System Center DPM consente tuttavia di scrivere i dati su un dispositivo di archiviazione su nastro.
 
 #### Backup incrementale
-Ogni componente supporta il backup incrementale indipendentemente dall'archivio di destinazione, che sia un disco, un nastro o un insieme di credenziali di backup. Il backup incrementale garantisce velocità ed efficienza nell'archiviazione dei backup. A questo scopo, trasferisce nell'archivio di destinazione solo le modifiche apportate dall'ultimo backup.
+Ogni componente supporta il backup incrementale indipendentemente dall'archivio di destinazione, che sia un disco, un nastro o un insieme di credenziali di backup. Il backup incrementale garantisce l'archiviazione e la rapidità dei backup, trasferendo solo le modifiche apportate dall'ultimo backup.
 
 #### Compressione
 I backup vengono compressi per ridurre lo spazio di archiviazione necessario. L'estensione della macchina virtuale è il solo componente che non usa alcuna compressione. Con l'estensione VM, tutti i dati di backup vengono copiati dall'account di archiviazione del cliente all'insieme di credenziali di backup nella stessa area, senza compressione. La procedura senza compressione comporta un leggero aumento dello spazio di archiviazione usato, ma consente di abbreviare i tempi di ripristino.
@@ -156,10 +155,10 @@ Per il backup delle VM di Azure, è necessario configurare la crittografia *nell
 
 Poiché l'estensione della macchina virtuale legge i dati direttamente dall'account di archiviazione di Azure attraverso la rete di archiviazione, non è necessario ottimizzare il traffico. Il traffico attraversa la rete di archiviazione locale nel data center di Azure, quindi considerata la larghezza di banda non c'è una particolare esigenza di compressione.
 
-Per i clienti che proteggono i dati in un server di backup, come DPM o il server di Backup, è possibile comprimere il traffico dal server primario al server di backup per ridurre l'uso della larghezza di banda.
+Per coloro che eseguono il backup dei dati in un server di backup, come DPM o il server di Backup, è possibile comprimere il traffico dal server primario al server di backup per ridurre l'uso della larghezza di banda.
 
 #### Limitazione della larghezza di banda della rete
-L'agente di Backup di Azure offre una funzionalità di limitazione che consente di controllare quanta larghezza di banda di rete viene usata durante il trasferimento dati. Questa funzionalità può essere utile se è necessario eseguire il backup dei dati durante l'orario di lavoro, ma senza che il processo di backup interferisca con il resto del traffico Internet. La limitazione del trasferimento dati si applica alle attività di backup e ripristino.
+L'agente di Backup di Azure offre una funzionalità di limitazione che consente di controllare quanta larghezza di banda di rete viene usata durante il trasferimento dati. La limitazione può essere utile se è necessario eseguire il backup dei dati durante l'orario di lavoro, ma senza che il processo di backup interferisca con il resto del traffico Internet. La limitazione per il trasferimento dati si applica alle attività di backup e ripristino.
 
 ### Backup e conservazione
 
@@ -182,9 +181,9 @@ Il file delle credenziali di insieme viene usato solo durante il flusso di lavor
 ## Differenze tra Backup di Azure e Azure Site Recovery
 Molti clienti fanno confusione tra ripristino del backup e ripristino di emergenza. Entrambi acquisiscono dati e forniscono una semantica di ripristino, ma la proposta di valore alla base è diversa.
 
-Backup di Azure esegue il backup dei dati in locale o nel cloud. Azure Site Recovery coordina la replica, il failover e il failback di macchine virtuali e server fisici. Entrambi i servizi sono importanti perché la soluzione di ripristino di emergenza deve fare in modo che i dati siano protetti e ripristinabili (Backup) *e* deve mantenere i carichi di lavoro disponibili e accessibili (Site Recovery) quando si verificano interruzioni.
+Backup di Azure esegue il backup dei dati in locale o nel cloud. Azure Site Recovery coordina la replica, il failover e il failback di macchine virtuali e server fisici. Entrambi i servizi sono importanti perché la soluzione di ripristino di emergenza deve fare in modo che i dati siano protetti e ripristinabili (Backup) *e* deve mantenere i carichi di lavoro disponibili (Site Recovery) quando si verificano interruzioni.
 
-I concetti seguenti consentiranno di prendere importanti decisioni relative al backup e al ripristino di emergenza.
+I concetti seguenti consentono di prendere importanti decisioni relative al backup e al ripristino di emergenza.
 
 | Concetto | Dettagli | Backup | Ripristino di emergenza |
 | ------- | ------- | ------ | ----------------- |
@@ -211,4 +210,4 @@ Tali esercitazioni illustrano solo il percorso più diretto per il backup dei da
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

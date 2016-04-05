@@ -42,7 +42,10 @@ L'esempio seguente illustra una subnet del gateway denominata GatewaySubnet. La 
 
 ## <a name="gwtype"></a>Tipi di gateway
 
-Il tipo di gateway specifica il modo in cui il gateway stesso si connette ed è un'impostazione di configurazione necessaria per il modello di distribuzione di Azure Resource Manager. Il tipo di gateway non è da confondere con il tipo di VPN, che specifica il tipo di routing per la VPN. I valori disponibili per GatewayType sono: *Vpn* ed *ExpressRoute*.
+Il tipo di gateway specifica il modo in cui il gateway stesso si connette ed è un'impostazione di configurazione necessaria per il modello di distribuzione di Azure Resource Manager. Il tipo di gateway non è da confondere con il tipo di VPN, che specifica il tipo di routing per la VPN. I valori disponibili per `-GatewayType` sono:
+
+- VPN
+- ExpressRoute
 
 
 Questo esempio per il modello di distribuzione di Azure Resource Manager specifica -GatewayType come *Vpn*. Quando si crea un gateway, è necessario assicurarsi che il tipo di gateway sia corretto per la configurazione.
@@ -57,7 +60,7 @@ Quando si crea un gateway VPN, è necessario specificare lo SKU del gateway da u
 - Standard
 - HighPerformance
 
-L'esempio seguente specifica -GatewaySku come *Standard*.
+L'esempio seguente specifica `-GatewaySku` come *Standard*.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
 
@@ -78,9 +81,22 @@ Sono disponibili due tipi di VPN:
 
 [AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-Questo esempio per il modello di distribuzione di Azure Resource Manager specifica -VpnType come *RouteBased*. Quando si crea un gateway, è necessario assicurarsi che -VpnType sia corretto per la configurazione.
+Questo esempio per il modello di distribuzione di Azure Resource Manager specifica `-VpnType` come *RouteBased*. Quando si crea un gateway, è necessario assicurarsi che -VpnType sia corretto per la configurazione.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+
+## <a name="connectiontype"></a>Tipi di connessione
+
+Ogni configurazione richiede un tipo di connessione specifico. I valori disponibili di PowerShell per Resource Manager per `-ConnectionType` sono:
+
+- IPsec
+- Vnet2Vnet
+- ExpressRoute
+- VPNClient
+
+Nell'esempio seguente viene creata una connessione da sito a sito che richiede il tipo di connessione "IPsec".
+
+	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 
 ## <a name="lng"></a>Gateway di rete locali
@@ -114,7 +130,7 @@ Assicurarsi che il dispositivo VPN che si intende usare supporti il tipo di VPN 
 
 ## Passaggi successivi
 
-Vedere l'articolo [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md) per altre informazioni prima di procedere con la pianificazione e la progettazione della configurazione.
+Per altre informazioni prima di procedere con la pianificazione e la progettazione della configurazione, vedere [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md) .
 
 
 
@@ -122,4 +138,4 @@ Vedere l'articolo [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md) pe
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

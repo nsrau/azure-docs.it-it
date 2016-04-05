@@ -115,9 +115,9 @@ Ora che è disponibile un client che chiama l'API per conto degli utenti, è pos
 Per iniziare, installare la pipeline di autenticazione OWIN OAuth:
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
-PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService
-PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
+PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TaskService
+PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TaskService
+PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TaskService
 ```
 
 ### Immettere le informazioni B2C
@@ -233,4 +233,4 @@ You can now move onto more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->
