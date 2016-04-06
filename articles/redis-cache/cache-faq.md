@@ -278,7 +278,7 @@ Cache di Azure presenta attualmente tre offerte:
 >
 >Servizio cache gestita e il servizio Cache nel ruolo rimarranno disponibili per gli attuali clienti per un massimo di 12 mesi dalla data di questo annuncio, 30 novembre 2015, la data di scadenza dei servizi è il 30 novembre 2016. Dopo questa data, Servizio cache gestita e il servizio Cache nel ruolo non saranno più supportati.
 >
->Microsoft rimuoverà il supporto per la creazione di nuove cache nel ruolo nella prima versione di Azure SDK che sarà rilasciata dopo il 1° febbraio 2016. I clienti potranno aprire i progetti esistenti in cui sono presenti cache nel ruolo.
+>Microsoft rimuoverà il supporto per la creazione di nuove cache nel ruolo nella prima versione di Azure SDK che sarà rilasciata dopo il 1 febbraio 2016. I clienti potranno aprire i progetti esistenti in cui sono presenti cache nel ruolo.
 >
 >Durante questo periodo, si consiglia a tutti gli attuali clienti di Servizio cache gestita e del servizio Cache nel ruolo di eseguire la migrazione a Cache Redis di Azure. Cache Redis di Azure fornisce più funzionalità e un maggiore valore complessivo. Per altre informazioni sulla migrazione, visitare la pagina Web della documentazione [Eseguire la migrazione dal Servizio cache gestita alla Cache Redis di Azure](cache-migrate-to-redis.md).
 >
@@ -303,4 +303,4 @@ Cache nel ruolo è destinato al ritiro il 30 novembre 2016.
 
 [impostazione di configurazione "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
