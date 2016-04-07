@@ -23,7 +23,8 @@ In questo articolo viene fornita una panoramica dell'utilizzo dell'estensione Sc
 
 Le estensioni di macchine virtuali (VM) sono state sviluppate da Microsoft e da autori attendibili di terze parti per estendere la funzionalità della macchina virtuale. Per una panoramica delle estensioni di macchina virtuale, vedere [estensioni VM di Azure e funzionalità](virtual-machines-windows-extensions-features.md).
 
-Collegamento:[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript.md).
+Collegamento:
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript.md).
 
 
 ## Panoramica dell'estensione Script personalizzato
@@ -91,4 +92,4 @@ Per ulteriori informazioni sull’utilizzo dell’estensione di script personali
 <!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

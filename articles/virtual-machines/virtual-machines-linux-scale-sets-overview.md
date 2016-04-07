@@ -27,4 +27,4 @@ I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure 
 
 [AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-ps-include.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->

@@ -61,12 +61,12 @@ Nessuno | Send email
 ## Usare il connettore SMTP nell'app per la logica
 Dopo aver creato il connettore, è possibile usare il connettore SMTP come azione per l'app per la logica. A tale scopo, seguire questa procedura:
 
-1.	Creare una nuova app per la logica: 
-	![][2]
-2.	Aprire **Triggers e azioni** per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso di lavoro: 
-	![][3]
-3.	Il connettore SMTP viene elencato nella sezione relativa alle app per le API nel gruppo di risorse della raccolta a destra. Selezionarlo: 
-	![][4]
+1.	Creare una nuova app per la logica:  
+![][2]
+2.	Aprire **Triggers e azioni** per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso di lavoro:  
+![][3]
+3.	Il connettore SMTP viene elencato nella sezione relativa alle app per le API nel gruppo di risorse della raccolta a destra. Selezionarlo:  
+![][4]
 4.	Selezionare il connettore SMTP per aggiungerlo automaticamente alla finestra di progettazione del flusso di lavoro.
 
 È ora possibile configurare il connettore SMTP per usarlo nel flusso di lavoro. Selezionare l'azione **Invia posta elettronica** e configurare le proprietà di input:
@@ -102,4 +102,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
