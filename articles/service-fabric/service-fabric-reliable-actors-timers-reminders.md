@@ -3,7 +3,7 @@
    description="Introduzione a timer e promemoria per Reliable Actors di Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="myamanbh"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
