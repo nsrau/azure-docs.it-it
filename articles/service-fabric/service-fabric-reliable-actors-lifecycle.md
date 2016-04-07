@@ -3,7 +3,7 @@
    description="Informazioni sul ciclo di vita e sull'operazione di Garbage Collection per Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
-   authors="myamanbh"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
