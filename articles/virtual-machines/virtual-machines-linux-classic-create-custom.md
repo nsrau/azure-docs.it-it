@@ -35,4 +35,4 @@ Questo argomento descrive come creare una macchina virtuale *personalizzata* con
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->

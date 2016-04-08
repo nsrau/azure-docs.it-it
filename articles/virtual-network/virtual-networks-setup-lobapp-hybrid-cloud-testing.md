@@ -172,7 +172,7 @@ Configurare LOB1 per IIS e verificare l'accesso da CLIENT1.
 10.	Nella pagina Conferma selezioni per l'installazione fare clic su **Installa**.
 11.	Attendere il completamento dell'installazione dei componenti, quindi fare clic su **Chiudi**.
 12.	Accedere al computer CLIENT1 con le credenziali dell'account CORP\\User1, quindi avviare Internet Explorer.
-13.	Nella barra degli Indirizzi digitare ****http://lob1/** e quindi premere INVIO. Viene visualizzata la pagina Web IIS 8 predefinita.
+13.	Nella barra degli Indirizzi digitare **http://lob1/** e quindi premere INVIO. Viene visualizzata la pagina Web IIS 8 predefinita.
 
 Questa è la configurazione corrente.
 
@@ -184,4 +184,4 @@ Questo ambiente è pronto per la distribuzione dell'applicazione basata su Web i
 
 - Configurare l'[ambiente di produzione](../virtual-machines/virtual-machines-windows-lob-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->
