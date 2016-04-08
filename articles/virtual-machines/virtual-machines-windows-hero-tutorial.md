@@ -117,4 +117,4 @@ Dopo aver creato la macchina virtuale, sarà possibile accedervi per gestire le 
 * Automatizzare la gestione e la distribuzione della macchina virtuale e del carico di lavoro con [Modelli di Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 * È anche possibile [creare rapidamente una macchina virtuale Linux](virtual-machines-linux-quick-create-cli.md) usando l'interfaccia della riga di comando di Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

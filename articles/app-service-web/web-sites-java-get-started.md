@@ -178,4 +178,4 @@ Per altre informazioni sullo sviluppo di applicazioni Java in Azure, visitare la
 [iscriversi per ottenere una versione di valutazione gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Prova il servizio app]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
