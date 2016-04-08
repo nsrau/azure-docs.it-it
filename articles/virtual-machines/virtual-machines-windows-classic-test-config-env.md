@@ -236,10 +236,10 @@ Per controllare la comunicazione di rete e di risoluzione dei nomi tra CLIENT1 e
 Successivamente, verificare che sia possibile accedere al Web e alle risorse di condivisione file in APP1 da CLIENT1.
 
 1.	In Server Manager, nel riquadro dell'albero, fare clic su **Server locale**.
-2.	In **Proprietà per CLIENT1**, fare clic su **On** accanto a ** Configurazione sicurezza avanzata IE**.
-3.	In ** Configurazione sicurezza avanzata IE**, fare clic su **Off** relativamente ad **Amministratori** e **Utenti**, quindi fare clic su **OK**.
+2.	In **Proprietà per CLIENT1**, fare clic su **On** accanto a **Configurazione sicurezza avanzata IE**.
+3.	In **Configurazione sicurezza avanzata IE**, fare clic su **Off** relativamente ad **Amministratori** e **Utenti**, quindi fare clic su **OK**.
 4.	Dalla schermata Start, fare clic su **Internet Explorer**, quindi su **OK**.
-5.	Nella barra degli indirizzi digitare ****http://app1.corp.contoso.com/**, quindi premere INVIO. Dovrebbe essere visualizzata la pagina Web di Internet Information Services predefinita per APP1.
+5.	Nella barra degli indirizzi digitare **http://app1.corp.contoso.com/**, quindi premere INVIO. Dovrebbe essere visualizzata la pagina Web di Internet Information Services predefinita per APP1.
 6.	Sulla barra delle applicazioni desktop, fare clic sull'icona Esplora File.
 7.	Nella barra degli indirizzi digitare **\\\app1\\Files**, quindi premere INVIO.
 8.	Dovrebbe essere visualizzata una finestra della cartella con il contenuto della cartella condivisa File.
@@ -284,4 +284,4 @@ Per avviare le macchine virtuali in ordine con Azure PowerShell, inserire il nom
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

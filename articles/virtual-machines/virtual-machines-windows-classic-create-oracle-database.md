@@ -28,7 +28,7 @@ Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su
 
 2.	Fare clic su **Marketplace**, su **Calcolo** e quindi digitare **Oracle** nella casella di ricerca.
 
-3.	Selezionare una delle immagini Oracle Database disponibili, tra cui ** versione 11g, versione 12c, Standard Edition, Enterprise Edition oppure uno dei bundle di opzioni comuni o avanzate**. Esaminare le informazioni sull'immagine selezionata, ad esempio le dimensioni minime consigliate, quindi fare clic su **Avanti**.
+3.	Selezionare una delle immagini Oracle Database disponibili, tra cui **versione 11g, versione 12c, Standard Edition, Enterprise Edition oppure uno dei bundle di opzioni comuni o avanzate**. Esaminare le informazioni sull'immagine selezionata, ad esempio le dimensioni minime consigliate, quindi fare clic su **Avanti**.
 
 4.	Specificare un **nome host** per la macchina virtuale.
 
@@ -105,7 +105,7 @@ Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su
 
 ##Conferma dell’installazione del database
 
-1.	Restare connessi alla macchina virtuale e avviare un prompt dei comandi SQL Plus. In Windows, fare clic su *Start**, quindi digitare **SQL Plus**. Fare clic sull'icona di **SQL Plus**.
+1.	Restare connessi alla macchina virtuale e avviare un prompt dei comandi SQL Plus. In Windows, fare clic su *Start*, quindi digitare **SQL Plus**. Fare clic sull'icona di **SQL Plus**.
 
 2.	Quando richiesto, accedere con il nome utente di **SISTEMA** e la password specificata durante la creazione del database Oracle.
 
@@ -200,4 +200,4 @@ Dopo aver configurato la macchina virtuale e creato il database, vedere gli argo
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
