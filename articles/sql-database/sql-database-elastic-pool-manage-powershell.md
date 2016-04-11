@@ -16,7 +16,7 @@
     ms.date="03/15/2016"
     ms.author="sstein"/>
 
-# Monitorare e gestire un pool di database elastici (PowerShell) 
+# Monitorare, gestire e dimensionare un pool di database elastici con PowerShell 
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-elastic-pool-manage-portal.md)
@@ -35,7 +35,7 @@ Per i codici di errore comuni, vedere [Codici di errore SQL per le applicazioni 
 
 
 
-## Creare un nuovo database elastico in un pool di database elastici
+## Creare un nuovo database elastico in un pool
 
 Per creare un nuovo database direttamente all'interno di un pool, usare il cmdlet [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) e impostare il parametro **ElasticPoolName**.
 
@@ -43,34 +43,34 @@ Per creare un nuovo database direttamente all'interno di un pool, usare il cmdle
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## Spostare un database autonomo in un pool di database elastici
+## Spostare un database autonomo in un pool
 
 Per spostare un database esistente in un pool, usare il cmdlet [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) e impostare il parametro **ElasticPoolName**.
 
 	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## Modificare le impostazioni delle prestazioni di un pool di database elastici
+## Modificare le impostazioni delle prestazioni di un pool
 
-Per modificare le impostazioni delle prestazioni di un pool di database elastici, usare il cmdlet [Set AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx).
+Per modificare le impostazioni delle prestazioni di un pool, usare il cmdlet [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx).
 
     Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
 
-## Ottenere lo stato delle operazioni dei pool di database elastici
+## Ottenere lo stato delle operazioni dei pool
 
-È possibile tenere traccia dello stato delle operazioni dei pool di database elastici, inclusa la creazione e gli aggiornamenti, mediante il cmdlet [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx).
+È possibile tenere traccia dello stato delle operazioni dei pool, inclusa la creazione e gli aggiornamenti, mediante il cmdlet [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx).
 
 	Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
-## Ottenere lo stato dello spostamento di un database elastico all’interno o all’esterno di un pool di database elastici
+## Ottenere lo stato dello spostamento di un database elastico all’interno o all’esterno di un pool
 
 È possibile tenere traccia dello stato delle operazioni dei database elastici, inclusa la creazione e gli aggiornamenti, mediante il cmdlet [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx).
 
 	Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## Ottenere dati di utilizzo per un pool di database elastici
+## Ottenere dati di utilizzo per un pool
 
 Metriche che è possibile recuperare come percentuale del limite del pool di risorse:
 
@@ -113,7 +113,7 @@ Esportare in un file CSV:
 
 Queste API sono le stesse API (V12) correnti utilizzate per monitorare l'utilizzo delle risorse di un database autonomo, fatta eccezione per la seguente differenza semantica
 
-* Per questa API, le metriche recuperate vengono espresse come percentuale del valore databaseDtuMax (o limite di utilizzo equivalente per la metrica sottostante, come CPU, IO e così via) impostato per tale pool di database elastici. Ad esempio, l’utilizzo del 50% di una di queste metriche indica che il consumo di risorse specifico si trova al 50% del limite di utilizzo per DB per quella risorsa nel pool padre di database elastici. 
+* Per questa API, le metriche recuperate vengono espresse come percentuale del valore databaseDtuMax (o limite di utilizzo equivalente per la metrica sottostante, come CPU, IO e così via) impostato per tale pool. Ad esempio, l’utilizzo del 50% di una di queste metriche indica che il consumo di risorse specifico si trova al 50% del limite di utilizzo per DB per quella risorsa nel pool padre. 
 
 Ottenere le metriche:
 
@@ -132,7 +132,7 @@ Esportare in un file CSV:
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
-## Monitorare e gestire un pool di database elastici (esempio di PowerShell)
+## Esempio di come monitorare e gestire un pool di PowerShell
 
 
     $subscriptionId = '<Azure subscription id>'
@@ -171,11 +171,11 @@ Esportare in un file CSV:
 
 ## Passaggi successivi
 
-- [Creare processi elastici](sql-database-elastic-jobs-overview.md): i processi elastici facilitano l'esecuzione di script T-SQL su un numero qualsiasi di database nel pool.
+- [Creare processi elastici](sql-database-elastic-jobs-overview.md): i processi elastici consentono di eseguire script T-SQL su un numero qualsiasi di database nel pool.
 
 
 ## Riferimento ai database elastici
 
 Per ulteriori informazioni sui database elastici e sui pool di database elastici, inclusi i dettagli sulle API e sugli errori, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

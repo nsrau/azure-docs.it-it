@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Eseguire attività di codifica avanzata personalizzando i set di impostazioni di Media Encoder Standard" 
+	pageTitle="Codifica avanzata con Media Encoder Standard" 
 	description="Questo argomento illustra come eseguire la codifica avanzata personalizzando i set di impostazioni delle attività di Media Encoder Standard. Questo argomento illustra come usare Media Services .NET SDK per creare un processo e un'attività di codifica. Illustra anche come specificare set di impostazioni personalizzati per il processo di codifica." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016"    
+	ms.date="03/27/2016"    
 	ms.author="juliako"/>
 
 
-#Eseguire attività di codifica avanzata personalizzando i set di impostazioni di Media Encoder Standard
+#Codifica avanzata con Media Encoder Standard
 
 ##Panoramica
 
-Questo argomento illustra come eseguire la codifica avanzata personalizzando i set di impostazioni delle attività di Media Encoder Standard. L'argomento illustra [come usare .NET per creare un'attività di codifica e un processo che la esegue](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). Illustra anche come specificare set di impostazioni personalizzati per l'attività di codifica. Per una descrizione degli elementi usati dai set di impostazioni, vedere [questo documento](https://msdn.microsoft.com/library/mt269962.aspx).
+Questo argomento illustra come eseguire le attività di codifica avanzata con Media Encoder Standard. L'argomento illustra [come usare .NET per creare un'attività di codifica e un processo che la esegue](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). Illustra anche come specificare set di impostazioni personalizzati per l'attività di codifica. Per una descrizione degli elementi usati dai set di impostazioni, vedere [questo documento](https://msdn.microsoft.com/library/mt269962.aspx).
 
 Vengono dimostrati i set di impostazioni personalizzati che eseguono le attività di codifica seguenti:
 
@@ -30,6 +30,7 @@ Vengono dimostrati i set di impostazioni personalizzati che eseguono le attivit�
 - [Creare una sovrimpressione](media-services-custom-mes-presets-with-dotnet.md#overlay)
 - [Inserire una traccia audio silenziosa quando l'input è privo di audio](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
 - [Disabilitare il deinterlacciamento automatico](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
+- [Set di impostazioni solo audio](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 
 ##<a id="encoding_with_dotnet"></a>Codifica con Media Services .NET SDK
 
@@ -442,9 +443,9 @@ Si applicano le considerazioni seguenti:
 
 ##<a id="trim_video"></a>Tagliare un video (ritaglio)
 
-Questa sezione descrive la modifica di set di impostazioni del codificatore per tagliare o ritagliare il video di input quando l'input è un file in formato intermedio o su richiesta. Il codificatore può anche essere usato per ritagliare o tagliare un asset che viene acquisito o archiviato da un flusso live. Per informazioni dettagliate in proposito, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+Questa sezione descrive la modifica di set di impostazioni del codificatore per tagliare o ritagliare il video di input quando l'input è un file in formato intermedio o su richiesta. Il codificatore può anche essere usato per tagliare o ritagliare un asset che viene acquisito o archiviato da un flusso live. Per informazioni dettagliate in proposito, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Per tagliare i video, è possibile eseguire uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** come illustrato di seguito. Il valore di StartTime deve corrispondere ai timestamp assoluti del video di input. Ad esempio, se il primo fotogramma del video di input ha un timestamp di 12:00:10.000, il valore di StartTime deve essere di almeno 12:00:10.000 o superiore. Nell'esempio seguente, si presuppone che il video di input abbia un timestamp iniziale pari a zero. Si noti che **Sources** deve essere posizionato nella parte superiore dello schema.
+Per tagliare i video, è possibile eseguire uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** (come illustrato di seguito). Il valore di StartTime deve corrispondere ai timestamp assoluti del video di input. Ad esempio, se il primo fotogramma del video di input ha un timestamp di 12:00:10.000, il valore di StartTime deve essere di almeno 12:00:10.000 o superiore. Nell'esempio seguente, si presuppone che il video di input abbia un timestamp iniziale pari a zero. Si noti che **Sources** deve essere posizionato nella parte superiore dello schema.
  
 ###<a id="json"></a>Set di impostazioni JSON
 	
@@ -568,7 +569,7 @@ Per tagliare i video, è possibile eseguire uno dei set di impostazioni per MES 
 
 ###Set di impostazioni XML
 	
-Per tagliare i video, è possibile eseguire uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** come illustrato di seguito.
+Per tagliare i video, è possibile eseguire uno dei set di impostazioni per MES documentati [qui](https://msdn.microsoft.com/library/mt269960.aspx) e modificare l'elemento **Sources** (come illustrato di seguito).
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -691,7 +692,7 @@ Il Media Encoder Standard consente di sovrapporre un'immagine a un video esisten
 
 Oltre a definire un file del set di impostazioni, è anche necessario indicare a Servizi multimediali quale file dell'asset corrisponde all'immagine da sovrapporre e quale file contiene il video di origine sul quale sovrapporre l'immagine. Il file video deve essere il file **primario**.
 
-Nell'esempio .NET precedente sono definite due funzioni: **UploadMediaFilesFromFolder** ed **EncodeWithOverlay**. La funzione UploadMediaFilesFromFolder carica i file, ad esempio BigBuckBunny.mp4 e Image001.png, da una cartella e imposta il file con estensione mp4 come file primario dell'asset. La funzione **EncodeWithOverlay** usa il file di set di impostazioni personalizzato passato alla funzione stessa, ad esempio il set di impostazioni che segue, per creare l'attività di codifica.
+Nell'esempio .NET precedente sono definite due funzioni: **UploadMediaFilesFromFolder** e **EncodeWithOverlay**. La funzione UploadMediaFilesFromFolder carica i file, ad esempio BigBuckBunny.mp4 e Image001.png, da una cartella e imposta il file con estensione mp4 come file primario dell'asset. La funzione **EncodeWithOverlay** usa il file di set di impostazioni personalizzato passato alla funzione stessa( ad esempio il set di impostazioni che segue) per creare l'attività di codifica.
 
 >[AZURE.NOTE]Limitazioni correnti:
 >
@@ -896,7 +897,55 @@ I clienti non devono eseguire alcuna operazione se desiderano che il contenuto i
 	</Sources>
 
 
+##<a id="audio_only"></a>Set di impostazioni solo audio
 
+In questa sezione vengono illustrati due set di impostazioni MES solo audio: Audio AAC e Audio AAC di buona qualità.
+
+###Audio ACC 
+
+	{
+	  "Version": 1.0,
+	  "Codecs": [
+	    {
+	      "Profile": "AACLC",
+	      "Channels": 2,
+	      "SamplingRate": 48000,
+	      "Bitrate": 128,
+	      "Type": "AACAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_AAC_{AudioBitrate}.mp4",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
+
+###Audio AAC di buona qualità
+
+	{
+	  "Version": 1.0,
+	  "Codecs": [
+	    {
+	      "Profile": "AACLC",
+	      "Channels": 2,
+	      "SamplingRate": 48000,
+	      "Bitrate": 192,
+	      "Type": "AACAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_AAC_{AudioBitrate}.mp4",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
 
 ##Percorsi di apprendimento di Media Services
 
@@ -910,4 +959,4 @@ I clienti non devono eseguire alcuna operazione se desiderano che il contenuto i
 
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

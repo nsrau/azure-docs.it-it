@@ -38,7 +38,7 @@ Usare il portale di Azure classico.
 
 	![Creare un set di disponibilità per una nuova macchina virtuale](./media/virtual-machines-common-classic-configure-availability/VMavailabilityset.png)
 
-6. Nella quarta schermata scegliere le estensioni da installare. Le estensioni forniscono funzionalità che facilitano la gestione della macchina virtuale, ad esempio l'esecuzione di un programma antimalware o la reimpostazione delle password. Per informazioni dettagliate, vedere [Agente VM ed estensioni VM di Azure](virtual-machines-windows-classic-agents-and-extensions.md).
+6. Nella quarta schermata scegliere le estensioni da installare. Le estensioni forniscono funzionalità che facilitano la gestione della macchina virtuale, ad esempio l'esecuzione di un programma antimalware o la reimpostazione delle password. Per informazioni dettagliate, vedere [Agente VM ed estensioni VM di Azure](../articles/virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
 
 7.	Fare clic sulla freccia per creare la macchina virtuale e il set di disponibilità.
 
@@ -47,8 +47,8 @@ Usare il portale di Azure classico.
 Se si vogliono usare i comandi di Azure PowerShell per creare una macchina virtuale di Azure e aggiungerla a un set di disponibilità nuovo o esistente, vedere il seguente argomento:
 
 
-- [Usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux](virtual-machines-linux-classic-createpowershell.md)
-- [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-windows-classic-create-powershell.md)
+- [Usare Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux](../articles/virtual-machines/virtual-machines-linux-classic-createpowershell.md)
+- [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
 
 ## <a id="addmachine"></a>Opzione 2: Aggiungere una macchina virtuale esistente a un set di disponibilità.##
 
@@ -86,11 +86,11 @@ Per usare i comandi di Azure PowerShell, aprire una sessione di Azure PowerShell
 [Opzione 1: Creare una macchina virtuale e un set di disponibilità contemporaneamente]: #createset
 [Opzione 2: Aggiungere una macchina virtuale esistente a un set di disponibilità]: #addmachine
 
-[Bilanciamento del carico per i servizi di infrastruttura di Azure]: virtual-machines-linux-load-balance.md
-[Gestione della disponibilità delle macchine virtuali]: virtual-machines-linux-manage-availability.md
+[Bilanciamento del carico per i servizi di infrastruttura di Azure]: ../articles/virtual-machines/virtual-machines-linux-load-balance.md
+[Gestione della disponibilità delle macchine virtuali]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
 
-[Creazione di una macchina virtuale che esegue Windows]: virtual-machines-windows-hero-tutorial.md
-[Panoramica di Rete virtuale]: virtual-networks-overview.md
+[Creazione di una macchina virtuale che esegue Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
+[Panoramica di Rete virtuale]: ../articles/virtual-network/virtual-networks-overview.md
 [Articoli sulle Macchine virtuali nella gestione dei servizi]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

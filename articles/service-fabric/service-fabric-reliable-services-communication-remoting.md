@@ -23,7 +23,7 @@ Per i servizi che non sono legati a un protocollo di comunicazione o uno stack p
 La procedura di impostazione della funzionalità remota per un servizio è costituita da due semplici passaggi.
 
 1. Creare un'interfaccia per l’implementazione del servizio. Questa interfaccia definisce i metodi che saranno disponibili per una chiamata di procedura remota nel servizio e devono essere metodi asincroni di restituzione di attività. L’interfaccia deve implementare `Microsoft.ServiceFabric.Services.Remoting.IService` per segnalare che il servizio dispone di un'interfaccia remota.
-2. Utilizzare `Microsoft.ServiceFabric.Services.Remoting.Runtime.ServiceRemotingListener` nel servizio. Si tratta di un’implementazione`ICommunicationListener` che fornisce funzionalità di accesso remoto.
+2. Utilizzare `FabricTransportServiceRemotingListener` nel servizio. Si tratta di un’implementazione`ICommunicationListener` che fornisce funzionalità di accesso remoto.
 
 Ad esempio, il servizio di Hello World espone un metodo singolo per ottenere "Hello World" su una chiamata di procedura remota:
 
@@ -37,7 +37,9 @@ internal class HelloWorldStateful : StatefulService, IHelloWorldStateful
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
-        return new[] { new ServiceReplicaListener(parameters => new ServiceRemotingListener<HelloWorldStateful>(parameters, this)) };
+        return new[]{
+                new ServiceReplicaListener(
+                    (context) => new FabricTransportServiceRemotingListener(context,this))};
     }
 
     public Task<string> GetHelloWorld()
@@ -47,7 +49,7 @@ internal class HelloWorldStateful : StatefulService, IHelloWorldStateful
 }
 
 ```
-> [AZURE.NOTE]Gli argomenti e i tipi restituiti nell'interfaccia del servizio possono essere semplici, complessi o personalizzati ma, in tutti i casi, devono essere serializzabili mediante il serializzatore .NET [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx).
+> [AZURE.NOTE] Gli argomenti e i tipi restituiti nell'interfaccia del servizio possono essere semplici, complessi o personalizzati ma, in tutti i casi, devono essere serializzabili mediante il serializzatore .NET [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx).
 
 
 ## Chiamare i metodi del servizio remoto
@@ -70,4 +72,6 @@ Il framework remoto propaga le eccezioni generate nel servizio al client. La log
 
 * [Comunicazione di WCF con Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+* [Proteggere le comunicazioni per Reliable Services](service-fabric-reliable-services-secure-communication.md)
+
+<!---HONumber=AcomDC_0330_2016-->

@@ -113,10 +113,13 @@ Per valutazioni sull'utilizzo di risorse più flessibili che consentono stime di
 
 Nei casi in cui non è possibile utilizzare gli strumenti, le seguenti istruzioni dettagliate consentono di stimare se un pool è più conveniente rispetto ai database singoli:
 
-1.	Stimare le eDTU necessarie per il pool tramite gli elementi seguenti: MAX(<*numero totale di database* X *utilizzo medio di DTU per database*>, <*numero di database in picco contemporaneamente* X *picco di utilizzo di DTU per database*)
+1.	Stimare le eDTU necessarie per il pool come segue:
+
+    MAX (<*numero totale di database* X *uso medio di DTU per DB*>, <br> <*numero di database in picco contemporaneamente* X *picco di uso di DTU per DB*)
+
 2.	Stimare lo spazio di archiviazione necessario per il pool aggiungendo il numero di byte necessari per tutti i database nel pool. Determinare quindi la dimensione del pool in eDTU che fornisce la quantità di spazio di archiviazione. Per i limiti di archiviazione del pool in base alle dimensioni del pool in eDTU, vedere [Limiti di archiviazione e di eDTU per i pool di database elastici e i database elastici](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 3.	Considerare la stima eDTU maggiore tra il Passaggio 1 e il Passaggio 2.
-4.	Vedere la pagina [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/) e trovare la dimensione di pool in eDTU più piccola, che sia maggiore della stima del Passaggio 3.
+4.	Vedere la [pagina Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/) e trovare la dimensione di pool in eDTU più piccola, che sia maggiore della stima del Passaggio 3.
 5.	Confrontare il prezzo di pool dal Passaggio 5 con il prezzo dell'utilizzo di livelli di prestazioni appropriati per database singoli.
 
 ## Riepilogo
@@ -131,4 +134,4 @@ Non tutti i database singoli sono candidati ottimali per i pool. Database con mo
 - [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md)
 - [Script di PowerShell per identificare database adatti a un pool di database elastici](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

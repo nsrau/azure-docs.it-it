@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="barbkess;jrj;sonyama"/>
 
 # Limiti di capacità di SQL Data Warehouse
@@ -48,9 +48,9 @@ Valori massimi per supportare i carichi di lavoro analitici più impegnativi, as
 | Tabella | Colonne per tabella | 1024 colonne |
 | Tabella | Byte per colonna | 8000 byte |
 | Tabella | Byte per riga, dimensioni definite | 8060 byte<br/><br/>Il numero di byte per riga viene calcolato allo stesso modo di SQL Server, con la compressione pagina attivata. Come SQL Server, SQL Data Warehouse supporta l'archiviazione di dati di overflow della riga che consente di spostare colonne a lunghezza variabile all'esterno delle righe. Nel record principale viene archiviata solo una radice di 24 byte per le colonne di lunghezza variabile spostate all'esterno delle righe. Per altre informazioni vedere l'argomento [Dati di overflow della riga che superano 8 KB](https://msdn.microsoft.com/library/ms186981.aspx) nella documentazione online di SQL Server.<br/><br/>Per un elenco delle dimensioni dei tipi di dati di SQL Data Warehouse vedere [CREATE TABLE (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt203953.aspx). |
-| Tabella | Byte per riga, dimensioni del buffer interno per lo spostamento dei dati | 32\.768<br/><br/>NOTA: questo limite è attualmente presente ma verrà presto rimosso.<br/><br/>SQL Data Warehouse utilizza un buffer interno per spostare le righe all'interno del sistema SQL Data Warehouse distribuito. Il servizio che sposta le righe è denominato DMS (Data Movement Service) e archivia le righe in un formato diverso da SQL Server.<br/><br/>Se una riga non rientra nel buffer interno verrà visualizzato un errore di compilazione di query o un errore interno di spostamento dei dati. Per evitare questo problema vedere [Details about the DMS buffer size (Informazioni dettagliate sulle dimensioni del buffer DMS)](#details-about-the-dms-buffer-size).|
-| Tabella | Partizioni per tabella | 15\.000<br/><br/>Per prestazioni elevate, è consigliabile ridurre al minimo il numero di partizioni necessarie garantendo al tempo stesso il supporto dei requisiti aziendali. Con l'aumentare del numero di partizioni, l'overhead per le operazioni DDL (Data Definition Language) e DML (Data Manipulation Language ) aumenta e le prestazioni rallentano.|
-| Tabella | Caratteri per valore limite della partizione.| 4000 |
+| Table | Byte per riga, dimensioni del buffer interno per lo spostamento dei dati | 32\.768<br/><br/>NOTA: questo limite è attualmente presente ma verrà presto rimosso.<br/><br/>SQL Data Warehouse usa un buffer interno per spostare le righe all'interno del sistema SQL Data Warehouse distribuito. Il servizio che sposta le righe è denominato DMS (Data Movement Service) e archivia le righe in un formato diverso da SQL Server.<br/><br/>Se una riga non rientra nel buffer interno verrà visualizzato un errore di compilazione di query o un errore interno di spostamento dei dati. Per evitare questo problema vedere [Informazioni dettagliate sulle dimensioni del buffer DMS](#details-about-the-dms-buffer-size).|
+| Table | Partizioni per tabella | 15\.000<br/><br/>Per prestazioni elevate, è consigliabile ridurre al minimo il numero di partizioni necessarie garantendo al tempo stesso il supporto dei requisiti aziendali. Con l'aumentare del numero di partizioni, l'overhead per le operazioni DDL (Data Definition Language) e DML (Data Manipulation Language ) aumenta e le prestazioni rallentano.|
+| Table | Caratteri per valore limite della partizione.| 4000 |
 | Indice | Indici non in cluster per tabella. | 999<br/><br/>Si applica solo alle tabelle rowstore.|
 | Indice | Indici in cluster per tabella. | 1<br><br/>Si applica sia alle tabelle rowstore che columnstore.|
 | Indice | Righe in un gruppo righe dell'indice columnstore | 1024<br/><br/>Ogni indice columnstore è implementato come più indici columnstore. Si noti che se si inseriscono 1024 righe in un indice columnstore SQL Data Warehouse, non tutte le righe andranno nello stesso gruppo righe.|
@@ -73,7 +73,7 @@ Valori massimi per supportare i carichi di lavoro analitici più impegnativi, as
 | SELECT | Colonne per JOIN | 1024 colonne<br/><br/>Nel JOIN non è mai possibile avere più di 1024 colonne. Non è garantito che si possa averne sempre 1024. Se il piano JOIN richiede una tabella temporanea con più colonne del risultato JOIN, il limite di 1024 viene applicato alla tabella temporanea. |
 | SELECT | Byte per le colonne GROUP BY. | 8060<br/><br/>Le colonne presenti nella clausola GROUP BY possono avere un massimo di 8060 byte.|
 | SELECT | Byte per le colonne ORDER BY | 8060 byte.<br/><br/>Le colonne presenti nella clausola ORDER BY possono avere un massimo di 8060 byte.|
-| Identificatori e costanti per istruzione | Numero di identificatori e costanti di riferimento. | 65\.535<br/><br/>SQL Data Warehouse limita il numero di identificatori e costanti che possono essere contenuti in una singola espressione di una query. Il limite è 65.535. Il superamento di questo numero genera un errore 8632 di SQL Server. Per altre informazioni, vedere [Errore interno: è stato raggiunto un limite di servizi di espressione](http://support.microsoft.com/kb/913050/).|
+| Identificatori e costanti per istruzione | Numero di identificatori e costanti di riferimento. | 65\.535<br/><br/>SQL Data Warehouse limita il numero di identificatori e costanti che possono essere contenuti in una singola espressione di query. Il limite è 65.535. Il superamento di questo numero genera un errore 8632 di SQL Server. Per altre informazioni, vedere [Errore interno: è stato raggiunto un limite di servizi di espressione](http://support.microsoft.com/kb/913050/).|
 
 ## Viste di sistema
 
@@ -149,7 +149,7 @@ Nell'esempio seguente viene creata la tabella T1. Le dimensioni massime consenti
 
 Poiché le dimensioni definite effettive di un nvarchar usano 26 byte, la definizione della riga è minore di 8060 byte e può essere contenuta in una pagina di SQL Server. Per questo motivo, l'istruzione CREATE TABLE ha esito positivo, anche se DMS restituisce un errore quando prova a caricare questa riga nel buffer DMS.
 
-````
+```sql
 CREATE TABLE T1
   (
     c0 int NOT NULL,
@@ -162,10 +162,11 @@ CREATE TABLE T1
   )
 WITH ( DISTRIBUTION = HASH (c0) )
 ;
-````
+```
+
 Il passaggio successivo mostra come usare correttamente INSERT per inserire i dati nella tabella. Questa istruzione carica i dati direttamente in SQL Server senza usare DMS e quindi non causa un errore di overflow del buffer DMS. Anche i servizi di integrazione caricano correttamente questa riga.</para>
 
-````
+```sql
 --The INSERT operation succeeds because the row is inserted directly into SQL Server without requiring DMS to buffer the row.
 INSERT INTO T1
 VALUES (
@@ -177,11 +178,11 @@ VALUES (
     N'Each row must fit into the DMS buffer size of 32,768 bytes.',
     N'Each row must fit into the DMS buffer size of 32,768 bytes.'
   )
-````
+```
 
 Per prepararsi per la dimostrazione dello spostamento di dati, in questo esempio viene creata una seconda tabella con CustomerKey per la colonna di distribuzione.
 
-````
+```sql
 --This second table is distributed on CustomerKey. 
 CREATE TABLE T2
   (
@@ -206,20 +207,20 @@ VALUES (
     N'Each row must fit into the DMS buffer size of 32,768 bytes.',
     N'Each row must fit into the DMS buffer size of 32,768 bytes.'
   )
-````
+```
 Poiché entrambe le tabelle non sono distribuite in CustomerKey, un join tra T1 e T2 in CustomerKey non è compatibile con la distribuzione. DMS deve caricare almeno una riga e copiarla in una distribuzione diversa.
 
-````
+```sql
 SELECT * FROM T1 JOIN T2 ON T1.CustomerKey = T2.CustomerKey;
-````
+```
 
 Come previsto, DMS non è in grado di eseguire il join perché la riga, quando vengono riempite tutte le colonne nvarchar, supera la dimensione di 32.768 byte del buffer DMS. Viene visualizzato il messaggio di errore seguente.
 
-````
+```sql
 Msg 110802, Level 16, State 1, Line 126
 
 An internal DMS error occurred that caused this operation to fail. Details: Exception: Microsoft.SqlServer.DataWarehouse.DataMovement.Workers.DmsSqlNativeException, Message: SqlNativeBufferReader.ReadBuffer, error in OdbcReadBuffer: SqlState: , NativeError: 0, 'COdbcReadConnection::ReadBuffer: not enough buffer space for one row | Error calling: pReadConn-&gt;ReadBuffer(pBuffer, bufferOffset, bufferLength, pBytesRead, pRowsRead) | state: FFFF, number: 81, active connections: 8', Connection String: Driver={SQL Server Native Client 11.0};APP=DmsNativeReader:P13521-CMP02\sqldwdms (4556) - ODBC;Trusted_Connection=yes;AutoTranslate=no;Server=P13521-SQLCMP02,1500
-````
+```
 
 
 ## Passaggi successivi
@@ -232,4 +233,4 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

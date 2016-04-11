@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Comprendere le differenze tra Gestione risorse e i modelli di distribuzione classici"
+   pageTitle="Distribuzione di Resource Manager e classica | Microsoft Azure"
    description="Vengono descritte le differenze tra il modello di distribuzione di Gestione risorse e il modello di distribuzione classico (o gestione dei servizi)."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,26 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/22/2016"
+   ms.date="03/23/2016"
    ms.author="tomfitz"/>
 
-# Comprendere la distribuzione di Gestione delle risorse e distribuzione classica
+# Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse
 
-Il modello di distribuzione di Gestione delle risorse fornisce un nuovo modo per distribuire e gestire i servizi che costituiscono l'applicazione. Questo nuovo modello contiene importanti differenze rispetto al modello di distribuzione classica e i due modelli non sono completamente compatibili tra loro. Per semplificare la distribuzione e la gestione delle risorse, Microsoft consiglia di utilizzare Gestione risorse per le nuove risorse e, se possibile, distribuire di nuovo le risorse esistenti tramite Gestione risorse.
+In questo argomento, sono descritti i modelli di distribuzione di Azure Resource Manager e di distribuzione classica, lo stato delle risorse e il motivo per cui le risorse sono state distribuite con un metodo piuttosto che con un altro. Il modello di distribuzione di Resource Manager prevede importanti differenze rispetto al modello di distribuzione classica e i due modelli non sono completamente compatibili tra loro. Per semplificare la distribuzione e la gestione delle risorse, Microsoft consiglia di utilizzare Gestione risorse per le nuove risorse e, se possibile, distribuire di nuovo le risorse esistenti tramite Gestione risorse.
 
-È inoltre possibile conoscere il modello di distribuzione classico come modello di gestione dei servizi.
+Per la maggior parte delle risorse, è possibile passare a Resource Manager senza problemi. Tuttavia, alcuni provider di risorse offrono due versioni della risorsa (uno per il modello classico e uno per la gestione risorse) a causa delle differenze architetturali tra i modelli. I provider di risorse che differenziano i due modelli sono:
 
-In questo argomento vengono descritte le differenze tra i due modelli, e alcuni dei problemi riscontrabili durante la transizione dal modello classico al modello Gestione risorse. Viene fornita una panoramica dei modelli, ma non vengono illustrate in dettaglio le differenze dei singoli servizi.
-
-Molte risorse funzionano senza problemi sia in Gestione risorse sia nel modello classico. Queste risorse supportano completamente Gestione risorse, anche se create nel modello classico. È possibile passare a Gestione risorse senza problemi o sforzi aggiuntivi.
-
-Tuttavia, alcuni provider di risorse offrono due versioni della risorsa (uno per il modello classico e uno per la gestione risorse) a causa delle differenze architetturali tra i modelli. I provider di risorse che differenziano i due modelli sono:
-
-- **Calcolo**:-supporta le istanze di macchine virtuali e i set di disponibilità facoltativi.
-- **Archiviazione**: supporta account di archiviazione obbligatori per l'archiviazione dei dischi rigidi virtuali per le macchine virtuali, inclusi il sistema operativo e altri dischi dati.
+- **Calcolo**: supporta le istanze di macchine virtuali e i set di disponibilità facoltativi.
+- **Archiviazione**: supporta account di archiviazione obbligatori che archiviano dischi rigidi virtuali per le macchine virtuali, inclusi il sistema operativo e altri dischi dati.
 - **Rete**: supporta le schede di rete, gli indirizzi IP di macchine virtuali e le subnet all'interno di reti virtuali obbligatori, nonché i servizi di bilanciamento del carico, gli indirizzi IP del servizio di bilanciamento del carico e i gruppi di sicurezza di rete facoltativi.
 
-Per questi tipi di risorsa, è necessario essere consapevoli della versione in uso poiché le operazioni supportate variano. Per ulteriori informazioni sul passaggio di calcolo, l’archiviazione e le risorse di rete, vedere [Provider di calcolo, rete e di archiviazione in Gestione risorse di Microsoft Azure](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
+Per questi tipi di risorsa, è necessario essere consapevoli della versione in uso poiché le operazioni supportate variano. Per comprendere il modello utilizzato per distribuire le risorse, è opportuno approfondire i due modelli.
 
 ## Caratteristiche di Gestione risorse
 
@@ -42,19 +36,15 @@ Le risorse create tramite Gestione risorse condividono le caratteristiche seguen
 
   - Il [portale di Azure](https://portal.azure.com/).
 
-        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
+   ![Portale di Azure](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Nel caso delle risorse di rete, archiviazione e calcolo, è possibile usare sia Gestione risorse sia la distribuzione classica. Selezionare **Gestione risorse**.
+   Per le risorse di calcolo, archiviazione e rete, è possibile usare sia Resource Manager che la distribuzione classica. Selezionare **Gestione risorse**.
 
-        ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
+   ![Distribuzione di Resource Manager](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - Per le versioni di Azure PowerShell precedenti alla versione 1.0, i comandi vengono eseguiti nella modalità **AzureResourceManager**.
+  - Per Azure PowerShell, utilizzare la versione di Resource Manager dei comandi. Questi comandi hanno il formato *Verb-AzureRmNoun*, come illustrato di seguito.
 
-            PS C:\> Switch-AzureMode -Name AzureResourceManager
-
-  - Per Azure PowerShell 1.0, usare la versione di Gestione risorse dei comandi. Questi comandi hanno il formato *Verb-AzureRmNoun*, come illustrato di seguito.
-
-            PS C:\> Get-AzureRmResourceGroupDeployment
+            Get-AzureRmResourceGroupDeployment
 
   - [API REST di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) per le operazioni REST.
   - Comandi Azure CLI eseguiti nella modalità **arm**.
@@ -63,7 +53,7 @@ Le risorse create tramite Gestione risorse condividono le caratteristiche seguen
 
 - Il tipo di risorsa non include **(classico)** nel nome. L'immagine seguente mostra il tipo come **Account di archiviazione**.
 
-    ![App Web](./media/resource-manager-deployment-model/resource-manager-type.png)
+   ![App Web](./media/resource-manager-deployment-model/resource-manager-type.png)
 
 L'applicazione illustrata nel diagramma seguente mostra come le risorse distribuite tramite Gestione risorse sono contenute in un unico gruppo di risorse.
 
@@ -79,6 +69,8 @@ Esistono inoltre relazioni tra le risorse all'interno dei provider di risorse:
 
 ## Caratteristiche della distribuzione classica
 
+È inoltre possibile conoscere il modello di distribuzione classico come modello di gestione dei servizi.
+
 In Gestione servizi di Azure, le risorse di calcolo, di archiviazione o di rete per l'hosting delle macchine virtuali sono fornite da:
 
 - Un servizio cloud obbligatorio che funge da contenitore per l'hosting di macchine virtuali (calcolo). Le macchine virtuali sono fornite automaticamente con una scheda di rete (NIC) e un indirizzo IP assegnati da Azure. Il servizio cloud contiene inoltre un'istanza del servizio di bilanciamento del carico esterno, un indirizzo IP pubblico ed endpoint predefiniti per consentire il traffico di desktop remoto e di PowerShell remoto per le macchine virtuali basate su Windows e il traffico Secure Shell (SSH) per le macchine virtuali basate su Linux.
@@ -91,25 +83,21 @@ Le risorse create nel modello di distribuzione classica condividono le caratteri
 
   - [Portale classico](https://manage.windowsazure.com)
 
-        ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
+   ![Portale classico](./media/resource-manager-deployment-model/azure-portal.png)
 
-        o portale di anteprima. Specificare la distribuzione **classica** per i servizi di calcolo, archiviazione e rete.
+   oppure il portale di Azure, dove si specificherà la distribuzione **Classica** per i servizi di calcolo, archiviazione e rete.
 
-        ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
+   ![Distribuzione classica](./media/resource-manager-deployment-model/select-classic.png)
 
-  - Per le versioni di Azure PowerShell precedenti alla versione 1.0, i comandi vengono eseguiti nella modalità **AzureServiceManagement** (che è la modalità predefinita, quindi, se non si passa in modo specifico ad AzureResourceManager, il comando viene eseguito in modalità AzureServiceManagement).
+  - Per Azure PowerShell, utilizzare la versione di Gestione servizi dei comandi. Questi nomi di comando hanno il formato *Verb-AzureNoun*, come illustrato di seguito.
 
-            PS C:\> Switch-AzureMode -Name AzureServiceManagement
-
-  - Per Azure PowerShell 1.0, usare la versione di Gestione servizi dei comandi. Questi nomi di comando hanno il formato *Verb-AzureNoun*, come illustrato di seguito.
-
-            PS C:\> Get-AzureDeployment
+            Get-AzureDeployment
 
   - [API REST di Gestione servizi](https://msdn.microsoft.com/library/azure/ee460799.aspx) per le operazioni REST.
   - Comandi dell'interfaccia della riga di comando di Azure eseguiti in modalità **asm** o predefinita.
 - Il tipo di risorsa include **(classico)** nel nome. L'immagine seguente mostra il tipo come **Account di archiviazione (classico)**.
 
-    ![tipo classico](./media/resource-manager-deployment-model/classic-type.png)
+   ![tipo classico](./media/resource-manager-deployment-model/classic-type.png)
 
 È tuttavia possibile usare il portale di Azure per gestire le risorse che sono state create con la distribuzione classica.
 
@@ -143,10 +131,12 @@ Per altre informazioni sull'uso dei tag in Gestione risorse, vedere [Uso dei tag
 
 ## Operazioni supportate per i modelli di distribuzione
 
-Le risorse create con il modello di distribuzione classica non supportano le operazioni di Gestione risorse. In alcuni casi, un comando di Gestione risorse può recuperare informazioni su una risorsa creata da una distribuzione classica o può eseguire attività amministrative, quali lo spostamento di una risorsa classica a un altro gruppo di risorse, ma questi casi non dovrebbero dare l'impressione che il tipo supporti operazioni di Gestione risorse. Si supponga, ad esempio, che si disponga di un gruppo di risorse contenente le macchine virtuali che sono stati creati con Gestione risorse e con il modello classico. Se si esegue il comando PowerShell seguente, si noteranno tutte le macchine virtuali:
+Le risorse create con il modello di distribuzione classica non supportano le operazioni di Gestione risorse. In alcuni casi, un comando di Gestione risorse può recuperare informazioni su una risorsa creata da una distribuzione classica o può eseguire attività amministrative, quali lo spostamento di una risorsa classica a un altro gruppo di risorse, ma questi casi non dovrebbero dare l'impressione che il tipo supporti operazioni di Gestione risorse. Si supponga, ad esempio, che si disponga di un gruppo di risorse contenente le macchine virtuali che sono stati creati con Gestione risorse e con il modello classico. Se si esegue il seguente comando PowerShell:
 
-    PS C:\> Get-AzureRmResourceGroup -Name ExampleGroup
-    ...
+    Get-AzureRmResourceGroup -Name ExampleGroup
+
+Restituisce tutte le macchine virtuali:
+
     Resources :
      Name                 Type                                          Location
      ================     ============================================  ========
@@ -155,10 +145,12 @@ Le risorse create con il modello di distribuzione classica non supportano le ope
      ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
     ...
 
-Tuttavia, se si esegue il comando Get-AzureRmVM, si otterranno solo macchine virtuali che sono state create con Resource Manager.
+Tuttavia, se si esegue il comando **Get-AzureRmVM**:
 
-    PS C:\> Get-AzureRmVM -ResourceGroupName ExampleGroup
-    ...
+    Get-AzureRmVM -ResourceGroupName ExampleGroup
+
+Si ottengono solo le macchine virtuali create con Resource Manager.
+
     Id       : /subscriptions/xxxx/resourceGroups/ExampleGroup/providers/Microsoft.Compute/virtualMachines/ExampleResourceVM
     Name     : ExampleResourceVM
     ...
@@ -185,7 +177,8 @@ Per informazioni sulla connessione di reti virtuali da diversi modelli di distri
 
 ## Passaggi successivi
 
-- Per altre informazioni sulla creazione dei modelli di distribuzione dichiarativa, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
+- Per la procedura di creazione del modello che definisce una macchina virtuale, l'account di archiviazione e la rete virtuale, vedere [Procedura dettagliata per un modello di Azure Resource Manager](resource-manager-template-walkthrough.md).
+- Per informazioni sulla struttura di modelli di Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 - Per vedere i comandi per la distribuzione di un modello, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

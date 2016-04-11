@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestione delle asimmetrie nella distribuzione di tabelle
@@ -27,7 +27,7 @@ Questo articolo consente di identificare le asimmetrie nelle tabelle hash distri
 
 Una query come la vista riportata di seguito consente di identificare le tabelle asimmetriche.
 
-```
+```sql
 CREATE VIEW dbo.vDistributionSkew
 AS
 WITH base
@@ -113,7 +113,7 @@ FROM	size
 
 Dopo aver creato la vista è possibile verificare l'asimmetria delle tabelle semplicemente eseguendo una query come quella riportata di seguito.
 
-```
+```sql
 SELECT	[two_part_name]
 ,		[distribution_id]
 ,		[row_count]
@@ -151,4 +151,4 @@ Per altre informazioni sulla distribuzione di tabelle, vedere gli articoli segue
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

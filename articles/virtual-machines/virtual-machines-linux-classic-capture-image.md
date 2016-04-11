@@ -38,7 +38,7 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 2. Nella finestra di SSH digitare il comando seguente. Si noti che l'output di `waagent` può variare leggermente, in base alla versione dell'utilità:
 
-	`sudo waagent -deprovision`
+	`sudo waagent -deprovision+user`
 
 	Questo comando prova a pulire il sistema per renderlo idoneo per un nuovo provisioning. Questa operazione esegue le attività seguenti:
 
@@ -87,7 +87,7 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 
 
 ## Passaggi successivi
-L'immagine è pronta per essere utilizzata per creare macchine virtuali. È possibile utilizzare il comando `azure vm create` dell'interfaccia della riga di comando di Azure e indicare il nome dell'immagine appena creata. Per informazioni dettagliate sul comando, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure](virtual-machines-command-line-tools.md). In alternativa, usare il [portale di Azure classico][] per creare una macchina virtuale personalizzata usando il metodo **Da raccolta** e selezionando l'immagine appena creata. Per altri dettagli, vedere [Come creare una macchina virtuale personalizzata][].
+L'immagine è pronta per essere utilizzata per creare macchine virtuali. È possibile utilizzare il comando `azure vm create` dell'interfaccia della riga di comando di Azure e indicare il nome dell'immagine appena creata. Per informazioni dettagliate sul comando, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione servizi di Azure](../virtual-machines-command-line-tools.md). In alternativa, usare il [portale di Azure classico][] per creare una macchina virtuale personalizzata usando il metodo **Da raccolta** e selezionando l'immagine appena creata. Per altri dettagli, vedere [Come creare una macchina virtuale personalizzata][].
 
 **Vedere anche:** [Guida dell'utente dell'agente Linux di Azure](virtual-machines-linux-agent-user-guide.md)
 
@@ -98,4 +98,4 @@ L'immagine è pronta per essere utilizzata per creare macchine virtuali. È poss
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [creazione di una macchina virtuale Linux]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -31,7 +31,7 @@ Spark in Azure HDInsight (Linux) fornisce l'interfaccia utente Web di Ambari per
 
 ## Come è possibile avviare l'interfaccia utente Web di Ambari?
 
-1. Dalla Schermata iniziale del [portale di anteprima di Azure](https://ms.portal.azure.com/) fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**. 
+1. Dalla Schermata iniziale del [portale di Azure](https://ms.portal.azure.com/) fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale). È inoltre possibile passare al cluster in **Esplora tutto** > **cluster HDInsight**. 
  
 2. Dal pannello del cluster Spark fare clic su **Dashboard**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark.
 
@@ -43,7 +43,7 @@ Spark in Azure HDInsight (Linux) fornisce l'interfaccia utente Web di Ambari per
 
 ## Come è possibile avviare il Server cronologia Spark?
 
-1. Dalla Schermata iniziale del [portale di anteprima di Azure](https://ms.portal.azure.com/) fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale).
+1. Dalla Schermata iniziale del [portale di Azure](https://ms.portal.azure.com/) fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale).
 
 2. Dal pannello del cluster in **Collegamenti rapidi** fare clic su **Dashboard cluster**. Nel pannello **Dashboard cluster** fare clic su **Server cronologia Spark**.
 
@@ -138,4 +138,4 @@ Ecco alcuni scenari comuni che si verificano con il cluster Spark e le istruzion
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/18/2015"
-   ms.author="mfussell"/>
+   ms.date="03/24/2016"
+   ms.author="msfussell"/>
 
 # Perché usare un approccio ai microservizi per la compilazione di applicazioni
 Per gli sviluppatori di software non c'è nulla di nuovo nel modo di considerare la fattorizzazione di un'applicazione nelle parti che la compongono. È il paradigma centrale della programmazione orientata a oggetti, delle astrazioni software e della componentizzazione. Attualmente questa fattorizzazione tende ad assumere la forma di classi e interfacce tra le librerie condivise e i livelli della tecnologia, in genere tramite un approccio a più livelli con un archivio back-end, una logica di business di livello intermedio e un'interfaccia utente front-end. Ciò che *è* cambiato negli ultimi anni è il fatto che gli sviluppatori creano applicazioni distribuite per il cloud in base alle esigenze aziendali.
@@ -27,6 +27,8 @@ Ecco quali sono le mutevoli esigenze aziendali:
 
 Queste esigenze aziendali incidono sul *modo* di compilare le applicazioni.
 
+Per altre informazioni sull'approccio di Azure ai microservizi, leggere [Microservizi: una rivoluzione delle applicazioni basata sul cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+
 ## Approccio alla progettazione monolitico o con microservizi
 Tutte le applicazioni si evolvono con il trascorrere del tempo. Le applicazioni che hanno maggior successo si evolvono diventando utili per le persone. Le applicazioni che invece non hanno successo non si evolvono e alla fine vengono deprecate. La domanda diventa quindi: quanto si sa attualmente dei propri requisiti e come si pensa che possano svilupparsi in futuro? Ad esempio, se si sta compilando un'applicazione per la creazione di report per un reparto e si è certi che rimarrà entro l'ambito dell'azienda e che i report avranno breve durata, la scelta dell'approccio sarà diversa rispetto alla compilazione di un servizio per il recapito di contenuto video a decine di milioni di clienti. A volte pubblicare qualcosa come modello di verifica è un fattore determinante, avendo la consapevolezza che l'applicazione potrà essere riprogettata in seguito. La sovraprogettazione di qualcosa che non si userà mai ha poco senso. È il solito compromesso della progettazione. D'altra parte, quando le aziende discutono della creazione per il cloud, l'aspettativa diventa crescita e utilizzo. Il problema è che la crescita e la scalabilità sono imprevedibili. Si vorrebbe poter creare prototipi velocemente, ma allo stesso tempo sapere di essere sulla strada giusta per gestire il successo futuro. Questo è l'approccio a un avvio snello: compilare, misurare, apprendere, reiterare.
 
@@ -35,7 +37,7 @@ Nell'era del client/server si tendeva a concentrarsi sulla compilazione di appli
 I microservizi risolvono questi aspetti negativi e si allineano più strettamente ai requisiti aziendali descritti sopra, ma anch'essi hanno lati positivi e negativi. I vantaggi dei microservizi sono da ricercare nel fatto che di solito ognuno incapsula funzionalità aziendali più semplici, che le relative risorse possono essere aumentate o ridotte e che possono essere testati, distribuiti e gestiti indipendentemente. Un importante vantaggio dell'approccio ai microservizi riguarda la tendenza dei team a essere influenzati più dagli scenari aziendali che dalla tecnologia, cosa che invece l'approccio a più livelli incoraggiava. In pratica, questo significa che team più piccoli sviluppano un microservizio sulla base di uno scenario del cliente, usando le tecnologie che preferiscono. In altre parole, l'organizzazione non deve necessariamente standardizzarsi sulla tecnologia per mantenere i componenti monolitici. Inoltre, i singoli team proprietari dei servizi possono procedere come meglio credono, a seconda dell'esperienza del team stesso o della soluzione più appropriata al problema che il servizio prova a risolvere. In pratica, è preferibile avere un set di tecnologie consigliate, ad esempio un particolare archivio NoSQL o un framework di applicazioni Web. Il lato negativo dei microservizi si evidenzia con la gestione di un maggior numero di entità distinte, la gestione di distribuzioni più complesse e il controllo delle versioni, oltre alla maggiore quantità di traffico tra i microservizi e le corrispondenti latenze di rete. La presenza di una quantità di servizi frammentati e molto granulari è una premessa allo svilupparsi di problemi di prestazioni. Senza strumenti che facilitino la visualizzazione di queste dipendenze è difficile avere una "visione" dell'intero sistema. In ultima analisi, sono gli standard che consentono il funzionamento dell'approccio ai microservizi, definendo la modalità di comunicazione e accettando solo ciò che è necessario ottenere da un servizio, invece di rigidi contratti. È importante definire questi aspetti fin dall'inizio della progettazione, perché i servizi verranno aggiornati indipendentemente gli uni dagli altri. Un'altra descrizione coniata per la progettazione di un approccio ai microservizi è "SOA con granularità fine".
 
 
-***Al livello più semplice, l'approccio alla progettazione di microservizi è una federazione di servizi disaccoppiata, con modifiche singolarmente indipendenti e standard concordati per la comunicazione***
+***Al livello più semplice, l'approccio alla progettazione di microservizi è una federazione di servizi disaccoppiata, con modifiche singolarmente indipendenti e standard concordati per la comunicazione.***
 
 
 Mentre vengono prodotte sempre più app per cloud, più persone scoprono che questa scomposizione dell'app complessiva in servizi indipendenti per scenari specifici è un approccio più a lungo termine migliore.
@@ -70,7 +72,7 @@ Esistono molte definizioni diverse dei microservizi e una ricerca in Internet re
 
 Queste informazioni possono essere sintetizzate come indicato di seguito:
 
-***Le applicazioni di microservizi sono costituite da piccoli servizi rivolti ai clienti, scalabili e sottoposti al controllo delle versioni indipendentemente, che comunicano tra di essi tramite protocolli standard e interfacce ben definite***
+***Le applicazioni di microservizi sono costituite da piccoli servizi rivolti ai clienti, scalabili e sottoposti al controllo delle versioni indipendentemente, che comunicano tra di essi tramite protocolli standard e interfacce ben definite.***
 
 
 Sono stati descritti i primi due punti nella sezione precedente, ora verranno estesi e chiariti gli altri.
@@ -121,7 +123,7 @@ L'integrità è diversa dalla diagnostica. Per integrità si intende la segnalaz
 
 Azure Service Fabric è nata dalla transizione operata da Microsoft dalla fornitura di prodotti preconfezionati, generalmente di tipo monolitico, alla fornitura di servizi. Service Fabric si basa soprattutto sull'esperienza acquisita con la creazione e il funzionamento di servizi di grandi dimensioni, come i database SQL di Azure, DocumentDB e altri servizi di Azure di base. Sono state affrontate in modo completo le esigenze aziendali in termini di ridimensionamento, agilità e team indipendenti, lasciando che la piattaforma si evolvesse nel tempo grazie all'adozione da parte di un numero sempre maggiore di servizi. Era importante che Service Fabric venisse eseguita ovunque, non solo in Azure, ma anche autonomamente nelle distribuzioni di Windows Server.
 
-***Lo scopo di Service Fabric consiste nel risolvere i difficili problemi di compilazione ed esecuzione di un servizio, quali errori, aggiornamenti, utilizzo efficiente delle risorse dell'infrastruttura, per consentire ai team di risolvere i problemi aziendali tramite un approccio ai microservizi***.
+***Lo scopo di Service Fabric consiste nel risolvere i difficili problemi di compilazione ed esecuzione di un servizio, quali errori, aggiornamenti, utilizzo efficiente delle risorse dell'infrastruttura, per consentire ai team di risolvere i problemi aziendali tramite un approccio ai microservizi.***
 
 Service Fabric offre due vaste aree per facilitare la compilazione di applicazioni con un approccio ai microservizi:
 
@@ -135,16 +137,15 @@ Service Fabric offre due vaste aree per facilitare la compilazione di applicazio
 
 È possibile. Si è potuto osservare che molti dei sempre più numerosi team Microsoft incaricati di compilare prodotti per il cloud per motivi aziendali, hanno sfruttato i vantaggi offerti da un approccio orientato ai microservizi. Bing, ad esempio, applica da anni questo approccio nella ricerca. Per altri team si è trattato di un'assoluta novità. Si sono trovati ad affrontare molti problemi difficili che dovevano essere risolti, cosa che non rientrava nelle loro competenze di base. Ecco perché Service Fabric si è affermato come tecnologia preferita per la compilazione di servizi.
 
-L'obiettivo di Service Fabric è ridurre le complessità della compilazione di applicazioni con un approccio ai microservizi, evitando di dover affrontare molte attività di riprogettazione costose. Iniziare con piccole soluzioni, ridimensionarle secondo le esigenze, deprecare servizi, aggiungerne di nuovi ed evolversi secondo le esigenze di utilizzo del cliente, ecco l'approccio. Si è consapevoli del fatto che, in realtà, molti altri problemi devono ancora essere risolti per rendere i microservizi più accessibili per la maggior parte degli sviluppatori. I contenitori e il modello di programmazione basato su attori sono esempi di piccoli passi in questa direzione e sicuramente emergeranno molte innovazioni per rendere tutto questo più facile. <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+L'obiettivo di Service Fabric è ridurre le complessità della compilazione di applicazioni con un approccio ai microservizi, evitando di dover affrontare molte attività di riprogettazione costose. Iniziare con piccole soluzioni, ridimensionarle secondo le esigenze, deprecare servizi, aggiungerne di nuovi ed evolversi secondo le esigenze di utilizzo del cliente, ecco l'approccio. Si è consapevoli del fatto che, in realtà, molti altri problemi devono ancora essere risolti per rendere i microservizi più accessibili per la maggior parte degli sviluppatori. I contenitori e il modello di programmazione basato su attori sono esempi di piccoli passi in questa direzione e sicuramente emergeranno molte innovazioni per rendere tutto questo più facile.
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 
 * Per altre informazioni:
 	* [Panoramica di Service Fabric](service-fabric-overview.md)
-	* [Panoramica tecnica](service-fabric-technical-overview.md)
-* Configurazione dell'[ambiente di sviluppo](service-fabric-get-started.md) di Service Fabric
-* Scelta di un [framework del modello di programmazione](service-fabric-choose-framework.md) per il servizio
+    * [Microservizi: una rivoluzione delle applicazioni basata sul cloud](https://azure.microsoft.com/it-IT/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

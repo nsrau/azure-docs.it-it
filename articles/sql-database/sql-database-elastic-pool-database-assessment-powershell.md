@@ -16,8 +16,6 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
-
-
 # Script di PowerShell per identificare database adatti a un pool di database elastici
 
 In questo articolo viene fornito uno script di PowerShell di esempio per stimare i valori di eDTU di aggregazione per i database utente in un server di database SQL. Lo script raccoglie i dati mentre è in esecuzione e, per un carico di lavoro di produzione tipico, deve essere eseguito per almeno un giorno. Nel caso ideale, si desidera eseguire lo script per una durata pari al tipico carico di lavoro dei database, ovvero abbastanza a lungo da raccogliere dati che ne riflettano il normale uso e il picco di utilizzo. Un'esecuzione della durata di almeno una settimana fornirà probabilmente una stima più accurata.
@@ -268,4 +266,4 @@ Al completamento dello script il risultato sarà il numero stimato di eDTU neces
     }
         
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

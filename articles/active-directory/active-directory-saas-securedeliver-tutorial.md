@@ -64,8 +64,7 @@ Per configurare l'integrazione di Secure Deliver in Azure AD, è necessario aggi
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **Secure Deliver**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_01.png)<br>
-7. Nel riquadro dei risultati selezionare **Secure Deliver** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>
-
+7. Nel riquadro dei risultati selezionare **Secure Deliver** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_02.png)<br>
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Secure Deliver con un utente test di nome "Britta Simon".
 
@@ -111,8 +110,8 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
    
     - File del certificato scaricato
     - **ID entità**
-    - **URL servizio Single Sign-On**.
-    - **URL servizio Single Sign-Out**.
+    - **URL servizio Single Sign-On**
+    - **URL servizio Single Sign-Out**
 
 6. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
 
@@ -220,4 +219,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

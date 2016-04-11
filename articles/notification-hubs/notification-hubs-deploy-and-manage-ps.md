@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="03/28/2016" 
 	ms.author="wesmc"/>
 
 # Distribuire e gestire hub di notifica tramite PowerShell
@@ -104,7 +104,7 @@ Queste variabili vengono utilizzate per connettersi allo spazio dei nomi e crear
 
 + Il frammento di script utilizza l’oggetto `NamespaceManager` da controllare per verificare se l'Hub di notifica è identificato da `$Path` esiste.
 
-+ Se non esiste, lo script creerà un `NotificationHubDescription` con credenziali WNS e lo passerà al metodo `CreateNotificationHub` della classe `NamespaceManager`.
++ Se non esiste, lo script creerà un `NotificationHubDescription` con credenziali WNS e lo passerà alla classe `NamespaceManager`, metodo `CreateNotificationHub`.
 
 ``` powershell
 
@@ -158,7 +158,8 @@ else
 - [Come creare code, argomenti e sottoscrizioni del bus di servizio tramite uno script di PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Come creare uno spazio dei nomi del bus di servizio e un hub eventi tramite uno script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Sono disponibili per il download anche alcuni script predefiniti: [Script di PowerShell per il bus di servizio](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
+Sono disponibili per il download anche alcuni script predefiniti:
+- [Script PowerShell del bus di servizio](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
  
 
 [Opzioni di acquisto]: http://azure.microsoft.com/pricing/purchase-options/
@@ -171,4 +172,4 @@ Sono disponibili per il download anche alcuni script predefiniti: [Script di Pow
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

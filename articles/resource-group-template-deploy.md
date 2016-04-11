@@ -16,7 +16,7 @@
    ms.date="03/21/2016"
    ms.author="tomfitz"/>
 
-# Distribuire le risorse con un modello di Azure Resource Manager
+# Distribuire le risorse con i modelli di Azure Resource Manager
 
 In questo argomento viene illustrato come usare i modelli di Gestione risorse di Azure per distribuire le risorse in Azure. Viene descritto come distribuire le risorse usando Azure PowerShell, l’interfaccia della riga di comando di Azure, l'API REST o il Portale di Azure.
 
@@ -292,4 +292,4 @@ Per informazioni su come definire i parametri nel modello, vedere [Creazione di 
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

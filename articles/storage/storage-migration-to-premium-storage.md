@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/19/2016"
+    ms.date="03/28/2016"
     ms.author="prkhad"/>
 
 
@@ -45,7 +45,7 @@ Seguire i passaggi specificati nella sezione pertinente al proprio scenario.
 ### Prerequisiti
 - È necessaria una sottoscrizione Azure. Se non si dispone di una sottoscrizione, è possibile creare una sottoscrizione [di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) di un mese oppure visitare [Prezzi di Azure](https://azure.microsoft.com/pricing/) per ulteriori opzioni.
 - Per eseguire i cmdlet PowerShell è necessario il modulo di Microsoft Azure PowerShell. Per scaricare il modulo, vedere la pagina dei [download di Microsoft Azure](https://azure.microsoft.com/downloads/).
-- Quando si pianifica di usare macchine virtuali di Azure in esecuzione su Archiviazione Premium, è necessario usare le macchine virtuali serie DS o serie GS. Con le macchine virtuali della serie DS è possibile usare dischi sia di Archiviazione Standard che di Archiviazione Premium. I dischi di archiviazione premium saranno disponibili con più tipi di macchine virtuali in futuro. Per altre informazioni su tutte le dimensioni e su tutti i tipi di dischi disponibili per le macchine virtuali di Azure, vedere [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-windows-sizes.md) e [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md).
+- Quando si pianifica di usare VM di Azure in esecuzione su Archiviazione Premium, è necessario usare le VM serie DS, serie DSv2 o serie GS. Con le VM della serie DS, della serie DSv2 e della serie GS è possibile usare dischi sia di Archiviazione Standard che di Archiviazione Premium. I dischi di archiviazione premium saranno disponibili con più tipi di macchine virtuali in futuro. Per altre informazioni su tutte le dimensioni e su tutti i tipi di dischi disponibili per le macchine virtuali di Azure, vedere [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-windows-sizes.md) e [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md).
 
 ### Considerazioni
 
@@ -146,7 +146,7 @@ Ora che il disco rigido virtuale è pronto, attenersi alla procedura descritta d
 Creare un account di archiviazione per mantenere i dischi rigidi virtuali. Prendere in considerazione i seguenti punti quando si pianifica la posizione in cui archiviare i dischi rigidi virtuali:
 
 - L'account di archiviazione di destinazione potrebbe essere standard o premium, a seconda delle esigenze dell'applicazione.
-- La posizione dell'account di archiviazione deve essere uguale a quella delle macchine virtuali di Azure serie DS o serie GS che saranno create nella fase finale. È possibile eseguire la copia in un nuovo account di archiviazione oppure pianificare di utilizzare lo stesso account di archiviazione in base alle esigenze.
+- La posizione dell'account di archiviazione deve essere uguale a quella delle VM di Azure serie DS, serie DSv2 o serie GS che saranno create nella fase finale. È possibile eseguire la copia in un nuovo account di archiviazione oppure pianificare di utilizzare lo stesso account di archiviazione in base alle esigenze.
 - Copiare e salvare la chiave dell’account di archiviazione dell'account di archiviazione di destinazione per la fase successiva.
 - Per i dischi dati, è possibile scegliere di mantenerne alcuni in un account di archiviazione standard (ad esempio, i dischi che dispongono di un’archiviazione meno problematica) e spostare i dischi con IOP pesanti in un account di archiviazione premium.
 
@@ -243,7 +243,7 @@ Copiare e salvare il nome di questo nuovo disco di sistema operativo di Azure. N
 
 #### Disco rigido virtuale del disco dati da collegare alle nuove istanze di macchine virtuali di Azure
 
-Dopo avere caricato il disco rigido virtuale del disco dati nell'account di archiviazione, registrarlo come disco dati Azure in modo che possa essere collegato alla nuova istanza di macchina virtuale di Azure serie DS o serie GS.
+Dopo avere caricato il disco rigido virtuale del disco dati nell'account di archiviazione, registrarlo come disco dati Azure in modo che possa essere collegato alla nuova istanza di VM di Azure serie DS, serie DSv2 o serie GS.
 
 Utilizzare i cmdlet PowerShell riportati di seguito per registrare il disco rigido virtuale come disco dati di Azure. Fornire l'URL completo del contenitore in cui è stato copiato il disco rigido virtuale.
 
@@ -251,9 +251,9 @@ Utilizzare i cmdlet PowerShell riportati di seguito per registrare il disco rigi
 
 Copiare e salvare il nome di questo nuovo disco dati di Azure. Nell'esempio precedente è *DataDisk*.
 
-### Creare una VM della serie DS o della serie GS.
+### Creare una VM di Azure della serie DS, della serie DSv2 o della serie GS.
 
-Una volta che l'immagine del sistema operativo o il disco del sistema operativo sono registrati, creare una nuova macchina virtuale (VM) di Azure della serie DS o GS. Si utilizzerà l'immagine del sistema operativo o il nome del disco del sistema operativo registrato. Selezionare il tipo di macchina virtuale dal livello Archiviazione Premium. Nell'esempio riportato di seguito viene usata la dimensione VM *Standard\_DS2*.
+Una volta che l'immagine del sistema operativo o il disco del sistema operativo sono registrati, creare una nuova VM di Azure della serie DS, DSv2 o GS. Si utilizzerà l'immagine del sistema operativo o il nome del disco del sistema operativo registrato. Selezionare il tipo di macchina virtuale dal livello Archiviazione Premium. Nell'esempio riportato di seguito viene usata la dimensione VM *Standard\_DS2*.
 
 >[AZURE.NOTE] Aggiornare le dimensioni del disco per assicurarsi che corrispondano alla capacità, ai requisiti di prestazione e alle dimensioni dei dischi di Azure disponibili.
 
@@ -299,7 +299,7 @@ Specificare altre informazioni di macchina virtuale di Azure, ad esempio, un ser
 
 ### Collegare il disco dati
 
-Infine, se sono stati registrati i dischi rigidi virtuali del disco dati, collegarli alla nuova VM di Azure serie DS o serie GS.
+Infine, se sono stati registrati i dischi rigidi virtuali del disco dati, collegarli alla nuova VM di Azure serie DS, serie DSv2 o serie GS.
 
 Utilizzare il seguente cmdlet PowerShell per collegare il disco dati alla nuova macchina virtuale e specificare i criteri di memorizzazione nella cache. Nell'esempio riportato di seguito il criterio di memorizzazione nella cache è impostato su *ReadOnly*.
 
@@ -315,7 +315,7 @@ Utilizzare il seguente cmdlet PowerShell per collegare il disco dati alla nuova 
 
 Se attualmente si dispone di una VM di Azure che usa dischi di archiviazione standard, seguire il processo riportato di seguito per eseguirne la migrazione ad Archiviazione Premium. In generale, la migrazione è costituita da due fasi:
 -	Migrazione dei dischi da un account di Archiviazione Standard a un account di Archiviazione Premium.
--	Conversione delle dimensioni della macchina virtuale da A/D/G a DS o GS necessari per l'uso di dischi di Archiviazione Premium.
+-	Conversione delle dimensioni della VM da A/D/G a DS, DSv2 o GS necessaria per l'uso di dischi di Archiviazione Premium.
 
 Vedere anche la sezione precedente sulle considerazioni per conoscere le diverse possibili ottimizzazioni per Archiviazione Premium. A seconda delle ottimizzazioni applicabili alle applicazioni, il processo di migrazione può rientrare in uno degli scenari di migrazione seguenti.
 
@@ -324,7 +324,7 @@ In questo semplice scenario l'obiettivo è lasciare invariata la configurazione 
 
 #### Operazioni preliminari
 1. Verificare che Archiviazione Premium sia disponibile nell'area in cui si eseguirà la migrazione.
-2. Decidere la nuova serie di VM da usare. Dovrebbe essere la serie DS o la serie GS a seconda della disponibilità nell'area e delle proprie esigenze.
+2. Decidere la nuova serie di VM da usare. Dovrebbe essere la serie DS, la serie DSv2 o la serie GS a seconda della disponibilità nell'area e delle proprie esigenze.
 3. Decidere le dimensioni esatte della VM da usare. Le dimensioni della VM devono essere abbastanza grandi da supportare tutti i dischi dati. Se, ad esempio, i dischi dati sono 4, la VM deve avere 2 o più core. Considerare anche la potenza di elaborazione, la memoria e la larghezza di banda di rete necessarie.
 4. Creare un account di archiviazione Premium nell'area di destinazione Questo account verrà usato per la nuova VM.
 5. Tenere a portata di mano i dettagli della VM corrente, inclusi l'elenco di dischi e i BLOB VHD corrispondenti.
@@ -341,7 +341,7 @@ In questo semplice scenario l'obiettivo è lasciare invariata la configurazione 
 4.	Creare un nuovo disco del sistema operativo con il BLOB VHD del disco del sistema operativo copiato nell'account di archiviazione Premium. Per questa operazione, è possibile eseguire il cmdlet "Add-AzureDisk" di PowerShell.
 
     Script di esempio: Add-AzureDisk -DiskName "NewOSDisk1" -MediaLocation "https://newpremiumstorageaccount.blob.core.windows.net/vhds/MyOSDisk.vhd" -OS "Windows"
-5. Creare quindi la VM serie DS (o serie GS) con il disco del sistema operativo e i dischi dati indicati prima.
+5. Creare quindi la VM serie DS (o serie DSv2 o serie GS) con il disco del sistema operativo e i dischi dati indicati prima.
 
     Script di esempio per creare un nuovo servizio cloud e una nuova VM in tale servizio: New-AzureService -ServiceName "NewServiceName" -Location "East US 2"
 
@@ -680,4 +680,4 @@ Inoltre, controllare le seguenti risorse per ulteriori informazioni su Archiviaz
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

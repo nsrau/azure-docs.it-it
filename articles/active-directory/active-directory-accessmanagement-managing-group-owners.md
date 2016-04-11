@@ -14,29 +14,34 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="03/17/2016"
 	ms.author="curtand"/>
 
 # Gestione dei proprietari di un gruppo
+Quando il proprietario delle risorse ha assegnato l'accesso a una risorsa a un gruppo di Azure AD, l'appartenenza al gruppo viene gestita dal proprietario del gruppo. Il proprietario della risorsa delega in modo efficace l'autorizzazione ad assegnare agli utenti la loro risorsa al proprietario del gruppo.
 
-## Assegnazione dei proprietari a un gruppo
+## Assegnare la proprietà del gruppo
 
-**Per aggiungere un proprietario a un gruppo nel portale di Azure**
+**Per Aggiungere un proprietario a un gruppo**
 
-1. Nel portale di Azure fare clic su **Active Directory** e poi sul nome della directory dell'organizzazione.
-2. Fare clic sulla scheda **Gruppi**.
-2. Nella pagina **Gruppi** fare clic sul nome del gruppo a cui si desidera aggiungere i proprietari.
-3. Nella pagina del gruppo fare clic su **Aggiungi proprietari**.
-4. Nella pagina **Aggiungi proprietari** fare clic sul nome dell'utente che si desidera aggiungere come proprietario del gruppo e verificare che questo nome venga aggiunto al riquadro **Selezionato**.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com) selezionare **Active Directory** e aprire la directory dell'organizzazione.
+
+2. Selezionare la scheda **Gruppi** e aprire il gruppo a cui si desiderano aggiungere proprietari.
+
+3. Selezionare **Aggiungi proprietari**.
+
+4. Nella pagina **Aggiungi proprietari**, selezionare l'utente che si desidera aggiungere come proprietario del gruppo e verificare che questo nome venga aggiunto al riquadro **Selezionato**.
 
 
-**Per rimuovere un proprietario da un gruppo nel portale di Azure**
+**Per rimuovere un proprietario da un gruppo**
 
-1. Nel portale di Azure fare clic su **Active Directory** e poi sul nome della directory dell'organizzazione.
-2. Fare clic sulla scheda **Gruppi**.
-3. Nella pagina **Gruppi** fare clic sul nome del gruppo da cui si desidera rimuovere un proprietario.
-4. Nella pagina del gruppo fare clic sulla scheda **Proprietari**.
-5. Nella pagina del gruppo fare clic sul nome del proprietario che si desidera rimuovere dal gruppo e quindi fare clic su **Rimuovi**.
+1. Nel [portale di Azure classico](https://manage.windowsazure.com) selezionare **Active Directory** e aprire la directory dell'organizzazione.
+
+2. Selezionare la scheda **Gruppi** e aprire il gruppo da cui si desidera rimuovere un proprietario.
+
+4. Selezionare la scheda **Proprietari**.
+
+5. Selezionare il proprietario da rimuovere dal gruppo e quindi scegliere **Rimuovi**.
 
 ## Informazioni aggiuntive
 
@@ -47,4 +52,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Informazioni su Azure Active Directory](active-directory-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

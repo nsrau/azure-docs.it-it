@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
 # Cosa è successo a un progetto WebApi (servizio connesso a Visual Studio Azure Active Directory)?
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-webapi-getting-started.md)
-> - [What Happened](vs-active-directory-webapi-what-happened.md)
+> - [Per iniziare](vs-active-directory-webapi-getting-started.md)
+> - [Risultati](vs-active-directory-webapi-what-happened.md)
 
 ##Sono stati aggiunti riferimenti
 
@@ -52,14 +52,15 @@
 
 Al progetto è stata aggiunta una classe Startup, **App\_Start/Startup.Auth.cs**, contenente la logica di avvio per l'autenticazione di Azure AD.
 
-###È stato aggiunto un codice di avvio al progetto
+###È stato aggiunto codice di avvio al progetto
 
 Se nel progetto è già presente una classe Startup, il metodo **Configuration** è stato aggiornato includendo una chiamata a `ConfigureAuth(app)`. In caso contrario, una classe Startup è stata aggiunta al progetto.
 
 
 ###Il file app.config o web.config include nuovi valori di configurazione.
 
-Sono state aggiunte le voci di configurazione seguenti. ```
+Sono state aggiunte le voci di configurazione seguenti.
+```
 	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
@@ -69,7 +70,7 @@ Sono state aggiunte le voci di configurazione seguenti. ```
 
 ###È stata creata un'app Azure AD
 
-Un'app Azure AD è stata creata nella directory selezionata nella procedura guidata.
+Nella directory selezionata nella procedura guidata è stata creata un'app Azure AD.
 
 [Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
@@ -116,4 +117,4 @@ L'app Azure Active Directory è stata aggiornata per includere l'autorizzazione 
 
 [Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

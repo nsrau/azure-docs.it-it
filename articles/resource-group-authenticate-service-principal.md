@@ -20,7 +20,7 @@
 
 Questo argomento mostra come consentire un'entità servizio (ad esempio un processo, un'applicazione o un servizio automatizzato) per accedere ad altre risorse nella sottoscrizione. Con Gestione risorse di Azure è possibile usare il controllo degli accessi in base al ruolo per l'esecuzione di azioni consentite in un'entità servizio e l'autenticazione di tale entità.
 
-Questo argomento illustra come usare Azure PowerShell o l'interfaccia della riga di comando di Azure per Mac, Linux e Microsoft Azure per creare un'applicazione e un'entità servizio, assegnare un ruolo all'entità servizio e autenticarsi come entità servizio. Se Azure PowerShell non è installato, vedere [Come installare e configurare Azure PowerShell](./powershell-install-configure.md). Se non è installato CLI Azure, vedere [Installare e configurare CLI Azure](xplat-cli-install.md). Per informazioni sull'utilizzo del portale per eseguire questa procedura, vedere [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](resource-group-create-service-principal-portal.md)
+Questo argomento illustra come usare Azure PowerShell o l'interfaccia della riga di comando di Azure per Mac, Linux e Windows Azure per creare un'applicazione e un'entità servizio, assegnare un ruolo all'entità servizio e autenticarsi come entità servizio. Se Azure PowerShell non è installato, vedere [Come installare e configurare Azure PowerShell](./powershell-install-configure.md). Se non è installato CLI Azure, vedere [Installare e configurare CLI Azure](xplat-cli-install.md). Per informazioni sull'utilizzo del portale per eseguire questa procedura, vedere [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](resource-group-create-service-principal-portal.md)
 
 ## Concetti
 1. Azure Active Directory (AAD): servizio di gestione delle identità e degli accessi per il cloud. Per altre informazioni, vedere [Informazioni su Azure Active Directory](active-directory/active-directory-whatis.md)
@@ -279,8 +279,11 @@ Per eseguire l'autenticazione da un'applicazione .NET, includere il codice segue
     }        
 
     var certCred = new ClientAssertionCertificate(clientId, cert); 
-    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred);
+    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
+    var creds = new TokenCredentials(token.AccessToken); 
+    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
+    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
     var client = new ResourceManagementClient(creds); 
         
 
@@ -503,7 +506,10 @@ Per eseguire l'autenticazione da un'applicazione .NET, includere il codice segue
 
     var certCred = new ClientAssertionCertificate(clientId, cert); 
     var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
+    var creds = new TokenCredentials(token.AccessToken); 
+    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
+    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
     var client = new ResourceManagementClient(creds); 
        
 Per ottenere altre informazioni sull'uso dei certificati e dell'interfaccia della riga di comando di Azure, vedere il blog relativo all'[autenticazione basata su certificati con le entità servizio di Azure dalla riga di comando di Linux](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)
@@ -517,4 +523,4 @@ Per ottenere altre informazioni sull'uso dei certificati e dell'interfaccia dell
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

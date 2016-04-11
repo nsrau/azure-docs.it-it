@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Sostituire un'unità disco nel dispositivo StorSimple | Microsoft Azure"
-   description="Viene illustrato come sostituire un'unità disco in un dispositivo principale StorSimple o in uno chassis EBOD."
+   description="Viene illustrato come sostituire un'unità disco in uno chassis principale StorSimple o in uno chassis EBOD."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="03/28/2016"
    ms.author="alkohli" />
 
 # Sostituzione di un'unità disco nel dispositivo StorSimple
@@ -60,9 +60,9 @@ In questa procedura viene illustrato come i blocchi antimanomissione sul disposi
 
 Seguire i passaggi in ordine inverso per attivare il blocco.
 
-## Rimozione dell'unità disco
+## Rimuovere l'unità disco
 
-Il dispositivo StorSimple supporta una configurazione degli spazi di archiviazione RAID 10. Ciò implica che può funzionare normalmente con un'unità a stato solido (SSD), un'unità disco rigido (HDD) o un disco guasto.
+Il dispositivo StorSimple supporta la configurazione degli spazi di archiviazione di tipo RAID 10. Ciò implica che può funzionare normalmente con un'unità a stato solido (SSD), un'unità disco rigido (HDD) o un disco guasto.
 
 >[AZURE.IMPORTANT]
 >
@@ -78,7 +78,7 @@ Le unità possono essere rimosse e sostituite durante il funzionamento del siste
 
 1. Per identificare il disco guasto, nel portale di Azure classico passare a **Dispositivi** > **Manutenzione** > **Stato hardware**. Poiché un disco essere guasto nello chassis principale e/o in uno chassis EBOD (se si utilizza un modello 8600), controllare lo stato dei dischi sotto **Componenti condivisi** e **Componenti condivisi dello chassis EBOD**. Un disco guasto verrà visualizzato con uno stato rosso in entrambi gli chassis.
 
-2. Individuare le unità nella parte anteriori dello chassis principale o dello chassis EBOD. Per il disco guasto, si accenderà il LED ambra.
+2. Individuare le unità nella parte anteriori dello chassis principale o dello chassis EBOD.
 
 3. Se il disco è sbloccato, procedere al passaggio successivo. Se il disco è bloccato, sbloccarlo seguendo la procedura descritta in [Disattivazione del blocco antimanomissione](#disengage-the-antitamper-lock).
 
@@ -96,7 +96,7 @@ Le unità possono essere rimosse e sostituite durante il funzionamento del siste
 
 ## Installazione dell'unità disco sostitutiva
 
-Dopo aver rimosso un'unità guasta nel dispositivo Microsoft Azure StorSimple, seguire questa procedura per sostituirla con una nuova unità.
+Dopo aver rimosso un'unità guasta nel dispositivo StorSimple, seguire questa procedura per sostituirla con una nuova unità.
 
 #### Per inserire un'unità:
 
@@ -124,4 +124,4 @@ Dopo aver rimosso un'unità guasta nel dispositivo Microsoft Azure StorSimple, s
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -27,7 +27,7 @@ Ottenere consigli sul livello dei prezzi durante le operazioni seguenti:
 
 - [Modificare il livello di servizio e il livello di prestazioni (livello di prezzo) di un database SQL](sql-database-scale-up.md)
 - [Aggiornare il server SQL Azure a V12](sql-database-upgrade-server-portal.md)
-- Passare al server V12 - se i database possono [trarre dei vantaggi in un pool di database elastici](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), nel pannello del server verrà visualizzato un messaggio che indica un pool consigliato. Fare clic sul messaggio per creare il pool consigliato.
+- Accedere al server V12. Vedere [Indicazioni sui livelli di prezzo del database SQL](sql-database-service-tier-advisor.md).
 - [Creare un pool di database elastici](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
 
@@ -96,4 +96,4 @@ A seconda dei dettagli del database specifico, l'esecuzione di un aggiornamento 
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

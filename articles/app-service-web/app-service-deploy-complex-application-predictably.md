@@ -298,11 +298,11 @@ Scoprire come [applicare facilmente le metodologie Agile e la pubblicazione cont
 -	[Funzioni del modello di Gestione risorse di Azure](../resource-group-template-functions.md)
 -	[Distribuire un'applicazione con un modello di Gestione risorse di Azure](../resource-group-template-deploy.md)
 -	[Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
--	[Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../virtual-machines/resource-group-deploy-debug.md)
+-	[Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
 
 
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

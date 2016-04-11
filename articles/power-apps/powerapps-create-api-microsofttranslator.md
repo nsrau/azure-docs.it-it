@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Creare una nuova API Microsoft Translator in PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [App per la logica](../articles/connectors/create-api-microsofttranslator.md)
+- [App per la logica](../articles/connectors/connectors-create-api-microsofttranslator.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-microsofttranslator.md)
 
 Aggiungere l'API Microsoft Translator API nell'ambiente del servizio app dell'organizzazione (tenant).
@@ -29,25 +29,19 @@ Aggiungere l'API Microsoft Translator API nell'ambiente del servizio app dell'or
 
 1. Nel [portale di Azure](https://portal.azure.com/) accedere con l'account aziendale. Ad esempio, accedere con *NomeUtente*@*Azienda*.com. Quando si esegue questa operazione, si accede automaticamente alla sottoscrizione della propria società.
  
-2. Selezionare **Sfoglia** nella barra delle applicazioni:  
-![][7]
+2. Selezionare **Sfoglia** nella barra delle applicazioni: ![][7]
 
-3. Nell'elenco, è possibile scorrere per trovare PowerApps o digitare *powerapps*:  
-![][8]
+3. Nell'elenco, è possibile scorrere per trovare PowerApps o digitare *powerapps*: ![][8]
 
-4. In **PowerApps** selezionare **Gestione API**:  
-![Sfogliare le API registrate][1]
+4. In **PowerApps** selezionare **Gestione API**: ![Sfogliare le API registrate][1]
 
-5. In **Gestione API** selezionare **Aggiungi** per aggiungere la nuova API:  
-![Add API][2]
+5. In **Gestione API** selezionare **Aggiungi** per aggiungere la nuova API: ![Add API][2]
 
 6. Immettere un **nome** descrittivo per l'API.
 	
-7. In **Origine** selezionare **API disponibili** per selezionare le API predefinite e selezionare **Microsoft Translator **:  
-![selezionare l’API di Microsoft Translator][3]
+7. In **Origine** selezionare **API disponibili** per selezionare le API predefinite e selezionare **Microsoft Translator **: ![selezionare l’API di Microsoft Translator][3]
 
-8. Selezionare **Impostazioni - Configurare le impostazioni necessarie**:  
-![configurare le impostazioni dell’API di Microsoft Translator][4]
+8. Selezionare **Impostazioni - Configurare le impostazioni necessarie**: ![configurare le impostazioni dell’API di Microsoft Translator][4]
 
 9. Immettere *Id client* e *Segreto client* dell'applicazione Microsoft Translator. Se non è disponibile, vedere la sezione "Registrare un'app di Microsoft Translator per l'utilizzo con PowerApps" in questo argomento per creare i valori ID e segreto necessari.
 
@@ -69,8 +63,8 @@ Se non si dispone di un'app Microsoft Translator esistente con i valori ID e seg
 
 	1. Immettere un valore per **ID client**.  
 	2. Immettere il **nome** dell'applicazione.  
-	3. Immettere un valore fittizio per l'**URL di reindirizzamento**, Ad esempio, immettere: *https://contosoredirecturl*.  
-	4. Immettere una **descrizione**.  
+	3. Immettere un valore fittizio per l'**URL di reindirizzamento**, Ad esempio, immettere: **https://contosoredirecturl*.
+4. Immettere una **descrizione**.  
 	5. Selezionare **Create**.  
 
 	![Registrare l'applicazione][6]
@@ -79,7 +73,7 @@ Viene creata una nuova applicazione Microsoft Translator. È possibile utilizzar
 
 ## Vedere le API REST
 
-Informazioni di riferimento sull'[API REST Microsoft Translator](../connectors/create-api-microsofttranslator.md).
+Informazioni di riferimento sull'[API REST Microsoft Translator](../connectors/connectors-create-api-microsofttranslator.md).
 
 ## Riepilogo e passaggi successivi
 In questo argomento, è stata aggiunta l'API di Microsoft Translator alla PowersApps Enterprise. Successivamente, fornire agli utenti accesso all'API, in modo che sia possibile aggiungerla alle loro app:
@@ -97,6 +91,4 @@ In questo argomento, è stata aggiunta l'API di Microsoft Translator alla Powers
 [7]: ./media/powerapps-create-api-microsofttranslator/browseall.png
 [8]: ./media/powerapps-create-api-microsofttranslator/allresources.png
 
-<!----HONumber=AcomDC_0309_2016-->
-
-
+<!---HONumber=AcomDC_0330_2016-->

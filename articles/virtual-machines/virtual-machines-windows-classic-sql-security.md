@@ -3,9 +3,9 @@
 	description="Questo argomento fa riferimento alle risorse create con il modello di distribuzione classica e fornisce una guida generale per la protezione di SQL Server in esecuzione nelle macchine virtuali di Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-   editor="monicar"    
+	authors="carlrabeler"
+	manager="jhubbard"
+   editor=""    
    tags="azure-service-management"/>
 <tags
 	ms.service="virtual-machines-windows"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/04/2015"
-	ms.author="jroth" />
+	ms.date="03/23/2016"
+	ms.author="carlrab" />
 
 # Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure
 
@@ -33,10 +33,10 @@ Di seguito è riportato un elenco di consigli relativi alla sicurezza da conside
 
 - Creare un account amministratore locale univoco non denominato **Amministratore**.
 
-- Usare password complesse per tutti gli account. Per altre informazioni sulla creazione di password complesse, vedere l'articolo relativo alla [creazione di password complesse](http://go.microsoft.com/fwlink/?LinkId=293596) nel Centro sicurezza e protezione.
+- Usare password complesse per tutti gli account. Per altre informazioni sulla creazione di password complesse, vedere l'articolo [Suggerimenti per la creazione di una password complessa](http://windows.microsoft.com/it-IT/windows-vista/Tips-for-creating-a-strong-password).
 
 - Per impostazione predefinita, in Azure viene selezionata l'autenticazione di Windows durante l'installazione della macchina virtuale SQL Server. L'account di accesso **SA** è pertanto disabilitato e viene assegnata una password tramite il programma di installazione. È consigliabile non usare o abilitare l'account di accesso **SA**. Di seguito sono riportate strategie alternative nel caso si desiderasse usare un account di accesso SQL:
-	- Creare un account SQL con autorizzazioni **CONTROLLO SERVER**.
+	- Creare un account SQL con appartenenza sysadmin.
 	- Se è necessario usare un account di accesso **SA**, abilitarlo e rinominarlo, quindi assegnare una nuova password.
 	- Entrambe le opzioni indicate in precedenza richiedono una modifica della modalità di autenticazione in **Autenticazione di SQL Server e di Windows**. Per altre informazioni, vedere [Modifica della modalità di autenticazione del server](https://msdn.microsoft.com/library/ms188670.aspx).
 
@@ -44,11 +44,13 @@ Di seguito è riportato un elenco di consigli relativi alla sicurezza da conside
 
 - Per amministrare le macchine virtuali, si consideri la possibilità di usare [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) anziché le porte RDP pubbliche.
 
-- Rimuovere tutti gli endpoint inutilizzati nella macchina virtuale.
+- Usare un [Gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) (NSG) per consentire o negare il traffico di rete verso la macchina virtuale. Se si vuole usare un gruppo di sicurezza di rete ed è già presente un elenco di controllo di accesso basato su endpoint, rimuovere prima l'elenco di controllo di accesso. Per informazioni su come procedere, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
+
+- Se si usano gli endpoint, rimuovere quelli inutilizzati dalla macchina virtuale. Per istruzioni sull'uso di ACL con gli endpoint, vedere [Gestire l'elenco di controllo di accesso su un endpoint](../virtual-network/virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint).
 
 - Abilitare un'opzione di connessione crittografata per un'istanza del motore di database di SQL Server in Macchine virtuali di Azure. Configurare l'istanza di SQL server con un certificato firmato. Per altre informazioni, vedere [Abilitazione di connessioni crittografate al Motore di database](https://msdn.microsoft.com/library/ms191192.aspx) e [Sintassi della stringa di connessione](https://msdn.microsoft.com/library/ms254500.aspx).
 
-- Se l'accesso alle macchine virtuali verrà eseguito solo da una rete specifica, usare Windows Firewall per limitare l'accesso a determinati indirizzi IP o subnet di rete. È inoltre possibile aggiungere un ACL all'endpoint per limitare il traffico ai soli client autorizzati. Per istruzioni sull'uso di ACL con gli endpoint, vedere [Gestire l'elenco di controllo di accesso su un endpoint](virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint)
+- Se l'accesso alle macchine virtuali verrà eseguito solo da una rete specifica, usare Windows Firewall per limitare l'accesso a determinati indirizzi IP o subnet di rete.
 
 ## Passaggi successivi
 
@@ -56,4 +58,4 @@ Se si è interessati anche alle procedure consigliate relative alle prestazioni,
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server nella panoramica delle Macchine virtuali di Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

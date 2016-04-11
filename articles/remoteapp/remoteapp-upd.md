@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="Come usare Azure RemoteApp con gli account utente di Office 365 | Microsoft Azure"
-	description="Informazioni su come usare Azure RemoteApp con gli account utente di Office 365"
+    pageTitle="Azure RemoteApp come salva dati e impostazioni? | Microsoft Azure"
+	description="Informazioni su come Azure RemoteApp salva i dati dell'utente utilizzando il disco del profilo utente."
 	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/04/2015" 
+    ms.date="03/28/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp come salva dati e impostazioni?
@@ -26,7 +26,7 @@ Ogni UPD dispone di 50GB di archiviazione permanente e contiene entrambe le impo
 
 Leggere le informazioni specifiche sui dati del profilo utente.
 
->[AZURE.NOTE]È necessario disabilitare il disco del profilo utente? È ora possibile eseguire questa operazione: per informazioni dettagliate, consultare il post di blog di Pavithra relativo alla [disabilitazione dei dischi dei profili utente in Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx).
+>[AZURE.NOTE] È necessario disabilitare il disco del profilo utente? È ora possibile eseguire questa operazione: per informazioni dettagliate, consultare il post di blog di Pavithra relativo alla [disabilitazione dei dischi dei profili utente in Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx).
 
 
 ## Come può un amministratore accedere ai dati?
@@ -115,11 +115,15 @@ Inoltre, è possibile utilizzare App di sincronizzazione dati come OneDrive for 
 
 ## Come eseguire uno script di avvio in Azure RemoteApp
 
-Se si desidera eseguire uno script di avvio, iniziare creando un'attività pianificata nell'immagine modello che si intende utilizzare per la raccolta. Eseguire tale operazione *prima* di eseguire sysprep.
+Se si desidera eseguire uno script di avvio, iniziare creando un'attività pianificata nell'immagine modello che si intende utilizzare per la raccolta. (Eseguire tale operazione*prima*di eseguire sysprep.)
 
 ![Creare un'attività di sistema](./media/remoteapp-upd/upd1.png)
 
 ![Creare un'attività di sistema che viene eseguita quando un utente accede](./media/remoteapp-upd/upd2.png)
+
+Nella scheda **Generale**, assicurarsi di modificare l’**Account utente** in Sicurezza in "BUILTIN\\Users."
+
+![Modificare l'account utente in un gruppo](./media/remoteapp-upd/upd4.png)
 
 L'attività pianificata avvierà lo script di avvio, utilizzando le credenziali dell'utente. Pianificare l'attività affinché venga eseguita ogni volta che un utente accede.
 
@@ -137,4 +141,22 @@ No, tale opzione non è supportata da RemoteApp di Azure, che utilizza host sess
 
 No, tale opzione non è supportata da Azure RemoteApp.
 
-<!---HONumber=AcomDC_1217_2015-->
+## È possibile archiviare dati sulla VM in locale?
+
+NO, i dati archiviati in un punto qualsiasi della VM diverso dall’UPD andranno persi. È molto probabile l'utente non riceva la stessa VM al successivo accesso ad Azure RemoteApp. Non viene mantenuta la persistenza utente-VM, pertanto l'utente non eseguirà l'accesso alla stessa VM e i dati andranno persi. Inoltre, quando si aggiorna la raccolta, le VM esistenti vengono sostituite con un nuovo set di VM, pertanto i dati archiviati sulla stessa VM andranno persi. Si consiglia di archiviare i dati nell'UPD, in un servizio di archiviazione condivisa come File di Azure, in un file server all'interno di una rete virtuale o nel cloud con OneDrive per Business o un altro sistema di archiviazione cloud supportato come DropBox.
+
+## Come montare una condivisione di File di Azure in una VM, tramite PowerShell
+
+È possibile utilizzare il cmdlet di Net-PSDrive per montare l'unità, come indicato di seguito:
+
+    New-PSDrive -Name <drive-name> -PSProvider FileSystem -Root \<storage-account-name>.file.core.windows.net<share-name> -Credential :<storage-account-name>
+
+
+È inoltre possibile salvare le credenziali eseguendo le operazioni seguenti:
+
+    cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+
+
+In questo modo è possibile ignorare il parametro - Credential nel cmdlet New-PSDrive.
+
+<!---HONumber=AcomDC_0330_2016-->

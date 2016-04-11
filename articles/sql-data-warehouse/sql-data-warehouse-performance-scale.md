@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # Scalabilità e prestazioni elastiche con SQL Data Warehouse
@@ -40,7 +40,7 @@ Per aumentare la potenza di calcolo è possibile aggiungere ulteriori DWU al ser
 
 Nel [portale di Azure classico][], è possibile fare clic sull'icona "Scalabilità" nella parte superiore della pagina SQL Data Warehouse e quindi utilizzare il dispositivo di scorrimento per aumentare o ridurre la quantità di DWU applicati al Data Warehouse prima di fare clic su "Salva". Se si vuole modificare la scalabilità a livello di programmazione, il codice T-SQL seguente illustra come modificare l'allocazione di DWU per il proprio SQL Data Warehouse:
 
-```
+```sql
 ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
@@ -49,7 +49,7 @@ Si noti che questo T-SQL deve essere eseguito sul server logico e non sull’ist
 
 È possibile ottenere lo stesso risultato con PowerShell usando il codice seguente:
 
-```
+```Powershell
 Set-AzureSQLDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -ServiceObjective "DW1000"
 ```
 
@@ -64,20 +64,18 @@ Per sospendere e riprendere la potenza di calcolo, è possibile usare il [portal
 
 Il codice seguente illustra come eseguire una sospensione tramite PowerShell:
 
-```
+```Powershell
 Suspend-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName
 "Server01" –DatabaseName "Database02"
 ```
 
 La ripresa del servizio è altrettanto semplice con PowerShell:
 
-```
+```Powershell
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 Per altre informazioni sull'uso di PowerShell consultare [Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse][].
-
-
 
 ## Passaggi successivi
 Per qualche cenno preliminare sulle prestazioni, vedere la [panoramica sulle prestazioni][].
@@ -95,4 +93,4 @@ Per qualche cenno preliminare sulle prestazioni, vedere la [panoramica sulle pre
 
 [portale di Azure classico]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

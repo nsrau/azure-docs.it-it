@@ -1,9 +1,9 @@
-<properties 
+<properties
 	pageTitle="Configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure per SQL Server in macchine virtuali di Azure (Gestione risorse)"
-	description="Informazioni su come automatizzare la configurazione della crittografia di SQL Server per l'uso con l'insieme di credenziali delle chiavi di Azure. Questo argomento illustra come usare l'integrazione dell'insieme di credenziali delle chiavi di Azure con le macchine virtuali di SQL Server create con Gestione risorse." 
-	services="virtual-machines-windows" 
-	documentationCenter="" 
-	authors="rothja" 
+	description="Informazioni su come automatizzare la configurazione della crittografia di SQL Server per l'uso con l'insieme di credenziali delle chiavi di Azure. Questo argomento illustra come usare l'integrazione dell'insieme di credenziali delle chiavi di Azure con le macchine virtuali di SQL Server create con Gestione risorse."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="rothja"
 	manager="jeffreyg"
 	editor=""
 	tags="azure-service-management"/>
@@ -13,8 +13,8 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="12/17/2015"
+	ms.workload="infrastructure-services"
+	ms.date="03/24/2016"
 	ms.author="jroth"/>
 
 # Configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure per SQL Server in macchine virtuali di Azure (Gestione risorse)
@@ -28,46 +28,22 @@ Esistono più funzionalità di crittografia di SQL Server, ad esempio [transpare
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modello di distribuzione classica.
 
-Se si esegue SQL Server con computer locali, sono disponibili [passaggi per accedere all'insieme di credenziali delle chiavi di Azure dal computer locale con SQL Server](https://msdn.microsoft.com/library/dn198405.aspx). Se si esegue SQL Server in macchine virtuali di Azure, è possibile risparmiare tempo usando la funzionalità di *Integrazione dell'insieme di credenziali delle chiavi di Azure*. Con alcuni cmdlet di Azure PowerShell che abilitano questa funzionalità, è possibile automatizzare la configurazione necessaria per l'accesso all'insieme di credenziali delle chiavi di una macchina virtuale di SQL.
+Se si esegue SQL Server con computer locali, sono disponibili [passaggi per accedere all'insieme di credenziali delle chiavi di Azure dal computer locale con SQL Server](https://msdn.microsoft.com/library/dn198405.aspx). Se si esegue SQL Server in macchine virtuali di Azure, è possibile risparmiare tempo usando la funzionalità di *Integrazione dell'insieme di credenziali delle chiavi di Azure*.
 
 Quando questa funzionalità è abilitata, installa automaticamente il connettore di SQL Server, configura il provider EKM per accedere all'insieme di credenziali delle chiavi di Azure e crea le credenziali per consentire l'accesso all'insieme di credenziali. Se sono stati esaminati i passaggi nella documentazione locale menzionati in precedenza, si noterà che questa funzionalità consente di automatizzare i passaggi 2 e 3. L'unica attività che è comunque necessario eseguire manualmente è la creazione delle chiavi e dell'insieme di credenziali delle chiavi. Una volta completata questa operazione, l'intera installazione della macchina virtuale di SQL è automatizzata. Quando la funzionalità ha completato l'installazione, è possibile eseguire istruzioni T-SQL per iniziare la crittografia dei database o del backup regolarmente.
 
 [AZURE.INCLUDE [Preparare l'integrazione di AKV](../../includes/virtual-machines-sql-server-akv-prepare.md)]
 
-## Configurare l'integrazione di AKV
-Usare PowerShell per configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure. Le sezioni seguenti forniscono una panoramica dei parametri necessari e quindi uno script di PowerShell di esempio.
+## Abilitazione dell'integrazione di AKV
+Se si esegue il provisioning di una nuova macchina virtuale SQL Server con Resource Manager, il portale di Azure offre una procedura per abilitare l'integrazione dell'insieme di credenziali delle chiavi di Azure.
 
-### Parametri di input
-La tabella seguente elenca i parametri necessari per eseguire lo script di PowerShell nella sezione successiva.
+![Integrazione dell'insieme di credenziali delle chiavi di Gestione risorse di Azure per SQL](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 
-|Parametro|Descrizione|Esempio|
-|---|---|---|
-|**$akvURL**|**URL dell'insieme di credenziali delle chiavi**|"https://contosokeyvault.vault.azure.net/"|
-|**$spName**|**Nome entità servizio**|"fde2b411-33d5-4e11-af04eb07b669ccf2"|
-|**$spSecret**|**Segreto entità servizio**|"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="|
-|**$credName**|**Nome della credenziale**: l'integrazione di AKV crea una credenziale all'interno di SQL Server, consentendo alla macchina virtuale di avere accesso all'insieme di credenziali delle chiavi. Scegliere un nome per la credenziale.|"mycred1"|
-|**$vmName**|**Nome macchina virtuale**: il nome di una macchina virtuale di SQL creato in precedenza.|"myvmname"|
-|**$rgName**|**Nome gruppo di risorse**: il nome del gruppo di risorse associato la macchina virtuale SQL.|"myrgname"|
+Per una procedura dettagliata del provisioning, vedere l'articolo relativo al [provisioning di una macchina virtuale SQL Server nel portale di Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-### Abilitare l'integrazione di AKV con PowerShell
-Il cmdlet **New-AzureVMSqlServerKeyVaultCredentialConfig** crea un oggetto di configurazione per la funzionalità di integrazione dell'insieme di credenziali delle chiavi di Azure. Il cmdlet **Set-AzureVMSqlServerExtension** configura l'integrazione con il parametro **KeyVaultCredentialSettings**. I passaggi seguenti illustrano come usare questi comandi.
+Per abilitare l'integrazione di AKV su una macchina virtuale esistente è possibile usare un modello. Per altre informazioni, vedere l'articolo relativo al [modello di avvio rapido di Azure per l'integrazione dell'insieme di credenziali delle chiavi di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-keyvault-setup).
 
-1. In Azure PowerShell, configurare innanzitutto i parametri di input con i valori specifici, come descritto nelle sezioni precedenti di questo argomento. Di seguito è riportato uno script di esempio.
-	
-		$akvURL = "https://contosokeyvault.vault.azure.net/"
-		$spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
-		$spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
-		$credName = "mycred1"
-		$vmName = "myvmname"
-		$rgName = "myrgname"
-2.	Usare quindi lo script seguente per configurare e abilitare l'integrazione di AKV.
-	
-		$secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
-		$akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
-		Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName | Set-AzureRmVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
-
-L'estensione dell'agente IaaS di SQL aggiornerà la macchina virtuale di SQL con questa nuova configurazione.
 
 [AZURE.INCLUDE [Passaggi successivi integrazione AKV](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -99,8 +99,8 @@ Dopo aver creato il gruppo di disponibilità, è necessario creare un listener c
 
 ## Passaggi successivi
 
-Oltre a usare la **procedura guidata Aggiungi replica di Azure** per estendere ad Azure il gruppo di disponibilità AlwaysOn, è possibile anche spostare completamente in Azure alcuni carichi di lavoro di SQL Server. Per altre informazioni, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-classic-portal-sql.md).
+Oltre a usare la **procedura guidata Aggiungi replica di Azure** per estendere ad Azure il gruppo di disponibilità AlwaysOn, è possibile anche spostare completamente in Azure alcuni carichi di lavoro di SQL Server. Per altre informazioni, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

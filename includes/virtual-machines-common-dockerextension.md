@@ -1,6 +1,6 @@
 
 
-[Docker](https://www.docker.com/) è uno degli approcci più popolari alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) invece di macchine virtuali allo scopo di isolare i dati ed eseguire i calcoli su risorse condivise. È possibile usare l'[estensione della macchina virtuale Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) per l'[Agente Linux di Azure](virtual-machines-linux-agent-user-guide.md) per creare una VM Docker che ospiti un numero qualsiasi di contenitori per le applicazioni su Azure.
+[Docker](https://www.docker.com/) è uno degli approcci più popolari alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) invece di macchine virtuali allo scopo di isolare i dati ed eseguire i calcoli su risorse condivise. È possibile usare l'[estensione della macchina virtuale Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) per l'[Agente Linux di Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md) per creare una VM Docker che ospiti un numero qualsiasi di contenitori per le applicazioni su Azure.
 
 Questo argomento descrive:
 
@@ -64,4 +64,4 @@ Per un elenco completo, vedere [Estensioni della VM di Azure](virtual-machines-w
 [Come usare l'estensione della VM Docker con Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Estensioni della macchina virtuale per Linux e Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

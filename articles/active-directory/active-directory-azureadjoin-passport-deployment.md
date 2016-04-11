@@ -3,6 +3,7 @@
 	description="Istruzioni per la distribuzione per abilitare Microsoft Passport all'interno dell'organizzazione."
 	services="active-directory"
 	documentationCenter=""
+	keywords="Configurare la distribuzione di Microsoft Passport, Microsoft Passport for Work"
 	authors="femila"
 	manager="stevenpo"
 	editor=""
@@ -14,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="03/23/2016"
 	ms.author="femila"/>
 
 
@@ -25,7 +26,7 @@ Dopo aver connesso i dispositivi appartenenti a un dominio di Windows 10 ad Azur
 ## Distribuire System Center Configuration Manager versione 1509 per la Technical Preview
 Per distribuire certificati utente in base alle chiavi di Microsoft Passport, è necessario quanto segue:
 
-- **System Center Configuration Manager versione 1509 per la Technical Preview**. Per altre informazioni, vedere l'articolo relativo alla [Technical Preview di Microsoft System Center Configuration Manager](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) e il [blog del team di System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
+- **System Center Configuration Manager versione 1509 per la Technical Preview**. Per altre informazioni, vedere [Technical Preview di Microsoft System Center Configuration Manager](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) e [Blog del team di System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
 - **Infrastruttura a chiave pubblica (PKI)**: per abilitare Microsoft Passport for Work usando i certificati utente, è necessario avere un'infrastruttura PKI. Se l'infrastruttura non è disponibile o l'utente non vuole usarla per i certificati utente, è possibile seguire questa procedura:
  - **Distribuire un controller di dominio**: distribuire un nuovo controller di dominio con Windows Server 2016 build 10551 (o versione successiva) installato e seguire i passaggi per [installare un controller di dominio di replica in un dominio esistente](https://technet.microsoft.com/library/jj574134.aspx) o per [installare una nuova foresta di Active Directory, se si crea un nuovo ambiente](https://technet.microsoft.com/library/jj574166). I file con estensione iso sono disponibili per il download in [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).
 
@@ -39,7 +40,7 @@ Per distribuire certificati utente in base alle chiavi di Microsoft Passport, è
 4.	Fare clic con il pulsante destro del mouse sul nuovo oggetto Criteri di gruppo e scegliere **Modifica**.
 5.	Passare a **Configurazione computer** > **Criteri** > **Modelli amministrativi** > **Componenti di Windows** > **Passport for Work**.
 6.	Fare clic con il pulsante destro del mouse su **Abilita Passport for Work** e quindi selezionare **Modifica**.
-7.	Selezionare il pulsante di opzione **Abilitato** e quindi fare clic su **Applica**. Fare clic su **OK**.
+7.	Selezionare il pulsante di opzione **Abilitato** e fare clic su **Applica**. Fare clic su **OK**.
 8.	È ora possibile collegare l'oggetto Criteri di gruppo a una posizione di propria scelta. Per abilitare questo oggetto per tutti i dispositivi appartenenti a un dominio di Windows 10 nell'organizzazione, collegarlo al dominio. Ad esempio:
  - Una specifica unità organizzativa in Active Directory in cui saranno posizionati i computer Windows 10 aggiunti a un dominio.
  - Uno specifico gruppo di sicurezza contenente i computer appartenenti a un dominio di Windows 10 che verranno registrati automaticamente in Azure AD.
@@ -118,4 +119,4 @@ Di seguito è illustrato l'XML di esempio:
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

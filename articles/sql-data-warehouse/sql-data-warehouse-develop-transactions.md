@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transazioni in SQL Data Warehouse
@@ -57,7 +57,7 @@ SQL Data Warehouse usa la funzione XACT\_STATE() per segnalare una transazione n
 
 In SQL Server può essere visualizzato un frammento di codice simile al seguente:
 
-```
+```sql
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
@@ -83,7 +83,7 @@ Si noti che l'istruzione `SELECT` si verifica prima dell'istruzione `ROLLBACK`. 
 
 In SQL Data Warehouse il codice dovrà essere simile al seguente:
 
-```
+```sql
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
@@ -140,4 +140,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

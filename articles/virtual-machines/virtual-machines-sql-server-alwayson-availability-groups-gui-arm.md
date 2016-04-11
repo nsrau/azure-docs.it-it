@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Portale - Gestione risorse](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
-- [Portale - Classico](virtual-machines-windows-classic-portal-sql-availability.md)
+- [Portale - Classica](virtual-machines-windows-classic-portal-sql-availability.md)
 - [PowerShell - Classico](virtual-machines-windows-classic-ps-sql-availability.md)
 
 <br/>
@@ -54,7 +54,7 @@ Nell’esercitazione si presuppongono le condizioni seguenti:
 
 - Si dispone già di un account Azure. In caso contrario, [iscriversi per ottenere un account di valutazione](http://azure.microsoft.com/pricing/free-trial/).
 
-- Si conosce già la modalità di provisioning di una macchina virtuale SQL Server dalla raccolta di macchine virtuali tramite l'interfaccia utente grafica. Per altre informazioni, vedere [Provisioning a SQL Server virtual machine on Azure](virtual-machines-windows-classic-portal-sql.md) (Provisioning di una macchina virtuale di SQL Server in Azure).
+- Si conosce già la modalità di provisioning di una macchina virtuale SQL Server dalla raccolta di macchine virtuali tramite l'interfaccia utente grafica. Per altre informazioni, vedere [Provisioning di una macchina virtuale SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 - Si dispone già di una conoscenza approfondita dei gruppi di disponibilità AlwaysOn. Per altre informazioni, vedere [Gruppi di disponibilità AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -260,4 +260,4 @@ A questo punto si è connessi al controller di dominio primario. Per connettersi
 
 A questo punto si è connessi al server SQL mediante RDP. È possibile aprire SQL Server Management Studio, connettersi all'istanza predefinita di SQL Server e verificare che il gruppo di disponibilità AlwaysOn sia configurato.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

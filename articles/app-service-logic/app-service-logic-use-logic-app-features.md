@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="03/28/2016"
 	ms.author="stepsic"/>
 	
 # Usare le funzionalità delle app per la logica
@@ -61,6 +61,11 @@ Questa app per la logica può comportare la ricezione di grandi quantità di mes
 
 7.  Infine, trascinare il messaggio di posta elettronica nella casella **If Yes**. In questo modo si riceveranno messaggi di posta elettronica solo quando viene raggiunto il numero di follower.
 
+## Ripetizione in un elenco con forEach
+
+Il ciclo forEach specifica una matrice per la ripetizione di un'azione. Se non è una matrice, il flusso ha esito negativo. Ad esempio, se action1 genera una matrice di messaggi e si desidera inviare ogni messaggio, è possibile inserire questa istruzione forEach nelle proprietà dell'azione: forEach : "@action('action1').outputs.messages"
+ 
+
 ## Uso della visualizzazione codice per modificare un'app per la logica
 
 Oltre alla finestra di progettazione, è possibile modificare direttamente il codice che definisce un'app per la logica, come segue.
@@ -107,4 +112,4 @@ I servizi possono chiamare un endpoint dell'app per la logica per avviare un flu
 <!-- Shared links -->
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

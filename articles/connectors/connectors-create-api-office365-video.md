@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/23/2016"
 ms.author="deonhe"/>
 
 # Introduzione all'API di Office 365 Video
@@ -33,7 +33,7 @@ Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per 
 
 ## Trigger e azioni
 
-Nell'API di Office 365 Users sono disponibili le azioni seguenti. Non sono disponibili trigger.
+Nell'API di Office 365 Video sono disponibili le azioni seguenti. Non sono disponibili trigger.
 
 | Trigger | Azioni|
 | --- | --- |
@@ -221,4 +221,4 @@ Ottiene il token di connessione per poter accedere a un video da decrittografare
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

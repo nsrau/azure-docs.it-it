@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/04/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse
@@ -227,7 +227,7 @@ Quindi, ad esempio, se DW500 è l'impostazione DWU corrente per il SQL Data Ware
 
 Per esaminare nel dettaglio le differenze nell'allocazione di risorse di memoria dalla prospettiva del resource governor utilizzare la seguente query:
 
-```
+```sql
 WITH rg
 AS
 (   SELECT  pn.name									AS node_name
@@ -282,7 +282,7 @@ Per concedere l'accesso a un utente al SQL Data Warehouse prima è necessario av
 
 Aprire una connessione al database master per il SQL Data Warehouse ed eseguire i comandi seguenti:
 
-```
+```sql
 CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 
 CREATE USER newperson for LOGIN newperson
@@ -294,19 +294,19 @@ Dopo aver creato l'account di accesso, è necessario aggiungere un account utent
 
 Aprire una connessione al database SQL Data Warehouse ed eseguire il comando seguente:
 
-```
+```sql
 CREATE USER newperson FOR LOGIN newperson
 ```
 
 Sarà necessario concedere all'utente dispone di autorizzazioni complete. L'esempio seguente concede`CONTROL`nel database SQL Data Warehouse.`CONTROL`nel database di livello è l'equivalente del ruolo db\_owner in SQL Server.
 
-```
+```sql
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
 ```
 
 Per visualizzare i ruoli di gestione del carico di lavoro ruoli utilizzare la query seguente:
 
-```
+```sql
 SELECT  ro.[name]           AS [db_role_name]
 FROM    sys.database_principals ro
 WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
@@ -316,13 +316,13 @@ AND     ro.[is_fixed_role]  = 0
 
 Per aggiungere un utente a un ruolo di gestione di aumento del carico di lavoro utilizzare la query seguente:
 
-```
+```sql
 EXEC sp_addrolemember 'largerc', 'newperson'
 ```
 
 Per rimuovere un utente da un ruolo di gestione del carico di lavoro utilizzare la query seguente:
 
-```
+```sql
 EXEC sp_droprolemember 'largerc', 'newperson'
 ```
 
@@ -330,7 +330,7 @@ EXEC sp_droprolemember 'largerc', 'newperson'
 
 Per visualizzare gli utenti che sono membri di un determinato ruolo, utilizzare la query seguente:
 
-```
+```sql
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
 FROM	sys.database_role_members rm
@@ -343,7 +343,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
 ### Rilevamento di query in coda
 Per individuare le query che vengono mantenute in una coda di concorrenza è sempre possibile fare riferimento alla DMV `sys.dm_pdw_exec_requests`.
 
-```
+```sql
 SELECT 	 r.[request_id]									AS Request_ID
 		,r.[status]										AS Request_Status
 		,r.[submit_time]								AS Request_SubmitTime
@@ -374,7 +374,7 @@ BackupConcurrencyResourceType può essere visualizzato quando si esegue il backu
 
 Per eseguire l'analisi delle query attualmente in coda per individuare le risorse di cui una richiesta è in attesa, fare riferimento alla DMV `sys.dm_pdw_waits`.
 
-```
+```sql
 SELECT  w.[wait_id]
 ,       w.[session_id]
 ,       w.[type]											AS Wait_type
@@ -411,7 +411,7 @@ WHERE	w.[session_id] <> SESSION_ID()
 
 Per visualizzare solo le attese di risorse utilizzate da una determinata query, fare riferimento alla DMV `sys.dm_pdw_resource_waits`. Il tempo di attesa di risorse include solo il tempo di attesa delle risorse che devono essere fornite, a differenza del tempo di attesa del segnale che rappresenta il tempo impiegato dal server SQL Server sottostante per pianificare la query sulla CPU.
 
-```
+```sql
 SELECT  [session_id]
 ,       [type]
 ,       [object_type]
@@ -430,7 +430,7 @@ WHERE	[session_id] <> SESSION_ID()
 
 Infine, per l'analisi delle tendenze cronologiche delle attese, SQL Data Warehouse fornisce la DMV `sys.dm_pdw_wait_stats`.
 
-```
+```sql
 SELECT	w.[pdw_node_id]
 ,		w.[wait_name]
 ,		w.[max_wait_time]
@@ -455,4 +455,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

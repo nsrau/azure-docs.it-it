@@ -16,7 +16,7 @@
     ms.date="03/15/2016"
     ms.author="sstein"/>
 
-# Gestire un pool di database elastici (C&#x23;)
+# Gestire e dimensionare un pool di database elastici con C&#x23;
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-elastic-pool-manage-portal.md)
@@ -36,7 +36,7 @@ Negli esempi viene usata la [libreria di database SQL per .NET](https://msdn.mic
 
 
 
-## Aggiornare un pool di database elastici
+## Aggiornare un pool
 
 
     // Retrieve existing pool properties
@@ -60,7 +60,7 @@ Negli esempi viene usata la [libreria di database SQL per .NET](https://msdn.mic
 
 
 
-## Spostare un database esistente in un pool di database elastici
+## Spostare un database esistente in un pool
 
 
     // Update database service objective to add the database to a pool
@@ -88,7 +88,7 @@ Negli esempi viene usata la [libreria di database SQL per .NET](https://msdn.mic
 
 
 
-## Creare un nuovo database in un pool di database elastici
+## Creare un nuovo database in un pool
 
 
     // Create a new database in the pool
@@ -111,7 +111,7 @@ Negli esempi viene usata la [libreria di database SQL per .NET](https://msdn.mic
 
 
 
-## Elencare tutti i database in un pool di database elastici
+## Elencare tutti i database in un pool
 
 Nell'esempio seguente vengono elencati tutti i database in un pool:
 
@@ -126,7 +126,7 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
 
 
 
-## Esempio di gestione di un pool di database elastici C&#x23;
+## Esempio di gestione di un pool C&#x23;
 
 Le librerie seguenti sono necessarie per eseguire questo esempio. È possibile installarle con il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio, scegliendo **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**
 
@@ -148,7 +148,7 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
     {
     class Program
     {
-        // elastic database pool variables
+        // pool variables
         static string poolName = "elasticPool1";
         static string poolEdition = "Standard";
         static int poolDtus = 400;
@@ -191,7 +191,7 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
             ServerGetResponse srvr = CreateServer();
             Console.WriteLine("Creation of server " + srvr.Server.Name + ": " + srvr.StatusCode.ToString());
 
-            // Create an elastic database pool
+            // Create a pool
             Console.WriteLine("Creating elastic database pool with 400 pool eDTUs... ");
             ElasticPoolCreateOrUpdateResponse epool = CreateElasticDatabasePool();
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
@@ -212,7 +212,7 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
             Console.WriteLine("Press Enter to update the pool to 1200 pool eDTUs.");
             Console.ReadLine();
 
-            // Update the elastic database pool
+            // Update the pool
             Console.WriteLine("Updating elastic database pool to 1200 pool eDTUs...");
             ElasticPoolCreateOrUpdateResponse epool2 = UpdateElasticDatabasePool();
             Console.WriteLine("Update of pool " + epool2.ElasticPool.Name + ": " + epool2.Status.ToString());
@@ -457,4 +457,4 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
 - [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Riferimento al pool di database elastici](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

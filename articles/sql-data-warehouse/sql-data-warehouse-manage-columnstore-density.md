@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Gestione delle differenze nella distribuzione di tabelle | Microsoft Azure"
-   description="Indicazioni per consentire agli utenti di identificare le differenze nella distribuzione di tabelle distribuite"
+   pageTitle="Gestione delle asimmetrie nella distribuzione di tabelle | Microsoft Azure"
+   description="Indicazioni per consentire agli utenti di identificare le asimmetrie nella distribuzione di tabelle distribuite"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestione degli indici columnstore
@@ -24,7 +24,7 @@ Questo articolo illustra come interrogare i metadati dell'indice columnstore per
 ## Esecuzione di query sui metadati di columnstore
 Per comprendere la densità dell'indice columnstore, è necessaria una query su metadati di sistema. Di seguito è riportato un esempio del tipo di informazioni che è possibile scoprire.
 
-```
+```sql
 CREATE VIEW dbo.vColumnstoreDensity
 AS
 WITH CSI
@@ -73,7 +73,7 @@ FROM    CSI
 
 Dopo aver creato la vista, è possibile analizzare facilmente i metadati del columnstore. Di seguito è riportato un esempio di query.
 
-```
+```sql
 SELECT	[table_name]
 ,		[table_partition_count]
 ,		[row_count_total]
@@ -149,4 +149,4 @@ Per altri suggerimenti relativi alla gestione, vedere la panoramica della[gestio
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

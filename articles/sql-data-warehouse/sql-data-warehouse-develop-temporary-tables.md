@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Tabelle temporanee in SQL Data Warehouse
@@ -24,7 +24,7 @@ Questo articolo contiene alcune linee guida fondamentali per l'uso delle tabelle
 ## Creazione di tabelle temporanee
 Creare una tabella temporanea è molto semplice. È sufficiente anteporre # al nome della tabella come nell'esempio seguente:
 
-```
+```sql
 CREATE TABLE #stats_ddl
 (
 	[schema_name]			NVARCHAR(128) NOT NULL
@@ -44,7 +44,7 @@ WITH
 
 Le tabelle temporanee possono essere create anche usando `CTAS` esattamente con lo stesso approccio.
 
-```
+```sql
 CREATE TABLE #stats_ddl
 WITH
 (
@@ -102,7 +102,7 @@ FROM    t1
 
 Per garantire che le istruzioni `CREATE TABLE` abbiano esito positivo, è importante assicurarsi che la tabella non esista già nella sessione. Questo può essere gestito con un semplice controllo di pre-esistenza usando il modello seguente:
 
-```
+```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN
 	DROP TABLE #stats_ddl
@@ -113,7 +113,7 @@ END
 
 È inoltre consigliabile usare `DROP TABLE` per rimuovere le tabelle temporanee quando non sono più necessarie.
 
-```
+```sql
 DROP TABLE #stats_ddl
 ```
 
@@ -127,7 +127,7 @@ Ecco un esempio funzionante.
 
 La stored procedure seguente riunisce gli esempi precedenti. Il codice può essere usato per generare il DDL necessario per aggiornare le statistiche relative a ogni colonna nel database:
 
-```
+```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
 (   @update_type    tinyint -- 1 default 2 fullscan 3 sample 4 resample
 	,@sample_pct     tinyint
@@ -209,7 +209,7 @@ In SQL Data Warehouse è possibile usare la tabella temporanea all'esterno della
 
 In questo modo è possibile ottenere codice più modulare e gestibile. Esaminare l'esempio seguente:
 
-```
+```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
 
 DECLARE @i INT              = 1
@@ -254,4 +254,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

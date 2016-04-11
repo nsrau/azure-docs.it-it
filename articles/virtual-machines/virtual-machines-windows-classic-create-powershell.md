@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare una macchina virtuale di Windows con Powershell | Microsoft Azure"
-	description="Creare le macchine virtuali Windows tramite il modello di distribuzione classica e PowerShell."
+	pageTitle="Creare una macchina virtuale Windows con PowerShell | Microsoft Azure"
+	description="Creare macchine virtuali Windows con Azure PowerShell e il modello di distribuzione classica."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,11 +17,11 @@
 	ms.date="03/10/2016"
 	ms.author="cynthn"/>
 
-# Creare le macchine virtuali Windows con il modello di distribuzione classica e PowerShell. 
+# Creare macchine virtuali Windows con il modello di distribuzione classica e PowerShell 
 
 > [AZURE.SELECTOR]
 - [Portale di Azure classico - Windows](virtual-machines-windows-classic-tutorial.md)
-- [Powershell - Windows](virtual-machines-windows-classic-create-powershell.md)
+- [PowerShell - Windows](virtual-machines-windows-classic-create-powershell.md)
 - [PowerShell - Linux](virtual-machines-linux-classic-createpowershell.md)
 
 <br>
@@ -36,18 +36,18 @@ Questi passaggi seguono un approccio basato sul completamento di valori predefin
 
 Per l'argomento associato, relativo alla configurazione delle macchine virtuali basate su Linux, vedere [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Linux](virtual-machines-linux-classic-createpowershell.md).
 
-Se non è ancora stato installato, attenersi alle istruzioni incluse nell’argomento [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Azure PowerShell.
+Se non è ancora stato installato, attenersi alle istruzioni incluse nell’argomento [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per installare Azure PowerShell nel computer locale. Quindi, aprire un prompt dei comandi di Windows PowerShell.
 
 ## Passaggio 1: Aggiungere l'account
 
-1. Al prompt di Powershell digitare **Add-AzureAccount** e premere **INVIO**. 
+1. Al prompt di PowerShell digitare **Add-AzureAccount** e premere **Invio**. 
 2. Digitare l'indirizzo di posta elettronica associato alla sottoscrizione di Azure e fare clic su **Continua**. 
-3. Digitare la password per la sottoscrizione di Azure. 
+3. Digitare la password per l'account. 
 4. Fare clic su **Accedi**.
 
 ## Passaggio 2: impostare l'account di archiviazione e la sottoscrizione
 
-Impostare la sottoscrizione di Azure e l'account di archiviazione eseguendo questi comandi al prompt dei comandi di Azure PowerShell. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
+Impostare la sottoscrizione di Azure e l'account di archiviazione eseguendo questi comandi al prompt dei comandi di Windows PowerShell. Sostituire tutti gli elementi all'interno delle virgolette, inclusi i caratteri < and >, con i nomi corretti.
 
 	$subscr="<subscription name>"
 	$staccount="<storage account name>"
@@ -66,7 +66,7 @@ Di seguito sono riportati alcuni esempi di valori ImageFamily per i computer bas
 
 - Windows Server 2012 R2 Datacenter
 - Windows Server 2008 R2 SP1,
-- Windows Server Technical Preview
+- Windows Server 2016 Technical Preview 4
 - SQL Server 2012 SP1 Enterprise in Windows Server 2012
 
 Se si trova l'immagine che si sta cercando, aprire una nuova istanza dell'editor di testo preferito o l'ambiente PowerShell Integrated Scripting Environment (ISE). Copiare quanto segue nel nuovo file di testo o in PowerShell ISE, sostituendo il valore ImageFamily.
@@ -107,7 +107,7 @@ Per i valori InstanceSize per le macchine virtuali di serie D-, DS- o G-, vedere
 Facoltativamente, per un computer Windows autonomo, specificare l'account amministratore locale e la password.
 
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.Username -Password $cred.GetNetworkCredential().Password
 
  Scegliere una password complessa. Per verificarne il livello di complessità, vedere [Controllo password: utilizzo di password complesse](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
@@ -117,7 +117,7 @@ Facoltativamente, per aggiungere il computer Windows a un dominio di Active Dire
 	$cred2=Get-Credential –Message "Now type the name (not including the domain) and password of an account that has permission to add the machine to the domain."
 	$domaindns="<FQDN of the domain that the machine is joining>"
 	$domacctdomain="<domain of the account that has permission to add the machine to the domain>"
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domaindns
+	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $cred2.Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domaindns
 
 Per altre opzioni di preconfigurazione per le macchine virtuali basate su Windows, vedere la sintassi per i set di parametri **Windows** e **WindowsDomain** in [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
@@ -145,7 +145,7 @@ Per un controller di dominio di Active Directory, impostare $hcaching su "None".
 
 Facoltativamente, aggiungere la macchina virtuale a un set con carico bilanciato esistente per il traffico esterno.
 
-	$port="<Specify one: tcp, udp>"
+	$protocol="<Specify one: tcp, udp>"
 	$localport=<port number of the internal port>
 	$pubport=<port number of the external port>
 	$endpointname="<name of the endpoint>"
@@ -153,7 +153,7 @@ Facoltativamente, aggiungere la macchina virtuale a un set con carico bilanciato
 	$probeprotocol="<Specify one: tcp, http>"
 	$probeport=<TCP or HTTP port number of probe traffic>
 	$probepath="<URL path for probe traffic>"
-	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
+	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $protocol -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
 Infine, scegliere uno di questi blocchi di comandi richiesti per la creazione della macchina virtuale.
 
@@ -173,7 +173,7 @@ Opzione 2: creare la macchina virtuale in un servizio cloud e in una rete virtua
 
 Rivedere il set di comandi di Azure PowerShell compilato nell'editor di testo o in PowerShell ISE costituito da più blocchi di comandi del passaggio 4. Assicurarsi di aver specificato tutte le variabili necessarie e che siano presenti i valori corretti. Assicurarsi inoltre che siano stati rimossi tutti i caratteri < and >.
 
-Se si usa un editor di testo, copiare il set di comandi negli Appunti, quindi fare clic con il pulsante destro del mouse sul prompt dei comandi aperto di Azure PowerShell. Il set di comandi verrà emesso come una serie di comandi di PowerShell e verrà creata la macchina virtuale di Azure. In alternativa, eseguire il comando set in PowerShell ISE.
+Se si usa un editor di testo, copiare il set di comandi negli Appunti, quindi fare clic con il pulsante destro del mouse sul prompt dei comandi aperto di Windows PowerShell. Il set di comandi verrà emesso come una serie di comandi di PowerShell e verrà creata la macchina virtuale di Azure. In alternativa, eseguire il comando set in PowerShell ISE.
 
 Se si crea nuovamente questa macchina virtuale o una simile, è possibile:
 
@@ -205,7 +205,7 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.Username -Password $cred.GetNetworkCredential().Password
 
 	$vm1 | Set-AzureSubnet -SubnetNames "BackEnd"
 
@@ -244,7 +244,7 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 	$cred2=Get-Credential –Message "Now type the name (not including the domain) and password of an account that has permission to add the machine to the domain."
 	$domaindns="corp.contoso.com"
 	$domacctdomain="CORP"
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domaindns
+	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $cred2.Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domaindns
 
 	$vm1 | Set-AzureSubnet -SubnetNames "FrontEnd"
 
@@ -263,4 +263,4 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 Se è necessario un disco del sistema operativo superiore a 127 GB, è possibile [espandere l'unità del sistema operativo](virtual-machines-windows-expand-os-disk.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

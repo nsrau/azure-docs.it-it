@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/28/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Caricare i dati in SQL Data Warehouse
@@ -43,7 +43,7 @@ Nelle sezioni seguenti verrà analizzato in dettaglio ogni passaggio e verranno 
 
 Per preparare i file per lo spostamento in Azure, è necessario esportarli in file flat. Il modo migliore per eseguire questa operazione è utilizzare l’utilità della riga di comando BCP. Se non si dispone ancora dell'utilità, è possibile scaricarla con [Microsoft Command Line Utilities for SQL Server][]. Un comando BCP di esempio potrebbe essere il seguente:
 
-```
+```sql
 bcp "select top 10 * from <table>" queryout "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Query
 or
 bcp <table> out "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Table
@@ -53,7 +53,7 @@ Per ottimizzare la velocità effettiva, è possibile parallelizzare il processo 
 
 Inoltre, dato che il caricamento viene effettuato mediante PolyBase, tenere presente che PolyBase non supporta ancora UTF-16 e tutti i file devono essere in formato UTF-8. A tale scopo è possibile semplicemente utilizzare il flag '-c' nel comando BCP oppure convertire i file flat da UTF-16 in UTF-8 con il codice seguente:
 
-```
+```PowerShell
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
 
@@ -92,9 +92,9 @@ Ora che i dati risiedono nei blob di archiviazione di Azure, verranno importati 
 
 3. **Creare un formato di file esterno.** Anche i formati di file esterni sono riutilizzabili, è necessario crearne uno solo se si sta caricando un nuovo tipo di file.
 
-4. **Creare un’origine dati esterna.** Puntando a un account di archiviazione, è possibile utilizzare un'origine dati esterna durante il caricamento dallo stesso contenitore. Per il parametro 'LOCATION', utilizzare un percorso del formato: 'wasbs://mycontainer@ test.blob.core.windows.net/path'.
+4. **Creare un’origine dati esterna.** Puntando a un account di archiviazione, è possibile utilizzare un'origine dati esterna durante il caricamento dallo stesso contenitore. Per il parametro 'LOCATION', usare un percorso del formato: 'wasbs://mycontainer@ test.blob.core.windows.net'.
 
-```
+```sql
 -- Creating master key
 CREATE MASTER KEY;
 
@@ -133,7 +133,7 @@ Dopo aver configurato PolyBase, è possibile caricare i dati direttamente in SQL
 
 1. Utilizzare il comando "CREATE EXTERNAL TABLE" per definire la struttura dei dati. Per acquisire lo stato dei dati in modo rapido ed efficiente, è consigliabile preparare lo script della tabella di SQL Server in SSMS, provvedendo poi alla modifica manuale per inserire le differenze della tabella esterna. Dopo aver creato una tabella esterna in Azure, questa continuerà a puntare alla stessa posizione anche se i dati vengono aggiornati o si aggiungono altri dati.  
 
-```
+```sql
 -- Creating external table pointing to file stored in Azure Storage
 CREATE EXTERNAL TABLE <External Table Name>
 (
@@ -148,7 +148,7 @@ WITH
 
 2. Caricare i dati con un’istruzione 'CREATE TABLE...AS SELECT’.
 
-```
+```sql
 CREATE TABLE <Table Name>
 WITH
 (
@@ -170,7 +170,7 @@ Oltre all’istruzione `CREATE TABLE...AS SELECT` è inoltre possibile caricare 
 SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico. Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati. Per una spiegazione dettagliata delle statistiche, vedere l'argomento [Statistiche][] nel gruppo di argomenti sullo sviluppo. Di seguito è possibile vedere un rapido esempio di come creare statistiche nella tabella caricata in questo esempio.
 
 
-```
+```sql
 create statistics [<name>] on [<Table Name>] ([<Column Name>]);
 create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 ```
@@ -202,4 +202,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 [Documentazione di archiviazione di Azure]: https://azure.microsoft.com/it-IT/documentation/articles/storage-create-storage-account/
 [documentazione di ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

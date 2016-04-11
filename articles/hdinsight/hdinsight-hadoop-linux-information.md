@@ -14,18 +14,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="03/28/2016"
    ms.author="larryfr"/>
 
 # Informazioni sull'uso di HDInsight in Linux
 
 I cluster Azure HDInsight basati su Linux forniscono Hadoop in un ambiente Linux familiare, in esecuzione nel cloud di Azure. Per la maggior parte delle operazioni, dovrebbe funzionare esattamente come qualsiasi altra installazione di Hadoop in Linux. Questo documento indica le differenze specifiche che è opportuno conoscere.
 
+##Prerequisiti
+
+In molti passaggi di questo documento vengono usate le utilità seguenti che devono essere installate nel sistema.
+
+* [cURL](https://curl.haxx.se/): consente di comunicare con servizi basati su Web
+* [jq](https://stedolan.github.io/jq/): consente di analizzare i documenti JSON
+
 ## Nomi di dominio
 
 Il nome di dominio completo (FQDN) da usare per la connessione al cluster da Internet è **&lt;nome cluster>.azurehdinsight.net** o (solo per SSH) **&lt;nome cluster-ssh>.azurehdinsight.net**.
 
-Internamente, ogni nodo del cluster ha un nome assegnato durante la configurazione del cluster. Per trovare i nomi del cluster, è possibile visitare la pagina __Hosts__ nell'interfaccia utente Web di Ambari o usare il comando seguente per ottenere un elenco di host dall'API REST Ambari con [cURL](http://curl.haxx.se/) e [jq](https://stedolan.github.io/jq/):
+Internamente, ogni nodo del cluster ha un nome assegnato durante la configurazione del cluster. Per trovare i nomi del cluster, è possibile visitare la pagina __Hosts__ nell'interfaccia utente Web di Ambari o usare il comando seguente per ottenere un elenco di host dall'API REST Ambari:
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
@@ -108,7 +115,7 @@ Durante la creazione del cluster si è scelto se usare un account e un contenito
 
         wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-1. Ottenere il gruppo di risorse per l'account di archiviazione, usando l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md). Nel comando seguente, sostituire __ACCOUNTNAME__ con il nome dell'account di archiviazione recuperato da Ambari:
+1. Ottenere il gruppo di risorse per l'account di archiviazione usando l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md). Nel comando seguente, sostituire __ACCOUNTNAME__ con il nome dell'account di archiviazione recuperato da Ambari:
 
         azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
     
@@ -242,8 +249,9 @@ Se il cluster fornisce già una versione di un componente come file con estensio
 
 ## Passaggi successivi
 
+* [Eseguire la migrazione da HDInsight basato su Windows a HDInsight basato su Linux](hdinsight-migrate-from-windows-to-linux.md)
 * [Usare Hive con HDInsight](hdinsight-use-hive.md)
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Opzioni Group by in SQL Data Warehouse
 
-La clausola [GROUP BY] viene utilizzata per aggregare i dati a un set di righe di riepilogo. Include inoltre alcune opzioni che ne estendono la funzionalità che devono essere evitate in quanto non sono supportate direttamente SQL Data Warehouse di Azure.
+La clausola [GROUP BY][] viene utilizzata per aggregare i dati a un set di righe di riepilogo. Include inoltre alcune opzioni che ne estendono la funzionalità che devono essere evitate in quanto non sono supportate direttamente SQL Data Warehouse di Azure.
 
 Queste opzioni sono
 - GROUP BY con ROLLUP
@@ -30,7 +30,7 @@ L'opzione più semplice consiste nell'utilizzare `UNION ALL` invece di eseguire 
 
 Di seguito è riportato un esempio di istruzione group by utilizzando l’opzione `ROLLUP`:
 
-```
+```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 ,      SUM(SalesAmount)             AS TotalSalesAmount
@@ -50,7 +50,7 @@ Usando ROLLUP sono state richieste le aggregazioni seguenti:
 
 Per sostituire questo valore è necessario utilizzare `UNION ALL`; specificando le aggregazioni necessarie in modo esplicito per restituire gli stessi risultati:
 
-```
+```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 ,      SUM(SalesAmount) AS TotalSalesAmount
@@ -84,7 +84,7 @@ Utilizzare l'esempio precedente.
 
 Il primo passaggio consiste nel definire il cubo che definisce tutti i livelli di aggregazione che si desidera creare. È importante tenere conto del CROSS JOIN delle due tabelle derivate. In tal modo tutti i livelli vengono generati automaticamente. Il resto del codice è disponibile per la formattazione.
 
-```
+```sql
 CREATE TABLE #Cube
 WITH
 (   DISTRIBUTION = ROUND_ROBIN
@@ -119,7 +119,7 @@ Di seguito sono illustrati i risultati del CTAS:
 
 Il secondo passaggio consiste nel specificare una tabella di destinazione per archiviare i risultati temporanei:
 
-```
+```sql
 DECLARE
  @SQL NVARCHAR(4000)
 ,@Columns NVARCHAR(4000)
@@ -142,7 +142,7 @@ WITH
 
 Il terzo passaggio consiste nell’eseguire il ciclo del cubo delle colonne per eseguire l'aggregazione. La query verrà eseguita una volta per ogni riga nella tabella temporanea #Cube e i risultati verranno archiviati nella tabella temporanea #Results
 
-```
+```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
 
 WHILE @i<=@nbr
@@ -166,7 +166,7 @@ END
 
 Infine è possibile restituire i risultati semplicemente leggendo dalla tabella temporanea #Results
 
-```
+```sql
 SELECT *
 FROM #Results
 ORDER BY 1,2,3
@@ -191,4 +191,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

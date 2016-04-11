@@ -14,7 +14,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="02/03/2016" 
+    ms.date="03/30/2016" 
     ms.author="arramac"/>
 
 
@@ -42,20 +42,12 @@ Gli sviluppatori possono personalizzare i compromessi tra archiviazione, prestaz
 
 Il frammento di codice .NET seguente mostra come impostare criteri di indicizzazione personalizzati durante la creazione di una raccolta. Qui vengono impostati i criteri con l'indice di tipo Range per stringhe e numeri con la precisione massima. Questi criteri consentono di eseguire query orderby sulle stringhe.
 
-    var collection = new DocumentCollection { Id = "myCollection" };
+    DocumentCollection collection = new DocumentCollection { Id = "myCollection" };
     
     collection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
-    
-    collection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*", 
-            Indexes = new Collection<Index> { 
-                new RangeIndex(DataType.String) { Precision = -1 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }
-        });
+    collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
 
-    await client.CreateDocumentCollectionAsync(database.SelfLink, collection);   
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), collection);   
 
 
 >[AZURE.NOTE] Lo schema JSON per il criterio di indicizzazione è stato modificato con la versione dell'API REST 2015-06-03 per supportare gli indici di tipo Range sulle stringhe. .NET SDK 1.2.0 e Java, Python e Node.js SDK 1.1.0 supportano il nuovo schema di criteri. SDK precedenti usano l'API REST versione 2015-04-08 e supportano lo schema precedente dei criteri di indicizzazione.
@@ -462,7 +454,8 @@ L'esempio seguente configura un percorso specifico con indicizzazione Range e un
             }
         });
         
-    collection = await client.CreateDocumentCollectionAsync(database.SelfLink, pathRange);
+    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
+
 
 ### Tipi di dati, tipologie e precisioni degli indici
 
@@ -565,7 +558,7 @@ L'esempio seguente mostra come aumentare la precisione per gli indici Range di u
             }
         });
 
-    await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), rangeDefault);   
 
 
 > [AZURE.NOTE] Quando una query usa Order By, ma non dispone di un indice di intervallo con il percorso di query con la precisione massima, DocumentDB restituisce un errore.
@@ -576,7 +569,8 @@ Allo stesso modo i percorsi possono essere completamente esclusi dall'indicizzaz
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/" });
     collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
     
-    collection = await client.CreateDocumentCollectionAsync(database.SelfLink, excluded);
+    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+
 
 
 ## Acconsentire e escludere l’indicizzazione
@@ -590,7 +584,7 @@ L'esempio seguente mostra come includere un documento in modo esplicito usando [
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
     // use the RequestOptions.IndexingDirective property.
-    client.CreateDocumentAsync(defaultCollection.SelfLink,
+    client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"),
         new { id = "AndersenFamily", isRegistered = true },
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
 
@@ -638,7 +632,9 @@ Di seguito è riportato un frammento di codice che illustra come modificare i cr
 
     while (progress < 100)
     {
-        ResourceResponse<DocumentCollection> collectionReadResponse = await     client.ReadDocumentCollectionAsync(collection.SelfLink);
+        ResourceResponse<DocumentCollection> collectionReadResponse = await client.ReadDocumentCollectionAsync(
+            UriFactory.CreateDocumentCollectionUri("db", "coll"));
+
         progress = collectionReadResponse.IndexTransformationProgress;
 
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
@@ -673,19 +669,20 @@ Le API per DocumentDB forniscono informazioni sulle metriche delle prestazioni, 
 Per controllare la quota di archiviazione e utilizzo di una raccolta, eseguire una richiesta HEAD o GET sulla risorsa della raccolta ed esaminare le intestazioni x-ms-request-quota e x-ms-request-usage. In.NET SDK, le proprietà [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) di [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) contengono questi valori corrispondenti.
 
      // Measure the document size usage (which includes the index size) against   
-     // different policies.        
-     ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(collectionSelfLink);  
+     // different policies.
+     ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"));  
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
 Per valutare l'overhead di indicizzazione di ogni operazione di scrittura (create, update o delete), esaminare l'intestazione x-ms-request-charge (o l'equivalente proprietà [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) di [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) in .NET SDK) per determinare il numero di unità di richiesta usate da queste operazioni.
 
      // Measure the performance (request units) of writes.     
-     ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);              
+     ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              
      Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
      
      // Measure the performance (request units) of queries.    
-     IDocumentQuery<dynamic> queryable =  client.CreateDocumentQuery(collectionSelfLink, queryString).AsDocumentQuery();                                  
+     IDocumentQuery<dynamic> queryable =  client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"), queryString).AsDocumentQuery();
+
      double totalRequestCharge = 0;
      while (queryable.HasMoreResults)
      {
@@ -768,4 +765,4 @@ Seguire i collegamenti seguenti per esempi di gestione dei criteri di indicizzaz
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

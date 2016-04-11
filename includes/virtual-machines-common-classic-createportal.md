@@ -8,9 +8,9 @@ Una macchina virtuale *personalizzata* indica semplicemente una macchina virtual
 - Aggiungere la macchina virtuale a un account di archiviazione esistente.
 - Aggiungere una macchina virtuale a un set di disponibilità.
 
-> [AZURE.IMPORTANT] Se si vuole che la macchina virtuale usi una rete virtuale in modo da connettersi direttamente mediante nome host o per configurare connessioni cross-premise, accertarsi di specificare la rete virtuale quando si crea la macchina virtuale. È possibile configurare una macchina virtuale in modo da aggiungerla a una rete virtuale solo quando viene creata. Per informazioni dettagliate sulle reti virtuali, vedere [Panoramica di Rete virtuale](virtual-networks-overview.md).
+> [AZURE.IMPORTANT] Se si vuole che la macchina virtuale usi una rete virtuale in modo da connettersi direttamente mediante nome host o per configurare connessioni cross-premise, accertarsi di specificare la rete virtuale quando si crea la macchina virtuale. È possibile configurare una macchina virtuale in modo da aggiungerla a una rete virtuale solo quando viene creata. Per informazioni dettagliate sulle reti virtuali, vedere [Panoramica di Rete virtuale](../articles/virtual-network/virtual-networks-overview.md).
 
 
 ## Per creare la macchina virtuale
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

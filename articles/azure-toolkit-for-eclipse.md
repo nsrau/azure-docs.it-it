@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/07/2016" 
+    ms.date="03/28/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -22,7 +22,7 @@
 
 Il Toolkit di Azure per Eclipse offre modelli e funzionalità che permettono di creare, sviluppare, testare e distribuire con facilità applicazioni di Azure tramite l'ambiente di sviluppo Eclipse. Si tratta di un progetto Open Source, il cui codice sorgente è disponibile sotto la licenza Apache 2.0 dal sito del progetto in:
 
-* <https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava>
+* <https://github.com/microsoft/azure-tools-for-java.>
 
 ## Introduzione al Toolkit di Azure per Eclipse ##
 
@@ -30,7 +30,7 @@ Gli articoli seguenti consentiranno di iniziare a utilizzare il Toolkit di Azure
 
 * [Novità nel Toolkit di Azure per Eclipse]
 * [Installare il Toolkit di Azure per Eclipse.]
-* [Creare un'applicazione Hello World per Azure in Eclipse]
+* [Creare un servizio cloud Hello World per Azure in Eclipse]
 * [Creare un'app Web Hello World per Azure in Eclipse]
 * [Visualizzare il contenuto Javadoc in Eclipse per il pacchetto per le librerie di Azure per Java]
 
@@ -66,7 +66,7 @@ Gli articoli seguenti illustrano l'uso del Toolkit di Azure per Eclipse per aggi
 
 [Creare un'applicazione Hello World per Azure in Eclipse]
 
-[Novità nel Toolkit di Azure per Eclipse]
+[Novità di Azure Toolkit per Eclipse]
 
 Per altre informazioni sull'uso di Azure con Java, visitare il [centro per sviluppatori Java di Azure].
 
@@ -77,7 +77,7 @@ Per altre informazioni sull'uso di Azure con Java, visitare il [centro per svilu
 [Proprietà del ruolo di Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Endpoint del servizio di Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Elenco di Account di archiviazione di Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Creare un'applicazione Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Creare un servizio cloud Hello World per Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Creare un'app Web Hello World per Azure in Eclipse]: ./app-service-web/create-a-hello-world-web-app-for-azure-in-eclipse.md
 [Debug delle applicazioni di Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
 [Distribuire distribuzioni di grandi dimensioni]: http://go.microsoft.com/fwlink/?LinkID=699536
@@ -93,6 +93,7 @@ Per altre informazioni sull'uso di Azure con Java, visitare il [centro per svilu
 [Abilitare l'affinità di sessione]: http://go.microsoft.com/fwlink/?LinkID=699548
 [Offload SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
 [Usare la libreria di runtime di servizio di Azure in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
+[Novità di Azure Toolkit per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 [Novità nel Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

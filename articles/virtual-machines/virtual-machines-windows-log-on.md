@@ -51,7 +51,7 @@ Nel portale di Azure, si utilizza il pulsante **Connetti** per avviare una sessi
 
  	Nella maggior parte dei casi, le credenziali corrispondono al nome utente e alla password dell'account locale specificati al momento della creazione della macchina virtuale. Il dominio è il nome della macchina virtuale immesso come *nome VM*& #92;*nome utente*.
 	
-	Se la macchina virtuale appartiene a un dominio nell'organizzazione, assicurarsi che il nome utente contenga il nome del dominio nel formato *Dominio*&#92;*Nome utente*. L'account deve appartenere al gruppo degli amministratori o devono essergli stati concessi privilegi di accesso remoto alla VM.
+	Se la macchina virtuale appartiene a un dominio nell'organizzazione, assicurarsi che il nome utente contenga il nome del dominio nel formato *Dominio*&#92;*Nome utente*. L'account deve appartenere al gruppo degli amministratori o deve possedere privilegi di accesso remoto alla VM.
 	
 	Se la macchina virtuale è un controller di dominio, digitare nome utente e password di un account amministratore di dominio per tale dominio.
 
@@ -63,4 +63,4 @@ Nel portale di Azure, si utilizza il pulsante **Connetti** per avviare una sessi
 
 In caso di problemi quando si cerca di eseguire la connessione, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="03/23/2016"
    ms.author="sstein"/>
 
 # Creazione e gestione di database SQL con C&#x23;
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-elastic-pool-portal.md)
+- [Portale di Azure](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -30,15 +30,15 @@ In questo articolo vengono forniti i comandi per eseguire diverse attività di g
 
 I singoli frammenti di codice sono suddivisi per maggiore chiarezza e un'applicazione console di esempio riunisce tutti i comandi nella sezione nella parte inferiore di questo articolo.
 
-La libreria di database SQL di Azure per .NET fornisce un'API basata su [Gestione risorse di Azure](resource-group-overview.md) che esegue il wrapping [dell'API REST di database SQL basata su Gestione risorse](https://msdn.microsoft.com/library/azure/mt163571.aspx). La libreria client segue il modello comune per le librerie client basate su Gestione risorse. Gestione risorse richiede gruppi di risorse e l'autenticazione con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+La libreria di database SQL di Azure per .NET include un'API basata su [Gestione risorse di Azure](../resource-group-overview.md) che esegue il wrapping dell'[API REST di database SQL basata su Gestione risorse](https://msdn.microsoft.com/library/azure/mt163571.aspx). La libreria client segue il modello comune per le librerie client basate su Gestione risorse. Gestione risorse richiede gruppi di risorse e l'autenticazione con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
-> [AZURE.NOTE]La libreria di database SQL per .NET è attualmente in anteprima.
+> [AZURE.NOTE] La libreria di database SQL per .NET è attualmente in anteprima.
 
 <br>
 
-Se non si dispone di una sottoscrizione ad Azure, fare clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare a questo articolo. Per una copia gratuita di Visual Studio, vedere la pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+Se non si dispone di una sottoscrizione di Azure, fare clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina e quindi tornare a questo articolo. Per una copia gratuita di Visual Studio, vedere la pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 ## Installare le librerie richieste
 
@@ -67,7 +67,7 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 
     ![Directory][4]
 
-3. Nella pagina della directory, fare clic su **APPLICAZIONI**.
+3. Nella pagina della directory fare clic su **APPLICAZIONI**.
 
     ![Applicazioni][5]
 
@@ -77,22 +77,22 @@ Per creare una nuova applicazione e registrarla nell’active directory corrente
 
 5. Selezionare **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
 
-5. Fornire un **NOME** per l'applicazione e selezionare **APPLICAZIONE CLIENT NATIVA**.
+5. Fornire un **NOME** per l'app e selezionare **APPLICAZIONE CLIENT NATIVA**.
 
     ![Aggiunta di un'applicazione][7]
 
-6. Fornire un **URI DI REINDIRIZZAMENTO**. Non è necessario che sia un endpoint effettivo, è sufficiente un URI valido.
+6. Specificare un **URI DI REINDIRIZZAMENTO**. Non è necessario che sia un endpoint effettivo, è sufficiente un URI valido.
 
     ![Aggiunta di un'applicazione][8]
 
-7. Completare la creazione dell'applicazione, fare clic su **CONFIGURA** e copiare l'**ID CLIENT** (l'ID del client sarà necessario nel codice).
+7. Completare la creazione dell'applicazione, fare clic su **CONFIGURA** e copiare l’**ID CLIENT** (l'ID del client sarà necessario nel codice).
 
     ![acquisisci ID client][9]
 
 
 1. Nella parte inferiore della pagina fare clic su **Aggiungi applicazione**.
 1. Selezionare **App Microsoft**.
-1. Selezionare **API di gestione del servizio Azure** quindi completare la procedura guidata.
+1. Selezionare **API di gestione del servizio Azure** e quindi completare la procedura guidata.
 2. Con l'API selezionata è ora necessario concedere le autorizzazioni specifiche richieste per accedere a questa API selezionando **Accedi a gestione del servizio Azure (anteprima)**.
 
     ![autorizzazioni][2]
@@ -116,7 +116,7 @@ Il nome di dominio è obbligatorio per il codice. Un modo semplice per identific
 
 **Risorse aggiuntive di AAD**
 
-Ulteriori informazioni sull'utilizzo di Azure Active Directory per l'autenticazione sono disponibili in [questo utile post di blog](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
+Altre informazioni sull'uso di Azure Active Directory per l'autenticazione sono disponibili in [questo utile post di blog](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
 
 
 ### Recuperare il token di accesso per l'utente corrente 
@@ -148,7 +148,7 @@ Per creare script automatizzati in cui non è richiesto alcun intervento dell'ut
 
 
 
-> [AZURE.NOTE]Negli esempi inclusi in questo articolo viene utilizzata una forma asincrona di ogni richiesta di API e blocco fino al completamento della chiamata REST nel servizio sottostante. Sono disponibili metodi asincroni.
+> [AZURE.NOTE] Negli esempi inclusi in questo articolo viene utilizzata una forma asincrona di ogni richiesta di API e blocco fino al completamento della chiamata REST nel servizio sottostante. Sono disponibili metodi asincroni.
 
 
 
@@ -198,7 +198,7 @@ I database SQL sono contenuti nei server. Il nome del server deve essere globalm
 
 ## Creare una regola del firewall del server per consentire l'accesso al server
 
-Per impostazione predefinita non è possibile connettersi a un server da qualsiasi posizione. Per connettersi a un server tramite TDS e inviare T-SQL al server o a qualsiasi database nel server, è necessario definire una [regola del firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx) che consenta di accedere dall'indirizzo IP del client.
+Per impostazione predefinita non è possibile connettersi a un server da qualsiasi posizione. Per connettersi a un server tramite TDS e inviare T-SQL al server o a qualsiasi database nel server, è necessario definire una [regola del firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx) che consenta di accedere dall’indirizzo IP del client.
 
 Nell'esempio seguente viene creata una regola che consente di aprire l'accesso al server da qualsiasi indirizzo IP. È consigliabile creare gli account di accesso SQL e le password appropriati per proteggere il database e non basarsi sulle regole del firewall come difesa primaria contro le intrusioni.
 
@@ -218,7 +218,7 @@ Nell'esempio seguente viene creata una regola che consente di aprire l'accesso a
 
 
 
-Per consentire ad altri servizi di Azure di accedere a un server, aggiungere una regola del firewall e impostare StartIpAddress e EndIpAddress su 0.0.0.0. Si noti che ciò consente al traffico di Azure proveniente da *qualsiasi* sottoscrizione ad Azure di accedere al server.
+Per consentire ad altri servizi di Azure di accedere a un server, aggiungere una regola del firewall e impostare StartIpAddress e EndIpAddress su 0.0.0.0. Si noti che ciò consente al traffico di Azure proveniente da *qualsiasi* sottoscrizione di Azure di accedere al server.
 
 
 ## Creare un database
@@ -335,7 +335,7 @@ Per creare un nuovo pool su un server:
 
 ## Spostare un database esistente in un pool di database elastici
 
-*Dopo aver creato un pool è anche possibile utilizzare Transact-SQL per lo spostamento dei database esistenti da e verso un pool. Per informazioni dettagliate, vedere [riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Dopo aver creato un pool è anche possibile usare Transact-SQL per lo spostamento dei database esistenti da e verso un pool. Per informazioni dettagliate, vedere [riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 Per spostare un database esistente in un pool:
 
@@ -367,7 +367,7 @@ Per spostare un database esistente in un pool:
 
 ## Creare un nuovo database in un pool di database elastici
 
-*Dopo la creazione di un pool è anche possibile utilizzare Transact-SQL per la creazione di nuovi database elastici nel pool. Per informazioni dettagliate, vedere [riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Dopo la creazione di un pool è anche possibile usare Transact-SQL per la creazione di nuovi database elastici nel pool. Per informazioni dettagliate, vedere [riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 Per creare un nuovo database direttamente in un pool:
 
@@ -798,4 +798,4 @@ Per eliminare un gruppo di risorse:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

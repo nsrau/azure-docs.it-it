@@ -1,6 +1,3 @@
-Quando si crea una VM, si riavviano VM arrestate (deallocate) o si ridimensiona una VM, Microsoft Azure alloca risorse di calcolo alla sottoscrizione. In alcuni casi possono verificarsi errori quando si eseguono queste operazioni, anche prima di raggiungere i limiti della sottoscrizione di Azure. Questo articolo illustra le cause di alcuni dei più comuni errori di allocazione e suggerisce una possibile correzione. Queste informazioni potrebbero risultare utili anche quando si pianifica la distribuzione dei servizi.
-
-La sezione "Passaggi per la risoluzione dei problemi generali" elenca i passaggi per risolvere problemi comuni. La sezione "Procedura di risoluzione dei problemi dettagliata" offre passaggi per la risoluzione dei problemi in base al messaggio di errore specifico. Prima di iniziare, di seguito sono riportate alcune informazioni di base per comprendere il funzionamento dell'allocazione e il motivo per cui si verificano gli errori di allocazione.
 
 Se il problema di Azure non viene risolto in questo articolo, visitare il [forum di Azure su MSDN e Overflow dello Stack](https://azure.microsoft.com/support/forums/). In questi forum o in @AzureSupport su Twitter, è possibile pubblicare il problema. È anche possibile inviare una richiesta di supporto tecnico di Azure selezionando **Ottieni supporto** nel sito del [supporto tecnico di Azure](https://azure.microsoft.com/support/options/).
 ## Informazioni generali
@@ -204,4 +201,4 @@ Allocazione non riuscita. Impossibile soddisfare i vincoli nella richiesta. La n
 
 "Errore interno del server. Ritentare la richiesta" o "Non è stato possibile produrre un'allocazione per il servizio".
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

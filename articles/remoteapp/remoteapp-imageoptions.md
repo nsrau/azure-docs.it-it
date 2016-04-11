@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="03/28/2016"
     ms.author="elizapo" />
 
 
 
 # Creare un'immagine di Azure RemoteApp
 
-Azure RemoteApp usa immagini per contenere le app condivise con gli utenti. Per creare una raccolta Azure RemoteApp con una scelta di applicazioni personalizzata, nel cloud o ibrida, iniziare con la creazione di un'immagine contenente le applicazioni installate. Creare quindi una raccolta che usa l'immagine, assegnare utenti alla raccolta e pubblicare le app per gli utenti desiderati.
+Azure RemoteApp usa immagini per contenere le app condivise con gli utenti. (Prendiamo l'immagine e la usiamo per creare macchine virtuali, ovvero il punto raggiunto dagli utenti quando accedono a RemoteApp di Azure). Per creare una raccolta Azure RemoteApp con una scelta di applicazioni personalizzata, nel cloud o ibrida, iniziare con la creazione di un'immagine contenente le applicazioni installate. Creare quindi una raccolta che usa l'immagine, assegnare utenti alla raccolta e pubblicare le app per gli utenti desiderati.
 
 Per creare o usare le immagini sono disponibili diverse opzioni. Il [requisito](remoteapp-imagereqs.md) di base per un'immagine è che sia in esecuzione Windows Server 2012 R2 e che sia installato il ruolo Host sessione Desktop remoto (RDSH). Sarà interessante vedere come soddisfare questo requisito.
 
@@ -31,4 +31,4 @@ Per le immagini sono disponibili le opzioni seguenti:
 
 Indipendentemente da dove si ottiene l'immagine o da come la si crea, è opportuno verificare di avere compreso i [requisiti per le app](remoteapp-appreqs.md) per garantire il corretto funzionamento dell'app in RemoteApp. Il passaggio successivo consiste nel creare una raccolta [nel cloud](remoteapp-create-cloud-deployment.md) o [ibrida](remoteapp-create-hybrid-deployment.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0330_2016-->

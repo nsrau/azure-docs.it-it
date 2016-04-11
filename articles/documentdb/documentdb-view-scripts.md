@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # Creare ed eseguire stored procedure, trigger e funzioni definite dall'utente usando Esplora script di DocumentDB
@@ -89,32 +89,34 @@ Esplora script consente di eseguire facilmente operazioni CRUD sugli elementi di
 
 ## Eseguire una stored procedure
 
+> [AZURE.WARNING] L’esecuzione di stored procedure in Esplora script non è ancora supportata per le raccolte partizionate lato server. Per ulteriori informazioni, visitare [Partizionamento e ridimensionamento in DocumentDB](documentdb-partition-data.md).
+
 Esplora script consente di eseguire stored procedure lato server dal portale di Azure.
 
-- Quando si apre il pannello di una stored procedure appena creata, verrà fornito uno script predefinito (*prefix*). Per eseguire lo script *prefix* o un proprio script, aggiungere un *ID* e alcuni *input*. Per le stored procedure che accettano più parametri, tutti gli input devono trovarsi all'interno di una matrice, ad esempio *["foo", "bar"]*.
+- Quando si apre il pannello di una stored procedure appena creata, viene fornito uno script predefinito (*prefix*). Per eseguire lo script *prefix* o uno script personale, aggiungere un *ID* e gli *input*. Per le stored procedure che accettano più parametri, tutti gli input devono trovarsi all'interno di una matrice, ad esempio *["foo", "bar"]*.
 
 	![Schermata del pannello Stored procedure di Esplora script per l'aggiunta di input e l'esecuzione di una stored procedure](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-input.png)
 
 - Per eseguire una stored procedure, è sufficiente fare clic sul comando **Salva ed esegui** nel riquadro dell'editor di script.
 
-	> [AZURE.NOTE] Il comando **Salva ed esegui** salverà la stored procedure prima dell'esecuzione. Questo significa che le precedenti versioni della stored procedure verranno sovrascritte.
+	> [AZURE.NOTE] Il comando **Salva ed esegui** salva la stored procedure prima dell'esecuzione ovvero sovrascrive la versione precedentemente salvata della stored procedure.
 
-- Le esecuzioni di stored procedure eseguite con esito positivo avranno lo stato *La stored procedure è stata salvata e l'esecuzione è riuscita* e i risultati restituiti verranno visualizzati nel riquadro *Risultati*.
+- Le esecuzioni di stored procedure eseguite con esito positivo presentano lo stato *La stored procedure è stata salvata e l'esecuzione è riuscita* e i risultati restituiti sono visualizzati nel riquadro *Risultati*.
 
 	![Schermata del pannello Stored procedure di Esplora script per l'esecuzione di una stored procedure](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure.png)
 
-- Se l'esecuzione genera un errore, tale errore verrà visualizzato nel riquadro *Risultati*.
+- Se l'esecuzione genera un errore, viene visualizzato nel riquadro *Risultati*.
 
 	![Schermata della vista delle proprietà dello script di Esplora script Esecuzione di una stored procedure con errori](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-error.png)
 
 ## Usare gli script all'esterno del portale
 
-Esplora script del portale di Azure è solo uno dei modi per utilizzare stored procedure, trigger e funzioni definite dall'utente in DocumentDB. È anche possibile usare gli script mediante l'API REST e gli [SDK client](documentdb-sdk-dotnet.md). La documentazione dell'API REST include esempi dell'utilizzo di [stored procedure mediante REST](https://msdn.microsoft.com/library/azure/mt489092.aspx), [funzioni definite dall'utente mediante REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e [trigger mediante REST](https://msdn.microsoft.com/library/azure/mt489116.aspx). Sono inoltre disponibili esempi che mostrano come [utilizzare gli script mediante C#](documentdb-dotnet-samples.md#server-side-programming-examples) e [utilizzare gli script mediante Node.js](documentdb-nodejs-samples.md#server-side-programming-examples).
+Esplora script del portale di Azure è solo uno dei modi per utilizzare stored procedure, trigger e funzioni definite dall'utente in DocumentDB. Gli script possono essere utilizzati anche con l'API REST e gli [SDK client](documentdb-sdk-dotnet.md). La documentazione dell'API REST include esempi dell'utilizzo di [stored procedure mediante REST](https://msdn.microsoft.com/library/azure/mt489092.aspx), [funzioni definite dall'utente mediante REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e [trigger mediante REST](https://msdn.microsoft.com/library/azure/mt489116.aspx). Sono inoltre disponibili esempi che mostrano come [utilizzare gli script mediante C#](documentdb-dotnet-samples.md#server-side-programming-examples) e [utilizzare gli script mediante Node.js](documentdb-nodejs-samples.md#server-side-programming-examples).
 
 ## Passaggi successivi
 
-Altre informazioni sulla programmazione sul lato server di DocumentDB sono disponibili nell'articolo relativo alla [programmazione sul lato server DocumentDB: stored procedure, trigger del database e funzioni definite dall'utente](documentdb-programming.md).
+Per ulteriori informazioni sulla programmazione lato server di DocumentDB, vedere l'articolo relativo a [Stored procedure, trigger del database e funzioni definite dall’utente](documentdb-programming.md).
 
 Anche il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) è una risorsa utile per l'utente durante l'apprendimento di DocumentDB.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

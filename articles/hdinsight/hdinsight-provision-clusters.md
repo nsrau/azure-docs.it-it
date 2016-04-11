@@ -23,11 +23,11 @@
 
 Un cluster Hadoop è costituito da alcune macchine virtuali (nodi) che vengono usate per l'elaborazione distribuita di attività sul cluster. Azure consente di astrarre i dettagli di implementazione dell'installazione e della configurazione dei singoli nodi. È quindi necessario specificare solo le informazioni di configurazione generali. In questo articolo vengono illustrate queste impostazioni di configurazione.
 
->[AZURE.NOTE] Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Windows. Per informazioni specifiche per i cluster basati su Linux, vedere [Creare cluster Hadoop basati su Windows in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+>[AZURE.NOTE] Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Windows. Per informazioni sui cluster basati su Linux, vedere [Creare cluster Hadoop basati su Linux in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Tipi di cluster
 
-Attualmente, HDInsight mette a disposizione 4 tipi diversi di cluster, ognuno con un set di componenti che fornisce determinate funzionalità:
+Attualmente, HDInsight offre 4 tipi diversi di cluster, ognuno con un set di componenti per fornire funzionalità specifiche:
 
 | Tipo di cluster | Usare questo per... |
 | ------------ | ----------------------------- |
@@ -40,12 +40,12 @@ Ogni tipo di cluster usa una terminologia specifica per i nodi nel cluster, oltr
 
 | Tipo| Nodi (numero di nodi)| Diagramma|
 |-----|------|--------|
-|Hadoop| Nodo head (2), nodo data (1 +)|![Nodi del cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)|
-|HBase|Head server (2), Region server (1+), nodo Master/Zookeeper (3)|![Nodi del cluster HDInsight HBase](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)|
-|Storm|Nodo nimbus (2), server Supervisor (1+), nodo Zookeeper (3)|![Nodi del cluster HDInsight Storm](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
-|Spark|Nodo head (2), nodo Worker (1+), nodo Zookeeper (3) (gratuito per le VM Zookeeper di formato A1)|![Nodi del cluster HDInsight Spark](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
+|Hadoop| Nodo head (2), nodo dati (1+)|![Nodi del cluster HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)|
+|HBase|Server head (2), server di area (1+), nodo Master/Zookeeper (3)|![Nodi del cluster HDInsight HBase](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)|
+|Storm|Nodo Nimbus (2), server Supervisor (1+), nodo Zookeeper (3)|![Nodi del cluster HDInsight Storm](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
+|Spark|Nodo head (2), nodo Worker (1+), nodo Zookeeper (3) (gratuito per le VM Zookeeper con dimensioni A1)|![Nodi del cluster HDInsight Spark](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
 
-* Tra parentesi viene indicato il numero di nodi per ogni tipo di nodo.
+* Tra parentesi è indicato il numero di nodi per ogni tipo di nodo.
 
 > [AZURE.IMPORTANT] Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 
@@ -57,7 +57,7 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 
 - **Nome cluster**
 
-	Il campo Nome cluster consente di identificare un cluster. Nome cluster deve essere globalmente univoco e deve seguire le convenzioni di denominazione seguenti:
+	Il campo Nome cluster consente di identificare un cluster. Il nome del cluster deve essere globalmente univoco e seguire le convenzioni di denominazione seguenti:
 
 	- Il campo deve essere una stringa contenente da 3 a 63 caratteri.
 	- Il campo può contenere solo lettere, numeri e trattini.
@@ -86,7 +86,7 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 
 - **Credenziali**
 
-	I cluster HDInsight consentono di configurare due account utente durante la creazione dei cluster:
+	I cluster HDInsight consentono di configurare due account utente durante la creazione del cluster:
 
 	- Utente HTTP. Il nome utente predefinito è admin con la configurazione di base nel portale di Azure. In alcuni casi, viene chiamato "utente cluster".
 	- Utente RDP (cluster Windows): usato per la connessione al cluster tramite RDP. Quando si crea l'account, è necessario impostare una scadenza corrispondente a una data entro 90 giorni dalla data odierna.
@@ -94,7 +94,7 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 
 - **Origine dati**
 
-	L'interfaccia HDFS originale usa molti dischi locali sul cluster. HDInsight usa invece l'archivio BLOB di Azure per l'archiviazione dei dati. L'archiviazione BLOB di Azure è una soluzione di archiviazione affidabile, con finalità generali che si integra facilmente con HDInsight. Grazie a un'interfaccia HDFS (Hadoop Distributed File System), tutti i componenti disponibili in HDInsight possono agire direttamente sui dati strutturati o non strutturati presenti nell'archiviazione BLOB. L'archiviazione dei dati nell'archiviazione BLOB consente l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
+	L'interfaccia HDFS originale usa molti dischi locali nel cluster. HDInsight usa invece l'archivio BLOB di Azure per l'archiviazione dei dati. L'archiviazione BLOB di Azure è una soluzione di archiviazione affidabile, con finalità generali che si integra facilmente con HDInsight. Grazie a un'interfaccia HDFS (Hadoop Distributed File System), tutti i componenti disponibili in HDInsight possono agire direttamente sui dati strutturati o non strutturati presenti nell'archiviazione BLOB. L'archiviazione dei dati nell'archiviazione BLOB consente l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
 
 	Durante la configurazione è necessario specificare un account di archiviazione di Azure e un contenitore di archiviazione BLOB di Azure nell'account di archiviazione di Azure. Alcuni processi di creazione richiedono prima di tutto la creazione dell'account di archiviazione di Azure e del contenitore di archiviazione BLOB. Il contenitore di archiviazione BLOB viene usato dal cluster come posizione di archiviazione predefinita. Facoltativamente, è possibile specificare account di archiviazione di Azure aggiuntivi (account di archiviazione collegati) a cui il cluster potrà accedere. Il cluster può accedere anche a eventuali contenitori BLOB configurati con accesso in lettura pubblico completo o accesso in lettura pubblico solo per i BLOB. Per altre informazioni sull'accesso con limitazioni, vedere [Gestire l'accesso alle risorse di archiviazione di Azure](storage-manage-access-to-resources.md).
 
@@ -104,7 +104,7 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 
 	![Archivio BLOB di Azure](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
-    Non è consigliabile utilizzare il contenitore BLOB predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il contenitore BLOB predefinito dopo ogni uso per ridurre i costi di archiviazione. Si noti che il contenitore predefinito contiene registri sistema e applicazioni. Assicurarsi di recuperare i registri prima di eliminare il contenitore.
+    Non è consigliabile usare il contenitore BLOB predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il contenitore BLOB predefinito dopo ogni uso per ridurre i costi di archiviazione. Si noti che il contenitore predefinito include registri di sistema e applicazioni. Assicurarsi di recuperare i registri prima di eliminare il contenitore.
     
 	>[AZURE.WARNING] La condivisione di un contenitore di archiviazione BLOB tra più cluster non è supportata.
 
@@ -134,11 +134,11 @@ Di seguito sono riportate le opzioni di configurazione di base per la creazione 
 
 	![Dimensioni dei nodi delle VM di HDInsight](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
 
-    Le tabelle seguenti illustrano le dimensioni supportate dai cluster HDInsight e le capacità offerte da ogni dimensione.
+    Le tabelle seguenti illustrano le dimensioni supportate dai cluster HDInsight e le capacità offerte.
 
     - Livello Standard: serie A
 
-        Nel modello di distribuzione classico, alcune dimensioni delle macchine virtuali sono leggermente diverse in PowerShell e nell’interfaccia della riga di comando.
+        Nel modello di distribuzione classico alcune dimensioni delle macchine virtuali sono leggermente diverse in PowerShell e nell'interfaccia della riga di comando.
 
         * Standard\_A3 è Large
         * Standard\_A4 è ExtraLarge
@@ -187,9 +187,9 @@ Per altre informazioni sull'uso degli archivi BLOB secondari, vedere [Uso dell'a
 
 ## Usare metastore Hive/Oozie
 
-Si consiglia di utilizzare un metastore personalizzato se si desidera conservare le tabelle Hive dopo aver eliminato il cluster HDInsight, ai fini di associare tale metastore a un altro cluster HDInsight in futuro.
+È consigliabile usare un metastore personalizzato per conservare le tabelle Hive dopo aver eliminato il cluster HDInsight, allo scopo di associare il metastore a un altro cluster HDInsight in futuro.
 
-Il metastore contiene metadati Hive e Oozie, tra cui tabelle di Hive, partizioni, schemi e colonne. Consente di conservare i propri metadati Hive e Oozie, in modo che non sia necessario creare di nuovo tabelle di Hive o processi Oozie quando si crea un nuovo cluster. Per impostazione predefinita, Hive usa un database SQL di Azure incorporato per l'archiviazione di queste informazioni. Se il cluster viene eliminato, tuttavia, i metadati non vengono mantenuti nel database incorporato. Ad esempio, è disponibile un cluster creato con un metastore Hive. Sono state create alcune tabelle Hive. Dopo avere eliminato il cluster e ricreato il cluster mediante lo stesso metastore Hive, sarà possibile visualizzare le tabelle Hive create nel cluster originale.
+Il metastore contiene metadati Hive e Oozie, tra cui tabelle di Hive, partizioni, schemi e colonne. Consente di conservare i propri metadati Hive e Oozie, in modo che non sia necessario creare di nuovo tabelle di Hive o processi Oozie quando si crea un nuovo cluster. Per impostazione predefinita, Hive usa un database SQL di Azure incorporato per l'archiviazione di queste informazioni. Se il cluster viene eliminato, tuttavia, i metadati non vengono mantenuti nel database incorporato. Ad esempio, è disponibile un cluster creato con un metastore Hive. Sono state create alcune tabelle Hive. Dopo avere eliminato il cluster e averlo ricreato usando lo stesso metastore Hive, si potranno visualizzare le tabelle Hive create nel cluster originale.
 
 > [AZURE.NOTE] La configurazione Metastore non è disponibile per i tipi di cluster HBase.
 
@@ -220,9 +220,9 @@ A volte potrebbe essere necessario modificare i file di configurazione:
 - hive-site.xml
 - oozie-site.xml
 
-Per mantenere le modifiche per l'intero ciclo di vita dei cluster, è possibile usare la personalizzazione dei cluster HDInsight durante il processo di creazione oppure usare Ambari in sicurezza nei cluster basati su Linux. Per altre informazioni, vedere [Personalizzare cluster HDInsight tramite Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+Per mantenere le modifiche per tutta la durata del cluster, è possibile usare la funzionalità di personalizzazione dei cluster HDInsight durante il processo di creazione oppure usare Ambari nei cluster basati su Linux in modo sicuro. Per altre informazioni, vedere [Personalizzare cluster HDInsight tramite Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
->[AZURE.NOTE] I cluster basati su Windows non possono conservare le modifiche a causa del re-imaging. Per ulteriori informazioni, vedere [Riavvi delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Per mantenere le modifiche per l'intero ciclo di vita dei cluster, è necessario usare la personalizzazione dei cluster HDInsight durante il processo di creazione.
+>[AZURE.NOTE] I cluster basati su Windows non possono conservare le modifiche a causa del re-imaging. Per ulteriori informazioni, vedere [Riavvi delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Per mantenere le modifiche per tutta la durata dei cluster, è necessario usare la funzionalità di personalizzazione dei cluster HDInsight durante il processo di creazione.
 
 ## Personalizzare i cluster mediante l'azione script
 
@@ -234,7 +234,7 @@ L'uso di script durante la creazione consente di installare componenti aggiuntiv
 
 In questo articolo si sono apprese informazioni di base sulla creazione di un cluster HDInsight basato su Windows. Usare la tabella seguente per trovare informazioni specifiche su come creare un cluster usando un metodo ottimale per le proprie esigenze:
 
-| Consente di creare cluster... | Usare un browser Web... | Usare la riga di comando | Usare l'API REST | Usare l'SDK | Da Linux, Mac OS X o Unix | Da Windows |
+| Per creare cluster usare... | Usare un Web browser... | Usare la riga di comando | Usare l'API REST | Usare l'SDK | Da Linux, Mac OS X o Unix | Da Windows |
 | ------------------------------- |:----------------------:|:--------------------:|:------------------:|:------------:|:-----------------------------:|:------------:|
 | [Portale di Azure](hdinsight-hadoop-create-windows-clusters-portal.md) | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ |
 | [Interfaccia della riga di comando di Azure](hdinsight-hadoop-create-windows-clusters-cli.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
@@ -243,4 +243,4 @@ In questo articolo si sono apprese informazioni di base sulla creazione di un cl
 | [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelli di Gestione risorse di Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

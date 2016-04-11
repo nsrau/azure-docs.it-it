@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="03/28/2016"
 	ms.author="swkrish"/>
 
 # Anteprima di Azure Active Directory B2C: Abilitare Multi-Factor Authentication nelle applicazioni consumatori
@@ -54,4 +54,8 @@ Un account utente viene creato nella directory prima che venga eseguito il passa
 
 Quando l’utente si iscrive (utilizzando un account locale o social), se un numero di telefono verificato è collegato all'account utente, viene richiesto di verificarlo. Se non è associato alcun numero di telefono, all’utente viene richiesto di fornire un numero di telefono e di verificarlo. Se la verifica ha esito positivo, il numero di telefono viene associato all'account utente per un uso successivo.
 
-<!---HONumber=AcomDC_0224_2016-->
+## Multi-Factor Authentication per altri criteri
+
+Come descritto in precedenza per i criteri di iscrizione e accesso, è possibile abilitare la Multi-Factor Authentication per i criteri di iscrizione e accesso e quelli di reimpostazione della password. Questa opzione sarà presto disponibile tra i criteri di modifica del profilo.
+
+<!---HONumber=AcomDC_0330_2016-->

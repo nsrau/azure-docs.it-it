@@ -27,43 +27,27 @@
 Questo argomento presenta un esempio di codice Python che viene eseguito in un computer client Ubuntu Linux per connettersi a un database SQL di Azure.
 
 
-## Prerequisiti
+## Passaggio 1: Configurare l'ambiente di sviluppo
 
+[Prerequisiti per l'uso del driver pymssql Python per SQL Server](https://msdn.microsoft.com/library/mt694094.aspx#Ubuntu-Linux)
 
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/).
-
-
-### Installare i moduli necessari
-
-
-Aprire il terminale in uso e passare a una directory in cui si prevede di creare lo script python. Immettere i comandi seguenti per installare **FreeTDS** e **pymssql**. pymssql usa FreeTDS per connettersi al database SQL.
-
-	sudo apt-get --assume-yes update
-	sudo apt-get --assume-yes install freetds-dev freetds-bin
-	sudo apt-get --assume-yes install python-dev python-pip
-	sudo pip install pymssql
-
-
-### Un database SQL
+## Passaggio 2: Creare un database SQL
 
 Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su come creare un database di esempio. È importante seguire le istruzioni per creare un **modello di database AdventureWorks**. Gli esempi illustrati di seguito funzionano solo con lo **schema di AdventureWorks**.
 
-## Passaggio 1: Ottenere i dettagli di connessione
+## Passaggio 3: Ottenere i dettagli di connessione
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## Passaggio 2: Connettersi
-
-!!!!!sql-database-include-connection-string-details-20-portalshots.md
+## Passaggio 4: Effettuare la connessione
 
 Per connettersi al database SQL viene usata la funzione [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html).
 
 	import pymssql
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
-
-## Passaggio 3: Eseguire una query
+## Passaggio 5: Eseguire una query
 
 Per recuperare un set di risultati di una query sul database SQL è possibile usare la funzione [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute). Questa funzione accetta essenzialmente qualsiasi query e restituisce un set di risultati su cui è possibile eseguire l'iterazione mediante [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
@@ -78,7 +62,7 @@ Per recuperare un set di risultati di una query sul database SQL è possibile us
 	    row = cursor.fetchone()
 
 
-## Passaggio 4: Inserire una riga
+## Passaggio 6: Inserire una riga
 
 Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) in modo sicuro, come passare i parametri che proteggono l'applicazione da attacchi [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e come recuperare il valore di [Chiave primaria](https://msdn.microsoft.com/library/ms179610.aspx) generato automaticamente.
 
@@ -93,7 +77,7 @@ Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.micros
 	    row = cursor.fetchone()
 
 
-## Passaggio 5: Rollback di una transazione
+## Passaggio 7: Eseguire il rollback di una transazione
 
 
 Questo esempio di codice illustra l'uso di transazioni con le operazioni seguenti:
@@ -117,4 +101,4 @@ Questo esempio di codice illustra l'uso di transazioni con le operazioni seguent
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

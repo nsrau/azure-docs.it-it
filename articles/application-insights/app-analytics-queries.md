@@ -15,12 +15,10 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
-
 # Query in Analytics
 
 
-[Analytics](app-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analytics.
+[Analytics](app-analytics.md) consente di eseguire query importanti sui dati di telemetria dell'app raccolti da [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query usato da Analytics.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -766,4 +764,4 @@ Si noti che il confronto tra due colonne viene inserito per ultimo, perché non 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

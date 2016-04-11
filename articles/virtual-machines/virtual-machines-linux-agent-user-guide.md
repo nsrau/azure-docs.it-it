@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
-	ms.author="mingzhan"/>
+	ms.date="03/14/2016" 
+	ms.author="szark"/>
 
 
 
@@ -26,6 +26,8 @@
 ##Introduzione
 
 L’agente Linux di Azure (/usr/sbin/waagent) gestisce l’interazione tra una macchina virtuale e il controller di infrastruttura di Azure. Effettua le seguenti operazioni:
+
+> [AZURE.NOTE] La versione più recente della guida è disponibile nel file [LEGGIMI](https://github.com/Azure/WALinuxAgent/blob/2.0/README) dell'agente Linux di Azure.
 
 * **Provisioning dell'immagine**
   - Crea un account utente
@@ -201,13 +203,13 @@ Se è specificato un percorso a un programma eseguibile, viene richiamato dopo c
 
 Tipo: String Predefinito: nessuno
 
-Se è specificato un percorso a un programma eseguibile, il programma viene richiamato quando l'infrastruttura indica che è disponibile un file di configurazione per una macchina virtuale. Il percorso al file di configurazione XML è fornito come argomento all'eseguibile. Può essere richiamato più volte, ogni volta che il file di configurazione subisce modifiche. Nell'appendice viene fornito un file di esempio. Il percorso corrente di questo file è /var/lib/waagent/HostingEnvironmentConfig.xml.
+Se è specificato un percorso a un programma eseguibile, il programma viene richiamato quando l'infrastruttura indica che è disponibile un file di configurazione per una macchina virtuale. Il percorso al file di configurazione XML è fornito come argomento all'eseguibile. Può essere richiamato più volte, ogni volta che il file di configurazione subisce modifiche. Il percorso corrente di questo file è /var/lib/waagent/HostingEnvironmentConfig.xml.
 
 **Role.TopologyConsumer:**
 
 Tipo: String Predefinito: nessuno
 
-Se è specificato un percorso a un programma eseguibile, il programma viene richiamato quando l'infrastruttura indica che è disponibile un nuovo layout di topologia di rete per la macchina virtuale. Il percorso al file di configurazione XML è fornito come argomento all'eseguibile. Può essere richiamato più volte ogni, ogni volta che la topologia di rete subisce modifiche, ad esempio a seguito della correzione del servizio. Nell'appendice viene fornito un file di esempio. Il percorso corrente di questo file è /var/lib/waagent/SharedConfig.xml.
+Se è specificato un percorso a un programma eseguibile, il programma viene richiamato quando l'infrastruttura indica che è disponibile un nuovo layout di topologia di rete per la macchina virtuale. Il percorso al file di configurazione XML è fornito come argomento all'eseguibile. Può essere richiamato più volte ogni, ogni volta che la topologia di rete subisce modifiche, ad esempio a seguito della correzione del servizio. Il percorso corrente di questo file è /var/lib/waagent/SharedConfig.xml.
 
 **Provisioning.Enabled:**
 
@@ -321,4 +323,4 @@ Si noti che le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpa
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->
