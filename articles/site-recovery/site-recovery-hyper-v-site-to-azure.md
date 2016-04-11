@@ -63,11 +63,11 @@ Durante la distribuzione di Azure Site Recovery verranno installati il provider 
 - È consigliabile eseguire sempre le versioni più recenti del provider e dell'agente, disponibili nel portale di Site Recovery.
 - Tutti i server Hyper-V di un insieme devono essere della stessa versione del provider e dell'agente.
 - Il provider in esecuzione nel server si connette a Site Recovery via Internet. È possibile eseguire questa operazione senza un proxy, con le impostazioni proxy attualmente configurate nel server Hyper-V oppure con le impostazioni proxy personalizzate configurate durante l'installazione del provider. Assicurarsi che il server proxy da usare possa accedere a questi URL per la connessione ad Azure:
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **. store.core.windows.net
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
 	
 - Consentire anche gli indirizzi IP descritti in [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) e il protocollo HTTPS (443). È necessario aggiungere all'elenco di indirizzi consentiti gli IP dell'area Azure che si prevede di utilizzare e quello degli Stati Uniti occidentali.
 
@@ -233,8 +233,8 @@ Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezio
 		- **Nome**: il nome della macchina virtuale in Azure.
 		- **Dimensioni**: le dimensioni della macchina virtuale di destinazione che esegue il failover.
 
-		![Configurare le proprietà della macchina virtuale](./media/site-recovery-hyper-v-site-to-azure/vm-properties.png)
-	- Configurare altre impostazioni della macchina virtuale in *Elementi protetti** > **Gruppi protezione dati** > *nome\_gruppodiprotezione* > **Macchine virtuali** *nome\_macchina\_virtuale* > **Configura**:
+		![Configurare le proprietà della macchina virtuale](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
+	- Configurare altre impostazioni della macchina virtuale in **Elementi protetti** > **Gruppi protezione dati** > *nome\_gruppodiprotezione* > **Macchine virtuali** *nome\_macchina\_virtuale* > **Configura**:
 
 		- **Schede di rete**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per il numero di schede di rete supportate dalle dimensioni della macchina virtuale, vedere le [specifiche sulle dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md#size-tables).
 

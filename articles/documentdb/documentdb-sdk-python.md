@@ -74,7 +74,17 @@ Tutte le versioni dell'SDK per Python di Azure DocumentDB precedenti alla versio
 
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
-| [1\.6.0](#1.6.0) | 29 marzo 2016 |--- | [1\.5.0](#1.5.0) | 03 gennaio 2016 |--- | [1\.4.2](#1.4.2) | 06 ottobre 2015 |--- | [1\.4.1](#1.4.1) | 06 ottobre 2015 |--- | [1\.2.0](#1.2.0) | 06 agosto 2015 |--- | [1\.1.0](#1.1.0) | 09 luglio 2015 |--- | [1\.0.1](#1.0.1) | 25 maggio 2015 |--- | [1\.0.0](#1.0.0) | 07 aprile 2015 |--- | 0.9.4-versione non definitiva | 14 gennaio 2015 | 29 febbraio 2016 | 0.9.3-versione non definitiva | 09 dicembre 2014 | 29 febbraio 2016 | 0.9.2-versione non definitiva | 25 novembre 2014 | 29 febbraio 2016 | 0.9.1-versione non definitiva | 23 settembre 2014 | 29 febbraio 2016 | 0.9.0-versione non definitiva | 21 agosto 2014 | 29 febbraio 2016
+| [1\.4.2](#1.4.2) | 06 ottobre 2015 |---
+| [1\.4.1](#1.4.1) | 06 ottobre 2015 |---
+| [1\.2.0](#1.2.0) | 06 agosto 2015 |---
+| [1\.1.0](#1.1.0) | 09 luglio 2015 |---
+| [1\.0.1](#1.0.1) | 25 maggio 2015 |---
+| [1\.0.0](#1.0.0) | 07 aprile 2015 |---
+| 0.9.4-versione non definitiva | 14 gennaio 2015 | 29 febbraio 2016
+| 0.9.3-versione non definitiva | 09 dicembre 2014 | 29 febbraio 2016
+| 0.9.2-versione non definitiva | 25 novembre 2014 | 29 febbraio 2016
+| 0.9.1-versione non definitiva | 23 settembre 2014 | 29 febbraio 2016
+| 0.9.0-versione non definitiva | 21 agosto 2014 | 29 febbraio 2016
 
 ## Domande frequenti
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

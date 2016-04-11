@@ -9,7 +9,7 @@ Fare clic sul pulsante**Distribuisci in Azure**dal [collegamento modello](https:
 
 ![Distribuzione semplice di tag](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-Questo modello include i seguenti tag:*Reparto**Applicazione*e*Creato da*. È possibile aggiungere o modificare questi tag direttamente nel modello se si desiderano diversi nomi di tag.
+Questo modello include i seguenti tag:*Reparto* *Applicazione* e *Creato da*. È possibile aggiungere o modificare questi tag direttamente nel modello se si desiderano diversi nomi di tag.
 
 ![Tag di Azure in un modello](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 

@@ -4,8 +4,8 @@ Le notifiche push vengono in genere inviate in un servizio back-end come App per
 
 Di seguito è riportato un elenco di altre esercitazioni, che è possibile esaminare per l'invio di notifiche:
 
-- App per dispositivi mobili di Azure: per un esempio di come inviare notifiche dal back-end di un'app per dispositivi mobili integrata con Hub di notifica, vedere [Aggiungere notifiche push all'app iOS](../articles/app-service-mobile/app-service-mobile-ios-get-started-push.md).  
-- ASP.NET : [Usare Hub di notifica per inviare notifiche push agli utenti](../articles/notification-hubs/notification-hubs-aspnet-backend-ios-notify-users.md).
+- Servizi mobili di Azure: per un esempio di come inviare notifiche da un back-end di Servizi mobili di Azure integrato con Hub di notifica, vedere [Introduzione alle notifiche push in Servizi mobili](../mobile-services-javascript-backend-ios-get-started-push.md).  
+- ASP.NET: [Usare Hub di notifica per inviare notifiche push agli utenti](notification-hubs-aspnet-backend-ios-notify-users.md).
 - SDK per Java di Hub di notifica di Azure: vedere [Come usare Hub di notifica da Java](../articles/notification-hubs/notification-hubs-java-backend-how-to.md) per l'invio di notifiche da Java. È stato testato in Eclipse per lo sviluppo per Android.
 - PHP: [Come usare Hub di notifica da PHP](../articles/notification-hubs/notification-hubs-php-backend-how-to.md).
 

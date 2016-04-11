@@ -94,7 +94,7 @@ Una notevole differenza tra il picco e l'utilizzo medio di un database indica pe
 La dimensione ottimale per un pool dipende dalle eDTU di aggregazione e dalle risorse di archiviazione necessarie per tutti i database nel pool. Questo richiede di stabilire il valore maggiore tra i seguenti:
 
 * Dtu massima utilizzata da tutti i database nel pool.
-* Byte di archiviazione massima utilizzati da tutti i database nel pool.
+* Byte di archiviazione massima utilizzati da tutti i database nel pool. 
 
 Per le dimensioni disponibili vedere [Limiti di archiviazione e di eDTU per i pool di database elastici e i database elastici](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
