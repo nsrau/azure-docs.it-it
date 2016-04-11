@@ -35,7 +35,7 @@ Ad esempio, è possibile inserire in un unico set di disponibilità tutte le mac
 
 
 ### Combinare il bilanciamento del carico con set di disponibilità
-Per ottenere un'elevata resilienza dell'applicazione è possibile combinare il servizio di bilanciamento del carico di Azure con un set di disponibilità. Il servizio di bilanciamento del carico distribuisce il traffico tra più macchine virtuali ed è incluso nelle macchine virtuali di livello Standard. Non tutti i livelli delle macchine virtuali includono il servizio di bilanciamento del carico di Azure. Per altre informazioni sul bilanciamento del carico delle macchine virtuali, leggere [Bilanciamento del carico delle macchine virtuali](virtual-machines-linux-load-balance.md).
+Per ottenere un'elevata resilienza dell'applicazione è possibile combinare il servizio di bilanciamento del carico di Azure con un set di disponibilità. Il servizio di bilanciamento del carico distribuisce il traffico tra più macchine virtuali ed è incluso nelle macchine virtuali di livello Standard. Non tutti i livelli delle macchine virtuali includono il servizio di bilanciamento del carico di Azure. Per altre informazioni sul bilanciamento del carico delle macchine virtuali, leggere [Bilanciamento del carico delle macchine virtuali](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
 
 Se il bilanciamento del carico non è configurato in modo da bilanciare il traffico tra più macchine virtuali, qualsiasi evento di manutenzione pianificata influirà sull'unica macchina virtuale di gestione del traffico, determinando un'interruzione del livello di applicazione. Associando più macchine virtuali dello stesso livello a un unico servizio di bilanciamento del carico e a uno stesso set di disponibilità si garantisce che il traffico sia sempre gestito da almeno un'istanza.
 
@@ -47,6 +47,6 @@ Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibi
 [Configurare ogni livello dell'applicazione in set di disponibilità separati]: #configure-each-application-tier-into-separate-availability-sets
 [Combinare il servizio bilanciamento del carico con set di disponibilità]: #combine-the-load-balancer-with-availability-sets
 [Evitare singole istanze di macchine virtuali nei set di disponibilità]: #avoid-single-instance-virtual-machines-in-availability-sets
-[Come configurare un set di disponibilità per le macchine virtuali]: virtual-machines-windows-classic-configure-availability.md
+[Come configurare un set di disponibilità per le macchine virtuali]: ../articles/virtual-machines/virtual-machines-windows-classic-configure-availability.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

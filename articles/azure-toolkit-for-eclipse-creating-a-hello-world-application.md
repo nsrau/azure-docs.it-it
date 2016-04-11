@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Creazione di un'applicazione Hello World per Azure in Eclipse"
+    pageTitle="Creare un servizio cloud Hello World per Azure in Eclipse"
     description="Informazioni su come creare una semplice applicazione Hello World usando Azure Toolkit per Eclipse."
     services=""
     documentationCenter="java"
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/04/2016" 
+    ms.date="03/28/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
 
-# Creazione di un'applicazione Hello World per Azure in Eclipse #
+# Creare un servizio cloud Hello World per Azure in Eclipse #
 
 La procedura seguente illustra come creare e distribuire un'applicazione JSP di base in Azure usando Azure Toolkit per Eclipse. Per semplicità è riportato un esempio JSP, ma è possibile adottare una procedura molto simile anche per un servlet Java, per quanto riguarda la distribuzione di Azure.
 
@@ -105,7 +105,7 @@ Oltre alle informazioni relative alle applicazioni, un progetto di distribuzione
 
 Sebbene l'esempio usato in questo argomento sia notevolmente semplificato per scopi didattici, un progetto di distribuzione di Azure può contenere anche altre importanti informazioni di configurazione che consentono di creare con le applicazioni servizi cloud complessi, scalabili, a disponibilità elevata e a più livelli quasi arbitrariamente. È possibile abilitare l'**affinità di sessione ("sessioni permanenti")**, la **memorizzazione rapida nella cache**, il **debug remoto**, la **ripartizione del carico di lavoro SSL**, il **routing firewall/porta**, l'**accesso remoto** e diverse altre potenti funzionalità.
 
-Se si è completata la sezione precedente di questa esercitazione ("Per distribuire l'applicazione in Azure in modo semplice e rapido"), in Esplora progetti verrà visualizzato un nuovo progetto di distribuzione di Azure generato automaticamente con il nome "**MyHelloWorld_onAzure**".
+Se si è completata la sezione precedente di questa esercitazione ("Per distribuire l'applicazione in Azure in modo semplice e rapido"), in Esplora progetti verrà visualizzato un nuovo progetto di distribuzione di Azure generato automaticamente con il nome "**MyHelloWorld\_onAzure**".
 
 L'esercitazione può essere stata avviata anche con la creazione di un progetto di distribuzione di Azure vuoto, a cui sono state aggiunte una o più applicazioni. Si tratta di un procedura più lunga, ma che garantisce fin dall'inizio un maggior controllo sulla configurazione iniziale.
 
@@ -124,11 +124,11 @@ Indipendentemente dal fatto che la procedura di configurazione server sia stata 
 
 ## Solo Windows: per distribuire l'applicazione nell'emulatore di calcolo ##
 
->[AZURE.NOTE] L'emulatore di Azure è disponibile solo per Windows. Ignorare questa sezione se si usa un sistema operativo diverso da Windows.
+>[AZURE.NOTE]L'emulatore di Azure è disponibile solo per Windows. Ignorare questa sezione se si usa un sistema operativo diverso da Windows.
 
 Se si è creato un nuovo progetto di distribuzione di Azure seguendo la procedura descritta sopra, ovvero in modo implicito pubblicando l'applicazione in Azure, il pacchetto JDK e il server applicazioni sono stati configurati per il cloud, ma non per l'emulazione locale. Per preparare il progetto per il test nell'emulatore locale, seguire questa procedura:
 
-1. In Project Explorer di Eclipse fare clic su **MyHelloWorld_onAzure**.
+1. In Project Explorer di Eclipse fare clic su **MyHelloWorld\_onAzure**.
 1. Fare clic con il pulsante destro del mouse su **WorkerRole1**.
 1. Espandere il sottomenu **Azure** nel menu di scelta rapida.
 1. Fare clic su **Server Configuration**.
@@ -138,10 +138,10 @@ Se si è creato un nuovo progetto di distribuzione di Azure seguendo la procedur
 1. Fare clic su **OK**.
 1. Nella barra degli strumenti di Eclipse fare clic sul pulsante **Run in Azure Emulator**, ![][ic710879]. Se il pulsante **Run in Azure Emulator** non è abilitato, verificare che **MyHelloWorld\_onAzure** sia selezionato in Project Explorer di Eclipse e assicurarsi che Project Explorer di Eclipse abbia lo stato attivo come finestra corrente. Verrà avviata prima una build completa del progetto e quindi verrà avviata l'applicazione Web Java nell'emulatore di calcolo. Si noti che a seconda delle caratteristiche delle prestazioni del computer, la prima build può richiedere da alcuni secondi fino ad alcuni minuti, mentre le build successive risulteranno più rapide. Una volta completato il passaggio relativo alla prima build, Controllo dell'account utente di Windows richiederà di consentire l'applicazione di apportare modifiche al computer in uso. Fare clic su **Yes**.
 
->[AZURE.IMPORTANT] Se non viene visualizzato il prompt di Controllo dell'account utente, verificare che sulla barra delle applicazioni di Windows sia presente l'icona corrispondente e selezionarla prima. Talvolta il prompt di Controllo dell'account utente non viene visualizzato come finestra in primo piano, ma è visibile solo come icona sulla barra delle applicazioni.
+>[AZURE.IMPORTANT]Se non viene visualizzato il prompt di Controllo dell'account utente, verificare che sulla barra delle applicazioni di Windows sia presente l'icona corrispondente e selezionarla prima. Talvolta il prompt di Controllo dell'account utente non viene visualizzato come finestra in primo piano, ma è visibile solo come icona sulla barra delle applicazioni.
 
 1. Esaminare l'output dell'interfaccia utente dell'emulatore di calcolo per determinare se sono presenti errori nel progetto. In base al contenuto della distribuzione, l'avvio completo dell'applicazione all'interno dell'emulatore di calcolo potrebbe richiedere alcuni minuti.
-1. Avviare il browser e usare l'URL `http://localhost:8080/MyHelloWorld` come indirizzo (per la parte `MyHelloWorld` dell'URL viene fatta distinzione tra maiuscole e minuscole). L'applicazione MyHelloWorld (output di index.jsp) dovrebbe essere visualizzata in modo simile all'immagine seguente: 
+1. Avviare il browser e usare l'URL `http://localhost:8080/MyHelloWorld` come indirizzo (per la parte `MyHelloWorld` dell'URL viene fatta distinzione tra maiuscole e minuscole). L'applicazione MyHelloWorld (output di index.jsp) dovrebbe essere visualizzata in modo simile all'immagine seguente:
 
     ![][ic589579]
 
@@ -196,4 +196,4 @@ Per altre informazioni sull'uso di Azure con Java, visitare il [centro per svilu
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

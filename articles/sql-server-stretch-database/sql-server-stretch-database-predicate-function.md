@@ -24,7 +24,7 @@ Nelle versioni da CTP 3.1 a RC1 l'opzione che consente di specificare un predica
 
 Se non si specifica alcun predicato del filtro, viene eseguita la migrazione dell'intera tabella.
 
-    > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
+>   [AZURE.NOTE] Se si specifica un predicato del filtro con esecuzione inadeguata, la migrazione dei dati sarà a sua volta inadeguata. Il Database Estensione applica il predicato del filtro alla tabella tramite l'operatore CROSS APPLY.
 
 ## Requisiti di base per la funzione con valori di tabella inline
 La funzione con valori di tabella inline necessaria per una funzione di filtro del Database Estensione è simile all'esempio seguente.
@@ -410,4 +410,4 @@ Per controllare il predicato del filtro applicato a una tabella, aprire la vista
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

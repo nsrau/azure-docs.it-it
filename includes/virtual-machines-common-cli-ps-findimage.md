@@ -1,33 +1,5 @@
 
 
-
-
-
-## Tabella delle immagini di uso comune
-
-
-| PublisherName | Offerta | Sku |
-|:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 |
-| OpenLogic | CentOS | 7\.1 |
-| CoreOS | CoreOS | Beta |
-| CoreOS | CoreOS | Stabile |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2015 |
-| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 |
-| Macchina virtuale | Oracle-Database-12c-Weblogic-Server-12c | Standard |
-| Macchina virtuale | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP |
-| Canonical | UbuntuServer | 12\.04.5-LTS |
-| Canonical | UbuntuServer | 14\.04.2-LTS |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
-| MicrosoftWindowsServer | WindowsServer | 2008 R2-SP1 |
-| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 |
-
-
 ## Interfaccia della riga di comando di Azure
 
 > [AZURE.NOTE] Questo articolo descrive come individuare e selezionare le immagini di macchina virtuale, utilizzando un'installazione recente di Azure PowerShell o Azure CLI. Come prerequisito, è necessario modificare la modalità di gestione delle risorse. Con l'interfaccia della riga di comando di Azure, immettere tale modalità digitando `azure config mode arm`.
@@ -118,18 +90,11 @@ Con queste informazioni è possibile individuare precisamente l'immagine desider
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
 
-A questo punto è possibile scegliere con precisione l'immagine da usare. Per creare rapidamente una macchina virtuale utilizzando le informazioni URN trovate o per utilizzare un modello con tali informazioni URN vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](xplat-cli-azure-resource-manager.md).
-
-### Video con la procedura dettagliata
-
-Questo video illustra i passaggi precedenti usando l'interfaccia della riga di comando.
-
-[AZURE.VIDEO virtual-machines-linux-cli-ps-findimage-cli]
-
+A questo punto è possibile scegliere con precisione l'immagine da usare. Per creare rapidamente una macchina virtuale utilizzando le informazioni URN trovate o per utilizzare un modello con tali informazioni URN vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](../articles/xplat-cli-azure-resource-manager.md).
 
 ## PowerShell
 
-Con PowerShell digitare `Switch-AzureMode AzureResourceManager`. Per informazioni più complete sull'aggiornamento e la configurazione, vedere [Interfaccia della riga di comando di Azure con Gestione risorse](xplat-cli-azure-resource-manager.md) e [Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
+Con PowerShell digitare `Switch-AzureMode AzureResourceManager`. Per informazioni più complete sull'aggiornamento e la configurazione, vedere [Interfaccia della riga di comando di Azure con Gestione risorse](../articles/xplat-cli-azure-resource-manager.md) e [Azure PowerShell con Gestione risorse di Azure](../articles/powershell-azure-resource-manager.md).
 
 > [AZURE.NOTE] Nelle versioni superiori a 1.0 dei moduli Azure PowerShell, il cmdlet `Switch-AzureMode` è stato rimosso. Con la suddetta versione e versioni più recenti, sostituire i seguenti comandi con la parte `Azure` sostituita con `AzureRm`. Se si utilizzano moduli di Azure PowerShell con versione inferiore a 1.0, si utilizzeranno i comandi seguenti, ma è innanzitutto necessario `Switch-AzureMode AzureResourceManager`.
 
@@ -229,4 +194,4 @@ Questo video illustra i passaggi precedenti usando PowerShell.
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

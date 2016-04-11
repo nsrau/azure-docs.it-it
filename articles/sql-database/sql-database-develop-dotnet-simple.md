@@ -24,21 +24,19 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-## Prerequisiti
-
-### .NET Framework
+## Passaggio 1: Configurare l'ambiente di sviluppo
 
 .NET Framework deve essere preinstallato con Windows. Per Linux e Mac OS X è possibile scaricare .NET Framework dal [progetto Mono](http://www.mono-project.com/).
 
-### Un database SQL
+## Passaggio 2: Creare un database SQL
 
 Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su come creare un database di esempio. È importante seguire le istruzioni per creare un **modello di database AdventureWorks**. Gli esempi illustrati di seguito funzionano solo con lo **schema di AdventureWorks**.
 
-## Passaggio 1: Ottenere la stringa di connessione
+## Passaggio 3: Ottenere la stringa di connessione
 
 [AZURE.INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
 
-## Passaggio 2: Connettersi
+## Passaggio 4: Effettuare la connessione
 
 Per la connessione al database SQL viene usata la [classe System.Data.SqlClient.SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx).
 
@@ -58,7 +56,7 @@ class Sample
 }
 ```
 
-## Passaggio 3: Eseguire una query
+## Passaggio 5: Eseguire una query
 
 Per il recupero di un set di risultati di una query nel database SQL è possibile usare le classi [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) e [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx). Si noti che System.Data.SqlClient supporta anche il recupero di dati in una classe [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx) offline.
 
@@ -98,7 +96,7 @@ class Sample
 
 ```  
 
-## Passaggio 4: Inserire una riga
+## Passaggio 6: Inserire una riga
 
 Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) in modo sicuro, come passare i parametri che proteggono l'applicazione da attacchi [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e come recuperare il valore di [Chiave primaria](https://msdn.microsoft.com/library/ms179610.aspx) generato automaticamente.
 
@@ -133,4 +131,11 @@ class Sample
 }
 ```
 
-<!---HONumber=AcomDC_0323_2016-->
+
+## Passaggi successivi
+
+Per imparare a usare logica di ripetizione gestendo i codici di errore temporanei per rendere più resiliente il codice vedere: [Codice di esempio: logica di ripetizione tentativi in C# per la connessione a Database SQL](sql-database-develop-csharp-retry-windows.md)
+
+Per ottenere altre informazioni sui possibili codici di errore, vedere [Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database](sql-database-develop-error-messages.md).
+
+<!---HONumber=AcomDC_0330_2016-->

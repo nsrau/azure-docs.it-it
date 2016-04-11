@@ -1,8 +1,5 @@
 
  
-
-Configurare il primo o il successivo database Oracle di sviluppo/test o produzione in esecuzione su una macchina virtuale in servizi infrastruttura di Azure. Sfruttare la semplicità di configurazione e la possibilità di espandere rapidamente il carico di lavoro del database Oracle per includere la nuova capacità.
-
 ## Immagini delle macchine virtuali Oracle
 
 Vedere [Elenco di immagini di macchine virtuali Oracle](../articles/virtual-machines/virtual-machines-linux-classic-oracle-images.md) per l’insieme più recente di immagini di macchine virtuali basate su Windows e Linux.
@@ -35,4 +32,4 @@ In [Configurazione di Oracle Data Guard per Azure](../articles/virtual-machines/
 
 In [Configurazione di Oracle GoldenGate per Azure](../articles/virtual-machines/virtual-machines-windows-classic-configure-oracle-goldengate.md) viene illustrata la procedura per la configurazione del database e della replica.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -12,15 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/21/2016" 
+	ms.date="03/24/2016" 
 	ms.author="awills"/>
 
 
  
 # Presentazione dello strumento Analisi in Application Insights
 
-
-[Analisi](app-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analisi.
+[Analytics](app-analytics.md) consente di eseguire query importanti sui dati di telemetria dell'app raccolti da [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query usato da Analytics.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -70,10 +69,12 @@ Scegliere le colonne e modificarne le posizioni:
 
 ![Fare clic sulla selezione di colonna in alto a destra dei risultati](./media/app-analytics-tour/030.png)
 
+
 Espandere un elemento per visualizzare i dettagli:
  
 ![Scegliere Tabella e utsare Configura colonne](./media/app-analytics-tour/040.png)
 
+> [AZURE.NOTE] Fare clic sull'intestazione di una colonna per riordinare i risultati disponibili nel Web browser. Tuttavia, tenere presente che per un set di risultati di grandi dimensioni, il numero di righe scaricate nel browser è limitato. Tenere presente che questa modalità di ordinamento non sempre illustra gli elementi effettivi massimi o minimi. A tale scopo, utilizzare l’operatore `top` o `sort`.
 
 ## [Top](app-analytics-aggregations.md#top) e [sort](app-analytics-aggregations.md#sort)
 
@@ -86,7 +87,7 @@ Mostrare le prime n righe, ordinate in base a una colonna specifica:
 	requests | top 10 by timestamp desc 
 ```
 
-* *Sintassi:* la maggior parte degli operatori hanno di parametri di tipo parola chiave, ad esempio `by`.
+* *Sintassi:* la maggior parte degli operatori hanno parametri di tipo parola chiave, ad esempio `by`.
 * `desc` = ordine decrescente, `asc` = ordine crescente.
 
 ![](./media/app-analytics-tour/260.png)
@@ -186,7 +187,7 @@ La funzione di aggregazione `makeset()` crea un set di tutti i valori specificat
 
 Il risultato di summarize include:
 
-* ogni colonna denominata in `by`
+* ogni colonna denominata in `by`;
 * una colonna per ogni espressione di aggregazione;
 * una riga per ogni combinazione di valori `by`.
 
@@ -407,7 +408,7 @@ Per ottenere una suddivisione separata per ogni paese, è sufficiente visualizza
 
 È possibile accedere a più tabelle, incluse le richieste e le eccezioni.
 
-Per trovare le eccezioni correlate a una richiesta che ha restituito una risposta di errore, è possibile creare un join delle tabelle in `session_Id`:
+Per trovare le eccezioni correlate a una richiesta che ha restituito una risposta di errore, è possibile eseguire il join delle tabelle in `session_Id`:
 
 ```AIQL
 
@@ -441,4 +442,4 @@ Usare [let](./app-analytics-syntax.md#let-statements) per separare le parti dell
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

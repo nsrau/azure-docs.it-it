@@ -20,68 +20,25 @@
 
 # Connessione al database SQL tramite Ruby in Windows
 
-
-<!--
-Older Selector technique, with dynamic drop-down lists.
- [ A ZURE . I NCLUDE [s ql-database-develop-includes-selector-language-platform-depth](../../inclu des/sql-database-develop-includes-selector-language-platform-depth.m d)]
--->
-
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
-
 
 Questo argomento presenta un esempio di codice Ruby in esecuzione su computer con Windows 8.1 per la connessione a un database SQL di Azure.
 
-## Prerequisiti
 
-###Installare i moduli necessari
+## Passaggio 1: Configurare l'ambiente di sviluppo
 
-Aprire il terminale in uso e installare quanto segue:
+[Prerequisiti per l'uso del driver TinyTDS Ruby per SQL Server](https://msdn.microsoft.com/library/mt711041.aspx#Windows)
 
-**1) Ruby:** se non è presente nel computer, installare Ruby. Per i nuovi utenti di Ruby, è consigliabile utilizzare programmi di installazione di Ruby 2.1.X. Questi forniscono un linguaggio stabile e un elenco completo dei pacchetti (gemme) compatibili e aggiornati. [Visitare la pagina di download di Ruby](http://rubyinstaller.org/downloads/)e scaricare il programma di installazione 2.1.x appropriato. Ad esempio, se si utilizza un computer a 64 bit, scaricare il programma di installazione **Ruby 2.1.6 (x64)**. <br/><br/>Una volta scaricato il programma di installazione, eseguire le operazioni seguenti:
-
-
-- Fare doppio clic sul file per avviare il programma di installazione.
-
-- Selezionare la lingua e accettare le condizioni.
-
-- Nella schermata relativa alle impostazioni di installazione, selezionare le caselle di controllo accanto a *Add Ruby executables to your PATH* e *Associate .rb and .rbw files with this Ruby installation*.
-
-
-**2) DevKit:** scaricare il DevKit dalla [pagina di RubyInstaller](http://rubyinstaller.org/downloads/)
-
-Una volta completato il download, eseguire le operazioni seguenti:
-
-
-- Fare doppio clic sul file. Verrà chiesto dove estrarre i file.
-
-- Fare clic sul pulsante "..." e selezionare "C:\\DevKit". Sarà probabilmente necessario creare la cartella facendo clic su "Make New Folder".
-
-- Fare clic su "OK" e quindi "Extract", per estrarre i file.
-
-
-Aprire il prompt dei comandi e immettere i comandi seguenti:
-
-	> chdir C:\DevKit
-	> ruby dk.rb init
-	> ruby dk.rb install
-
-Adesso si dispone di una versione di Ruby completamente funzionale e RubyGems!
-
-
-**3) TinyTDS:** andare a C:\\DevKit ed eseguire il comando seguente dal terminale. TinyTDS verrà installato nel computer.
-
-	gem inst tiny_tds --pre
-
-### Un database SQL
+## Passaggio 2: Creare un database SQL
 
 Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su come creare un database di esempio. È importante seguire le istruzioni per creare un **modello di database AdventureWorks**. Gli esempi illustrati di seguito funzionano solo con lo **schema di AdventureWorks**.
 
 
-## Passaggio 1: Ottenere i dettagli di connessione
+## Passaggio 3: Ottenere i dettagli di connessione
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Passaggio 2: Connettersi
+## Passaggio 4: Effettuare la connessione
 
 La funzione [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) viene usata per connettersi al database SQL.
 
@@ -90,7 +47,7 @@ La funzione [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) viene
     host: 'yourserver.database.windows.net', port: 1433,
     database: 'AdventureWorks', azure:true
 
-## Passaggio 3: Eseguire una query
+## Passaggio 5: Eseguire una query
 
 Copiare e incollare codice seguente in un file vuoto. Denominarlo test.rb. Quindi eseguirlo immettendo il comando seguente dal prompt dei comandi:
 
@@ -108,7 +65,7 @@ Nel codice di esempio, la funzione [TinyTds::Result](https://github.com/rails-sq
     puts row
     end
 
-## Passaggio 4: Inserire una riga
+## Passaggio 6: Inserire una riga
 
 Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) in modo sicuro, come passare i parametri che proteggono l'applicazione da attacchi [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e come recuperare il valore di [Chiave primaria](https://msdn.microsoft.com/library/ms179610.aspx) generato automaticamente.
 
@@ -137,4 +94,4 @@ Per allinearlo con il formato Microsoft SQL Server [datetime](http://msdn.micros
     puts row
     end
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

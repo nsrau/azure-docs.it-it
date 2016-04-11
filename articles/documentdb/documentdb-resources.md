@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016" 
+	ms.date="03/30/2016" 
 	ms.author="anhoh"/>
 
 # Modello di risorse gerarchico e concetti relativi a DocumentDB
@@ -40,12 +40,12 @@ Per iniziare a lavorare con le risorse, è necessario [creare un account di data
 
 |Risorsa |Descrizione
 |-----------|-----------
-|Account di database |Un account di database è associato a un set di database e a una quantità fissa di archiviazione BLOB per gli allegati (funzionalità di anteprima). È possibile creare uno o più account di database usando la sottoscrizione di Azure. A ogni account di database standard viene allocata una capacità minima di una raccolta S1. Per altre informazioni, visitare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
+|Account di database |Un account di database è associato a un set di database e a una quantità fissa di archiviazione BLOB per gli allegati (funzionalità di anteprima). È possibile creare uno o più account di database usando la sottoscrizione di Azure. Per altre informazioni, visitare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
 |Database |Un database è un contenitore logico di archiviazione documenti partizionato nelle raccolte. Un database è anche un contenitore degli utenti
 |Utente |Spazio dei nomi logico per la definizione dell'ambito delle autorizzazioni. 
 |Autorizzazione |Token di autorizzazione associato a un utente per l'accesso a una risorsa specifica.
-|Raccolta |Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata. Una raccolta è un'entità fatturabile, in cui il costo è determinato dal livello di prestazioni associato alla raccolta. I livelli di prestazioni (S1, S2 e S3) forniscono 10 GB di archiviazione e una quantità fissa di velocità effettiva. Per ulteriori informazioni sui livelli di prestazioni, visitare la [pagina delle prestazioni](documentdb-performance-levels.md).
-|Stored procedure |Logica dell'applicazione scritta in JavaScript, registrata con una raccolta ed eseguita a livello di transazione all'interno del motore di database.
+|Raccolta |Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata. Una raccolta è un'entità fatturabile, in cui il [costo](documentdb-performance-levels.md) è determinato dal livello di prestazioni associato alla raccolta. Le raccolte possono estendersi su più partizioni o server e possono essere ridimensionate per gestire volumi praticamente illimitati di archiviazione o di velocità effettiva.
+|Stored Procedure |Logica dell'applicazione scritta in JavaScript, registrata con una raccolta ed eseguita a livello di transazione all'interno del motore di database.
 |Trigger |Logica dell'applicazione scritta in JavaScript ed eseguita prima o dopo un'operazione di inserimento, sostituzione o eliminazione.
 |UDF |Logica dell'applicazione scritta in JavaScript. Consente di modellare un operatore query personalizzato e quindi di estendere il linguaggio di query di base di DocumentDB.
 |Documento |Contenuto JSON definito dall'utente (arbitrario). Per impostazione predefinita, non è necessario definire alcuno schema, né fornire indici secondari per tutti i documenti aggiunti a una raccolta.
@@ -55,16 +55,42 @@ Per iniziare a lavorare con le risorse, è necessario [creare un account di data
 ## Risorse definite dal sistema e risorse definite dall'utente
 Tutte le risorse quali account di database, database, raccolte, utenti, autorizzazioni, stored procedure, trigger e funzioni UDF hanno uno schema fisso e sono definite risorse di sistema. Per le risorse quali documenti e allegati, invece, non sono previste restrizioni a livello di schema. Si tratta di risorse definite dall'utente. In DocumentDB le risorse definite dal sistema e definite dall'utente sono rappresentate e gestite come risorse JSON conformi allo standard. Tutte le risorse, di sistema o definite dall'utente, presentano le proprietà comuni indicate di seguito.
 
->[AZURE.NOTE] Si noti che, nell'implementazione JSON, tutte le proprietà generate dal sistema in una risorsa hanno come prefisso un carattere di sottolineatura (\_).
+> [AZURE.NOTE] Si noti che, nell'implementazione JSON, tutte le proprietà generate dal sistema in una risorsa hanno come prefisso un carattere di sottolineatura (\_).
 
-
-Proprietà |Impostabile dall'utente o generata dal sistema?|Scopo
----|---|---
-\_rid|Generato dal sistema|Generato dal sistema, identificativo univoco e gerarchico della risorsa.
-\_etag|Generato dal sistema|etag della risorsa richiesta per il controllo della concorrenza ottimistica.
-\_ts|Generato dal sistema|Ultimo timestamp aggiornato della risorsa.
-\_self|Generato dal sistema|URI indirizzabile univoco della risorsa.
-id|Impostabile dall'utente|Nome univoco della risorsa definito dall'utente. Se l'utente non specifica un ID, quest'ultimo verrà generato dal sistema.
+<table>
+    <tbody>
+        <tr>
+            <td valign="top"><p><strong>Proprietà</strong></p></td>
+            <td valign="top"><p><strong>Impostata dall'utente o generata dal sistema?</strong></p></td>
+            <td valign="top"><p><strong>Scopo</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>_rid</p></td>
+            <td valign="top"><p>Generata dal sistema</p></td>
+            <td valign="top"><p>Identificatore gerarchico della risorsa, univoco e generato dal sistema</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>_etag</p></td>
+            <td valign="top"><p>Generata dal sistema</p></td>
+            <td valign="top"><p>etag della risorsa richiesta per il controllo della concorrenza ottimistica</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>_ts</p></td>
+            <td valign="top"><p>Generata dal sistema</p></td>
+            <td valign="top"><p>Ultimo timestamp aggiornato della risorsa</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>_self</p></td>
+            <td valign="top"><p>Generata dal sistema</p></td>
+            <td valign="top"><p>URI univoco indirizzabile della risorsa</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>id</p></td>
+            <td valign="top"><p>Generata dal sistema</p></td>
+            <td valign="top"><p>Nome univoco della risorsa (con lo stesso valore della chiave di partizione) definito dall'utente. Se l'utente non specifica un ID, quest'ultimo verrà generato dal sistema.</p></td>
+        </tr>
+    </tbody>
+</table>
 
 ### Rappresentazione delle risorse
 DocumentDB non impone estensioni proprietarie o codifiche speciali allo standard JSON e funziona con i documenti JSON conformi a tale standard.
@@ -74,22 +100,22 @@ Tutte le risorse sono indirizzabili mediante URI. Il valore della proprietà **\
 
 |Valore di \_self |Descrizione
 |-------------------|-----------
-|/dbs |Feed di database in un account di database
-|/dbs/{\_rid-db} |Database con un ID corrispondente al valore {\_rid-db}
-|/dbs/{\_rid-db}/colls/ |Feed di raccolte in un database
-|/dbs/{\_rid-db}/colls/{\_rid-coll} |Raccolta con un ID corrispondente al valore {\_rid-coll}
-|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Feed di documenti in una raccolta
-|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{\_rid-doc} |Documento con un ID corrispondente al valore {\_rid-doc}
-|/dbs/{\_rid-db}/users/ |Feed di utenti in un database
-|/dbs/{\_rid-db}/users/{\_rid-user} |Utente con un ID corrispondente al valore {\_rid-user}
-|/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Feed di autorizzazioni in un utente
-|/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Autorizzazione con un ID corrispondente al valore {\_rid-permission}
+|/dbs |Feed dei database in un account di database
+|/dbs/{dbName} |Database con id corrispondente al valore {dbName}
+|/dbs/{dbName}/colls/ |Feed delle raccolte in un database
+|/dbs/{dbName}/colls/{collName} |Raccolta con un id corrispondente al valore {collName}
+|/dbs/{dbName}/colls/{collName}/docs |Feed dei documenti in una raccolta
+|/dbs/{dbName}/colls/{collName}/docs/{docId} |Documento con id corrispondente al valore {doc}
+|/dbs/{dbName}/users/ |Feed degli utenti in un database
+|/dbs/{dbName}/users/{userId} |Utente con id corrispondente al valore {user}
+|/dbs/{dbName}/users/{userId}/permissions |Feed delle autorizzazioni in un utente
+|/dbs/{dbName}/users/{userId}/permissions/{permissionId} |Autorizzazione con id corrispondente al valore {permission}
   
-Ogni risorsa dispone di un nome utente univoco esposto mediante la proprietà ID. Nota: per i documenti, se l'utente non specifica un ID, il sistema genererà automaticamente un ID univoco per ogni documento. l'ID è una stringa definita dall'utente contenente fino a 256 caratteri, univoca all'interno del contesto di una risorsa padre specifica. I valori della proprietà ID di tutti i documenti di una raccolta specificata, ad esempio, sono univoci ma non vi è garanzia che lo siano per tutte le raccolte. Analogamente, i valori della proprietà ID di tutte le autorizzazioni per un determinato utente sono univoci ma non vi è garanzia che lo siano per tutti gli utenti. La proprietà \_rid viene usata per costruire il collegamento \_self indirizzabile di una risorsa.
+Ogni risorsa dispone di un nome utente univoco esposto mediante la proprietà ID. Nota: per i documenti, se l'utente non specifica un ID, il sistema genererà automaticamente un ID univoco per ogni documento. l'ID è una stringa definita dall'utente contenente fino a 256 caratteri, univoca all'interno del contesto di una risorsa padre specifica.
 
-Ogni risorsa ha anche un identificatore gerarchico generato dal sistema (chiamato anche RID), disponibile tramite la proprietà \_rid. Il RID codifica l'intera gerarchia di una determinata risorsa ed è una rappresentazione interna molto utile da usare per imporre l'integrità referenziale secondo un metodo distribuito. Il RID è univoco all'interno di un account di database e viene usato internamente da DocumentDB per un routing efficiente senza necessità di eseguire ricerche su più partizioni.
+Ogni risorsa ha anche un identificatore gerarchico generato dal sistema (chiamato anche RID), disponibile tramite la proprietà \_rid. Il RID codifica l'intera gerarchia di una determinata risorsa ed è una rappresentazione interna utile da usare per imporre l'integrità referenziale secondo un metodo distribuito. Il RID è univoco all'interno di un account di database e viene usato internamente da DocumentDB per un routing efficiente senza necessità di eseguire ricerche su più partizioni. I valori delle proprietà \_self e \_rid sono entrambi rappresentazioni alternate e canoniche di una risorsa.
 
-I valori delle proprietà \_self e \_rid sono entrambi rappresentazioni alternate e canoniche di una risorsa.
+Le API REST di DocumentDB supportano l'indirizzamento delle risorse e il routing delle richieste tramite l’id e le proprietà \_rid.
 
 ## Account di database
 È possibile eseguire il provisioning di uno o più account di database di DocumentDB usando la sottoscrizione di Azure. A ogni account di database di livello standard viene assegnata una capacità minima di una raccolta S1.
@@ -99,12 +125,22 @@ I valori delle proprietà \_self e \_rid sono entrambi rappresentazioni alternat
 ### Proprietà degli account di database
 Come parte del provisioning e della gestione di un account di database, è possibile configurare e leggere le proprietà seguenti:
 
-Nome proprietà|Descrizione
----|---
-Criterio di coerenza|Impostare questa proprietà per configurare il livello di coerenza predefinito per tutte le raccolte nell'account di database. È possibile eseguire l'override del livello di coerenza per singole richieste usando l'intestazione di richiesta [x-ms-consistency-level]. <p><p>Tenere presente che questa proprietà è applicabile solo alle <i>risorse definite dall'utente</i>. Tutte le risorse definite dal sistema sono configurate per il supporto di letture/query con coerenza assoluta.
-Chiave primaria e Chiave secondaria|Si tratta delle chiavi primaria e secondaria che consentono accesso amministrativo a tutte le risorse nell'account di database.
-MaxMediaStorageUsageInMB (READ)|Quantità massima di archiviazione multimediale disponibile per l'account di database.
-MediaStorageUsageInMB (READ)|Attuale utilizzo delle risorse di archiviazione multimediale per l'account di database.
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top"><p><strong>Nome proprietà</strong></p></td>
+            <td valign="top"><p><strong>Descrizione</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>Criterio di coerenza</p></td>
+            <td valign="top"><p>Impostare questa proprietà per configurare il livello di coerenza predefinito per tutte le raccolte nell'account di database. È possibile eseguire l'override del livello di coerenza per singole richieste usando l'intestazione di richiesta [x-ms-consistency-level]. <p><p>Si noti che questa proprietà è applicabile solo alle <i>risorse definite dall'utente</i>. Tutte le risorse definite dal sistema sono configurate per il supporto di letture/query con coerenza assoluta.</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>Chiavi di autorizzazione</p></td>
+            <td valign="top"><p>Si tratta delle chiavi master e readonly primaria e secondaria che consentono accesso amministrativo a tutte le risorse nell'account di database.</p></td>
+        </tr>
+    </tbody>
+</table>
 
 Notare che oltre al provisioning, alla configurazione e alla gestione dell'account di database dal portale di Azure, è anche possibile creare e gestire account di database DocumentDB a livello di codice usando le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) e gli [SDK per client](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
@@ -127,10 +163,10 @@ Un database di DocumentDB è anche un contenitore di utenti. Un utente, a sua vo
 Come per le altre risorse nel modello di risorse di DocumentDB, i database possono essere creati, sostituiti, eliminati, letti o enumerati facilmente mediante le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB assicura una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di una risorsa del database. Se si elimina un database, non sarà automaticamente più possibile accedere alle raccolte o agli utenti inclusi nel database.
 
 ## Raccolte
-Una raccolta di DocumentDB è un contenitore per i documenti JSON. Una raccolta è anche un'unità di scala per transazioni e query. È possibile applicare la scalabilità orizzontale a un database di DocumentDB tramite l'aggiunta di altre raccolte. Se l'applicazione necessita di maggiore scalabilità, è possibile aggiungere una raccolta. Ad ogni raccolta vengono allocate risorse di archiviazione basate su SSD e una quantità fissa di velocità effettiva di cui è stato eseguito il provisioning in base al livello di prestazioni.
- 
+Una raccolta di DocumentDB è un contenitore per i documenti JSON. Una raccolta è anche un'unità di scala per transazioni e query.
+
 ### Archiviazione flessibile di documenti basata su unità SSD
-Una raccolta è intrinsecamente flessibile, poiché le dimensioni della raccolta aumentano o si riducono in seguito all'aggiunta o alla rimozione di documenti. Anche se nella fase di uso produttore DocumentDB è stato testato con migliaia di raccolte in un database, ognuna delle quali con dimensioni comprese tra pochi gigabyte ad alcuni terabyte, DocumentDB limita attualmente la flessibilità di una raccolta specifica a 10 GB.
+Una raccolta è intrinsecamente flessibile, poiché le dimensioni della raccolta aumentano o si riducono in seguito all'aggiunta o alla rimozione di documenti. Le raccolte sono risorse logiche e possono comprendere una o più partizioni fisiche o server. Il numero di partizioni in una raccolta è determinato da DocumentDB in base allo spazio di archiviazione e alla velocità effettiva con provisioning della raccolta. Ogni partizione in DocumentDB dispone di una quantità fissa di archiviazione supportata da unità SSD associata a essa e viene replicata per la disponibilità elevata. Le partizioni vengono completamente gestite da Azure DocumentDB e non è necessario scrivere script di codice complessi o gestire le partizioni. Le raccolte di DocumentDB sono **praticamente illimitate** in termini di archiviazione e di velocità effettiva.
 
 ### Indicizzazione automatica delle raccolte
 DocumentDB è un sistema di database effettivamente privo di schema. Non si presuppone o richiede alcuno schema per i documenti JSON. DocumentDB indicizza automaticamente i documenti aggiunti a una raccolta e li rende disponibili per l'esecuzione di query. L'indicizzazione automatica di documenti senza la richiesta di schema o di indici secondari è una capacità chiave di DocumentDB ed è resa possibile da tecniche di gestione dell'indice ottimizzate per la scrittura, prive di blocco e strutturate in log. DocumentDB supporta un volume prolungato di scritture estremamente veloci, servendo al tempo stesso query coerenti. L'archiviazione documenti e l'archiviazione dell'indice sono usate per calcolare le risorse di archiviazione usate da ogni raccolta. È possibile controllare i compromessi tra archiviazione e prestazioni associati all'indicizzazione tramite la configurazione di un criterio di indicizzazione per una raccolta.
@@ -145,7 +181,7 @@ Il criterio di indicizzazione di ogni raccolta rende possibili i compromessi tra
 Il criterio di indicizzazione può essere modificato tramite l'esecuzione di un'operazione PUT sulla raccolta. Può essere ottenuto tramite il [client SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx), il [portale di Azure](https://portal.azure.com) o le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### Esecuzione di query su una raccolta
-I documenti in una raccolta possono avere schemi arbitrari ed è possibile eseguire query sui documenti in una raccolta senza fornire anticipatamente alcuno schema o alcun indice secondario. È possibile eseguire query sulla raccolta usando la [sintassi SQL di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx), che offre avanzati operatori gerarchici e relazionali ed estendibilità attraverso funzioni definite dall'utente basate su JavaScript. La grammatica JSON permette la modellazione di documenti JSON come alberi con etichette come nodi dell'albero. Viene usata dalle tecniche di indicizzazione automatica di DocumentDB e dal dialetto SQL di DocumentDB. Il linguaggio di query di DocumentDB è caratterizzato da tre aspetti principali:
+I documenti in una raccolta possono avere schemi arbitrari ed è possibile eseguire query sui documenti in una raccolta senza fornire anticipatamente alcuno schema o alcun indice secondario. È possibile eseguire query sulla raccolta usando la [sintassi SQL di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx), che offre avanzati operatori gerarchici, relazionali e spaziali ed estendibilità attraverso funzioni definite dall'utente basate su JavaScript. La grammatica JSON permette la modellazione di documenti JSON come alberi con etichette come nodi dell'albero. Viene usata dalle tecniche di indicizzazione automatica di DocumentDB e dal dialetto SQL di DocumentDB. Il linguaggio di query di DocumentDB è caratterizzato da tre aspetti principali:
 
 1.	Un set ridotto di operazioni di query mappate in modo naturale alla struttura ad albero, che include query e proiezioni gerarchiche. 
 2.	Un sottoinsieme di operazioni relazionali, incluse la composizione, l'applicazione di filtri, le proiezioni, le aggregazioni e i self join. 
@@ -412,4 +448,4 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

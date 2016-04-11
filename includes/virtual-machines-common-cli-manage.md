@@ -1,6 +1,6 @@
 Questo articolo illustra i comandi equivalenti dell'interfaccia della riga di comando di Microsoft Azure (CLI di Azure) per creare e gestire le macchine virtuali in Gestione dei servizi e Gestione risorse di Azure. Usare questo documento come guida utile per eseguire la migrazione degli script da una modalità di comando all'altra.
 
-* Se l'interfaccia della riga di comando di Azure non è ancora stata installata e connessa alla sottoscrizione, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md). Quando si desidera usare i comandi della modalità Gestione risorse, assicurarsi di connettersi con il metodo di accesso.
+* Se l'interfaccia della riga di comando di Azure non è ancora stata installata e connessa alla sottoscrizione, vedere [Installare l'interfaccia della riga di comando di Azure](../articles/xplat-cli-install.md) e [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../articles/xplat-cli-connect.md). Quando si desidera usare i comandi della modalità Gestione risorse, assicurarsi di connettersi con il metodo di accesso.
 
 * Per iniziare con la modalità di Gestione risorse nell’interfaccia della riga di comando Azure, potrebbe essere necessario cambiare la modalità di comando. Per impostazione predefinita, l'interfaccia della riga di comando viene avviata in modalità Gestione dei servizi. Per passare alla modalità Gestione risorse, eseguire `azure config mode arm`. Per tornare alla modalità Gestione dei servizi, eseguire `azure config mode asm`.
 
@@ -9,11 +9,11 @@ Questo articolo illustra i comandi equivalenti dell'interfaccia della riga di co
 ## Attività della macchina virtuale
 La tabella seguente confronta attività di macchina virtuale comuni che è possibile eseguire con i comandi CLI di Azure in Gestione risorse e Gestione dei servizi. Con molti comandi di Gestione risorse è necessario passare il nome di un gruppo di risorse esistente.
 
-> [AZURE.NOTE] Questi esempi non includono operazioni basate su modelli che sono in genere consigliate per distribuzioni di macchine virtuali in Gestione risorse. Per informazioni, vedere [Usare l’interfaccia della riga di comando Azure con la Gestione risorse di Azure](../xplat-cli-azure-resource-manager.md) e [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l’interfaccia della riga di comando di Azure](virtual-machines-linux-cli-deploy-templates.md).
+> [AZURE.NOTE] Questi esempi non includono operazioni basate su modelli che sono in genere consigliate per distribuzioni di macchine virtuali in Gestione risorse. Per informazioni, vedere [Usare l’interfaccia della riga di comando Azure con la Gestione risorse di Azure](../articles/xplat-cli-azure-resource-manager.md) e [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l’interfaccia della riga di comando di Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 Attività | Gestione dei servizi | Gestione risorse
 -------------- | ----------- | -------------------------
-Creare la macchina virtuale di base | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Ottenere `image-urn` dal comando `azure vm image list`. Vedere [questo articolo](virtual-machines-linux-cli-ps-findimage.md) per informazioni dettagliate).
+Creare la macchina virtuale di base | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Ottenere `image-urn` dal comando `azure vm image list`. Vedere [questo articolo](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md) per informazioni dettagliate).
 Creare una macchina virtuale Linux | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
 Creare un'app Windows | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
 Elenco delle macchine virtuali | `azure  vm list [options]` | `azure  vm list [options]`
@@ -42,6 +42,6 @@ Ottenere tutte le dimensioni delle macchine virtuali disponibili | Non disponibi
 
 ## Passaggi successivi
 
-* Per altri esempi di comandi dell’interfaccia della riga di comando, vedere [Uso dell'interfaccia della riga di comando di Azure con Gestione dei servizi di Azure](virtual-machines-command-line-tools.md) e [Uso dell’interfaccia della riga di comando di Azure con Gestione risorse di Azure](azure-cli-arm-commands.md).
+* Per altri esempi di comandi dell’interfaccia della riga di comando, vedere [Uso dell'interfaccia della riga di comando di Azure con Gestione dei servizi di Azure](../articles/virtual-machines-command-line-tools.md) e [Uso dell’interfaccia della riga di comando di Azure con Gestione risorse di Azure](../articles/azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

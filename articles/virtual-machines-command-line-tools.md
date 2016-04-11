@@ -19,7 +19,7 @@
 
 # Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure (asm)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines/azure-cli-arm-commands.md).
 
 In questo articolo vengono fornite sintassi e opzioni per i comandi dell’interfaccia della riga di comando di Azure utilizzati comunemente per creare e gestire risorse di Azure nel modello di distribuzione classico. Accedere ai comandi eseguendo l’interfaccia della riga di comando in modalità Gestione servizi di Azure (asm). Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi.
 
@@ -1446,7 +1446,7 @@ Questo comando rimuove tutte le righe di dati dalla tabella.
 
 ### <a name="Mobile_Scripts"></a>Comandi per la gestione degli script
 
-I comandi in questa sezione vengono usati per gestire gli script del server appartenenti a un servizio mobile. Per ulteriori informazioni, vedere [Utilizzo degli script del server in Servizi mobili](../mobile-services/mobile-services-how-to-use-server-scripts.md).
+I comandi in questa sezione vengono usati per gestire gli script del server appartenenti a un servizio mobile. Per ulteriori informazioni, vedere [Utilizzo degli script del server in Servizi mobili](mobile-services/mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [opzioni] [nome\_servizio]**
 
@@ -2348,4 +2348,4 @@ Questo comando rimuove una voce di server DNS dalla configurazione di rete.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

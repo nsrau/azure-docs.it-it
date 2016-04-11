@@ -26,7 +26,7 @@ Streaming Spark estende l'API di Spark per compilare applicazioni di elaborazion
 
 In questa esercitazione si apprenderà come creare un Hub di eventi di Azure, come inserire i messaggi in un Hub di eventi utilizzando un'applicazione console in C# e recuperarli in parallelo utilizzando un Zeppelin notebook configurato per Apache Spark in HDInsight.
 
-> [AZURE.NOTE] Per seguire le istruzioni riportate in questo articolo, è necessario utilizzare entrambe le versioni del portale di Azure. Per creare un Hub eventi si utilizzerà il [portale di Azure](https://manage.windowsazure.com). Per utilizzare il cluster HDInsight Spark, si utilizzerà il [portale di anteprima di Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Per seguire le istruzioni riportate in questo articolo, è necessario usare entrambe le versioni del portale di Azure. Per creare un Hub eventi si userà il [portale di Azure classico](https://manage.windowsazure.com). Per lavorare con il cluster HDInsight Spark, si userà il [portale di Azure](https://ms.portal.azure.com/).
 
 **Prerequisiti:**
 
@@ -54,10 +54,12 @@ In questa esercitazione si apprenderà come creare un Hub di eventi di Azure, co
 4. Fare clic sull'hub eventi creato, su **Configura** e quindi creare due criteri di accesso per l'hub eventi.
 
 	<table>
-<tr><th>Nome</th><th>Autorizzazioni</th></tr>
-<tr><td>mysendpolicy</td><td>Invio</td></tr>
-<tr><td>myreceivepolicy</td><td>Attesa</td></tr>
-</table>Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Ciò consente di creare criteri di accesso condiviso che saranno usati per l'invio (**mysendpolicy**) e l'ascolto (**myreceivepolicy**) in questo hub eventi.
+	<tr><th>Nome</th><th>Autorizzazioni</th></tr>
+	<tr><td>mysendpolicy</td><td>Invio</td></tr>
+	<tr><td>myreceivepolicy</td><td>Attesa</td></tr>
+	</table>
+
+	Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Ciò consente di creare criteri di accesso condiviso che saranno usati per l'invio (**mysendpolicy**) e l'ascolto (**myreceivepolicy**) in questo hub eventi.
 
 	![criteri](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Creare criteri di Hub di eventi")
 
@@ -92,7 +94,7 @@ Per istruzioni su come allocare risorse in un cluster Spark, vedere [Gestire le 
 
 ### Creare un'applicazione di flusso con Zeppelin
 
-1. Dalla Schermata iniziale del [portale di anteprima di Azure](https://portal.azure.com/) fare clic sul riquadro per il cluster Spark (se è stato bloccato sulla Schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
+1. Dal [portale di Azure](https://portal.azure.com/), dalla schermata iniziale, fare clic sul riquadro per il cluster Spark (se lo si è bloccato alla schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**.   
 
 2. Dal pannello del cluster Spark fare clic su **Collegamenti rapidi**, e dal pannello **Dashboard del Cluster**, fare clic su **Notebook Zeppelin**. Se richiesto, immettere le credenziali per il cluster.
 
@@ -194,4 +196,4 @@ Utilizzare Zeppelin per ricevere il flusso di dati in cluster Spark in HDInsight
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

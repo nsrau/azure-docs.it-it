@@ -1,16 +1,16 @@
 Seguire questa procedura per installare ed eseguire MongoDB in una macchina virtuale che esegue Windows Server.
 
-> [AZURE.IMPORTANT]Le funzionalità di sicurezza MongoDB, ad esempio l'autenticazione e l'associazione di indirizzi IP, non sono abilitate per impostazione predefinita. Dovranno essere abilitate prima di distribuire MongoDB in un ambiente di produzione. Per altre informazioni, vedere l'argomento relativo a [sicurezza e amministrazione](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
+> [AZURE.IMPORTANT] Le funzionalità di sicurezza MongoDB, ad esempio l'autenticazione e l'associazione di indirizzi IP, non sono abilitate per impostazione predefinita. Dovranno essere abilitate prima di distribuire MongoDB in un ambiente di produzione. Per altre informazioni, vedere l'argomento relativo a [sicurezza e amministrazione](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
 1. Dopo avere eseguito la connessione alla macchina virtuale tramite Desktop remoto, aprire Internet Explorer dal menu **Start** sulla macchina virtuale.
 
-2. Nell'angolo superiore destro fare clic sul pulsante **Strumenti**. In **Opzioni Internet** selezionare la scheda **Sicurezza**, quindi l'icona **Siti attendibili** e infine fare clic sul pulsante **Siti**. Aggiungere _http://\*.mongodb.org_ all'elenco dei siti attendibili.
+2. Nell'angolo superiore destro fare clic sul pulsante **Strumenti**. In **Opzioni Internet** selezionare la scheda **Sicurezza**, quindi l'icona **Siti attendibili** e infine fare clic sul pulsante **Siti**. Aggiungere \__https://*.mongodb.org_ all'elenco dei siti attendibili.
 
 3. Passare alla pagina dei [download di MongoDB][MongoDownloads].
 
 4. Trovare la **versione stabile corrente**, selezionare la versione più recente a **64 bit** nella colonna di Windows, scaricare ed eseguire il programma di installazione MSI.
 
-5. MongoDB è in genere installato in c:\\Programmi\\Microsoft Files\\MongoDB. Cercare le variabili di ambiente sul desktop e aggiungere il percorso di file binari MongoDB alla variabile PATH. Ad esempio, si potrebbero individuare i file binari in c:\\Programmi\\Microsoft Files\\MongoDB\\Server\\3.0\\bin sul computer.
+5. MongoDB è in genere installato in c:\\Programmi\\Microsoft Files\\MongoDB. Cercare le variabili di ambiente sul desktop e aggiungere il percorso di file binari MongoDB alla variabile PATH. Ad esempio, si potrebbero individuare i file binari in C:\\Program Files\\MongoDB\\Server\\3.2\\bin on your machine.
 
 6. Creare le directory dei dati e dei log nel disco dati (unità **F:**, ad esempio) creato nei passaggi precedenti. Dal menu **Start** scegliere **Prompt dei comandi** per aprire una finestra del prompt dei comandi. Digitare:
 
@@ -23,7 +23,7 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 		F:> C:
 		C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-	Tutti i messaggi di log verranno indirizzati al file *F:\\MongoLogs\\mongolog.log* non appena viene avviato il server mongod.exe e vengono preallocati i file journal. Possono essere necessari diversi minuti per la preallocazione dei file journal di MongoDB e l'inizio dell'attesa delle connessioni.
+	Tutti i messaggi di log verranno indirizzati al file *F:\\MongoLogs\\mongolog.log* non appena viene avviato il server mongod.exe e vengono preallocati i file journal. Possono essere necessari diversi minuti per la preallocazione dei file journal di MongoDB e l'inizio dell'attesa delle connessioni. Il prompt dei comandi rimarrà concentrato su questa attività durante l'esecuzione dell'istanza di MongoDB.
 
 8. Per avviare la shell di amministrazione di MongoDB, aprire un'altra finestra del prompt dei comandi dal menu **Start** e digitare le informazioni seguenti:
 
@@ -44,15 +44,15 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 
 9. In alternativa, è possibile installare mongod.exe come servizio:
 
-		C:\mongodb\bin>mongod --logpath F:\MongoLogs\mongolog.log --logappend --dbpath F:\MongoData\ --install
+		C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log --logappend  --install
 
 	Verrà creato un servizio denominato "Mongo DB" con la descrizione "Mongo DB". È necessario utilizzare l'opzione **--logpath** per specificare un file di log, poiché il servizio in esecuzione non disporrà di una finestra di comando in cui visualizzare l'output. L'opzione **--logappend** specifica che dopo il riavvio del servizio l'output verrà aggiunto al file di log esistente. L'opzione **--dbpath** specifica il percorso della directory dei dati. Per altre opzioni della riga di comando relative ai servizi, vedere [Opzioni della riga di comando relative ai servizi][MongoWindowsSvcOptions].
 
 	Per avviare il servizio, eseguire questo comando:
 
-		C:\mongodb\bin>net start MongoDB
+		C:\> net start MongoDB
 
-10. Ora che MongoDB è stato installato ed è in esecuzione, è necessario aprire una porta in Windows Firewall per poter eseguire la connessione remota a MongoDB. Dal menu **Start** scegliere **Strumenti di amministrazione** e quindi **Windows Firewall con protezione avanzata**.
+10. Ora che MongoDB è stato installato ed è in esecuzione, è necessario aprire una porta in Windows Firewall per poter eseguire la connessione remota a MongoDB. Dal menu **Start** scegliere **Strumenti di amministrazione** e quindi **Windows Firewall con sicurezza avanzata**.
 
 11. Nel riquadro sinistro selezionare **Regole connessioni in entrata**. Nel riquadro **Azioni** a destra selezionare **Nuova regola**.
 
@@ -90,7 +90,7 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 
 	![Endpoint][Image9]
 
-> [AZURE.NOTE]La porta 27017 è la porta predefinita utilizzata da MongoDB. È possibile modificare questa opzione per il sottocomando _--port_ all'avvio del server mongod.exe. Assicurarsi di assegnare lo stesso numero di porta nel firewall e l'endpoint "Mongo" nelle istruzioni precedenti.
+> [AZURE.NOTE] La porta 27017 è la porta predefinita utilizzata da MongoDB. È possibile modificare questa opzione dal parametro _--port_ all'avvio del server mongod.exe. Assicurarsi di assegnare lo stesso numero di porta nel firewall e l'endpoint "Mongo" nelle istruzioni precedenti.
 
 
 [MongoDownloads]: http://www.mongodb.org/downloads
@@ -108,4 +108,4 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0330_2016-->

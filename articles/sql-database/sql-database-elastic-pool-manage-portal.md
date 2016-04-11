@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/16/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffreyg"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -26,7 +26,7 @@
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 
 
-Questo articolo descrive come usare il portale di Azure per monitorare, gestire e dimensionare in modo adeguato un pool di database elastici e i database nel pool. Un database SQL è dotato di un'intelligenza integrata che analizza i dati di telemetria cronologici relativi all'utilizzo e suggerisce in modo proattivo un pool per i database nel momento più conveniente. È inoltre possibile aggiungere e rimuovere database prima di eseguire il commit delle modifiche e controllare l'impatto sulle prestazioni del pool e sull'archiviazione.
+Questo articolo descrive come usare il portale di Azure per monitorare, gestire e dimensionare in modo adeguato un pool di database elastici e i database nel pool. Un database SQL è dotato di un'intelligenza integrata che analizza i dati di telemetria cronologici relativi all'uso e suggerisce in modo proattivo un pool per i database nel momento più conveniente. È inoltre possibile aggiungere e rimuovere database prima di eseguire il commit delle modifiche e controllare l'impatto sulle prestazioni del pool e sull'archiviazione.
 
 Per eseguire i passaggi descritti in questo articolo è necessario un pool e i database. Vedere [creare un pool](sql-database-elastic-pool-create-portal.md) se si dispone già di database, oppure l'[esercitazione sul database SQL](sql-database-get-started) in caso contrario.
 
@@ -131,4 +131,4 @@ I processi elastici consentono l'esecuzione di script Transact-SQL su qualsiasi 
 - [Creare un pool di database elastici con C#](sql-database-elastic-pool-create-csharp.md)
 - [Considerazioni di prezzo e prestazioni per un pool di database flessibile](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

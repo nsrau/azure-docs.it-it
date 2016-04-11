@@ -5,7 +5,7 @@
 
 Le estensioni di macchina virtuale di Azure implementano comportamenti o funzionalità che semplificano l'esecuzione di altri programmi su macchine virtuali di Azure (ad esempio, l'estensione **WebDeployForVSDevTest** consente a Visual Studio di eseguire distribuzioni Web di soluzioni nella macchina virtuale di Azure) o permettono di interagire con la macchina virtuale per supportare altri comportamenti (ad esempio, è possibile usare le estensioni di accesso alle macchine virtuali da PowerShell, la riga di comando di Azure, e i client REST per reimpostare o modificare i valori di accesso remoto nella macchina virtuale di Azure).
 
->[AZURE.IMPORTANT] Per un elenco completo delle estensioni in base alle funzionalità che supportano, vedere [Estensioni VM e funzionalità di Azure](virtual-machines-windows-extensions-features.md). Poiché ogni estensione di macchina virtuale supporta una funzionalità specifica, tutte le operazioni esattamente possibili o meno mediante un'estensione dipendono dall'estensione stessa. Di conseguenza, prima di modificare la macchina virtuale, assicurarsi di aver letto la documentazione per l'estensione di macchina virtuale che si vuole usare. La rimozione di alcune estensioni di macchina virtuale non è supportata, mentre altre includono proprietà che possono essere impostate e che modificano radicalmente il comportamento della macchina virtuale.
+>[AZURE.IMPORTANT] Per un elenco completo delle estensioni in base alle funzionalità che supportano, vedere [Estensioni VM e funzionalità di Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md). Poiché ogni estensione di macchina virtuale supporta una funzionalità specifica, tutte le operazioni esattamente possibili o meno mediante un'estensione dipendono dall'estensione stessa. Di conseguenza, prima di modificare la macchina virtuale, assicurarsi di aver letto la documentazione per l'estensione di macchina virtuale che si vuole usare. La rimozione di alcune estensioni di macchina virtuale non è supportata, mentre altre includono proprietà che possono essere impostate e che modificano radicalmente il comportamento della macchina virtuale.
 
 Attività più comuni:
 
@@ -19,7 +19,7 @@ Attività più comuni:
 
 ##Individuare le estensioni disponibili
 
-Le estensioni di macchina virtuale di Azure sono (per un elenco completo delle estensioni in base alle funzionalità supportate, vedere [Estensioni VM e funzionalità di Azure](virtual-machines-windows-extensions-features.md)). È possibile individuare l'estensione, insieme a informazioni estese, usando:
+Le estensioni di macchina virtuale di Azure sono (per un elenco completo delle estensioni in base alle funzionalità supportate, vedere [Estensioni VM e funzionalità di Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md)). È possibile individuare l'estensione, insieme a informazioni estese, usando:
 
 -   PowerShell
 -   Interfaccia multi-piattaforma di Azure (riga di comando di Azure)
@@ -121,4 +121,4 @@ Per sapere se un'estensione richiede una configurazione di parametri pubblici e 
 
 >[AZURE.NOTE]Le estensioni possono anche usare configurazioni definite con JSON. Quando si applicano questi tipi di estensioni, viene usato solo l'elemento **SampleConfig**.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # Come partizionare i dati in DocumentDB con .NET SDK
 
-Azure DocumentDB è un servizio di database di documenti che consente di scalare facilmente l'account attraverso il provisioning di raccolte usando gli [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) e le [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) (detto anche **partizionamento orizzontale**). Per facilitare lo sviluppo di applicazioni partizionate e ridurre la quantità di codice boilerplate per il partizionamento delle attività, negli SDK per .NET, Node.js, and Java è stata aggiunta una funzionalità che semplifica la compilazione di applicazioni per cui è stato aumentato il numero delle istanze in più partizioni.
+Azure DocumentDB supporta le raccolte che è possono aumentare fino a raggiungere [grandi volumi di archiviazione e velocità effettiva](documentdb-partition-data.md). Tuttavia, esistono casi di utilizzo in cui risulta utile mantenere un controllo con granularità fine sul comportamento di partizionamento. Per ridurre il codice boilerplate per il partizionamento delle attività, negli SDK per .NET, Node.js e Java è stata aggiunta una funzionalità che semplifica la compilazione di applicazioni per cui è stato aumentato il numero delle istanze in più raccolte.
 
 In questo articolo, verranno esaminate le classi e le interfacce in .NET SDK e verrà spiegato come usarle per sviluppare le applicazioni partizionate.
 
@@ -26,8 +26,8 @@ In questo articolo, verranno esaminate le classi e le interfacce in .NET SDK e v
 
 Prima di esaminare più in dettaglio il partizionamento, è opportuno riepilogare alcuni concetti di base di DocumentDB correlati al partizionamento. Ogni account di database di DocumentDB è costituito da un insieme di database, ognuno dei quali include più raccolte, che possono contenere stored procedure, trigger, UDF, documenti e allegati correlati. Le raccolte possono essere considerate come partizioni in DocumentDB e avere le proprietà seguenti:
 
-- Le raccolte sono partizioni fisiche e non solo contenitori logici. La query o l'elaborazione di documenti che si trovano nella stessa raccolta comporta quindi un miglioramento delle prestazioni.
-- Le raccolte sono il limite per le transazioni ACID, ovvero stored procedure e trigger.
+- Le raccolte offrono l’isolamento delle prestazioni. La collazione di documenti simili all'interno della stessa raccolta comporta quindi un miglioramento delle prestazioni. Ad esempio, per i dati relativi alle serie temporali, è possibile inserire i dati per l’ultimo mese, per cui viene spesso eseguita una query, all'interno di una raccolta con una velocità effettiva di provisioning più elevata, mentre i dati meno recenti vengono collocati all'interno di raccolte con bassa velocità effettiva di provisioning.
+- Le transazioni ACID, ovvero stored procedure e trigger, non possono estendersi a una raccolta. L’ambito delle transazioni è impostato all'interno di un valore della chiave di partizione singola in una raccolta.
 - Le raccolte non applicano uno schema e quindi possono essere usate per documenti JSON dello stesso tipo o di tipi diversi.
 
 A partire dalla versione [1\.1.0 di Azure DocumentDB .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), è possibile eseguire operazioni sui documenti direttamente in un database. Internamente [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) usa la classe PartitionResolver specificata per il database per instradare le richieste alla raccolta appropriata.
@@ -134,12 +134,11 @@ Gli esempi sono open source e si consiglia di inviare richieste pull con contrib
 >[AZURE.NOTE] Le creazioni di raccolte sono soggette a limitazioni di frequenza da parte di DocumentDB e quindi il completamento di alcuni dei metodi di esempio mostrati qui potrebbe richiedere alcuni minuti.
 
 ##Domande frequenti
-**Perché DocumentDB supporta il partizionamento lato client invece del partizionamento lato server?**
+* * DocumentDB supporta il partizionamento lato server? * *
 
-DocumentDB supporta il partizionamento lato client per due motivi:
+Sì, DocumentDB supporta il [partizionamento lato server](documentdb-partition-data.md). DocumentDB supporta anche il partizionamento lato client tramite resolver della partizione lato client per i casi di utilizzo più avanzati.
 
-- È veramente difficile per gli sviluppatori prescindere dal concetto di raccolta senza compromettere l'indicizzazione/esecuzione di query coerente, la disponibilità elevata o le garanzie delle transazioni ACID. 
-- I database di documenti spesso richiedono flessibilità in termini di definizione di strategie di partizionamento, cosa che un approccio lato server non potrebbe assicurare. 
+* * Come distinguere quando utilizzare il partizionamento lato server o lato client? * * Per la maggior parte dei casi di utilizzo, è consigliabile l'utilizzo del partizionamento lato server, perché gestisce le attività amministrative di partizionamento dei dati e routing delle richieste. Tuttavia, se è necessario il partizionamento per intervalli o in un caso di utilizzo specializzato per l'isolamento delle prestazioni tra i diversi valori delle chiavi di partizione, il partizionamento lato client potrebbe essere l'approccio migliore.
 
 **Come aggiungere o rimuovere una raccolta nel proprio schema di partizionamento?**
 
@@ -154,13 +153,13 @@ Per un esempio di come implementare il ripartizionamento, esaminare l'implementa
 È possibile concatenare classi PartitionResolver implementando la propria interfaccia IPartitionResolver che usa internamente uno o più sistemi resolver esistenti. Per un esempio, esaminare TransitionHashPartitionResolver nel progetto degli esempi.
 
 ##Riferimenti
-* [Esempi di codici di partizionamento su Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning)
-* [Partizionamento dei dati in DocumentDB](documentdb-partition-data.md)
+* [Partizionamento dei dati con DocumentDB](documentdb-partition-data.md)
 * [Raccolte e livelli di prestazioni in DocumentDB](documentdb-performance-levels.md)
+* [Esempi di codici di partizionamento su Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning)
 * [Documentazione di DocumentDB .NET SDK in MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Esempi di .NET in DocumentDB](https://github.com/Azure/azure-documentdb-net)
 * [Limiti di DocumentDB](documentdb-limits.md)
 * [Blog di DocumentDB sui suggerimenti per le prestazioni](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

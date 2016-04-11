@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Creare una nuova API Google Drive in PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [App per la logica](../articles/connectors/create-api-googledrive.md)
+- [App per la logica](../articles/connectors/connectors-create-api-googledrive.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-googledrive.md)
 
 Aggiungere l'API Google Drive all'ambiente del servizio app dell'organizzazione (tenant).
@@ -89,7 +89,7 @@ Viene creata una nuova app di Google Drive. È possibile utilizzare questa app n
 
 ## Vedere le API REST
 
-Informazioni di riferimento sull'[API REST Google Drive](../connectors/create-api-googledrive.md).
+Informazioni di riferimento sull'[API REST Google Drive](../connectors/connectors-create-api-googledrive.md).
 
 ## Riepilogo e passaggi successivi
 In questo argomento, è stata aggiunta l'API di Google Drive alla PowersApps Enterprise. Successivamente, fornire agli utenti accesso all'API, in modo che sia possibile aggiungerla alle loro app:
@@ -115,4 +115,4 @@ In questo argomento, è stata aggiunta l'API di Google Drive alla PowersApps Ent
 [15]: ./media/powerapps-create-api-googledrive/browseall.png
 [16]: ./media/powerapps-create-api-googledrive/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

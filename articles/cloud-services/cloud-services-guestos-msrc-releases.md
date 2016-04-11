@@ -13,12 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="12/15/2015"
+   ms.date="03/23/2016"
    ms.author="yuemlu"/>
 
 # Sistema operativo guest di Azure 
 
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## Sistema operativo guest di marzo 
+
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-023 | [3142015] | Aggiornamento cumulativo della sicurezza per Internet Explorer | 4\.30, 3.37, 2.49 | 8 marzo 2016 |  
+| MS16-026 | [3143148] | Aggiornamento della sicurezza di Graphic Fonts per l'esecuzione di codice in modalità remota | 4\.30, 3.37, 2.49 | 8 marzo 2016 |  
+| MS16-027 | [3143146] | Aggiornamento della sicurezza di Windows Media Player per l'esecuzione di codice in modalità remota | 4\.30, 3.37, 2.49 | 8 marzo 2016 |  
+| MS16-028 | [3143081] | Aggiornamento della sicurezza della Libreria PDF di Microsoft Windows per l'esecuzione di codice in modalità remota | 4\.30, 3.37 | 8 marzo 2016 |  
+| MS16-030 | [3143136] | Aggiornamento della sicurezza di Windows OLE per l'esecuzione di codice in modalità remota | 4\.30, 3.37, 2.49 | 8 marzo 2016 |  
+| MS16-031 | [3140410] | Aggiornamento della sicurezza di Microsoft Windows per l'elevazione dei privilegi di accesso dell'indirizzo | 2\.49 | 8 marzo 2016 |  
+| MS16-032 | [3143141] | Aggiornamento della sicurezza di Secondary Logon per l'elevazione dei privilegi di accesso dell'indirizzo | 4\.30, 3.37, 2.49 | 8 marzo 2016 |  
+| MS16-033 | [3143142] | Aggiornamento della sicurezza per il driver di classe dell'archiviazione di massa USB per l'elevazione dei privilegi di accesso dell'indirizzo | 4\.30, 3.37, 2.49 | 8 marzo 2016 |  
+| MS16-034 | [3143145] | Aggiornamenti della sicurezza per il driver in modalità Kernel per l'elevazione dei privilegi di accesso dell'indirizzo | 4\.30, 3.37, 2.49 | 8 marzo 2016 | | MS16-035 | [3141780] | Aggiornamento della sicurezza di .NET Framework per il bypass della funzionalità di sicurezza | 4\.30, 3.37, 2.49 | 8 marzo 2016 |  
 
 
 ## Sistema operativo guest di febbraio
@@ -242,6 +256,18 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [2999802][2999802] | In Windows vengono stampate linee a tinta unita invece che linee tratteggiate | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 | N/D | [2896881][2896881] | È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 
+
+[3142015]: http://support.microsoft.com/kb/3142015
+[3143148]: http://support.microsoft.com/kb/3143148
+[3143146]: http://support.microsoft.com/kb/3143146
+[3143081]: http://support.microsoft.com/kb/3143081
+[3143136]: http://support.microsoft.com/kb/3143136
+[3140410]: http://support.microsoft.com/kb/3140410
+[3143141]: http://support.microsoft.com/kb/3143141
+[3143142]: http://support.microsoft.com/kb/3143142
+[3143145]: http://support.microsoft.com/kb/3143145
+[3141780]: http://support.microsoft.com/kb/3141780
+
 [3134220]: http://support.microsoft.com/kb/3134220
 [3134811]: http://support.microsoft.com/kb/3134811
 [3134228]: http://support.microsoft.com/kb/3134228
@@ -406,4 +432,4 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

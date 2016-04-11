@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Pool di database elastici per database SQL | Microsoft Azure"
 	description="Scopri come è possibile controllare la crescita esponenziale nei database SQL con dei pool di database elastici, una modalità di condivisione delle risorse disponibili in molti database."
-	keywords="database elastici, database SQL"	
+	keywords="database elastici, database SQL"
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/11/2016"
+	ms.date="03/24/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -20,7 +20,7 @@
 
 # Controllare la crescita esponenziale nei database SQL tramite i pool di database elastici per condividere le risorse
 
-Uno sviluppatore SaaS deve creare e gestire decine, centinaia o addirittura migliaia di database SQL. I pool elastici semplificano la creazione e la manutenzione dei database nonché la gestione delle relative prestazioni, il tutto nell'ambito di un budget controllabile. È possibile aggiungere e rimuovere database dal pool in base alle proprie esigenze. È possibile [creare un pool di database elastici](sql-database-elastic-pool-portal.md) per database SQL in pochi minuti usando il portale di Microsoft Azure, [PowerShell](sql-database-elastic-pool-powershell.md) o [C#](sql-database-elastic-pool-csharp.md).
+Uno sviluppatore SaaS deve creare e gestire decine, centinaia o addirittura migliaia di database SQL. I pool elastici semplificano la creazione e la manutenzione dei database nonché la gestione delle relative prestazioni, il tutto nell'ambito di un budget controllabile. È possibile aggiungere e rimuovere database dal pool in base alle proprie esigenze. Vedere [Creare un pool scalabile di database elastici per database SQL nel portale di Azure](sql-database-elastic-pool-create-portal.md), [Tramite PowerShell](sql-database-elastic-pool-powershell.md) o [C#](sql-database-elastic-pool-csharp.md).
 
 Per informazioni dettagliate sulle API e sugli errori, vedere [Riferimento ai pool di database elastici di database SQL](sql-database-elastic-pool-reference.md).
 
@@ -63,9 +63,9 @@ Attualmente in anteprima, elastici database supportano la maggior parte [funzion
 
 Il backup dei database in un pool di database elastico viene eseguito automaticamente dal sistema e i criteri di conservazione del backup corrispondono al relativo livello di servizio per singoli database. In breve, i database di ogni livello hanno un intervallo di ripristino diverso:
 
-* **Pool Basic**: ripristinabile in qualsiasi momento entro gli ultimi 7 giorni. 
+* **Pool Basic**: ripristinabile in qualsiasi momento entro gli ultimi 7 giorni.
 * **Pool Standard**: ripristinabile in qualsiasi momento entro gli ultimi 14 giorni.
-* **Pool Premium**: ripristinabile in qualsiasi momento entro gli ultimi 35 giorni. 
+* **Pool Premium**: ripristinabile in qualsiasi momento entro gli ultimi 35 giorni.
 
 Durante l'anteprima, i database di un pool verranno ripristinati in un nuovo database dello stesso pool. Database eliminati verranno sempre ripristinati come database autonomi all'esterno del pool nel livello di prestazioni più basso per tale livello di servizio. Ad esempio, verrà ripristinato un database in un pool Standard che viene eliminato elastico come database S0. È possibile eseguire operazioni di ripristino dei database tramite il Portale di Azure o a livello di programmazione mediante l'API REST. Il supporto dei cmdlet PowerShell sarà disponibile a breve.
 
@@ -86,4 +86,4 @@ L’esportazione di un database dall’interno di un pool è supportata. Attualm
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

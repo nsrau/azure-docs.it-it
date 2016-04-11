@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/01/2016"
+    ms.date="03/24/2016"
     ms.author="ddove;sidneyh"/>
 
 # Panoramica sulle funzionalità di database elastico
 
 Le funzionalità di **database elastico** consentono di utilizzare le risorse di database virtualmente illimitate di **Database SQL di Azure** per creare soluzioni per carichi di lavoro transazionali e soprattutto applicazioni SaaS (Software as a Service). Le funzioni di database elastico sono costituite dai seguenti elementi:
 
-* Strumenti di database elastici: questi due strumenti semplificano lo sviluppo e la gestione di soluzioni di database partizionate. Gli strumenti sono: la [libreria client di database elastici](sql-database-elastic-database-client-library.md) e lo [strumento di suddivisione-unione dei database elastici](sql-database-elastic-scale-overview-split-and-merge.md). 
-* [Pool di database elastici](sql-database-elastic-pool-guidance.md) (anteprima): un pool è una raccolta di database a cui è possibile aggiungere o rimuovere i database in qualsiasi momento. I database nel pool condividono una quantità fissa di risorse (note come unità di transazione del database o DTU). Per le risorse viene pagato un prezzo fisso, che consente di calcolare facilmente i costi durante la gestione delle prestazioni. 
+* Strumenti di database elastici: questi due strumenti semplificano lo sviluppo e la gestione di soluzioni di database partizionate. Gli strumenti sono: la [libreria client di database elastici](sql-database-elastic-database-client-library.md) e lo [strumento di suddivisione-unione dei database elastici](sql-database-elastic-scale-overview-split-and-merge.md).
+* [Pool di database elastici](sql-database-elastic-pool-guidance.md) (anteprima): un pool è una raccolta di database a cui è possibile aggiungere o rimuovere i database in qualsiasi momento. I database nel pool condividono una quantità fissa di risorse (note come unità di transazione del database o DTU). Per le risorse viene pagato un prezzo fisso, che consente di calcolare facilmente i costi durante la gestione delle prestazioni.
 * [Processi di database elastico](sql-database-elastic-jobs-overview.md) (anteprima): utilizzare i processi per gestire un numero elevato di database SQL di Azure. Consente di eseguire facilmente operazioni amministrative, ad esempio le modifiche dello schema, la gestione delle credenziali, gli aggiornamenti dei dati di riferimento, la raccolta dei dati sulle prestazioni o la raccolta di dati di telemetria tenant (cliente) utilizzando i processi.
 * [Query di database elastico](sql-database-elastic-query-overview.md) (anteprima): consente di eseguire una query Transact-SQL che si estende in più database. Tale query consente una connessione a strumenti di report, ad esempio Excel, PowerBI, Tableau e così via.
 
@@ -33,13 +33,13 @@ Per una versione stampabile di questo elemento grafico, andare su [download Pano
 
 In questo grafico, i colori del database rappresentano gli schemi. I database con lo stesso colore condividono gli stessi schemi.
 
-1. Un set di **database SQL di Azure** è ospitato in Azure tramite l'architettura di partizionamento orizzontale. 
+1. Un set di **database SQL di Azure** è ospitato in Azure tramite l'architettura di partizionamento orizzontale.
 2. La **libreria client di database elastici** viene utilizzata per gestire un set di partizioni.
-3. Un subset dei database viene inserito in un **pool di database elastici**. (Vedere [Controllare la crescita esponenziale con i database elastici](sql-database-elastic-pool.md).) 
+3. Un subset dei database viene inserito in un **pool di database elastici**. (Vedere [Controllare la crescita esponenziale con i database elastici](sql-database-elastic-pool.md).)
 4. Un **Processo di database elastico** esegue gli script T-SQL in tutti i database.
 5. Lo **strumento di suddivisione-unione** viene utilizzato per spostare i dati da una partizione a un’altra.
 6. La **query di database elastico** consente di scrivere una query che si estende a tutti i database nel set di partizioni.
-  
+
 ## Promesse e sfide
 
 Il raggiungimento dell’elasticità e della scalabilità delle applicazioni cloud è stato semplice per il calcolo e l'archiviazione BLOB, in quanto è bastato aggiungere o sottrarre le unità. Tuttavia, resta una sfida per l’elaborazione dei dati con stato in database relazionali. I problemi sono emersi principalmente nei due seguenti scenari:
@@ -93,7 +93,7 @@ Per un'applicazione di esempio che illustra la libreria client, vedere [Introduz
 
 Per usare il servizio di suddivisione-unione, è necessario [configurare la sicurezza](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-Per visualizzare le specifiche del pool di database elastici, vedere [Considerazioni di prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md) o creare un nuovo pool con l’[esercitazione](sql-database-elastic-pool-portal.md).
+Per visualizzare le specifiche del pool di database elastici, vedere [Considerazioni di prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md) o creare un nuovo pool con l’[esercitazione](sql-database-elastic-pool-create-portal.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -108,4 +108,4 @@ Cosa si può fare meglio? Questo argomento spiega chiaramente la funzionalità? 
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

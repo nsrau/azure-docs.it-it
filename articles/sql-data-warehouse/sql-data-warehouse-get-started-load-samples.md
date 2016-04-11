@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Caricare i dati di esempio in SQL Data Warehouse
@@ -51,26 +51,32 @@ I dati di esempio possono essere analizzati anche con mezzi tradizionali. Come d
 
 È possibile eseguire un'istruzione select semplice per ottenere tutte le informazioni sui dipendenti:
 
-	SELECT * FROM DimEmployee;
+```sql
+SELECT * FROM DimEmployee;
+```
 
 È inoltre possibile eseguire una query più complessa utilizzando costrutti come GROUP BY per visualizzare il volume totale di tutte le vendite di ogni giorno:
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```sql
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey
+;
+```
 
 È anche possibile utilizzare la clausola WHERE per filtrare gli ordini prima di una determinata data:
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	WHERE OrderDateKey > '20020801'
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```sql
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+WHERE OrderDateKey > '20020801'
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey
+;
+```
 
 In realtà, SQL Data Warehouse supporta quasi tutti i costrutti T-SQL di SQL Server ed è possibile trovare alcune delle differenze nella documentazione relativa [alla migrazione del codice][].
-
-
 
 ## Passaggi successivi
 Dopo essersi esercitati con i dati di esempio, è possibile vedere come [sviluppare][], [caricare][] o [eseguire la migrazione][].
@@ -94,4 +100,4 @@ Dopo essersi esercitati con i dati di esempio, è possibile vedere come [svilupp
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -3,8 +3,8 @@
    description="Specifica delle origini dati attualmente supportate."
    services="data-catalog"
    documentationCenter=""
-   authors="trhabe"
-   manager="jstrauss"
+   authors="steelanddata"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/15/2016"
-   ms.author="trhabe"/>
+   ms.date="03/30/2016"
+   ms.author="maroche"/>
 
 # Origini dati supportate da Catalogo dati di Azure
 
@@ -436,18 +436,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
       </td>
     </tr>
 
-    <tr>
-      <td>Cosmos</td>
-      <td>Contenitore</td>
-      <td>Cluster virtuale</td>
-      <td>N/D</td>
-      <td>
-        <font size=2> protocollo: cosmos
-            <br>autenticazione: {basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
+
 
     <tr>
       <td>SQL Server Reporting Services</td>
@@ -523,46 +512,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
             <br>&#160;&#160;&#160;&#160;&#160; database
             <br>&#160;&#160;&#160;&#160;&#160; model
             <br>
-            <br>* basic/anonymous disponibile solo tramite HTTPS </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Tabella</td>
-      <td>Flusso</td>
-      <td>Cluster virtuale</td>
-      <td>
-        <font size=2> protocollo: cosmos
-            <br>autenticazione: {basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Tabella</td>
-      <td>Set di flussi</td>
-      <td>Cluster virtuale</td>
-      <td>
-        <font size=2> protocollo: cosmos
-            <br>autenticazione: {basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Tabella</td>
-      <td>Visualizza</td>
-      <td>Cluster virtuale</td>
-      <td>
-        <font size=2> protocollo: cosmos
-            <br>autenticazione: {basic, windows}
-            <br>indirizzo:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+            <br>* basic/anonymous disponibile solo tramite HTTPS* </font>
       </td>
     </tr>
 
@@ -599,7 +549,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     <tr>
       <td>DB2</td>
       <td>Tabella</td>
-      <td>Vista</td>
+      <td>Visualizza</td>
       <td>Database</td>
       <td>
         <font size=2> protocollo: db2
@@ -664,7 +614,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
             <br>&#160;&#160;&#160;&#160;&#160; database
             <br>&#160;&#160;&#160;&#160;&#160; model
             <br>
-            <br>* basic/anonymous disponibile solo tramite HTTPS </font>
+            <br>* basic/anonymous disponibile solo tramite HTTPS* </font>
       </td>
     </tr>
 
@@ -1173,7 +1123,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
             <br>&#160;&#160;&#160;&#160;&#160; object
             <br>&#160;&#160;&#160;&#160;&#160; objectType: {Kpi}
             <br>
-            <br>* basic/anonymous disponibile solo tramite HTTPS </font>
+            <br>* basic/anonymous disponibile solo tramite HTTPS* </font>
       </td>
     </tr>
 
@@ -1239,7 +1189,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
             <br>&#160;&#160;&#160;&#160;&#160; object
             <br>&#160;&#160;&#160;&#160;&#160; objectType: {Table}
             <br>
-            <br>* basic/anonymous disponibile solo tramite HTTPS </font>
+            <br>* basic/anonymous disponibile solo tramite HTTPS* </font>
       </td>
     </tr>
 
@@ -1334,4 +1284,4 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
 
 </table>
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/09/2016" 
+    ms.date="03/28/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
@@ -22,7 +22,7 @@
 
 Il Toolkit di Azure per Eclipse offre modelli e funzionalità che permettono di creare, sviluppare, testare e distribuire con facilità applicazioni di Azure tramite l'ambiente di sviluppo Eclipse. Si tratta di un progetto Open Source, il cui codice sorgente è disponibile sotto la licenza Apache 2.0 dal sito del progetto in GitHub all'indirizzo seguente:
 
-<https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava>.
+<https://github.com/microsoft/azure-tools-for-java>
 
 La procedura seguente mostra come installare il Toolkit di Azure per Eclipse.
 
@@ -31,11 +31,11 @@ La procedura seguente mostra come installare il Toolkit di Azure per Eclipse.
 ## Per installare il Toolkit di Azure per Eclipse
 
 1. Avviare Eclipse.
-2. In Eclipse, nel menu fare clic su <strong>Guida</strong>, quindi fare clic su <strong>Installa nuovo Software</strong>, come illustrato nel diagramma seguente. 
-	![Installare il Toolkit di Azure per Eclipse.][ic590123]
-3. Nella finestra di dialogo <strong>Software disponibile</strong>, all'interno della casella di testo <strong>usare</strong> digitare <strong>http://dl.microsoft.com/eclipse</strong> seguiti dalla chiave <strong>Invio</strong>.
+2. In Eclipse, nel menu fare clic su <strong>Guida</strong>, quindi fare clic su <strong>Installa nuovo Software</strong>, come illustrato nel diagramma seguente.
+    ![][ic590123]
+3. Nella finestra di dialogo <strong>Software disponibile</strong>, all'interno della casella di testo <strong>usare</strong> digitare <strong>http://dl.msopentech.com/eclipse</strong> seguiti dalla chiave <strong>Invio</strong>.
 4. Nel riquadro <strong>Nome</strong>, controllare il <strong>Toolkit di Azure per Eclipse</strong>, e deselezionare <strong>Contattare tutti i siti di aggiornamento durante l'installazione per trovare il software richiesto</strong>. L'aspetto della schermata dovrebbe essere simile al seguente:
-	![Installare il Toolkit di Azure per Eclipse.][ic719482]
+    ![][ic719482]
 5. Se si espande il <strong>Toolkit di Azure per Eclipse</strong>, verrà visualizzato quanto segue:
     * **Il filtro Servizio di controllo di accesso di Azure**: fornisce il supporto per l’applicazione dell’autenticazione degli utenti con ACS di Azure.
     * **Plug-in comune di Azure**: questo componente contiene la funzionalità condivisa ritenuta attendibile da altri componenti.
@@ -74,4 +74,4 @@ Per altre informazioni sull'uso di Azure con Java, visitare il [centro per svilu
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

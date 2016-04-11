@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/03/2016" 
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Introduzione a Transparent Data Encryption (TDE)
@@ -32,7 +32,7 @@ Per abilitare TDE per un SQL Data Warehouse, seguire questa procedura:
 1. Connettere il database *master* sul server che ospita il database usando un account di accesso di un amministratore o di un membro del ruolo **dbmanager** nel database master.
 2. Eseguire l'istruzione seguente per crittografare il database.
 
-```
+```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
@@ -43,7 +43,7 @@ Per disabilitare TDE per un SQL Data Warehouse, seguire questa procedura:
 1. Connettere il database *master* usando un account di accesso di un amministratore o di un membro del ruolo **dbmanager** nel database master.
 2. Eseguire l'istruzione seguente per crittografare il database.
 
-```
+```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
@@ -54,7 +54,7 @@ Per verificare lo stato della crittografia per un SQL Data Warehouse, seguire qu
 1. Connettere il database *master* o dell'istanza usando un account di accesso di un amministratore o di un membro del ruolo **dbmanager** nel database master.
 2. Eseguire l'istruzione seguente per crittografare il database.
 
-```
+```sql
 SELECT
 	[name],
 	[is_encrypted]
@@ -73,4 +73,4 @@ Il risultato ```1``` indica un database crittografato, ```0``` indica un databas
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

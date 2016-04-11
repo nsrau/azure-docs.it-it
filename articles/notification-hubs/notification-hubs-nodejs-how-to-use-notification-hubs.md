@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="03/08/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Invio di notifiche push con Hub di notifica di Azure e Node.js
@@ -230,4 +230,4 @@ I frammenti di codice di esempio riportati sopra consentono di creare facilmente
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
   [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

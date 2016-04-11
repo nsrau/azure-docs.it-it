@@ -41,17 +41,19 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il
 2. Fare clic su **NUOVO**, fare clic su **Analisi di dati** e quindi fare clic su **HDInsight**.
 
     ![Creazione di un nuovo cluster nel portale di Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di Azure")
+3. Inserire il **Nome cluster**: il nome deve essere univoco a livello globale.
+4. Fare clic su **Selezionare il tipo di cluster**, quindi selezionare:
 
-3. Digitare:
+    - **Tipo di cluster**: in caso di dubbi su questa opzione, scegliere **Hadoop**. È il tipo di cluster più diffuso.
+    - **Sistema operativo**: selezionare **Linux**.
+    - **Versione**: utilizzare la versione predefinita, in caso di dubbi. Per altre informazioni, vedere [Versioni del cluster HDInsight](hdinsight-component-versioning.md).
+    - **Livello del cluster**: HDInsight di Azure fornisce offerte cloud per i Big Data in due categorie: livello Standard e livello Premium. Per ulteriori informazioni, vedere [Livelli di cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
+    
+    ![Configurazione del livello Premium HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
 
-    - **Nome cluster**: il nome deve essere globalmente univoco.
-    - **Tipo di cluster**: se non si sa quale scegliere, selezionare **Hadoop**.
-    - **Sistema operativo cluster**: selezionare **Linux**.
-    - **Versione**: usare la versione predefinita, se non si sa quale scegliere. Per altre informazioni, vedere [Versioni del cluster HDInsight](hdinsight-component-versioning.md).
+4. Fare clic su **Sottoscrizione** per selezionare la sottoscrizione di Azure utilizzata per il cluster.
 
-4. Fare clic su **Sottoscrizione** per selezionare la sottoscrizione di Azure che verrà usata per il cluster.
-
-5. Fare clic su **Gruppo di risorse** per selezionare un gruppo di risorse esistente o fare clic su **Nuovo** crearne uno nuovo.
+5. Fare clic su **Gruppo di risorse** per selezionare un gruppo di risorse esistente o fare clic su **Nuovo** per crearne uno nuovo.
 
 	> [AZURE.NOTE] Questa voce sarà impostata su uno dei gruppi di risorse esistenti, se disponibili.
 
@@ -81,7 +83,7 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il
 
 		> [AZURE.IMPORTANT] La selezione del percorso per l'origine dati predefinito imposterà anche il percorso del cluster HDInsight. L'origine dati del cluster e l'origine dati predefinita devono trovarsi nella stessa area.
         
-    - **Identità AAD del cluster**: configurandolo si rende accessibile il cluster per gli archivi Azure Data Lake in base alla configurazione di AAD.
+    - **Identità AAD del cluster**: configurandolo si rende accessibile il cluster agli archivi Azure Data Lake in base alla configurazione di AAD.
 
 	Fare clic su **Seleziona** per salvare la configurazione dell'origine dati.
 
@@ -158,7 +160,7 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il
 ##Personalizzare i cluster
 
 - Vedere [Personalizzare cluster HDInsight tramite Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
-- Vedere [Personalizzare cluster HDInsight basati su Windows tramite Azione script](hdinsight-hadoop-customize-cluster.md).
+- Vedere [Personalizzare cluster HDInsight basati su Windows tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
 ##Eliminazione del cluster
 
@@ -193,4 +195,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

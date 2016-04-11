@@ -14,11 +14,55 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="03/29/2016"
 	ms.author="nitinme"/>
 
 
 # Note sulla versione di componenti Hadoop in Azure HDInsight
+
+## Note sulla versione di HDInsight rilasciata il 29/03/2016
+
+Numeri di versione completi per i cluster HDInsight distribuiti con questa versione:
+
+* HDInsight (Windows) 2.1.10.875.2159884 (HDP 1.3.12.0-01795 - non modificato)
+* HDInsight (Windows) 3.0.6.875.2159884 (HDP 2.0.13.0-2117 - non modificato)
+* HDInsight (Windows) 3.1.4.875.2159884 (HDP 2.1.15.0-2374 - non modificato)
+* HDInsight (Windows) 3.2.7.875.2159884 (HDP 2.2.9.1-7 - non modificato)
+* HDInsight (Windows) 3.3.0.875.2159884 (HDP 2.3.3.1-16)
+* HDInsight (Linux) 3.2.1000.0.7193255 (HDP 2.2.9.1-8 - non modificato)
+* HDInsight (Linux) 3.3.1000.0.7193255 (HDP 2.3.3.1-7 - non modificato)
+* HDInsight (Linux) 3.4.1000.0.7195842 (HDP 2.4.1.0-327)
+* SDK 1.5.8
+
+Questa versione contiene gli aggiornamenti seguenti.
+
+| Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| È stata aggiunta la versione 3.4 di HDInsight e sono state aggiornate le versioni HDP di tutti i cluster di HDInsight | Con questa versione, è stata aggiunta la versione 3.4 di HDInsight (basata su HDP 2.4) e sono state aggiornate anche le altre versioni di HDP. Le note sulla versione di HDP 2.4 sono disponibili [qui](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html) e altre informazioni sulle versioni di HDInsight sono disponibili [qui](hdinsight-component-versioning.md).| Servizio | Tutti i cluster Linux| N/D
+| HDInsight Premium | HDInsight è ora disponibile in due categorie: Standard e Premium. Attualmente HDInsight Premium è disponibile in anteprima e solo per i cluster Hadoop e Spark su Linux. Per ulteriori informazioni, vedere [qui](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| Servizio | Hadoop e Spark su Linux| N/D
+| Microsoft R Server | HDInsight Premium mette a disposizione Microsoft R Server, che può essere incluso con i cluster Spark e Hadoop su Linux. Per ulteriori informazioni vedere [Panoramica su R Server in HDInsight](hdinsight-hadoop-r-server-overview.md).| Servizio | Hadoop e Spark su Linux| N/D
+| Spark 1.6.0 | I cluster HDInsight 3.4 ora includono Spark 1.6.0| Servizio | Cluster Spark su Linux| N/D
+| Miglioramenti del notebook Jupyter | I notebook Jupyter disponibili con cluster Spark ora offrono kernel Spark supplementari. Includono inoltre miglioramenti quali utilizzo di %%magic, la visualizzazione automatica e l'integrazione con le librerie di visualizzazione Python (come matplotlib). Per ulteriori informazioni, vedere [Kernel disponibili per i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md). | Servizio | Cluster Spark su Linux | N/D
+
+## Note sulla versione di HDInsight rilasciata il 22/03/2016
+
+Numeri di versione completi per i cluster HDInsight distribuiti con questa versione:
+
+* HDInsight (Windows) 2.1.10.875.2159884 (HDP 1.3.12.0-01795 - non modificato)
+* HDInsight (Windows) 3.0.6.875.2159884 (HDP 2.0.13.0-2117 - non modificato)
+* HDInsight (Windows) 3.1.4.875.2159884 (HDP 2.1.15.0-2374 - non modificato)
+* HDInsight (Windows) 3.2.7.875.2159884 (HDP 2.2.9.1-7 - non modificato)
+* HDInsight (Windows) 3.3.0.875.2159884 (HDP 2.3.3.1-16)
+* HDInsight (Linux) 3.2.1000.0.7193255 (HDP 2.2.9.1-8 - non modificato)
+* HDInsight (Linux) 3.3.1000.0.7193255 (HDP 2.3.3.1-7 - non modificato)
+* SDK 1.5.8
+
+Questa versione contiene gli aggiornamenti seguenti.
+
+| Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Versioni aggiornate di HDInsight per tutti i cluster HDInsight | Con questo rilascio sono state aggiornate le versioni di HDInsight per tutti i cluster HDInsight| Servizio | Tutti| N/D
+
 
 ## Note sulla versione di HDInsight rilasciata il 10/03/2016
 
@@ -75,7 +119,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 
 | Titolo | Descrizione | Area interessata (ad esempio servizio, componente o SDK) | Tipo di cluster (ad esempio Hadoop, HBase o Storm) | JIRA (se applicabile) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| È stata aggiunta la versione 3.3 di HDInsight e sono state aggiornate tutte le versioni dei cluster di HDInsight | Con questa versione, è stata aggiunta la versione 3.3 di HDInsight (basata su HDP 2.3) e sono state aggiornate anche le altre versioni di HDP. Le note sulla versione di HDP 2.3 sono disponibili [qui](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html) e altre informazioni sulle versioni di HDInsight sono disponibili [qui](https://azure.microsoft.com/it-IT/documentation/articles/hdinsight-component-versioning/).| Servizio | Tutti| N/D
+| È stata aggiunta la versione 3.3 di HDInsight e sono state aggiornate le versioni HDP di tutti i cluster di HDInsight | Con questa versione, è stata aggiunta la versione 3.3 di HDInsight (basata su HDP 2.3) e sono state aggiornate anche le altre versioni di HDP. Le note sulla versione di HDP 2.3 sono disponibili [qui](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html) e altre informazioni sulle versioni di HDInsight sono disponibili [qui](hdinsight-component-versioning.md).| Servizio | Tutti| N/D
 
 ## Note per la versione di HDInsight rilasciata il 30/11/2015
 
@@ -1497,4 +1541,4 @@ Le note sulla versione relative alle piattaforme HDP (Hortonworks Data Platform)
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

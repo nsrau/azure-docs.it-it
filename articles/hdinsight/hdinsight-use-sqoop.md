@@ -219,10 +219,12 @@ Lo script di PowerShell seguente pre-elabora il file di origine e lo esporta in 
         
     $tableName_log4j = "log4jlogs"
     $exportDir_log4j = "/tutorials/usesqoop/data"
+    $sqljdbcdriver = "/user/oozie/share/lib/sqoop/sqljdbc41.jar"
         
     # Submit a Sqoop job
     $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
-        -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by ' ' -m 1"
+        -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by \0x20 -m 1" `
+        -Files $sqljdbcdriver
 
     $sqoopJob = Start-AzureRmHDInsightJob `
                     -ClusterName $hdinsightClusterName `
@@ -790,4 +792,4 @@ L'esempio di PowerShell esegue questa procedura:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

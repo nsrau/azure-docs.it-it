@@ -61,7 +61,7 @@ Usare le opzioni seguenti quando si esegue CREATE TABLE o ALTER TABLE per abilit
 
 -   È possibile usare la clausola `FILTER_PREDICATE = <predicate>` per specificare un predicato e selezionare le righe di cui eseguire la migrazione se la tabella contiene sia dati attuali che cronologici. Il predicato deve chiamare una funzione inline con valori di tabella. Per altre informazioni, vedere l'articolo [Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (estensione database)](sql-server-stretch-database-predicate-function.md). Se non si specifica alcun predicato del filtro, viene eseguita la migrazione dell'intera tabella.
 
-        > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
+    >   [AZURE.NOTE] Se si specifica un predicato del filtro con esecuzione inadeguata, la migrazione dei dati sarà a sua volta inadeguata. Il Database Estensione applica il predicato del filtro alla tabella tramite l'operatore CROSS APPLY.
 
     In CTP 3.1 tramite RC1 questa opzione non è disponibile nella procedura guidata Abilitare il database per l'estensione. È necessario usare l'istruzione CREATE TABLE o ALTER TABLE per configurare una tabella per l'estensione database con questa opzione. Per altre informazioni, vedere [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
@@ -114,4 +114,4 @@ Per altre informazioni, vedere [CREATE TABLE (Transact-SQL)](https://msdn.micros
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

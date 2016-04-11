@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # Richiedere un aumento dei limiti di account DocumentDB
@@ -29,20 +29,8 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
 La tabella seguente descrive le quote di DocumentDB che è possibile modificare contattando il supporto tecnico di Azure:
 
-|Entità |Quota (offerta standard)|
-|-------|--------|
-|Account di database |5
-|Numero di stored procedure, trigger e UDF per ogni raccolta |25 ciascuna
-|Numero massimo di raccolte per ogni account di database |100
-|Dimensione massima dell'archivio documenti per ogni database (100 raccolte) |1 TB
-|Numero massimo di UDF per ogni query |2
-|Numero massimo di JOIN per ogni query |5
-|Numero massimo di clausole AND per ogni query |20
-|Numero massimo di clausole OR per ogni query |20
-|Numero massimo di valori per ogni espressione IN |200
-|Numero massimo di punti in un argomento del poligono in una query ST\_WITHIN |16
-|Numero massimo di raccolte create al minuto |5
-|Numero massimo di operazioni di scalabilità al minuto |5
+[AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
+
 
 ##<a id="RequestQuotaIncrease"></a> Richiedere una modifica delle quote
 I passaggi seguenti mostrano come richiedere una modifica delle quote.
@@ -75,4 +63,4 @@ Una volta creato il ticket di supporto, si dovrebbe ricevere per posta elettroni
 ##<a name="NextSteps"></a> Passaggi successivi
 - Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

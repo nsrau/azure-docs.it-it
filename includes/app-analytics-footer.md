@@ -10,5 +10,7 @@
  - Usata per calcolare le statistiche dei gruppi di record
 - [Valori scalari](../articles/application-insights/app-analytics-scalars.md)
  - Numeri, stringhe e altre espressioni usate per definire i parametri di query.
+- [Se si usa](../articles/application-insights/app-analytics-using.md)
+ - Usare Analytics
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

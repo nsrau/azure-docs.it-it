@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Panoramica delle app per le API" 
+	pageTitle="Introduzione alle app per le API | Microsoft Azure" 
 	description="Informazioni sui motivi per i quali il servizio app di Azure è la piattaforma migliore per lo sviluppo, la pubblicazione e l'hosting di API RESTful." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="03/23/2016" 
 	ms.author="tdykstra"/>
 
 # Panoramica delle app per le API
 
 Le app per le API sono uno dei quattro tipi di app offerti da [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
 
-![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
+![Tipi di app nel Servizio app di Azure](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-Il [servizio app](../app-service/app-service-value-prop-what-is.md) è una piattaforma completamente gestita che offre un set completo di funzionalità per scenari Web, mobili e di integrazione. Le app per le API nel servizio App offrono delle funzionalità che rendono più semplice creare, ospitare e utilizzare le API nel cloud e in locale. Distribuire la propria API come un'app per le API in Servizio app e trarre vantaggio dalla sicurezza di livello aziendale, dal controllo di accesso semplificato, dalla connettività ibrida, dalla generazione automatica di SDK e dalla perfetta integrazione con le [app per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+Il [servizio app](../app-service/app-service-value-prop-what-is.md) è una piattaforma completamente gestita per scenari Web, mobili e di integrazione. Le app per le API nel servizio App offrono delle funzionalità che rendono più semplice creare, ospitare e utilizzare le API nel cloud e in locale. Distribuire la propria API come un'app per le API in Servizio app e trarre vantaggio dalla sicurezza di livello aziendale, dal controllo di accesso semplificato, dalla connettività ibrida, dalla generazione automatica di SDK e dalla perfetta integrazione con le [app per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 ## Vantaggi delle app per le API
 
@@ -64,4 +64,4 @@ Per iniziare a usare le app per le API, seguire una delle esercitazioni [Introdu
 
 Per porre domande sulle app per le API, avviare un thread nel [forum sulle app per le API](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

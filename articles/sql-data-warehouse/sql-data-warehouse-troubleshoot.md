@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Risoluzione dei problemi
@@ -38,7 +38,7 @@ Vedere le pagine [Connetti](sql-data-warehouse-get-started-connect.md) per altre
 ## Prestazioni di query
 SQL Data Warehouse usa costrutti comuni di SQL Server per l'esecuzione di query tra cui le statistiche. Le [statistiche](sql-data-warehouse-develop-statistics.md) sono oggetti che includono informazioni sull'intervallo e sulla frequenza di valori in una colonna di database. Il motore di query usa queste statistiche per ottimizzare l'esecuzione e migliorare le prestazioni delle query. È possibile utilizzare la query seguente per determinare l'ultimo aggiornamento delle statistiche.
 
-```
+```sql
 SELECT
 	sm.[name]								    AS [schema_name],
 	tb.[name]								    AS [table_name],
@@ -90,4 +90,4 @@ Per alcune indicazioni sulla creazione della soluzione SQL Data Warehouse, veder
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

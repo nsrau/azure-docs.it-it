@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="03/23/2016"
 	ms.author="jeedes"/>
 
 
@@ -65,7 +65,7 @@ Per configurare l'integrazione di Pluralsight in Azure AD, è necessario aggiung
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **Pluralsight**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_01.png)<br>
-7. Nel riquadro dei risultati selezionare **Pluralsight**, quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>
+7. Nel riquadro dei risultati selezionare **Pluralsight**, quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_06.png)<br>
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Pluralsight con un utente test di nome "Britta Simon".
@@ -99,7 +99,7 @@ L'applicazione Pluralsight prevede un formato specifico per le asserzioni SAML. 
 
     a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Pluralsight usando il modello seguente: **"https://<instance name>.pluralsight.com/sso/<company name>"**.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Next**.
 
 
 4. Nella pagina **Configura accesso Single Sign-On in Pluralsight** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_05.png) <br>
@@ -216,4 +216,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-pluralsight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-pluralsight-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

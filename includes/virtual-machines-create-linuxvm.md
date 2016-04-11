@@ -1,4 +1,4 @@
-1. Accedere alla sottoscrizione di Azure seguendo i passaggi elencati in[Connettersi ad Azure da CLI Azure](../xplat-cli-connect.md).
+1. Accedere alla sottoscrizione di Azure seguendo i passaggi elencati in[Connettersi ad Azure da CLI Azure](../articles/xplat-cli-connect.md).
 
 2. Assicurarsi che sia attiva la modalità Gestione dei servizi utilizzando:
 
@@ -12,9 +12,9 @@
 
 4. Utilizzare`azure vm create`per creare una nuova macchina virtuale con l'immagine di Linux dall'elenco precedente. Questo passaggio crea un nuovo servizio cloud, nonché un nuovo account di archiviazione. È inoltre possibile connettere questa macchina virtuale a un servizio cloud esistente con un’opzione `-c`. Viene inoltre creato un endpoint SSH per l'accesso alla macchina virtuale Linux con l’opzione`-e`.
 
-        ~$ azure vm create "MyTestVM" b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64 "adminUser" -z "Small" -e -l "West US"
+        ~$ azure vm create "MyTestVM" b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160314-it-IT-30GB "adminUser" -z "Small" -e -l "West US"
         info:    Executing command vm create
-        + Looking up image b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64
+        + Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160314-it-IT-30GB
         Enter VM 'adminUser' password:*********
         Confirm password: *********
         + Looking up cloud service
@@ -39,6 +39,6 @@
 
 7. La macchina virtuale appena creata è pronta per iniziare con il comando `azure vm start`.
 
-Per informazioni dettagliate su tutti i comandi della macchina virtuale dell'interfaccia della riga di comando di Azure, leggere l'argomento relativo all'[uso dell'interfaccia della riga di comando di Azure con l'API di Gestione dei servizi](virtual-machines-command-line-tools.md).
+Per informazioni dettagliate su tutti i comandi della macchina virtuale dell'interfaccia della riga di comando di Azure, leggere l'argomento relativo all'[uso dell'interfaccia della riga di comando di Azure con l'API di Gestione dei servizi](../articles/virtual-machines-command-line-tools.md).
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

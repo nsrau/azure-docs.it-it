@@ -1,6 +1,6 @@
 <properties
    pageTitle="Domande frequenti sul Catalogo dati di Azure"
-   description="Domande frequenti relative all'anteprima del Catalogo dati di Azure, incluse le funzionalità per la gestione, l'annotazione e l'individuazione dell'origine dati."
+   description="Domande frequenti relative al Catalogo dati di Azure, incluse le funzionalità per la gestione, l'annotazione e l'individuazione dell'origine dati."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/04/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # Domande frequenti sul Catalogo dati di Azure
@@ -39,7 +39,7 @@ Il **Catalogo dati di Azure** offre funzionalità per gli utenti tecnici, tra cu
 
 ## D: qual è la disponibilità delle aree geografiche per il Catalogo dati di Azure?
 
-Durante l'anteprima, i servizi del **Catalogo dati di Azure** sono disponibili solo nei data center seguenti:
+Attualmente i servizi del **Catalogo dati di Azure** sono disponibili nei data center seguenti:
 
 - Stati Uniti occidentali
 - Stati Uniti Orientali
@@ -58,14 +58,13 @@ L'edizione Standard del **Catalogo dati di Azure** supporta fino a 100.000 asset
 
 Per l'elenco delle origini dati attualmente supportate, vedere [Origini dati supportate da Catalogo dati di Azure](data-catalog-dsr.md).
 
-
 ## D: come si richiede il supporto per un'altra origine dati?
 
 Le richieste di funzionalità e altri commenti possono essere inviati nel [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## D: come si inizia a usare il Catalogo dati di Azure?
 
-Il modo migliore per iniziare consiste nel seguire le istruzioni dell’[introduzione al catalogo dati](../data-catalog-get-started/). In questo articolo è riportata una presentazione end-to-end delle funzionalità in anteprima pubblica.
+Il modo migliore per iniziare consiste nel seguire le istruzioni dell’[introduzione al catalogo dati](../data-catalog-get-started/). In questo articolo è riportata una panoramica end-to-end delle funzionalità nel servizio.
 
 ## D: come si registrano i dati?
 
@@ -106,10 +105,6 @@ Il modo più semplice di fornire i metadati agli asset registrati consiste nel s
 
 Un esperto è una persona che ha una prospettiva informata su un oggetto dati. Un oggetto può avere più esperti. Un esperto non deve necessariamente essere il "proprietario" dell'oggetto, ma è una persona che sa come i dati possono e devono essere usati.
 
-## D: qual è il contratto di servizio per l'anteprima?
-
-Durante l'anteprima del **Catalogo dati di Azure**, non esiste alcun contratto di servizio esplicito.
-
 ## D: come si condividono le informazioni con il team del Catalogo dati di Azure se si riscontrano problemi?
 
 Usare il forum del **Catalogo dati di Azure** per segnalare problemi e condividere informazioni e domande. Il forum è disponibile in http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
@@ -141,12 +136,8 @@ R: selezionare gli asset di dati nel **Catalogo dati di Azure** e fare clic sul 
 
 R: per aggiornare i metadati degli asset di dati già registrati nel catalogo, è sufficiente registrare nuovamente l'origine dati che contiene gli asset. Le modifiche nell'origine dati, ad esempio l’aggiunta o la rimozione di colonne da tabelle o viste, vengono aggiornate nel catalogo, ma tutte le annotazioni fornite dagli utenti vengono conservate.
 
-## D: come si pongono domande o si richiede assistenza quando si usa il Catalogo dati di Azure?
-
-Se si verificano dei problemi o per richiedere assistenza per l'anteprima del **Catalogo dati di Azure**, è possibile scrivere nel [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
-
 ## D: la domanda non ha ricevuto risposta: cosa occorre fare?
 
 Tenere sotto controllo il [forum del Catalogo dati di Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409), dove le domande frequenti trovano risposta.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

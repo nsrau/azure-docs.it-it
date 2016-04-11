@@ -26,20 +26,21 @@
 
 Questo argomento illustra come connettersi al database SQL di Azure da un'applicazione client scritta in PHP che viene eseguita in Windows.
 
+## Passaggio 1: Configurare l'ambiente di sviluppo
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
-### Un database SQL
+## Passaggio 2: Creare un database SQL
 
 Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su come creare un database di esempio. È importante seguire le istruzioni per creare un **modello di database AdventureWorks**. Gli esempi illustrati di seguito funzionano solo con lo **schema di AdventureWorks**.
 
 
-## Passaggio 1: Ottenere i dettagli di connessione
+## Passaggio 3: Ottenere i dettagli di connessione
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## Passaggio 2: Connettersi
+## Passaggio 4: Effettuare la connessione
 
 
 Questa funzione **OpenConnection** viene chiamata nella parte superiore in tutte le funzioni che seguono.
@@ -63,7 +64,7 @@ Questa funzione **OpenConnection** viene chiamata nella parte superiore in tutte
 	}
 
 
-## Passaggio 3: Eseguire una query
+## Passaggio 5: Eseguire una query
 
 Per recuperare un set di risultati di una query sul database SQL è possibile usare la funzione [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php). Questa funzione accetta essenzialmente qualsiasi query e l'oggetto connection e restituisce un set di risultati su cui è possibile eseguire l'iterazione usando [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
@@ -93,7 +94,7 @@ Per recuperare un set di risultati di una query sul database SQL è possibile us
 	}
 
 
-## Passaggio 4: Inserire una riga
+## Passaggio 6: Inserire una riga
 
 Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) in modo sicuro, come passare i parametri che proteggono l'applicazione da attacchi [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e come recuperare il valore di [Chiave primaria](https://msdn.microsoft.com/library/ms179610.aspx) generato automaticamente.
 
@@ -123,7 +124,7 @@ Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.micros
 		}
 	}
 
-## Passaggio 5: Rollback di una transazione
+## Passaggio 7: Eseguire il rollback di una transazione
 
 
 Questo esempio di codice illustra l'uso di transazioni con le operazioni seguenti:
@@ -180,4 +181,4 @@ Questo esempio di codice illustra l'uso di transazioni con le operazioni seguent
 
 Per altre informazioni sull'installazione e l'uso di PHP, vedere [Accesso ai database di SQL Server con PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

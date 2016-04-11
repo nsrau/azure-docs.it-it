@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="03/25/2016" 
 ms.author="adegeo"/>
 
 # Abilitare la comunicazione delle istanze del ruolo in azure
@@ -89,7 +89,7 @@ Esiste una piccola differenza tra gli endpoint quando si lavora con i ruoli di l
 ## Uso di .NET SDK per accedere ad un endpoint
 La libreria gestita di Azure fornisce metodi per la comunicazione di istanze del ruolo in fase di esecuzione. Dal codice eseguito all'interno di un'istanza del ruolo, è possibile recuperare informazioni sull'esistenza di altre istanze del ruolo e sui relativi endpoint, nonché le informazioni sull'istanza del ruolo corrente.
 
-> [AZURE.NOTE]È possibile recuperare solo le informazioni sulle istanze dei ruoli che sono in esecuzione nel servizio cloud e che definiscono almeno un endpoint interno. Non è possibile ottenere dati sulle istanze dei ruoli in esecuzione in un altro servizio.
+> [AZURE.NOTE] È possibile recuperare solo le informazioni sulle istanze dei ruoli che sono in esecuzione nel servizio cloud e che definiscono almeno un endpoint interno. Non è possibile ottenere dati sulle istanze dei ruoli in esecuzione in un altro servizio.
 
 È possibile utilizzare la proprietà [Istanze](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) per recuperare le istanze di un ruolo. Per prima cosa utilizzare la [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) per restituire un riferimento all'istanza del ruolo corrente, e poi utilizzare la proprietà [Ruolo](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) per restituire un riferimento al ruolo stesso.
 
@@ -101,7 +101,7 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 
 La proprietà **Istanze** restituisce una raccolta di oggetti **RoleInstance**. Tale raccolta contiene sempre l'istanza corrente. Se il ruolo non definisce un endpoint interno, la raccolta include l'istanza corrente ma non altre istanze. Il numero di istanze del ruolo nella raccolta sarà sempre 1 nel caso in cui non sia stato definito alcun endpoint interno per il ruolo. Se il ruolo definisce un endpoint interno, le relative istanze sono individuabili in fase di esecuzione e il numero di istanze nella raccolta corrisponderà al numero di istanze specificato per il ruolo nel file di configurazione del servizio.
 
-> [AZURE.NOTE]La libreria gestita di Azure non rappresenta un mezzo per determinare lo stato di altre istanze del ruolo, ma è possibile implementare tali valutazioni manualmente se il servizio necessita di tale funzionalità. È possibile utilizzare la [Diagnostica di Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) per ottenere informazioni sull'esecuzione di istanze del ruolo.
+> [AZURE.NOTE] La libreria gestita di Azure non rappresenta un mezzo per determinare lo stato di altre istanze del ruolo, ma è possibile implementare tali valutazioni manualmente se il servizio necessita di tale funzionalità. È possibile utilizzare la [Diagnostica di Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) per ottenere informazioni sull'esecuzione di istanze del ruolo.
 
 Per determinare il numero di porta per un endpoint interno in un'istanza del ruolo, è possibile utilizzare la proprietà [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) per restituire un oggetto Dictionary che contenga i nomi degli endpoint e i corrispondenti indirizzi IP e porte. La proprietà [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) restituisce l'indirizzo IP e la porta per un endpoint specificato. La proprietà **PublicIPEndpoint** restituisce la porta per un endpoint con carico bilanciato. La parte relativa all’indirizzo IP della proprietà **PublicIPEndpoint** non viene utilizzata.
 
@@ -120,7 +120,7 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 
 Di seguito è riportato un esempio di un ruolo di lavoro che ottiene l'endpoint esposto tramite la definizione del servizio e avvia l'ascolto per le connessioni.
 
-> [AZURE.WARNING]Questo codice funziona solo per un servizio distribuito. Durante l'esecuzione nell'emulatore di calcolo di Azure, gli elementi di configurazione del servizio che creano endpoint porte dirette (elementi **InstanceInputEndpoint**) vengono ignorati.
+> [AZURE.WARNING] Questo codice funziona solo per un servizio distribuito. Durante l'esecuzione nell'emulatore di calcolo di Azure, gli elementi di configurazione del servizio che creano endpoint porte dirette (elementi **InstanceInputEndpoint**) vengono ignorati.
 
 ```csharp
 using System;
@@ -242,7 +242,7 @@ Il seguente esempio di codice mostra le definizioni di ruolo per i ruoli illustr
 </ServiceDefinition>
 ```
 
-> [AZURE.NOTE]La restrizione della comunicazione tra ruoli può verificarsi con endpoint interni di porte fisse o assegnate automaticamente.
+> [AZURE.NOTE] La restrizione della comunicazione tra ruoli può verificarsi con endpoint interni di porte fisse o assegnate automaticamente.
 
 Per impostazione predefinita, dopo aver definito un endpoint interno, la comunicazione può avvenire tra qualsiasi ruolo e l’endpoint interno di un ruolo senza restrizioni. Per limitare la comunicazione, è necessario aggiungere un elemento **NetworkTrafficRules** per l’elemento **ServiceDefinition** nel file di definizione del servizio.
 
@@ -359,4 +359,4 @@ Un riferimento allo schema XML per gli elementi utilizzati in precedenza è repe
 ## Passaggi successivi
 Ulteriori informazioni sul [modello](cloud-services-model-and-package.md) del servizio Cloud.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0330_2016-->

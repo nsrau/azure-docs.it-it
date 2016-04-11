@@ -17,7 +17,7 @@
 
 # Application Insights: Materiale di riferimento per Analytics
 
-[Analytics](app-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analytics.
+[Analytics](app-analytics.md) consente di eseguire query importanti sui dati di telemetria dell'app raccolti da [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query usato da Analytics.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -25,13 +25,11 @@
 ## Espressioni regolari
 
 
-
 [> Descrizione generale delle espressioni regolari](https://github.com/google/re2/wiki/Syntax).
 
-Questa pagina descrive la sintassi delle espressioni regolari accettata da RE2. 
-Viene inoltre descritta la sintassi accettata da PCRE, PERL e VIM.
+Questa pagina descrive la sintassi delle espressioni regolari accettata da RE2. Viene inoltre descritta la sintassi accettata da PCRE, PERL e VIM.
 
-||
+|
 |---|---
 |Caratteri singoli: | 
 |. |qualsiasi carattere, possibilmente con nuova riga (s=true) 
@@ -415,4 +413,4 @@ Viene inoltre descritta la sintassi accettata da PCRE, PERL e VIM.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

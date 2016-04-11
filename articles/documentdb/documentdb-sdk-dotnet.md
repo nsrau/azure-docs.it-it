@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -21,14 +21,23 @@
 > [AZURE.SELECTOR]
 - [.NET SDK](documentdb-sdk-dotnet.md)
 - [Node.js SDK](documentdb-sdk-node.md)
-- [Java SDK](documentdb-sdk-java.md)
+- [SDK per Java](documentdb-sdk-java.md)
 - [Python SDK](documentdb-sdk-python.md)
 
 ##DocumentDB .NET SDK
 
-<table> <tr><td>**Download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr> <tr><td>**Documentazione**</td><td>[Documentazione di riferimento di .NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr> <tr><td>**Esempi**</td><td>[Esempi di codice .NET](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr> <tr><td>**Introduzione**</td><td>[Introduzione a DocumentDB .NET SDK](documentdb-get-started.md)</td></tr> <tr><td>**Framework attualmente supportato**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr> </table></br>
+<table>
+<tr><td>**Download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
+<tr><td>**Documentazione**</td><td>[.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**Esempi**</td><td>[.NET Code Samples](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
+<tr><td>**Introduzione**</td><td>[Get started with the DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
+<tr><td>**Framework attualmente supportato**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
+</table></br>
 
 ## Note sulla versione
+
+### <a name="1.6.1"/>[1\.6.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.1)
+  - [Raccolte partizionate](documentdb-partition-data.md) e [livelli di prestazioni definiti dall'utente](documentdb-performance-levels.md) implementati. 
 
 ### <a name="1.5.3"/>[1\.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
   - **[Corretto]** Se si eseguono query nell'endpoint DocumentDB viene generato il messaggio seguente: 'System.Net.Http.HttpRequestException: Errore durante la copia del contenuto in un flusso.
@@ -115,7 +124,6 @@ Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione
  
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
-| [1\.5.3](#1.5.3) | 19 febbraio 2016 |---
 | [1\.5.2](#1.5.2) | 14 dicembre 2015 |---
 | [1\.5.1](#1.5.1) | 23 novembre 2015 |---
 | [1\.5.0](#1.5.0) | 05 ottobre 2015 |---
@@ -137,4 +145,4 @@ Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione
 
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

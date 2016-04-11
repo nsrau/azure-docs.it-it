@@ -22,8 +22,8 @@
 # Esercitazione di Hadoop: Introduzione all'uso di Hadoop in HDInsight in Windows
 
 > [AZURE.SELECTOR]
-- [Basato su Windows](../hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Basato su Linux](../hdinsight-hadoop-linux-tutorial-get-started.md)
+- [Basato su Windows](../hdinsight-hadoop-tutorial-get-started-windows.md)
 
 Per informazioni su Hadoop in Windows e per iniziare a usare HDInsight, questa esercitazione illustra come eseguire una query Hive su dati non strutturati in un cluster Hadoop e quindi analizzare i risultati in Microsoft Excel.
 
@@ -255,4 +255,4 @@ In questa esercitazione di Hadoop si è appreso come creare un cluster Hadoop in
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

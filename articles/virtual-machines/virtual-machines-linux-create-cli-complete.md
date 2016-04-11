@@ -42,7 +42,7 @@
 
 Questo articolo consente di creare una distribuzione simile alla distribuzione di un servizio cloud con una VM Linux all'interno di una subnet di rete virtuale. Illustra in dettaglio l'intera distribuzione di base, comando per comando, fino ad avere una VM Linux funzionante e sicura a cui è possibile connettersi da qualsiasi posizione in Internet.
 
-Durante il processo si apprenderanno informazioni sulla gerarchia delle dipendenze fornita dal modello di distribuzione di Azure Resource Manager e sulle potenzialità che offre. Dopo aver visto come si compila il sistema, si potrà ricompilarlo molto più rapidamente usando i comandi dell'interfaccia della riga di comando di Azure più diretti (vedere [questo](insertlinktonewdoc) documento per una distribuzione quasi uguale con il comando `azure vm quick-create`) oppure è possibile procedere per comprendere a fondo come progettare e automatizzare le distribuzioni di applicazioni e dell'intera rete e aggiornarle usando i [modelli di Azure Resource Manager](../resource-group-authoring-templates.md). Una volta appreso come interagiscono le parti della distribuzione, diventa più facile creare modelli per automatizzarle.
+Durante il processo si apprenderanno informazioni sulla gerarchia delle dipendenze fornita dal modello di distribuzione di Azure Resource Manager e sulle potenzialità che offre. Dopo aver visto come si compila il sistema, si potrà ricompilarlo molto più rapidamente usando i comandi dell'interfaccia della riga di comando di Azure più diretti (vedere [questo documento](virtual-machines-linux-quick-create-cli.md) per una distribuzione pressoché uguale con il comando `azure vm quick-create`); in alternativa, è possibile proseguire per comprendere a fondo come progettare e automatizzare le distribuzioni delle applicazioni e dell'intera rete e aggiornarle usando i [modelli di Azure Resource Manager](../resource-group-authoring-templates.md). Una volta appreso come interagiscono le parti della distribuzione, diventa più facile creare modelli per automatizzarle.
 
 Si creerà una semplice rete con una VM utile per lo sviluppo e per semplici calcoli, seguendo una procedura illustrata in dettaglio. Si sarà quindi in grado di passare a distribuzioni e reti più complesse.
 
@@ -95,7 +95,7 @@ azure network public-ip create -d testsubdomain testrg testpip westeurope
 azure network public-ip show testrg testpip --json | jq '.'
 
 # Associate the Public IP to the NIC
-azure network nic set --public-ip-name test pip
+azure network nic set --public-ip-name testpip testrg testnic
 
 # Bind the NSG to the NIC
 azure network nic set --network-security-group-name testnsg testrg testnic
@@ -528,7 +528,7 @@ Come sempre, è possibile esaminare altri dettagli relativi alla risorsa, inclus
 
 ### Associare l'indirizzo IP pubblico e il gruppo di sicurezza di rete alla scheda di rete
 
-        azure network nic set --public-ip-name test pip
+        azure network nic set --public-ip-name testpip testrg testnic
 
 Associare il gruppo di sicurezza di rete alla scheda di rete:
 
@@ -667,4 +667,4 @@ Ora è possibile usare il comando `azure vm show testrg testvm` per esaminare co
 
 Ora è possibile iniziare con più componenti di rete e VM.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

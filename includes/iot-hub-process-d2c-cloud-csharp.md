@@ -19,13 +19,15 @@ Per fare in modo che nessun messaggio venga inviato di nuovo al di fuori della f
 ### Effettuare il provisioning di un account di archiviazione di Azure e di una coda del bus di servizio
 Per usare la classe [EventProcessorHost], è necessario un account di archiviazione di Azure per abilitare la registrazione delle informazioni sui checkpoint da parte di **EventProcessorHost**. È possibile usare un account di archiviazione esistente o seguire le istruzioni in [Informazioni sugli account di archiviazione di Azure] per crearne uno nuovo. Prendere nota della stringa di connessione dell'account di archiviazione.
 
-Per abilitare l'elaborazione affidabile dei messaggi interattivi, è necessaria anche una coda del bus di servizio. È possibile creare una coda a livello di codice con una finestra di deduplicazione di un'ora, come illustrato in [Come usare le code del bus di servizio][Service Bus Queue], oppure usare il [portale di Azure classico] seguendo questa procedura:
+> [AZURE.NOTE] Quando si copia e incolla la stringa di connessione dell’account di archiviazione, verificare che non siano presenti spazi nella stringa di connessione.
 
-1. Fare clic su **NUOVO** nell'angolo inferiore sinistro, quindi scegliere **Servizi app**, **Bus di servizio**, **Coda** e infine **Creazione personalizzata**. Immettere il nome **d2ctutorial**, selezionare un'area, usare uno spazio dei nomi esistente o crearne uno nuovo, quindi nella pagina successiva selezionare **Abilita rilevamento duplicati** e impostare la **Finestra temporale cronologia di rilevamento duplicata** su un'ora. Fare quindi clic sul segno di spunta per salvare la configurazione della coda.
+Per abilitare l'elaborazione affidabile dei messaggi interattivi, è necessaria anche una coda del bus di servizio. È possibile creare una coda a livello di codice con una finestra di deduplica di 1 ora, come illustrato in [Come usare le code del bus di servizio][Service Bus Queue] oppure utilizzare il [portale di Azure classico] seguendo questa procedura:
+
+1. Fare clic su **NUOVO** nell'angolo inferiore sinistro, quindi scegliere **Servizi app**, **Bus di servizio**, **Coda** e infine **Creazione personalizzata**. Immettere il nome **d2ctutorial**, selezionare un'area, utilizzare uno spazio dei nomi esistente o crearne uno nuovo, quindi nella pagina successiva selezionare **Abilita rilevamento duplicati** e impostare la **Finestra temporale cronologia di rilevamento duplicata** su un'ora. Fare quindi clic sul segno di spunta per salvare la configurazione della coda.
 
     ![][30]
 
-2. Nell'elenco delle code del bus di servizio, fare clic su **d2ctutorial** e quindi su **Configura**. Creare due criteri di accesso condiviso, uno chiamato **send** con autorizzazioni **Invio** e uno chiamato **listen** con autorizzazioni **Attesa**. Al termine, fare clic su **Salva** nella parte inferiore della pagina.
+2. Nell'elenco delle code del bus di servizio, fare clic su **d2ctutorial**, quindi su **Configura**. Creare due criteri di accesso condiviso, uno chiamato **send** con autorizzazioni di **Invio** e uno chiamato **listen** con autorizzazioni di **Attesa**. Al termine, fare clic su **Salva** nella parte inferiore della pagina.
 
     ![][31]
 
@@ -35,13 +37,13 @@ Per abilitare l'elaborazione affidabile dei messaggi interattivi, è necessaria 
 
 ### Creare il processore di eventi
 
-1. Nella soluzione corrente di Visual Studio fare clic su **File**, **Aggiungi**, **Nuovo progetto** per creare un nuovo progetto di Windows in Visual C# usando il modello di progetto **Applicazione console**. Denominare il progetto **ProcessDeviceToCloudMessages**.
+1. Nella soluzione corrente di Visual Studio, fare clic su **File**, **Aggiungi**, **Nuovo progetto** per creare un nuovo progetto di Windows in Visual C# utilizzando il modello di progetto **Applicazione console**. Denominare il progetto **ProcessDeviceToCloudMessages**.
 
     ![][10]
 
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ProcessDeviceToCloudMessages** e quindi scegliere **Gestisci pacchetti NuGet**. Verrà visualizzata la finestra di dialogo **Gestione pacchetti NuGet**.
+2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ProcessDeviceToCloudMessages**, quindi scegliere **Gestisci pacchetti NuGet**. Compare la finestra di dialogo **Gestione pacchetti NuGet**.
 
-3. Cercare **WindowsAzure.ServiceBus**, fare clic su **Installa** e accettare le condizioni per l'utilizzo. Verrà scaricato, installato e aggiunto un riferimento al [pacchetto NuGet del bus di servizio di Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus) con tutte le dipendenze.
+3. Cercare **WindowsAzure.ServiceBus**, fare clic su **Installa**, quindi accettare le condizioni per l'utilizzo. Verrà scaricato, installato e aggiunto un riferimento al [pacchetto NuGet del bus di servizio di Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus) con tutte le dipendenze.
 
 4. Cercare **Microsoft Azure Service Bus Event Hub - EventProcessorHost**, fare clic su **Installa** e accettare le condizioni per l'utilizzo. Viene scaricato, installato, il [pacchetto NuGet Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), con tutte le relative dipendenze, e viene aggiunto un riferimento a tale pacchetto.
 
@@ -198,11 +200,11 @@ Per abilitare l'elaborazione affidabile dei messaggi interattivi, è necessaria 
     
     Il metodo **ProcessEventsAsync** riceve un batch di messaggi dall'hub IoT e li elabora inviando messaggi interattivi alla coda del bus di servizio e aggiungendo messaggi di punti dati nel buffer di memoria denominato **toAppend**. Se il buffer di memoria raggiunge il limite di 4 MB per i blocchi o è trascorsa la finestra temporale di deduplicazione del bus di servizio dopo l'ultimo checkpoint (in questa esercitazione, un'ora), viene attivato un checkpoint.
 
-    Il metodo **AppendAndCheckpoint** genera prima un ID blocco per il blocco da aggiungere. Dal momento che l'archiviazione di Azure richiede che tutti gli ID blocco abbiano la stessa lunghezza, il metodo riempie l'offset con zero iniziali: `currentBlockInitOffset.ToString("0000000000000000000000000")`. Quindi, se un blocco con questo ID è già nel BLOB, il metodo lo sovrascrive con il contenuto corrente del buffer.
+    Il metodo **AppendAndCheckpoint** genera prima un ID blocco per il blocco da aggiungere. Dal momento che l'archiviazione di Azure richiede che tutti gli ID del blocco abbiano la stessa lunghezza, il metodo riempie l'offset con zero iniziali: `currentBlockInitOffset.ToString("0000000000000000000000000")`. Quindi, se un blocco con questo ID è già nel BLOB, il metodo lo sovrascrive con il contenuto corrente del buffer.
 
     > [AZURE.NOTE] Per semplificare il codice, questa esercitazione usa un solo file BLOB per partizione per archiviare i messaggi. Una soluzione vera implementerebbe il rollover dei file, creando file aggiuntivi quando raggiungono una determinata dimensione (il BLOB in blocchi di Azure non può superare i 195 GB) o dopo un determinato intervallo di tempo.
 
-8. All'inizio della classe **Program** aggiungere le istruzioni **using** seguenti:
+8. All'inizio della classe **Program**, aggiungere le istruzioni **using** seguenti:
 
     ```
     using Microsoft.ServiceBus.Messaging;
@@ -229,14 +231,14 @@ Per abilitare l'elaborazione affidabile dei messaggi interattivi, è necessaria 
     }
     ```
     
-    > [AZURE.NOTE] Per semplicità, questa esercitazione usa una singola istanza della classe [EventProcessorHost]. Per altre informazioni, vedere [Guida alla programmazione di Hub eventi].
+    > [AZURE.NOTE] Per semplicità, questa esercitazione utilizza una singola istanza della classe [EventProcessorHost]. Per ulteriori informazioni, vedere la [Guida alla programmazione di hub eventi].
 
 ## Ricevere messaggi interattivi
 In questa sezione si scriverà un'app console di Windows che riceve i messaggi interattivi dalla coda del bus di servizio. Fare riferimento a [creazione di applicazioni a più livelli con il Bus di servizio][] per ulteriori informazioni su come progettare una soluzione che utilizza il Bus di servizio.
 
-1. Nella soluzione Visual Studio corrente, creare un nuovo progetto di Windows in Visual C# usando il modello di progetto **Applicazione console**. Assegnare al progetto il nome **ProcessD2cInteractiveMessages**.
+1. Nella soluzione Visual Studio corrente, creare un nuovo progetto di Windows in Visual C# utilizzando il modello di progetto **Applicazione console**. Assegnare al progetto il nome **ProcessD2cInteractiveMessages**.
 
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ProcessD2CInteractiveMessages** e quindi scegliere **Gestisci pacchetti NuGet**. Verrà visualizzata la finestra di dialogo **Gestione pacchetti NuGet**.
+2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ProcessD2CInteractiveMessages**, quindi scegliere **Gestisci pacchetti NuGet**. Viene visualizzata la finestra di dialogo **Gestione pacchetti NuGet**.
 
 3. Cercare **WindowsAzure.ServiceBus**, fare clic su **Installa** e accettare le condizioni per l'utilizzo. Verrà quindi scaricato e installato il [bus di servizio di Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus) e verrà aggiunto un riferimento ad esso.
 
@@ -292,7 +294,7 @@ In questa sezione si scriverà un'app console di Windows che riceve i messaggi i
 [Hub eventi]: ../event-hubs/event-hubs-overview.md
 [Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Guida alla programmazione di Hub eventi]: ../event-hubs/event-hubs-programming-guide.md
+[Guida alla programmazione di hub eventi]: ../event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Portal]: https://manage.windowsazure.com/
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
@@ -312,4 +314,4 @@ In questa sezione si scriverà un'app console di Windows che riceve i messaggi i
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,7 +1,5 @@
 
 
-I carichi di lavoro in genere richiedono molte risorse per funzionare come dovrebbero. I modelli di Gestione risorse di Azure consentono non solo di definire come configurare le applicazioni, ma anche come vengono distribuite le risorse per supportare le applicazioni configurate. Questo articolo illustra i modelli più usati della raccolta e contiene informazioni per usare il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure per distribuirli.
-
 ## Applicazioni
 
 Da questa tabella è possibile trovare altre informazioni sui parametri usati nel modello, esaminare il modello prima di distribuirlo o distribuirlo direttamente dal portale di Azure.
@@ -59,7 +57,7 @@ Quando si esegue il comando **New-AzureRmResourceGroupDeployment**, viene richie
 
 ## Interfaccia della riga di comando di Azure
 
-[Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md), accedere e verificare che i comandi di Azure Resource Manager siano abilitati. Per informazioni su come eseguire questa operazione, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
+[Installare l'interfaccia della riga di comando di Azure](../articles/xplat-cli-install.md), accedere e verificare che i comandi di Azure Resource Manager siano abilitati. Per informazioni su come eseguire questa operazione, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
 
 Eseguire questi comandi per creare il gruppo di risorse e la distribuzione dopo aver sostituito il testo tra parentesi con il nome del gruppo di risorse, la località, il nome della distribuzione e il nome del modello:
 
@@ -72,6 +70,6 @@ Quando si esegue il comando **azure group deployment create**, viene richiesto d
 
 Individuare tutti i modelli a disposizione in [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Per altre informazioni, vedere [Gestione risorse di Azure](../resource-group-template-deploy.md).
+Per altre informazioni, vedere [Gestione risorse di Azure](../articles/resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

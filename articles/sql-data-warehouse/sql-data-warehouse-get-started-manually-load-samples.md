@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Caricare i dati di esempio in SQL Data Warehouse
@@ -28,10 +28,12 @@ Seguire questi semplici passaggi per caricare il database di esempio Adventure W
 
 3. Modificare il file estratto aw\_create.bat e impostare le variabili seguenti nella parte superiore del file. Assicurarsi di non lasciare alcun spazio vuoto tra "=" e il parametro. Di seguito sono riportati alcuni esempi dell'aspetto che le modifiche potrebbero assumere.
 
-    	server=mylogicalserver.database.windows.net
-    	user=mydwuser
-    	password=Mydwpassw0rd
-    	database=mydwdatabase
+    ```
+    server=mylogicalserver.database.windows.net
+    user=mydwuser
+    password=Mydwpassw0rd
+    database=mydwdatabase
+    ```
 
 4. Da un prompt dei comandi di Windows, eseguire il file aw\_create.bat modificato. Assicurarsi di trovarsi nella directory in cui è stata salvata la versione modificata del file aw\_create.bat. Questo script consentirà di eseguire le operazioni seguenti:
 	* Eliminare le tabelle o le visualizzazioni Adventure Works già esistenti nel database
@@ -47,22 +49,28 @@ Dopo aver caricato alcuni dati di esempio in SQL Data Warehouse, è possibile es
 
 Esempio di un'istruzione select semplice per ottenere tutte le informazioni sui dipendenti:
 
-	SELECT * FROM DimEmployee;
+```sql
+SELECT * FROM DimEmployee;
+```
 
 Esempio di una query più complessa che usa costrutti come GROUP BY per visualizzare il volume totale di tutte le vendite di ogni giorno:
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```sql
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey;
+```
 
 Esempio di un'istruzione SELECT con clausola WHERE per filtrare gli ordini prima di una determinata data:
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	WHERE OrderDateKey > '20020801'
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+WHERE OrderDateKey > '20020801'
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey;
+```
 
 SQL Data Warehouse supporta quasi tutti i costrutti T-SQL supportati da SQL Server. Eventuali differenze sono illustrate nella documentazione relativa alla [migrazione del codice][].
 
@@ -84,4 +92,4 @@ Ora che sono state sperimentate alcune query con i dati di esempio, è possibile
 <!--Other Web references-->
 [script di esempio Adventure Works per SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/28/2016"
 	ms.author="v-shysun"/>
 
 # Risoluzione dei problemi di prestazioni del database con database SQL di Azure
@@ -30,4 +30,4 @@
 
 Se i problemi di prestazioni persistono, contattare il supporto per aprire un caso di supporto.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

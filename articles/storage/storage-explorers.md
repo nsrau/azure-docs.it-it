@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="03/30/2016"
 	ms.author="micurd"/>
 
 # Strumenti di esplorazione degli archivi di Azure
@@ -52,7 +52,7 @@ Si tratta unicamente di un riepilogo degli strumenti di esplorazione di Archivia
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td>Versione di valutazione</td>
+    <td>S</td>
     <td>X</td>
     <td></td>
     <td></td>
@@ -63,8 +63,8 @@ Si tratta unicamente di un riepilogo degli strumenti di esplorazione di Archivia
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td></td>
-    <td></td>
+    <td>X</td>
+    <td>X</td>
     <td></td>
     <td>S</td>
     <td></td>
@@ -252,4 +252,4 @@ La funzionalità o la qualità dichiarate per gli strumenti di esplorazione di t
   </tr>
 </table>
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

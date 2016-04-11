@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
+   ms.date="03/30/2016"
    ms.author="alanwar"/>
 
 # Architettura per reliable services con e senza stato
@@ -57,15 +57,13 @@ Transactional Replicator usa un log per rendere persistenti le informazioni sull
 
 ### Log
 
-Il componente Log offre un archivio persistente ad alte prestazioni che può essere ottimizzato sia per la scrittura su unità disco rigido o SSD (Solid State Disk) sia per un uso più efficiente dello spazio su disco. La progettazione del componente Log è finalizzata a rendere l'archiviazione persistente (ad es. i dischi rigidi) locale rispetto ai nodi che eseguono il servizio con stato, in modo da consentire una più bassa latenza e una maggiore velocità effettiva rispetto all'archiviazione persistente non locale rispetto al nodo.
+Il componente Log offre un archivio persistente ad alte prestazioni che può essere ottimizzato sia per la scrittura su unità disco rigido o SSD (Solid State Disk) La progettazione del componente Log è finalizzata a rendere l'archiviazione persistente (ad es. i dischi rigidi) locale rispetto ai nodi che eseguono il servizio con stato, in modo da consentire una più bassa latenza e una maggiore velocità effettiva rispetto all'archiviazione persistente remota, non locale rispetto al nodo.
 
-Il componente Log usa due tipi di file di log. Il primo è un file di log condiviso a livello di nodo, che deve trovarsi in un disco dedicato a questo scopo. Questo file si trova nella directory di lavoro del nodo di Service Fabric. Il secondo è un file di log dedicato di cui dispone ogni replica del servizio e che si trova all'interno della directory di lavoro del servizio.
+Il componente Log usa più file di log. Esiste un file di log condiviso a livello di nodo utilizzato da tutte le repliche perché è in grado di fornire la latenza minima e la massima velocità effettiva per l'archiviazione dei dati sullo stato. Per impostazione predefinita il log condiviso viene posizionato nella directory di lavoro del nodo Service Fabric ma, può anche essere configurato per essere posizionato in un altro percorso, preferibilmente su un disco riservato solo al log condiviso. Ogni replica del servizio dispone inoltre di un file di log dedicato che si trova all'interno della directory di lavoro del servizio. Non esiste alcun meccanismo per configurare il log dedicato in modo da posizionarlo in un percorso diverso.
 
-Il log condiviso è un'area di transizione per le informazioni sullo stato, mentre il file di log dedicato è la destinazione finale in cui le informazioni vengono rese persistenti. In questa progettazione le informazioni sullo stato vengono prima scritte nel file di log condiviso e quindi trasferite in background al file di log dedicato. In questo modo, la scrittura nel log condiviso dovrebbe presentare il più basso livello di latenza e il più alto livello di velocità effettiva, così da rendere più rapido lo stato di avanzamento del servizio.
+Il log condiviso è un'area di transizione per le informazioni sullo stato della replica, mentre il file di log dedicato è la destinazione finale in cui le informazioni vengono rese persistenti. In questa progettazione le informazioni sullo stato vengono prima scritte nel file di log condiviso e quindi spostate in background al file di log dedicato. In questo modo, la scrittura nel log condiviso dovrebbe presentare il più basso livello di latenza e il più alto livello di velocità effettiva, così da rendere più rapido lo stato di avanzamento del servizio.
 
-Tuttavia, quando il componente Log viene configurato per l'ottimizzazione delle unità SSD mediante l'impostazione OptimizeForLocalSSD, le informazioni sullo stato vengono scritte direttamente nel file di log dedicato, ignorando quello condiviso. Dal momento che le unità SSD non subiscono ritardi a causa di situazioni di contesa della testina, la scrittura diretta nel file di log dedicato non presenta controindicazioni.
-
-Quando il componente Log è ottimizzato per ridurre al minimo l'uso dello spazio su disco mediante l'impostazione OptimizeLogForLowerDiskUsage, i file di log dedicati vengono creati come file NTFS sparse. Poiché in genere i file di log contengono solo in parte informazioni sullo stato, l'uso di file sparse consente l'overprovisioning dello spazio su disco disponibile per ospitare altre repliche. Se non è configurato in questo modo, lo spazio del file di log viene preassegnato e il componente Log può scrivere direttamente nel file con le prestazioni più alte.
+Letture e scritture nel log condiviso vengono eseguite tramite IO diretto nello spazio su disco preassegnato per il file di log condiviso. Per consentire un utilizzo ottimale dello spazio su disco nell'unità con log dedicati, il file di log dedicato viene creato come file NTFS sparse. Questo permetterà l'overprovisioning dello spazio su disco e il sistema operativo visualizzerà i file del log dedicato utilizzando molto più spazio su disco rispetto a quello effettivamente utilizzato.
 
 Ad eccezione di un'interfaccia utente minima usata per l'interazione con il componente Log, il file di log viene scritto come driver in modalità kernel. L'esecuzione del log come driver in modalità kernel può assicurare prestazioni elevate a tutti i servizi che lo usano.
 
@@ -99,4 +97,4 @@ Per altre informazioni su Service Fabric, vedere:
 
 [Configurazione di Reliable Services con stato](service-fabric-reliable-services-configuration.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0330_2016-->

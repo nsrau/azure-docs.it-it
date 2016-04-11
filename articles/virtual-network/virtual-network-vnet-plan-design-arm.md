@@ -215,7 +215,7 @@ In base a tali requisiti, è necessaria una sottoscrizione per ogni business uni
 
 ![Singola sottoscrizione](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
-È anche necessario specificare lo spazio degli indirizzi per ogni rete virtuale. Poiché è necessaria la connettività tra i data center locali e le aree di Azure, lo spazio degli indirizzi usato per le reti virtuali di Azure non può essere in conflitto con il data center locale e lo spazio degli indirizzi usato da ogni rete virtuale non deve essere in conflitto con altre reti virtuali esistenti. È possibile usare gli spazi degli indirizzi nella tabella seguente per soddisfare questi requisiti.
+È anche necessario specificare lo spazio degli indirizzi per ogni rete virtuale. Poiché è necessaria la connettività tra i data center locali e le aree di Azure, lo spazio degli indirizzi usato per le reti virtuali di Azure non può essere in conflitto con la rete locale e lo spazio degli indirizzi usato da ogni rete virtuale non deve essere in conflitto con altre reti virtuali esistenti. È possibile usare gli spazi degli indirizzi nella tabella seguente per soddisfare questi requisiti.
 
 |**Sottoscrizione**|**Rete virtuale**|**Area di Azure**|**Spazio degli indirizzi**|
 |---|---|---|---|
@@ -265,4 +265,4 @@ In base a tali requisiti, è possibile aggiungere utenti del team responsabile d
 - Altre informazioni sui [gruppi di sicurezza di rete e su come pianificare e progettare](virtual-networks-nsg.md) una soluzione per gruppi di sicurezza di rete.
 - Altre informazioni sulle [opzioni di connettività cross-premise e della rete virtuale](../vpn-gateway/vpn-gateway-cross-premises-options.md).  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

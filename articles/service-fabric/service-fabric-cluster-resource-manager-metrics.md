@@ -122,7 +122,7 @@ I report relativi al carico dinamico consentono alle repliche o alle istanze di 
 Codice:
 
 ```csharp
-this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("Foo", 42) });
+this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("metric1", 42) });
 ```
 
 Le repliche o le istanze del servizio possono segnalare il carico solo per le metriche disponibili per l'uso in base alla rispettiva configurazione. L'elenco di metriche viene definito in fase di creazione di ogni servizio. Se una replica o un'istanza del servizio prova a segnalare il carico per una metrica non ancora disponibile per l'uso in base alla rispettiva configurazione, Service Fabric registra il report ma lo ignora. Non verrà quindi usato durante il calcolo o la creazione di report sullo stato del cluster. Questo approccio consente maggiori sperimentazioni. Il codice può misurare e segnalare tutti gli aspetti configurati e l'operatore può configurare, modificare e aggiornare le regole di bilanciamento delle risorse per il servizio in tempo reale, senza dover modificare il codice. È ad esempio possibile disabilitare una metrica con un report anomalo, riconfigurare i pesi in base al comportamento oppure abilitare una nuova metrica solo dopo che il codice è già stato distribuito e convalidato.
@@ -196,4 +196,4 @@ Prendendo in considerazione i pesi delle metriche, il bilanciamento globale vien
 [Image3]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

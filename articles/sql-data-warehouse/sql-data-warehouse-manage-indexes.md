@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestione degli indici
@@ -29,13 +29,13 @@ Questo articolo illustra alcune delle tecniche principali per la gestione degli 
 
 Di seguito è riportato un esempio di ricompilazione di una singola partizione:
 
-```
+```sql
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
 ```
 
 L'istruzione ALTER INDEX..REBUILD è più adatta per volumi di dati più piccoli, in particolare su indici columnstore. I gruppi di righe aperti, chiusi e compressi sono tutti inclusi nella ricompilazione. Tuttavia, se la partizione è piuttosto grande l'operazione più efficiente è `CTAS`. Di seguito è riportato un esempio di ricompilazione di un indice completo:
 
-```
+```sql
 ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 ```
 
@@ -45,7 +45,7 @@ Per altre informazioni su questa sintassi, vedere l'articolo relativo a [ALTER I
 
 Di seguito è riportato un esempio di ricompilazione di una partizione tramite CTAS:
 
-```
+```sql
 -- Step 01. Select the partition of data and write it out to a new table using CTAS
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
@@ -82,7 +82,6 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 
 -- Step 04. Switch IN the rebuilt data
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
-
 ```
 
 ## Passaggi successivi
@@ -102,4 +101,4 @@ Per altri suggerimenti relativi alla gestione, vedere la panoramica sulla [gesti
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

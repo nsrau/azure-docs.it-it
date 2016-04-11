@@ -36,11 +36,11 @@ Per creare il gruppo di sicurezza di rete (NSG, Network Security Group) **NSG-Fr
 1. Da un browser, passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
 2. Fare clic su **Sfoglia >** > **Gruppi di sicurezza di rete**.
 
-	![Portale di Azure - Gruppi di sicurezza di rete](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
+    ![Portale di Azure - Gruppi di sicurezza di rete](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
 
 3. Nel pannello **Gruppi di sicurezza di rete** fare clic su **Aggiungi**.
-
-	![Portale di Azure - Gruppi di sicurezza di rete](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
+  
+    ![Portale di Azure - Gruppi di sicurezza di rete](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
 
 4. Nel pannello **Crea gruppo di sicurezza di rete** creare un NSG denominato *NSG-FrontEnd* nel gruppo di risorse *RG-NSG*, quindi fare clic su **Crea**.
 
@@ -103,4 +103,4 @@ Per creare il gruppo di sicurezza di rete **NSG-BackEnd** e associarlo alla subn
 - Informazioni su come [gestire i gruppi di sicurezza esistenti](virtual-network-manage-nsg-arm-portal.md)
 - [Abilitare la registrazione](virtual-network-nsg-manage-log.md) per i gruppi di sicurezza di rete.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

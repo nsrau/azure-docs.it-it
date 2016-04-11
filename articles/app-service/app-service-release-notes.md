@@ -4,7 +4,7 @@
    services="app-service" 
    documentationCenter=".net,nodejs,java" 
    authors="Juliako" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/03/2016"
+   ms.date="02/28/2016"
    ms.author="juliako"/>
 
 
@@ -68,4 +68,4 @@ Di seguito sono riportate le nuove funzionalità e i nuovi aggiornamenti inclusi
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

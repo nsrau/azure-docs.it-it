@@ -30,15 +30,6 @@ Il codice sorgente per le soluzioni preconfigurate è disponibile in GitHub nei 
 
 Il codice sorgente per le soluzioni preconfigurate viene fornito per illustrare i modelli e le procedure usate per implementare la funzionalità end-to-end di una soluzione IoT tramite Azure IoT Suite. È possibile trovare altre informazioni su come compilare e distribuire le soluzioni in repository GitHub.
 
-## Gestire le autorizzazioni in una soluzione preconfigurata
-Il portale della soluzione per ogni soluzione preconfigurata viene creato come nuova applicazione Azure Active Directory. È possibile gestire le autorizzazioni per il portale della soluzione (applicazione AAD) come indicato di seguito:
-
-1. Aprire il [portale di Azure classico](https://manage.windowsazure.com).
-2. Passare all'applicazione AAD selezionando **Applicazioni di proprietà dell'azienda** e facendo clic sul segno di spunta.
-3. Passare a **Utenti** e assegnare un ruolo ai membri nel tenant di Azure Active Directory. 
-
-Per impostazione predefinita, l'applicazione ha ruoli **amministratore**, **in sola lettura** e **sola lettura implicita**. Il ruolo di **sola lettura implicita** viene concesso agli utenti che sono membri del tenant di Azure Active Directory, ma a cui non è stato assegnato un ruolo. È possibile modificare [RolePermissions.cs](https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs) dopo aver duplicato il repository GitHub e quindi ridistribuire la soluzione.
-
 ## Modifica delle regole preconfigurate
 
 La soluzione per il monitoraggio remoto include tre processi di [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) per implementare le informazioni sul dispositivo, la telemetria e la logica delle regole visualizzate per la soluzione.
@@ -75,11 +66,70 @@ Nel codice sorgente della soluzione per il monitoraggio remoto (a cui viene fatt
 
 Il simulatore preconfigurato nella soluzione preconfigurata di monitoraggio remoto è un dispositivo più freddo che emette dati di telemetria su temperatura e umidità e che può essere modificato nel progetto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) quando è stato duplicato il repository GitHub.
 
-Azure IoT fornisce inoltre un [esempio di SDK C](https://github.com/Azure/azure-iot-sdks/c/serializer/samples/remote_monitoring) progettato per usare la soluzione preconfigurata per il monitoraggio remoto.
+Azure IoT fornisce inoltre un [esempio di SDK C](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring) progettato per usare la soluzione preconfigurata per il monitoraggio remoto.
 
 ### Compilazione e uso del proprio dispositivo (fisico)
 
 Gli [SDK Azure IoT](https://github.com/Azure/azure-iot-sdks) forniscono librerie per la connessione di numerosi tipi di dispositivi (linguaggi e sistemi operativi) alle soluzioni IoT.
+
+## Configurazione manuale dei ruoli dell’applicazione
+
+La procedura seguente descrive come aggiungere i ruoli dell’applicazione **Admin** e **ReadOnly** a una soluzione preconfigurata. Le soluzioni preconfigurate di cui è stato eseguito il provisioning dal sito azureiotsuite.com includono i ruoli **Admin** e **ReadOnly**.
+
+I membri del ruolo **ReadOnly** possono visualizzare il dashboard e l'elenco dei dispositivi, ma non sono autorizzati ad aggiungere dispositivi, modificare gli attributi del dispositivo o inviare comandi. I membri del ruolo **Admin** hanno accesso completo a tutte le funzionalità nella soluzione.
+
+1. Passare al [portale di Azure classico][lnk-classic-portal].
+
+2. Selezionare **Active Directory**.
+
+3. Fare clic sul nome del tenant AAD usato durante il provisioning della soluzione.
+
+4. Fare clic su **Applicazioni**.
+
+5. Fare clic sul nome dell'applicazione che coincide con il nome della soluzione preconfigurata. Se l'applicazione non viene visualizzata nell'elenco, selezionare **Applicazioni di proprietà dell'azienda** nell'elenco a discesa **Mostra** e fare clic sul segno di spunta.
+
+6.  Nella parte inferiore della pagina fare clic su **Gestisci manifesto**, quindi su **Scarica manifesto**.
+
+7. Verrà scaricato un file con estensione JSON nel computer locale. Aprire il file per modificarlo in un editor di testo di propria scelta.
+
+8. Nella terza riga del file con estensione JSON, è possibile trovare:
+
+  ```
+  "appRoles" : [],
+  ```
+  Sostituirlo con quanto riportato di seguito:
+
+  ```
+  "appRoles": [
+  {
+  "allowedMemberTypes": [
+  "User"
+  ],
+  "description": "Administrator access to the application",
+  "displayName": "Admin",
+  "id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
+  "isEnabled": true,
+  "value": "Admin"
+  },
+  {
+  "allowedMemberTypes": [
+  "User"
+  ],
+  "description": "Read only access to device information",
+  "displayName": "Read Only",
+  "id": "e5bbd0f5-128e-4362-9dd1-8f253c6082d7",
+  "isEnabled": true,
+  "value": "ReadOnly"
+  } ],
+  ```
+
+9. Salvare il file con estensione JSON aggiornato (è possibile sovrascrivere il file esistente).
+
+10.  Nel portale di gestione di Azure, nella parte inferiore della pagina, selezionare **Gestisci manifesto** quindi **Carica manifesto** per caricare il file con estensione JSON salvato nel passaggio precedente.
+
+11. Sono stati aggiunti all’applicazione i ruoli **Admin** e **ReadOnly**.
+
+12. Per assegnare uno di questi ruoli a un utente nella directory, vedere [Autorizzazioni nel sito azureiotsuite.com][lnk-permissions].
 
 ## Commenti e suggerimenti
 
@@ -90,5 +140,7 @@ Per altre informazioni relative a una personalizzazione, Per inviare suggeriment
 Per altre informazioni sui dispositivi IoT, vedere il [Sito per sviluppatori Azure IoT](https://azure.microsoft.com/develop/iot/) per trovare collegamenti e documentazione.
 
 [SDK per dispositivi IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
+[lnk-permissions]: iot-suite-permissions.md
+[lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

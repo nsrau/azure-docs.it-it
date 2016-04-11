@@ -16,12 +16,10 @@
 	ms.author="awills"/>
 
 
-
-
 # Analytics in Application Insights
 
 
-[Analytics](app-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analytics.
+[Analytics](app-analytics.md) consente di eseguire query importanti sui dati di telemetria dell'app raccolti da [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query usato da Analytics.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -66,6 +64,8 @@ Il linguaggio include diverse funzionalità utili, è possibile:
 >[AZURE.NOTE] È consigliabile iniziare con una [panoramica sul linguaggio](app-analytics-tour.md).
 
 
+
+
 ## Connettersi ai dati di Application Insights
 
 
@@ -74,9 +74,12 @@ Aprire Analytics dal [pannello Panoramica](app-insights-dashboards.md) dell'app 
 ![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/app-analytics/001.png)
 
 
+## Limiti
+
+Attualmente sono disponibili i risultati delle query per una settimana di dati.
 
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

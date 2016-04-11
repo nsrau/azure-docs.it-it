@@ -1,13 +1,13 @@
-<properties 
+<properties
 	pageTitle="SQL Server Business Intelligence | Microsoft Azure"
 	description="Questo argomento tratta le risorse create con il modello di distribuzione classica e descrive le funzionalità di Business Intelligence (BI) disponibili per SQL Server in esecuzione in macchine virtuali (VM) di Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" 
+	editor="monicar"
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
@@ -19,8 +19,8 @@
 # SQL Server Business Intelligence in Macchine virtuali di Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
- 
- 
+
+
 La raccolta di macchine virtuali di Microsoft Azure include immagini che contengono installazioni SQL Server. Le edizioni di SQL Server supportate nelle immagini della raccolta sono gli stessi file di installazione che è possibile installare in computer locali e macchine virtuali. Questo argomento riepiloga le funzionalità di SQL Server Business Intelligence (BI) installate nelle immagini e i passaggi di configurazione necessari dopo il provisioning di una macchina virtuale. Questo argomento descrive inoltre le topologie di distribuzione supportate per le funzionalità di Business Intelligence e le procedure consigliate.
 
 ## Considerazioni sulle licenze
@@ -42,18 +42,18 @@ Nella raccolta di macchine virtuali di Microsoft Azure sono disponibili numerose
 ![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) Lo script PowerShell seguente restituisce l'elenco di immagini di Azure contenenti "SQL Server" in ImageName:
 
 	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure classic portal.
-	
+
 	$subscriptionID = ""    # REQUIRED: Provide your subscription ID.
 	$subscriptionName = "" # REQUIRED: Provide your subscription name.
 	$thumbPrint = "" # REQUIRED: Provide your certificate thumbprint.
 	$certificate = Get-Item cert:\currentuser\my\$thumbPrint # REQUIRED: If your certificate is in a different store, provide it here.-Ser  store is the one specified with the -ss parameter on MakeCert
-	
+
 	Set-AzureSubscription -SubscriptionName $subscriptionName -Certificate $certificate -SubscriptionID $subscriptionID
-	
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2014"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2014*"} | select imagename,category, location, label, description
-	
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2012"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2012*"} | select imagename,category, location, label, description
@@ -99,7 +99,7 @@ Nella tabella seguente sono riepilogate le funzionalità di Business Intelligenc
 - La procedura consigliata per la gestione del disco consiste nell'archiviare dati, log e file di backup su unità diverse da **C**: e **D**:. Ad esempio, creare i dischi dati **E**: ed **F**:.
 
 	- Il criterio di memorizzazione nella cache per l'unità predefinita **C**: non è ottimale per l'uso dei dati.
-	
+
 	- L'unità**D**: è un'unità temporanea usata principalmente per il file di paging. L'unità **D**: infatti non è permanente e non viene salvata nell'archiviazione BLOB. Le attività di gestione, ad esempio la modifica delle dimensioni della macchina virtuale, reimpostano l'unità **D**:. È consigliabile **NON** usare l'unità **D**: per i file di database, incluso tempdb.
 
 	Per altre informazioni su come creare e collegare dischi, vedere [Come collegare un disco dati a una macchina virtuale Windows](virtual-machines-windows-classic-attach-disk.md).
@@ -165,11 +165,11 @@ Esistono due flussi di lavoro comuni per la connessione a una macchina virtuale 
 - Connettersi alla macchina virtuale tramite connessione desktop remoto di Windows. Nell'interfaccia utente del desktop remoto:
 
 	1. Digitare il **nome del servizio cloud** come nome del computer.
-	
+
 	1. Digitare due punti (:) e il numero di porta pubblica configurato per l'endpoint del desktop remoto di TCP.
-		
+
 		Myservice.cloudapp.net:63133
-		
+
 		Per altre informazioni, vedere l'articolo relativo alla [definizione di servizio cloud](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
 **Avviare Gestione configurazione Reporting Services.**
@@ -279,11 +279,11 @@ Se si desidera connettersi a Gestione report sulla macchina virtuale da un compu
 Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per la pubblicazione di report esistenti da un computer locale nel server di report ospitato nella macchina virtuale di Microsoft Azure:
 
 - **Generatore report**: la macchina virtuale include la versione ClickOnce di Generatore report di Microsoft SQL Server. Per avviare il Generatore report per la prima volta sulla macchina virtuale:
-											
+
 	1. Avviare il browser con privilegi amministrativi.
-	
+
 	1. Passare a Gestione report nella macchina virtuale e fare clic su **Generatore report** sulla barra multifunzione.
-	
+
 	Per altre informazioni, vedere [Installazione, disinstallazione e supporto di Generatore report](https://technet.microsoft.com/library/dd207038.aspx).
 
 - **SQL Server Data Tools**: Macchina virtuale: SQL Server Data Tools è installato nella macchina virtuale e può essere usato per creare **Progetti di server di report** e report sulla macchina virtuale. SQL Server Data Tools è in grado di pubblicare i report nel server di report sulla macchina virtuale.
@@ -295,11 +295,11 @@ Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per 
 - Creare un disco rigido VHD che contenga i report e quindi caricare e collegare l'unità.
 
 	1. Creare un disco rigido VHD nel computer locale che contenga i report.
-	
+
 	1. Creare e installare un certificato di gestione.
-	
+
 	1. Caricare il file VHD in Azure utilizzando il cmdlet Add-AzureVHD [Creazione e caricamento di un disco rigido virtuale di Windows Server in Azure](virtual-machines-windows-classic-createupload-vhd.md).
-	
+
 	1. Collegare il disco alla macchina virtuale
 
 ## Installare altri servizi e funzionalità di SQL Server
@@ -375,13 +375,13 @@ Questa sezione riepiloga gli endpoint della macchina virtuale di Microsoft Azure
 - Se si utilizza una singola macchina virtuale e i due elementi seguenti sono true, non è necessario creare endpoint di macchina virtuale e non è necessario aprire le porte nel firewall della macchina virtuale.
 
 	- La connessione alle funzionalità di SQL Server nella macchina virtuale non avviene in modalità remota. Stabilire una connessione desktop remoto alla macchina virtuale e accedere alle funzionalità di SQL Server in locale nella macchina virtuale non sono considerate operazioni di connessione remota alle funzionalità di SQL Server.
-	
+
 	- La macchina virtuale non è associata a un dominio locale tramite la rete virtuale di Azure o qualche altra soluzione di tunneling VPN.
 
 - Se la macchina virtuale non è associata a un dominio ma si desidera connettersi in modalità remota alle funzionalità di SQL Server sulla macchina virtuale:
 
 	- Aprire le porte nel firewall della macchina virtuale.
-	
+
 	- Creare endpoint della macchina virtuale per le porte indicate (*).
 
 - Se la macchina virtuale è stata aggiunta a un dominio utilizzando un tunnel VPN, ad esempio le funzionalità di rete virtuale di Azure, gli endpoint non sono necessari. Tuttavia è possibile aprire le porte nel firewall della macchina virtuale.
@@ -397,7 +397,7 @@ Per altre informazioni sulla creazione di endpoint, vedere:
 
 - Creare endpoint: [Come configurare gli endpoint a una macchina virtuale](virtual-machines-windows-classic-setup-endpoints.md).
 
-- SQL Server: vedere la sezione "Completare la procedura di configurazione per connettersi alla macchina virtuale mediante SQL Server Management Studio" in [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-classic-portal-sql.md).
+- SQL Server: vedere la sezione "Completare la procedura di configurazione per connettersi alla macchina virtuale mediante SQL Server Management Studio" in [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Il diagramma seguente illustra le porte da aprire nel firewall della macchina virtuale per consentire l'accesso remoto alle funzionalità e i componenti nella macchina virtuale.
 
@@ -411,7 +411,7 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Macchine virtuali](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-- [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-classic-portal-sql.md)
+- [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md)
 
 - [Come collegare un disco dati a una macchina virtuale](virtual-machines-windows-classic-attach-disk.md)
 
@@ -431,4 +431,4 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Gestione del database SQL di Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

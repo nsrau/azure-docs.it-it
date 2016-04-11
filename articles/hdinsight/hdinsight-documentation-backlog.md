@@ -38,6 +38,6 @@ Prestazioni | Linee guida per l'ottimizzazione delle prestazioni per i cluster S
 Sono disponibili alcune opzioni per fornire commenti e suggerimenti per il backlog:
 
 * Aggiungere un commento di seguito.
-* Inviare una richiesta pull su questo documento nell'[Archivio di contenuti di Azure](https://github.com/Azure/azure-content/blob/master/articles/hdinsight/hdinsight-documentation-backlog.md).
+* Inviare una richiesta pull su questo documento nell'[Archivio di contenuti di Azure](https://github.com/Azure/azure-content/blob/master/articles/hdinsight/hdinsight-documentation-backlog.md)
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

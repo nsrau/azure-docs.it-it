@@ -48,8 +48,6 @@ Questa esercitazione ha lo scopo di illustrare la procedura necessaria per confi
 
 - Sono stati installati i [cmdlet di Azure PowerShell](../powershell-install-configure.md).
 
-- Si conosce già la modalità di provisioning di una macchina virtuale SQL Server dalla raccolta di macchine virtuali tramite l'interfaccia utente grafica. Per altre informazioni, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-classic-portal-sql.md).
-
 - Si ha già familiarità con i gruppi di disponibilità AlwaysOn per soluzioni locali. Per altre informazioni, vedere [Gruppi di disponibilità AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## Connettersi alla sottoscrizione di Azure e creare la rete virtuale
@@ -632,4 +630,4 @@ SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

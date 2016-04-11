@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Schemi definiti dall'utente in SQL Data Warehouse
@@ -47,7 +47,7 @@ Se gli schemi sono già stati usati, sono disponibili alcune opzioni:
 
 1. Implementare schemi definiti dall'utente in base ai nomi di database.
 
-```
+```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
 GO
 CREATE SCHEMA [edw]; -- edw previously database name for the data warehouse
@@ -65,7 +65,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 
 2. Mantenere nomi di schemi legacy premettendoli al nome della tabella. Usare schemi per il limite del carico di lavoro.
 
-```
+```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
 GO
 CREATE SCHEMA [edw]; -- edw defines the data warehouse boundary
@@ -83,7 +83,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 
 3. Mantenere i nomi di schemi legacy usando viste.
 
-```
+```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
 GO
 CREATE SCHEMA [edw]; -- stg defines the data warehouse boundary
@@ -122,4 +122,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

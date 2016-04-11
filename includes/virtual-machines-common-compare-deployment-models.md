@@ -35,7 +35,7 @@ In questa sezione esamineremo alcune delle più importanti differenze concettual
 | Servizio cloud per macchine virtuali |	Servizio cloud era un contenitore per mantenere le macchine virtuali che richiedevano disponibilità dalla piattaforma e bilanciamento del carico. | Servizio cloud non è più un oggetto richiesto per la creazione di una macchina virtuale che utilizza il nuovo modello. |
 | SET DI DISPONIBILITÀ | La disponibilità per la piattaforma era indicata mediante la configurazione dello stesso oggetto "AvailabilitySetName" nelle macchine virtuali. Il numero massimo di domini di errore era 2. | Il set di disponibilità è una risorsa esposta dal provider Microsoft.Compute. Le macchine virtuali che richiedono un'elevata disponibilità devono essere incluse nel set di disponibilità. Il numero massimo di domini di errore è ora 3. |
 | Gruppi di affinità |	I gruppi di affinità erano necessari per la creazione di reti virtuali. Tuttavia, con l'introduzione di reti virtuali regionali, tale requisito non era più necessario. |Per semplificare, non esiste il concetto di gruppi di affinità nelle API esposte tramite Gestione risorse di Microsoft Azure. |
-| Bilanciamento del carico. | La creazione di un servizio cloud fornisce un servizio di bilanciamento del carico implicito per le macchine virtuali distribuite. | Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L'interfaccia di rete primaria delle macchine virtuali che deve essere configurata con carico bilanciato deve fare riferimento al servizio di bilanciamento del carico. I servizi di bilanciamento del carico possono essere interni o esterni. [Per ulteriori informazioni.](resource-groups-networking.md) |
+| Bilanciamento del carico. | La creazione di un servizio cloud fornisce un servizio di bilanciamento del carico implicito per le macchine virtuali distribuite. | Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L'interfaccia di rete primaria delle macchine virtuali che deve essere configurata con carico bilanciato deve fare riferimento al servizio di bilanciamento del carico. I servizi di bilanciamento del carico possono essere interni o esterni. [Per ulteriori informazioni.](../articles/resource-groups-networking.md) |
 |Indirizzo IP virtuale | I servizi cloud otterranno un indirizzo predefinito (indirizzo IP virtuale) quando una macchina virtuale viene aggiunta a un servizio cloud. L'indirizzo IP virtuale è l'indirizzo associato al servizio di bilanciamento del carico implicito. | Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L’indirizzo IP pubblico può essere statico (riservato) o dinamico. Gli indirizzi IP pubblici possono essere assegnati a un servizio di bilanciamento del carico. Gli indirizzi IP pubblici possono essere protetti tramite gruppi di protezione. |
 |Indirizzo IP riservato|	In Microsoft Azure è possibile riservare un indirizzo IP e associarlo a un servizio cloud per assicurarsi che l'indirizzo IP sia permanente. | L’indirizzo IP pubblico può essere creato in modalità "statica" e offre le stesse funzionalità di un "indirizzo IP riservato". Gli indirizzi IP statici possono essere assegnati solo a un servizio di bilanciamento del carico al momento. |
 |Indirizzo IP pubblico per macchina virtuale | Gli indirizzi IP pubblici possono inoltre essere associati direttamente a una macchina virtuale. | Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L’indirizzo IP pubblico può essere statico (riservato) o dinamico. Tuttavia, al momento solo indirizzi IP pubblici dinamici possono essere assegnati a un'interfaccia di rete per ottenere un indirizzo IP pubblico per ogni macchina virtuale. |
@@ -53,11 +53,11 @@ Il portale di Azure continuerà ad avere la possibilità di distribuire macchine
 
 ### Azure PowerShell
 
-Azure PowerShell avrà due modalità di distribuzione: la modalità **AzureServiceManagement** e la modalità **AzureResourceManager**. La modalità di AzureResourceManager conterrà anche i cmdlet per gestire macchine virtuali, reti virtuali e account di archiviazione. Per altre informazioni, leggere [qui](../powershell-azure-resource-manager.md).
+Azure PowerShell avrà due modalità di distribuzione: la modalità **AzureServiceManagement** e la modalità **AzureResourceManager**. La modalità di AzureResourceManager conterrà anche i cmdlet per gestire macchine virtuali, reti virtuali e account di archiviazione. Per altre informazioni, leggere [qui](../articles/powershell-azure-resource-manager.md).
 
 ### Interfaccia della riga di comando di Azure
 
-L’interfaccia della riga di comando di Microsoft Azure avrà due modalità di distribuzione: la modalità **AzureServiceManagement** e la modalità **AzureResourceManager**. La modalità di AzureResourceManager conterrà inoltre i cmdlet per gestire macchine virtuali, reti virtuali e account di archiviazione. Per altre informazioni, leggere [qui](xplat-cli-azure-resource-manager.md).
+L’interfaccia della riga di comando di Microsoft Azure avrà due modalità di distribuzione: la modalità **AzureServiceManagement** e la modalità **AzureResourceManager**. La modalità di AzureResourceManager conterrà inoltre i cmdlet per gestire macchine virtuali, reti virtuali e account di archiviazione. Per altre informazioni, leggere [qui](../articles/xplat-cli-azure-resource-manager.md).
 
 ### Visual Studio
 
@@ -79,11 +79,11 @@ La funzionalità non è supportata al momento. Tuttavia, è possibile copiare i 
 
 **Quali sono le conseguenze sulla quota della mia sottoscrizione?**
 
-Le quote per le macchine virtuali, reti virtuali e gli account di archiviazione creati tramite le nuove API di gestione risorse di Microsoft Azure sono separate dalle quote attualmente disponibili. Ogni sottoscrizione ottiene nuove quote per creare le risorse mediante le nuove API. Per ulteriori informazioni sulle quote aggiuntive, fare clic [qui](../azure-subscription-service-limits.md).
+Le quote per le macchine virtuali, reti virtuali e gli account di archiviazione creati tramite le nuove API di gestione risorse di Microsoft Azure sono separate dalle quote attualmente disponibili. Ogni sottoscrizione ottiene nuove quote per creare le risorse mediante le nuove API. Per ulteriori informazioni sulle quote aggiuntive, fare clic [qui](../articles/azure-subscription-service-limits.md).
 
 **È possibile continuare a utilizzare gli script automatizzati per il provisioning di macchine virtuali, reti virtuali, account di archiviazione e altrotramite le nuove API di Gestione risorse di Microsoft Azure?**
 
-Tutti gli script e le automazioni creati continueranno a funzionare per le macchine virtuali e le reti virtuali esistenti creati con la modalità di gestione dei servizi Microsoft Azure. Tuttavia, è necessario aggiornare gli script per utilizzare il nuovo schema per la creazione delle stesse risorse tramite la nuova modalità di Gestione risorse di Microsoft Azure. Ulteriori informazioni su come modificare i propri[script per l’interfaccia della riga di comando di Microsoft Azure](virtual-machines-linux-cli-manage.md).
+Tutti gli script e le automazioni creati continueranno a funzionare per le macchine virtuali e le reti virtuali esistenti creati con la modalità di gestione dei servizi Microsoft Azure. Tuttavia, è necessario aggiornare gli script per utilizzare il nuovo schema per la creazione delle stesse risorse tramite la nuova modalità di Gestione risorse di Microsoft Azure. Ulteriori informazioni su come modificare i propri[script per l’interfaccia della riga di comando di Microsoft Azure](../articles/virtual-machines/virtual-machines-linux-cli-manage.md).
 
 **Le reti virtuali create mediante le nuove API di Gestione risorse di Microsoft Azure possono essere connesse al circuito Express Route in uso?**
 
@@ -93,4 +93,4 @@ La funzionalità non è supportata al momento. Non è possibile connettere le re
 
 E’ possibile trovare un set completo di modelli iniziali in[modelli di Guida rapida di gestione risorse di Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

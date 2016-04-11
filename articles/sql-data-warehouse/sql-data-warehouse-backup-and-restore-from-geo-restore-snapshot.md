@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/09/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess"/>
 
 # Ripristinare un database dopo un'interruzione del servizio in SQL Data Warehouse
@@ -33,7 +33,7 @@ Il ripristino di un database crea un nuovo database dall'ultimo backup con ridon
 
 
 ### Portale di Azure
-1. Accedere al [portale di Azure][].
+1. Accedere al [Portale di Azure][].
 2. Sul lato sinistro della schermata fare clic su **+NUOVO**, quindi selezionare **Dati e archiviazione** e poi ancora **SQL Data Warehouse**
 3. Selezionare **BACKUP** come origine, quindi selezionare il backup con ridondanza geografica da ripristinare
 4. Specificare il resto delle proprietà del database, quindi fare clic su **Crea**
@@ -52,7 +52,7 @@ Per ripristinare un database, usare il cmdlet [Start-AzureSqlDatabaseRecovery][]
 5. Creare la richiesta di ripristino per il database.
 6. Monitorare lo stato del ripristino.
 
-```
+```Powershell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -110,7 +110,7 @@ Per ulteriori informazioni sulle funzionalità di continuità aziendale di altre
 [Database Operation Status]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 
 <!--Other Web references-->
-[portale di Azure]: https://portal.azure.com/
+[Portale di Azure]: https://portal.azure.com/
 [contattare il supporto]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->
