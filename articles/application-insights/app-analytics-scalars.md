@@ -697,7 +697,7 @@ Indica se l'argomento è una stringa vuota o isnull.
 | "" | true
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 
