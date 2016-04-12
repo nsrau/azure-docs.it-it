@@ -38,8 +38,8 @@ Poiché questa esercitazione consente di creare rapidamente una macchina virtual
 
 
 <!--links-->
-[App Service]: app-service-choose-me.md
-[Virtual Machines]: #tellmevm
-[Cloud Services]: cloud-services-choose-me.md
+[Servizio app]: app-service-choose-me.md
+[Macchine virtuali]: #tellmevm
+[Servizi cloud]: cloud-services-choose-me.md
 
 <!---HONumber=AcomDC_0330_2016-->

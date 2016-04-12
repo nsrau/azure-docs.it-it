@@ -82,7 +82,7 @@ Dopo aver creato il connettore, è possibile usare il connettore SMTP come azion
 	Importance | Selezionare la priorità dell'e-mail. Le opzioni sono Normal, Low e High.
 	Attachments | Allegati da inviare insieme al messaggio e-mail. Contiene i campi seguenti: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) ("none"-"base64")</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
-![][5]
+![][5]  
 ![][6]
 
 ## Altri vantaggi del connettore
