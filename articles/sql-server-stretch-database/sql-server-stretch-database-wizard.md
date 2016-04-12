@@ -46,7 +46,7 @@ Selezionare le tabelle di cui si desidera abilitare l'estensione.
 |**Con estensione**|Indica se la tabella è già abilitata.|
 |**prime righe**|Consente di specificare il numero di righe nella tabella.|
 |**Dimensione (KB)**|Consente di specificare le dimensioni della tabella in KB.|
-|**Migrazione**|In CTP 3.1 tramite RC1, è possibile eseguire solo la migrazione dell'intera tabella con la procedura guidata. Se si desidera specificare un predicato per selezionare le righe da una tabella contenente dati attuali e cronologici, eseguire l'istruzione ALTER TABLE per specificare un predicato dopo aver chiuso la procedura guidata. Per altre informazioni, vedere l'articolo relativo all'[abilitazione del database per l'estensione per una tabella](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+|**Migrazione**|In CTP 3.1, fino a RC2, è possibile eseguire la migrazione solo di un'intera tabella con la procedura guidata. Se si desidera specificare un predicato per selezionare le righe da una tabella contenente dati attuali e cronologici, eseguire l'istruzione ALTER TABLE per specificare un predicato dopo aver chiuso la procedura guidata. Per altre informazioni, vedere l'articolo relativo all'[abilitazione del database per l'estensione per una tabella](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 
 ## <a name="Configure"></a>Configurare la distribuzione di Azure
 
@@ -141,4 +141,4 @@ Abilitare tabelle aggiuntive per Database Estensione. Monitorare la migrazione d
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Domande frequenti Backup Azure | Microsoft Azure"
-   description="Risposte alle domande frequenti su agente di backup, backup e conservazione, ripristino, sicurezza e altre domande frequenti sulla soluzione Backup di Azure."
+   pageTitle="Domande frequenti su Backup di Azure | Microsoft Azure"
+   description="Risposte alle domande frequenti sul servizio Backup, l'agente di Backup, backup e conservazione, ripristino, sicurezza e altre domande frequenti sul backup e sul ripristino di emergenza."
    services="backup"
    documentationCenter=""
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="soluzione di backup; servizio di backup"/>
+   keywords="backup e ripristino di emergenza; servizio Backup"/>
 
 <tags
    ms.service="backup"
@@ -14,11 +14,16 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/24/2016"
+	 ms.date="03/30/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
-# Servizio di backup di Azure - Domande frequenti
-Questo articolo contiene un elenco di domande comuni (e le relative risposte) sul servizio Backup di Azure. La community risponde rapidamente e, se una domanda viene fatta spesso, viene aggiunta a questo articolo. Le risposte alle domande contengono in genere informazioni di riferimento o di supporto. È possibile formulare le domande su Backup di Azure nella sezione Disqus di questo articolo o di un articolo correlato. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+# Servizio Backup di Azure: Domande frequenti
+
+> [AZURE.SELECTOR]
+- [Domande frequenti su Backup per la modalità classica](backup-azure-backup-faq.md)
+- [Domande frequenti su Backup per la modalità Azure Resource Manager](backup-azure-backup-ibiza-faq.md)
+
+Questo articolo contiene un elenco di domande comuni (e le relative risposte) sul servizio Backup di Azure. La community risponde rapidamente e, se una domanda viene fatta spesso, viene aggiunta a questo articolo. Le risposte alle domande contengono in genere informazioni di riferimento o di supporto. È possibile formulare le domande su Backup di Azure nella sezione Disqus di questo articolo o di un articolo correlato. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione]( https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## Installazione e configurazione
 **D1. Qual è l'elenco dei sistemi operativi supportati da cui è possibile eseguire il backup in Azure con Backup di Azure?** <br/> R1. Backup di Azure supporta l'elenco seguente di sistemi operativi.
@@ -38,9 +43,9 @@ Questo articolo contiene un elenco di domande comuni (e le relative risposte) su
 |Windows Server 2008 R2 SP1, |64 bit|	Standard, Enterprise, Datacenter, Foundation|
 |Windows Server 2008 SP2 |64 bit|	Standard, Enterprise, Datacenter, Foundation|
 
-**D2. Dov'è possibile scaricare l'agente Backup di Azure più recente?** <br/> R2. È possibile scaricare l'agente più recente per il backup di Windows Server, System Center DPM o dei client Windows da [qui](http://aka.ms/azurebackup_agent). Per eseguire il backup di una macchina virtuale usare l'agente di macchine virtuali, che installa automaticamente l'estensione appropriata. L'agente di VM è già presente nelle macchine virtuali create dalla raccolta di Azure.
+**D2. Dov'è possibile scaricare l'agente Backup di Azure più recente?** <br/> R2. È possibile scaricare l'agente più recente per il backup di Windows Server, System Center DPM o dei client Windows da [qui]( http://aka.ms/azurebackup_agent). Per eseguire il backup di una macchina virtuale usare l'agente di macchine virtuali, che installa automaticamente l'estensione appropriata. L'agente di VM è già presente nelle macchine virtuali create dalla raccolta di Azure.
 
-**D3. Quale versione del server SCDPM è supportata?** <br/> R3. È consigliabile installare la versione [più recente](http://aka.ms/azurebackup_agent) dell'agente Backup di Azure sull'aggiornamento cumulativo più recente di SCDPM (UR6 a luglio 2015)
+**D3. Quale versione del server SCDPM è supportata?** <br/> R3. È consigliabile installare la versione [più recente]( http://aka.ms/azurebackup_agent) dell'agente Backup di Azure sull'aggiornamento cumulativo più recente di SCDPM (UR6 a luglio 2015)
 
 ****D4. Quando si configura l'agente di Backup di Azure, viene richiesto di immettere le **credenziali dell'insieme di credenziali**. Le credenziali dell'insieme di credenziali scadono? R4. Sì, le credenziali dell'insieme di credenziali scadono dopo 48 ore. Se il file scade, accedere al portale di Azure e scaricare i file delle credenziali di insieme dall'insieme di credenziali per il backup.
 
@@ -54,7 +59,7 @@ Questo articolo contiene un elenco di domande comuni (e le relative risposte) su
 
 **D9. Come si registra un server in un altro data center?**<br/> R9. I dati di backup vengono inviati al data center del servizio di backup in cui sono registrati. Il modo più semplice per modificare il data center consiste nel disinstallare e reinstallare l'agente e registrarlo in un nuovo data center.
 
-**D10. Cosa accade se si rinomina un server Windows che esegue il backup dei dati in Azure?** R10. Quando si rinomina un server, tutti i backup attualmente configurati vengono arrestati. È necessario registrare il nuovo nome del server con l'insieme di credenziali di Backup. Quando si crea una nuova registrazione, la prima operazione di backup è un backup completo e non incrementale. Se è necessario recuperare dati di cui in precedenza è stato eseguito il backup nell'insieme di credenziali con il vecchio nome server, è possibile recuperarli usando l'opzione [**Un altro server**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) della procedura guidata **Recupera dati**.
+**D10. Cosa accade se si rinomina un server Windows che esegue il backup dei dati in Azure?**<br/> R10. Quando si rinomina un server, tutti i backup attualmente configurati vengono arrestati. È necessario registrare il nuovo nome del server con l'insieme di credenziali di Backup. Quando si crea una nuova registrazione, la prima operazione di backup è un backup completo e non incrementale. Se è necessario recuperare dati di cui in precedenza è stato eseguito il backup nell'insieme di credenziali con il vecchio nome server, è possibile recuperarli usando l'opzione [**Un altro server**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) della procedura guidata **Recupera dati**.
 
 
 **D11. Da quali tipi di unità è possibile eseguire il backup di file e cartelle?** <br/> R11. Non è possibile eseguire il backup del set di unità/volumi seguente:
@@ -89,7 +94,7 @@ Questo articolo contiene un elenco di domande comuni (e le relative risposte) su
 
 **D17. L'agente di Azure Backup funziona in un server che usa la deduplicazione di Windows Server 2012?** <br/> R17: Sì. Il servizio agente converte i dati deduplicati in dati normali quando si prepara l'operazione di backup. Quindi ottimizza i dati per il backup, crittografa i dati e infine invia i dati crittografati al servizio di backup online.
 
-**D18. Se si annulla un processo di backup una volta avviato, i dati di backup trasferiti vengono eliminati?** <br/> R18: No. Nell'insieme di credenziali per il backup vengono archiviati i dati sottoposti a backup trasferiti fino al momento dell'annullamento. Backup di Azure usa un meccanismo di checkpoint per aggiungere occasionalmente checkpoint ai dati di backup durante il backup. Dato che sono presenti checkpoint nei dati di backup, il processo di backup successivo può convalidare l'integrità dei file. Il successivo backup avviato risulterà incrementale rispetto ai dati erano stato eseguito il backup in precedenza. Un backup incrementale offre un migliore utilizzo della larghezza di banda in modo che non sia necessario trasferire ripetutamente gli stessi dati.
+**D18. Se si annulla un processo di backup una volta avviato, i dati di backup trasferiti vengono eliminati?** <br/> R18: No. Nell'insieme di credenziali di backup vengono archiviati i dati sottoposti a backup trasferiti fino al momento dell'annullamento. Backup di Azure usa un meccanismo di checkpoint per aggiungere occasionalmente checkpoint ai dati di backup durante il backup. Dato che sono presenti checkpoint nei dati di backup, il processo di backup successivo può convalidare l'integrità dei file. Il successivo backup avviato risulterà incrementale rispetto ai dati erano stato eseguito il backup in precedenza. Un backup incrementale offre un migliore utilizzo della larghezza di banda in modo che non sia necessario trasferire ripetutamente gli stessi dati.
 
 **D19. Perché viene visualizzato l'avviso "I backup di Azure non sono stati configurati per questo server", anche se in precedenza siano stati pianificati backup regolari?** <br/> R19. Questo avviso viene generato quando le impostazioni di pianificazione di backup archiviate nel server locale non sono identiche alle impostazioni archiviate nell'insieme di credenziali di backup. Quando il server o le impostazioni sono state ripristinate a uno stato noto soddisfacente, le pianificazioni di backup possono perdere la sincronizzazione. Se viene visualizzato questo avviso, [riconfigurare i criteri di backup](backup-azure-backup-windows-server.md) e quindi **eseguire subito il backup** per risincronizzare il server locale con Azure.
 
@@ -105,9 +110,9 @@ Questo articolo contiene un elenco di domande comuni (e le relative risposte) su
 
 **D22. È possibile installare l'agente di Backup di Azure in una macchina virtuale di Azure per eseguire il backup di file e cartelle presenti nell'archivio temporaneo fornito dalla macchina virtuale di Azure?** <br/> R22. È possibile installare l'agente di Backup di Azure nel sistema operativo guest di Windows ed eseguire il backup di file e cartelle nell'archivio temporaneo. Tenere presente, tuttavia, che dopo la cancellazione dei dati dall'archivio temporaneo i backup avranno esito negativo. Se poi i dati nell'archivio temporaneo sono stati eliminati, è possibile eseguire il ripristino solo in un archivio non temporaneo.
 
-**D23. Qual è la lunghezza del percorso file che può essere specificata come parte dei criteri di Backup di Azure usando l'agente di Backup di Azure?** <br/> A23. L'agente di Backup di Azure si basa su NTFS. La [specifica della lunghezza del percorso file è limitata dall'API Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Se la lunghezza del percorso file è superiore a quella consentita dall'API Windows, è possibile eseguire il backup della cartella padre o dell'unità disco in cui si trovano i file.
+**D23. Qual è la lunghezza del percorso file che può essere specificata come parte dei criteri di Backup di Azure usando l'agente di Backup di Azure?** <br/> R23. L'agente di Backup di Azure si basa su NTFS. La [specifica della lunghezza del percorso file è limitata dall'API Windows]( https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Se la lunghezza del percorso file è superiore a quella consentita dall'API Windows, è possibile eseguire il backup della cartella padre o dell'unità disco in cui si trovano i file.
 
-**D24 Quali caratteri sono consentiti nel percorso file dei criteri di Backup di Azure che usano l'agente di Backup di Azure?** <br/> R24. L'agente di Backup di Azure si basa su NTFS. Consente i [caratteri supportati da NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) come parte della specifica file.
+**D24 Quali caratteri sono consentiti nel percorso file dei criteri di Backup di Azure che usano l'agente di Backup di Azure?** <br/> R24. L'agente di Backup di Azure si basa su NTFS. Consente i [caratteri supportati da NTFS]( https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) come parte della specifica file.
 
 
 ## Backup e conservazione
@@ -135,7 +140,7 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 
 **D3. Esistono differenze tra i criteri di pianificazione per DPM e Windows Server (ad esempio, Windows Server senza DPM)?** <br/> R3. Sì. Usando DPM, è possibile specificare pianificazioni giornaliere, settimanali, mensili e annuali. Windows Server (senza DPM) consente di specificare solo pianificazioni giornaliere e settimanali.
 
-**D4. Esistono differenze tra i criteri di conservazione per DPM e Windows Server/client (ad esempio, Windows Server senza DPM)?**<br/> R4. No, sia DPM che Windows Server/client prevedono criteri di conservazione giornalieri, settimanali, mensili e annuali.
+**D4. Esistono differenze tra i criteri di conservazione per DPM e Windows Server/client, ad esempio, Windows Server senza DPM?**<br/> R4. No, sia DPM che Windows Server/client prevedono criteri di conservazione giornalieri, settimanali, mensili e annuali.
 
 **D5. È possibile configurare i criteri di conservazione in modo selettivo, ad esempio con frequenza settimanale e giornaliera ma non annuale e mensile?**<br/> R5. Sì, la struttura di memorizzazione del Backup di Azure consente di disporre della massima flessibilità nella definizione dei criteri di conservazione in base alle esigenze.
 
@@ -147,7 +152,7 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 
 **D8. Se una copia di backup viene conservata a lungo, è necessario più tempo per ripristinare un punto dati meno recente?** <br/> R8. No, il tempo necessario per ripristinare il punto meno recente o il più recente è lo stesso. Ogni punto di ripristino si comporta come un punto completo.
 
-**D9. Se ogni punto di ripristino si comporta come un punto completo, questo influisce sul totale dell'archiviazione di backup fatturabile?**<br/> R9. I punti di conservazione tipici a lungo termine archiviano i dati di backup come punti completi. I punti completi sono *inefficienti* dal punto di vista dell'archiviazione, ma consentono un ripristino più facile e veloce. Le copie incrementali sono *efficienti* dal punto di vista dell'archiviazione, ma richiedono il ripristino una catena di dati, che influisce sui tempi di ripristino. L'architettura di archiviazione di Backup di Azure offre il meglio dei due mondi, garantendo un'archiviazione dei dati ottimale per ripristini veloci e costi di archiviazione ridotti. Questo approccio all'archiviazione dati assicura che la larghezza di banda in ingresso e in uscita venga usata in modo efficiente. Sia la quantità dell'archivio dati che il tempo necessario per ripristinare i dati vengono mantenuti a un livello minimo.
+**D9. Se ogni punto di ripristino si comporta come un punto completo, questo influisce sul totale dell'archiviazione di backup fatturabile?**<br/> R9. I punti di conservazione tipici a lungo termine archiviano i dati di backup come punti completi. I punti completi sono *inefficienti* dal punto di vista dell'archiviazione, ma consentono un ripristino più facile e veloce. Le copie incrementali sono *efficienti* dal punto di vista dell'archiviazione, ma richiedono il ripristino di una catena di dati, che influisce sui tempi di ripristino. L'architettura di archiviazione di Backup di Azure offre il meglio dei due mondi, garantendo un'archiviazione dei dati ottimale per ripristini veloci e costi di archiviazione ridotti. Questo approccio all'archiviazione dati assicura che la larghezza di banda in ingresso e in uscita venga usata in modo efficiente. Sia la quantità dell'archivio dati che il tempo necessario per ripristinare i dati vengono mantenuti a un livello minimo.
 
 **D10. Esiste un limite al numero di punti di ripristino che è possibile creare?**<br/> R10. No. Sono stati eliminati i limiti nei punti di ripristino. È possibile creare tutti i punti di ripristino che si desidera.
 
@@ -172,7 +177,7 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 
 ## Backup della cache
 
-**D1. Come si modifica il percorso della cache specificato per l'agente di Backup Azure?**<br/> R1. Scorrere in sequenza l'elenco puntato riportato di seguito per modificare il percorso della cache.
+**D1. Come si modifica il percorso della cache specificato per l'agente di Backup di Azure?**<br/> R1. Scorrere in sequenza l'elenco puntato riportato di seguito per modificare il percorso della cache.
 - Arrestare il motore Backup eseguendo il comando seguente in un prompt dei comandi con privilegi elevati:
 
   ```PS C:\> Net stop obengine```
@@ -192,4 +197,4 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 
   Una volta completata la creazione del backup nel nuovo percorso della cache, è possibile rimuovere la cartella della cache originale.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0406_2016-->

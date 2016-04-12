@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Come utilizzare le origini dati di tipo ";Big Data";"
+   pageTitle="Come usare le origini dati di tipo ";Big Data"; | Microsoft Azure"
    description="Articolo di procedure che descrive gli schemi per usare il Catalogo dati di Azure con origini dati di tipo ";Big Data";, incluso l'archivio BLOB di Azure, Azure Data Lake e HDFS di Hadoop."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -68,4 +68,4 @@ Gli schemi descritti sopra sono solo due possibili modalità di organizzazione d
 ## Riepilogo
 La registrazione di origini dati con il **Catalogo dati di Azure** ne rende più semplice l'individuazione e la comprensione. La registrazione e l'annotazione dei file e delle directory di Big Data che rappresentano set di dati logici permettono agli utenti di trovare e usare le origini dati di tipo Big Data necessarie.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

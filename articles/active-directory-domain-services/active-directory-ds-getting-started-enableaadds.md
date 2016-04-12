@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="03/31/2016"
 	ms.author="maheshu"/>
 
 # Servizi di dominio Azure AD *(anteprima)* - Introduzione
@@ -46,24 +46,32 @@ In questo passaggio è possibile abilitare Servizi di dominio Azure AD per la di
    - Nell'elenco sono contenuti tutti i domini che sono stati configurati per la directory di Azure AD, inclusi i domini verificati e non verificati configurati nella scheda 'Domini'.
    - Inoltre, è anche possibile aggiungere, digitandolo, un nome di dominio personalizzato all'elenco.
 
-     > [AZURE.WARNING] Assicurarsi che il prefisso del dominio del nome di dominio specificato (es. 'contoso' nel nome di dominio 'contoso.local') sia inferiore a 15 caratteri. Non è possibile creare un dominio servizi di dominio di Azure AD con un prefisso di dominio con più di 15 caratteri.
+     > [AZURE.WARNING] Assicurarsi che il prefisso del dominio del nome di dominio specificato, ad esempio "contoso" nel nome di dominio "contoso.com", sia inferiore a 15 caratteri. Non è possibile creare un dominio servizi di dominio di Azure AD con un prefisso di dominio con più di 15 caratteri.
 
 8. Il passaggio successivo consiste nel selezionare una rete virtuale in cui si desidera rendere disponibile Servizi di dominio Azure AD. Selezionare la rete virtuale appena creata nell'elenco a discesa **Connetti Servizi di dominio a questa rete virtuale**.
    - Assicurarsi che la rete virtuale specificata appartenga a un'area di Azure supportata da servizi di dominio di Azure AD.
    - Per informazioni sulle aree di Azure in cui sono disponibili i Servizi di dominio Azure AD, vedere la pagina [Servizi in base all'area](https://azure.microsoft.com/regions/#services/).
+   - Si noti che le reti virtuali appartenenti a un'area in cui Servizi di dominio Azure AD non è supportato non vengono visualizzate nell'elenco a discesa.
+   - Analogamente, le reti virtuali create con Azure Resource Manager, ovvero basate su Azure Resource Manager, non vengono visualizzate nell'elenco a discesa. Questo perché le reti virtuali basate su Azure Resource Manager attualmente non sono supportate da Servizi di dominio Azure AD.
 
-9. Dopo aver selezionato le opzioni precedenti, fare clic su **Salva** nel riquadro attività nella parte inferiore della pagina per abilitare Servizi di dominio Azure AD.
-10. Nella pagina verrà visualizzato lo stato 'In sospeso...' durante l'abilitazione di Servizi di dominio Azure AD per la directory.
+9. Assicurarsi che il nome di dominio DNS scelto per il dominio gestito non esista già nella rete virtuale. Questo problema può verificarsi in uno degli scenari seguenti:
+   - Se è già presente un dominio con lo stesso nome di dominio DNS nella rete virtuale.
+   - Se la rete virtuale selezionata ha una connessione VPN alla rete locale, dove è presente un dominio con lo stesso nome di dominio DNS.
+   - Se esiste un servizio cloud con lo stesso nome della rete virtuale.
+
+10. Dopo aver selezionato le opzioni precedenti, fare clic su **Salva** nel riquadro attività nella parte inferiore della pagina per abilitare Servizi di dominio Azure AD.
+
+11. Nella pagina verrà visualizzato lo stato 'In sospeso...' durante l'abilitazione di Servizi di dominio Azure AD per la directory.
 
     ![Abilitare i servizi di dominio - stato in sospeso](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
     > [AZURE.NOTE] Servizi di dominio Azure AD garantisce un'elevata disponibilità per il dominio gestito. Al momento dell'abilitazione di Servizi di dominio Azure AD per il dominio, è possibile notare che vengono visualizzati uno alla volta gli indirizzi IP per cui è disponibile Servizi di dominio nella rete virtuale. Il secondo indirizzo IP verrà visualizzato dopo breve tempo, non appena il servizio abilita la disponibilità elevata per il dominio. Al termine della configurazione e attivazione della disponibilità elevata per il dominio, nella sezione **Servizi di dominio** della scheda **Configura** dovrebbero comparire due indirizzi IP.
 
-11. Dopo circa 20-30 minuti, il primo indirizzo IP in cui è disponibile Servizi di dominio nella rete virtuale verrà visualizzato nel campo **Indirizzo IP** nella pagina **Configura**.
+12. Dopo circa 20-30 minuti, il primo indirizzo IP in cui è disponibile Servizi di dominio nella rete virtuale verrà visualizzato nel campo **Indirizzo IP** nella pagina **Configura**.
 
     ![Servizi di dominio abilitato - provisioning del primo indirizzo IP completato](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
 
-12. Quando la disponibilità elevata è operativa per il dominio, nella pagina saranno visualizzati due indirizzi IP. Questi sono gli indirizzi IP in cui sarà disponibile Servizi di dominio Azure AD nella rete virtuale selezionata. Prendere nota di questi indirizzi IP in modo da poter aggiornare le impostazioni DNS per la rete virtuale. Questo passaggio consente alle macchine virtuali nella rete virtuale di connettersi al dominio per operazioni quali l'aggiunta al dominio.
+13. Quando la disponibilità elevata è operativa per il dominio, nella pagina saranno visualizzati due indirizzi IP. Questi sono gli indirizzi IP in cui sarà disponibile Servizi di dominio Azure AD nella rete virtuale selezionata. Prendere nota di questi indirizzi IP in modo da poter aggiornare le impostazioni DNS per la rete virtuale. Questo passaggio consente alle macchine virtuali nella rete virtuale di connettersi al dominio per operazioni quali l'aggiunta al dominio.
 
     ![Servizi di dominio abilitato - provisioning di entrambi gli indirizzi IP completato](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
@@ -73,4 +81,4 @@ In questo passaggio è possibile abilitare Servizi di dominio Azure AD per la di
 ---
 [**Passaggio successivo - Aggiornare le impostazioni DNS per la rete virtuale di Azure.**](active-directory-ds-getting-started-dns.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

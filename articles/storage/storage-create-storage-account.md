@@ -69,9 +69,7 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 2. Nel menu Hub selezionare **Nuovo** -> **Dati e archiviazione** -> **Account di archiviazione**.
 
-3. Selezionare un modello di distribuzione: **Gestione risorse** o **Classico**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
-
-4. Immettere un nome per l'account di archiviazione.
+3. Immettere un nome per l'account di archiviazione.
 
 	> [AZURE.NOTE] I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole.
 	>  
@@ -79,33 +77,39 @@ L'URL per accedere a un oggetto in un account di archiviazione viene formato agg
 
 	Per informazioni dettagliate sul modo in cui questo nome verrà usato per indirizzare oggetti in Archiviazione di Azure, vedere [Endpoint dell'account di archiviazione](#storage-account-endpoints) più avanti.
 
-5. Specificare il tipo di account di archiviazione da creare. Il tipo di account di archiviazione determina la modalità di replica dell'account di archiviazione e se si tratta di un account di archiviazione Standard o Premium.
+4. Specificare il modello di distribuzione da usare: **Azure Resource Manager ** o **Classico**. **Gestione risorse** è il modello di distribuzione consigliato. Per altre informazioni, vedere [Comprendere la distribuzione di Gestione delle risorse e distribuzione classica](../resource-manager-deployment-model.md).
 
-	Il tipo di account di archiviazione predefinito è **Standard RAGRS**, ovvero un account di archiviazione standard con replica con ridondanza geografica e accesso in lettura. Questo tipo di account di archiviazione viene replicato in un'area secondaria a centinaia di chilometri di distanza dall'area primaria e fornisce accesso in lettura alla posizione secondaria.
+5. Specificare il livello di prestazioni per l'account di archiviazione: **Standard** o **Premium**. Il livello predefinito è **Standard**. Per altre informazioni sugli account di archiviazione Standard e Premium, vedere [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md) e [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md).
 
-	Per altre informazioni sulle opzioni di replica di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](storage-redundancy.md). Per altre informazioni sugli account di archiviazione Standard e Premium, vedere [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md) e [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md).
+6. Selezionare l'opzione di replica per l'account di archiviazione: **Archiviazione con ridondanza locale**, **Archiviazione con ridondanza geografica**, **RA-GRS** o **ZRS**. L'opzione predefinita predefinito è **RA-GRS**. Per altre informazioni sulle opzioni di replica di Archiviazione di Azure, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
 
-6. Indicare se si desidera abilitare le funzionalità di diagnostica per l'account di archiviazione. Le funzionalità di diagnostica includono le metriche e la registrazione di Analisi archiviazione.
+7. Selezionare la sottoscrizione in cui si desidera creare il nuovo account di archiviazione.
 
-7. Se si dispone di più sottoscrizioni Azure, viene visualizzato il campo **Subscription**. Selezionare la sottoscrizione in cui si desidera creare il nuovo account di archiviazione.
-
-8. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per gestire le risorse di Azure](../azure-portal/resource-group-portal.md).
+8. Specificare un nuovo gruppo di risorse o selezionarne uno esistente. Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di Azure per distribuire e gestire le risorse di Azure](../azure-portal/resource-group-portal.md).
 
 9. Selezionare la posizione geografica dell'account di archiviazione.
 
 10. Fare clic su **Crea** per creare l'account di archiviazione.
 
-## Gestire le chiavi di accesso alle risorse di archiviazione
+## Gestire l'account di archiviazione
+
+### Modificare la configurazione dell'account
+
+Dopo aver creato l'account di archiviazione, è possibile modificarne la configurazione, ad esempio l'opzione di replica usata per l'account. Nel portale di Azure passare all'account di archiviazione, fare clic su **Tutte le impostazioni** e quindi fare clic su **Configurazione** per visualizzare e/o modificare la configurazione dell'account. La modifica dell'opzione di replica modifica i prezzi.
+
+> [AZURE.NOTE] A seconda del livello di prestazioni che scelto durante la creazione dell'account di archiviazione, alcune opzioni di replica potrebbero non essere disponibili.
+
+### Gestire le chiavi di accesso alle risorse di archiviazione
 
 Quando si crea un account di archiviazione, Azure genera due chiavi di accesso alle risorse di archiviazione da 512 bit, che vengono utilizzate per l'autenticazione quando si accede all'account di archiviazione. Fornendo due chiavi di accesso alle risorse di archiviazione, Azure consente di rigenerare le chiavi senza interruzioni per il servizio di archiviazione o l'accesso a tale servizio.
 
-> [AZURE.NOTE] È consigliabile non condividere le chiavi di accesso alle risorse di archiviazione con altri utenti. Per permettere l'accesso alle risorse di archiviazione senza fornire le chiavi di accesso, è possibile usare una *firma di accesso condiviso*. Una firma di accesso condiviso fornisce l'accesso a una risorsa nell'account per un intervallo di tempo definito e con le autorizzazioni specificate. Per altre informazioni sulle firme di accesso condiviso, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+> [AZURE.NOTE] È consigliabile non condividere le chiavi di accesso alle risorse di archiviazione con altri utenti. Per permettere l'accesso alle risorse di archiviazione senza fornire le chiavi di accesso, è possibile usare una *firma di accesso condiviso*. Una firma di accesso condiviso fornisce l'accesso a una risorsa nell'account per un intervallo di tempo definito e con le autorizzazioni specificate. Per altre informazioni, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
-### Visualizzare e copiare le chiavi di accesso alle risorse di archiviazione
+#### Visualizzare e copiare le chiavi di accesso alle risorse di archiviazione
 
-Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione e fare clic sull'icona **Chiavi** per visualizzare, copiare e rigenerare le chiavi di accesso all'account. Il pannello **Chiavi di accesso** include anche le stringhe di connessione preconfigurate che usano le chiavi primarie e secondarie, che è possibile copiare per usarle nelle applicazioni.
+Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione e fare clic su **Tutte le impostazioni** e quindi su **Chiavi di acceso** per visualizzare, copiare e rigenerare le chiavi di accesso dell'account. Il pannello **Chiavi di accesso** include anche le stringhe di connessione preconfigurate che usano le chiavi primarie e secondarie, che è possibile copiare per usarle nelle applicazioni.
 
-### Rigenerazione delle chiavi di accesso alle risorse di archiviazione
+#### Rigenerazione delle chiavi di accesso alle risorse di archiviazione
 
 Si consiglia di modificare periodicamente le chiavi di accesso all'account di archiviazione per mantenere le connessioni dell'archiviazione sicure. Vengono assegnate due chiavi di accesso in modo da mantenere le connessioni all'account di archiviazione mediante una chiave di accesso mentre si rigenera l'altra.
 
@@ -137,7 +141,7 @@ Per eliminare un account di archiviazione associato a una macchina virtuale di A
 
     Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-Se l'account di archiviazione usa il modello di distribuzione classica, è possibile rimuovere il disco della macchina virtuale attenendosi alla procedura seguente nel [portale di Azure classico](https://manage.windowsazure.com):
+Se l'account di archiviazione usa il modello di distribuzione classica, è possibile rimuovere il disco della macchina virtuale seguendo questa procedura nel [portale di Azure](https://manage.windowsazure.com):
 
 1. Passare al [portale di Azure classico](https://manage.windowsazure.com).
 2. Passare alla scheda Macchine virtuali.
@@ -145,7 +149,7 @@ Se l'account di archiviazione usa il modello di distribuzione classica, è possi
 4. Selezionare il disco dati, quindi fare clic su Elimina disco.
 5. Per eliminare le immagini del disco, passare alla scheda Immagini ed eliminare le eventuali immagini archiviate nell'account.
 
-Per altre informazioni, vedere la [documentazione relativa alle macchine virtuali di Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
+Per altre informazioni, vedere [Macchine virtuali - Documentazione](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Passaggi successivi
 
@@ -154,4 +158,4 @@ Per altre informazioni, vedere la [documentazione relativa alle macchine virtual
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

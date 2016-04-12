@@ -194,6 +194,89 @@ Sul lato client Windows 7, 8 e 8.1, con .NET Framework 4.0 e 4.5
 
 Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 
+## Automazione con PowerShell
+
+È possibile usare PowerShell per avviare e arrestare il monitoraggio.
+
+`Get-ApplicationInsightsMonitoringStatus [-Name appName]`
+
+* `-Name`: (facoltativo) nome di un'app Web.
+* Visualizza lo stato del monitoraggio di Application Insights per ogni app Web o per l'app denominata nel server IIS.
+
+* Restituisce `ApplicationInsightsApplication` per ogni app:
+ * `SdkState==EnabledAfterDeployment`: l'app viene monitorata ed è stata instrumentata in fase di esecuzione dallo strumento Status Monitor oppure da `Start-ApplicationInsightsMonitoring`.
+ * `SdkState==Disabled`: l'app non è instrumentata per Application Insights. Non è stata instrumentata oppure il monitoraggio in fase di esecuzione è stato disattivato con lo strumento Status Monitor o con `Stop-ApplicationInsightsMonitoring`.
+ * `SdkState==EnabledByCodeInstrumentation`: l'app è stata instrumentata aggiungendo l'SDK al codice sorgente. Il relativo SDK non può essere aggiornato o arrestato.
+ * `SdkVersion`: mostra la versione usata per il monitoraggio dell'app.
+ * `LatestAvailableSdkVersion`: mostra la versione attualmente disponibile nella raccolta NuGet. Per aggiornare l'app a questa versione, usare `Update-ApplicationInsightsMonitoring`.
+
+`Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000`
+
+* `-Name`: nome dell'app in IIS.
+* `-InstrumentationKey`: valore ikey della risorsa di Application Insights in cui visualizzare i risultati.
+
+* Questo cmdlet influisce solo sulle app che non sono già instrumentate, ovvero SdkState==NotInstrumented.
+
+    Il cmdlet non influisce sulle app già instrumentate, in fase di compilazione aggiungendo l'SDK al codice o in fase di esecuzione da un uso precedente di questo cmdlet.
+
+    La versione SDK usata per instrumentare l'app è la versione scaricata più di recente nel server.
+
+    Per scaricare l'ultima versione, usare Update-ApplicationInsightsVersion.
+
+* Se l'esito è positivo, restituisce `ApplicationInsightsApplication`. Se l'esito è negativo, registra una traccia in stderr.
+
+    
+          Name                      : Default Web Site/WebApp1
+          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+          ProfilerState             : ApplicationInsights
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.1
+          LatestAvailableSdkVersion : 1.2.3
+
+`Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
+
+* `-Name`: nome di un'app in IIS.
+* `-All`: arresta il monitoraggio di tutte le app nel server IIS per le quali `SdkState==EnabledAfterDeployment`.
+
+* Arresta il monitoraggio delle app specificate e rimuove la strumentazione. Funziona solo per le app instrumentate in fase di esecuzione usando lo strumento Status Monitoring o Start-ApplicationInsightsApplication, ovvero `SdkState==EnabledAfterDeployment`.
+
+* Restituisce ApplicationInsightsApplication.
+
+`Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
+
+* `-Name`: nome di un'app Web in IIS.
+* `-InstrumentationKey`: (facoltativo) consente di modificare la risorsa a cui vengono inviati i dati di telemetria dell'app.
+* Questo cmdlet:
+ * Aggiorna l'app denominata alla versione dell'SDK scaricata più di recente nel computer. Funziona solo se `SdkState==EnabledAfterDeployment`.
+ * Se si specifica una chiave di strumentazione, l'app denominata viene riconfigurata per l'invio di dati di telemetria alla risorsa con tale chiave. Funziona se `SdkState != Disabled`.
+
+`Update-ApplicationInsightsVersion`
+
+* Scarica l'ultima versione di Application Insights SDK nel server.
+
+## Modello di Azure
+
+Se l'app Web è in Azure e si creano le risorse usando un modello di Azure Resource Manager, è possibile configurare Application Insights aggiungendo quanto segue al nodo risorse:
+
+    {
+      resources: [
+        /* Create Application Insights resource */
+        {
+          "apiVersion": "2015-05-01",
+          "type": "microsoft.insights/components",
+          "name": "nameOfAIAppResource",
+          "location": "centralus",
+          "kind": "web",
+          "properties": { "ApplicationId": "nameOfAIAppResource" },
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', myWebAppName)]"
+          ]
+        }
+       ]
+     } 
+
+* `nameOfAIAppResource`: nome della risorsa di Application Insights.
+* `myWebAppName`: ID dell'app Web.
 
 ## <a name="next"></a>Passaggi successivi
 
@@ -219,4 +302,4 @@ Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

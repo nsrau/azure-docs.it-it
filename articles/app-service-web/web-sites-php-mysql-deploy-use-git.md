@@ -13,7 +13,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="02/09/2016"
 	ms.author="robmcm"/>
 
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.JS](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](app-service-web-nodejs-get-started.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -280,7 +280,9 @@ Per impostazione predefinita, il processo di distribuzione git nel servizio app 
     
 3. Fare clic su **OK** per accettare le note legali. Fare di nuovo clic su **OK** per aggiungere l'estensione.
 
-    Nel pannello **Estensioni installate** verrà visualizzata l'estensione Composer. ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    Nel pannello **Estensioni installate** verrà visualizzata l'estensione Composer. 
+    
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
     
 4. A questo punto, eseguire `git add`, `git commit` e `git push` come nella sezione precedente. Si noterà che ora Composer installa le dipendenze definite in composer.json.
 
@@ -325,4 +327,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

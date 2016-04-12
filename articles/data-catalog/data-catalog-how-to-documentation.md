@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Come documentare le origini dati"
+   pageTitle="Come documentare le origini dati | Microsoft Azure"
    description="Articolo sulle procedure che illustra come documentare gli asset di dati in Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="derrickv"/>
 
 # Documentare le origini dati
@@ -48,4 +48,4 @@ Il livello di documentazione va dalla descrizione delle caratteristiche e del va
 
 La documentazione delle origini dati con **Azure Data Catalog** permette di creare un resoconto sugli asset di dati con un livello di dettaglio basato sulle esigenze. È possibile creare collegamenti a contenuti archiviati in un repository esistente che riunisce i documenti e gli asset di dati esistenti. Dopo aver trovato gli asset di dati appropriati, gli utenti hanno a disposizione un set di documentazione completo.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

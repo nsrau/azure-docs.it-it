@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Esercitazione: Creare una pipeline con l’attività Copia utilizzando Data Factory Editor" 
-	description="In questa esercitazione viene creata una pipeline di esempio di Data factory di Azure con un'attività di copia usando l'editor di Data factory nel portale di Azure classico." 
+	description="In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure con un’attività di copia utilizzando Data Factory Editor nel portale di Azure." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -310,9 +310,9 @@ In questo passaggio è possibile creare una pipeline con un'**attività di copia
  
 
 ## Monitorare la pipeline
-In questo passaggio viene usato il portale di Azure classico per monitorare le attività in un'istanza di Data factory di Azure. È anche possibile usare i cmdlet di PowerShell per monitorare i set di dati e le pipeline. Per informazioni dettagliate sull'uso dei cmdlet per il monitoraggio, vedere [Monitorare e gestire Data factory di Azure con Azure PowerShell][monitor-manage-using-powershell].
+In questo passaggio viene usato il portale di Azure per monitorare le attività in un'istanza di Data factory di Azure. È anche possibile usare i cmdlet di PowerShell per monitorare i set di dati e le pipeline. Per informazioni dettagliate sull'uso dei cmdlet per il monitoraggio, vedere [Monitorare e gestire Data factory di Azure con Azure PowerShell][monitor-manage-using-powershell].
 
-1. Passare al [portale di Azure classico (anteprima)][azure-portal] se non è già aperto. 
+1. Passare al [portale di Azure (anteprima)][azure-portal] se non è già aperto. 
 2. Se il pannello per **ADFTutorialDataFactory** non è aperto, aprirlo facendo clic su **ADFTutorialDataFactory** nella **Schermata iniziale**. 
 3. Viene visualizzato il numero e i nomi delle tabelle e delle pipeline create nel pannello.
 
@@ -456,4 +456,4 @@ Vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

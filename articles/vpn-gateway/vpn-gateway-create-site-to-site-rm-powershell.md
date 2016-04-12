@@ -20,7 +20,8 @@
 # Creare una rete virtuale con una connessione VPN da sito a sito usando PowerShell e Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Portale di Azure classico](vpn-gateway-site-to-site-create.md)
+- [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Portale di Azure - Classico](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Gestione risorse](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 Questo articolo illustra la creazione di una rete virtuale e di una connessione VPN da sito a sito alla rete locale con il modello di distribuzione di **Azure Resource Manager**. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride.
@@ -188,4 +189,4 @@ Se è necessario modificare i prefissi per il gateway di rete locale, usare le i
 
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

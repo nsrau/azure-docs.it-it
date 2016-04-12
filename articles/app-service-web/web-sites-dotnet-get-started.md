@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.JS](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](app-service-web-nodejs-get-started.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -293,4 +293,4 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 	In Azure è possibile eseguire applicazioni Web in app Web del servizio app, come descritto in questa esercitazione, oppure in Servizi cloud o Macchine virtuali. Per altre informazioni, vedere [Confronto tra app Web, servizi cloud e macchine virtuali di Azure](/manage/services/web-sites/choose-web-app-service/).
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

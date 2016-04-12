@@ -165,7 +165,7 @@ La creazione di un nuovo modello esula dall'ambito di questo articolo. Per inizi
 
 È inoltre possibile utilizzare un modello direttamente da [GitHub](https://github.com/Azure/azure-quickstart-templates), invece di scaricarne uno nel computer. A tale scopo, passare l'URL al file azuredeploy.json per il modello nel comando utilizzando l’opzione **--template-url**. Per ottenere l’URL, aprire zuredeploy.json in GitHub in modalità _raw_, e copiare l'URL che viene visualizzato nella barra degli indirizzi del browser. È quindi possibile utilizzare questo URL direttamente per creare una distribuzione, utilizzando un comando simile al seguente.
 
-	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
+	azure group deployment create "testRG" testDeploy --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 Viene chiesto di immettere i parametri del modello necessari.
 
 > [AZURE.NOTE] È importante aprire il modello json in modalità _raw_. L'URL che viene visualizzato nella barra degli indirizzi del browser è diverso da quello visibile in modalità normale. Per aprire il file in modalità_raw_quando si visualizza il file su GitHub, nell'angolo superiore destro fare clic su**Raw**.
@@ -215,4 +215,4 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

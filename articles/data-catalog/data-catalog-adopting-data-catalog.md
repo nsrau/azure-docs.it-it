@@ -1,6 +1,6 @@
 <properties
    pageTitle="Adozione di Catalogo dati di Azure | Microsoft Azure"
-   description="Questo articolo illustra come iniziare ad adottare Catalogo dati di Azure nell'organizzazione. Per adottare **Catalogo dati di Azure**, è opportuno tenere presenti tre elementi chiave: definire il proprio punto di vista, identificare i principali casi d'uso di business nell'organizzazione e scegliere un progetto pilota."
+   description="Questo articolo presenta un approccio e un processo per le organizzazioni intenzionate ad adottare Azure Data Catalog, inclusa la definizione di una visione, l'identificazione dei principali casi d'uso di business e la scelta di un progetto pilota."
    services="data-catalog"
    documentationCenter=""
    authors="dvana"
@@ -13,11 +13,11 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/28/2016"
+   ms.date="03/31/2016"
    ms.author="derrickv"/>
 
 # Adozione di Catalogo dati di Azure
-Questo articolo illustra come iniziare ad adottare **Catalogo dati di Azure** nell'organizzazione. Per adottare **Catalogo dati di Azure**, è opportuno tenere presenti tre elementi chiave: definire il proprio punto di vista, identificare i principali casi d'uso di business nell'organizzazione e scegliere un progetto pilota.
+Questo articolo illustra come iniziare ad adottare **Catalogo dati di Azure** nell'organizzazione. Per adottare **Azure Data C~~~~atalog**, è opportuno tenere presenti tre elementi chiave: definire il proprio punto di vista, identificare i principali casi d'uso di business nell'organizzazione e scegliere un progetto pilota.
 
 ## Introduzione a Catalogo dati di Azure
 Nel mondo del lavoro le aspettative su come poter trovare informazioni avanzate sugli asset di dati sono cambiate. Oggi, con la diffusione degli strumenti di social media, ad esempio Yammer, sul posto di lavoro, le persone si aspettano di ottenere velocemente assistenza e suggerimenti su una vasta serie di argomenti. **Catalogo dati di Azure** consente alle aziende e ai team di consolidare le informazioni sugli asset di dati aziendali in un archivio centrale in cui i consumer dei dati possono individuare le origini dati disponibili e ottenere informazioni a cui contribuiscono gli esperti di dominio.
@@ -172,4 +172,4 @@ Questo articolo ha illustrato come iniziare a usare **Catalogo dati di Azure** n
 -	[Annotare le origini dati](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
 - [Crowdsourcing di metadati](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

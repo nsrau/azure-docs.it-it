@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Catalogo dati di Azure - Informazioni sul Catalogo dati"
-   description="Panoramica del Catalogo dati di Microsoft Azure, incluse le funzionalità e i problemi per cui è stato progettato. Il Catalogo dati di Azure offre funzionalità che consentono a qualsiasi utente, analisti, ricercatori di dati per gli e sviluppatori, di registrare, individuare, comprendere e utilizzare le origini dati."
+   pageTitle="Che cos'è Azure Data Catalog? | Microsoft Azure"
+   description="Questo articolo offre una panoramica di Microsoft Azure Data Catalog, incluse le funzionalità e i problemi per cui è stato progettato. Il Catalogo dati di Azure offre funzionalità che consentono a qualsiasi utente, analisti, ricercatori di dati per gli e sviluppatori, di registrare, individuare, comprendere e utilizzare le origini dati."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Che cos'è il Catalogo dei dati di Azure?
@@ -109,4 +109,4 @@ L'obiettivo principale dell'individuazione dati è trovare i dati necessari e us
 1.	Per le applicazioni client che sono supportate direttamente dal **Catalogo dati di Azure**, gli utenti possono fare clic sul menu **Apri in** nel riquadro dell'origine dati disponibile nel portale. L'applicazione client verrà quindi avviata con una connessione all'origine dati selezionata.
 2.	Per tutte le applicazioni client, gli utenti possono utilizzare le informazioni di connessione visualizzate nel riquadro proprietà per un'origine dati selezionata. Queste informazioni sono inclusi tutti i dettagli, quali nome del server, nome del database e nome dell'oggetto, necessari per connettersi ai dati e possono essere copiate in esperienza di connessione dello strumento client. Se sono stati forniti i dettagli di accesso richiesti per un'origine dati, verranno visualizzati accanto ai dettagli della connessione.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

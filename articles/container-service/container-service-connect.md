@@ -104,10 +104,39 @@ Dopo avere configurato il tunnel per Mesos, è possibile accedere all'endpoint c
 
 Dopo avere configurato il tunnel per Docker Swarm, è possibile accedere al cluster Swarm dall'interfaccia della riga di comando di Docker. È necessario prima di tutto configurare una variabile di ambiente Windows denominata `DOCKER_HOST` con un valore ` :2375`.
 
+## Risoluzione dei problemi
+
+### Dopo aver creato il tunnel e aver cercato l'URL di Mesos o di Marathon, ricevo il messaggio di errore 502 - Gateway non valido.
+Il modo più semplice per risolvere il problema è eliminare il cluster e ridistribuirlo. In alternativa è possibile seguire questa procedura per forzare il ripristino automatico di Zookeeper:
+
+Accedere a ogni master ed eseguire:
+
+```
+sudo service nginx stop
+sudo service marathon stop
+sudo service chronos stop
+sudo service mesos-dns stop
+sudo service mesos-master stop 
+sudo service zookeeper stop
+```
+
+Dopo aver arrestato tutti i servizi in tutti i master, eseguire:
+```
+sudo mkdir /var/lib/zookeeperbackup
+sudo mv /var/lib/zookeeper/* /var/lib/zookeeperbackup
+sudo service zookeeper start
+sudo service mesos-master start
+sudo service mesos-dns start
+sudo service chronos start
+sudo service marathon start
+sudo service nginx start
+```
+Subito dopo il riavvio di tutti i servizi, dovrebbe essere possibile usare il cluster come descritto nella documentazione.
+
 ## Passaggi successivi
 
 Distribuire e gestire contenitori con Mesos o Swarm.
 
 - [Uso del servizio contenitore di Azure e di Mesos](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->
