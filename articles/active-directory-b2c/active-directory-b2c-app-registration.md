@@ -39,8 +39,8 @@ Se il pannello delle funzionalità B2C è stato aggiunto alla schermata iniziale
 
 È inoltre possibile accedere al pannello direttamente, passando a [https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/](https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/) dove **{tenant}** deve essere sostituito con il nome usato al momento della creazione del tenant, ad esempio contosob2c. È possibile creare un segnalibro su questo collegamento per l'uso futuro.
 
-    > [AZURE.IMPORTANT]
-    You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.
+> [AZURE.IMPORTANT]
+ È necessario avere diritti di amministratore globale del tenant B2C per poter accedere al pannello delle funzionalità B2C. Un amministratore globale o un utente di qualsiasi altro tenant non può accedere.
 
 ### 2\. Accesso nel portale di Azure classico
 
