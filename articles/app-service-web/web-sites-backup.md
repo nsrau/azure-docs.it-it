@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Eseguire il backup di un'app Web nel servizio app di Azure" 
-	description="Informazioni sulla creazione dei backup delle app Web nel servizio app di Azure." 
+	description="Informazioni sulla creazione dei backup delle app Web in Azure App Service." 
 	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
@@ -19,7 +19,7 @@
 # Eseguire il backup di un'app Web nel servizio app di Azure
 
 
-La funzionalità di backup e ripristino in [App Web del servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) consente di creare facilmente backup di app Web in modo manuale o automatico. È possibile ripristinare lo stato precedente dell'app Web oppure creare una nuova app Web basata su uno dei backup dell'app originale.
+La funzionalità di backup e ripristino nel [servizio app per app Web di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) consente di creare facilmente backup di app Web in modo manuale o automatico. È possibile ripristinare lo stato precedente dell'app Web oppure creare una nuova app Web basata su uno dei backup dell'app originale.
 
 Per informazioni sul ripristino di un'app Web dal backup, vedere [Ripristino di un'app Web](web-sites-restore.md).
 
@@ -31,7 +31,7 @@ Le app Web possono effettuare il backup delle seguenti informazioni:
 
 * Configurazione app Web
 * Contenuto file app Web
-* Tutti i database SQL o MySQL di Azure connessi all'app (è possibile scegliere quali includere nel backup)
+* Qualsiasi database SQL o MySQL di Azure connesso all'app (è possibile scegliere quali includere nel backup)
 
 Il backup di tali informazioni viene effettuato nell'account di archiviazione di Azure e nel contenitore specificato.
 
@@ -189,4 +189,4 @@ Per iniziare a usare Azure, vedere la pagina relativa alla [versione di valutazi
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

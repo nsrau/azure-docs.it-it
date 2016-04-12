@@ -13,13 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/25/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse
 Per garantire prestazioni stimabili in scala, SQL Data Warehouse implementa meccanismi per la gestione della concorrenza del carico di lavoro e dell’assegnazione delle risorse di calcolo.
 
 In questo articolo vengono introdotti i concetti di gestione della concorrenza e del carico di lavoro, spiegando in che modo entrambe le funzionalità sono state implementate e come vengono controllate nel data warehouse.
+
+>[AZURE.NOTE] SQL Data Warehouse supporta carichi di lavoro multiutente non multi-tenant.
 
 ## Concorrenza
 È importante comprendere che la concorrenza in SQL Data Warehouse è disciplinata da due concetti: **query simultanee** e **slot di concorrenza**.
@@ -32,7 +34,7 @@ Come regola generale, ogni query attualmente in esecuzione utilizza uno o più s
 
 1. L'impostazione di DWU per SQL Data Warehouse
 2. La **classe di risorse** a cui appartiene l'utente
-3. Se la query o l'operazione è disciplinato dal modello di slot di concorrenza 
+3. Se la query o l'operazione è disciplinato dal modello di slot di concorrenza
 
 > [AZURE.NOTE] Vale la pena notare che non tutte le query è regolata dalla regola query slot di concorrenza. Sono tuttavia la maggior parte delle query utente. Alcune query e operazioni non utilizzano tutti gli slot di concorrenza. Queste query e operazioni ancora sono limitate dal limite di query simultanee motivo per cui sono descritte le regole. Consultare la sezione [eccezioni di classe di risorse](#exceptions) seguente per ulteriori dettagli.
 
@@ -46,8 +48,8 @@ Nella tabella seguente vengono descritti i limiti per le query simultanee e slot
 -->
 
 | Utilizzo di slot di concorrenza | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
-| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
-| Numero massimo di query simultanee | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 
+| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- |
+| Numero massimo di query simultanee | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
 | Numero massimo di slot di concorrenza | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 |
 
 Carichi di lavoro di query SQL Data Warehouse è necessario live all'interno di queste soglie. Se sono presenti più di 32 query simultanee o si supera il numero di slot di concorrenza, la query verrà accodata fino a quando non vengono soddisfatte entrambe le soglie.
@@ -145,16 +147,16 @@ Di seguito è un elenco di istruzioni e le operazioni che **sono** disciplinato 
 - MODIFICA TABELLA RICOMPILAZIONE
 - CREATE INDEX
 - CREARE L'INDICE COLUMNSTORE CLUSTER
-- CREATE TABLE AS SELECT 
-- Caricamento dei dati 
+- CREATE TABLE AS SELECT
+- Caricamento dei dati
 - Operazioni di spostamento dati condotte dal Servizio di spostamento dati (DMS)
 
 Le istruzioni seguenti **non** rispettano le classi di risorse:
 
 - CREATE TABLE
-- ALTER TABLE... SWITCH PARTITION 
-- ALTER TABLE... SPLIT PARTITION 
-- ALTER TABLE... MERGE PARTITION 
+- ALTER TABLE... SWITCH PARTITION
+- ALTER TABLE... SPLIT PARTITION
+- ALTER TABLE... MERGE PARTITION
 - DROP TABLE
 - ALTER INDEX DISABLE
 - DROP INDEX
@@ -181,13 +183,14 @@ Le istruzioni seguenti **non** rispettano le classi di risorse:
 Removed as these two are not confirmed / supported under SQLDW
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT
-- REDISTRIBUTE 
+- REDISTRIBUTE
 -->
+
 > [AZURE.NOTE] È degna di nota che `SELECT` le query per eseguire esclusivamente le viste del catalogo e viste a gestione dinamica sono **non** disciplinato dalle classi di risorse.
 
 È importante ricordare che la maggior parte delle query degli utenti finali sono probabilmente disciplinati dalle classi di risorse. La regola generale prevede che il carico di lavoro di query attiva deve rientrare in entrambe le simultanee query e la concorrenza slot soglie a meno che non è stata esclusa in modo specifico della piattaforma. Come un utente finale è possibile scegliere di escludere una query dal modello di slot della concorrenza. Una volta superata una soglia, la query viene accodata. Le query in coda verranno risolte in ordine di priorità in base all'ora di invio.
 
-### Elementi interni 
+### Elementi interni
 
 Dietro le quinte del carico di lavoro di SQL Data Warehouse gestione elementi sono un po' più complicate. Le classi di risorse sono mappate in modo dinamico a un set di gruppi di gestione del carico di lavoro all'interno dei carico generico. I gruppi utilizzati dipenderanno sul valore DWU per il warehouse. Tuttavia, esistono in totale otto gruppi di carico di lavoro utilizzati da SQL Data Warehouse. Sono:
 
@@ -224,7 +227,7 @@ Quindi, ad esempio, se DW500 è l'impostazione DWU corrente per il SQL Data Ware
 
 Per esaminare nel dettaglio le differenze nell'allocazione di risorse di memoria dalla prospettiva del resource governor utilizzare la seguente query:
 
-```
+```sql
 WITH rg
 AS
 (   SELECT  pn.name									AS node_name
@@ -247,7 +250,7 @@ AS
 	JOIN	sys.dm_pdw_nodes pn										ON	wg.pdw_node_id	= pn.pdw_node_id
 	WHERE   wg.name like 'SloDWGroup%'
 	AND     rp.name = 'SloDWPool'
-) 
+)
 SELECT	pool_name
 ,		pool_max_mem_MB
 ,		group_name
@@ -260,7 +263,7 @@ SELECT	pool_name
 ,       group_active_request_count
 ,       group_queued_request_count
 FROM	rg
-ORDER BY 
+ORDER BY
 	node_name
 ,	group_request_max_memory_grant_pcnt
 ,	group_importance
@@ -279,7 +282,7 @@ Per concedere l'accesso a un utente al SQL Data Warehouse prima è necessario av
 
 Aprire una connessione al database master per il SQL Data Warehouse ed eseguire i comandi seguenti:
 
-```
+```sql
 CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 
 CREATE USER newperson for LOGIN newperson
@@ -291,19 +294,19 @@ Dopo aver creato l'account di accesso, è necessario aggiungere un account utent
 
 Aprire una connessione al database SQL Data Warehouse ed eseguire il comando seguente:
 
-```
+```sql
 CREATE USER newperson FOR LOGIN newperson
 ```
 
 Sarà necessario concedere all'utente dispone di autorizzazioni complete. L'esempio seguente concede`CONTROL`nel database SQL Data Warehouse.`CONTROL`nel database di livello è l'equivalente del ruolo db\_owner in SQL Server.
 
-```
+```sql
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
 ```
 
 Per visualizzare i ruoli di gestione del carico di lavoro ruoli utilizzare la query seguente:
 
-```
+```sql
 SELECT  ro.[name]           AS [db_role_name]
 FROM    sys.database_principals ro
 WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
@@ -313,21 +316,21 @@ AND     ro.[is_fixed_role]  = 0
 
 Per aggiungere un utente a un ruolo di gestione di aumento del carico di lavoro utilizzare la query seguente:
 
-``` 
-EXEC sp_addrolemember 'largerc', 'newperson' 
+```sql
+EXEC sp_addrolemember 'largerc', 'newperson'
 ```
 
 Per rimuovere un utente da un ruolo di gestione del carico di lavoro utilizzare la query seguente:
 
-``` 
-EXEC sp_droprolemember 'largerc', 'newperson' 
+```sql
+EXEC sp_droprolemember 'largerc', 'newperson'
 ```
 
 > [AZURE.NOTE] Non è possibile rimuovere un utente da smallrc.
 
 Per visualizzare gli utenti che sono membri di un determinato ruolo, utilizzare la query seguente:
 
-```
+```sql
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
 FROM	sys.database_role_members rm
@@ -340,7 +343,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
 ### Rilevamento di query in coda
 Per individuare le query che vengono mantenute in una coda di concorrenza è sempre possibile fare riferimento alla DMV `sys.dm_pdw_exec_requests`.
 
-```
+```sql
 SELECT 	 r.[request_id]									AS Request_ID
 		,r.[status]										AS Request_Status
 		,r.[submit_time]								AS Request_SubmitTime
@@ -354,7 +357,7 @@ FROM    sys.dm_pdw_exec_requests r
 SQL Data Warehouse dispone di tipi di attesa specifici per la misurazione della concorrenza.
 
 Sono:
- 
+
 - LocalQueriesConcurrencyResourceType
 - UserConcurrencyResourceType
 - DmsConcurrencyResourceType
@@ -371,7 +374,7 @@ BackupConcurrencyResourceType può essere visualizzato quando si esegue il backu
 
 Per eseguire l'analisi delle query attualmente in coda per individuare le risorse di cui una richiesta è in attesa, fare riferimento alla DMV `sys.dm_pdw_waits`.
 
-```
+```sql
 SELECT  w.[wait_id]
 ,       w.[session_id]
 ,       w.[type]											AS Wait_type
@@ -408,7 +411,7 @@ WHERE	w.[session_id] <> SESSION_ID()
 
 Per visualizzare solo le attese di risorse utilizzate da una determinata query, fare riferimento alla DMV `sys.dm_pdw_resource_waits`. Il tempo di attesa di risorse include solo il tempo di attesa delle risorse che devono essere fornite, a differenza del tempo di attesa del segnale che rappresenta il tempo impiegato dal server SQL Server sottostante per pianificare la query sulla CPU.
 
-```
+```sql
 SELECT  [session_id]
 ,       [type]
 ,       [object_type]
@@ -427,7 +430,7 @@ WHERE	[session_id] <> SESSION_ID()
 
 Infine, per l'analisi delle tendenze cronologiche delle attese, SQL Data Warehouse fornisce la DMV `sys.dm_pdw_wait_stats`.
 
-```
+```sql
 SELECT	w.[pdw_node_id]
 ,		w.[wait_name]
 ,		w.[max_wait_time]
@@ -452,4 +455,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

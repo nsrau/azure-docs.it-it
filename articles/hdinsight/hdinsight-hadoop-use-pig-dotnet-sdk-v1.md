@@ -65,23 +65,23 @@ Salvare l'ID sottoscrizione, che verrà usato in un secondo momento.
 3. Nella finestra di dialogo Nuovo progetto digitare o selezionare i seguenti valori:
 
 	<table>
-<tr>
-<th>Proprietà</th>
-<th>Valore</th>
-</tr>
-<tr>
-<th>Categoria</th>
-<th>Templates/Visual C#/Windows</th>
-</tr>
-<tr>
-<th>Modello</th>
-<th>Applicazione console</th>
-</tr>
-<tr>
-<th>Nome</th>
-<th>SubmitPigJob</th>
-</tr>
-</table>
+	<tr>
+	<th>Proprietà</th>
+	<th>Valore</th>
+	</tr>
+	<tr>
+	<th>Categoria</th>
+	<th>Templates/Visual C#/Windows</th>
+	</tr>
+	<tr>
+	<th>Modello</th>
+	<th>Applicazione console</th>
+	</tr>
+	<tr>
+	<th>Nome</th>
+	<th>SubmitPigJob</th>
+	</tr>
+	</table>
 
 4. Fare clic su **OK** per creare il progetto.
 
@@ -126,7 +126,6 @@ Salvare l'ID sottoscrizione, che verrà usato in un secondo momento.
 		            // Define the Pig job
 		            var parameters = new PigJobSubmissionParameters()
 		            {
-		                UserName = ExistingClusterUsername,
 		                Query = queryString,
 		            };
 		
@@ -161,4 +160,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

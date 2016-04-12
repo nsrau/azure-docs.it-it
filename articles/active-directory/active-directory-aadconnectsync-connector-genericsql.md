@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # Documentazione tecnica sul connettore Generic SQL
@@ -22,9 +22,11 @@ Questo articolo descrive il connettore Generic SQL ed è applicabile ai prodotti
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   È necessario usare l'hotfix 4.1.3461.0 o versione successiva ([KB2870703](https://support.microsoft.com/kb/2870703)).
+    -   È necessario usare l'hotfix 4.1.3671.0 o versione successiva ([KB3092178](https://support.microsoft.com/kb/3092178)).
 
 Per MIM2016 e FIM2010R2 il connettore è disponibile come download dall'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
+
+Per vedere come funziona questo connettore, vedere l'articolo relativo alle [istruzioni dettagliate per il connettore SQL generico](active-directory-aadconnectsync-connector-genericsql-step-by-step.md).
 
 ## Panoramica del connettore Generic SQL
 
@@ -78,9 +80,9 @@ La schermata Connectivity è la prima visualizzata quando si crea un nuovo conne
 
 Il database deve supportare uno dei metodi di autenticazione riportati di seguito.
 
-- **Autenticazione di Windows**: il database di autenticazione userà le credenziali di Windows per verificare l'utente. In questo caso verrà usato l'account del servizio usato dal servizio di sincronizzazione. Questo account dovrà avere autorizzazioni sul database.
+- **Autenticazione di Windows**: il database di autenticazione userà le credenziali di Windows per verificare l'utente. Il nome utente e la password specificati verranno utilizzati per l'autenticazione nel database. Questo account dovrà avere autorizzazioni sul database.
 - **Autenticazione SQL**: il database di autenticazione userà il nome utente e la password definiti nella schermata Connectivity per connettersi al database. Se si archiviano il nome utente e la password nel file DSN, le credenziali fornite nella schermata Connectivity hanno la precedenza.
-- **Autenticazione del database SQL di Azure**: per altre informazioni, vedere [Connettersi al database SQL con l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
+- **Autenticazione del database SQL di Azure**: per altre informazioni, vedere [Connettersi al database SQL con l'autenticazione di Azure Active Directory](..\sql-database\sql-database-aad-authentication.md)
 
 **DN is Anchor**: se si seleziona questa opzione, il DN verrà usato anche come attributo di ancoraggio. Può essere usato per un'implementazione semplice, ma presenta anche le limitazioni seguenti:
 
@@ -295,4 +297,4 @@ Se l'utente sceglie l'opzione SQL query, l'esportazione richiede 3 diverse query
 
 -	Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

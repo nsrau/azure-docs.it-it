@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
+   ms.date="03/28/2016"
    ms.author="abhisram"/>
 
 # Diagnostica e monitoraggio delle prestazioni per Reliable Actors
@@ -114,6 +114,8 @@ Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti re
 |Nome categoria|Nome contatore|Descrizione|
 |---|---|---|
 |Service Fabric Actor|# of actor calls waiting for actor lock|Numero di chiamate dell'attore in sospeso, in attesa di acquisire il blocco per attore che applica la concorrenza basata su turni.|
+|Service Fabric Actor|Average milliseconds per lock wait|Tempo richiesto (in millisecondi) per acquisire il blocco per attore che applica la concorrenza basata su turni.|
+|Service Fabric Actor|Average milliseconds actor lock held|Tempo (in millisecondi) per il quale il blocco per attore è attivato|
 
 ### Eventi di gestione dello stato degli attori e relativi contatori delle prestazioni
 Il runtime di Reliable Actors emette gli eventi seguenti relativi alla [gestione dello stato degli attori](service-fabric-reliable-actors-introduction.md#actor-state-management).
@@ -128,24 +130,17 @@ Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti re
 |Nome categoria|Nome contatore|Descrizione|
 |---|---|---|
 |Service Fabric Actor|Average milliseconds per save state operation|Tempo necessario per salvare lo stato dell'attore in millisecondi|
+|Service Fabric Actor|Average milliseconds per load state operation|Tempo richiesto per caricare lo stato dell'attore in millisecondi|
 
-### Eventi relativi alle istanze di attori senza stato
-Il runtime di Reliable Actors emette gli eventi seguenti relativi alle [istanze di attori senza stato](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors).
-
-|Nome evento|ID evento|Level|Parole chiave|Descrizione|
-|---|---|---|---|---|
-|ServiceInstanceOpen|3|Informazioni|0x1|Istanza dell'attore senza stato aperta. Ciò significa che gli attori per questa partizione possono essere creati all'interno dell'istanza ed eventualmente anche di altre istanze.|
-|ServiceInstanceClose|4|Informazioni|0x1|Istanza dell'attore senza stato chiusa. Ciò significa che gli attori per questa partizione non verranno più creati all'interno dell'istanza. Non verranno recapitate nuove richieste agli attori già creati all'interno dell'istanza. Gli attori verranno distrutti dopo il completamento di qualsiasi richiesta in corso.|
-
-### Eventi relativi alle repliche di attori con stato
-Il runtime di Reliable Actors emette gli eventi seguenti relativi alle [repliche di attori con stato](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
+### Eventi relativi alle repliche di attori
+Il runtime di Reliable Actors emette gli eventi seguenti relativi alle [repliche di attori](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
 
 |Nome evento|ID evento|Level|Parole chiave|Descrizione|
 |---|---|---|---|---|
-|ReplicaChangeRoleToPrimary|1|Informazioni|0x1|Il ruolo della replica dell'attore con stato è cambiato e la replica è diventata primaria. Ciò significa che gli attori per questa partizione verranno creati all'interno della replica.|
-|ReplicaChangeRoleFromPrimary|2|Informazioni|0x1|Il ruolo della replica dell'attore con stato è cambiato e la replica non è più primaria. Ciò significa che gli attori per questa partizione non verranno più creati all'interno della replica. Non verranno recapitate nuove richieste agli attori già creati all'interno della replica. Gli attori verranno distrutti dopo il completamento di qualsiasi richiesta in corso.|
+|ReplicaChangeRoleToPrimary|1|Informazioni|0x1|Il ruolo della replica dell'attore è cambiato e la replica è diventata primaria. Ciò significa che gli attori per questa partizione verranno creati all'interno della replica.|
+|ReplicaChangeRoleFromPrimary|2|Informazioni|0x1|Il ruolo della replica dell'attore è cambiato e la replica non è più primaria. Ciò significa che gli attori per questa partizione non verranno più creati all'interno della replica. Non verranno recapitate nuove richieste agli attori già creati all'interno della replica. Gli attori verranno distrutti dopo il completamento di qualsiasi richiesta in corso.|
 
-### Eventi di attivazione e disattivazione degli attori
+### Eventi di attivazione e disattivazione degli attori e contatori delle prestazioni
 Il runtime di Reliable Actors emette gli eventi seguenti relativi all'[attivazione e disattivazione degli attori](service-fabric-reliable-actors-lifecycle.md).
 
 |Nome evento|ID evento|Level|Parole chiave|Descrizione|
@@ -153,4 +148,20 @@ Il runtime di Reliable Actors emette gli eventi seguenti relativi all'[attivazio
 |ActorActivated|5|Informazioni|0x1|Un attore è stato attivato.|
 |ActorDeactivated|6|Informazioni|0x1|Un attore è stato disattivato.|
 
-<!---HONumber=AcomDC_0211_2016-->
+Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti relativi all’attivazione e alla disattivazione degli attori.
+
+|Nome categoria|Nome contatore|Descrizione|
+|---|---|---|
+|Service Fabric Actor|Average OnActivateAsync milliseconds|Tempo necessario per eseguire il metodo OnActivateAsync in millisecondi|
+
+### Contatori delle prestazioni di elaborazione delle richieste degli attori
+Quando un client richiama un metodo tramite un oggetto proxy di attore, viene generato un messaggio di richiesta inviato in rete al servizio attore. Il servizio elabora il messaggio di richiesta e invia una risposta al client. Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti relativi all’elaborazione delle richieste degli attori.
+
+|Nome categoria|Nome contatore|Descrizione|
+|---|---|---|
+|Service Fabric Actor|# of outstanding requests|Numero di richieste elaborate nel servizio|
+|Service Fabric Actor|Average milliseconds per request|Tempo richiesto (in millisecondi) dal servizio per elaborare una richiesta|
+|Service Fabric Actor|Average milliseconds for request deserialization|Tempo richiesto (in millisecondi) per deserializzare il messaggio di richiesta dell’attore quando viene ricevuto nel servizio|
+|Service Fabric Actor|Average milliseconds for response serialization|Tempo richiesto (in millisecondi) per serializzare il messaggio di risposta dell’attore nel servizio prima dell’invio della risposta al client|
+
+<!---HONumber=AcomDC_0330_2016-->

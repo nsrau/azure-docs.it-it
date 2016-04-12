@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
@@ -74,7 +74,7 @@ Potrebbero volerci alcuni minuti per creare l'account di archiviazione. Dopo ave
 1. Nella finestra di dialogo **Account di archiviazione**, fare clic sull'account di archiviazione che si desidera modificare e quindi fare clic su **Rimuovi**.
 2. Fare clic su **OK** quando viene richiesto di rimuovere l'account di archiviazione.
 
->[AZURE.NOTE]Rimuovendo l’account di archiviazione tramite la finestra di dialogo **Account di archiviazione**, esso viene rimosso solo dall'elenco di account di archiviazione visualizzabile in Eclipse. Non viene rimosso l'account di archiviazione dalla sottoscrizione di Azure. Inoltre, l'account di archiviazione potrebbe apparire di nuovo nell'elenco dopo che Eclipse ricarica i dettagli della sottoscrizione.
+>[AZURE.NOTE] Rimuovendo l’account di archiviazione tramite la finestra di dialogo **Account di archiviazione**, esso viene rimosso solo dall'elenco di account di archiviazione visualizzabile in Eclipse. Non viene rimosso l'account di archiviazione dalla sottoscrizione di Azure. Inoltre, l'account di archiviazione potrebbe apparire di nuovo nell'elenco dopo che Eclipse ricarica i dettagli della sottoscrizione.
 
 ## Vedere anche ##
 
@@ -100,4 +100,4 @@ Per altre informazioni su come usare Azure con Java, visitare il [Centro per svi
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

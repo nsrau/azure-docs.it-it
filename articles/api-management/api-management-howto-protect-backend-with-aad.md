@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Come proteggere il back-end di un'API Web con Azure Active Directory e Gestione API
@@ -166,7 +166,7 @@ Fare clic sul nome dell'applicazione per configurare le autorizzazioni necessari
 
 ![Aggiungere autorizzazioni][api-management-aad-add-permissions]
 
->[AZURE.NOTE]Se **Microsoft** **Azure Active Directory** non è nell'elenco in Autorizzazioni per altre applicazioni, fare clic su **Aggiungi applicazione** e aggiungere la voce all'elenco.
+>[AZURE.NOTE] Se **Microsoft** **Azure Active Directory** non è nell'elenco in Autorizzazioni per altre applicazioni, fare clic su **Aggiungi applicazione** e aggiungere la voce all'elenco.
 
 Prendere nota dell'**URI ID app** che verrà usato in un passaggio successivo durante la configurazione di un'applicazione Azure AD per il portale per sviluppatori di Gestione API.
 
@@ -291,7 +291,7 @@ Per ottenere il **Segreto client** fare clic sull'elenco a discesa **Seleziona d
 
 Fare clic su **Salva** per salvare la configurazione e visualizzare la chiave.
 
->[AZURE.IMPORTANT]Annotare il valore relativo alla chiave. Una volta chiusa la finestra di configurazione di Azure Active Directory, la chiave non potrà più essere visualizzata.
+>[AZURE.IMPORTANT] Annotare il valore relativo alla chiave. Una volta chiusa la finestra di configurazione di Azure Active Directory, la chiave non potrà più essere visualizzata.
 
 Copiare la chiave negli Appunti, tornare al portale di pubblicazione, incollare la chiave nella casella di testo **Segreto client** e fare clic su **Salva**.
 
@@ -305,7 +305,7 @@ Il passaggio successivo consiste nel configurare le autorizzazioni per l'applica
 
 ![Aggiungere autorizzazioni][api-management-add-devportal-permissions]
 
-Fare clic sull'icona di ricerca, digitare **APIM** nella casella Che inizia con, selezionare **APIMAADDemo** e fare clic sul segno di spunta per salvare.
+Fare clic sull'icona di ricerca digitare **APIM** nella casella Che inizia con, selezionare **APIMAADDemo** e fare clic sul segno di spunta per salvare.
 
 ![Aggiungere autorizzazioni][api-management-aad-add-app-permissions]
 
@@ -329,7 +329,7 @@ Passare alla scheda **Sicurezza**, selezionare la casella di controllo **OAuth 2
 
 Dopo avere configurato l'autorizzazione OAuth 2.0 nell'API, le relative operazioni possono essere chiamate correttamente dal centro per sviluppatori. Questo passaggio è illustrato nel video a partire da 15:00 minuti.
 
-Tornare all'operazione **Add two integers** del servizio calcolatrice nel portale per sviluppatori e fare clic su **Prova**. Si noti il nuovo elemento nella sezione **Authorization** corrispondente al server autorizzazione appena aggiunto.
+Tornare all'operazione **Add two integers** del servizio calcolatrice nel portale per sviluppatori e fare clic su **Prova**. Si noti il nuovo elemento nella sezione **Autorizzazione** corrispondente al server autorizzazione appena aggiunto.
 
 ![API Calculator][api-management-calc-authorization-server]
 
@@ -413,4 +413,4 @@ Per un'altra dimostrazione relativa alla configurazione e all'uso di questi crit
 [Creare un'istanza di Gestione API]: api-management-get-started.md#create-service-instance
 [Gestire la prima API in Gestione API di Azure]: api-management-get-started.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

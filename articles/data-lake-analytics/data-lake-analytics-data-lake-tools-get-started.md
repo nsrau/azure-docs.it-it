@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/10/2016"
+   ms.date="03/15/2016"
    ms.author="jgao"/>
 
 # Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio
@@ -28,13 +28,11 @@ U-SQL è un linguaggio estremamente scalabile e facilmente estendibile per la pr
 
 ###Prerequisiti
 
-- **Visual Studio 2015, Visual Studio 2013 Update 4 oppure Visual Studio 2012 con Visual C++ installato** 
+- **Visual Studio 2015, Visual Studio 2013 Update 4 oppure Visual Studio 2012. Sono supportate le edizioni Enterprise (Ultimate/Premium), Professional e Community. L'edizione Express non è supportata.** 
 - **Microsoft Azure SDK per .NET versione 2.7.1 o successiva**. Installarlo usando il [programma di installazione della piattaforma Web](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Strumenti di Data Lake per Visual Studio](http://aka.ms/adltoolsvs)**. 
 
-    Dopo aver installato Strumenti di Data Lake per Visual Studio, in Visual Studio verrà visualizzato il menu Data Lake:
-    
-    ![Menu Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
+    Una volta installato Strumenti di Data Lake per Visual Studio, verrà visualizzato un nodo "Analisi Data Lake" in Esplora server sotto il nodo "Azure". Per aprire Esplora server, premere CTRL+ALT+S.
 
 - **Eseguire le procedure descritte nelle due sezioni seguenti, disponibili nell'articolo [Introduzione a Analisi di Azure Data Lake con il portale di Azure](data-lake-analytics-get-started-portal.md)**.
 
@@ -106,7 +104,7 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
 		    SELECT *
 		    FROM @searchlog;        
 
-        OUTPUT @searchlog   
+        OUTPUT @res   
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
@@ -132,11 +130,10 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
 		 
 		IntelliSense per le entità di catalogo (Databases, Schemas, Tables, UDO, e così via) è correlato all'account di calcolo personale. È possibile controllare l'account di calcolo, il database e lo schema attualmente attivi nella barra degli strumenti superiore e sostituirli tramite gli elenchi a discesa.
  
-    - **Espandere le colonne con il simbolo dell'asterisco**
+    - **Espandere le colonne con il simbolo dell'asterisco * **
 
-        Cliccando a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto l'asterisco. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia rivolta verso il basso.
-
-	![Strumenti di Data Lake per Visual Studio espande l'asterisco](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        Cliccando a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto l'asterisco. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia rivolta verso il basso.  
+    	![Strumenti di Data Lake per Visual Studio espande l'asterisco](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Fare clic su **Espandi colonne** e lo strumento sostituirà l'asterisco con i nomi di colonna.
     
@@ -265,14 +262,14 @@ Esistono due modi per eseguire i file C# personalizzati:
 È possibile eseguire il debug delle assembly C# senza inviarle e registrarle al servizio di Analisi Azure Data Lake. È possibile impostare dei punti di interruzione sia nei file dietro il codice, sia nel progetto C# a cui si fa riferimento.
 
 **Per eseguire il debug del codice locale nel file code-behind**
-1. Impostare dei punti di interruzione nel file dietro il codice.
-2. Premere **F5** per eseguire il debug dello script in locale.
+1.	Impostare dei punti di interruzione nel file dietro il codice. 
+2.	Premere **F5** per eseguire il debug dello script in locale.
 
 La procedura seguente funziona solo in Visual Studio 2015. Nella versione precedente di Visual Studio potrebbe essere necessario aggiungere manualmente i file .pdb.
 
 **Per eseguire il debug del codice locale in un progetto C# a cui si fa riferimento**
-1. Creare un progetto Assembly C# e compilarlo per generare l’output dll.
-2. Registrare la dll utilizzando un'istruzione U-SQL:
+1.	Creare un progetto Assembly C# e compilarlo per generare l’output dll.
+2.	Registrare la dll utilizzando un'istruzione U-SQL:
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	Impostare i punti di interruzione nel codice C#.
@@ -365,4 +362,4 @@ Lo script di PowerShell seguente prepara automaticamente i dati di origine e un 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!------HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

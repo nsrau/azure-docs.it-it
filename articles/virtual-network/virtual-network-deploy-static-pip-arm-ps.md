@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/15/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Distribuire una VM con un IP pubblico statico mediante PowerShell
@@ -216,4 +216,4 @@ Dopo aver apportato tutte le modifiche necessarie e aver compreso il funzionamen
 
    
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

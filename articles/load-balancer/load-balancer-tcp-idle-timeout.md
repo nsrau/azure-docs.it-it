@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/19/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # Come modificare le impostazioni del timeout di inattività TCP per il bilanciamento del carico
@@ -44,7 +44,7 @@ Per supportare tali scenari, è stato aggiunto il supporto per un timeout di ina
 - Configurare il timeout TCP per i ruoli Web/di lavoro tramite il modello del servizio
  
 
->[AZURE.NOTE]Tenere presente che alcuni comandi sono disponibili solo nel pacchetto più recente di Azure PowerShell. Se il comando PowerShell non è disponibile, scaricare un pacchetto di PowerShell più recente.
+>[AZURE.NOTE] Tenere presente che alcuni comandi sono disponibili solo nel pacchetto più recente di Azure PowerShell. Se il comando PowerShell non è disponibile, scaricare un pacchetto di PowerShell più recente.
 
  
 ### Configurare il timeout TCP per l'IP pubblico a livello di istanza su 15 minuti
@@ -53,7 +53,7 @@ Per supportare tali scenari, è stato aggiunto il supporto per un timeout di ina
 
 IdleTimeoutInMinutes è facoltativo. Se non impostato, il timeout predefinito è 4 minuti.
 
->[AZURE.NOTE]L'intervallo di timeout accettabile è compreso tra 4 e 30 minuti.
+>[AZURE.NOTE] L'intervallo di timeout accettabile è compreso tra 4 e 30 minuti.
  
 ### Impostare il timeout di inattività durante la creazione di un endpoint di Azure in una macchina virtuale
 
@@ -160,10 +160,10 @@ Aggiornare la configurazione di specificati endpoint di input con carico bilanci
 
 [Panoramica del bilanciamento del carico interno](load-balancer-internal-overview.md)
 
-[Introduzione alla configurazione del bilanciamento del carico Internet](load-balancer-internet-getstarted.md)
+[Introduzione alla configurazione del bilanciamento del carico Internet](load-balancer-get-started-internet-arm-ps.md)
 
 [Configurare una modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md)
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0309_2016-->

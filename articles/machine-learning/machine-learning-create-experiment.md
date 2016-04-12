@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/03/2016"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 # Esercitazione di Machine Learning: Creare il primo esperimento in Azure Machine Learning Studio
@@ -234,4 +234,4 @@ Per una procedura più completa e dettagliata delle tecniche di modellazione pre
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0204_2016----->
+<!---HONumber=AcomDC_0316_2016-->

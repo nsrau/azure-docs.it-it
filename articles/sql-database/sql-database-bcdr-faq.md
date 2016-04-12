@@ -58,6 +58,6 @@ Per la replica geografica attiva, tutti i database secondari (fino a un massimo 
 
 ## 9\. Cos'è il ritardo di replica quando si usa la replica geografica standard o quella attiva?
 
-Usare la visualizzazione a gestione dinamica (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) per ottenere l'ultima ora di replica, l'ultimo intervallo di replica e altre informazioni sul collegamento di replica.
+Usare la visualizzazione a gestione dinamica (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) per ottenere l'ultima ora di replica, l'ultimo intervallo di replica e altre informazioni sul collegamento di replica.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

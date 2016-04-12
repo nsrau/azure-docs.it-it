@@ -24,14 +24,14 @@ Il servizio contenitore di Azure (ACS) fornisce un modo per semplificare la crea
 
 <br /> ![ACS fornisce uno strumento per gestire applicazioni in container su più host in Azure.](./media/acs-intro/acs-cluster.png) <br /><br />
 
-ACS si avvale di Docker per garantire che i contenitori di applicazioni siano completamente portabili. Supporta inoltre la scelta di Marathon, Chronos e Apache Mesos o Docker Swarm per garantire che queste applicazioni possano essere scalate in migliaia, persino decine di migliaia di contenitori.
+ACS si avvale del formato di contenitore Docker per garantire che i contenitori di applicazioni siano completamente portabili. Supporta inoltre la scelta di Marathon e Apache Mesos o Docker Swarm per garantire che queste applicazioni possano essere scalate in migliaia, persino decine di migliaia di contenitori.
 
 Il servizio contenitore di Azure consente di sfruttare i vantaggi delle funzioni del grado dell’organizzazione di Azure mantenendo al tempo stesso la portabilità dell'applicazione, inclusi i livelli di orchestrazione.
 
 Utilizzo del servizio contenitore di Azure
 -----------------------------
 
-Il nostro obiettivo con il servizio contenitore di Azure è fornire un ambiente host contenitore, tramite strumenti open source e tecnologie, che sono attualmente i più diffusi fra i nostri clienti. A tal fine, vengono esposti gli endpoint API standard per Docker e l'agente di orchestrazione scelto. Utilizzando questi endpoint è possibile utilizzare qualsiasi software in grado di comunicare con essi. Nel caso dell'endpoint Docker Swarm, ad esempio, è possibile scegliere di utilizzare Docker Compose, mentre per Apache Mesos è possibile scegliere di utilizzare DCOS CLI.
+Il nostro obiettivo con il servizio contenitore di Azure è fornire un ambiente host contenitore, tramite strumenti open source e tecnologie, che sono attualmente i più diffusi fra i nostri clienti. A tal fine, vengono esposti gli endpoint API standard per l'agente di orchestrazione scelto. Utilizzando questi endpoint è possibile utilizzare qualsiasi software in grado di comunicare con essi. Nel caso dell'endpoint Docker Swarm, ad esempio, è possibile scegliere di utilizzare Docker CLI, mentre per Apache Mesos è possibile scegliere di utilizzare DCOS CLI.
 
 Creazione di un Cluster Docker con il servizio contenitore di Azure
 -------------------------------------------------------
@@ -55,7 +55,7 @@ Mesos comprime un set di funzionalità eccezionali.
 
 -   Schemi replicati a tolleranza di errore e slave utilizzando ZooKeeper
 
--   Supporto per i contenitori Docker
+-   Supporto per i contenitori formattati Docker
 
 -   Isolamento nativo tra le attività con i contenitori Linux
 
@@ -69,7 +69,7 @@ Mesos include il supporto per un numero elevato di [framework](http://mesos.apac
 
 #### Utilizzo di Marathon e Chronos
 
-Marathon è un sistema di init e controllo di tutto il cluster per i servizi in cgroups o, nel caso di ACS, in contenitori Docker. Si tratta di un partner ideale di Chronos, un'utilità di pianificazione processi a tolleranza d'errore per Mesos che gestisce le dipendenze e le pianificazioni in base al tempo.
+Marathon è un sistema di init e controllo di tutto il cluster per i servizi in cgroups o, nel caso di ACS, in contenitori formato Docker. Si tratta di un partner ideale di Chronos, un'utilità di pianificazione processi a tolleranza d'errore per Mesos che gestisce le dipendenze e le pianificazioni in base al tempo.
 
 Marathon e Chronos forniscono un'interfaccia utente Web da cui è possibile distribuire le applicazioni. Si accederà a questo con un URL simile a `http://DNS\_PREFIX.REGION.cloudapp.azure.com` dove DNS\_PREFIX e REGION sono entrambi definiti in fase di distribuzione. Naturalmente, è anche possibile fornire il proprio nome DNS. Per altre informazioni sull'esecuzione di un contenitore tramite l'interfaccia utente Web di Marathon, vedere [Gestione di contenitori tramite l'interfaccia utente Web](./container-service-mesos-marathon-ui.md).
 
@@ -101,4 +101,4 @@ Introduzione a ACS:
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

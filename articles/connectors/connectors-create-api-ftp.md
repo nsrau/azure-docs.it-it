@@ -1,0 +1,250 @@
+<properties
+	pageTitle="Aggiungere l'API di FTP alle app per la logica | Microsoft Azure"
+	description="Panoramica dell'API di FTP con i parametri dell'API REST."
+	services=""
+	documentationCenter="" 
+	authors="MandiOhlinger"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
+
+<tags
+   ms.service="multiple"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na" 
+   ms.date="02/25/2016"
+   ms.author="mandia"/>
+
+# Introduzione all'API di FTP
+Connettersi a un server FTP per gestire i file, ad esempio, caricare i file, eliminare i file e altro. L'API di FTP può essere usata da:
+
+- App per la logica
+
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore di FTP](../app-service-logic/app-service-logic-connector-ftp.md).
+
+Con FTP è possibile:
+
+- Creare il flusso aziendale in base ai dati ottenuti da FTP. 
+- Usare un trigger quando un file viene aggiornato.
+- Usare azioni per creare file, ottenerne il contenuto e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, è possibile ottenere il contenuto di un file e quindi aggiornare un database SQL. 
+
+Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+
+## Trigger e azioni
+Per FTP sono disponibili i trigger e le azioni seguenti:
+
+Trigger | Azioni
+--- | ---
+<ul><li>Recupera un file aggiornato</li></ul> | <ul><li>Crea file</li><li>Copia file</li><li>Elimina file</li><li>Estrai cartella</li><li>Recupera contenuto di file</li><li>Recupera contenuto di file tramite percorso</li><li>Recupera metadati di file</li><li>Recupera metadati di file tramite percorso</li><li>Recupera un file aggiornato</li><li>Aggiorna file</li></ul>
+
+Tutte le API supportano i dati nei formati JSON e XML.
+
+## Creare una connessione a FTP
+Quando si aggiunge questa API alle app per la logica, immettere i valori seguenti:
+
+|Proprietà| Obbligatorio|Descrizione|
+| ---|---|---|
+|Server Address| Sì | Immettere il nome di dominio completo (FQDN) o l'indirizzo IP del server FTP.|
+|Nome utente| Sì | Immettere il nome utente per la connessione al server FTP.|
+|Password | Sì | Immettere la password del nome utente.|
+
+Dopo aver creato la connessione immettere le proprietà di FTP, ad esempio file di origine o cartella di destinazione. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
+
+>[AZURE.TIP] È possibile usare la stessa connessione di FTP in altre app per la logica.
+
+## Riferimento all'API REST di Swagger
+Si applica alla versione 1.0.
+
+### Crea file
+Carica un file nel server FTP. ```POST: /datasets/default/files```
+
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| ---|---|---|---|---|---|
+|folderPath|string|yes|query|nessuno |Percorso della cartella per caricare il file nel server FTP|
+|name|string|yes|query| nessuno|Nome del file da creare nel server FTP|
+|body| |sì|body|nessuno |Contenuto del file da creare nel server FTP|
+
+#### Risposta
+|Nome|Descrizione|
+|---|---|
+|200|OK|
+|default|Operazione non riuscita.|
+
+### Copia file
+Copia un file nel server FTP. ```POST: /datasets/default/copyFile```
+
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| ---|---|---|---|---|---|
+|source|string|yes|query|nessuno |URL del file di origine|
+|destination|string|yes|query|nessuno |Percorso file di destinazione nel server FTP, incluso nome file di destinazione|
+|overwrite|boolean|no|query|nessuno |Sovrascrive il file di destinazione se è impostata su 'true'|
+
+#### Risposta
+|Nome|Descrizione|
+|---|---|
+|200|OK|
+|default|Operazione non riuscita.|
+
+### Elimina file 
+Elimina un file dal server FTP. ```DELETE: /datasets/default/files/{id}```
+
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| ---|---|---|---|---|---|
+|id|string|yes|path|nessuno |Identificatore univoco del file da eliminare dal server FTP|
+
+#### Risposta
+|Nome|Descrizione|
+|---|---|
+|200|OK|
+|default|Operazione non riuscita.|
+
+### Estrai cartella
+Estrae un file di archivio in una cartella del server FTP, ad esempio con estensione zip. ```POST: /datasets/default/extractFolderV2```
+
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| ---|---|---|---|---|---|
+|source|string|yes|query| nessuno|Percorso del file di archivio|
+|destination|string|yes|query| nessuno|Percorso della cartella di destinazione|
+|overwrite|boolean|no|query|nessuno|Sovrascrive i file di destinazione se è impostata su 'true'|
+
+#### Risposta
+|Nome|Descrizione|
+|---|---|
+|200|OK|
+|default|Operazione non riuscita.|
+
+### Ottieni contenuto di file
+Recupera il contenuto dei file dal server FTP tramite ID. ```GET: /datasets/default/files/{id}/content```
+
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| ---|---|---|---|---|---|
+|id|string|yes|path|nessuno |Identificatore univoco del file|
+
+#### Risposta
+|Nome|Descrizione|
+|---|---|
+|200|OK|
+|default|Operazione non riuscita.|
+
+
+### Ottieni contenuto di file tramite percorso
+Recupera il contenuto dei file dal server FTP tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
+
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| ---|---|---|---|---|---|
+|path|string|yes|query|nessuno |Percorso univoco del file nel server FTP|
+
+#### Risposta
+|Nome|Descrizione|
+|---|---|
+|200|OK|
+|default|Operazione non riuscita.|
+
+
+### Ottieni metadati di file 
+Recupera i metadati dei file dal server FTP tramite ID file. ```GET: /datasets/default/files/{id}```
+
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| ---|---|---|---|---|---|
+|id|string|yes|path|nessuno|Identificatore univoco del file|
+
+#### Risposta
+| Nome | Descrizione |
+| --- | --- |
+| 200 | OK | 
+| default | Operazione non riuscita.
+
+
+### Ottieni metadati di file tramite percorso
+Recupera i metadati dei file dal server FTP tramite percorso. ```GET: /datasets/default/GetFileByPath```
+
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| ---|---|---|---|---|---|
+|path|string|yes|query| nessuno|Percorso univoco del file nel server FTP|
+
+#### Risposta
+|Nome|Descrizione|
+|---|---|
+|200|OK|
+|default|Operazione non riuscita.|
+
+
+### Ottieni un file aggiornato
+Recupera un file aggiornato. ```GET: /datasets/default/triggers/onupdatedfile```
+
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| ---|---|---|---|---|---|
+|folderId|string|yes|query|nessuno |ID della cartella in cui cercare un file aggiornato|
+
+#### Risposta
+|Nome|Descrizione|
+|---|---|
+|200|OK|
+|default|Operazione non riuscita.|
+
+
+### Aggiorna file 
+Aggiorna un file nel server FTP. ```PUT: /datasets/default/files/{id}```
+
+| Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
+| ---|---|---|---|---|---|
+|id|string|yes|path| nessuno|Identificatore univoco del file da aggiornare nel server FTP|
+|body| |sì|body|nessuno |Contenuto del file da aggiornare nel server FTP|
+
+#### Risposta
+|Nome|Descrizione|
+|---|---|
+|200|OK|
+|default|Operazione non riuscita.|
+
+
+## Definizioni oggetto
+
+#### DataSetsMetadata
+
+| Nome | Tipo di dati | Obbligatorio |
+|---|---|---|
+|tabular|non definito|no|
+|BLOB|non definito|no|
+
+#### TabularDataSetsMetadata
+
+| Nome | Tipo di dati | Obbligatorio |
+|---|---|---|
+|una sezione source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+|tableDisplayName|string|no|
+|tablePluralName|string|no|
+
+#### BlobDataSetsMetadata
+
+| Nome | Tipo di dati | Obbligatorio |
+|---|---|---|
+|una sezione source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+
+#### BlobMetadata
+
+| Nome | Tipo di dati | Obbligatorio |
+|---|---|---|
+|ID|string|no|
+|Nome|string|no|
+|DisplayName|string|no|
+|Path|string|no|
+|LastModified|string|no|
+|Dimensione|integer|no|
+|MediaType|string|no|
+|IsFolder|boolean|no|
+|ETag|string|no|
+|FileLocator|string|no|
+
+## Passaggi successivi
+
+[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+<!---HONumber=AcomDC_0323_2016-->

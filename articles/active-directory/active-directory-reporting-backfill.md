@@ -1,10 +1,10 @@
 <properties
    pageTitle="Tempi di recupero delle informazioni dei report di Azure Active Directory | Microsoft Azure"
-   description="Tempo necessario per la visualizzazione in Azure Active Directory degli eventi dei report precedenti"
+   description="Tempo necessario per la visualizzazione degli eventi dei report precedenti nella directory di Azure AD"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevepo"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Tempi di recupero delle informazioni dei report di Azure Active Directory
 
@@ -27,7 +27,7 @@ Report | Descrizione
 Accessi da origini sconosciute | 0 giorni
 Accessi dopo più errori | 0 giorni
 Accessi da più aree geografiche | 0 giorni
-Accessi da indirizzi IP con attività sospetta | 0 giorni
+Accessi da indirizzi IP con attività sospette | 0 giorni
 Accessi da dispositivi potenzialmente infetti | 0 giorni
 Attività di accesso irregolare | 0 giorni
 Utenti con anomalie dell'attività di accesso | 0 giorni
@@ -48,4 +48,4 @@ Utenti RMS più attivi | 0 giorni
 Utilizzo dispositivi RMS | 0 giorni
 Utilizzo applicazioni abilitate per RMS | 0 giorni
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

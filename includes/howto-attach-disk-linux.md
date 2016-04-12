@@ -1,11 +1,11 @@
 
-Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-disks-vhds.md).
+Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-linux-about-disks-vhds.md).
 
 <a id="attachempty"></a>
 ## Procedura: Collegare un disco vuoto
 Il collegamento di un disco vuoto costituisce il modo più semplice per aggiungere un disco dati perché Azure crea automaticamente il file con estensione vhd e lo archivia nell'account di archiviazione.
 
-1.  Aprire CLI di Azure per Mac, Linux e Windows e connettersi alla sottoscrizione di Azure. Per ulteriori informazioni, leggere [connettersi ad Azure da Azure CLI](../articles/xplat-cli-connect.md).
+1.  Aprire CLI di Azure per Mac, Linux e Windows e connettersi alla sottoscrizione di Azure. Per ulteriori informazioni, leggere [connettersi ad Azure da Azure CLI](../xplat-cli-connect.md).
 
 2.  Assicurarsi di essere in modalità di Gestione servizi di Azure, ovvero l'impostazione predefinita digitando`azure config
  	mode asm`.
@@ -33,7 +33,7 @@ Il collegamento di un disco vuoto costituisce il modo più semplice per aggiunge
 
 Per collegare un disco esistente, è necessario che in un account di archiviazione sia disponibile un file con estensione vhd.
 
-1. 	Aprire CLI di Azure per Mac, Linux e Windows e connettersi alla sottoscrizione di Azure. Per ulteriori informazioni, leggere [connettersi ad Azure da Azure CLI](../articles/xplat-cli-connect.md).
+1. 	Aprire CLI di Azure per Mac, Linux e Windows e connettersi alla sottoscrizione di Azure. Per ulteriori informazioni, leggere [connettersi ad Azure da Azure CLI](../xplat-cli-connect.md).
 
 2.  Assicurarsi di essere in modalità di Gestione servizi di Azure, ovvero l'impostazione predefinita. Se è stata modificata la modalità di gestione delle risorse, è sufficiente ripristinarla digitando`azure config mode asm`.
 
@@ -93,4 +93,4 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
 > [AZURE.NOTE]
 Dopo l'aggiunta di un disco dati, sarà necessario accedere alla macchina virtuale e inizializzare il disco in modo che la macchina virtuale possa usarlo per l'archiviazione.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

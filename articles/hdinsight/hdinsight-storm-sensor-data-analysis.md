@@ -104,10 +104,12 @@ L'hub eventi è l'origine dati per questo esempio. Per creare un nuovo hub event
 4. Selezionare **Configura** e quindi creare due nuovi criteri di accesso usando le informazioni seguenti.
 
 	<table>
-<tr><th>Name</th><th>Autorizzazioni</th></tr>
-<tr><td>Dispositivi</td><td>Invia</td></tr>
-<tr><td>Storm</td><td>Attesa</td></tr>
-</table>Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Verranno creati i criteri di accesso condivisi che saranno usati per inviare messaggi all'hub e per leggere i messaggi provenienti dall'hub.
+	<tr><th>Name</th><th>Autorizzazioni</th></tr>
+	<tr><td>Dispositivi</td><td>Invia</td></tr>
+	<tr><td>Storm</td><td>Attesa</td></tr>
+	</table>
+
+	Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Verranno creati i criteri di accesso condivisi che saranno usati per inviare messaggi all'hub e per leggere i messaggi provenienti dall'hub.
 
 5. Dopo avere salvato i criteri, usare **Generatore di chiavi di accesso condivise** nella parte inferiore della pagina per recuperare la chiave per i criteri **devices** e **storm**. Salvare le chiavi perché verranno usate in un secondo momento.
 
@@ -399,6 +401,9 @@ Prima di eseguire la topologia, è necessario preparare HBase per l'accettazione
 
 Dopo aver avviato la topologia nel cluster Storm ed elaborato i dati, è possibile usare di nuovo il comando `scan 'SensorData'` per verificare che i dati siano stati inseriti in HBase.
 
+## Eliminare i cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Passaggi successivi
 
@@ -422,4 +427,4 @@ In questo articolo è stato illustrato come usare Storm per leggere dati dall'hu
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -36,7 +36,7 @@ L'elenco dei pacchetti installati può cambiare. Per ottenere un elenco completo
     out <- data.frame(installed.packages())
     maml.mapOutputPort("out")
 
-Per visualizzare l'elenco di pacchetti, connettere un modulo di conversione, ad esempio [Convert to CSV][convert-to-csv] all'output del modulo [Execute R Script][execute-r-script], eseguire l'esperimento, quindi fare clic sull'output del modulo di conversione e selezionare **Download**.
+Per visualizzare l'elenco di pacchetti, connettere un modulo di conversione, ad esempio [Convert to CSV][convert-to-csv] all'output del modulo [Execute R Script][execute-r-script], eseguire l'esperimento, quindi fare clic sull'output del modulo di conversione e selezionare **Download**. Per praticità, si riporta [l'elenco completo e aggiornato con i numeri di versione in formato Excel](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
 
 ##Importazione di pacchetti
 
@@ -502,4 +502,4 @@ Per ottenere l'elenco completo dei pacchetti attualmente disponibili, vedere la 
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

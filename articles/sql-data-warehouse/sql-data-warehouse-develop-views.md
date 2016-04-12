@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
- 
+
 # Viste in SQL Data Warehouse
 
 Le viste sono particolarmente utili in SQL Data Warehouse. Risultano utili in molti modi diversi per migliorare la qualità della soluzione.
@@ -28,12 +28,12 @@ Un modello di applicazione molto comune consiste nel ricreare le tabelle usando 
 
 L'esempio seguente aggiunge nuovi record a una dimensione data. Si noti come un nuovo oggetto, DimDate\_New, viene creato e poi rinominato per sostituire la versione originale dell'oggetto.
 
-```
+```sql
 CREATE TABLE dbo.DimDate_New
 WITH (DISTRIBUTION = ROUND_ROBIN
 , CLUSTERED INDEX (DateKey ASC)
 )
-AS 
+AS
 SELECT *
 FROM   dbo.DimDate  AS prod
 UNION ALL
@@ -54,7 +54,12 @@ Le visualizzazioni sono un modo efficace per applicare join tra le tabelle ottim
 ## Limitazioni
 Le viste in SQL Data Warehouse sono solo metadati.
 
-Di conseguenza non sono disponibili le opzioni seguenti: - Non esiste alcuna opzione di binding dello schema - Le tabelle di base non possono essere aggiornate tramite la vista - Non è possibile creare viste su tabelle temporanee - Non è previsto alcun supporto per gli hint EXPAND / NOEXPAND - Non sono disponibili viste indicizzate in SQL Data Warehouse.
+Non sono quindi disponibili le opzioni seguenti:
+- 	Non esiste alcuna opzione di binding dello schema
+- 	Le tabelle di base non possono essere aggiornate tramite la vista
+- 	Non è possibile creare visualizzazioni sulle tabelle temporanee
+- 	Non è previsto alcun supporto per gli hint EXPAND/NOEXPAND
+- 	Non sono disponibili viste indicizzate in SQL Data Warehouse
 
 
 ## Passaggi successivi
@@ -69,4 +74,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

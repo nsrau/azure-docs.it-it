@@ -1,6 +1,6 @@
 
 
-Le notifiche push vengono in genere inviate in un servizio back-end come Servizi mobili o ASP.NET usando una libreria compatibile. È anche possibile utilizzare l'API REST direttamente per inviare messaggi di notifica se una libreria non è disponibile per il back-end.
+Le notifiche push vengono in genere inviate in un servizio back-end come App per dispositivi mobili o ASP.NET usando una libreria compatibile. È anche possibile utilizzare l'API REST direttamente per inviare messaggi di notifica se una libreria non è disponibile per il back-end.
 
 Di seguito è riportato un elenco di altre esercitazioni, che è possibile esaminare per l'invio di notifiche:
 
@@ -12,4 +12,4 @@ Di seguito è riportato un elenco di altre esercitazioni, che è possibile esami
 
 Nella sezione successiva dell'esercitazione si apprenderà come usare l'[interfaccia REST di Hub di notifica](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) per inviare il messaggio di notifica direttamente nell'applicazione. Tutti i dispositivi registrati ricevono la notifica inviata da qualsiasi dispositivo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0330_2016-->

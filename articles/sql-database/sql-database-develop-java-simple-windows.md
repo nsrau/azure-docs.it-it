@@ -26,19 +26,18 @@
 
 Questo argomento presenta un esempio di codice Java che è possibile usare per connettersi al database SQL di Azure. L'esempio Java si basa su Java Development Kit (JDK) versione 1.8 e si connette a un database SQL di Azure tramite il driver JDBC.
 
+## Passaggio 1: Configurare l'ambiente di sviluppo
 
-## Prerequisiti
-
-### Driver e librerie
+Installare i driver e le librerie:
 
 - [Driver Microsoft JDBC per SQL Server - SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774).
 - Qualsiasi piattaforma di sistema operativo che esegue [Java Development Kit 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
-### Un database SQL
+## Passaggio 2: Creare un database SQL
 
 Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su come creare un database.
 
-### Una tabella SQL
+## Passaggio 3: Creare una tabella SQL
 
 L'esempio di codice Java in questo argomento presuppone che la tabella di test seguente esista già nel database SQL di Azure.
 
@@ -56,14 +55,14 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	);
 
 
-## Passaggio 1: Ottenere la stringa di connessione
+## Passaggio 4: Ottenere la stringa di connessione
 
 [AZURE.INCLUDE [sql-database-include-connection-string-jdbc-20-portalshots](../../includes/sql-database-include-connection-string-jdbc-20-portalshots.md)]
 
-> [AZURE.NOTE]Se si usa il driver JDBC JTDS, sarà necessario aggiungere "ssl = require" all'URL della stringa di connessione ed è necessario impostare l'opzione seguente per JVM "-Djsse.enableCBCProtection=false". Questa opzione JVM disattiva la correzione di una vulnerabilità di sicurezza,quindi assicurarsi di comprendere i rischi coinvolti prima di impostare questa opzione.
+> [AZURE.NOTE] Se si usa il driver JDBC JTDS, sarà necessario aggiungere "ssl = require" all'URL della stringa di connessione ed è necessario impostare l'opzione seguente per JVM "-Djsse.enableCBCProtection=false". Questa opzione JVM disattiva la correzione di una vulnerabilità di sicurezza,quindi assicurarsi di comprendere i rischi coinvolti prima di impostare questa opzione.
 
 
-## Passaggio 2: Compilare l'esempio di codice Java
+## Passaggio 5: Compilare l'esempio di codice Java
 
 
 Questa sezione contiene la parte principale dell'esempio di codice Java e include commenti che indicano dove copiare e incollare i segmenti Java più piccoli presentati nelle sezioni successive. L'esempio in questa sezione può essere compilato ed eseguito anche senza copiare e incollare i segmenti aggiuntivi in corrispondenza dei commenti, ma in tal caso può solo stabilire la connessione ed essere terminato. Sono inclusi i commenti seguenti:
@@ -136,7 +135,7 @@ Per eseguire effettivamente questo esempio, nella stringa di connessione è nece
 - your\_password
 
 
-## Passaggio 3: Inserire righe
+## Passaggio 6: Inserire righe
 
 
 Questo segmento Java esegue un'istruzione Transact-SQL INSERT per inserire due righe nella tabella Person. La sequenza generale è la seguente:
@@ -169,7 +168,7 @@ Copiare questo breve segmento Java e incollarlo nell'esempio di codice principal
 	}
 
 
-## Passaggio 4: Eseguire il commit di una transazione
+## Passaggio 7: Eseguire il commit di una transazione
 
 Questo segmento di codice Java esegue un'istruzione Transact-SQL UPDATE per aumentare il valore `age` per ogni riga della tabella Person. La sequenza generale è la seguente:
 
@@ -199,7 +198,7 @@ Copiare questo breve segmento Java e incollarlo nell'esempio di codice principal
 	connection.setAutoCommit(true);
 
 
-## Passaggio 4: Eseguire una query
+## Passaggio 8: Eseguire una query
 
 
 Questo segmento Java esegue un'istruzione Transact-SQL SELECT per visualizzare tutte le righe aggiornate dalla tabella Person. La sequenza generale è la seguente:
@@ -228,4 +227,4 @@ Copiare questo breve segmento Java e incollarlo nell'esempio di codice principal
 
 Per altre informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

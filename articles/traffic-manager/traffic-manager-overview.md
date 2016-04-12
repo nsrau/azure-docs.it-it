@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Gestione traffico di Azure
@@ -30,7 +30,7 @@ Con Gestione traffico è possibile:
 
 Quando si configura un profilo di Gestione traffico, le impostazioni specificate offrono le informazioni necessarie per determinare quale endpoint deve soddisfare la richiesta in base a una query DNS. Il traffico dell'endpoint non viene effettivamente indirizzato attraverso Gestione traffico.
 
-La *Figura 1* mostra il modo in cui Gestione traffico indirizza gli utenti a un set di endpoint. I numeri nella Figura 1 corrispondono alle seguenti descrizioni numerate:
+La *Figura 1* mostra il modo in cui Gestione traffico indirizza gli utenti a un set di endpoint. I numeri nella Figura 1 corrispondono alle seguenti descrizioni numerate:
 
 ![Modalità di funzionamento di Gestione traffico](./media/traffic-manager-overview/IC740854.jpg)
 
@@ -47,7 +47,7 @@ Poiché il dominio aziendale e l'indirizzo IP risolto vengono memorizzati nella 
 
 ## Come implementare Gestione traffico
 
-La *Figura 2* mostra i passaggi, in ordine, necessari per l'implementazione di Gestione traffico. Questi passaggi possono essere eseguiti in un ordine leggermente diverso, se si conoscono con precisione la configurazione e le procedure consigliate di Gestione traffico. I numeri nella Figura 2 corrispondono alle seguenti descrizioni numerate:
+La *Figura 2* mostra i passaggi, in ordine, necessari per l'implementazione di Gestione traffico. Questi passaggi possono essere eseguiti in un ordine leggermente diverso, se si conoscono con precisione la configurazione e le procedure consigliate di Gestione traffico. I numeri nella Figura 2 corrispondono alle seguenti descrizioni numerate:
 
 ![Modalità di configurazione di Gestione traffico](./media/traffic-manager-overview/IC740855.jpg)
 
@@ -56,10 +56,10 @@ La *Figura 2* mostra i passaggi, in ordine, necessari per l'implementazione di G
 1. **Distribuire i servizi cloud di Azure, siti Web di Azure o altri endpoint nell'ambiente di produzione**. Quando viene creato un profilo di Gestione traffico, questo deve essere associato a una sottoscrizione. Bisogna poi aggiungere gli endpoint per i servizi cloud e i siti Web di livello standard nella produzione che fanno parte della stessa sottoscrizione. Se un endpoint si trova in gestione temporanea e non in un ambiente di produzione di Azure oppure non fa parte della stessa sottoscrizione, può essere aggiunto come endpoint esterno. Per altre informazioni sui servizi cloud, vedere [Servizi cloud](http://go.microsoft.com/fwlink/p/?LinkId=314074). Per altre informazioni sui siti Web, vedere [Siti Web](http://go.microsoft.com/fwlink/p/?LinkId=393327).
 2. **Decidere un nome per il dominio di Gestione traffico**. Prendere in considerazione un nome per il dominio con un prefisso univoco. L'ultima parte del dominio, trafficmanager.net, è fissa. Per altre informazioni, vedere [Procedure consigliate](#best-practices).
 3. **Decidere il monitoraggio della configurazione da usare**. Gestione traffico monitora gli endpoint per verificare che siano online, indipendentemente dal metodo di routing del traffico. Dopo aver configurato le impostazioni di monitoraggio, in base al sistema di monitoraggio, Gestione traffico non dirigerà il traffico direttamente agli endpoint offline a meno che non rilevi che tutti gli endpoint sono offline o nel caso in cui non sia possibile rilevare lo stato di ciascun endpoint contenuto nel profilo. Per altre informazioni sul monitoraggio, vedere [Monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
-4. **Decidere il metodo di routing del traffico che si desidera utilizzare**. Sono disponibili tre diversi metodi di routing del traffico. Decidere accuratamente il metodo più adatto ai propri requisiti. Se necessario, il metodo scelto può essere modificato in qualunque momento. Considerare inoltre che ciascun metodo richiede passaggi di configurazione leggermente differenti. Per informazioni sui metodi di routing del traffico, vedere [metodi di routing del traffico su gestione traffico](traffic-manager-load-balancing-methods.md).
+4. **Decidere il metodo di routing del traffico che si desidera utilizzare**. Sono disponibili tre diversi metodi di routing del traffico. Decidere accuratamente il metodo più adatto ai propri requisiti. Se necessario, il metodo scelto può essere modificato in qualunque momento. Considerare inoltre che ciascun metodo richiede passaggi di configurazione leggermente differenti. Per informazioni sui metodi di routing del traffico, vedere [metodi di routing del traffico su gestione traffico](traffic-manager-routing-methods.md).
 5. **Creare il profilo e configurare le impostazioni**. È possibile usare le API REST, Windows PowerShell o il portale di Azure classico per creare il profilo di Gestione traffico e configurare le impostazioni. Per altre informazioni, vedere [Come configurare le impostazioni di Gestione traffico](#how-to-configure-traffic-manager-settings). I passaggi seguenti presuppongono l'uso di **Creazione rapida** nel portale di Azure classico. 
    - **Creare il profilo di Gestione traffico**: per creare un profilo usando Creazione rapida nel portale di Azure classico, vedere [Gestire i profili di Gestione traffico](traffic-manager-manage-profiles.md).
-   - **Configurare impostazioni del metodo di routing del traffico** – nella creazione rapida, è necessario selezionare il metodo di routing del traffico per il profilo. Questa impostazione può essere modificata in qualsiasi momento una volta completati i passaggi di Creazione rapida. Per passaggi di configurazione, vedere l'argomento corrispondente per il metodo di routing del traffico: [Configurare prestazioni metodo di routing del traffico ](traffic-manager-configure-performance-load-balancing.md), [Configurare metodo di routing del traffico failover](traffic-manager-configure-failover-load-balancing.md), [Configurare metodo di routing del traffico Round Robin](traffic-manager-configure-round-robin-load-balancing.md).
+   - **Configurare impostazioni del metodo di routing del traffico** – nella creazione rapida, è necessario selezionare il metodo di routing del traffico per il profilo. Questa impostazione può essere modificata in qualsiasi momento una volta completati i passaggi di Creazione rapida. Per passaggi di configurazione, vedere l'argomento corrispondente per il metodo di routing del traffico: [Configurare prestazioni metodo di routing del traffico ](traffic-manager-configure-performance-routing-method.md), [Configurare metodo di routing del traffico failover](traffic-manager-configure-failover-routing-method.md), [Configurare metodo di routing del traffico Round Robin](traffic-manager-configure-round-robin-routing-method.md).
    
    >[AZURE.NOTE] Il metodo Round Robin del metodo di routing del traffico supporta ora la distribuzione ponderata del traffico di rete. In questo momento è tuttavia necessario usare le API REST o Windows PowerShell per configurare i pesi. Per altre informazioni e una configurazione di esempio, vedere [Endpoint esterni di Gestione traffico di Azure e metodo Round robin ponderato tramite PowerShell](https://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) nel blog di Azure.
 
@@ -102,7 +102,7 @@ Nel portale di Azure classico è possibile configurare le impostazioni seguenti:
 - **Definizione**: una definizione contiene le impostazioni dei criteri e di monitoraggio. Una definizione corrisponde a un profilo. È possibile disporre di una sola definizione per profilo. Nonostante molte delle impostazioni contenute nella definizione vengano visualizzate e possano essere configurate nel portale di Azure classico, la definizione non è visibile nel portale di Azure classico.
 - **Opzioni DNS**: ciascuna definizione contiene le opzioni DNS. Si tratta del punto in cui viene configurata la durata TTL del DNS.
 - **Monitoraggi**: ciascuna definizione contiene le impostazioni di monitoraggio. In questa area vengono configurati il protocollo, la porta, il percorso relativo e il nome del file. Le impostazioni di monitoraggio vengono visualizzate e possono essere configurate nel portale di Azure classico. Per altre informazioni, vedere [Monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
-- **Criteri**: ciascuna definizione contiene le impostazioni dei criteri. I criteri sono in cui vengono specificati i metodi di routing del traffico e gli endpoint. Nonostante alcune delle impostazioni dei criteri vengano visualizzate e possano essere configurate nel portale di Azure classico, i criteri non vengono visualizzati nel portale di Azure classico. Per ulteriori informazioni, vedere [metodi di routing del traffico su gestione traffico](traffic-manager-load-balancing-methods.md).
+- **Criteri**: ciascuna definizione contiene le impostazioni dei criteri. I criteri sono in cui vengono specificati i metodi di routing del traffico e gli endpoint. Nonostante alcune delle impostazioni dei criteri vengano visualizzate e possano essere configurate nel portale di Azure classico, i criteri non vengono visualizzati nel portale di Azure classico. Per ulteriori informazioni, vedere [metodi di routing del traffico su gestione traffico](traffic-manager-routing-methods.md).
 
 ## Configurazione delle impostazioni tramite Windows PowerShell
 
@@ -172,4 +172,4 @@ Se si vogliono scaricare le figure presenti in questo argomento come diapositive
 
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

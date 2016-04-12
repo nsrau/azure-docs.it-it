@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Come creare e usare gruppi per gestire account di sviluppatori in Gestione API di Azure
@@ -30,7 +30,7 @@ Oltre a questi gruppi di sistema, gli amministratori possono creare gruppi perso
 
 Questa guida illustra come gli amministratori di un'istanza di Gestione API possono aggiungere nuovi gruppi e associarli a prodotti e sviluppatori.
 
->[AZURE.NOTE]Oltre a creare e gestire gruppi nel portale di pubblicazione, è possibile creare e gestire i gruppi utilizzando l'entità API REST di gestione [Gruppo](https://msdn.microsoft.com/library/azure/dn776329.aspx).
+>[AZURE.NOTE] Oltre a creare e gestire gruppi nel portale di pubblicazione, è possibile creare e gestire i gruppi utilizzando l'entità API REST di gestione [Gruppo](https://msdn.microsoft.com/library/azure/dn776329.aspx).
 
 ## <a name="create-group"> </a>Creare un gruppo
 
@@ -64,7 +64,7 @@ Selezionare la scheda **Visibilità** per aggiungere e rimuovere gruppi e per vi
 
 ![Visibilità dei prodotti][api-management-add-group-to-product-visibility]
 
->[AZURE.NOTE]Per aggiungere gruppi di Azure Active Directory, vedere [Come autorizzare gli account per sviluppatore usando Azure Active Directory in Gestione API di Azure](api-management-howto-aad.md).
+>[AZURE.NOTE] Per aggiungere gruppi di Azure Active Directory, vedere [Come autorizzare gli account per sviluppatore usando Azure Active Directory in Gestione API di Azure](api-management-howto-aad.md).
 >
 >Per configurare gruppi dalla scheda **Visibilità** per un prodotto, fare clic su **Gestisci gruppi**.
 
@@ -111,4 +111,4 @@ Dopo l'aggiunta dell'associazione tra sviluppatore e gruppo, è possibile visual
 [Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
 [sfruttare i gruppi esterni nei tenant di Azure Active Directory associati]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

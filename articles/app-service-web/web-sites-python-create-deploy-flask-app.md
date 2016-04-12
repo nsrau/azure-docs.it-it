@@ -382,7 +382,6 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Python](
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -402,4 +401,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Python](
 [Documentazione di Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

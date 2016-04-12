@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Autenticazione e autorizzazione del bus di servizio
@@ -73,4 +73,4 @@ Per una panoramica generale della firma di accesso condiviso nel bus di servizio
 
 Per altre informazioni sui token ACS, vedere [Procedura: Richiedere un token da ACS tramite il protocollo OAuth WRAP](https://msdn.microsoft.com/library/hh674475.aspx).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

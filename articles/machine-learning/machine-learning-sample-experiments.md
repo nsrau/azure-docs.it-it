@@ -17,19 +17,24 @@
     ms.author="chhavib;olgali"/>
 
 # Usare gli esperimenti di esempio per creare nuovi esperimenti
-Se si desidera creare un esperimento, cercare alcuni esempi tra gli esperimenti di esempio del team di Machine Learning e gli esperimenti condivisi dalla community di Machine Learning. È anche possibile porre domande o inviare commenti sugli esperimenti presenti nella [raccolta di Cortana Analytics](http://gallery.azureml.net/)
+Se si desidera creare un esperimento, cercare alcuni esempi tra gli esperimenti di esempio del team di Machine Learning e gli esperimenti condivisi dalla community di Machine Learning. È anche possibile porre domande o inviare commenti sugli esperimenti presenti in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Esplorazione della raccolta di Cortana Analytics
-1. Accedere alla [Raccolta](http://gallery.azureml.net/)
+## Esplorare Cortana Intelligence Gallery
+1. Accedere alla [Raccolta](http://gallery.cortanaintelligence.com/)
 2. Esplorare la Raccolta andando alla sezione **Trending Experiments** o **Microsoft samples**.
-3. Usare la ricerca e i filtri per restringere i risultati: 
-![](./media/machine-learning-sample-experiments/image1.png) 
-4. Per altre informazioni su un esperimento, fare clic su di esso. Per eseguire e/o modificare l'esperimento, fare clic su **Open in Studio**. 
-![](./media/machine-learning-sample-experiments/image2.png) 
-5.  Accedere con le credenziali dell'account Microsoft. Se non si dispone ancora di un'area di lavoro di Machine Learning, verrà creata un'area di lavoro di valutazione gratuita. [Informazioni sulla versione di prova gratuita di Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) 
-![](./media/machine-learning-sample-experiments/image3.png) 
+3. Usare la ricerca e i filtri per restringere i risultati:
+
+	![](./media/machine-learning-sample-experiments/image1.png) 
+
+4. Per altre informazioni su un esperimento, fare clic su di esso. Per eseguire e/o modificare l'esperimento, fare clic su **Open in Studio**.
+
+	![](./media/machine-learning-sample-experiments/image2.png) 
+
+5.  Accedere con le credenziali dell'account Microsoft. Se non si dispone ancora di un'area di lavoro di Machine Learning, verrà creata un'area di lavoro di valutazione gratuita. [Informazioni sulla versione di prova gratuita di Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/)
+
+	![](./media/machine-learning-sample-experiments/image3.png) 
 
 ## Usare un esempio come modello in Studio
 1. Accedere a [Studio](https://studio.azureml.net) con le credenziali dell'account Microsoft e quindi fare clic su **New*** per creare un nuovo esperimento
@@ -42,4 +47,4 @@ Se si desidera creare un esperimento, cercare alcuni esempi tra gli esperimenti 
 - [Creare un'API del servizio Web](machine-learning-publish-a-machine-learning-web-service.md)
 - [Esplorare applicazioni pronte per l'uso](https://datamarket.azure.com/browse?query=machine+learning)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0406_2016-->

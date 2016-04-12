@@ -75,7 +75,9 @@ Di seguito sono riportate le configurazioni che è possibile modificare in un cl
 
 ![Schermata che illustra le identificazioni personali del certificato nel portale di Azure.][CertificateUpgrade]
 
->[AZURE.NOTE] Prima di identificare il certificato da usare per le risorse del cluster, è necessario completare la procedura seguente. In caso contrario, i nuovi certificati non verranno usati: 1. Caricare il nuovo certificato nell'insieme di credenziali delle chiavi di Azure. Per istruzioni, vedere [Proteggere un cluster di Service Fabric](service-fabric-cluster-security.md). Iniziare dal passaggio 2 di questo articolo. 2. Aggiornare tutte le macchine virtuali (VM) che costituiscono il cluster, in modo che il certificato venga distribuito in ognuna di esse. A tale scopo, fare riferimento al [blog del team assegnato all'insieme di credenziali delle chiavi di Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
+>[AZURE.NOTE] Prima di identificare il certificato da usare per le risorse del cluster, è necessario completare la procedura seguente. In caso contrario, i nuovi certificati non verranno usati:
+1. Caricare il nuovo certificato nell'insieme di credenziali delle chiavi di Azure. Per istruzioni, vedere [Protezione di un Service Fabric Cluster](service-fabric-cluster-security.md). Iniziare dal passaggio 2 di questo articolo.
+2. Aggiornare tutte le macchine virtuali (VM) che costituiscono il cluster, in modo che il certificato venga distribuito in ognuna di esse. A tale scopo, vedere il [blog del team assegnato all'insieme di credenziali delle chiavi di Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 ### Porte dell'applicazione
 
@@ -100,11 +102,11 @@ Per aprire una nuova porta in tutte le VM di un tipo di nodo, seguire questa pro
 
 Per ogni tipo di nodo è possibile aggiungere proprietà di posizionamento personalizzate da usare nelle applicazioni. NodeType è una proprietà predefinita che è possibile usare senza aggiungerla in modo esplicito.
 
->[AZURE.NOTE] Per informazioni dettagliate sull'uso delle proprietà di posizionamento, vedere [Panoramica dei vincoli di posizionamento](service-fabric-placement-constraint.md).
+>[AZURE.NOTE] Per informazioni dettagliate sull'uso dei vincoli di posizionamento, le proprietà dei nodi e le relative definizioni, vedere la sezione relativa ai vincoli di posizionamento e proprietà dei nodi nell'articolo di Gestione risorse del cluster di Service Fabric relativo alla [descrizione del cluster](service-fabric-cluster-resource-manager-cluster-description.md).
 
 ### Metriche della capacità
 
-Per ogni tipo di nodo è possibile aggiungere metriche di capacità personalizzate da usare nelle applicazioni per creare report sul carico. Per informazioni dettagliate sull'uso delle metriche di capacità in base alle quali creare report sul carico, vedere [Panoramica della creazione di report sul carico dinamico](service-fabric-resource-balancer-dynamic-load-reporting.md).
+Per ogni tipo di nodo è possibile aggiungere metriche di capacità personalizzate da usare nelle applicazioni per creare report sul carico. Per informazioni dettagliate sull'uso di metriche di capacità per la segnalazione del carico, vedere gli articoli di Gestione risorse del cluster di Service Fabric relativi a [descrizione del cluster](service-fabric-cluster-resource-manager-cluster-description.md) e [metriche e carico](service-fabric-cluster-resource-manager-metrics.md).
 
 ### Patch del sistema operativo nelle VM che costituiscono il cluster
 
@@ -124,4 +126,4 @@ Se è necessario aggiornare l'immagine del sistema operativo nelle macchine virt
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,5 +1,5 @@
 
-Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-disks-vhds.md).
+Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
 ##<a id="attachempty"></a>Procedura: Collegare un disco vuoto
 
@@ -10,12 +10,12 @@ Il collegamento di un disco vuoto costituisce un modo semplice per aggiungere un
 2. Sulla barra dei comandi fare clic su **Connetti**, quindi su **Connetti disco vuoto**.
 
 
-	![Collegare un disco vuoto](./media/howto-attach-disk-window-linux/AttachEmptyDisk.png)
+	![Collegare un disco vuoto](./media/howto-attach-disk-windows-linux/AttachEmptyDisk.png)
 
 3.	Verrà visualizzata la finestra di dialogo **Connetti disco vuoto**.
 
 
-	![Collegare un nuovo disco vuoto](./media/howto-attach-disk-window-linux/AttachEmptyDetail.png)
+	![Collegare un nuovo disco vuoto](./media/howto-attach-disk-windows-linux/AttachEmptyDetail.png)
 
 
 	Eseguire le operazioni seguenti:
@@ -28,7 +28,7 @@ Il collegamento di un disco vuoto costituisce un modo semplice per aggiungere un
 
 4.	Una volta creato e collegato, il disco dati verrà elencato nel dashboard della VM.
 
-	![Disco dati vuoto collegato correttamente](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
+	![Disco dati vuoto collegato correttamente](./media/howto-attach-disk-windows-linux/AttachEmptySuccess.png)
 
 > [AZURE.NOTE] Dopo aver aggiunto un nuovo disco dati, è necessario accedere alla VM e inizializzare il disco in modo che possa essere usato.
 
@@ -42,16 +42,16 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
 2. Sulla barra dei comandi fare clic su **Attach**, quindi selezionare **Attach Disk**.
 
 
-	![Collegare il disco dati](./media/howto-attach-disk-window-linux/AttachExistingDisk.png)
+	![Collegare il disco dati](./media/howto-attach-disk-windows-linux/AttachExistingDisk.png)
 
 
 3. Selezionare il disco dati e quindi fare clic sul segno di spunta per collegarlo.
 
-	![Immettere i dettagli del disco](./media/howto-attach-disk-window-linux/AttachExistingDetail.png)
+	![Immettere i dettagli del disco](./media/howto-attach-disk-windows-linux/AttachExistingDetail.png)
 
 4.	Una volta collegato, il disco dati verrà elencato nel dashboard della VM.
 
 
-	![Disco dati correttamente collegato](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
+	![Disco dati correttamente collegato](./media/howto-attach-disk-windows-linux/AttachExistingSuccess.png)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

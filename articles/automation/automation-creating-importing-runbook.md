@@ -72,7 +72,7 @@ I comandi di esempio seguenti mostrano come creare un nuovo runbook vuoto.
 
 
 ### Per importare un runbook da un file con il portale di Azure
-È possibile usare la procedura seguente per importare un file di script in Automazione di Azure. Si noti che è possibile importare solo un file con estensione PS1 in un runbook del flusso di lavoro PowerShell con questo portale.
+È possibile usare la procedura seguente per importare un file di script in Automazione di Azure. Si noti che è possibile importare un file con estensione PS1 in un runbook PowerShell o in un runbook del flusso di lavoro PowerShell con questo portale.
 
 1. Nel portale di Azure aprire l'account di automazione.
 2. Fare clic sul riquadro **Runbook** per aprire l'elenco dei runbook.
@@ -131,4 +131,4 @@ Quando si crea o si importa un nuovo runbook, è necessario pubblicarlo prima di
 - [Modifica di runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md)
 - [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

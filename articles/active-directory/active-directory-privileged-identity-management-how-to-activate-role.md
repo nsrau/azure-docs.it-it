@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Privileged Identity Management: Come attivare un ruolo"
+   pageTitle="Come attivare o disattivare un ruolo | Microsoft Azure"
    description="Informazioni su come attivare ruoli per identità con privilegi con l'estensione Azure Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/11/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: Come attivare o disattivare un ruolo
+# Azure AD Privileged Identity Management: Come attivare o disattivare un ruolo
 
 ## Attivazione o disattivazione di un ruolo
 
@@ -37,4 +37,4 @@ Per ulteriori informazioni sugli avvisi relativi alla sicurezza specifici per le
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

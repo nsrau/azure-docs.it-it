@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Domande frequenti sui prezzi del bus di servizio | Microsoft Azure"
-   description="Risposte ad alcune delle domande più frequenti sul modello di prezzo del bus di servizio."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Domande frequenti sui prezzi del bus di servizio | Microsoft Azure"
+    description="Risposte ad alcune delle domande più frequenti sul modello di prezzo del bus di servizio."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Domande frequenti sui prezzi del bus di servizio
 
-In questa sezione vengono fornite le risposte ad alcune delle domande più frequenti sul modello di prezzo del bus di servizio. Per informazioni generali sui prezzi di Microsoft Azure, vedere le [Domande frequenti su Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083). Per informazioni complete sui prezzi del bus di servizio, vedere la pagina relativa ai [prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
+In questo articolo vengono fornite le risposte ad alcune delle domande più frequenti sul modello di prezzo del bus di servizio. Per informazioni generali sui prezzi di Microsoft Azure, vedere le [Domande frequenti su Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083). Per informazioni complete sui prezzi del bus di servizio, vedere la pagina relativa ai [prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
->[AZURE.NOTE] Il modello di prezzi per Hub eventi è illustrato nell'argomento [Domande frequenti sulla disponibilità e il supporto di Hub eventi](../event-hubs/event-hubs-availability-and-support-faq.md). Per informazioni dettagliate, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
+>[AZURE.NOTE] Il modello di prezzi per Hub eventi è illustrato nell'articolo [Domande frequenti sulla disponibilità e il supporto di Hub eventi](../event-hubs/event-hubs-availability-and-support-faq.md). Per informazioni dettagliate, vedere l’articolo [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 - [Quali sono le modalità di addebito per il bus di servizio?](#how-do-you-charge-for-service-bus)
 - [Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati? e quale non lo è](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
@@ -32,7 +32,7 @@ In questa sezione vengono fornite le risposte ad alcune delle domande più frequ
 
 ## Quali sono le modalità di addebito per il bus di servizio?
 
-Per informazioni complete sui prezzi del bus di servizio, vedere le pagine relative a [prezzi e fatturazione del bus di servizio](https://msdn.microsoft.com/library/dn831889.aspx) e [dettagli sui prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/). Oltre ai prezzi indicati, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione. Per informazioni più dettagliate, vedere la sezione [Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati? e quale non lo è?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) più avanti in questo documento.
+Per informazioni complete sui prezzi del bus di servizio, vedere le pagine relative a [prezzi e fatturazione del bus di servizio](service-bus-pricing-billing.md) e [dettagli sui prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/). Oltre ai prezzi indicati, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione. Per informazioni più dettagliate, vedere la sezione [Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati? e quale non lo è?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) più avanti in questo documento.
 
 ## Quale tipo di utilizzo del bus di servizio è soggetto all'addebito per trasferimento di dati e quale non lo è?
 
@@ -40,7 +40,7 @@ Qualsiasi trasferimento di dati all'interno di una specifica area di Azure non �
 
 ## Che cos'è esattamente un "inoltro" del bus di servizio?
 
-Un inoltro è un'entità del bus di servizio che inoltra i messaggi tra i client e i servizi Web. L'inoltro fornisce al servizio un indirizzo del bus di servizio permanente e individuabile, una connettività affidabile con funzionalità di attraversamento firewall/NAT e altre funzionalità come il bilanciamento del carico automatico. Viene creata implicitamente un'istanza dell'inoltro, che viene aperto presso un indirizzo specifico del bus di servizio (URL dello spazio dei nomi) ogni volta che un servizio WCF abilitato per l'inoltro ("listener di inoltro") si connette a tale indirizzo. Le applicazioni creano listener di inoltro con l'API gestita .NET del bus di servizio, che fornisce versioni speciali, abilitate per l'inoltro dei binding WCF standard.
+Un inoltro è un'entità del bus di servizio che inoltra i messaggi tra i client e i servizi Web. L'inoltro fornisce al servizio un indirizzo del bus di servizio permanente e individuabile, una connettività affidabile con funzionalità di attraversamento firewall/NAT e altre funzionalità come il bilanciamento del carico automatico. Viene creata implicitamente un'istanza dell'inoltro, che viene aperto presso un indirizzo specifico del bus di servizio (URL dello spazio dei nomi) ogni volta che un servizio WCF abilitato per l'inoltro ("listener di inoltro") si connette a tale indirizzo. Le applicazioni creano listener di inoltro con l'API .NET del bus di servizio, che fornisce versioni speciali, abilitate per l'inoltro dei binding WCF standard.
 
 ## Come vengono calcolate le unità di ore di inoltro?
 
@@ -72,7 +72,7 @@ Per impostazione predefinita, per qualsiasi servizio cloud, Microsoft imposta un
 
 Anche se Microsoft si riserva il diritto di disabilitare l'account di un cliente che abbia superato le quote di utilizzo previste in un determinato mese, invierà una notifica tramite posta elettronica ed effettuerà diversi tentativi di contattare il cliente prima di intraprendere qualsiasi azione. I clienti che superano tali quote saranno comunque responsabili per gli addebiti delle eccedenze.
 
-Come gli altri servizi in Azure, il bus di servizio applica un set specifico di quote per garantire un utilizzo corretto delle risorse. Le quote di utilizzo applicate dal servizio sono le seguenti:
+Come gli altri servizi in Azure, il bus di servizio applica un set specifico di [quote](service-bus-quotas.md) per garantire un utilizzo corretto delle risorse. Le quote di utilizzo applicate dal servizio sono le seguenti:
 
 - **Dimensioni coda/argomento**: è possibile specificare le dimensioni massime di una coda o di un argomento al momento della creazione. La quota può avere un valore pari a 1, 2, 3, 4 o 5 GB. Se vengono raggiunte le dimensioni massime, i messaggi successivi verranno rifiutati e il codice chiamante riceverà un'eccezione.
 
@@ -116,4 +116,4 @@ Per ulteriori informazioni sulla messaggistica del bus di servizio, vedere gli a
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

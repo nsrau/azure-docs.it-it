@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="03/09/2016"
 	ms.author="chhavib;cgronlun;garye"/>
 
 
@@ -136,4 +136,4 @@ La funzionalità di rendering per descrizioni dettagliate non è ancora disponib
 
 **[VAI ALLA RACCOLTA >>](http://gallery.cortanaanalytics.com)**
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

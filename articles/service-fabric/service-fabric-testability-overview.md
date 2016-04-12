@@ -97,11 +97,11 @@ Con Service Fabric, sebbene la scala degli errori sarà diversa in ambienti diff
 
 ### Utilizzo di Testabilità in C#
 
-Le funzionalità di Testabilità sono presenti in System.Fabric.Testability.dll. Questa dll è disponibile nel pacchetto NuGet Microsoft.ServiceFabric.Testability.nupack. Per usare le funzionalità di Testabilità, includere il pacchetto NuGet come riferimento nel progetto.
+Le funzionalità di Testabilità sono presenti in System.Fabric.dll. Questa DLL è disponibile nel pacchetto NuGet Microsoft.ServiceFabric.nupack. Per usare le funzionalità di Testabilità, includere il pacchetto NuGet come riferimento nel progetto.
 
 ### Utilizzo di Testabilità in PowerShell
 
-Per usare il modulo PowerShell di Testabilità, è necessario installare il file con estensione msi di runtime. Dopo aver installato il file con estensione msi, il modulo ServiceFabricTestability di PowerShell viene caricato automaticamente per essere usato dagli sviluppatori.
+Per usare il modulo PowerShell di Testabilità, è necessario installare il file con estensione msi di runtime. Dopo avere installato il file con estensione msi, il modulo ServiceFabric di PowerShell viene caricato automaticamente per essere usato dagli sviluppatori.
 
 ## Conclusioni
 
@@ -115,4 +115,4 @@ Per creare servizi effettivamente a livello di cloud, è fondamentale assicurars
   - [Simulare gli errori durante i carichi di lavoro del servizio](service-fabric-testability-workload-tests.md)
   - [Errori di comunicazione da servizio a servizio](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

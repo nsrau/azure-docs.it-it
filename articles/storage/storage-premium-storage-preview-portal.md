@@ -37,7 +37,7 @@ Di seguito è riportato un elenco di aspetti importanti da considerare prima o d
 
 - Per usare Archiviazione Premium è necessario disporre di un account di archiviazione Premium. Per informazioni su come creare un account di Archiviazione Premium, vedere [Creazione e utilizzo dell’account di Archiviazione Premium per dischi](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
-- Archiviazione Premium è disponibile nel [portale di Azure](https://portal.azure.com) e accessibile tramite le seguenti librerie SDK: [API REST di archiviazione](http://msdn.microsoft.com//library/azure/dd179355.aspx) (versione 2014-02-14 o successive); [API REST di gestione del servizio](http://msdn.microsoft.com/library/azure/ee460799.aspx) (versione 2014-10-01 o successive) e [Azure PowerShell](../install-configure-powershell.md) (versione 0.8.10 o successive).
+- Archiviazione Premium è disponibile nel [portale di Azure](https://portal.azure.com) e accessibile tramite le seguenti librerie SDK: [API REST di archiviazione](http://msdn.microsoft.com//library/azure/dd179355.aspx) (versione 2014-02-14 o successive); [API REST di gestione del servizio](http://msdn.microsoft.com/library/azure/ee460799.aspx) (versione 2014-10-01 o successive) e [Azure PowerShell](../powershell-install-configure.md) (versione 0.8.10 o successive).
 
 - Per un elenco delle aree che attualmente supportano l'Archiviazione Premium, vedere [Servizi di Azure in base all'area](https://azure.microsoft.com/regions/#services).
 
@@ -45,7 +45,7 @@ Di seguito è riportato un elenco di aspetti importanti da considerare prima o d
 
 - Un account di archiviazione Premium è caratterizzato da ridondanza locale (LRS) e mantiene tre copie dei dati in una singola area. Per considerazioni sulla replica geografica durante l’utilizzo di Archiviazione Premium, vedere la sezione [Snapshot e copia BLOB durante l'uso di Archiviazione Premium](#snapshots-and-copy-blob-whit-ITing-premium-storage) di questo articolo.
 
-- Se si vuole usare un account di archiviazione Premium per i dischi delle macchine virtuali, è necessario usare macchine virtuali della serie DS o della serie GS. Con le macchine virtuali della serie DS o della serie GS è possibile usare dischi sia di Archiviazione Standard che di Archiviazione Premium. Non è possibile usare dischi di Archiviazione Premium su macchine virtuali non della serie DS o della serie GS. Per informazioni sulle dimensioni e i tipi di disco disponibili per le macchine virtuali di Azure, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../virtual-machines/virtual-machines-size-specs.md).
+- Se si vuole usare un account di archiviazione Premium per i dischi delle macchine virtuali, è necessario usare macchine virtuali della serie DS o della serie GS. Con le macchine virtuali della serie DS o della serie GS è possibile usare dischi sia di Archiviazione Standard che di Archiviazione Premium. Non è possibile usare dischi di Archiviazione Premium su macchine virtuali non della serie DS o della serie GS. Per informazioni sulle dimensioni e i tipi di disco disponibili per le macchine virtuali di Azure, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../virtual-machines/virtual-machines-linux-sizes.md).
 
 - La procedura per configurare i dischi di Archiviazione Premium per una macchina virtuale è analoga a quella dei dischi di Archiviazione Standard. È necessario scegliere l'opzione di Archiviazione Premium più appropriata per i dischi e la macchina virtuale di Azure. Le dimensioni della macchina virtuale devono essere idonee al carico di lavoro in base alle caratteristiche prestazionali delle offerte Premium. Per altre informazioni, vedere [Obiettivi di scalabilità e prestazioni durante l'uso di Archiviazione Premium](#scalability-and-performance-targets-whit-ITing-premium-storage).
 
@@ -63,7 +63,7 @@ Azure usa l'account di archiviazione come un contenitore per il sistema operativ
 
 Per informazioni sulla migrazione di macchine virtuali esistenti ad Archiviazione Premium, vedere [Migrazione ad Archiviazione Premium di Azure](storage-migration-to-premium-storage.md).
 
-Per sfruttare i vantaggi di Archiviazione Premium, creare innanzitutto un account di Archiviazione Premium usando un account di tipo *Premium\_LRS*. L'operazione può essere eseguita tramite il [portale di Azure](https://portal.azure.com), [Azure PowerShell](../install-configure-powershell.md) o l'[API REST di gestione dei servizi](http://msdn.microsoft.com/library/azure/ee460799.aspx). Per istruzioni dettagliate, vedere [Creazione e utilizzo di account di Archiviazione Premium per dischi](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+Per sfruttare i vantaggi di Archiviazione Premium, creare innanzitutto un account di Archiviazione Premium usando un account di tipo *Premium\_LRS*. L'operazione può essere eseguita tramite il [portale di Azure](https://portal.azure.com), [Azure PowerShell](../powershell-install-configure.md) o l'[API REST di gestione dei servizi](http://msdn.microsoft.com/library/azure/ee460799.aspx). Per istruzioni dettagliate, vedere [Creazione e utilizzo di account di Archiviazione Premium per dischi](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 ### Note importanti:
 
@@ -73,7 +73,7 @@ Per sfruttare i vantaggi di Archiviazione Premium, creare innanzitutto un accoun
 
 	Si noti che questi limiti riguardano solo il traffico su disco, esclusi riscontri nella cache e traffico di rete. Esiste una larghezza di banda separata per il traffico di rete delle macchine virtuali che è diversa dalla larghezza di banda dedicata per i dischi di Archiviazione Premium.
 
-	Per le informazioni più aggiornate sul numero massimo di IOPS e sulla massima velocità effettiva (larghezza di banda) per le macchine virtuali della serie DS e GS, vedere la pagina [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../virtual-machines/virtual-machines-size-specs.md). Per informazioni sui dischi di Archiviazione Premium e sui rispettivi limiti per IOPS e velocità effettiva, vedere la tabella disponibile nella sezione [Obiettivi di scalabilità e prestazioni durante l'uso di Archiviazione Premium](#scalability-and-performance-targets-whit-ITing-premium-storage) di questo articolo.
+	Per le informazioni più aggiornate sul numero massimo di IOPS e sulla massima velocità effettiva (larghezza di banda) per le macchine virtuali della serie DS e GS, vedere la pagina [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../virtual-machines/virtual-machines-linux-sizes.md). Per informazioni sui dischi di Archiviazione Premium e sui rispettivi limiti per IOPS e velocità effettiva, vedere la tabella disponibile nella sezione [Obiettivi di scalabilità e prestazioni durante l'uso di Archiviazione Premium](#scalability-and-performance-targets-whit-ITing-premium-storage) di questo articolo.
 
 > [AZURE.NOTE] I riscontri nella cache non sono limitati da IOPS/velocità di trasmissione del disco allocati. In altri termini, quando si usa un disco dati con l'impostazione della cache ReadOnly in una macchina virtuale della serie DS o della serie GS, le letture servite dalla cache non sono soggette ai limiti relativi ai dischi di Archiviazione Premium. Di conseguenza, è possibile ottenere una velocità di trasmissione molto elevata da un disco se il carico di lavoro è prevalentemente composto da letture. Si noti che la cache è soggetta a limiti di velocità effettiva/IOPS separati a livello della macchina virtuale in base alle dimensioni della macchina virtuale. Le macchine virtuali della serie DS hanno circa 4000 IOPS e 33 MB/sec per core per la cache e gli IO dell’unità SSD locale.
 
@@ -205,7 +205,65 @@ Fare riferimento alle istruzioni importanti riportate di seguito per configurare
 - Per i dischi di Archiviazione Premium con cache impostata su "ReadWrite", le barriere devono essere abilitate per la durabilità delle scritture.
 - Per far sì che le etichette di volume restino dopo il riavvio della macchina virtuale, è necessario aggiornare /etc/fstab con i riferimenti UUID ai dischi. Vedere anche [Come collegare un disco dati a una macchina virtuale Linux](../virtual-machines/virtual-machines-linux-how-to-attach-disk)
 
-Di seguito sono riportate le distribuzioni di Linux convalidate con Archiviazione Premium. Si consiglia di aggiornare le macchine virtuali ad almeno una di queste versioni (o successive) per prestazioni e stabilità migliori con Archiviazione Premium. Inoltre, alcune delle versioni richiedono i LIS (Linux Integration Services v4.0 per Microsoft Azure) più recenti. Usare il collegamento indicato di seguito per il download e l'installazione. Continueremo ad aggiungere altre immagini all'elenco non appena effettueremo ulteriori convalide. Si noti che le nostre convalide hanno mostrato che le prestazioni variano per queste immagini e che ciò dipende, inoltre, dalle impostazioni e dalle caratteristiche dei carichi di lavoro sulle immagini. Immagini diverse sono ottimizzate per tipi di carico di lavoro diversi. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>Distribuzione</strong></td> <td><strong>Versione</strong></td> <td><strong>Kernel supportato</strong></td> <td><strong>Immagine supportata</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-it-IT-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-it-IT-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-it-IT-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-it-IT-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 6.7, 7.0</td> <td></td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 richiesto </a> </br> *Vedere nota in basso </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 consigliato </a> <br/> *Vedere nota in basso </td> </tr>
+Di seguito sono riportate le distribuzioni di Linux convalidate con Archiviazione Premium. Si consiglia di aggiornare le macchine virtuali ad almeno una di queste versioni (o successive) per prestazioni e stabilità migliori con Archiviazione Premium. Inoltre, alcune delle versioni richiedono i LIS (Linux Integration Services v4.0 per Microsoft Azure) più recenti. Usare il collegamento indicato di seguito per il download e l'installazione. Continueremo ad aggiungere altre immagini all'elenco non appena effettueremo ulteriori convalide. Si noti che le nostre convalide hanno mostrato che le prestazioni variano per queste immagini e che ciò dipende, inoltre, dalle impostazioni e dalle caratteristiche dei carichi di lavoro sulle immagini. Immagini diverse sono ottimizzate per tipi di carico di lavoro diversi.
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+<tr>
+	<td><strong>Distribuzione</strong></td>
+	<td><strong>Versione</strong></td>
+	<td><strong>Kernel supportato</strong></td>
+	<td><strong>Immagine supportata</strong></td>
+</tr>
+<tr>
+	<td rowspan="4"><strong>Ubuntu</strong></td>
+	<td>12.04</td>
+	<td>3.2.0-75.110</td>
+	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-it-IT-30GB</td>
+</tr>
+<tr>
+	<td>14.04</td>
+	<td>3.13.0-44.73</td>
+	<td>Ubuntu-14_04_1-LTS-amd64-server-20150123-it-IT-30GB</td>
+</tr>
+<tr>
+	<td>14.10</td>
+	<td>3.16.0-29.39</td>
+	<td>Ubuntu-14_10-amd64-server-20150202-it-IT-30GB</td>
+</tr>
+<tr>
+	<td>15.04</td>
+	<td>3.19.0-15</td>
+	<td>Ubuntu-15_04-amd64-server-20150422-it-IT-30GB</td>
+</tr>
+<tr>
+	<td><strong>SUSE</strong></td>
+	<td>SLES 12</td>
+	<td>3.12.36-38.1</td>
+	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
+</tr>
+<tr>
+	<td><strong>CoreOS</strong></td>
+	<td>584.0.0</td>
+	<td>3.18.4</td>
+	<td>CoreOS 584.0.0</td>
+</tr>
+<tr>
+	<td rowspan="2"><strong>CentOS</strong></td>
+	<td>6.5, 6.6, 6.7, 7.0</td>
+	<td></td>
+	<td>
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 obbligatorio </a> </br>
+		* Vedere la nota seguente
+	</td>
+</tr>
+<tr>
+	<td>7.1</td>
+	<td>3.10.0-229.1.2.el7</td>
+	<td>
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 consigliato </a> <br/>
+		* Vedere la nota seguente
+	</td>
+</tr>
 
 <tr>
 	<td rowspan="2"><strong>Oracle</strong></td>
@@ -218,7 +276,8 @@ Di seguito sono riportate le distribuzioni di Linux convalidate con Archiviazion
 	<td></td>
 	<td>Contattare il supporto tecnico per informazioni dettagliate</td>
 </tr>
-</tbody> </table>
+</tbody>
+</table>
 
 
 ### Driver LIS per Openlogic CentOS
@@ -265,12 +324,12 @@ Questa sezione illustra come creare un account di Archiviazione Premium tramite 
 
 5.	Nel pannello **Account di archiviazione** mantenere i valori predefiniti per **Gruppo di risorse**, **Sottoscrizione**, **Percorso** e **Diagnostica**. Fare clic su **Create**.
 
-Per una procedura dettagliata completa in un ambiente Azure, vedere [Creare una macchina virtuale con Windows nel portale di anteprima di Azure](../virtual-machines-windows-tutorial-azure-preview.md).
+Per una procedura dettagliata completa in un ambiente Azure, vedere l'articolo relativo alla [creazione di una macchina virtuale con Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
 ### Creare una macchina virtuale di Azure usando Archiviazione Premium tramite Azure PowerShell
 In questo esempio relativo a PowerShell viene illustrato come creare un nuovo account di Archiviazione Premium e collegare un disco dati che utilizza tale account per una nuova macchina virtuale di Azure.
 
-1. Per configurare l'ambiente PowerShell, attenersi alla procedura riportata in [Come installare e configurare Azure PowerShell](../install-configure-powershell.md).
+1. Per configurare l'ambiente PowerShell, attenersi alla procedura riportata in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 2. Avviare la console di PowerShell, connettersi alla sottoscrizione ed eseguire il cmdlet di PowerShell seguente nella finestra della console. Come illustrato in questa istruzione di PowerShell, quando si crea un account di Archiviazione Premium è necessario specificare il parametro **Type** come **Premium\_LRS**.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
@@ -330,10 +389,10 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 - [Uso delle operazioni del servizio BLOB con Archiviazione Premium di Azure](http://go.microsoft.com/fwlink/?LinkId=521969)
 - [Migrazione ad Archiviazione Premium di Azure](storage-migration-to-premium-storage.md).
-- [Creazione di una macchina virtuale che esegue Windows](../virtual-machines-windows-tutorial-azure-preview.md)
-- [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../virtual-machines/virtual-machines-size-specs.md)
+- [Creazione di una macchina virtuale che esegue Windows](../virtual-machines-windows-hero-tutorial-azure-preview.md)
+- [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../virtual-machines/virtual-machines-linux-sizes.md)
 - [Documentazione di Archiviazione](https://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Scrivere una funzione con valori di tabella inline per selezionare le righe di cui eseguire la migrazione (Database Estensione) | Microsoft Azure"
-	description="Informazioni su come creare un predicato del filtro per selezionare le righe di cui eseguire la migrazione."
+	pageTitle="Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (estensione database) | Microsoft Azure"
+	description="Informazioni su come usare un predicato del filtro per selezionare le righe di cui eseguire la migrazione."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -16,15 +16,15 @@
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
-# Scrivere una funzione con valori di tabella inline per selezionare le righe di cui eseguire la migrazione (Database Estensione)
+# Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (estensione database)
 
 Se si archiviano dati cronologici in una tabella separata, è possibile configurare il Database Estensione per eseguire la migrazione dell'intera tabella. Se la tabella contiene dati attuali e cronologici, è tuttavia possibile specificare un predicato del filtro per selezionare le righe di cui eseguire la migrazione. Il predicato del filtro deve chiamare una funzione con valori di tabella inline. Questo argomento descrive come scrivere una funzione con valori di tabella inline per selezionare le righe di cui eseguire la migrazione.
 
-In CTP 3.1 fino a RC0 l'opzione che consente di specificare un predicato non è disponibile nella procedura guidata per l'abilitazione del database per l'estensione. È necessario usare l'istruzione ALTER TABLE per configurare il Database Estensione con questa opzione. Per altre informazioni, vedere [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+Nelle versioni da CTP 3.1 a RC1 l'opzione che consente di specificare un predicato non è disponibile nella procedura guidata Abilitare il database per l'estensione. È necessario usare l'istruzione ALTER TABLE per configurare il Database Estensione con questa opzione. Per altre informazioni, vedere [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
 Se non si specifica alcun predicato del filtro, viene eseguita la migrazione dell'intera tabella.
 
-> [!IMPORTANTE] Se si specifica un predicato del filtro con esecuzione inadeguata, la migrazione dei dati sarà a sua volta inadeguata. Il Database Estensione applica il predicato del filtro alla tabella tramite l'operatore CROSS APPLY.
+>   [AZURE.NOTE] Se si specifica un predicato del filtro con esecuzione inadeguata, la migrazione dei dati sarà a sua volta inadeguata. Il Database Estensione applica il predicato del filtro alla tabella tramite l'operatore CROSS APPLY.
 
 ## Requisiti di base per la funzione con valori di tabella inline
 La funzione con valori di tabella inline necessaria per una funzione di filtro del Database Estensione è simile all'esempio seguente.
@@ -70,7 +70,7 @@ Una condizione di primitiva può eseguire uno dei confronti seguenti.
 
 -   Confrontare un parametro della funzione in un'espressione costante. ad esempio `@column1 < 1000`.
 
-    Ecco un esempio che controlla se il valore di una colonna *date* è &lt; 1\\/1\\/2016.
+    Questo esempio controlla se il valore di una colonna *date* è &lt; 1/1/2016.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
@@ -91,7 +91,7 @@ Una condizione di primitiva può eseguire uno dei confronti seguenti.
 
 -   Usare l'operatore IN per confrontare un parametro della funzione con un elenco di valori costanti.
 
-    Ecco un esempio che controlla se il valore di una colonna *shipment\_status* è `IN (N'Completed', N'Returned', N'Cancelled')`.
+    Questo esempio controlla se il valore di una colonna *shipment\_status* è `IN (N'Completed', N'Returned', N'Cancelled')`.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 nvarchar(15))
@@ -407,6 +407,7 @@ Non è possibile eliminare una funzione colonne con valori di tabella inline fin
 Per controllare il predicato del filtro applicato a una tabella, aprire la vista del catalogo **sys.remote\_data\_archive\_tables** e controllare il valore della colonna **filter\_predicate**. Se il valore è Null, l'intera tabella è idonea all'archiviazione. Per altre informazioni, vedere [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
 ## Vedere anche
+
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

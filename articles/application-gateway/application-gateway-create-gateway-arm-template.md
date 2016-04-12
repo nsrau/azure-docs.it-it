@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma"/>
 
 
@@ -81,7 +81,7 @@ In questo scenario si apprenderà come:
 	- **name**. Nome della risorsa. Si noti l'uso di **[parameters('applicationGatewayName')]** con cui si indica che il nome verrà specificato come input dall'utente o tramite un file di parametri durante la distribuzione.
 	- **properties**. Elenco di proprietà per la risorsa. Questo modello usa la rete virtuale e l'indirizzo IP pubblico durante la creazione del gateway applicazione.
 
-7. Tornare a https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json.
+7. Tornare a https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/.
 8. Fare clic su **azuredeploy-parameters.json**, quindi fare clic su **RAW**.
 9. Salvare il file in una cartella locale nel computer in uso.
 10. Aprire il file appena salvato e modificare i valori dei parametri. Usare i valori riportati di seguito per la distribuzione del gateway applicazione descritto in questo scenario.
@@ -284,4 +284,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -14,7 +14,7 @@
 
 	- Specificare un **Nome macchina virtuale**, ad esempio "testlinuxvm". Il nome deve contenere un numero di caratteri compreso tra 3 e 15, può essere composto solo da lettere, numeri e trattini e deve iniziare con una lettera e terminare con una lettera o con un numero.
 
-	- Verificare il valore di **Livello** e selezionare una **Dimensione**. Il livello determina le dimensioni che è possibile scegliere. La dimensione influisce sul costo dell'uso e sulle opzioni di configurazione come il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](../articles/virtual-machines-size-specs.md).
+	- Verificare il valore di **Livello** e selezionare una **Dimensione**. Il livello determina le dimensioni che è possibile scegliere. La dimensione influisce sul costo dell'uso e sulle opzioni di configurazione come il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](../articles/virtual-machines-linux-sizes.md).
 	- Digitare un **nuovo nome utente** o accettare quello predefinito **azureuser**. Questo nome viene aggiunto al file dell'elenco Sudoers.
 	- Definire il tipo di **Autenticazione** da usare. Per linee guida generali relative alle password, vedere [Password complesse](http://msdn.microsoft.com/library/ms161962.aspx).
 
@@ -65,4 +65,4 @@ Per connettersi alla macchina virtuale si userà SSH o PuTTY, a seconda del sist
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

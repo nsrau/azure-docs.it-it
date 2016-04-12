@@ -13,16 +13,21 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Aggiungere notifiche push all'app per iOS e al back-end JavaScript
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Aggiungere notifiche push all'app iOS](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+
 In questo argomento viene illustrato come aggiungere notifiche push per il [progetto di guida introduttiva](mobile-services-ios-get-started.md), in modo che il servizio mobile sia in grado di inviare una notifica push ogni volta che viene inserito un record. È necessario completare prima di tutto l'esercitazione [Introduzione a Servizi mobili].
 
-> [AZURE.NOTE]Il [simulatore di iOS non supporta le notifiche push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), quindi è necessario usare un dispositivo iOS fisico. È inoltre necessario iscriversi all'[Apple Developer Program](https://developer.apple.com/programs/ios/), una membership a pagamento.
+> [AZURE.NOTE] Il [simulatore di iOS non supporta le notifiche push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), quindi è necessario usare un dispositivo iOS fisico. È inoltre necessario iscriversi all'[Apple Developer Program](https://developer.apple.com/programs/ios/), una membership a pagamento.
 
 [AZURE.INCLUDE [Abilitare le notifiche push per Apple](../../includes/enable-apple-push-notifications.md)]
 
@@ -117,4 +122,4 @@ In questo argomento viene illustrato come aggiungere notifiche push per il [prog
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0316_2016-->

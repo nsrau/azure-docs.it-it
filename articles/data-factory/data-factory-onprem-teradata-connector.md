@@ -230,7 +230,7 @@ username | Specificare il nome utente se si usa l'autenticazione di base o Windo
 password | Specificare la password per l'account utente specificato per il nome utente. | No 
 gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi al database Teradata locale. | Sì
 
-Vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) per informazioni dettagliate sull'impostazione delle credenziali per un'origine dei dati Teradata locale.
+Vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) per informazioni dettagliate sull'impostazione delle credenziali per un'origine dei dati Teradata locale.
 
 ## Proprietà del tipo di set di dati Teradata
 
@@ -308,4 +308,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!-------HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

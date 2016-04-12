@@ -3,7 +3,7 @@
 	description="Informazioni su come ospitare un sito WordPress aziendale nel servizio app di Azure"
 	services="app-service\web"
 	documentationCenter=""
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
 	ms.date="01/26/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #WordPress di livello aziendale nel servizio app di Azure
 
@@ -260,8 +260,8 @@ Per | Opzione
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
 [httpscustomdomain]: web-sites-configure-ssl-certificate.md
-[mysqlwindows]: ../virtual-machines-mysql-windows-server-2008r2.md
-[mysqllinux]: ../virtual-machines-linux-mysql-use-opensuse.md
+[mysqlwindows]: ../virtual-machines-windows-classic-mysql-2008r2.md
+[mysqllinux]: ../virtual-machines-linux-classic-mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: /pricing/details/app-service/
 [export]: http://en.support.wordpress.com/export/
@@ -282,4 +282,4 @@ Per | Opzione
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

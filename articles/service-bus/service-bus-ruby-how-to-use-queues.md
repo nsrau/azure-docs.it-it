@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="03/09/2016"
 	ms.author="sethm"/>
 
 # Come usare le code del bus di servizio
@@ -60,7 +60,7 @@ Il cmdlet PowerShell che è stato eseguito per creare lo spazio dei nomi del bus
 
 ![Copiare la chiave](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
-> [AZURE.NOTE]È anche possibile trovare questa chiave se si accede al [portale di Azure classico](http://manage.windowsazure.com/) e si passa alle informazioni di connessione per lo spazio dei nomi del bus di servizio.
+> [AZURE.NOTE] È anche possibile trovare questa chiave se si accede al [portale di Azure classico](http://manage.windowsazure.com/) e si passa alle informazioni di connessione per lo spazio dei nomi del bus di servizio.
 
 ## Creare un'applicazione Ruby
 
@@ -164,7 +164,7 @@ A questo punto, dopo aver appreso le nozioni di base delle code del bus di servi
 -   Panoramica di [code, argomenti e sottoscrizioni](service-bus-queues-topics-subscriptions.md).
 -   Visitare il repository [Azure SDK per Ruby](https://github.com/Azure/azure-sdk-for-ruby) su GitHub.
 
-Per un confronto tra le code del bus di servizio di Azure discusse in questo articolo e le code di Azure discusse nell'articolo [Come utilizzare il servizio di accodamento di Azure](/develop/ruby/how-to-guides/queue-service/), vedere [Code di Azure e code di Azure Service Bus: confronto e contrapposizioni](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Per un confronto tra le code del bus di servizio di Azure discusse in questo articolo e le code di Azure discusse nell'articolo [Come usare l'archiviazione di accodamento da Ruby](../storage/storage-ruby-how-to-use-queue-storage.md), vedere [Analogie e differenze tra le code di Azure e le code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

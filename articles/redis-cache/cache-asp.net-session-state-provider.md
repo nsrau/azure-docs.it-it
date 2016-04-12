@@ -4,7 +4,7 @@
    services="redis-cache"
    documentationCenter="na"
    authors="steved0x"
-   manager="dwrede"
+   manager="erikre"
    editor="tysonn" />
 <tags 
    ms.service="cache"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="12/17/2015"
+   ms.date="03/04/2016"
    ms.author="sdanie" />
 
 # Provider di stato della sessione ASP.NET per Cache Redis di Azure
@@ -29,7 +29,7 @@ Per configurare un'applicazione client in Visual Studio con il pacchetto NuGet d
 
 Digitare **RedisSessionStateProvider** nella casella di testo della ricerca online, selezionarlo nei risultati e fare clic su Installa.
 
->[AZURE.IMPORTANT]Se si sta usando la funzionalità di clustering del livello Premium, è necessario usare [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 o versione successiva. In caso contrario, verrà generata un'eccezione. Si tratta di una modifica significativa. Per altre informazioni, vedere la pagina relativa ai [dettagli delle modifiche significative della versione v2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+>[AZURE.IMPORTANT] Se si sta usando la funzionalità di clustering del livello Premium, è necessario usare [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 o versione successiva. In caso contrario, verrà generata un'eccezione. Si tratta di una modifica significativa. Per altre informazioni, vedere la pagina relativa ai [dettagli delle modifiche significative della versione v2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 ![Provider di stato della sessione Cache Redis di Azure](./media/cache-asp.net-session-state-provider/IC751730.png)
 
@@ -90,7 +90,7 @@ Non dimenticare di impostare come commento la sezione del provider di stato dell
 
 Dopo l'esecuzione di questi passaggi, l'applicazione è configurata per l'uso del provider di stato della sessione Cache Redis. Quando si usa lo stato della sessione nell'applicazione, questo verrà archiviato in un'istanza di Cache Redis di Azure.
 
->[AZURE.NOTE]Tenere presente che i dati archiviati nella cache devono essere serializzabili, diversamente dai dati che possono essere archiviati nel provider di stato della sessione ASP.NET in memoria predefinito. Quando il provider di stato della sessione per Redis viene usato, assicurarsi che i tipi di dati da archiviare nello stato della sessione siano serializzabili.
+>[AZURE.NOTE] Tenere presente che i dati archiviati nella cache devono essere serializzabili, diversamente dai dati che possono essere archiviati nel provider di stato della sessione ASP.NET in memoria predefinito. Quando il provider di stato della sessione per Redis viene usato, assicurarsi che i tipi di dati da archiviare nello stato della sessione siano serializzabili.
 
 ## Opzioni dello stato della sessione ASP.NET
 
@@ -106,4 +106,4 @@ Per altre informazioni sullo stato della sessione e altre procedure consigliate,
 
 Vedere [Provider di cache di output ASP.NET per la Cache Redis di Azure](cache-asp.net-output-cache-provider.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

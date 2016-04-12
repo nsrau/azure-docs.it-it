@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags
@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell](cache-howto-manage-redis-cache-powershell.md)
-- [Azure CLI](cache-manage-cli.md)
+- [Interfaccia della riga di comando di Azure](cache-manage-cli.md)
 
 Questo argomento illustra come eseguire attività comuni, come creare, aggiornare e ridimensionare le istanze di Cache Redis di Azure, come rigenerare le chiavi di accesso e come visualizzare le informazioni relative alle cache. Per un elenco completo dei cmdlet PowerShell di Cache Redis di Azure, vedere [Cmdlet di Cache Redis di Azure ](https://msdn.microsoft.com/library/azure/mt634513.aspx).
 
@@ -81,7 +81,7 @@ Per creare una cache in Azure Government Cloud, usare una delle località seguen
 -	Governo degli Stati Uniti - Virginia
 -	Governo degli Stati Uniti - Iowa
 
-Per altre informazioni su Azure Government Cloud, vedere [Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/) e la [guida per gli sviluppatori di Microsoft Azure per enti pubblici](azure-government-developer-guide.md).
+Per altre informazioni su Azure Government Cloud, vedere [Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/) e la [guida per gli sviluppatori di Microsoft Azure per enti pubblici](../azure-government-developer-guide.md).
 
 ### Per connettersi ad Azure China Cloud
 
@@ -609,4 +609,4 @@ Per ulteriori informazioni sull'utilizzo di Windows PowerShell con Azure, vedere
 - [Blog di Windows PowerShell](http://blogs.msdn.com/powershell): informazioni sulle nuove funzionalità di Windows PowerShell.
 - [Blog "Hey, Scripting Guy!"](http://blogs.technet.com/b/heyscriptingguy/): suggerimenti e consigli basati sull'esperienza dei membri della community di Windows PowerShell.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

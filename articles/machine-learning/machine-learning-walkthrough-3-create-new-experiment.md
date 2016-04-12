@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016" 
+	ms.date="03/09/2016" 
 	ms.author="garye"/>
 
 
@@ -33,7 +33,7 @@ Questo è il terzo passaggio della procedura dettagliata [Sviluppare una soluzio
 
 Il passaggio successivo di questa procedura dettagliata consiste nel creare un nuovo esperimento in Machine Learning Studio che usi il set di dati che è stato caricato.
 
-1.	In Studio fare clic su **+NUOVO** nella parte inferiore della finestra.
+1.	In Studio fare clic su **+NEW** nella parte inferiore della finestra.
 2.	Selezionare **EXPERIMENT** e quindi selezionare "Blank Experiment". Selezionare il nome dell'esperimento predefinito nella parte superiore dell'area di disegno e denominarlo in modo significativo.
 
 	> [AZURE.TIP] È buona abitudine compilare i campi **Summary** e **Description** dell'esperimento nel riquadro **Properties**. Queste proprietà offrono la possibilità di documentare l'esperimento, in modo che chiunque in seguito lo esamini sia in grado di comprendere gli obiettivi e la metodologia.
@@ -44,7 +44,7 @@ Il passaggio successivo di questa procedura dettagliata consiste nel creare un n
 ##Preparare i dati
 È possibile visualizzare le prime 100 righe di dati e alcune informazioni statistiche per l'intero set di dati facendo clic sulla porta di output del set di dati (il circoletto in basso) e selezionando **Visualize**.
 
-Poiché il file di dati non presentava intestazioni di colonna, Studio ha assegnato intestazioni generiche (Col1, Col2, *eccetera*). Per la creazione dei modelli non sono indispensabili intestazioni di colonna precise, ma semplificano l'uso dei dati nell'esperimento. Inoltre, quando il modello verrà pubblicato in un servizio Web, le intestazioni aiuteranno gli utenti del servizio a identificare le varie colonne.
+Poiché il file di dati non presentava intestazioni di colonna, Studio ha assegnato intestazioni generiche (Col1, Col2, *e così via*). Per la creazione dei modelli non sono indispensabili intestazioni di colonna precise, ma semplificano l'uso dei dati nell'esperimento. Inoltre, quando il modello verrà pubblicato in un servizio Web, le intestazioni aiuteranno gli utenti del servizio a identificare le varie colonne.
 
 È possibile aggiungere intestazioni di colonna usando il modulo [Editor metadati][metadata-editor]. Si usa il modulo [Editor metadati][metadata-editor] per modificare i metadati associati a un set di dati. In questo caso, può fornire nomi più descrittivi per le intestazioni di colonna.
 
@@ -60,12 +60,11 @@ Per usare [Editor metadati][metadata-editor] è necessario innanzitutto specific
     
     Il punto esclamativo rosso indica che le proprietà di questo modulo non sono ancora state configurate. Ce ne occuperemo subito.
     
-    > [AZURE.TIP] È possibile aggiungere un commento a un modulo facendo doppio clic sul modulo e immettendo del testo. In tal modo sarà possibile individuare subito l'operazione eseguita dal modulo nell'esperimento. In questo caso, fare doppio clic sul modulo [Editor metadati][metadata-editor] e digitare il commento "Aggiungere intestazioni di colonna". Fare clic in un punto qualsiasi dell'area di disegno per chiudere la casella di testo. Fare clic sulla freccia giù del modulo per visualizzare il commento.
+    > [AZURE.TIP] È possibile aggiungere un commento a un modulo facendo doppio clic sul modulo e immettendo del testo. In tal modo sarà possibile individuare subito l'operazione eseguita dal modulo nell'esperimento. In questo caso, fare doppio clic sul modulo [Editor metadati][metadata-editor] e digitare il commento "Add column headings". Fare clic in un punto qualsiasi dell'area di disegno per chiudere la casella di testo. Fare clic sulla freccia giù del modulo per visualizzare il commento.
 
 4.	Selezionare [Editor metadati][metadata-editor] quindi, nel riquadro **Properties** a destra dell'area di disegno, fare clic su **Launch column selector**.
 5.	Nella finestra di dialogo **Select columns** impostare il campo **Begin With** su "All columns".
-6.	La riga sotto **Begin With** consente di includere o escludere colonne specifiche da modificare con [Editor metadati][metadata-editor]. Poiché si desidera modificare *tutte* le colonne, eliminare questa riga facendo clic sul segno meno ("-") alla sua destra. La finestra di dialogo dovrebbe essere simile alla seguente: 
-    ![Selettore di colonna con tutte le colonne selezionate][4]
+6.	La riga sotto **Begin With** consente di includere o escludere colonne specifiche da modificare con [Editor metadati][metadata-editor]. Poiché si desidera modificare *tutte* le colonne, eliminare questa riga facendo clic sul segno meno ("-") alla sua destra. La finestra di dialogo dovrebbe essere simile alla seguente: ![Selettore di colonna con tutte le colonne selezionate][4]
 7.	Fare clic sul segno di spunta **OK**.
 8.	Nel riquadro **Properties** cercare il parametro **New column names**. In questo campo immettere un elenco di nomi per le 21 colonne nel set di dati, separati da virgole e nell'ordine delle colonne. È possibile ottenere i nomi di colonna dalla documentazione relativa ai set di dati disponibile sul sito Web UCI, oppure, per praticità, è possibile copiare e incollare l'elenco seguente:  
 
@@ -85,7 +84,7 @@ Per eseguire questa operazione, viene impiegato il modulo [Split Data][split].
 1.	Trovare il modulo [Split Data][split], trascinarlo nell'area di disegno, quindi connetterlo all'ultimo modulo [Editor metadati][metadata-editor].
 2.	Per impostazione predefinita, il rapporto di suddivisione è impostato su 0,5 e il parametro **Suddivisione casuale** è impostato. Questo significa che una metà casuale dei dati verrà inviata all'output attraverso una porta del modulo [Split Data][split] e l'altra metà attraverso l'altra. È possibile regolare queste impostazioni, così come il parametro **Random seed** per modificare la suddivisione tra dati di training e dati di test. Per questo esempio i parametri verranno lasciati inalterati.
 	> [AZURE.TIP] La proprietà **Fraction of rows in the first output dataset** determina la quantità di dati da inviare alla porta di output sinistra. Se ad esempio si imposta il rapporto su 0,7, il 70% dei dati verrà inviato alla porta sinistra e il 30% alla porta destra.  
-3. Fare doppio clic sul modulo [Split Data][split] e immettere il commento, "Suddivisione dati training/test 50%". 
+3. Fare doppio clic sul modulo [Split Data][split] e immettere il commento, "Training/testing data split 50%". 
 
 È possibile usare gli output del modulo [Split Data][split] in qualsiasi modo si preferisca, ma in questo caso si sceglie di usare l'output sinistro per i dati di training e quello destro per i dati di test.
 
@@ -94,7 +93,7 @@ Come anche menzionato nel sito Web UCI, il costo di un'errata classificazione di
 Ciò è ottenibile usando il codice R:
 
 1.	Selezionare e trascinare il modulo [Execute R Script][execute-r-script] sull'area di disegno dagli esperimenti e connettere la porta di output sinistra del modulo [Split Data][split] alla prima porta di input ("Dataset1") del modulo [Execute R Script][execute-r-script].
-2. Fare doppio clic sul modulo [Execute R Script][execute-r-script] e immettere il commento "Rettifica costo del set".
+2. Fare doppio clic sul modulo [Execute R Script][execute-r-script] e immettere il commento "Set cost adjustment".
 2.	Nel riquadro **Properties** eliminare il testo predefinito nel parametro **R Script** e immettere lo script seguente:
 
 		  dataset1 <- maml.mapInputPort(1)
@@ -132,4 +131,4 @@ Per altre informazioni sull'uso di script R negli esperimenti, vedere [Estendere
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

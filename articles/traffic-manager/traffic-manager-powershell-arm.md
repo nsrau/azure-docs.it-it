@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Supporto di Gestione risorse di Azure per la versione di anteprima di Gestione traffico di Azure
-Gestione risorse di Azure rappresenta il nuovo framework di gestione dei servizi in Azure. I profili di Gestione traffico di Azure possono ora essere gestiti utilizzando le API e gli strumenti basati su Gestione risorse di Azure. Per ulteriori informazioni su Gestione risorse di Azure, vedere [Uso dei gruppi di risorse per gestire le risorse di Azure](../azure-preview-portal-using-resource-groups.md).
+Gestione risorse di Azure rappresenta il nuovo framework di gestione dei servizi in Azure. I profili di Gestione traffico di Azure possono ora essere gestiti utilizzando le API e gli strumenti basati su Gestione risorse di Azure.
 
 ## Modello di risorsa
 
@@ -45,7 +45,7 @@ Attualmente, esistono alcune limitazioni nel supporto ARM per Gestione traffico 
 
 - Endpoint di Gestione traffico 'annidati' sono supportati tramite l'interfaccia della riga di comando API ARM, PowerShell ARM e in modalità ARM. Al momento, non sono supportati nel portale di Azure (che usa anche l'API ARM).
 
-- Gli endpoint di Gestione traffico di tipo 'AzureEndpoints', quando fanno riferimento a un'app Web, possono fare riferimento solo allo [slot dell'app Web](../app-service-web/web-sites-staged-publishing.md) predefinito (produzione). Gli slot personalizzati non sono ancora supportati. In alternativa, gli slot personalizzati possono essere configurati usando il tipo 'ExternalEndpoints'.
+- Gli endpoint di Gestione traffico di tipo "AzureEndpoints", quando fanno riferimento a un'app Web, possono fare riferimento solo allo [slot dell'app Web](../app-service-web/web-sites-staged-publishing.md) predefinito (produzione). Gli slot personalizzati non sono ancora supportati. In alternativa, gli slot personalizzati possono essere configurati usando il tipo 'ExternalEndpoints'.
 
 ## Configurazione di Azure PowerShell
 
@@ -150,9 +150,16 @@ In tutti e tre i casi è possibile aggiungere gli endpoint in due modi:<BR>
 
 ### Aggiunta di endpoint di Azure
 
-Gli endpoint di Azure fanno riferimento ad altri servizi ospitati in Azure. Sono attualmente supportati tre tipi di endpoint di Azure:<BR> 1. App Web di Azure <BR> 2. Servizi cloud "classici" (che possono includere un servizio PaaS o macchine virtuali IaaS)<BR> 3. Risorse di tipo Microsoft.Network/publicIpAddress ARM (che possono essere associate a un servizio di bilanciamento del carico o a una NIC di macchina virtuale). Si noti che è necessario che al valore publicIpAddress sia assegnato un nome DNS, da usare in Gestione traffico.
+Gli endpoint di Azure fanno riferimento ad altri servizi ospitati in Azure. Sono attualmente supportati tre tipi di endpoint di Azure:<BR>
+1. App Web di Azure<BR>
+2. Servizi cloud "classici" (che possono includere un servizio PaaS o macchine virtuali IaaS)<BR>
+3. Risorse di tipo Microsoft.Network/publicIpAddress ARM (che possono essere associate a un servizio di bilanciamento del carico o a una NIC di macchina virtuale). Si noti che è necessario che al valore publicIpAddress sia assegnato un nome DNS, da usare in Gestione traffico.
 
-In ogni caso: - Il servizio viene specificato mediante il parametro 'targetResourceId' di Add-AzureRmTrafficManagerEndpointConfig o New-AzureRmTrafficManagerEndpoint.<BR> - I valori 'Target' e 'EndpointLocation' non devono essere specificati, perché sono impliciti nel valore TargetResourceId specificato in precedenza<BR> - Il valore per 'Weight' è facoltativo. I pesi vengono usati solo se il profilo è configurato per l'uso del metodo di indirizzamento del traffico 'Weighted'. In caso contrario, vengono ignorati. Se specificato, questo valore deve essere incluso nell'intervallo 1...1000. Il valore predefinito è '1'.<BR> - Il valore 'Priority' è facoltativo. Le priorità vengono usate solo se il profilo è configurato per l'uso del metodo di indirizzamento del traffico 'Priority'. In caso contrario, vengono ignorate. I valori validi sono compresi tra 1 e 1000. I valori più bassi corrispondono a una priorità maggiore. Se si specifica questo valore per un endpoint, sarà necessario specificarlo per tutti gli endpoint. Se questo valore viene omesso, verranno applicati i valori predefiniti a partire da 1, 2, 3 e così via nell'ordine in cui vengono forniti gli endpoint.
+In ogni caso:
+ - Il servizio viene specificato con il parametro "TargetResourceId" del componente Add-AzureRmTrafficManagerEndpointConfig o New-AzureRmTrafficManagerEndpoint.<BR>
+ - "Target" ed "EndpointLocation" non devono essere specificati perché sono impliciti nel TargetResourceId specificato in precedenza.<BR>
+ - "Weight" è facoltativo ed è possibile scegliere se specificarlo. I pesi vengono usati solo se il profilo è configurato per l'uso del metodo di indirizzamento del traffico 'Weighted'. In caso contrario, vengono ignorati. Se specificato, questo valore deve essere incluso nell'intervallo 1...1000. Il valore predefinito è 1.<BR>
+ - "Priority" è facoltativo ed è possibile scegliere se specificarlo. Le priorità vengono usate solo se il profilo è configurato per l'uso del metodo di indirizzamento del traffico 'Priority'. In caso contrario, vengono ignorate. I valori validi sono compresi tra 1 e 1000. I valori più bassi corrispondono a una priorità maggiore. Se si specifica questo valore per un endpoint, sarà necessario specificarlo per tutti gli endpoint. Se questo valore viene omesso, verranno applicati i valori predefiniti a partire da 1, 2, 3 e così via nell'ordine in cui vengono forniti gli endpoint.
 
 #### Esempio 1: Aggiunta di endpoint di app Web mediante Add-AzureRmTrafficManagerEndpointConfig
 In questo esempio viene creato un nuovo profilo di Gestione traffico e vengono aggiunti due endpoint di app Web mediante il cmdlet Add-AzureRmTrafficManagerEndpointConfig. Viene quindi eseguito il commit del profilo aggiornato in Gestione traffico di Azure mediante Set-AzureRmTrafficManagerProfile.
@@ -179,7 +186,10 @@ In questo esempio viene aggiunta una risorsa indirizzo IP pubblico ARM al profil
 ### Aggiunta di endpoint esterni
 Gestione traffico usa endpoint esterni per indirizzare il traffico ai servizi ospitati all'esterno di Azure. Analogamente agli endpoint di Azure, gli endpoint esterni possono essere aggiunti mediante Add-AzureRmTrafficManagerEndpointConfig seguito da Set-AzureRmTrafficManagerProfile o New-AzureRMTrafficManagerEndpoint.
 
-Quando si specificano endpoint esterni: - Il nome di dominio dell'endpoint deve essere specificato mediante il parametro 'Target'<BR> - Il valore 'EndpointLocation' è obbligatorio se si usa il metodo di indirizzamento del traffico 'Performance'. In caso contrario, è facoltativo. Il valore deve essere un [nome di area di Azure valido](https://azure.microsoft.com/regions/).<BR> - I valori 'Weight' e 'Priority' sono facoltativi, analogamente agli endpoint di Azure.<BR>
+Quando si specificano endpoint esterni:
+ - Il nome di dominio dell'endpoint deve essere specificato con il parametro "Target".<BR>
+ - "EndpointLocation" è obbligatorio se viene usato il metodo di routing del traffico "Performance", in caso contrario è facoltativo. Il valore deve essere un [nome di area di Azure valido](https://azure.microsoft.com/regions/).<BR>
+ - I parametri "Weight" e "Priority" sono facoltativi, come per gli endpoint di Azure.<BR>
  
 
 #### Esempio 1: Aggiunta di endpoint esterni mediante Add-AzureRmTrafficManagerEndpointConfig e Set-AzureRmTrafficManagerProfile
@@ -201,7 +211,11 @@ Gestione traffico consente di configurare un profilo di Gestione traffico (che c
 
 Gestione traffico di annidamento consente la creazione di routing del traffico e schemi di failover più flessibili e potenti per supportare le esigenze di distribuzioni più grandi e complesse. [Questo post di blog](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/) illustra diversi esempi.
 
-Endpoint annidati vengono configurati nel profilo padre tramite un tipo di endpoint specifico, 'NestedEndpoints'. Quando si specificano endpoint annidati: - L'endpoint, ovvero il profilo figlio, deve essere specificato mediante il parametro 'targetResourceId' <BR> - Il valore 'EndpointLocation' è obbligatorio se si usa il metodo di indirizzamento del traffico 'Performance'. In caso contrario, è facoltativo. Il valore deve essere un [nome di area di Azure valido](http://azure.microsoft.com/regions/).<BR> I valori 'Weight' e 'Priority' sono facoltativi, analogamente agli endpoint di Azure.<BR> - Il parametro 'MinChildEndpoints' è facoltativo con valore predefinito '1'. Se il numero degli endpoint disponibili nel profilo figlio scende sotto questa soglia, il profilo padre considera il profilo figlio 'degradato' con conseguente deviazione del traffico agli altri endpoint del profilo padre.<BR>
+Endpoint annidati vengono configurati nel profilo padre tramite un tipo di endpoint specifico, 'NestedEndpoints'. Quando si specificano endpoint annidati:
+ - L'endpoint, ad esempio il profilo figlio, deve essere specificato con il parametro "TargetResourceId". <BR>
+ - "EndpointLocation" è obbligatorio se viene usato il metodo di routing del traffico "Performance", in caso contrario è facoltativo. Il valore deve essere un [nome di area di Azure valido](http://azure.microsoft.com/regions/).<BR>
+ - I parametri "Weight" e "Priority" sono facoltativi, come per gli endpoint di Azure.<BR>
+ - Il parametro "MinChildEndpoints" è facoltativo e il valore predefinito è 1. Se il numero degli endpoint disponibili nel profilo figlio scende sotto questa soglia, il profilo padre considera il profilo figlio "degradato" con conseguente deviazione del traffico agli altri endpoint del profilo padre.<BR>
 
 
 #### Esempio 1: Aggiunta di endpoint annidati mediante Add-AzureRmTrafficManagerEndpointConfig e Set-AzureRmTrafficManagerProfile
@@ -297,4 +311,4 @@ Questa sequenza può anche essere inoltrata tramite pipe:
 [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

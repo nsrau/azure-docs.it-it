@@ -9,7 +9,7 @@
 * [Distribuire WordPress supportato da cluster di replica MySQL con configurazione master-slave](/documentation/templates/mysql-replication/)
 * [Distribuire un'app WordPress supportata da DB SQL Azure gestito da ProjectNami](/marketplace/partners/projectnami/projectnami/)
   
-## Capitolo 2: Risoluzione dei problemi dell'applicazione WordPress
+## Risoluzione dei problemi dell'applicazione WordPress
 
 * [Come risolvere i problemi dell'app WordPress](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
 * [Raccogliere telemetria sull'utilizzo con il servizio di Azure Application Insights](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
@@ -18,7 +18,7 @@
 * [Usare varie regole di correzione automatica per la risoluzione dei problemi in tempo reale](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
 * [Come eseguire il backup dell'app Web](../articles/app-service-web/web-sites-backup.md) e [come ripristinare l'app Web](../articles/app-service-web/web-sites-restore.md)
 
-## Capitolo 3: Prestazioni
+## Prestazioni
 
 * [Come velocizzare l'app Web WordPress](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
 * [Come abilitare Cache Redis](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) tramite [plug-in Cache Redis](https://wordpress.org/plugins/wp-redis/)
@@ -28,4 +28,4 @@
 * [Come eseguire il caching del server tramite caching di output per IIS](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
 * [Come abilitare il caching del browser per il contenuto statico](http://www.iis.net/configreference/system.webserver/staticcontent)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="03/07/2016"
 	ms.author="cjiang"/>
 
 # Informazioni sugli addebiti di Azure Marketplace
@@ -35,7 +35,12 @@ Per visualizzare o scaricare la fattura:
 
 	![Riepilogo degli ordini](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
-La visualizzazione di riepilogo contiene le informazioni seguenti per ogni ordine: prezzo, ciclo di fatturazione, data di acquisto, sottoscrizione padre associata, valuta di fatturazione
+La visualizzazione di riepilogo contiene le informazioni seguenti per ogni ordine:
+- Prezzo
+- Ciclo di fatturazione
+- Data di acquisto
+- Sottoscrizione padre associata
+- Valuta di fatturazione
 
 Si noti che sono state apportate alcune modifiche alla visualizzazione di queste informazioni. Prima il costo dell'ordine era visualizzato con le imposte incluse. È stato apportato un aggiornamento per visualizzare il prezzo che può includere o meno le imposte, a seconda del paese in cui ci si trova. Anche la posizione del prezzo è stata spostata da destra al centro. Per consentire di tenere traccia della sottoscrizione di Azure a cui questi addebiti sono associati, sul lato destro sono stati aggiunti anche il nome e l'ID della sottoscrizione di Azure, oltre all'opzione **Modifica il metodo di pagamento**.
 
@@ -65,20 +70,28 @@ Nella pagina della panoramica di riepilogo è presente un collegamento **Gestisc
 
 ![Portale](./media/billing-understand-your-azure-marketplace-charges/portal.jpg)
 
-Per richiedere assistenza, fare clic sul riquadro **Guida e supporto**. Verrà aperta la pagina **Guida e supporto** seguente dove è possibile eseguire queste operazioni: aprire una nuova richiesta di supporto, gestire le richieste di supporto esistenti e gestire l'integrità risorse.
+Per richiedere assistenza, fare clic sul riquadro **Guida e supporto**. In questo modo verrà visualizzata la pagina **Guida e supporto** seguente dove è possibile eseguire queste operazioni:
+- Aprire una nuova richiesta di supporto.
+- Gestire le richieste di supporto esistenti.
+- Verificare l'integrità delle risorse.
 
 ![Richiedere supporto](./media/billing-understand-your-azure-marketplace-charges/request-support.jpg)
 
 ## Cronologia di fatturazione
 Una nuova funzionalità della pagina di riepilogo è la possibilità di visualizzare le offerte basate sull'utilizzo, ad esempio sulle macchine virtuali. Ora è possibile scaricare l'utilizzo in base al ciclo di fatturazione sia per i periodi correnti che per quelli chiusi. Per visualizzare l'utilizzo, fare clic sul collegamento **Scarica utilizzo** per il periodo che si vuole visualizzare.
 
-Per visualizzare gli addebiti affettivi, fare clic su **Visualizza addebiti**. Si verrà reindirizzati a un altro portale in cui sarà possibile visualizzare tutti gli addebiti imposte incluse. Se si usa un ID organizzazione, il pulsante **Visualizza addebiti** non sarà abilitato e sarà necessario inviare un ticket di supporto per richiedere un riepilogo degli addebiti.
+Per visualizzare gli addebiti effettivi, fare clic su **Visualizza addebiti**. Si verrà reindirizzati a un altro portale in cui sarà possibile visualizzare tutti gli addebiti imposte incluse. Se si usa un ID organizzazione, il pulsante **Visualizza addebiti** non sarà abilitato e sarà necessario inviare un ticket di supporto per richiedere un riepilogo degli addebiti.
 
 ![Cronologia di fatturazione](./media/billing-understand-your-azure-marketplace-charges/billing-history.png)
 
 Per visualizzare gli addebiti effettivi, seguire questa procedura:
 
-1. Fare clic su **Visualizza addebiti** nella pagina **CRONOLOGIA DI FATTURAZIONE**. Verrà aperta una nuova scheda che mostra la [cronologia degli ordini]( https://account.microsoft.com/billing/orders#/). Si noti che, se si cerca di accedere all'utilizzo non elaborato nel portale Gestione account e fatturazioni, sarà necessario chiamare il supporto facendo clic sul relativo collegamento nella parte inferiore della pagina. ![Cronologia degli ordini](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
-2. Identificare l'ordine che si vuole esaminare e fare clic su **Dettagli** per visualizzare un'analisi degli addebiti che includerà il subtotale, le imposte e gli addebiti totali. ![Dettagli ordine](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
+1. Fare clic su **Visualizza addebiti** nella pagina **Cronologia di fatturazione**. Verrà aperta una nuova scheda che visualizza la [cronologia degli ordini]( https://account.microsoft.com/billing/orders#/). Si noti che, se si cerca di accedere all'utilizzo non elaborato nel portale Gestione account e fatturazioni, sarà necessario chiamare il supporto facendo clic sul relativo collegamento nella parte inferiore della pagina.
 
-<!---HONumber=AcomDC_0204_2016-->
+	![Cronologia degli ordini](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
+
+2. Identificare l'ordine che si vuole esaminare e fare clic su **Dettagli** per visualizzare un'analisi degli addebiti che includerà il subtotale, le imposte e gli addebiti totali.
+
+	![Dettagli ordine](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
+
+<!------HONumber=AcomDC_0309_2016-->

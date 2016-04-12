@@ -252,7 +252,7 @@ L'esempio seguente restituisce tutti i percorsi supportati per ogni tipo di riso
 
     azure location list
 
-È anche possibile filtrare i risultati dei percorsi con uno strumento come **jq**. Per informazioni su strumenti come jq, vedere [Strumenti utili per interagire con Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
+È anche possibile filtrare i risultati dei percorsi con un'utilità JSON come [jq](https://stedolan.github.io/jq/).
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
@@ -304,4 +304,4 @@ L'output sarà analogo al seguente:
 - Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per informazioni sulla distribuzione delle risorse, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
-<!--------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="03/04/2016"
    ms.author="golive"/>
 
 # Esempio di utilizzo: Distribuzione continua in macchine virtuali tramite Automation DSC e Chocolatey
@@ -41,7 +41,7 @@ Automazione di Azure è un servizio gestito di Microsoft Azure che consente di a
 
 Una risorsa DSC è un modulo di codice con funzionalità specifiche, ad esempio per la gestione della rete, di Active Directory o SQL Server. La risorsa DSC di Chocolatey riconosce in che modo accedere, tra gli altri, a un server NuGet, scaricare pacchetti, installare pacchetti e così via. In [PowerShell Gallery](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title) sono disponibili numerose altre risorse DSC. Questi moduli vengono installati dall'utente nel server di pull di Automation DSC per Azure, per poter essere usati nelle configurazioni personalizzate.
 
-I modelli ARM forniscono un modo dichiarativo per la generazione dell'infrastruttura, ad esempio reti, subnet, routing e sicurezza di rete, servizi di bilanciamento del carico, NIC, VM e così via. Ecco un [articolo](../resource-manager-deployment-model.md) che confronta il modello di distribuzione ARM, ovvero dichiarativo, con il modello di distribuzione di Gestione servizi di Azure (classico), o imperativo. È disponibile anche un altro [articolo](../virtual-machines\virtual-machines-azurerm-versus-azuresm.md) relativo ai provider di risorse di base, come calcolo, archiviazione e rete.
+I modelli ARM forniscono un modo dichiarativo per la generazione dell'infrastruttura, ad esempio reti, subnet, routing e sicurezza di rete, servizi di bilanciamento del carico, NIC, VM e così via. Ecco un [articolo](../resource-manager-deployment-model.md) che confronta il modello di distribuzione ARM, ovvero dichiarativo, con il modello di distribuzione di Gestione servizi di Azure (classico), o imperativo. È disponibile anche un altro [articolo](../virtual-machines/virtual-machines-windows-compare-deployment-models.md) relativo ai provider di risorse di base, come calcolo, archiviazione e rete.
 
 Una funzionalità chiave di un modello ARM è la capacità di installare un'estensione VM nella macchina virtuale durante il provisioning. Un'estensione VM include funzionalità specifiche, come l'esecuzione di uno script personalizzato, l'installazione di software antivirus o l'esecuzione di uno script di configurazione DSC. Sono disponibili molti altri tipi di estensioni VM.
 
@@ -78,7 +78,7 @@ PowerShell Gallery è instrumentata per l'installazione delle risorse DSC nell'a
 In alternativa, è disponibile l'approccio manuale. La struttura di cartelle di un modulo di integrazione di PowerShell per un computer Windows è leggermente diversa da quella prevista da Automation DSC per Azure, perciò richiede alcune modifiche da parte dell'utente. Non è un'operazione difficile e viene eseguita una sola volta per risorsa, a meno che non si voglia aggiornarla in futuro. Per altre informazioni sulla creazione di moduli di integrazione di PowerShell, vedere l'articolo relativo alla [creazione di moduli di integrazione per Automazione di Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   Installare il modulo necessario nella workstation, come indicato di seguito:
-    -   Installare [Windows Management Framework versione 5](http://www.microsoft.com/download/details.aspx?id=48729) (non necessario per Windows 10).
+    -   Installare [Windows Management Framework versione 5](http://aka.ms/wmf5latest) (non necessario per Windows 10)
     -   `Install-Module  –ModuleName MODULENAME` <—estrae il modulo da PowerShell Gallery. 
 -   Copiare la cartella del modulo da `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` in una cartella temporanea. 
 -   Eliminare esempi e documentazione dalla cartella principale. 
@@ -185,4 +185,4 @@ Il codice sorgente completo per questo esempio di utilizzo si trova in [questo p
 - [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

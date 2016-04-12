@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="03/23/2016"
    ms.author="oanapl"/>
 
 # Usare i report sull'integrità del sistema per la risoluzione dei problemi
@@ -43,14 +43,14 @@ Il report specifica il timeout di lease globale come durata (TTL). Il report vie
 - **Passaggi successivi**: analizzare il motivo della perdita del nodo vicino. Ad esempio, controllare la comunicazione tra i nodi del cluster.
 
 ## Report sull'integrità del sistema di nodi
-**System.FM**, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sui nodi del cluster. Ogni nodo deve avere un report generato da System.FM che mostra il relativo stato. Le entità del nodo vengono rimosse quando il nodo è disabilitato.
+**System.FM**, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sui nodi del cluster. Ogni nodo deve avere un report generato da System.FM che mostra il relativo stato. Le entità del nodo vengono rimosse quando viene rimosso lo stato del nodo. Ad esempio, vedere [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx).
 
 ### Nodo attivo/inattivo
 System.FM restituisce OK quando il nodo viene aggiunto all'anello, ovvero è operativo. Segnala un errore quando il nodo non fa più parte dell'anello, ovvero è inattivo perché è in corso un aggiornamento o semplicemente perché si è verificato un errore. La gerarchia di integrità creata dall'archivio integrità agisce sulle entità distribuite in correlazione con i report sui nodi di System.FM. Considera il nodo un elemento padre virtuale di tutte le entità distribuite. Le entità distribuite in tale nodo non vengono esposte tramite query se il nodo è inattivo o non segnalato oppure se il nodo ha un'istanza diversa rispetto a quella associata alle entità. Quando System.FM segnala che il nodo è inattivo o riavviato (nuova istanza), l'archivio integrità elimina automaticamente le entità distribuite eventualmente esistenti solo nel nodo inattivo o nell'istanza precedente del nodo.
 
 - **SourceId**: System.FM
 - **Proprietà**: State
-- **Passaggi successivi**: se il nodo è inattivo per un aggiornamento, deve tornare attivo una volta aggiornato. In questo caso, lo stato di integrità deve essere riportato su OK. Se il nodo non ritorna attivo o in caso di errore, è necessario proseguire nell'analisi del problema.
+- **Passaggi successivi**: se il nodo è inattivo per un aggiornamento, deve tornare attivo dopo l'aggiornamento. In questo caso, lo stato di integrità deve essere riportato su OK. Se il nodo non ritorna attivo o in caso di errore, è necessario proseguire nell'analisi del problema.
 
 Di seguito è illustrato l'evento System.FM con uno stato di integrità OK per il nodo attivo:
 
@@ -86,7 +86,7 @@ HealthEvents          :
 Il servizio di bilanciamento del carico di Service Fabric segnala una condizione di avviso se rileva una violazione della capacità del nodo.
 
  - **SourceId**: System.PLB
- - **Property**: inizia con **Capacity**
+ - **Proprietà**: inizia con **Capacity**.
  - **Passaggi successivi**: controllare la metrica fornita e visualizzare la capacità corrente nel nodo.
 
 ## Report sull'integrità del sistema di applicazioni
@@ -97,12 +97,12 @@ System.CM restituisce OK quando l'applicazione viene creata o aggiornata. Inform
 
 - **SourceId**: System.CM
 - **Proprietà**: State
-- **Passaggi successivi**: se l'applicazione è stata creata, deve includere il report sull'integrità di Cluster Manager. In caso contrario, controllare lo stato dell'applicazione eseguendo una query, ad esempio con il cmdlet di PowerShell **Get-ServiceFabricApplication -ApplicationName *applicationName***.
+- **Passaggi successivi**: se l'applicazione è stata creata, deve includere il report sull'integrità di Cluster Manager. In caso contrario, controllare lo stato dell'applicazione eseguendo una query, ad esempio con il cmdlet **Get-ServiceFabricApplication -ApplicationName *applicationName*** di PowerShell.
 
 Di seguito è illustrato l'evento State nell'applicazione **fabric:/WordCount**:
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) -DeployedApplicationsHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Ok
@@ -163,6 +163,75 @@ HealthEvents          :
 - **Proprietà**: State
 - **Passaggi successivi**: controllare i vincoli del servizio e lo stato corrente della posizione.
 
+Il codice seguente illustra una violazione per un servizio configurato con 7 repliche di destinazione in un cluster con 5 nodi:
+
+```xml
+PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
+
+
+ServiceName           : fabric:/WordCount/WordCountService
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.PLB', 
+                        Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning', 
+                        ConsiderWarningAsError=false.
+                        
+PartitionHealthStates : 
+                        PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
+                        AggregatedHealthState : Warning
+                        
+HealthEvents          : 
+                        SourceId              : System.FM
+                        Property              : State
+                        HealthState           : Ok
+                        SequenceNumber        : 10
+                        SentAt                : 3/22/2016 7:56:53 PM
+                        ReceivedAt            : 3/22/2016 7:57:18 PM
+                        TTL                   : Infinite
+                        Description           : Service has been created.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Ok = 3/22/2016 7:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
+                        
+                        SourceId              : System.PLB
+                        Property              : ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b
+                        HealthState           : Warning
+                        SequenceNumber        : 131032232425505477
+                        SentAt                : 3/23/2016 4:14:02 PM
+                        ReceivedAt            : 3/23/2016 4:14:03 PM
+                        TTL                   : 00:01:05
+                        Description           : The Load Balancer was unable to find a placement for one or more of the Service's Replicas:
+                        fabric:/WordCount/WordCountService Secondary Partition a1f83a35-d6bf-4d39-b90d-28d15f39599b could not be placed, possibly, 
+                        due to the following constraints and properties:  
+                        Placement Constraint: N/A
+                        Depended Service: N/A
+                        
+                        Constraint Elimination Sequence:
+                        ReplicaExclusionStatic eliminated 4 possible node(s) for placement -- 1/5 node(s) remain.
+                        ReplicaExclusionDynamic eliminated 1 possible node(s) for placement -- 0/5 node(s) remain.
+                        
+                        Nodes Eliminated By Constraints:
+                        
+                        ReplicaExclusionStatic:
+                        FaultDomain:fd:/0 NodeName:_Node_0 NodeType:NodeType0 UpgradeDomain:0 UpgradeDomain: ud:/0 Deactivation Intent/Status: 
+                        None/None
+                        FaultDomain:fd:/1 NodeName:_Node_1 NodeType:NodeType1 UpgradeDomain:1 UpgradeDomain: ud:/1 Deactivation Intent/Status: 
+                        None/None
+                        FaultDomain:fd:/3 NodeName:_Node_3 NodeType:NodeType3 UpgradeDomain:3 UpgradeDomain: ud:/3 Deactivation Intent/Status: 
+                        None/None
+                        FaultDomain:fd:/4 NodeName:_Node_4 NodeType:NodeType4 UpgradeDomain:4 UpgradeDomain: ud:/4 Deactivation Intent/Status: 
+                        None/None
+                        
+                        ReplicaExclusionDynamic:
+                        FaultDomain:fd:/2 NodeName:_Node_2 NodeType:NodeType2 UpgradeDomain:2 UpgradeDomain: ud:/2 Deactivation Intent/Status: 
+                        None/None
+                        
+                        
+                        RemoveWhenExpired     : True
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 3/22/2016 7:57:48 PM, LastOk = 1/1/0001 12:00:00 AM
+```
+
 ## Report sull'integrità del sistema di partizioni
 **System.FM**, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sulle partizioni del servizio.
 
@@ -201,7 +270,7 @@ HealthEvents          :
 Di seguito viene illustrata l’integrità di una partizione che è al di sotto del conteggio delle repliche di destinazione. Il passaggio successivo consiste nell'ottenere la descrizione della partizione, che mostra come è configurata: **MinReplicaSetSize** corrisponde a due e **TargetReplicaSetSize** a sette. Ottenere quindi il numero di nodi nel cluster: cinque. In questo caso, due repliche non possono essere posizionate.
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None
 
 PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 AggregatedHealthState : Warning
@@ -287,7 +356,7 @@ La descrizione di questo report sull'integrità include l'ora (UTC) in cui è in
 - **Passaggi successivi**: se lo stato di integrità non è OK, verificare per quale motivo l'apertura della replica richiede più tempo del previsto.
 
 ### Chiamata API del servizio lenta
-**System.RAP**P e **System.Replicator** segnalano una condizione di avviso se una chiamata al codice del servizio utente richiede più tempo di quello configurato. L'avviso viene cancellato al completamento della chiamata.
+**System.RAP** e **System.Replicator** segnalano una condizione di avviso se una chiamata al codice del servizio utente richiede più tempo di quello configurato. L'avviso viene cancellato al completamento della chiamata.
 
 - **SourceId**: System.RAP o System.Replicator
 - **Proprietà**: nome dell'API lenta. La descrizione fornisce altri dettagli sull'ora in cui l'API è rimasta in sospeso.
@@ -400,7 +469,7 @@ Eventi di diagnostica di Visual Studio 2015: errore RunAsync in **fabric:/HelloW
 **System.Replicator** segnala una condizione di avviso se la coda di replica è piena. Nel server primario ciò accade di solito perché una o più repliche secondarie sono lente nel riconoscere le operazioni. Nel server secondario ciò si verifica di solito quando il servizio è lento nell'applicare le operazioni. La condizione di avviso viene cancellata quando la coda non è più piena.
 
 - **SourceId**: System.Replicator
-- **Property**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, a seconda del ruolo della replica
+- **Proprietà**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, a seconda del ruolo della replica
 
 ## Report sull'integrità del sistema DeployedApplication
 **System.Hosting** è l'autorità per le entità distribuite.
@@ -453,7 +522,7 @@ HealthEvents                       :
 System.Hosting restituisce OK se l'attivazione del pacchetto di servizi nel nodo è riuscita. In caso contrario, restituisce un errore.
 
 - **SourceId**: System.Hosting
-- **Proprietà**: Activation.
+- **Proprietà**: Activation
 - **Passaggi successivi**: verificare per quale motivo l'attivazione non è riuscita.
 
 ### Attivazione del pacchetto di codice
@@ -537,4 +606,4 @@ HealthEvents          :
 
 [Aggiornamento di un'applicazione di infrastruttura di servizi](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -12,25 +12,19 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
-	ms.topic="article" 
-	ms.date="02/29/2016"
+	ms.topic="hero-article" 
+	ms.date="04/04/2016"
 	ms.author="piyushjo" />
 
 # Introduzione ad Azure Mobile Engagement per Cordova/Phonegap
 
-> [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS | Obj C](mobile-engagement-ios-get-started.md)
-- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md)
-- [Cordova](mobile-engagement-cordova-get-started.md)
+[AZURE.INCLUDE [Banner per la selezione del tipo di esercitazione](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Questo argomento illustra come usare Azure Mobile Engagement per comprendere l'utilizzo dell'app e inviare notifiche push a utenti segmentati per un'applicazione mobile sviluppata con Cordova.
 
 In questa esercitazione verrà creata un'app Cordova vuota mediante Mac e quindi verrà eseguita l'integrazione di Mobile Engagement SDK. L'app raccoglierà dati analitici di base e riceverà notifiche push tramite Apple Push Notification System (APNS) per iOS e Google Cloud Messaging (GCM) per Android. L'app verrà distribuita in un dispositivo iOS o Android per il test.
 
-> [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-IT%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
 
 Per completare questa esercitazione, è necessario disporre di:
 
@@ -64,7 +58,7 @@ Verrà creata un'app di base con Xcode per illustrare l'integrazione.
 		$ cordova platform add ios 
 		$ cordova run ios
 
-3. Eseguire il codice seguente per configurare il progetto per **Android** ed eseguirlo nel simulatore Android. Assicurarsi che le impostazioni dell'emulatore Android SDK abbiano la destinazione Google APIs (Google Inc.) con CPU/ABI come Google APIs ARM.
+3. Eseguire questo codice per configurare il progetto per **Android** ed eseguirlo nel simulatore Android. Assicurarsi che le impostazioni dell'emulatore Android SDK abbiano la destinazione Google APIs (Google Inc.) con CPU/ABI come Google APIs ARM.
 
 		$ cordova platform add android
 		$ cordova run android
@@ -78,13 +72,14 @@ Verrà creata un'app di base con Xcode per illustrare l'integrazione.
 1. Installare il plug-in di Cordova per Azure Mobile Engagement, specificando i valori delle variabili per la configurazione del plug-in:
 
 		cordova plugin add cordova-plugin-ms-azure-mobile-engagement    
-			 --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
+     		--variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
 	        --variable AZME_IOS_REACH_ICON=... (icon name WITH extension) 
 	        --variable AZME_ANDROID_CONNECTION_STRING=<Android Connection String> 
 			--variable AZME_ANDROID_REACH_ICON=... (icon name WITHOUT extension)       
 	        --variable AZME_ANDROID_GOOGLE_PROJECT_NUMBER=... (From your Google Cloud console for sending push notifications) 
-	        --variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
-	        --variable AZME_ENABLE_LOG=true|false
+	        --variable AZME_ACTION_URL =... (URL scheme which triggers the app for deep linking)
+	        --variable AZME_ENABLE_NATIVE_LOG=true|false
+			--variable AZME_ENABLE_PLUGIN_LOG=true|false
 
 *Android Reach Icon*: deve essere il nome della risorsa senza estensioni né prefisso drawable (ad esempio mynotificationicon) e il file di icona deve essere copiato nel progetto Android (platforms/android/res/drawable)
 
@@ -95,8 +90,7 @@ Verrà creata un'app di base con Xcode per illustrare l'integrazione.
 1. Nel progetto Cordova modificare **www/js/index.js** in modo da aggiungere la chiamata a Mobile Engagement per dichiarare una nuova attività dopo la ricezione dell'evento *deviceReady*.
 
 		 onDeviceReady: function() {
-		        app.receivedEvent('deviceready');
-		        AzureEngagement.startActivity("myPage",{});
+		        Engagement.startActivity("myPage",{});
 		    }
 
 2. Eseguire l'applicazione:
@@ -161,10 +155,12 @@ Per consentire a Mobile Engagement di inviare notifiche push per conto dell'uten
 Modificare **www/js/index.js** in modo da aggiungere la chiamata a Mobile Engagement per richiedere le notifiche push e dichiarare un gestore:
 
 	 onDeviceReady: function() {
-	        app.receivedEvent('deviceready');
-	        AzureEngagement.registerForPushNotification();
-	        AzureEngagement.onOpenURL(function(_url) { alert(_url); });
-	        AzureEngagement.startActivity("myPage",{});
+           Engagement.initializeReach(  
+	 			// on OpenUrl  
+	 			function(_url) {   
+	 			alert(_url);   
+	 			});  
+			Engagement.startActivity("myPage",{});  
 	    }
 
 ###Esecuzione dell'app
@@ -197,7 +193,7 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 	
 	- Fornire un **Nome** per la campagna. 
 	- Selezionare come **Tipo di recapito** *Notifica di sistema* *Semplice*
-	- Selezionare come Ora di recapito *"In qualsiasi momento"*
+	- Selezionare come **Ora di recapito** *"In qualsiasi momento"*
 	- Specificare un **Titolo** per la notifica che sarà la prima riga nel push
 	- Fornire un **Messaggio** per la notifica che verrà utilizzata come corpo del messaggio. 
 
@@ -206,7 +202,7 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 4. Specificare input per la creazione della campagna **[iOS]**
 
 	- Fornire un **Nome** per la campagna. 
-	- Selezionare come Ora di recapito *"Solo all'esterno dell'app"*
+	- Selezionare come **Ora di recapito** *"Solo all'esterno dell'app"*
 	- Specificare un **Titolo** per la notifica che sarà la prima riga nel push
 	- Fornire un **Messaggio** per la notifica che verrà utilizzata come corpo del messaggio. 
  
@@ -216,7 +212,7 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 
 	![][8]
 
-6. [Facoltativo] È anche possibile specificare un URL di azione. Assicurarsi che usi uno schema di URL fornito durante la configurazione della variabile **AZME REDIRECT URL** del plug-in, ad esempio **myapp://test*.
+6. [Facoltativo] È anche possibile specificare un URL di azione. Verificare che usi uno schema URL fornito durante la configurazione della variabile **AZME\_REDIRECT\_URL** del plug-in, ad esempio **myapp://test*.
 
 7. L'impostazione della campagna più semplice possibile è stata completata. Ora scorrere nuovamente verso il basso e fare clic sul pulsante **Crea** per salvare la campagna.
 
@@ -229,9 +225,6 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 ##<a id="next-steps"></a>Passaggi successivi
 [Panoramica di tutti i metodi disponibili con Cordova Mobile Engagement SDK](https://github.com/Azure/azure-mobile-engagement-cordova)
 
-<!-- URLs. -->
-[Mobile Engagement iOS SDK]: http://aka.ms/qk2rnj
-
 <!-- Images. -->
 
 [1]: ./media/mobile-engagement-cordova-get-started/engage-button.png
@@ -241,8 +234,7 @@ Si creerà ora una semplice campagna di notifica push per l'invio di un push all
 [6]: ./media/mobile-engagement-cordova-get-started/new-announcement.png
 [8]: ./media/mobile-engagement-cordova-get-started/campaign-content.png
 [10]: ./media/mobile-engagement-cordova-get-started/campaign-activate.png
-
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

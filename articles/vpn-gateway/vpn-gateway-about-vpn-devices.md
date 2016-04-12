@@ -4,22 +4,23 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
-   editor="" />
+   manager="carmonm"
+   editor=""
+  tags="azure-resource-manager, azure-service-management"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/15/2016"
    ms.author="cherylmc" />
 
 # Informazioni sui dispositivi VPN per le connessioni di gateway VPN
 
 Per configurare una connessione VPN da sito a sito (S2S), è necessario un dispositivo VPN. Le connessioni da sito a sito possono essere utilizzate per creare una soluzione ibrida o se si desidera una connessione sicura tra la rete locale e la rete virtuale. In questo articolo vengono illustrati i dispositivi VPN compatibili e i parametri di configurazione. Si noti che quando si configura una connessione da sito a sito, è necessario un indirizzo IP IPv4 pubblico per il dispositivo VPN.
 
-Se il dispositivo non viene visualizzato nella tabella dispositivi VPN convalidati, vedere la sezione sui dispositivi VPN non convalidati di questo articolo. È possibile che il dispositivo possa funzionare comunque con Azure. Per il supporto ai dispositivi VPN, contattare il produttore del dispositivo.
+Se il dispositivo non viene visualizzato nella tabella dispositivi VPN convalidati, vedere la sezione sui dispositivi VPN non convalidati in questo articolo. È possibile che il dispositivo possa funzionare comunque con Azure. Per il supporto ai dispositivi VPN, contattare il produttore del dispositivo.
 
 **Elementi da considerare quando si visualizzano le tabelle:**
 
@@ -40,8 +41,8 @@ Per agevolare la configurazione del dispositivo VPN, fare riferimento ai collega
 | **Fornitore** | **Famiglia di dispositivi** | **Versione minima del sistema operativo** | **Basato su criteri** | **Basato su route** |
 |---------------------------------|----------------------------------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Allied Telesis | Router VPN serie AR | 2\.9.2 | Presto disponibile | Non compatibile |
-| Barracuda Networks, Inc. | Barracuda NG Firewall | Barracuda NG Firewall 5.4.3 | [Barracuda NG Firewall](https://techlib.barracuda.com/display/BNGV54/How%20to%20Configure%20an%20IPsec%20Site-to-Site%20VPN%20to%20a%20Windows%20Azure%20VPN%20Gateway)| Non compatibile |
-| Barracuda Networks, Inc. | Barracuda Firewall | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | Non compatibile |
+| Barracuda Networks, Inc. | Barracuda NextGen Firewall F-series | Basato su criteri: 5.4.3, basato su route: 6.2.0 | [Istruzioni di configurazione](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) | [Istruzioni di configurazione](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
+| Barracuda Networks, Inc. | Barracuda NextGen Firewall X-series | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | Non compatibile |
 | Brocade | Vyatta 5400 vRouter | Virtual Router 6.6R3 GA | [Istruzioni di configurazione](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | Non compatibile |
 | Punto di controllo | Gateway di protezione | R75.40, R75.40VS | [Istruzioni di configurazione](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [Istruzioni di configurazione](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco | ASA | 8\.3 | [Esempi Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) | Non compatibile |
@@ -94,6 +95,8 @@ Dopo aver scaricato l'esempio di configurazione di dispositivo VPN fornito, è n
 
 ## Parametri IPsec
 
+>[AZURE.NOTE] Anche se i valori elencati di seguito sono supportati dal Gateway VPN di Azure, attualmente non è possibile specificare o selezionare una combinazione specifica dal Gateway VPN di Azure. È necessario specificare tutti i vincoli dal dispositivo VPN locale.
+
 ### Configurazione fase 1 IKE
 
 | **Proprietà** | **Basato su criteri** | **Gateway VPN basato su route e con prestazioni elevate o standard** |
@@ -102,8 +105,8 @@ Dopo aver scaricato l'esempio di configurazione di dispositivo VPN fornito, è n
 | Diffie-Hellman Group | Gruppo 2 (1024 bit) | Gruppo 2 (1024 bit) |
 | Metodo di autenticazione | Chiave precondivisa | Chiave precondivisa |
 | Algoritmi di crittografia | AES256 AES128 3DES | AES256 3DES |
-| Algoritmo di hash | SHA1(SHA128) | SHA1(SHA128) |
-| Fase 1 Associazione di sicurezza (SA) durata (tempo) | 28,800 secondi | 28,800 secondi |
+| Algoritmo di hash | SHA1(SHA128) | SHA1(SHA128), SHA2(SHA256) |
+| Durata (tempo) associazione di sicurezza (SA) fase 1 | 28\.800 secondi | 10\.800 secondi |
 
 
 ### Configurazione fase 2 IKE
@@ -112,10 +115,10 @@ Dopo aver scaricato l'esempio di configurazione di dispositivo VPN fornito, è n
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
 | Versione IKE | IKEv1 | IKEv2 |
 | Algoritmo di hash | SHA1(SHA128) | SHA1(SHA128) |
-| Fase 2 Associazione di sicurezza (SA) durata (tempo) | 3,600 secondi | - |
-| Fase 2 Associazione di sicurezza (SA) durata (produttività) | 102,400,000 KB | - |
-| Offerte di autenticazione e crittografia SA IPsec (in ordine di preferenza) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Vedere *Offerte di associazione di sicurezza (SA) IPsec gateway basato su route* (di seguito) |
-| Perfect Forward Secrecy (PFS) | No | Sì (DH Gruppo1) |
+| Durata (tempo) associazione di sicurezza (SA) fase 2 | 3\.600 secondi | 3\.600 secondi |
+| Durata (velocità effettiva) associazione di sicurezza (SA) fase 2 | 102.400.000 KB | - | 
+| Offerte di autenticazione e crittografia SA IPsec (in ordine di preferenza) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Vedere *Offerte di associazione di sicurezza (SA) IPsec gateway basato su route* di seguito | 
+| Perfect Forward Secrecy (PFS) | No | Sì (DH Gruppo1, 2, 5, 14, 24) | 
 | Dead Peer Detection | Non supportato | Supportato |
 
 ### Offerte di associazione di sicurezza (SA) IPsec gateway basato su route
@@ -140,7 +143,7 @@ Nella tabella seguente sono elencate le offerte di autenticazione e crittografia
 | 14 | AH MD5 con ESP DES Null HMAC, nessuna durata proposta | AH MD5 con ESP DES MD5, nessuna durata |
 | 15 | AH SHA1 con ESP DES SHA1, nessuna durata | ESP SHA, nessuna durata |
 | 16 | AH MD5 con ESP DES MD5, nessuna durata | ESP MD5, nessuna durata |
-| 17 | - | AH SHA, nessuna durata |
+| 17 | - | AH SHA, nessuna durata | 
 | 18 | - | AH MD5, nessuna durata |
 
 
@@ -148,4 +151,4 @@ Nella tabella seguente sono elencate le offerte di autenticazione e crittografia
 
 - Per la connettività cross-premises tramite Internet, utilizzare le impostazioni del gateway VPN di Azure predefinite con la crittografia e gli algoritmi di hash elencati nelle tabelle precedenti, per garantire la sicurezza delle comunicazioni critiche.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

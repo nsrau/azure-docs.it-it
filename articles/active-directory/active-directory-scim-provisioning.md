@@ -28,7 +28,7 @@ Questa funzione può essere usata insieme alla funzionalità "[bring your own ap
 
 Esistono due casi di utilizzo per SCIM in Azure Active Directory:
 
-* **Provisioning di utenti e gruppi per applicazioni che supportano SCIM**: le applicazioni che supportano SCIM 2.0 e sono in grado di accettare token di connessione OAuth da Azure AD possono essere subito usate con Azure AD.
+* **Provisioning di utenti e gruppi per applicazioni che supportano SCIM**: le applicazioni che supportano SCIM 2.0 e usano i token di connessione OAuth per l'autenticazione possono essere subito usate con Azure AD.
 
 * **Compilazione di una soluzione di provisioning per le applicazioni che supportano il provisioning basato su altre API**: per le applicazioni non SCIM, è possibile creare un endpoint SCIM da convertire tra l'endpoint SCIM di Azure AD e qualsiasi API supportata dall'applicazione per il provisioning utente. Per facilitare lo sviluppo di un endpoint SCIM, vengono fornite librerie CLI ed esempi di codice che illustrano come creare un endpoint SCIM e convertire messaggi SCIM.
 
@@ -50,8 +50,6 @@ Azure Active Directory può essere configurato in modo da effettuare automaticam
 
 * Accettare token di connessione OAuth per l'autorizzazione, come indicato nella sezione 2.1 del protocollo SCIM.
 
-* Supportare l'uso di Azure AD come provider di identità per il token OAuth (il supporto per provider di identità esterni sarà presto disponibile)
-
 Verificare la conformità ai requisiti sopra riportati con il provider dell'applicazione o consultando la documentazione fornita dal provider dell'applicazione.
  
 ###Introduzione
@@ -61,19 +59,20 @@ Le applicazioni che supportano il profilo SCIM descritto in precedenza possono e
 **Per connettere un'applicazione che supporta SCIM:**
 
 1.	In un Web browser avviare il portale di gestione di Azure all'indirizzo https://manage.windowsazure.com.
-2.	Passare ad **Active Directory > Directory > [Directory specifica] > Applicazioni** e selezionare **Aggiungi > Aggiungere un'applicazione dalla raccolta**.
+2.	Passare ad **Active Directory > Directory > [Directory specifica] > Applicazioni ** e selezionare **Aggiungi > Aggiungere un'applicazione dalla raccolta**.
 3.	Selezionare la scheda **Personalizzata** a sinistra, immettere un nome per l'applicazione e quindi fare clic sull'icona del segno di spunta per creare un oggetto app.
 
 ![][2]
 
 4.	Nella schermata risultante selezionare il secondo pulsante **Configura provisioning account**.
-5.	Nella finestra di dialogo immettere l'URL dell'endpoint SCIM dell'applicazione.  
-6.	Fare clic su **Avanti** e quindi sul pulsante **Avvia test** per fare in modo che Azure Active Directory provi a connettersi all'endpoint SCIM. Se i tentativi hanno esito negativo, verranno visualizzate informazioni di diagnostica.  
-7.	Se i tentativi di connessione all'applicazione hanno esito positivo, fare clic su **Avanti** nelle schermate rimanenti e quindi fare clic su **Completa** per chiudere la finestra di dialogo.
-8.	Nella schermata risultante selezionare il terzo pulsante **Assegna account**. Nella sezione Utenti e gruppi risultante assegnare gli utenti o i gruppi di cui si vuole effettuare il provisioning nell'applicazione.
-9.	Dopo l'assegnazione di utenti e gruppi, fare clic sulla scheda **Configura** nella parte superiore della schermata.
-10.	In **Provisioning account** verificare che lo stato sia attivo. 
-11.	In **Strumenti** fare clic su **Riavvia provisioning account** per avviare il processo di provisioning.
+5.	Nel **URL dell'endpoint di provisioning** immettere l'URL dell'endpoint SCIM dell'applicazione.
+6.	Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token di autenticazione (facoltativo)**. Se questo campo viene lasciato vuoto, AD Azure includerà in ogni richiesta un token di connessione OAuth emesso da Azure AD. Le app che usano Azure AD come provider di identità possono convalidare il token rilasciato da Azure AD.
+7.	Fare clic su **Avanti** e quindi sul pulsante **Avvia test** per fare in modo che Azure Active Directory provi a connettersi all'endpoint SCIM. Se i tentativi hanno esito negativo, verranno visualizzate informazioni di diagnostica.  
+8.	Se i tentativi di connessione all'applicazione hanno esito positivo, fare clic su **Avanti** nelle schermate rimanenti e quindi fare clic su **Completa** per chiudere la finestra di dialogo.
+9.	Nella schermata risultante selezionare il terzo pulsante **Assegna account**. Nella sezione Utenti e gruppi risultante assegnare gli utenti o i gruppi di cui si vuole effettuare il provisioning nell'applicazione.
+10.	Dopo l'assegnazione di utenti e gruppi, fare clic sulla scheda **Configura** nella parte superiore della schermata.
+11.	In **Provisioning account** verificare che lo stato sia attivo. 
+12.	In **Strumenti** fare clic su **Riavvia provisioning account** per avviare il processo di provisioning.
 
 Si noti che è possibile che trascorrano 5-10 minuti prima che il processo di provisioning inizi ad avviare richieste all'endpoint SCIM. Un riepilogo dei tentativi di connessione viene fornito nella scheda Dashboard dell'applicazione ed è possibile scaricare un report delle attività di provisioning ed eventuali errori di provisioning dalla scheda Reports della directory.
 
@@ -109,7 +108,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 1.	Scaricare il pacchetto dell'esempio di codice da [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master).
 2.	Decomprimere il pacchetto e salvarlo nel computer Windows in un percorso analogo a C:\\AzureAD-BYOA-Provisioning-Samples.
 3.	In questa cartella avviare la soluzione FileProvisioningAgent in Visual Studio.
-4.	Selezionare **Strumenti > Gestione pacchetti libreria > Console di Gestione pacchetti** e quindi eseguire i comandi seguenti per il progetto FileProvisioningAgent per risolvere i riferimenti alla soluzione:
+4.	Selezionare **Strumenti > Gestione pacchetti libreria > Console di Gestione pacchetti ** e quindi eseguire i comandi seguenti per il progetto FileProvisioningAgent per risolvere i riferimenti alla soluzione:
 
     Install-Package Microsoft.SystemForCrossDomainIdentityManagement Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory Install-Package Microsoft.Owin.Diagnostics Install-Package Microsoft.Owin.Host.SystemWeb
 
@@ -126,7 +125,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 **Per registrare l'endpoint SCIM di esempio in Azure AD:**
 
 1.	In un Web browser avviare il portale di gestione di Azure all'indirizzo https://manage.windowsazure.com.
-2.	Passare ad **Active Directory > Directory > [Directory specifica] > Applicazioni** e selezionare **Aggiungi > Aggiungere un'applicazione dalla raccolta**.
+2.	Passare ad **Active Directory > Directory > [Directory specifica] > Applicazioni ** e selezionare **Aggiungi > Aggiungere un'applicazione dalla raccolta**.
 3.	Selezionare la scheda **Personalizzata** a sinistra, immettere un nome quale "App di test SCIM", quindi fare clic sull'icona del segno di spunta per creare un oggetto app. Si noti che l'oggetto applicazione creato deve rappresentare l'app di destinazione in cui verrà effettuato il provisioning e per cui verrà implementato l'accesso Single Sign-On, non solo l'endpoint SCIM.
 
 ![][2]
@@ -703,4 +702,4 @@ La figura seguente illustra i messaggi che Azure Active Directory invierà al se
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

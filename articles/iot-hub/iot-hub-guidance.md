@@ -103,6 +103,8 @@ Nel modello di heartbeat il dispositivo invia messaggi da dispositivo a cloud al
 
 Un'implementazione più complessa può includere le informazioni dal [monitoraggio delle operazioni][lnk-devguide-opmon] per identificare i dispositivi che provano a connettersi o a comunicare ma non riescono. Quando si implementa il modello di heartbeat, assicurarsi di controllare [quote e limitazioni dell'hub IoT][].
 
+> [AZURE.NOTE] Se una soluzione IoT richiede lo stato di connessione del dispositivo esclusivamente per determinare se inviare i messaggi da cloud a dispositivo e i messaggi non vengono trasmessi a grandi gruppi di dispositivi, un modello molto più semplice da considerare è usare un intervallo di scadenza breve. Consente di ottenere lo stesso risultato del mantenimento di un registro dello stato di connessione del dispositivo con un modello heartbeat, pur essendo molto più efficiente. È inoltre possibile, richiedendo gli acknowledgement messaggi, ricevere una notifica tramite l'hub IoT indicante i dispositivi in grado di ricevere i messaggi e che non sono online o sono malfunzionanti. Fare riferimento alla [Guida per gli sviluppatori di hub IoT][lnk-devguide-messaging] per altre informazioni sui messaggi C2D.
+
 ## Passaggi successivi
 
 Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
@@ -127,8 +129,9 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
 [lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
+[lnk-devguide-messaging]: iot-hub-devguide.md#messaging
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 [quote e limitazioni dell'hub IoT]: iot-hub-devguide.md#throttling
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -12,7 +12,7 @@
 
 	![Parametri del modello ARM](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 
-4. Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse a cui aggiungere la rete virtuale o fare clic su **Crea nuovo** per aggiungere la rete virtuale a un nuovo gruppo di risorse. Per altre informazioni sui gruppi di risorse, vedere [](). La figura seguente mostra le impostazioni del gruppo di risorse per un nuovo gruppo di risorse denominato **TestRG**.
+4. Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse a cui aggiungere la rete virtuale o fare clic su **Crea nuovo** per aggiungere la rete virtuale a un nuovo gruppo di risorse. La figura seguente illustra le impostazioni del gruppo di risorse per un nuovo gruppo di risorse denominato **TestRG**.
 
 	![Gruppo di risorse](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 
@@ -27,4 +27,4 @@
 
 	![Creare una rete virtuale nel portale di anteprima](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

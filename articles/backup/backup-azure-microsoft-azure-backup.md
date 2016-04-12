@@ -3,8 +3,8 @@
   description="Assicurarsi che l'ambiente sia preparato correttamente per eseguire il backup dei carichi di lavoro con il server di Backup di Azure."
   services="backup"
   documentationCenter=""
-  authors="Jim-Parker"
-  manager="jwhit"
+  authors="pvrk"
+  manager="shivamg"
   editor=""
   keywords="server di backup di azure; insieme di credenziali di backup"/>
 
@@ -15,7 +15,7 @@
   ms.devlang="na"
   ms.topic="article"
   ms.date="02/04/2016"
-  ms.author="jimpark; trinadhk;"/>
+  ms.author="jimpark;trinadhk;pullabhk"/>
 
 # Preparazione del backup dei carichi di lavoro con il server di Backup di Azure
 
@@ -211,4 +211,4 @@ Per informazioni dettagliate sulla [preparazione dell'ambiente per DPM](https://
 - [Backup di SharePoint Server](backup-azure-backup-sharepoint.md)
 - [Backup del server alternativo](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -51,7 +51,8 @@ Creare prima di tutto un'app nel [portale di registrazione delle app](https://ap
 Copiare l'**ID applicazione** assegnato all'app, perché verrà richiesto a breve.
 
 ## Installare adal.js
-Per iniziare, andare al progetto scaricato e installare adal.js. Se [bower](http://bower.io/) è installato, è sufficiente eseguire questo comando. In caso di versioni delle dipendenze non corrispondenti, scegliere la versione superiore. ```
+Per iniziare, andare al progetto scaricato e installare adal.js. Se [bower](http://bower.io/) è installato, è sufficiente eseguire questo comando. In caso di mancata corrispondenza delle versioni delle dipendenze, scegliere la versione superiore.
+```
 bower install adal-angular#experimental
 ```
 
@@ -240,4 +241,4 @@ Per altre informazioni sull'endpoint v2.0, tornare alla [guida per sviluppatori 
 - [Azure AD in Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentazione di Azure AD su [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

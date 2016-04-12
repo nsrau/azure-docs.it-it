@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Come creare gruppi di sicurezza di rete nell'interfaccia della riga di comando di Azure
@@ -30,9 +30,9 @@
 I comandi di esempio dell'interfaccia della riga di comando di Azure riportati di seguito prevedono un ambiente semplice già creato in base allo scenario precedente. Se si desidera eseguire i comandi così come sono visualizzati in questo documento, creare innanzitutto l'ambiente di test distribuendo [questo modello](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), fare clic su **Distribuisci in Azure**, sostituire i valori di parametro predefiniti, se necessario e quindi seguire le istruzioni nel portale.
 
 ## Come creare il gruppo di sicurezza di rete per la subnet front-end
-Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo scenario precedente, seguire la procedura riportata di seguito.
+Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo scenario precedente, seguire questa procedura.
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 
 2. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
@@ -164,7 +164,7 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo
 		info:    network vnet subnet set command OK
 
 ## Come creare il gruppo di sicurezza di rete per la subnet back-end
-Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo scenario precedente, seguire la procedura riportata di seguito.
+Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo scenario precedente, seguire questa procedura.
 
 3. Eseguire il comando **azure network nsg create** per creare un gruppo di sicurezza di rete.
 
@@ -269,4 +269,6 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo 
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_0323_2016-->
+
+<!---HONumber=AcomDC_0323_2016-->

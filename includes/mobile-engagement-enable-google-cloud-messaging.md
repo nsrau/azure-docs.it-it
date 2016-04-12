@@ -1,4 +1,7 @@
->[AZURE.NOTE]Per completare questa procedura, è necessario disporre di un account Google con un indirizzo di posta elettronica verificato. Per creare un nuovo account Google, visitare il sito Web all'indirizzo <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+
+###Creare un progetto Google Cloud Messaging con chiave API
+
+>[AZURE.NOTE] Per completare questa procedura, è necessario disporre di un account Google con un indirizzo di posta elettronica verificato. Per creare un nuovo account Google, visitare il sito Web all'indirizzo <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
 1. Passare a [Google Cloud Console](https://console.developers.google.com/project), eseguire l'accesso con le credenziali dell'account Google e quindi fare clic su **Create Project**.
 
@@ -31,4 +34,4 @@
 
 7. Prendere nota del valore di **API KEY**. Questo valore della chiave dell'API verrà usato più avanti per la configurazione nella sezione relativa al push nativo.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0330_2016-->

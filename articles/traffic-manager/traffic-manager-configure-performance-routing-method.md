@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Configurare un metodo di routing del traffico delle prestazioni
 
-Per eseguire il routing del traffico per i servizi cloud e siti Web (endpoint) che si trovano in diversi data center (noti anche come aree) in tutto il mondo, è possibile indirizzare il traffico in ingresso proveniente dal client che effettua la richiesta all'endpoint con latenza più bassa. In genere, il data center con latenza più bassa corrisponde a quello più vicino in termini di distanza geografica. Il metodo di routing del traffico basato sulle prestazioni consente di distribuire il carico in base alla latenza più bassa, ma non può tenere conto delle modifiche in tempo reale della configurazione della rete o del carico. Per altre informazioni sui diversi metodi di routing del traffico forniti da Gestione traffico di Azure, vedere [Informazioni sui metodi di routing del traffico di Gestione Traffico](traffic-manager-load-balancing-methods.md).
+Per eseguire il routing del traffico per i servizi cloud e siti Web (endpoint) che si trovano in diversi data center (noti anche come aree) in tutto il mondo, è possibile indirizzare il traffico in ingresso proveniente dal client che effettua la richiesta all'endpoint con latenza più bassa. In genere, il data center con latenza più bassa corrisponde a quello più vicino in termini di distanza geografica. Il metodo di routing del traffico basato sulle prestazioni consente di distribuire il carico in base alla latenza più bassa, ma non può tenere conto delle modifiche in tempo reale della configurazione della rete o del carico. Per altre informazioni sui diversi metodi di routing del traffico forniti da Gestione traffico di Azure, vedere [Metodi di routing di Gestione traffico](traffic-manager-routing-methods.md).
 
 ## Eseguire il routing del traffico in base alla latenza più bassa in un set di endpoint:
 
@@ -49,4 +49,4 @@ Per eseguire il routing del traffico per i servizi cloud e siti Web (endpoint) c
 [Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Catalogo dati di Azure - Informazioni sul Catalogo dati"
-   description="Panoramica del Catalogo dati di Microsoft Azure, incluse le funzionalità e i problemi per cui è stato progettato. Il Catalogo dati di Azure offre funzionalità che consentono a qualsiasi utente, analisti, ricercatori di dati per gli e sviluppatori, di registrare, individuare, comprendere e utilizzare le origini dati."
+   pageTitle="Che cos'è Azure Data Catalog? | Microsoft Azure"
+   description="Questo articolo offre una panoramica di Microsoft Azure Data Catalog, incluse le funzionalità e i problemi per cui è stato progettato. Il Catalogo dati di Azure offre funzionalità che consentono a qualsiasi utente, analisti, ricercatori di dati per gli e sviluppatori, di registrare, individuare, comprendere e utilizzare le origini dati."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Che cos'è il Catalogo dei dati di Azure?
@@ -62,9 +62,8 @@ Il processo di registrazione prevede tre passaggi di base:
 2.	Selezionare gli oggetti da registrare - l'utente seleziona gli oggetti nel percorso specificato che deve essere registrato con il **Catalogo dati di Azure**. Potrebbe trattarsi di un set completo di tabelle in tutti i database nel server o un sottoinsieme di tabelle e viste specificamente selezionato.
 3.	Completare la registrazione - l'utente completa il processo e lo strumento di registrazione di origine dati consente di estrarre i metadati strutturali dall'origine dati e invia tali metadati al servizio cloud del **Catalogo dati di Azure**.
 
-> [AZURE.NOTE] L'anteprima di **Catalogo dati di Azure** supporta attualmente le origini dati e i tipi di asset seguenti: [Origini dati supportate da Catalogo dati di Azure](data-catalog-dsr.md).
+> [AZURE.NOTE] Per visualizzare un elenco dei tipi di origine dati e di asset supportati da **Azure Data Catalog**, vedere: [Origini dati supportate da Azure Data Catalog](data-catalog-dsr.md).
 
-Ulteriori origini dati e tipi di asset verranno aggiunti durante l’anteprima del **Catalogo dati di Azure**.
 
 > [AZURE.IMPORTANT]La registrazione di un'origine dati nel **Catalogo dati di Azure** non copia i dati dall'origine dati, a meno che non si selezioni "Includi anteprima" nello strumento di registrazione di origine dati. Registrazione copia i metadati dell'origine dati, non i dati. Esempi di metadati includono i nomi delle tabelle e altri oggetti origine dati, insieme ai tipi di dati e i nomi delle colonne e altri attributi di origine dati. I metadati includono inoltre il percorso di origine dati, in modo che gli utenti che trovano l’origine dati con il **Catalogo dati di Azure** potranno connettersi all'origine dati. Se si seleziona "Includi anteprima", lo strumento di registrazione di origine dati copierà nel **Catalogo dati di Azure** un piccolo set di record che verrà visualizzato dagli utenti che individuano l'origine dati nel portale del **Catalogo dati di Azure**.
 
@@ -110,4 +109,4 @@ L'obiettivo principale dell'individuazione dati è trovare i dati necessari e us
 1.	Per le applicazioni client che sono supportate direttamente dal **Catalogo dati di Azure**, gli utenti possono fare clic sul menu **Apri in** nel riquadro dell'origine dati disponibile nel portale. L'applicazione client verrà quindi avviata con una connessione all'origine dati selezionata.
 2.	Per tutte le applicazioni client, gli utenti possono utilizzare le informazioni di connessione visualizzate nel riquadro proprietà per un'origine dati selezionata. Queste informazioni sono inclusi tutti i dettagli, quali nome del server, nome del database e nome dell'oggetto, necessari per connettersi ai dati e possono essere copiate in esperienza di connessione dello strumento client. Se sono stati forniti i dettagli di accesso richiesti per un'origine dati, verranno visualizzati accanto ai dettagli della connessione.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

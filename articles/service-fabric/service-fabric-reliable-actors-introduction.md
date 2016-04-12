@@ -55,9 +55,11 @@ public class CalculatorActor : StatelessActor, ICalculatorActor
 
 Poiché le chiamate ai metodi e le relative risposte risultano nelle richieste di rete eseguite nel cluster, gli argomenti e i tipi di risultati delle attività restituite devono essere serializzabili dalla piattaforma. In particolare, devono essere[contratto dati serializzabili](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-> [AZURE.TIP]Il runtime di Service Fabric Actors emette alcuni [eventi e contatori delle prestazioni relativi ai metodi degli attori](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters), che sono utili per la diagnostica e il monitoraggio delle prestazioni.
+> [AZURE.TIP] Il runtime di Service Fabric Actors emette alcuni [eventi e contatori delle prestazioni relativi ai metodi degli attori](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters), che sono utili per la diagnostica e il monitoraggio delle prestazioni.
 
-In merito ai metodi di interfaccia dell'attore, vale la pena ricordare le regole seguenti: - I metodi di interfaccia dell'attore non possono essere sottoposti a overload. - I metodi di interfaccia dell'attore non accettano parametri facoltativi, out o ref.
+Vale la pena ricordare le regole seguenti relative ai metodi di interfaccia dell'attore:
+- I metodi di interfaccia dell'attore non possono essere sottoposti a overload.
+- I metodi di interfaccia dell'attore non accettano parametri facoltativi, out o ref.
 
 ## Comunicazione tra attori
 ### Proxy dell'attore
@@ -115,7 +117,7 @@ Per impostazione predefinita, il runtime di Actors consente la reentrancy. In al
 
 Il runtime di Actors fornisce queste garanzie di concorrenza nelle situazioni in cui controlla le chiamate di questi metodi, ad esempio per le chiamate di metodi eseguite in risposta a una richiesta client e per i callback di promemoria e timer. Tuttavia, se il codice dell'attore richiama direttamente questi metodi al di fuori dei meccanismi forniti dal runtime di Actors, il runtime non può offrire alcuna garanzia di concorrenza. Ad esempio, se il metodo viene richiamato nel contesto di un'attività non associata all'attività restituita dai metodi dell'attore oppure se viene richiamato da un thread che l'attore crea in modo autonomo, il runtime non può fornire garanzie di concorrenza. Pertanto, per eseguire operazioni in background, gli attori devono usare specifici [timer e promemoria](service-fabric-reliable-actors-timers-reminders.md) che rispettano la concorrenza basata su turni.
 
-> [AZURE.TIP]Il runtime di Service Fabric Actors emette alcuni [eventi e contatori delle prestazioni relativi alla concorrenza](service-fabric-reliable-actors-diagnostics.md#concurrency-events-and-performance-counters), che sono utili per la diagnostica e il monitoraggio delle prestazioni.
+> [AZURE.TIP] Il runtime di Service Fabric Actors emette alcuni [eventi e contatori delle prestazioni relativi alla concorrenza](service-fabric-reliable-actors-diagnostics.md#concurrency-events-and-performance-counters), che sono utili per la diagnostica e il monitoraggio delle prestazioni.
 
 ## Gestione dello stato degli attori
 Service Fabric consente di creare attori con o senza stato.
@@ -153,14 +155,14 @@ class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 
 Durante le operazioni di garbage collection e failover, lo stato dell'attore viene mantenuto se è stato salvato su disco e replicato in più nodi del cluster. Come per gli argomenti del metodo e i valori restituiti, il tipo di stato dell'attore deve essere quindi [serializzabile in base al contratto dati](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-> [AZURE.NOTE]Per altre informazioni sulle modalità di definizione delle interfacce e dei tipi di stato degli attori, vedere [Note sulla serializzazione dei tipi di Reliable Actors](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+> [AZURE.NOTE] Per altre informazioni sulle modalità di definizione delle interfacce e dei tipi di stato degli attori, vedere [Note sulla serializzazione dei tipi di Reliable Actors](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
 #### Provider dello stato degli attori
-I servizi di archiviazione e recupero dello stato vengono forniti da un provider di stato degli attori. I provider di stato possono essere configurati per singolo attore o per tutti gli attori all'interno di un assembly in base a un attributo specifico del provider di stato. Nel momento in cui viene attivato un attore, ne viene caricato lo stato in memoria. Quando un metodo dell'attore viene completato, il runtime di Actors salva automaticamente lo stato modificato chiamando un metodo sul provider di stato. Se si verifica un errore durante il salvataggio, il runtime di Actors crea una nuova istanza dell'attore e carica l'ultimo stato coerente dal provider di stato.
+I servizi di archiviazione e recupero dello stato vengono forniti da un provider di stato degli attori. I provider di stato possono essere configurati per singolo attore o per tutti gli attori all'interno di un assembly in base a un attributo specifico del provider di stato. Nel momento in cui viene attivato un attore, ne viene caricato lo stato in memoria. Quando un metodo dell'attore viene completato, il runtime di Actors salva automaticamente lo stato modificato chiamando un metodo sul provider di stato. Se si verifica un errore durante il **salvataggio**, il runtime di Actors crea una nuova istanza dell'attore e carica l'ultimo stato coerente dal provider di stato.
 
 Per impostazione predefinita, gli attori con stato usano il provider di stato attore per l'archivio chiave-valore, che si basa sull'archivio chiave-valore distribuito della piattaforma di Service Fabric. Per altre informazioni, vedere l'argomento relativo alla [scelta del provider di stato](service-fabric-reliable-actors-platform.md#actor-state-provider-choices).
 
-> [AZURE.TIP]Il runtime di Actors emette alcuni [eventi e contatori delle prestazioni relativi alla gestione dello stato degli attori](service-fabric-reliable-actors-diagnostics.md#actor-state-management-events-and-performance-counters), utili per la diagnostica e il monitoraggio delle prestazioni.
+> [AZURE.TIP] Il runtime di Actors emette alcuni [eventi e contatori delle prestazioni relativi alla gestione dello stato degli attori](service-fabric-reliable-actors-diagnostics.md#actor-state-management-events-and-performance-counters), utili per la diagnostica e il monitoraggio delle prestazioni.
 
 #### Metodi di sola lettura
 Per impostazione predefinita, il runtime di Actors salva lo stato di un attore dopo il completamento di una chiamata al metodo o al callback di timer o promemoria dell'attore. Non sono consentite altre chiamate dell'attore finché il salvataggio dello stato non è completato.
@@ -197,4 +199,4 @@ I callback di timer possono essere contrassegnati in modo analogo con l'attribut
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

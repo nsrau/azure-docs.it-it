@@ -70,7 +70,7 @@ Su Internet sono disponibili molte pagine che spiegano come eseguire questa oper
 È possibile usare Java per [creare un certificato](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
 ### Linux
-[Questo](../virtual-machines/virtual-machines-linux-use-ssh-key.md) articolo descrive come creare certificati tramite SSH.
+[Questo](../virtual-machines/virtual-machines-linux-ssh-from-linux.md) articolo descrive come creare certificati tramite SSH.
 
 ## Passaggi successivi
 
@@ -80,4 +80,4 @@ Caricare il [certificato dell'API di gestione](../azure-api-management-certs.md)
 
 >[AZURE.NOTE] Il portale di Azure non usa i certificati di gestione per accedere all'API, ma usa invece gli account utente.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

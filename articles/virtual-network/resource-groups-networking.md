@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Provider di risorse di rete
@@ -254,26 +254,14 @@ Il modello di esempio precedente usa la rete virtuale e le risorse della subnet.
 ![Distribuzione del modello di esempio](./media/resource-groups-networking/Figure6.png)
 
 
-## Vedere anche
-
-[Riferimento all'API per le funzionalità di rete di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-
-[Riferimento ad Azure PowerShell per le funzionalità di rete](https://msdn.microsoft.com/library/azure/mt163510.aspx)
+## Passaggi successivi
 
 [Linguaggio del modello di Gestione risorse di Azure](../resource-group-authoring-templates.md)
 
 [Rete di Azure: modelli di uso comune](https://github.com/Azure/azure-quickstart-templates)
 
-[Provider di risorse di calcolo](../virtual-machines-azurerm-versus-azuresm)
+[Provider di risorse di calcolo](../virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-[Panoramica di Gestione risorse di Azure](../resource-group-overview)
+[Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md)
 
-[Controllo degli accessi in base al ruolo in Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn906885.aspx)
-
-[Uso dei tag in Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn848368.aspx)
-
-[Distribuzioni modello](https://msdn.microsoft.com/library/azure/dn790549.aspx)
-
-oggi
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

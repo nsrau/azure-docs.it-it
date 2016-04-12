@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introduzione a Data factory di Azure"
-	description="Questa esercitazione mostra come creare una pipeline di dati di esempio che trasforma i dati usando Azure HDInsight."
+	pageTitle="Creare la prima data factory | Microsoft Azure"
+	description="Questa esercitazione mostra come creare una data factory con una pipeline di dati che trasforma i dati usando Azure HDInsight."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="12/18/2015"
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# Introduzione a Data factory di Azure
+# Esercitazione: Creare la prima data factory (panoramica)
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md)
+- [Con l'editor di Data factory](data-factory-build-your-first-pipeline-using-editor.md)
+- [Tramite PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Con Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Con il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 
 Questo articolo consente di iniziare a compilare la prima Data factory di Azure.
 
@@ -222,4 +222,4 @@ A questo punto è possibile iniziare l'esercitazione. Fare clic su una delle sch
 - Visual Studio
 - Modelli di Gestione risorse di Azure 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

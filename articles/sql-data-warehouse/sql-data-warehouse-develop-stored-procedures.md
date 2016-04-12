@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Stored procedure in SQL Data Warehouse 
+# Stored procedure in SQL Data Warehouse
 
 SQL Data Warehouse supporta molte delle funzionalità Transact-SQL disponibili in SQL Server. Ancora più importanti sono le funzionalità di scalabilità orizzontale specifiche, che si useranno per massimizzare le prestazioni della soluzione.
 
@@ -28,7 +28,7 @@ Questo articolo illustra come implementare stored procedure in SQL Data Warehous
 Le stored procedure sono un ottimo modo per incapsulare il codice SQL, archiviandolo vicino i dati nel data warehouse. Incapsulando il codice in unità gestibili, stored procedure consentono agli sviluppatori di modularizzare le soluzioni, rendendo possibile un maggiore riutilizzo del codice. Ogni stored procedure può anche accettare parametri per essere ancora più flessibile.
 
 SQL Data Warehouse fornisce un'implementazione semplificata e ottimizzata delle stored procedure. La differenza principale rispetto a SQL Server è che la stored procedure non è codice precompilato. Nei data warehouse si è in genere meno preoccupati del tempo di compilazione. È più importante che il codice della stored procedure sia ottimizzato nel modo corretto quando si lavora con grandi volumi di dati. L'obiettivo consiste nel risparmiare ore, minuti e secondi, non millisecondi. È quindi più utile pensare alle stored procedure come contenitori per la logica di SQL.
- 
+
 Quando SQL Data Warehouse esegue la stored procedure, le istruzioni SQL vengono analizzate, convertite e ottimizzate in fase di esecuzione. Durante questo processo, ogni istruzione viene convertita in query distribuite. Il codice SQL effettivamente eseguito sui dati è diverso dalla query inviata.
 
 ## Annidamento di stored procedure
@@ -38,16 +38,19 @@ SQL Data Warehouse supporta un massimo di 8 livelli di annidamento. Questo compo
 
 La chiamata alla stored procedure di livello superiore equivale al livello di annidamento 1.
 
-```
+```sql
 EXEC prc_nesting
-``` 
-Se la stored procedure esegue anche un'altra chiamata EXEC, passerà al livello di annidamento 2 ```
+```
+Se la stored procedure effettua anche un'altra chiamata a EXEC, il livello di annidamento passerà a 2.
+```sql
 CREATE PROCEDURE prc_nesting
 AS
 EXEC prc_nesting_2  -- This call is nest level 2
 GO
 EXEC prc_nesting
-``` Se la seconda stored procedure esegue quindi codice SQL dinamico, passerà al livello di annidamento 3 ```
+```
+Se la seconda procedura esegue quindi alcune istruzioni SQL dinamiche, il livello di annidamento passerà a 3.
+```sql
 CREATE PROCEDURE prc_nesting_2
 AS
 EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2
@@ -94,4 +97,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

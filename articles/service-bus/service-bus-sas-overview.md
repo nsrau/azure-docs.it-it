@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Panoramica delle firme di accesso condiviso | Microsoft Azure"
-   description="Quali sono le firme di accesso condiviso, come funzionano e come utilizzarle dal nodo, da PHP e da C#."
-   services="service-bus,event-hubs"
-   documentationCenter="na"
-   authors="djrosanova"
-   manager="timlt"
-   editor=""/>
+    pageTitle="Panoramica delle firme di accesso condiviso | Microsoft Azure"
+    description="Quali sono le firme di accesso condiviso, come funzionano e come utilizzarle dal nodo, da PHP e da C#."
+    services="service-bus,event-hubs"
+    documentationCenter="na"
+    authors="djrosanova"
+    manager="timlt"
+    editor=""/>
 
 <tags
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/09/2015"
-   ms.author="darosa"/>
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="darosa;sethm"/>
 
 # firme di accesso condiviso
 
@@ -24,7 +24,7 @@
 
 Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. SAS è un meccanismo estremamente efficace utilizzato da tutti i servizi del bus di servizio. Nell’uso effettivo, SAS presenta due componenti: un *criterio di accesso condiviso* e una *firma di accesso condiviso* (spesso chiamata *token*).
 
-Per ulteriori informazioni sulle firme di accesso condiviso con il bus di servizio vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](service-bus-shared-access-signature-authentication.md).
+Per altre informazioni sulle firme di accesso condiviso con il bus di servizio, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](service-bus-shared-access-signature-authentication.md).
 
 ## Criterio di accesso condiviso
 
@@ -60,7 +60,7 @@ I valori non hash si trovano nella stringa **SharedAccessSignature** per cui il 
 
 ## Generazione di una firma da un criterio
 
-Come si esegue effettivamente questa operazione nel codice? Di seguito vengono esaminate alcune di queste operazioni.
+Come si esegue effettivamente questa operazione nel codice? Di seguito vengono esaminate alcune possibilità.
 
 ### NodeJS
 
@@ -182,11 +182,11 @@ Se un token SAS viene assegnato a un mittente o ad un client, questi ultimi non 
 
 ## Uso della firma di accesso condiviso (a livello AMQP)
 
-Nella sezione precedente, è stato illustrato come utilizzare il token SAS con una richiesta HTTP POST per l'invio di dati per il Bus di servizio. Come sapete, è possibile accedere a Bus di servizio utilizzando il protocollo AMQP (Advanced Message Queue Protocol) che è il protocollo principale e preferito da utilizzare per motivi di prestazioni in molti scenari. Nel documento seguente è descritto l'utilizzo di token della firma di accesso condiviso con [AMQP Claim-Based Security versione 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) che è in fase di bozza dal 2013, ma che è supportato da Azure anche oggi.
+Nella sezione precedente, è stato illustrato come utilizzare il token SAS con una richiesta HTTP POST per l'invio di dati per il Bus di servizio. Com'è noto, è possibile accedere al bus di servizio usando il protocollo AMQP (Advanced Message Queuing Protocol), ovvero il protocollo preferito da usare per motivi di prestazioni in molti scenari. L'uso del token SAS con AMQP viene descritto nel documento [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) (Sicurezza basata sulle attestazioni AMQP versione 1.0), in fase di bozza dal 2013 ma attualmente supportato da Azure.
 
-Prima di iniziare a inviare dati al Bus di servizio, il server di pubblicazione deve inviare il token di firma di accesso condiviso all'interno di un messaggio AMQP a un nodo AMQP ben definito denominato **"$cbs"** (può essere visualizzato come una coda "speciale" utilizzata dal servizio per acquisire e convalidare tutti i token di firma di accesso condiviso). Il server di pubblicazione deve specificare il campo **"ReplyTo"** all'interno del messaggio AMQP; si tratta del nodo di cui il servizio invierà una risposta al server di pubblicazione con il risultato della convalida del token (un modello di richiesta/risposta semplice tra server di pubblicazione e il servizio). Questo nodo risposta viene creato al momento in quanto "creazione dinamica di nodo remoto" come descritto nella specifica di AMQP 1.0. Dopo avere verificato che il token di firma di accesso condiviso è valido, il server di pubblicazione può andare avanti e iniziare a inviare dati al servizio.
+Prima di iniziare a inviare dati al bus di servizio, il server di pubblicazione deve inviare il token SAS all'interno di un messaggio AMQP a un nodo AMQP ben definito denominato **"$cbs"** (può essere visualizzato come una coda "speciale" usata dal servizio per acquisire e convalidare tutti i token SAS). Il server di pubblicazione deve specificare il campo **"ReplyTo"** all'interno del messaggio AMQP; si tratta del nodo in cui il servizio invia una risposta al server di pubblicazione con il risultato della convalida del token (un modello di richiesta/risposta semplice tra il server di pubblicazione e il servizio). Questo nodo risposta viene creato al momento in quanto "creazione dinamica di nodo remoto" come descritto nella specifica di AMQP 1.0. Dopo avere verificato che il token di firma di accesso condiviso è valido, il server di pubblicazione può andare avanti e iniziare a inviare dati al servizio.
 
-I passaggi seguenti illustreranno come inviare il token della firma di accesso condiviso con protocollo AMQP utilizzando la libreria [AMQP.Net Lite](http://amqpnetlite.codeplex.com) utile se non è possibile utilizzare il SDK del Bus di servizio ufficiale (ad esempio su WinRT, .Net Compact Framework, .Net Micro Framework e Mono) che si sviluppa in C & #35;. Certamente, questa libreria è utile per comprendere come funziona la protezione basata sui reclami a livello AMQP come si è visto funzionare a livello HTTP (con una richiesta HTTP POST e il token SAS inviati all'interno dell'intestazione "Autorizzazione"). Tuttavia, nessun problema. Se non sono necessarie tali informazioni approfondite sui AMQP, è possibile utilizzare il bus di servizio ufficiale SDK con le applicazioni .Net Framework che eseguiranno il tutto automaticamente o la libreria [Azure SB Lite](http://azuresblite.codeplex.com) per tutte le altre piattaforme (vedere sopra).
+La procedura seguente illustra come inviare il token SAS con il protocollo AMQP usando la libreria [AMQP.Net Lite](https://github.com/Azure/amqpnetlite). Questo è utile se non è possibile usare l'SDK ufficiale del bus di servizio (ad esempio su WinRT, .Net Compact Framework, .Net Micro Framework e Mono) che si sviluppa in C&#35;. Naturalmente, questa libreria è utile per comprendere il funzionamento della sicurezza basata sulle attestazioni a livello AMQP, dopo aver visto il funzionamento a livello HTTP (con una richiesta HTTP POST e il token SAS inviati all'interno dell'intestazione "Authorization"). Se non sono necessarie tali informazioni approfondite su AMQP, è possibile usare l'SDK ufficiale del bus di servizio con le applicazioni .Net Framework che eseguiranno l'operazione in modo automatico.
 
 ### C&#35;
 
@@ -239,13 +239,15 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-Il metodo precedente *PutCbsToken()* riceve la *connessione* (connessione AMQP istanza della classe fornita dalla libreria .Net Lite AMQP) che rappresenta la connessione TCP al servizio e il parametro *sasToken* che è la firma di accesso condiviso. Nota: è importante che la connessione venga creata con il **meccanismo di autenticazione SASL impostato su ESTERNO** (e non il normale PIANO predefinito con nome utente e password utilizzati quando non è necessario inviare il token SAS).
+Il metodo `PutCbsToken()` riceve la *connessione* (connessione AMQP istanza di classe offerta dalla [libreria AMQP .NET Lite](https://github.com/Azure/amqpnetlite)) che rappresenta la connessione TCP al servizio e il parametro *sasToken*, ovvero il token SAS da inviare.
 
-Successivamente il server di pubblicazione crea due collegamenti AMQP per inviare il token SAS e ricevere la risposta (risultato di convalida del token) dal servizio.
+> [AZURE.NOTE] È importante che la connessione venga creata con il **meccanismo di autenticazione SASL impostato su EXTERNAL** (e non il PLAIN predefinito con nome utente e password usato quando non è necessario inviare il token SAS).
 
-Il messaggio AMQP è complesso con una serie di proprietà e altre informazioni oltre al semplice messaggio. Il token SAS viene inserito come corpo del messaggio (tramite il relativo costruttore). La proprietà **"ReplyTo"** è impostata per il nome del nodo per la ricezione del risultato della convalida sul collegamento ricevitore (è possibile modificare il nome come si desidera e verrà creato in modo dinamico dal servizio). Le ultime tre proprietà applicazione/personalizzato vengono utilizzate dal servizio per comprendere il tipo di operazione che è necessario eseguire. Come descritto nella specifica di bozza CBS devono essere il **nome dell'operazione** (quindi "put-token"), il **tipo di token** inserito (in modo "servicebus.windows.net:sastoken") e infine il **"nome" del gruppo di destinatari** a cui viene applicato il token (l'intera entità).
+Successivamente, il server di pubblicazione crea due collegamenti AMQP per inviare il token SAS e ricevere la risposta (risultato di convalida del token) dal servizio.
 
-Dopo aver inviato il token SAS sul collegamento mittente, il server di pubblicazione deve leggere la risposta sul collegamento ricevitore. La risposta è un semplice messaggio AMQP con proprietà dell'applicazione denominate **"codice di stato"** che può contenere gli stessi valori di un codice di stato HTTP.
+Il messaggio AMQP contiene un insieme di proprietà e altre informazioni rispetto a un semplice messaggio. Il token SAS rappresenta il corpo del messaggio (tramite il relativo costruttore). La proprietà **"ReplyTo"** è impostata sul nome del nodo per la ricezione del risultato di convalida sul collegamento ricevitore (se si desidera modificare il nome, è possibile farlo e verrà creato in modo dinamico dal servizio). Le ultime tre proprietà personalizzate/relative all'applicazione vengono usate dal servizio per indicare quale tipologia di operazione è necessario eseguire. Come descritto nella bozza di specifica CBS, devono essere il **nome dell'operazione** ("put-token"), il **tipo di token** (in questo caso, "servicebus.windows.net:sastoken") e il **"nome" del gruppo di destinatari** a cui viene applicato il token (l'intera entità).
+
+Dopo aver inviato il token SAS sul collegamento mittente, il server di pubblicazione deve leggere la risposta sul collegamento ricevitore. La risposta è un semplice messaggio AMQP con una proprietà dell'applicazione denominata **"status-code"** che può contenere gli stessi valori di un codice di stato HTTP.
 
 ## Passaggi successivi
 
@@ -257,4 +259,4 @@ Ulteriori esempi di firma di accesso condiviso in c# e Java Script sono in [ques
 
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

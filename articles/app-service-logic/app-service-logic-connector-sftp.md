@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="sameerch"/>
 
 # Uso del connettore SFTP e aggiunta all'app per la logica
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API SFTP](../connectors/create-api-sftp.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API SFTP](../connectors/connectors-create-api-sftp.md).
 
 Usare il connettore SFTP per spostare dati da e verso un server SFTP. È possibile scaricare, caricare ed elencare file da e verso un server SFTP.
 
@@ -58,7 +58,7 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SFTP come tr
 
 5.	È ora possibile usare il connettore SFTP nel flusso. È possibile usare il file recuperato dal trigger SFTP ("TriggerOnFileAvailable") in altre azioni del flusso.
 
-	> [AZURE.IMPORTANT]Dopo aver elaborato il file recuperato, il trigger SFTP "TriggerOnFileAvailable" lo elimina.
+	> [AZURE.IMPORTANT] Dopo aver elaborato il file recuperato, il trigger SFTP "TriggerOnFileAvailable" lo elimina.
 
 6.	Configurare le proprietà di input per il trigger SFTP nel modo indicato di seguito:
 
@@ -78,7 +78,7 @@ Dopo aver creato l'app per le API, è possibile usare il connettore SFTP come tr
 	- **File Path**: specificare il percorso del file da caricare.
 	- **Overwrite**: specificare "true" per sovrascrivere il file, se esiste già.
 	- ****Append If Exists**: specificare "true" o "false". Se il parametro è impostato su "true", i dati vengono aggiunti al file, se esistente. Se impostato su "false", il file, se esistente, viene sovrascritto.
-	- **Temporary Folder**: se specificato, l'adattatore caricherà il file in 'Temporary Folder Path'. Al termine del caricamento, il file verrà spostato in 'Folder Path'. Per garantire che l'operazione di spostamento sia atomica, Temporary Folder Path deve trovarsi nello stesso disco fisico di Folder Path. È possibile usare Temporary Folder solo quando la proprietà Aggiungi se esiste è disabilitata.
+- **Temporary Folder**: se specificato, l'adattatore caricherà il file in 'Temporary Folder Path'. Al termine del caricamento, il file verrà spostato in 'Folder Path'. Per garantire che l'operazione di spostamento sia atomica, Temporary Folder Path deve trovarsi nello stesso disco fisico di Folder Path. È possibile usare Temporary Folder solo quando la proprietà Aggiungi se esiste è disabilitata.
 
 	![][11]  
 	![][12]
@@ -107,4 +107,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="02/22/2016"
 	ms.author="robmcm"/>
 
 # Come utilizzare il plug-in slave Azure con il server per l'integrazione continua Hudson
@@ -42,7 +42,7 @@ Un profilo di sottoscrizione, noto anche come impostazioni di pubblicazione, è 
 * L'ID sottoscrizione
 * Un certificato di gestione della sottoscrizione
 
-Tali elementi sono reperibili nel profilo di sottoscrizione. Se non si dispone di una copia del profilo di sottoscrizione, è possibile scaricarla da [qui](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0). Di seguito è riportato un esempio di un profilo di sottoscrizione.
+Tali elementi sono reperibili nel [profilo di sottoscrizione](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0). Di seguito è riportato un esempio di un profilo di sottoscrizione.
 
 	<?xml version="1.0" encoding="utf-8"?>
 
@@ -204,4 +204,4 @@ In questa sezione si creerà un'attività di Hudson che verrà eseguita in un no
 
 Hudson creerà quindi un nodo slave utilizzando il modello creato nella sezione precedente ed eseguirà lo script specificato nell'istruzione di compilazione di questa attività.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

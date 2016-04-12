@@ -1,29 +1,29 @@
-<properties 
-   pageTitle="Introduzione al controllo del database SQL Data Warehouse | Microsoft Azure" 
-   description="Introduzione al controllo del database SQL Data Warehouse" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="Introduzione al controllo del database SQL Data Warehouse | Microsoft Azure"
+   description="Introduzione al controllo del database SQL Data Warehouse"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-data-warehouse" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-data-warehouse"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
-# Introduzione al controllo del database SQL Data Warehouse 
+
+# Introduzione al controllo del database SQL Data Warehouse
 Il servizio di controllo di Azure SQL Data Warehouse tiene traccia degli eventi di database e scrive gli eventi controllati in un log di controllo nell'account di Archiviazione di Azure.
 
 Il controllo consente di agevolare la conformità alle normative, comprendere le attività del database e ottenere informazioni su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza.
 
 Gli strumenti di controllo abilitano e facilitano il rispetto degli standard di conformità, ma non garantiscono la conformità. Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Centro protezione Azure</a>.
 
-+ [Nozioni di base sul controllo del database] 
++ [Nozioni di base sul controllo del database]
 + [Configurare il controllo per il database]
 + [Analizzare i log di controllo e i report]
 
@@ -66,7 +66,7 @@ Prima di impostare il controllo verificare che si stia utilizzando un ["Client d
 	![][1]
 
 3. Nel pannello di configurazione del controllo, deselezionare innanzitutto la casella di controllo **Ereditare le impostazioni di controllo da Server**. In questo modo è possibile specificare le impostazioni per un determinato database.
-	
+
 	![][2]
 
 4. Successivamente, abilitare il controllo facendo clic sul pulsante **ON** .
@@ -103,7 +103,7 @@ Per istruzioni dettagliate sull'uso del modello di report, scaricare il document
 
 ##<a id="subheading-4">Procedure per l'uso in produzione</a>
 La descrizione in questa sezione fa riferimento alle schermate precedenti. È possibile usare il <a href="https://portal.azure.com" target="_blank">portale di Azure</a> o il <a href= "https://manage.windowsazure.com/" target="_bank">portale di Azure classico</a>.
- 
+
 
 ##<a id="subheading-5"></a>Rigenerazione delle chiavi di archiviazione
 
@@ -116,11 +116,11 @@ Durante la produzione è probabile che si aggiornino periodicamente le chiavi di
 3. Tornare al pannello di configurazione di controllo, cambiare **Chiave di accesso alle risorse di archiviazione** da *Secondaria* a *Primaria* e premere **SALVA**.
 
 4. Tornare all'interfaccia utente di archiviazione e **rigenerare** la *Chiave di accesso secondaria* (in preparazione al successivo ciclo di aggiornamento delle chiavi).
-  
+
 ##<a id="subheading-6"></a>Automazione
 Sono disponibili numerosi cmdlet di PowerShell che è possibile usare per configurare il controllo nel database SQL di Azure. Per accedere ai cmdlet di controllo, è necessario che PowerShell sia in esecuzione in modalità Gestione risorse di Azure.
 
-> [AZURE.NOTE]Il modulo [Gestione risorse di Azure](https://msdn.microsoft.com/library/dn654592.aspx) è al momento in anteprima. Potrebbe non fornire le stesse funzionalità di gestione del modulo di Azure.
+> [AZURE.NOTE] Il modulo [Gestione risorse di Azure](https://msdn.microsoft.com/library/dn654592.aspx) è al momento in anteprima. Potrebbe non fornire le stesse funzionalità di gestione del modulo di Azure.
 
 Dopo aver avviato la modalità Gestione risorse di Azure, eseguire `Get-Command *AzureSql*` per visualizzare l'elenco dei cmdlet disponibili.
 
@@ -141,4 +141,4 @@ Dopo aver avviato la modalità Gestione risorse di Azure, eseguire `Get-Command 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Panoramica delle app per le API" 
+	pageTitle="Introduzione alle app per le API | Microsoft Azure" 
 	description="Informazioni sui motivi per i quali il servizio app di Azure è la piattaforma migliore per lo sviluppo, la pubblicazione e l'hosting di API RESTful." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="03/23/2016" 
 	ms.author="tdykstra"/>
 
 # Panoramica delle app per le API
 
 Le app per le API sono uno dei quattro tipi di app offerti da [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
 
-![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
+![Tipi di app nel Servizio app di Azure](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-Il [servizio app](../app-service/app-service-value-prop-what-is.md) è una piattaforma completamente gestita che offre un set completo di funzionalità per scenari Web, mobili e di integrazione. Le app per le API nel servizio App offrono delle funzionalità che rendono più semplice creare, ospitare e utilizzare le API nel cloud e in locale. Distribuire la propria API come un'app per le API in Servizio app e trarre vantaggio dalla sicurezza di livello aziendale, dal controllo di accesso semplificato, dalla connettività ibrida, dalla generazione automatica di SDK e dalla perfetta integrazione con le [app per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+Il [servizio app](../app-service/app-service-value-prop-what-is.md) è una piattaforma completamente gestita per scenari Web, mobili e di integrazione. Le app per le API nel servizio App offrono delle funzionalità che rendono più semplice creare, ospitare e utilizzare le API nel cloud e in locale. Distribuire la propria API come un'app per le API in Servizio app e trarre vantaggio dalla sicurezza di livello aziendale, dal controllo di accesso semplificato, dalla connettività ibrida, dalla generazione automatica di SDK e dalla perfetta integrazione con le [app per la logica](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 ## Vantaggi delle app per le API
 
@@ -34,13 +34,22 @@ Le app per le API offrono le funzionalità seguenti:
 
 - **Integrazione con Visual Studio**: gli strumenti dedicati in Visual Studio semplificano il processo di creazione, distribuzione, utilizzo, debug e gestione delle app per le API. Per altre informazioni, vedere [Annuncio di Azure SDK 2.8.1 per Visual Studio](/blog/announcing-azure-sdk-2-8-1-for-net/).
 
-- **Integrazione con app per la logica**: le app per le API create possono essere utilizzate dalle [app per la logica del servizio app](../app-service-logic/app-service-logic-what-are-logic-apps.md). Per altre informazioni, vedere [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../app-service-logic/app-service-logic-custom-hosted-api.md). Per informazioni sulle modifiche in corso nelle modalità di integrazione di app per le API con app per la logica, vedere [App per le API del servizio app: modifiche apportate](app-service-api-whats-changed.md).
+- **Integrazione con app per la logica**: le app per le API create possono essere utilizzate dalle [app per la logica del servizio app](../app-service-logic/app-service-logic-what-are-logic-apps.md). Per altre informazioni, vedere [Uso dell'API personalizzata ospitata nel servizio app con le app per la logica](../app-service-logic/app-service-logic-custom-hosted-api.md) e [Nuova versione dello schema 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md).
 
 - **Uso dell'API esistente**: è possibile usare le API esistenti così come sono, senza modificarne il codice. Per sfruttare le funzionalità delle app per le API, è sufficiente distribuire il codice in un'app per le API. L'API può usare qualsiasi linguaggio o framework supportato dal servizio app, inclusi ASP.NET, C#, Java, PHP, Node. js e Python.
 
-Inoltre, le funzionalità offerte da App per le API, App Web e app per dispositivi mobili sono intercambiabili. Questo significa che un'istanza di App per le API può sfruttare i vantaggi delle funzionalità per il web e per lo sviluppo di dispositivi mobili e l'hosting offerto dalle app Web e dalle app per dispositivi mobili. È anche vero il contrario: ad esempio, è possibile usare un'app web per ospitare un'API e sfruttare comunque i vantaggi dei metadati di Swagger per CORS e per la generazione del codice client per l'accesso a browser tra domini. Per altre informazioni, vedere [Panoramica di App Web](../app-service-web/app-service-web-overview.md) e [Informazioni sulle app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md).
+Inoltre, un'app per le API può avvalersi delle funzionalità offerte dalle [app Web](../app-service-web/app-service-web-overview.md) e dalle [app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md). È anche vero il contrario: se si usa un'app Web o un’app per dispositivi mobili per ospitare un'API, questa può sfruttare i vantaggi di funzionalità delle app per le API come i metadati Swagger per la generazione di codice client e CORS per l'accesso browser tra domini. L’unica differenza fra i tre tipi di app (API, Web e mobile) è data dal nome e dall’icona con cui sono contraddistinte nel portale di Azure. Poiché tutti i tipi hanno le stesse funzioni, non è mai necessario cambiare un’app da un tipo all’altro per ottenere le funzioni richieste. In ogni caso modificare il tipo di un’app esistente è facile. Per altre informazioni, vedere **Modifica del tipo di app** in [Introduzione alle app per le API e ad ASP.NET nel servizio app di Azure](app-service-api-dotnet-get-started.md#optional-changing-an-app-type).
 
->[AZURE.NOTE]È possibile usare [Gestione API di Azure](../api-management/api-management-key-concepts.md) per controllare l'accesso client alle API ospitate dalle app per le API del servizio app. Anche se le app per le API forniscono servizi di autenticazione, non offrono altre funzionalità di gestione degli accessi offerte da Gestione API, ad esempio consolidamento di endpoint e limitazione delle richieste.
+## Aumento delle app per le API con Gestione API 
+
+Le app per le API e la [Gestione API di Azure](../api-management/api-management-key-concepts.md) sono servizi complementari:
+
+* Gestione API permette di gestire le API. I front-end di Gestione API vengono applicati su un'API per controllare e limitare l'utilizzo, modificare l'input e output, raggruppare diverse API in un'unica API e così via. Le API gestite possono essere ospitate in qualsiasi punto.
+* Le app per le api consentono l'hosting delle API. Questo servizio offre funzionalità che semplificano lo sviluppo e l'utilizzo delle API, ma non offre le funzionalità di monitoraggio, limitazione o consolidamento della Gestione API. 
+
+È possibile usare Gestione API per gestire le API ospitate dalle app per le API oppure usare le app per le API senza Gestione API.
+
+Gestione API e le app per le API talvolta offrono funzionalità simili. Ad esempio, entrambe permettono di automatizzare il supporto CORS. Quando i due servizi vengono usati insieme, per CORS si usa Gestione API perché funziona da front-end per le app per le API.
 
 ## Concetti delle app per le API <a id="concepts"></a>
 
@@ -51,10 +60,8 @@ Inoltre, le funzionalità offerte da App per le API, App Web e app per dispositi
 
 ## Introduzione
 
-Per iniziare a usare le app per le API, seguire l'esercitazione [Introduzione alle app per le API](app-service-api-dotnet-get-started.md).
+Per iniziare a usare le app per le API, seguire una delle esercitazioni [Introduzione alle app per le API](app-service-api-dotnet-get-started.md).
 
-Per visualizzare un elenco di problemi noti relativi alle app per le API, vedere [il post del forum sui problemi noti delle app per le API](https://social.msdn.microsoft.com/Forums/it-IT/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
+Per porre domande sulle app per le API, avviare un thread nel [forum sulle app per le API](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureAPIApps).
 
-Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -36,7 +36,7 @@ La procedura di installazione di Azure PowerShell 1.0 e versioni successive da W
 
 > [AZURE.NOTE] Se sono stati installati i moduli di Azure di PowerShell Gallery, il programma di installazione li rimuoverà automaticamente. per evitare che si crei confusione sui moduli installati e sul relativo percorso. I moduli di PowerShell Gallery vengono in genere installati in **%ProgramFiles%\\WindowsPowerShell\\Modules**. Il programma di installazione di WebPI, invece, installa i moduli di Azure in **%ProgramFiles%\\Microsoft SDKs\\Azure\\PowerShell**. Se viene caricata una dipendenza dal modulo durante la disinstallazione, **PowerShellGet** disinstalla i moduli e lascia file DLL bloccati e le relative cartelle. Se si verifica un errore durante l'installazione, rimuovere le cartelle Azure* nella cartella **%Programmi%\\WindowsPowerShell\\Modules**.
 
-Se Azure PowerShell è stato installato tramite PowerShell Gallery, ma si vuole invece usare l'installazione di WebPI, l'installazione di WebPI rimuoverà automaticamente i cmdlet installati dalla raccolta.
+Se Azure PowerShell è stato installato tramite PowerShell Gallery, ma si vuole invece usare l'installazione di WebPI, l'installazione di WebPI rimuoverà automaticamente i cmdlet installati da PowerShell Gallery.
 
 > [AZURE.NOTE] Durante l'installazione da WebPI si verifica un problema noto con **$env:PSModulePath** di PowerShell. Se il computer richiede il riavvio a causa di aggiornamenti di sistema o di altre installazioni, **$env:PSModulePath** potrebbe non includere il percorso in cui è installato Azure PowerShell. Per risolvere il problema, riavviare il computer.
 
@@ -59,7 +59,7 @@ Per installare Azure PowerShell 1.0 o versioni successive da PowerShell Gallery,
 
 ####Informazioni sui comandi
 
-- **Install-Module AzureRM** installa un modulo di bootstrap per i moduli AzureRM. Questo modulo contiene i cmdlet per aggiornare, disinstallare e importare i moduli AzureRM in modo sicuro e coerente. Il modulo AzureRM contiene un elenco di moduli e l'intervallo delle versioni (minima e massima) richieste per garantire che non vengano introdotte modifiche di rilievo per la versione principale di AzureRM. Per altre informazioni sul controllo delle versioni semantico, vedere [semver.org](http://semver.org). Ciò significa che è possibile creare cmdlet propri usando una versione specifica di AzureRM e avere la certezza che da nessuno dei moduli installati con il programma di avvio automatico verranno introdotte modifiche di rilievo.
+- **Install-Module AzureRM** installa un modulo di bootstrap per i moduli AzureRM. Questo modulo contiene i cmdlet per aggiornare, disinstallare e importare i moduli di AzureRM in modo sicuro e coerente. Il modulo AzureRM contiene un elenco di moduli e l'intervallo delle versioni (minima e massima) richieste per garantire che non vengano introdotte modifiche di rilievo per la versione principale di AzureRM. Per altre informazioni sul controllo delle versioni semantico, vedere [semver.org](http://semver.org). Ciò significa che è possibile creare cmdlet propri usando una versione specifica di AzureRM e avere la certezza che da nessuno dei moduli installati con il programma di avvio automatico verranno introdotte modifiche di rilievo.
 - **Install-AzureRM** installa tutti i moduli dichiarati nel modulo di bootstrap.
 - **Install-Module Azure** installa il modulo di Azure. Si tratta del modulo di gestione dei servizi di Azure PowerShell 0.9.x. Questo modulo non deve essere sottoposto a modifiche rilevanti e deve essere intercambiabile con la versione precedente del modulo di Azure.
 - **Import-AzureRM** importa tutti i moduli nell'elenco del modulo AzureRM, in cui sono indicati i moduli e le versioni. In questo modo i moduli di Azure PowerShell caricati rientrano nell'intervallo delle versioni richieste dal modulo AzureRM.
@@ -133,17 +133,17 @@ Accedere all'account aziendale o dell'istituto di istruzione:
 
 > [AZURE.NOTE] Questo metodo di accesso non interattivo funziona solo con un account aziendale o dell'istituto di istruzione. Un account aziendale o dell'istituto di istruzione è un utente che viene gestito dalla propria azienda o dal proprio istituto di istruzione e che viene definito nell'istanza di Azure Active Directory per tale azienda o istituto di istruzione. Se non si dispone di un account aziendale o dell'istituto di istruzione e si usa un account Microsoft per accedere alla sottoscrizione di Azure, è possibile crearne facilmente uno mediante la procedura seguente.
 
-> 1. Accedere al [portale di gestione di Azure](https://manage.windowsazure.com) e fare clic su **Active Directory**.
+> 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com) e fare clic su **Active Directory**.
 
 > 2. Se non esiste alcuna directory, selezionare **Create your directory** e specificare le informazioni richieste.
 
 > 3. Selezionare la directory e aggiungere un nuovo utente. Il nuovo utente può accedere usando un account aziendale o dell'istituto di istruzione. Durante la creazione dell'utente, verranno forniti un indirizzo di posta elettronica e una password provvisoria. Salvare queste informazioni perché verranno usate nel passaggio 5 seguente.
 
-> 4. Nel portale di gestione selezionare **Settings** e quindi **Administrators**. Selezionare **Add** e aggiungere il nuovo utente come co-amministratore. In questo modo l'account aziendale o dell'istituto di istruzione può gestire la sottoscrizione di Azure.
+> 4. Nel portale di Azure classico selezionare **Impostazioni** e quindi **Amministratori**. Selezionare **Add** e aggiungere il nuovo utente come co-amministratore. In questo modo l'account aziendale o dell'istituto di istruzione può gestire la sottoscrizione di Azure.
 
-> 5. Infine, disconnettersi dal portale di Azure e ripetere l'accesso con il nuovo account aziendale o dell'istituto di istruzione. La prima volta che si accede con questo account verrà richiesto di cambiare la password.
+> 5. Infine, disconnettersi dal portale di Azure classico ed eseguire di nuovo l'accesso con l'account aziendale o dell'istituto di istruzione. La prima volta che si accede con questo account verrà richiesto di cambiare la password.
 
-> Per altre informazioni sull'iscrizione a Microsoft Azure con un account aziendale o dell'istituto di istruzione, vedere [Iscrizione ad Azure come organizzazione](sign-up-organization.md).
+> Per altre informazioni sull'iscrizione a Microsoft Azure con un account aziendale o dell'istituto di istruzione, vedere [Iscrizione ad Azure come organizzazione](/active-directory/sign-up-organization.md).
 
 > Per altre informazioni su autenticazione e gestione delle sottoscrizioni in Azure, vedere [Gestire account, sottoscrizioni e ruoli amministrativi](http://go.microsoft.com/fwlink/?LinkId=324796).
 
@@ -178,4 +178,4 @@ Per informazioni di riferimento sui cmdlet, vedere [Informazioni di riferimento 
 
 Per script di esempio e istruzioni per imparare a usare gli script per la gestione di Azure, vedere lo [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=321940).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="03/22/2016"
    ms.author="joaoma" />
 
 
-# Che cos'è il servizio di bilanciamento del carico di Azure?
+# Panoramica del servizio di bilanciamento del carico
 
 Il servizio di bilanciamento del carico di Azure offre elevati livelli di disponibilità e prestazioni di rete per le applicazioni. Si tratta di un servizio di bilanciamento del carico di livello 4 (TCP, UDP), che distribuisce il traffico in ingresso tra istanze del servizio integre in macchine virtuali o servizi cloud definiti in un set di servizi di bilanciamento del carico.
 
@@ -121,6 +121,7 @@ A un set di macchine virtuali è possibile assegnare più di un indirizzo IP pub
 
 Gestione risorse di Azure è il nuovo framework di gestione dei servizi in Azure. Il servizio di bilanciamento del carico di Azure ora può essere gestito con API e strumenti basati su Gestione risorse di Azure. Per altre informazioni su Gestione risorse, vedere [Semplificazione di scenari IaaS con Gestione risorse di Azure](https://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/).
 
+[AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## Passaggi successivi
 
@@ -128,6 +129,6 @@ Gestione risorse di Azure è il nuovo framework di gestione dei servizi in Azure
 
 [Panoramica del bilanciamento del carico interno](load-balancer-internal-overview.md)
 
-[Introduzione alla creazione del servizio di bilanciamento del carico Internet](load-balancer-internet-getstarted.md)
+[Introduzione alla creazione del servizio di bilanciamento del carico Internet](load-balancer-get-started-internet-arm-ps.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -261,6 +261,27 @@ La visualizzazione diagramma con entrambe le attività nella stessa pipeline sar
 
 ![Concatenamento di attività nella stessa pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
+### Copia ordinata
+È possibile eseguire più operazioni di copia l'una dopo l'altra in modo sequenziale o ordinato. Si supponga di avere due attività di copia in una pipeline: CopyActivity1 e CopyActivity con i set di dati di input e output seguenti.
+
+CopyActivity1: Input: Dataset1 Output Dataset2
+
+CopyActivity2: Inputs: Dataset2 Output: Dataset4
+
+CopyActivity2 viene eseguita solo se l’esecuzione di CopyActivity1 è riuscita e Dataset2 è disponibile.
+
+Nell'esempio precedente CopyActivity2 può avere un input diverso, ad esempio Dataset3, ma sarà necessario specificare Dataset2 anche come input di CopyActivity2, in modo che l’attività non venga eseguita fino a quando CopyActivity1 non è stata completata. Ad esempio:
+
+CopyActivity1: Input: Dataset1 Output Dataset2
+
+CopyActivity2: Inputs: Dataset3, Dataset2 Output: Dataset4
+
+Quando si specificano più input, solo il primo set di dati di input viene usato per la copia dei dati e gli altri set di dati vengono usati come dipendenze. L'esecuzione di CopyActivity2 si avvia solo quando le seguenti condizioni sono soddisfatte:
+
+- L'esecuzione di CopyActivity2 è riuscita e Dataset2 è disponibile. Questo set di dati non sarà usato per la copia dei dati in Dataset4. La sua funzione è semplicemente quella di pianificare la dipendenza per CopyActivity2.   
+- Dataset3 è disponibile. Questo set di dati rappresenta i dati che vengono copiati nella destinazione.  
+
+
 
 ## Modellazione di set di dati con frequenze diverse
 
@@ -632,4 +653,4 @@ Analogamente ai set di dati prodotti dalla data factory, è necessario che le se
 
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

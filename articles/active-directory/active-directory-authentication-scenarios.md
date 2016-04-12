@@ -322,9 +322,11 @@ Quando l'applicazione nativa usa il proprio codice di autorizzazione per ottener
 ### Da applicazione Web ad API Web
 
 
-Questa sezione descrive un'applicazione Web che deve ottenere risorse da un'API Web. In questo scenario esistono due tipi di identità che l'applicazione Web può usare per autenticare e chiamare l'API Web: un'identità applicazione e un'identità utente delegato. Per il tipo di identità applicazione, questo scenario usa la concessione di credenziali client OAuth 2.0 per l'autenticazione come applicazione e l'accesso all'API Web. Quando si usa un'identità applicazione, l'API Web può solo rilevare la chiamata dell'applicazione Web, perché non riceve informazioni relative all'utente. Se l'applicazione riceve informazioni relative all'utente, queste vengono inviate tramite il protocollo applicativo e non sono firmate da Azure AD. L'API Web confida che l'applicazione Web abbia autenticato l'utente. Per questo motivo il modello è definito sottosistema attendibile.
+Questa sezione descrive un'applicazione Web che deve ottenere risorse da un'API Web. In questo scenario esistono due tipi di identità che l'applicazione Web può usare per autenticare e chiamare l'API Web: un'identità applicazione e un'identità utente delegato.
 
-Per il tipo di identità utente delegato, lo scenario può essere eseguito in due modi: OpenID Connect e concessione di codice di autorizzazione OAuth 2.0 con un client riservato. L'applicazione Web ottiene un token di accesso per l'utente, dimostrando all'API Web che l'utente è stato autenticato nell'applicazione Web e che l'applicazione Web è riuscita a ottenere un'identità utente delegato per chiamare l'API Web. Questo token di accesso viene inviato nella richiesta all'API Web, che autorizza l'utente e restituisce la risorsa desiderata.
+*Identità applicazione:* questo scenario usa la concessione di credenziali client OAuth 2.0 per l'autenticazione come applicazione e l'accesso all'API Web. Quando si usa un'identità applicazione, l'API Web può solo rilevare la chiamata dell'applicazione Web, perché non riceve informazioni relative all'utente. Se l'applicazione riceve informazioni relative all'utente, queste vengono inviate tramite il protocollo applicativo e non sono firmate da Azure AD. L'API Web confida che l'applicazione Web abbia autenticato l'utente. Per questo motivo il modello è definito sottosistema attendibile.
+
+*Identità utente delegato:* lo scenario può essere eseguito in due modi, ovvero OpenID Connect e concessione di codice di autorizzazione OAuth 2.0 con un client riservato. L'applicazione Web ottiene un token di accesso per l'utente, dimostrando all'API Web che l'utente è stato autenticato nell'applicazione Web e che l'applicazione Web è riuscita a ottenere un'identità utente delegato per chiamare l'API Web. Questo token di accesso viene inviato nella richiesta all'API Web, che autorizza l'utente e restituisce la risorsa desiderata.
 
 #### Diagramma
 
@@ -467,4 +469,4 @@ Quando la prima applicazione usa il proprio codice di autorizzazione per ottener
 
 [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

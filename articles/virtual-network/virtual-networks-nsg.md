@@ -40,12 +40,12 @@ Le regole dei gruppi di sicurezza di rete contengono le proprietà seguenti.
 |---|---|---|---|
 |**Nome**|Nome per la regola|Deve essere univoco nell'area<br/>Può contenere lettere, numeri, caratteri di sottolineatura, punti e segni meno<br/>Deve iniziare con una lettera o un numero<br/>Deve terminare con una lettera, un numero o un carattere di sottolineatura<br/>Può contenere fino a 80 caratteri|Se in un gruppo di sicurezza di rete ci sono più regole, assicurarsi di seguire una convenzione di denominazione che consenta di identificare la funzione della regola|
 |**Protocollo**|Protocollo per la regola|TCP, UDP o *|L'uso di * come protocollo include ICMP (solo traffico orizzontale destra-sinistra), oltre a UDP e TCP e può ridurre il numero di regole necessarie<br/>Al tempo stesso, l'uso di * potrebbe essere un approccio troppo ampio, quindi assicurarsi di usarlo solo quando è davvero necessario|
-|**Intervallo porte di origine**|Intervallo di porte di origine per la regola|Numero di porta singola da 1 a 65535, intervallo di porte (ad esempio, 100-2000) o * (per tutte le porte)|Cercare di usare il più possibile gli intervalli di porte per evitare di dover applicare più regole|
-|**Intervallo di porte di destinazione**|Intervallo di porte di destinazione per la regola|Numero di porta singola da 1 a 65535, intervallo di porte (ad esempio, 100-2000) o * (per tutte le porte)|Cercare di usare il più possibile gli intervalli di porte per evitare di dover applicare più regole|
-|**Prefisso dell'indirizzo di origine**|Prefisso o tag dell'indirizzo di origine per la regola|Indirizzo IP singolo (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#Default-Tags) o * (per tutti gli indirizzi)|È possibile usare intervalli, tag e * per ridurre il numero di regole|
-|**Prefisso dell’indirizzo di destinazione**|Prefisso o tag dell'indirizzo di destinazione per la regola|Indirizzo IP singolo (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#Default-Tags) o * (per tutti gli indirizzi)|È possibile usare intervalli, tag e * per ridurre il numero di regole|
+|**Intervallo porte di origine**|Intervallo di porte di origine per la regola|Numero di porta singola da 1 a 65535, intervallo di porte (ad esempio, 1-65635) o * (per tutte le porte)|Le porte di origine potrebbero essere temporanee. A meno che il programma client non usi una porta specifica, usare "*" nella maggior parte dei casi.<br/>Cercare di usare il più possibile gli intervalli di porte per evitare di dover applicare più regole<br/>Più porte o intervalli di porte non possono essere raggruppati da una virgola|
+|**Intervallo di porte di destinazione**|Intervallo di porte di destinazione per la regola|Numero di porta singola da 1 a 65535, intervallo di porte (ad esempio, 1-65535) o * (per tutte le porte)|Cercare di usare il più possibile gli intervalli di porte per evitare di dover applicare più regole<br/>Più porte o intervalli di porte non possono essere raggruppati da una virgola
+|**Prefisso dell'indirizzo di origine**|Prefisso o tag dell'indirizzo di origine per la regola|Indirizzo IP singolo (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#Default-Tags) o * (per tutti gli indirizzi)|È possibile usare intervalli, tag predefiniti e * per ridurre il numero di regole|
+|**Prefisso dell’indirizzo di destinazione**|Prefisso o tag dell'indirizzo di destinazione per la regola|Indirizzo IP singolo (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#Default-Tags) o * (per tutti gli indirizzi)|È possibile usare intervalli, tag predefiniti e * per ridurre il numero di regole|
 |**Direzione**|Direzione del traffico per la regola|in ingresso o in uscita|Le regole in ingresso e in uscita vengono elaborate separatamente, in base alla direzione|
-|**Priorità**|Le regole vengono controllate nell'ordine di priorità. Una volta che viene applicata una regola, non viene verificata la corrispondenza di altre regole.|Numero compreso tra 100 e 65535|È possibile creare regole che saltano le priorità a 100 per volta per ogni regola, lasciando spazio per inserire nuove regole tra quelle esistenti|
+|**Priorità**|Le regole vengono controllate nell'ordine di priorità. Una volta che viene applicata una regola, non viene verificata la corrispondenza di altre regole.|Numero compreso tra 100 e 4096|È possibile creare regole che saltano le priorità a 100 per volta per ogni regola, lasciando spazio per inserire nuove regole tra quelle esistenti|
 |**Accesso**|Tipo di accesso da applicare se la regola corrisponde|consentire o negare|Tenere presente che, se per un pacchetto non viene trovata una regola di consenso, il pacchetto viene rimosso|
 
 I gruppi di sicurezza di rete includono due tipi di regole: In ingresso e In uscita. La priorità per una regola deve essere univoca all'interno di ogni set.
@@ -98,14 +98,22 @@ Come illustrato dalle regole predefinite seguenti, il traffico che origina e ter
 
 - **Associazione di un gruppo di sicurezza di rete a una subnet (tutte le distribuzioni)**. Quando si associa un gruppo di sicurezza di rete a una subnet, le regole di accesso alla rete del gruppo di sicurezza di rete vengono applicate a tutte le risorse IaaS e PaaS nella subnet.
 
-È possibile associare gruppi di sicurezza di rete diversi a una VM (o a una scheda di interfaccia di rete, a seconda del modello di distribuzione) e alla subnet a cui è associata una scheda di interfaccia di rete o una VM. In questo caso, tutte le regole di accesso alla rete vengono applicate al traffico nell'ordine seguente:
+È possibile associare gruppi di sicurezza di rete diversi a una VM (o a una scheda di interfaccia di rete, a seconda del modello di distribuzione) e alla subnet a cui è associata una scheda di interfaccia di rete o una VM. In questo caso, tutte le regole di accesso alla rete vengono applicate al traffico in base alla priorità in ogni NSG, nell'ordine seguente:
 
 - **Traffico in ingresso**
-	1. NSG applicato alla subnet.
-	2. NSG applicato alla scheda di interfaccia di rete (Gestione risorse) o alla VM (classica).
+	1. NSG applicato alla subnet. 
+	
+        Se l'NSG della subnet ha una regola corrispondente per impedire il traffico, il pacchetto viene rilasciato qui.
+	2. NSG applicato alla scheda di interfaccia di rete (Gestione risorse) o alla VM (classica). 
+	   
+        Se l'NSG della macchina virtuale/scheda di interfaccia di rete ha una regola corrispondente per impedire il traffico, il pacchetto viene rilasciato nella macchina virtuale/scheda di interfaccia di rete, anche se l'NSG della subnet ha una regola corrispondente per consentire il traffico.
 - **Traffico in uscita**
-	1. NSG applicato alla scheda di interfaccia di rete (Gestione risorse) o alla VM (classica).
+	1. NSG applicato alla scheda di interfaccia di rete (Gestione risorse) o alla VM (classica). 
+	  
+        Se l'NSG della macchina virtuale/scheda di interfaccia di rete ha una regola corrispondente per impedire il traffico, il pacchetto viene rilasciato qui.
 	2. NSG applicato alla subnet.
+	   
+           Se l'NSG della subnet ha una regola corrispondente per impedire il traffico, il pacchetto viene rilasciato qui, anche se l'NSG della macchina virtuale/scheda di interfaccia di rete ha una regola corrispondente per consentire il traffico.
 
 ![Elenchi di controllo di accesso e gruppi di sicurezza di rete](./media/virtual-network-nsg-overview/figure2.png)
 
@@ -117,10 +125,10 @@ Come illustrato dalle regole predefinite seguenti, il traffico che origina e ter
 |Documentazione di distribuzione|Classico|Gestione risorse|
 |---|---|---|
 |Portale classico|![No][red]|![No][red]|
-|Portale di Azure|![No][red]|[]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal)![Si][green]|
-|PowerShell|[]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps)![Si][green]|[]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps)![Si][green]|
-|Azure CLI|[]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli)![Si][green]|[]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli)![Si][green]|
-|Modello ARM|![No][red]|[]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template)![Si][green]|
+|Portale di Azure|![Sì][green]|[![Sì][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal)|
+|PowerShell|[![Sì][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps)|[![Sì][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps)|
+|Interfaccia della riga di comando di Azure|[![Sì][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli)|[![Sì][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli)|
+|Modello ARM|![No][red]|[![Sì][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template)|
 
 |**Chiave**|![Sì][green]Supportato. Fare clic per visualizzare l'articolo.|![No][red]Non supportato.|
 |---|---|---|
@@ -133,7 +141,7 @@ Prima di implementare i gruppi di sicurezza di rete, è necessario rispondere al
 
 2. Le risorse verso/da cui si vuole filtrare il traffico sono connesse alle subnet nelle reti virtuali esistenti o verranno connesse a nuove reti virtuali o subnet?
  
-Per altre informazioni sulla pianificazione della sicurezza di rete in Azure, leggere le procedure consigliate in [ Servizi cloud Microsoft e sicurezza della rete](../best-practices-network-security.md).
+Per altre informazioni sulla pianificazione della sicurezza di rete in Azure, leggere le procedure consigliate in [Servizi cloud Microsoft e sicurezza della rete](../best-practices-network-security.md).
 
 ## Considerazioni sulla progettazione
 
@@ -165,7 +173,7 @@ Poiché i gruppi di sicurezza di rete possono essere applicati alle subnet, è p
 
 ### Traffico ICMP
 
-Le regole del gruppo di sicurezza di rete correnti consentono solo i protocolli *TCP* o *UDP*. Non esiste un tag specifico per *ICMP*. Il traffico ICMP è tuttavia consentito in una rete virtuale per impostazione predefinita tramite le regole della rete virtuale in ingresso che consentono il traffico da/verso qualsiasi porta e protocollo all'interno della rete virtuale.
+Le regole del gruppo di sicurezza di rete correnti consentono solo i protocolli *TCP* o *UDP*. Non esiste un tag specifico per *ICMP*. Il traffico ICMP è tuttavia consentito in una rete virtuale per impostazione predefinita tramite la regola della rete virtuale in ingresso, la regola predefinita 65500 in ingresso, che consente il traffico da/verso qualsiasi porta e protocollo all'interno della rete virtuale.
 
 ### Subnet
 
@@ -274,4 +282,4 @@ Poiché alcuni gruppi di sicurezza di rete devono essere associati a singole sch
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0323_2016-->

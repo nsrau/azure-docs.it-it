@@ -22,14 +22,14 @@
 I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti dipendono dal piano tariffario scelto per Ricerca di Azure: **gratuito**, **Basic** o **Standard**.
 
 - Il servizio **gratuito** è un servizio condiviso multi-tenant fornito con la sottoscrizione di Azure. È un'opzione senza costi aggiuntivi per i sottoscrittori che consente di provare il servizio prima di iscriversi per usare risorse dedicate. 
-- Il piano **Basic (anteprima)** fornisce risorse di elaborazione dedicate per carichi di lavoro di produzione di dimensioni ridotte. Questo livello, attualmente in anteprima, viene offerto a una [tariffa ridotta](https://azure.microsoft.com/pricing/details/search/).
-- Il piano **Standard** prevede computer dedicati usati solo dal servizio di un unico utente, con ulteriore capacità di elaborazione e archiviazione a ogni livello, inclusa la configurazione minima. Il servizio Standard è disponibile in due livelli (S1 ed S2). 
+- Il piano **Basic (anteprima)** fornisce risorse di elaborazione dedicate per carichi di lavoro di produzione di dimensioni ridotte. Questo piano, attualmente in anteprima, è disponibile al [50% durante il periodo di anteprima](https://azure.microsoft.com/pricing/details/search/).
+- Il piano **Standard** prevede computer dedicati con maggiore capacità di elaborazione e archiviazione a ogni livello, inclusa la configurazione minima. Il servizio Standard è disponibile in due livelli (S1 ed S2). 
+
+[Nel portale si può eseguire il provisioning](search-create-service-portal.md) di tutti i livelli tranne S2, che richiede un ticket di supporto. Inviare un messaggio di posta elettronica a azuresearch_contact@microsoft.com per iniziare a utilizzare S2.
 
 ## Limiti dei livelli
 
 [AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-all.md)]
-
-> [AZURE.NOTE] Il numero di query al secondo è variabile, in particolare per il servizio condiviso, poiché la velocità effettiva è basata sulla larghezza di banda disponibile e sulla concorrenza per le risorse di sistema. Le risorse di calcolo e di archiviazione di Azure che supportano il servizio condiviso vengono condivise da più sottoscrittori, pertanto il numero di query al secondo per la soluzione scelta varia a seconda del numero degli altri carichi di lavoro in esecuzione nello stesso momento. Al livello Standard è possibile stimare in modo più preciso il numero di query al secondo, perché si ha il controllo di un numero maggiore di parametri. Per indicazioni su come calcolare il numero di query al secondo per i carichi di lavoro, vedere la sezione relativa alle procedure consigliate in [Gestire la soluzione di ricerca](search-manage.md).
 
 ## Limiti della chiave API
 
@@ -53,4 +53,10 @@ Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponi
 
 <sup>1</sup> In Ricerca di Azure, il corpo di una richiesta è soggetto a un limite massimo di 16 MB, che impone un limite pratico ai contenuti di singoli campi o raccolte non vincolate dai limiti teorici. Per altre informazioni sulla composizione dei campi e sulle restrizioni, vedere [Tipi di dati supportati](https://msdn.microsoft.com/library/azure/dn798938.aspx).
 
-<!------HONumber=AcomDC_0302_2016-->
+## Query al secondo
+
+Anche se nella pagina relativa ai prezzi e nel grafico sui [Limiti dei livelli](#TierLimits) riportato sopra vengono indicate stime approssimative, è difficile determinare il numero effettivo di query al secondo, soprattutto nel servizio gratuito condiviso in cui la velocità effettiva dipende dalla larghezza di banda disponibile e dalla concorrenza tra le risorse di sistema. Le risorse di calcolo e di archiviazione che supportano il servizio condiviso vengono condivise da più sottoscrittori, pertanto il numero di query al secondo per la soluzione scelta varia a seconda del numero degli altri carichi di lavoro in esecuzione nello stesso momento.
+
+Al livello Standard è possibile stimare in modo più preciso il numero di query al secondo, perché si ha il controllo di un numero maggiore di parametri. Per indicazioni su come calcolare il numero di query al secondo per i carichi di lavoro, vedere la sezione relativa alle procedure consigliate in [Gestire la soluzione di ricerca](search-manage.md).
+
+<!---HONumber=AcomDC_0316_2016-->

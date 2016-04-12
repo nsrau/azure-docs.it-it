@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
 
 # Raccolta, conservazione e archiviazione di dati in Application Insights 
@@ -80,6 +80,8 @@ Se si sviluppa l'app con Visual Studio, eseguire l'app in modalità di debug (F5
 
 ![](./media/app-insights-data-retention-privacy/06-vs.png)
 
+È inoltre disponibile una visualizzazione più leggibile nella finestra di diagnostica.
+
 Per le pagine Web, aprire la finestra di debug del browser.
 
 ![Premere F12 e aprire la scheda Rete.](./media/app-insights-data-retention-privacy/08-browser.png)
@@ -94,9 +96,9 @@ Questo sarebbe possibile scrivendo un [plug-in del processore di telemetria](app
 
 Dipende dal [piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/).
 
-I punti dati non elaborati, ovvero elementi di dati ispezionabili nella ricerca diagnostica, vengono conservati per un periodo compreso tra 7 e 30 giorni.
+I punti dati non elaborati, ovvero gli elementi ispezionabili nella ricerca diagnostica, vengono conservati per un periodo di 7 giorni. Se si desidera mantenere i dati più lungo, è possibile usare l'[esportazione continua](app-insights-export-telemetry.md) per copiarli in un account di archiviazione.
 
-I dati aggregati, ovvero conteggi, medie e altri dati statistici visualizzati in Esplora metriche, vengono conservati con livello di dettaglio di un minuto per 30 giorni e con livello di dettaglio di un'ora o un giorno, a seconda del tipo, per almeno 13 mesi.
+I dati aggregati, ovvero conteggi, medie e altri dati statistici visualizzati in Esplora metriche, vengono conservati con livello di dettaglio di un minuto per 30 giorni e con livello di dettaglio di un'ora o un giorno, a seconda del tipo, per almeno 90 giorni.
 
 
 ## Chi può accedere ai dati?
@@ -116,7 +118,7 @@ Microsoft usa i dati solo al fine di fornire il servizio all'utente.
 
 #### È possibile archiviarli altrove, ad esempio in Europa? 
 
-* Per il momento no. 
+* Attualmente no. 
 
 ## Quanto sono sicuri i dati?  
 
@@ -265,4 +267,4 @@ Questo prodotto include dati GeoLite2 creati da MaxMind, disponibile nel sito [h
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

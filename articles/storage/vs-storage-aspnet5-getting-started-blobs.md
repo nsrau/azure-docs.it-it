@@ -32,11 +32,11 @@ Per accedere ai BLOB a livello di codice in progetti ASP.NET 5, è necessario ag
 
 1. Aggiungere le dichiarazioni dello spazio dei nomi del codice seguenti all'inizio del file C# in cui si desidera accedere ad Archiviazione di Azure a livello di codice:
 
-		using Microsoft.Framework.Configuration;
+		using Microsoft.Extensions.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 		using System.Threading.Tasks;
-		using LogLevel = Microsoft.Framework.Logging.LogLevel;
+		using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 
 2. Ottenere un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Utilizzare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure.
 
@@ -155,4 +155,4 @@ Per eliminare un BLOB, ottenere prima di tutto un riferimento al BLOB, quindi ch
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

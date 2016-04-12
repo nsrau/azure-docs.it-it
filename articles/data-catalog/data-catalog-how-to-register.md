@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Come registrare le origini dati"
-   description="Articolo sulle procedure che illustra come registrare origini dati nel Catalogo dati di Azure, inclusi i campi di metadati estratti e le origini dati supportate durante l'anteprima."
+   pageTitle="Come registrare le origini dati | Microsoft Azure"
+   description="Articolo sulle procedure che illustra come registrare origini dati in Azure Data Catalog, inclusi i campi di metadati estratti durante la registrazione."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -79,4 +79,4 @@ La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più
 ## Vedere anche
 - Per altre informazioni dettagliate sulla registrazione delle origini dati, vedere [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

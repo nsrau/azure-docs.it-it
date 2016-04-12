@@ -6,7 +6,7 @@ Per altre informazioni sui modelli di ricezione di Hub eventi, vedere [Panoramic
 
 Questa esercitazione usa un'installazione di [HDInsight Storm][], fornita con lo Spout di Hub eventi già disponibile.
 
-1. Seguire la procedura indicata nell'[introduzione a HDInsight Storm](../hdinsight/hdinsight-storm-overview.md) per creare un nuovo cluster HDInsight e quindi connettersi a quest'ultimo tramite Desktop remoto.
+1. Seguire la procedura indicata nell'[introduzione a HDInsight Storm](../articles/hdinsight/hdinsight-storm-overview.md) per creare un nuovo cluster HDInsight e quindi connettersi a quest'ultimo tramite Desktop remoto.
 
 2. Copiare il file `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` nell'ambiente di sviluppo locale. Il file contiene il componente events-storm-spout.
 
@@ -220,9 +220,9 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][], fornita con lo
 	La classe crea un nuovo Spout di Hub eventi, usando le proprietà nel file di configurazione per crearne un'istanza. È importante notare che questo esempio crea tante attività Spout quante sono le partizioni nell'hub eventi, in modo da usare il massimo parallelismo consentito dall'hub eventi stesso.
 
 <!-- Links -->
-[Panoramica di Hub eventi]: event-hubs-overview.md
-[HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
-[esercitazione di analisi dei sensori con HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[Panoramica di Hub eventi]: ../articles/event-hubs/event-hubs-overview.md
+[HDInsight Storm]: ../articles/hdinsight/hdinsight-storm-overview.md
+[esercitazione di analisi dei sensori con HDInsight]: ../articles/hdinsight/hdinsight-storm-sensor-data-analysis.md
 
 <!-- Images -->
 
@@ -230,4 +230,4 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][], fornita con lo
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

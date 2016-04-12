@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
-	ms.author="mimig"/>
+	ms.date="03/22/2016" 
+	ms.author="ryancraw"/>
 
 
 # Esempi di Node.js in DocumentDB
@@ -23,6 +23,7 @@
 > [AZURE.SELECTOR]
 - [Esempi di .NET](documentdb-dotnet-samples.md)
 - [Esempi di Node.js](documentdb-nodejs-samples.md)
+- [Esempi di Python](documentdb-python-samples.md)
 - [Raccolta di esempi di codice di Azure](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
 Il repository [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) di GitHub include soluzioni di esempio che eseguono operazioni CRUD e altre operazioni comuni su risorse di DocumentDB. Questo articolo include:
@@ -34,7 +35,7 @@ Il repository [azure-documentdb-nodejs](https://github.com/Azure/azure-documentd
 
 1. Per usare questi esempi Node.js, è necessario un account Azure:
     - È possibile [aprire un account Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/): si riceveranno dei crediti da usare per provare i servizi di Azure a pagamento e, anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio Siti Web. La carta di credito non verrà mai addebitata, a meno l'utente non modifichi le impostazioni e che richieda esplicitamente di essere addebitato.
-   - È possibile [attivare i benefici della sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione di Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+   - È possibile [attivare i benefici della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 2. È anche necessario [Node.js SDK](documentdb-sdk-node.md). 
 
     > [AZURE.NOTE] Ogni esempio è indipendente e le operazioni di installazione e pulizia sono eseguite automaticamente. Di conseguenza, gli esempi effettuano più chiamate a [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html). A ogni chiamata, viene addebitata alla sottoscrizione 1 ora di utilizzo per ogni livello di prestazioni della raccolta in fase di creazione.
@@ -119,4 +120,4 @@ Attività | Informazioni di riferimento sulle API
 
 Per altre informazioni sul partizionamento dei dati in DocumentDB, vedere [Dati di partizione e di scalabilità in DocumentDB](documentdb-partition-data.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

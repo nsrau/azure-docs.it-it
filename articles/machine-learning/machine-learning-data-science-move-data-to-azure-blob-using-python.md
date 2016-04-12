@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 # Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Python.
@@ -51,7 +51,7 @@ In questo documento si presuppone di avere una sottoscrizione di Azure, un accou
 
 Aggiungere lo snippet seguente vicino all'inizio di ogni codice Python in cui si desidera accedere all'archiviazione di Azure a livello di programmazione:
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 L'oggetto **BlobService** consente di lavorare con contenitori e BLOB. Il codice seguente crea un oggetto BlobService usando il nome e la chiave dell'account di archiviazione. Sostituire nome e chiave dell'account con la chiave e l'account effettivi.
 	
@@ -70,7 +70,7 @@ Il seguente codice di esempio consente di caricare un file locale in un contenit
 
 Il seguente codice di esempio consente di caricare tutti i file (a esclusione delle directory) in una directory locale in un'archiviazione BLOB:
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os import listdir
 	from os.path import isfile, join
 	
@@ -95,7 +95,11 @@ Il seguente codice di esempio consente di caricare tutti i file (a esclusione de
 
 ## Download dei dati dal BLOB
 
-Utilizzare i metodi seguenti per scaricare dati da un BLOB: 1. get\_blob\_to\_path 2. get\_blob\_to\_file 3. get\_blob\_to\_bytes 4. get\_blob\_to\_text
+Per scaricare dati da un BLOB, utilizzare i metodi seguenti:
+1. get\_blob\_to\_path
+2. get\_blob\_to\_file
+3. get\_blob\_to\_bytes
+4. get\_blob\_to\_text 
 
 Questi sono metodi che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
 
@@ -105,7 +109,7 @@ Il seguente codice di esempio consente di scaricare i contenuti di un BLOB in un
 
 Il seguente codice di esempio consente di scaricare tutti i BLOB da un contenitore. Utilizza list\_blobs per ottenere un elenco di BLOB disponibili nel contenitore e li scarica in una directory locale.
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os.path import join
 	
 	# Set parameters here
@@ -125,4 +129,4 @@ Il seguente codice di esempio consente di scaricare tutti i BLOB da un contenito
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2016" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
 
 # Gestire i prezzi e la quota per Application Insights
@@ -53,7 +53,7 @@ In qualsiasi momento, è possibile passare alla versione valutazione Premium gra
 * La quota dipende dal piano tariffario scelto.
 * La quota viene conteggiata da mezzanotte UTC il primo giorno di ogni mese.
 * Il grafico Punti dati mostra la quantità di quota che è stata usata questo mese.
-* La quota viene misurata in *punti dati*. Un singolo punto dati è una chiamata a uno dei metodi Track, se chiamato in modo esplicito nel codice o da uno dei moduli di telemetria standard. 
+* La quota viene misurata in *punti dati*. Un singolo punto dati è una chiamata a uno dei metodi Track, se chiamato in modo esplicito nel codice o da uno dei moduli di telemetria standard. Può presentare più metriche e proprietà associate.
 * I punti dati vengono generati da:
  * [Moduli di SDK](app-insights-configuration-with-applicationinsights-config.md) che raccolgono automaticamente i dati, ad esempio per segnalare una richiesta o un arresto anomalo oppure per misurare le prestazioni.
  * Chiamate [API](app-insights-api-custom-events-metrics.md) `Track...` scritte dall'utente, ad esempio `TrackEvent` o `trackPageView`.
@@ -67,7 +67,7 @@ In qualsiasi momento, è possibile passare alla versione valutazione Premium gra
 * È anche possibile esaminare singoli punti dati all'origine durante il debug:
  * Se si esegue l'app in modalità di debug in Visual Studio, i punti dati vengono registrati nella finestra di output. 
  * Per visualizzare i punti dati client, aprire il riquadro di debug del browser (in genere F12) e aprire la scheda di rete.
-* Per impostazione predefinita, la velocità dei dati è ridotta dal [campionamento adattivo](app-insights-sampling). Ciò significa che, con l'aumento dell'utilizzo dell'app, la velocità dei dati di telemetria non aumenta come previsto.
+* Per impostazione predefinita, la velocità dei dati può essere ridotta dal [campionamento adattivo](app-insights-sampling). Ciò significa che, con l'aumento dell'utilizzo dell'app, la velocità dei dati di telemetria non aumenta come previsto.
 
 ### Eccedenza
 
@@ -136,8 +136,8 @@ Se si verificano i limiti della limitazione, ecco alcune operazioni da eseguire:
 Il livello di prezzo determina quanto tempo viene mantenuti i dati sul retro del portale e pertanto su quanto è possibile impostare intervalli di tempo.
 
 
-* Punti dati non elaborati (cioè elementi di dati ispezionabili nella ricerca diagnostica): tra 7 e 30 giorni.
-* I dati aggregati, ovvero conteggi, medie e altri dati statistici visualizzati in Esplora metriche, vengono conservati con livello di dettaglio di un minuto per 30 giorni e con livello di dettaglio di un'ora o un giorno, a seconda del tipo, per almeno 13 mesi.
+* I punti dati non elaborati, ovvero le istanze ispezionabili nella ricerca diagnostica, vengono conservati per 7 giorni.
+* I dati aggregati, ovvero conteggi, medie e altri dati statistici visualizzati in Esplora metriche, vengono conservati con livello di dettaglio di un minuto per 30 giorni e con livello di dettaglio di un'ora o un giorno, a seconda del tipo, per 90 giorni.
 
 
 ## Campionamento
@@ -173,4 +173,4 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

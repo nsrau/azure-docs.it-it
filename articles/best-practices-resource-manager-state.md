@@ -3,8 +3,8 @@
 	description="Mostra gli approcci consigliati per usare oggetti complessi per condividere i dati sullo stato con i modelli di Gestione risorse di Azure e i modelli collegati"
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/26/2016"
-	ms.author="mmercuri"/>
+	ms.author="tomfitz"/>
 
 # Condivisione dello stato in modelli di Gestione risorse di Azure
 
@@ -389,4 +389,4 @@ All'interno del modello principale, è possibile usare tali dati con la sintassi
 - [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
 - [Funzioni del modello di Gestione risorse di Azure](resource-group-template-functions.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

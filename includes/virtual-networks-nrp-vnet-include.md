@@ -1,7 +1,7 @@
 ## Rete virtuale
 Le reti virtuali e le risorse subnet consentono di definire un limite di sicurezza per i carichi di lavoro in esecuzione in Azure. Una rete virtuale è caratterizzata da una raccolta di spazi di indirizzi, definiti come blocchi CIDR.
 
->[AZURE.NOTE]Gli amministratori di rete hanno familiarità con la notazione CIDR. Se non si ha familiarità con CIDR, è possibile [ottenere maggiori informazioni](http://whatismyipaddress.com/cidr).
+>[AZURE.NOTE] Gli amministratori di rete hanno familiarità con la notazione CIDR. Se non si ha familiarità con CIDR, è possibile [ottenere maggiori informazioni](http://whatismyipaddress.com/cidr).
 
 ![Reti virtuali con più subnet](./media/resource-groups-networking/Figure4.png)
 
@@ -72,8 +72,8 @@ Rete virtuale di esempio in formato JSON:
 
 ### Risorse aggiuntive
 
-- Altre informazioni sulle [reti virtuali](virtual-networks-overview.md).
+- Altre informazioni sulle [reti virtuali](../articles/virtual-network/virtual-networks-overview.md).
 - Leggere [la documentazione di riferimento API REST](https://msdn.microsoft.com/library/azure/mt163650.aspx) per le reti virtuali.
 - Leggere [la documentazione di riferimento API REST](https://msdn.microsoft.com/library/azure/mt163618.aspx) per le subnet.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

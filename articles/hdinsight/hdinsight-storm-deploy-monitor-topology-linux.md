@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="02/29/2016"
    ms.author="larryfr"/>
 
 # Distribuzione e gestione di topologie Apache Storm in HDInsight basato su Linux
@@ -101,13 +101,22 @@ L'interfaccia utente di Storm è inclusa nel cluster HDInsight e fornisce un'int
 
 ### Pagina principale
 
-La pagina principale dell'interfaccia utente di Storm fornisce le seguenti informazioni:- **Cluster summary**: informazioni di base sul cluster Storm. - **Topology summary**: elenco delle topologie in esecuzione. Usare i collegamenti disponibili in questa sezione per visualizzare altre informazioni sulle topologie specifiche. - **Supervisor summary**: informazioni sul supervisore di Storm. - **Nimbus configuration**: configurazione Nimbus per il cluster.
+Nella pagina principale dell'interfaccia utente di Storm sono disponibili le informazioni seguenti.
+- **Cluster summary**: informazioni di base sul cluster Storm.
+- **Topology summary**: elenco delle topologie in esecuzione. Usare i collegamenti disponibili in questa sezione per visualizzare ulteriori informazioni su topologie specifiche.
+- **Supervisor summary**: informazioni su Storm Supervisor.
+- **Nimbus configuration**: configurazione Nimbus per il cluster.
 
 ### Topology summary
 
-Selezionando un collegamento nella sezione **Topology summary** vengono visualizzate le seguenti informazioni sulla topologia:- **Topology summary**: informazioni di base sulla topologia. - **Topology actions**: azioni di gestione che è possibile eseguire per la topologia. - **Activate**: attiva l'elaborazione di una topologia disattivata. - **Deactivate**: sospende una topologia in esecuzione. - **Rebalance**: regola il parallelismo della topologia. È necessario ribilanciare le topologie in esecuzione dopo aver modificato il numero di nodi del cluster. Questo consente alla topologia di regolare il parallelismo per compensare l'aumento o la diminuzione del numero di nodi del cluster.
+Se si seleziona un collegamento nella sezione **Topology summary**, verranno visualizzate le informazioni seguenti sulla topologia.
+- **Topology summary**: informazioni di base sulla topologia.
+- **Topology actions**: azioni di gestione che è possibile eseguire per la topologia.
+  - **Activate**: riprende l'elaborazione di una topologia disattivata.
+  - **Deactivate**: sospende una topologia in esecuzione.
+  - **Rebalance**: regola il parallelismo della topologia. È necessario ribilanciare le topologie in esecuzione dopo aver modificato il numero di nodi del cluster. Questo consente alla topologia di regolare il parallelismo per compensare l'aumento o la diminuzione del numero di nodi del cluster.
 
-      For more information, see <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology</a>.
+      Per altre informazioni, vedere l'articolo relativo al <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">parallelismo di una topologia Storm</a>.
 
   - **Kill**: termina una topologia Storm dopo il timeout specificato.
 
@@ -118,13 +127,19 @@ Selezionando un collegamento nella sezione **Topology summary** vengono visualiz
 
 ### Riepilogo di spout e bolt
 
-Selezionare uno spout nelle sezioni **Spouts** o **Bolts** per visualizzare le informazioni seguenti sull'elemento selezionato:- **Component summary**: informazioni di base sullo spout o sul bolt specifico. - **Spout/Bolt stats**: statistiche relative a spout o bolt. Usare i collegamenti nella colonna **Window** per impostare l'intervallo di tempo per le voci rimanenti nella pagina. - **Input stats** (solo bolt): informazioni sui flussi di input usati dal bolt. - **Output stats**: informazioni relative ai flussi generati dallo spout o bolt corrente. - **Executors**: informazioni sulle istanze dello spout o bolt. Selezionare la voce **Port** relativa a un esecutore specifico per visualizzare il log delle informazioni di diagnostica generate l'istanza corrente. - **Errors**: informazioni sugli errori relativi allo spout o bold corrente.
+Se si seleziona un elemento nella sezione **Spouts** o **Bolts**, verranno visualizzate le informazioni seguenti:
+- **Component summary**: informazioni di base sullo spout o sul bolt.
+- **Spout/Bolt stats**: statistiche relative allo spout o al bolt. Usare i collegamenti disponibili nella colonna **Window** per impostare l'intervallo di tempo per le rimanenti voci della pagina.
+- **Input stats** (solo bolt): informazioni sui flussi di input usati dal bolt.
+- **Output stats**: informazioni sui flussi generati dallo spout o dal bolt.
+- **Executors**: informazioni sulle istanze dello spout o del bolt. Selezionare la voce **Port** relativa a un esecutore specifico per visualizzare il log delle informazioni di diagnostica generate per questa istanza.
+- **Errors**: informazioni su eventuali errori dello spout o del bolt.
 
 ## API REST
 
 L'interfaccia utente di Storm si basa sull'API REST. È pertanto possibile eseguire funzionalità di gestione e monitoraggio simili usando l'API REST. L'API REST consente di creare strumenti personalizzati per la gestione e il monitoraggio di topologie Storm.
 
-Per altre informazioni, vedere l'articolo relativo all'[API REST dell'interfaccia utente di Storm](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md). Le seguenti informazioni sono specifiche per l'uso dell'API REST con Apache Storm in HDInsight.
+Per altre informazioni, vedere l'articolo relativo all'[API REST dell'interfaccia utente di Storm](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html). Le seguenti informazioni sono specifiche per l'uso dell'API REST con Apache Storm in HDInsight.
 
 > [AZURE.IMPORTANT] L'API REST di Storm non è disponibile pubblicamente su Internet ed è necessario accedervi usando un tunnel SSH al nodo head del cluster HDInsight. Per informazioni sulla creazione e sull'uso di un tunnel SSH, vedere [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -155,4 +170,4 @@ A questo punto, dopo aver appreso come distribuire e monitorare le topologie usa
 
 Per un elenco di altre topologie di esempio, vedere [Esempi di topologie Storm per Apache Storm in HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

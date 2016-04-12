@@ -1,33 +1,33 @@
-## Configuration overview
+## Panoramica della configurazione
 
-The steps for this task use a VNet based on the values below. Additional settings and names are also outlined in this list. We don't use this list directly in any of the steps, although we do add variables based on the values in this list. You can copy the list to use as a reference, replacing the values with your own.
+I passaggi di questa attività riguardano una rete virtuale con i valori seguenti. In questo elenco sono indicati anche i nomi e le impostazioni aggiuntive. Questo elenco non verrà utilizzato direttamente nella procedura, ma si aggiungeranno variabili basate sui valori nell'elenco. È possibile copiare l'elenco per usarlo come riferimento, sostituendo i valori con quelli personalizzati.
 
-Configuration reference list:
+Elenco di riferimento per la configurazione:
 	
-- Virtual Network Name = "TestVNet"
-- Virtual Network address space = 192.168.0.0/16
-- Resource Group = "TestRG"
-- Subnet1 Name = "FrontEnd" 
-- Subnet1 address space = "192.168.0.0/16"
-- Gateway Subnet name: "GatewaySubnet" You must always name a gateway subnet *GatewaySubnet*.
-- Gateway Subnet address space = "192.168.200.0/26"
-- Region = "East US"
-- Gateway Name = "GW"
-- Gateway IP Name = "GWIP"
-- Gateway IP configuration Name = "gwipconf"
-- VPN Type = "ExpressRoute" This VPN type is required for an ExpressRoute configuration.
-- Gateway Public IP Name = "gwpip"
+- Nome rete virtuale = "TestVNet"
+- Spazio degli indirizzi della rete virtuale = 192.168.0.0/16
+- Gruppo di risorse = "TestRG"
+- Nome subnet1 = "FrontEnd" 
+- Spazio degli indirizzi della subnet1 = "192.168.0.0/16"
+- Nome subnet gateway: "GatewaySubnet" La subnet gateway deve sempre essere denominata *GatewaySubnet*.
+- Spazio degli indirizzi della subnet gateway = "192.168.200.0/26"
+- Area = "East US"
+- Nome del gateway = "GW"
+- Nome IP del gateway = "GWIP"
+- Nome della configurazione IP del gateway = "gwipconf"
+- Tipo di VPN = "ExpressRoute" Questo tipo di VPN è richiesto per una configurazione ExpressRoute.
+- Nome IP pubblico del gateway = "gwpip"
 
 
-## Add a gateway
+## Aggiungere un gateway
 
-1. Connect to your Azure Subscription. 
+1. Connettersi alla sottoscrizione di Azure. 
 
 		Login-AzureRmAccount
 		Get-AzureRmSubscription 
 		Select-AzureRmSubscription -SubscriptionName "Name of subscription"
 
-2. Declare your variables for this exercise. This example will use the use the variables in the sample below. Be sure to edit this to reflect the settings that you want to use. 
+2. Dichiarare le variabili per questo esercizio. In questo esempio si useranno le variabili indicate di seguito. Assicurarsi di modificare l’esempio in base alle impostazioni da usare.
 		
 		$RG = "TestRG"
 		$Location = "East US"
@@ -36,31 +36,33 @@ Configuration reference list:
 		$GWIPconfName = "gwipconf"
 		$VNetName = "TestVNet"
 
-3. Store the virtual network object as a variable.
+3. Archiviare l'oggetto rete virtuale come variabile.
 
 		$vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 
-4. Add a gateway subnet to your Virtual Network. The gateway subnet must be named "GatewaySubnet". You'll want to create a gateway that is /27 or larger (/26, /25, etc.).
+4. Aggiungere una subnet gateway alla rete virtuale. La subnet gateway deve esistere già e deve essere denominata "GatewaySubnet". È opportuno creare un gateway che sia /27 o più grande (/26, /25, ecc.).
 			
 		Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
 
-5. Set the configuration.
+5. Impostare la configurazione.
 
 			Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-6. Store the gateway subnet as a variable.
+6. Archiviare la subnet gateway come variabile.
 
 		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 
-7. Request a public IP address. The IP address is requested before creating the gateway. You cannot specify the IP address that you want to use; it’s dynamically allocated. You'll use this IP address in the next configuration section. The AllocationMethod must be Dynamic.
+7. Richiedere un indirizzo IP pubblico. L'indirizzo IP viene richiesto prima della creazione del gateway. Non è possibile specificare l'indirizzo IP che si desidera utilizzare. Viene allocato in modo dinamico. Questo indirizzo IP sarà utilizzato nella prossima sezione di configurazione. AllocationMethod deve essere Dynamic.
 
 		$pip = New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 
-8. Create the configuration for your gateway. The gateway configuration defines the subnet and the public IP address to use. In this step, you are specifying the configuration that will be used when you create the gateway. This step does not actually create the gateway object. Use the sample below to create your gateway configuration. 
+8. Creare la configurazione per il gateway. La configurazione del gateway definisce la subnet e l'indirizzo IP pubblico da utilizzare. In questo passaggio si specifica la configurazione che si userà per creare il gateway. Questo passaggio non crea effettivamente l'oggetto gateway. Per creare la configurazione del gateway, usare l'esempio seguente.
 
 		$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -SubnetId $subnet.Id -PublicIpAddressId $pip.Id 
 
-9. Create the gateway. In this step, the **-GatewayType** is especially important. You must use the value **ExpressRoute**. Note that after running these cmdlets, the gateway can take 20 minutes or more to create.
+9. Creare il gateway. In questo passaggio **-GatewayType** è particolarmente importante. È necessario utilizzare il valore **ExpressRoute**. Si noti che, dopo aver eseguito questi cmdlet, la creazione del gateway può richiedere più di 20 minuti.
 
 		New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute
+
+<!---HONumber=AcomDC_0309_2016-->

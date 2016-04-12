@@ -133,7 +133,7 @@ La tabella seguente elenca i valori predefiniti per i parametri specificati nel 
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## Creare ambienti
-Tutte le risorse di Azure devono essere create entro un [Gruppo di risorse di Azure](azure-portal/resource-group-portal#create-resource-group-and-resources.md). I gruppi di risorse consentono di raggruppare le risorse di Azure, in modo che sia possibile gestirle insieme. È possibile assegnare [autorizzazioni](./active-directory/role-based-access-built-in-roles.md) ai gruppi di risorse, in modo che persone specifiche dell'organizzazione possano creare, modificare, eliminare o visualizzare i gruppi e le risorse disponibili nei gruppi. Gli avvisi e le informazioni di fatturazione per le risorse incluse nel gruppo di risorse possono essere visualizzati nel [portale di Azure](https://portal.azure.com). I gruppi di risorse vengono creati in un'[area](https://azure.microsoft.com/regions/) di Azure. In questo articolo tutte le risorse vengono create nell'area Central US. Quando si inizia a creare ambienti effettivi, si sceglierà l'area più adatta alle proprie esigenze.
+Tutte le risorse di Azure devono essere create entro un [Gruppo di risorse di Azure](./azure-portal/resource-group-portal.md). I gruppi di risorse consentono di raggruppare le risorse di Azure, in modo che sia possibile gestirle insieme. È possibile assegnare [autorizzazioni](./active-directory/role-based-access-built-in-roles.md) ai gruppi di risorse, in modo che persone specifiche dell'organizzazione possano creare, modificare, eliminare o visualizzare i gruppi e le risorse disponibili nei gruppi. Gli avvisi e le informazioni di fatturazione per le risorse incluse nel gruppo di risorse possono essere visualizzati nel [portale di Azure](https://portal.azure.com). I gruppi di risorse vengono creati in un'[area](https://azure.microsoft.com/regions/) di Azure. In questo articolo tutte le risorse vengono create nell'area Central US. Quando si inizia a creare ambienti effettivi, si sceglierà l'area più adatta alle proprie esigenze.
 
 Creare gruppi di risorse per ogni ambiente usando uno dei metodi seguenti. Tutti i metodi avranno lo stesso risultato.
 
@@ -235,7 +235,7 @@ Dopo la visualizzazione per alcuni minuti di un messaggio di attesa del completa
 	data:    requestedServiceObjectiveName  String        S0
 	info:    group deployment create command OKx
 
-Se il comando ha esito negativo, risolvere eventuali messaggi di errore e riprovare. I problemi comuni consistono nell'uso di valori di parametri non conformi ai vincoli di denominazione delle risorse di Azure. Per altri suggerimenti sulla risoluzione dei problemi, vedere l'articolo [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](virtual-machines/resource-group-deploy-debug.md).
+Se il comando ha esito negativo, risolvere eventuali messaggi di errore e riprovare. I problemi comuni consistono nell'uso di valori di parametri non conformi ai vincoli di denominazione delle risorse di Azure. Per altri suggerimenti sulla risoluzione dei problemi, vedere l'articolo [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./resource-manager-troubleshoot-deployments-cli.md).
 
 Dalla riga di comando dell'interfaccia della riga di comando digitare il comando seguente per distribuire risorse nel gruppo di risorse creato dall'ambiente di test, sostituendo [path] con il percorso nei file salvati nei passaggi precedenti.
 
@@ -279,7 +279,7 @@ Dopo la visualizzazione di un cursore intermittente per alcuni minuti, se il com
 	                    
 	Outputs           :
 
-  Se il comando ha esito negativo, risolvere eventuali messaggi di errore e riprovare. I problemi comuni consistono nell'uso di valori di parametri non conformi ai vincoli di denominazione delle risorse di Azure. Per altri suggerimenti sulla risoluzione dei problemi, vedere l'articolo [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](virtual-machines/resource-group-deploy-debug.md).
+  Se il comando ha esito negativo, risolvere eventuali messaggi di errore e riprovare. I problemi comuni consistono nell'uso di valori di parametri non conformi ai vincoli di denominazione delle risorse di Azure. Per altri suggerimenti sulla risoluzione dei problemi, vedere l'articolo [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
   Da un prompt dei comandi di PowerShell digitare il comando seguente per distribuire risorse nel gruppo di risorse creato dall'ambiente di test, sostituendo [path] con il percorso nei file salvati nei passaggi precedenti.
 
@@ -357,8 +357,8 @@ Dopo avere constatato la semplicità dei processi di creazione, gestione ed elim
 
 ## Passaggi successivi
 
-- [Delegare il controllo amministrativo](role-based-access-control-configure.md) a risorse diverse in ogni ambiente, assegnando gruppi o utenti di Microsoft Azure AD a ruoli specifici, in grado di eseguire un sottoinsieme di operazioni sulle risorse di Azure.
+- [Delegare il controllo amministrativo](./active-directory/role-based-access-control-configure.md) a risorse diverse in ogni ambiente, assegnando gruppi o utenti di Microsoft Azure AD a ruoli specifici, in grado di eseguire un sottoinsieme di operazioni sulle risorse di Azure.
 - [Assegnare tag](resource-group-using-tags.md) ai gruppi di risorse per ogni ambiente e/o per le singole risorse. È possibile aggiungere un tag "Environment" ai gruppi di risorse e impostarne il valore in modo che corrisponda ai nomi di ambiente. I tag possono essere particolarmente utili quando occorre organizzare le risorse per la fatturazione o la gestione.
 - Monitorare gli avvisi e la fatturazione per le risorse del gruppo di risorse nel [portale di Azure](https://portal.azure.com).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

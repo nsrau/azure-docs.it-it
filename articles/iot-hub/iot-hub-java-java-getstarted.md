@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introduzione all'hub IoT di Azure per Java | Microsoft Azure"
-	description="Seguire questa esercitazione per iniziare a usare l'hub IoT di Azure con Java."
+	description="Esercitazione introduttiva all'hub IoT di Azure con Java. Usare l'hub IoT di Azure e Java con gli SDK IoT di Microsoft Azure per implementare una soluzione Internet delle cose."
 	services="iot-hub"
 	documentationCenter="java"
 	authors="dominicbetts"
@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="12/21/2015"
+     ms.date="03/22/2016"
      ms.author="dobett"/>
 
 # Introduzione all'hub IoT di Azure per Java
@@ -22,7 +22,7 @@
 
 ## Introduzione
 
-L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e un back-end della soluzione. Una delle maggiori difficoltà con i progetti IoT consiste nel connettere in modo affidabile e sicuro i dispositivi al back-end della soluzione. Per affrontare questa sfida, l'hub IoT:
+L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT (Internet delle cose) e un back-end della soluzione. Una delle maggiori difficoltà con i progetti IoT consiste nel connettere in modo affidabile e sicuro i dispositivi al back-end della soluzione. Per affrontare questa sfida, l'hub IoT:
 
 - Offre messaggistica affidabile da dispositivo a cloud e da cloud a dispositivo su vasta scala.
 - Rende possibili comunicazioni sicure mediante le credenziali di sicurezza per i singoli dispositivi e il controllo di accesso.
@@ -141,4 +141,4 @@ In questa esercitazione si è configurato un nuovo hub IoT nel portale e quindi 
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0406_2016-->

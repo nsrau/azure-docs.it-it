@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 02/04/2016-->
+<!--author=SharS last changed: 02/29/2016-->
 
 #### Per creare un volume
 
@@ -15,9 +15,9 @@
 
 	3. Specificare la **Capacità fornita** per il volume. Prendere nota della capacità disponibile in base al tipo di volume selezionato. Le dimensioni del volume specificato non devono superare lo spazio disponibile.
 
-		È possibile eseguire il provisioning di volumi aggiunti in locale fino a 9 TB o di volumi a livelli fino a 200 TB sul dispositivo 8100. Sul dispositivo 8600 più grande, è possibile eseguire il provisioning di volumi aggiunti in locale fino a 24 TB o di volumi a livelli fino a 500 TB. Poiché è necessario spazio locale sul dispositivo per ospitare il working set di volumi a livelli, la creazione di volumi aggiunti in locale influirà sullo spazio disponibile per il provisioning di volumi a livelli. Pertanto, creando un volume aggiunto in locale verrà ridotto lo spazio disponibile per la creazione di volumi a livelli. Analogamente, creando un volume a livelli verrà ridotto lo spazio disponibile per la creazione di volumi aggiunti in locale.
+		È possibile effettuare il provisioning di volumi aggiunti in locale fino a 8 TB oppure di volumi a livelli fino a 200 TB nel dispositivo 8100. Nel dispositivo 8600 più grande è possibile effettuare il provisioning di volumi aggiunti in locale fino a 20 TB o di volumi a livelli fino a 500 TB. Poiché è necessario spazio locale sul dispositivo per ospitare il working set di volumi a livelli, la creazione di volumi aggiunti in locale influirà sullo spazio disponibile per il provisioning di volumi a livelli. Pertanto, creando un volume aggiunto in locale verrà ridotto lo spazio disponibile per la creazione di volumi a livelli. Analogamente, creando un volume a livelli verrà ridotto lo spazio disponibile per la creazione di volumi aggiunti in locale.
 
-		Se si esegue il provisioning di un volume aggiunto in locale di 9 TB (dimensione massima consentita) sul dispositivo 8100, si esaurirà tutto lo spazio locale disponibile sul dispositivo. Non sarà possibile creare volumi a livelli da quel punto in poi, perché non è disponibile spazio locale sul dispositivo per ospitare il working set del volume a livelli. Anche i volumi a livelli esistenti influiscono sullo spazio disponibile. Ad esempio, se si dispone di un dispositivo 8100 in cui sono già presenti volumi a livelli di 100 TB, saranno disponibili solo 4,5 TB di spazio per i volumi aggiunti in locale.
+		Se nel dispositivo 8100 si esegue il provisioning di un volume aggiunto in locale di 8 TB, ovvero la dimensione massima consentita, si esaurisce tutto lo spazio locale disponibile nel dispositivo. Non sarà possibile creare volumi a livelli da quel punto in poi, perché non è disponibile spazio locale sul dispositivo per ospitare il working set del volume a livelli. Anche i volumi a livelli esistenti influiscono sullo spazio disponibile. Ad esempio, se nel dispositivo 8100 sono già presenti volumi a livelli di 100 TB, saranno disponibili solo 4 TB di spazio per i volumi aggiunti in locale.
 
         La figura seguente mostra la finestra di dialogo **Impostazioni di base** per un volume aggiunto in locale.
 
@@ -42,4 +42,4 @@
 
 4. Fare clic sull'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Verrà creato un volume con le impostazioni specificate.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

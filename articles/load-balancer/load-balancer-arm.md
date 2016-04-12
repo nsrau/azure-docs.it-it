@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 
 # Supporto di Gestione risorse di Azure per il bilanciamento del carico 
 
-Gestione risorse di Azure rappresenta il nuovo framework di gestione dei servizi in Azure. È ora possibile gestire il bilanciamento del carico di Azure con API e strumenti basati su Gestione risorse di Azure. Per altre informazioni su Gestione risorse di Azure, vedere [Uso dei gruppi di risorse per gestire le risorse di Azure](../azure-preview-portal-using-resource-groups.md).
+Gestione risorse di Azure rappresenta il nuovo framework di gestione dei servizi in Azure. È ora possibile gestire il bilanciamento del carico di Azure con API e strumenti basati su Gestione risorse di Azure.
 
 ## Concetti
 
@@ -46,7 +46,7 @@ I modelli includono macchine virtuali, reti virtuali, set di disponibilità, int
 
 [Altre informazioni sui modelli](http://go.microsoft.com/fwlink/?LinkId=544798)
 
-[Altre informazioni sulle risorse di rete](../resource-groups-networking)
+[Altre informazioni sulle risorse di rete](../virtual-network/resource-groups-networking)
 
 I modelli che usano il bilanciamento del carico di Azure sono disponibili in un [repository GitHub](https://github.com/Azure/azure-quickstart-templates) che ospita un set di modelli generati dalla community.
 
@@ -65,15 +65,15 @@ I [cmdlet di rete di Azure](https://msdn.microsoft.com/library/azure/mt163510.as
 
 - [Come creare un servizio di bilanciamento del carico tramite Gestione risorse di Azure](load-balancer-get-started-internet-arm-ps.md)
 
-- [Uso dell'interfaccia della riga di comando di Azure con Gestione risorse di Azure](../xplat-cli-azure-resource-manager)
+- [Uso dell'interfaccia della riga di comando di Azure con Gestione risorse di Azure](../xplat-cli-azure-resource-manager.md)
 
 - [API REST di bilanciamento del carico](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 
 ## Passaggi successivi
 
-È anche possibile [iniziare a creare un bilanciamento del carico con connessione Internet](load-balancer-get-started-internet-arm-ps.md) e configurare il tipo di [modalità di distribuzione](load-balancer-distribution-mode.md) per il comportamento specifico del traffico di rete per il bilanciamento del carico.
+È anche possibile [iniziare a creare un servizio di bilanciamento del carico con connessione Internet](load-balancer-get-started-internet-arm-ps.md) e configurare il tipo di [modalità di distribuzione](load-balancer-distribution-mode.md) per il comportamento specifico del traffico di rete per il servizio di bilanciamento del carico.
 
-Se l'applicazione deve mantenere attive le connessioni per i server dietro il servizio di bilanciamento del carico, è possibile ottenere altre informazioni sulle [impostazioni di timeout delle connessioni TCP inattive per un bilanciamento del carico](load-balancer-tcp-idle-timeout.md). Ciò consente di ottenere informazioni sul comportamento delle connessioni inattive quando si usa il servizio di bilanciamento del carico di Azure.
+Se l'applicazione deve mantenere attive le connessioni per i server dietro il servizio di bilanciamento del carico, vedere altre informazioni sulle [impostazioni del timeout di inattività delle connessioni TCP per il servizio di bilanciamento del carico](load-balancer-tcp-idle-timeout.md). Ciò consente di ottenere informazioni sul comportamento delle connessioni inattive quando si usa il servizio di bilanciamento del carico di Azure.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

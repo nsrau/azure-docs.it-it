@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="03/24/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Installazione dei processi di database elastici (panoramica)
@@ -24,7 +24,7 @@ Se sono già stati installati i **Processi database elastici** tramite il portal
 
 ## Prerequisiti
 * Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell 0.8.16 o versione successiva. Installare la versione più recente (0.9.5) tramite l’[installazione guidata piattaforma Web](http://go.microsoft.com/fwlink/p/?linkid=320376). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell. Installare la versione più recente tramite l’[installazione guidata piattaforma Web](http://go.microsoft.com/fwlink/p/?linkid=320376). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 * L’[Utilità della riga di comando NuGet](https://nuget.org/nuget.exe) viene utilizzata per installare il pacchetto dei processi di database elastici. Per altre informazioni, vedere http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## Scaricare e importare il pacchetto di PowerShell dei processi di database elastici
@@ -42,7 +42,7 @@ Se sono già stati installati i **Processi database elastici** tramite il portal
 
 4.	Eseguire lo script .\\InstallElasticDatabaseJobsCmdlets.ps1 per copiare la directory ProcessiDatabaseElastici in $home\\Documenti\\WindowsPowerShell\\Moduli. Il modulo da utilizzare, verrà automaticamente importato, ad esempio:
 
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1 
+		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## Installare i componenti dei processi di database elastici utilizzando PowerShell
@@ -52,7 +52,7 @@ Se sono già stati installati i **Processi database elastici** tramite il portal
 
 2.	Eseguire lo script PowerShell .\\InstallElasticDatabaseJobs.ps1 e fornire valori per le variabili richieste. Questo script crea i componenti descritti in [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview/#components-and-pricing) con la configurazione del servizio Cloud di Azure per utilizzare correttamente i componenti dipendenti.
 
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1 
+		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
 
 Quando si esegue questo comando, viene visualizzata una finestra in cui vengono richiesti **Nome utente** e **Password**. Non si tratta delle credenziali di Azure. Immettere il nome utente e password che saranno le credenziali di amministratore che si desidera creare per il nuovo server.
@@ -151,13 +151,13 @@ Per aggiornare la dimensione della macchina virtuale di un'installazione, esegui
 
 ## Installare i componenti dei processi di database elastici utilizzando il portale
 
-Dopo aver creato un [pool di database elastici](sql-database-elastic-pool-portal.md), è possibile installare componenti dei **processi di database elastici** per abilitare l’esecuzione di attività amministrative su ogni database nel pool di database elastici. A differenza di quando si utilizzano le API PowerShell dei **processi di database elastici**, l'interfaccia del portale è attualmente limitata solamente all’esecuzione su un pool esistente.
+Dopo aver creato un [pool di database elastici](sql-database-elastic-pool-create-portal.md), è possibile installare componenti dei **processi di database elastici** per abilitare l’esecuzione di attività amministrative su ogni database nel pool di database elastici. A differenza di quando si utilizzano le API PowerShell dei **processi di database elastici**, l'interfaccia del portale è attualmente limitata solamente all’esecuzione su un pool esistente.
 
 
 **Tempo previsto per il completamento:** 10 minuti
 
 1. Dalla vista dashboard del pool di database elastici, tramite il [portale di Azure](https://ms.portal.azure.com/#) fare clic su **Crea processo**.
-2. Se si sta creando un processo per la prima volta, è necessario installare **processi di database elastici** facendo clic su **ANTEPRIMA TERMINI**. 
+2. Se si sta creando un processo per la prima volta, è necessario installare **processi di database elastici** facendo clic su **ANTEPRIMA TERMINI**.
 3. Accettare i termini selezionando la casella di controllo.
 4. Nella vista "Installa servizi", fare clic su **CREDENZIALI PROCESSO**.
 
@@ -186,6 +186,5 @@ Assicurarsi che una credenziale con i diritti appropriati per l'esecuzione di sc
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

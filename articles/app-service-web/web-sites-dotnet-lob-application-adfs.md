@@ -40,7 +40,7 @@ Si creerà un'applicazione ASP.NET di base nelle app Web di Servizio app di Azur
 
 Per completare questa esercitazione sarà necessario quanto segue:
 
-- Distribuzione locale di ADFS (per una procedura dettagliata end-to-end dell'ambiente di testing in uso, vedere [Test Lab: Istanza autonoma del servizio token di sicurezza con ADFS in Azure VM, solo per i test](TODO))
+- Distribuzione locale di ADFS (per una procedura dettagliata end-to-end dell'ambiente di testing in uso, vedere [Test Lab: Istanza autonoma del servizio token di sicurezza con ADFS in Azure VM, solo per i test](https://blogs.msdn.microsoft.com/cephalin/2014/12/21/test-lab-standalone-sts-with-ad-fs-in-azure-vm-for-test-only/))
 - Autorizzazioni per creare una o più attendibilità della relying party nel componente di gestione di ADFS
 - Visual Studio 2013
 - [Azure SDK 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) o versioni successive
@@ -61,7 +61,7 @@ L'applicazione di esempio in questa esercitazione, [WebApp-WSFederation-DotNet](
 
 	> [AZURE.NOTE] Le istruzioni fornite nel file [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) mostrano come configurare l'applicazione con Azure Active Directory, ma in questa esercitazione si eseguirà la configurazione senza ADFS, pertanto i passaggi da eseguire sono quelli riportati in questo articolo.
 
-3.	Aprire la soluzione e quindi aprire Controllers\\AccountController.cs in **Esplora soluzioni**.
+3.	Aprire la soluzione e quindi aprire Controllers\AccountController.cs in **Esplora soluzioni**.
 
 	Si noterà che il codice genera semplicemente una richiesta di autenticazione per l'utente mediante WS-Federation. Tutte le autenticazioni sono configurate in App\_Start\\Startup.Auth.cs.
 
@@ -356,4 +356,4 @@ App Web del servizio app di Azure supporta l'accesso ai database locali mediante
  
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/11/2016" 
 	ms.author="spelluru"/>
 
 # Attività di spostamento dei dati
@@ -49,25 +49,27 @@ L'attività di copia esegue la copia dei dati da un archivio dati **di origine**
 
 > [AZURE.NOTE] È possibile spostare solo da e verso Azure DocumentDB da e verso altri servizi di Azure come BLOB di Azure, Tabella di Azure, Database SQL di Azure, Azure SQL Data Warehouse, Azure DocumentDB e Archivio Azure Data Lake. Anche la matrice completa per Azure Document DB sarà supportata a breve.
 
+Se si desidera spostare i dati da e verso un archivio dati che non è supportato dall'**attività di copia**, è possibile usare l'**attività personalizzata** in Data Factory con la logica richiesta per copiare o spostare i dati. Per i dettagli sulla creazione e l'uso di un'attività personalizzata, vedere l'articolo [Usare attività personalizzate in una pipeline di Data Factory di Azure](data-factory-use-custom-activities.md).
+
 ## Esercitazione
 Per un'esercitazione rapida sull'uso dell'attività di copia, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](data-factory-get-started.md). Nell'esercitazione si userà l'attività di copia per copiare dati da un'archiviazione BLOB di Azure a un database SQL di Azure.
 
 ## <a name="copyactivity"></a>Attività di copia
-L'attività di copia usa un set di dati di input (**origine**) e un set di dati di output (**sink**). La copia dei dati viene eseguita in modalità batch in base alla pianificazione specificata per l'attività. Per informazioni sulla definizione di attività in generale, vedere l'articolo [Informazioni su pipeline e attività](data-factory-create-pipelines.md).
+L'attività di copia esegue la copia dei dati da un set di dati di input (**origine**) in un set di dati di output (**sink**). La copia dei dati viene eseguita in modalità batch in base alla pianificazione specificata per l'attività. Per informazioni sulla definizione di attività in generale, vedere l'articolo [Informazioni su pipeline e attività](data-factory-create-pipelines.md).
 
 L'attività di copia offre le funzionalità seguenti:
 
 ### <a name="global"></a>Spostamento dei dati disponibile a livello globale
 Anche se Data factory di Azure è disponibile solo negli Stati Uniti occidentali e in Europa settentrionale, il servizio su cui si basa l'attività di copia è disponibile a livello globale nelle aree geografiche seguenti. La topologia disponibile a livello globale garantisce uno spostamento di dati efficiente e nella maggior parte dei casi consente di evitare passaggi tra diverse aree.
 
-**Gateway di gestione dati** o **Data factory di Azure** esegue lo spostamento dei dati in base alla posizione degli archivi dati di origine e di destinazione in un'operazione di copia. Per informazioni dettagliate, vedere la tabella seguente:
+**Gateway di gestione dati** o **Data Factory di Azure** esegue lo spostamento dei dati in base alla posizione degli archivi dati di origine e di destinazione in un'operazione di copia. Per informazioni dettagliate, vedere la tabella seguente:
 
 Posizione dell'archivio dati di origine | Posizione dell'archivio dati di destinazione | Lo spostamento dei dati viene eseguito da  
 -------------------------- | ------------------------------- | ----------------------------- 
-locale/VM di Azure (IaaS) | cloud | **Gateway di gestione dati** in un computer locale o una VM di Azure. I dati non transitano attraverso il servizio nel cloud. <p> Nota: il Gateway di gestione dati può trovarsi nello stesso computer locale o nella stessa VM di Azure in cui risiede l'archivio dati o in un altro computer locale o un'altra VM di Azure, purché possa connettersi a entrambi gli archivi dati.</p>
+locale/VM di Azure (IaaS) | cloud | **Gateway di gestione dati** in un computer locale o una VM di Azure. I dati non transitano attraverso il servizio nel cloud. <br/><br/>Nota: il Gateway di gestione dati può trovarsi nello stesso computer locale o nella stessa VM di Azure in cui risiede l'archivio dati o in un altro computer locale o un'altra VM di Azure, purché possa connettersi a entrambi gli archivi dati.
 cloud | locale/VM di Azure (IaaS) | Come sopra. 
 locale/VM di Azure (IaaS) | locale/VM di Azure | **Gateway di gestione dati associato all'origine**. I dati non transitano attraverso il servizio nel cloud. Vedere la nota precedente.   
-cloud | cloud | <p>**Servizio cloud su cui si basa l'attività di copia**. Data factory di Azure usa la distribuzione del servizio nell'area più vicina alla posizione del sink nella stessa area geografica. Per il mapping, vedere la tabella seguente: </p><table><tr><th>Area dell'archivio dati di destinazione</th> <th>Area usata per lo spostamento dei dati</th></tr><tr><td>Stati Uniti orientali</td><td>Stati Uniti orientali</td></tr><tr><td>Stati Uniti orientali 2</td><td>Stati Uniti orientali 2</td><tr/><tr><td>Stati Uniti centrali</td><td>Stati Uniti centrali</td><tr/><tr><td>Stati Uniti occidentali</td><td>Stati Uniti occidentali</td></tr><tr><td>Stati Uniti centro-settentrionali</td><td>Stati Uniti centro-settentrionali</td></tr><tr><td>Stati Uniti centro-meridionali</td><td>Stati Uniti centro-meridionali</td></tr><tr><td>Europa settentrionale</td><td>Europa settentrionale</td></tr><tr><td>Europa occidentale</td><td>Europa occidentale</td></tr><tr><td>Asia sud-orientale</td><td>Asia sud-orientale</td></tr><tr><td>Asia orientale</td><td>Asia sud-orientale</td></tr><tr><td>Giappone orientale</td><td>Giappone orientale</td></tr><tr><td>Giappone occidentale</td><td>Giappone orientale</td></tr><tr><td>Brasile meridionale</td><td>Brasile meridionale</td></tr><tr><td>Australia orientale</td><td>Australia orientale</td></tr><tr><td>Australia sud-orientale</td><td>Australia sud-orientale</td></tr></table>
+cloud | cloud | **Servizio cloud su cui si basa l'attività di copia**. Data factory di Azure usa la distribuzione del servizio nell'area più vicina alla posizione del sink nella stessa area geografica. Per il mapping, vedere la tabella seguente: <br/><br/><table><tr><th>Area dell'archivio dati di destinazione</th> <th>Area usata per lo spostamento dei dati</th></tr><tr><td>Stati Uniti orientali</td><td>Stati Uniti orientali</td></tr><tr><td>Stati Uniti orientali 2</td><td>Stati Uniti orientali 2</td><tr/><tr><td>Stati Uniti centrali</td><td>Stati Uniti centrali</td><tr/><tr><td>Stati Uniti occidentali</td><td>Stati Uniti occidentali</td></tr><tr><td>Stati Uniti centro-settentrionali</td><td>Stati Uniti centro-settentrionali</td></tr><tr><td>Stati Uniti centro-meridionali</td><td>Stati Uniti centro-meridionali</td></tr><tr><td>Europa settentrionale</td><td>Europa settentrionale</td></tr><tr><td>Europa occidentale</td><td>Europa occidentale</td></tr><tr><td>Asia sud-orientale</td><td>Asia sud-orientale</td></tr><tr><td>Asia orientale</td><td>Asia sud-orientale</td></tr><tr><td>Giappone orientale</td><td>Giappone orientale</td></tr><tr><td>Giappone occidentale</td><td>Giappone occidentale</td></tr><tr><td>Brasile meridionale</td><td>Brasile meridionale</td></tr><tr><td>Australia orientale</td><td>Australia orientale</td></tr><tr><td>Australia sud-orientale</td><td>Australia sud-orientale</td></tr></table>
 
 
 > [AZURE.NOTE] Se l'area dell'archivio dati di destinazione non è nell'elenco precedente, l'attività di copia non viene completata invece di passare attraverso un'area alternativa.
@@ -87,6 +89,7 @@ Il Gateway di gestione dati offre le funzionalità seguenti:
 
 Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud mediante il Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
 
+
 ### Spostamento di dati affidabile e conveniente
 L'attività di copia è progettata per spostare in modo affidabile volumi elevati di dati provenienti da una vasta gamma di origini dati, evitando gli errori temporanei. È possibile copiare i dati a un costo conveniente, con la possibilità di abilitare la compressione durante la connessione.
 
@@ -99,15 +102,95 @@ Gli archivi dati provengono tutti da uno specifico sistema di tipi nativo. L'att
 Per trovare il mapping di un sistema di tipi nativo a .NET per uno specifico archivio dati, vedere gli argomenti relativi al connettore archivio dati corrispondente. È possibile usare tali mapping per determinare i tipi appropriati durante la creazione di tabelle, in modo che durante l'attività di copia vengano eseguite le conversioni corrette.
 
 ### Uso di diversi formati di file
-L'attività di copia supporta una vasta gamma di formati di file, inclusi file binari, file di testo e Avro per gli archivi basati su file. È possibile usare l'attività di copia per convertire i dati da un formato a un altro. Esempio: testo (CSV) ad Avro. Se i dati non sono strutturati, è possibile omettere la proprietà **Structure** nella definizione JSON del [set di dati](data-factory-create-datasets.md).
+L'attività di copia supporta una vasta gamma di formati di file, inclusi i formati binari, di testo, Avro e JSON per gli archivi basati su file. È possibile usare l'attività di copia per convertire i dati da un formato a un altro. Esempio: testo (CSV) ad Avro. Se i dati non sono strutturati, è possibile omettere la proprietà **Structure** nella definizione JSON del [set di dati](data-factory-create-datasets.md).
 
 ### Proprietà dell'attività di copia
 Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output, diversi criteri e così via. D'altra parte, le proprietà disponibili nella sezione **typeProperties** dell'attività variano in base al tipo di attività.
 
 Quando viene eseguita un'attività di copia, nella sezione **typeProperties** vengono visualizzate proprietà diverse a seconda dei tipi di origine e sink. Ciascuna pagina relativa agli archivi dati elencati sopra contiene informazioni su queste proprietà, che variano in base al tipo di archivio dati.
 
+### Copia ordinata
+È possibile eseguire più operazioni di copia l'una dopo l'altra in modo sequenziale o ordinato. Si supponga di avere due attività di copia in una pipeline: CopyActivity1 e CopyActivity con i set di dati di input e output seguenti.
+
+CopyActivity1: Input: Dataset1 Output Dataset2
+
+CopyActivity2: Inputs: Dataset2 Output: Dataset4
+
+CopyActivity2 viene eseguita solo se l'esecuzione di CopyActivity1 è riuscita e Dataset2 è disponibile.
+
+Nell'esempio precedente CopyActivity2 può avere un input diverso, ad esempio Dataset3, ma sarà necessario specificare Dataset2 anche come input per CopyActivity2, in modo che l'attività non venga eseguita fino a quando CopyActivity1 non è stata completata. ad esempio:
+
+CopyActivity1: Input: Dataset1 Output Dataset2
+
+CopyActivity2: Inputs: Dataset3, Dataset2 Output: Dataset4
+
+Quando si specificano più input, solo il primo set di dati di input viene usato per la copia dei dati e gli altri set di dati vengono usati come dipendenze. L'esecuzione di CopyActivity2 si avvia solo quando le seguenti condizioni sono soddisfatte:
+
+- L'esecuzione di CopyActivity2 è riuscita e Dataset2 è disponibile. Questo set di dati non sarà usato per la copia dei dati in Dataset4. La sua funzione è semplicemente quella di pianificare la dipendenza per CopyActivity2.   
+- Dataset3 è disponibile. Questo set di dati rappresenta i dati che vengono copiati nella destinazione.  
+
 
 ### Prestazioni delle attività di copia e ottimizzazione 
 Vedere l’articolo [Guida alle prestazione delle attività di copia e all’ottimizzazione](data-factory-copy-activity-performance.md), che descrive i fattori chiave che influiscono sulle prestazioni di spostamento dei dati (attività di copia) in Data Factory di Azure. Inoltre, vengono elencate le prestazioni osservate durante il test interni e vengono descritti i modi per ottimizzare le prestazioni dell'attività di copia.
 
-<!---HONumber=AcomDC_0302_2016-->
+
+## Copia guidata di data factory
+**Copia guidata di data factory** consente di creare una pipeline per copiare dati da origini supportate a destinazioni senza scrivere definizioni JSON per i servizi collegati, i set di dati e le pipeline. Per avviare la copia guidata, fare clic sul riquadro **Copia dati** nella home page della data factory.
+
+![Copia di dati guidata](./media/data-factory-data-movement-activities/copy-data-wizard.png)
+
+### Funzionalità
+
+#### Una procedura guidata intuitiva e perfettamente integrata per la copia dei dati 
+Questa procedura guidata consente di spostare facilmente i dati da un'origine a una destinazione in pochi minuti con i semplici passaggi seguenti:
+
+1.	Selezionare l'**origine**
+2.	Selezionare la **destinazione**
+3.	Configurare le **impostazioni**
+
+![Selezionare l'origine dati](./media/data-factory-data-movement-activities/select-data-source-page.png)
+
+#### Esplorazione avanzata dei dati e mapping dello schema
+Mediante la procedura guidata è possibile sfogliare tabelle o cartelle, visualizzare dati in anteprima, mappare lo schema, convalidare espressioni ed eseguire semplici trasformazioni di dati.
+
+**Sfogliare tabelle o cartelle** ![Sfogliare tabelle e cartelle](./media/data-factory-data-movement-activities/browse-tables-folders.png)
+
+#### Esperienza scalabile per tipi di dati e di oggetti diversi
+L'esperienza è totalmente pensata per i Big Data. Creare pipeline di Data Factory che spostano centinaia di cartelle, file o tabelle è una procedura semplice ed efficiente.
+
+**Visualizzare dati in anteprima, mappare lo schema ed eseguire semplici trasformazioni** ![Impostazioni sul formato del file](./media/data-factory-data-movement-activities/file-format-settings.png) ![Mapping dello schema](./media/data-factory-data-movement-activities/schema-mapping.png) ![Espressione di convalida](./media/data-factory-data-movement-activities/validate-expressions.png)
+
+#### Esperienza scalabile per tipi di dati e di oggetti diversi
+L'esperienza è totalmente pensata per i Big Data. Spostare centinaia di cartelle, file o tabelle è una procedura altrettanto semplice ed efficiente mediante la copia guidata.
+
+![Selezionare le tabelle per copiare i dati](./media/data-factory-data-movement-activities/select-tables-to-copy-data.png)
+
+#### Opzioni di pianificazione più avanzate
+È possibile eseguire l'operazione di copia una sola volta oppure ripeterla in base a una pianificazione (a intervalli di un'ora, un giorno, ecc.). Entrambe queste opzioni possono essere usate per tutti i vari connettori tra copie in locale, sul cloud e sui desktop locali. La copia una tantum consente lo spostamento dei dati da un'origine a una destinazione una sola volta e si applica a dati di qualsiasi dimensione e a tutti i formati supportati. La copia pianificata consente di copiare i dati secondo una ricorrenza predeterminata. Sono disponibili impostazioni avanzate (come ad esempio la ripetizione dei tentativi, timeout, avvisi, ecc.) per configurare la copia pianificata.
+
+![Proprietà di pianificazione](./media/data-factory-data-movement-activities/scheduling-properties.png)
+
+
+### Provare il servizio 
+Per una procedura dettagliata su come usare **Copia guidata di data factory** per creare una pipeline con un'attività di copia, vedere [Esercitazione: Creare una pipeline mediante la copia guidata](data-factory-copy-data-wizard-tutorial.md).
+
+
+### Variabili nel percorso della cartella di Azure Blob
+È possibile usare le variabili nel percorso della cartella per copiare i dati da una cartella che viene determinata in fase di esecuzione in base alla [variabile di sistema WindowStart](data-factory-functions-variables.md#data-factory-system-variables). Le variabili supportate sono: **year**, **month**, **day**, **hour**, **minute** e **{custom}**. Esempio: inputfolder/{year}/{month}/{day}.
+
+Si supponga di avere cartelle di input nel formato seguente:
+	
+	2016/03/01/01
+	2016/03/01/02
+	2016/03/01/03
+	...
+
+Fare clic sul pulsante **Sfoglia** per il **File o cartella**, passare a una di queste cartelle, ad esempio 2016->03->01->02, e fare clic su **Scegli**. La casella di testo dovrebbe ora mostrare **2016/03/01/02**. Sostituire **2016** con **{year}**, **03** con **{month}**, **01** con **{day}**, **02** con **{hour}** e premere **TAB**. Dovrebbero essere visualizzati elenchi a discesa da cui selezionare il **formato** per queste quattro variabili come mostrato sotto:
+
+![Uso di variabili di sistema](./media/data-factory-data-movement-activities/blob-standard-variables-in-folder-path.png)
+
+È anche possibile usare una variabile **personalizzata** come mostrato di seguito e [stringhe di formati supportati](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Assicurarsi di selezionare una cartella con quella struttura usando il pulsante Sfoglia, sostituire un valore con **{custom}** e premere **TAB** per vedere la casella di testo in cui digitare la stringa del formato.
+
+![Uso di variabili personalizzate](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
+
+<!---HONumber=AcomDC_0316_2016-->

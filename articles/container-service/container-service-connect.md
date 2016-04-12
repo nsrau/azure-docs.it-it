@@ -1,6 +1,6 @@
 <properties
    pageTitle="Connettersi a un cluster del servizio contenitore di Azure | Microsoft Azure"
-   description="Connettersi a un cluster del servizio contenitore di Azure con un tunnel SSH."
+   description="Connettersi a un cluster del servizio contenitore di Azure usando un tunnel SSH."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
@@ -8,7 +8,7 @@
    editor=""
    tags="acs, azure-container-service"
    keywords="Docker, Contenitori, Micro-servizi, Mesos, Azure"/>
-   
+
 <tags
    ms.service="container-service"
    ms.devlang="na"
@@ -17,46 +17,46 @@
    ms.workload="na"
    ms.date="02/16/2016"
    ms.author="rogardle"/>
-   
+
 
 # Connettersi a un cluster del servizio contenitore di Azure
 
-I cluster Mesos e Swarm distribuiti dal servizio contenitore di Azure espongono endpoint REST, che però non sono aperti al mondo esterno. Per gestire questi endpoint è necessario creare un tunnel SSH. Dopo aver creato il tunnel SSH, è possibile eseguire comandi sugli endpoint del cluster e visualizzare l'interfaccia utente del cluster con un browser nel proprio sistema. Questo documento illustra nel dettaglio la creazione di un tunnel SSH da Linux, OSX e Windows.
+I cluster Mesos e Swarm distribuiti dal servizio contenitore di Azure espongono gli endpoint REST. Questi endpoint, tuttavia, non sono aperti all'esterno. Per gestire questi endpoint, è necessario crear un tunnel Secure Shell (SSH). Dopo aver creato il tunnel SSH, è possibile eseguire comandi sugli endpoint del cluster e visualizzare l'interfaccia utente del cluster con un browser nel proprio sistema. Questo documento illustra nel dettaglio la creazione di un tunnel SSH da Linux, OS X e Windows.
 
-> Anche se è possibile creare una sessione SSH con un sistema di gestione cluster, non è consigliabile. Lavorare direttamente in un sistema di gestione espone al rischio di modifiche accidentali della configurazione.
+>[AZURE.NOTE] È anche possibile creare una sessione SSH con un sistema di gestione cluster, ma non è consigliabile farlo. Lavorare direttamente in un sistema di gestione espone al rischio di modifiche accidentali della configurazione.
 
-## Tunnel SSH in Linux e OSX
+## Creare un tunnel SSH in Linux o OS X
 
-Prima di tutto è necessario trovare il nome DNS pubblico dei master con carico bilanciato. A tale scopo, espandere il gruppo di risorse in modo che vengano visualizzate tutte le risorse. Trovare e selezionare l'indirizzo IP pubblico del master. Verrà aperto un pannello contenente informazioni sull'indirizzo IP pubblico, che include il nome DNS. Salvare questo nome per usarlo in seguito. <br />
+Quando si crea un tunnel SSH in Linux o OS X, prima di tutto è necessario individuare il nome DNS pubblico dei master con carico bilanciato. A tale scopo, espandere il gruppo di risorse in modo che vengano visualizzate tutte le risorse. Trovare e selezionare l'indirizzo IP pubblico del master. Verrà aperto un pannello contenente informazioni sull'indirizzo IP pubblico, che include il nome DNS. Salvare questo nome per usarlo in seguito. <br />
 
-![Connessione PuTTY](media/pubdns.png)
+![Nome DNS pubblico](media/pubdns.png)
 
 Ora aprire una shell ed eseguire il comando seguente, dove:
 
-**PORT** è la porta dell'endpoint da esporre. Per Swarm usare la porta 2375, per Mesos usare la porta 80. **USERNAME** è il nome utente specificato al momento della distribuzione del cluster. **DNSPREFIX** è il prefisso DNS specificato al momento della distribuzione del cluster. **REGION** è l'area in cui si trova il gruppo di risorse.
+**PORT** è la porta dell'endpoint da esporre. Per Swarm, è la porta 2375. Per Mesos, usare la porta 80. **USERNAME** è il nome utente specificato al momento della distribuzione del cluster. **DNSPREFIX** è il prefisso DNS specificato al momento della distribuzione del cluster. **REGION** è l'area in cui si trova il gruppo di risorse.
 
 ```
 ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
 ```
 ### Tunnel Mesos
 
-Per aprire un tunnel per gli endpoint correlati a Mesos, eseguire un comando simile al seguente.
+Per aprire un tunnel per gli endpoint correlati a Mesos, eseguire un comando simile al seguente:
 
 ```
 ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-Gli endpoint correlati a Mesos sono ora accessibili da:
+Ora è possibile accedere agli endpoint correlati a Mesos da:
 
-- Mesos - `http://localhost/mesos`
-- Marathon - `http://localhost/marathon`
-- Chronos - `http://localhost/chronos` 
+- Mesos: `http://localhost/mesos`
+- Marathon: `http://localhost/marathon`
+- Chronos: `http://localhost/chronos`
 
-Analogamente, le API REST per ogni applicazione sono raggiungibili attraverso questo tunnel, Marathon - `http://localhost/marathon/v2`. Per altre informazioni sulle varie API disponibili, vedere la documentazione di Mesosphere per l'[API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e l'[API Chronos](https://mesos.github.io/chronos/docs/api.html), nonché la documentazione di Apache per l'[API dell'utilità di pianificazione Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+Analogamente, è possibile raggiungere le API REST per ogni applicazione attraverso questo tunnel, Marathon: `http://localhost/marathon/v2`. Per altre informazioni sulle diverse API disponibili, vedere la documentazione di Mesosphere per l'[API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html). Vedere l'[API Chronos](https://mesos.github.io/chronos/docs/api.html) e la documentazione di Apache sull'[API dell'utilità di pianificazione Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ### Tunnel Swarm
 
-Per aprire un tunnel per l'endpoint Swarm, eseguire un comando simile al seguente.
+Per aprire un tunnel per l'endpoint Swarm, eseguire un comando simile al seguente:
 
 ```
 ssh -L 2375:localhost:2375 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
@@ -68,46 +68,75 @@ A questo punto è possibile impostare la variabile di ambiente DOCKER\_HOST come
 export DOCKER_HOST=:2375
 ```
 
-## Tunnel SSH in Windows
+## Creare un tunnel SSH in Windows
 
-Per la creazione di tunnel SSH in Windows sono disponibili più opzioni. Questo documento descrive in dettaglio l'uso di PuTTY.
+Esistono più opzioni per creare i tunnel SSH in Windows. Questo documento descrive come usare PuTTY a questo scopo.
 
 Scaricare PuTTY nel sistema Windows ed eseguire l'applicazione.
 
-Immettere un nome host che include il nome utente dell'amministratore cluster e il nome DNS pubblico del primo master nel cluster. Il nome Host sarà simile a `adminuser@PublicDNS`. Immettere 2200 nel campo Port.
+Immettere un nome host che include il nome utente dell'amministratore cluster e il nome DNS pubblico del primo master nel cluster. **Host name** sarà simile a `adminuser@PublicDNS`. Immettere 2200 nel campo **Port**.
 
-![Connessione PuTTY](media/putty1.png)
+![Configurazione PuTTY 1](media/putty1.png)
 
-Selezionare `SSH` e `Authentication` e aggiungere il file di chiave privata per l'autenticazione.
+Selezionare `SSH` e `Authentication`. Aggiungere il file di chiave privata per l'autenticazione.
 
-![Connessione PuTTY](media/putty2.png)
+![Configurazione PuTTY 2](media/putty2.png)
 
-Selezionare `Tunnels` e `configure` per le porte inoltrate seguenti:
-- **Source Port:** corrisponde alla preferenza dell'utente (80 per Mesos e 2375 per Swarm)
-- **Destination:** localhost:80 (per Mesos) o localhost:2375 (per Swarm)
+Selezionare `Tunnels` e configurare per le porte inoltrate seguenti:
+- **Source Port:** corrisponde alla preferenza dell'utente. Usare 80 per Mesos o 2375 per Swarm.
+- **Destination:** usare localhost:80 per Mesos o localhost:2375 per Swarm.
 
-L'esempio seguente è configurato per Mesos, ma avrebbe un aspetto simile anche per Docker Swarm.
+L'esempio seguente è configurato per Mesos, ma avrà un aspetto simile anche per Docker Swarm.
 
-> La porta 80 non deve essere usata al momento della creazione del tunnel.
+>[AZURE.NOTE] La porta 80 non deve essere usata quando si crea il tunnel.
 
-![Connessione PuTTY](media/putty3.png)
+![Configurazione PuTTY 3](media/putty3.png)
 
-Al termine, salvare la configurazione di connessione e connettere la sessione PuTTY. Dopo la connessione verrà visualizzata la configurazione della porta nel registro eventi di PuTTY.
+Al termine, salvare la configurazione di connessione e connettere la sessione PuTTY. Dopo la connessione, è possibile visualizzare la configurazione della porta nel registro eventi di PuTTY.
 
-![Connessione PuTTY](media/putty4.png)
+![Log eventi di PuTTY](media/putty4.png)
 
-Se il tunnel è configurato per Mesos, l'endpoint correlato è accessibile da:
+Dopo avere configurato il tunnel per Mesos, è possibile accedere all'endpoint correlato da:
 
-- Mesos - `http://localhost/mesos`
-- Marathon - `http://localhost/marathon`
-- Chronos - `http://localhost/chronos`. 
+- Mesos: `http://localhost/mesos`
+- Marathon: `http://localhost/marathon`
+- Chronos: `http://localhost/chronos`
 
-Se il tunnel è configurato per Docker Swarm, il cluster Swarm è accessibile dall'interfaccia della riga di comando di Docker. È necessario prima di tutto configurare una variabile di ambiente Windows denominata `DOCKER_HOST` con un valore ` :2375`.
+Dopo avere configurato il tunnel per Docker Swarm, è possibile accedere al cluster Swarm dall'interfaccia della riga di comando di Docker. È necessario prima di tutto configurare una variabile di ambiente Windows denominata `DOCKER_HOST` con un valore ` :2375`.
+
+## Risoluzione dei problemi
+
+### Dopo aver creato il tunnel e aver cercato l'URL di Mesos o di Marathon, ricevo il messaggio di errore 502 - Gateway non valido.
+Il modo più semplice per risolvere il problema è eliminare il cluster e ridistribuirlo. In alternativa è possibile seguire questa procedura per forzare il ripristino automatico di Zookeeper:
+
+Accedere a ogni master ed eseguire:
+
+```
+sudo service nginx stop
+sudo service marathon stop
+sudo service chronos stop
+sudo service mesos-dns stop
+sudo service mesos-master stop 
+sudo service zookeeper stop
+```
+
+Dopo aver arrestato tutti i servizi in tutti i master, eseguire:
+```
+sudo mkdir /var/lib/zookeeperbackup
+sudo mv /var/lib/zookeeper/* /var/lib/zookeeperbackup
+sudo service zookeeper start
+sudo service mesos-master start
+sudo service mesos-dns start
+sudo service chronos start
+sudo service marathon start
+sudo service nginx start
+```
+Subito dopo il riavvio di tutti i servizi, dovrebbe essere possibile usare il cluster come descritto nella documentazione.
 
 ## Passaggi successivi
- 
-Distribuire e gestire contenitori con Mesos o Swarm.
- 
-- [Uso di ACS e Mesos](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+Distribuire e gestire contenitori con Mesos o Swarm.
+
+- [Uso del servizio contenitore di Azure e di Mesos](./container-service-mesos-marathon-rest.md)
+
+<!---HONumber=AcomDC_0406_2016-->

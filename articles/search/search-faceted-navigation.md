@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/18/2016" 
+	ms.date="03/15/2016" 
 	ms.author="heidist"/>
 
 #Come implementare l'esplorazione in base a facet in Ricerca di Azure
@@ -291,7 +291,7 @@ Sono disponibili due funzioni geospaziali in Ricerca di Azure, **geo.distance** 
 
 - La funzione **geo.intersects** restituisce true se un punto specificato si trova all'interno di un poligono specificato, dove il punto è un campo e il poligono è specificato come un elenco costante di coordinate passato come parte del filtro.
 
-È possibile trovare alcuni esempi di filtri in [Sintassi dell'espressione di OData (Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798921.aspx). Per ulteriori informazioni sulla ricerca geospaziale, vedere [Creare un'applicazione di ricerca geospaziale in Ricerca di Azure](search-create-geospatial.md).
+È possibile trovare alcuni esempi di filtri in [Sintassi dell'espressione di OData (Ricerca di Azure)](http://msdn.microsoft.com/library/azure/dn798921.aspx).
 
 <a name="tryitout"></a>
 ##Provare il servizio
@@ -362,7 +362,6 @@ Per altre informazioni sui principi di progettazione per l'esplorazione in base 
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
-[Create a geospatial search application in Azure Search]: search-create-geospatial.md
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
@@ -370,4 +369,4 @@ Per altre informazioni sui principi di progettazione per l'esplorazione in base 
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

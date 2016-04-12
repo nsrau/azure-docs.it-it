@@ -11,7 +11,7 @@
 <tags
 	ms.service="azure-resource-manager"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="01/19/2016"
@@ -20,7 +20,7 @@
 # Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure
 
 > [AZURE.SELECTOR]
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
+- [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
 
 
@@ -33,11 +33,11 @@ In questo articolo viene descritto come creare e gestire le risorse di Azure tra
 
 Usare Gestione risorse di Azure per creare e gestire un gruppo di _risorse_ (entità gestite dall'utente quali una macchina virtuale, un server di database, un database o un sito Web) come una singola unità logica o _gruppo di risorse_.
 
-Un vantaggio di Gestione risorse di Azure consiste nel fatto che è possibile creare le risorse di Azure in modo _dichiarativo_: si descrivono la struttura e le relazioni di un gruppo di risorse distribuibile in *modelli* JSON. Il modello individua i parametri che possono essere completati inline quando si esegue un comando oppure essere archiviati in un file JSON azuredeploy-parameters.json a parte. Ciò consente di creare facilmente nuove risorse usando lo stesso modello e semplicemente fornendo parametri diversi. Un modello che crea un sito Web disporrà ad esempio di parametri per il nome del sito, per l'area in cui verrà inserito e altre impostazioni comuni.
+Uno dei vantaggi di Azure Resource Manager è che permette di creare le risorse di Azure in modo _dichiarativo_, descrivendo la struttura e le relazioni di un gruppo di risorse distribuibile in *modelli* JSON. Il modello individua i parametri che possono essere completati inline quando si esegue un comando oppure essere archiviati in un file JSON azuredeploy-parameters.json a parte. Ciò consente di creare facilmente nuove risorse usando lo stesso modello e semplicemente fornendo parametri diversi. Un modello che crea un sito Web disporrà ad esempio di parametri per il nome del sito, per l'area in cui verrà inserito e altre impostazioni comuni.
 
 Quando un modello viene usato per modificare o creare un gruppo, viene creata una _distribuzione_, che viene quindi applicata al gruppo. Per altre informazioni su Gestione risorse, vedere l'articolo relativo alla [panoramica di Gestione risorse di Azure](resource-group-overview.md).
 
-Dopo aver creato una distribuzione, è possibile gestire le singole risorse in modo imperativo nella riga di comando, in modo analogo a quello del modello di distribuzione classica (Gestione dei servizi). Ad esempio, utilizzare i comandi CLI di Gestione risorse di Azure per avviare, arrestare o eliminare risorse, ad esempio [le macchine virtuali della Gestione risorse di Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+Dopo aver creato una distribuzione, è possibile gestire le singole risorse in modo imperativo nella riga di comando, in modo analogo a quello del modello di distribuzione classica (Gestione dei servizi). Ad esempio, utilizzare i comandi CLI di Gestione risorse di Azure per avviare, arrestare o eliminare risorse, ad esempio [le macchine virtuali della Gestione risorse di Azure](virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
 ## Autenticazione
 
@@ -78,15 +78,15 @@ La distruzione al gruppo di risorse "testRG" verrà eseguita in un secondo momen
 
 Quando si lavora con i modelli, è possibile [crearne uno personalizzato](resource-group-authoring-templates.md) oppure usare uno dei modelli dalla [Raccolta modelli](https://azure.microsoft.com/documentation/templates/) che sono disponibili anche in [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-La creazione di un nuovo modello esula dall'ambito di questo articolo, iniziare quindi con l'uso del modello _101-simple-vm-from-image_ disponibile nella [Raccolta modelli](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). Per impostazione predefinita, verrà creata un’unica macchina virtuale Ubuntu 14.04.2-LTS in una nuova rete virtuale con una singola subnet nell’area degli Stati Uniti occidentali. È necessario solo specificare i pochi parametri seguenti per utilizzare questo modello:
+La creazione di un nuovo modello esula dall'ambito di questo articolo. Per iniziare verrà quindi usato il modello _101-simple-vm-from-image_ disponibile nella [raccolta modelli](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). Per impostazione predefinita, verrà creata un’unica macchina virtuale Ubuntu 14.04.2-LTS in una nuova rete virtuale con una singola subnet nell’area degli Stati Uniti occidentali. È necessario solo specificare i pochi parametri seguenti per utilizzare questo modello:
 
 * Nome utente dell'amministratore per la macchina virtuale = `adminUsername`
 * Password = `adminPassword`
 * Nome di dominio per la macchina virtuale = `dnsLabelPrefix`
 
->[AZURE.TIP] Questi passaggi illustrano solo un modo per utilizzare un modello di macchina virtuale con l’interfaccia della linea di comando di Azure. Per altri esempi, vedere [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+>[AZURE.TIP] Questi passaggi illustrano solo un modo per utilizzare un modello di macchina virtuale con l’interfaccia della linea di comando di Azure. Per altri esempi, vedere [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
-1. Seguire il collegamento "Altre informazioni con GitHub" per scaricare i file azuredeploy.json e azuredeploy.parameters.json da GitHub in una cartella di lavoro nel computer locale. Assicurarsi di selezionare il formato _raw_ formato di ogni file in GitHub.
+1. Seguire il collegamento "Altre informazioni con GitHub" per scaricare i file azuredeploy.json e azuredeploy.parameters.json da GitHub in una cartella di lavoro nel computer locale. Assicurarsi di selezionare il formato _raw_ di ogni file in GitHub.
 
 2. Aprire il file azuredeploy.parameters.json in un editor di testo e immettere i valori dei parametri appropriati per l'ambiente (lasciando invariato il valore **ubuntuOSVersion**).
 
@@ -165,7 +165,7 @@ La creazione di un nuovo modello esula dall'ambito di questo articolo, iniziare 
 
 È inoltre possibile utilizzare un modello direttamente da [GitHub](https://github.com/Azure/azure-quickstart-templates), invece di scaricarne uno nel computer. A tale scopo, passare l'URL al file azuredeploy.json per il modello nel comando utilizzando l’opzione **--template-url**. Per ottenere l’URL, aprire zuredeploy.json in GitHub in modalità _raw_, e copiare l'URL che viene visualizzato nella barra degli indirizzi del browser. È quindi possibile utilizzare questo URL direttamente per creare una distribuzione, utilizzando un comando simile al seguente.
 
-	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
+	azure group deployment create "testRG" testDeploy --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 Viene chiesto di immettere i parametri del modello necessari.
 
 > [AZURE.NOTE] È importante aprire il modello json in modalità _raw_. L'URL che viene visualizzato nella barra degli indirizzi del browser è diverso da quello visibile in modalità normale. Per aprire il file in modalità_raw_quando si visualizza il file su GitHub, nell'angolo superiore destro fare clic su**Raw**.
@@ -215,4 +215,4 @@ Per visualizzare le informazioni registrate sulle operazioni eseguite su un grup
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

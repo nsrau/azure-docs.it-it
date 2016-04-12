@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/29/2016"
+	ms.date="03/03/2016"
 	ms.author="billmath"/>
 
 # Informazioni su Azure Multi-Factor Authentication
@@ -108,7 +108,7 @@ App per dispositivi mobili come secondo fattore|* | * | *
 Chiamata telefonica come secondo fattore|* | * | *
 SMS come secondo fattore|* | * | *
 Password di app per i client che non supportano MFA|* | * | *
-Controllo amministrazione sui metodi di autenticazione| | | *
+Controllo amministrazione sui metodi di autenticazione| (anteprima pubblica)|(anteprima pubblica) | *
 Modalità PIN| | | *
 Avviso di illecito| | | *
 Report MFA| | | *
@@ -120,7 +120,7 @@ IP attendibili| | | *
 Memorizzazione di MFA per dispositivi attendibili |* | * | *
 SDK MFA| | | *
 MFA per applicazioni locali che utilizzano il server MFA| | | *
-Opzioni di verifica selezionabili (anteprima pubblica)|* | * | *
+
 
 
 ## Come ottenere Azure Multi-Factor Authentication
@@ -137,7 +137,7 @@ Quando si usa un provider di Azure Multi-Factor Authentication, sono disponibili
 - **Per utente**. In genere, per le aziende che desiderano abilitare la multi-factor authentication per un numero fisso di dipendenti che richiedono regolarmente l'autenticazione.
 - **Per autenticazione**. In genere, per le aziende che desiderano abilitare la multi-factor authentication per un gruppo esteso di utenti esterni che non richiedono regolarmente l'autenticazione.
 
-Azure multi-Factor Authentication fornisce metodi di verifica selezionabili per cloud e server. Ciò significa che è possibile scegliere i metodi da rendere disponibili agli utenti per l'uso con l'autenticazione a più fattori. Questa funzionalità è attualmente in anteprima pubblica per la versione cloud dell'autenticazione a più fattori. Per altre informazioni vedere [Metodi di verifica selezionabili](multi-factor-authentication-whats-next.md#selectable-verification-methods-public-preview).
+Azure multi-Factor Authentication fornisce metodi di verifica selezionabili per cloud e server. Ciò significa che è possibile scegliere i metodi da rendere disponibili agli utenti per l'uso con l'autenticazione a più fattori. Questa funzionalità è attualmente in anteprima pubblica per la versione cloud dell'autenticazione a più fattori. Per altre informazioni, vedere [Metodi di verifica selezionabili](multi-factor-authentication-whats-next.md#selectable-verification-methods-public-preview).
 
 Per ulteriori informazioni sui prezzi, vedere [Prezzi - Multi-Factor Authentication (MFA).](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
@@ -193,20 +193,20 @@ SMS unidirezionale come secondo fattore | ● | ●
 SMS bidirezionale come secondo fattore | | ●
 Token hardware come secondo fattore | | ●
 Password di app per i client che non supportano MFA | ● |  
-Controllo amministrazione sui metodi di autenticazione | | ●
+Controllo amministrazione sui metodi di autenticazione | (anteprima pubblica) | ●
 Modalità PIN | | ●
 Avviso di illecito | ● | ●
 Report MFA | ● | ●
-Bypass monouso | ● | ●
+Bypass monouso | | ●
 Messaggi di saluto personalizzati per le telefonate | ● | ●
 ID chiamante personalizzabile per le telefonate | ● | ●
 IP attendibili | ● | ●
-Memorizzazione di MFA per dispositivi attendibili (anteprima pubblica) | ● |  
+Memorizzazione di MFA per dispositivi attendibili| ● |  
 Accesso condizionale | ● | ●
-Cache | ● | ●
+Cache | | ●
 
 Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authentication nel cloud o il server MFA locale, sarà possibile iniziare a impostare e utilizzare Azure Multi-Factor Authentication. **Selezionare l'icona che rappresenta lo scenario.**
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

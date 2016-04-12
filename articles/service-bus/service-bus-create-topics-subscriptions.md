@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Creazione di applicazioni che utilizzano argomenti e sottoscrizioni del bus di servizio | Microsoft Azure"
-   description="Introduzione alle funzionalità di pubblicazione-sottoscrizione offerte dagli argomenti e sottoscrizioni del Bus di servizio."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Creazione di applicazioni che utilizzano argomenti e sottoscrizioni del bus di servizio | Microsoft Azure"
+    description="Introduzione alle funzionalità di pubblicazione-sottoscrizione offerte dagli argomenti e sottoscrizioni del Bus di servizio."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Crea applicazioni che utilizzano argomenti e sottoscrizioni del bus di servizio
 
@@ -33,7 +33,7 @@ In qualsiasi situazione come questa, nella quali si richiede che ogni messaggio 
 
 I messaggi vengono inviati a un argomento nello stesso modo in cui vengono trasmessi a una coda. Tuttavia, i messaggi non vengono ricevuti dall'argomento direttamente; vengono ricevuti dalle sottoscrizioni. È possibile pensare alla sottoscrizione a un argomento come a una coda virtuale che riceve copie dei messaggi che sono stati inviati all'argomento. La procedura di ricezione dei messaggi da parte di una sottoscrizione è la stessa di quella usata per la ricezione da parte di una coda.
 
-Tornando allo scenario di vendita al dettaglio, la coda viene sostituita da un argomento e viene aggiunta una sottoscrizione che verrà utilizzata dal componente di sistema di gestione inventario. Il sistema ora l'aspetto seguente:
+Tornando allo scenario di vendita al dettaglio, la coda viene sostituita da un argomento e viene aggiunta una sottoscrizione che verrà usata dal componente del sistema di gestione del magazzino. Il sistema ora l'aspetto seguente:
 
 ![Servizio Bus2](./media/service-bus-create-topics-subscriptions/IC657165.gif)
 
@@ -119,7 +119,7 @@ catch (Exception e)
 
 ## Filtri di sottoscrizione
 
-Finora, in questo articolo vengono resi disponibili a tutte le sottoscrizioni registrate tutti i messaggi inviati all'argomento. La frase chiave è "reso disponibile." Mentre nelle sottoscrizioni del bus di servizio tutti i messaggi vengono inviati all'argomento, l'utente può copiare solo un subset di tali messaggi nella coda virtuale delle sottoscrizioni. Questa operazione viene eseguita mediante la sottoscrizione *filtri*. Quando si crea una sottoscrizione, è possibile fornire un'espressione di filtro sotto forma di un predicato stile SQL92 che funziona tramite le proprietà del messaggio,sia delle proprietà di sistema (ad esempio, [etichetta](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)) che le proprietà dell'applicazione, ad esempio **StoreName** nell'esempio precedente.
+Finora, in questo scenario tutti i messaggi inviati all'argomento sono resi disponibili per tutte le sottoscrizioni registrate. La frase chiave è "reso disponibile." Mentre nelle sottoscrizioni del bus di servizio tutti i messaggi vengono inviati all'argomento, l'utente può copiare solo un subset di tali messaggi nella coda virtuale delle sottoscrizioni. Questa operazione viene eseguita mediante la sottoscrizione *filtri*. Quando si crea una sottoscrizione, è possibile fornire un'espressione di filtro sotto forma di un predicato stile SQL92 che funziona tramite le proprietà del messaggio,sia delle proprietà di sistema (ad esempio, [etichetta](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)) che le proprietà dell'applicazione, ad esempio **StoreName** nell'esempio precedente.
 
 Nell’evoluzione dello scenario per illustrare questo concetto, un secondo archivio deve essere aggiunto a questo scenario di vendita al dettaglio. I dati di vendita da tutti i terminali POS da entrambi gli archivi devono essere instradati al sistema di gestione centralizzato dell'inventario, ma un gestore dell'archivio che utilizza lo strumento dashboard è solo interessato sulle prestazioni di tale archivio. È possibile utilizzare il filtro di sottoscrizione per ottenere questo risultato. Si noti che quando i terminali POS pubblicano messaggi, viene impostate la proprietà di applicazione **StoreName** nel messaggio. Dati due archivi, ad esempio **Redmond** e **Seattle**, i terminali POS nell'archivio di Redmond contrassegnano i messaggi di dati di vendita con uno **StoreName** uguale a **Redmond**, mentre i terminali POS dell’archivio Seattle utilizzano uno **StoreName** uguale a **Seattle**. Il gestore dell'archivio di Redmond desidera solo visualizzare i dati dai propri terminali POS. Il sistema viene visualizzato come segue:
 
@@ -150,4 +150,4 @@ Tutti i motivi per utilizzare l’accodamento messaggi descritto in [Creare appl
 
 Vedere [Creare applicazioni che utilizzano le code del Bus di servizio](service-bus-create-queues.md) per informazioni su come usare le code nello scenario di vendita al dettaglio POS.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -24,7 +24,7 @@ Streaming Spark estende l'API di Spark per compilare applicazioni di elaborazion
 
 In questa esercitazione si apprenderà come creare un Hub eventi di Azure, come inserire messaggi in un hub eventi usando un'applicazione console in Java e recuperarli in parallelo con un'applicazione Spark scritta in Scala. L'applicazione utilizza i dati trasmessi tramite Hub eventi e li instrada a output diversi, come BLOB di archiviazione di Azure, tabelle Hive e tabelle SQL.
 
-> [AZURE.NOTE] Per seguire le istruzioni riportate in questo articolo, è necessario usare entrambe le versioni del portale di Azure. Per creare un Hub eventi si userà il [portale di Azure](https://manage.windowsazure.com). Per usare il cluster HDInsight Spark, si userà il [portale di anteprima di Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Per seguire le istruzioni riportate in questo articolo, è necessario usare entrambe le versioni del portale di Azure. Per creare un Hub eventi si userà il [portale di Azure classico](https://manage.windowsazure.com). Per lavorare con il cluster HDInsight Spark, si userà il [portale di Azure](https://ms.portal.azure.com/).
 
 **Prerequisiti:**
 
@@ -49,7 +49,7 @@ Ecco il flusso di questa soluzione di streaming:
 
 ## Creare Hub eventi di Azure
 
-1. Nel [Portale di Azure](https://manage.windowsazure.com) selezionare **NUOVO** > **Bus di servizio** > **Hub eventi** > **Creazione personalizzata**.
+1. Nel [portale di Azure](https://manage.windowsazure.com) selezionare **NUOVO** > **Bus di servizio** > **Hub eventi** > **Creazione personalizzata**.
 
 2. Nella schermata **Aggiungi hub eventi** immettere un nome in **Nome hub eventi**, selezionare l'area in cui creare l'hub in **Area geografica** e creare un nuovo spazio dei nomi o selezionarne uno esistente. Fare clic sulla **freccia** per continuare.
 
@@ -64,10 +64,12 @@ Ecco il flusso di questa soluzione di streaming:
 4. Fare clic sull'hub eventi creato, su **Configura** e quindi creare due criteri di accesso per l'hub eventi.
 
 	<table>
-<tr><th>Nome</th><th>Autorizzazioni</th></tr>
-<tr><td>mysendpolicy</td><td>Invio</td></tr>
-<tr><td>myreceivepolicy</td><td>Attesa</td></tr>
-</table>Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Ciò consente di creare criteri di accesso condiviso che saranno usati per l'invio (**mysendpolicy**) e l'ascolto (**myreceivepolicy**) in questo hub eventi.
+	<tr><th>Nome</th><th>Autorizzazioni</th></tr>
+	<tr><td>mysendpolicy</td><td>Invio</td></tr>
+	<tr><td>myreceivepolicy</td><td>Attesa</td></tr>
+	</table>
+
+	Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Ciò consente di creare criteri di accesso condiviso che saranno usati per l'invio (**mysendpolicy**) e l'ascolto (**myreceivepolicy**) in questo hub eventi.
 
 	![criteri](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Creare criteri di Hub di eventi")
 
@@ -372,4 +374,4 @@ L'output dovrebbe essere simile al seguente:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

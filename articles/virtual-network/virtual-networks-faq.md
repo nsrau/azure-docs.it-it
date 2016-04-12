@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Domande frequenti su Rete virtuale
@@ -21,6 +21,6 @@
 
 ## Connettività cross-premise delle reti virtuali (VPN)
 
-Per le domande frequenti più recenti sulle reti virtuali VPN, vedere le [domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md).
+Per le domande frequenti più recenti sulle reti virtuali VPN, vedere le [domande frequenti sul gateway VPN](../vpn-gateway/vpn-gateway-vpn-faq.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

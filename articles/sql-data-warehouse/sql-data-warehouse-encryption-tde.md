@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse | Microsoft Azure" 
-   description="Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse | Microsoft Azure"
+   description="Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-data-warehouse" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-data-warehouse"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
+
 # Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](sql-data-warehouse-encryption-tde.md)
+- [Portale di Azure classico](sql-data-warehouse-encryption-tde.md)
 - [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
 
 La funzionalità Transparent Data Encryption (TDE) di SQL Data Warehouse di Azure consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei database, dei backup associati e dei file di log delle transazioni inattivi, senza dover apportare modifiche all'applicazione.
@@ -30,9 +30,9 @@ TDE esegue la crittografia dell'archiviazione di un intero database usando una c
 Per abilitare TDE per un SQL Data Warehouse, attenersi alla procedura seguente:
 
 1. Aprire il database nel [portale di Azure classico](https://portal.azure.com)
-2. Nel pannello del database fare clic sul pulsante **Impostazioni**	
-3. Selezionare l’opzione ![][1] di **Crittografia dati trasparente** 
-4. Selezionare l’impostazione ![][2] su **Attiva** 
+2. Nel pannello del database fare clic sul pulsante **Impostazioni**
+3. Selezionare l’opzione ![][1] di **Crittografia dati trasparente**
+4. Selezionare l’impostazione ![][2] su **Attiva**
 5. Selezionare **Salva** ![][3]  
 
 ##Disabilitazione della crittografia
@@ -40,9 +40,9 @@ Per abilitare TDE per un SQL Data Warehouse, attenersi alla procedura seguente:
 Per disabilitare TDE per un SQL Data Warehouse, attenersi alla procedura seguente:
 
 1. Aprire il database nel [portale di Azure classico](https://portal.azure.com)
-2. Nel pannello del database fare clic sul pulsante **Impostazioni**	
-3. Selezionare l’opzione ![][1] di **Crittografia dati trasparente** 
-4. Selezionare l’impostazione ![][4] su **Disattiva** 
+2. Nel pannello del database fare clic sul pulsante **Impostazioni**
+3. Selezionare l’opzione ![][1] di **Crittografia dati trasparente**
+4. Selezionare l’impostazione ![][4] su **Disattiva**
 5. Selezionare **Salva** ![][5]  
 
 
@@ -61,4 +61,4 @@ Per disabilitare TDE per un SQL Data Warehouse, attenersi alla procedura seguent
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

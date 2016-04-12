@@ -121,7 +121,7 @@ Se l'immagine di macchina virtuale non contiene dischi dati, vale a dire dischi 
 
  > [AZURE.NOTE] Non usare l'unità D per archiviare i dati. Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure.
 
-Per collegare ulteriori dischi dati, attenersi alla procedura illustrata in [Come collegare un disco dati a una macchina virtuale Windows](storage-windows-attach-disk.md), in cui vengono fornite indicazione per effettuare le seguenti operazioni:
+Per collegare ulteriori dischi dati, attenersi alla procedura illustrata in [Come collegare un disco dati a una macchina virtuale Windows](virtual-machines-windows-classic-attach-disk.md), in cui vengono fornite indicazione per effettuare le seguenti operazioni:
 
 1. Collegamento di dischi vuoti alla macchina virtuale di cui è stato effettuato il provisioning nei passaggi precedenti
 2. Inizializzazione di nuovi dischi nella macchina virtuale
@@ -298,4 +298,4 @@ I passaggi successivi del processo di analisi scientifica dei dati sono illustra
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

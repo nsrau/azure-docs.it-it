@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/21/2016" 
 	ms.author="riande"/>
 
 # Creare un'app ASP.NET MVC con autenticazione e database SQL e distribuirla nel servizio app di Azure
@@ -53,9 +53,7 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
 
 	![Nuovo progetto nel menu File](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/gs13newproj.png)
 
-1. Nella finestra di dialogo **Nuovo progetto** espandere **C#** e selezionare **Web** in **Modelli installati**, quindi selezionare **Applicazione Web ASP.NET**.
-
-1. Assegnare all'applicazione il nome **ContactManager** e quindi fare clic su **OK**.
+1. Nella finestra di dialogo **Nuovo progetto** espandere **C#** e selezionare **Web** in **Modelli installati**, quindi selezionare **Applicazione Web ASP.NET**. Assegnare all'applicazione il nome **ContactManager** e quindi fare clic su **OK**.
 
 	![Finestra di dialogo Nuovo progetto](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/GS13newprojdb.png)
  
@@ -67,29 +65,35 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
 
 1. Fare clic su **OK**.
 
-3. Quando viene visualizzata la finestra di dialogo **Configura impostazioni app Web di Microsoft Azure**, assicurarsi di aver eseguito l'accesso ad Azure. In caso contrario, eseguire l'accesso o immettere di nuovo le credenziali se la sessione è scaduta.
+1. Viene visualizzata la finestra di dialogo **Configura impostazioni app Web di Microsoft Azure**. Potrebbe essere necessario eseguire l’accesso se questa operazione non è già stata eseguita o immettere nuovamente le credenziali se la sessione è scaduta.
 
-	![Conferma credenziali](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/reentercredentials.png)
-
-2. Se si vuole specificare un nome per l'app Web, modificare il valore nella casella **Nome app Web**.
+1. Facoltativo: modificare il valore nella casella **Nome app Web** (vedere la figura seguente).
 
 	L'URL dell'app Web sarà {nome}.azurewebsites.net, di conseguenza questo nome deve essere univoco nel dominio azurewebsites.net. La configurazione guidata suggerisce un nome univoco tramite l'aggiunta di un numero al nome del progetto "ContactManager" e per questa esercitazione verrà mantenuto quello.
 
-5. Nell'elenco a discesa **Piano di servizio app** selezionare **Crea nuovo piano di servizio app** e immettere un nome, ad esempio "StandardWeb", come mostrato nella figura.
-
-	Se si preferisce, è possibile selezionare un piano di servizio app già esistente. Per informazioni sui piani di servizio app, vedere [Panoramica approfondita dei piani del servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-
-5. Nell'elenco a discesa **Gruppo di risorse** selezionare **Crea nuovo gruppo di risorse** e immettere un nome, ad esempio "ExampleMVC", come mostrato nella figura.
+5. Nell’elenco a discesa **Gruppo di risorse**, selezionare un gruppo esistente o **Crea nuovo gruppo di risorse**(vedere la figura seguente).
 
 	Se si preferisce, è possibile selezionare un gruppo di risorse già esistente. Tuttavia, se si crea un nuovo gruppo di risorse e lo si usa solo per questa esercitazione, sarà più facile eliminare tutte le risorse di Azure create nel corso delle procedure al termine dell'esercitazione. Per informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md).
 
-7. Selezionare un'area nelle vicinanze.
+5. Nell’elenco a discesa **Piano di servizio app**, selezionare un piano esistente o **Crea nuovo piano di servizio app**(vedere la figura seguente).
 
-	Non fare ancora clic su **OK**. Nel passaggio successivo, verrà configurata la risorsa database. La finestra di dialogo avrà l'aspetto simile a quello della figura seguente.
+	Se si preferisce, è possibile selezionare un piano di servizio app già esistente. Per informazioni sui piani di servizio app, vedere [Panoramica approfondita dei piani del servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-	![Nuovo piano e gruppo di risorse](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newplanandgroup.png)
- 
-2. Selezionare **Crea nuovo server** e immettere il nome del server, il nome utente e la password.
+1. Toccare **Esplorare servizi di Azure aggiuntivi** per aggiungere un database SQL.
+
+	![Aggiungere nuovi servizi](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/n2.png)
+
+1. Toccare l’icona **+** per aggiungere un database SQL.
+
+	![Nuovo database SQL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/nsql.png)
+
+1. Toccare **Nuovo** nella finestra di dialogo **Configura Database SQL**:
+
+	![Password e nome amministratore SQL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/nc.png)
+
+1. Immettere un nome per l'amministratore e una password complessa.
+
+	![Nuovo database SQL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/np.png)
 
 	Il nome del server deve essere univoco. Può contenere lettere minuscole, numeri e trattini, ma non può terminare con un trattino. Il nome utente e la password sono le nuove credenziali create per il nuovo server.
 
@@ -99,7 +103,7 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
 
 	![Utilizzare il nuovo database](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newdb.png)
 
-4. Fare clic su **OK**.
+4. Fare clic su **Crea**.
 
 	Visual Studio crea il progetto Web ContactManager, crea il gruppo di risorse e il piano di servizio app specificati e crea un'app Web con il nome specificato nel servizio app di Azure.
 
@@ -107,56 +111,15 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
 
 1. In **Esplora soluzioni** aprire il file *Layout.cshtml* nella cartella *Views\\Shared*.
 
-	![_Layout.cshtml in Esplora soluzioni][newapp004]
+	![\_Layout.cshtml in Solution Explorer][newapp004]
 
-1. Sostituire il contenuto del file *Layout.cshtml* con il codice seguente.
+1. Sostituire ActionLink nel file *Layout.cshtml* con il codice seguente.
 
-		<!DOCTYPE html>
-		<html>
-		<head>
-		    <meta charset="utf-8" />
-		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		    <title>@ViewBag.Title - Contact Manager</title>
-		    @Styles.Render("~/Content/css")
-		    @Scripts.Render("~/bundles/modernizr")
-		
-		</head>
-		<body>
-		    <div class="navbar navbar-inverse navbar-fixed-top">
-		        <div class="container">
-		            <div class="navbar-header">
-		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                </button>
-		                @Html.ActionLink("CM Demo", "Index", "Cm", new { area = "" }, new { @class = "navbar-brand" })
-		            </div>
-		            <div class="navbar-collapse collapse">
-		                <ul class="nav navbar-nav">
-		                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-		                    <li>@Html.ActionLink("About", "About", "Home")</li>
-		                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-		                </ul>
-		                @Html.Partial("_LoginPartial")
-		            </div>
-		        </div>
-		    </div>
-		    <div class="container body-content">
-		        @RenderBody()
-		        <hr />
-		        <footer>
-		            <p>&copy; @DateTime.Now.Year - Contact Manager</p>
-		        </footer>
-		    </div>
-		
-		    @Scripts.Render("~/bundles/jquery")
-		    @Scripts.Render("~/bundles/bootstrap")
-		    @RenderSection("scripts", required: false)
-		</body>
-		</html>
 
-	Questo nome cambia il nome dell'applicazione nell'intestazione e nel piè di pagina da "My ASP.NET Application" e "Application name" a "Contact Manager" e "CM Demo".
+	@Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
+		           
+
+	Assicurarsi di modificare il terzo parametro da "Home" in "Contatti". Il markup precedente creerà un collegamento "Contatti" in ogni pagina al metodo Index del controller Contacts. Modificare il nome dell'applicazione nell'intestazione e nel piè di pagina da "My ASP.NET Application" e "Application name" a "Contact Manager" e "CM Demo".
  
 ### Eseguire l'applicazione in locale
 
@@ -282,7 +245,6 @@ La funzionalità di scaffolding di ASP.NET MVC consente di generare automaticame
 
 1. In **Classe contesto di dati** selezionare **ApplicationDbContext (ContactManager.Models)**. La classe **ApplicationDbContext** verrà utilizzata per il database di appartenenza e per i dati relativi ai contatti.
 
-1. Nella casella di immissione del testo **Nome controller** digitare "CmController" per il nome del controller.
 
 	![Finestra di dialogo relativa ai nuovi dati contesto](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss5.PNG)
 
@@ -372,7 +334,7 @@ L'attività successiva consiste nell'abilitare la funzionalità [Migrazioni Code
                 );
         }
 
-	Questo codice consente di inizializzare (effettuare il seeding) il database con le informazioni sui contatti. Per ulteriori informazioni sul seeding del database, vedere la pagina relativa al [seeding e al debug di database di Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
+	Questo codice consente di inizializzare (effettuare il seeding) il database con le informazioni sui contatti. Per ulteriori informazioni sul seeding del database, vedere la pagina relativa al [seeding e al debug di database di Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx). Creare il progetto per verificare che non siano presenti errori di compilazione.
 
 6. In **Console di Gestione pacchetti** immettere il comando seguente:
 
@@ -509,8 +471,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 1. Aprire il file *App\_Start\\FilterConfig.cs* e sostituire il metodo *RegisterGlobalFilters* con il codice seguente, che consente di aggiungere due filtri:
 
-		public static void
-		RegisterGlobalFilters(GlobalFilterCollection filters)
+		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
 		    filters.Add(new HandleErrorAttribute());
 		    filters.Add(new System.Web.Mvc.AuthorizeAttribute());
@@ -581,7 +542,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 1. Fare clic sui collegamenti **About** o **Contact**. Si verrà reindirizzati alla pagina di accesso perché gli utenti anonimi non sono autorizzati a visualizzare tali pagine.
 
-1. Fare clic sul collegamento **Esegui la registrazione come nuovo utente** e aggiungere un utente locale con l'indirizzo di posta elettronica **joe@contoso.com*. Assicurarsi che *Joe* sia in grado di visualizzare le pagine Home, About e Contact.
+1. Fare clic sul collegamento **Esegui la registrazione come nuovo utente** e aggiungere un utente locale con l'indirizzo di posta elettronica *joe@contoso.com*. Assicurarsi che *Joe* sia in grado di visualizzare le pagine Home, About e Contact.
 
 	![Accesso](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
@@ -605,13 +566,12 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
 
 1. Fare clic sulla scheda **Impostazioni** nella parte sinistra della finestra di dialogo **Pubblica sito Web** dialog box.
 
-2. Fare clic sull'icona **v** per selezionare la **stringa di connessione remota** per **ApplicationDbContext** e quindi selezionare il database creato al momento della creazione del progetto.
+2. In **ApplicationDbContext** selezionare il database creato al momento della creazione del progetto.
    
-	![Scheda Impostazioni](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc2.png)
 
 1. In **ContactManagerContext** selezionare **Execute Code First Migrations**.
 
-	![Scheda Impostazioni](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc3.png)
+	![Scheda Impostazioni](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc2.png)
 
 1. Fare clic su **Pubblica**.
 
@@ -798,4 +758,4 @@ Se lo si desidera, ***inviare commenti e suggerimenti*** sugli aspetti ritenuti 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

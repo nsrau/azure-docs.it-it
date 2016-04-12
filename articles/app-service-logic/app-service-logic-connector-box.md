@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 # Uso del connettore Box e aggiunta all'app per la logica 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API di Box](../connectors/create-api-box.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API Box](../connectors/connectors-create-api-box.md).
 
 Connettersi a Box per ottenere, caricare, eliminare e svolgere altre operazioni sui file. È possibile usare i connettori nelle app per la logica come parte di un "flusso di lavoro".
 
@@ -70,7 +70,7 @@ File Path | Percorso del file completo incluse le cartelle. | Sì
 2. Cercare "Connettore Box", selezionarlo e scegliere **Crea**.
 3. Immettere il nome, il piano di servizio app e altre proprietà:
 ![][1]
-4. Selezionare **Crea**.
+4. Selezionare **Create**.
 
 
 ## Usare il connettore Box nell'app per la logica
@@ -87,11 +87,11 @@ Dopo aver creato l'app per le API, è possibile usare il connettore Box come azi
 3. Immettere i dettagli di accesso dell'account Box su cui eseguire le operazioni:
 ![][3]
 
-4. Concedere alle app per la logica l'accesso al proprio account utente per eseguire l'operazione per proprio conto: 
-![][4]
+4. Concedere alle app per la logica l'accesso all'account utente per eseguire l'operazione per proprio conto:
+ ![][4]
 
-5. Verrà visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione da eseguire:
-![][5]
+5. Viene visualizzato l'elenco delle azioni da cui è possibile scegliere l'operazione da eseguire:
+ ![][5]
 
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso di lavoro aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
@@ -109,4 +109,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

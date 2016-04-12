@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/16/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -107,13 +107,13 @@ Se si usano le impostazioni rapide, verrà creato un account in Active Directory
 ![Account AD](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 ### Account del servizio di sincronizzazione Azure AD Connect
-Mediante l'installazione guidata viene creato un account di servizio locale (a meno che non si specifichi l'account da usare nelle impostazioni personalizzate). L'account è preceduto da **AAD\_** e viene usato per l'esecuzione come servizio di sincronizzazione effettiva. Se si installa Azure AD Connect in un Controller di dominio, l'account viene creato nel dominio. Se si usa un server remoto che esegue SQL Server, l'account del servizio **AAD\_** deve trovarsi nel dominio.
+Mediante l'installazione guidata viene creato un account di servizio locale (a meno che non si specifichi l'account da usare nelle impostazioni personalizzate). L'account è preceduto da **AAD\_** e viene usato per l'esecuzione come servizio di sincronizzazione effettiva. Se si installa Azure AD Connect in un Controller di dominio, l'account viene creato nel dominio. Se si usa un server remoto che esegue SQL Server o un proxy che richiede l'autenticazione, l'account del servizio **AAD\_** deve trovarsi nel dominio.
 
 ![Account del servizio di sincronizzazione](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
 L'account viene creato con una password lunga e complessa priva di scadenza.
 
-Tale account verrà usato da Windows per archiviare le chiavi di crittografia in modo che le password dell'account non vengano reimpostate né modificate.
+Questo account viene usato per archiviare in modo sicuro le password per gli altri account. Le password di questi altri account vengono archiviate crittografate nel database. Le chiavi private per le chiavi di crittografia sono protette tramite la crittografia a chiave segreta dei servizi di crittografia con Windows Data Protection (DPAPI). Non reimpostare la password nell'account del servizio, perché Windows elimina le chiavi di crittografia per motivi di sicurezza.
 
 Se si usa una versione completa di SQL Server, l'account del servizio sarà il DBO del database creato per il motore di sincronizzazione. Il servizio non funzionerà come previsto con tutte le altre autorizzazioni. Viene inoltre creato un account di accesso SQL.
 
@@ -134,4 +134,4 @@ L'account del servizio viene creato con una password lunga e complessa priva di 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

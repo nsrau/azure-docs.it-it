@@ -36,7 +36,10 @@ Il team lavora a un ciclo simile al seguente:
 
 I requisiti passano nel backlog di sviluppo (elenco attività). Lavorano per brevi sprint, in cui spesso viene distribuito il software funzionante - in genere sotto forma di miglioramenti ed estensioni per l'applicazione esistente. L'app attiva viene aggiornata di frequente con le nuove funzionalità. Mentre è attiva, il team ne esegue il monitoraggio per le prestazioni e l'uso con l'aiuto di Application Insights. Questa analisi viene riconduce al loro backlog di sviluppo.
 
-Il team usa Application Insights per monitorare attentamente l'applicazione web attiva per: * le prestazioni. Desiderano capire come variano i tempi di risposta in base al numero di richieste; quanti CPU, rete, disco e altre risorse vengono usate; e dove sono i colli di bottiglia. * Errori. Se esistono eccezioni o richieste non riuscite, o se un contatore delle prestazioni non rientra nell'intervallo noto, il team deve esserne informato rapidamente in modo che sia possibile intraprendere l'azione. * Uso. Ogni volta che viene rilasciata una nuova funzionalità, il team desidera sapere in quale misura viene usata e se gli utenti hanno difficoltà con essa.
+Il team usa Application Insights per monitorare attentamente l'applicazione web attiva per gli elementi seguenti:
+* Prestazioni. Il team vuole capire come variano i tempi di risposta in base al numero di richieste; la quantità usata di CPU, la rete, il disco e altre risorse, e dove sono i colli di bottiglia.
+* Errori. Se esistono eccezioni o richieste non riuscite, o se un contatore delle prestazioni non rientra nell'intervallo noto, il team deve esserne informato rapidamente in modo che sia possibile intraprendere l'azione.
+* Utilizzo. Ogni volta che viene rilasciata una nuova funzionalità, il team desidera sapere in quale misura viene usata e se gli utenti hanno difficoltà con essa.
 
 
 
@@ -49,7 +52,7 @@ Ci si concentra ora parte del ciclo dedicata ai commenti e suggerimenti:
 ## Rilevare scarsa disponibilità
 
 
-Marcela Markova è uno specialista di test nel team di OBS e accetta di essere responsabile del monitoraggio delle prestazioni online. Imposta diversi [test Web][availability]\:
+Marcela Markova è un senior developer del team di OBS e accetta di essere responsabile del monitoraggio delle prestazioni online. Imposta diversi [test Web][availability]\:
 
 * Un test con singolo URL per la pagina di destinazione principale per l'app http://fabrikambank.com/onlinebanking/. Imposta i criteri del codice HTTP 200 e il testo 'Benvenuto'. Se il test ha esito negativo, è presente un grave problema relativo alla rete o ai server o forse un problema di distribuzione, oppure un utente ha modificato il messaggio Benvenuto nella pagina senza comunicarlo.
 
@@ -77,27 +80,49 @@ Nella stessa pagina della panoramica d Application Insights è presente un grafi
 
 Il tempo di caricamento della pagina del browser deriva dai dati di telemetria inviati direttamente dalle pagine Web. Il tempo di risposta del server, il numero di richieste al server e il numero di richieste non riuscite sono tutti misurati nel server Web e inviati direttamente ad Application Insights.
 
+Marcela è un po' in apprensione riguardo al grafico di risposta del server, che mostra il tempo medio che intercorre tra il momento in cui il server riceve una richiesta HTTP dal browser di un utente al momento in cui viene inviata la risposta. Non è raro vedere una variazione all'interno del grafico, in ragione della variazione del carico sul sistema. Tuttavia, nel caso specifico sembra che vi sia una correlazione tra gli incrementi minimi nel conteggio delle risposte e quelli rilevanti nel tempo di risposta. Questa correlazione potrebbe indicare che il funzionamento del sistema è al limite.
 
-Il numero di richieste non riuscite indica i casi in cui gli utenti hanno individuato un errore, in genere dopo un'eccezione generata nel codice. Forse viene visualizzato un messaggio che indica che non è possibile aggiornare i dettagli al momento o, addirittura peggio, un dump dello stack sullo schermo dell'utente dovuto al server Web.
+Apre i grafici dei server:
 
+![Alcuni criteri di misurazione](./media/app-insights-detect-triage-diagnose/06.png)
 
-Marcela esamina questi grafici di tanto in tanto. L'assenza di richieste non riuscite è incoraggiante, anche se quando si modifica l'intervallo del grafico per coprire la settimana precedente vengono visualizzati errori occasionali. Si tratta di un livello accettabile in un server occupato. Se tuttavia si verifica un improvviso picco di errori o in alcune delle altre metriche, come il tempo di risposta del server, Marcela vuole saperlo immediatamente. Potrebbe indicare un problema imprevisto causato da una versione di codice o un errore in una dipendenza, ad esempio un database, o forse una reazione anomala a un carico di richieste elevato.
-
-#### Avvisi
-
-Marcella pertanto imposta due [avvisi][metrics]\: uno per tempi di risposta maggiori di una soglia tipica e l'altro per una frequenza di richieste non riuscite maggiore dello scenario corrente.
+Apparentemente non si rilevano limitazioni delle risorse, quindi magari i salti nei grafici di risposta del server sono solo una coincidenza.
 
 
-Con l'avviso di disponibilità avrà la sicurezza di venire informata sulle situazioni insolite non appena si verificano.
+## Avvisi
 
+Marcela, ad ogni modo, vuole monitorare i tempi di risposta. Se aumentano in modo eccessivo, vuole esserne informata.
 
-È anche possibile impostare avvisi per una vasta gamma di altre metriche. Ad esempio, è possibile ricevere messaggi di posta elettronica se il numero di eccezioni risulta elevato o la memoria disponibile è insufficiente o se è presente un picco nelle richieste del client.
-
+Quindi imposta un [avviso][metrics] se i tempi di risposta sono superiori alla soglia tipica. Questo le consentirà di conoscere la velocità dei tempi di risposta.
 
 
 ![Pannello Aggiungi avviso](./media/app-insights-detect-triage-diagnose/07-alerts.png)
 
+È possibile impostare avvisi su svariate altre metriche. Ad esempio, è possibile ricevere messaggi di posta elettronica se il numero di eccezioni risulta elevato o la memoria disponibile è insufficiente o se è presente un picco nelle richieste del client.
 
+## Avvisi sulla diagnostica proattiva
+
+Il giorno successivo arriva un avviso in posta elettronica da Application Insights. Quando lo apre, si accorge però che non è l'avviso sui tempi di risposta che aveva impostato. Al contrario, indica che c'è stato un aumento improvviso delle richieste non riuscite, ovvero, delle richieste che hanno restituito 500 o più codici di errore.
+
+Le richieste non riuscite sono quelle richieste in cui gli utenti hanno individuato un errore, in genere dopo un'eccezione generata nel codice. Forse viene visualizzato un messaggio che indica che non è possibile aggiornare i dettagli al momento o, addirittura peggio, un dump dello stack sullo schermo dell'utente dovuto al server Web.
+
+L'avviso la lascia stupita perché l'ultima volta il numero delle richieste non riuscite era particolarmente basso. In un server occupato, un numero esiguo di errori è un evento prevedibile.
+
+Lo stupore nasceva anche dal fatto che non era necessario configurare l'avviso. In effetti, la diagnostica proattiva è inclusa automaticamente in Application Insights. Si adatta automaticamente al consueto modello di errore dell'app "abituandosi" agli errori di una particolare pagina o un carico elevato, o collegato ad altre metriche. Genera l'avviso solo in caso di un aumento prevedibile.
+
+![messaggio di posta elettronica sulla diagnostica proattiva](./media/app-insights-detect-triage-diagnose/21.png)
+
+Si tratta di un messaggio di posta elettronica molto utile. Non si limita a generare un avviso, ma esegue anche valutazioni e diagnosi.
+
+Mostra il numero di clienti coinvolti e le pagine Web o le operazioni. Marcela può decidere se è necessario ottenere l'impegno dell'intero team come esercitazione, o se può essere ignorato fino alla settimana successiva.
+
+Il messaggio di posta elettronica mostra inoltre il verificarsi di una particolare eccezione e, cosa ancora più interessante, che l'errore è associato a chiamate non riuscite a un particolare database. Questo spiega come mai si è generato improvvisamente l'errore anche se il team di Marcela non ha distribuito aggiornamenti di recente.
+
+Contatta il responsabile del team di database. In effetti, hanno rilasciato un aggiornamento rapido nell'ultima mezz'ora, ma forse c'è stata una piccola modifica dello schema.
+
+In definitiva, il problema sta per essere risolto anche prima di esaminare i log, e dopo soli 15 minuti dal momento in cui si è generato l'errore. Tuttavia, Marcela seleziona il collegamento per aprire Application Insights. Si apre direttamente su una richiesta non riuscita in cui è possibile visualizzare la chiamata al database non riuscita nell'elenco delle chiamate di dipendenza associato.
+
+![richiesta non riuscita](./media/app-insights-detect-triage-diagnose/23.png)
 
 
 ## Rilevamento di eccezioni
@@ -261,4 +286,4 @@ Ecco come un solo team usa Application Insights non solo per risolvere singoli p
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0309_2016-->

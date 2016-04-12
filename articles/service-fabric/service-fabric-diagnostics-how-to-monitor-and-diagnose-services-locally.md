@@ -3,7 +3,7 @@
    description="Informazioni su come eseguire il monitoraggio e la diagnosi dei servizi scritti usando Microsoft Azure Service Fabric in un computer di sviluppo locale."
    services="service-fabric"
    documentationCenter=".net"
-   authors="kunaldsingh"
+   authors="toddabel"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="03/04/2016"
    ms.author="toddabel"/>
 
 
@@ -58,6 +58,8 @@ Per i progetti creati da **modelli di attore** (con o senza stato):
 Dopo aver aggiunto il tracciamento ETW personalizzato al codice del servizio, sarà possibile compilare, distribuire ed eseguire nuovamente l'applicazione in modo che gli eventi risultino visibili nel visualizzatore degli eventi di diagnostica. Se si esegue il debug dell'applicazione con **F5**, il visualizzatore verrà aperto automaticamente.
 
 ## Passaggi successivi
-Lo stesso codice di traccia aggiunto all'applicazione precedente per la diagnostica locale potrà essere usato con gli stessi strumenti di cui è possibile avvalersi per visualizzare gli eventi quando si esegue l'applicazione in un cluster di Azure. Per altre informazioni, consultare gli articoli seguenti che illustrano le diverse opzioni disponibili per gli strumenti e descrivono le modalità per impostarle. * [Raccolta di log da un cluster di Service Fabric in Azure mediante Diagnostica di Microsoft Azure e Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [Uso di ElasticSearch come archivio di traccia dell'applicazione di Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+Lo stesso codice di traccia aggiunto all'applicazione precedente per la diagnostica locale potrà essere usato con gli stessi strumenti di cui è possibile avvalersi per visualizzare gli eventi quando si esegue l'applicazione in un cluster di Azure. Leggere questi articoli che illustrano le diverse opzioni per gli strumenti e descrivono come configurarle.
+* [Raccolta di log da un cluster di Service Fabric con Diagnostica di Azure e Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md)
+* [Uso di ElasticSearch come archivio di traccia dell'applicazione dell'infrastruttura di servizi](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

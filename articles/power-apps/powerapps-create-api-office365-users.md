@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="rajeshramabathiran"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,10 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
-# Creare una nuova API di Office 365 Users nell’ambiente del servizio app dell'organizzazione
+# Creare una nuova API Office 365 Users in PowerApps Enterprise
+
+> [AZURE.SELECTOR]
+- [App per la logica](../articles/connectors/connectors-create-api-office365-users.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-users.md)
+
+Aggiungere l'API Office 365 Users all'ambiente del servizio app dell'organizzazione (tenant).
 
 ## Creare l'API nel portale di Azure
 
@@ -27,7 +33,7 @@
 ![][14]
 
 3. Nell'elenco, è possibile scorrere per trovare PowerApps o digitare *powerapps*:  
-![][15]
+![][15]  
 
 4. In **PowerApps** selezionare **Gestione API**:    
 ![Sfogliare le API registrate][1]
@@ -35,7 +41,7 @@
 5. In **Gestione API** selezionare **Aggiungi** per aggiungere la nuova API:  
 ![Add API][2]
 
-6. Immettere un **nome** descrittivo per l'API.
+6. Immettere un **nome** descrittivo per l'API.  
 	
 7. In **Origine** selezionare **API disponibili** per selezionare le API predefinite e selezionare **Office 365 Users**:  
 ![selezionare l’API di Office 365 Users][3]
@@ -43,9 +49,9 @@
 8. Selezionare **Impostazioni - Configurare le impostazioni necessarie**:  
 ![configurare le impostazioni dell’API di Office 365 Users][4]
 
-9. Immettere l’*Id client* e il *segreto client* dell'applicazione di Office 365 Azure Active Directory (ADD). Se non è disponibile, vedere la sezione "Registrare un'app di ADD per l'utilizzo con PowerApps" in questo argomento per creare i valori ID e segreto necessari.
+9. Immettere l’*Id client* e il *segreto client* dell'applicazione di Office 365 Azure Active Directory (ADD). Se non è disponibile, vedere la sezione "Registrare un'app di ADD per l'utilizzo con PowerApps" in questo argomento per creare i valori ID e segreto necessari.  
 
-	> [AZURE.IMPORTANT]Salvare l'**URL di reindirizzamento**. Questo valore potrebbe essere necessario più avanti in questo argomento.
+	> [AZURE.IMPORTANT] Salvare l'**URL di reindirizzamento**. Questo valore potrebbe essere necessario più avanti in questo argomento.  
 
 10. Selezionare **OK** per completare i passaggi.
 
@@ -57,9 +63,9 @@ Se non si dispone di un'app ADD esistente con i valori chiave e segreto, utilizz
 
 1. Aprire il [portale di Azure][5].
 
-2. Selezionare **Sfoglia** e quindi selezionare **Active Directory**:
+2. Selezionare **Sfoglia** e quindi selezionare **Active Directory**:  
 
-	> [AZURE.NOTE]Questo consente di aprire Active Directory nel portale di Azure classico.
+	> [AZURE.NOTE] Questo consente di aprire Active Directory nel portale di Azure classico.
 
 3. Selezionare il nome tenant dell'organizzazione:  
 ![Avviare Azure Active Directory][6]
@@ -67,19 +73,19 @@ Se non si dispone di un'app ADD esistente con i valori chiave e segreto, utilizz
 4. Selezionare la scheda **Applicazioni** e selezionare **Aggiungi**:  
 ![Applicazioni tenant ADD][7]
 
-5. In **Aggiungi applicazione**:
+5. In **Aggiungi applicazione**:  
 
-	a) immettere un **Nome** per l'applicazione.  
-	b) Lasciare il tipo di applicazione come **Web**.  
-	c) Selezionare **Avanti**.
+	1. Immettere un **Nome** per l'applicazione.  
+	2. Lasciare il tipo di applicazione come **Web**.  
+	3. Selezionare **Avanti**.  
 
 	![Aggiungere l'applicazione ADD - info app][8]
 
-6. In **Proprietà app**:
+6. In **Proprietà app**:  
 
-	a) Immettere l’**URL DI ACCESSO** dell'applicazione. Poiché si intende eseguire l'autenticazione con ADD per PowerApps, impostare l'url di accesso su \__https://login.windows.net_.  
-	b) Immettere un **URI ID APP** valido per l’app.  
-	c) Selezionare **OK**.
+	1. Immettere l'**URL DI ACCESSO** dell'applicazione. Poiché si intende eseguire l'autenticazione con AAD per PowerApps, impostare l'URL di accesso su \__https://login.windows.net_.
+	2. Immettere un valore valido di **URI ID APP** per l'app.  
+	3. Selezionare **OK**.  
 
 	![Aggiungere l'applicazione ADD - proprietà app][9]
 
@@ -96,6 +102,12 @@ Se non si dispone di un'app ADD esistente con i valori chiave e segreto, utilizz
 11. Selezionare **Autorizzazioni delegate** per _API di Office 365 Unified (anteprima)_ e selezionare l’autorizzazione **Leggere i profili di base di tutti gli utenti**.
 
 Viene creata una nuova applicazione Azure Active Directory È possibile utilizzare questa app nella configurazione dell'API di Office 365 Users nel portale di Azure.
+
+Per informazioni utili sulle applicazioni AAD, vedere [Come vengono aggiunte le applicazioni in Azure AD e perché](../active-directory/active-directory-how-applications-are-added.md).
+
+## Vedere le API REST
+
+Informazioni di riferimento sull'[API REST Office 365 Users](../connectors/create-api-office365-users.md).
 
 ## Riepilogo e passaggi successivi
 In questo argomento, è stata aggiunta l'API di Office 365 Users alla PowersApps Enterprise. Successivamente, fornire agli utenti accesso all'API, in modo che sia possibile aggiungerla alle loro app:
@@ -116,4 +128,4 @@ In questo argomento, è stata aggiunta l'API di Office 365 Users alla PowersApps
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

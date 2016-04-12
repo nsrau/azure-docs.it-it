@@ -28,7 +28,7 @@ Quando si scala un'applicazione che esegue macchine virtuali, non vengono create
 
 Prima di configurare la scalabilità per l'applicazione, tenere presente quanto segue:
 
-- Le macchine virtuali create devono essere aggiunte a un set di disponibilità per scalare un'applicazione che le usa. Le macchine virtuali aggiunte possono essere inizialmente attivate o disattivate, ma verranno attivate in caso di aumento e disattivate in caso di riduzione del numero di istanze. Per altre informazioni sulle macchine virtuali e sui set di disponibilità, vedere [Gestione della disponibilità delle macchine virtuali](../virtual-machines-manage-availability.md).
+- Le macchine virtuali create devono essere aggiunte a un set di disponibilità per scalare un'applicazione che le usa. Le macchine virtuali aggiunte possono essere inizialmente attivate o disattivate, ma verranno attivate in caso di aumento e disattivate in caso di riduzione del numero di istanze. Per altre informazioni sulle macchine virtuali e sui set di disponibilità, vedere [Gestione della disponibilità delle macchine virtuali](../virtual/machines/virtual-machines-windows-manage-availability.md).
 
 - La scalabilità è influenzata dall'utilizzo di core. Le istanze del ruolo o le macchine virtuali più ampie usano più core. Un'applicazione può essere scalata solo entro i limiti di core previsti dalla sottoscrizione. Ad esempio, se la sottoscrizione prevede al massimo venti core e si esegue un'applicazione con due macchine virtuali di medie dimensioni (per un totale di quattro core), l'aumento di istanze di altre distribuzioni del servizio cloud nella sottoscrizione è limitata a sedici core. Tutte le macchine virtuali in un set di disponibilità usate per scalare un'applicazione devono avere le stesse dimensioni. Per altre informazioni sull'utilizzo di core e sulle dimensioni delle macchine, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/dn197896.aspx).
 
@@ -138,7 +138,11 @@ Nella pagina Scale è possibile configurare il servizio cloud in modo da aumenta
     
     **Nota**: il valore **Istanza** nella pagina Ridimensiona rappresenta un'istanza del ruolo o un'istanza di una macchina virtuale.
     
-    Il numero massimo di istanze è limitato dai core disponibili nella sottoscrizione. I colori del dispositivo di scorrimento rappresentano i core usati e disponibili nella sottoscrizione: - Il blu rappresenta il numero massimo di core che il ruolo può usare. - Il grigio scuro rappresenta i core usati da tutti i ruoli e da tutte le macchine virtuali nella sottoscrizione. Quando questo valore si sovrappone ai core usati dal ruolo, il colore diventa blu scuro. - Il grigio chiaro rappresenta i core disponibili per l'uso per la scalabilità. - Il rosa rappresenta una modifica apportata che non è stata salvata.
+    Il numero massimo di istanze è limitato dai core disponibili nella sottoscrizione. I colori del dispositivo di scorrimento rappresentano i core usati e disponibili nella sottoscrizione:
+    - Il blu rappresenta il numero massimo di core che il ruolo può usare.
+    - Il grigio scuro rappresenta i core usati da tutti i ruoli e da tutte le macchine virtuali nella sottoscrizione. Quando questo valore si sovrappone ai core usati dal ruolo, il colore diventa blu scuro.
+    - Il grigio chiaro rappresenta i core disponibili per l'uso per la scalabilità.
+    - Il rosa rappresenta una modifica apportata che non è stata salvata.
 
 5. Selezionare l'account di archiviazione associato alla coda che si desidera usare.
 
@@ -227,4 +231,4 @@ Quando si scala un ruolo, spesso risulta utile scalare anche il database usato d
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="dstrockis"
 	manager="msmbaldwin"
-	editor=""/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="03/22/2016"
 	ms.author="dastrock"/>
 
 # Anteprima di Azure AD B2C: Usare l'API Graph
@@ -171,7 +171,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 Quando si vuole ottenere un elenco di utenti oppure un utente specifico dall'API Graph, è possibile inviare una richiesta HTTP `GET` all'endpoint `/users`. Una richiesta per tutti gli utenti in un tenant ha un aspetto analogo al seguente:
 
 ```
-GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
+GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 ```
 
@@ -184,11 +184,7 @@ Per visualizzare questa richiesta, eseguire:
 Esistono due aspetti importanti da notare:
 
 - Il token di accesso acquisito tramite ADAL viene aggiunto all'intestazione `Authorization` mediante lo schema `Bearer`.
-- Per i tenant B2C, è necessario usare il parametro della query `api-version=beta`.
-
-
-> [AZURE.NOTE]
-	La versione beta dell’API Graph di Azure AD fornisce funzionalità di anteprima. Vedere [questo post del blog del team di API Graph](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx) per altre informazioni sulla versione beta.
+- Per i tenant B2C, è necessario usare il parametro della query `api-version=1.6`.
 
 Entrambi questi dettagli vengono gestiti con il metodo `B2CGraphClient.SendGraphGetRequest(...)`:
 
@@ -197,9 +193,9 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 {
 	...
 
-	// For B2C user management, be sure to use the beta Graph API version.
+	// For B2C user management, be sure to use the 1.6 Graph API version.
 	HttpClient http = new HttpClient();
-	string url = "https://graph.windows.net/" + tenant + api + "?" + "api-version=beta";
+	string url = "https://graph.windows.net/" + tenant + api + "?" + "api-version=1.6";
 	if (!string.IsNullOrEmpty(query))
 	{
 		url += "&" + query;
@@ -218,7 +214,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 Quando si creano gli account utente nel tenant di B2C, è possibile inviare una richiesta HTTP `POST` all'endpoint `/users`:
 
 ```
-POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
+POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 Content-Type: application/json
 Content-Length: 338
@@ -227,13 +223,13 @@ Content-Length: 338
 	// All of these properties are required to create consumer users.
 
 	"accountEnabled": true,
-	"alternativeSignInNamesInfo": [             // controls which identifier the user uses to sign in to the account
+	"signInNames": [                            // controls which identifier the user uses to sign in to the account
 		{
 			"type": "emailAddress",             // can be 'emailAddress' or 'userName'
 			"value": "joeconsumer@gmail.com"
 		}
 	],
-	"creationType": "NameCoexistence",          // always set to 'NameCoexistence'
+	"creationType": "LocalAccount",            // always set to 'LocalAccount'
 	"displayName": "Joe Consumer",				// a value that can be used for displaying to the end user
 	"mailNickname": "joec",						// an email alias for the user
 	"passwordProfile": {
@@ -244,7 +240,7 @@ Content-Length: 338
 }
 ```
 
-Tutte le proprietà di questa richiesta sono necessarie per creare utenti consumer. I commenti `//` sono stati inclusi a scopo illustrativo. Non includerli in una richiesta effettiva.
+La maggior parte delle proprietà di questa richiesta è necessaria per creare utenti consumer. Per altre informazioni, fare clic [qui](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser). I commenti `//` sono stati inclusi a scopo illustrativo. Non includerli in una richiesta effettiva.
 
 Per visualizzare la richiesta, eseguire uno dei comandi seguenti:
 
@@ -258,15 +254,18 @@ Il comando `Create-User` accetta un file con estensione json come parametro di i
 Per informazioni sul modo in cui viene costruita la richiesta POST, vedere `B2CGraphClient.SendGraphPostRequest(...)`.
 
 - Collega un token di accesso all'intestazione `Authorization` della richiesta.
-- Configura `api-version=beta`.
+- Configura `api-version=1.6`.
 - Include l'oggetto utente JSON nel corpo della richiesta.
+
+> [AZURE.NOTE]
+Se gli account di cui si desidera eseguire la migrazione da un archivio utenti esistente hanno un livello di complessità della password inferiore al [livello avanzato di complessità della password applicato da Azure Active Directory B2C](https://msdn.microsoft.com/library/azure/jj943764.aspx), è possibile disabilitare il requisito password complessa utilizzando il valore `DisableStrongPassword` nelle proprietà `passwordPolicies`. Ad esempio, è possibile modificare la richiesta di creazione utente fornita in precedenza come segue: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
 
 ### Aggiornare gli account utente consumer
 
 Quando si aggiornano gli oggetti utente, il processo è simile a quello per la creazione di oggetti utente, ma questo processo usa il metodo HTTP `PATCH`:
 
 ```
-PATCH https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=beta
+PATCH https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 Content-Type: application/json
 Content-Length: 37
@@ -285,12 +284,30 @@ Provare ad aggiornare un utente aggiornando i file JSON con nuovi dati. È quind
 
 Esaminare il metodo `B2CGraphClient.SendGraphPatchRequest(...)` per informazioni dettagliate su come inviare la richiesta.
 
+### Cerca utenti
+
+È possibile cercare gli utenti nel tenant B2C in due modi. Uno, tramite l’ID oggetto dell’utente o due, tramite l'identificatore di accesso dell'utente (ad esempio, la proprietà `signInNames`).
+
+Eseguire uno dei seguenti comandi per cercare un utente specifico:
+
+```
+> B2C Get-User <user-object-id>
+> B2C Get-User <filter-query-expression>
+```
+
+Ecco alcuni esempi:
+
+```
+> B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
+> B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27joeconsumer@gmail.com%27)
+```
+
 ### Eliminare gli utenti
 
 Il processo per l'eliminazione di un utente è molto semplice. Usare il metodo HTTP `DELETE` e costruire l'URL con l'ID oggetto corretto:
 
 ```
-DELETE https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=beta
+DELETE https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 ```
 
@@ -345,11 +362,9 @@ Se si usa `B2CGraphClient`, si ha a disposizione un'applicazione di servizio che
 
 - È necessario concedere all'applicazione le autorizzazioni appropriate nel tenant.
 - Attualmente è necessario usare ADAL v2 per ottenere i token di accesso. È anche possibile inviare direttamente messaggi di protocollo, senza usare una raccolta.
-- Quando si chiama l'API Graph, usare [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx).
+- Quando si chiama l'API Graph, usare `api-version=1.6`.
 - Quando si creano e aggiornano utenti consumer, sono necessarie alcune proprietà, come illustrato in precedenza.
-
-> [AZURE.IMPORTANT] Sarà necessario tenere conto delle caratteristiche di replica del servizio directory sottostante ad Azure AD B2C quando si usa l'API Graph di Azure AD nell'app B2C. Per altre informazioni, vedere [questo articolo](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx). Dopo che l'utente effettua l'iscrizione per l'app B2C usando criteri di **accesso**, se si prova immediatamente a leggere l'oggetto utente usando l'API Graph di Azure AD nell'app, è possibile che non sia disponibile. È necessario attendere alcuni secondi per il completamento del processo di replica. È prevista in futuro la pubblicazione di linee guida più concrete sulla "garanzia di coerenza di lettura/scrittura" fornita dall'API Graph di Azure AD e il servizio directory, al momento della disponibilità del servizio a livello generale.
 
 In caso di domande o richieste relative ad azioni che si vorrebbe eseguire mediante l'API Graph nel tenant di B2C, inserire un commento a questo articolo o inviare una richiesta nel repository di esempi di codice di GitHub.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

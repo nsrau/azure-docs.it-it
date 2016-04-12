@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="02/10/2016" 
 	ms.author="fashah;mohabib;bradsev" />
 
 # Spostamento dei dati in SQL Server in una macchina virtuale di Azure
@@ -38,16 +38,16 @@ Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dat
 
 Tenere presente che il presente documento presuppone che i comandi SQL vengano eseguiti da SQL Server Management Studio o Visual Studio Database Explorer.
 
-> [AZURE.TIP] In alternativa, è possibile usare [Data factory di Azure](https://azure.microsoft.com/services/data-factory/) per creare e pianificare una pipeline che sposta i dati a una macchina virtuale di SQL Server in Azure. Per altre informazioni, vedere [Copia di dati con Data factory di Azure (Attività di copia)](data-factory-data-movement-activities.md).
+> [AZURE.TIP] In alternativa, è possibile usare [Data factory di Azure](https://azure.microsoft.com/services/data-factory/) per creare e pianificare una pipeline che sposta i dati a una macchina virtuale di SQL Server in Azure. Per altre informazioni, vedere [Copia di dati con Data factory di Azure (Attività di copia)](../data-factory/data-factory-data-movement-activities.md).
 
 
 ## <a name="prereqs"></a>Prerequisiti
 Il tutorial presuppone:
 
 * Un **sottoscrizione Azure**. Se non si dispone di una sottoscrizione, è possibile iscriversi per provare la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+* Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../storage/storage-create-storage-account.md#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 * Provisioning di **SQL Server in una VM di Azure**. Per le istruzioni, vedere [Configurare una macchina virtuale SQL Server di Azure come server IPython Notebook per l'analisi avanzata](machine-learning-data-science-setup-sql-server-virtual-machine.md).
-* Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
+* Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 
 ## <a name="filesource_to_sqlonazurevm"></a> Spostamento di dati da un'origine di file flat a SQL Server su una VM di Azure
@@ -63,7 +63,7 @@ Se i dati si trovano in un file flat (organizzati in un formato righe/colonne), 
 
 BCP è un'utilità della riga di comando installata con SQL Server e rappresenta uno dei metodi più rapidi per spostare i dati. Funziona in tutte e tre le varianti di SQL Server (SQL Server locale, SQL Azure e macchine virtuali SQL Server in Azure).
 
-> [AZURE.NOTE] **Dove devono trovarsi i dati per eseguire la copia BCP?** Anche se non è obbligatorio, se i file contenenti di dati di origine si trovano nella stessa macchina del server SQL di destinazione, i trasferimenti saranno più rapidi (velocità di rete rispetto a velocità IO del disco locale). È possibile spostare i file flat contenenti i dati nel computer dove è installato SQL Server utilizzando diversi strumenti per la copia dei file quali [AZCopy](../storage-use-azcopy.md), [Esplora archivi Azure](https://azurestorageexplorer.codeplex.com/) o la funzione di copia/incolla di Windows tramite Remote Desktop Protocol (RDP).
+> [AZURE.NOTE] **Dove devono trovarsi i dati per eseguire la copia BCP?** Anche se non è obbligatorio, se i file contenenti di dati di origine si trovano nella stessa macchina del server SQL di destinazione, i trasferimenti saranno più rapidi (velocità di rete rispetto a velocità IO del disco locale). È possibile spostare i file flat contenenti i dati nel computer dove è installato SQL Server utilizzando diversi strumenti per la copia dei file quali [AZCopy](../storage/storage-use-azcopy.md), [Esplora archivi Azure](http://storageexplorer.com/) o la funzione di copia/incolla di Windows tramite Remote Desktop Protocol (RDP).
 
 1. Assicurarsi che il database e le tabelle vengano create nel database di SQL Server di destinazione. Ecco un esempio di come procedere utilizzando i comandi `Create Database` e `Create Table`:
 
@@ -173,7 +173,7 @@ Tali procedure vengono descritte qui di seguito:
 
 ### Distribuzione di un database di SQL Server a una macchina virtuale di Microsoft Azure
 
-La **Distribuzione di un Database SQL Server in una macchina virtuale di Microsoft Azure** è un modo semplice e consigliato per spostare dati da un'istanza di SQL Server locale a un SQL Server in una macchina virtuale di Azure. Per passaggi dettagliati, nonché per una descrizione delle altre alternative, vedere [Migrazione di un database a SQL Server su una macchina virtuale di Azure](../virtual-machines/virtual-machines-migrate-onpremises-database.md).
+La **Distribuzione di un Database SQL Server in una macchina virtuale di Microsoft Azure** è un modo semplice e consigliato per spostare dati da un'istanza di SQL Server locale a un SQL Server in una macchina virtuale di Azure. Per passaggi dettagliati, nonché per una descrizione delle altre alternative, vedere [Migrazione di un database a SQL Server su una macchina virtuale di Azure](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md).
 
 ### <a name="export-flat-file"></a>Esportazione in un file flat
 
@@ -217,11 +217,11 @@ Seguito è riportata una schermata delle opzioni di backup e ripristino del data
 
 ## Risorse
 
-[Migrazione di un database a SQL Server su una macchina virtuale di Azure](../virtual-machines/virtual-machines-migrate-onpremises-database.md)
+[Migrazione di un database a SQL Server su una macchina virtuale di Azure](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md)
 
-[Panoramica di SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-sql-server-infrastructure-services.md)
+[Panoramica di SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-classic-sql-overview.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

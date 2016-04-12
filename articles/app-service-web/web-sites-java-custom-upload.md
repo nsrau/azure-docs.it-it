@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="03/04/2016" 
 	ms.author="robmcm"/>
 
 # Caricamento di un sito Web Java personalizzato in Azure
@@ -72,7 +72,7 @@ Esempi:
                                     
 **stdoutLogFile** (impostazione predefinita "d:\\home\\LogFiles\\httpPlatformStdout.log"): percorso file assoluto per cui verranno registrati **stdout** e **stderr** dal processo specificato in **processPath**.
                                     
-> [AZURE.NOTE]`%HTTP_PLATFORM_PORT%` è un segnaposto speciale che deve essere specificato come parte di **arguments** o dell'elenco **httpPlatform** **environmentVariables**. Verranno sostituiti da una porta generata internamente da **HttpPlatformHandler** affinché il processo specificato in **processPath** possa restare in ascolto su questa porta.
+> [AZURE.NOTE] `%HTTP_PLATFORM_PORT%` è un segnaposto speciale che deve essere specificato come parte di **arguments** o dell'elenco **httpPlatform** **environmentVariables**. Verranno sostituiti da una porta generata internamente da **HttpPlatformHandler** affinché il processo specificato in **processPath** possa restare in ascolto su questa porta.
 
 ## Distribuzione
 
@@ -257,4 +257,4 @@ Per ulteriori informazioni su Java, vedere il [Centro per sviluppatori di Java](
 <!-- External Links -->
 [servizio App Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

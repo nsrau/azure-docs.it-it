@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
@@ -51,7 +51,7 @@ Aprire il menu di scelta rapida del ruolo nel riquadro Project Explorer di Eclip
 
 ![][ic719499]
 
->[AZURE.NOTE]Solo Windows: quando si imposta il numero di istanze su un valore maggiore di 1 e si configura un server applicazioni, il toolkit consentirà l'esecuzione di una sola istanza del ruolo nell'emulatore, indipendentemente da questa impostazione. In questo modo si evitano conflitti di binding delle porte tra le diverse istanze del server (ad esempio, tutte le istanze che provano a eseguire il binding alla porta 8080) quando vengono eseguite nello stesso computer. L'impostazione del numero di istanze specificata viene mantenuta, ma diventa effettiva solo in caso di distribuzione nel cloud.
+>[AZURE.NOTE] Solo Windows: quando si imposta il numero di istanze su un valore maggiore di 1 e si configura un server applicazioni, il toolkit consentirà l'esecuzione di una sola istanza del ruolo nell'emulatore, indipendentemente da questa impostazione. In questo modo si evitano conflitti di binding delle porte tra le diverse istanze del server (ad esempio, tutte le istanze che provano a eseguire il binding alla porta 8080) quando vengono eseguite nello stesso computer. L'impostazione del numero di istanze specificata viene mantenuta, ma diventa effettiva solo in caso di distribuzione nel cloud.
 
 <a name="caching_properties"></a>
 ### Proprietà di memorizzazione nella cache ###
@@ -66,7 +66,7 @@ Nella pagina delle proprietà **Caching** è possibile specificare impostazioni 
 * Dimensioni della cache espresse come percentuale della memoria.
 * Nome dell'account di archiviazione per salvare lo stato della cache quando l'applicazione viene eseguita come servizio cloud o nessuno se non si vuole salvare lo stato della cache. Il nome dell'account di archiviazione non viene usato quando si esegue l'applicazione nell'emulatore di calcolo. Se si imposta il nome dell'account di archiviazione su **(auto)**, che corrisponde al valore predefinito, la configurazione della memorizzazione nella cache userà automaticamente lo stesso account di archiviazione selezionato nella finestra di dialogo **Publish to Azure**.
 
->[AZURE.NOTE]L'impostazione **(auto)** avrà l'effetto desiderato solo se si pubblica la distribuzione usando la procedura di pubblicazione guidata del toolkit di Eclipse. Se invece si pubblica manualmente il file con estensione cspkg tramite un meccanismo esterno, ad esempio il [portale di gestione di Azure][], la distribuzione non funzionerà correttamente.
+>[AZURE.NOTE] L'impostazione **(auto)** avrà l'effetto desiderato solo se si pubblica la distribuzione usando la procedura di pubblicazione guidata del toolkit di Eclipse. Se invece si pubblica manualmente il file con estensione cspkg tramite un meccanismo esterno, ad esempio il [portale di gestione di Azure][], la distribuzione non funzionerà correttamente.
 
 La finestra di dialogo seguente mostra le proprietà di una cache.
 
@@ -114,7 +114,7 @@ Per ogni componente, è possibile specificare:
 * Il passaggio da eseguire quando si importa il componente nel progetto di distribuzione di Azure al momento della compilazione.
 * Il passaggio da eseguire quando si distribuisce il componente nel cloud di Azure.
 
->[AZURE.NOTE]Quando si specificano i file dei componenti o le righe di comando, tenere presente che la distribuzione verrà pubblicata in una macchina virtuale di Windows, quindi i passaggi personalizzati devono essere validi per un sistema operativo Windows.
+>[AZURE.NOTE] Quando si specificano i file dei componenti o le righe di comando, tenere presente che la distribuzione verrà pubblicata in una macchina virtuale di Windows, quindi i passaggi personalizzati devono essere validi per un sistema operativo Windows.
 
 Di seguito sono illustrate le proprietà di Components:
 
@@ -131,7 +131,7 @@ Di seguito sono illustrate le proprietà di Components:
 	
 * **As:** nome file con cui il componente verrà importato nella directory **approot** del ruolo e quindi distribuito nel cloud di Azure. Per mantenere lo stesso nome presente nel computer locale, lasciare vuota questa proprietà. Per i componenti eseguibili, ovvero quelli il cui metodo **Deploy** è impostato su **exec**, può essere un'istruzione arbitraria della riga di comando di Windows.
 
-	>[AZURE.IMPORTANT]Se per questo valore si usano spazi, saranno gestiti diversamente a seconda del metodo di distribuzione. Se il metodo di distribuzione è **exec**, gli spazi saranno interpretati come separatori di argomenti della riga di comando e non come parte del nome file. Per tutti gli altri metodi di distribuzione, gli spazi saranno interpretati come parte del nome file.
+	>[AZURE.IMPORTANT] Se per questo valore si usano spazi, saranno gestiti diversamente a seconda del metodo di distribuzione. Se il metodo di distribuzione è **exec**, gli spazi saranno interpretati come separatori di argomenti della riga di comando e non come parte del nome file. Per tutti gli altri metodi di distribuzione, gli spazi saranno interpretati come parte del nome file.
 	
 * **Deploy:** metodo che indica l'azione applicata al componente quando viene avviata la distribuzione. Può essere uno dei valori seguenti:
     * **copy:** Il componente viene copiato nel percorso di destinazione specificato nella proprietà **To**.
@@ -158,7 +158,7 @@ Per eliminare un componente, selezionarlo e fare clic sul pulsante **Remove** ne
 
 I componenti vengono elaborati nell'ordine elencato. Usare i pulsanti **Move Up** e **Move Down** per modificare l'ordine.
 
->[AZURE.NOTE]La funzionalità di configurazione del server si basa anche sui componenti. Questi componenti non possono essere rimossi o modificati senza rimuovere la configurazione del server corrispondente. Quando si prova ad apportare modifiche a tali componenti, verrà visualizzato un avviso a questo proposito.
+>[AZURE.NOTE] La funzionalità di configurazione del server si basa anche sui componenti. Questi componenti non possono essere rimossi o modificati senza rimuovere la configurazione del server corrispondente. Quando si prova ad apportare modifiche a tali componenti, verrà visualizzato un avviso a questo proposito.
 
 <a name="debugging_properties"></a>
 ### Proprietà di debug ###
@@ -209,7 +209,7 @@ Aprire il menu di scelta rapida relativo al ruolo nel riquadro Project Explorer 
 
 Le variabili di ambiente sono disponibili per lo script di avvio all'avvio del ruolo.
 
->[AZURE.NOTE]Quando si specificano variabili di ambiente, tenere presente che la distribuzione verrà pubblicata in una macchina virtuale di Windows, quindi tali variabili di ambiente devono essere valide per un sistema operativo Windows.
+>[AZURE.NOTE] Quando si specificano variabili di ambiente, tenere presente che la distribuzione verrà pubblicata in una macchina virtuale di Windows, quindi tali variabili di ambiente devono essere valide per un sistema operativo Windows.
 
 Per un esempio di variabile di ambiente disponibile all'avvio del ruolo, creare una nuova variabile di ambiente facendo clic sul pulsante **Add**. Di seguito è illustrata la creazione di una variabile di ambiente denominata **MyRoleVersion** a cui viene assegnato il valore **1.0**.
 
@@ -439,4 +439,4 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # Ordinamento dei dati di DocumentDB tramite Order By
@@ -33,9 +33,9 @@ Per informazioni complete sull'esecuzione di query SQL, vedere l’[esercitazion
 Come in SQL ANSI, è ora possibile includere una clausola Order By facoltativa nelle istruzioni SQL quando si eseguono query di DocumentDB. La clausola può includere un argomento ASC/DESC facoltativo per specificare l'ordine in cui i risultati devono essere recuperati.
 
 ### Ordinamento tramite SQL
-Ad esempio, ecco una query per recuperare i libri in ordine decrescente per titolo.
+Ad esempio, la query seguente recupera i primi 10 libri in ordine decrescente per titolo.
 
-    SELECT * 
+    SELECT TOP 10 * 
     FROM Books 
     ORDER BY Books.Title DESC
 
@@ -44,33 +44,17 @@ Ad esempio, ecco una query per recuperare i libri in ordine decrescente per tito
 
     SELECT * 
     FROM Books 
-	WHERE Books.SalePrice > 4000
+    WHERE Books.SalePrice > 4000
     ORDER BY Books.ShippingDetails.Weight
 
 ### Ordinamento tramite il provider LINQ per .NET
 Utilizzando .NET SDK versione 1.2.0 e successive, è anche possibile utilizzare la clausola OrderBy() o OrderByDescending() all'interno di query LINQ come in questo esempio:
 
-    foreach (Book book in client.CreateDocumentQuery<Book>(booksCollection.SelfLink)
-        .OrderBy(b => b.PublishTimestamp)) 
+    foreach (Book book in client.CreateDocumentQuery<Book>(UriFactory.CreateDocumentCollectionUri("db", "books"))
+        .OrderBy(b => b.PublishTimestamp)
+        .Take(100))
     {
         // Iterate through books
-    }
-
-### Ordinamento con paging tramite .NET SDK
-Utilizzando il supporto nativo di paging all'interno degli SDK di DocumentDB, è possibile recuperare una pagina di risultati alla volta come nel seguente frammento di codice .NET. Nell’esempio sono stati recuperati fino a 10 risultati alla volta utilizzando FeedOptions.MaxItemCount e l'interfaccia IDocumentQuery.
-
-    var booksQuery = client.CreateDocumentQuery<Book>(
-        booksCollection.SelfLink,
-        "SELECT * FROM Books ORDER BY Books.PublishTimestamp DESC"
-        new FeedOptions { MaxItemCount = 10 })
-      .AsDocumentQuery();
-            
-    while (booksQuery.HasMoreResults) 
-    {
-        foreach(Book book in await booksQuery.ExecuteNextAsync<Book>())
-        {
-            // Iterate through books
-        }
     }
 
 DocumentDB supporta l'ordinamento con una singolo proprietà numerica, stringa o booleana per ogni query, e i tipi di query aggiuntive saranno disponibili a breve. Vedere [Novità successive](#Whats_coming_next) per ulteriori dettagli.
@@ -86,21 +70,17 @@ DocumentDB supporta l'ordinamento con una singolo proprietà numerica, stringa o
 Per ulteriori informazioni vedere [Criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md).
 
 ### Indicizzazione per Order By su tutte le proprietà numeriche
-Ecco come creare una raccolta con "Tutto l’intervallo" che indicizza per Order By su ognuna/tutte le proprietà numerica o stringa visualizzate all'interno dei documenti JSON in esso contenuti. In questo caso, "/ *" rappresenta tutte le proprietà/tracciati JSON all'interno della raccolta e -1 rappresenta la precisione massima.
+Ecco come creare una raccolta con "Tutto l’intervallo" che indicizza per Order By su ognuna/tutte le proprietà numerica o stringa visualizzate all'interno dei documenti JSON in esso contenuti. Di seguito viene eseguito l'override del tipo di indice predefinito dei valori stringa su Intervallo, alla precisione massima (-1).
                    
-    booksCollection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*", 
-            Indexes = new Collection<Index> { 
-                new RangeIndex(DataType.String) { Precision = -1 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }
-        });
-
-    await client.CreateDocumentCollectionAsync(databaseLink, 
-        booksCollection);  
+    DocumentCollection books = new DocumentCollection();
+    books.Id = "books";
+    books.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
+    
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), books);  
 
 >[AZURE.NOTE] Si noti che Order By restituirà solo i risultati dei tipi di dati (stringa e numero) indicizzati con un RangeIndex. Ad esempio, se si dispone dell'impostazione predefinita per l'indicizzazione dei criteri che ha solo RangeIndex sui numeri, una clausola Order By su un percorso con i valori stringa non restituirà alcun documento.
+>
+> Se è stata definita una chiave di partizione per le raccolte, si noti che Order By è supportata solo all'interno di query che applicano un filtro in base a una singola chiave di partizione.
 
 ### Indicizzazione per Order By per una singola proprietà
 Ecco come creare una raccolta per l’indicizzazione per Order By rispetto alla proprietà Title, con una stringa. Esistono due percorsi, uno per la proprietà Title ("/ titolo /?") con l'indicizzazione di intervallo e l'altro per tutte le altre proprietà con lo schema di indicizzazione predefinito, ovvero hash per le stringhe e intervallo di numeri.
@@ -112,27 +92,13 @@ Ecco come creare una raccolta per l’indicizzazione per Order By rispetto alla 
                 new RangeIndex(DataType.String) { Precision = -1 } } 
             });
     
-    // Use defaults which are:
-    // (a) for strings, use Hash with precision 3 (just equality queries)
-    // (b) for numbers, use Range with max precision (for equality, range and order by queries)
-    booksCollection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*",
-            Indexes = new Collection<Index> { 
-                new HashIndex(DataType.String) { Precision = 3 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }            
-        });
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), booksCollection);  
+
 
 ## Esempi
 Esaminare il [progetto di esempio Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) che illustra come utilizzare Order By e come creare criteri di indicizzazione e paging tramite Order By. Gli esempi sono open source e si consiglia di inviare richieste pull con contributi che potrebbero essere utili ad altri sviluppatori DocumentDB. Per informazioni su come contribuire, fare riferimento alle [linee guida specifiche](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md).
 
 ## Domande frequenti
-
-**Quali piattaforme/versioni di SDK supporta l'ordinamento?**
-
-Per creare raccolte con i criteri di indicizzazione necessari per Order By, è necessario scaricare le versione più recente di SDK (1.2.0 per .NET) e 1.1.0 per Node. js, JavaScript, Python e Java. .NET SDK 1.2.0 è inoltre necessario per utilizzare OrderBy() e OrderByDescending() all'interno di espressioni LINQ.
-
 
 **Qual è il consumo di richiesta di unità (RU) previsto delle query Order By?**
 
@@ -170,4 +136,4 @@ Esaminare il [progetto di esempio Github](https://github.com/Azure/azure-documen
 * [Esempi di Order By di DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

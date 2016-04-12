@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestione del controllo di accesso basato sui ruoli con Windows PowerShell"
+	pageTitle="Guida al controllo degli accessi in base al ruolo per PowerShell"
 	description="Gestione del controllo di accesso basato sui ruoli con Windows PowerShell"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/17/2016"
 	ms.author="kgremban"/>
 
-# Gestione del controllo di accesso basato sui ruoli con Windows PowerShell
+# Guida al controllo degli accessi in base al ruolo per PowerShell
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
+- [PowerShell](role-based-access-control-powershell.md)
 - [Interfaccia della riga di comando di Azure](role-based-access-control-xplat-cli.md)
 
 
@@ -61,8 +61,6 @@ Poiché il controllo di accesso basato sui ruoli funziona solo con Gestione riso
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-Per maggiori informazioni, vedere [Utilizzo di Windows PowerShell con Gestione risorse](../powershell-azure-resource-manager.md).
-
 Per connettersi alle sottoscrizioni Azure, digitare:
 
     PS C:\> Add-AzureAccount
@@ -75,8 +73,6 @@ Se sono disponibili più sottoscrizioni e si vuole passare a un'altra, usare i c
     PS C:\> Get-AzureSubscription
     # Use the subscription name to select the one you want to work on.
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
-
-Per maggiori informazioni, consultare [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 ## Controllare le assegnazioni di ruoli esistenti
 
@@ -96,7 +92,7 @@ Verranno restituite tutte le assegnazioni di ruoli nella sottoscrizione. Si noti
 Verranno restituite tutte le assegnazioni di ruolo per un determinato utente nel tenant di AD con assegnazione del ruolo "Owner" per il gruppo di risorse "group1". L'assegnazione del ruolo può avere due origini:
 
 1. Un'assegnazione del ruolo di "Owner" all'utente per il gruppo di risorse.
-2. Un'assegnazione del ruolo "Proprietario" all'utente per il livello padre del gruppo di risorse, in questo caso la sottoscrizione, perché se si ha un'autorizzazione per un livello padre si avranno le stesse autorizzazioni anche per tutti i relativi elementi secondari.
+2. Un'assegnazione del ruolo "Proprietario" per l'oggetto padre del gruppo di risorse, in questo caso la sottoscrizione. Se si assegnano autorizzazioni a livello dell'oggetto padre, tutti gli oggetti figlio avranno le stesse autorizzazioni.
 
 Tutti i parametri di questo cmdlet sono facoltativi. È possibile combinarli per controllare le assegnazioni dei ruoli con filtri diversi.
 
@@ -104,34 +100,36 @@ Tutti i parametri di questo cmdlet sono facoltativi. È possibile combinarli per
 
 Per creare un'assegnazione di ruolo, è necessario considerare quanto segue:
 
-A chi assegnare il ruolo: è possibile usare i seguenti cmdlet di Azure Active Directory per vedere quali utenti, gruppi ed entità di servizio sono presenti nel tenant di AD.
+- A chi assegnare il ruolo: è possibile usare i seguenti cmdlet di Azure Active Directory per vedere quali utenti, gruppi ed entità di servizio sono presenti nel tenant di AD.  
 
+	```
     PS C:\> Get-AzureADUser
 	PS C:\> Get-AzureADGroup
 	PS C:\> Get-AzureADGroupMember
 	PS C:\> Get-AzureADServicePrincipal
+	```
 
-Quale ruolo assegnare: è possibile usare il cmdlet seguente per vedere le definizioni di ruolo supportate.
+- Quale ruolo assegnare: è possibile usare il cmdlet seguente per vedere le definizioni di ruolo supportate.
 
-    PS C:\> Get-AzureRoleDefinition
+    `PS C:\> Get-AzureRoleDefinition`
 
-Quale ambito assegnare: gli ambiti sono riconducibili a tre livelli
-  - La sottoscrizione corrente
-  - Un gruppo di risorse per ottenere un elenco di gruppi di risorse, digitare `PS C:\> Get-AzureResourceGroup`
-  - Una risorsa per ottenere un elenco di risorse, digitare `PS C:\> Get-AzureResource`
+- Quale ambito assegnare: gli ambiti sono riconducibili a tre livelli
+	- La sottoscrizione corrente
+	- Un gruppo di risorse. Per recuperare un elenco di gruppi di risorse, digitare `PS C:\> Get-AzureResourceGroup`
+	- Una risorsa. Per recuperare un elenco di risorse, digitare `PS C:\> Get-AzureResource`
 
 Usare quindi `New-AzureRoleAssignment` per creare un'assegnazione di ruolo. Ad esempio:
 
-	#This will create a role assignment at the current subscription level for a user as a reader.
+	#Create a role assignment at the current subscription level for a user as a reader.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
-	#This will create a role assignment at a resource group level.
+	#Create a role assignment at a resource group level.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
-	#This will create a role assignment for a group at a resource group level.
+	#Create a role assignment for a group at a resource group level.
 	PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
 
-	#This will create a role assignment at a resource level.
+	#Create a role assignment at a resource level.
 	PS C:\> $resources = Get-AzureResource
     PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
@@ -145,7 +143,7 @@ Dopo aver controllato che il proprio account disponga di alcune assegnazioni di 
 
 Questi due cmdlet restituiranno solo i gruppi di risorse o le risorse in cui si dispone dell'autorizzazione di lettura. Inoltre, verranno visualizzate anche le autorizzazioni di cui si dispone.
 
-Quando si tenta di eseguire altri cmdlet come `New-AzureResourceGroup`, si riceverà un errore di accesso negato se non si dispone dell'autorizzazione adeguata.
+Quando si tenta di eseguire altri cmdlet come `New-AzureResourceGroup`, verrà restituito un errore di accesso negato se non si ha l'autorizzazione adeguata.
 
 ## Passaggi successivi
 
@@ -160,4 +158,4 @@ Per altre informazioni sulla gestione del controllo di accesso basato sui ruoli 
 - [Configurazione del controllo di accesso basato sui ruoli usando l'interfaccia della riga di comando di Azure](role-based-access-control-xplat-cli.md)
 - [Risoluzione dei problemi relativi al controllo di accesso basato sui ruoli](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

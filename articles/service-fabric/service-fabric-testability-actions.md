@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/04/2015"
+   ms.date="03/14/2016"
    ms.author="heeldin;motanv"/>
 
 # Azioni di Testabilità
-Per simulare un'infrastruttura non affidabile, Azure Service Fabric offre agli sviluppatori la possibilità di simulare errori e transizioni di stato del mondo reale, esposti come azioni di testabilità. Le azioni sono le API di basso livello che causano una specifica fault injection, una transizione di stato o una convalida. La combinazione di queste azioni consente agli sviluppatori di scrivere scenari di test completi per i servizi.
+Per simulare un'infrastruttura non affidabile, Azure Service Fabric offre agli sviluppatori la possibilità di simulare errori e transizioni di stato reali, esposti come azioni di testabilità. Le azioni sono le API di basso livello che causano una specifica fault injection, una transizione di stato o una convalida. La combinazione di queste azioni consente di scrivere scenari di test completi per i servizi.
 
 Service Fabric fornisce alcuni scenari di test comuni costituiti da queste azioni. È consigliabile usare questi scenari predefiniti, poiché vengono scelti con attenzione per testare le transizioni di stato e i casi di errore comuni. È comunque possibile creare anche scenari di test personalizzati, costituiti dalle stesse azioni, quando si vuole aggiungere la copertura per scenari specifici di un'applicazione o non ancora presenti negli scenari integrati.
 
-Implementazioni in C# delle azioni sono disponibili nell'assembly System.Fabric.Testability.dll. Il modulo PowerShell Testability si trova nell'assembly Microsoft.ServiceFabric.Testability.Powershell.dll. Nell'ambito dell'installazione del runtime viene installato il modulo ServiceFabricTestability di PowerShell per garantire una maggiore semplicità d'uso.
+Implementazioni in C# delle azioni sono disponibili nell'assembly System.Fabric.dll. Il modulo di PowerShell System Fabric si trova nell'assembly Microsoft.ServiceFabric.Powershell.dll. Nell'ambito dell'installazione del runtime viene installato il modulo ServiceFabric di PowerShell per garantire una maggiore semplicità d'uso.
 
 ## Azioni di errore normali e anomale
 Le azioni di Testabilità sono classificate in due bucket principali:
@@ -53,7 +53,7 @@ Per una convalida migliore in termini di qualità, eseguire il carico di lavoro 
 
 ## Esecuzione di un'azione di testabilità con PowerShell
 
-Questa esercitazione illustra come eseguire un'azione di testabilità con PowerShell. Si apprenderà come eseguire un'azione di testabilità in un cluster locale (di una casella) o in un cluster di Azure. Microsoft.Fabric.Testability.Powershell.dll, il modulo di testabilità di PowerShell, viene installato automaticamente quando si installa l'MSI di Microsoft Service Fabric e caricato automaticamente quando si apre un prompt di PowerShell.
+Questa esercitazione illustra come eseguire un'azione di testabilità con PowerShell. Si apprenderà come eseguire un'azione di testabilità in un cluster locale (di una casella) o in un cluster di Azure. Microsoft.Fabric.Powershell.dll, il modulo di PowerShell Service Fabric, viene installato automaticamente quando si installa MSI di Microsoft Service Fabric e caricato automaticamente quando si apre un prompt di PowerShell.
 
 Sezioni dell'esercitazione:
 
@@ -68,7 +68,7 @@ Per eseguire un'azione di testabilità su un cluster locale, è necessario in pr
 Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
-In questo caso, l'azione **Restart-ServiceFabricNode** è in esecuzione su un nodo denominato "Node1" e la modalità di completamento specifica che l'esito positivo dell'azione di riavvio non verrà verificato. Per verificare l'esito positivo dell'azione di riavvio, è necessario specificare la modalità di completamento come "Verify". Anziché specificare direttamente il nodo mediante il nome, è possibile specificarlo tramite una chiave di partizione e il tipo di replica, come indicato di seguito:
+In questo caso, l'azione **Restart-ServiceFabricNode** è in esecuzione su un nodo denominato "Node1" e la modalità di completamento specifica che l'esito positivo dell'azione di riavvio del nodo non verrà verificato. Per verificare l'esito positivo dell'azione di riavvio, è necessario specificare la modalità di completamento come "Verify". Anziché specificare direttamente il nodo mediante il nome, è possibile specificarlo tramite una chiave di partizione e il tipo di replica, come indicato di seguito:
 
 ```powershell
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
@@ -168,14 +168,14 @@ class Test
 
         // Create FabricClient with connection and security information here
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        await fabricclient.ClusterManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
+        await fabricclient.FaultManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
     }
 
     static async Task RestartNodeAsync(string clusterConnection, string nodeName, BigInteger nodeInstanceId)
     {
         // Create FabricClient with connection and security information here
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        await fabricclient.ClusterManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
+        await fabricclient.FaultManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
     }
 }
 ```
@@ -211,10 +211,11 @@ ReplicaSelector è un helper esposto in fase di testabilità che consente di sel
 
 Per usare l'helper, creare un oggetto ReplicaSelector e impostare il modo in cui si vuole selezionare la replica e la partizione. Quindi è possibile passarlo nell'API che lo richiede. Se non è selezionata alcuna opzione, per impostazione predefinita vengono selezionate una replica casuale e una partizione casuale.
 
-Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829"); PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid); long replicaId = 130559876481875498;
-
-
 ```csharp
+Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
+PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid);
+long replicaId = 130559876481875498;
+
 // Select a random replica
 ReplicaSelector randomReplicaSelector = ReplicaSelector.RandomOf(partitionSelector);
 
@@ -235,4 +236,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Simulare gli errori durante i carichi di lavoro del servizio](service-fabric-testability-workload-tests.md)
    - [Errori di comunicazione da servizio a servizio](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

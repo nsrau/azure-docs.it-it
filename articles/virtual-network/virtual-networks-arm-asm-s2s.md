@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Connessione di reti virtuali classiche a nuove reti virtuali
@@ -23,7 +23,7 @@ In queste situazioni è consigliabile accertarsi che la nuova infrastruttura sia
 
 ![](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure01.png)
 
->[AZURE.NOTE]Questo documento descrive una soluzione end-to-end a scopo di test. Se le reti virtuali sono già configurate e si ha familiarità con i gateway VPN e la connessione da sito a sito in Azure, vedere [Configurare una VPN S2S tra una rete virtuale di Gestione risorse di Azure e una rete virtuale classica](../virtual-networks-arm-asm-s2s-howto.md).
+>[AZURE.NOTE] Questo documento descrive una soluzione end-to-end a scopo di test. Se le reti virtuali sono già configurate e si ha familiarità con i gateway VPN e la connessione da sito a sito in Azure, vedere [Configurare una VPN S2S tra una rete virtuale di Gestione risorse di Azure e una rete virtuale classica](virtual-networks-arm-asm-s2s-howto.md).
 
 Per testare questo scenario, si procederà come indicato di seguito:
 
@@ -33,7 +33,7 @@ Per testare questo scenario, si procederà come indicato di seguito:
 
 Si eseguirà la procedura descritta sopra usando prima di tutto gli strumenti di gestione di Azure classici, tra cui il portale classico, i file di configurazione di rete e i cmdlet PowerShell di Service Manager di Azure. In seguito si passerà ai nuovi strumenti di gestione, ad esempio il nuovo portale di Azure, i modelli di Gestione risorse di Azure e i cmdlet PowerShell di Gestione risorse di Azure.
 
->[AZURE.IMPORTANT]Per consentire la connessione tra le reti virtuali, non dovranno esserci conflitti a livello di blocco CIDR. Verificare che ogni rete virtuale abbia un blocco CIDR univoco.
+>[AZURE.IMPORTANT] Per consentire la connessione tra le reti virtuali, non dovranno esserci conflitti a livello di blocco CIDR. Verificare che ogni rete virtuale abbia un blocco CIDR univoco.
 
 ## Creare un ambiente di rete virtuale classica
 
@@ -43,15 +43,9 @@ Si eseguirà la procedura descritta sopra usando prima di tutto gli strumenti di
 
 Per creare una nuova rete virtuale corrispondente alla figura 1 precedente, seguire le istruzioni riportate di seguito.
 
-1. Dalla console PowerShell aggiungere l'account Azure tramite il comando seguente.
+1. Dalla console PowerShell accedere all'account Azure tramite il comando seguente.
 
-		Add-AzureAccount
-
-2. Seguire le istruzioni nella finestra di dialogo visualizzata per accedere con l'account Azure.
-
-3. Accertarsi di usare i cmdlet PowerShell di Gestione servizi di Azure tramite il comando seguente.
-
-		Switch-AzureMode AzureServiceManagement
+		Login-AzureRmAccount
 
 4. Scaricare il file di configurazione di rete di Azure tramite il comando seguente.
 
@@ -153,7 +147,7 @@ Per creare il gateway VPN per vnet01 tramite il portale di Azure classico, segui
 
 	![Dashboard di rete virtuale](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure04.png)
 
-	>[AZURE.NOTE]Questa operazione potrebbe richiedere alcuni minuti.
+	>[AZURE.NOTE] Questa operazione potrebbe richiedere alcuni minuti.
 
 9. Prendere nota dell'indirizzo IP pubblico del gateway dopo che è stato creato, come illustrato di seguito. Questo indirizzo sarà necessario in seguito per creare una rete locale per la rete virtuale di Gestione risorse di Azure.
 
@@ -193,14 +187,15 @@ Per creare la rete virtuale in Gestione risorse di Azure con due subnet e una re
 	- **connectionName**: si tratta del nome dell'oggetto connection da creare.
 	- **sharedKey**: questa è la chiave condivisa IPSec per la connessione. In questo scenario **abc123**.
 
-5. Per creare la rete virtuale di Gestione risorse di Azure e gli oggetti correlati in un nuovo gruppo di risorse denominato **RG1**, eseguire il comando di PowerShell seguente. Assicurarsi di modificare il percorso del file di modello e del file dei parametri.
+5. Per creare la rete virtuale di Azure Resource Manager e gli oggetti correlati in un nuovo gruppo di risorse denominato **RG1**, eseguire i comandi di PowerShell seguenti. Assicurarsi di modificare il percorso del file di modello e del file dei parametri.
 
-		Switch-AzureMode AzureResourceManager
-		New-AzureResourceGroup -Name RG1 -Location "Central US" `
+		New-AzureRmResourceGroup -Name RG1 -Location centralus
+
+		New-AzureRmResourceGroupDeployment -Name deployment01 `
 		    -TemplateFile C:\Azure\azuredeploy.json `
 		    -TemplateParameterFile C:\Azure\azuredeploy-parameters.json		
 
-	>[AZURE.NOTE]Questa operazione potrebbe richiedere alcuni minuti.
+	>[AZURE.NOTE] Questa operazione potrebbe richiedere alcuni minuti.
 
 7. Dal browser passare a https://portal.azure.com/ e immettere le credenziali, se necessario.
 8. Fare clic sul riquadro del gruppo di risorse **RG1** nel portale di Azure, come illustrato di seguito.
@@ -232,7 +227,7 @@ Per creare una VM nella nuova rete virtuale, dal portale di Azure seguire le ist
 
 	![Dashboard di rete virtuale](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure10.png)
 
-	>[AZURE.NOTE]Questa operazione potrebbe richiedere alcuni minuti. È possibile passare alla parte successiva di questo documento.
+	>[AZURE.NOTE] Questa operazione potrebbe richiedere alcuni minuti. È possibile passare alla parte successiva di questo documento.
 
 ## Connettere le due reti virtuali
 
@@ -261,10 +256,6 @@ Ora sono disponibili due reti virtuali con VM connesse, quindi si possono connet
 		                           etGatewayConfig"
 		                           }
 		DnsSettings              : null
-
-2. Accertarsi di usare l'API di gestione del servizio Azure per i comandi di PowerShell tramite il comando seguente.
-
-		Switch-AzureMode AzureServiceManagement
 
 3. Scaricare il file di configurazione di rete di Azure tramite il comando seguente.
 
@@ -298,16 +289,12 @@ Ora sono disponibili due reti virtuali con VM connesse, quindi si possono connet
 
 Dopo avere configurato il gateway della rete virtuale classica, è possibile stabilire la connessione. A questo scopo, seguire le istruzioni riportate di seguito.
 
-1. Dalla console di PowerShell eseguire il comando seguente per passare alla modalità Gestione risorse di Azure. 
-
-		Switch-AzureMode AzureResourceManager
-
 2. Creare la connessione tra i gateway tramite i comandi seguenti.
 
-		$vnet01gateway = Get-AzureLocalNetworkGateway -Name vnet01 -ResourceGroupName RG1
-		$vnet02gateway = Get-AzureVirtualNetworkGateway -Name ArmAsmGateway -ResourceGroupName RG1
+		$vnet01gateway = Get-AzureRmLocalNetworkGateway -Name vnet01 -ResourceGroupName RG1
+		$vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name ArmAsmGateway -ResourceGroupName RG1
 		
-		New-AzureVirtualNetworkGatewayConnection -Name arm-asm-s2s-connection `
+		New-AzureRmVirtualNetworkGatewayConnection -Name arm-asm-s2s-connection `
 			-ResourceGroupName RG1 -Location "Central US" -VirtualNetworkGateway1 $vnet02gateway `
 			-LocalNetworkGateway2 $vnet01gateway -ConnectionType IPsec `
 			-RoutingWeight 10 -SharedKey 'abc123'
@@ -360,7 +347,7 @@ Ora che le due reti virtuali sono connesse, è opportuno testarne la connettivit
 
 ## Passaggi successivi
 
-- Altre informazioni sul [Provider di risorse di rete per Gestione risorse di Azure](../resource-groups-networking.md).
-- Visualizzare le linee guida generali su come [creare una connessione VPN S2S tra una rete virtuale classica e una rete virtuale di Gestione risorse di Azure](../virtual-networks-arm-asm-s2s-howto.md).
+- Altre informazioni sul [Provider di risorse di rete per Gestione risorse di Azure](resource-groups-networking.md).
+- Visualizzare le linee guida generali su come [creare una connessione VPN S2S tra una rete virtuale classica e una rete virtuale di Gestione risorse di Azure](virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

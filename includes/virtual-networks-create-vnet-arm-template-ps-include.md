@@ -2,9 +2,9 @@
 
 Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla procedura seguente.
 
-1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
+1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](../articles/powershell-install-configure.md) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 
-3. Se necessario, eseguire il cmdlet **`New-AzureRmResourceGroup`** per creare un nuovo gruppo di risorse. Il comando seguente consente di creare un gruppo di risorse denominato *TestRG* nell'area di Azure *Stati Uniti centrali*. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md).
+3. Se necessario, eseguire il cmdlet **`New-AzureRmResourceGroup`** per creare un nuovo gruppo di risorse. Il comando seguente consente di creare un gruppo di risorse denominato *TestRG* nell'area di Azure *Stati Uniti centrali*. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](../articles/resource-group-overview.md).
 
 		New-AzureRmResourceGroup -Name TestRG -Location centralus
 		
@@ -92,4 +92,4 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 		                      }
 		                    ]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

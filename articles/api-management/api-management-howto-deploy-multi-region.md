@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure
@@ -22,7 +22,7 @@ Gestione API supporta la distribuzione in più aree che consente agli autori di 
 
 Quando un servizio di gestione API viene creato, inizialmente contiene una sola [unità][] e si trova in una sola area di Azure, designata come area primaria. È possibile aggiungere facilmente altre aree tramite il portale di Azure classico. Il server gateway di gestione API viene distribuito in ogni area il traffico delle chiamate verrà indirizzato al gateway più vicino. Quando un'area passa offline, il traffico viene automaticamente reindirizzato al gateway successivo più vicino.
 
-> [AZURE.IMPORTANT]La distribuzione in più aree è disponibile solo nel livello **[Premium][]**.
+> [AZURE.IMPORTANT] La distribuzione in più aree è disponibile solo nel livello **[Premium][]**.
 
 ## <a name="add-region"></a>Distribuire un'istanza del servizio Gestione API in una nuova area
 
@@ -75,4 +75,4 @@ Dopo aver rimosso le aree desiderate, fare clic su **Salva**.
 [unità]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

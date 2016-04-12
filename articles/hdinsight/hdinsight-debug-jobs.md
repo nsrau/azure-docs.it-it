@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/15/2016"
 	ms.author="jgao"/>
 
 # Analizzare i log di HDInsight
@@ -99,14 +99,14 @@ Ora è possibile usare Excel per filtrare e ordinare in base alle esigenze. Ovvi
 2. Scegliere **Cloud Explorer** dal menu **Visualizza** oppure fare semplicemente clic su **CTRL+\\, CTRL+X**.
 3. In **Cloud Explorer** selezionare **Tipi di risorse**. L'altra opzione disponibile è **Gruppi di risorse**.
 4. Espandere **Account di archiviazione**, l'account di archiviazione predefinito per il cluster e quindi **Tabelle**.
-5. Fare doppio clic su hadoopservicelog.
+5. Fare doppio clic su **hadoopservicelog**.
 6. Aggiungere un filtro. Ad esempio:
 	
 		TraceLevel eq 'ERROR'
 
 	![Log di Hadoop in HDInsight - Scegliere le colonne](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
 
-	Per altre informazioni sulla costruzione di filtri, vedere [Creazione di stringhe di filtro per Progettazione tabelle](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+	Per altre informazioni sulla costruzione di filtri, vedere [Creazione di stringhe di filtro per Progettazione tabelle](../vs-azure-tools-table-designer-construct-filter-strings.md).
  
 ##Log scritti nell'archivio BLOB di Azure
 
@@ -114,7 +114,7 @@ Ora è possibile usare Excel per filtrare e ordinare in base alle esigenze. Ovvi
 
 Per visualizzare i log, vedere [Accedere ai log delle applicazioni YARN in HDInsight basato su Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-Per altre informazioni sui registri applicazioni, vedere la pagina che illustra come [semplificare la gestione e l'accesso ai log utenti in YARN](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+Per altre informazioni sui log applicazioni, vedere la pagina che illustra come [semplificare la gestione e l'accesso ai log utenti in YARN](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
  
  
 ## Visualizzare i log di integrità e dei processi del cluster
@@ -313,11 +313,11 @@ Alcuni di questi messaggi di errore possono essere visualizzati anche nel portal
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 - **Descrizione**: impossibile risolvere il DNS *UrlDns*. Assicurarsi che sia specificato l'URL completo dell'endpoint BLOB.  
-- **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, deve iniziare con **http://* e finire con *.com*.
+- **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, deve iniziare con *http://* e finire con *.com*.
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 - **Descrizione**: non è possibile verificare il percorso della risorsa *UrlDns*. Assicurarsi che sia specificato l'URL completo dell'endpoint BLOB.  
-- **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, iniziare con **http://* e finire con *.com*.
+- **Soluzione**: specificare un URL BLOB valido. L'URL DEVE essere valido in tutte le sue parti, iniziare con *http://* e finire con *.com*.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 - **Descrizione**: la funzionalità relativa alla versione non è disponibile per la versione *VersioneSpecificata* e l'ID sottoscrizione *IDSottoscrizione*.  
@@ -337,6 +337,8 @@ Alcuni di questi messaggi di errore possono essere visualizzati anche nel portal
 
 ## Passaggi successivi
 
-[Usare le visualizzazioni di Ambari per il debug dei processi Tez in HDInsight](hdinsight-debug-ambari-tez-view.md) [Abilitare i dump dell'heap per i servizi Hadoop in HDInsight basato su Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md) [Gestire i cluster HDInsight usando l'interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md)
+- [Usare le visualizzazioni di Ambari per il debug di processi Tez in HDInsight](hdinsight-debug-ambari-tez-view.md)
+- [Abilitare i dump dell'heap per i servizi Hadoop in HDInsight basato su Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+- [Gestire i cluster HDInsight mediante l'utilizzo dell'interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0316_2016-->

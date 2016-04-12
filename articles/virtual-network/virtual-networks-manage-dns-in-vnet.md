@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Gestire server DNS usati da una rete virtuale
 
 È possibile gestire l'elenco dei server DNS usati in una rete virtuale nel portale di gestione o nel file di configurazione di rete. È possibile aggiungere fino a 12 server DNS per ogni rete virtuale. Quando si specificano i server DNS, è importante verificare che siano elencati nell'ordine corretto per l'ambiente. Gli elenchi dei server DNS non supportano il round robin. Vengono usati nell'ordine in cui sono specificati. Se è possibile raggiungere il primo server DNS nell'elenco, il client userà tale server DNS indipendentemente dal fatto che funzioni correttamente o meno. Per modificare l'ordine dei server DNS per una rete virtuale, rimuovere i server DNS dall'elenco e aggiungerli nuovamente nell'ordine desiderato.
 
->[AZURE.WARNING]Dopo aver aggiornato l'elenco di server DNS, è necessario riavviare le macchine virtuali presenti nella rete virtuale affinché possano acquisire le nuove impostazioni dei server DNS. Le macchine virtuali continueranno a usare la configurazione corrente fino a quando non vengono riavviate.
+>[AZURE.WARNING] Dopo aver aggiornato l'elenco di server DNS, è necessario riavviare le macchine virtuali presenti nella rete virtuale affinché possano acquisire le nuove impostazioni dei server DNS. Le macchine virtuali continueranno a usare la configurazione corrente fino a quando non vengono riavviate.
 
 ## Modificare un elenco di server DNS per una rete virtuale tramite il portale di gestione
 
@@ -65,4 +65,4 @@ Per modificare un elenco di server DNS usando un file di configurazione di rete,
 
 [Come eliminare una rete virtuale (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

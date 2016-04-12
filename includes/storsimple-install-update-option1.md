@@ -1,35 +1,32 @@
-<!--author=SharS last changed: 11/16/15-->
+<!--author=SharS last changed: 03/17/2016-->
 
-#### Per installare l'aggiornamento 1.2 da Windows PowerShell per StorSimple
+#### Scaricare gli hotfix
 
-1. Attenersi alla seguente procedura per scaricare l'aggiornamento del software.
+Attenersi alla seguente procedura per scaricare l'aggiornamento del software.
 
-    1. Avviare Internet Explorer e accedere al sito [http://catalog.update.microsoft.com/v7/site/Home.aspx](http://catalog.update.microsoft.com/v7/site/Home.aspx).
-    2. Se si visita il sito per la prima volta, verrà richiesto di installare Microsoft Update Catalog. Fare clic su **Installa**.
-    
-        ![Installare il catalogo](./media/storsimple-install-update-option-1/HCS_InstallCatalog-include.png)
+1. Avviare Internet Explorer e accedere al sito [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
 
-    3. Verrà visualizzata una schermata che consente di eseguire ricerche nel catalogo. Immettere **3063418** nella casella di ricerca, quindi fare clic su **Cerca**.
+2. Se si utilizza per la prima volta Microsoft Update Catalog su questo computer, fare clic su **Installa** quando viene richiesto di installare il componente aggiuntivo di Microsoft Update Catalog. ![Installare il catalogo](./media/storsimple-install-update-option-1/HCS_InstallCatalog-include.png)
 
-        ![Cercare nel catalogo](./media/storsimple-install-update-option-1/HCS_SearchCatalog-include.png)
+3. Nella casella di ricerca di Microsoft Update Catalog, immettere il numero della Knowledge Base (KB) dell'aggiornamento rapido da scaricare, ad esempio **3063418**, quindi fare clic su **Cerca**.
 
-    4. Verrà visualizzato il bundle **StorSimple Update 1.2 Appliance Update**. Fare clic su **Aggiungi**. L'aggiornamento verrà aggiunto al carrello.
+4. Verrà visualizzato il bundle **StorSimple Update 1.2 Appliance Update**. Fare clic su **Aggiungi**. L'aggiornamento verrà aggiunto al carrello.
 
-        ![Aggiornare il bundle](./media/storsimple-install-update-option-1/HCS_UpdateBundle-include.png)
+5. Cercare gli eventuali aggiornamenti rapidi aggiuntivi elencati nella tabella precedente (**3043005** e **3063416**) e aggiungerli al carrello.
 
-    5. Fare clic su **Visualizza carrello**.
- 
-        ![Visualizzare il carrello](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png)
+5. Fare clic su **Visualizza carrello**.
 
-    6. Fare clic su **Download**. Specificare o **sfogliare** il percorso locale in cui si desidera salvare il file scaricato. L'aggiornamento verrà scaricato nella cartella del **bundle StorSimple Update 1.2 Appliance Update** (KB3063418) per il percorso selezionato. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
-    
-	Questa procedura descrive come installare l'aggiornamento del dispositivo software come aggiornamento rapido, gli aggiornamenti del firmware del disco dal server di Microsoft Update, e il driver LSI e gli aggiornamenti di Windows dal portale di Azure classico. È tuttavia possibile scegliere di installare aggiornamenti firmware del software, del driver e del disco come gli aggiornamenti rapidi. Sarà quindi necessario scaricare l'aggiornamento di StorSimple 1.2 SAS Controller (KB3043005) e aggiornamento StorSimple 1.2 Disk Firmware (KB3063416) e copiarli nella stessa cartella condivisa. Per installare aggiornamenti firmware del disco come aggiornamenti rapidi, seguire le istruzioni in [installazione degli aggiornamenti rapidi in modalità di manutenzione tramite Windows PowerShell per StorSimple](storsimple-update-device.md#install-hotfixes-via-windows-powershell-for-storsimple).
-    
-	> [AZURE.NOTE]L'aggiornamento rapido deve essere accessibile da entrambi i controller per rilevare eventuali messaggi di errore potenziali dal controller peer.
-            
-2. Per installare l'aggiornamento del software, accedere all'interfaccia di Windows PowerShell dalla console seriale del dispositivo StorSimple. Attenersi alle istruzioni riportate in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+    ![Visualizzare il carrello](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png)
 
-3. Al prompt dei comandi, premere **Invio**.
+6. Fare clic su **Download**. Specificare o **sfogliare** il percorso locale in cui si desidera salvare il file scaricato. Gli aggiornamenti vengono scaricati nel percorso specificato e inseriti in una sottocartella con lo stesso nome dell'aggiornamento. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
+
+>   [AZURE.NOTE]
+Gli aggiornamenti rapidi devono essere accessibili da entrambi i controller per rilevare eventuali messaggi di errore potenziali dal controller peer.
+
+#### Per installare e verificare gli hotfix in modalità normale
+Eseguire i passaggi seguenti per installare e verificare gli aggiornamenti rapidi in modalità normale. Se sono già stati installati tramite il portale di Azure, passare direttamente a [installare e verificare gli aggiornamenti rapidi in modalità di manutenzione](#to-install-and-verify-maintenance-mode-hotfixes).
+
+1. Per installare l'aggiornamento del software, accedere all'interfaccia di Windows PowerShell dalla console seriale del dispositivo StorSimple. Attenersi alle istruzioni riportate in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). Al prompt dei comandi, premere **Invio**.
 
 4. Selezionare l'**opzione 1** per eseguire l'accesso completo al dispositivo.
 
@@ -46,16 +43,16 @@
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \hcsmdssoftwareupdate.exe -Credential contoso\John
-      
+
         Confirm
 
         This operation starts the hotfix installation and could reboot one or
-        both of the controllers. If the device is serving I/Os, these will not 
+        both of the controllers. If the device is serving I/Os, these will not
         be disrupted. Are you sure you want to continue?
         [Y] Yes [N] No [?] Help (default is "Y"): Y
 
         ````
- 
+
 6. Digitare **Y** quando viene richiesto di confermare l'installazione dell'hotfix.
 
 7. Monitorare l'aggiornamento utilizzando il cmdlet `Get-HcsUpdateStatus`.
@@ -68,9 +65,9 @@
         LastHotfixTimestamp : 9/02/2015 10:36:13 PM
         LastUpdateTimestamp : 9/02/2015 10:35:25 PM
         Controller0Events   :
-        Controller1Events   : 
+        Controller1Events   :
         ````
- 
+
      Il seguente output di esempio indica che l'aggiornamento è stato completato. Il `RunInProgress` sarà `False` quando l'aggiornamento è stato completato.
 
         ````
@@ -83,10 +80,9 @@
         Controller1Events   :
 
         ````
-		
 
-	> [AZURE.NOTE]In alcuni casi, i cmdlet mostrano`False` quando l'aggiornamento è ancora in corso. Per assicurarsi che l'aggiornamento rapido è stato completato, attendere alcuni minuti, eseguire nuovamente il comando e verificare che `RunInProgress` sia `False`. In caso affermativo, l'aggiornamento rapido è stato completato.
-	
+	> [AZURE.NOTE] In alcuni casi, i cmdlet mostrano`False` quando l'aggiornamento è ancora in corso. Per assicurarsi che l'aggiornamento rapido è stato completato, attendere alcuni minuti, eseguire nuovamente il comando e verificare che `RunInProgress` sia `False`. In caso affermativo, l'aggiornamento rapido è stato completato.
+
 8. Dopo aver installato gli aggiornamenti del software, verificare le versioni del software del sistema. Digitare il seguente comando:
 
     `Get-HcsSystem`
@@ -95,21 +91,74 @@
 
     - HcsSoftwareVersion: 6.3.9600.17584
     - CisAgentVersion: 1.0.9049.0
-    - MdsAgentVersion: 26.0.4696.1433 
-    
+    - MdsAgentVersion: 26.0.4696.1433
+
 	Se i numeri di versione non vengono modificati dopo aver applicato l'aggiornamento, significa che non è stato possibile applicare l'aggiornamento rapido. Se si verifica ciò, contattare [il supporto tecnico di Microsoft](storsimple-contact-microsoft-support.md) per assistenza.
-    
-9. A questo punto si installeranno gli aggiornamenti del firmware del disco che sono problematici e che richiedono circa 30-45 minuti. È possibile scegliere di installare tali aggiornamenti in una finestra di manutenzione pianificata tramite la connessione alla console seriale del dispositivo. Per istallare gli aggiornamenti del firmware del disco, seguire le istruzioni in [Installare gli aggiornamenti in modalità manutenzione tramite Windows PowerShell per StorSimple](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
-10. Dopo la corretta istallazione degli aggiornamenti del firmware del disco e dopo che il dispositivo ha terminato la modalità manutenzione, tornare al portale di Azure classico. Gli aggiornamenti in modalità manutenzione non vengono aggiornati nel portale fino a quando non sono trascorse 24 ore. Potrebbe essere necessario attendere prima di applicare gli aggiornamenti non problematici rimanenti dal portale di Azure classico.
+9. Ripetere i passaggi da 3 a 5 per installare il resto degli aggiornamenti rapidi in modalità normale (KB3043005).
 
-11. Quando si è pronti ad applicare gli aggiornamenti, passare alla pagina **Manutenzione** e nella parte inferiore della pagina, fare clic su **Analisi aggiornamenti**. Si riceverà una notifica che indica che sono disponibili aggiornamenti, tra cui quelli del driver e di Windows. Fare clic su **Installa aggiornamenti **per avviare il processo di installazione. Attendere che tutti gli aggiornamenti vengano installati correttamente.
+#### Per installare e verificare gli aggiornamenti rapidi in modalità di manutenzione
 
+Usare KB3063416 per installare gli aggiornamenti del firmware del disco. Si tratta di aggiornamenti con interruzione del servizio che richiedono circa 30-45 minuti per il completamento. È possibile scegliere di installare tali aggiornamenti in una finestra di manutenzione pianificata tramite la connessione alla console seriale del dispositivo.
 
+Per installare gli aggiornamenti del firmware del disco, seguire le istruzioni riportate sotto.
 
+1. Attivare la modalità di manutenzione per il dispositivo. Notare che non si deve utilizzare Windows PowerShell in remoto quando ci si connette a un dispositivo in modalità di manutenzione. È necessario eseguire questo cmdlet nel controller del dispositivo quando si è connessi tramite console seriale del dispositivo. Digitare:
 
+    `Enter-HcsMaintenanceMode`
 
- 
- 
+	Di seguito è riportato un output di esempio.
 
-<!---HONumber=AcomDC_1203_2015-->
+		Controller0>Enter-HcsMaintenanceMode
+		Checking device state...
+
+		In maintenance mode, your device will not service IOs and will be disconnected from the Microsoft Azure StorSimple Manager service. Entering maintenance mode will end the current session and reboot both controllers, which takes a few minutes to complete. Are you sure you want to enter maintenance mode?
+		[Y] Yes [N] No (Default is "Y"): Y
+
+		-----------------------MAINTENANCE MODE------------------------
+		Microsoft Azure StorSimple Appliance Model 8100
+		Name: Update1-8100-SHG0997879L76YD
+		Software Version: 6.3.9600.17584
+		Copyright (C) 2014 Microsoft Corporation. All rights reserved.
+		You are connected to Controller0 - Passive
+		---------------------------------------------------------------
+		Serial Console Menu
+		[1] Log in with full access
+		[2] Log into peer controller with full access
+		[3] Connect with limited access
+		[4] Change language
+		Please enter your choice>
+
+	Entrambi i controller si riavviano in modalità manutenzione.
+
+3. Per installare l'aggiornamento firmware del disco, digitare:
+
+    `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
+
+    Di seguito è riportato un output di esempio.
+
+        Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\DiskFirmwarePackage.exe -Credential contoso\john
+    	Enter Password:
+    	WARNING: In maintenance mode, hotfixes should be installed on each controller sequentially. After the hotfix is installed on this controller, install it on the peer controller.
+    	Confirm
+    	This operation starts a hotfix installation and could reboot one or both of the controllers. Are you sure you want to continue?
+    	[Y] Yes [N] No (Default is "Y"): Y
+    	WARNING: Installation is currently in progress. This operation can take several minutes to complete.
+
+1.  Monitorare l'avanzamento dell'installazione con il comando `Get-HcsUpdateStatus`. L'aggiornamento è completo quando `RunInProgress` diventa `False`.
+
+2.  Una volta completata l'installazione, il controller in cui è stato installato l'hotfix in modalità di manutenzione viene riavviato. Accedere all'opzione 1 con accesso completo e verificare la versione del firmware del disco. Digitare:
+
+	`Get-HcsFirmwareVersion`
+
+    Le versioni del firmware del disco previste sono:
+
+    `XMGG, XGEE, KZ50, F6C2, VR08`
+
+    Eseguire il comando `Get-HcsFirmwareVersion` sul secondo controller per verificare che la versione del software sia stata aggiornata. È quindi possibile chiudere la modalità di manutenzione. Digitare il comando seguente per ogni controller del dispositivo:
+
+    `Exit-HcsMaintenanceMode`
+
+1. I controller si riavviano quando si esce dalla modalità di manutenzione. Dopo la corretta istallazione degli aggiornamenti del firmware del disco e dopo che il dispositivo ha terminato la modalità manutenzione, tornare al portale di Azure classico. Sul portale potrebbe non essere visualizzata l’installazione degli aggiornamenti di modalità manutenzione per 24 ore.
+
+<!---HONumber=AcomDC_0323_2016-->

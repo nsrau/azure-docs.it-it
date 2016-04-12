@@ -3,7 +3,7 @@
 	description="Informazioni sull'uso di Servizi mobili di Azure per gestire i conflitti durante la sincronizzazione dei dati offline nell'applicazione iOS."
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="mobile-services"/>
 
@@ -13,29 +13,31 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="03/09/2016"
 	ms.author="krisragh;donnam"/>
 
 
 # Gestione dei conflitti relativi alla sincronizzazione offline dei dati in Servizi mobili
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 Questo argomento illustra come sincronizzare e gestire i conflitti quando si usano le funzionalità offline di Servizi mobili di Azure. Questa esercitazione si basa sull'esercitazione [Introduzione ai dati offline].
 
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>.
+>[AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">versione di valutazione gratuita di Azure</a>.
 
 
 ## Scaricare progetto iOS
 
 Per questa esercitazione, scaricare [un progetto Xcode aggiornato da Github](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS). È stato utilizzato il progetto Xcode dalla fine dell’esercitazione [Introduzione ai dati Offline] come punto di avvio, e poi è stato aggiornato in modo da consentire la modifica degli elementi. Sono state aggiunte anche le classi e i metodi di supporto in modo da poter aggiungere un gestore del conflitto nella sezione successiva.
 
-Al termine di questa esercitazione, se si esegue questa applicazione su due telefoni, si modifica lo stesso elemento su entrambi i telefoni localmente, e si invia nuovamente il push al server, si consentirà all'utente di scegliere in ogni telefono la versione da mantenere: * mantenere la versione client (che sostituisce la versione sul server), * mantenere la versione del server (che aggiorna la tabella locale client) , o *non mantenere nessuna versione (Annulla push e lascia l'operazione in sospeso).
+Al termine dell'esercitazione, se si esegue l'app su due telefoni, si modifica lo stesso elemento localmente in entrambi i telefoni e si esegue il push delle modifiche sul server, si consentirà all'utente di ogni telefono di scegliere la versione da conservare:
+  * mantenere la versione del client (che esegue l'override della versione del server),
+  * mantenere la versione del server (che aggiorna la tabella locale del client), oppure
+  * non mantenere nessuna delle versioni (annulla il push e lascia l'operazione in sospeso).
 
 Ora, aggiungiamo il gestore del conflitto per abilitare questa funzionalità.
 
@@ -144,4 +146,4 @@ Eseguire il movimento di aggiornamento nelle istanze delle app mediante trascina
 [Introduzione ai dati offline]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

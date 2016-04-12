@@ -40,7 +40,7 @@ Se sono stati definiti gruppi di sicurezza di rete nella subnet usata per la rac
 >[AZURE.NOTE] È necessario verificare che i server DNS nella rete virtuale siano sempre attivi e sempre in grado di risolvere le macchine virtuali ospitate nella rete virtuale. Non usare Google DNS a questo scopo.
 
 
-Per le raccolte ibride è possibile utilizzare i propri server DNS. Specificarli nello schema di configurazione di rete o tramite il portale di gestione quando si crea la rete virtuale. I server DNS vengono utilizzati nell'ordine in cui vengono specificati in modo failover (anziché round robin).
+Per le raccolte ibride è possibile utilizzare i propri server DNS. Specificarli nello schema di configurazione di rete o tramite il portale di gestione quando si crea la rete virtuale. I server DNS vengono utilizzati nell'ordine in cui vengono specificati in modo failover (anziché round robin). Vedere [Risoluzione dei nomi per le macchine virtuali e le istanze del ruolo](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) per verificare che i server DNS siano configurati correttamente.
 
 Verificare che i server DNS per la raccolta siano accessibili e disponibili dalla subnet di rete virtuale specificata per questa raccolta.
 
@@ -67,4 +67,4 @@ Assicurarsi che i dettagli del dominio forniti siano validi e che il controller 
 
 Il nome di dominio creato o aggiunto deve essere un nome di dominio interno (non il nome di dominio Active Directory di Azure) e deve essere nel formato DNS risolvibile (contoso.local). Ad esempio, si dispone di un nome interno di Active Directory (contoso.local) e di un UPN di Directory Active (contoso.com): è necessario utilizzare il nome interno quando si crea la raccolta.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

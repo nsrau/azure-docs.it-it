@@ -23,14 +23,17 @@ Gli scenari di testabilità in Service Fabric di Azure consentono agli sviluppat
 ## Esempio di scenario personalizzato
 In questo test viene illustrato uno scenario in cui si verifica l'interfoliazione del carico di lavoro di business con [errori normali e anomali](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Per ottenere risultati ottimali, gli errori devono essere indotti nel corso delle operazioni del servizio o del calcolo.
 
-Esaminiamo in dettaglio un esempio di servizio che espone quattro carichi di lavoro: A, B, C e D. Ognuno corrisponde a un insieme di flussi di lavoro e potrebbe essere calcolo, archiviazione o una combinazione. Per ragioni di semplicità, nel nostro esempio verranno estrapolati i carichi di lavoro. I diversi errori eseguiti in questo esempio sono indicati di seguito. + RestartNode: errore anomalo per simulare il riavvio di un computer. + RestartDeployedCodePackage: errore anomalo per simulare gli arresti anomali dei processi dell'host di servizio. + RemoveReplica: errore normale per simulare la rimozione della replica. + MovePrimary: errore normale per simulare gli spostamenti della replica attivati dal servizio di bilanciamento del carico di Service Fabric.
+Esaminiamo in dettaglio un esempio di servizio che espone quattro carichi di lavoro: A, B, C e D. Ognuno corrisponde a un insieme di flussi di lavoro e potrebbe essere calcolo, archiviazione o una combinazione. Per ragioni di semplicità, nel nostro esempio verranno estrapolati i carichi di lavoro. I diversi errori eseguiti in questo esempio sono:
+  + RestartNode: errore anomalo per simulare un riavvio del computer.
+  + RestartDeployedCodePackage: errore anomalo per simulare arresti anomali del processo host del servizio.
+  + RemoveReplica: errore normale per simulare la rimozione della replica.
+  + MovePrimary: errore normale per simulare gli spostamenti della replica attivati dal servizio di bilanciamento del carico di Service Fabric.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
 
 using System;
 using System.Fabric;
-using System.Fabric.Testability;
 using System.Fabric.Testability.Scenario;
 using System.Threading;
 using System.Threading.Tasks;
@@ -147,9 +150,9 @@ class Test
     {
         Array values = Enum.GetValues(typeof(T));
         T workload = (T)values.GetValue(random.Next(values.Length));
-        return T;
+        return workload;
     }
 }
 ```
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

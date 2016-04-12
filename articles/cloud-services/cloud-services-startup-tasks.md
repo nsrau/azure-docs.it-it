@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="03/21/2016" 
 ms.author="adegeo"/>
 
 
@@ -21,7 +21,7 @@ ms.author="adegeo"/>
 
 È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Le operazioni che si possono eseguire sono l'installazione di un componente, la registrazione dei componenti COM, l'impostazione delle chiavi del Registro di sistema o l'avvio di un processo a esecuzione prolungata.
 
->[AZURE.NOTE]Le attività di avvio non sono applicabili ai ruoli VM, ma solo ai ruoli Web e di lavoro del servizio cloud.
+>[AZURE.NOTE] Le attività di avvio non sono applicabili ai ruoli VM, ma solo ai ruoli Web e di lavoro del servizio cloud.
 
 ## Funzionamento delle attività di avvio
 
@@ -46,7 +46,7 @@ Di seguito è riportata la procedura di avvio di un ruolo in Azure:
     - Le attività di tipo **simple** vengono eseguite in modo sincrono, una alla volta.
     - Le attività di tipo **background** e **foreground** vengono avviate in modo asincrono e parallelo all'attività di avvio.  
        
-    > [AZURE.WARNING]È possibile che IIS non sia stato configurato completamente nella fase delle attività di avvio del processo di avvio, pertanto potrebbero non essere disponibili dati specifici per il ruolo. Per le attività di avvio che richiedono dati specifici per il ruolo è necessario usare [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
+    > [AZURE.WARNING] È possibile che IIS non sia stato configurato completamente nella fase delle attività di avvio del processo di avvio, pertanto potrebbero non essere disponibili dati specifici per il ruolo. Per le attività di avvio che richiedono dati specifici per il ruolo è necessario usare [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
 
 3. Viene avviato il processo host del ruolo e il sito viene creato in IIS.
 
@@ -82,7 +82,7 @@ ECHO The current version is %MyVersionNumber% >> "%TEMP%\StartupLog.txt" 2>&1
 EXIT /B 0
 ```
 
-> [AZURE.NOTE]In Visual Studio la proprietà **Copia in directory di output** per il file batch di avvio deve essere impostata su **Copia sempre** per assicurarsi che il file batch di avvio venga correttamente distribuito al progetto in Azure (**approot\\bin** per i ruoli Web e **approot** per i ruoli di lavoro).
+> [AZURE.NOTE] In Visual Studio la proprietà **Copia in directory di output** per il file batch di avvio deve essere impostata su **Copia sempre** per assicurarsi che il file batch di avvio venga correttamente distribuito al progetto in Azure (**approot\\bin** per i ruoli Web e **approot** per i ruoli di lavoro).
 
 ## Descrizione degli attributi di Task
 
@@ -101,13 +101,13 @@ Di seguito vengono descritti gli attributi dell'elemento **Task** nel file [Serv
 
 - **elevato**: l'attività di avvio viene eseguita con privilegi di amministratore. In questo modo attraverso le attività di avvio è possibile installare programmi, apportare modifiche alla configurazione di IIS, effettuare modifiche al Registro di sistema e altre attività a livello di amministratore senza aumentare il livello di privilegio del ruolo.
 
-> [AZURE.NOTE]Il livello di privilegio dell'attività di avvio non deve essere necessariamente uguale al livello di privilegio del ruolo.
+> [AZURE.NOTE] Il livello di privilegio dell'attività di avvio non deve essere necessariamente uguale al livello di privilegio del ruolo.
 
 **taskType**: specifica la modalità di esecuzione di un'attività di avvio.
 
 - Le attività di tipo **simple** vengono eseguite in modo sincrono, una alla volta, nell'ordine specificato nel file [ServiceDefinition.csdef]. Quando un'attività di avvio **simple** termina con un valore di **errorlevel** uguale a zero, viene eseguita l'attività di avvio **simple** successiva. Se non sono presenti altre attività di avvio **simple** da eseguire, viene avviato il ruolo.   
 
-    > [AZURE.NOTE]Se l'attività **simple** termina con un valore di **errorlevel** diverso da zero, l'istanza viene bloccata. Le successive attività di avvio **simple** e il ruolo non vengono avviati.
+    > [AZURE.NOTE] Se l'attività **simple** termina con un valore di **errorlevel** diverso da zero, l'istanza viene bloccata. Le successive attività di avvio **simple** e il ruolo non vengono avviati.
 
     Per assicurarsi che il file batch termini con un valore di **errorlevel** uguale a zero, eseguire il comando `EXIT /B 0` al termine del processo del file batch.
 
@@ -123,7 +123,7 @@ Esistono due tipi di variabili di ambiente per le attività di avvio: le variabi
 
 Per le variabili di ambiente statiche viene usato l'attributo **value** dell'elemento [Variable]. Nell'esempio precedente viene creata la variabile di ambiente **MyVersionNumber** con un valore statico di "**1.0.0.0**". Un altro esempio potrebbe essere la creazione di una variabile di ambiente **StagingOrProduction** per la quale impostare manualmente i valori "**staging**" o "**production**" per eseguire azioni di avvio diverse in base al valore della variabile di ambiente **StagingOrProduction**.
 
-Per le variabili di ambiente basate sui membri della classe RoleEnvironment non viene usato l'attributo **value** dell'elemento [Variable]. Viene invece usato l'elemento figlio [RoleInstanceValue], con l'appropriato valore per l'attributo **xPath**, per creare una variabile di ambiente basata su un membro specifico della classe [RoleEnvironment]. I valori per l'attributo **xPath** per accedere ai diversi valori di [RoleEnvironment] sono disponibili in [Valori xPath in Azure](https://msdn.microsoft.com/library/azure/hh404006.aspx).
+Per le variabili di ambiente basate sui membri della classe RoleEnvironment non viene usato l'attributo **value** dell'elemento [Variable]. Viene invece usato l'elemento figlio [RoleInstanceValue], con l'appropriato valore per l'attributo **xPath**, per creare una variabile di ambiente basata su un membro specifico della classe [RoleEnvironment]. I valori per l'attributo **xPath** per accedere ai diversi valori di [RoleEnvironment] sono disponibili [qui](cloud-services-role-config-xpath.md).
 
 
 
@@ -163,4 +163,4 @@ Informazioni su come eseguire alcune [attività di avvio comuni](cloud-services-
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

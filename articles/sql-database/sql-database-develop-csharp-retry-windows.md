@@ -3,8 +3,8 @@
 	description="L’esempio C# include una logica di ripetizione dei tentativi per un'interazione affidabile con database SQL di Azure."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
 # Codice di esempio: logica di ripetizione tentativi in C# per la connessione a Database SQL
@@ -286,4 +286,4 @@ Eseguirebbe il programma con il parametro "test" e verificherebbe che ha dapprim
 
 - [Prova del database SQL: usare C# per creare un database SQL con la libreria del database SQL per .NET](sql-database-get-started-csharp.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

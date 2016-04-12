@@ -155,7 +155,7 @@ Una volta che una richiesta è stata inviata correttamente da un’applicazione 
 
 - **Le azioni GET, PUT, DELETE, HEAD e PATCH devono essere idempotenti**.
 
-	Il codice che implementa queste richieste non deve causare effetti collaterali. La stessa richiesta ripetuta sulla stessa risorsa deve produrre lo stesso stato. Ad esempio, inviare più richieste DELETE allo stesso URI deve avere lo stesso effetto, anche se il codice di stato HTTP nei messaggi di risposta può essere diverso (la prima richiesta DELETE potrebbe restituire il codice di stato 204 (nessun contenuto), mentre una successiva richiesta DELETE potrebbe restituire il codice di stato 404 (non trovato)).
+	Il codice che implementa queste richieste non deve causare effetti collaterali. La stessa richiesta ripetuta sulla stessa risorsa deve produrre lo stesso stato. Ad esempio, inviare più richieste DELETE allo stesso URI deve avere lo stesso effetto, anche se il codice di stato HTTP nei messaggi di risposta può essere diverso. La prima richiesta DELETE potrebbe restituire il codice di stato 204, nessun contenuto, mentre una successiva richiesta DELETE potrebbe restituire il codice di stato 404, non trovato.
 
 > [AZURE.NOTE] L'articolo [Modelli di idempotenza](http://blog.jonathanoliver.com/idempotency-patterns/) sul blog di Oliver Jonathan fornisce una panoramica sull’idempotenza e sul modo in cui è correlata alle operazioni di gestione dati.
 
@@ -937,7 +937,7 @@ La stessa API Web può essere utilizzata da numerose applicazioni client in esec
 
 	Una richiesta che potrebbe richiedere molto tempo per l'elaborazione deve essere eseguita senza bloccare il client che ha inviato tale richiesta. L'API Web può eseguire un controllo iniziale per convalidare la richiesta, avviare un'attività separata per eseguire il lavoro e quindi restituire un messaggio di risposta con codice HTTP 202 (Accettato). L'attività può essere eseguita in modo asincrono come parte dell'elaborazione dell’API Web, oppure può essere delegata a un processo Web di Azure (se l'API Web è ospitata da un sito Web di Azure) o a un ruolo di lavoro (se l'API web viene implementata come un servizio cloud di Azure).
 
-	> [AZURE.NOTE] Per ulteriori informazioni sull'utilizzo di processi Web con il sito Web di Azure, visitare la pagina [Utilizzare i processi Web per l'esecuzione di attività in background in siti Web di Microsoft Azure](web-sites-create-web-jobs.md) del sito Web Microsoft.
+	> [AZURE.NOTE] Per ulteriori informazioni sull'utilizzo di processi Web con il sito Web di Azure, visitare la pagina [Utilizzare i processi Web per l'esecuzione di attività in background in siti Web di Microsoft Azure](../articles/app-service-web/web-sites-create-web-jobs.md) del sito Web Microsoft.
 
 	L'API Web deve inoltre fornire un meccanismo per restituire i risultati dell'elaborazione all'applicazione client. È possibile ottenere questo risultato, fornendo un meccanismo di polling per le applicazioni client per chiedere periodicamente se l'elaborazione è terminata e ottenere il risultato o l'abilitazione di un’Api Web per inviare una notifica quando l'operazione è stata completata.
 
@@ -955,7 +955,7 @@ La stessa API Web può essere utilizzata da numerose applicazioni client in esec
 
 	6. Mentre l'attività è in esecuzione, il client può continuare a eseguire la propria elaborazione. Periodicamente può inviare una richiesta all'URI _/polling/ {guid}_ dove _{guid}_ è il GUID restituito nel messaggio di 202 risposta dall’API Web.
 
-	7. L'API web nell’URI _/polling {guid}_ esegue query sullo stato dell'attività corrispondente nella tabella e restituisce un messaggio di risposta con codice di stato HTTP 200 (OK) che contiene questo stato (_In esecuzione_, _Operazione completata_, o _Operazione non riuscita_). Se l'attività è stata completato o ha avuto esito negativo, il messaggio di risposta può includere anche i risultati dell'elaborazione oppure le informazioni disponibili relative al motivo dell'esito negativo.
+	7. L'API Web nell'URI _/polling/{guid}_ esegue query sullo stato dell'attività corrispondente nella tabella e restituisce un messaggio di risposta con codice di stato HTTP 200 (OK) che contiene lo stato _In esecuzione_, _Operazione completata_ oppure _Operazione non riuscita_. Se l'attività è stata completato o ha avuto esito negativo, il messaggio di risposta può includere anche i risultati dell'elaborazione oppure le informazioni disponibili relative al motivo dell'esito negativo.
 
 	Se si preferisce implementare le notifiche, le opzioni disponibili includono:
 
@@ -1061,7 +1061,7 @@ Azure fornisce il [Servizio di gestione API](https://azure.microsoft.com/documen
 
 Ulteriori informazioni che descrivono come eseguire queste attività sono reperibili alla pagina [Gestione API](https://azure.microsoft.com/services/api-management/) del sito Web Microsoft. Il Servizio di gestione API di Azure fornisce inoltre la propria interfaccia REST, consentendo di creare un'interfaccia personalizzata per semplificare il processo di configurazione di un'API Web. Per ulteriori informazioni, visitare la pagina [Riferimento API REST alla gestione API di Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) del sito Web Microsoft.
 
-> [AZURE.TIP] Azure offre la Gestione traffico di Azure che consente di implementare il failover e il bilanciamento del carico e ridurre la latenza tra più istanze di un sito Web ospitato in aree geografiche diverse. È possibile utilizzare la Gestione traffico di Azure in combinazione con il Servizio di gestione API. il Servizio di gestione API può indirizzare le richieste a istanze di un sito Web tramite la Gestione traffico di Azure. Per ulteriori informazioni, visitare la pagina [Metodi di bilanciamento del carico con Traffic Manager](../traffic-manager/traffic-manager-load-balancing-methods.md) del sito Web Microsoft.
+> [AZURE.TIP] Azure offre la Gestione traffico di Azure che consente di implementare il failover e il bilanciamento del carico e ridurre la latenza tra più istanze di un sito Web ospitato in aree geografiche diverse. È possibile utilizzare la Gestione traffico di Azure in combinazione con il Servizio di gestione API. il Servizio di gestione API può indirizzare le richieste a istanze di un sito Web tramite la Gestione traffico di Azure. Per altre informazioni, visitare la pagina [Metodi di routing di Gestione traffico](../articles/traffic-manager/traffic-manager-routing-methods.md) sul sito Web Microsoft.
 
 > In questa struttura, se si utilizzano nomi DNS personalizzati per i siti Web, è necessario configurare il record CNAME appropriato per ogni sito Web per indicare il nome DNS del sito web di Gestione traffico di Azure.
 
@@ -1111,7 +1111,7 @@ Se l’API Web è stata implementata utilizzando il modello API Web ASP.NET (in 
 
 È possibile visualizzare questi dati in tempo reale dal portale di gestione di Azure. È inoltre possibile creare un test Web per monitorare 'integrità dell'API Web. Un test Web invia una richiesta periodica a un URI specificato nell'API Web e acquisisce la risposta. È possibile specificare la definizione di una risposta corretta (ad esempio, il codice di stato HTTP 200) e se la richiesta non restituisce questa risposta è possibile disporre di un avviso da inviare a un amministratore. Se necessario, l'amministratore può riavviare il server che ospita l'API Web se l’esito è negativo.
 
-La pagina [Application Insights - Avvia il monitoraggio dell'integrità e dell'utilizzo dell'app](app-insights-start-monitoring-app-health-usage/) del sito Web Microsoft fornisce ulteriori informazioni.
+La pagina [Application Insights - Avvia il monitoraggio dell'integrità e dell'utilizzo dell'app](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) del sito Web Microsoft fornisce ulteriori informazioni.
 
 ### Monitoraggio di un'API Web tramite il Servizio di gestione API
 
@@ -1143,13 +1143,13 @@ Se l'API Web è stata pubblicata mediante il Servizio di gestione API, la pagina
 - La pagina [Definizioni dei codici di stato](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)sul sito Web W3C contiene un elenco completo dei codici di stato e le relative descrizioni.
 - Per informazioni dettagliate sulla gestione delle eccezioni HTTP con l'API Web ASP.NET, visitare la pagina [Gestione delle eccezione in API Web ASP.NET](http://www.asp.net/web-api/overview/error-handling/exception-handling) sul sito Web Microsoft.
 - L'articolo [Gestione globale degli errori API Web](http://www.asp.net/web-api/overview/error-handling/web-api-global-error-handling) sul sito Web Microsoft descrive come implementare una gestione degli errori globale e una strategia di registrazione per un'API Web.
-- La pagina [Utilizzare i processi Web per l’esecuzione di attività in background in siti Web di Microsoft Azure](web-sites-create-web-jobs.md) del sito Web Microsoft fornisce informazioni ed esempi sull’utilizzo di WebJobs per eseguire operazioni in background sul sito di Azure.
+- La pagina [Eseguire attività in background con processi Web](../articles/app-service-web/web-sites-create-web-jobs.md) sul sito Web Microsoft fornisce informazioni ed esempi sull'uso di Processi Web per eseguire operazioni in background su un sito Web di Azure.
 - La pagina [Azure Notification hub di notifica utenti](notification-hubs-aspnet-backend-windows-dotnet-notify-users/) sul sito Web Microsoft mostra come è possibile utilizzare un Hub di notifica di Azure per spingere le risposte asincrone alle applicazioni client.
 - La pagina[Gestione API](https://azure.microsoft.com/services/api-management/) sul sito Web Microsoft descrive come pubblicare un prodotto che fornisce un accesso sicuro e controllato a un'API Web.
 - La pagina[Riferimento API REST gestione API di Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) sul sito Web Microsoft descrive come utilizzare l'API REST di gestione per creare applicazioni di gestione personalizzate.
-- La pagina [Sui metodi di gestione traffico e bilanciamento del carico](../traffic-manager/traffic-manager-load-balancing-methods.md) sul sito Web Microsoft riepiloga come Gestione traffico di Azure può essere utilizzato per le richieste di bilanciamento del carico tra più istanze di un sito Web che ospita un'API Web.
-- La pagina [Application Insights - Avvia il monitoraggio dell'integrità e dell'utilizzo dell'app](app-insights-start-monitoring-app-health-usage.md) sul sito Web Microsoft fornisce informazioni dettagliate sull'installazione e configurazione di Application Insights in un progetto API Web ASP.NET.
+- La pagina [Metodi di routing di Gestione traffico](../articles/traffic-manager/traffic-manager-routing-methods.md) sul sito Web Microsoft riepiloga come Gestione traffico di Azure può essere usato per le richieste di bilanciamento del carico tra più istanze di un sito Web che ospita un'API Web.
+- La pagina [Application Insights - Avvia il monitoraggio dell'integrità e dell'utilizzo dell'app](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) sul sito Web Microsoft fornisce informazioni dettagliate sull'installazione e configurazione di Application Insights in un progetto API Web ASP.NET.
 - La pagina [Verifica codice utilizzando Unit test ](https://msdn.microsoft.com/library/dd264975.aspx) sul sito Web Microsoft fornisce informazioni dettagliate sulla creazione e gestione di unit test utilizzando Visual Studio.
 - La pagina [Eseguire test delle prestazioni in un'applicazione prima del rilascio](https://msdn.microsoft.com/library/dn250793.aspx) sul sito Web Microsoft descrive come utilizzare Visual Studio Ultimate per creare un prestazioni Web e caricare il progetto di test.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

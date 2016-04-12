@@ -4,7 +4,7 @@
 	services="mobile-engagement"
 	documentationCenter="android"
 	authors="piyushjo"
-	manager="dwrede"
+	manager=""
 	editor="" />
 
 <tags
@@ -13,18 +13,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="12/02/2015"
+	ms.date="03/25/2016"
 	ms.author="piyushjo" />
 
 # Introduzione a Azure Mobile Engagement per app Android
 
-> [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS | Obj C](mobile-engagement-ios-get-started.md)
-- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md)
-- [Cordova](mobile-engagement-cordova-get-started.md)
+[AZURE.INCLUDE [Banner per la selezione del tipo di esercitazione](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Questo argomento descrive come usare Azure Mobile Engagement per ottenere informazioni sull'uso dell'app e sull'invio di notifiche push a utenti segmentati di un'applicazione per Android. Questa esercitazione illustra uno scenario di trasmissione semplice tramite Mobile Engagement. Si creerà un'app per Android vuota che raccoglie dati di base e riceve notifiche push tramite il servizio Google Cloud Messaging (GCM).
 
@@ -33,7 +27,7 @@ Per completare questa esercitazione, è necessario disporre di:
 + Android SDK (si presuppone che verrà usato Android Studio), che è possibile scaricare [qui](http://go.microsoft.com/fwlink/?LinkId=389797)
 + [Mobile Engagement SDK per Android]
 
-> [AZURE.IMPORTANT]Il completamento di questa esercitazione è un prerequisito per tutte le altre esercitazioni di Mobile Engagement per app per Android e richiede un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fit-IT%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
+> [AZURE.NOTE] Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started).
 
 ##<a id="setup-azme"></a>Configurare Mobile Engagement per l'app Android
 
@@ -57,7 +51,7 @@ Si creerà un'app di base con Android Studio per illustrare l'integrazione.
 
 3. Selezionare il fattore di forma di destinazione e il livello di API e quindi fare clic su **Next**.
 
-	>[AZURE.NOTE]Mobile Engagement richiede almeno un livello API 10 (Android 2.3.3).
+	>[AZURE.NOTE] Mobile Engagement richiede almeno un livello API 10 (Android 2.3.3).
 
     ![][3]
 
@@ -72,8 +66,6 @@ Si creerà un'app di base con Android Studio per illustrare l'integrazione.
 Android Studio crea l'app dimostrativa in cui si integrerà Mobile Engagement.
 
 ###Includere nel progetto la libreria SDK
-
-Scaricare e integrare la libreria SDK
 
 1. Scaricare [Mobile Engagement SDK per Android].
 2. Estrarre il file di archivio in una cartella nel computer.
@@ -143,7 +135,7 @@ Accedere a **MainActivity.java** e aggiungere quanto segue per sostituire la cla
 
     // setSupportActionBar(toolbar);
 
-Se si vuole mantenerla, vedere lo scenario "Segnalazione di base" in [Come integrare Engagement in Android]
+Se si vuole mantenerla, vedere lo scenario "Segnalazione di base" in [Come integrare Engagement in Android](mobile-engagement-android-integrate-engagement.md/#basic-reporting)
 
 ##<a id="monitor"></a>Connettere l'app con monitoraggio in tempo reale
 
@@ -153,170 +145,24 @@ Se si vuole mantenerla, vedere lo scenario "Segnalazione di base" in [Come integ
 
 Mobile Engagement consente di interagire con gli utenti e COINVOLGERLI tramite notifiche push e messaggistica in-app nel contesto di campagne. Questo modulo è denominato REACH nel portale di Mobile Engagement. Le sezioni seguenti consentono di configurare l'app per la ricezione.
 
-### Abilitare la messaggistica in-app
+### Copiare le risorse dell'SDK nel progetto
+	
+1. Tornare al contenuto scaricato dell'SDK e copiare la cartella **res**.
 
-1. Copiare le risorse di messaggistica in-app seguenti nel file Manifest.xml tra i tag `<application>` e `</application>`.
+	![][10]
 
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
-  			<intent-filter>
-    			<action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
-    			<category android:name="android.intent.category.DEFAULT" />
-    			<data android:mimeType="text/plain" />
-  			</intent-filter>
-		</activity>
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light">
-			<intent-filter>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
-				<category android:name="android.intent.category.DEFAULT" />
-				<data android:mimeType="text/html" />
-			</intent-filter>
-		</activity>
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light">
-			<intent-filter>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
-				<category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
-		</activity>
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
-			<intent-filter>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
-				<category android:name="android.intent.category.DEFAULT"/>
-			</intent-filter>
-		</activity>
-		<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
-			<intent-filter>
-				<action android:name="android.intent.action.BOOT_COMPLETED"/>
-				<action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
-				<action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
-			</intent-filter>
-		</receiver>
-		<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
-			<intent-filter>
-				<action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
-			</intent-filter>
-		</receiver>
+2. Tornare ad Android Studio, selezionare la directory **main** dei file del progetto e incollarla per aggiungere le risorse al progetto.
 
-2. Copiare le risorse nel progetto eseguendo la procedura seguente:
-	1. Tornare al contenuto scaricato dell'SDK e copiare la cartella 'res'.
+	![][11]
 
-		 ![][13]
+[AZURE.INCLUDE [Abilitare Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
-	2. Tornare ad Android Studio, selezionare la directory 'main' dei file del progetto e incollarla per aggiungere le risorse al progetto.
+[AZURE.INCLUDE [Abilitare la messaggistica in-app](../../includes/mobile-engagement-android-send-push.md)]
 
-		 ![][14]
-
-###Specificare un'icona per le notifiche
-
-Incollare il frammento di codice XML seguente nel file Manifest.xml tra i tag `<application>` e `</application>`.
-
-		<meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
-
-In questo modo si definisce l'icona che viene visualizzata sia nelle notifiche di sistema sia nelle notifiche in-app. Essa è facoltativa per le notifiche in-app, ma obbligatoria per le notifiche di sistema. Android rifiuterà le notifiche di sistema con icone non valide.
-
-Assicurarsi di usare un'icona esistente in una delle cartelle **drawable** (ad esempio ``engagement_close.png``). La cartella **mipmap** non è supportata.
-
->[AZURE.NOTE]È consigliabile non usare l'icona di **avvio**, poiché ha una risoluzione diversa e si trova in genere nelle cartelle mipmap, che non sono supportate.
-
-Per le app reali, è possibile usare un'icona adatta alle notifiche in base alle [linee guida per la progettazione per Android](http://developer.android.com/design/patterns/notifications.html).
-
->[AZURE.TIP]Per assicurarsi di usare la risoluzione corretta per l'icona, vedere [questi esempi](https://www.google.com/design/icons). Scorrere verso il basso fino alla sezione **Notification**, fare clic su un'icona e quindi su `PNGS` per scaricare il set di icone di tipo drawable. È possibile scegliere le cartelle drawable da usare con una risoluzione specifica per ogni versione dell'icona.
-
-##Creare un progetto Google Cloud Messaging con chiave API
-
-[AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
-
-###Abilitare l'app per la ricezione delle notifiche push GCM
-
-1. Incollare quanto segue nel file Manifest.xml tra i tag `<application>` e `</application>` dopo aver sostituito il `project number` ottenuto dalla console Google Play. L'uso di \\n è intenzionale. Assicurarsi di inserirlo alla fine del numero di progetto.
-
-		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
-
-2. Incollare il codice seguente nel file Manifest.xml tra i tag `<application>` e `</application>`. Sostituire il nome del pacchetto <Your package name>.
-
-		<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
-		android:exported="false">
-			<intent-filter>
-				<action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
-			</intent-filter>
-		</receiver>
-
-		<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
-			<intent-filter>
-				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
-				<category android:name="<Your package name>" />
-			</intent-filter>
-		</receiver>
-
-3. Aggiungere l'ultimo set di autorizzazioni evidenziate prima del tag `<application>`. Sostituire `<Your package name>` con il nome effettivo del pacchetto dell'applicazione.
-
-		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-		<uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
-		<permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-
-###Concedere a Mobile Engagement l'accesso alla chiave API GCM
-
-Per consentire a Mobile Engagement di inviare notifiche push per conto dell'utente, è necessario concedere l'accesso alla chiave API. A tale scopo, è necessario configurare la chiave e immetterla nel portale di Mobile Engagement.
-
-1. Passare al portale di Mobile Engagement
-
-	Nel portale di Azure classico verificare che l'app usata per questo progetto sia aperta e fare clic sul pulsante **Attiva** nella parte inferiore della schermata.
-
-	![][15]
-
-2. Fare quindi clic sulla sezione **Impostazioni** -> **Push nativo** per immettere la chiave GCM:
-
-	![][16]
-
-3. Fare clic sull'icona **Modifica** vicino a **Chiave API** nella sezione delle impostazioni **GCM**, come illustrato di seguito:
-
-	![][17]
-
-4. Nella finestra a comparsa incollare la chiave del server GCM ottenuta prima e quindi fare clic su **OK**.
-
-	![][18]
-
-##<a id="send"></a>Inviare una notifica all'app
-
-A questo punto si crea una campagna di notifica push semplice che invia una notifica push all'app.
-
-1. Passare alla scheda **REACH** nel portale di Mobile Engagement.
-
-2. Fare clic su **Nuovo annuncio** per creare una campagna di notifica push.
-
-	![][20]
-
-3. Impostare il primo campo della campagna seguendo questa procedura:
-
-	![][21]
-
-	a. Assegnare un nome alla campagna.
-
-	b. Selezionare **Tipo di recapito** come *Notifica di sistema -> Semplice*: si tratta di un tipo di notifica push Android semplice con un titolo e una breve riga di testo.
-
-	c. Per **Ora di recapito** selezionare *In qualsiasi momento* per consentire all'app di ricevere una notifica anche se non è stata avviata.
-
-	d. Nel testo della notifica digitare il **titolo** che apparirà in grassetto nel push.
-
-	e. Digitare quindi il messaggio nel campo **Messaggio**.
-
-4. Scorrere verso il basso e nella sezione **Contenuto** selezionare **Solo notifica**.
-
-	![][22]
-
-5. L'impostazione della campagna più semplice possibile è stata completata. Ora scorrere nuovamente verso il basso e fare clic sul pulsante **Crea** per salvare la campagna.
-
-6. Come ultimo passaggio, fare clic su **Attiva** per attivare la campagna e inviare le notifiche push.
-
-	![][24]
+[AZURE.INCLUDE [Inviare notifiche dal portale](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
 <!-- URLs. -->
 [Mobile Engagement SDK per Android]: https://aka.ms/vq9mfn
-[Mobile Engagement Android SDK documentation]: https://aka.ms/tujlkm
-[Come integrare Engagement in Android]: https://azure.microsoft.com/it-IT/documentation/articles/mobile-engagement-android-integrate-engagement/#basic-reporting
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
@@ -328,15 +174,7 @@ A questo punto si crea una campagna di notifica push semplice che invia una noti
 [7]: ./media/mobile-engagement-android-get-started/paste-jar.png
 [8]: ./media/mobile-engagement-android-get-started/sync-project.png
 [9]: ./media/mobile-engagement-android-get-started/app-connection-info-page.png
-[13]: ./media/mobile-engagement-android-get-started/copy-resources.png
-[14]: ./media/mobile-engagement-android-get-started/paste-resources.png
-[15]: ./media/mobile-engagement-android-get-started/engage-button.png
-[16]: ./media/mobile-engagement-android-get-started/engagement-portal.png
-[17]: ./media/mobile-engagement-android-get-started/native-push-settings.png
-[18]: ./media/mobile-engagement-android-get-started/api-key.png
-[20]: ./media/mobile-engagement-android-get-started/new-announcement.png
-[21]: ./media/mobile-engagement-android-get-started/campaign-first-params.png
-[22]: ./media/mobile-engagement-android-get-started/campaign-content.png
-[24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
+[10]: ./media/mobile-engagement-android-get-started/copy-resources.png
+[11]: ./media/mobile-engagement-android-get-started/paste-resources.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -51,7 +51,7 @@ Se non si ha ancora una sottoscrizione di Azure, è possibile iscriversi per ott
 
 ## Fase 1: Configurare la rete virtuale TestLab
 
-Utilizzare le istruzioni in[Configurazione base dell’Ambiente di Test](../virtual-machines/virtual-machines-base-configuration-test-environment.md) per configurare i computer DC1, APP1 e CLIENT1 in una rete virtuale Azure denominata TestLab.
+Utilizzare le istruzioni in[Configurazione base dell’Ambiente di Test](../virtual-machines/virtual-machines-windows-classic-test-config-env.md) per configurare i computer DC1, APP1 e CLIENT1 in una rete virtuale Azure denominata TestLab.
 
 Dal portale di gestione di Azure nel computer locale connettersi a DC1 con le credenziali CORP\\User1. Per configurare il dominio CORP in modo che i computer e gli utenti usino il controller di dominio locale per l'autenticazione, eseguire questi comandi da un prompt dei comandi di Windows PowerShell a livello di amministratore.
 
@@ -261,4 +261,4 @@ Configurare quindi la chiave precondivisa in modo che entrambi i gateway usino l
 
 Nella pagina Rete del portale di gestione di Azure fare clic sulla rete virtuale **TestLab** e quindi su **Connetti** nella barra delle applicazioni. Attendere fino alla visualizzazione dello stato Connesso per la rete locale TestVNET.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

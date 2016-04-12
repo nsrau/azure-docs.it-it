@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Connettersi a SQL Data Warehouse 
+# Connettersi a SQL Data Warehouse
 Per connettersi a SQL Data Warehouse sarà necessario passare le credenziali di sicurezza per scopi di autenticazione. Al momento di stabilire una connessione si potrà notare che alcune impostazioni di connessione sono configurate come parte della creazione della sessione di query.
 
 In questo articolo vengono illustrati i seguenti aspetti della connessione a SQL Data Warehouse:
@@ -29,9 +29,9 @@ In questo articolo vengono illustrati i seguenti aspetti della connessione a SQL
 ## Autenticazione
 Per connettersi a SQL Data Warehouse è necessario fornire le informazioni seguenti:
 
-- Nome del server completo 
+- Nome del server completo
 - Specificare l'autenticazione di SQL
-- Nome utente 
+- Nome utente
 - Password
 - Database predefinito (facoltativo)
 
@@ -42,7 +42,7 @@ Per impostazione predefinita la connessione si connetterà al database master e 
 1. Specificare il database predefinito per la registrazione del server con Esplora oggetti di SQL Server in SSDT o nella stringa di connessione dell’applicazione. Ad esempio, includendo il parametro InitialCatalog per una connessione ODBC.
 2. Selezionare innanzitutto il database utente prima di creare una sessione in SSDT.
 
-> [AZURE.NOTE]Per informazioni sulla connessione a SQL Data Warehouse con SSDT, consultare nuovamente l’articolo dell’introduzione [Connettersi ed eseguire query][].
+> [AZURE.NOTE] Per informazioni sulla connessione a SQL Data Warehouse con SSDT, consultare nuovamente l’articolo dell’introduzione [Connettersi ed eseguire query][].
 
 Anche in questo caso è importante notare che l'istruzione Transact-SQL **USE <your DB>** non è supportata per la modifica del database per una connessione
 
@@ -56,25 +56,25 @@ Anche in questo caso è importante notare che l'istruzione Transact-SQL **USE <y
 
 ### Stringa di connessione ADO.NET di esempio
 
-```
+```C#
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 ### Stringa di connessione ODBC di esempio
 
-```
+```C#
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
 ### Stringa di connessione PHP di esempio
 
-```
+```PHP
 Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( "sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}", "{your_user_name}", "{your_password_here}");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( "Error connecting to SQL Server." );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array("UID" => "{your_user_name}", "pwd" => "{your_password_here}", "Database" => "{your_database}", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);\r\n$serverName = "tcp:{your_server}.database.windows.net,1433";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
 ```
 
 ### Stringa di connessione JDBC di esempio
 
-```
+```Java
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
@@ -98,7 +98,7 @@ Ogni query viene rappresentata da uno o più identificatori di richiesta. Tutte 
 Tuttavia, poiché SQL Data Warehouse è un sistema MPP distribuito, gli identificatori di sessione e di richiesta vengono esposti in modo leggermente diverso rispetto a SQL Server.
 
 Le sessioni e le richieste sono rappresentate logicamente dai rispettivi identificatori.
-	
+
 | Identificatore | Valore di esempio |
 | :--------- | :------------ |
 | ID sessione | SID123456 |
@@ -110,14 +110,14 @@ Queste informazioni saranno necessarie per identificare la query quando si monit
 
 Per identificare in quale sessione attualmente si utilizza la funzione seguente:
 
-```
+```sql
 SELECT SESSION_ID()
 ;
 ```
 
 Per visualizzare tutte le query in esecuzione o eseguite di recente sul data warehouse è possibile utilizzare una query analoga a quella riportata di seguito:
 
-```
+```sql
 CREATE VIEW dbo.vSessionRequests
 AS
 SELECT 	 s.[session_id]									AS Session_ID
@@ -158,4 +158,4 @@ Una volta connessi, è possibile iniziare a progettare le tabelle. Per ulteriori
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -227,7 +227,7 @@ username | Specificare il nome utente se si usa l'autenticazione di base o Windo
 password | Specificare la password per l'account utente specificato per il nome utente. | No 
 gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi al database PostgreSQL locale. | Sì 
 
-Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati PostgreSQL locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
+Per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati PostgreSQL locale, vedere [Impostazione delle credenziali e della sicurezza](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
 
 ## Proprietà del tipo di set di dati PostgreSQL
 
@@ -310,4 +310,4 @@ text | | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

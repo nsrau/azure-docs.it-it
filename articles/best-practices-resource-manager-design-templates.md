@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure"
+	pageTitle="Procedure consigliate per modelli di Azure Resource Manager | Microsoft Azure"
 	description="Visualizzazione dei modelli di progettazione per i modelli di Gestione risorse di Azure"
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="mmercuri"/>
+	ms.date="03/23/2016"
+	ms.author="tomfitz"/>
 
 # Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure
 
@@ -145,7 +145,7 @@ Inizialmente si potrebbe pensare che un modello debba fornire ai fruitori la mas
 
 In apparenza, le configurazioni in formato libero sembrano ideali. Consentono di selezionare un tipo di VM e specificare un numero arbitrario di nodi e dischi collegati per tali nodi, come parametri di un modello. Quando si esaminano con attenzione, però e si prendono in considerazione i modelli che distribuiranno più macchine virtuali di dimensioni diverse, appaiono evidenti altre considerazioni che rendono la scelta meno appropriata in una serie di scenari.
 
-Nell'articolo [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn641267.aspx) presente sul sito Web di Azure, vengono identificati i diversi tipi di VM e le dimensioni disponibili oltre a ciascuna combinazione di dischi permanenti (2, 4, 8, 16 o 32) collegabile. Ogni disco collegato fornisce 500 IOPS ed è possibile raggruppare più dischi per ottenere un multiplo di tale numero di IOPS. Ad esempio, 16 dischi possono essere raggruppati per fornire 8.000 IOPS. Il pooling viene eseguito con la configurazione nel sistema operativo, utilizzando spazi di archiviazione di Microsoft Windows o RAID (Redundant Array of Inexpensive Disks) in Linux.
+Nell'articolo [Dimensioni delle macchine virtuali](./virtual-machines/virtual-machines-windows-sizes.md) vengono identificati i diversi tipi di VM e le dimensioni disponibili oltre a ciascuna combinazione di dischi permanenti (2, 4, 8, 16 o 32) collegabile. Ogni disco collegato fornisce 500 IOPS ed è possibile raggruppare più dischi per ottenere un multiplo di tale numero di IOPS. Ad esempio, 16 dischi possono essere raggruppati per fornire 8.000 IOPS. Il pooling viene eseguito con la configurazione nel sistema operativo, utilizzando spazi di archiviazione di Microsoft Windows o RAID (Redundant Array of Inexpensive Disks) in Linux.
 
 Una configurazione in formato libero consente di selezionare varie istanze di VM, vari tipi e dimensioni differenti di VM per tali istanze, un numero di dischi che può variare in base al tipo di VM e uno o più script per configurare il contenuto delle VM.
 
@@ -379,8 +379,7 @@ Se si desidera pubblicare il modello in marketplace, è sufficiente stabilire co
 
 ## Passaggi successivi
 
-- Per vedere esempi contestuali di come implementare i principi di progettazione presentati in questo argomento, vedere [Esempi contestuali di procedure consigliate per implementare i modelli](best-practices-resource-manager-examples.md).
 - Per consigli su come gestire la protezione in Gestione risorse di Azure, vedere[Considerazioni sulla protezione per Gestione risorse di Azure](best-practices-resource-manager-security.md)
-- Per ulteriori informazioni sulla condivisione dello stato all’interno e all'esterno di modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md).
+- Per ulteriori informazioni sulla condivisione dello stato all’interno e all'esterno dei modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0330_2016-->

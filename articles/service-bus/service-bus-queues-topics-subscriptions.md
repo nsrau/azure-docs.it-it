@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Code, argomenti e sottoscrizioni del bus di servizio
@@ -169,7 +169,8 @@ Per altri esempi e informazioni sull'utilizzo delle entità di messaggistica neg
 - [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
 - [Esercitazione sulla messaggistica negoziata del bus di servizio - .NET](service-bus-brokered-tutorial-dotnet.md)
 - [Esercitazione sulla messaggistica negoziata del bus di servizio - REST](service-bus-brokered-tutorial-rest.md)
+- [Documentazione di Hub eventi](https://azure.microsoft.com/documentation/services/event-hubs/)
 - [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md)
 - [Messaggistica negoziata: Filtri avanzati](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

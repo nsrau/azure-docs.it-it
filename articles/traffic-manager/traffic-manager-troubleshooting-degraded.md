@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/02/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
@@ -67,9 +67,9 @@ Se il probe usa il protocollo HTTPS, sarà necessario aggiungere il parametro "-
 ## Passaggi successivi
 
 
-[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-load-balancing-methods.md)
+[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
 
-[Gestione traffico di Azure](../traffic-manmager-overview.md)
+[Gestione traffico di Azure](traffic-manager-overview.md)
 
 [Servizi cloud](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -80,4 +80,4 @@ Se il probe usa il protocollo HTTPS, sarà necessario aggiungere il parametro "-
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

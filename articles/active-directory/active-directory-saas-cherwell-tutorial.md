@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/05/2016" 
+    ms.date="03/16/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Cherwell
@@ -37,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Cher
 
 ###Per abilitare l'integrazione dell'applicazione per Cherwell, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-cherwell-tutorial/IC700993.png "Active Directory")
 
@@ -66,7 +66,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **Cherwell** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **Cherwell** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-cherwell-tutorial/IC798990.png "Configura accesso Single Sign-On")
 
@@ -78,7 +78,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura URL app](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Configura URL app")
 
-    1.  Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione **Cherwell**, ad esempio: **https://pictdev.cherwellondemand.com/cherwellclient*).
+    1.  Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione **Cherwell**, ad esempio: *https://pictdev.cherwellondemand.com/cherwellclient*).
     2.  Fare clic su **Avanti**
 
 4.  Nella pagina **Configura accesso Single Sign-On in Cherwell** seguire questa procedura:
@@ -92,16 +92,18 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 5.  Inviare il certificato scaricato il valore di **URL provider di identità** e il valore di **URL servizio Single Sign-On** al team di supporto di Cherwell.
 
-    >[AZURE.NOTE]Il team di supporto di Cherwell si occuperà dell'effettiva configurazione dell'accesso Single Sign-On. Al termine dell'abilitazione dell'accesso Single Sign-On per la sottoscrizione si riceverà una notifica.
+    >[AZURE.NOTE] Il team di supporto di Cherwell si occuperà dell'effettiva configurazione dell'accesso Single Sign-On.
+    Al termine dell'abilitazione dell'accesso Single Sign-On per la sottoscrizione si riceverà una notifica.
 
-6.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+6.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-cherwell-tutorial/IC798994.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
 
-Per consentire agli utenti di Azure AD di accedere a Cherwell, è necessario eseguirne il provisioning in Cherwell. Nel caso di Cherwell, gli account utente devono essere creati dal team di supporto di Cherwell.
+Per consentire agli utenti di Azure AD di accedere a Cherwell, è necessario eseguirne il provisioning in Cherwell.  
+Nel caso di Cherwell, gli account utente devono essere creati dal team di supporto di Cherwell.
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Cherwell per eseguire il provisioning degli account utente di Azure Active Directory.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Cherwell per eseguire il provisioning degli account utente di Azure Active Directory.
 
 ##Assegnazione degli utenti
 
@@ -109,7 +111,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 ###Per assegnare gli utenti a Cherwell, seguire questa procedura:
 
-1.  Nel portale di Azure AD creare un account di test.
+1.  Nel portale di Azure classico creare un account di test.
 
 2.  Nella pagina di integrazione dell'applicazione **Cherwell** fare clic su **Assegna utenti**.
 
@@ -121,4 +123,5 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!----HONumber=AcomDC_0316_2016-->
+

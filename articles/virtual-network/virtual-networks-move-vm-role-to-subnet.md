@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/22/2016"
    ms.author="telmos" />
 
 # Come spostare una macchina virtuale o un'istanza del ruolo in un'altra subnet
 
 È possibile usare PowerShell per spostare le proprie macchine virtuali da una subnet a un'altra nella stessa rete virtuale (VNet). Le istanze del ruolo possono essere spostate modificando il file CSCFG invece di usare PowerShell.
+
+>[AZURE.NOTE] Le informazioni contenute in questo articolo riguardano le sole distribuzioni classiche di Azure.
 
 Perché spostare le macchine virtuali in un'altra subnet? La migrazione in un'altra subnet è utile quando la subnet corrente è troppo piccola e non può essere espansa a causa delle macchine virtuali in esecuzione al suo interno. In tal caso, è possibile creare una nuova subnet più grande, migrarvi le macchine virtuali e al termine eliminare la precedente subnet ormai vuota.
 
@@ -51,4 +53,4 @@ Per spostare un'istanza del ruolo, modificare il file CSCFG. Nell'esempio seguen
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

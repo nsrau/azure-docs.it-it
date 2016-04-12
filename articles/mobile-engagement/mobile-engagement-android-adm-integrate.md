@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Integrazione di Azure Mobile Engagement SDK per Android"
+	pageTitle="Integrazione di Android SDK per Azure Mobile Engagement"
 	description="Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagement SDK per Android"
 	services="mobile-engagement"
 	documentationCenter="mobile"
@@ -21,7 +21,7 @@
 
 > [AZURE.IMPORTANT] Prima di usare questa guida, è necessario eseguire la procedura di integrazione descritta nel documento relativo all'integrazione di Engagement in Android.
 >
-> Questo documento è utile solo se è stato integrato il modulo Reach per il supporto continuo delle campagne. Per integrare le campagne Reach nell'applicazione, leggere prima l'articolo relativo all'integrazione del servizio Reach di Engagement in Android.
+> Il documento è utile solo se è già stato integrato il modulo di copertura e si intende eseguire il push dei dispositivi Amazon. Per integrare le campagne Reach nell'applicazione, leggere prima l'articolo relativo all'integrazione del servizio Reach di Engagement in Android.
 
 ##Introduzione
 
@@ -102,14 +102,11 @@ Assicurarsi di avere le seguenti autorizzazioni nel file `AndroidManifest.xml` (
 
 ##Concedere le credenziali OAuth di Engagement
 
-Inviare le credenziali OAuth (ID e segreto client) a $/#application/YOUR\_APPID/native-push.
-
-È ora possibile selezionare "In qualsiasi momento" durante la creazione di annunci e sondaggi del servizio Reach.
-
+Inviare le credenziali OAuth (ID client e Segreto client) al portale di Engagement.
 
 [<https://developer.amazon.com/sdk/adm/credentials.html>]: https://developer.amazon.com/sdk/adm/credentials.html
 [libreria client ADM]: https://developer.amazon.com/sdk/adm/setup.html
 [integrato ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [questa procedura]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

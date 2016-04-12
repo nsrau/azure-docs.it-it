@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/14/2015" 
+    ms.date="03/28/2016" 
     ms.author="elizapo" />
 
 
@@ -115,7 +115,7 @@ Le immagini della raccolta vengono aggiornate regolarmente, quindi si ha sempre 
 
 Questa opzione prevede l'uso degli strumenti standard di Windows per applicare aggiornamenti all'immagine. Per Office 365 ProPlus, usare lo Strumento di distribuzione di Office per scaricare e installare gli aggiornamenti o le versioni più recenti di Office 365 ProPlus.
 
-> [AZURE.IMPORTANT]Occorre ricordare di disabilitare gli aggiornamenti automatici di Office 365 ProPlus.
+> [AZURE.IMPORTANT] Occorre ricordare di disabilitare gli aggiornamenti automatici di Office 365 ProPlus.
 
 Altre informazioni sull'uso dello Strumento di distribuzione di Office per gli aggiornamenti
 
@@ -123,4 +123,4 @@ Altre informazioni sull'uso dello Strumento di distribuzione di Office per gli a
 - [Distribuzione e aggiornamento di Office 365 ProPlus mediante lo Strumento di distribuzione di Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (video)
 - [Configurare le impostazioni di aggiornamento di Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

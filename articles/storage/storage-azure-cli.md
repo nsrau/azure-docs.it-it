@@ -25,7 +25,7 @@ In questa guida verrà illustrato come usare l'[interfaccia della riga di comand
 
 Questa guida si presuppone che si conoscano i concetti di base dell'archiviazione di Azure. La guida fornisce diversi script che mostrano come usare PowerShell con Archiviazione di Azure. Prima di eseguire gli script, è necessario aggiornarne le variabili in base alla configurazione.
 
-> [AZURE.NOTE] La Guida fornisce gli esempi di comandi e script CLI di Azure in esecuzione in modalità di Gestione servizi di Azure (ASM). Vedere [tramite la CLI di Azure per Mac, Linux e Microsoft Azure gestione delle risorse](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) per i comandi di Azure CLI per l'archiviazione in modalità di gestione delle risorse di Azure (ARM).
+> [AZURE.NOTE] La Guida fornisce gli esempi di comandi e script CLI di Azure in esecuzione in modalità di Gestione servizi di Azure (ASM). Vedere [tramite la CLI di Azure per Mac, Linux e Microsoft Azure gestione delle risorse](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) per i comandi di Azure CLI per l'archiviazione in modalità di gestione delle risorse di Azure (ARM).
 
 ## Iniziare a utilizzare archiviazione di Azure e Azure CLI in 5 minuti
 
@@ -221,4 +221,4 @@ Per altre informazioni, vedere gli articoli e le risorse correlati seguenti:
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

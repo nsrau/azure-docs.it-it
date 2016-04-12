@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
 # Cosa è successo a un progetto MVC (servizio connesso a Visual Studio Azure Active Directory)?
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
-> - [What Happened](vs-active-directory-dotnet-what-happened.md)
+> - [Per iniziare](vs-active-directory-dotnet-getting-started.md)
+> - [Risultati](vs-active-directory-dotnet-what-happened.md)
 
 
 
@@ -171,4 +171,4 @@ L'app Azure Active Directory è stata aggiornata per includere l'autorizzazione 
 
 [Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

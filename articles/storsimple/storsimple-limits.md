@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/17/2016"
+   ms.date="02/29/2016"
    ms.author="alkohli" />
 
 # Limiti di sistema StorSimple
@@ -29,7 +29,7 @@ StorSimple fornisce una risorsa di archiviazione scalabile e flessibile per il d
 | Numero massimo di pianificazioni per ogni modello di larghezza di banda | 168 | Una pianificazione per ogni ora, ogni giorno della settimana (24*7). |
 | Dimensioni massime di un volume a livelli nei dispositivi fisici | 64 TB per 8100 e 8600 | 8100 e 8600 sono dispositivi fisici. |
 | Dimensioni massime di un volume a livelli su dispositivi virtuali di Azure | 30 TB per 8010 <br></br> 64 TB per 8020 | 8010 e 8020 sono dispositivi virtuali di Azure che usano rispettivamente archiviazione Standard e Premium. |
-| Dimensioni massime di un volume aggiunto in locale nei dispositivi fisici | 9 TB per 8100 <br></br> 24 TB per 8600 | 8100 e 8600 sono dispositivi fisici. |
+| Dimensioni massime di un volume aggiunto in locale nei dispositivi fisici | 8 TB per 8100 <br></br> 20 TB per 8600 | 8100 e 8600 sono dispositivi fisici. |
 | Numero massimo di connessioni iSCSI | 512 | |
 | Numero massimo di connessioni iSCSI dagli iniziatori | 512 | |
 | Numero massimo di record di controllo di accesso per dispositivo | 64 | |
@@ -52,4 +52,4 @@ StorSimple fornisce una risorsa di archiviazione scalabile e flessibile per il d
 
 Consultare i [requisiti di sistema di StorSimple](storsimple-system-requirements.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

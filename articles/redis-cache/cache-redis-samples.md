@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="03/22/2016" 
 	ms.author="sdanie"/>
 
 # Esempi di Cache Redis di Azure 
@@ -41,9 +41,7 @@ Per ulteriori informazioni, vedere la documentazione [StackExchange.Redis](https
 
 In [Come usare Cache Redis di Azure con Python](cache-python-get-started.md) viene illustrato come utilizzare Cache Redis di Azure con Python e il client [redis-py](https://github.com/andymccurdy/redis-py).
 
-Nell’ [esempio PHP](https://msdn.microsoft.com/library/azure/dn690470.aspx#PHPExample) viene illustrato come utilizzare Cache Redis di Azure con PHPe il client [predis](https://github.com/nrk/predis).
-
-In [Gestire gli oggetti .NET nella cache](https://msdn.microsoft.com/library/azure/dn690521.aspx#Objects) viene illustrato come serializzare gli oggetti .NET per poterli scrivere e leggere in un'istanza di Cache Redis di Azure.
+In [Gestire gli oggetti .NET nella cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) viene illustrato come serializzare gli oggetti .NET per poterli scrivere e leggere in un'istanza di Cache Redis di Azure.
 
 ## Usare Cache Redis come backplane con scalabilità orizzontale per ASP.NET SignalR
 
@@ -76,4 +74,4 @@ L’esempio [Retwis](https://github.com/SyntaxC4-MSFT/retwis) rappresenta Hello 
 
 L’esempio relativo al [monitor della larghezza di banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) consente di monitorare la larghezza di banda utilizzata nel client. Per misurare la larghezza di banda, eseguire l'esempio nel computer client della cache, effettuare chiamate alla cache e osservare la larghezza di banda segnalata nell'esempio del monitor della larghezza di banda.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

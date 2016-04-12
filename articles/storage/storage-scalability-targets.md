@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="02/21/2016"
+   ms.date="03/07/2016"
    ms.author="robinsh" />
 
 # Obiettivi di scalabilità e prestazioni per Archiviazione di Azure
@@ -40,7 +40,8 @@ Se le esigenze dell'applicazione superano gli obiettivi di scalabilità di un si
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-Per altri dettagli vedere [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-size-specs.md).
+
+Vedere [Dimensioni della macchina virtuale](../virtual-machines/virtual-machines-linux-sizes.md) per altri dettagli.
 
 ### Account di archiviazione standard
 
@@ -85,4 +86,4 @@ Le partizioni influiscono sul bilanciamento del carico e sulla scalabilità per 
 - [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](storage-performance-checklist.md)
 - [Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

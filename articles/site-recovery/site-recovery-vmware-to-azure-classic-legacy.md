@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="03/15/2016"
 	ms.author="raynew"/>
 
 # Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery (legacy)
@@ -197,7 +197,7 @@ Si noti che:
 **Componente** | **Requisiti** | **Dettagli**
 --- | --- | --- 
 **Account di Azure** | È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](pricing/free-trial/).
-**Archiviazione di Azure** | <p>Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure</p><p>Questo deve essere un [account di archiviazione con ridondanza geografica standard](../storage/storage-redundancy.md#geo-redundant-storage) o un [account di archiviazione Premium](../storage/storage-premium-storage.md).</p><p>L'account deve trovarsi nella stessa area geografica del servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione.</p><p>Per ulteriori informazioni, vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/storage-introduction.md)</p>
+**Archiviazione di Azure** | <p>Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure</p><p>Questo deve essere un [account di archiviazione con ridondanza geografica standard](../storage/storage-redundancy.md#geo-redundant-storage) o un [account di archiviazione Premium](../storage/storage-premium-storage.md).</p><p>L'account deve trovarsi nella stessa area geografica del servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione. Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.</p><p>Per altre informazioni leggere [Introduzione ad Archiviazione di Microsoft Azure](../storage/storage-introduction.md)</p>
 **Rete virtuale di Azure** | Sarà necessaria una rete virtuale di Azure in cui saranno distribuiti il server di configurazione e il server di destinazione master. Dovrà trovarsi nella stessa sottoscrizione e nella stessa area dell'insieme di credenziali di Azure Site Recovery. Se si desidera replicare i dati tramite una connessione VPN o ExpressRoute, la rete virtuale di Azure deve essere connessa alla rete locale tramite una connessione ExpressRoute o una VPN da sito a sito.
 **Risorse di Azure** | Accertarsi di avere risorse di Azure sufficienti per distribuire tutti i componenti. Per altre informazioni, vedere [Limiti relativi alle sottoscrizioni di Azure](../azure-subscription-service-limits.md).
 **Macchine virtuali di Azure** | <p>Le macchine virtuali da proteggere devono essere conformi ai [prerequisiti di Azure](site-recovery-best-practices.md).</p><p>**Numero di dischi** - Possono essere supportati al massimo 31 dischi in un singolo server protetto</p><p>**Dimensioni del disco** - La capacità del singolo disco non deve essere superiore a 1023 GB</p><p>**Clustering** - I server di cluster non sono supportati</p><p>**Avvio** - L'avvio UEFI (Unified Extensible Firmware Interface)/EFI (Extensible Firmware Interface) non è supportato</p><p>**Volumi** - I volumi crittografati con Bitlocker non sono supportati</p><p> **Nomi dei server** - I nomi devono contenere da 1 a 63 caratteri (lettere, numeri e trattini). Il nome deve iniziare e terminare con una lettera o un numero. Dopo aver protetto un computer, è possibile modificare il nome di Azure.</p>
@@ -698,6 +698,8 @@ Aggiungere i computer come segue:
 	![Aggiungere un server V-Center](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)	
 4. In **Specificare le risorse di destinazione** selezionare i server di destinazione master e l'archiviazione da usare per la replica e indicare se le impostazioni devono essere usate per tutti i carichi di lavoro. Selezionare [Account di archiviazione Premium](../storage/storage-premium-storage.md) durante la configurazione della protezione dei carichi di lavoro che richiedono prestazioni di I/O elevate e coerenti e bassa latenza per ospitare i carichi di lavoro con numerose operazioni di I/O. Se si desidera utilizzare un account di archiviazione Premium per i dischi dei carichi di lavoro, è necessario usare destinazioni master della serie DS. Non è possibile usare dischi di archiviazione Premium su destinazioni master diverse dalla serie DS.
 
+	>[AZURE.NOTE] Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.
+
 	![Server vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/machine-resources.png)
 
 5. In **Specificare gli account** selezionare l'account da usare per l'installazione del servizio Mobility nei computer protetti. Sono necessarie le credenziali dell'account per l'installazione automatica del servizio Mobility. Se non è possibile selezionare un account, assicurarsi di configurare uno come descritto nel passaggio 2. Si noti che questo account non è accessibile da Azure. Per i server Windows è richiesto un account con privilegi di amministratore nel server di origine. Per Linux l'account deve essere l'utente ROOT.
@@ -805,4 +807,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0316_2016-->

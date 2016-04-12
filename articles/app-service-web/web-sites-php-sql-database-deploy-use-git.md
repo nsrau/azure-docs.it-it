@@ -3,9 +3,9 @@
 	description="Un'esercitazione che illustra come creare un'app Web PHP che archivia i dati nel database SQL di Azure e come usare la distribuzione Git nel servizio app di Azure." 
 	services="app-service\web, sql-database" 
 	documentationCenter="php" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP" 
 	ms.topic="article" 
 	ms.date="02/09/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 # Creare un'app Web PHP-SQL e distribuire in Azure App Service tramite Git
 
@@ -298,4 +298,4 @@ Per pubblicare le modifiche apportate all'applicazione, eseguire la procedura se
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

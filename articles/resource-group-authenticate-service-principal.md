@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="02/29/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # Autenticazione di un'entità servizio con Gestione risorse di Azure
@@ -231,7 +231,7 @@ In primo luogo, è necessario configurare alcuni valori di PowerShell che verran
 <a id="provide-certificate-through-automated-powershell-script" />
 ### Fornire il certificato tramite uno script di PowerShell automatizzato
 
-1. Ottenere l'applicazione di Active Directory Al momento dell'accesso sarà necessario l'ID dell'applicazione.
+1. Ottenere l'applicazione di Active Directory Al momento dell'accesso sarà necessario l'ID dell'applicazione
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
         
@@ -279,8 +279,11 @@ Per eseguire l'autenticazione da un'applicazione .NET, includere il codice segue
     }        
 
     var certCred = new ClientAssertionCertificate(clientId, cert); 
-    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred);
+    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
+    var creds = new TokenCredentials(token.AccessToken); 
+    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
+    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
     var client = new ResourceManagementClient(creds); 
         
 
@@ -337,13 +340,13 @@ Iniziare creando un'entità servizio. Per farlo, è necessario creare un'applica
 
 Se si vuole eseguire manualmente l'accesso come entità servizio, è possibile usare il comando **azure login**. È necessario fornire l'ID tenant, l'ID applicazione e la password. Includere la password direttamente in uno script non è un'operazione sicura, perché la password viene archiviata nel file. Quando si esegue uno script automatizzato, è preferibile vedere la sezione successiva.
 
-1. Determinare il **TenantId** per la sottoscrizione che contiene l'entità servizio. È necessario rimuovere le virgolette doppie iniziali e finali restituite dall'output json prima di passarlo come parametro.
+1. Determinare il **TenantId** per la sottoscrizione che contiene l'entità servizio. Se si recupera l'ID tenant per la sottoscrizione attualmente autenticata, non è necessario specificare l'ID sottoscrizione come parametro. L'opzione **-r** recupera il valore senza le virgolette.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 2. Come nome utente usare l'**AppId** usato durante la creazione dell'entità servizio. Se è necessario recuperare l'ID dell'applicazione, usare il comando seguente. Specificare il nome dell'applicazione di Active Directory nel parametro **search**.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 3. Accedere come entità servizio:
 
@@ -365,17 +368,17 @@ Questa sezione illustra come eseguire l'accesso come entità servizio senza dove
 
 L'esecuzione di questi passaggi presuppone che siano stati configurati un insieme di credenziali delle chiavi e un segreto che archivia la password. Per distribuire un insieme di credenziali delle chiavi e un segreto tramite un modello, vedere il [formato del modello dell'insieme di credenziali delle chiavi](). Per informazioni sull'insieme di credenziali delle chiavi, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](./key-vault/key-vault-get-started.md).
 
-1. Recuperare la password dall'insieme di credenziali delle chiavi. Nell'esempio seguente è archiviata come segreto con il nome **appPassword**. È necessario rimuovere le virgolette doppie iniziali e finali restituite dall'output json prima di passarlo come parametro della password.
+1. Recuperare la password dall'insieme di credenziali delle chiavi. Nell'esempio seguente è archiviata come segreto con il nome **appPassword**. Includere l'opzione **-r** per rimuovere le virgolette doppie iniziali e finali restituite dall'output JSON.
 
-        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq '.value' | sed -e 's/^"//' -e 's/"$//')
+        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq -r '.value')
     
-2. Determinare il **TenantId** per la sottoscrizione che contiene l'entità servizio.
+2. Determinare il **TenantId** per la sottoscrizione che contiene l'entità servizio. Se si recupera l'ID tenant per la sottoscrizione attualmente autenticata, non è necessario specificare l'ID sottoscrizione come parametro.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 3. Come nome utente usare l'**AppId** usato durante la creazione dell'entità servizio. Se è necessario recuperare l'ID dell'applicazione, usare il comando seguente. Specificare il nome dell'applicazione di Active Directory nel parametro **search**.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. Accedere come entità servizio fornendo l'ID applicazione, la password dall'insieme di credenziali delle chiavi e l'ID tenant.
 
@@ -413,7 +416,7 @@ In questa sezione si eseguiranno i passaggi per creare un’entità servizio per
 
 2. Aprire il file **.pem** e copiare i dati del certificato. Cercare la lunga sequenza di caratteri tra **-----BEGIN CERTIFICATE-----** e **-----END CERTIFICATE-----**.
 
-3. Creare una nuova applicazione di Active Directory eseguendo il comando **azure ad app create** e fornire i dati del certificato che copiati nel passaggio precedente come valore della chiave.
+3. Creare una nuova applicazione di Active Directory eseguendo il comando **azure ad app create** e fornire i dati del certificato copiati nel passaggio precedente come valore della chiave.
 
         azure ad app create -n "exampleapp" --home-page "https://www.contoso.org" -i "https://www.contoso.org/example" --key-value <certificate data>
 
@@ -460,13 +463,13 @@ In questa sezione si eseguiranno i passaggi per creare un’entità servizio per
 
         30996D9CE48A0B6E0CD49DBB9A48059BF9355851
 
-2. Determinare il **TenantId** per la sottoscrizione che contiene l'entità servizio.
+2. Determinare il **TenantId** per la sottoscrizione che contiene l'entità servizio. Se si recupera l'ID tenant per la sottoscrizione attualmente autenticata, non è necessario specificare l'ID sottoscrizione come parametro. L'opzione **-r** recupera il valore senza le virgolette.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 3. Come nome utente usare l'**AppId** usato durante la creazione dell'entità servizio. Se è necessario recuperare l'ID dell'applicazione, usare il comando seguente. Specificare il nome dell'applicazione di Active Directory nel parametro **search**.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. Per autenticarsi con l'interfaccia della riga di comando di Azure, fornire l'identificazione personale del certificato, il file del certificato, l'ID dell'applicazione e l'ID tenant.
 
@@ -503,7 +506,10 @@ Per eseguire l'autenticazione da un'applicazione .NET, includere il codice segue
 
     var certCred = new ClientAssertionCertificate(clientId, cert); 
     var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
+    var creds = new TokenCredentials(token.AccessToken); 
+    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
+    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
     var client = new ResourceManagementClient(creds); 
        
 Per ottenere altre informazioni sull'uso dei certificati e dell'interfaccia della riga di comando di Azure, vedere il blog relativo all'[autenticazione basata su certificati con le entità servizio di Azure dalla riga di comando di Linux](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)
@@ -517,4 +523,4 @@ Per ottenere altre informazioni sull'uso dei certificati e dell'interfaccia dell
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

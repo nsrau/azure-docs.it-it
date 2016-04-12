@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="03/09/2016"
 	ms.author="sethm"/>
 
 # Come usare gli argomenti e le sottoscrizioni del bus di servizio
@@ -42,11 +42,13 @@ Per creare uno spazio dei nomi:
 
 1. Aprire la console di Azure PowerShell.
 
-2. Digitare il comando per creare uno spazio dei nomi, come mostrato di seguito. Specificare il valore dello spazio dei nomi e specificare la stessa area dell'applicazione.
+2. Digitare il comando seguente per creare uno spazio dei nomi. Specificare il valore dello spazio dei nomi e specificare la stessa area dell'applicazione.
 
-      New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
+	```
+	New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
+	```
 
-      ![Creare lo spazio dei nomi](./media/service-bus-ruby-how-to-use-topics-subscriptions/showcmdcreate.png)
+	![Creare lo spazio dei nomi](./media/service-bus-ruby-how-to-use-topics-subscriptions/showcmdcreate.png)
 
 ## Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
 
@@ -54,17 +56,18 @@ Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nu
 
 Il cmdlet PowerShell che è stato eseguito per creare lo spazio dei nomi del bus di servizio consente di visualizzare la chiave che è possibile usare per gestire lo spazio dei nomi. Copiare il valore **DefaultKey**. Questo valore verrà usato nel codice più avanti in questa esercitazione.
 
-      ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
+![Copiare la chiave](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE]È anche possibile trovare questa chiave se si accede al [portale di Azure classico][] e si passa alle informazioni di connessione per lo spazio dei nomi.
+> [AZURE.NOTE]
+È anche possibile trovare questa chiave se si accede al [portale di Azure classico][] e si passa alle informazioni di connessione per lo spazio dei nomi.
 
 ## Creare un'applicazione Ruby
 
-Per istruzioni, vedere [Creazione di un'applicazione Ruby in Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
+Per istruzioni, vedere [Creazione di un'applicazione Ruby in Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configurare l'applicazione per l'uso del bus di servizio
 
-Per usare il bus di servizio di Azure, scaricare e usare il pacchetto Ruby Azure, che comprende un set di pratiche librerie che comunicano con i servizi di archiviazione REST.
+Per usare il bus di servizio, scaricare e usare il pacchetto Ruby Azure, che comprende un set di pratiche librerie che comunicano con i servizi di archiviazione REST.
 
 ### Utilizzare RubyGems per ottenere il pacchetto
 
@@ -76,14 +79,18 @@ Per usare il bus di servizio di Azure, scaricare e usare il pacchetto Ruby Azure
 
 Usando l'editor di testo preferito aggiungere quanto segue alla parte superiore del file Ruby dove si intende usare l'archiviazione:
 
-    require "azure"
+```
+require "azure"
+```
 
 ## Configurare una stringa di connessione per il bus di servizio
 
 Il modulo di Azure legge le variabili di ambiente **AZURE\_SERVICEBUS\_NAMESPACE** and **AZURE\_SERVICEBUS\_ACCESS\_KEY** per le informazioni necessarie per la connessione allo spazio dei nomi. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative allo spazio dei nomi prima di usare **Azure::ServiceBusService** con il codice seguente:
 
-    Azure.config.sb_namespace = "<your azure service bus namespace>"
-    Azure.config.sb_access_key = "<your azure service bus access key>"
+```
+Azure.config.sb_namespace = "<your azure service bus namespace>"
+Azure.config.sb_access_key = "<your azure service bus access key>"
+```
 
 Impostare il valore dello spazio dei nomi sul valore creato invece che sull'intero URL. Ad esempio, usare **"yourexamplenamespace"** e non "yourexamplenamespace.servicebus.windows.net".
 
@@ -91,20 +98,24 @@ Impostare il valore dello spazio dei nomi sul valore creato invece che sull'inte
 
 L'oggetto **Azure::ServiceBusService** consente di usare gli argomenti. Il codice seguente consente di creare un oggetto **Azure::ServiceBusService**. Per creare un argomento, utilizzare il metodo **create\_topic()**. Nel seguente esempio viene creato un argomento o vengono stampati gli eventuali errori.
 
-	azure_service_bus_service = Azure::ServiceBusService.new
-	begin
-      topic = azure_service_bus_service.create_queue("test-topic")
-    rescue
-      puts $!
-    end
+```
+azure_service_bus_service = Azure::ServiceBusService.new
+begin
+  topic = azure_service_bus_service.create_queue("test-topic")
+rescue
+  puts $!
+end
+```
 
 È inoltre possibile passare un oggetto **Azure::ServiceBus::Topic** con ulteriori opzioni, che consentono di sostituire le impostazioni degli argomenti predefinite, come ad esempio la durata dei messaggi o la dimensione massima della coda. Il seguente esempio illustra come impostare la dimensione massima della coda su 5 GB e una durata di 1 minuto:
 
-	topic = Azure::ServiceBus::Topic.new("test-topic")
-    topic.max_size_in_megabytes = 5120
-    topic.default_message_time_to_live = "PT1M"
+```
+topic = Azure::ServiceBus::Topic.new("test-topic")
+topic.max_size_in_megabytes = 5120
+topic.default_message_time_to_live = "PT1M"
 
-    topic = azure_service_bus_service.create_topic(topic)
+topic = azure_service_bus_service.create_topic(topic)
+```
 
 ## Creare sottoscrizioni
 
@@ -116,8 +127,9 @@ le sottoscrizioni sono persistenti e continueranno a esistere fintanto che esse,
 
 Il filtro predefinito **MatchAll** viene utilizzato se non vengono specificati altri filtri durante la creazione di una nuova sottoscrizione. Quando si utilizza il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata "all-messages" e viene utilizzato il filtro predefinito **MatchAll**.
 
-	subscription = azure_service_bus_service.create_subscription("test-topic",
-	  "all-messages")
+```
+subscription = azure_service_bus_service.create_subscription("test-topic", "all-messages")
+```
 
 ### Creare sottoscrizioni con i filtri
 
@@ -131,31 +143,31 @@ Poiché il filtro predefinito viene applicato automaticamente a tutte le nuove s
 
 Nell'esempio seguente viene creata una sottoscrizione denominata "high-messages" con un filtro **Azure::ServiceBus::SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà personalizzata **message\_number** è maggiore di 3:
 
-	subscription = azure_service_bus_service.create_subscription("test-topic",
-	  "high-messages")
-	azure_service_bus_service.delete_rule("test-topic", "high-messages",
-	  "$Default")
+```
+subscription = azure_service_bus_service.create_subscription("test-topic", "high-messages")
+azure_service_bus_service.delete_rule("test-topic", "high-messages", "$Default")
 
-	rule = Azure::ServiceBus::Rule.new("high-messages-rule")
-	rule.topic = "test-topic"
-	rule.subscription = "high-messages"
-	rule.filter = Azure::ServiceBus::SqlFilter.new({
-	  :sql_expression => "message_number > 3" })
-	rule = azure_service_bus_service.create_rule(rule)
+rule = Azure::ServiceBus::Rule.new("high-messages-rule")
+rule.topic = "test-topic"
+rule.subscription = "high-messages"
+rule.filter = Azure::ServiceBus::SqlFilter.new({
+  :sql_expression => "message_number > 3" })
+rule = azure_service_bus_service.create_rule(rule)
+```
 
 Analogamente, nell'esempio seguente viene creata una sottoscrizione denominata "low-messages" con un filtro **Azure::ServiceBus::SqlFilter** che seleziona solo i messaggi in cui il valore della proprietà **message\_number** è minore o uguale a 3:
 
-	subscription = azure_service_bus_service.create_subscription("test-topic",
-	  "low-messages")
-	azure_service_bus_service.delete_rule("test-topic", "low-messages",
-	  "$Default")
+```
+subscription = azure_service_bus_service.create_subscription("test-topic", "low-messages")
+azure_service_bus_service.delete_rule("test-topic", "low-messages", "$Default")
 
-	rule = Azure::ServiceBus::Rule.new("low-messages-rule")
-	rule.topic = "test-topic"
-	rule.subscription = "low-messages"
-	rule.filter = Azure::ServiceBus::SqlFilter.new({
-	  :sql_expression => "message_number <= 3" })
-	rule = azure_service_bus_service.create_rule(rule)
+rule = Azure::ServiceBus::Rule.new("low-messages-rule")
+rule.topic = "test-topic"
+rule.subscription = "low-messages"
+rule.filter = Azure::ServiceBus::SqlFilter.new({
+  :sql_expression => "message_number <= 3" })
+rule = azure_service_bus_service.create_rule(rule)
+```
 
 Un messaggio inviato a "test-topic" viene sempre recapitato ai ricevitori con sottoscrizione all'argomento "all-messages" e recapitato selettivamente ai ricevitori con sottoscrizioni agli argomenti "high-messages" e "low-messages", a seconda del contenuto del messaggio.
 
@@ -165,11 +177,13 @@ Per inviare un messaggio a un argomento del bus di servizio, l'applicazione deve
 
 Il seguente esempio illustra come inviare cinque messaggi di test a "test-topic". Si noti come il valore della proprietà personalizzata **message\_number** di ogni messaggio varia nell'iterazione del ciclo, determinando la sottoscrizione che lo riceverà:
 
-	5.times do |i|
-	  message = Azure::ServiceBus::BrokeredMessage.new("test message " + i,
-	    { :message_number => i })
-	  azure_service_bus_service.send_topic_message("test-topic", message)
-	end
+```
+5.times do |i|
+  message = Azure::ServiceBus::BrokeredMessage.new("test message " + i,
+    { :message_number => i })
+  azure_service_bus_service.send_topic_message("test-topic", message)
+end
+```
 
 Gli argomenti del bus di servizio supportano messaggi di dimensioni massime pari a 256 MB, in cui la dimensione massima dell'intestazione, che include le proprietà standard e personalizzate dell'applicazione, non può superare 64 MB. Non esiste alcun limite al numero di messaggi mantenuti in un argomento, mentre è prevista una limitazione alla dimensione totale dei messaggi di un argomento. Questa dimensione dell'argomento viene definita al momento della creazione, con un limite massimo di 5 GB.
 
@@ -183,11 +197,13 @@ Se il parametro **:peek\_lock** è impostato su **false**, la lettura e l'elimin
 
 L'esempio seguente illustra come ricevere ed elaborare messaggi usando la modalità **receive\_subscription\_message()**. Nell'esempio viene innanzitutto ricevuto ed eliminato un messaggio dalla sottoscrizione "low-messages" tramite **:peek\_lock** impostato su **false**, quindi viene ricevuto un altro messaggio da "high-messages" e il messaggio viene eliminato tramite **delete\_subscription\_message()**:
 
-    message = azure_service_bus_service.receive_subscription_message(
-	  "test-topic", "low-messages", { :peek_lock => false })
-    message = azure_service_bus_service.receive_subscription_message(
-	  "test-topic", "high-messages")
-    azure_service_bus_service.delete_subscription_message(message)
+```
+message = azure_service_bus_service.receive_subscription_message(
+  "test-topic", "low-messages", { :peek_lock => false })
+message = azure_service_bus_service.receive_subscription_message(
+  "test-topic", "high-messages")
+azure_service_bus_service.delete_subscription_message(message)
+```
 
 ## Gestire arresti anomali e messaggi illeggibili dell'applicazione
 
@@ -201,20 +217,24 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 
 Gli argomenti e le sottoscrizioni sono persistenti e devono pertanto essere eliminati in modo esplicito tramite il [portale di Azure classico](https://manage.windowsazure.com) o a livello di codice. Nell'esempio seguente viene illustrato come eliminare l'argomento denominato "test-topic".
 
-	azure_service_bus_service.delete_topic("test-topic")
+```
+azure_service_bus_service.delete_topic("test-topic")
+```
 
 Se si elimina un argomento, vengono eliminate anche tutte le sottoscrizioni registrate con l'argomento. Le sottoscrizioni possono essere eliminate anche in modo indipendente. Il seguente codice illustra come eliminare la sottoscrizione denominata "high-messages" dall'argomento "test-topic":
 
-	azure_service_bus_service.delete_subscription("test-topic", "high-messages")
+```
+azure_service_bus_service.delete_subscription("test-topic", "high-messages")
+```
 
 ## Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di servizio, usare i seguenti collegamenti per altre informazioni.
 
--   Vedere [Code, argomenti e sottoscrizioni](service-bus-queues-topics-subscriptions.md).
--   Riferimento sulle API per [SqlFilter](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx)
--	Visitare il repository [Azure SDK per Ruby](https://github.com/Azure/azure-sdk-for-ruby) su GitHub.
+- Vedere [Code, argomenti e sottoscrizioni](service-bus-queues-topics-subscriptions.md).
+- Riferimento sulle API per [SqlFilter](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx)
+- Archivio [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) su GitHub
  
 [portale di Azure classico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

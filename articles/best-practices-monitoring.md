@@ -607,8 +607,8 @@ In molti casi, i report possono essere generati dai processi batch in base a una
 - Pagina [Abilitazione della diagnostica per servizi Cloud di Azure e macchine virtuali](cloud-services-dotnet-diagnostics.md) del sito Web Microsoft.
 - Le pagine [Cache Redis di Azure](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), e [HDInsight](https://azure.microsoft.com/services/hdinsight/) del sito Web Microsoft.
 - La pagina [Come utilizzare le code del Bus di servizio](service-bus-dotnet-how-to-use-queues.md) del sito Web Microsoft.
-- L'articolo [SQL Server Business Intelligence in macchine virtuali Azure](./virtual-machines/virtual-machines-sql-server-business-intelligence.md) del sito Web Microsoft.
+- L'articolo [SQL Server Business Intelligence in macchine virtuali Azure](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md) del sito Web Microsoft.
 - Pagine [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) e [Tenere traccia dell’integrità del servizio](insights-service-health.md) del sito Web Microsoft.
 - La pagina [Application Insights](app-insights-get-started.md) del sito Web Microsoft.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

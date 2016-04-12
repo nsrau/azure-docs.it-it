@@ -33,7 +33,7 @@ In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applica
 [Creare un'app del servizio cloud in .NET](cloud-services-dotnet-get-started.md)<br/> [Creare un'app del servizio cloud in Node. js](cloud-services-nodejs-develop-deploy-app.md)<br/> [Creare un'app del servizio cloud in PHP](../cloud-services-php-create-web-role.md)<br/> [Creare un'app del servizio cloud in Python](../cloud-services-python-ptvs.md)<br/>
 
 [Servizio app]: ../app-service-web/app-service-web-overview.md
-[Macchine virtuali]: ../virtual-machines/virtual-machines-about.md
+[Macchine virtuali]: ../virtual-machines/virtual-machines-linux-about.md
 [Servizi cloud]: #tellmecs
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

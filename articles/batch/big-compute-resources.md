@@ -55,7 +55,7 @@ HPC Pack è la soluzione HPC gratuita di Microsoft basata sulle tecnologie di Mi
 * [Documentazione](https://technet.microsoft.com/library/jj899572.aspx)
 
 
-* [Opzioni per cluster HPC con Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
+* [Opzioni per cluster HPC con Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md)
 
 * [Potenziare le istanze di lavoro di Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
@@ -87,11 +87,12 @@ Usare questi modelli di Azure per distribuire cluster HPC Linux.
 
 ## Istanze con utilizzo intensivo di calcolo
 
-Azure offre una [gamma di dimensioni](../virtual-machines/virtual-machines-size-specs.md), tra cui istanze [A8 e A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) a elevato utilizzo di calcolo in grado di connettersi a una rete RDMA back-end, per eseguire carichi di lavoro Linux e Windows HPC.
+Azure offre una [gamma di dimensioni](../virtual-machines/virtual-machines-windows-sizes.md), tra cui istanze [A8 e A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) a elevato utilizzo di calcolo in grado di connettersi a una rete RDMA back-end, per eseguire carichi di lavoro Linux e Windows HPC.
 
-* [Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
-* [Configurare un cluster di Windows RDMA con Microsoft HPC Pack per eseguire applicazioni MPI](../virtual-machines/virtual-machines-windows-hpcpack-cluster-rdma.md)
+* [Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
+
+* [Configurare un cluster di Windows RDMA con Microsoft HPC Pack per eseguire applicazioni MPI](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
 ## Progetti dell'architettura
 
@@ -145,4 +146,4 @@ Azure offre una [gamma di dimensioni](../virtual-machines/virtual-machines-size-
 * Per gli annunci più recenti, vedere il [blog del team di Microsoft HPC e Batch](http://blogs.technet.com/b/windowshpc/) e il [blog di Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Vedere anche le [novità di Batch](https://azure.microsoft.com/updates/?service=batch) o eseguire la sottoscrizione al [feed RSS](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

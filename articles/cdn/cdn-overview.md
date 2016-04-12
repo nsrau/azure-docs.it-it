@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
@@ -61,4 +61,4 @@ Il livello Premium della rete CDN comprende tutte le funzionalità del livello S
 - [Report HTTP avanzati](cdn-advanced-http-reports.md)
 - [Statistiche in tempo reale](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Privileged Identity Management: Come eseguire una revisione della sicurezza"
+   pageTitle="Come eseguire una verifica della sicurezza | Microsoft Azure"
    description="Informazioni su come aggiungere ruoli alle identità con privilegi con l'estensione Azure Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: Come eseguire una verifica della sicurezza
+# Azure AD Privileged Identity Management: Come eseguire una verifica della sicurezza
 
 
 È molto semplice esaminare l'accesso con privilegi dopo che è stata [avviata la revisione della sicurezza](active-directory-privileged-identity-management-how-to-start-security-review.md).
@@ -60,4 +60,4 @@
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

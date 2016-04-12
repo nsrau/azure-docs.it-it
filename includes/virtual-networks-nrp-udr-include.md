@@ -54,8 +54,8 @@ Tabella di route di esempio in formato JSON:
 
 ### Risorse aggiuntive
 
-- Altre informazioni sulle [route definite dall'utente](virtual-networks-udr-overview.md).
+- Altre informazioni sulle [route definite dall'utente](../articles/virtual-network/virtual-networks-udr-overview.md).
 - Leggere [la documentazione di riferimento API REST](https://msdn.microsoft.com/library/azure/mt502549.aspx) per le tabelle di route.
 - Leggere [la documentazione di riferimento API REST](https://msdn.microsoft.com/library/azure/mt502539.aspx) per le route definite dall'utente.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

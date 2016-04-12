@@ -3,8 +3,8 @@
    description="Tempo necessario per la visualizzazione in Azure Active Directory degli eventi dei report"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Latenze dei report di Azure Active Directory
 
@@ -27,7 +27,7 @@ Attività di accesso irregolare | 2 ore | 4 ore | 8 ore
 Accessi da origini sconosciute | 2 ore | 4 ore | 8 ore
 Accessi dopo più errori | 2 ore | 4 ore | 8 ore
 Accessi da più aree geografiche | 2 ore | 4 ore | 8 ore
-Accessi da indirizzi IP con attività sospetta | 2 ore | 4 ore | 8 ore
+Accessi da indirizzi IP con attività sospette | 2 ore | 4 ore | 8 ore
 Accessi da dispositivi potenzialmente infetti | 2 ore | 4 ore | 8 ore
 Utenti con anomalie dell'attività di accesso | 2 ore | 4 ore | 8 ore
 Utenti con credenziali perse | 2 ore | 4 ore | 8 ore
@@ -52,4 +52,4 @@ Utilizzo applicazioni abilitate per RMS | 2 ore | 4 ore | 8 ore
 **Report di anteprima personalizzati** | | |
 Attività di accesso di tutti gli utenti | 2 ore | 4 ore | 8 ore
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

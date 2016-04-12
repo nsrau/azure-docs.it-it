@@ -4,7 +4,7 @@
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/24/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma"/>
 
 # Creare record DNS per un'app Web in un dominio personalizzato
 
 È possibile usare DNS di Azure per ospitare un dominio personalizzato per le app Web. Ad esempio, si supponga di creare un'app Web di Azure e di volere che gli utenti vi accedano usando contoso.com o www.contoso.com come FQDN. In questo scenario, sarebbe necessario creare due record: un record A radice, che fa riferimento a contoso.com, e un record CNAME per il nome www, che fa riferimento al record A.
 
-> [AZURE.NOTE]Tenere presente che, se si crea un record A per un'app Web in Azure, il record A deve essere aggiornato manualmente se l'indirizzo IP sottostante per l'app Web cambia.
+> [AZURE.NOTE] Tenere presente che, se si crea un record A per un'app Web in Azure, il record A deve essere aggiornato manualmente se l'indirizzo IP sottostante per l'app Web cambia.
 
 Prima di poter creare i record per il dominio personalizzato, è necessario creare una zona DNS in DNS di Azure e delegare la zona nel registrar a DNS di Azure. Per creare una zona DNS, seguire i passaggi in [Introduzione a DNS di Azure](../dns-getstarted-create-dnszone/#Create-a-DNS-zone). Per delegare il DNS a DNS di Azure, seguire i passaggi in [Delegare un dominio a DNS di Azure](../dns-domain-delegation).
  
@@ -38,7 +38,7 @@ Creare un record A e assegnarlo a una variabile $rs
 
 Aggiungere al set di record "@" creato in precedenza il valore IPv4 usando la variabile $rs assegnata. Il valore di IPv4 assegnato sarà l'indirizzo IP per l'app Web.
 
-> [AZURE.NOTE]Per trovare l'indirizzo IP per l'app Web, seguire i passaggi in [Configurare un nome di dominio personalizzato nel Servizio app di Azure](../web-sites-custom-domain-name/#Find-the-virtual-IP-address)
+> [AZURE.NOTE] Per trovare l'indirizzo IP per l'app Web, seguire i passaggi in [Configurare un nome di dominio personalizzato nel Servizio app di Azure](../web-sites-custom-domain-name/#Find-the-virtual-IP-address)
 
 	PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
 
@@ -165,4 +165,4 @@ Ora è possibile continuare a seguire i passaggi in [Configurazione di un nome d
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

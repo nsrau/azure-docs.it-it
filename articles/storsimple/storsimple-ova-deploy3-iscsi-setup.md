@@ -95,9 +95,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
         ![credentials](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
         
-           > [AZURE.NOTE]
-	   > 
-	   > Se si aggiunge il server iSCSI a un dominio, assicurarsi che l'array virtuale si trovi nella propria unità organizzativa (OU) per Microsoft Azure Active Directory e che ad esso non siano applicati oggetti Criteri di gruppo (GPO).
+	   	> [AZURE.NOTE] Se si aggiunge il server iSCSI a un dominio, assicurarsi che l'array virtuale si trovi nella propria unità organizzativa (OU) per Microsoft Azure Active Directory e che ad esso non siano applicati oggetti Criteri di gruppo (GPO).
 	   
 
     6. Fare clic su **Apply**. Si applicano e convalidano così le impostazioni del dispositivo.
@@ -122,7 +120,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     Nella pagina **Impostazioni ora**:
 
-    1. Selezionare dall'elenco a discesa il **fuso orario** in base alla posizione geografica in cui viene distribuito il dispositivo. Il fuso orario predefinito per il dispositivo è PST. Il dispositivo utilizzerà questo fuso orario per tutte le operazioni pianificate.
+    1. Nell'elenco a discesa selezionare il **fuso orario** in base alla posizione geografica in cui viene distribuito il dispositivo. Il fuso orario predefinito per il dispositivo è PST. Il dispositivo utilizzerà questo fuso orario per tutte le operazioni pianificate.
 
     2. Specificare un **server NTP primario** per il dispositivo o accettare il valore predefinito di time.windows.com. Assicurarsi che la rete consenta il traffico NTP dal data center a Internet.
 
@@ -132,9 +130,9 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
 9. Configurare le impostazioni del cloud per il dispositivo. In questo passaggio, viene completata la configurazione del dispositivo locale, quindi si registra il dispositivo con il servizio StorSimple Manager.
 
-    1. Immettere la **chiave di registrazione del servizio** ottenuta al **Passaggio 2: Ottenere la chiave di registrazione del servizio** in [Distribuire StorSimple Virtual Array: preparare il portale](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+    1. Immettere la **chiave di registrazione del servizio** ottenuta al **Passaggio 2: Ottenere la chiave di registrazione del servizio** in [Distribuire l'array virtuale StorSimple: preparare il portale](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
-    2. Se questo non è il primo dispositivo che si registra con tale servizio, è necessario fornire la **chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per altre informazioni, fare riferimento all'esercitazione [Ottenere la chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
+    2. Se questo non è il primo dispositivo che si registra con tale servizio, è necessario fornire la **chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per altre informazioni, vedere l'esercitazione [Ottenere la chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
 
     3. Fare clic su **Register**. Il dispositivo viene così riavviato. È necessario attendere 2-3 minuti per la corretta registrazione del dispositivo. Dopo avere riavviato il dispositivo, si passa alla pagina di accesso.
 
@@ -166,7 +164,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per completare l'inst
 
 3. Nella pagina **Impostazioni di base** della configurazione guidata del dispositivo eseguire le operazioni seguenti:
 
-   1. Specificare un account di archiviazione da usare con il dispositivo. In questa sottoscrizione è possibile selezionare un account di archiviazione esistente dall'elenco a discesa o specificare **Aggiungi altro** per scegliere un account da una sottoscrizione diversa.
+   1. Specificare un account di archiviazione da usare con il dispositivo. In questa sottoscrizione, è possibile selezionare un account di archiviazione esistente nell'elenco a discesa o specificare **Aggiungi altro** per scegliere un account da una sottoscrizione diversa.
 
    2. Definire le impostazioni di crittografia per tutti i dati inattivi da inviare al cloud. (StorSimple usa la crittografia AES-256.) Per crittografare i dati, selezionare la casella di controllo **Abilitare la crittografia per l'archiviazione cloud**. Immettere una crittografia di archiviazione cloud di 32 caratteri. Immettere nuovamente la chiave per confermarla.
 
@@ -192,7 +190,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un volume.
 
     2. Fornire una descrizione per il volume. La descrizione consente di identificare i proprietari del volume.
 
-    3. Selezionare un tipo di utilizzo per il volume. Il tipo di utilizzo può essere **Volume a livelli** o **Volume aggiunto in locale.** L'impostazione predefinita è **Volume a livelli**. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare **Volume** **aggiunto in locale**. Per tutti gli altri dati, selezionare **Volume** **a livelli**.
+    3. Selezionare un tipo di utilizzo per il volume. Il tipo di utilizzo può essere **Volume a livelli** o **Volume aggiunto in locale**. L'impostazione predefinita è **Volume a livelli**. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare **Volume** **aggiunto in locale**. Per tutti gli altri dati, selezionare **Volume** **a livelli**.
 
         Per un volume aggiunto in locale viene eseguito il thick provisioning per garantire che i dati primari nel volume rimangano nel dispositivo e non si spostino sul cloud. Se si crea un volume aggiunto in locale, il dispositivo cercherà lo spazio disponibile nei livelli locali per il provisioning di un volume delle dimensioni richieste. La creazione di un volume aggiunto in locale può comportare la distribuzione dei dati esistenti dal dispositivo al cloud, aumentando il tempo necessario per la creazione del volume. Il tempo totale dipende dalle dimensioni del volume di cui è stato eseguito il provisioning, dalla larghezza di banda di rete disponibile e dai dati sul dispositivo.
 
@@ -208,7 +206,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un volume.
 
     1. Fornire un **Nome** per l'ACR.
 
-    2. In **Nome iniziatore iSCSI**, fornire il nome qualificato iSCSI (IQN) dell'host di Windows. Se non si dispone di un nome qualificato iSCSI, passare all'[Appendice A: Ottenere il nome qualificato iSCSI di un host di Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
+    2. In **Nome iniziatore iSCSI**, fornire il nome qualificato iSCSI (IQN) dell'host di Windows. Se non è disponibile un IQN, passare all'[Appendice A: Ottenere il nome qualificato iSCSI di un host di Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
 
     3. È consigliabile abilitare un backup predefinito tramite la selezione della casella di controllo **Abilita un criterio di backup predefinito per questo volume**. Il backup predefinito creerà un criterio eseguito alle 22:30 di ogni giorno (ora del dispositivo) e creerà uno spapshot nel cloud del volume.
 
@@ -220,7 +218,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un volume.
 
         Verrà creato un volume con le impostazioni specificate. Per impostazione predefinita, il monitoraggio e il backup vengono abilitati per il volume.
 
-    5. Per confermare la corretta creazione del volume, passare alla pagina **Volumi**. Il volume deve essere visualizzato nell'elenco.
+    5. Per verificare la creazione del volume, passare alla pagina **Volumi**. Il volume deve essere visualizzato nell'elenco.
 
         ![](./media/storsimple-ova-deploy3-iscsi-setup/image21.png)
 
@@ -244,7 +242,7 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 
     ![destinazioni individuate](./media/storsimple-ova-deploy3-iscsi-setup/image24.png)
 
-5. Selezionare il dispositivo di destinazione e quindi fare clic su **Connetti**. Dopo aver connesso il dispositivo, lo stato deve essere modificato in **Connesso**. Per altre informazioni sull'uso dell'iniziatore iSCSI di Microsoft, vedere [Installazione e configurazione dell'iniziatore iSCSI di Microsoft][1].
+5. Selezionare un dispositivo di destinazione e quindi fare clic su **Connetti**. Dopo aver connesso il dispositivo, lo stato deve essere modificato in **Connesso**. Per altre informazioni sull'uso dell'iniziatore iSCSI Microsoft, vedere [Installare e configurare l'iniziatore iSCSI Microsoft][1].
 
     ![selezionare il dispositivo di destinazione](./media/storsimple-ova-deploy3-iscsi-setup/image25.png)
 
@@ -260,7 +258,7 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 
     ![inizializzare disco 1](./media/storsimple-ova-deploy3-iscsi-setup/image27.png)
 
-10. Nella finestra di dialogo selezionare il disco o i dischi da inizializzare e quindi fare clic su **OK**.
+10. Nella finestra di dialogo selezionare i dischi da inizializzare e quindi fare clic su **OK**.
 
     ![inizializzare disco 2](./media/storsimple-ova-deploy3-iscsi-setup/image28.png)
 
@@ -286,7 +284,7 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 
 ## Passaggi successivi
 
-Informazioni su come usare l'interfaccia utente Web locale per [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Informazioni su come usare l'interfaccia utente Web locale per amministrare l'[array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
 
 ## Appendice A: Ottenere il nome qualificato iSCSI di un host di Windows Server
 
@@ -305,4 +303,4 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un 
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

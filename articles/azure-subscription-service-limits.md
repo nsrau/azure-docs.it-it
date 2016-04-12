@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="03/07/2016"
 	ms.author="jroth"/>
 
 # Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
@@ -32,7 +32,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 
 > [AZURE.NOTE] È importante sottolineare che le quote per le risorse nei gruppi di risorse di Azure sono da intendersi per ogni area accessibile dalla sottoscrizione e non per ogni sottoscrizione, come nel caso delle quote di gestione del servizio. Si considerino, ad esempio. le quote relative ai core. Se è necessario richiedere un aumento della quota con supporto per i core, è necessario stabilire quanti core si desidera usare e in quali aree e quindi effettuare una richiesta specifica per le quote di core del gruppo di risorse di Azure per le quantità e le aree desiderate. Pertanto, se è necessario usare 30 core in Europa occidentale per eseguire l'applicazione, è necessario richiedere in modo specifico 30 core in Europa occidentale. La quota di core per le altre aree non verrà tuttavia aumentata, ma sarà disponibile una quota di 30 core solo in Europa occidentale.
 <!-- -->
-Di conseguenza, può risultare utile stabilire le quote per il gruppo di risorse di Azure necessarie per il carico di lavoro in ogni area e richiedere tale quantità in ogni area in cui si prevede di eseguire la distribuzione. Per altre informazioni su come individuare le quote correnti per aree specifiche, vedere l'argomento relativo alla [risoluzione dei problemi di distribuzione](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues).
+Di conseguenza, può risultare utile stabilire le quote per il gruppo di risorse di Azure necessarie per il carico di lavoro in ogni area e richiedere tale quantità in ogni area in cui si prevede di eseguire la distribuzione. Per altre informazioni su come individuare le quote correnti per aree specifiche, vedere l'argomento relativo alla [risoluzione dei problemi di distribuzione](./resource-manager-common-deployment-errors.md).
 
 
 ## Limiti specifici del servizio
@@ -130,7 +130,7 @@ Per altre informazioni sui limiti dell'account di archiviazione, vedere [Obietti
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-Vedere [Dimensioni della macchina virtuale](../articles/virtual-machines/virtual-machines-size-specs.md) per altri dettagli.
+Vedere [Dimensioni della macchina virtuale](../articles/virtual-machines/virtual-machines-linux-sizes.md) per altri dettagli.
 
 **Account di archiviazione standard**
 
@@ -280,8 +280,8 @@ Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql
 
 [Informazioni sui limiti di Azure e su come aumentarli](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Dimensioni delle macchine virtuali e dei servizi cloud per Azure](virtual-machines/virtual-machines-size-specs.md)
+[Dimensioni delle macchine virtuali e dei servizi cloud per Azure](virtual-machines/virtual-machines-linux-sizes.md)
 
 [Dimensioni per i servizi cloud](cloud-services/cloud-services-sizes-specs.md)
 
-<!--------HONumber=AcomDC_0302_2016-->
+<!-----HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/15/2016"
+	ms.date="03/08/2016"
 	ms.author="raynew"/>
 
 # Preparare la distribuzione di Azure Site Recovery
@@ -57,15 +57,15 @@ Nella tabella vengono riepilogati i requisiti per la replica di VM VMware e di s
 **Funzionalità** | **Supporto** | **Dettagli**
 ---|---|---
 Sistema operativo host Hyper-V | Windows Server 2012 R2 | Il controllo dei prerequisiti avrà esito negativo se non supportato
-Sistema operativo di hypervisor VMware | Esecuzione di un sistema operativo supportato | [Dettagli](site-recovery-vmware-to-azure.md#before-you-start)
-Sistema operativo guest | Per Hyper-V nella replica di Azure, Site Recovery supporta tutti i sistemi operativi [supportati da Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Per la replica di server fisici e VMware, controllare i [prerequisiti](site-recovery-vmware-to-azure.md#before-you-start) di Windows e Linux | Il controllo dei prerequisiti avrà esito negativo se non supportato.
+Sistema operativo di hypervisor VMware | Esecuzione di un sistema operativo supportato | [Dettagli](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)
+Sistema operativo guest | Per Hyper-V nella replica di Azure, Site Recovery supporta tutti i sistemi operativi [supportati da Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Per la replica di server fisici e VMware, controllare i [prerequisiti](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) di Windows e Linux | Il controllo dei prerequisiti avrà esito negativo se non supportato.
 Architettura del sistema operativo guest | 64 bit | Il controllo dei prerequisiti avrà esito negativo se non supportato
 Dimensioni disco del sistema operativo | Fino a 1023 GB | Il controllo dei prerequisiti avrà esito negativo se non supportato
 Conteggio dischi del sistema operativo | 1 | Il controllo dei prerequisiti avrà esito negativo se non supportato.
 Conteggio dischi dati | 16 o meno (il valore massimo è una funzione delle dimensioni della macchina virtuale creata; 16 = XL) | Il controllo dei prerequisiti avrà esito negativo se non supportato
 Dimensioni VHD dischi dati | Fino a 1023 GB | Il controllo dei prerequisiti avrà esito negativo se non supportato
 Schede di rete | Sono supportate più schede |
-Indirizzo IP statico | Supportato | Se la macchina virtuale principale usa un indirizzo IP statico, è possibile specificare l'indirizzo IP statico per la macchina virtuale che verrà creata in Azure
+Indirizzo IP statico | Supportato | Se la macchina virtuale principale usa un indirizzo IP statico, è possibile specificare l'indirizzo IP statico per la macchina virtuale che verrà creata in Azure Si noti che l'indirizzo IP statico per una macchina virtuale Linux in esecuzione su Hyper-V non è supportato. 
 Disco iSCSI | Non supportato | Il controllo dei prerequisiti avrà esito negativo se non supportato
 VHD condiviso | Non supportato | Il controllo dei prerequisiti avrà esito negativo se non supportato
 Disco FC | Non supportato | Il controllo dei prerequisiti avrà esito negativo se non supportato
@@ -107,4 +107,4 @@ Dopo aver compreso e confrontato i requisiti generali di distribuzione, è possi
 - [Replicare le VM Hyper-V in un sito secondario con SAN](site-recovery-vmm-san.md)
 - [Replicare le VM Hyper-V con un singolo server VMM](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

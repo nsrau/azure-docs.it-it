@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/03/2016"
    ms.author="magoedte;bwren" />
 
 # Output di runbook e messaggi in automazione di Azure
@@ -167,7 +167,7 @@ Nell'esempio seguente viene avviato un runbook figlio e si attende il suo comple
 
 Per i runbook grafici, è disponibile una registrazione aggiuntiva sotto forma di traccia a livello di attività. Sono disponibili due livelli di traccia: base e dettagliato. Nella traccia di base sono indicate l'ora di inizio e di fine di ogni attività del runbook, oltre a informazioni relative a eventuali ulteriori tentativi di esecuzione dell'attività, ad esempio il numero di tentativi e l'ora di inizio dell'attività. Nella traccia dettagliata sono indicate le informazioni della traccia di base e i dati di input e output di ogni attività. Si noti che attualmente i record di traccia vengono scritti usando il flusso dettagliato. Per questa ragione è necessario abilitare la registrazione dettagliata quando si abilita la traccia. Per i runbook grafici con la traccia abilitata non è necessario registrare record di stato perché la traccia di base svolge la stessa funzione e offre maggiori informazioni.
 
-![Visualizzazione dei flussi dei processi di creazione grafica](media/automation-runbook-output-and-messages/job_streams_view_blade.png)
+![Visualizzazione dei flussi dei processi di creazione grafica](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
 È possibile osservare nella schermata precedente che quando si abilitano la registrazione e la traccia dettagliata per i runbook grafici sono disponibili molte più informazioni nella visualizzazione di flussi dei processi di produzione. Queste informazioni aggiuntive possono essere essenziali per la risoluzione dei problemi di produzione di un runbook e pertanto è consigliabile attivarle solo a tale scopo e non come regola generale. I record di traccia possono essere particolarmente numerosi. Con la traccia dei runbook grafici è possibile ottenere da due a quattro record per ogni attività a seconda che sia stato configurata la traccia di base o dettagliata. Se non sono necessarie queste informazioni per tenere traccia dell'avanzamento di un runbook per la risoluzione dei problemi, è consigliabile non abilitare la traccia.
 
@@ -183,11 +183,11 @@ Per i runbook grafici, è disponibile una registrazione aggiuntiva sotto forma d
 
  5. Nel pannello Registrazione e traccia in Registra record dettagliati **abilitare** la registrazione dettagliata e impostare il livello **base** o **dettagliato** necessario per la traccia a livello di attività.<br>
 
-    ![Pannello Registrazione e traccia della creazione grafica](media/automation-runbook-output-and-messages/logging_and_tracing_settings_blade.png)
+    ![Pannello Registrazione e traccia della creazione grafica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ## Articoli correlati
 
 - [Tenere traccia di un processo del runbook](automation-runbook-execution.md)
 - [Runbook figlio](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

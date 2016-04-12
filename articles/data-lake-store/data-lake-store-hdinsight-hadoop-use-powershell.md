@@ -1,26 +1,26 @@
-<properties 
-   pageTitle="Creare cluster HDInsight con Archivio Data Lake di Azure tramite PowerShell | Azure" 
-   description="Usare Azure PowerShell per creare e usare cluster Hadoop di HDInsight con Azure Data Lake" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Creare cluster HDInsight con Archivio Data Lake di Azure tramite PowerShell | Azure"
+   description="Usare Azure PowerShell per creare e usare cluster Hadoop di HDInsight con Azure Data Lake"
+   services="data-lake-store,hdinsight" 
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/21/2016"
    ms.author="nitinme"/>
 
 # Creare un cluster HDInsight con Archivio Data Lake tramite Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+- [Uso del portale](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Tramite PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
 Informazioni su come usare Azure PowerShell per configurare un cluster HDInsight (Hadoop, HBase o Storm) con accesso ad Archivio Data Lake di Azure. Alcune considerazioni importanti per questa versione:
@@ -53,7 +53,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 Per iniziare, è necessario disinstallare le versioni di Azure PowerShell 0.9x. Per controllare la versione di PowerShell installata, eseguire il comando seguente da una finestra di PowerShell:
 
 	Get-Module *azure*
-	
+
 Per disinstallare la versione precedente, eseguire **Programmi e funzionalità** nel pannello di controllo e rimuovere la versione installata se è precedente a PowerShell 1.0.
 
 Sono disponibili due opzioni principali per l'installazione di Azure PowerShell.
@@ -63,13 +63,13 @@ Sono disponibili due opzioni principali per l'installazione di Azure PowerShell.
 		# Install the Azure Resource Manager modules from PowerShell Gallery
 		Install-Module AzureRM
 		Install-AzureRM
-		
+
 		# Install the Azure Service Management module from PowerShell Gallery
 		Install-Module Azure
-		
+
 		# Import AzureRM modules for the given version manifest in the AzureRM module
 		Import-AzureRM
-		
+
 		# Import Azure Service Management module
 		Import-Module Azure
 
@@ -78,7 +78,7 @@ Sono disponibili due opzioni principali per l'installazione di Azure PowerShell.
 - [Installazione guidata piattaforma Web Microsoft (WebPI)](http://aka.ms/webpi-azps). Se si dispone di Azure PowerShell 0.9.x installata, verrà richiesto di disinstallare 0.9.x . Se sono stati installati dei moduli Azure PowerShell dalla raccolta di PowerShell, il programma di installazione richiede che i moduli vengano rimossi prima dell'installazione per garantire un ambiente di PowerShell Azure coerente. Per istruzioni, vedere [Come installare Azure PowerShell 1.0 tramite WebPI](https://azure.microsoft.com/blog/azps-1-0/).
 
 WebPI riceverà degli aggiornamenti mensili. La Raccolta di PowerShell riceverà degli aggiornamenti su base continua. Se si ha familiarità con l'installazione dalla raccolta di PowerShell, quello sarà il primo canale per le ultimissime novità in Azure PowerShell.
- 
+
 
 ## Creare un Archivio Azure Data Lake
 
@@ -88,11 +88,11 @@ Per creare un Archivio Data Lake, seguire questa procedura.
 
         # Log in to your Azure account
 		Login-AzureRmAccount
-        
+
 		# List all the subscriptions associated to your account
 		Get-AzureRmSubscription
-		
-		# Select a subscription 
+
+		# Select a subscription
 		Set-AzureRmContext -SubscriptionId <subscription ID>
 
 		# Register for Data Lake Store
@@ -122,7 +122,7 @@ Per creare un Archivio Data Lake, seguire questa procedura.
 
 4. Caricare alcuni dati di esempio in Azure Data Lake. Questi dati saranno usati più avanti in questo articolo per verificare che siano accessibili da un cluster HDInsight. Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
-		
+
 		$myrootdir = "/"
 		Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
 
@@ -161,20 +161,20 @@ Assicurarsi di avere installato [Windows SDK](https://dev.windows.com/it-IT/down
 
 In questa sezione seguire la procedura per creare un'entità servizio per un'applicazione Azure Active Directory, assegnare un ruolo all'entità servizio e autenticarsi come entità servizio fornendo un certificato. Eseguire i comandi seguenti per creare un'applicazione in Azure Active Directory.
 
-1. Incollare i cmdlet seguenti nella finestra della console di PowerShell. Assicurarsi che il valore specificato per la proprietà **-DisplayName** sia univoco. I valori per **-HomePage** e **-IdentiferUris** sono valori segnaposto e non vengono verificati. 
+1. Incollare i cmdlet seguenti nella finestra della console di PowerShell. Assicurarsi che il valore specificato per la proprietà **-DisplayName** sia univoco. I valori per **-HomePage** e **-IdentiferUris** sono valori segnaposto e non vengono verificati.
 
 		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
-		
+
 		$password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
-		
+
 		$certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
-		
+
 		$rawCertificateData = $certificatePFX.GetRawCertData()
-		
+
 		$credential = [System.Convert]::ToBase64String($rawCertificateData)
 
 		$application = New-AzureRmADApplication `
-					-DisplayName "HDIADL" ` 
+					-DisplayName "HDIADL" `
 					-HomePage "https://contoso.com" `
 					-IdentifierUris "https://mycontoso.com" `
 					-KeyValue $credential  `
@@ -188,11 +188,11 @@ In questa sezione seguire la procedura per creare un'entità servizio per un'app
 2. Creare un'entità servizio usando l'ID applicazione.
 
 		$servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
-		
+
 		$objectId = $servicePrincipal.Id
 
 3. Concedere l'accesso per l'entità servizio all'Archivio Data Lake creato in precedenza.
-		
+
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
 
 	Al prompt immettere **Y** per confermare.
@@ -210,9 +210,9 @@ In questa sezione si creerà un cluster Hadoop di HDInsight. Per questa versione
 		# Create an Azure storage account
 		$location = "East US 2"
 		$storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
-		
+
 		New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
- 
+
 		# Create an Azure Blob Storage container
 		$containerName = "<ContainerName>"              # Provide a container name
 		$storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
@@ -226,7 +226,7 @@ In questa sezione si creerà un cluster Hadoop di HDInsight. Per questa versione
 		$clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
 		$httpCredentials = Get-Credential
 		$rdpCredentials = Get-Credential
-		
+
 		New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.2" -RdpCredential $rdpCredentials -RdpAccessExpiry (Get-Date).AddDays(14) -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
 
 	Dopo il completamento del cmdlet, verrà visualizzato un output simile al seguente:
@@ -245,7 +245,7 @@ In questa sezione si creerà un cluster Hadoop di HDInsight. Per questa versione
 		DefaultStorageAccount     :
 		DefaultStorageContainer   :
 		ResourceGroup             : hdiadlgroup
-		AdditionalStorageAccounts : 
+		AdditionalStorageAccounts :
 
 ## Eseguire i processi di test sul cluster HDInsight per usare Archivio Data Lake.
 
@@ -286,7 +286,7 @@ Per altre informazioni sull'uso di PuTTY, vedere [Uso di SSH con Hadoop basato s
 Usare i cmdlet seguenti per eseguire la query Hive. In questa query si creerà una tabella dai dati disponibili in Archivio Data Lake e quindi si eseguirà una query select sulla tabella creata.
 
 	$queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
-	
+
 	$hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
 
 	$hiveJob = Start-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $httpCredentials
@@ -378,4 +378,4 @@ Dovrebbe essere elencato anche il file precedentemente caricato in Archivio Data
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0316_2016-->
