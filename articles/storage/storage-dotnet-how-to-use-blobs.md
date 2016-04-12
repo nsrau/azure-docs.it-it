@@ -33,7 +33,7 @@ Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comun
 
 **Prerequisiti:**
 
-- [Microsoft Visual Studio](https://www.visualstudio.com/it-IT/visual-studio-homepage-vs.aspx)
+- [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
 - [Libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Gestione configurazione di Azure per .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 - Un [account di archiviazione Azure](storage-create-storage-account.md#create-a-storage-account).

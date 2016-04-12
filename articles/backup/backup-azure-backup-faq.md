@@ -23,7 +23,7 @@
 - [Domande frequenti su Backup per la modalità classica](backup-azure-backup-faq.md)
 - [Domande frequenti su Backup per la modalità Azure Resource Manager](backup-azure-backup-ibiza-faq.md)
 
-Questo articolo contiene un elenco di domande comuni (e le relative risposte) sul servizio Backup di Azure. La community risponde rapidamente e, se una domanda viene fatta spesso, viene aggiunta a questo articolo. Le risposte alle domande contengono in genere informazioni di riferimento o di supporto. È possibile formulare le domande su Backup di Azure nella sezione Disqus di questo articolo o di un articolo correlato. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Questo articolo contiene un elenco di domande comuni (e le relative risposte) sul servizio Backup di Azure. La community risponde rapidamente e, se una domanda viene fatta spesso, viene aggiunta a questo articolo. Le risposte alle domande contengono in genere informazioni di riferimento o di supporto. È possibile formulare le domande su Backup di Azure nella sezione Disqus di questo articolo o di un articolo correlato. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione]( https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## Installazione e configurazione
 **D1. Qual è l'elenco dei sistemi operativi supportati da cui è possibile eseguire il backup in Azure con Backup di Azure?** <br/> R1. Backup di Azure supporta l'elenco seguente di sistemi operativi.
@@ -43,9 +43,9 @@ Questo articolo contiene un elenco di domande comuni (e le relative risposte) su
 |Windows Server 2008 R2 SP1, |64 bit|	Standard, Enterprise, Datacenter, Foundation|
 |Windows Server 2008 SP2 |64 bit|	Standard, Enterprise, Datacenter, Foundation|
 
-**D2. Dov'è possibile scaricare l'agente Backup di Azure più recente?** <br/> R2. È possibile scaricare l'agente più recente per il backup di Windows Server, System Center DPM o dei client Windows da [qui](http://aka.ms/azurebackup_agent). Per eseguire il backup di una macchina virtuale usare l'agente di macchine virtuali, che installa automaticamente l'estensione appropriata. L'agente di VM è già presente nelle macchine virtuali create dalla raccolta di Azure.
+**D2. Dov'è possibile scaricare l'agente Backup di Azure più recente?** <br/> R2. È possibile scaricare l'agente più recente per il backup di Windows Server, System Center DPM o dei client Windows da [qui]( http://aka.ms/azurebackup_agent). Per eseguire il backup di una macchina virtuale usare l'agente di macchine virtuali, che installa automaticamente l'estensione appropriata. L'agente di VM è già presente nelle macchine virtuali create dalla raccolta di Azure.
 
-**D3. Quale versione del server SCDPM è supportata?** <br/> R3. È consigliabile installare la versione [più recente](http://aka.ms/azurebackup_agent) dell'agente Backup di Azure sull'aggiornamento cumulativo più recente di SCDPM (UR6 a luglio 2015)
+**D3. Quale versione del server SCDPM è supportata?** <br/> R3. È consigliabile installare la versione [più recente]( http://aka.ms/azurebackup_agent) dell'agente Backup di Azure sull'aggiornamento cumulativo più recente di SCDPM (UR6 a luglio 2015)
 
 ****D4. Quando si configura l'agente di Backup di Azure, viene richiesto di immettere le **credenziali dell'insieme di credenziali**. Le credenziali dell'insieme di credenziali scadono? R4. Sì, le credenziali dell'insieme di credenziali scadono dopo 48 ore. Se il file scade, accedere al portale di Azure e scaricare i file delle credenziali di insieme dall'insieme di credenziali per il backup.
 
@@ -110,9 +110,9 @@ Questo articolo contiene un elenco di domande comuni (e le relative risposte) su
 
 **D22. È possibile installare l'agente di Backup di Azure in una macchina virtuale di Azure per eseguire il backup di file e cartelle presenti nell'archivio temporaneo fornito dalla macchina virtuale di Azure?** <br/> R22. È possibile installare l'agente di Backup di Azure nel sistema operativo guest di Windows ed eseguire il backup di file e cartelle nell'archivio temporaneo. Tenere presente, tuttavia, che dopo la cancellazione dei dati dall'archivio temporaneo i backup avranno esito negativo. Se poi i dati nell'archivio temporaneo sono stati eliminati, è possibile eseguire il ripristino solo in un archivio non temporaneo.
 
-**D23. Qual è la lunghezza del percorso file che può essere specificata come parte dei criteri di Backup di Azure usando l'agente di Backup di Azure?** <br/> R23. L'agente di Backup di Azure si basa su NTFS. La [specifica della lunghezza del percorso file è limitata dall'API Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Se la lunghezza del percorso file è superiore a quella consentita dall'API Windows, è possibile eseguire il backup della cartella padre o dell'unità disco in cui si trovano i file.
+**D23. Qual è la lunghezza del percorso file che può essere specificata come parte dei criteri di Backup di Azure usando l'agente di Backup di Azure?** <br/> R23. L'agente di Backup di Azure si basa su NTFS. La [specifica della lunghezza del percorso file è limitata dall'API Windows]( https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Se la lunghezza del percorso file è superiore a quella consentita dall'API Windows, è possibile eseguire il backup della cartella padre o dell'unità disco in cui si trovano i file.
 
-**D24 Quali caratteri sono consentiti nel percorso file dei criteri di Backup di Azure che usano l'agente di Backup di Azure?** <br/> R24. L'agente di Backup di Azure si basa su NTFS. Consente i [caratteri supportati da NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) come parte della specifica file.
+**D24 Quali caratteri sono consentiti nel percorso file dei criteri di Backup di Azure che usano l'agente di Backup di Azure?** <br/> R24. L'agente di Backup di Azure si basa su NTFS. Consente i [caratteri supportati da NTFS]( https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) come parte della specifica file.
 
 
 ## Backup e conservazione
@@ -197,4 +197,4 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 
   Una volta completata la creazione del backup nel nuovo percorso della cache, è possibile rimuovere la cartella della cache originale.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->

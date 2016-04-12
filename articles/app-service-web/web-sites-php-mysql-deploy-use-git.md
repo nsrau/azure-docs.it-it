@@ -214,7 +214,7 @@ Per creare ed eseguire l'applicazione in locale, attenersi alla procedura seguen
 
 		php -S localhost:8000
 
-A questo punto è possibile passare a ****http://localhost:8000/** per testare l'applicazione.
+A questo punto è possibile passare a **http://localhost:8000/** per testare l'applicazione.
 
 
 ##Pubblicare l'app
@@ -280,7 +280,9 @@ Per impostazione predefinita, il processo di distribuzione git nel servizio app 
     
 3. Fare clic su **OK** per accettare le note legali. Fare di nuovo clic su **OK** per aggiungere l'estensione.
 
-    Nel pannello **Estensioni installate** verrà visualizzata l'estensione Composer. ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    Nel pannello **Estensioni installate** verrà visualizzata l'estensione Composer. 
+    
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
     
 4. A questo punto, eseguire `git add`, `git commit` e `git push` come nella sezione precedente. Si noterà che ora Composer installa le dipendenze definite in composer.json.
 
