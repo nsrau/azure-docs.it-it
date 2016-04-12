@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Come autorizzare gli account per sviluppatori usando OAuth 2.0 in Gestione API di Azure
@@ -24,7 +24,7 @@ Molte API supportano [OAuth 2.0](http://oauth.net/2/) per proteggere l'API e ass
 
 Questa guida illustra come configurare un'istanza del servizio Gestione API per l'uso dell'autorizzazione OAuth 2.0 per gli account per sviluppatori, ma non viene spiegato come configurare un provider OAuth 2.0. La configurazione cambia in base al provider OAuth 2.0, sebbene le procedure siano simili e le informazioni necessarie usate per la configurazione di OAuth 2.0 nell'istanza del servizio Gestione API siano le stesse. Questo argomento mostra degli esempi di utilizzo di Azure Active Directory come provider OAuth 2.0.
 
->[AZURE.NOTE]Per altre informazioni sulla configurazione di OAuth 2.0 mediante Azure Active Directory, vedere l'esempio [WebApp-GraphAPI-DotNet][].
+>[AZURE.NOTE] Per altre informazioni sulla configurazione di OAuth 2.0 mediante Azure Active Directory, vedere l'esempio [WebApp-GraphAPI-DotNet][].
 
 ## <a name="step1"> </a>Configurare un server autorizzazione OAuth 2.0 in Gestione API
 
@@ -32,7 +32,7 @@ Per iniziare, fare clic su **Gestisci** nel portale di Azure classico per il ser
 
 ![Portale di pubblicazione][api-management-management-console]
 
->[AZURE.NOTE]Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][] nell'esercitazione [Introduzione a Gestione API di Azure][].
+>[AZURE.NOTE] Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][] nell'esercitazione [Introduzione a Gestione API di Azure][].
 
 Fare clic su **Sicurezza** dal menu **Gestione API** sulla sinistra, scegliere **OAuth 2.0**, quindi **Add authorization server**.
 
@@ -44,7 +44,7 @@ Dopo aver fatto clic su **Add authorization server**, viene visualizzato il modu
 
 Immettere un nome e, facoltativamente, una descrizione nei campi **Nome** e **Descrizione**.
 
->[AZURE.NOTE]Questi campi vengono usati per identificare il server autorizzazione OAuth 2.0 all'interno dell'istanza del servizio Gestione API corrente e i loro valori non provengono dal server OAuth 2.0.
+>[AZURE.NOTE] Questi campi vengono usati per identificare il server autorizzazione OAuth 2.0 all'interno dell'istanza del servizio Gestione API corrente e i loro valori non provengono dal server OAuth 2.0.
 
 Immettere il **Client registration page URL**. In questa pagina gli utenti possono creare e gestire i loro account e il suo contenuto varia in base al provider OAuth 2.0 usato. **Client registration page URL** fa riferimento alla pagina che gli utenti possono usare per creare e configurare i propri account per i provider OAuth 2.0 che supportano la gestione degli account da parte degli utenti. Alcune organizzazioni non configurano o usano questa funzionalità, anche se è supportata dal provider OAuth 2.0. Se nel provider OAuth 2.0 non è stata configurata la gestione degli account da parte degli utenti, immettere qui un URL segnaposto, ad esempio l'URL della propria azienda, oppure un URL analogo a `https://placeholder.contoso.com`.
 
@@ -100,7 +100,7 @@ Fare clic su **API** nel menu superiore e scegliere **API Echo**.
 
 ![API Echo][api-management-apis-echo-api]
 
->[AZURE.NOTE]Se è stata configurata una sola API o se ne è visibile solo una per l'account, facendo clic sulle API vengono visualizzate le operazioni per l'API.
+>[AZURE.NOTE] Se è stata configurata una sola API o se ne è visibile solo una per l'account, facendo clic sulle API vengono visualizzate le operazioni per l'API.
 
 Selezionare l'operazione **GET su risorsa**, fare clic su **Apri console**, quindi selezionare **Authorization code** dal menu a discesa.
 
@@ -108,7 +108,7 @@ Selezionare l'operazione **GET su risorsa**, fare clic su **Apri console**, quin
 
 Quando **Authorization code** è selezionato, viene visualizzata una finestra popup con il modulo di accesso del provider OAuth 2.0. In questo esempio il modulo di accesso viene fornito da Azure Active Directory.
 
->[AZURE.NOTE]Se i popup sono stati disattivati, verrà richiesto di attivarli tramite il browser. Dopo averli attivati, selezionare di nuovo **Authorization code** per visualizzare il modulo di accesso.
+>[AZURE.NOTE] Se i popup sono stati disattivati, verrà richiesto di attivarli tramite il browser. Dopo averli attivati, selezionare di nuovo **Authorization code** per visualizzare il modulo di accesso.
 
 ![Accesso][api-management-oauth2-signin]
 
@@ -160,4 +160,4 @@ Per altre informazioni sull'uso di OAuth 2.0 e di Gestione API, vedere il video 
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="03/03/2016"
    ms.author="mcoskun"/>
 
 # Backup e ripristino di Reliable Services
@@ -22,7 +22,7 @@ Azure Service Fabric è una piattaforma a disponibilità elevata che replica lo 
 
 Ad esempio, è possibile che in un servizio sia consigliabile eseguire il backup dei dati negli scenari seguenti:
 
-* In caso di perdita permanente di un intero Service Fabric Cluster o di tutti i nodi in esecuzione in una partizione specifica. Questo problema può verificarsi, ad esempio, se non viene eseguita la replica geografica e l'intero cluster si trova in un data center che diventa completamente inattivo.
+* In caso di perdita permanente di un intero Service Fabric Cluster o di tutti i nodi in esecuzione in una partizione specifica.
 
 * Errori amministrativi che provocano l'eliminazione o il danneggiamento accidentale dello stato. Ad esempio, questo problema può verificarsi se un amministratore con privilegi sufficienti elimina accidentalmente il servizio.
 
@@ -158,4 +158,4 @@ Reliable State Manager consente di eseguire il ripristino da un backup con l'API
 
 **RestoreAsync** rilascia prima di tutto ogni stato esistente nella replica primaria su cui è stato chiamato. Reliable State Manager crea quindi tutti gli oggetti Reliable esistenti nella cartella di backup. Viene quindi indicato agli oggetti Reliable di eseguire il ripristino dai rispettivi checkpoint nella cartella di backup. Reliable State Manager ripristina infine il proprio stato dai record dei log nella cartella di backup ed esegue il ripristino. Come parte del processo di ripristino, le operazioni a partire dal "punto iniziale" con record di log di commit nella cartella di backup vengono riprodotte negli oggetti Reliable. Questo passaggio assicura che lo stato ripristinato sia coerente.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

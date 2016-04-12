@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/13/2016"
+	ms.date="03/04/2016"
 	ms.author="gokuma;weig;bradsev" />
 
 # Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati 
@@ -321,7 +321,7 @@ Prima di tutto importare i pacchetti necessari:
 	from time import time
 	import pyodbc
 	import os
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	import tables
 	import time
 	import zipfile
@@ -894,4 +894,4 @@ Sono stati inclusi in un pacchetto diversi strumenti che permettono di soddisfar
 ## Riepilogo
 Queste sono solo alcune delle attività che è possibile eseguire nella macchina virtuale per l'analisi scientifica dei dati di Microsoft. Ce ne sono molte altre che è possibile eseguire per renderla un ambiente di analisi efficace.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

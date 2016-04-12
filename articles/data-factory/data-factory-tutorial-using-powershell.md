@@ -24,7 +24,7 @@ Contoso è una società di giochi online che crea giochi per più piattaforme: c
  
 In questa procedura dettagliata, si raccoglieranno log di esempio, li si elaborerà e arricchirà con dati di riferimento e si trasformeranno i dati per valutare l'efficacia di una campagna di marketing lanciata di recente da Contoso.
 
-## Preparazione per l'esercitazione
+## Prerequisiti
 1.	Per una panoramica di Data factory di Azure e per conoscere i concetti principali, leggere [Introduzione a Data factory di Azure][adfintroduction].
 2.	Per questa esercitazione, è necessario disporre di una sottoscrizione di Azure. Per informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto][azure-purchase-options], [Offerte per i membri][azure-member-offers] oppure [Versione di valutazione gratuita][azure-free-trial].
 3.	È necessario scaricare e installare [Azure PowerShell][download-azure-powershell] nel computer in uso.
@@ -69,17 +69,18 @@ Il flusso di lavoro end-to-end è illustrato di seguito:![Flusso end-to-end dell
 2. **EnrichGameLogsPipeline** unisce gli eventi del gioco partizionati (tabella PartitionedGameEvents, che è un output di PartitionGameLogsPipeline) al codice dell'area geografica (RefGetoCodeDictionaryTable) e arricchisce i dati con il mapping di un indirizzo IP alla corrispondente posizione geografica (EnrichedGameEventsTable).
 3. La pipeline **AnalyzeMarketingCampaignPipeline** sfrutta i dati arricchiti (EnrichedGameEventTable generato da EnrichGameLogsPipeline) e li elabora con i dati della pubblicità (RefMarketingCampaignnTable) per creare l'output finale dell'efficacia della campagna di marketing, che viene copiato nel database SQL di Azure (MarketingCampainEffectivensessSQLTable) e in una risorsa di archiviazione BLOB di Azure (MarketingCampaignEffectivenessBlobTable) per l'analisi.
     
-## Procedura dettagliata: creazione, distribuzione e monitoraggio di flussi di lavoro
-1. [Passaggio 1: caricare script e dati di esempio](#MainStep1). In questo passaggio si caricheranno tutti i dati di esempio (inclusi tutti i log e i dati di riferimento) e gli script Hive/Pig che verranno eseguiti dai flussi di lavoro. Gli script eseguiti creano anche un database SQL di Azure (denominato MarketingCampaigns), tabelle, tipi definiti dall'utente e stored procedure.
-2. [Passaggio 2: creare un'istanza di Data factory di Azure](#MainStep2). In questo passaggio si creerà un'istanza di Data factory di Azure denominato LogProcessingFactory.
-3. [Passaggio 3: creare servizi collegati](#MainStep3). In questo passaggio si creeranno i servizi collegati seguenti: 
+In questa esercitazione si imparerà a:
+
+1. [Caricare script e dati di esempio](#upload-sample-data-and-scripts). In questo passaggio si caricheranno tutti i dati di esempio (inclusi tutti i log e i dati di riferimento) e gli script Hive/Pig che verranno eseguiti dai flussi di lavoro. Gli script eseguiti creano anche un database SQL di Azure (denominato MarketingCampaigns), tabelle, tipi definiti dall'utente e stored procedure.
+2. [Creare un'istanza di Azure Data Factory](#create-data-factory). In questo passaggio si creerà un'istanza di Data factory di Azure denominato LogProcessingFactory.
+3. [Creare servizi collegati](#create-linked-services). In questo passaggio si creeranno i servizi collegati seguenti: 
 	
 	- 	**StorageLinkedService**. Collega il percorso di archiviazione di Azure contenente gli eventi del gioco non elaborati, gli eventi del gioco partizionati, gli eventi del gioco arricchiti, le informazioni sull'efficacia della campagna di marketing, i dati del codice dell'area geografica di riferimento e i dati della campagna di marketing di riferimento a LogProcessingFactory.   
 	- 	**AzureSqlLinkedService**. Collega un database SQL di Azure contenente le informazioni sull'efficacia della campagna di marketing. 
 	- 	**HDInsightStorageLinkedService**. Collega una risorsa di archiviazione BLOB di Azure associata al cluster HDInsight a cui fa riferimento HDInsightLinkedService. 
 	- 	**HDInsightLinkedService**. Collega un cluster HDInsight di Azure a LogProcessingFactory. Questo cluster viene usato per eseguire l'elaborazione pig/hive sui dati. 
  		
-4. [Passaggio 4: creare tabelle](#MainStep4). In questo passaggio si creeranno le tabelle seguenti:
+4. [Creare i set di dati](#create-datasets) In questo passaggio si creeranno le tabelle seguenti:
 	
 	- **RawGameEventsTable**. Questa tabella specifica la posizione dei dati degli eventi del gioco non elaborati nella risorsa di archiviazione BLOB di Azure definita da StorageLinkedService (adfwalkthrough/logs/rawgameevents/). 
 	- **PartitionedGameEventsTable**. Questa tabella specifica la posizione dei dati degli eventi del gioco partizionati nella risorsa di archiviazione BLOB di Azure definita da StorageLinkedService (adfwalkthrough/logs/partitionedgameevents/). 
@@ -90,7 +91,7 @@ Il flusso di lavoro end-to-end è illustrato di seguito:![Flusso end-to-end dell
 	- **MarketingCampaignEffectivenessBlobTable**. Questa tabella specifica la posizione dei dati dell'efficacia della campagna di marketing nella risorsa di archiviazione BLOB di Azure definita da StorageLinkedService (adfwalkthrough/marketingcampaigneffectiveness/). 
 
 	
-5. [Passaggio 5: creare e pianificare le pipeline](#MainStep5). In questo passaggio si creeranno le pipeline seguenti:
+5. [Creare e pianificare le pipeline](#create-pipelines). In questo passaggio si creeranno le pipeline seguenti:
 	- **PartitionGameLogsPipeline**. Questa pipeline legge gli eventi del gioco non elaborati da una risorsa di archiviazione BLOB (RawGameEventsTable) e crea partizioni basate su anno, mese e giorno (PartitionedGameEventsTable). 
 
 
@@ -107,9 +108,9 @@ Il flusso di lavoro end-to-end è illustrato di seguito:![Flusso end-to-end dell
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Passaggio 6: monitorare le pipeline e le sezioni di dati](#MainStep6). In questo passaggio si monitoreranno le pipeline, le tabelle e le sezioni di dati usando il portale di Azure classico.
+6. [Monitorare le pipeline e le sezioni di dati](#monitor-pipelines). In questo passaggio si monitoreranno le pipeline, le tabelle e le sezioni di dati usando il portale di Azure classico.
 
-## <a name="MainStep1"></a> Passaggio 1: caricare script e dati di esempio
+## Caricare script e dati di esempio
 In questo passaggio si caricano tutti i dati di esempio (inclusi tutti i log e i dati di riferimento) e gli script Hive/Pig richiamati dai flussi di lavoro. Gli script eseguiti creano anche un database SQL di Azure chiamato **MarketingCampaigns**, tabelle, tipi definiti dall'utente e stored procedure.
 
 Le tabelle, i tipi definiti dall'utente e le stored procedure vengono usati quando si spostano i risultati dell'efficacia della campagna di marketing dall'archiviazione BLOB di Azure al database SQL di Azure.
@@ -163,7 +164,7 @@ Le tabelle, i tipi definiti dall'utente e le stored procedure vengono usati quan
 		6/6/2014 11:54:36 AM You are ready to deploy Linked Services, Tables and Pipelines. 
 
 
-## <a name="MainStep2"></a> Passaggio 2: creare un'istanza di Data factory di Azure
+## Creare un'istanza di Data Factory
 In questo passaggio si crea un'istanza di Data factory di Azure denominata **LogProcessingFactory**.
 
 1. Passare ad **Azure PowerShell** se è già aperto oppure avviare **Azure PowerShell**. Se Azure PowerShell è stato chiuso e riaperto, è necessario eseguire i comandi seguenti: 
@@ -185,7 +186,7 @@ In questo passaggio si crea un'istanza di Data factory di Azure denominata **Log
 	> Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.
 
  
-## <a name="MainStep3"></a> Passaggio 3: creare servizi collegati
+## Creazione di servizi collegati
 
 > [AZURE.NOTE] Questo articolo usa Azure PowerShell per creare servizi collegati, tabelle e pipeline. Per eseguire questa esercitazione usando il portale di Azure e in particolar modo l'Editor di Data factory, vedere l'esercitazione sull'uso dell'[Editor di Data factory][adftutorial-using-editor].
 
@@ -234,7 +235,7 @@ In questo passaggio verranno creati i servizi collegati seguenti: StorageLinkedS
 
  
 
-## <a name="MainStep4"></a> Passaggio 4: creare tabelle 
+## Creare set di dati
 In questo passaggio si creeranno le tabelle seguenti:
 
 - RawGameEventsTable
@@ -288,7 +289,7 @@ Poiché il portale di Azure classico non supporta ancora la creazione di set di 
 	
 
 
-## <a name="MainStep5"></a> Passaggio 5: creare e pianificare le pipeline
+## Creare le pipeline
 In questo passaggio si creeranno le pipeline seguenti: PartitionGameLogsPipeline, EnrichGameLogsPipeline e AnalyzeMarketingCampaignPipeline.
 
 1. In **Esplora risorse** passare alla sottocartella **Pipelines** nella cartella **C:\\ADFWalkthrough** (o nel percorso in cui si sono estratti gli esempi).
@@ -358,7 +359,7 @@ Per specificare il periodo attivo per la pipeline, è possibile usare il cmdlet 
 	**Congratulazioni.** Sono stati creati Data factory di Azure, i servizi collegati, le pipeline, le tabelle ed è stato avviato il flusso di lavoro.
 
 
-## <a name="MainStep6"></a> Passaggio 6: monitorare le pipeline e le sezioni di dati 
+## Monitorare le pipeline 
 
 1.	Se il pannello DATA FACTORY per LogProcessingFactory non è aperto, è possibile eseguire una delle operazioni seguenti:
 	1.	Fare clic su **LogProcessingFactory** nella **Schermata iniziale**. Durante la creazione dell'istanza di Data factory, l'opzione **Aggiungi alla Schermata iniziale** è stata selezionata automaticamente.
@@ -503,4 +504,4 @@ Eseguire la [Procedura dettagliata: copiare i dati dell'efficacia di una campagn
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="12/06/2015"
+      ms.date="03/21/2015"
       ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Come risolvere i problemi comuni degli editori in Azure Marketplace
@@ -25,7 +25,7 @@ In alcuni casi, potrebbe essere necessario richiedere un credito o un rimborso p
 
 Di seguito viene illustrato come richiedere un credito o un rimborso per conto di un cliente.
 
-> [AZURE.NOTE]Se un cliente o un rivenditore di Azure contatta Microsoft per richiedere un rimborso o un credito, Microsoft applicherà le stesse politiche usate per la fornitura dei servizi di Azure. Se tali politiche stabiliscono che è dovuto un rimborso o un credito, Microsoft emetterà in modo proattivo, e l'utente autorizza Microsoft all'emissione per suo conto, un rimborso o un credito per il cliente o il rivenditore di Azure, come applicabile. Se le politiche non stabiliscono che è dovuto un rimborso o un credito, Microsoft potrà invitare il cliente o il rivenditore di Azure a contattare direttamente l'utente.
+> [AZURE.NOTE] Se un cliente o un rivenditore di Azure contatta Microsoft per richiedere un rimborso o un credito, Microsoft applicherà le stesse politiche usate per la fornitura dei servizi di Azure. Se tali politiche stabiliscono che è dovuto un rimborso o un credito, Microsoft emetterà in modo proattivo, e l'utente autorizza Microsoft all'emissione per suo conto, un rimborso o un credito per il cliente o il rivenditore di Azure, come applicabile. Se le politiche non stabiliscono che è dovuto un rimborso o un credito, Microsoft potrà invitare il cliente o il rivenditore di Azure a contattare direttamente l'utente.
 
   ![1\_RequestRefund][1]
 
@@ -78,7 +78,7 @@ Per aggiornare il proprio profilo di pubblicazione, usare Microsoft Dev Center:
 
 **3. Completare la verifica per la protezione dell'account**.
 
-> [AZURE.NOTE]È possibile usare un numero di telefono o un indirizzo di posta elettronica per la verifica.
+> [AZURE.NOTE] È possibile usare un numero di telefono o un indirizzo di posta elettronica per la verifica.
 
 ![protectacct][6]
 
@@ -120,4 +120,4 @@ Per i problemi seguenti, creare una richiesta di supporto all'indirizzo [http://
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

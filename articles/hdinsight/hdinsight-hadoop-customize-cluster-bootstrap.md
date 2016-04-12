@@ -14,12 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="03/08/2016"
 	ms.author="jgao"/>
 
 # Personalizzare cluster HDInsight tramite Bootstrap
-
-[AZURE.INCLUDE [selettore](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
 A volte può essere necessario modificare i file di configurazione che includono:
 
@@ -30,7 +28,7 @@ A volte può essere necessario modificare i file di configurazione che includono
 - hive-site.xml
 - oozie-site.xml
 
-I cluster non possono conservare le modifiche a causa della creazione di nuove immagini. Per altre informazioni sulla creazione di nuove immagini, vedere [Riavvi delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Per mantenere le modifiche per l'intero ciclo di vita dei cluster, è possibile usare la personalizzazione dei cluster HDInsight durante il processo di creazione. Questo è il metodo consigliato per modificare le configurazioni di un cluster e mantenere questi eventi di riavvio Azure per la ricreazione dell'immagine. Queste modifiche alla configurazione vengono applicate prima dell'avvio del servizio, pertanto non sarà necessario riavviare i servizi.
+I cluster non possono conservare le modifiche a causa della creazione di nuove immagini. Per altre informazioni sulla creazione di nuove immagini, vedere il blog relativo ai [riavvii delle istanze del ruolo dovuti ad aggiornamenti del sistema operativo](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Per mantenere le modifiche per l'intero ciclo di vita dei cluster, è possibile usare la personalizzazione dei cluster HDInsight durante il processo di creazione. Questo è il metodo consigliato per modificare le configurazioni di un cluster e mantenere questi eventi di riavvio Azure per la ricreazione dell'immagine. Queste modifiche alla configurazione vengono applicate prima dell'avvio del servizio, pertanto non sarà necessario riavviare i servizi.
 
 Sono disponibili 3 metodi per usare Bootstrap:
 
@@ -77,11 +75,11 @@ Uno script di PowerShell completo funzionante è disponibile nell'[appendice A](
 3. Fare clic sul cluster appena creato usando lo script di PowerShell.
 4. Fare clic su **Dashboard** nella parte superiore del pannello per aprire l'interfaccia utente di Ambari.
 5. Fare clic su **Hive** nel menu di sinistra.
-6. Fare clic su **HiveServer2** da **Riepilogo**.
-7. Fare clic sulla scheda **Configurazioni**.
+6. Fare clic su **HiveServer2** da **Summary**.
+7. Fare clic sulla scheda **Configs**.
 8. Fare clic su **Hive** nel menu di sinistra.
-9. Fare clic sulla scheda **Avanzate**.
-10. Scorrere verso il basso e quindi espandere le **impostazioni avanzate hive-site**.
+9. Fare clic sulla scheda **Advanced**.
+10. Scorrere verso il basso e quindi espandere le **Advanced hive-site**.
 11. Cercare **hive.metastore.client.socket.timeout** nella sezione.
 
 Ecco altri esempi relativi alla personalizzazione di altri file di configurazione:
@@ -251,4 +249,4 @@ Questo script di PowerShell crea un cluster HDInsight e personalizza un'impostaz
 
     #endregion
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

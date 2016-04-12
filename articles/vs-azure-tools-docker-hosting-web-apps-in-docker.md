@@ -168,7 +168,7 @@ La procedura riportata di seguito è usata per la comunicazione con un host Dock
 
 Ora che è stato creato un host Docker, è possibile inviare comandi Docker ad esso. Per altre informazioni su Docker, vedere la [documentazione su Docker](https://docs.docker.com/) e l'[esercitazione in linea relativa a Docker](https://www.docker.com/tryit/).
 
-Per informazioni su come usare l'estensione di VM Docker per Linux su Azure, vedere la pagina relativa all'[estensione della macchina virtuale Docker per Linux su Azure](/virtual-machines/virtual-machines-docker-vm-extension.md).
+Per informazioni su come usare l'estensione di VM Docker per Linux su Azure, vedere la pagina relativa all'[estensione della macchina virtuale Docker per Linux su Azure](virtual-machines/virtual-machines-linux-dockerextension.md).
 
 Per problemi relativi all'uso di Docker in Visual Studio, vedere [Risoluzione dei problemi client Docker in Windows con Visual Studio](vs-azure-tools-docker-troubleshooting-docker-errors.md).
 
@@ -182,4 +182,4 @@ Per problemi relativi all'uso di Docker in Visual Studio, vedere [Risoluzione de
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

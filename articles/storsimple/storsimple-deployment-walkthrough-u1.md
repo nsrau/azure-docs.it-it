@@ -12,15 +12,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/22/2016"
+   ms.date="03/16/2016"
    ms.author="alkohli" />
 
 # Distribuire un dispositivo StorSimple locale (Aggiornamento 1)
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
-- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
-- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
+- [Aggiornamento 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Aggiornamento 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [Versione di disponibilità generale (GA)](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## Panoramica
 
@@ -33,7 +33,7 @@ Le informazioni contenute in queste esercitazioni prevedono che siano state esam
 
 Per completare il processo di installazione e configurazione sono necessari privilegi di amministratore. Si consiglia di esaminare l'elenco di controllo di pre-installazione prima di iniziare. Il processo di distribuzione e configurazione può richiedere parecchio tempo.
 
-> [AZURE.NOTE] Le informazioni sulla distribuzione di StorSimple pubblicate nel sito Web di Microsoft Azure si applicano solo ai dispositivi di StorSimple serie 8000. Per informazioni complete sui dispositivi serie 7000, vedere: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Per informazioni sulla distribuzione della serie 7000, vedere la [Guida introduttiva al sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
+> [AZURE.NOTE] Le informazioni sulla distribuzione di StorSimple pubblicate nel sito Web di Microsoft Azure si applicano solo ai dispositivi di StorSimple serie 8000. Per informazioni complete sui dispositivi serie 5000 e 7000, vedere: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Per informazioni sulla distribuzione delle serie 5000 e 7000, vedere la [Guida introduttiva al sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
 
 ## Passaggi di distribuzione
 
@@ -242,7 +242,7 @@ Per connettersi a Windows PowerShell per StorSimple, è necessario utilizzare un
 ## Cercare e applicare gli aggiornamenti
 
 L’aggiornamento del dispositivo può richiedere diverse ore. Eseguire i passaggi seguenti per la ricerca e l’applicazione degli aggiornamenti sul dispositivo.
-<!--can take 1-4 hours-->
+<!--can take 1-4 hours--> 
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -290,4 +290,4 @@ Per istruzioni sull'installazione di MPIO per un dispositivo StorSimple su un ho
 - Utilizzare il [servizio StorSimple Manager](storsimple-manager-service-administration.md) per gestire il dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

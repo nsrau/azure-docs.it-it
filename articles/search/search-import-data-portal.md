@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Importare dati in Ricerca di Azure tramite il portale | Microsoft Azure | Servizio di ricerca cloud ospitato"
-	description="Come caricare dati in un indice di Ricerca di Azure tramite il portale"
+	pageTitle="Importare dati in Ricerca di Azure tramite indicizzatori nel portale di Azure | Microsoft Azure | Servizio di ricerca cloud ospitato"
+	description="Come usare gli indicizzatori nel portale di Azure."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,16 +14,10 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/09/2016"
+	ms.date="03/10/2016"
 	ms.author="heidist"/>
 
 # Importare dati in Ricerca di Azure tramite il portale
-> [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
-- [Portal](search-import-data-portal.md)
-- [.NET](search-import-data-dotnet.md)
-- [REST API](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 Il dashboard di Ricerca di Azure nel portale di Azure include un comando **Importa dati** che facilita l'inserimento di dati in Ricerca di Azure. Il comando si basa sulla funzionalità predefinita Indicizzatori che effettua una ricerca per indicizzazione in un'origine dati esistente, creando e caricando documenti in base al set di righe trovato nell'origine dati.
 
@@ -51,8 +45,8 @@ Per usare un indicizzatore o il comando **Importa dati**, l'origine dati primari
 
 4. Fare clic su **Definisci la connessione ai dati** per specificare una definizione dell'origine dati usata da un indicizzatore. Le opzioni includono:
 	- 	L'origine dati esistente si riferisce a una definizione dell'origine dati creata in precedenza per un indicizzatore. Se nel servizio di ricerca sono già definiti indicizzatori, è possibile modificare una definizione dell'origine dati per un'altra importazione.
-	- 	Azure SQL viene usato per specificare una connessione origine dati a un database SQL in Azure o un database SQL Server in una VM di Azure. 
-	- 	DocumentDB viene usato per specificare una connessione all'origine dati per quel tipo di origine dati. 
+	- 	Azure SQL viene usato per specificare una connessione origine dati a un database SQL in Azure o un database SQL Server in una VM di Azure.
+	- 	DocumentDB viene usato per specificare una connessione all'origine dati per quel tipo di origine dati.
 
    Per Azure SQL e DocumentDB il database deve essere disponibile all'interno della sottoscrizione. È possibile incollare una stringa di connessione, se la si conosce, o scegliere un'origine dati creata in precedenza da un utente con privilegi di scrittura per la sottoscrizione.
 
@@ -71,9 +65,9 @@ Per usare un indicizzatore o il comando **Importa dati**, l'origine dati primari
 6. Fare clic su **Importare i dati** per eseguire l'operazione di importazione con l'opzione Esegui adesso o configurare una pianificazione ricorrente.
 
 L'operazione di importazione dei dati appena completata ha creato un indicizzatore in background. Ora è possibile modificare direttamente l'indicizzatore per cambiare le singole parti che lo compongono.
-	
+
 ##Modificare un indicizzatore esistente
 
 Nel dashboard del servizio fare doppio clic sul riquadro Indicizzatore per visualizzare un elenco di tutti gli indicizzatori creati per la sottoscrizione. Fare doppio clic su uno degli indicizzatori per eseguirlo, modificarlo o eliminarlo.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

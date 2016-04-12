@@ -3,9 +3,9 @@
 	description="Informazioni su come usare il Servizio tabelle da PHP per creare ed eliminare una tabella e per inserire, eliminare ed eseguire query su tabelle."
 	services="storage"
 	documentationCenter="php"
-	authors="tfitzmac"
-	manager="carmonm"
-	editor="tysonn"/>
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # Come usare l'archiviazione tabelle da PHP
@@ -478,4 +478,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](/de
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
 
-<!------HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

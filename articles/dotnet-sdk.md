@@ -63,7 +63,7 @@ Consentono di lavorare con le risorse di Azure, soprattutto Servizi cloud e Macc
 
 * [Creare, aprire e pubblicare progetti di servizi cloud](cloud-services/cloud-services-dotnet-get-started.md).
 * [Creare pacchetti di distribuzione per progetti di servizi cloud](http://msdn.microsoft.com/library/ff683672.aspx).
-* [Creare macchine virtuali di Azure durante la creazione di nuovi progetti Web](virtual-machines/virtual-machines-dotnet-create-visual-studio-powershell.md).
+* [Creare macchine virtuali di Azure durante la creazione di nuovi progetti Web](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md).
 * [Creare script di PowerShell durante la creazione di nuove macchine virtuali](http://msdn.microsoft.com/library/dn642480.aspx).
 * [Visualizzare e gestire impostazioni di progetti di servizi cloud nelle finestre delle proprietà dei progetti di Visual Studio ](http://msdn.microsoft.com/library/ee405486.aspx).
 * Visualizzare e gestire [servizi cloud](http://msdn.microsoft.com/library/ff683675.aspx), [macchine virtuali](http://msdn.microsoft.com/library/jj131259.aspx) e [bus di servizio](http://msdn.microsoft.com/library/jj149828.aspx) in Esplora server. 
@@ -186,4 +186,4 @@ Per il codice sorgente di Azure SDK per .NET, comprese le librerie client, veder
 
 Per la documentazione di riferimento sulle librerie client di Azure, vedere [Informazioni di riferimento su .NET per Azure](/documentation/api/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

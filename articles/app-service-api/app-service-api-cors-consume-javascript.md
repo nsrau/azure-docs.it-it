@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Utilizzare un'app per le API da JavaScript tramite CORS | Microsoft Azure"
-	description="Informazioni su come utilizzare un'app per le API del servizio app di Azure da un client JavaScript e con CORS."
+	pageTitle="Supporto di CORS nel servizio app | Microsoft Azure"
+	description="Informazioni su come usare il supporto di CORS nel servizio app di Azure."
 	services="app-service\api"
 	documentationCenter=".net"
 	authors="tdykstra"
@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="03/31/2016"
 	ms.author="tdykstra"/>
 
 # Utilizzare un'app per le API da JavaScript tramite CORS
 
 ## Panoramica
 
-Servizio app offre supporto incorporato per la condivisione di risorse tra le origini (CORS), che consente ai client JavaScript di eseguire chiamate tra domini alle app per le API del servizio app.
+Il servizio app include il supporto predefinito per la condivisione di risorse tra le origini (CORS), che consente ai client JavaScript di eseguire chiamate tra domini ospitati in app per le API, app Web o app per dispositivi mobili. Questa funzionalità del servizio app consente di sfruttare i vantaggi della condivisione CORS senza scrivere codice nell'API.
 
-Per motivi di sicurezza, i browser impediscono a JavaScript di eseguire chiamate API a un dominio diverso da quello da cui proviene il codice JavaScript. Ad esempio, è possibile effettuare una chiamata da una pagina Web contoso.com a un endpoint API contoso.com, ma non a un endpoint di fabrikam.com. CORS è un protocollo Internet progettato per abilitare scenari in cui è necessario eseguire tali chiamate API tra domini. Un esempio di questo scenario nel servizio app di Azure si ha quando il client JavaScript viene eseguito in un'app Web, mentre l'API viene eseguita in un'app per le API.
+[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) è un protocollo Internet che consente di effettuare chiamate API da JavaScript a un dominio diverso da quello da cui il browser ha caricato JavaScript. Senza CORS è possibile effettuare una chiamata da una pagina Web contoso.com a un endpoint API contoso.com, ma non a un endpoint di fabrikam.com.
 
 Questo articolo contiene due sezioni:
 
-* La sezione [Come configurare CORS](#corsconfig) spiega in generale come configurare CORS per qualsiasi app per le API. È applicabile anche a tutti i framework supportati dal servizio app, ad esempio .NET, Node.js e Java. 
+* La sezione [Come configurare CORS nel servizio app di Azure](#corsconfig) illustra in linea generale come configurare CORS per qualsiasi app per le API, app Web o app per dispositivi mobili. La sezione si applica allo stesso modo a tutti i framework supportati dal servizio app, inclusi .NET, Node.js e Java. 
 
-* A partire dalla sezione [Proseguimento dell'esercitazione introduttiva su .NET](#tutorialstart), l'articolo illustra in dettaglio la distribuzione di un'applicazione .NET di esempio e la configurazione di CORS, in modo che il front-end JavaScript possa chiamare il back-end dell'API Web.
+* A partire dalla sezione [Proseguimento dell'esercitazione introduttiva su .NET](#tutorialstart) l'articolo è un'esercitazione che illustra il supporto di CORS basandosi su quanto è stato fatto in [Introduzione alle app per le API e ad ASP.NET nel servizio app di Azure](app-service-api-dotnet-get-started.md).
 
 ## <a id="corsconfig"></a> Come configurare CORS nel servizio app di Azure
 
@@ -40,11 +40,11 @@ Questo articolo contiene due sezioni:
 
 2. Fare clic su **Servizi app** e quindi sul nome dell'app per le API.
 
-	![](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
+	![Selezionare un'app per le API nel portale](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
 
 10. Nel pannello **Impostazioni** che viene visualizzato a destra del pannello **App per le API** trovare la sezione **API** e quindi fare clic su **CORS**.
 
-	![](./media/app-service-api-cors-consume-javascript/clicksettings.png)
+	![Selezionare CORS nel pannello Impostazioni](./media/app-service-api-cors-consume-javascript/clicksettings.png)
 
 11. Nella casella di testo immettere l'URL o gli URL da cui consentire le chiamate JavaScript.
 
@@ -54,7 +54,7 @@ Questo articolo contiene due sezioni:
 
 13. Fare clic su **Save**.
 
-	![](./media/app-service-api-cors-consume-javascript/corsinportal.png)
+	![Fare clic su Salva.](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
 	Dopo aver fatto clic su **Salva**, l'app per le API accetterà le chiamate JavaScript dagli URL specificati.
 
@@ -78,7 +78,7 @@ Il resto di questo articolo è una continuazione della serie introduttiva su .NE
 
 ## Distribuire il progetto ToDoListAngular in una nuova app Web
 
-Nella [prima esercitazione](app-service-api-dotnet-get-started.md) è stata creata un'app per le API di livello intermedio e un'app per le API di livello dati. In questa esercitazione si creerà un'app Web di applicazione a singola pagina che chiama l'app per le API di livello intermedio. Per consentire il funzionamento dell'applicazione a singola pagina, si dovrà abilitare CORS nell'app per le API di livello intermedio.
+Nella [prima esercitazione](app-service-api-dotnet-get-started.md) è stata creata un'app per le API di livello intermedio e un'app per le API di livello dati. In questa esercitazione si creerà un'app Web di applicazione a singola pagina che chiama l'app per le API di livello intermedio. Per consentire il funzionamento dell'applicazione a singola pagina, si deve abilitare CORS nell'app per le API di livello intermedio.
 
 Nell'[applicazione di esempio ToDoList](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) il progetto ToDoListAngular è un semplice client AngularJS che chiama il progetto API Web ToDoListAPI di livello intermedio. Il codice JavaScript nel file *app/scripts/todoListSvc.js* chiama l'API usando il provider HTTP AngularJS.
 
@@ -104,7 +104,7 @@ Nell'[applicazione di esempio ToDoList](https://github.com/Azure-Samples/app-ser
 
 ### Creare una nuova app Web per il progetto ToDoListAngular
 
-La procedura per creare una nuova app Web e per distribuirvi un progetto è la stessa illustrata nella prima esercitazione di questa serie, ad eccezione del fatto che il tipo di app è **app Web** invece di **app per le API**.
+La procedura per creare una nuova app Web e per distribuirvi un progetto è simile a quella illustrata nella prima esercitazione di questa serie. L'unica differenza è che il tipo di app è **App Web** anziché **App per le API**.
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto ToDoListAngular e quindi scegliere **Pubblica**.
 
@@ -124,7 +124,7 @@ La procedura per creare una nuova app Web e per distribuirvi un progetto è la s
 
 	Visual Studio crea l'app Web, crea un profilo di pubblicazione per l'app e visualizza il passaggio **Connessione** della procedura guidata **Pubblica sito Web**.
 
-	Prima di scegliere **Pubblica** nella procedura guidata **Pubblica sito Web**, configurare la nuova app Web per la chiamata all'app per le API di livello intermedio in esecuzione nel servizio app.
+	Non è ancora il momento di fare clic su **Pubblica**. Nella sezione seguente si configura la nuova app Web per la chiamata all'app per le API di livello intermedio in esecuzione nel servizio app.
 
 ### Impostare l'URL di livello intermedio nelle impostazioni dell'app Web
 
@@ -136,11 +136,11 @@ La procedura per creare una nuova app Web e per distribuirvi un progetto è la s
 
 	|Chiave|Valore|Esempio
 	|---|---|---|
-	|toDoListAPIURL|https://{your nome dell'app per le API di livello intermedio}.azurewebsites.net|https://todolistapi0121.azurewebsites.net|
+	|toDoListAPIURL|https://{your dell'app per le API di livello intermedio}.azurewebsites.net|https://todolistapi0121.azurewebsites.net|
 
 4. Fare clic su **Save**.
 
-	Quando il codice è in esecuzione in Azure, questo valore sostituisce l'URL localhost contenuto nel file Web.config.
+	Quando il codice è in esecuzione in Azure, questo valore sostituisce l'URL localhost contenuto nel file *Web.config*.
 
 	Il codice che ottiene il valore dell'impostazione è in *index.cshtml*:
 
@@ -174,7 +174,7 @@ La procedura per creare una nuova app Web e per distribuirvi un progetto è la s
 
 ### Distribuire il progetto Web ToDoListAngular nella nuova app Web
 
-*  Nel passaggio **Connessione** della procedura guidata **Pubblica sito Web** di Visual Studio fare clic su **Pubblica**.
+*  Nel passaggio **Connessione** della procedura guidata **Pubblica sul Web** fare clic su **Pubblica**.
 
 	Visual Studio distribuisce il progetto ToDoListAngular nella nuova app Web e apre un browser all'URL dell'app Web.
 
@@ -184,33 +184,33 @@ La procedura per creare una nuova app Web e per distribuirvi un progetto è la s
 
 3. Nella finestra del browser che visualizza l'interfaccia utente di AngularJS fare clic sul collegamento **To Do List**.
 
-	Il codice JavaScript prova a chiamare l'app per le API di livello intermedio, ma la chiamata non riesce perché il front-end è in esecuzione in un dominio diverso (URL dell'app web) da quello del back-end (URL dell'app per le API). La finestra della console degli strumenti di sviluppo del browser mostra un messaggio di errore tra origini.
+	Il codice JavaScript prova a chiamare l'app per le API di livello intermedio, ma la chiamata non riesce perché il front-end è in esecuzione in un dominio diverso da quello del back-end. La finestra della console degli strumenti di sviluppo del browser mostra un messaggio di errore tra origini.
 
-	![](./media/app-service-api-cors-consume-javascript/consoleaccessdenied.png)
+	![Messaggio di errore tra le origini](./media/app-service-api-cors-consume-javascript/consoleaccessdenied.png)
 
 ## Configurare CORS per l'app per le API di livello intermedio
 
-In questa sezione si configurerà l'app per le API ToDoListAPI per consentire le chiamate JavaScript dall'app Web creata per il progetto ToDoListAngular.
+In questa sezione si configura l'app per le API ToDoListAPI per consentire le chiamate JavaScript dall'app Web creata per il progetto ToDoListAngular.
  
 8. Nel browser passare al [portale di Azure](https://portal.azure.com/).
 
-2. Fare clic su **servizi App** e quindi fare clic su app per le API ToDoListAPI (di livello intermedio).
+2. Fare clic su **Servizi app** e quindi fare clic sull'app per le API ToDoListAPI (livello intermedio).
 
-	![](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
+	![Selezionare un'app per le API nel portale](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
 
 10. Nel pannello **Impostazioni** che viene visualizzato a destra del pannello **App per le API** trovare la sezione **API** e quindi fare clic su **CORS**.
 
-	![](./media/app-service-api-cors-consume-javascript/clicksettings.png)
+	![Selezionare CORS nel portale](./media/app-service-api-cors-consume-javascript/clicksettings.png)
 
-12. Nella casella di testo immettere l'URL per l'app Web (front-end) ToDoListAngular. Ad esempio, se è stato distribuito il progetto ToDoListAngular in un'app Web denominata todolistangular0121, consentire le chiamate dall'URL `https://todolistangular0121.azurewebsites.net`.
+12. Nella casella di testo immettere l'URL per l'app Web ToDoListAngular (front-end). Ad esempio, se è stato distribuito il progetto ToDoListAngular in un'app Web denominata todolistangular0121, consentire le chiamate dall'URL `https://todolistangular0121.azurewebsites.net`.
 
 	In alternativa, è possibile immettere un asterisco (*) per specificare che vengono accettati tutti i domini di origine.
 
 13. Fare clic su **Save**.
 
-	![](./media/app-service-api-cors-consume-javascript/corsinportal.png)
+	![Fare clic su Salva.](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
-	Dopo aver fatto clic su **Salva**, l'app per le API accetterà le chiamate JavaScript dagli URL specificati. In questa schermata, l'app per le API ToDoListAPI0223 accetterà le chiamate client JavaScript dall'app Web ToDoListAngular.
+	Dopo aver fatto clic su **Salva**, l'app per le API accetterà le chiamate JavaScript dall'URL specificato. In questa schermata, l'app per le API ToDoListAPI0223 accetterà le chiamate client JavaScript dall'app Web ToDoListAngular.
 
 ### Testare l'applicazione con CORS abilitato
 
@@ -218,11 +218,11 @@ In questa sezione si configurerà l'app per le API ToDoListAPI per consentire le
 
 	Questa volta l'applicazione consente di visualizzare, aggiungere, modificare ed eliminare attività.
 
-	![](./media/app-service-api-cors-consume-javascript/corssuccess.png)
+	![Pagina To Do List dell'app di esempio](./media/app-service-api-cors-consume-javascript/corssuccess.png)
 
 ## CORS del servizio app e CORS di API Web
 
-In un progetto di API Web è possibile installare il pacchetto NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) per specificare nel codice i domini da cui l'API accetterà chiamate JavaScript.
+In un progetto API Web è possibile installare il pacchetto NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) per specificare nel codice i domini da cui l'API accetterà chiamate JavaScript.
  
 Il supporto di CORS per l'API Web è più flessibile del supporto di CORS per il servizio app. Ad esempio, nel codice è possibile specificare origini accettate diverse a seconda del metodo di azione, mentre per CORS per il servizio app si specifica un set di origini accettate per tutti i metodi di un'app per le API.
 
@@ -264,10 +264,23 @@ I passaggi seguenti riepilogano il processo di abilitazione del supporto di CORS
 		    [EnableCors(origins:"*", headers:"*", methods: "*")]
 		    public class ToDoListController : ApiController
  
-	> **Nota**: l'uso dei caratteri jolly per tutti i parametri con l'attributo `EnableCors` è concepito solo a scopo dimostrativo e rende accessibile l'API a tutte le origini e tutte le richieste HTTP. Usare questo attributo con cautela.
+	> **Nota**: usare questo attributo con cautela. Se si specificano caratteri jolly per tutti i parametri, l'API sarà aperta a tutte le origini e a tutte le richieste HTTP. Le impostazioni riportate di seguito sono solo a scopo dimostrativo.
+
+## Risoluzione dei problemi
+
+Se si verifica un problema durante l'esecuzione di questa esercitazione, assicurarsi che sia in uso la versione più recente di Azure SDK per .NET. Il modo più semplice per farlo consiste nel procedere al [download di Azure SDK per Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Se è installata la versione corrente, l'Installazione guidata piattaforma Web informa che non è necessaria alcuna installazione.
+
+Se dopo aver impostato un URL nel pannello CORS del portale si continua a ricevere errori CORS, accertarsi che siano state apportate le giuste modifiche nei punti appropriati. Ad esempio:
+
+* Verificare che il protocollo sia stato immesso correttamente, ovvero `https` anziché `http`, e assicurarsi di usare `https` per eseguire l'app Web front-end.
+* Verificare che le impostazioni CORS siano state immesse nell'app per le API di livello intermedio anziché nell'app Web front-end.
+
+Se si sta configurando CORS nel codice dell'applicazione e nel servizio app di Azure, si noti che l'impostazione CORS del servizio app sovrascrive ogni altra cosa nel codice dell'applicazione.
+
+Per altre informazioni sulle funzionalità di Visual Studio che semplificano la risoluzione dei problemi, vedere [Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Passaggi successivi 
 
-In questa esercitazione è stato illustrato come abilitare il supporto per CORS del servizio app perché il codice JavaScript del client possa chiamare un'API in un dominio diverso. Nel prossimo articolo della serie introduttiva alle app per le API viene illustrata l'[autenticazione per le app per le API del servizio app](app-service-api-authentication.md).
+In questo articolo è stato illustrato come abilitare il supporto di CORS del servizio app perché il codice JavaScript del client possa chiamare un'API in un dominio diverso. Nel prossimo articolo della serie introduttiva alle app per le API viene illustrata l'[autenticazione per le app per le API del servizio app](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

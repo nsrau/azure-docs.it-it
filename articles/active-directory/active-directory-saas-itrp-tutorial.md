@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/05/2016" 
+    ms.date="03/16/2016" 
     ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con ITRP
@@ -37,7 +37,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per ITRP
 
 ###Per abilitare l'integrazione dell'applicazione per ITRP, seguire questa procedura:
 
-1.  Nel portale di gestione di Azure fare clic su **Active Directory** nel pannello di navigazione sinistro.
+1.  Nel portale di Azure classico fare clic su **Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory](./media/active-directory-saas-itrp-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 ###Per configurare l'accesso Single Sign-On, seguire questa procedura:
 
-1.  Nella pagina di integrazione dell'applicazione **ITRP** del portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+1.  Nella pagina di integrazione dell'applicazione **ITRP** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configura accesso Single Sign-On")
 
@@ -101,15 +101,15 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775573.png "Single Sign-On")
 
     1.  Fare clic su **Abilita**.
-    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in ITRP** del portale di Azure copiare il valore di **URL disconnessione remota** e quindi incollarlo nella casella di testo **URL di disconnessione remota**.
-    3.  Nella finestra di dialogo **Configura accesso Single Sign-On in ITRP** del portale di Azure copiare il valore di **URL SSO SAML** e quindi incollarlo nella casella di testo **SAML SSO URL**.
+    2.  Nella finestra di dialogo **Configura accesso Single Sign-On in ITRP** del portale di Azure classico copiare il valore di **URL disconnessione remota** e quindi incollarlo nella casella di testo **Remote Logout URL**.
+    3.  Nella finestra di dialogo **Configura accesso Single Sign-On in ITRP** del portale di Azure classico copiare il valore di **URL SSO SAML** e quindi incollarlo nella casella di testo **SAML SSO URL**.
     4.  Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronta digitale del certificato**.
         
 		>[AZURE.TIP]Per informazioni dettagliate, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
 
-    5.  Fare clic su **Save**.
+    5.  Fare clic su **Salva**.
 
-9.  Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
+9.  Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configura accesso Single Sign-On")
 ##Configurazione del provisioning utente
@@ -139,7 +139,7 @@ Per consentire agli utenti di Azure AD di accedere a ITRP, è necessario eseguir
     1.  Nelle caselle di testo **Name** ed **Email** digitare il nome l'indirizzo di posta elettronica di un account AAD valido di cui si vuole eseguire il provisioning.
     2.  Fare clic su **Salva**.
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da ITRP per eseguire il provisioning degli account utente di AAD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da ITRP per eseguire il provisioning degli account utente di AAD.
 
 ##Assegnazione degli utenti
   
@@ -159,4 +159,4 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

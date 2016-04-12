@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Uso di Hub di notifica per inviare le ultime notizie
@@ -128,7 +128,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
 	Nel codice precedente sostituire i segnaposto `<hub name>` e `<connection string with listen access>` con il nome dell'hub di notifica e la stringa di connessione per *DefaultListenSharedAccessSignature* ottenuta in precedenza.
 
-	> [AZURE.NOTE]Poiché le credenziali che sono distribuite con un'app client in genere non sono sicure, distribuire solo la chiave per l'accesso Listen con l'app client. L'accesso Listen consente all'app di registrarsi per le notifiche ma le registrazioni esistenti non possono essere modificate e le notifiche non possono essere inviate. La chiave di accesso completo viene usata in un servizio back-end sicuro per l'invio delle notifiche e la modifica delle registrazioni esistenti.
+	> [AZURE.NOTE] Poiché le credenziali che sono distribuite con un'app client in genere non sono sicure, distribuire solo la chiave per l'accesso Listen con l'app client. L'accesso Listen consente all'app di registrarsi per le notifiche ma le registrazioni esistenti non possono essere modificate e le notifiche non possono essere inviate. La chiave di accesso completo viene usata in un servizio back-end sicuro per l'invio delle notifiche e la modifica delle registrazioni esistenti.
 
 5. In MainPage.xaml.cs aggiungere la riga seguente:
 
@@ -161,7 +161,7 @@ L'app può quindi archiviare un set di categorie nell'archiviazione locale del d
 
 Questa procedura consente di effettuare la registrazione con l'hub di notifica all'avvio usando le categorie archiviate nella risorsa di archiviazione locale.
 
-> [AZURE.NOTE]Poiché l'URI di canale assegnato dal servizio di notifica Windows può cambiare in qualsiasi momento, è necessario ripetere di frequente la registrazione per le notifiche per evitare errori di notifica. In questo esempio viene effettuata la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite di frequente, oltre una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
+> [AZURE.NOTE] Poiché l'URI di canale assegnato dal servizio di notifica Windows può cambiare in qualsiasi momento, è necessario ripetere di frequente la registrazione per le notifiche per evitare errori di notifica. In questo esempio viene effettuata la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite di frequente, oltre una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
 
 1. Aprire il file App.xaml.cs e aggiornare il metodo **InitNotificationsAsync** per utilizzare la classe `notifications` per la sottoscrizione in base alle categorie.
 
@@ -258,4 +258,4 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -59,12 +59,12 @@ In questa esercitazione verrà creata una tabella in Azure SQL Data Warehouse e 
 
 Da un prompt dei comandi connettersi all'istanza usando il comando seguente, sostituendo i valori in base alla necessità:
 
-```
+```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
 ```
 Dopo la connessione, copiare lo script di tabella seguente nel prompt di sqlcmd e quindi premere INVIO:
 
-```
+```sql
 CREATE TABLE DimDate2
 (
     DateId INT NOT NULL,
@@ -106,13 +106,13 @@ Salvare il file nella directory temporanea locale, C:\\Temp\\DimDate2.txt.
 ### Passaggio 3: Connettersi e importare i dati
 bcp permette di connettersi e importare i dati usando il comando seguente, sostituendo i valori in base alla necessità:
 
-```
+```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
 Per verificare il caricamento dei dati, connettersi con sqlcmd come indicato in precedenza ed eseguire il comando TSQL seguente:
 
-```
+```sql
 SELECT * FROM DimDate2 ORDER BY 1;
 GO
 ```
@@ -140,7 +140,7 @@ SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione auto
 
 Da un prompt di sqlcmd, eseguire le istruzioni CREATE STATISTICS seguenti:
 
-```
+```sql
 create statistics [DateId] on [DimDate2] ([DateId]);
 create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
@@ -154,7 +154,7 @@ In questa esercitazione verrà creato un file di dati da una tabella in SQL Data
 
 L'utilità bcp permette di connettersi ed esportare i dati usando il comando seguente, sostituendo i valori in base alla necessità:
 
-```
+```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
 Per verificare che i dati siano stati esportati correttamente, aprire il nuovo file. I dati del file devono corrispondere al testo seguente:
@@ -196,4 +196,4 @@ Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehous
 <!--Other Web references-->
 [Area download Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -195,9 +195,13 @@ La ricerca degli eventi END funziona come gli eventi START. Tuttavia, gli eventi
 
 Quando si è pronti per arrestare la topologia, tornare al progetto **CorrelationTopology** in Visual Studio. Nella finestra **Storm Topology View**, selezionare la topologia, quindi utilizzare il pulsante **Kill** nella parte superiore della visualizzazione topologia.
 
+##Eliminare il cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##Passaggi successivi
 
 Per altri esempi di Storm, vedere [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

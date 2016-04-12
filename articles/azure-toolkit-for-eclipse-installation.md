@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016" 
+    ms.date="03/28/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
-# Installare il Toolkit di Azure per Eclipse. #
+# Installare il Toolkit di Azure per Eclipse.
 
 Il Toolkit di Azure per Eclipse offre modelli e funzionalità che permettono di creare, sviluppare, testare e distribuire con facilità applicazioni di Azure tramite l'ambiente di sviluppo Eclipse. Si tratta di un progetto Open Source, il cui codice sorgente è disponibile sotto la licenza Apache 2.0 dal sito del progetto in GitHub all'indirizzo seguente:
 
-<https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava>.
+<https://github.com/microsoft/azure-tools-for-java>
 
 La procedura seguente mostra come installare il Toolkit di Azure per Eclipse.
 
 [AZURE.INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
-## Per installare il Toolkit di Azure per Eclipse ##
+## Per installare il Toolkit di Azure per Eclipse
 
 1. Avviare Eclipse.
 2. In Eclipse, nel menu fare clic su <strong>Guida</strong>, quindi fare clic su <strong>Installa nuovo Software</strong>, come illustrato nel diagramma seguente.
@@ -49,15 +49,15 @@ La procedura seguente mostra come installare il Toolkit di Azure per Eclipse.
 8. Nella finestra di dialogo **Esaminare licenze**, rivedere le condizioni dei contratti di licenza. Se si accettano le condizioni dei contratti di licenza, fare clic su **Accetto le condizioni dei contratti di licenza** e quindi fare clic su **Fine**. (I passaggi rimanenti suppongono che le condizioni dei contratti di licenza siano state accettate. Se non si accettano le condizioni dei contratti di licenza, uscire dal processo di installazione.)
 9. Se viene richiesto di riavviare Eclipse per completare l'installazione, fare clic su **Riavvia ora**.
 
-## Vedere anche ##
+## Vedere anche
 
-[Toolkit di Azure per Eclipse][]
+[Toolkit di Azure per Eclipse]
 
-[Creare un'applicazione Hello World per Azure in Eclipse][]
+[Creare un'applicazione Hello World per Azure in Eclipse]
 
-[Novità nel Toolkit di Azure per Eclipse][]
+[Novità nel Toolkit di Azure per Eclipse]
 
-Per altre informazioni sull'uso di Azure con Java, visitare il [centro per sviluppatori Java di Azure][].
+Per altre informazioni sull'uso di Azure con Java, visitare il [centro per sviluppatori Java di Azure].
 
 <!-- URL List -->
 
@@ -74,4 +74,4 @@ Per altre informazioni sull'uso di Azure con Java, visitare il [centro per svilu
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

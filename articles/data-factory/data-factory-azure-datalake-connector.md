@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Spostare dati da e in Archivio Azure Data Lake | Data factory di Azure"
+	pageTitle="Spostare dati da e in Archivio Azure Data Lake | Azure Data Factory"
 	description="Informazioni su come spostare i dati da e in Archivio Azure Data Lake con Data factory di Azure"
 	services="data-factory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="03/21/2016"
 	ms.author="spelluru"/>
 
 # Spostare dati da e in Archivio Azure Data Lake con Data factory di Azure
@@ -58,7 +58,7 @@ L'esempio copia i dati appartenenti a una serie temporale da un archivio BLOB di
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -69,7 +69,7 @@ L'esempio copia i dati appartenenti a una serie temporale da un archivio BLOB di
 La procedura seguente descrive i passaggi per la creazione di un servizio collegato di Archivio Azure Data Lake usando l'editor di Data factory.
 
 1. Fare clic su **Nuovo archivio dati** sul barra dei comandi e scegliere **Archivio Azure Data Lake**.
-2. Nell'editor JSON immettere l'URI di Data Lake per la proprietà **datalakeUri**.
+2. Nell'editor JSON per la proprietà **dataLakeStoreUri** immettere l'URI per il Data Lake.
 3. Fare clic sul pulsante **Autorizza** sulla barra dei comandi. Verrà visualizzata una finestra popup.
 
 	![Pulsante Autorizza](./media/data-factory-azure-data-lake-connector/authorize-button.png)
@@ -235,7 +235,7 @@ L'esempio copia i dati appartenenti a una serie temporale da un Archivio Azure D
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -405,7 +405,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 | Proprietà | Descrizione | Obbligatorio |
 | :-------- | :----------- | :-------- |
 | type | La proprietà type deve essere impostata su: **AzureDataLakeStore** | Sì |
-| dataLakeUri | Specificare le informazioni sull'account Archivio Azure Data Lake. È nel formato seguente: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Sì |
+| dataLakeStoreUri | Specificare le informazioni sull'account Archivio Azure Data Lake. È nel formato seguente: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Sì |
 | authorization | Fare clic sul pulsante **Autorizza** nell'**Editor di Data factory** e immettere le credenziali, per assegnare l'URL di autorizzazione generato automaticamente a questa proprietà. | Sì |
 | sessionId | ID sessione OAuth dalla sessione di autorizzazione oauth. Ogni ID sessione è univoco e può essere usato solo una volta. Viene generato automaticamente quando si usa l'editor di Data factory. | Sì |  
 | accountName | Nome dell'account Data Lake | No |
@@ -418,7 +418,7 @@ Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scaden
 | Tipo di utente | Scade dopo |
 | :-------- | :----------- | 
 | Account utente NON gestiti da Azure Active Directory (@hotmail.com, @live.com, ecc.) | 12 ore |
-| Account utente gestiti da Azure Active Directory (AAD) | | 14 giorni dopo l'esecuzione dell'ultima sezione. <p>90 giorni, se viene eseguita una sezione basata sul servizio collegato OAuth almeno una volta ogni 14 giorni.</p> |
+| Account utente gestiti da Azure Active Directory (AAD) | 14 giorni dopo l'esecuzione dell'ultima sezione. <br/><br/>90 giorni, se viene eseguita una sezione basata sul servizio collegato OAuth almeno una volta ogni 14 giorni. |
 
 Per evitare/risolvere questo problema, alla **scadenza del token** è necessario ripetere l'autorizzazione con il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà **sessionId** e **authorization** a livello di codice usando il codice riportato nella sezione seguente.
 
@@ -447,7 +447,7 @@ Per evitare/risolvere questo problema, alla **scadenza del token** è necessario
         }
     }
 
-Per informazioni dettagliate sulle classi di Data factory usate nel codice, vedere gli argomenti [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). È necessario aggiungere un riferimento a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll per la classe WindowsFormsWebAuthenticationDialog.
+Vedere gli argomenti [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) sulle classi di Data Factory usate nel codice. È necessario aggiungere un riferimento a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll per la classe WindowsFormsWebAuthenticationDialog.
  
 
 ## Proprietà del tipo di set di dati di Azure Data Lake
@@ -459,9 +459,9 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce
 | Proprietà | Descrizione | Obbligatorio |
 | :-------- | :----------- | :-------- |
 | folderPath | Percorso del contenitore e della cartella nell'Archivio Azure Data Lake. | Sì |
-| fileName | <p>Il nome del file in fileName nell'archivio di Azure Data Lake è facoltativo e distingue tra maiuscole e minuscole. </p><p>Se si specifica un nome file, l'attività (inclusa la copia) funziona sul file specifico.</p><p>Quando fileName non è specificato, la copia include tutti i file nella proprietà folderPath per il set di dati di input.</p><p>Quando fileName non è specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: Data.<Guid>.txt (ad esempio, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
+| fileName | Il nome del file in fileName nell'archivio di Azure Data Lake è facoltativo e distingue tra maiuscole e minuscole. <br/><br/>Se si specifica un nome file, l'attività (inclusa la copia) funziona sul file specifico.<br/><br/>Quando fileName non è specificato, la copia include tutti i file nella proprietà folderPath per il set di dati di input.<br/><br/>Quando fileName non è specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: Data.<Guid>.txt (ad esempio, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No |
 | partitionedBy | partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. Vedere la sezione Uso della proprietà partitionedBy di seguito per informazioni dettagliate ed esempi. | No |
-| format | Sono supportati due tipi di formati: **TextFormat** e **AvroFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per altri dettagli, vedere la sezione [Specifica di TextFormat](#specifying-textformat) disponibile di seguito. | No |
+| format | Sono supportati tre tipi di formati: **TextFormat**, **AvroFormat** e **JsonFormat**. È necessario impostare la proprietà type nel formato su uno di questi due valori. Quando il formato è TextFormat, è possibile specificare ulteriori proprietà facoltative per il formato. Per altri dettagli, vedere la sezione [Specifica di TextFormat](#specifying-textformat) disponibile di seguito. Se si usa JsonFormat, vedere [Impostazione di JsonFormat](#specifying-jsonformat). | No
 | compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono: **GZip**, **Deflate** e **BZip2** e i livelli supportati sono: **Ottimale** e **Più veloce**. Si noti che le impostazioni di compressione non sono attualmente supportate per i dati **AvroFormat**. Per altre informazioni, vedere la sezione [Supporto della compressione](#compression-support). | No |
 
 ### Uso della proprietà partitionedBy
@@ -501,12 +501,12 @@ Se il formato è impostato su **TextFormat**, è possibile specificare le propri
 | -------- | ----------- | -------- |
 | columnDelimiter | Carattere usato come separatore di colonne in un file. In questa fase è consentito un solo carattere. Questo tag è facoltativo. Il valore predefinito è la virgola (,). | No |
 | rowDelimiter | Carattere usato come separatore di righe in un file. In questa fase è consentito un solo carattere. Questo tag è facoltativo. Il valore predefinito è uno dei seguenti: ["\\r\\n", "\\r"," \\n"]. | No |
-| escapeChar | <p>Carattere speciale usato per eseguire l'escape di un delimitatore di colonna visualizzato nel contenuto. Questo tag è facoltativo. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere.</p><p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire '$' come carattere di escape e usare la stringa "Hello$, world" nell'origine.</p><p>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No | 
-| quoteChar | <p>Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Questo tag è facoltativo. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere .</p><p>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire '"' come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.</p><p>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella.</p> | No |
-| nullValue | <p>Carattere/i usato/i per rappresentare un valore null nel contenuto del file BLOB. Questo tag è facoltativo. Il valore predefinito è "\\N".</p><p>Ad esempio, in base al precedente esempio, "NaN" in BLOB verrà tradotto come valore null durante la copia in SQL Server.</p> | No |
+| escapeChar | Carattere speciale usato per eseguire l'escape di un delimitatore di colonna visualizzato nel contenuto. Questo tag è facoltativo. Nessun valore predefinito. È necessario specificare al massimo un carattere per questa proprietà.<br/><br/>Ad esempio, se la virgola (,) viene usata come delimitatore di colonna ma si vuole inserire una virgola nel testo, come in "Hello, world", è possibile definire '$' come carattere di escape e usare la stringa "Hello$, world" nell'origine.<br/><br/>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella. | No | 
+| quoteChar | Carattere speciale usato per inserire il valore della stringa tra virgolette. I delimitatori di colonne e righe tra virgolette vengono considerati come parte del valore stringa. Questo tag è facoltativo. Nessun valore predefinito. Per questa proprietà è necessario specificare non più di un carattere .<br/><br/>Ad esempio, se è presente una virgola (,) come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello  world>), è possibile definire '"' come carattere virgolette e usare la stringa <"Hello, world"> nell'origine. Questa proprietà è applicabile sia alle tabelle di input che a quelle di output.<br/><br/>Si noti che non è possibile specificare sia escapeChar che quoteChar per una tabella. | No |
+| nullValue | Carattere/i usato/i per rappresentare un valore null nel contenuto del file BLOB. Questo tag è facoltativo. Il valore predefinito è "\\N".<br/><br/>Ad esempio, in base al precedente esempio, "NaN" in BLOB verrà tradotto come valore null durante la copia in SQL Server. | No |
 | encodingName | Specificare il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Ad esempio: windows-1250 o shift\_jis. Il valore predefinito è UTF-8. | No | 
 
-#### Esempi
+#### Esempio di TextFormat
 L'esempio seguente illustra alcune delle proprietà del formato per TextFormat.
 
 	"typeProperties":
@@ -537,6 +537,7 @@ Se il formato è impostato su AvroFormat, non è necessario specificare propriet
 
 Per usare il formato Avro in una tabella Hive, fare riferimento all'[esercitazione su Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
+[AZURE.INCLUDE [data-factory-json-format](../../includes/data-factory-json-format.md)]
 
 ### Supporto della compressione  
 L'elaborazione di set di dati di grandi dimensioni può causare colli di bottiglia I/O e di rete. Pertanto, i dati compressi negli archivi possono non solo velocizzare il trasferimento dei dati attraverso la rete e risparmiare spazio su disco, ma apportare anche miglioramenti significativi delle prestazioni nell'elaborazione di dati di grandi dimensioni. Attualmente, la compressione è supportata per gli archivi di dati basati su file, ad esempio BLOB di Azure o il file system locale.
@@ -598,7 +599,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Specifica il comportamento di copia. | <p>**PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione; ad esempio, il percorso relativo del file di origine per la cartella di origine è identico al percorso relativo del file di destinazione per la cartella di destinazione.</p><p>**FlattenHierarchy:** tutti i file dalla cartella di origine saranno nel primo livello della cartella di destinazione. I file di destinazione avranno un nome generato automaticamente.</p><p>**MergeFiles:** unisce tutti i file dalla cartella di origine in un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente.</p> | No |
+| copyBehavior | Specifica il comportamento di copia. | **PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione, ovvero il percorso relativo del file di origine per la cartella di origine è identico al percorso relativo del file di destinazione per la cartella di destinazione.<br/><br/>**FlattenHierarchy:** tutti i file dalla cartella di origine saranno nel primo livello della cartella di destinazione. I file di destinazione avranno un nome generato automaticamente.<br/><br/>**MergeFiles:** unisce tutti i file dalla cartella di origine in un file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente. | No |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -607,4 +608,4 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano, i
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

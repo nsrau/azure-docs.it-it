@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Progettazione di tabelle in SQL Data Warehouse #
@@ -59,7 +59,7 @@ SQL Data Warehouse supporta i tipi di dati aziendali comuni elencati di seguito:
 
 Per identificare le colonne del data warehouse che contengono tipi non compatibili, è possibile usare la query seguente:
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -117,13 +117,13 @@ Supporto parziale:
 
 - I vincoli predefiniti supportano solo valori letterali e costanti. Le espressioni o le funzioni non deterministiche, ad esempio `GETDATE()` o `CURRENT_TIMESTAMP`, non sono supportate.
 
-> [AZURE.NOTE]Definire le tabelle in modo che le dimensioni massime possibili della riga, inclusa la lunghezza totale delle colonne a lunghezza variabile, non superino 32.767 byte. Anche se è possibile definire una riga con dati a lunghezza variabile che possono superare questa cifra, non si potranno inserire dati nella tabella. Provare anche a limitare le dimensioni delle colonne a lunghezza variabile per migliorare la velocità effettiva delle query in esecuzione.
+> [AZURE.NOTE] Definire le tabelle in modo che le dimensioni massime possibili della riga, inclusa la lunghezza totale delle colonne a lunghezza variabile, non superino 32.767 byte. Anche se è possibile definire una riga con dati a lunghezza variabile che possono superare questa cifra, non si potranno inserire dati nella tabella. Provare anche a limitare le dimensioni delle colonne a lunghezza variabile per migliorare la velocità effettiva delle query in esecuzione.
 
 ## Principi della distribuzione dei dati
 
 Per distribuire i dati in SQL Data Warehouse sono disponibili due opzioni:
 
-1. Distribuire i dati in modo uniforme ma casuale 
+1. Distribuire i dati in modo uniforme ma casuale
 2. Distribuire i dati in base ai valori hash di una singola colonna
 
 La distribuzione dei dati viene decisa a livello di tabella. Tutte le tabelle vengono distribuite. Si assegnerà distribuzione per ogni tabella nel database SQL Data Warehouse.
@@ -138,7 +138,7 @@ La distribuzione round robin è un metodo di suddivisone quanto più possibile u
 
 Di seguito è riportato un esempio di tabella con distribuzione round robin:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -158,7 +158,7 @@ WITH
 
 Anche questo è un esempio di tabella con distribuzione round robin:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -175,13 +175,13 @@ WITH
 ;
 ```
 
-> [AZURE.NOTE]Nel secondo esempio precedente, come si noterà, non viene fatto alcun accenno alla chiave di distribuzione. Round robin è l'opzione predefinita e quindi la chiave non è assolutamente necessaria. È tuttavia considerata una procedura consigliata, perché assicura che i peer conoscano le intenzioni dell'autore durante la revisione della progettazione della tabella.
+> [AZURE.NOTE] Nel secondo esempio precedente, come si noterà, non viene fatto alcun accenno alla chiave di distribuzione. Round robin è l'opzione predefinita e quindi la chiave non è assolutamente necessaria. È tuttavia considerata una procedura consigliata, perché assicura che i peer conoscano le intenzioni dell'autore durante la revisione della progettazione della tabella.
 
 Questo tipo di tabella viene usato comunemente quando non sono presenti colonne chiave ovvie in base alle quali eseguire l'hashing dei dati. Può essere usato anche in tabelle più piccole o meno significative in cui il costo dello spostamento potrebbe non essere così elevato.
 
 Il caricamento di dati in una tabella con distribuzione round robin tende a essere più veloce rispetto a una tabella con distribuzione hash. In una tabella con distribuzione round robin non è necessario comprendere i dati o eseguire l'hashing prima del caricamento. Per questo motivo le tabelle round robin sono spesso un'ottima scelta come destinazioni di caricamento.
 
-> [AZURE.NOTE]Quando i dati vengono distribuiti con il metodo round robin, vengono allocati alla distribuzione a livello di *buffer*.
+> [AZURE.NOTE] Quando i dati vengono distribuiti con il metodo round robin, vengono allocati alla distribuzione a livello di *buffer*.
 
 ### Indicazioni
 
@@ -201,11 +201,11 @@ La prevedibilità dell'hash è estremamente importante. Significa che l'hash che
 
 Come si vedrà di seguito, la distribuzione hash può essere molto efficace per l'ottimizzazione delle query. Ecco perché viene considerata una forma ottimizzata di distribuzione dei dati.
 
-> [AZURE.NOTE]Tenere presente che l'hash non si basa sul valore dei dati, ma sul tipo dei dati di cui viene eseguito l'hashing.
+> [AZURE.NOTE] Tenere presente che l'hash non si basa sul valore dei dati, ma sul tipo dei dati di cui viene eseguito l'hashing.
 
 Di seguito è riportata una tabella con distribuzione hash in base a ProductKey.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -223,14 +223,14 @@ WITH
 ;
 ```
 
-> [AZURE.NOTE]Quando i dati vengono distribuiti con il metodo round robin, vengono allocati alla distribuzione a livello di riga.
+> [AZURE.NOTE] Quando i dati vengono distribuiti con il metodo round robin, vengono allocati alla distribuzione a livello di riga.
 
 ## Partizioni della tabella
 Le partizioni della tabella sono supportate e facili da definire.
 
 Esempio di comando `CREATE TABLE` partizionata in SQL Data Warehouse:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL
@@ -274,7 +274,7 @@ Per generare le statistiche, applicare le indicazioni seguenti:
 2. Generare statistiche multicolonna su clausole composite.
 3. Aggiornare le statistiche periodicamente. Come si ricorderà, questa operazione non viene eseguita automaticamente.
 
->[AZURE.NOTE]In genere SQL Server Data Warehouse si basa solo su `AUTOSTATS` per mantenere aggiornare le statistiche relative alle colonne. Questa non è una procedura consigliata nemmeno per i data warehouse di SQL Server. Gli oggetti `AUTOSTATS` vengono attivati da una frequenza di modifica del 20%, che risulta insufficiente per le tabelle dei fatti di grandi dimensioni che contengono milioni o miliardi di righe. È quindi sempre consigliabile tenere sotto controllo gli aggiornamenti delle statistiche, per assicurarsi che riflettano accuratamente la cardinalità della tabella.
+>[AZURE.NOTE] In genere SQL Server Data Warehouse si basa solo su `AUTOSTATS` per mantenere aggiornare le statistiche relative alle colonne. Questa non è una procedura consigliata nemmeno per i data warehouse di SQL Server. Gli oggetti `AUTOSTATS` vengono attivati da una frequenza di modifica del 20%, che risulta insufficiente per le tabelle dei fatti di grandi dimensioni che contengono milioni o miliardi di righe. È quindi sempre consigliabile tenere sotto controllo gli aggiornamenti delle statistiche, per assicurarsi che riflettano accuratamente la cardinalità della tabella.
 
 ## Funzionalità non supportate
 SQL Data Warehouse non usa o non supporta le funzionalità seguenti:
@@ -306,4 +306,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

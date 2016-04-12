@@ -2,7 +2,7 @@
 <!--
 includes/sql-database-include-ip-address-22-v12portal.md
 
-Latest Freshness check:  2015-09-04 , GeneMi.
+Latest Freshness check:  2016-03-21 , daleche.
 
 As of circa 2015-09-04, the following topics might include this include:
 articles/sql-database/sql-database-configure-firewall-settings.md
@@ -11,7 +11,7 @@ articles/sql-database/sql-database-connect-query.md
 
 ## Server-level firewall rules
 
-### Manage server-level firewall rules through the new Azure portal
+### Add a server-level firewall rule through the new Azure portal
 -->
 
 
@@ -38,7 +38,7 @@ articles/sql-database/sql-database-connect-query.md
 9. Fare clic su **aggiungere Client IP**. Digitare un nome per la nuova regola nella prima casella di testo.
 
 10. Digitare i valori di indirizzo IP minimo e massimo per l'intervallo che si desidera abilitare.
- - Può essere utile disporre la fine del valore minimo con **0** e del massimo con **255**. 
+	- Può essere utile disporre la fine del valore minimo con **0** e del massimo con **255**.
 
 	![Aggiungere un intervallo di indirizzi IP per consentire][b41-AddRange]
 
@@ -63,4 +63,4 @@ includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

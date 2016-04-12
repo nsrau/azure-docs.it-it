@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="02/04/2016"
+   ms.date="03/23/2016"
    ms.author="alkohli"/>
 
 # Software, disponibilità elevata e requisiti di rete di StorSimple
@@ -36,7 +36,7 @@ Di seguito sono indicati i requisiti software per i client di archiviazione che 
 | Sistemi operativi supportati | Versione richiesta | Requisiti aggiuntivi/note |
 | --------------------------- | ---------------- | ------------- |
 | Windows Server | 2008 R2 SP1, 2012, 2012 R2 |I volumi iSCSI StorSimple sono supportati per l'uso solo con i tipi di disco di Windows seguenti:<ul><li>Volume semplice su disco di base</li><li>Volume semplice e con mirroring su disco dinamico</li></ul>Le funzionalità ODX e di thin provisioning di Windows Server 2012 sono supportate se si usa un volume iSCSI StorSimple.<br><br>StorSimple può creare volumi con thin provisioning e con provisioning completo. Non è in grado di creare volumi con provisioning parziale.<br><br>La riformattazione di un volume con thin provisioning può richiedere molto tempo. È consigliabile eliminare il volume e quindi crearne uno nuovo invece di riformattarlo. Se tuttavia si preferisce riformattare un volume:<ul><li>Eseguire il comando seguente prima della riformattazione per evitare ritardi nel recupero dello spazio: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Al termine della formattazione, eseguire il comando seguente per riabilitare il recupero dello spazio:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Applicare l'hotfix per Windows Server 2012 descritto nell'articolo [KB 2878635](https://support.microsoft.com/kb/2870270) al computer Windows Server.</li></ul></li></ul></ul> Se si configura Gestione snapshot StorSimple o l'adattatore StorSimple per SharePoint, passare a [Requisiti software per i componenti facoltativi](#software-requirements-for-optional-components).|
-| VMWare ESX | 5\.1 e 5.5 | Supportato con VMware vSphere come client iSCSI. Funzionalità VAAI-Block supportata con VMware vSphere in dispositivi StorSimple. 
+| VMWare ESX | 5\.1, 5.5 e 6.0 | Supportato con VMware vSphere come client iSCSI. Funzionalità VAAI-Block supportata con VMware vSphere in dispositivi StorSimple. 
 | Linux RHEL/CentOS | 5 e 6 | Supporto per client Linux iSCSI con iniziatore Open-iSCSI versioni 5 e 6. |
 | Linux | SUSE Linux 11 | |
  > [AZURE.NOTE] IBM AIX attualmente non è supportato con StorSimple.
@@ -52,7 +52,7 @@ I requisiti software seguenti riguardano i componenti facoltativi di StorSimple,
  
 ## Requisiti di rete per il dispositivo StorSimple
 
-Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario aprire le porte nel firewall per consentire il traffico iSCSI, cloud o di gestione. La tabella seguente mostra l'elenco delle porte che devono essere aperte nel firewall. In questa tabella, *in* *ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *In* *uscita* fa riferimento alla direzione in cui il dispositivo StorSimple invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.
+Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario aprire le porte nel firewall per consentire il traffico iSCSI, cloud e di gestione. La tabella seguente mostra l'elenco delle porte che devono essere aperte nel firewall. In questa tabella, *in* *ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *In* *uscita* fa riferimento alla direzione in cui il dispositivo StorSimple invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.
 
 | Numero porta<sup>1, 2</sup> | In ingresso/In uscita | Ambito porta | Obbligatoria | Note |
 |------------------------|-----------|------------|----------|-------| 
@@ -72,6 +72,25 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 <sup>3</sup> Gli indirizzi IP fissi per il controller sul dispositivo StorSimple devono essere instradabili e in grado di connettersi a Internet. Gli indirizzi IP fissi vengono usati per l'installazione degli aggiornamenti nel dispositivo. Se i controller del dispositivo non possono connettersi a Internet tramite gli indirizzi IP fissi, non sarà possibile aggiornare il dispositivo StorSimple.
 
 > [AZURE.IMPORTANT] Verificare che il firewall non modifichi o decrittografi il traffico SSL tra il dispositivo StorSimple e Azure.
+
+### Modelli URL per le regole del firewall 
+
+Gli amministratori di rete possono spesso configurare regole del firewall avanzate in base ai modelli URL in modo da filtrare il traffico in entrata e in uscita. Il dispositivo StorSimple e il servizio StorSimple Manager dipendono da altre applicazioni Microsoft, come ad esempio il bus di servizio di Azure, il controllo di accesso di Azure Active Directory, gli account di archiviazione e i server di Microsoft Update. I modelli URL associati a queste applicazioni possono essere usati per configurare le regole del firewall. È importante comprendere che i modelli di URL associati alle suddette applicazioni possono variare. Questo a sua volta richiederà, da parte dell'amministratore di rete, il monitoraggio e l'aggiornamento delle regole del firewall per StorSimple a seconda delle esigenze.
+
+È consigliabile impostare le regole del firewall per il traffico in uscita, liberamente nella maggior parte dei casi, in base agli indirizzi IP StorSimple. Tuttavia, è possibile utilizzare le informazioni seguenti per impostare regole del firewall avanzate indispensabili per creare ambienti protetti.
+
+> [AZURE.NOTE] Gli indirizzi IP (di origine) del dispositivo devono essere sempre impostati su tutte le interfacce di rete abilitate. Gli indirizzi IP di destinazione devono essere impostati sugli [intervalli IP dei data center di Azure](https://www.microsoft.com/it-IT/download/confirmation.aspx?id=41653).
+
+
+| Modello URL | Componente/funzionalità | Indirizzi IP dispositivo |
+|------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Servizio StorSimple Manager<br>Servizio di controllo di accesso<br>Bus di servizio di Azure| Interfacce di rete abilitate per il cloud |
+|`http://*.backup.windowsazure.com`|Registrazione del dispositivo| Solo DATA 0|
+|`http://crl.microsoft.com/pki/*` |Revoca del certificato |Interfacce di rete abilitate per il cloud |
+| `https://*.core.windows.net/*` | Account di archiviazione di Azure e monitoraggio | Interfacce di rete abilitate per il cloud |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Server di Microsoft Update<br> | Solo indirizzi IP fissi del controller |
+| `http://*.deploy.akamaitechnologies.com` |Rete CDN di Akamai |Solo indirizzi IP fissi del controller |
+| `https://*.partners.extranet.microsoft.com/*` | Pacchetto di supporto | Interfacce di rete abilitate per il cloud |
 
 ### Metrica di routing
 
@@ -103,7 +122,7 @@ L'aggiornamento 2 presenta diversi miglioramenti correlati alle reti e le metric
 
 - È stato assegnato un set di valori predefiniti alle interfacce di rete. 	
 		
-- Si consideri la tabella di esempio seguente con valori assegnati alle varie interfacce di rete quando sono abilitate o disabilitate per il cloud, ma con un gateway configurato. Si noti che i valori assegnati sono puramente esemplificativi.
+- Si consideri la tabella di esempio seguente con valori assegnati alle varie interfacce di rete quando sono abilitate o disabilitate per il cloud, ma con un gateway configurato. Si noti che i valori assegnati qui sono puramente esemplificativi.
 
 		
 	| Interfaccia di rete | Abilitata per il cloud | Disabilitata per il cloud con gateway |
@@ -149,13 +168,13 @@ L'aggiornamento 2 presenta diversi miglioramenti correlati alle reti e le metric
 
 Oltre ai requisiti di rete sopra illustrati, per ottenere prestazioni ottimali nell'uso della soluzione StorSimple, è opportuno rispettare le procedure consigliate seguenti:
 
-- Verificare che per il dispositivo StorSimple sia sempre disponibile una larghezza di banda dedicata pari a 40 Mbps (o superiore). La larghezza di banda non deve essere condivisa con altre applicazioni.
+- Verificare che per il dispositivo StorSimple sia sempre disponibile una larghezza di banda dedicata pari a 40 Mbps (o superiore). La larghezza di banda non deve essere condivisa con altre applicazioni oppure deve essere garantita l'allocazione tramite l'utilizzo di criteri QoS.
 
 - Verificare che la connettività di rete a Internet sia sempre disponibile. Connessioni Internet sporadiche o non affidabili ai dispositivi, o nessuna connettività a Internet, hanno per effetto una configurazione non supportata.
 
 - Isolare il traffico iSCSI e cloud prevedendo nel dispositivo interfacce di rete dedicate per l'accesso iSCSI e cloud. Per altre informazioni, vedere la procedura per [modificare le interfacce di rete](storsimple-modify-device-config.md#modify-network-interfaces) sul dispositivo StorSimple.
 
-- Non utilizzare una configurazione di protocollo di aggregazione di collegamenti (LACP) per le interfacce di rete. Si tratta di una configurazione non supportata.
+- Evitare di usare una configurazione LACP (Link Aggregation Control Protocol) per le interfacce di rete. Si tratta di una configurazione non supportata.
 
 
 ## Requisiti di disponibilità elevata per StorSimple
@@ -239,7 +258,7 @@ Il modello 8600 del dispositivo StorSimple include uno chassis EBOD (Extended Bu
 
 - Se un modulo controller dello chassis EBOD smette di funzionare, prima di sostituirlo assicurarsi che l'altro modulo controller sia attivo. Per verificare che un controller sia attivo, vedere [Identificare il controller attivo sul dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
 
-- Durante la sostituzione di un modulo controller EBOD, monitorare costantemente lo stato del componente nel servizio StorSimple Manager accedendo a **Manutenzione** - **Stato hardware**.
+- Durante la sostituzione di un modulo controller EBOD, monitorare costantemente lo stato del componente nel servizio StorSimple Manager accedendo a **Manutenzione** > **Stato hardware**.
 
 - Se un cavo SAS non funziona o deve essere sostituito (per determinare lo stato del cavo, coinvolgere il supporto tecnico Microsoft), assicurarsi di rimuovere solo il cavo SAS che richiede la sostituzione.
 
@@ -261,4 +280,4 @@ Esaminare attentamente le procedure consigliate seguenti per assicurare la dispo
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

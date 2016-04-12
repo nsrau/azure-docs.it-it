@@ -20,8 +20,6 @@
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
-&nbsp;
-
 Gli argomenti seguenti forniscono informazioni su comportamenti specifici di Servizi mobili di Microsoft Azure. Questi stessi argomenti sono disponibili nel portale di Azure classico.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
@@ -86,4 +84,4 @@ Gli argomenti seguenti forniscono esempi che illustrano come eseguire attività 
 - [Gestione degli errori](https://msdn.microsoft.com/library/azure/jj631632.aspx)
 - [Tasti di scelta rapida](https://msdn.microsoft.com/library/azure/jj552469.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

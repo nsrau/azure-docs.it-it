@@ -20,7 +20,7 @@ Si supponga di aver trovato degli errori nel file di origine e di aver aggiornat
 
 Per evitare questa situazione, è necessario specificare la semantica UPSERT usando uno dei due meccanismi illustrati di seguito.
 
-> [AZURE.NOTE]In base ai criteri di ripetizione dei tentativi specificati, è possibile ripetere automaticamente l'esecuzione di una sezione anche in Data Factory di Azure.
+> [AZURE.NOTE] In base ai criteri di ripetizione dei tentativi specificati, è possibile ripetere automaticamente l'esecuzione di una sezione anche in Data Factory di Azure.
 
 ### Meccanismo 1
 
@@ -50,6 +50,7 @@ Si supponga, ad esempio, che il record Flat Washer venga rimosso dal file con es
 Nessuna nuova operazione è stata eseguita. L'attività di copia ha eseguito lo script di pulizia per eliminare i dati corrispondenti alla sezione. Quindi, ha letto l'input dal CSV (che conteneva solo 1 record) e lo ha inserito nella tabella.
 
 ### Meccanismo 2
+> [AZURE.IMPORTANT] Attualmente sliceIdentifierColumnName non è supportato per SQL Data Warehouse di Azure.
 
 Un altro meccanismo per ottenere la ripetibilità prevede la disponibilità di una colonna dedicata (**sliceIdentifierColumnName**) nella tabella di destinazione. Questa colonna viene usata da Data factory di Azure per garantire che l'origine e la destinazione rimangano sincronizzate. Questo approccio può essere usato solo quando è disponibile una certa flessibilità nella modifica o nella definizione dello schema della tabella SQL di destinazione.
 
@@ -68,4 +69,4 @@ Data factory di Azure popolerà la colonna in modo che l'origine e la destinazio
 
 Analogamente al meccanismo 1, l'attività di copia pulisce prima i dati della sezione specificata dalla tabella SQL di destinazione, quindi esegue normalmente l'attività di copia per inserire i dati dall'origine alla destinazione della sezione.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0330_2016-->

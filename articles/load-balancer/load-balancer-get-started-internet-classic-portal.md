@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nel portale di Azure classico
@@ -43,7 +43,7 @@ Per bilanciare il carico del traffico di rete Internet tra le macchine virtuali 
 4.	Nella pagina **Specificare i dettagli dell'endpoint**:
 	- In **Nome** digitare un nome per l'endpoint o selezionarne uno dall'elenco di endpoint predefiniti per i protocolli comuni.
 	-  In **Protocol** selezionare il protocollo richiesto dal tipo di endpoint, ossia TCP o UDP.
- 	-  In **Porta pubblica e Porta privata** digitare i numeri di porta da usare per la macchina virtuale. È possibile usare le regole relative a porte private e firewall sulla macchina virtuale per reindirizzare il traffico in modo appropriato per l'applicazione. La porta privata può essere uguale alla porta pubblica. Per un endpoint per il traffico Web (HTTP), è ad esempio possibile assegnare la porta 80 sia come porta pubblica che privata.
+ 	-  In **Porta pubblica e Porta privata** digitare il numero di porta da utilizzare per la macchina virtuale. È possibile usare le regole relative a porte private e firewall sulla macchina virtuale per reindirizzare il traffico in modo appropriato per l'applicazione. La porta privata può essere uguale alla porta pubblica. Per un endpoint per il traffico Web (HTTP), è ad esempio possibile assegnare la porta 80 sia come porta pubblica che privata.
 
 5.	Selezionare **Create a load-balanced set** e quindi fare clic sulla freccia destra.
 
@@ -61,10 +61,10 @@ Per bilanciare il carico del traffico di rete Internet tra le macchine virtuali 
 
 ## Passaggi successivi
 
-[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-internal-getstarted.md)
+[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -2,7 +2,7 @@
 
 È possibile usare l'interfaccia della riga di comando di Azure per gestire le risorse di Azure dal prompt dei comandi di qualsiasi computer con Windows, Linux o OSX. Per creare una rete virtuale con l'interfaccia della riga di comando di Azure, seguire questa procedura.
 
-1. Se non è mai stata usata l'interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si seleziona l'account e la sottoscrizione di Azure.
+1. Se non è mai stata usata l'interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../articles/xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si seleziona l'account e la sottoscrizione di Azure.
 2. Eseguire il comando **azure config mode** per passare alla modalità di gestione delle risorse, come illustrato di seguito.
 
 		azure config mode arm
@@ -11,7 +11,7 @@
 
 		info:    New mode is arm
 
-3. Se necessario, eseguire il comando **azure group create** per creare un nuovo gruppo di risorse, come illustrato di seguito. Si noti l'output del comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](resource-group-overview.md/#resource-groups).
+3. Se necessario, eseguire il comando **azure group create** per creare un nuovo gruppo di risorse, come illustrato di seguito. Si noti l'output del comando. Nell'elenco riportato dopo l'output sono indicati i parametri usati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](../articles/virtual-network/resource-group-overview.md/#resource-groups).
 
 		azure group create -n TestRG -l centralus
 
@@ -106,4 +106,4 @@
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

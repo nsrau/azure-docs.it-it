@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # Documentazione tecnica sul connettore Windows PowerShell
@@ -22,7 +22,7 @@ Questo articolo descrive il connettore Windows PowerShell ed è applicabile ai p
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   È necessario usare l'hotfix 4.1.3461.0 o versione successiva ([KB2870703](https://support.microsoft.com/kb/2870703)).
+    -   È necessario usare l'hotfix 4.1.3671.0 o versione successiva ([KB3092178](https://support.microsoft.com/kb/3092178)).
 
 Per MIM2016 e FIM2010R2 il connettore è disponibile come download dall'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -370,4 +370,4 @@ Sostituire il nome del connettore Windows PowerShell per il segnaposto <Connecto
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

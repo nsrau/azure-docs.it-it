@@ -37,7 +37,6 @@ Quando l'app Web deve autenticare l'utente, può indirizzarlo all'endpoint `/aut
 - Il parametro `response_type` deve includere `id_token`
 - La richiesta deve includere il parametro `nonce`.
 
-
 ```
 // Line breaks for legibility only
 
@@ -51,11 +50,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=678910
 ```
 
-> [AZURE.TIP] Provare a incollare quanto segue in un Web browser.
-
-```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=form_post&state=12345&nonce=678910
-```
+> [AZURE.TIP] Fare clic sul collegamento seguente per eseguire questa richiesta. Dopo l'accesso, il browser deve essere reindirizzato a `https://localhost/myapp/` con un `id_token` nella barra degli indirizzi. Si noti che questa richiesta utilizza `response_mode=query` (solo per scopi di esercitazione). Si consiglia di utilizzare `response_mode=form_post`. <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | Parametro | | Descrizione |
 | ----------------------- | ------------------------------- | --------------- |
@@ -109,7 +104,8 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 ## Convalidare il token ID
 La semplice ricezione di un token ID non è sufficiente per autenticare l'utente. È necessario convalidare la firma del token ID e verificare le attestazioni nel token per i requisiti dell'app. L'endpoint 2.0 usa i [token Web JSON](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e la crittografia a chiave pubblica per firmare i token e verificarne la validità.
 
-È possibile scegliere di convalidare `id_token` nel codice client, ma una procedura comune consiste nell'inviare `id_token` a un server back-end dove verrà eseguita la convalida. Dopo aver convalidato la firma dell'id\_token, è necessario verificare alcune attestazioni. Per altre informazioni, ad esempio relative alla [convalida del token](active-directory-v2-tokens.md#validating-tokens) e al [rollover della chiave di firma](active-directory-v2-tokens.md#validating-tokens), vedere il [riferimento al token della versione 2.0](active-directory-v2-tokens.md). È consigliabile usare una libreria per l'analisi e la convalida dei token. È disponibile almeno una libreria per la maggior parte dei linguaggi e delle piattaforme. <!--TODO: Improve the information on this-->
+È possibile scegliere di convalidare `id_token` nel codice client, ma una procedura comune consiste nell'inviare `id_token` a un server back-end dove verrà eseguita la convalida. Dopo aver convalidato la firma dell'id\_token, è necessario verificare alcune attestazioni. Per altre informazioni, ad esempio relative alla [convalida del token](active-directory-v2-tokens.md#validating-tokens) e al [rollover della chiave di firma](active-directory-v2-tokens.md#validating-tokens), vedere il [riferimento al token della versione 2.0](active-directory-v2-tokens.md). È consigliabile usare una libreria per l'analisi e la convalida dei token. È disponibile almeno una libreria per la maggior parte dei linguaggi e delle piattaforme.
+<!--TODO: Improve the information on this-->
 
 È inoltre consigliabile convalidare attestazioni aggiuntive in base allo scenario. Alcune convalide comuni includono:
 
@@ -152,7 +148,6 @@ Il flusso completo di acquisizione delle informazioni di accesso e dei token di 
 ## Ottenere i token di accesso
 Per acquisire i token di accesso, sarà necessario modificare leggermente la richiesta di accesso precedente:
 
-
 ```
 // Line breaks for legibility only
 
@@ -168,11 +163,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &nonce=678910										 // Any value, provided by your app
 ```
 
-> [AZURE.TIP] Provare a incollare questa richiesta in un browser.
-
-```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=form_post&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910
-```
+> [AZURE.TIP] Fare clic sul collegamento seguente per eseguire questa richiesta. Dopo l'accesso, il browser deve essere reindirizzato a `https://localhost/myapp/` con un `id_token` e un `code` nella barra degli indirizzi. Si noti che questa richiesta utilizza `response_mode=query` (solo per scopi di esercitazione). Si consiglia di utilizzare `response_mode=form_post`. <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 Includendo gli ambiti di autorizzazione nella richiesta e usando `response_type=code+id_token`, l'endpoint 2.0 verificherà che l'utente abbia dato il consenso alle autorizzazioni indicate nel parametro di query `scope` e restituirà all'app un codice di autorizzazione da scambiare con un token di accesso.
 
@@ -211,4 +202,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Una volta ottenuti un `code` e un `id_token` di autorizzazione, è possibile far accedere l'utente e ottenere i token di accesso per suo conto. Per far accedere l'utente, è necessario convalidare l'`id_token` esattamente come descritto [sopra](#validating-the-id-token). Per ottenere i token di accesso, è possibile seguire i passaggi descritti nella [documentazione del protocollo OAuth](active-directory-v2-protocols-oauth-code.md#request-an-access-token).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

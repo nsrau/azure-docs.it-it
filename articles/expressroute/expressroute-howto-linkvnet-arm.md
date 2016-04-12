@@ -19,11 +19,11 @@
 # Collegamento di reti virtuali a circuiti ExpressRoute
 
 > [AZURE.SELECTOR]
-- [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
-- [PowerShell - Resource Manager] (expressroute-howto-linkvnet-arm.md)
-- [Template - Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
+- [PowerShell - Classico](expressroute-howto-linkvnet-classic.md)
+- [PowerShell - Gestione risorse](expressroute-howto-linkvnet-arm.md)
+- [Modello - Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
-Questo articolo fornisce una panoramica delle operazioni per il collegamento di reti virtuali (VNet) a circuiti ExpressRoute. Le reti virtuali possono trovarsi nella stessa sottoscrizione o appartenere a un'altra sottoscrizione. Questo articolo si applica alle reti virtuali distribuite mediante il modello di distribuzione Gestione risorse. Se si desidera collegare una rete virtuale che è stata distribuita con il modello di distribuzione classico, vedere [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md).
+Questo articolo fornisce una panoramica delle operazioni per il collegamento di reti virtuali (VNet) a circuiti ExpressRoute. Le reti virtuali possono trovarsi nella stessa sottoscrizione o appartenere a un'altra sottoscrizione. Questo articolo si applica alle reti virtuali distribuite mediante il modello di distribuzione Gestione risorse. Se si vuole collegare una rete virtuale che è stata distribuita con il modello di distribuzione classica, vedere [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
 
 **Informazioni sui modelli di distribuzione di Azure**
@@ -129,7 +129,7 @@ La chiave di autorizzazione è un GUID.
 L'utente del circuito può eseguire il cmdlet seguente per riscattare un'autorizzazione di collegamento.
 
 	$id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"	
-	$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+	$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 
 #### Rilascio delle autorizzazioni di collegamento
 
@@ -139,4 +139,4 @@ L'utente del circuito può eseguire il cmdlet seguente per riscattare un'autoriz
 
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 
@@ -68,9 +68,9 @@ Per configurare il modello SVM, procedere come segue:
 2.	Fare clic con il pulsante destro del mouse sul modulo [Train Model][train-model], scegliere **Copy** e quindi fare clic con il pulsante destro del mouse sull'area di disegno e scegliere **Paste**. Si noti che la copia del modulo [Esegui training modello][train-model] presenta la stessa selezione di colonne dell'originale.
 3.	Connettere l'output del modulo Macchina a vettori di supporto alla porta di input sinistra ("Modello senza training") del modulo [Esegui training modello][train-model].
 4.	Trovare il modulo [Normalize Data][normalize-data] e trascinarlo nell'area di disegno.
-5.	Connettere l'input di questo modulo all'output sinistro del modulo [Execute R Script][execute-r-script] sinistro (si noti che la porta di output di un modulo può essere connessa a più di un modulo).
+5.	Connettere l'input di questo modulo all'output sinistro del modulo [Execute R Script][execute-r-script] sinistro. Si noti che la porta di output di un modulo può essere connessa a più di un modulo.
 6.	Connettere la porta di output sinistra ("Transformed Dataset") del modulo [Normalize Data][normalize-data] alla porta di input destra ("Dataset") del modulo [Train Model][train-model].
-7.	Nel riquadro **Properties** del modulo [Normalize Data][normalize-data], scegliere **Tanh** come parametro di **Transformation method**.
+7.	Nel riquadro **Properties** del modulo [Normalize Data][normalize-data] scegliere **Tanh** come parametro di **Transformation method**.
 8.	Fare clic su **Launch column selector**, selezionare "No columns" for **Begin With**, selezionare **Include** nel primo elenco a discesa, selezionare **column type** nel secondo elenco a discesa e selezionare **Numeric** nel terzo elenco a discesa. Questo specifica che tutte le colonne numeriche (ma solo quelle di questo tipo) verranno trasformate.
 9.	Fare clic sul segno più (+) a destra di questa riga per creare una nuova riga di elenchi a discesa. Selezionare **Exclude** nel primo elenco a discesa, selezionare **column names** nel secondo elenco a discesa e immettere "Credit risk" nel campo di testo (oppure selezionare **column indices** e immettere "21"). Questa impostazione specifica che la colonna Credit Risk deve essere ignorata (è necessario farlo perché la colonna è numerica e pertanto verrebbe trasformata).
 10.	Fare clic su **OK**.  
@@ -143,4 +143,4 @@ Esaminando i valori è possibile decidere quale sia il modello che più si avvic
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

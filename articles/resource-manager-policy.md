@@ -62,7 +62,12 @@ I criteri includono fondamentalmente gli elementi seguenti:
         "effect" : "deny | audit"
       }
     }
+    
+## Valutazione dei criteri
 
+I criteri vengono valutati quando si verifica la creazione di risorse o la distribuzione del modello utilizzando una richiesta PUT HTTP. In caso di distribuzione del modello, i criteri sono valutati durante la creazione di ogni risorsa nel modello.
+
+Nota: i tipi di risorsa che non supportano tag, tipologia, percorso non vengono valutati dal criterio, come ad esempio Microsoft.Resources/deployments. Il supporto di questa caratteristica verrà aggiunto in futuro. Per evitare problemi di compatibilità con le versioni precedenti, è consigliabile specificare in modo esplicito il tipo durante la creazione di criteri. Ad esempio, viene applicato a tutti i tipi un criterio per i tag senza specificare i tipi, in modo che la distribuzione dei modelli fallisca qualora sia presente una risorsa annidata che non supporta i tag quando verrà aggiunto il tipo di risorsa alla valutazione in un secondo momento.
 
 ## Operatori logici
 
@@ -94,7 +99,7 @@ Le condizioni vengono create usando campi e origini. Un campo rappresenta le pro
 
 Sono supportati i campi e le origini seguenti:
 
-Campi: **name**, **kind**, **type**, **location**, **tags**, **tags.***, e **property alias**.
+Campi: **name**, **kind**, **type**, **location**, **tags**, **tags.*** e **property alias**.
 
 Origini: **action**.
 
@@ -176,19 +181,19 @@ L'esempio seguente illustra l'uso dell'origine. Mostra che sono consentite solo 
         "not" : {
           "anyOf" : [
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Resources/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Compute/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Storage/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Network/*"
             }
           ]
@@ -207,14 +212,14 @@ L'esempio seguente illustra l'uso di alias di proprietà alias per limitare le S
       "if": {
         "allOf": [
           {
-            "source": "action",
-            "like": "Microsoft.Storage/storageAccounts/*"
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
           },
           {
             "not": {
               "allof": [
                 {
-                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "field": "Microsoft.Storage/storageAccounts/sku.name",
                   "in": ["Standard_LRS", "Standard_GRS"]
                 }
               ]
@@ -302,8 +307,6 @@ Con un corpo della richiesta simile al seguente:
           }
         }
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
-      "type":"Microsoft.Authorization/policyDefinitions",
       "name":"testdefinition"
     }
 
@@ -350,8 +353,6 @@ Con un corpo della richiesta simile al seguente:
         "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyAssignments/VMPolicyAssignment",
-      "type":"Microsoft.Authorization/policyAssignments",
       "name":"VMPolicyAssignment"
     }
 
@@ -386,4 +387,4 @@ Per visualizzare tutti gli eventi correlati all'effetto di controllo, è possibi
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

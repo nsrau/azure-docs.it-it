@@ -13,21 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Opzioni Group by in SQL Data Warehouse
 
-La clausola [GROUP BY] viene utilizzata per aggregare i dati a un set di righe di riepilogo. Include inoltre alcune opzioni che ne estendono la funzionalità che devono essere evitate in quanto non sono supportate direttamente SQL Data Warehouse di Azure.
+La clausola [GROUP BY][] viene utilizzata per aggregare i dati a un set di righe di riepilogo. Include inoltre alcune opzioni che ne estendono la funzionalità che devono essere evitate in quanto non sono supportate direttamente SQL Data Warehouse di Azure.
 
-Queste opzioni sono: GROUP BY WITH ROLLUP, GROUPING SETS e GROUP BY WITH CUBE
+Queste opzioni sono
+- GROUP BY con ROLLUP
+- GROUPING SETS
+- GROUP BY con CUBE
 
 ## Opzioni di rollup e raggruppamento di set
 L'opzione più semplice consiste nell'utilizzare `UNION ALL` invece di eseguire il rollup anziché utilizzare la sintassi esplicita. Il risultato è esattamente lo stesso
 
 Di seguito è riportato un esempio di istruzione group by utilizzando l’opzione `ROLLUP`:
 
-```
+```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 ,      SUM(SalesAmount)             AS TotalSalesAmount
@@ -40,17 +43,20 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Tramite ROLLUP sono state richieste le aggregazioni seguenti: paese e regione, paese, totale complessivo
+Usando ROLLUP sono state richieste le aggregazioni seguenti:
+- Paese e area
+- Paese
+- Grand Total
 
 Per sostituire questo valore è necessario utilizzare `UNION ALL`; specificando le aggregazioni necessarie in modo esplicito per restituire gli stessi risultati:
 
-```
+```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 ,      SUM(SalesAmount) AS TotalSalesAmount
 FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey
-GROUP BY 
+GROUP BY
        [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 UNION ALL
@@ -59,7 +65,7 @@ SELECT [SalesTerritoryCountry]
 ,      SUM(SalesAmount) AS TotalSalesAmount
 FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey
-GROUP BY 
+GROUP BY
        [SalesTerritoryCountry]
 UNION ALL
 SELECT NULL
@@ -78,9 +84,9 @@ Utilizzare l'esempio precedente.
 
 Il primo passaggio consiste nel definire il cubo che definisce tutti i livelli di aggregazione che si desidera creare. È importante tenere conto del CROSS JOIN delle due tabelle derivate. In tal modo tutti i livelli vengono generati automaticamente. Il resto del codice è disponibile per la formattazione.
 
-```
+```sql
 CREATE TABLE #Cube
-WITH 
+WITH
 (   DISTRIBUTION = ROUND_ROBIN
 ,   LOCATION = USER_DB
 )
@@ -99,9 +105,9 @@ CROSS JOIN ( SELECT 'SalesTerritoryRegion' as Region
            ) r
 )
 SELECT Cols
-,      CASE WHEN SUBSTRING(GroupBy,LEN(GroupBy),1) = ',' 
-            THEN SUBSTRING(GroupBy,1,LEN(GroupBy)-1) 
-            ELSE GroupBy 
+,      CASE WHEN SUBSTRING(GroupBy,LEN(GroupBy),1) = ','
+            THEN SUBSTRING(GroupBy,1,LEN(GroupBy)-1)
+            ELSE GroupBy
        END AS GroupBy  --Remove Trailing Comma
 ,Seq
 FROM GrpCube;
@@ -113,8 +119,8 @@ Di seguito sono illustrati i risultati del CTAS:
 
 Il secondo passaggio consiste nel specificare una tabella di destinazione per archiviare i risultati temporanei:
 
-```
-DECLARE 
+```sql
+DECLARE
  @SQL NVARCHAR(4000)
 ,@Columns NVARCHAR(4000)
 ,@GroupBy NVARCHAR(4000)
@@ -136,7 +142,7 @@ WITH
 
 Il terzo passaggio consiste nell’eseguire il ciclo del cubo delle colonne per eseguire l'aggregazione. La query verrà eseguita una volta per ogni riga nella tabella temporanea #Cube e i risultati verranno archiviati nella tabella temporanea #Results
 
-```
+```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
 
 WHILE @i<=@nbr
@@ -150,7 +156,7 @@ BEGIN
               FROM  dbo.factInternetSales s
               JOIN  dbo.DimSalesTerritory t  
               ON s.SalesTerritoryKey = t.SalesTerritoryKey
-              '+CASE WHEN @GroupBy <>'' 
+              '+CASE WHEN @GroupBy <>''
                      THEN 'GROUP BY '+@GroupBy ELSE '' END
 
     EXEC sp_executesql @SQL;
@@ -160,8 +166,8 @@ END
 
 Infine è possibile restituire i risultati semplicemente leggendo dalla tabella temporanea #Results
 
-```
-SELECT * 
+```sql
+SELECT *
 FROM #Results
 ORDER BY 1,2,3
 ;
@@ -185,4 +191,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

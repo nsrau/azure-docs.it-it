@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;nicw;barbkess;jrj;sonyama;"/>
 
 # Strumenti di gestione per SQL Data Warehouse
@@ -24,7 +24,7 @@ Il [portale di Azure classico][] è un portale classico basato sul Web in cui è
 
 Il portale include metriche relative alle impostazioni DWU per le prestazioni correnti e cronologiche, alla quantità di spazio di archiviazione in uso e alle connessioni SQL riuscite o non riuscite, oltre a un set di visualizzazioni e dati che consentono di comprendere le query in esecuzione nell'istanza e i dettagli di tali query.
 
-## SQL Server Data Tools in Visual Studio	
+## SQL Server Data Tools in Visual Studio
 [SQL Server Data Tools][] (SSDT) in Visual Studio è uno strumento client che viene eseguito nel computer locale e consente di connettersi, gestire e sviluppare il database nel cloud. È opportuno che gli sviluppatori di applicazioni con una certa familiarità con Visual Studio o altri ambienti di sviluppo integrato (IDE), provino a usare SSDT in Visual Studio.
 
 SSDT include SQL Server Explorer, che consente di visualizzare, connettersi ed eseguire gli script su database di SQL Data Warehouse. Per connettersi rapidamente a SQL Data Warehouse, è sufficiente fare clic sul pulsate **Apri in Visual Studio** sulla barra dei comandi quando i dettagli del database sono visualizzati nel portale di Azure classico.
@@ -48,4 +48,4 @@ Per iniziare a usare questi strumenti, vedere l'argomento relativo alla [conness
 <!--Other web references-->
 [portale di Azure classico]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

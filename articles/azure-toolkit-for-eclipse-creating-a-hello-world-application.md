@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Creazione di un'applicazione Hello World per Azure in Eclipse"
+    pageTitle="Creare un servizio cloud Hello World per Azure in Eclipse"
     description="Informazioni su come creare una semplice applicazione Hello World usando Azure Toolkit per Eclipse."
     services=""
     documentationCenter="java"
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/28/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
 
-# Creazione di un'applicazione Hello World per Azure in Eclipse #
+# Creare un servizio cloud Hello World per Azure in Eclipse #
 
 La procedura seguente illustra come creare e distribuire un'applicazione JSP di base in Azure usando Azure Toolkit per Eclipse. Per semplicità è riportato un esempio JSP, ma è possibile adottare una procedura molto simile anche per un servlet Java, per quanto riguarda la distribuzione di Azure.
 
@@ -95,7 +95,7 @@ Poiché si tratta di una distribuzione in un ambiente di gestione temporanea, il
 
 Anche se questa procedura dettagliata è stata studiata per una distribuzione nell'ambiente di gestione temporanea, una distribuzione nell'ambiente di produzione segue gli stessi passaggi, tranne che nella finestra di dialogo **Publish to Azure** sarà necessario selezionare l'opzione **Production** anziché **Staging** per **Target environment**. In una distribuzione nell'ambiente di produzione l'URL si basa sul nome DNS scelto dall'utente anziché su un GUID come quello usato per la gestione temporanea.
 
->[AZURE.WARNING]A questo punto l'applicazione Azure è stata distribuita nel cloud. Prima di continuare, tuttavia, tenere presente che per un'applicazione distribuita, anche se non in esecuzione, viene accumulato tempo fatturabile per la sottoscrizione. È quindi estremamente importante eliminare le distribuzioni indesiderate dalla sottoscrizione Azure.
+>[AZURE.WARNING] A questo punto l'applicazione Azure è stata distribuita nel cloud. Prima di continuare, tuttavia, tenere presente che per un'applicazione distribuita, anche se non in esecuzione, viene accumulato tempo fatturabile per la sottoscrizione. È quindi estremamente importante eliminare le distribuzioni indesiderate dalla sottoscrizione Azure.
 
 ## Informazioni sui progetti di distribuzione di Azure ##
 
@@ -105,7 +105,7 @@ Oltre alle informazioni relative alle applicazioni, un progetto di distribuzione
 
 Sebbene l'esempio usato in questo argomento sia notevolmente semplificato per scopi didattici, un progetto di distribuzione di Azure può contenere anche altre importanti informazioni di configurazione che consentono di creare con le applicazioni servizi cloud complessi, scalabili, a disponibilità elevata e a più livelli quasi arbitrariamente. È possibile abilitare l'**affinità di sessione ("sessioni permanenti")**, la **memorizzazione rapida nella cache**, il **debug remoto**, la **ripartizione del carico di lavoro SSL**, il **routing firewall/porta**, l'**accesso remoto** e diverse altre potenti funzionalità.
 
-Se si è completata la sezione precedente di questa esercitazione ("Per distribuire l'applicazione in Azure in modo semplice e rapido"), in Esplora progetti verrà visualizzato un nuovo progetto di distribuzione di Azure generato automaticamente con il nome "**MyHelloWorld_onAzure**".
+Se si è completata la sezione precedente di questa esercitazione ("Per distribuire l'applicazione in Azure in modo semplice e rapido"), in Esplora progetti verrà visualizzato un nuovo progetto di distribuzione di Azure generato automaticamente con il nome "**MyHelloWorld\_onAzure**".
 
 L'esercitazione può essere stata avviata anche con la creazione di un progetto di distribuzione di Azure vuoto, a cui sono state aggiunte una o più applicazioni. Si tratta di un procedura più lunga, ma che garantisce fin dall'inizio un maggior controllo sulla configurazione iniziale.
 
@@ -128,7 +128,7 @@ Indipendentemente dal fatto che la procedura di configurazione server sia stata 
 
 Se si è creato un nuovo progetto di distribuzione di Azure seguendo la procedura descritta sopra, ovvero in modo implicito pubblicando l'applicazione in Azure, il pacchetto JDK e il server applicazioni sono stati configurati per il cloud, ma non per l'emulazione locale. Per preparare il progetto per il test nell'emulatore locale, seguire questa procedura:
 
-1. In Project Explorer di Eclipse fare clic su **MyHelloWorld_onAzure**.
+1. In Project Explorer di Eclipse fare clic su **MyHelloWorld\_onAzure**.
 1. Fare clic con il pulsante destro del mouse su **WorkerRole1**.
 1. Espandere il sottomenu **Azure** nel menu di scelta rapida.
 1. Fare clic su **Server Configuration**.
@@ -196,4 +196,4 @@ Per altre informazioni sull'uso di Azure con Java, visitare il [centro per svilu
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

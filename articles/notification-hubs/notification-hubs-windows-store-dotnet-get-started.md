@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/14/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Introduzione ad Hub di notifica per le app di Windows Store
@@ -186,7 +186,7 @@ In questa esercitazione verrà usata un'app semplice e verrà illustrato solo il
 
 * **Node.js**: vedere [Come usare Hub di notifica da Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
 
-* **Servizi mobili di Azure**: per un esempio di invio di notifiche da un back-end di Servizi mobili di Azure integrato con Hub di notifica, vedere "Introduzione alle notifiche push in Servizi mobili" ([Back-end .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [Back-end JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
+* **App per dispositivi mobili di Azure**: per un esempio di come inviare notifiche da un'app per dispositivi mobili di Azure integrata con Hub di notifica, vedere[Aggiungere notifiche push per le app per dispositivi mobili](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
 
 * **Java/PHP**: per un esempio di invio di notifiche con le API REST, vedere "Come usare Hub di notifica da Java/PHP" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
@@ -284,4 +284,4 @@ Per altre informazioni sull'uso di Hub di notifica, vedere [Panoramica dell'Hub 
 [catalogo dei riquadri]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [panoramica delle notifiche]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -3,7 +3,7 @@
 	description="Esercitazione che illustra come creare un'app Web PHP che archivia i dati in MySQL e come usare la distribuzione FTP in Azure.";" 
 	services="app-service\web" 
 	documentationCenter="php" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -12,16 +12,16 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
-	ms.topic="hero-article" 
+	ms.topic="get-started-article" 
 	ms.date="01/12/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 #Creazione di un'app Web PHP-MySQL in Servizio app di Azure e distribuzione tramite FTP
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](app-service-web-nodejs-get-started.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -46,7 +46,7 @@ Seguendo questa esercitazione, verrà creata una semplice app Web di registrazio
 Per creare un'app Web e un database MySQL, attenersi alla procedura seguente:
 
 1. Eseguire l'accesso al [portale di Azure][management-portal].
-2. Fare clic sull'icona **+ Nuovo ** nella parte superiore sinistra del portale di Azure.
+2. Fare clic sull'icona **+Nuovo** nella parte superiore sinistra del portale di Azure.
 
 	![Creazione di un nuovo sito Web di Azure][new-website]
 
@@ -303,4 +303,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

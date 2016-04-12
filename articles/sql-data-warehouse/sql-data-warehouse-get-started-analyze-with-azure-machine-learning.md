@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Analizzare i dati con Azure Machine Learning
@@ -39,25 +39,25 @@ I dati saranno letti dalla visualizzazione dbo.vTargetMail nel database Adventur
 5. Nel riquadro Properties specificare i dettagli del database SQL Data Warehouse.
 6. Specificare la **query** di database per leggere i dati di interesse.
 
-   ```
-   SELECT [CustomerKey]
-      ,[GeographyKey]
-      ,[CustomerAlternateKey]
-      ,[MaritalStatus]
-      ,[Gender]
-      ,cast ([YearlyIncome] as int) as SalaryYear
-      ,[TotalChildren]
-      ,[NumberChildrenAtHome]
-      ,[EnglishEducation]
-      ,[EnglishOccupation]
-      ,[HouseOwnerFlag]
-      ,[NumberCarsOwned]
-      ,[CommuteDistance]
-      ,[Region]
-      ,[Age]
-      ,[BikeBuyer]
-  FROM [dbo].[vTargetMail]
-   ```
+```sql
+SELECT [CustomerKey]
+  ,[GeographyKey]
+  ,[CustomerAlternateKey]
+  ,[MaritalStatus]
+  ,[Gender]
+  ,cast ([YearlyIncome] as int) as SalaryYear
+  ,[TotalChildren]
+  ,[NumberChildrenAtHome]
+  ,[EnglishEducation]
+  ,[EnglishOccupation]
+  ,[HouseOwnerFlag]
+  ,[NumberCarsOwned]
+  ,[CommuteDistance]
+  ,[Region]
+  ,[Age]
+  ,[BikeBuyer]
+FROM [dbo].[vTargetMail]
+```
 
 Eseguire l'esperimento facendo clic su **Run** sotto l'area di disegno dell'esperimento.![Eseguire l'esperimento][1]
 
@@ -115,6 +115,8 @@ Verranno visualizzate altre due colonne aggiunte al set di dati di test.
 
 Confrontando la colonna BikeBuyer (effettivo) con Scored Labels (stima), è possibile vedere il livello di prestazioni del modello. Come passaggi successivi è possibile usare questo modello per eseguire stime per i nuovi clienti e pubblicare il modello come un servizio Web o scrivere i risultati in SQL Data Warehouse.
 
+## Passaggi successivi
+
 Per ulteriori informazioni sulla creazione di modelli di apprendimento automatico predittivi, fare riferimento a [Introduzione a Machine Learning in Azure][].
 
 
@@ -140,4 +142,4 @@ Per ulteriori informazioni sulla creazione di modelli di apprendimento automatic
 [caricare manualmente i dati di esempio]: sql-data-warehouse-get-started-manually-load-samples.md
 [Creare un SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

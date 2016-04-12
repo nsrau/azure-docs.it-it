@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/15/2016"
    ms.author="telmos"/>
 
 # Creare una rete virtuale (classica) usando il portale di Azure
@@ -33,4 +33,4 @@ Verrà illustrato come creare una rete virtuale dal portale di Azure tramite l'i
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-classic-netcfg-portal-include](../../includes/virtual-networks-create-vnet-classic-netcfg-portal-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

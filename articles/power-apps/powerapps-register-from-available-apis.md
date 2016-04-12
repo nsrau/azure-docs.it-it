@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="01/21/2016"
+   ms.date="03/02/2016"
    ms.author="guayan"/>
 
 # Registrazione di un'API gestita da Microsoft o gestita dal reparto IT
@@ -22,13 +22,12 @@ Esistono API **gestite da Microsoft** e API **gestite dal reparto IT**. Quando s
 
 Tramite le API gestite dal reparto IT, è possibile controllare e monitorare ogni aspetto, tra cui memoria, connettività, attendibilità e altro. Le API gestite dal reparto IT comprendono anche quelle in grado di connettersi a un sistema locale, ad esempio SQL Server e SharePoint Server.
 
-Per utilizzare le API **gestite da Microsoft** o le API **gestite dal reparto IT**, è necessario "registrare" le API nel portale di Azure. Una volta registrate, è possibile utilizzare queste API nelle app. Sono disponibili le seguenti opzioni:
+> [AZURE.SELECTOR]
+- [API gestite](../articles/power-apps/powerapps-register-from-available-apis.md)
+- [API nell'ambiente del servizio app](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
+- [API Swagger](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
 
-- Registrare un'API gestita da Microsoft o gestita dal reparto IT predefinita (in questo argomento).
-- Registrare un'app Web, un'app per le API e un'app per dispositivi mobili ospitata nell'[ambiente del servizio app](powerapps-register-api-hosted-in-app-service.md).
-- Registrare una delle API Swagger usando una [definizione API di Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
-
-Questo articolo è incentrato sulla **registrazione di API predefinite gestite da Microsoft e gestite dal reparto IT**.
+In questo argomento si esaminerà la prima opzione, ovvero la **registrazione delle API gestite da Microsoft e delle API gestite dal reparto IT**.
 
 #### Prerequisiti per iniziare
 
@@ -107,20 +106,19 @@ Nella tabella seguente vengono confrontate le funzionalità delle API gestite da
 
 ## Registrazione di un'API gestita da Microsoft o gestita dal reparto IT
 
-1. Nel [portale di Azure](https://portal.azure.com/),segno- in con il tuo account di lavoro (*yourUserName*@*YourCompany*.com). Stai automaticamente l'accesso al tuo abbonamento società
-2. selezionare **PowerApps**, quindi selezionare **Gestisci API**:  
-![][17]
-3. In Gestisci API, selezionare **Aggiungi**:  
+1. Nel [portale di Azure](https://portal.azure.com/) accedere con l'account aziendale (*nomeUtente*@*società*.com). Si accederà automaticamente alla sottoscrizione della propria società.
+2. Selezionare **Sfoglia**, quindi **PowerApp** e infine **API gestite**: ![][17]
+2. In Gestisci API, selezionare **Aggiungi**:  
 ![][18]  
-4. In **Aggiungi API**, immettere le proprietà dell'API:  
+3. In **Aggiungi API**, immettere le proprietà dell'API:  
 
 	- In **Nome**, immettere un nome per l'API. Tenere presente che il nome immesso viene compreso nell'URL di runtime dell'API. Il nome deve essere significativo e univoco all'interno dell'organizzazione.
 	- In **Origine**, selezionare **Da API disponibili**:  
 	![][19]
-5. Selezionare **API** e quindi scegliere l'API da registrare:  
+4. Selezionare **API** e quindi scegliere l'API da registrare:  
 ![][20]
-6. Selezionare l'API specifica e aggiungere tutte le proprietà configurabili.
-7. Selezionare **AGGIUNGI** per completare questi passaggi.
+5. Selezionare l'API specifica e aggiungere tutte le proprietà configurabili.
+6. Selezionare **AGGIUNGI** per completare questi passaggi.
 
 > [AZURE.TIP] Quando si registra un'API, ciò avviene nel proprio ambiente del servizio app. Una volta effettuata tale registrazione, l'API è utilizzabile da altre app presenti nello stesso ambiente del servizio app.
 
@@ -156,4 +154,4 @@ In questo argomento si è visto come registrare un'istanza personalizzata delle 
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

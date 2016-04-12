@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/12/2015"   
+	ms.date="03/08/2016"   
 	ms.author="adsolank"/>
 
 
@@ -221,4 +221,4 @@ Il metodo seguente carica un file multimediale come asset e crea un processo med
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

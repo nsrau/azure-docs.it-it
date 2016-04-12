@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/22/2016"
    ms.author="telmos" />
 
 # Come impostare un indirizzo IP privato interno statico
 Nella maggior parte dei casi non è necessario specificare un indirizzo IP interno statico per la macchina virtuale. Le macchine virtuali in una rete virtuale infatti ricevono automaticamente un indirizzo IP interno da un intervallo specificato. In alcuni casi è tuttavia opportuno specificare un indirizzo IP statico per una determinata macchina virtuale, ad esempio se questa eseguirà DNS o sarà un controller di dominio.
 
->[AZURE.NOTE]Un indirizzo IP interno statico resta associato alla macchina virtuale anche in caso di passaggio allo stato di arresto/deprovisioning.
+>[AZURE.NOTE] Un indirizzo IP interno statico resta associato alla macchina virtuale anche in caso di passaggio allo stato di arresto/deprovisioning.
 
 ## Come verificare la disponibilità di uno specifico indirizzo IP
 Per verificare se l'indirizzo IP *10.0.0.7* è disponibile in una rete virtuale denominata *TestVnet*, eseguire il comando PowerShell seguente e controllare il valore per *IsAvailable*:
@@ -31,7 +31,7 @@ Per verificare se l'indirizzo IP *10.0.0.7* è disponibile in una rete virtuale 
 	OperationId          : fd3097e1-5f4b-9cac-8afa-bba1e3492609
 	OperationStatus      : Succeeded
 
->[AZURE.NOTE]Se si vuole testare il comando precedente in un ambiente sicuro, seguire le linee guida contenute in [Creazione di una rete virtuale](../virtual-network/virtual-networks-create-vnet.md) per creare una rete virtuale denominata *TestVnet* e assicurarsi che usi lo spazio degli indirizzi *10.0.0.0/8*.
+>[AZURE.NOTE] Se si vuole testare il comando precedente in un ambiente sicuro, seguire le linee guida contenute in [Creazione di una rete virtuale](virtual-networks-create-vnet-classic-portal.md) per creare una rete virtuale denominata *TestVnet* e assicurarsi che usi lo spazio degli indirizzi *10.0.0.0/8*.
 
 ## Come specificare un indirizzo IP interno statico durante la creazione di una macchina virtuale
 Lo script PowerShell seguente crea un nuovo servizio cloud denominato *TestService*, recupera un'immagine da Azure, quindi crea una macchina virtuale *TestVM* nel nuovo servizio cloud usando l'immagine recuperata, imposta la macchina virtuale in modo che sia posizionata nella subnet *Subnet-1* e infine imposta *10.0.0.7* come indirizzo IP interno statico per la macchina virtuale:
@@ -92,11 +92,11 @@ Per aggiungere un indirizzo IP interno statico alla macchina virtuale creata usa
 
 ## Passaggi successivi
 
-[IP riservato](../virtual-networks-reserved-public-ip)
+[IP riservato](virtual-networks-reserved-public-ip)
 
-[IP pubblico a livello di istanza (ILPIP)](../virtual-networks-instance-level-public-ip)
+[IP pubblico a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip)
 
 [API REST di IP riservati](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0330_2016-->

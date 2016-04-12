@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Informazioni sulla connettività sicura cross-premises per le reti virtuali | Microsoft Azure"
-   description="Informazioni sui tipi di connessioni sicure cross-premises per reti virtuali, incluse le connessioni ExpressRoute, point-to-site e site-to-site."
+   description="Informazioni sui tipi di connessioni sicure cross-premise per reti virtuali, incluse le connessioni ExpressRoute, da punto a sito e da sito a sito."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -12,14 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="03/08/2016"
    ms.author="cherylmc" />
 
 # Informazioni sulla connettività sicura cross-premises per le reti virtuali
 
-Se si desidera connettere i siti locali in modo sicuro a una rete virtuale, sono disponibili tre opzioni: Site-to-site, Point-to-site, e ExpressRoute.
+Questo articolo illustra le diverse modalità di connessione del sito locale a una rete virtuale di Azure. L'articolo si applica a entrambi i modelli di distribuzione classica e di Gestione risorse.
 
-La scelta dell'opzione può dipendere da diversi fattori, ad esempio:
+Sono disponibili tre opzioni di connessione: da sito a sito, da punto a sito ed ExpressRoute. La scelta dell'opzione può dipendere da diversi fattori, ad esempio:
 
 
 - Che tipo di velocità effettiva richiede la soluzione?
@@ -43,14 +43,14 @@ La tabella seguente può aiutare nella scelta della migliore opzione di connetti
 | **CONTRATTO DI SERVIZIO** | [CONTRATTO DI SERVIZIO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATTO DI SERVIZIO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATTO DI SERVIZIO](https://azure.microsoft.com/support/legal/sla/) |
 | **Prezzi** | [Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Prezzi](https://azure.microsoft.com/pricing/details/expressroute/) |
 | **Documentazione tecnica** | [Documentazione del gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentazione del gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentazione di ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
-| ****DOMANDE FREQUENTI ** | [Domande frequenti sul Gateway VPN](vpn-gateway-vpn-faq.md) | [Domande frequenti sul Gateway VPN](vpn-gateway-vpn-faq.md) | [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md) |
+| **DOMANDE FREQUENTI** | [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md) | [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md) | [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md) |
 
 
 ## Connessioni Site-to-site
 
-Una VPN da sito a sito consente di creare una connessione protetta tra il sito locale e la rete virtuale. Per creare una connessione da sito a sito, un dispositivo VPN che si trova nella rete locale viene configurato per creare una connessione protetta con il Gateway VPN di Azure. Una volta creata la connessione, le risorse nella rete locale e le risorse che si trovano nella rete virtuale possono comunicare direttamente e in modo sicuro. Per le connessioni da sito a sito non è necessario stabilire una connessione separata per ogni computer client nella rete locale per accedere alle risorse nella rete virtuale.
+Una VPN da sito a sito consente di creare una connessione sicura tra il sito locale e la rete virtuale. Per creare una connessione da sito a sito, un dispositivo VPN che si trova nella rete locale viene configurato per creare una connessione protetta con il Gateway VPN di Azure. Una volta creata la connessione, le risorse nella rete locale e le risorse che si trovano nella rete virtuale possono comunicare direttamente e in modo sicuro. Per le connessioni da sito a sito non è necessario stabilire una connessione separata per ogni computer client nella rete locale per accedere alle risorse nella rete virtuale.
 
-**Utilizzare una connessione site-to-site quando:**
+**Usare una connessione da sito a sito quando:**
 
 - Si desidera creare una soluzione ibrida.
 - Per creare una connessione tra la sede locale e la rete virtuale senza configurazioni lato client.
@@ -59,20 +59,20 @@ Una VPN da sito a sito consente di creare una connessione protetta tra il sito l
 **Requisiti**
 
 - Il dispositivo VPN locale deve disporre di un indirizzo IP IPv4 a Internet. Non può essere dietro un NAT.
-- È necessario il dispositivo VPN compatibile. Vedere [Informazioni sui dispositivi VPN](http://go.microsoft.com/fwlink/p/?LinkID=615099). 
+- È necessario il dispositivo VPN compatibile. Vedere [Informazioni sui dispositivi VPN](vpn-gateway-about-vpn-devices.md). 
 - Il dispositivo VPN che si utilizza deve essere compatibile con il tipo di gateway necessario per la soluzione. Vedere [Informazioni sui gateway VPN](vpn-gateway-about-vpngateways.md).
 - La SKU del gateway influirà anche sulla velocità effettiva aggregata. Per altre informazioni, vedere [SKU del gateway](vpn-gateway-about-vpngateways.md#gateway-skus). 
 
-Se si vuole configurare una connessione gateway VPN da sito a sito, mediante il portale di Azure classico e il modello di distribuzione classica, vedere[Configurare una rete virtuale con una connessione di gateway VPN da sito a sito](vpn-gateway-site-to-site-create.md). Se si vuole configurare una VPN da sito a sito, mediante il modello di distribuzione di Gestione risorse, vedere[Creare una rete virtuale con una connessione VPN da sito a sito](vpn-gateway-create-site-to-site-rm-powershell.md).
+Se si vuole configurare una connessione gateway VPN da sito a sito, mediante il portale di Azure classico e il modello di distribuzione classica, vedere[Configurare una rete virtuale con una connessione di gateway VPN da sito a sito per il modello di distribuzione classica](vpn-gateway-site-to-site-create.md). Se si vuole configurare una VPN da sito a sito, mediante il modello di distribuzione di Gestione risorse, vedere[Creare una rete virtuale con una connessione VPN da sito a sito per il modello di Gestione risorse](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 
 ## Connessioni Point-to-Site
 
-Una VPN point-to-site consente inoltre di creare una connessione protetta alla rete virtuale. In una configurazione point-to-site, la connessione viene configurata singolarmente in ogni computer client che si desidera connettere alla rete virtuale. Le connessioni Point-to-site non richiedono un dispositivo VPN. Questo tipo di connessione utilizza un client VPN installato in ogni computer client. La VPN viene stabilita avviando manualmente la connessione dal computer client locale.
+Una VPN da punto a sito consente anche di creare una connessione protetta alla rete virtuale. In una configurazione da punto a sito, la connessione viene configurata singolarmente in ogni computer client che si vuole connettere alla rete virtuale. Le connessioni da punto a sito non richiedono un dispositivo VPN. Questo tipo di connessione utilizza un client VPN installato in ogni computer client. La VPN viene stabilita avviando manualmente la connessione dal computer client locale.
 
-Possono esistere contemporaneamente configurazioni point-to-site e site-to-site, ma a differenza delle connessioni da sito a sito, non è possibile configurare connessioni point-to-site contemporaneamente con una connessione ExpressRoute alla stessa rete virtuale.
+Possono esistere contemporaneamente configurazioni da punto a sito e da sito a sito, ma a differenza delle connessioni da sito a sito, non è possibile configurare connessioni da punto a sito contemporaneamente con una connessione ExpressRoute alla stessa rete virtuale.
 
-**Utilizzare una connessione point-to-site quando:**
+**Usare una connessione da punto a sito quando:**
 
 - Si desidera configurare solo alcuni client per la connessione a una rete virtuale.
 
@@ -84,7 +84,7 @@ Possono esistere contemporaneamente configurazioni point-to-site e site-to-site,
 
 - Il dispositivo VPN locale non dispone di un indirizzo IP IPv4 a Internet.
 
-Se si vuole configurare una connessione point-to-site, vedere[Configurare una rete virtuale con una connessione VPN point-to-site](vpn-gateway-point-to-site-create.md).
+Se si vuole configurare una connessione da punto a sito per il modello di distribuzione classica, vedere [Configurare una rete virtuale con una connessione VPN da punto a sito per il modello di distribuzione classica](vpn-gateway-point-to-site-create.md). Se si vuole configurare una connessione da punto a sito per il modello di Gestione risorse, vedere [Configurare una rete virtuale con una connessione VPN da punto a sito per il modello di Gestione risorse](vpn-gateway-howto-point-to-site-rm-ps.md).
 
 ## Connessioni ExpressRoute
 
@@ -97,6 +97,6 @@ Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a Ex
 
 ## Passaggi successivi
 
-Vedere [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md) e [Domande frequenti su Gateway VPN](vpn-gateway-vpn-faq.md) per altre informazioni.
+Per altre informazioni, vedere [Domande frequenti su Gateway VPN](vpn-gateway-vpn-faq.md) e [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

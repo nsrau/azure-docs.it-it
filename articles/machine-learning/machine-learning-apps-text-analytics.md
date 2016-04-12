@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="03/08/2016"
 	ms.author="onewth"/>
 
 
@@ -58,7 +58,7 @@ Assicurarsi di includere le intestazioni corrette nella richiesta, che dovrebbe 
                
 	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
 
-È possibile trovare la chiave dell'account relativa al proprio account in [Azure Marketplace](https://datamarket.azure.com/account/keys).
+È possibile trovare la chiave dell'account relativa al proprio account in [Azure Marketplace](https://datamarket.azure.com/account/keys). Si noti che per i formati di input e output è attualmente accettato solo JSON. XML non è supportato.
 
 ---
 
@@ -383,4 +383,4 @@ Le proprietà di ciascuna parte della risposta sono le seguenti:
 | TopicId | ID dell'argomento a cui sono stati assegnati i record. |
 | Distance | Probabilità che il record appartenga all'argomento. Un valore vicino a zero indica una probabilità elevata. |
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

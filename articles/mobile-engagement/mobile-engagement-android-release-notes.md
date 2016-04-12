@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="03/10/2016"
 	ms.author="piyushjo" />
 
 
 #Note sulla versione
+
+##4\.2.0 (11/03/2016)
+
+- L'SDK ora è concesso in licenza con MIT.
+- Consentire la specifica di un identificatore del dispositivo personalizzato in fase di inizializzazione dell'SDK.
 
 ##4\.1.5 (01/02/2016)
 
@@ -65,4 +70,4 @@
 -   Sono stati introdotti miglioramenti per la sicurezza.
 -   È stata rimossa la verifica per Google Play e SmartAd.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

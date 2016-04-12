@@ -173,4 +173,4 @@ Per rimuovere un account di archiviazione non più in uso, utilizzare **Delete**
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

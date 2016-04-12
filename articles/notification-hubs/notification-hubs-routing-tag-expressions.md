@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Espressioni di routing e tag
@@ -112,4 +112,4 @@ Di seguito è riportato un esempio per l'invio di notifiche con espressioni tag 
 	"You want info on the Red Socks</text></binding></visual></toast>";
 	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

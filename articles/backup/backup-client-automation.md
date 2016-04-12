@@ -3,11 +3,18 @@
 	description="Informazioni su come distribuire e gestire Backup di Azure mediante PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
-	manager="shreeshd"
+	authors="nkolli1"
+	manager="shivamg"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/22/2016" ms.author="markgal"; "aashishr"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/22/2016"
+	ms.author="markgal;jimpark;nkolli"/>
 
 
 # Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
@@ -43,7 +50,7 @@ Usare il cmdlet **Get-AzureRMBackupVault** per elencare gli insiemi di credenzia
 
 
 ## Installazione dell'agente di Backup di Azure
-Per installare l'agente di Backup di Azure, è necessario aver scaricato il programma di installazione nel server Windows. È possibile ottenere la versione più recente del programma di installazione dall'[Area download Microsoft](http://aka.ms/azurebackup_agent).o dalla pagina Dashboard dell’archivio di backup. Salvare il programma di installazione in un percorso facilmente accessibile come *C:\\Downloads*.
+Per installare l'agente di Backup di Azure, è necessario aver scaricato il programma di installazione nel server Windows. È possibile ottenere la versione più recente del programma di installazione dall'[Area download Microsoft](http://aka.ms/azurebackup_agent).o dalla pagina Dashboard dell’archivio di backup. Salvare il programma di installazione in un percorso facilmente accessibile come *C:\Downloads*.
 
 Per installare l'agente, eseguire il comando seguente in una console di Azure PowerShell con privilegi elevati:
 
@@ -69,15 +76,15 @@ Le opzioni disponibili includono:
 
 | Opzione | Dettagli | Default |
 | ---- | ----- | ----- |
-| /q | Installazione non interattiva | - |
-| /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\Programmi\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\Programmi\Microsoft Azure Recovery Services Agente\Scratch | 
+| /q | Installazione non interattiva | - | 
+| /p:"location" | Percorso della cartella di installazione dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agent | 
+| /s:"location" | Percorso della cartella cache dell'agente di Backup di Azure. | C:\\Programmi\\Microsoft Azure Recovery Services Agente\\Scratch | 
 | /m | Accetta Microsoft Update | - | 
 | /nu | Non verificare la disponibilità di aggiornamenti al termine dell'installazione | - | 
 | /d | Disinstalla Agente di Servizi di ripristino di Microsoft Azure | - | 
 | /ph | Indirizzo host proxy | - | 
 | /po | Numero porta host proxy | - | 
-| /pu | Nome utente host proxy | - |
+| /pu | Nome utente host proxy | - | 
 | /pw | Password proxy | - |
 
 
@@ -87,7 +94,7 @@ Per poter eseguire la registrazione con il servizio Backup di Azure, è necessar
 - Disporre di una sottoscrizione di Azure valida
 - Ottieni un archivio di backup
 
-Per scaricare le credenziali dell'insieme di credenziali, eseguire il cmdlet **Get AzureRMBackupVaultCredentials** nella console di Azure PowerShell e archiviarle in una posizione pratica, ad esempio * C:\\Download*.
+Per scaricare le credenziali dell'insieme di credenziali, eseguire il cmdlet **Get AzureRMBackupVaultCredentials** nella console di Azure PowerShell e archiviarle in una posizione pratica, ad esempio *C:\Downloads*.
 
 ```
 PS C:\> $credspath = "C:"
@@ -588,4 +595,4 @@ Per altre informazioni su Backup di Azure per Windows Server/Client, vedere
 - [Introduzione a Backup di Azure](backup-configure-vault.md)
 - [Backup di server Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0316_2016-->

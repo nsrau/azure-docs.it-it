@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
-	ms.author="mimig"/>
+	ms.date="03/30/2016" 
+	ms.author="arramac"/>
 
 
 # Limiti e quote di DocumentDB
@@ -24,4 +24,6 @@ La tabella seguente descrive le quote e i limiti applicati in DocumentDB.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+Le quote elencate con un asterisco (*) [possono essere modificate contattando il supporto tecnico Azure](documentdb-increase-limits.md).
+
+<!---HONumber=AcomDC_0330_2016-->

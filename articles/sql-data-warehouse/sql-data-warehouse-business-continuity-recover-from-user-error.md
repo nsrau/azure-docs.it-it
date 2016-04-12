@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/17/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Ripristinare un database dall’errore dell’utente in SQL Data Warehouse
@@ -44,7 +44,7 @@ Per ripristinare un database, utilizzare il cmdlet [Start-AzureSqlDatabaseRestor
 6. Ripristinare il database al punto di ripristino desiderato.
 7. Monitorare lo stato del ripristino.
 
-```
+```Powershell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -95,13 +95,13 @@ Per ripristinare un database eliminato, utilizzare il cmdlet [Start-AzureSqlData
 3. Selezionare la sottoscrizione che contiene il database eliminato da ripristinare.
 4. Cercare il database e la relativa data di eliminazione nell'elenco dei database eliminati.
 
-```
+```Powershell
 Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>"
 ```
 
 5. Selezionare il database eliminato e avviare il ripristino.
 
-```
+```Powershell
 $Database = Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>" -DeletionDate "1/01/2015 12:00:00 AM"
 
 $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName "<NewDatabaseName>"
@@ -141,4 +141,4 @@ Per ulteriori informazioni sulle funzionalità di continuità aziendale di altre
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

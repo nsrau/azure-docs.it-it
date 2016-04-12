@@ -3,7 +3,7 @@
    description="Questo articolo illustra come configurare Diagnostica di Azure e Azure Operational Insights per raccogliere log da un cluster Service Fabric in esecuzione in Azure."
    services="service-fabric"
    documentationCenter=".net"
-   authors="kunaldsingh"
+   authors="ms-toddabel"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="03/25/2016"
    ms.author="toddabel"/>
 
 
@@ -21,161 +21,20 @@
 
 Quando si esegue un cluster Azure Service Fabric, è consigliabile raccogliere i log da tutti i nodi in una posizione centrale. Il salvataggio dei log in una posizione centrale semplifica l'analisi e la risoluzione di eventuali problemi nel cluster o nelle applicazioni e nei servizi in esecuzione nel cluster. Uno dei modi per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Azure, che carica i log nell'archiviazione di Azure.
 
-Azure Operational Insights, incluso in Microsoft Operations Management Suite, è una soluzione SaaS che semplifica l'analisi e la ricerca nei log. La procedura seguente illustra come configurare l’estensione Diagnostica di Azure nelle VM in un cluster in modo da caricare i log in un archivio centrale e quindi come configurare Operational Insights per eseguire il pull dei log, allo scopo di visualizzarli nel portale di Operational Insights.
+Azure [Operational Insights](https://azure.microsoft.com/services/operational-insights/), incluso in Microsoft Operations Management Suite, è una soluzione SaaS che semplifica l'analisi e la ricerca nei log. La procedura seguente illustra come configurare l’estensione Diagnostica di Azure nelle VM in un cluster in modo da caricare i log in un archivio centrale e quindi come configurare Operational Insights per eseguire il pull dei log, allo scopo di visualizzarli nel portale di Operational Insights.
 
 Operational Insights identifica le origini dei diversi tipi di log caricati da un cluster Service Fabric in base ai nomi delle tabelle di archiviazione di Azure in cui sono archiviati. Sarà quindi necessario configurare Diagnostica di Azure in modo che carichi i log nelle tabelle di archiviazione con nomi corrispondenti ai valori che verranno cercati da Operational Insights. Gli esempi di impostazioni di configurazione disponibili in questo documento indicano i nomi ottimali per le tabelle di archiviazione.
 
-## Articoli utili
-* [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (correlato ai Servizi cloud di Azure, include alcune informazioni ed esempi utili)
-* [Operational Insights](https://azure.microsoft.com/services/operational-insights/)
-* [Gestione risorse di Azure](https://azure.microsoft.com/resource-group-overview/)
 
 ## Prerequisiti
-Questi strumenti verranno usati per eseguire alcune operazioni nel documento: * [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/) * [Client Gestione risorse di Azure](https://github.com/projectkudu/ARMClient)
+Questi strumenti verranno usati per eseguire alcune operazioni nel documento:
 
-## Diverse origini di log da raccogliere
-1. **Log di Service Fabric:** emessi dalla piattaforma in canali ETW ed EventSource standard. I log possono essere di diversi tipi:
-  - Eventi operativi: log relativi a operazioni eseguite dalla piattaforma Service Fabric. Gli esempi includono la creazione di applicazioni e servizi, le modifiche allo stato dei nodi e informazioni sull'aggiornamento.
-  - [Eventi relativi al modello di programmazione attore](service-fabric-reliable-actors-diagnostics.md)
-  - [Eventi relativi al modello di programmazione Reliable Services](service-fabric-reliable-services-diagnostics.md)
-2. **Eventi dell'applicazione:** eventi emessi dal codice del servizio e scritti mediante la classe helper EventSource disponibile nei modelli di Visual Studio. Per altre informazioni su come scrivere i log dall'applicazione, vedere [l'articolo relativo al monitoraggio e alla diagnosi dei servizi in una configurazione con computer locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+* [Azure PowerShell](../powershell-install-configure.md)
+* [Operational Insights](https://azure.microsoft.com/services/operational-insights/)
 
-
-## Distribuire l’estensione Diagnostica in un cluster Service Fabric per raccogliere e caricare i log
-Il primo passaggio per la raccolta dei log consiste nel distribuire l'estensione Diagnostica in ogni VM del cluster Service Fabric. Tale estensione raccoglierà i log in ogni VM e li caricherà nell'account di archiviazione specificato. La procedura varia se si sceglie di usare il portale di Azure o Gestione risorse di Azure e se la distribuzione viene eseguita come parte della creazione di un cluster o per un cluster già esistente. Ecco la procedura per ogni scenario.
-
-### Distribuire l’estensione Diagnostica come parte della creazione di cluster tramite il portale
-Per distribuire Diagnostica nelle VM del cluster come parte della creazione di cluster, verrà usata l'impostazione di diagnostica illustrata nella figura seguente, attiva per impostazione predefinita. ![Impostazione di Diagnostica di Azure nel portale per la creazione di cluster](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/portal-cluster-creation-diagnostics-setting.png)
-
-### Distribuire l’estensione Diagnostica come parte della creazione di cluster tramite Gestione risorse di Azure
-Per creare un cluster tramite Gestione risorse, è necessario aggiungere il file JSON di configurazione di Diagnostica al modello di Gestione risorse di tipo cluster completo prima di creare il cluster. Gli esempi relativi ai modelli di Gestione risorse includono un modello di cluster con 5 VM con aggiunta della configurazione di Diagnostica, disponibile nella raccolta di esempi di Azure nella pagina relativa all'[esempio di modello di Gestione risorse di cluster con cinque nodi con Diagnostica](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-cluster-5-node-1-nodetype-wad).
-
-Per visualizzare l'impostazione di Diagnostica nel modello di Gestione risorse, cercare **WadCfg**. Per creare un cluster con questo modello, è sufficiente premere il pulsante di **distribuzione in Azure** disponibile nel collegamento precedente. In alternativa, è possibile scaricare l'esempio di Gestione risorse, modificarlo e creare un cluster con il modello modificato mediante il comando `New-AzureResourceGroupDeployment` in una finestra di Azure PowerShell. Per informazioni sui parametri da passare al comando, vedere più avanti.
-
-Prima di chiamare questo comando di distribuzione, inoltre, potrebbe essere necessario eseguire operazioni di configurazione, ad esempio aggiungere l'account di Azure (`Add-AzureAccount`), scegliere una sottoscrizione (`Select-AzureSubscription`), passare alla modalità Gestione risorse (`Switch-AzureMode AzureResourceManager`) e creare il gruppo di risorse, se non è già disponibile (`New-AzureResourceGroup`).
-
-```powershell
-
-New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
-```
-
-### <a name="deploywadarm"></a>Distribuire l'estensione Diagnostica in un cluster esistente
-Se in un cluster esistente non è stata distribuita l’estensione Diagnostica, sarà possibile aggiungerla seguendo questa procedura. Creare i due file WadConfigUpdate.json e WadConfigUpdateParams.json con il codice JSON seguente.
-
-##### WadConfigUpdate.json
-
-```json
-
-{
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-
-  "parameters": {
-        "vmNamePrefix": {
-      "type": "string"
-    },
-        "applicationDiagnosticsStorageAccountName": {
-      "type": "string"
-    },
-        "vmCount": {
-            "type": "int"
-    }
-  },
-
-  "resources": [
-    {
-      "apiVersion": "2015-05-01-preview",
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(parameters('vmNamePrefix'),copyIndex(0),'/Microsoft.Insights.VMDiagnosticsSettings')]",
-            "location": "[resourceGroup().location]",
-      "properties": {
-        "type": "IaaSDiagnostics",
-                "typeHandlerVersion": "1.5",
-        "publisher": "Microsoft.Azure.Diagnostics",
-                "autoUpgradeMinorVersion": true,
-        "settings": {
-                    "WadCfg": {
-            "DiagnosticMonitorConfiguration": {
-                            "overallQuotaInMB": "50000",
-                "EtwProviders": {
-                    "EtwEventSourceProviderConfiguration": [
-                        {
-                            "provider": "Microsoft-ServiceFabric-Actors",
-                            "scheduledTransferKeywordFilter": "1",
-                                        "scheduledTransferPeriod": "PT5M",
-                            "DefaultEvents": { "eventDestination": "ServiceFabricReliableActorEventTable" }
-                        },
-                        {
-                            "provider": "Microsoft-ServiceFabric-Services",
-                            "DefaultEvents": { "eventDestination": "ServiceFabricReliableServiceEventTable" },
-                                        "scheduledTransferPeriod": "PT5M"
-                        }
-                    ],
-                    "EtwManifestProviderConfiguration": [
-                        {
-                            "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-                            "scheduledTransferKeywordFilter": "4611686018427387904",
-                                        "scheduledTransferLogLevelFilter": "Information",
-                                        "scheduledTransferPeriod": "PT5M",
-                            "DefaultEvents": { "eventDestination": "ServiceFabricSystemEventTable" }
-                        }
-                    ]
-                }
-            }
-    },
-                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountNamee')]"
-                },
-                "protectedSettings": {
-                    "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",
-                    "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName')),'2015-05-01-preview').key1]",
-                    "storageAccountEndPoint": "https://core.windows.net/"
-                }
-            },
-            "copy": {
-                "name": "vmExtensionLoop",
-                "count": "[parameters('vmCount')]"
-            }
-        }
-    ],
-
-    "outputs": {
-    }
-}
-```
-
-##### WadConfigUpdateParams.json
-Sostituire il valore vmNamePrefix con il prefisso scelto per i nomi di VM durante la creazione del cluster e modificare il valore vmStorageAccountName in modo che corrisponda all'account di archiviazione in cui si vogliono caricare i log dalle VM.
-
-```json
-
-{
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "vmNamePrefix": {
-            "value": "VM"
-        },
-        "applicationDiagnosticsStorageAccountName": {
-            "value": "testdiagacc"
-        },
-        "vmCount": {
-            "value": 5
-        }
-    }
-}
-```
-
-Dopo la creazione dei file JSON, come illustrato in precedenza, modificarli in base alle specifiche dell'ambiente, quindi chiamare questo comando passando il nome del gruppo di risorse per il cluster Service Fabric. Dopo l'esecuzione corretta del comando, Diagnostica verrà distribuito in tutte le VM e inizierà a caricare i log dal cluster alle tabelle disponibili nell'account di archiviazione di Azure specificato.
-
-Prima di chiamare questo comando di distribuzione, inoltre, può essere necessario eseguire operazioni di configurazione, ad esempio aggiungere l'account di Azure (`Add-AzureAccount`), scegliere la sottoscrizione corretta (`Select-AzureSubscription`) e passare alla modalità Gestione risorse (`Switch-AzureMode AzureResourceManager`).
-
-```ps
-
-New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToWADConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
-```
 
 ## Configurare Operational Insights per visualizzare i log ed eseguire ricerche nei log del cluster
-Quando Diagnostica è configurato nel cluster e carica i log in un account di archiviazione, occorre configurare Operational Insights in modo da potere visualizzare, eseguire ricerche e query in tutti i log del cluster tramite il portale di Operational Insights.
+Nell'articolo che descrive [come raccogliere log con Diagnostica Azure](service-fabric-diagnostics-how-to-setup-wad.md) è disponibile una guida dettagliata sull'abilitazione dei log inviati a un account di archiviazione di Azure. Quando Diagnostica è configurato nel cluster e carica i log in un account di archiviazione, occorre configurare Operational Insights in modo da potere visualizzare, eseguire ricerche e query in tutti i log del cluster tramite il portale di Operational Insights.
 
 ### Creare un'area di lavoro di Operational Insights
 Per visualizzare la procedura necessaria per creare un'area di lavoro di Operational Insights, consultare l'articolo seguente. Si noti che illustra due modi diversi per creare un'area di lavoro. Scegliere l'approccio basato sul portale di Azure e sulla sottoscrizione. Il nome dell'area di lavoro di Operational Insights sarà necessario nelle sezioni successive del documento. Creare l'area di lavoro di Operational Insights mediante la stessa sottoscrizione usata per creare tutte le risorse cluster, inclusi gli account di archiviazione.
@@ -286,7 +145,7 @@ if ($existingConfig) {
 }
 ```
 
-Dopo aver configurato l'area di lavoro di Operational Insights in modo che esegua la lettura da tabelle di Azure nell'account di archiviazione, è necessario accedere al portale e passare alla scheda **Archiviazione** per la risorsa di Operational Insights. Dovrebbe avere un aspetto analogo al seguente: ![Configurazione dell'archiviazione di Operational Insights nel portale di Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
+Dopo aver configurato l'area di lavoro di Operational Insights in modo che esegua la lettura da tabelle di Azure nell'account di archiviazione, è consigliabile accedere al portale e passare alla scheda **Archiviazione** per la risorsa di Operational Insights. Dovrebbe avere un aspetto analogo al seguente: ![Configurazione dell'archiviazione di Operational Insights nel portale di Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
 
 ### Eseguire ricerche e visualizzare i log in Operational Insights
 Dopo la configurazione dell'area di lavoro di Operational Insights per la lettura dei log dall'account di archiviazione specificato, la visualizzazione dei log nell'interfaccia utente di Operational Insights potrebbe richiedere fino a 10 minuti. Per assicurarsi che vengano generati nuovi log, è consigliabile distribuire un'applicazione Service Fabric nel cluster, perché ciò genererà eventi operativi dalla piattaforma di Service Fabric.
@@ -325,4 +184,4 @@ Sarà necessario aggiornare la sezione EtwEventSourceProviderConfiguration nel f
 ## Passaggi successivi
 Verificare gli eventi di diagnostica emessi per [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) e [Reliable Services](service-fabric-reliable-services-diagnostics.md) per ottenere informazioni più dettagliate sugli eventi da esaminare durante la risoluzione dei problemi.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Esercitazione: Creare una pipeline con l’attività Copia utilizzando Data Factory Editor" 
-	description="In questa esercitazione viene creata una pipeline di esempio di Data factory di Azure con un'attività di copia usando l'editor di Data factory nel portale di Azure classico." 
+	description="In questa esercitazione si creerà una pipeline di esempio di Data factory di Azure con un’attività di copia utilizzando Data Factory Editor nel portale di Azure." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # Esercitazione: Creare una pipeline con l’attività Copia utilizzando Data Factory Editor
@@ -22,24 +22,23 @@
 - [Con l'editor di Data factory](data-factory-get-started-using-editor.md)
 - [Con Visual Studio](data-factory-get-started-using-vs.md)
 - [Tramite PowerShell](data-factory-monitor-manage-using-powershell.md)
+- [Con la Copia guidata](data-factory-copy-data-wizard-tutorial.md)
 
 
-
-##Contenuto dell'esercitazione:
 Questa esercitazione include i passaggi seguenti:
 
 Passaggio | Descrizione
 -----| -----------
-[Passaggio 1: Creare un'istanza di Data factory di Azure](#CreateDataFactory) | In questo passaggio verrà creata un'istanza di Data factory di Azure denominata **ADFTutorialDataFactory**.  
-[Passaggio 2: Creare servizi collegati](#CreateLinkedServices) | In questo passaggio verranno creati due servizi collegati: **StorageLinkedService** e **AzureSqlLinkedService**. StorageLinkedService collega la risorsa di archiviazione di Azure e AzureSqlLinkedService collega il database SQL di Azure ad ADFTutorialDataFactory. I dati di input per la pipeline si trovano in un contenitore BLOB nell'archivio BLOB di Azure e i dati di output verranno archiviati in una tabella nel database SQL di Azure. Questi due archivi dati vengono quindi aggiunti alla data factory come servizi collegati.      
-[Passaggio 3: Creare tabelle di input e di output](#CreateInputAndOutputDataSets) | Nel passaggio precedente sono stati creati servizi collegati che fanno riferimento agli archivi dati che includono dati di input/output. In questo passaggio verranno definite due tabelle di data factory, ovvero **EmpTableFromBlob** e **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati. Per EmpTableFromBlob verrà specificato il contenitore BLOB che include un BLOB con i dati di origine, mentre per EmpSQLTable verrà specificata la tabella SQL in cui verranno archiviati i dati di output. Verranno specificate anche altre proprietà, ad esempio la struttura e la disponibilità dei dati e così via. 
-[Passaggio 4: Creare ed eseguire una pipeline](#CreateAndRunAPipeline) | In questo passaggio si creerà una pipeline denominata **ADFTutorialPipeline** in ADFTutorialDataFactory. La pipeline includerà un'**attività di copia** che copia i dati di input dal BLOB di Azure e li inserisce nella tabella di output SQL di Azure. L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate sull'attività di copia, vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md). 
-[Passaggio 5: Monitorare le sezioni e la pipeline](#MonitorDataSetsAndPipeline) | In questo passaggio verranno monitorate sezioni delle tabelle di input e di output mediante il portale di Azure.
+[Creazione di un'istanza di Data factory di Azure](#create-data-factory) | In questo passaggio verrà creata un'istanza di Data factory di Azure denominata **ADFTutorialDataFactory**.  
+[Creazione di servizi collegati](#create-linked-services) | In questo passaggio verranno creati due servizi collegati: **AzureStorageLinkedService** e **AzureSqlLinkedService**. AzureStorageLinkedService collega la risorsa di archiviazione di Azure e AzureSqlLinkedService collega il database SQL di Azure ad ADFTutorialDataFactory. I dati di input per la pipeline si trovano in un contenitore BLOB nell'archivio BLOB di Azure e i dati di output verranno archiviati in una tabella nel database SQL di Azure. Questi due archivi dati vengono quindi aggiunti alla data factory come servizi collegati.      
+[Creare set di dati di input e di output](#create-datasets) | Nel passaggio precedente sono stati creati servizi collegati che fanno riferimento agli archivi dati che includono dati di input/output. In questo passaggio verranno definite due tabelle di data factory, ovvero **EmpTableFromBlob** e **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati. Per EmpTableFromBlob verrà specificato il contenitore BLOB che include un BLOB con i dati di origine, mentre per EmpSQLTable verrà specificata la tabella SQL in cui verranno archiviati i dati di output. Verranno specificate anche altre proprietà, ad esempio la struttura e la disponibilità dei dati e così via. 
+[Creare una pipeline](#create-pipeline) | In questo passaggio si creerà una pipeline denominata **ADFTutorialPipeline** in ADFTutorialDataFactory. La pipeline includerà un'**attività di copia** che copia i dati di input dal BLOB di Azure e li inserisce nella tabella di output SQL di Azure. L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate su Attività di copia, vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md). 
+[Monitorare la pipeline](#monitor-pipeline) | In questo passaggio verranno monitorate sezioni delle tabelle di input e di output mediante il portale di Azure.
 
 > [AZURE.IMPORTANT] 
 Leggere l'articolo [Panoramica dell'esercitazione](data-factory-get-started.md) e completare i prerequisiti prima di eseguire questa esercitazione.
 
-## <a name="CreateDataFactory"></a>Passaggio 1: Creare un'istanza di Azure Data Factory
+## Creare un'istanza di Data Factory
 In questo passaggio viene usato il portale di Azure per creare un'istanza di Data factory di Azure denominata **ADFTutorialDataFactory**.
 
 1.	Dopo l'accesso al [portale di Azure][azure-portal], fare clic su **NUOVO** nell'angolo inferiore sinistro, selezionare **Analisi dei dati** nel pannello **Crea** e quindi fare clic su **Data factory** nel pannello **Analisi dei dati**. 
@@ -71,10 +70,10 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Dat
 
     ![Home page di Data factory][image-data-factory-get-stated-factory-home-page]
 
-## <a name="CreateLinkedServices"></a>Passaggio 2: Creare servizi collegati
+## Creazione di servizi collegati
 I servizi collegati collegano archivi dati o servizi di calcolo a una data factory di Azure. Un archivio dati può essere un'archiviazione di Azure, un database SQL di Azure o un database di SQL Server locale.
 
-In questo passaggio verranno creati due servizi collegati: **StorageLinkedService** e **AzureSqlLinkedService**. Il servizio collegato StorageLinkedService collega un account di archiviazione di Azure e AzureSqlLinkedService collega un database SQL di Azure ad **ADFTutorialDataFactory**. Più avanti in questa esercitazione si creerà una pipeline che copia i dati da un contenitore BLOB di StorageLinkedService e li inserisce in una tabella SQL di AzureSqlLinkedService.
+In questo passaggio verranno creati due servizi collegati: **AzureStorageLinkedService** e **AzureSqlLinkedService**. Il servizio collegato AzureStorageLinkedService collega un account di archiviazione di Azure e AzureSqlLinkedService collega un database SQL di Azure ad **ADFTutorialDataFactory**. Più avanti in questa esercitazione si creerà una pipeline che copia i dati da un contenitore BLOB di AzureStorageLinkedService e li inserisce in una tabella SQL di AzureSqlLinkedService.
 
 ### Creare un servizio collegato per l'account di archiviazione di Azure
 1.	Nel pannello **DATA FACTORY** fare clic sul riquadro **Creare e distribuire** per avviare l'**editor** della data factory.
@@ -88,11 +87,11 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
     
 6. Sostituire **accountname** e **accountkey** con i valori relativi a nome e chiave dell'account di archiviazione di Azure.
 
-	![JSON dell'archivio BLOB dell'editor][image-editor-blob-storage-json]
+	![JSON dell'archivio BLOB dell'editor](./media/data-factory-get-started-using-editor/getstarted-editor-blob-storage-json.png)
 	
 	Per dettagli sulle proprietà JSON, vedere il [riferimento sugli script JSON](http://go.microsoft.com/fwlink/?LinkId=516971).
 
-6. Fare clic su **Distribuisci** sulla barra degli strumenti per distribuire StorageLinkedService. Controllare che sulla barra del titolo sia visualizzato un messaggio simile a **CREAZIONE DEL SERVIZIO COLLEGATO COMPLETATA**.
+6. Fare clic su **Distribuisci** sulla barra degli strumenti per distribuire AzureStorageLinkedService. Controllare che sulla barra del titolo sia visualizzato un messaggio simile a **CREAZIONE DEL SERVIZIO COLLEGATO COMPLETATA**.
 
 	![Distribuzione dell'archivio BLOB dell'editor][image-editor-blob-storage-deploy]
 
@@ -105,11 +104,11 @@ In questo passaggio verranno creati due servizi collegati: **StorageLinkedServic
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire AzureSqlLinkedService. 
    
 
-## <a name="CreateInputAndOutputDataSets"></a>Passaggio 3: Creare tabelle di input e di output
-Nel passaggio precedente sono stati creati i servizi collegati **StorageLinkedService** e **AzureSqlLinkedService** per collegare un account di archiviazione di Azure e un database SQL di Azure alla data factory **ADFTutorialDataFactory**. In questo passaggio verranno definite due tabelle di data factory, ovvero **EmpTableFromBlob** e **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati a cui fanno riferimento rispettivamente StorageLinkedService e AzureSqlLinkedService. Per EmpTableFromBlob verrà specificato il contenitore BLOB che include un BLOB con i dati di origine e per EmpSQLTable verrà specificata la tabella SQL in cui verranno archiviati i dati di output.
+## Creare set di dati
+Nel passaggio precedente sono stati creati i servizi collegati **AzureStorageLinkedService** e **AzureSqlLinkedService** per collegare un account di archiviazione di Azure e un database SQL di Azure alla data factory **ADFTutorialDataFactory**. In questo passaggio verranno definite due tabelle di data factory, ovvero **EmpTableFromBlob** e **EmpSQLTable**, che rappresentano i dati di input/output archiviati negli archivi dati a cui fanno riferimento rispettivamente AzureStorageLinkedService e AzureSqlLinkedService. Per EmpTableFromBlob verrà specificato il contenitore BLOB che include un BLOB con i dati di origine e per EmpSQLTable verrà specificata la tabella SQL in cui verranno archiviati i dati di output.
 
-### Creare la tabella di input 
-Un tabella è un set di dati rettangolare che prevede uno schema. In questo passaggio si creerà una tabella denominata **EmpBlobTable** che punta a un contenitore BLOB nella risorsa di archiviazione di Azure rappresentato dal servizio collegato **StorageLinkedService**.
+### Creare set di dati di input 
+Un tabella è un set di dati rettangolare che prevede uno schema. In questo passaggio si creerà una tabella denominata **EmpBlobTable** che punta a un contenitore BLOB nella risorsa di archiviazione di Azure rappresentato dal servizio collegato **AzureStorageLinkedService**.
 
 1. Nell'**editor** della data factory fare clic sul pulsante **Nuovo set di dati** sulla barra degli strumenti e scegliere **Tabella BLOB** dal menu a discesa. 
 2. Sostituire il codice JSON nel riquadro a destra con il frammento di codice JSON seguente: 
@@ -128,7 +127,7 @@ Un tabella è un set di dati rettangolare che prevede uno schema. In questo pass
 		      }
 		    ],
 		    "type": "AzureBlob",
-		    "linkedServiceName": "StorageLinkedService",
+		    "linkedServiceName": "AzureStorageLinkedService",
 		    "typeProperties": {
 		      "folderPath": "adftutorial/",
 			  "fileName": "emp.txt",
@@ -149,7 +148,7 @@ Un tabella è un set di dati rettangolare che prevede uno schema. In questo pass
      Tenere presente quanto segue:
 	
 	- Il set di dati **type** è impostato su **AzureBlob**.
-	- L'oggetto **linkedServiceName** è impostato su **StorageLinkedService**. Questo servizio collegato è stato creato nel passaggio 2.
+	- L'oggetto **linkedServiceName** è impostato su **AzureStorageLinkedService**. Questo servizio collegato è stato creato nel passaggio 2.
 	- L'oggetto **folderPath** è impostato sul contenitore **adftutorial**. È anche possibile specificare il nome di un BLOB all'interno della cartella. Poiché non si specifica il nome del BLOB, i dati da tutti i BLOB nel contenitore sono considerati come dati di input.  
 	- L'oggetto **type** di format è impostato su **TextFormat**.
 	- Nel file di testo sono presenti due campi, **FirstName** e **LastName**, separati da una virgola (**columnDelimiter**).	
@@ -176,7 +175,7 @@ Un tabella è un set di dati rettangolare che prevede uno schema. In questo pass
 
 2. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire la tabella **EmpTableFromBlob**. Controllare che sulla barra del titolo dell'editor sia visualizzato un messaggio simile a **LA CREAZIONE DELLA TABELLA È STATA COMPLETATA**.
 
-### Creare la tabella di output
+### Creare il set di dati di output
 In questa parte del passaggio si creerà una tabella di output denominata **EmpSQLTable** che punta a una tabella SQL nel database SQL di Azure rappresentata dal servizio collegato **AzureSqlLinkedService**.
 
 1. Nell'**editor** della data factory fare clic sul pulsante **Nuovo set di dati** sulla barra degli strumenti e scegliere **Tabella SQL di Azure** dal menu a discesa. 
@@ -220,7 +219,7 @@ In questa parte del passaggio si creerà una tabella di output denominata **EmpS
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire la tabella **EmpSQLTable**.
 
 
-## <a name="CreateAndRunAPipeline"></a>Passaggio 4: Creare ed eseguire una pipeline
+## Creare una pipeline
 In questo passaggio è possibile creare una pipeline con un'**attività di copia** che usa **EmpTableFromBlob** come input e **EmpSQLTable** come output.
 
 1. Nell'**editor** della data factory fare clic sul pulsante **Nuova pipeline** sulla barra degli strumenti. Fare clic su **... (puntini di sospensione)** sulla barra degli strumenti se il pulsante non è visibile. In alternativa, è possibile fare clic con il pulsante destro del mouse su **Pipeline** nella visualizzazione ad albero e fare clic su **Nuova pipeline**.
@@ -310,10 +309,10 @@ In questo passaggio è possibile creare una pipeline con un'**attività di copia
 4. Fare clic su **Data factory** sulla barra di navigazione nell'angolo superiore sinistro per tornare alla vista diagramma in cui sono visualizzate tutte le pipeline. In questo esempio è stata creata una sola pipeline.
  
 
-## <a name="MonitorDataSetsAndPipeline"></a>Passaggio 5: Monitorare i set di dati e la pipeline
-In questo passaggio viene usato il portale di Azure classico per monitorare le attività in un'istanza di Data factory di Azure. È anche possibile usare i cmdlet di PowerShell per monitorare i set di dati e le pipeline. Per informazioni dettagliate sull'uso dei cmdlet per il monitoraggio, vedere [Monitorare e gestire Data factory di Azure con Azure PowerShell][monitor-manage-using-powershell].
+## Monitorare la pipeline
+In questo passaggio viene usato il portale di Azure per monitorare le attività in un'istanza di Data factory di Azure. È anche possibile usare i cmdlet di PowerShell per monitorare i set di dati e le pipeline. Per informazioni dettagliate sull'uso dei cmdlet per il monitoraggio, vedere [Monitorare e gestire Data factory di Azure con Azure PowerShell][monitor-manage-using-powershell].
 
-1. Passare al [portale di Azure classico (anteprima)][azure-portal] se non è già aperto. 
+1. Passare al [portale di Azure (anteprima)][azure-portal] se non è già aperto. 
 2. Se il pannello per **ADFTutorialDataFactory** non è aperto, aprirlo facendo clic su **ADFTutorialDataFactory** nella **Schermata iniziale**. 
 3. Viene visualizzato il numero e i nomi delle tabelle e delle pipeline create nel pannello.
 
@@ -381,7 +380,7 @@ In questa esercitazione è stata creata una data factory di Azure per copiare da
 
 
 ## Vedere anche
-Vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per informazioni dettagliate sull'**Attività di copia** in Azure Data Factory.
+Vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per informazioni dettagliate su **Attività di copia** in Azure Data Factory.
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -421,8 +420,6 @@ Vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement
 
 [image-editor-newdatastore-button]: ./media/data-factory-get-started-using-editor/getstarted-editor-newdatastore-button.png
 
-[image-editor-blob-storage-json]: ./media/data-factory-get-started-using-editor/getstarted-editor-blob-storage-json.png
-
 [image-editor-blob-storage-deploy]: ./media/data-factory-get-started-using-editor/getstarted-editor-blob-storage-deploy.png
 
 [image-editor-azure-sql-settings]: ./media/data-factory-get-started-using-editor/getstarted-editor-azure-sql-settings.png
@@ -459,4 +456,4 @@ Vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

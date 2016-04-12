@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 	
 #  Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
@@ -25,7 +25,7 @@ Utilizzare [Microsoft Power BI](https://powerbi.com/) per creare rapidamente un 
 
 Questo articolo descrive come creare strumenti di business intelligence personalizzati usando Power BI come output per i processi di Analisi di flusso di Azure e usando un dashboard in tempo reale.
 
-> [AZURE.NOTE] L’output di Power BI è una funzionalità di anteprima di Analisi di flusso di Azure. A questo punto, la creazione e la configurazione dell’output di Power BI non è supportata nel portale di anteprima di Azure.
+> [AZURE.NOTE] L’output di Power BI è una funzionalità di anteprima di Analisi di flusso di Azure. Attualmente, la creazione e la configurazione dell'output di Power BI non è supportata nel portale di Azure, ma solo nel portale di Azure classico.
 
 ## Prerequisiti
 
@@ -35,7 +35,7 @@ Questo articolo descrive come creare strumenti di business intelligence personal
 
 ## Creare processi di analisi di flusso di Azure
 
-Dal [portale di Azure](https://manage.windowsazure.com), fare clic su **Nuovo, Servizi dati, Analisi dei flussi, Creazione rapida**.
+Dal [portale di Azure classico](https://manage.windowsazure.com), fare clic su **Nuovo, Servizi dati, Analisi di flusso, Creazione rapida**.
 
 Specificare i valori seguenti, quindi fare clic su **Crea processo di analisi dei flussi**:
 
@@ -167,7 +167,8 @@ Per altre informazioni sulla configurazione di un output di Power BI e per usare
 
 Power BI impiega vincoli di concorrenza e velocità effettiva come descritto qui: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Prezzi di Power BI")
 
-A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati. Si consiglia l'uso di TumblingWindow o di HoppingWindow per garantire che il push di dati sia di massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile usare l'equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi:
+A causa di tali vincoli Power BI soddisfa maggiormente quei casi in cui Analisi di flusso di Azure realizza una riduzione significativa del carico dei dati.
+Si consiglia l'uso di TumblingWindow o di HoppingWindow per garantire che il push di dati sia di massimo 1 push/secondo e che la query soddisfi i requisiti di velocità effettiva. È possibile usare l'equazione seguente per calcolare il valore da indicare nella finestra in pochi secondi:
   
 ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)
   
@@ -232,4 +233,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

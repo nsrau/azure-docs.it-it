@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Aggiungere l'autenticazione all'app di Servizi mobili di Azure esistente
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Aggiungere l'autenticazione all'app iOS](../app-service-mobile/app-service-mobile-ios-get-started-users.md).
 
 Questa esercitazione consente di aggiungere l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato. Questa esercitazione è basata sull'esercitazione [Guida introduttiva per Servizi mobili], che deve essere completata per prima.
 
@@ -67,4 +67,4 @@ Nell'esercitazione successiva, [Autorizzazione sul lato servizio degli utenti di
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0316_2016-->

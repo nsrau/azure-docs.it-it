@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma"/>
 
 # Creare, avviare o eliminare un gateway applicazione
@@ -20,9 +20,9 @@
 Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre le seguenti funzionalità di distribuzione delle applicazioni: bilanciamento del carico HTTP, affinità delle sessioni basata sui cookie e offload SSL (Secure Sockets Layer).
 
 > [AZURE.SELECTOR]
-- [Azure Classic PowerShell](application-gateway-create-gateway.md)
-- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
+- [PowerShell per Azure classico](application-gateway-create-gateway.md)
+- [PowerShell per Azure Resource Manager](application-gateway-create-gateway-arm.md)
+- [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 
 
 <BR>
@@ -32,7 +32,7 @@ Questo articolo illustra in dettaglio i passaggi necessari per creare e configur
 
 ## Prima di iniziare
 
-1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](https://azure.microsoft.com/downloads/).
+1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina Download](https://azure.microsoft.com/downloads/).
 2. Assicurarsi di avere una rete virtuale funzionante con una subnet valida. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
 3. I server che verranno configurati per l'uso del gateway applicazione devono esistere. In alternativa, è necessario creare i relativi endpoint nella rete virtuale o assegnato loro un indirizzo IP/VIP pubblico.
 
@@ -59,7 +59,7 @@ Per creare un gateway applicazione:
 2. Creare un file XML di configurazione o un oggetto di configurazione.
 3. Eseguire il commit della configurazione nella risorsa del gateway applicazione appena creata.
 
->[AZURE.NOTE] Se è necessario configurare un probe personalizzato per il gateway applicazione, vedere [Creare un gateway applicazione con probe personalizzati usando PowerShell](application-gateway-create-probe-classic-ps.md). Per altre informazioni, vedere [Probe personalizzati e monitoraggio dello stato](application-gateway-probe-overview.md).
+>[AZURE.NOTE] Se è necessario configurare un probe personalizzato per il gateway applicazione, vedere [Creare un probe personalizzato per il gateway applicazione di Azure (classico) con PowerShell](application-gateway-create-probe-classic-ps.md). Per altre informazioni, vedere l'articolo relativo a [probe personalizzati e monitoraggio dell'integrità](application-gateway-probe-overview.md).
 
 
 ### Creare una risorsa del gateway applicazione
@@ -327,7 +327,7 @@ Eseguire il commit dell'oggetto di configurazione nella risorsa del gateway appl
 
 ## Avviare il gateway
 
-Dopo avere configurato il gateway, usare il cmdlet **Start-AzureApplicationGateway** per avviarlo. La fatturazione per un gateway applicazione verrà applicata a partire dall'avvio corretto del gateway.
+Dopo aver configurato il gateway, usare il cmdlet **Start-AzureApplicationGateway** per avviarlo. La fatturazione per un gateway applicazione verrà applicata a partire dall'avvio corretto del gateway.
 
 
 > [AZURE.NOTE] Il cmdlet **Start-AzureApplicationGateway** potrebbe impiegare fino a 15-20 minuti.
@@ -413,4 +413,4 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

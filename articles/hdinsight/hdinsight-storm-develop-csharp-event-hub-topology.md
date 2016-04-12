@@ -87,10 +87,12 @@ L'hub eventi è l'origine dati per questo esempio. Per creare un nuovo hub event
 4. Selezionare **Configura** e quindi creare due nuovi criteri di accesso usando le informazioni seguenti.
 
 	<table>
-<tr><th>Name</th><th>Autorizzazioni</th></tr>
-<tr><td>Writer</td><td>Invio</td></tr>
-<tr><td>Reader</td><td>Attesa</td></tr>
-</table>Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Verranno creati i criteri di accesso condivisi che saranno usati per inviare (writer) e rimanere in ascolto (reader) in questo hub eventi.
+	<tr><th>Name</th><th>Autorizzazioni</th></tr>
+	<tr><td>Writer</td><td>Invio</td></tr>
+	<tr><td>Reader</td><td>Attesa</td></tr>
+	</table>
+
+	Dopo avere creato le autorizzazioni, selezionare l'icona **Salva** nella parte inferiore della pagina. Verranno creati i criteri di accesso condivisi che saranno usati per inviare (writer) e rimanere in ascolto (reader) in questo hub eventi.
 
 	![criteri](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
@@ -141,13 +143,13 @@ In questa sezione si creerà una topologia che scrive dati nell'hub eventi usand
 3. Immettere le impostazioni seguenti. Usare le informazioni per l'hub eventi create in precedenza nella colonna **Valore**.
 
 	<table>
-<tr><th style="text-align:left">Nome</th><th style="text-align:left">Tipo</th><th style="text-align:left">Scope</th></tr>
-<tr><td style="text-align:left">EventHubPolicyName</td><td style="text-align:left">stringa</td><td style="text-align:left">Applicazione</td></tr>
-<tr><td style="text-align:left">EventHubPolicyKey</td><td style="text-align:left">stringa</td><td style="text-align:left">Applicazione</td></tr>
-<tr><td style="text-align:left">EventHubNamespace</td><td style="text-align:left">stringa</td><td style="text-align:left">Applicazione</td></tr>
-<tr><td style="text-align:left">EventHubName</td><td style="text-align:left">stringa</td><td style="text-align:left">Applicazione</td></tr>
-<tr><td style="text-align:left">EventHubPartitionCount</td><td style="text-align:left">int</td><td style="text-align:left">Applicazione</td></tr>
-</table>
+	<tr><th style="text-align:left">Nome</th><th style="text-align:left">Tipo</th><th style="text-align:left">Scope</th></tr>
+	<tr><td style="text-align:left">EventHubPolicyName</td><td style="text-align:left">stringa</td><td style="text-align:left">Applicazione</td></tr>
+	<tr><td style="text-align:left">EventHubPolicyKey</td><td style="text-align:left">stringa</td><td style="text-align:left">Applicazione</td></tr>
+	<tr><td style="text-align:left">EventHubNamespace</td><td style="text-align:left">stringa</td><td style="text-align:left">Applicazione</td></tr>
+	<tr><td style="text-align:left">EventHubName</td><td style="text-align:left">stringa</td><td style="text-align:left">Applicazione</td></tr>
+	<tr><td style="text-align:left">EventHubPartitionCount</td><td style="text-align:left">int</td><td style="text-align:left">Applicazione</td></tr>
+	</table>
 
 4. Salvare e chiudere la pagina **Proprietà**.
 
@@ -296,15 +298,17 @@ In questa sezione si creerà una topologia che legge i dati dall'hub eventi tram
 3. Immettere le impostazioni seguenti. Usare le informazioni relative all'hub eventi e all'account di archiviazione create in precedenza nella colonna **Valore**.
 
 	<table>
-<tr><th style="text-align:left">Nome</th><th style="text-align:left">Tipo</th><th style="text-align:left">Scope</th></tr>
-<tr><th style="text-align:left">EventHubPolicyName</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
-<tr><th style="text-align:left">EventHubPolicyKey</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
-<tr><th style="text-align:left">EventHubNamespace</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
-<tr><th style="text-align:left">EventHubName</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
-<tr><th style="text-align:left">EventHubPartitionCount</th><th style="text-align:left">int</th><th style="text-align:left">Applicazione</th></tr>
-<tr><th style="text-align:left">StorageConnection</th><th style="text-align:left">(Stringa di connessione)</th><th style="text-align:left">Applicazione</th></tr>
-<tr><th style="text-align:left">TableName</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
-</table>Per **TableName** immettere il nome della tabella da usare per archiviare gli eventi.
+	<tr><th style="text-align:left">Nome</th><th style="text-align:left">Tipo</th><th style="text-align:left">Scope</th></tr>
+	<tr><th style="text-align:left">EventHubPolicyName</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
+	<tr><th style="text-align:left">EventHubPolicyKey</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
+	<tr><th style="text-align:left">EventHubNamespace</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
+	<tr><th style="text-align:left">EventHubName</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
+	<tr><th style="text-align:left">EventHubPartitionCount</th><th style="text-align:left">int</th><th style="text-align:left">Applicazione</th></tr>
+	<tr><th style="text-align:left">StorageConnection</th><th style="text-align:left">(Stringa di connessione)</th><th style="text-align:left">Applicazione</th></tr>
+	<tr><th style="text-align:left">TableName</th><th style="text-align:left">stringa</th><th style="text-align:left">Applicazione</th></tr>
+	</table>
+
+	Per **TableName** immettere il nome della tabella da usare per archiviare gli eventi.
 
     Per **StorageConnection** immettere un valore di `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;`. Sostituire **myAccount** e **myKey** con la chiave e il nome dell'account di archiviazione ottenuti in precedenza.
 
@@ -520,6 +524,10 @@ Per arrestare le topologie, selezionarle singolarmente in **Storm Topology Viewe
 
 ![immagine dell'arresto di una topologia](./media/hdinsight-storm-develop-csharp-event-hub-topology/killtopology.png)
 
+##Eliminare il cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## Note
 
 ### Checkpoint
@@ -548,7 +556,7 @@ L'esportazione di un'importazione consente di rendere persistenti i dati del pun
 
 > [AZURE.NOTE] Poiché i dati vengono mantenuti nel contenitore di archiviazione predefinito, il nuovo cluster **deve** usare gli stessi account e contenitore di archiviazione del cluster precedente.
 
-## Riepilogo
+## Passaggi successivi
 
 In questo documento si è appreso come usare lo spout e il bolt dell'hub eventi Java da una topologia C# per utilizzare i dati nell'hub eventi di Azure. Per altre informazioni sulla creazione di topologie C#, vedere gli articoli seguenti.
 
@@ -557,4 +565,4 @@ In questo documento si è appreso come usare lo spout e il bolt dell'hub eventi 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

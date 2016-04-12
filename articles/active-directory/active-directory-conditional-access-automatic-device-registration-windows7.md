@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio
@@ -48,7 +48,8 @@ Aprire quindi un prompt dei comandi nel computer Windows 7 ed eseguire il comand
     
     %ProgramFiles%\Microsoft Workplace Join\AutoWorkplace.exe /leave
 
->[AZURE.NOTE]Questo comando deve essere eseguito nel contesto di ogni utente di dominio che ha eseguito l'accesso al computer. Visualizzatore eventi ed errori per i dispositivi Windows 7 aggiunti a un dominio.
+>[AZURE.NOTE]
+Questo comando deve essere eseguito nel contesto di ogni utente di dominio che ha eseguito l'accesso al computer. Visualizzatore eventi ed errori per i dispositivi Windows 7 aggiunti a un dominio.
 
 Nel registro eventi del computer Windows 7 verranno visualizzati i messaggi relativi all'aggiunta all'area di lavoro. Saranno disponibili i messaggi per gli eventi relativi all'aggiunta all'area di lavoro riusciti e non. Il registro eventi si trova nel Visualizzatore eventi in Registri applicazioni e servizi > Microsoft > Aggiunta all'area di lavoro.
 
@@ -57,7 +58,8 @@ Nel registro eventi del computer Windows 7 verranno visualizzati i messaggi rela
 - [Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
 - [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration.md)
 - [Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows 10 aggiunti a un dominio](active-directory-azureadjoin-devices-group-policy.md)
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

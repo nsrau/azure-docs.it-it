@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/20/2016"
+    ms.date="03/28/2016"
     ms.author="prkhad"/>
 
 # Archiviazione Premium di Azure: progettata per prestazioni elevate
@@ -66,11 +66,11 @@ Il primo passaggio nella progettazione di applicazioni a prestazioni elevate in 
 
 Nella sezione precedente sono stati illustrati gli indicatori di prestazioni comuni, ovvero IOPS, velocità effettiva e latenza. È necessario identificare gli indicatori di prestazioni essenziali per consentire all'applicazione di offrire l'esperienza utente desiderata. Ad esempio, un valore elevato per IOPS è molto importante per le applicazioni OLTP che elaborano milioni di transazioni al secondo. Una velocità effettiva elevata, invece, è essenziale per applicazioni di tipo data warehouse che elaborano quantità elevate di dati in un secondo. Una latenza estremamente bassa è critica per applicazioni in tempo reale come siti Web per lo streaming di video.
 
-È quindi necessario misurare i requisiti massimi relativi alle prestazioni per l'intero ciclo di vita dell'applicazione. Per iniziare, usare l'elenco di controllo di esempio seguente. Registrare i requisiti massimi relativi alle prestazioni durante i periodi di carico di lavoro normale, di picco e in orari di minore attività. L'identificazione dei requisiti per tutti i livelli di carico di lavoro consente di determinare i requisiti complessivi relativi alle prestazioni per l'applicazione. Ad esempio, il carico di lavoro normale di un sito Web per l'e-commerce sarà costituito dalle transazioni gestite durante la maggior parte dei giorni in un anno. Il carico di lavoro di picco del sito Web sarà costituito dalle transazioni gestite durante le festività o in caso di svendite speciali. Il carico di lavoro di picco è in genere relativo a un periodo limitato, ma può richiedere un ridimensionamento dell'applicazione pari a due o più volte i livelli necessari per il funzionamento normale. Occorre trovare i requisiti relativi al 50 percentile, al 90 percentile e al 99 percentile. Ciò consente di escludere tramite filtri eventuali outlier nei requisiti relativi alle prestazioni e di concentrarsi sull'ottimizzazione dei valori corretti.
+È quindi necessario misurare i requisiti massimi relativi alle prestazioni per l'intero ciclo di vita dell'applicazione. Per iniziare, usare l'elenco di controllo di esempio seguente. Registrare i requisiti massimi relativi alle prestazioni durante i periodi di carico di lavoro normale, di picco e in orari di minore attività. L'identificazione dei requisiti per tutti i livelli di carico di lavoro consente di determinare i requisiti complessivi relativi alle prestazioni per l'applicazione. Ad esempio, il carico di lavoro normale di un sito Web per l'e-commerce sarà costituito dalle transazioni gestite durante la maggior parte dei giorni in un anno. Il carico di lavoro di picco del sito Web sarà costituito dalle transazioni gestite durante le festività o in caso di svendite speciali. Il carico di lavoro di picco è in genere relativo a un periodo limitato, ma può richiedere un ridimensionamento dell'applicazione pari a due o più volte i livelli necessari per il funzionamento normale. Occorre trovare i requisiti relativi al 50° percentile, al 90° percentile e al 99° percentile. Ciò consente di escludere tramite filtri eventuali outlier nei requisiti relativi alle prestazioni e di concentrarsi sull'ottimizzazione dei valori corretti.
 
 **Elenco di controllo per i requisiti relativi alle prestazioni dell'applicazione**
 
-| **Requisiti relativi alle prestazioni** | **50 percentile** | **90 percentile** | **99 percentile** |
+| **Requisiti relativi alle prestazioni** | **50° percentile** | **90° percentile** | **99° percentile** |
 |---|---|---|---|
 | Max. Transazioni al secondo | | | |
 | % di operazioni di lettura | | | |
@@ -168,16 +168,17 @@ Per ottenere valori di IOPS e larghezza di banda più elevati rispetto al valore
 Per verificare gli effetti delle dimensioni di I/O sulle prestazioni dell'applicazione, è possibile eseguire gli strumenti di benchmarking sulle VM e sui dischi. Creare più esecuzioni dei test e usare diverse dimensioni di I/O per ogni esecuzione per verificarne l'impatto. Per altri dettagli, vedere la sezione [Benchmarking](#Benchmarking) alla fine di questo articolo.
 
 ## Dimensioni di VM a scalabilità elevata  
-Quando si inizia a progettare un'applicazione, uno dei primi passaggi da eseguire consiste nel scegliere una VM in cui ospitare l'applicazione. L'Archiviazione Premium include dimensioni di VM a scalabilità elevata in grado di eseguire applicazioni che richiedono capacità di calcolo elevate e prestazioni di I/O elevate per il disco locale. Queste VM forniscono processori più veloci, un rapporto più elevato tra memoria e core e un'unità SSD (Solid-State Drive) per il disco locale. Esempi di VM a scalabilità elevata che supportano l'Archiviazione Premium sono le VM di serie DS e GS.
+Quando si inizia a progettare un'applicazione, uno dei primi passaggi da eseguire consiste nel scegliere una VM in cui ospitare l'applicazione. L'Archiviazione Premium include dimensioni di VM a scalabilità elevata in grado di eseguire applicazioni che richiedono capacità di calcolo elevate e prestazioni di I/O elevate per il disco locale. Queste VM forniscono processori più veloci, un rapporto più elevato tra memoria e core e un'unità SSD (Solid-State Drive) per il disco locale. Esempi di VM a scalabilità elevata che supportano l'Archiviazione Premium sono le VM serie DS, DSv2 e GS.
 
-Le VM a scalabilità elevata sono disponibili in dimensioni diverse con un numero diverso di core CPU, memoria, sistema operativo e dimensioni del disco temporaneo. Ogni dimensione di VM prevede anche un numero massimo di dischi dati che possono essere collegati alla VM. La dimensione di VM scelta influirà quindi sulla quantità di elaborazione, memoria e capacità di archiviazione disponibile per l'applicazione. Influisce anche sui costi di calcolo e archiviazione. Ad esempio, di seguito sono disponibili le specifiche della dimensione di VM più elevata nella serie DS e nella serie GS:
+Le VM a scalabilità elevata sono disponibili in dimensioni diverse con un numero diverso di core CPU, memoria, sistema operativo e dimensioni del disco temporaneo. Ogni dimensione di VM prevede anche un numero massimo di dischi dati che possono essere collegati alla VM. La dimensione di VM scelta influirà quindi sulla quantità di elaborazione, memoria e capacità di archiviazione disponibile per l'applicazione. Influisce anche sui costi di calcolo e archiviazione. Ad esempio, sono riportate di seguito le specifiche per la VM di dimensione massima per le serie DS, DSv2 e GS:
 
 | Dimensioni macchina virtuale | Core CPU | Memoria | Dimensioni di disco della VM | Valore massimo per dischi di dati | Dimensioni cache | IOPS | Limiti di I/O della cache della larghezza di banda |
 |---|---|---|---|---|---|---|---|
 | Standard\_DS14 | 16 | 112 GB | Sistema operativo = 1023 GB <br> SSD locale = 224 GB | 32 | 576 GB | 50\.000 IOPS <br> 512 MB al secondo | 4\.000 IOPS e 33 MB al secondo |
 | Standard\_GS5 | 32 | 448 GB | Sistema operativo = 1023 GB <br> SSD locale = 896 GB | 64 | 4224 GB | 80\.000 IOPS <br> 2.000 MB al secondo | 5\.000 IOPS e 50 MB al secondo |
 
-Per visualizzare un elenco completo di tutte le dimensioni delle macchine virtuali di Azure disponibili, vedere [Dimensioni delle macchine virtuali di Azure](../virtual-machines/virtual-machines-size-specs.md). Scegliere una dimensione di VM in grado di soddisfare e adeguarsi ai requisiti relativi alle prestazioni dell'applicazione. Quando si scelgono le dimensioni delle VM, è inoltre necessario esaminare le importanti considerazioni seguenti.
+Per visualizzare un elenco completo di tutte le dimensioni delle VM di Azure disponibili, vedere [Dimensioni delle macchine virtuali di Azure](../virtual-machines/virtual-machines-linux-sizes.md). Scegliere una dimensione di VM in grado di soddisfare e adeguarsi ai requisiti relativi alle prestazioni dell'applicazione. Quando si scelgono le dimensioni delle VM, è inoltre necessario esaminare le importanti considerazioni seguenti.
+
 
 *Limiti di scalabilità* I limiti massimi per IOPS per ogni VM e ogni disco sono diversi e indipendenti gli uni dagli altri. Assicurarsi che l'applicazione gestisca i valori di IOPS entro i limiti della VM e dei dischi Premium collegati alla VM. In caso contrario, le prestazioni dell'applicazione verranno limitate.
 
@@ -197,7 +198,10 @@ La tabella seguente riepiloga la scomposizione costi di questo scenario per l'Ar
 | **Costo di dischi al mese** | $ 1.638,40 (32 x dischi da 1 TB) | $ 544,34 (4 x dischi P30) |
 | **Costo complessivo al mese** | $ 3.208,98 | $ 1.544,34 |
 
-*Distribuzioni di Linux* L'Archiviazione Premium di Azure offre lo stesso livello di prestazioni per VM che eseguono Windows e Linux. Sono supportati molti tipi di distribuzioni di Linux. L'elenco completo è disponibile in [Distribuzioni di Linux supportate da Azure](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). È importante notare che diverse distribuzioni sono ottimali per diversi tipi di carichi di lavoro. Si otterranno livelli diversi di prestazioni in base alla distribuzione in cui è in esecuzione il carico di lavoro. Testare le distribuzioni di Linux con l'applicazione e scegliere quella migliore per le esigenze specifiche.
+*Distribuzioni Linux*
+
+Archiviazione Premium di Azure offre lo stesso livello di prestazioni per le macchine virtuali che eseguono Windows e Linux. Sono supportati molti tipi di distribuzioni di Linux. L'elenco completo è disponibile [qui](../virtual-machines/virtual-machines-linux-endorsed-distros.md). È importante notare che diverse distribuzioni sono ottimali per diversi tipi di carichi di lavoro. Si otterranno livelli diversi di prestazioni in base alla distribuzione in cui è in esecuzione il carico di lavoro. Testare le distribuzioni di Linux con l'applicazione e scegliere quella migliore per le esigenze specifiche.
+
 
 Quando si esegue Linux con l'Archiviazione Premium, verificare se sono disponibili aggiornamenti recenti per i driver necessari, in modo da assicurare prestazioni elevate.
 
@@ -263,13 +267,17 @@ In Windows è possibile usare gli spazi di archiviazione per lo striping dei dis
 
 Importante: l'uso dell'interfaccia utente di Gestione server consente di impostare il numero totale di colonne fino a un massimo di 8 per un volume con striping. Quando si collegano più di 8 dischi, usare PowerShell per creare il volume. L'uso di PowerShell consente di impostare un numero di colonne uguale al numero di dischi. Ad esempio, se un singolo set di striping include 16 dischi, specificare 16 colonne nel parametro *NumberOfColumns* del cmdlet *New-VirtualDisk* di PowerShell.
 
+
 In Linux usare l'utilità MDADM per lo striping dei dischi. Per informazioni dettagliate sulla procedura di striping dei dischi su Linux, vedere [Configurare RAID software in Linux](../virtual-machines/virtual-machines-linux-configure-raid.md).
+
 
 *Dimensione di striping* Un elemento importante della configurazione dello striping del disco è la dimensione di striping. La dimensione di striping o la dimensione del blocco è il blocco più piccolo di dati che l'applicazione può gestire in un volume con striping. La dimensione di striping configurabile dipende dal tipo di applicazione e dal relativo modello di richieste. Se si sceglie la dimensione di striping errata, è possibile che si ottenga un allineamento di I/O non corretto, che porta a prestazioni degradate per l'applicazione.
 
 Ad esempio, se una richiesta I/O generata dall'applicazione è maggiore della dimensione di striping del disco, il sistema di archiviazione la scrive oltre i limiti di unità di striping in più dischi. Quando è necessario accedere ai dati, occorrerà cercarli in più unità di striping per completare la richiesta. L'effetto cumulativo di questo comportamento può portare a una riduzione significativa delle prestazioni. D'altra parte, se la dimensione della richiesta I/O è minore della dimensione di striping ed è di tipo casuale, è possibile che le richieste I/P si concentrino sullo stesso disco, provocando un collo di bottiglia e danneggiando le prestazioni di I/O.
 
-Scegliere una dimensione di striping appropriata in base a tipo di carico di lavoro eseguito dall'applicazione. Per richieste I/O di piccole dimensioni e casuali, usare una dimensione di striping minore. Per richieste I/O di grandi dimensioni e sequenziali, usare una dimensione di striping maggiore. Esaminare le indicazioni relative alle dimensioni di striping per l'applicazione da eseguire nell'Archiviazione Premium. Per SQL Server configurare dimensioni di striping pari a 64 KB per carichi di lavoro OLTP e 256 KB per carichi di lavoro di tipo data warehouse. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure: considerazioni su dischi e prestazioni](virtual-machines-sql-server-performance-best-practices.md#disks-and-performance-considerations).
+
+Scegliere una dimensione di striping appropriata in base a tipo di carico di lavoro eseguito dall'applicazione. Per richieste I/O di piccole dimensioni e casuali, usare una dimensione di striping minore. Per richieste I/O di grandi dimensioni e sequenziali, usare una dimensione di striping maggiore. Esaminare le indicazioni relative alle dimensioni di striping per l'applicazione da eseguire nell'Archiviazione Premium. Per SQL Server configurare dimensioni di striping pari a 64 KB per carichi di lavoro OLTP e 256 KB per carichi di lavoro di tipo data warehouse. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-classic-sql-perf.md#disks-and-performance-considerations).
+
 
 >**Nota:** è possibile effettuare lo striping di un massimo di 32 dischi di Archiviazione Premium in una VM di serie DS e di 64 dischi di Archiviazione Premium in una VM di serie GS.
 
@@ -419,7 +427,10 @@ rw=randwrite
 directory=/mnt/nocache
 ```
 
-Notare gli elementi chiave seguenti conformi alle indicazioni di progettazione illustrate nelle sezioni precedenti. Queste specifiche sono essenziali per ottenere il valore massimo per IOPS: - Profondità della coda elevata pari a 256. - Dimensione di blocco ridotta pari a 8 KB. - Più thread che eseguono scritture casuali.
+Notare gli elementi chiave seguenti conformi alle indicazioni di progettazione illustrate nelle sezioni precedenti. Queste specifiche sono essenziali per ottenere il valore massimo per IOPS:
+-   Profondità della coda elevata pari a 256.  
+-   Dimensione di blocco ridotta pari a 8 KB.  
+-   Più thread che eseguono scritture casuali.
 
 Eseguire il comando seguente per attivare il test FIO per 30 secondi:
 
@@ -526,7 +537,7 @@ Altre informazioni sull'Archiviazione Premium di Azure:
 
 Per gli utenti di SQL Server sono disponibili articoli sulle procedure consigliate per le prestazioni per SQL Server:
 
-- [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-sql-server-performance-best-practices.md)
+- [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-classic-sql-perf.md)
 - [L'Archiviazione Premium di Azure offre le prestazioni più elevate per SQL Server in VM di Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

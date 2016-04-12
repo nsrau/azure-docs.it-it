@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Procedura guidata sulla sicurezza di Azure Privileged Identity Management"
-   description="Quando si usa l'estensione Azure Privileged Identity Management per la prima volta, viene visualizzata una procedura guidata sulla sicurezza. Questo articolo descrive i passaggi della procedura guidata."
+   pageTitle="Procedura guidata relativa alla sicurezza di Azure AD Privileged Identity Management"
+   description="Quando si usa l'estensione Azure Active Directory Privileged Identity Management per la prima volta, viene visualizzata una procedura guidata sulla sicurezza. Questo articolo descrive i passaggi della procedura guidata."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Procedura guidata sulla sicurezza di Azure Privileged Identity Management
+# Procedura guidata relativa alla sicurezza di Azure AD Privileged Identity Management
 
 Alla prima esecuzione di Azure Privileged Identity Management (PIM), verrà visualizzata una procedura guidata che fornisce informazioni sui rischi di sicurezza delle identità con privilegi e su come usare Privileged Identity Management per ridurre i rischi.
 
@@ -32,7 +32,7 @@ Facendo clic su **RIDURRE AL MINIMO LA SUPERFICIE DI ATTACCO**, viene offerta la
 
 Sono disponibili tre opzioni per modificare la finestra temporale di un amministratore globale:
 
-1.  Fare clic sul pulsante **Imposta tutti come temporanei** per rendere temporanei tutti gli amministratori globali.
+1.  Fare clic sul pulsante **Imposta tutti come temporanei** per rendere temporanei tutti gli amministratori globali. Scegliere questa opzione solo se tutti gli amministratori hanno account dell'organizzazione e hanno effettuato la registrazione ad Azure MFA.
 
 2.  Fare clic sul pulsante **Imposta tutti come permanenti** per rendere permanenti tutti gli amministratori globali.
 
@@ -52,13 +52,13 @@ Affinché gli amministratori possano ricevere posta elettronica quando vengono a
 
 ## Richiedere l'autenticazione a più fattori
 
-Se si vuole che gli amministratori usino l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per l'accesso agli account e per richiedere un'estensione del proprio ruolo, abilitare questa funzionalità facendo clic sul pulsante **Abilita**. Questa funzionalità può anche essere disabilitata in seguito.
+Se si vuole che gli amministratori usino l'autenticazione a più fattori (MFA, Multi-Factor Authentication) per l'accesso agli account e per richiedere un'estensione del proprio ruolo, abilitare questa funzionalità facendo clic sul pulsante **Abilita**.
 
 <!--For more information about MFA and PIM, click here. PLACEHOLDER: NEED LINK TO MFA DOC.-->
 
 Selezionare i ruoli a cui verranno applicate le impostazioni. Fare clic su **OK**.
 
-> [AZURE.WARNING] In questa fase è importante avere più amministratori della sicurezza. Se è presente solo un amministratore della sicurezza, non impostato come permanente e per cui non è stato configurato il servizio MFA, l'utente non potrà amministrare affatto PIM dopo la scadenza dell'assegnazione dei ruoli.
+> [AZURE.WARNING] In questo momento è importante avere più amministratori della sicurezza con un account dell'organizzazione, non un account Microsoft. Se è presente solo un amministratore della sicurezza, non impostato come permanente e per cui non è stato configurato il servizio MFA, l'utente non potrà amministrare affatto PIM se l'account viene eliminato.
 
 Al termine, fare clic su **OK**.
 
@@ -67,4 +67,4 @@ Dopo aver apportato le modifiche, la procedura guidata non verrà più visualizz
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

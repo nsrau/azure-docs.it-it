@@ -3,7 +3,7 @@
    description="Guida contenente tutti gli articoli relativi alla creazione di report in Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="dhanyahk"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 
 # Guida alla creazione di report in Azure Active Directory
@@ -30,4 +30,4 @@
  - [Report Tutta l'attività di accesso degli utenti di Azure Active Directory](active-directory-reporting-all-user-sign-in-activity-report.md)
  - [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

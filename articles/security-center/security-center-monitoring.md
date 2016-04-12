@@ -36,7 +36,7 @@ Il riquadro **Integrità sicurezza delle risorse** consente di monitorare lo sta
 
 ![Integrità delle risorse](./media/security-center-monitoring/security-center-monitoring-fig1-new.png)
 
-Se il Centro di sicurezza identifica una vulnerabilità che deve essere risolta, ad esempio una macchina virtuale a cui mancano aggiornamenti della sicurezza o una subnet senza un [gruppo di sicurezza di rete](virtual-networks-nsg.md), viene elencata qui.
+Se il Centro sicurezza identifica una vulnerabilità che deve essere risolta, ad esempio una macchina virtuale a cui mancano aggiornamenti della sicurezza o una subnet senza un [gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md), viene elencata qui.
 
 ###Monitorare le macchine virtuali
 Quando si fa clic su **Macchine virtuali** nel riquadro **Integrità sicurezza delle risorse**, si apre il pannello **Macchine virtuali** con altri dettagli sulle operazioni di caricamento e prevenzione, nonché un elenco di tutte le VM monitorate dal Centro sicurezza, come illustrato di seguito.
@@ -102,7 +102,9 @@ La sezione relativa allo stato di prevenzione per la rete elenca le reti virtual
 
 ![Rete](./media/security-center-monitoring/security-center-monitoring-fig9-new.png)
 
-Dopo aver aperto il pannello sarà possibile individuare due sezioni: Raccomandazioni di rete e Rete.
+Dopo aver aperto il pannello, verranno visualizzate due sezioni:
+- Raccomandazioni di rete
+- Rete
  
 In ogni sezione è possibile selezionare una singola opzione per altri dettagli sulla raccomandazione. Di seguito viene fornita una descrizione dettagliata delle singole sezioni.
 
@@ -114,15 +116,15 @@ Analogamente alle informazioni sull'integrità delle risorse delle macchine virt
 
 La sezione dei dettagli sullo stato della rete elenca i problemi di sicurezza potenziali e fornisce raccomandazioni. I possibili problemi possono includere:
 
-- [ACL sugli endpoint](virtual-machines-set-up-endpoints.md) non abilitati.
-- [Gruppi di sicurezza di rete](virtual-networks-nsg.md) non abilitati
+- [ACL sugli endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) non abilitati.
+- [Gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) non abilitati.
 - Sono elencati le subnet integre e l'accesso nei gruppi di sicurezza di rete senza restrizioni. 
  
 Quando si fa clic su una delle raccomandazioni, si apre un pannello con altre informazioni su di essa, come illustrato nell'esempio seguente:
 
 ![Limita endpoint](./media/security-center-monitoring/security-center-monitoring-fig11-new.png)
 
-In questo esempio, il pannello **Limitare l'accesso tramite un endpoint esterno pubblico** include l'elenco dei gruppi di sicurezza di rete interessati dall'avviso, la subnet e la rete a cui è associato il gruppo, lo stato corrente della raccomandazione e il livello di gravità del problema. Se si fa clic su un gruppo di sicurezza di rete, si apre un altro pannello, come illustrato di seguito.
+In questo esempio il pannello **Limitare l'accesso tramite un endpoint esterno pubblico** include l'elenco dei gruppi di sicurezza di rete interessati dall'avviso, la subnet e la rete a cui è associato il gruppo, lo stato corrente della raccomandazione e il livello di gravità del problema. Se si fa clic su un gruppo di sicurezza di rete, si apre un altro pannello, come illustrato di seguito.
 
 Questo pannello include le informazioni sul gruppo di sicurezza di rete e il percorso. Include anche l'elenco delle regole in ingresso attualmente abilitate. Nella parte inferiore del pannello, invece, è riportata la VM associata al gruppo di sicurezza di rete. Se si vogliono abilitare le regole in ingresso per bloccare una porta indesiderata attualmente aperta o si vuole modificare l'origine della regola in ingresso corrente, fare clic sul pulsante **Modifica regola in ingresso** nella parte superiore del pannello.
 
@@ -132,7 +134,7 @@ Nella sezione **Rete** è disponibile una visualizzazione gerarchica del gruppo 
 
 ![Struttura di rete](./media/security-center-monitoring/security-center-monitoring-fig121-new.png)
 
-Questa sezione divide le [macchine virtuali basate su Gestione risorse dalle macchine virtuali classiche](resource-manager-deployment-model.md). Questo permette di identificare rapidamente se per la macchina virtuale sono disponibili funzionalità di rete di Gestione dei servizi di Azure o di Gestione risorse di Azure. Per accedere alle proprietà di una scheda di rete da questa posizione, è necessario espandere la subnet e fare clic sul nome della VM. Se si esegue questa operazione per una VM basata su Gestione risorse, si aprirà un nuovo pannello simile a quello illustrato di seguito:
+Questa sezione divide le [macchine virtuali basate su Gestione risorse dalle macchine virtuali classiche](../resource-manager-deployment-model.md). Questo permette di identificare rapidamente se per la macchina virtuale sono disponibili funzionalità di rete di Gestione dei servizi di Azure o di Gestione risorse di Azure. Per accedere alle proprietà di una scheda di rete da questa posizione, è necessario espandere la subnet e fare clic sul nome della VM. Se si esegue questa operazione per una VM basata su Gestione risorse, si aprirà un nuovo pannello simile a quello illustrato di seguito:
 
 ![Struttura di rete](./media/security-center-monitoring/security-center-monitoring-fig13-new.png)
 
@@ -159,14 +161,14 @@ Il pannello **Abilitare il servizio di controllo sui database SQL** include le i
 - Stato corrente.
 - Gravità del problema.
 
-Se si fa clic sul database per gestire la raccomandazione, si apre il pannello **Controllo e rilevamento minacce**, come illustrato di seguito:
+Se si fa clic sul database per gestire la raccomandazione, si apre il pannello **Controllo e rilevamento minacce**, come illustrato di seguito.
 
 ![Integrità delle risorse SQL](./media/security-center-monitoring/security-center-monitoring-fig17-new.png)
 
 Per abilitare questa funzionalità, selezionare semplicemente **SÌ** sotto l'opzione **Controllo** e quindi fare clic su **Salva**.
 
 ###Monitorare le applicazioni
-Se il carico di lavoro di Azure include applicazioni che si trovano in [VM di Gestione risorse](resource-manager-deployment-model.md) con porte Web esposte (porte TCP 80 e 443), il Centro sicurezza può monitorarle per identificare potenziali problemi di sicurezza, suggerendo le procedure di correzione possibili. Quando si fa clic sul riquadro **Applicazioni**, si apre il pannello **Applicazioni** con una serie di raccomandazioni nella sezione relativa alla procedura di prevenzione. Visualizza anche il dettaglio dell'applicazione per host/IP virtuale, come illustrato di seguito.
+Se il carico di lavoro di Azure include applicazioni che si trovano in [VM di Gestione risorse](../resource-manager-deployment-model.md) con porte Web esposte (porte TCP 80 e 443), il Centro sicurezza può monitorarle per identificare potenziali problemi di sicurezza, suggerendo le procedure di correzione possibili. Quando si fa clic sul riquadro **Applicazioni**, si apre il pannello **Applicazioni** con una serie di raccomandazioni nella sezione relativa alla procedura di prevenzione. Visualizza anche il dettaglio dell'applicazione per host/IP virtuale, come illustrato di seguito.
 
 ![Integrità sicurezza delle applicazioni](./media/security-center-monitoring/security-center-monitoring-fig18-new.png)
 
@@ -186,4 +188,4 @@ In questo documento è stato descritto come utilizzare le funzionalità di monit
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'utilizzo del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -786,8 +786,9 @@ Spesso è necessario usare questa funzione quando si usa un account di archiviaz
 Restituisce informazioni dettagliate sulla sottoscrizione nel formato seguente.
 
     {
-        "id": "/subscriptions/#####"
-        "subscriptionId": "#####"
+        "id": "/subscriptions/#####",
+        "subscriptionId": "#####",
+        "tenantId": "#####"
     }
 
 L'esempio seguente mostra la funzione subscription chiamata nella sezione outputs.
@@ -806,4 +807,4 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
 - Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 - Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

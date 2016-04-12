@@ -41,7 +41,7 @@ Esistono alcuni intervalli di indirizzi IP che non sono consentiti:
 
 - 169\.254.0.0/16 (locale rispetto al collegamento)
 
-- 68\.63.129.16/32 (DNS interno)
+- 168\.63.129.16/32 (DNS interno)
 
 ## Passaggi successivi
 
@@ -51,4 +51,4 @@ Esistono alcuni intervalli di indirizzi IP che non sono consentiti:
 
 [Come eliminare una rete virtuale (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

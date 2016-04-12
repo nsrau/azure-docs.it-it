@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/01/2016"
+	ms.date="03/07/2016"
 	ms.author="spelluru"/>
 
 # Esercitazione: Copiare i dati dall'archiviazione BLOB di Azure al Database SQL di Azure
@@ -21,11 +21,12 @@
 - [Panoramica dell'esercitazione](data-factory-get-started.md)
 - [Tramite l'Editor di Data Factory](data-factory-get-started-using-editor.md)
 - [Tramite PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Tramite Visual Studio](data-factory-get-started-using-vs.md)
+- [Con Visual Studio](data-factory-get-started-using-vs.md)
+- [Con la Copia guidata](data-factory-copy-data-wizard-tutorial.md)
 
 In questa esercitazione verrà creata una data factory di Azure e una pipeline con un'attività di copia per copiare dati da un'archiviazione BLOB di Azure a un database SQL di Azure.
 
-L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate sull'attività di copia, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md).
+L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si basa su un servizio disponibile a livello globale che può copiare dati tra diversi archivi dati in modo sicuro, affidabile e scalabile. Per informazioni dettagliate sull'attività di copia, vedere l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md).
 
 > [AZURE.NOTE] Per una panoramica dettagliata del servizio Data factory, vedere l'articolo [Introduzione al servizio Data factory di Azure][data-factory-introduction] .
 
@@ -102,7 +103,7 @@ Eseguire le operazioni seguenti:
 - Fare clic sul collegamento [Tramite Visual Studio](data-factory-get-started-using-vs.md) in alto per eseguire l'esercitazione usando Visual Studio 2013.
 
 ## l'attività di copia
-Per informazioni dettagliate sull'attività di copia in Azure Data Factory, vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md).
+Vedere [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per informazioni dettagliate sull'Attività di copia in Azure Data Factory.
 
 
 <!--Link references-->
@@ -115,4 +116,4 @@ Per informazioni dettagliate sull'attività di copia in Azure Data Factory, vede
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

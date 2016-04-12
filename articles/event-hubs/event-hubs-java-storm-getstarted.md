@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # Introduzione all'Hub eventi
@@ -79,7 +79,7 @@ A questo punto è possibile eseguire le applicazioni.
 
    	![][22]
 
-> [AZURE.NOTE]In questa esercitazione si usa Storm in modalità locale solo per finalità di sviluppo. Per altre informazioni sulle distribuzioni e sui modelli di Storm, vedere [Panoramica di HDinsight Storm][] e la documentazione ufficiale su [Apache Storm][].
+> [AZURE.NOTE] In questa esercitazione si usa Storm in modalità locale solo per finalità di sviluppo. Per altre informazioni sulle distribuzioni e sui modelli di Storm, vedere [Panoramica di HDinsight Storm][] e la documentazione ufficiale su [Apache Storm][].
 
 ## Passaggi successivi
 
@@ -110,4 +110,4 @@ Per lo sviluppo di applicazioni per l'integrazione di Hub eventi e Storm sono di
 [Sviluppare applicazioni di elaborazione di flussi di dati con SCP.NET e C# tramite Storm e HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

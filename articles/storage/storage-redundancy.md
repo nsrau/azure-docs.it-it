@@ -91,7 +91,8 @@ L'area primaria viene selezionata durante la creazione di un account di archivia
 | Australia sudorientale | Australia orientale |
 | India meridionale | India centrale |
 | India centrale | India meridionale |
-
+| Governo degli Stati Uniti - Iowa | Governo degli Stati Uniti - Virginia |
+| Governo degli Stati Uniti - Virginia | Governo degli Stati Uniti - Iowa |
 
 ## Archiviazione con ridondanza geografica e accesso in lettura
 
@@ -107,4 +108,4 @@ Se si abilita l'accesso in sola lettura ai dati nell'area secondaria, i dati sar
 - [Emulatore di archiviazione di Microsoft Azure 3.1 con RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Paper SOSP - Archiviazione di Microsoft Azure: Un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

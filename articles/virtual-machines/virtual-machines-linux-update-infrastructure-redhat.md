@@ -1,19 +1,19 @@
 <properties
    pageTitle="Infrastruttura di aggiornamento per le immagini di Red Hat Enterprise Linux | Microsoft Azure"
    description="Introduce il servizio di aggiornamento yum per un'istanza di Red Hat Enterprise Linux su richiesta in Azure"
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter=""
    authors="KylieLiang"
    manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="virtual-machines"
+   ms.service="virtual-machines-linux"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="01/13/2016"
+   ms.date="03/18/2016"
    ms.author="kyliel"/>
 
 # Infrastruttura di aggiornamento per le immagini di Red Hat Enterprise Linux
@@ -25,14 +25,14 @@ L'elenco di repository yum, gestito da RHUI, viene configurato nell'istanza di R
 ## Panoramica di RHUI
 [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) offre una soluzione altamente scalabile per gestire il contenuto del repository yum per le istanze cloud di Red Hat Enterprise Linux ospitate dai provider cloud certificati da Red Hat. In base al progetto Pulp upstream, RHUI consente ai provider cloud di eseguire il mirroring locale del contenuto del repository ospitato da Red Hat e creare repository personalizzati con il proprio contenuto e rendere disponibili tali repository per un ampio gruppo di utenti finali tramite un sistema di distribuzione del contenuto con bilanciamento del carico.
 
-## Aree in cui viene distribuita l'infrastruttura RHUI
-L'infrastruttura RHUI viene distribuita in tutte le aree pubbliche elencate nel [dashboard di stato di Azure](https://azure.microsoft.com/status/). Ciò significa che è possibile ottenere il servizio di aggiornamento yum senza alcun costo aggiuntivo in queste aree. Tali informazioni verranno aggiornate in futuro.
+## Aree in cui viene è disponibile l'infrastruttura RHUI
+L'infrastruttura RHUI è disponibile in tutte le aree pubbliche elencate nel [dashboard dello stato di Azure](https://azure.microsoft.com/status/). Ciò significa che è possibile ottenere il servizio di aggiornamento yum senza alcun costo aggiuntivo in queste aree. Tali informazioni verranno aggiornate in futuro.
 
-## Ottenere aggiornamenti da un repository di aggiornamento locale, ad esempio Red Hat Network Satellite
+## Ottenere aggiornamenti da altri repository, ad esempio Red Hat Network Satellite
 
-Per ottenere gli aggiornamenti da un repository di aggiornamento locale, è necessario avere una licenza di Red Hat Cloud Access e una sottoscrizione Red Hat esistente ad Azure.
+Per ottenere aggiornamenti da altri repository di aggiornamento occorre una licenza di Red Hat Cloud Access e una sottoscrizione Red Hat esistente ad Azure.
 
-Quindi, è necessario annullare la registrazione a RHUI e ripetere la registrazione all'infrastruttura di aggiornamento locale. Di seguito sono illustrati i passaggi dettagliati.
+È quindi necessario annullare la registrazione a RHUI e ripetere la registrazione all'infrastruttura di aggiornamento. Di seguito sono illustrati i passaggi dettagliati.
 
 1.	Modificare /etc/yum.repos.d/rh-cloud.repo e impostare tutte le occorrenze di `enabled=1` su `enabled=0`. Ad esempio:
 
@@ -53,4 +53,4 @@ Quindi, è necessario annullare la registrazione a RHUI e ripetere la registrazi
 ## Passaggi successivi
 Dopo aver appreso le caratteristiche di RHUI in Azure, è possibile creare un'immagine RHEL da [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/) e usare `yum update` nell'istanza di RHEL.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # Azure Authenticator per Android
@@ -46,7 +46,8 @@ Le istruzioni seguenti sono applicabili a telefoni Samsung GS3 e modelli superio
 9. Nella schermata Aggiunta all'area di lavoro viene visualizzato il messaggio "**Aggiunta all'area di lavoro in corso**". L'app Azure Authenticator sta provando ad aggiungere il dispositivo all'area di lavoro.
 10. Nella schermata successiva dovrebbe essere visualizzato il messaggio di completamento dell'aggiunta all'area di lavoro.
 
->[AZURE.NOTE]Nel dispositivo può essere presente un solo account aziendale.
+>[AZURE.NOTE]
+Nel dispositivo può essere presente un solo account aziendale.
 
 ### Aggiunta dell'account aziendale dal menu Impostazioni
 Dopo l'installazione dell'app Azure Authenticator, è anche possibile creare un account aziendale da Android Account Manager.
@@ -66,7 +67,8 @@ Aggiunta dell'account aziendale da un dispositivo non Samsung Android
 7. La schermata successiva che mostra le informazioni relative all'autenticazione a più fattori (MFA) viene presentata per maggiore sicurezza ed è facoltativa. Questa schermata viene visualizzata se l'azienda o l'istituto di istruzione richiede l'autenticazione basata su un secondo fattore per la creazione di account aziendali e include istruzioni per verificare ulteriormente l'account.
 8. Fare clic su **OK** nella schermata successiva. Non cambiare il nome del certificato. Nella schermata Aggiunta all'area di lavoro viene visualizzato il messaggio "Aggiunta all'area di lavoro in corso". L'app Azure Authenticator sta provando ad aggiungere il dispositivo all'area di lavoro. Nella schermata successiva dovrebbe essere visualizzato il messaggio di completamento dell'aggiunta all'area di lavoro.
 
->[AZURE.NOTE]Nel dispositivo può essere presente un solo account aziendale.
+>[AZURE.NOTE]
+Nel dispositivo può essere presente un solo account aziendale.
 
 Dopo l'installazione dell'app Azure Authenticator, è anche possibile creare un account aziendale da Android Account Manager.
 
@@ -106,10 +108,12 @@ Dopo l'installazione dell'app Azure Authenticator, è anche possibile creare un 
 
 ##Disinstallazione dell'app
 
-Su un dispositivo Samsung Android, prima di disinstallare l'app Azure Authenticator è necessario rimuovere i privilegi di amministratore del dispositivo nel modo seguente. Nel menu **Impostazioni**, in **Sistema**, selezionare **Sicurezza**. 2. In **Amministratore dispositivo** scegliere **Amministratori dispositivo**. Assicurarsi che la casella di controllo accanto ad **Azure Authenticator** sia deselezionata.
+Su un dispositivo Samsung Android, è necessario rimuovere i privilegi di amministratore del dispositivo nel modo seguente prima di disinstallare
+1. Nel menu **Impostazioni**, in **Sistema**, selezionare **Sicurezza**.
+2. In **Amministratore dispositivo** scegliere **Amministratori dispositivo**. Assicurarsi che la casella di controllo accanto ad **Azure Authenticator** sia deselezionata.
 
 ##Risoluzione dei problemi
 
 Se viene visualizzato l'errore relativo all'**archivio delle chiavi**, la schermata di blocco potrebbe non essere configurata con un PIN. Per risolvere il problema, disinstallare l'applicazione Azure Authenticator, configurare un PIN per la schermata di blocco e reinstallare l'app.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

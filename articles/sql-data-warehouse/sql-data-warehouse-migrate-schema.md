@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/19/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Eseguire la migrazione dello schema in SQL Data Warehouse#
@@ -65,7 +65,7 @@ SQL Data Warehouse supporta i tipi di dati business comuni elencati di seguito:
 
 Per identificare le colonne del data warehouse che contengono tipi non compatibili, è possibile usare questa query:
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -123,7 +123,7 @@ Supporto parziale:
 
 - I vincoli predefiniti supportano solo valori letterali e costanti. Le espressioni o le funzioni non deterministiche, ad esempio `GETDATE()` o `CURRENT_TIMESTAMP`, non sono supportate.
 
-> [AZURE.NOTE]Definire le tabelle in modo che le dimensioni massime possibili della riga, inclusa la lunghezza totale delle colonne a lunghezza variabile, non superino 32.767 byte. Anche se è possibile definire una riga con dati a lunghezza variabile che possono superare questa cifra, non si potranno inserire dati nella tabella. Provare anche a limitare le dimensioni delle colonne a lunghezza variabile per migliorare la velocità effettiva delle query in esecuzione.
+> [AZURE.NOTE] Definire le tabelle in modo che le dimensioni massime possibili della riga, inclusa la lunghezza totale delle colonne a lunghezza variabile, non superino 32.767 byte. Anche se è possibile definire una riga con dati a lunghezza variabile che possono superare questa cifra, non si potranno inserire dati nella tabella. Provare anche a limitare le dimensioni delle colonne a lunghezza variabile per migliorare la velocità effettiva delle query in esecuzione.
 
 ## Passaggi successivi
 Dopo la migrazione dello schema del database in SQLDW, è possibile passare a uno degli articoli seguenti:
@@ -145,4 +145,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo svilu
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0330_2016-->

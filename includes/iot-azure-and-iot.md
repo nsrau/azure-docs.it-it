@@ -10,6 +10,8 @@ Il diagramma seguente mostra una tipica architettura di soluzione IoT. Si noti c
 
 ![Architettura della soluzione IoT][img-solution-architecture]
 
+> [AZURE.NOTE] Per un'analisi approfondita dell'architettura IoT, vedere [Architettura di riferimento dei servizi IoT di Microsoft Azure][lnk-refarch].
+
 ### Connettività dei dispositivi
 
 In questa architettura della soluzione IoT, i dispositivi inviano la telemetria, ad esempio le letture della temperatura, a un endpoint cloud per l'archiviazione e l'elaborazione. I dispositivi possono anche ricevere e rispondere a comandi da cloud a dispositivo leggendo i messaggi da un endpoint cloud. Ad esempio, un dispositivo potrebbe recuperare un comando che gli indica di modificare la frequenza di campionamento dei dati.
@@ -26,7 +28,7 @@ Una delle maggiori difficoltà con i progetti IoT è quella di connettere in mod
 
 Oltre ai requisiti precedenti, le soluzioni IoT devono offrire scalabilità, sicurezza e affidabilità. L’implementazione del set di requisiti di connettività con tecnologie tradizionali come i contenitori Web e i broker di messaggistica è un'attività lunga e complessa. Hub IoT di Azure e gli SDK per dispositivi IoT rendono più semplice l'implementazione di soluzioni che soddisfano tali requisiti.
 
-Un dispositivo può comunicare direttamente con un endpoint del gateway cloud o, se il dispositivo non può usare i protocolli di comunicazione supportati dal gateway del cloud, è possibile connettersi tramite un gateway intermedio, ad esempio il [gateway del protocollo hub IoT][lnk-protocol-gateway] che esegue la conversione del protocollo. Elaborazione
+Un dispositivo può comunicare direttamente con un endpoint del gateway cloud oppure, se il dispositivo non può usare i protocolli di comunicazione supportati dal gateway del cloud, è possibile connettersi tramite un gateway intermedio, ad esempio il [gateway del protocollo hub IoT][lnk-protocol-gateway] che esegue la conversione del protocollo. Elaborazione
 
 ### e analisi dei dati
 
@@ -48,5 +50,6 @@ Il livello di connettività aziendale e di presentazione consente agli utenti fi
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]: iot-hub-protocol-gateway.md
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

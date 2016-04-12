@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/09/2016"
+   ms.date="03/26/2016"
    ms.author="seanmck"/>
 
 # Preparare l'ambiente di sviluppo
@@ -21,29 +21,21 @@
 
 ## Prerequisiti
 ### Versioni del sistema operativo supportate
-Sono supportati i sistemi operativi seguenti:
+Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 
+- Windows 7
 - Windows 8 e Windows 8.1
 - Windows Server 2012 R2
 - Windows 10
 
-### Visual Studio 2015
-
-Gli strumenti per Service Fabric dipendono da Visual Studio 2015, disponibile sul [sito Web Visual Studio][2].
-
-> [AZURE.NOTE] Se non si esegue una delle versioni dei sistemi operativi supportati o si preferisce non installare Visual Studio 2015 nel proprio computer, è possibile configurare una macchina virtuale di Azure con Windows Server 2012 R2 e Visual Studio 2015 preinstallati, usando un'immagine della raccolta di macchine virtuali di Azure.
-
 ## Installare il runtime, l'SDK e gli strumenti
 
-L'Installazione guidata piattaforma Web esegue l'installazione dei componenti di Service Fabric. Per effettuare l'installazione, seguire queste istruzioni:
+Installazione guidata piattaforma Web offre tre configurazioni per lo sviluppo di Service Fabric:
 
-1. [Scaricare l'SDK][3] usando l'Installazione guidata piattaforma Web.
+- [Installare il runtime di Service Fabric, l'SDK e gli strumenti per Visual Studio 2015][full-bundle-vs2015]
+- [Installare il runtime di Service Fabric, l'SDK e gli strumenti per Visual Studio "15" Preview][full-bundle-dev15]
+- [Installare il runtime di Service Fabric e solo l'SDK, senza gli strumenti per Visual Studio][core-sdk]
 
-2. Fare clic su **Installa** per avviare il processo di installazione.
-
-3. Leggere e accettare il contratto di licenza con l'utente finale.
-
-L'installazione procederà automaticamente.
 
 ## Consentire l'esecuzione di script di PowerShell
 
@@ -65,6 +57,8 @@ Ora che l'ambiente di sviluppo è pronto, è possibile iniziare a compilare ed e
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Pagina della campagna di Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Collegamento WebPI"
+[full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Collegamento WebPI VS 2015"
+[full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Collegamento WebPI Dev15"
+[core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Collegamento WebPI Core SDK"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

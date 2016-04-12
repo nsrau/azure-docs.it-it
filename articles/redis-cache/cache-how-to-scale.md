@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Come scalare Cache Redis di Azure
 
->[AZURE.NOTE]Al momento la funzionalità di ridimensionamento di Cache Redis di Azure è in anteprima. Durante il periodo di anteprima non è possibile scalare una cache di livello premium, ma è possibile modificare il piano tariffario in una cache premium. È inoltre possibile [modificare la dimensione del cluster](cache-how-to-premium-clustering.md#cluster-size) in una cache premium con il clustering abilitato.
+>[AZURE.NOTE] Al momento la funzionalità di ridimensionamento di Cache Redis di Azure è in anteprima. Durante il periodo di anteprima non è possibile scalare una cache di livello premium, ma è possibile modificare il piano tariffario in una cache premium. È inoltre possibile [modificare la dimensione del cluster](cache-how-to-premium-clustering.md#cluster-size) in una cache premium con il clustering abilitato.
 
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile scalare la dimensione della cache usando il pannello **Modifica piano tariffario** nel [portale di Azure](https://portal.azure.com).
 
@@ -46,11 +46,11 @@ Selezionare il livello di prezzo desiderato dal pannello **Livello di prezzo** e
 
 ![Pricing tier][redis-cache-pricing-tier-blade]
 
->[AZURE.NOTE]È possibile passare a un livello di prezzo diverso con le restrizioni seguenti.
+>[AZURE.NOTE] È possibile passare a un livello di prezzo diverso con le restrizioni seguenti.
 >
->-	Non è possibile scalare una cache **Premium**.
+>-	Non è possibile ridimensionare le istanze di una cache **Premium**.
 >-	Non è possibile scalare da una cache **Standard** a una cache **Basic**.
->-	È possibile scalare da una cache **Basic** a una cache **Standard**, ma non è possibile modificare contemporaneamente la dimensione. Se occorre una dimensione diversa, è possibile effettuare successivamente un'operazione di scalabilità per le dimensioni desiderate.
+>-	È possibile passare da una cache **Basic** a una cache **Standard** ma non è possibile modificare contemporaneamente le dimensioni. Se occorre una dimensione diversa, è possibile effettuare successivamente un'operazione di scalabilità per le dimensioni desiderate.
 >-	Non è possibile passare da una dimensione maggiore alla dimensione **C0 (250 MB)**.
 
 Mentre viene eseguito il ridimensionamento della cache al nuovo livello di prezzo, nel pannello **Cache Redis** viene visualizzato uno stato **Ridimensionamento**.
@@ -120,7 +120,7 @@ No, il nome della cache e le chiavi restano invariate durante un'operazione di r
 
 ## Come funziona il ridimensionamento?
 
-Quando una cache **Basic** viene scalata a un'altra dimensione, la cache viene arrestata e viene eseguito il provisioning di una nuova cache usando la nuova dimensione. Durante questo periodo, la cache non è disponibile e tutti i dati nella cache vengono persi.
+Quando viene ridimensionata una cache **Basic**, essa viene chiusa e viene eseguito il provisioning di una nuova cache utilizzando la nuova dimensione. Durante questo periodo, la cache non è disponibile e tutti i dati nella cache vengono persi.
 
 Quando una cache **Basic** viene scalata in una cache **Standard**, viene eseguito il provisioning di una cache di replica e i dati vengono copiati dalla cache principale alla cache di replica. La cache rimane disponibile durante il processo di ridimensionamento.
 
@@ -128,9 +128,9 @@ Quando una cache **Standard** viene scalata, una delle repliche viene arrestata 
 
 ## Durante il ridimensionamento i miei dati dalla cache andranno persi?
 
-Quando una cache **Basic** viene scalata, tutti i dati vengono persi e la cache non è disponibile durante l'operazione di ridimensionamento.
+Quando una cache **Basic** viene ridimensionata, tutti i dati vengono persi e la cache non è disponibile durante l'operazione di ridimensionamento.
 
-Quando una cache **Basic** viene scalata in una cache **Standard**, generalmente i dati nella cache vengono mantenuti.
+Quando una cache **Basic** viene ridimensionata in una cache**Standard**, generalmente i dati nella cache vengono mantenuti.
 
 Quando una cache **Standard** viene scalata in una dimensione superiore, in genere vengono mantenuti tutti i dati. Quando si scala una cache **Standard** a una dimensione inferiore, i dati potrebbero andare persi in base al rapporto tra la quantità di dati nella cache e alla nuova dimensione di questa. Se durante la riduzione i dati vengono persi, le chiavi vengono rimosse mediante il criterio di rimozione [allkeys-lru](http://redis.io/topics/lru-cache).
 
@@ -178,4 +178,4 @@ Questa funzionalità viene rilasciata allo scopo di ottenere commenti e suggerim
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

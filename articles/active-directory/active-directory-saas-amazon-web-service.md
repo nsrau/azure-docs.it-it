@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ L'obiettivo di questa esercitazione è illustrare come integrare Amazon Web Serv
 
 - È possibile controllare in Azure AD chi può accedere ad Amazon Web Service (AWS). 
 - È possibile abilitare gli utenti per l'accesso automatico ad Amazon Web Service (AWS) (Single Sign-On) con i propri account Azure AD.
-- È possibile gestire gli account in una posizione centrale, il portale di Azure Active Directory.
+- È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -35,13 +35,13 @@ Per configurare l'integrazione di Azure AD con Amazon Web Service (AWS), sono ne
 - Sottoscrizione Amazon Web Service (AWS) abilitata per l'accesso Single Sign-On.
 
 
-> [AZURE.NOTE]Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+> [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
 
  
 ## Descrizione dello scenario
@@ -56,13 +56,13 @@ Per configurare l'integrazione di Amazon Web Service (AWS) in Azure AD, è neces
 
 ### Per aggiungere Amazon Web Service (AWS) dalla raccolta, seguire questa procedura:
 
-1. Nel **portale di gestione di Azure**, nel pannello di navigazione sinistro, fare clic su **Active Directory**. <br><br>![Active Directory][1]<br> 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Active Directory][1]<br> 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Applicazioni][2]<br>
 
-4. Fare clic su **Add** nella parte inferiore della pagina. <br><br>![Applicazioni][3]<br>
+4. Fare clic su **Aggiungi** nella parte inferiore della pagina. <br><br>![Applicazioni][3]<br>
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**. <br><br>![Applicazioni][4]<br>
 
@@ -87,14 +87,14 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Amazon Web Se
 
 ### Configurazione dell'accesso Single Sign-On di Azure AD
 
-Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di Azure AD e configurare l'accesso Single Sign-On nell'applicazione Amazon Web Service (AWS).<br> L'applicazione Amazon Web Service (AWS) prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione di **Attributi token SAML**. La schermata seguente illustra un esempio relativo a questa operazione.
+Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Amazon Web Service (AWS).<br> L'applicazione Amazon Web Service (AWS) prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione di **Attributi token SAML**. La schermata seguente illustra un esempio relativo a questa operazione.
 
 
 <br><br>![Configura accesso Single Sign-On][27]<br>
 
 **Per configurare Single Sign-On di Azure AD con Amazon Web Service (AWS), seguire questa procedura:**
 
-1. Nel portale di Azure AD, nella pagina di integrazione dell'applicazione **Amazon Web Service (AWS)**, fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br>![Configura accesso Single Sign-On][7]<br>
+1. Nel portale di Azure classico, nella pagina di integrazione dell'applicazione **Amazon Web Service (AWS)**, fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br>![Configura accesso Single Sign-On][7]<br>
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Amazon Web Service (AWS)** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br>![Configura accesso Single Sign-On][8]<br>
 
@@ -159,7 +159,7 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
      c. Fare clic su **Crea ruolo**.
 
-18. Nel portale di Azure AD selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Cos'è Azure AD Connect][20]<br>
+18. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Cos'è Azure AD Connect][20]<br>
 
 19. Nella pagina **Conferma Single Sign-On** fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.<br><br>![Cos'è Azure AD Connect][22]<br>
 
@@ -174,7 +174,7 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
      b. Nella casella di testo **Valore dell'attributo** , digitare **[valore ARN del ruolo], [valore ARN dell’entità trusted]**.
 
-     >[AZURE.TIP]Questi sono i valori copiati dalla finestra di dialogo di revisione quando è stato creato il ruolo.
+     >[AZURE.TIP] Questi sono i valori copiati dalla finestra di dialogo di revisione quando è stato creato il ruolo.
 
      c. Fare clic su **Completa** per chiudere la finestra di dialogo **Aggiungi attributo utente**.
 
@@ -199,11 +199,11 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 
 ### Creazione di un utente test di Azure AD
 
-Questa sezione descrive come creare un utente test nel portale di Azure chiamato Britta Simon.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_01.png)<br>
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.<br> Nell'elenco di utenti selezionare **Britta Simon**.<br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_01.png)<br>
 
 **Per creare un utente test in Azure AD, seguire questa procedura:**
 
-1. Nel **portale di gestione di Azure** fare clic su **Active Directory** nel pannello di navigazione sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
+1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
 
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
 
@@ -217,7 +217,7 @@ Questa sezione descrive come creare un utente test nel portale di Azure chiamato
   2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
   3. Fare clic su Avanti.
 
-6.  Nella pagina **Profilo utente** eseguire la procedura seguente: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_06.png)<br>
+6.  Nella pagina **Profilo utente** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_06.png)<br>
 
   1. Nella casella di testo **Nome** digitare **Britta**.
   2. Nella casella di testo **Cognome** digitare **Simon**.
@@ -227,10 +227,10 @@ Questa sezione descrive come creare un utente test nel portale di Azure chiamato
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **Crea**. <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_07.png)<br>
  
-8. Nella pagina **Ottieni password temporanea** eseguire la procedura seguente: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_08.png)<br>
+8. Nella pagina **Ottieni password temporanea** seguire questa procedura: <br><br>![Creazione di un utente test di Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_08.png)<br>
 
   1. Prendere nota del valore in **Nuova password**.
-  2. Fare clic su **Complete**.   
+  2. Fare clic su **Completa**.   
   
  
 ### Creazione di un utente test Amazon Web Service (AWS)
@@ -264,7 +264,7 @@ Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single 
 
 **Per assegnare Britta Simon ad Amazon Web Service (AWS), seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br>![Assegna utente][26]<br>
+1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto. <br><br>![Assegna utente][26]<br>
 
 2. Nell'elenco delle applicazioni selezionare **Amazon Web Service (AWS)**. <br><br>![Assegna utente][27]<br>
 
@@ -320,4 +320,4 @@ L'obiettivo di questa sezione consiste nel testare la configurazione dell'access
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

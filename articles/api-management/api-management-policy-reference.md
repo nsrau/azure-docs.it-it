@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="03/22/2016" 
 	ms.author="sdanie"/>
 
 # Riferimento ai criteri di Gestione API di Azure
@@ -59,7 +59,7 @@ Le espressioni di criteri possono essere usate come valori di attributo o valori
 	-	[json-to-xml][]\: converte il corpo della richiesta o della risposta da JSON a XML.
 	-	[xml-to-json][]\: converte il corpo della richiesta o della risposta da XML a JSON.
 	-	[find-and-replace][]\: trova una sottostringa di richiesta o risposta e la sostituisce con una sottostringa diversa.
-	-	[Maschera URL nel contenuto][]\: riscrive (maschera) i collegamenti nel corpo della risposta e nell'intestazione del percorso, in modo che facciano riferimento al collegamento equivalente tramite il gateway.
+	-	[Maschera URL nel contenuto][]\: riscrive (maschera) i collegamenti nel corpo della risposta, in modo che facciano riferimento al collegamento equivalente tramite il gateway.
 	-	[set-backend-service][]\: consente di cambiare il servizio back-end per una richiesta in ingresso.
 	-	[set-body][]\: consente di impostare il corpo del messaggio per richieste in ingresso e in uscita.
 	-	[Imposta intestazione HTTP][]\: assegna un valore a una intestazione di risposta e/o di richiesta esistente oppure aggiunge una nuova intestazione di risposta e/o di richiesta.
@@ -119,4 +119,4 @@ Per altre informazioni sulle espressioni di criteri, vedere il video seguente.
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

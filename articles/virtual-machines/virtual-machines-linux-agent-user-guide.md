@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Guida dell'utente dell'agente Linux | Microsoft Azure" 
 	description="Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
@@ -9,13 +9,13 @@
 	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
-	ms.author="mingzhan"/>
+	ms.date="03/14/2016" 
+	ms.author="szark"/>
 
 
 
@@ -26,6 +26,8 @@
 ##Introduzione
 
 L’agente Linux di Azure (/usr/sbin/waagent) gestisce l’interazione tra una macchina virtuale e il controller di infrastruttura di Azure. Effettua le seguenti operazioni:
+
+> [AZURE.NOTE] La versione più recente della guida è disponibile nel file [LEGGIMI](https://github.com/Azure/WALinuxAgent/blob/2.0/README) dell'agente Linux di Azure.
 
 * **Provisioning dell'immagine**
   - Crea un account utente
@@ -201,13 +203,13 @@ Se è specificato un percorso a un programma eseguibile, viene richiamato dopo c
 
 Tipo: String Predefinito: nessuno
 
-Se è specificato un percorso a un programma eseguibile, il programma viene richiamato quando l'infrastruttura indica che è disponibile un file di configurazione per una macchina virtuale. Il percorso al file di configurazione XML è fornito come argomento all'eseguibile. Può essere richiamato più volte, ogni volta che il file di configurazione subisce modifiche. Nell'appendice viene fornito un file di esempio. Il percorso corrente di questo file è /var/lib/waagent/HostingEnvironmentConfig.xml.
+Se è specificato un percorso a un programma eseguibile, il programma viene richiamato quando l'infrastruttura indica che è disponibile un file di configurazione per una macchina virtuale. Il percorso al file di configurazione XML è fornito come argomento all'eseguibile. Può essere richiamato più volte, ogni volta che il file di configurazione subisce modifiche. Il percorso corrente di questo file è /var/lib/waagent/HostingEnvironmentConfig.xml.
 
 **Role.TopologyConsumer:**
 
 Tipo: String Predefinito: nessuno
 
-Se è specificato un percorso a un programma eseguibile, il programma viene richiamato quando l'infrastruttura indica che è disponibile un nuovo layout di topologia di rete per la macchina virtuale. Il percorso al file di configurazione XML è fornito come argomento all'eseguibile. Può essere richiamato più volte ogni, ogni volta che la topologia di rete subisce modifiche, ad esempio a seguito della correzione del servizio. Nell'appendice viene fornito un file di esempio. Il percorso corrente di questo file è /var/lib/waagent/SharedConfig.xml.
+Se è specificato un percorso a un programma eseguibile, il programma viene richiamato quando l'infrastruttura indica che è disponibile un nuovo layout di topologia di rete per la macchina virtuale. Il percorso al file di configurazione XML è fornito come argomento all'eseguibile. Può essere richiamato più volte ogni, ogni volta che la topologia di rete subisce modifiche, ad esempio a seguito della correzione del servizio. Il percorso corrente di questo file è /var/lib/waagent/SharedConfig.xml.
 
 **Provisioning.Enabled:**
 
@@ -317,8 +319,8 @@ Si noti che le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpa
 - Vedere le risorse seguenti per configurare il punto di montaggio del disco di risorsa e scambiare spazio nelle immagini di Ubuntu Cloud durante il provisioning:
 
  - [Ubuntu Wiki: Configurare partizioni di scambio](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
- - [Inserimento di dati personalizzati in una macchina virtuale di Azure](virtual-machines-how-to-inject-custom-data.md)
+ - [Inserimento di dati personalizzati in una macchina virtuale di Azure](virtual-machines-windows-classic-inject-custom-data.md)
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0330_2016-->

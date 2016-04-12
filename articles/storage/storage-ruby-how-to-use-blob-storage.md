@@ -3,9 +3,9 @@
 	description="Scoprire come usare l'archiviazione BLOB per caricare, scaricare, elencare ed eliminare contenuti BLOB. Gli esempi sono scritti in Ruby."
 	services="storage"
 	documentationCenter="ruby"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # Come usare l'archiviazione BLOB da Ruby
@@ -31,7 +31,7 @@ Questa guida illustra scenari comuni relativi all'uso dell'archiviazione BLOB. G
 
 ## Creare un'applicazione Ruby
 
-Creare un'applicazione Ruby. Per istruzioni vedere [Applicazione Web Ruby on Rails in una macchina virtuale di Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md)
+Creare un'applicazione Ruby. Per istruzioni, vedere l'articolo relativo all'[applicazione Web Ruby on Rails in una macchina virtuale di Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configurare l'applicazione per l'accesso all'archiviazione
 
@@ -155,4 +155,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 - Archivio [Azure SDK per Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

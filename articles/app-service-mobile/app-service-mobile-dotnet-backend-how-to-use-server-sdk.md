@@ -5,7 +5,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 # Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure
@@ -160,7 +160,7 @@ Questa sezione illustra come pubblicare il progetto back-end .NET da Visual Stud
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-## Procedura: Definire un controller tabelle
+##<a name="define-table-controller"></a> Procedura: Definire un controller tabelle
 
 Un controller tabelle fornisce l'accesso ai dati delle entità in un archivio dati basato su tabelle, ad esempio il database SQL o l'Archivio tabelle di Azure. I controller della tabella ereditano dalla classe generica **TableController**, dove il tipo generico è un'entità nel modello che rappresenta lo schema della tabella, come indicato di seguito:
 
@@ -217,6 +217,7 @@ App per dispositivi mobili usa le funzionalità di autenticazione del servizio a
 + [Procedura: Aggiungere l'autenticazione a un progetto server](#add-auth)
 + [Procedura: Usare l'autenticazione personalizzata per la propria applicazione](#custom-auth)
 + [Procedura: Recuperare le informazioni sull'utente autenticato](#user-info)
++ [Procedura: Limitare l’accesso ai dati per gli utenti autorizzati](#authorize)
 
 ### <a name="add-auth"></a>Procedura: Aggiungere l'autenticazione a un progetto server
 
@@ -324,6 +325,9 @@ Il codice seguente chiama il metodo di estensione **GetAppServiceIdentityAsync**
 
 Si noti che affinché il metodo di estensione **GetAppServiceIdentityAsync** funzioni, è necessario aggiungere un'istruzione using per `System.Security.Principal`.
 
+###<a name="authorize"></a>Procedura: Limitare l’accesso ai dati per gli utenti autorizzati
+
+Spesso si desidera limitare i dati che vengono restituiti a un determinato utente autenticato. Questo tipo di partizionamento dei dati viene eseguito includendo una colonna userId nella tabella e memorizzando il SID dell'utente quando i dati vengono inseriti
 
 ## Procedura: Aggiungere notifiche push a un progetto server
 
@@ -365,27 +369,40 @@ Si noti che affinché il metodo di estensione **GetAppServiceIdentityAsync** fun
 
 A questo punto, è possibile usare il client di Hub di notifica per inviare notifiche push ai dispositivi registrati. Per altre informazioni, vedere l'articolo relativo all'[aggiunta di notifiche push all'app](app-service-mobile-ios-get-started-push.md) Per altre informazioni su tutte le operazioni disponibili con Hub di notifica, vedere [Panoramica dell'Hub di notifica di Azure](../notification-hubs/notification-hubs-overview.md).
 
-##<a name="tags"></a>Procedura: Aggiungere tag all'installazione di un dispositivo per abilitare il push dei tag
+##<a name="tags"></a>Procedura: Aggiungere tag all'installazione di un dispositivo per abilitare l'invio di notifiche push mirate
 
-Dopo avere eseguito il passaggio precedente **Procedura: Definire un controller API personalizzato**, è possibile configurare un'API personalizzata nel back-end che userà Hub di notifica per aggiungere tag all'installazione di un dispositivo specifico. Assicurarsi di passare l'ID installazione memorizzato nella risorsa di archiviazione locale client assieme ai tag che si desidera aggiungere (l'aggiunta è facoltativa perché è anche possibile specificare i tag direttamente nel back-end). Il frammento di codice seguente deve essere aggiunto al controller che userà gli hub di notifica per aggiungere un tag all'ID di installazione di un dispositivo.
+Hub di notifica consente di inviare notifiche mirate a registrazioni specifiche tramite tag. Un tag creato automaticamente è l'ID di installazione, che è specifico di un'istanza dell'app su un determinato dispositivo. Una registrazione con un ID di installazione viene definita anche *installazione*. È possibile usare l'ID di installazione per gestire l'installazione, ad esempio per l'aggiunta di tag. È possibile accedere all'ID di installazione dalla proprietà **installationId** in **MobileServiceClient**.
 
-Usare il [pacchetto NuGet di Hub di notifica di Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) ([riferimento](https://msdn.microsoft.com/library/azure/mt414893.aspx)):
+L'esempio seguente illustra come usare un ID di installazione per aggiungere un tag a una specifica installazione di Hub di notifica:
 
-		var hub = NotificationHubClient.CreateClientFromConnectionString("my-connection-string", "my-hub");
+	hub.PatchInstallation("my-installation-id", new[]
+	{
+	    new PartialUpdateOperation
+	    {
+	        Operation = UpdateOperationType.Add,
+	        Path = "/tags",
+	        Value = "{my-tag}"
+	    }
+	});
 
-		hub.PatchInstallation("my-installation-id", new[]
-		{
-		    new PartialUpdateOperation
-		    {
-		        Operation = UpdateOperationType.Add,
-		        Path = "/tags",
-		        Value = "{my-tag}"
-		    }
-		});
+Si noti che i tag forniti dal client durante la registrazione per le notifiche push vengono ignorati dal back-end durante la creazione dell'installazione. Per consentire a un client di aggiungere tag all'installazione, è necessario creare una nuova API personalizzata che aggiunge tag tramite il modello precedente. Per un esempio di un controller di API personalizzato che consente ai client di aggiungere tag a un'installazione, vedere l'articolo relativo ai [tag di notifica push aggiunti dal client](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags) nell'esempio di avvio rapido completato in app per dispositivi mobili del servizio app per back-end .NET.
 
-Per eseguire il push di questi tag, usare le [API di Hub di notifica](https://msdn.microsoft.com/library/azure/dn495101.aspx).
+##<a name="push-user"></a>Procedura: Inviare notifiche push agli utenti autenticati
 
-È anche possibile organizzare l'API personalizzata in modo da registrare le installazioni dei dispositivi con gli hub di notifica direttamente nel back-end.
+Se un utente autenticato esegue la registrazione per le notifiche push, viene automaticamente aggiunto un tag con l'ID utente. Tramite questo tag, è possibile inviare notifiche push a tutti i dispositivi registrati da un utente specifico. Il codice seguente ottiene il SID dell'utente che esegue la richiesta e invia un modello di notifica push a ogni registrazione del dispositivo per tale utente:
+
+    // Get the current user SID and create a tag for the current user.
+    var claimsPrincipal = this.User as ClaimsPrincipal;
+    string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+    string userTag = "_UserId:" + sid;
+
+    // Build a dictionary for the template with the item message text.
+    var notification = new Dictionary<string, string> { { "message", item.Text } };
+
+    // Send a template notification to the user ID.
+    await hub.SendTemplateNotificationAsync(notification, userTag);
+
+Durante la registrazione per le notifiche push da un client autenticato, assicurarsi che l'autenticazione sia stata completata prima di tentare la registrazione. Per altre informazioni, vedere [Eseguire il push agli utenti](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) nell'esempio di avvio rapido completato in app per dispositivi mobili del servizio app per back-end .NET.
 
 ## Procedura: Eseguire il debug e risolvere i problemi di .NET Server SDK
 
@@ -444,4 +461,4 @@ Il server eseguito in locale ora è in grado di convalidare i token che il clien
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

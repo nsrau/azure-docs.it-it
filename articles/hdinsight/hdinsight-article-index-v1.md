@@ -21,12 +21,12 @@
 Utilizzare questa pagina di indice per trovare articoli che trattano di HDInsight sul [portale di Azure classico](https://manage.windowsazure.com/). Azure HDInsight è una distribuzione cloud di Hadoop open source e Hortonworks Data Platform.
 
 
-> [AZURE.IMPORTANT]Questa pagina di indice della documentazione è per i clienti che già dispongono di soluzioni distribuite nell’attuale portale di Azure classico.
+> [AZURE.IMPORTANT]  Questa pagina di indice della documentazione è per i clienti che già dispongono di soluzioni distribuite nell’attuale portale di Azure classico.
 >
 > Microsoft consiglia di utilizzare il **portale di Azure** per i nuovi cluster HDInsight:
 >
 > * [Passare alla Documentazione sul portale di HDInsight](/documentation/services/hdinsight/)
-> * [Accedere al portale di Azure](https://portal.azure.com/).
+> * [Accedere al portale di Azure.](https://portal.azure.com/)
 >
 > Per una spiegazione dei vantaggi del portale, vedere [DevOps è ancora più straordinario](/overview/preview-portal/).
 >
@@ -58,10 +58,9 @@ Per un set completo di articoli sull'utilizzo di Linux e dei cluster Linux, visi
 * [Serializzare i dati con la libreria Microsoft Avro](hdinsight-dotnet-avro-serialization.md)
 * [Elaborare e analizzare documenti JSON usando Hive](hdinsight-using-json-in-hive.md)
 * [Usare Python con Hive e Pig](hdinsight-python.md)
-* [Ottimizzare le query Hive per Hadoop](hdinsight-hadoop-optimize-hive-query–v1.md)
+* [Ottimizzare le query Hive per Hadoop](hdinsight-hadoop-optimize-hive-query.md)
 * [Esecuzione di processi Pig con .NET SDK per Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
 * [Usare le funzioni definite dall'utente C# con lo streaming Hive e Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
 ## HBase: database NoSQL
 
@@ -71,7 +70,7 @@ Per un set completo di articoli sull'utilizzo di Linux e dei cluster Linux, visi
 
 ## Apache Storm: Query di flusso
 
-* [Introduzione agli esempi di Storm Starter](hdinsight-apache-storm-tutorial-get-started-v1.md)
+* [Introduzione agli esempi di Storm Starter](hdinsight-apache-storm-tutorial-get-started.md)
 * [Distribuire e gestire di topologie Apache Storm](hdinsight-storm-deploy-monitor-topology.md)
 * [Sviluppare topologie C# per Apache Storm tramite gli strumenti Hadoop per Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 * [Sviluppare topologie basate su Java per un'applicazione di base per il conteggio di parole con Apache Storm e Maven](hdinsight-storm-develop-java-topology.md)
@@ -100,9 +99,8 @@ Per gli articoli sull'utilizzo di cluster Apache Spark nativi nel portale di Azu
 ## Machine Learning in HDInsight
 
 * [Generare raccomandazioni di film mediante Apache Mahout con Hadoop](hdinsight-mahout.md)
-* [Percorso di formazione: compilazione di soluzioni di analisi avanzate](machine-learning-data-science-how-to-create-machine-learning-service.md)
-* [Percorso di formazione: elaborazione di dati avanzati](machine-learning-data-science-advanced-data-processing.md)
-* [Stimare suggerimenti taxi con HDInsight e Machine Learning](machine-learning-data-science-process-hive-walkthrough.md)
+* [Percorso di formazione: compilazione di soluzioni di analisi avanzate](../machine-learning/machine-learning-walkthrough-develop-predictive-solution.md)
+* [Stimare suggerimenti taxi con HDInsight e Machine Learning](../machine-learning/machine-learning-data-science-process-hive-walkthrough.md)
 
 ## Estensibilità
 
@@ -133,4 +131,4 @@ Per gli articoli sull'utilizzo di cluster Apache Spark nativi nel portale di Azu
 * [Interpretare i messaggi di errore](hdinsight-debug-jobs.md)
 * [Ottenere informazioni sui forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

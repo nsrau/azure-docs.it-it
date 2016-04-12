@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="03/28/2016"
     ms.author="elizapo" />
 
 # Procedure consigliate per la configurazione e l'uso di Azure RemoteApp
@@ -43,4 +43,4 @@ Le informazioni seguenti consentono di configurare e usare in modo efficiente Az
 	- Configurare le impostazioni a livello di sistema nell'immagine modello anziché sulle singole macchine virtuali in un servizio.
 	- Disabilitare gli aggiornamenti software automatici per le applicazioni pubblicate. Applicarli invece manualmente per l'immagine modello e testarli prima della distribuzione dal modello.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0330_2016-->

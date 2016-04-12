@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/06/2015"
+   ms.date="03/08/2016"
    ms.author="seanmck"/>
 
 # Applicazione dell'infrastruttura di servizi e fasi successive
@@ -31,9 +31,9 @@ Il progetto dell'applicazione è composto da:
 
 - Due file di parametri dell'applicazione (locale e cloud), utili per gestire configurazioni dell'applicazione specifiche per ogni ambiente e che consentono, ad esempio, di indicare il numero di partizioni da creare per un servizio.
 
-- Uno script di distribuzione che consente di distribuire l'applicazione dalla riga di comando o nell'ambito di una pipeline di integrazione continua automatica.
+- Uno script di distribuzione che consente di distribuire l'applicazione dalla riga di comando o nell'ambito di una pipeline di integrazione e distribuzione continua automatizzata.
 
-- Il manifesto dell'applicazione, che descrive l'applicazione.
+- Il manifesto dell'applicazione, che descrive l'applicazione. Il manifesto è disponibile nella cartella ApplicationPackageRoot.
 
 ### Reliable Services
 Quando si aggiunge un nuovo Reliable Service, Visual Studio aggiunge un progetto del servizio alla soluzione. Il progetto del servizio contiene una classe che si estende da `StatelessService` o `StatefulService`, a seconda del tipo scelto.
@@ -86,4 +86,4 @@ Per informazioni su come impostare un processo di integrazione continua per l'ap
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

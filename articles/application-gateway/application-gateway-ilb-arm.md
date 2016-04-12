@@ -12,15 +12,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma"/>
 
 
 # Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB) tramite Gestione risorse di Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic steps](application-gateway-ilb.md)
-- [Resource Manager PowerShell steps](application-gateway-ilb-arm.md)
+- [Procedure per Azure classico](application-gateway-ilb.md)
+- [Procedure PowerShell per Resource Manager](application-gateway-ilb-arm.md)
 
 Un gateway applicazione di Azure può essere configurato con un indirizzo VIP con connessione Internet o con un endpoint interno non esposto a Internet, detto anche endpoint del dispositivo di bilanciamento del carico interno (ILB). Configurare il gateway con un ILB è utile per le applicazioni line-of-business interne non esposte a Internet. È utile anche per servizi e livelli in un'applicazione a più livelli posti entro un limite di sicurezza non esposto a Internet, ma che richiedono la distribuzione del carico round robin, la persistenza delle sessioni o la terminazione Secure Sockets Layer (SSL).
 
@@ -35,7 +35,7 @@ In questo articolo verrà illustrata la procedura per configurare un gateway app
 ## Elementi necessari per creare un gateway applicazione
 
 
-- **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici.
+- **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla rete virtuale, ma devono trovarsi in una subnet diversa per il gateway applicazione, o devono essere un indirizzo IP/VIP pubblico.
 - **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 - **Porta front-end:** porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
 - **Listener**: ha una porta front-end, un protocollo (HTTP o HTTPS che fa distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
@@ -58,7 +58,7 @@ Per creare un gateway applicazione, seguire questa procedura:
 
 ## Creare un gruppo di risorse per Gestione risorse
 
-Assicurarsi di passare alla modalità PowerShell per usare i cmdlet di Gestione risorse di Azure. Altre informazioni sono disponibili in [Uso di Windows PowerShell con Gestione risorse](powershell-azure-resource-manager.md).
+Assicurarsi di passare alla modalità PowerShell per usare i cmdlet di Gestione risorse di Azure. Altre informazioni sono disponibili in [Uso di Windows PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Passaggio 1
 
@@ -123,9 +123,9 @@ Crea una configurazione IP del gateway applicazione denominata "gatewayIP01". Al
 
 ### Passaggio 2
 
-	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.0.10,10.0.0.11,10.0.0.12
+	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Configura il pool di indirizzi IP back-end denominato "pool01" con gli indirizzi IP "10.0.0.10,10.0.0.11, 10.0.0.12". Quelli saranno gli indirizzi IP che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP precedenti per aggiungere il proprio endpoint dell’indirizzo IP dell'applicazione.
+Configura il pool di indirizzi IP back-end denominato "pool01" con gli indirizzi IP "134.170.185.46, 134.170.188.221,134.170.185.50". Quelli saranno gli indirizzi IP che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP precedenti per aggiungere il proprio endpoint dell’indirizzo IP dell'applicazione.
 
 ### Passaggio 3
 
@@ -181,7 +181,7 @@ Per eliminare un gateway applicazione, sarà necessario eseguire i passaggi segu
 
 1. Usare il cmdlet **Stop-AzureRmApplicationGateway** per arrestare il gateway.
 2. Usare il cmdlet **Remove-AzureRmApplicationGateway** per rimuovere il gateway.
-3. Verificare che il gateway sia stato rimosso con il cmdlet **Get-AzureApplicationGateway**.
+3. Verificare che il gateway sia stato rimosso usando il cmdlet **Get-AzureApplicationGateway**.
 
 
 ### Passaggio 1
@@ -192,7 +192,7 @@ Ottenere l'oggetto gateway applicazione e associarlo a una variabile "$getgw":
 
 ### Passaggio 2
 
-Usare **Stop-AzureRmApplicationGateway** per arrestare il gateway applicazione. Questo esempio mostra il cmdlet **Stop-AzureRmApplicationGateway** sulla prima riga, seguito dall'output.
+Usare **Stop-AzureRmApplicationGateway** per arrestare il gateway applicazione. Questo esempio include il cmdlet **Stop-AzureRmApplicationGateway** alla prima riga, seguito dall'output.
 
 	PS C:\> Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
@@ -230,11 +230,11 @@ Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet *
 
 Per configurare l'offload SSL, vedere [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
 
-Per configurare un gateway applicazione da usare con il dispositivo di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
+Per configurare un gateway applicazione da usare con il servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 
 - [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

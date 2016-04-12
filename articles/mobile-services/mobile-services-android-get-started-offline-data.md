@@ -18,11 +18,12 @@
 
 # Aggiungere la sincronizzazione offline dei dati all'app di Servizi mobili per Android
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Abilitare la sincronizzazione offline per l'app per dispositivi mobili di Android](../app-service-mobile/app-service-mobile-android-get-started-offline-data.md).
 
 ## Riepilogo
 
@@ -223,4 +224,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [esercitazione Guida introduttiva per Servizi mobili]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

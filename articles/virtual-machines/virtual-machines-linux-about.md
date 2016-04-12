@@ -1,0 +1,45 @@
+<properties
+	pageTitle="Informazioni sulle macchine virtuali Linux | Microsoft Azure"
+	description="Informazioni di base sulle macchine virtuali Linux in Azure per entrambi i modelli di distribuzione."
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
+
+<tags
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/10/2016"
+	ms.author="cynthn"/>
+
+#Informazioni sulle macchine virtuali Linux in Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
+
+Le macchine virtuali di Azure sono uno dei vari tipi di risorse di calcolo scalabili e su richiesta offerte da Azure. In genere, la scelta ricadrà su una macchina virtuale se è necessario maggiore controllo dell'ambiente di elaborazione rispetto a quanto offerto dalle altre scelte.
+
+Una macchina virtuale di Azure offre la flessibilità della virtualizzazione senza dover acquistare e gestire l'hardware fisico su cui è in esecuzione la macchina virtuale. È comunque necessario gestire la macchina virtuale, ovvero occuparsi di configurazione, applicazione di patch e manutenzione del software in esecuzione nella macchina virtuale. È anche possibile leggere informazioni sulle [macchine virtuali Windows in Azure](virtual-machines-windows-about.md).
+
+Questa tabella consente di confrontare le scelte offerte da Azure.
+
+[AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
+
+## Passaggi successivi
+
+Provare una macchina virtuale mediante la creazione di una macchina virtuale semplice rapidamente. Per le istruzioni, vedere [Creare una macchina virtuale che esegue Linux](virtual-machines-linux-cli-create.md).
+
+Poiché questa esercitazione consente di creare rapidamente una macchina virtuale, viene descritto solo un metodo per l'esecuzione di questa operazione, invece di descrivere i vari strumenti utilizzabili per creare macchine virtuali. Per un riepilogo di questi strumenti e i collegamenti alle istruzioni, vedere le informazioni sui [diversi modi per creare una macchina virtuale Linux](virtual-machines-linux-creation-choices.md).
+
+
+<!--links-->
+[Servizio app]: app-service-choose-me.md
+[Macchine virtuali]: #tellmevm
+[Servizi cloud]: cloud-services-choose-me.md
+
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 
@@ -33,7 +33,7 @@ Questo è il quinto passaggio della procedura dettagliata [Sviluppare una soluzi
 
 Per concedere ad altri utenti la possibilità di usare il modello di analisi predittiva sviluppato in questa procedura, questo verrà distribuito come servizio Web in Azure.
 
-Fino a questo punto è stato sperimentato il training da parte del modello, Ma il servizio distribuito non dovrà più eseguire il training perché genererà le stime assegnando un punteggio all'input dell'utente in base al modello. È necessario eseguire alcune operazioni per convertire questo esperimento da esperimento di ***training*** a esperimento ***predittivo***.
+Fino a questo punto è stato sperimentato il training da parte del modello, ma il servizio distribuito non dovrà più eseguire il training perché genererà le stime assegnando un punteggio all'input dell'utente in base al modello. È necessario eseguire alcune operazioni per convertire questo esperimento da esperimento di ***training*** a esperimento ***predittivo***.
 
 Il processo si articola in due passaggi:
 
@@ -78,7 +78,7 @@ Quando si fa clic su **Distribuisci servizio Web**, vengono eseguite diverse ope
 
 > [AZURE.NOTE] L'esperimento è stato salvato in due parti in schede che sono state aggiunte in cima all'area di disegno dell'esperimento: l'esperimento di training originale si trova nella scheda **Training experiment** e l'esperimento di analisi predittiva appena creato si trova nella scheda **Predictive experiment**.
 
-Con questo particolare esperimento è necessario effettuare un'operazione aggiuntiva. Sono stati aggiunti due moduli [Execute R Script][execute-r-script] per fornire una funzione di ponderazione per i dati di training e di test. Ma nel modello finale questo diventa superfluo. Machine Learning Studio ha rimosso un modulo [Execute R Script][execute-r-script] quando ha rimosso il modulo [Split][split], pertanto ora è possibile rimuovere l'altro e connettere [Editor metadati][metadata-editor] direttamente a [Score Model][score-model].
+Con questo particolare esperimento è necessario effettuare un'operazione aggiuntiva. Sono stati aggiunti due moduli [Execute R Script][execute-r-script] per fornire una funzione di ponderazione per i dati di training e di test, ma nel modello finale questo diventa superfluo. Machine Learning Studio ha rimosso un modulo [Execute R Script][execute-r-script] quando ha rimosso il modulo [Split][split], pertanto ora è possibile rimuovere l'altro e connettere [Editor metadati][metadata-editor] direttamente a [Score Model][score-model].
 
 L'esperimento dovrebbe risultare simile al seguente:
 
@@ -91,8 +91,7 @@ L'esperimento dovrebbe risultare simile al seguente:
 
 Eseguire l'esperimento ancora una volta (facendo clic su **Esegui**). Se si vuole verificare che il modello funzioni ancora, fare clic sull'output del modulo [Score Model][score-model] e selezionare **Visualizza risultati**. Si vedranno i dati originali, insieme al valore di rischio di credito ("Etichette punteggio") e al valore di probabilità del punteggio ("Probabilità punteggio").
 
-##
-Distribuire il servizio web
+## Distribuire il servizio web
 
 Per distribuire un servizio Web derivato dall'esperimento, fare clic su **Distribuisci servizio web** sotto l'area di disegno. Machine Learning Studio distribuisce l'esperimento come servizio Web e apre il dashboard del servizio. Da qui è possibile ritornare all'esperimento (**View snapshot** o **View latest**) ed eseguire un test semplice del servizio Web (pulsante **Test**: vedere **Testare il servizio Web** di seguito). Qui sono inoltre disponibili informazioni per la creazione di applicazioni in grado di accedere al servizio Web (altre informazioni nella sezione successiva di questa procedura dettagliata).
 
@@ -109,7 +108,7 @@ Nella pagina **DASHBOARD** fare clic sul pulsante **Test** in **Default Endpoint
 
 Immettere un set di dati e quindi fare clic su **OK**.
 
-Nel servizio Web, i dati entrano dal modulo **Web service input**, passano attraverso il modulo [Editor metadati][metadata-editor] e arrivano al modulo [Score Model][score-model] in cui viene loro assegnato un punteggio. I risultati vengono quindi restituiti dal servizio Web tramite il modulo **Web service output**.
+Nel servizio Web i dati entrano dal modulo **Web service input**, passano attraverso il modulo [Editor metadati][metadata-editor] e arrivano al modulo [Score Model][score-model] in cui viene loro assegnato un punteggio. I risultati vengono quindi restituiti dal servizio Web tramite il modulo **Web service output**.
 
 > [AZURE.TIP] In considerazione del modo in cui l'esperimento predittivo è configurato, vengono restituiti tutti i risultati del modulo [Score Model][score-model]. Ciò include tutti i dati di input, il valore del rischio di credito e il valore di probabilità del punteggio. Se si desidera che vengano restituiti valori diversi, ad esempio solo il valore del rischio di credito, è possibile inserire un modulo [Project Columns][project-columns] tra [Score Model][score-model] e **Web service output** per eliminare le colonne che non devono essere restituite.
 
@@ -123,7 +122,7 @@ Dopo aver distribuito il servizio Web, è possibile gestirlo dal [portale di Azu
 5. Fare clic sul servizio Web appena creato.
 6. Fare clic sull'endpoint "default".
 
-Da qui è possibile eseguire varie operazioni, tipo monitorare come opera il servizio Web e apportare piccole modifiche alle prestazioni cambiando il numero di chiamate simultanee che il servizio può gestire. È anche possibile pubblicare il servizio Web in Azure Marketplace.
+Da qui è possibile eseguire varie operazioni, ad esempio monitorare come opera il servizio Web e apportare piccole modifiche alle prestazioni cambiando il numero di chiamate simultanee che il servizio può gestire. È anche possibile pubblicare il servizio Web in Azure Marketplace.
 
 Per informazioni dettagliate, vedere:
 
@@ -155,4 +154,4 @@ Per informazioni dettagliate, vedere:
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [project-columns]: https://msdn.microsoft.com/it-IT/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

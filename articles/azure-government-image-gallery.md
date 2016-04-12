@@ -93,15 +93,15 @@ Le risorse riportate di seguito forniscono ulteriori informazioni sulla distribu
 
 ###Altre risorse: 
 
-- [Distribuzione di una macchina virtuale di Windows](../virtual-machines/virtual-machines-windows-tutorial.md)
+- [Distribuzione di una macchina virtuale di Windows](virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-- [Distribuzione di una macchina virtuale di Linux](../virtual-machines/virtual-machines-linux-tutorial.md)
+- [Distribuzione di una macchina virtuale di Linux](virtual-machines/virtual-machines-linux-cli-create.md)
 
 - [Domande frequenti sulle macchine virtuali](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
-- [Creare e caricare il proprio VHD](../virtual-machines-create-upload-vhd-windows-server/)
+- [Creare e caricare il proprio VHD](virtual-machines-create-upload-vhd-windows-server/)
 
-- [Catturare un'immagine per la macchina virtuale di Linux](../virtual-machines/virtual-machines-linux-capture-image.md)
+- [Catturare un'immagine per la macchina virtuale di Linux](virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 
@@ -114,8 +114,8 @@ Le risorse riportate di seguito forniscono ulteriori informazioni sulla distribu
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-tutorial.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

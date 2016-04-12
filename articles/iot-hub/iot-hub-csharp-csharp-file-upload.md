@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
+     ms.date="02/03/2016"
      ms.author="elioda"/>
 
 # Esercitazione: caricare file dai dispositivi al cloud con l'hub IoT
@@ -39,7 +39,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 + Microsoft Visual Studio 2015
 
-+ Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank").
++ Un account Azure attivo. <br/>Se non si ha un account, è possibile creare un account gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank").
 
 
 [AZURE.INCLUDE [iot-hub-file-upload-cloud-csharp](../../includes/iot-hub-file-upload-cloud-csharp.md)]
@@ -78,12 +78,12 @@ Altre informazioni sull'hub IoT:
 
 <!-- Links -->
 
-[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
+[Inviare messaggi da cloud a dispositivo con hub IoT]: iot-hub-csharp-csharp-c2d.md
 
 [portale di Azure]: https://portal.azure.com/
 
-[Data factory di Azure]: https://azure.microsoft.com/it-IT/documentation/services/data-factory/
-[Hadoop]: https://azure.microsoft.com/it-IT/documentation/services/hdinsight/
+[Data factory di Azure]: https://azure.microsoft.com/documentation/services/data-factory/
+[Hadoop]: https://azure.microsoft.com/documentation/services/hdinsight/
 
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Inviare messaggi da cloud a dispositivo con l'hub IoT]: iot-hub-csharp-csharp-c2d.md
@@ -98,4 +98,4 @@ Altre informazioni sull'hub IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0309_2016-->

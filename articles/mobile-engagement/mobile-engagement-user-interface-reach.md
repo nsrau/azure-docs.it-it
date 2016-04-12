@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/29/2015"
+   ms.date="03/08/2016"
    ms.author="piyushjo"/>
 
 
 # Come raggiungere gli utenti dell'applicazione con le notifiche push
 
-In questo articolo viene descritta la scheda **REACH** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**. Per ulteriori informazioni, vedere [Creare un account Azure Mobile Engagement](mobile-engagement-create-account.md).
+In questo articolo viene descritta la scheda **REACH** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**. Per ulteriori informazioni, vedere [Creare un account Azure Mobile Engagement](mobile-engagement-create.md).
 
 La sezione Reach dell'interfaccia utente è lo strumento di gestione delle campagne push dove è possibile creare, modificare, attivare, terminare, monitorare e ottenere statistiche per le campagne di notifica push nonché funzionalità a cui è possibile accedere anche tramite l'API Reach e alcuni elementi dell'API Push di basso livello. Tenere presente che, indipendentemente dall'uso delle API o dell'interfaccia utente, è necessario integrare Azure Mobile Engagement e Reach nell'applicazione per ogni piattaforma con l'SDK prima di poter usare le campagne Reach.
 
@@ -40,7 +40,7 @@ La sezione Reach dell'interfaccia utente è lo strumento di gestione delle campa
 
 Per visualizzare i dettagli di una campagna di copertura, fare clic su **Statistiche**. La visualizzazione **Semplice** offre una rappresentazione visiva in forma di istogramma a barre di ciò che accade dopo l'attivazione di una campagna. La visualizzazione **Avanzata** offre informazioni più granulari sulla campagna push. Tali informazioni non saranno disponibili se si invia una campagna di prova, ad esempio una campagna push, a un dispositivo di test. Le informazioni devono essere interpretate nel modo seguente:
 
-1. **Inviati**: specifica il numero di messaggi inviati ai dispositivi. Questo numero dipenderà dai destinatari specificati durante la creazione della campagna push. Se non si specificano destinatari, i messaggi verranno inviati a tutti i dispositivi registrati. Come per tutti gli altri servizi push, le notifiche push non vengono inviate direttamente ai dispositivi, ma ai rispettivi servizi di notifica push (Push Notification Service, PNS - APN/GCM/WNS) specifici della piattaforma in modo che recapitino le notifiche ai dispositivi. 
+1. **Con push**: specifica il numero di messaggi inviati ai dispositivi. Questo numero dipenderà dai destinatari specificati durante la creazione della campagna push. Se non si specificano destinatari, i messaggi verranno inviati a tutti i dispositivi registrati. Come per tutti gli altri servizi push, le notifiche push non vengono inviate direttamente ai dispositivi, ma ai rispettivi servizi di notifica push (Push Notification Service, PNS - APN/GCM/WNS) specifici della piattaforma in modo che recapitino le notifiche ai dispositivi. 
 
 2.	**Recapitati**: specifica il numero di messaggi recapitati correttamente dal servizio PNS al dispositivo e confermati come ricevuti da Mobile Engagement SDK.
 		
@@ -52,7 +52,13 @@ Per visualizzare i dettagli di una campagna di copertura, fare clic su **Statist
 	4. Nei dispositivi iOS, i messaggi a volte non vengono recapitati se la batteria del dispositivo è scarica o se l'app utilizza una quantità significativa di alimentazione durante l'elaborazione delle notifiche remote. Si tratta di una limitazione dei dispositivi iOS.   
 
 3.	**Visualizzati**: specifica il numero di messaggi visualizzati correttamente dall'utente dell'app sul dispositivo sotto forma di una notifica di sistema push o out-of-app nel centro notifiche o di una notifica in-app all'interno dell'app per dispositivi mobili. La scheda **Avanzate** indicherà il numero di notifiche di sistema e il numero di notifiche in-app.
-
+	
+	*Motivi per cui il numero dei messaggi Visualizzati può essere inferiore al numero dei massaggi Recapitati (in attesa di visualizzazione)*
+	
+	1. Se la campagna di notifica ha una data di fine, è possibile che la notifica sia stata recapitata, ma che la campagna fosse già scaduta nel momento in cui la notifica doveva essere aperta e visualizzata all'utente dell'app e che quindi non sia mai stata visualizzata.   
+	2. Se la notifica è una notifica in-app, viene visualizzata solo quando l'utente dell'app apre l'app. Nei casi in cui l'app non è stata aperta dall'utente, l'SDK segnalerà che la notifica è stata recapitata ma non ancora visualizzata, fino all'apertura dell'app. 
+	2. Se la notifica è una notifica in-app ed è configurata per la visualizzazione in un'attività/schermata specifica, anche in questo caso la notifica verrà segnalata come recapitata ma non ancora visualizzata fino all'apertura di una schermata specifica dell'app da parte dell'utente. 
+	
 4.	**Interazioni dell'utente**: specifica il numero di messaggi con cui l'utente dell'app ha interagito e includerà i messaggi attivati o chiusi.
 
 	- *L'utente dell'app può attivare una notifica in uno dei modi seguenti:*
@@ -171,4 +177,4 @@ Per visualizzare i dettagli di una campagna di copertura, fare clic su **Statist
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

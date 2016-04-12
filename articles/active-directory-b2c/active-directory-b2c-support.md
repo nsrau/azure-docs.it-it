@@ -16,14 +16,14 @@
 	ms.date="02/16/2016"
 	ms.author="swkrish"/>
 
-# Anteprima di Azure Active Directory B2C: come inviare richieste di supporto per Azure Active Directory B2C
+# Anteprima di Azure Active Directory B2C: invio di richieste di supporto
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 È possibile inviare richieste di supporto per Azure Active Directory (AD) B2C nel portale di Azure seguendo questa procedura:
 
 1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Passare dal tenant B2C in un altro tenant a cui è associata una sottoscrizione di Azure. In genere, questa è il tenant di dipendente o il tenant predefinito creato automaticamente quando è stata effettuata l'iscrizione per una sottoscrizione di Azure. Leggere [questo articolo](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad) per altre informazioni sulla relazione tra le sottoscrizioni di Azure e i tenant di Azure AD.
+2. Passare dal tenant B2C in un altro tenant a cui è associata una sottoscrizione di Azure. In genere, questa è il tenant di dipendente o il tenant predefinito creato automaticamente quando è stata eseguita l'iscrizione per una sottoscrizione di Azure. Per altre informazioni, vedere [Relazione tra una sottoscrizione di Azure e Azure AD](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad).
 
     ![Supporto - Cambio di tenant](./media/active-directory-b2c-support/support-switch-dir.png)
 
@@ -39,7 +39,7 @@
 
     - Il **Tipo di problema** è **Tecnico**.
 	- Scegliere la **Sottoscrizione** appropriata.
-    - Scegliere **Active Directory** in **Servizio**.
+    - Il **Servizio** è **Active Directory**.
     - Scegliere il **Piano di supporto** appropriato. Se non si ha un piano di supporto, è possibile iscriversi per ottenerne uno [qui](https://azure.microsoft.com/it-IT/support/plans/).
 
     ![Supporto - Informazioni di base](./media/active-directory-b2c-support/support-basics.png)
@@ -47,15 +47,15 @@
 6. Nel pannello **Problema** usare questi dettagli e fare clic su **Avanti**.
 
     - Scegliere il livello di **Gravità** appropriato.
-    - Il **Tipo di problema** è **B2C: Anteprima**
+    - Il **Tipo di problema** è **B2C: Anteprima**.
     - Scegliere la **Categoria** appropriata.
 	- Descrivere il problema nel campo **Dettagli**. Specificare dettagli quali il nome del tenant B2C, la descrizione del problema, i messaggi di errore, gli ID di correlazione (se disponibili) e così via.
-    - Specificare nel campo **Intervallo di tempo** la data e l'ora, incluso il fuso orario, corrispondenti al momento in cui si è verificato il problema.
-    - Caricare in **Caricamento file** tutte le schermate e tutti i file che potrebbero risultare utili per la risoluzione del problema.
+    - Nel campo **Intervallo di tempo** specificare la data e l'ora, incluso il fuso orario, corrispondenti al momento in cui si è verificato il problema.
+    - In **Caricamento file** caricare tutte le schermate e tutti i file che potrebbero risultare utili per la risoluzione del problema.
 
     ![Supporto - Problema](./media/active-directory-b2c-support/support-problem.png)
 
-7. Nel pannello **Contatto** aggiungere le proprie informazioni di contatto. Fare clic su **Crea**. *Nota: durante l'anteprima il supporto per Azure AD B2C è disponibile solo in lingua inglese.*
+7. Nel pannello **Informazioni di contatto** aggiungere le proprie informazioni di contatto. Fare clic su **Crea**. *Nota: durante l'anteprima il supporto per Azure AD B2C è disponibile solo in lingua inglese.*
 
     ![Supporto - Contatto](./media/active-directory-b2c-support/support-contact.png)
 
@@ -70,4 +70,4 @@ Non tentare di effettuare l'iscrizione per una nuova sottoscrizione di Azure nel
 
 ![Supporto - Nessuna sottoscrizione](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

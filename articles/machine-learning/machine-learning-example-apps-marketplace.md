@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/02/2016" 
 	ms.author="luisca"/>
 
 # App di esempio di Machine Learning in Azure Marketplace
@@ -51,10 +51,5 @@ Questa API può essere usata per analizzare testi non strutturati per attività 
 [Documentazione](machine-learning-apps-text-analytics.md)
 
  
- ##Previsione con varianza cliente## La previsione con varianza cliente è un servizio di analisi della varianza creato con Azure Machine Learning. È progettato per stimare quando si prevede che un cliente (player, sottoscrittore, utente e così via) possa interrompere la propria relazione con una società o un servizio. La possibilità di stimare quali clienti hanno un alto rischio di interrompere la relazione con un’azienda fornisce all'azienda l’opportunità di affrontare tali clienti e ridurre la probabilità che decidano di interrompere.
 
-[Collegamento a Data Market](https://datamarket.azure.com/dataset/amla/customer-churn-prediction)
-
-[Documentazione](https://churn.cloudapp.net/documentation)
-
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

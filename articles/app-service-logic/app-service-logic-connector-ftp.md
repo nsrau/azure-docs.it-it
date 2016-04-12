@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="rajram"/>
 
 # Uso del connettore FTP e aggiunta all'app per la logica
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API FTP](../connectors/create-api-ftp.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica. Per la versione dello schema 2015-08-01-preview, fare clic su [API FTP](../connectors/connectors-create-api-ftp.md).
 
 Connettersi a un server FTP per spostare dati o file. Le principali funzionalità del connettore FTP sono:
 
@@ -31,7 +31,9 @@ Connettersi a un server FTP per spostare dati o file. Le principali funzionalit�
 È possibile aggiungere il connettore FTP al flusso di lavoro aziendale ed elaborare i dati come parte di questo flusso di lavoro nell'ambito di un'app per la logica.
 
 ## Creare un nuovo connettore FTP
-Per creare un nuovo connettore FTP, seguire la procedura riportata di seguito. Avviare il portale di Azure. Aprire Azure Marketplace usando +Nuovo (nella parte inferiore della pagina) -> Web e dispositivi mobili --> Azure Marketplace: ![Avviare Azure Marketplace][1]
+Per creare un nuovo connettore FTP, attenersi alla procedura riportata di seguito.
+- Avviare il portale di Azure
+- Aprire Azure Marketplace usando +Nuovo (nella parte inferiore della pagina) -> Web e dispositivi mobili --> Azure Marketplace: ![Avviare Azure Marketplace][1]
 
 - Fare clic su App per le API
 - Cercare FTP e selezionare il connettore FTP: ![Selezionare il connettore FTP][2]
@@ -75,11 +77,17 @@ Il connettore FTP include un trigger - 'File Available (Read then Delete)'. Ques
 
 Fare clic sul trigger "File Available (Read then Delete)": ![Trigger FTP per input di base][7]
 
-Gli input consentono di configurare un determinato percorso cartella di cui eseguire il polling in base a una frequenza pianificata. Gli input di base sono i seguenti: - Frequenza: specifica la frequenza del polling FTP - Intervallo: specifica l'intervallo per la frequenza pianificata - Percorso cartella: specifica il percorso cartella sul server FTP - Tipo di file: specifica se il file è di tipo testo o binario
+Gli input consentono di configurare un determinato percorso cartella di cui eseguire il polling in base a una frequenza pianificata. Gli input di base sono
+- Frequenza: specifica la frequenza del polling FTP
+- Intervallo: specifica l'intervallo per la frequenza pianificata
+- Percorso cartella: specifica il percorso cartella sul server FTP
+- Tipo di file: specifica se il file è di tipo testo o binario
 
 Per visualizzare gli input avanzati, fare clic sui puntini di sospensione "...": ![Trigger FTP per input di base][8]
 
-Gli input avanzati sono i seguenti: File mask, specifica la maschera di file durante il polling. Exclude file mask, specifica le maschere di file da escludere durante il polling
+Gli input avanzati sono:
+- Maschera file: specifica la maschera di file durante il polling
+- Escludi maschera file: specifica le maschere di file da escludere durante il polling
 
 Specificare gli input e fare clic sul segno di spunta per completare la configurazione degli input: ![Trigger FTP per input di base][9]
 
@@ -162,4 +170,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

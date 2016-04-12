@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Test delle impostazioni di Gestione traffico
@@ -33,7 +33,9 @@ Il modo migliore per testare le impostazioni di Gestione traffico consiste nel c
 
 2-Digitare `ipconfig /flushdns` per scaricare la cache del resolver DNS.
 
-3-Digitare `nslookup <your Traffic Manager domain name>`. Tramite il comando seguente, ad esempio, viene controllato il nome di dominio con il prefisso *myapp.contoso* nslookup myapp.contoso.trafficmanager.net Il risultato tipico sarà simile al seguente: - Nome DNS e indirizzo IP del server DNS a cui si accede per risolvere questo nome di dominio di Gestione traffico. - Nome del dominio di Gestione traffico digitato nella riga di comando dopo "nslookup" e indirizzo IP in cui viene risolto il dominio di Gestione traffico. Il secondo indirizzo IP è quello più importante da verificare. Deve corrispondere a un indirizzo VIP per uno dei servizi cloud o dei siti Web nel profilo di Gestione traffico in fase di verifica.
+3-Digitare `nslookup <your Traffic Manager domain name>`. Ad esempio, il comando seguente consente di verificare il nome di dominio con il prefisso *myapp.contoso*: nslookup myapp.contoso.trafficmanager.net. In un tipico risultato è possibile visualizzare quanto segue:
+- Nome DNS e indirizzo IP del server DNS a cui si accede per risolvere questo nome di dominio di Gestione traffico.
+- Nome del dominio di Gestione traffico digitato nella riga di comando dopo "nslookup" e indirizzo IP in cui viene risolto il dominio di Gestione traffico. Il secondo indirizzo IP è quello più importante da verificare. Deve corrispondere a un indirizzo VIP per uno dei servizi cloud o dei siti Web nel profilo di Gestione traffico in fase di verifica.
 
 ## Metodi di bilanciamento del carico di test
 
@@ -54,7 +56,7 @@ Sono disponibili servizi di analisi approfondita e DNS basati su Web gratuiti. A
 
 ## Passaggi successivi
 
-[Informazioni sui metodi di routing di Gestione traffico](../about-traffic-manager-balancing-methods.md) [Gestione traffico](../traffic-manager.md)
+[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-routing-methods.md) [Gestione traffico](traffic-manager-overview.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

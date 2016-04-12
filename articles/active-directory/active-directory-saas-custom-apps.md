@@ -21,7 +21,7 @@ La raccolta di applicazioni di Azure Active Directory offre un elenco di applica
 
 I clienti con licenze [Azure Active Directory Premium](active-directory-editions.md) ottengono anche le funzionalità aggiuntive seguenti:
 
-* Integrazione self-service di qualsiasi applicazione che supporta i provider di identità SAML 2.0
+* Integrazione self-service di qualsiasi applicazione che supporta i provider di identità SAML 2.0 (avviato dal provider di servizi o dal provider di identità)
 * Integrazione self-service di qualsiasi applicazione Web con una pagina di accesso basata su HTML con [SSO basato su password](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)
 * Connessione self-service di applicazioni che usano il protocollo SCIM per il provisioning dell'utente ([descritto qui](active-directory-scim-provisioning))
 * Possibilità di aggiungere collegamenti a qualsiasi applicazione nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)
@@ -52,8 +52,26 @@ La procedura per l'aggiunta di un'applicazione non pubblicata è molto simile a 
 Selezionare questa opzione per configurare l'autenticazione basata su SAML per l'applicazione. Per questa opzione è necessario che l'applicazione supporti SAML 2.0. Prima di continuare è consigliabile raccogliere informazioni sull'uso delle funzionalità SAML dell'applicazione. Dopo aver selezionato **Avanti**, viene richiesto di immettere tre diversi URL corrispondenti agli endpoint SAML per l'applicazione.
 
 ![][4]
+ 
+Si tratta di:
 
-Le icone di descrizione comando nella finestra di dialogo forniscono dettagli su ogni URL e su come usarlo. Dopo averli immessi, fare clic su **Avanti** per passare alla schermata successiva. Questa schermata fornisce informazioni su ciò che è necessario configurare sul lato applicazione in modo che questa accetti un token SAML da Azure AD.
+* **URL di accesso (avviato solo da provider di servizi)** da cui l'utente accede all'applicazione. Se l'applicazione è configurata per eseguire l'accesso Single Sign-On avviato dal provider di servizi, quando un utente passa a questo URL, il provider di servizi eseguirà il reindirizzamento necessario ad Azure AD per l'autenticazione e l'accesso dell'utente. Se questo campo è popolato, Azure AD userà questo URL per avviare l'applicazione da Office 365 e il pannello di accesso di AD Azure. Se questo campo è omesso, Azure AD eseguirà l'accesso Single Sing-On avviato dal provider di identità quando l'app viene avviata da Office 365, dal pannello di accesso di Azure AD o dall'URL di accesso Single Sign-On di Azure AD, che è possibile copiare dalla scheda Dashboard.
+
+* **URL dell'autorità di certificazione**: l'URL dell'autorità di certificazione deve identificare in modo univoco l'applicazione per cui viene configurato l'accesso Single Sign-On. Si tratta del valore che Azure AD invia all'applicazione come parametro **Audience** del token SAML e l'applicazione deve convalidarlo. Questo valore viene inoltre visualizzato come **ID entità** in tutti i metadati SAML forniti dall'applicazione. Per informazioni dettagliate sui valori ID entità o Audience, controllare la documentazione SAML dell'applicazione. Di seguito è riportato un esempio di come l'URL di Audience viene visualizzato nel token SAML restituito all'applicazione:
+
+```
+    <Subject>
+    <NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:unspecificed">chad.smith@example.com</NameID>
+        <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />
+      </Subject>
+      <Conditions NotBefore="2014-12-19T01:03:14.278Z" NotOnOrAfter="2014-12-19T02:03:14.278Z">
+        <AudienceRestriction>
+          <Audience>https://tenant.example.com</Audience>
+        </AudienceRestriction>
+      </Conditions>
+```
+
+* **URL di risposta**: è l'indirizzo a cui l'applicazione prevede di ricevere il token SAML. Viene anche definito **URL del servizio consumer di asserzione (ACS)**. Per informazioni dettagliate sull'URL ACS o sull'URL di risposta del token SAML, controllare la documentazione SAML dell'applicazione. Dopo averli immessi, fare clic su **Avanti** per passare alla schermata successiva. Questa schermata fornisce informazioni su ciò che è necessario configurare sul lato applicazione in modo che questa accetti un token SAML da Azure AD. 
 
 ![][5]
 
@@ -126,4 +144,4 @@ Nota: è possibile caricare un logo icona dell'applicazione usando il pulsante *
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -45,7 +45,7 @@ AGENTVMSIZE | Specifica la dimensione delle macchine virtuali dell'agente. Assic
 ADMINUSERNAME | Nome utente che verrà usato per un account in ogni macchina virtuale e in ogni set di scalabilità di macchine virtuali del cluster ACS.
 ORCHESTRATORTYPE| Selezionare l'agente di orchestrazione da usare nel cluster ACS.
 MASTERCOUNT | Numero di macchine virtuali da configurare come master per il cluster. È possibile selezionare 1, ma questo valore non garantisce la resilienza del cluster ed è consigliato solo a scopo di test. Il numero consigliato per un cluster di produzione è 3 o 5. 
-SSHRSAPUBLICKEY | È necessario usare SSH per l'autenticazione nelle macchine virtuali. Qui viene aggiunta la chiave pubblica. Prestare molta attenzione quando si incolla il valore della chiave in questa casella. Alcuni editor possono inserire interruzioni di riga nel contenuto, danneggiando quindi la chiave. Assicurarsi che la chiave sia priva di interruzioni di riga e che includa il prefisso ssh-rsa e il suffisso username@domain. L'aspetto della chiave dovrebbe essere simile al seguente: 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'. Se è necessario creare una chiave SSH, nel sito della documentazione di Azure sono disponibili indicazioni per [Windows](../virtual-machines/virtual-machines-windows-use-ssh-key.md) e [Linux](../virtual-machines/virtual-machines-linux-use-ssh-key.md).
+SSHRSAPUBLICKEY | È necessario usare SSH per l'autenticazione nelle macchine virtuali. Qui viene aggiunta la chiave pubblica. Prestare molta attenzione quando si incolla il valore della chiave in questa casella. Alcuni editor possono inserire interruzioni di riga nel contenuto, danneggiando quindi la chiave. Assicurarsi che la chiave sia priva di interruzioni di riga e che includa il prefisso ssh-rsa e il suffisso username@domain. L'aspetto della chiave dovrebbe essere simile al seguente: 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'. Se è necessario creare una chiave SSH, nel sito della documentazione di Azure sono disponibili indicazioni per [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) e [Linux](../virtual-machines/virtual-machines-linux-ssh-from-linux.md).
   
 Dopo aver impostato i valori appropriati per i parametri, fare clic su OK. Successivamente, specificare un nome per il gruppo di risorse, selezionare un'area e rivedere e accettare le note legali.
 
@@ -156,12 +156,12 @@ New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESO
  
 ### Fornire i parametri del modello
  
-Se si ha familiarità con PowerShell, è possibile cercare un cmdlet tra i parametri disponibili digitando un segno meno (-) e quindi premendo TAB. Questa stessa funzionalità può essere usata anche con i parametri definiti nel modello. Quando si digita il nome del modello, il cmdlet recupera il modello, lo analizza e aggiunge i relativi parametri al comando in modo dinamico. In questo modo è molto semplice specificare i valori dei parametri del modello. Inoltre, se si dimentica un valore per un parametro obbligatorio, PowerShell richiede il valore.
+Se si ha familiarità con PowerShell, è possibile cercare un cmdlet tra i parametri disponibili digitando un segno meno (-) e quindi premendo TAB. Questa stessa funzionalità può essere usata anche con i parametri definiti nel modello. Quando si digita il nome del modello, il cmdlet recupera il modello, analizza i parametri e aggiunge i relativi parametri al comando in modo dinamico. In questo modo è molto semplice specificare i valori dei parametri del modello. Inoltre, se si dimentica un valore per un parametro obbligatorio, PowerShell richiede il valore.
  
 Di seguito viene riportato il comando completo con i parametri inclusi. È possibile specificare i propri valori per i nomi delle risorse.
 
 ```
-New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-TemplateURI TEMPLATE\_URI -adminuser value1 -adminpassword value2 ....
+New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
  
 ## Passaggi successivi
@@ -173,4 +173,4 @@ Ora che si ha a disposizione un cluster funzionante, vedere i documenti seguenti
 
  
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

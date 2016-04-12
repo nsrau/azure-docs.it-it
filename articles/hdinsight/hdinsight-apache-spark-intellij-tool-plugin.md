@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="03/03/2016" 
 	ms.author="nitinme"/>
 
 
@@ -55,7 +55,9 @@ Se durante l'installazione di IntelliJ IDEA non è stata richiesta l'abilitazion
 
 1. Nella schermata iniziale di IntelliJ IDEA fare clic su **Configure** e quindi nuovamente su **Plugins**.
 
-2. Nella schermata successiva fare clic su **Browse Repositories** nell'angolo inferiore sinistro. Nella finestra di dialogo visualizzata **Browse Repositories** cercare **HDInsight**, selezionare **Microsoft Azure HDInsight Tools for IntelliJ** e quindi fare clic su **Install**.
+2. Nella schermata successiva fare clic su **Browse Repositories** nell'angolo inferiore sinistro. Nella finestra di dialogo visualizzata **Browse Repositories** cercare **HDInsight**, selezionare **Microsoft Azure HDInsight Tools for IntelliJ (Preview)** e quindi fare clic su **Install**.
+
+	![Installazione di plug-in HDInsight](./media/hdinsight-apache-spark-intellij-tool-plugin/install-hdinsight-plugin.png)
 
 3. Quando richiesto, fare clic sul pulsante **Restart IntelliJ IDEA** per riavviare l'ambiente IDE.
 
@@ -67,7 +69,7 @@ Se durante l'installazione di IntelliJ IDEA non è stata richiesta l'abilitazion
 
 	* Fare clic su **HDInsight** nel riquadro di sinistra.
 	* Fare clic su **Spark on HDInsight (Scala)** nel riquadro di destra.
-	* Fare clic su **Next**.
+	* Fare clic su **Avanti**.
 
 2. Nella finestra successiva specificare i dettagli del progetto.
 
@@ -106,7 +108,7 @@ Se durante l'installazione di IntelliJ IDEA non è stata richiesta l'abilitazion
 
 		![Aggiunta di un codice sorgente](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
 
-	3. Nel file **MyClusterApp.scala** incollare il codice seguente. Questo codice legge i dati dal file HVAC.csv, disponibile in tutti i cluster HDInsight Spark, recupera le righe che hanno solo una cifra nella settima colonna del file con estensione e scrive l'output di **/HVACOut** nel contenitore di archiviazione predefinito per il cluster.
+	3. Nel file **MyClusterApp.scala** incollare il codice seguente. Questo codice legge i dati dal file HVAC.csv, disponibile in tutti i cluster HDInsight Spark, recupera le righe che hanno solo una cifra nella settima colonna del file con estensione csv e scrive l'output di **/HVACOut** nel contenitore di archiviazione predefinito per il cluster.
 
 
 			import org.apache.spark.SparkConf
@@ -139,7 +141,7 @@ Se durante l'installazione di IntelliJ IDEA non è stata richiesta l'abilitazion
 
 		* Per **Spark clusters (Linux only)**, selezionare il cluster HDInsight Spark in cui eseguire l'applicazione.
 
-		* Nell'elenco a discesa **Build Artifacts** vengono elencati il nome del file con estensione jar specificato nei passaggi precedenti.
+		* Nell'elenco a discesa **Build Artifacts** viene elencato il nome del file con estensione jar specificato nei passaggi precedenti.
 
 		* Nella casella di testo **Main class name** fare clic sui puntini di sospensione (![puntini di sospensione](./media/hdinsight-apache-spark-intellij-tool-plugin/ellipsis.png)), selezionare la classe principale nel codice sorgente dell'applicazione e quindi fare clic su **OK**.
 
@@ -201,7 +203,7 @@ Quando si esegue l'applicazione Spark in Scala localmente in un computer Windows
 
 	* Fare clic su **HDInsight** nel riquadro di sinistra.
 	* Fare clic su **Spark on HDInsight (Scala)** nel riquadro di destra.
-	* Fare clic su **Next**.
+	* Fare clic su **Avanti**.
 
 2. Nella finestra successiva specificare i dettagli del progetto.
 
@@ -296,7 +298,7 @@ Quando si esegue l'applicazione Spark in Scala localmente in un computer Windows
 
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura dell'edificio mediante dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -318,4 +320,4 @@ Quando si esegue l'applicazione Spark in Scala localmente in un computer Windows
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

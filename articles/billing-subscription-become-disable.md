@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="03/08/2016"
 	ms.author="genli"/>
 
 # Operazioni da eseguire se la sottoscrizione di Azure viene disabilitata
@@ -28,10 +28,19 @@ Per altre informazioni sui limiti di spesa, vedere [Limite di spesa previsto per
 
 ### Il pagamento di una fattura è scaduto
 
-Per risolvere il problema, vedere l'articolo [Perché si riceve una notifica che la sottoscrizione di Azure presenta un saldo dovuto non pagato?](../billing-azure-subscription-past-due-balance.md)
+Per risolvere il problema, vedere l'articolo [Perché si riceve una notifica che la sottoscrizione di Azure presenta un saldo dovuto non pagato?](billing-azure-subscription-past-due-balance.md)
 
 ### La sottoscrizione di Azure è stata cancellata
 
-Per riattivare una sottoscrizione, è necessario creare un ticket di supporto. Per creare un ticket di supporto per riattivare una sottoscrizione di Azure, vedere l'articolo relativo alla [creazione di un ticket di supporto per i problemi di sottoscrizione e fatturazione di Azure](../billing-how-to-create-billing-support-ticket.md).
+Per riattivare una sottoscrizione è necessario creare un ticket di supporto. A tale scopo, accedere al [portale di Azure](https://portal.azure.com/), selezionare **Guida e supporto** > **Nuova richiesta di supporto**.
 
-<!---HONumber=AcomDC_1203_2015-->
+![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
+
+Se non è possibile accedere al portale, inviare la richiesta di supporto dal sito Web del supporto di Azure o dal Centro account di Azure:
+
+ * Per inviare un ticket di supporto dal [sito Web del supporto di Azure](https://azure.microsoft.com/support/options/), fare clic su **Ottieni supporto**.
+ * Per inviare un ticket di supporto dal [Centro account di Azure](https://account.windowsazure.com/Subscriptions), selezionare una sottoscrizione e quindi fare clic su **Contatta il supporto Microsoft**.
+
+Per altre informazioni, vedere [Come creare un ticket di supporto per problemi relativi alla sottoscrizione e alla fatturazione di Azure](billing-how-to-create-billing-support-ticket.md).
+
+<!---HONumber=AcomDC_0323_2016-->

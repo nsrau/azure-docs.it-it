@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -63,8 +63,8 @@ Per configurare l'integrazione di Trakopolis in Azure AD, è necessario aggiunge
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.<br><br> ![Applicazioni][2]<br>
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
-6. Nella casella di ricerca digitare **Trakopolis**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_01.png)<br>
-7. Nel riquadro dei risultati selezionare **Trakopolis** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>
+6. Nella casella di ricerca digitare **Trakopolis**.<br><br> ![Applicazioni](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_01.png)<br>
+7. Nel riquadro dei risultati selezionare **Trakopolis** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>![Applicazioni](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_02.png)<br>
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Trakopolis con un utente test di nome "Britta Simon".
@@ -102,10 +102,10 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
     a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
 
-    b. Fare clic su **Next**.
+    b. Fare clic su **Avanti**.
 
 
-5. Per ottenere l’accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto Trakopolis all’indirizzo [support@cantelematics.com](mailto:support@cantelematics.com), allegare il certificato scaricato e specificare **URL autorità di certificazione**, **URL SSO SAML** e **URL accesso**.
+5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto Trakopolis all'indirizzo [support@cantelematics.com](mailto:support@cantelematics.com), allegare il certificato scaricato e specificare **URL autorità di certificazione**, **URL SSO SAML** e **URL accesso**.
 
 
 6. Nel portale di Azure classico, selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
@@ -212,4 +212,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-trakopolis-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-trakopolis-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

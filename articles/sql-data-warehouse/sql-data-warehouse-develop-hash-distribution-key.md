@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/09/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Distribuzione hash e relativo effetto sulle prestazioni delle query in SQL Data Warehouse
@@ -70,7 +70,7 @@ Per ottimizzare le prestazioni e la velocità effettiva complessiva della query,
 
 Chiave di distribuzione hash
 
-1. È un valore statico poiché non è possibile aggiornare la colonna hash. 
+1. È un valore statico poiché non è possibile aggiornare la colonna hash.
 2. Viene usata nella clausola `JOIN`, `GROUP BY`, `DISTINCT` o `HAVING` delle query.
 2. Non viene usata nelle clausole `WHERE`.
 3. Presenta molti valori diversi, almeno 1000.
@@ -103,4 +103,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/17/2016"
 	ms.author="jodebrui"/>
 
 
@@ -28,6 +28,8 @@ Questo argomento presenta due dimostrazioni, una relativa a OLTP in memoria e l'
 - leggere il codice per comprendere lo scenario e apprendere come creare e usare gli oggetti in memoria.
 
 > [AZURE.VIDEO azure-sql-database-in-memory-technologies]
+
+- Per iniziare, è consigliabile vedere l'articolo relativo all'[avvio rapido 1: Tecnologie OLTP in memoria per ottimizzare le prestazioni di T-SQL](http://msdn.microsoft.com/library/mt694156.aspx).
 
 #### OLTP in memoria
 
@@ -277,7 +279,8 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 Per eseguire la riga di comando ostress.exe precedente:
 
 
-1. Reimpostare il contenuto dei dati del database eseguendo questo comando in SSMS per eliminare tutti i dati inseriti da esecuzioni precedenti: ```
+1. Reimpostare il contenuto dei dati del database eseguendo questo comando in SSMS per eliminare tutti i dati inseriti da esecuzioni precedenti:
+```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -302,7 +305,8 @@ Al termine, ostress.exe scrive la durata dell'esecuzione come ultima riga di out
 Dopo aver ottenuto il risultato dell'esecuzione \_inmem, seguire la procedura indicata di seguito per l'esecuzione \_ondisk:
 
 
-1. Reimpostare il database eseguendo questo comando in SSMS per eliminare tutti i dati inseriti dall'esecuzione precedente: ```
+1. Reimpostare il database eseguendo questo comando in SSMS per eliminare tutti i dati inseriti dall'esecuzione precedente:
+```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -315,7 +319,7 @@ EXECUTE Demo.usp_DemoReset;
 
 #### Risultati previsti per il confronto
 
-I test delle funzionalità in memoria hanno mostrato un miglioramento delle prestazioni pari a **9 volte** per questo semplice carico di lavoro, con ostress in esecuzione in una VM di Azure nella stessa area di Azure del database.
+I test delle funzionalità in memoria hanno mostrato un miglioramento delle prestazioni pari a **9 volte** per questo semplice carico di lavoro, con l'utilità ostress in esecuzione in una macchina virtuale di Azure nella stessa area di Azure del database.
 
 
 
@@ -529,4 +533,4 @@ Se un database contiene uno dei tipi di oggetti o tipi OLTP in memoria seguenti,
 
 - [Monitoraggio dell'archiviazione in memoria](sql-database-in-memory-oltp-monitoring.md) per OLTP in memoria.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

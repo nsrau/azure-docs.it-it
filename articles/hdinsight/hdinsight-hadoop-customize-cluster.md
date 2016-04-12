@@ -19,11 +19,9 @@
 
 # Personalizzare cluster HDInsight basati su Windows tramite Azione script
 
-[AZURE.INCLUDE [selettore](../../includes/hdinsight-create-windows-cluster-selector.md)]
-
 **Azione script** può essere utilizzato per richiamare [gli script personalizzati](hdinsight-hadoop-script-actions.md) durante il processo di creazione di cluster per l'installazione del software aggiuntivo in un cluster.
 
-Le informazioni contenute in questo articolo sono specifiche per i cluster HDInsight basati su Windows. Usare la scheda seleziona indicata sopra per passare a una versione di questo articolo che è specifica dei cluster basati su Linux.
+Le informazioni contenute in questo articolo sono specifiche per i cluster HDInsight basati su Windows. Per i cluster basati su Linux, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
 I cluster HDInsight possono essere personalizzati in molti modi diversi, ad esempio includendo account di archiviazione di Azure aggiuntivi, modificando i file di configurazione Hadoop (core-site.xml, hive-site.xml e così via) o aggiungendo librerie condivise (ad esempio Hive e Oozie) in posizioni comuni nel cluster. Queste personalizzazioni possono essere apportate tramite Azure PowerShell, Azure HDInsight .NET SDK o il portale di Azure. Per altre informazioni, vedere [Creare cluster Hadoop in HDInsight][hdinsight-provision-cluster].
 
@@ -48,7 +46,7 @@ Nome | Script
 **Installare Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vedere [Installare e usare Spark in cluster Hadoop di HDInsight][hdinsight-install-spark].
 **Installare R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Vedere [Installare e usare R nei cluster Hadoop HDInsight][hdinsight-install-r].
 **Installare Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Vedere [Installare e usare Solr nei cluster Hadoop di HDInsight](hdinsight-hadoop-solr-install.md).
-- **Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vedere [Installare e usare Giraph in cluster HDInsight](hdinsight-hadoop-giraph-install.md).
+- **Installare Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vedere [Installare Giraph nei cluster HDInsight Hadoop](hdinsight-hadoop-giraph-install.md).
 | **Precaricare le librerie Hive** | https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Vedere l'articolo relativo all'[aggiunta di librerie Hive in cluster HDInsight](hdinsight-hadoop-add-hive-libraries.md) |
 
 
@@ -323,4 +321,4 @@ Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

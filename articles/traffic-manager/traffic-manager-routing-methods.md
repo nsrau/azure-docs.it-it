@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Metodi di routing di Gestione traffico
@@ -45,7 +45,7 @@ Nella Figura 1 viene illustrato un esempio di metodo di routing del traffico Fai
 
 **Figura 1**
 
-I passaggi numerati seguenti corrispondono ai numeri nella Figura 1.
+I passaggi numerati seguenti corrispondono ai numeri nella Figura 1.
 
 1. Gestione traffico riceve una richiesta in ingresso da un client tramite DNS e individua il profilo.
 2. Il profilo contiene un elenco ordinato di endpoint. Gestione traffico individua il primo endpoint nell'elenco. Se l'endpoint è online, in base al monitoraggio dell'endpoint in corso, viene specificato questo nome DNS dell'endpoint nella risposta DNS al client. Se l'endpoint è offline, Gestione traffico determina il successivo endpoint online nell'elenco. In questo esempio CS-A è offline (non disponibile), mentre CS-B è online (disponibile).
@@ -54,7 +54,7 @@ I passaggi numerati seguenti corrispondono ai numeri nella Figura 1.
 
 ## Metodo di routing del traffico round robin
 
-Un modello comune di routing del traffico consiste nel fornire un set di endpoint identici e nell'inviare traffico a ciascuno di essi in base a uno schema round robin. Il metodo Round robin divide il traffico tra vari endpoint. Seleziona un endpoint integro casuale e non invia il traffico ai servizi ritenuti inattivi. Per altre informazioni, vedere [Monitoraggio di Gestione traffico](../traffic-manager-monitoring.md).
+Un modello comune di routing del traffico consiste nel fornire un set di endpoint identici e nell'inviare traffico a ciascuno di essi in base a uno schema round robin. Il metodo Round robin divide il traffico tra vari endpoint. Seleziona un endpoint integro casuale e non invia il traffico ai servizi ritenuti inattivi. Per altre informazioni, vedere [Monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
 
 La Figura 2 mostra un esempio di routing del traffico Round robin per un set di endpoint.
 
@@ -62,7 +62,7 @@ La Figura 2 mostra un esempio di routing del traffico Round robin per un set di 
 
 **Figura 2**
 
-I passaggi numerati seguenti corrispondono ai numeri nella Figura 2.
+I passaggi numerati seguenti corrispondono ai numeri nella Figura 2.
 
 1. Gestione traffico riceve una richiesta in ingresso da un client e individua il profilo.
 2. Il profilo contiene un elenco di endpoint. Gestione traffico seleziona un endpoint a caso dall'elenco, escludendo gli endpoint offline (non disponibili) determinati mediante il monitoraggio degli endpoint di Gestione traffico. In questo esempio si tratta dell'endpoint CS-B.
@@ -101,7 +101,7 @@ La Figura 4 illustra un esempio di metodo di routing del traffico Prestazioni pe
 
 **Figura 4**
 
-I passaggi numerati seguenti corrispondono ai numeri nella Figura 4.
+I passaggi numerati seguenti corrispondono ai numeri nella Figura 4.
 
 1. Gestione traffico compila periodicamente la tabella della latenza di Internet. Sull'infrastruttura di Gestione traffico vengono eseguiti test per determinare i tempi di round trip tra diversi punti nel mondo e i data center di Azure in cui sono ospitati gli endpoint.
 2. Gestione traffico riceve una richiesta in ingresso da un client tramite il server DNS locale e individua il profilo.
@@ -130,4 +130,4 @@ Se si vogliono scaricare le figure presenti in questo argomento come diapositive
 [Aggiungere un endpoint](traffic-manager-endpoints.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

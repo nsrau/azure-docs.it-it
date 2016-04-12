@@ -56,8 +56,8 @@ Le configurazioni dell'archivio vengono usate per configurare l'archivio locale 
 
 |Nome|Unità|Valore predefinito|Osservazioni|
 |----|----|-------------|-------|
-|MaxAsyncCommitDelay|Millisecondi|200|Intervallo massimo di invio in batch per i commit durevoli nell'archivio locale.|
-|MaxVerPages|Numero di pagine|8192|Numero massimo di pagine della versione nel database dell'archivio locale. Determina il numero massimo di transazioni in sospeso.|
+|MaxAsyncCommitDelayInMilliseconds|Millisecondi|200|Intervallo massimo di invio in batch per i commit durevoli nell'archivio locale.|
+|MaxVerPages|Numero di pagine|16384|Numero massimo di pagine della versione nel database dell'archivio locale. Determina il numero massimo di transazioni in sospeso.|
 
 ## Esempio file di configurazione
 
@@ -86,4 +86,4 @@ Le configurazioni dell'archivio vengono usate per configurare l'archivio locale 
 
 Il parametro BatchAcknowledgementInterval controlla la latenza di replica. Il valore '0' determina la latenza più bassa possibile a scapito della velocità effettiva, in quanto è necessario inviare ed elaborare una maggiore quantità di messaggi di acknowledgement, ciascuno dei quali contenente un numero minore di acknowledgement. Più alto è il valore di BatchAcknowledgementInterval, maggiore sarà la velocità effettiva di replica complessiva, ma con una latenza delle operazioni più elevata. Questo ha un impatto diretto sulla latenza dei commit delle transazioni.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

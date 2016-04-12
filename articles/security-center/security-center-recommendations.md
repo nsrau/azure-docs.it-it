@@ -10,10 +10,10 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="03/02/2016"
    ms.author="terrylan"/>
 
 # Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure
@@ -38,7 +38,7 @@ In [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](securit
 - Attivare la raccolta dei dati.
 - Scegliere le raccomandazioni da visualizzare nell'ambito dei criteri di sicurezza.
 
-Le raccomandazioni relative ai criteri di sicurezza si basano attualmente su aggiornamenti di sistema, regole della baseline, programmi antimalware, [ACL per gli endpoint](../virtual-machines/virtual-machines-set-up-endpoints.md), [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per subnet e interfacce di rete, controllo del database SQL, Transparent Data Encryption per il database SQL e Web application firewall. L'articolo [Impostazione dei criteri di sicurezza](security-center-policies.md) fornisce una descrizione di ogni opzione relativa alle raccomandazioni.
+Le raccomandazioni relative ai criteri di sicurezza si basano attualmente su aggiornamenti di sistema, regole della baseline, programmi antimalware, [ACL per gli endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md), [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per subnet e interfacce di rete, controllo del database SQL, Transparent Data Encryption per il database SQL e Web application firewall. L'articolo [Impostazione dei criteri di sicurezza](security-center-policies.md) fornisce una descrizione di ogni opzione relativa alle raccomandazioni.
 
 ### Monitorare le raccomandazioni
 Una volta impostato un criterio di sicurezza, il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificare le potenziali vulnerabilità. Il riquadro **Raccomandazioni** nel pannello **Centro sicurezza** consente di conoscere il numero totale di raccomandazioni identificate dal Centro sicurezza.
@@ -72,7 +72,7 @@ Usare la tabella seguente come riferimento per conoscere le raccomandazioni disp
 |Risolvere la mancata corrispondenza alle regole della linea di base|Consiglia di allineare le configurazioni dei sistemi operativi alle linee di base raccomandate, ad esempio non consentire il salvataggio delle password.|
 |Applicare gli aggiornamenti di sistema|Suggerisce di distribuire gli aggiornamenti critici e della sicurezza di sistema mancanti nelle macchine virtuali (solo VM Windows).|
 |Configurare gli elenchi di controllo di accesso per gli endpoint|Suggerisce di configurare elenchi di controllo di accesso per limitare l'accesso in ingresso alle macchine virtuali, solo nella versione classica.|
-|[Aggiungere un Web Application Firewall](security-center-add-web-application-firewall.md)|Suggerisce di distribuire un Web application firewall (WAF) per gli endpoint Web. Il processo di provisioning automatico si basa su pacchetti WAF, creati con il modello di distribuzione di Azure Resource Manager, che vengono distribuiti in una rete virtuale separata. L'accesso alle applicazioni Web protette in macchine virtuali (versione classica) viene limitato ai dispositivi WAF solo tramite NSG. In futuro tale supporto verrà esteso a una distribuzione completamente personalizzata di pacchetti WAF (versione classica).|
+|[Aggiungere un Web Application Firewall](security-center-add-web-application-firewall.md)|Suggerisce di distribuire un Web application firewall (WAF) per gli endpoint Web. Per proteggere più applicazioni Web in Centro sicurezza, è possibile aggiungerle alle distribuzioni WAF esistenti. Le appliance WAF (create con il modello di distribuzione di Resource Manager) devono essere distribuite in una rete virtuale separata. Le appliance WAF (create con il modello di distribuzione classica) sono limitate all'uso di un gruppo di sicurezza di rete. In futuro tale supporto verrà esteso a una distribuzione completamente personalizzata di un'appliance WAF (versione classica).|
 |Finalizzare la configurazione del Web Application Firewall|Per completare la configurazione di un Web Application Firewall, il traffico deve essere reindirizzato al dispositivo WAF. Seguendo questa raccomandazione si completeranno le modifiche di configurazione necessarie.|
 |[Abilitare il servizio antimalware](security-center-enable-antimalware.md)|Suggerisce di effettuare il provisioning dei programmi antimalware nelle macchine virtuali (solo VM Windows).|
 |Abilitare i gruppi di sicurezza di rete nelle subnet/interfacce di rete|Suggerisce di abilitare i gruppi di sicurezza di rete nelle subnet e nelle interfacce di rete (solo VM di Gestione risorse).|
@@ -109,7 +109,7 @@ Dopo aver esaminato tutte le raccomandazioni, decidere quale applicare per prima
 ## Passaggi successivi
 Questo documento ha introdotto le raccomandazioni relative alla sicurezza nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza.
+- [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 - [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
 - [Come gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
@@ -122,4 +122,4 @@ Questo documento ha introdotto le raccomandazioni relative alla sicurezza nel Ce
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

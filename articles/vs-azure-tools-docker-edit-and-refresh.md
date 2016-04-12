@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Modificare un'applicazione Web ASP.NET 5 in esecuzione in un contenitore Docker locale usando la funzionalità di modifica e aggiornamento | Microsoft Azure"
+   pageTitle="Debug delle app in un contenitore Docker locale con Edit and Refresh | Microsoft Azure"
    description="Informazioni su come modificare un'app in esecuzione in un contenitore Docker locale e aggiornare il contenitore tramite la funzionalità di modifica e aggiornamento"
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="02/17/2016"
+   ms.date="03/25/2016"
    ms.author="tarcher" />
 
-# Modificare un'applicazione Web ASP.NET 5 in esecuzione in un contenitore Docker locale usando la funzionalità di modifica e aggiornamento
+# Debug delle app in un contenitore Docker locale con Edit and Refresh
 
 ## Panoramica
 Visual Studio Tools for Docker offre un modo pratico per sviluppare e testare l'applicazione localmente in un contenitore Docker senza dover riavviare il contenitore ogni volta che si apporta una modifica al codice. Questo articolo illustra come usare la funzionalità "Edit and Refresh" per avviare un'app Web ASP.NET 5 in un contenitore Docker locale, apportare le modifiche necessarie e quindi aggiornare il browser per visualizzare le modifiche.
@@ -27,42 +27,14 @@ Visual Studio Tools for Docker offre un modo pratico per sviluppare e testare l'
 - [Microsoft ASP.NET e strumenti Web 2015 RC](https://go.microsoft.com/fwlink/?LinkId=627627)
 - [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox)
 - [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)
+- [Configurare il client Docker](./vs-azure-tools-docker-setup.md)
 
 > [AZURE.NOTE] Se è installata una versione precedente di Visual Studio 2015 Tools for Docker, sarà necessario disinstallarla dal Pannello di controllo prima di installare la versione più recente.
-
-## Configurazione e test del client di Docker 
-Questa sezione illustra come verificare che l'istanza predefinita del computer Docker sia configurata e in esecuzione.
-
-1. Creare un'istanza dell'host Docker predefinita eseguendo questo comando al prompt dei comandi.
-
-		docker-machine create --driver virtualbox default
- 
-1. Verificare che l'istanza predefinita sia configurata e in esecuzione eseguendo questo comando al prompt dei comandi. Verrà visualizzata un'istanza denominata `default' in esecuzione.
-
-		docker-machine ls 
-		
-	![][0]
- 
-1. Impostare default come host corrente eseguendo questo comando al prompt dei comandi.
-
-		docker-machine env default
-
-1. Eseguire questo comando per configurare la shell.
-
-		FOR /f "tokens=*" %i IN ('docker-machine env default') DO %i
-
-1. Il comando seguente visualizzerà una risposta vuota dei contenitori attivi in esecuzione.
-
-		docker ps
-
-	![][1]
- 
-> [AZURE.NOTE] Ogni volta che si riavvia il computer di sviluppo, sarà necessario riavviare l'host Docker locale. A questo scopo, al prompt dei comandi eseguire questo comando: `docker-machine start default`
 
 ## Modifica di un'app in esecuzione in un contenitore Docker locale
 Visual Studio 2015 Tools for Docker consente agli sviluppatori di app Web ASP .NET 5 di testare ed eseguire l'applicazione in un contenitore Docker, di apportare modifiche all'applicazione in Visual Studio e di aggiornare il browser per visualizzare le modifiche applicate all'app in esecuzione nel contenitore.
 
-1. Scegliere **File > Nuovo > Progetto** dal menu di Visual Studio. 
+1. Nel menu di Visual Studio selezionare **File > Nuovo > Progetto**. 
 
 1. Nella sezione **Modelli** della finestra di dialogo **Nuovo progetto** selezionare **Visual C# > Web**.
 
@@ -78,11 +50,11 @@ Visual Studio 2015 Tools for Docker consente agli sviluppatori di app Web ASP .N
 
 1. In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sul progetto e scegliere **Aggiungi > Supporto Docker**.
 
-	![][2]
+	![][0]
  
 1. Nel nodo del progetto vengono creati i file seguenti:
 
-	![][3]
+	![][1]
 
 1. Impostare Configurazione soluzione su `Debug` e premere **&lt;F5>** per avviare il test dell'applicazione localmente.
 
@@ -120,7 +92,7 @@ Visual Studio 2015 Tools for Docker consente agli sviluppatori di app Web ASP .N
 
 - **Compilazione: non è possibile compilare l'immagine. Errore durante il controllo della connessione TLS: l'host non è in esecuzione.**
 
-	Verificare che l'host Docker predefinito sia in esecuzione. Vedere la sezione [Configurazione del client di Docker](#configuring-the-docker-client).
+	Verificare che l'host Docker predefinito sia in esecuzione. Vedere l’articolo [Configurare il client Docker](./vs-azure-tools-docker-setup.md).
 
 - **Non è possibile trovare il mapping del volume.**
 
@@ -128,11 +100,17 @@ Visual Studio 2015 Tools for Docker consente agli sviluppatori di app Web ASP .N
 
 - **Uso di Microsoft Edge come browser predefinito.**
 
-	Se si usa il browser Microsoft Edge, è possibile che il sito non si apra perché Edge considera l'indirizzo IP non sicuro. Per risolvere il problema, eseguire questa procedura: 1. Nella casella Esegui di Windows digitare `Internet Options`. 2. Toccare **Opzioni Internet** quando vengono visualizzate. 2. Toccare la scheda **Sicurezza**. 3. Selezionare l'area **Intranet locale**. 4. Toccare **Siti**. 5. Aggiungere l'IP della macchina virtuale (in questo caso, l'host Docker) nell'elenco. 6. Aggiornare la pagina in Edge per visualizzare il sito come operativo. 7. Per altre informazioni su questo problema, vedere il post di blog di Scott Hanselman relativo all'[impossibilità di aprire o visualizzare in Microsoft Edge i siti Web ospitati in VirtualBox](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx).
+	Se si usa il browser Microsoft Edge, è possibile che il sito non si apra perché Edge considera l'indirizzo IP non sicuro. Per risolvere il problema, eseguire questa procedura:
+	1. Nella casella Esegui di Windows digitare `Internet Options`.
+	2. Toccare **Opzioni Internet** quando vengono visualizzate. 
+	2. Toccare la scheda **Sicurezza**.
+	3. Selezionare l'area **Intranet locale**.
+	4. Toccare **Siti**. 
+	5. Aggiungere l'IP della macchina virtuale (in questo caso, l'host Docker) nell'elenco. 
+	6. Aggiornare la pagina in Edge per visualizzare il sito come operativo. 
+	7. Per altre informazioni su questo problema, vedere il post di blog di Scott Hanselman relativo all'[impossibilità di aprire o visualizzare in Microsoft Edge i siti Web ospitati in VirtualBox](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx).
 
-[0]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-machine-ls.png
-[1]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-ps.png
-[2]: ./media/vs-azure-tools-docker-edit-and-refresh/add-docker-support.png
-[3]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-files-added.png
+[0]: ./media/vs-azure-tools-docker-edit-and-refresh/add-docker-support.png
+[1]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-files-added.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -26,7 +26,7 @@ Gestione risorse è un componente del dashboard cluster Spark che consente di ge
 
 ## <a name="launchrm"></a>Come è possibile avviare il gestore di risorse?
 
-1. Dalla Schermata iniziale del [portale di anteprima di Azure](https://ms.portal.azure.com/) fare clic sul riquadro per il cluster Spark (se è stato bloccato sulla Schermata iniziale). È anche possibile passare al cluster in **Sfoglia tutto** > **Cluster HDInsight**. 
+1. Dal [Portale di Azure](https://ms.portal.azure.com/), dalla schermata iniziale, fare clic sul riquadro per il cluster Spark (se lo si è bloccato alla schermata iniziale). È inoltre possibile passare al cluster in **Esplora tutto** > **cluster HDInsight**. 
  
 2. Dal pannello del cluster Spark fare clic su **Dashboard**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark.
 
@@ -84,4 +84,4 @@ Specificare il conteggio del core del server Thrift e la memoria esecutore del s
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

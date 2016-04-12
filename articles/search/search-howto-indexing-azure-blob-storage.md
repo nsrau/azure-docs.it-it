@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="02/08/2016"
+ms.date="03/08/2016"
 ms.author="eugenesh" />
 
 # Indicizzazione di documenti in Archiviazione BLOB di Azure con Ricerca di Azure
@@ -205,8 +205,22 @@ Nome proprietà | Valore proprietà | Spiegazione
 AzureSearch\_Skip | "true" | Indica all'indicizzatore BLOB di ignorare completamente il BLOB. Non verrà tentata l'estrazione dei metadati né del contenuto. È utile quando si vuole ignorare alcuni tipi di contenuto o quando un determinato BLOB ha ripetutamente esito negativo e interrompe il processo di indicizzazione.
 AzureSearch\_SkipContent | "true" | Indica all'indicizzatore BLOB di indicizzare solo i metadati e di ignorare l'estrazione del contenuto del BLOB. Ciò è utile se il contenuto del BLOB non interessa, ma si vuole indicizzare i metadati associati al BLOB.
 
+<a name="IndexerParametersConfigurationControl"></a>
+## Uso dei parametri dell'indicizzatore per controllare l'estrazione dei documenti
+
+Per estrarre i metadati ma ignorare l'estrazione del contenuto per tutti i BLOB, è possibile richiedere questo comportamento tramite la configurazione dell'indicizzatore, invece di aggiungere metadati `AzureSearch_SkipContent` a ogni singolo BLOB. A tale scopo, impostare la proprietà di configurazione `skipContent` su `true` nell'oggetto `parameters`:
+
+ 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "skipContent" : true } }
+	}
+
 ## Come contribuire al miglioramento di Ricerca di Azure
 
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

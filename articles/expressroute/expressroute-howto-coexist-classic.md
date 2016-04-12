@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="03/18/2016"
    ms.author="cherylmc"/>
 
 # Configurare connessioni coesistenti ExpressRoute e da sito a sito
@@ -34,6 +34,7 @@ Per eseguire le istruzioni riportate di seguito devono essere presenti circuiti 
 - **Le connessioni da punto a sito non sono supportate:** non è possibile abilitare connessioni VPN da punto a sito alla stessa rete virtuale connessa a ExpressRoute. Non possono coesistere connessioni VPN da punto a sito ed ExpressRoute per la stessa rete virtuale.
 - **Non è possibile abilitare il tunneling forzato sul gateway VPN da sito a sito:** è possibile solo "forzare" tutto il traffico associato a Internet alla rete locale tramite ExpressRoute. 
 - **Solo gateway standard o ad alte prestazioni:** è necessario usare un gateway standard o ad alte prestazioni sia per il gateway ExpressRoute che per il gateway VPN da sito a sito. Per informazioni sugli SKU del gateway, vedere [SKU del gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+- **Solo gateway VPN basato su route:** è necessario usare un gateway VPN basato su route. Per informazioni sul gateway VPN basate su route, vedere [Gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - **Requisito di route statica:** se la rete locale è connessa sia a ExpressRoute che a una VPN da sito a sito, per il routing della connessione VPN da sito a sito alla rete Internet pubblica è necessario che nella rete locale sia configurata una route statica.
 - **Il gateway ExpressRoute deve essere configurato per primo:** è necessario creare il gateway ExpressRoute prima di aggiungere il gateway VPN da sito a sito.
 
@@ -188,7 +189,7 @@ Se si ha una rete virtuale esistente, connessa tramite una connessione ExpressRo
 
 1. È necessario installare la versione più recente dei cmdlet di PowerShell per Gestione risorse di Azure. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md). Si noti che i cmdlet usati per questa configurazione possono essere leggermente diversi da quelli con cui si ha familiarità. Assicurarsi di usare i cmdlet specificati in queste istruzioni. 
 
-2. Eliminare il gateway VPN da sito a sito esistente. Usare il cmdlet seguente, sostituendo i valori con quelli personalizzati.
+2. Eliminare il gateway ExpressRoute o VPN da sito a sito esistente. Usare il cmdlet seguente, sostituendo i valori con quelli personalizzati.
 
 	`Remove-AzureVNetGateway –VnetName MyAzureVNET`
 
@@ -218,4 +219,4 @@ Se si ha una rete virtuale esistente, connessa tramite una connessione ExpressRo
 
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

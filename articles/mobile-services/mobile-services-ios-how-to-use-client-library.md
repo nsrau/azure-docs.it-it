@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Come usare la libreria client iOS per Servizi mobili di Azure
@@ -27,7 +27,7 @@
 
 Questa guida descrive come eseguire scenari comuni usando l'[SDK per iOS ] di Servizi mobili di Azure. Se non si ha familiarità con i Servizi mobili, completare innanzitutto l'esercitazione di [Guida introduttiva per Servizi mobili] per configurare l'account, creare una tabella e creare un servizio mobile.
 
-> [AZURE.NOTE]In questa guida viene usata la versione più recente dell'[SDK per iOS di Servizi mobili](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Se il progetto usa una versione precedente dell'SDK, aggiornare innanzitutto il framework in Xcode.
+> [AZURE.NOTE] In questa guida viene usata la versione più recente dell'[SDK per iOS di Servizi mobili](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Se il progetto usa una versione precedente dell'SDK, aggiornare innanzitutto il framework in Xcode.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -97,7 +97,13 @@ Per eseguire una query complessa che includa l'ordinamento e il paging, creare u
     MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
 ```
 
-`MSQuery` consente di controllare diversi comportamenti di query, incluso quello riportato di seguito. Eseguire una query `MSQuery` chiamando `readWithCompletion` su di essa, come illustrato nell'esempio successivo. *Specificare l'ordine dei risultati * Limitare i campi da restituire * Limitare il numero di record da restituire * Specificare il conteggio totale nella risposta * Specificare parametri di query di tipo stringa personalizzati nella richiesta * Applicare funzioni aggiuntive
+`MSQuery` consente di controllare diversi comportamenti di query, incluso quello riportato di seguito. Eseguire una query `MSQuery` chiamando `readWithCompletion`, come illustrato nell'esempio seguente.
+* Specificare l'ordine dei risultati
+* Limitare i campi da restituire
+* Limitare il numero di record da restituire
+* Specificare il conteggio totale nella risposta
+* Specificare i parametri della stringa di query personalizzata nella richiesta
+* Applicare funzioni aggiuntive
 
 
 ## <a name="sorting"></a>Procedura: Ordinare i dati con MSQuery
@@ -334,4 +340,4 @@ Il file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azur
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Gestione dei problemi di conflitto]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

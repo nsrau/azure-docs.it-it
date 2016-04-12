@@ -22,7 +22,7 @@
 
 ## Introduzione
 
-È possibile usare Gestione risorse di Azure per creare e gestire hub IoT di Azure a livello di codice. In questa esercitazione viene illustrato come utilizzare un modello di gestione risorse per creare un hub IoT da un programma C#.
+È possibile usare Gestione risorse di Azure per creare e gestire hub IoT di Azure a livello di codice. In questa esercitazione viene illustrato come usare un modello di Resource Manager per creare un hub IoT con PowerShell.
 
 > [AZURE.NOTE] Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse.
 
@@ -62,7 +62,7 @@ Utilizzare un modello JSON per creare un nuovo hub IoT nel gruppo di risorse. È
 
     ```
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
         "hubName": {
@@ -123,4 +123,4 @@ Dopo aver distribuito un hub IoT usando un modello di Gestione risorse di Azure 
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-powershell-arm]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

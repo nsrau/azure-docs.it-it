@@ -17,11 +17,10 @@
 	ms.author="ricksal"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
-
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
+> Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Aggiungere notifiche push all'app Android](../app-service-mobile/app-service-mobile-android-get-started-push.md).
+ 
 &nbsp;
-
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
@@ -117,4 +116,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Inviare notifiche di trasmissione ai sottoscrittori]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Inviare notifiche basate su modelli ad altri sottoscrittori]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

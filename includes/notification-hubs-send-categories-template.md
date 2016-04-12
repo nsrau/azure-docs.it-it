@@ -1,7 +1,7 @@
 
 Questa sezione mostra come inviare le ultime notizie come notifiche modello con tag da un'app console .NET e di qualsiasi altro tipo.
 
-Se si usa Servizi mobili, fare riferimento alle esercitazioni di [Introduzione alle notifiche push](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md).
+Se si usano le app per dispositivi mobili, vedere l'esercitazione [Aggiungere notifiche push alle app per dispositivi mobili](../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) e selezionare la piattaforma in uso nella parte superiore.
 
 Se si preferisce usare Java o PHP, fare riferimento a [Come usare Hub di notifica da Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). È possibile inviare notifiche da qualsiasi back-end tramite l'[Interfaccia REST di Hub di notifica](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
@@ -78,4 +78,4 @@ Se è stata creata l'app console per l’invio di notifiche quando è stata comp
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

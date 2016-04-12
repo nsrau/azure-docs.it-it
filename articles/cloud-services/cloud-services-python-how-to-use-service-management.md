@@ -401,9 +401,9 @@ Per creare infine la macchina virtuale con l'immagine acquisita, usare il metodo
 		role_size='Small',
 		vm_image_name = image_name)
 
-Per altre informazioni su come acquisire una macchina virtuale Linux, vedere [Come acquisire una macchina virtuale Linux.](../virtual-machines/virtual-machines-linux-capture-image.md)
+Per altre informazioni su come acquisire una macchina virtuale Linux, vedere [Come acquisire una macchina virtuale Linux.](../virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
-Per altre informazioni su come acquisire una macchina virtuale Windows, vedere [Come acquisire una macchina virtuale Windows.](../virtual-machines/virtual-machines-capture-image-windows-server.md)
+Per altre informazioni su come acquisire una macchina virtuale Windows, vedere [Come acquisire una macchina virtuale Windows.](../virtual-machines/virtual-machines-windows-classic-capture-image.md)
 
 ## <a name="What's Next"> </a>Passaggi successivi
 
@@ -435,4 +435,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/devel
 
 [servizio cloud]: https://azure.microsoft.com/it-IT/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,17 +1,17 @@
 <properties
-	pageTitle="Riferimento ai pool di database elastici per database SQL | Microsoft Azure" 
+	pageTitle="Riferimento ai pool di database elastici per database SQL | Microsoft Azure"
 	description="In questo riferimento vengono forniti collegamenti e dettagli relativi agli articoli sui pool di database elastici e informazioni di programmabilità."
 	keywords="eDTU"
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jhubbard"
+	manager="jeffreyg"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/17/2016"
+	ms.date="03/24/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -25,7 +25,7 @@ Per gli sviluppatori di SaaS che dispongono di decine, centinaia o persino di mi
 ## Prerequisiti per la creazione e la gestione dei pool di database elastici
 
 - I pool di database elastici sono disponibili unicamente nei server database SQL V12 di Azure. Per eseguire l'aggiornamento a V12 e la migrazione dei database direttamente in un pool, vedere [Eseguire l'aggiornamento a database SQL V12 di Azure](sql-database-upgrade-server-powershell.md).
-- La creazione e la gestione di pool di database elastici è supportata tramite il [portale di Azure](https://portal.azure.com), [PowerShell](sql-database-elastic-pool-powershell.md) e la libreria client .NET (soltanto per Gestione risorse di Azure). Il [portale classico](https://manage.windowsazure.com/) e i comandi di gestione del servizio non sono supportati.
+- La creazione e la gestione di pool di database elastici è supportata tramite il [portale di Azure](https://portal.azure.com), [PowerShell](sql-database-elastic-pool-create-powershell.md) e una libreria client .NET (soltanto per Azure Resource Manager). Il [portale classico](https://manage.windowsazure.com/) e i comandi di gestione del servizio non sono supportati.
 - [Transact-SQL](#transact-sql) supporta inoltre la creazione di nuovi database elastici e lo spostamento dei database esistenti da e verso i pool di database elastici.
 
 
@@ -37,7 +37,7 @@ Gli articoli seguenti consentiranno di iniziare a utilizzare database elastici e
 | :-- | :-- |
 | [Pool di database elastici SQL](sql-database-elastic-pool.md) | Panoramica dei pool di database elastici |
 | [Considerazioni su prezzi e prestazioni](sql-database-elastic-pool-guidance.md) | Come valutare se l’utilizzo di un pool di database elastici è redditizio |
-| [Creare e gestire un database di pool elastici di database SQL con il portale di Azure](sql-database-elastic-pool-portal.md) | Come creare e gestire un pool di database elastici tramite il portale di Azure |
+| [Creare un pool scalabile di database elastici per database SQL nel portale di Azure](sql-database-elastic-pool-create-portal.md) | Come creare e gestire un pool di database elastici tramite il portale di Azure |
 | [Creare e gestire un database di pool elastici di database SQL tramite PowerShell](sql-database-elastic-pool-powershell.md) | Come creare e gestire un pool di database elastici tramite i cmdlet PowerShell |
 | [Creare e gestire un database SQL con la libreria di database SQL di Azure per .NET](sql-database-elastic-pool-csharp.md) | Creare e gestire un pool di database elastici utilizzando C# |
 | [Panoramica dei processi dei database elastici](sql-database-elastic-jobs-overview.md) | Panoramica del servizio dei processi elastici, che consente l'esecuzione di script T-SQL in tutti i database elastici in un pool |
@@ -77,15 +77,6 @@ Un pool di database elastici è una risorsa Azure Resource Manager di tipo "Elas
 [AZURE.INCLUDE [Tabella livelli di servizio di database SQL per database elastici](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 
-
-## Limiti di Gestione risorse di Azure
-
-Azure V12 del Database di SQL Server si trovano in gruppi di risorse.
-
-- Ciascun gruppo di risorse può avere un massimo di 800 server.
-- Ogni server può avere al massimo 800 pool elastici.
-
-
 ## Latenza delle operazioni dei pool elastici
 
 - La modifica delle eDTU garantite per database (databaseDtuMin) o il numero massimo di eDTU per database (databaseDtuMax) in genere viene completata in 5 minuti o meno.
@@ -95,8 +86,14 @@ Azure V12 del Database di SQL Server si trovano in gruppi di risorse.
 
 ## Libreria Client .NET, API REST e PowerShell
 
-Molti dei cmdlet PowerShell e dei comandi dell’API REST sono disponibili per la creazione e la gestione dei pool elastici: Per informazioni dettagliate ed esempi di codice, vedere [Creare un pool di database elastici con PowerShell per la scalabilità orizzontale delle risorse per più database SQL](sql-database-elastic-pool-powershell.md) e [Creazione e gestione di database SQL con C#](sql-database-client-library.md).
+Per informazioni dettagliate ed esempi di codice che illustrino l'uso di pool di applicazioni con PowerShell e C#:
 
+- [Creare un pool di database elastici (PowerShell)](sql-database-elastic-pool-create-powershell.md)
+- [Creare un pool di database elastici (C#)](sql-database-elastic-pool-create-csharp.md)
+- [Monitorare e gestire un pool di database elastici (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
+- [Gestire un pool di database elastici (C#)](sql-database-elastic-pool-manage-csharp.md)
+
+Segue un riferimento rapido di cmdlet e di operazioni dell'API REST equivalenti correlate ai pool elastici:
 
 | [Cmdlet PowerShell](https://msdn.microsoft.com/library/azure/mt574084.aspx) | [Comandi API REST](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
@@ -115,7 +112,7 @@ Molti dei cmdlet PowerShell e dei comandi dell’API REST sono disponibili per l
 | Attività | Dettagli |
 | :-- | :-- |
 | Creare un nuovo database elastico (direttamente in un pool): | [CREARE DATABASE (database SQL di Azure)](https://msdn.microsoft.com/library/dn268335.aspx) |
-| Spostare i database esistenti da e verso un pool | [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/ms174269.aspx) |
+| Spostare i database esistenti da e verso un pool | [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) |
 | Ottenere le statistiche di utilizzo delle risorse del pool | [sys.elastic\_pool\_resource\_stats (Database SQL di Azure)](https://msdn.microsoft.com/library/mt280062.aspx) |
 
 
@@ -144,18 +141,6 @@ Il prezzo unitario delle eDTU per un pool elastico è superiore al prezzo unitar
 | 40858 | EX\_USER | Il pool elastico '%ls' esiste già nel server: '%ls' | nome del pool elastico, nome del server | Il pool elastico specificato esiste già nel server logico specificato. | Fornire un nuovo nome pool elastico. |
 | 40859 | EX\_USER | Il pool elastico non supporta il livello di servizio '%ls'. | livello di servizio del pool elastico | Il livello di servizio specificato non è supportato per il provisioning del pool elastico. | Fornire l'edizione corretta oppure lasciare vuoto il livello di servizio per utilizzare il livello di servizio predefinito. |
 | 40860 | EX\_USER | La combinazione di pool elastico '%ls' e di obiettivo di servizio '%ls' non è valida. | nome pool elastico; nome obiettivo del livello di servizio | Il pool elastico e l’obiettivo del servizio possono essere specificati insieme solo se l’obiettivo di servizio viene specificato come 'ElasticPool'. | Specificare la combinazione corretta di pool elastico e obiettivo di servizio. |
-| 40861 | EX\_USER | L'edizione del database '%.*ls' non può essere diversa dal livello di servizio del pool elastico che è '%.*ls'. | edizione del database, livello di servizio del pool elastico | L'edizione del database è diversa dal livello di servizio del pool elastico. | Non specificare un'edizione del database diversa dal livello di servizio del pool elastico. Si noti che non è necessario specificare l'edizione del database. |
-| 40862 | EX\_USER | Nome del pool elastico deve essere specificato quando viene specificato l'obiettivo del servizio del pool elastico. | Nessuno | L’obiettivo del servizio del pool elastico non identifica in modo univoco un pool elastico. | Specificare il nome del pool elastico se si utilizza l'obiettivo del servizio del pool elastico. |
-| 40864 | EX\_USER | Il numero di DTU per il pool elastico deve essere almeno (%d) DTU per il livello di servizio '%.*ls'. | DTU per il pool elastico; livello di servizio del pool elastico. | Tentativo di impostazione di un numero di DTU per il pool elastico inferiore al limite minimo. | Riprovare impostando le DTU per il pool elastico almeno al limite minimo. |
-| 40865 | EX\_USER | Le DTU per il pool elastico non possono superare (%d) DTU per il livello di servizio '%.*ls'. | DTU per il pool elastico; livello di servizio del pool elastico. | Tentativo di impostazione di un numero di DTU per il pool elastico superiore al limite massimo. | Riprovare impostando un numero di DTU per il pool elastico non superiore al limite massimo. |
-| 40867 | EX\_USER | Il numero massimo di DTU per ogni database deve essere di almeno (%d) per il livello di servizio '%.*ls'. | Numero massimo di DTU per database; livello di servizio del pool elastico | Tentativo di impostare un numero massimo di DTU per ogni database sotto il limite supportato. | È consigliabile utilizzare il livello di servizio del pool elastico che supporta l'impostazione desiderata. |
-| 40868 | EX\_USER | Il numero massimo di DTU per ogni database non può superare (%d) per il livello di servizio '%.*ls'. | Numero massimo di DTU per database; livello di servizio del pool elastico. | Tentativo di impostare un numero massimo di DTU per ogni database oltre il limite supportato. | È consigliabile utilizzare il livello di servizio del pool elastico che supporta l'impostazione desiderata. |
-| 40870 | EX\_USER | Il numero minimo di DTU per ogni database non può superare (%d) per il livello di servizio '%.*ls'. | Numero minimo di DTU per database; livello di servizio del pool elastico. | Tentativo di impostare un numero minimo di DTU per ogni database oltre il limite supportato. | È consigliabile utilizzare il livello di servizio del pool elastico che supporta l'impostazione desiderata. |
-| 40873 | EX\_USER | Il numero di database (%d) e DTU min per ogni database (%d) non può superare le DTU del pool elastico (%d). | Numero di database nel pool elastico; DTU minime per database; DTU del pool elastico. | Tentativo di specificare un numero minimo di DTU per i database nel pool elastico che supera le DTU del pool elastico. | Provare ad aumentare le DTU del pool elastico o a diminuire il numero minimo di DTU per ogni database oppure ridurre il numero di database nel pool elastico. |
-| 40877 | EX\_USER | Impossibile eliminare un pool elastico, a meno che non contenga alcun database. | Nessuno | Il pool elastico contiene uno o più database e pertanto non può essere eliminato. | Rimuovere i database dal pool elastico per eliminarlo. |
-| 40881 | EX\_USER | Il pool elastico '%.* ls' ha raggiunto il numero massimo di database. Il numero massimo di database per il pool elastico non può superare (%d) per un pool elastico con DTU (%d). | Nome del pool elastico; numero massimo di database di pool elastico; DTU per pool di risorse. | Tentativo di creare o aggiungere database al pool elastico quando viene raggiunto il numero massimo di database nel pool elastico. | Provare ad aumentare le DTU del pool elastico se possibile, per aumentare il limite di database o rimuovere i database dal pool elastico. |
-| 40889 | EX\_USER | Il limite di DTU o risorse di archiviazione per il pool elastico '%.*ls' non può essere ridotto dal momento che non si fornisce spazio di archiviazione sufficiente per i database. | Nome del pool elastico. | Tentativo di ridurre il limite di archiviazione del pool elastico sotto il relativo utilizzo dell'archiviazione. | Provare a ridurre l'utilizzo dell'archiviazione dei singoli database nel pool elastico o rimuovere i database dal pool per ridurre le DTU o il limite di archiviazione. |
-| 40891 | EX\_USER | Il numero minimo di DTU per ogni database (%d) non può superare il numero massimo di DTU per ogni database (%d). | Numero minimo di DTU per database; numero massimo di DTU per database. | Tentativo di impostare un numero minimo di DTU per ogni database superiore al numero massimo di DTU per ogni database. | Verificare che il numero minimo di DTU per database non superi il numero massimo di DTU per database. |
-| TBD | EX\_USER | Le dimensioni di archiviazione di un singolo database in un pool elastico non possono superare la dimensione massima consentita per il livello di servizio del pool elastico '%.* ls'. | Livello di servizio del pool elastico | La dimensione massima per il database supera la dimensione massima consentita per il livello di servizio del pool elastico. | Impostare la dimensione massima del database entro i limiti della dimensione massima consentita per il livello di servizio del pool elastico. |
+| 40861 | EX\_USER | L'edizione del database '%.*ls' non può essere diversa dal livello di servizio del pool elastico che è '%.*ls'. | edizione del database, livello di servizio del pool elastico | L'edizione del database è diversa dal livello di servizio del pool elastico. | Non specificare un'edizione del database diversa dal livello di servizio del pool elastico. Si noti che non è necessario specificare l'edizione del database. | | 40862 | EX\_USER | Nome del pool elastico deve essere specificato quando viene specificato l'obiettivo del servizio del pool elastico. | Nessuno | L’obiettivo del servizio del pool elastico non identifica in modo univoco un pool elastico. | Specificare il nome del pool elastico se si utilizza l'obiettivo del servizio del pool elastico. | | 40864 | EX\_USER | Il numero di DTU per il pool elastico deve essere almeno (%d) DTU per il livello di servizio '%.*ls'. | DTU per il pool elastico; livello di servizio del pool elastico. | Tentativo di impostazione di un numero di DTU per il pool elastico inferiore al limite minimo. | Riprovare impostando le DTU per il pool elastico almeno al limite minimo. | | 40865 | EX\_USER | Le DTU per il pool elastico non possono superare (%d) DTU per il livello di servizio '%.*ls'. | DTU per il pool elastico; livello di servizio del pool elastico. | Tentativo di impostazione di un numero di DTU per il pool elastico superiore al limite massimo. | Riprovare impostando un numero di DTU per il pool elastico non superiore al limite massimo. | | 40867 | EX\_USER | Il numero massimo di DTU per ogni database deve essere di almeno (%d) per il livello di servizio '%.*ls'. | Numero massimo di DTU per database; livello di servizio del pool elastico | Tentativo di impostare un numero massimo di DTU per ogni database sotto il limite supportato. | È consigliabile utilizzare il livello di servizio del pool elastico che supporta l'impostazione desiderata. | | 40868 | EX\_USER | Il numero massimo di DTU per ogni database non può superare (%d) per il livello di servizio '%.*ls'. | Numero massimo di DTU per database; livello di servizio del pool elastico. | Tentativo di impostare un numero massimo di DTU per ogni database oltre il limite supportato. | È consigliabile utilizzare il livello di servizio del pool elastico che supporta l'impostazione desiderata. | | 40870 | EX\_USER | Il numero minimo di DTU per ogni database non può superare (%d) per il livello di servizio '%.*ls'. | Numero minimo di DTU per database; livello di servizio del pool elastico. | Tentativo di impostare un numero minimo di DTU per ogni database oltre il limite supportato. | È consigliabile utilizzare il livello di servizio del pool elastico che supporta l'impostazione desiderata. | | 40873 | EX\_USER | Il numero di database (%d) e DTU min per ogni database (%d) non può superare le DTU del pool elastico (%d). | Numero di database nel pool elastico; DTU minime per database; DTU del pool elastico. | Tentativo di specificare un numero minimo di DTU per i database nel pool elastico che supera le DTU del pool elastico. | Provare ad aumentare le DTU del pool elastico o a diminuire il numero minimo di DTU per ogni database oppure ridurre il numero di database nel pool elastico. | | 40877 | EX\_USER | Impossibile eliminare un pool elastico, a meno che non contenga alcun database. | Nessuno | Il pool elastico contiene uno o più database e pertanto non può essere eliminato. | Rimuovere i database dal pool elastico per eliminarlo. | | 40881 | EX\_USER | Il pool elastico '%.* ls' ha raggiunto il numero massimo di database. Il numero massimo di database per il pool elastico non può superare (%d) per un pool elastico con DTU (%d). | Nome del pool elastico; numero massimo di database di pool elastico; DTU per pool di risorse. | Tentativo di creare o aggiungere database al pool elastico quando viene raggiunto il numero massimo di database nel pool elastico. | Provare ad aumentare le DTU del pool elastico se possibile, per aumentare il limite di database o rimuovere i database dal pool elastico. | | 40889 | EX\_USER | Il limite di DTU o risorse di archiviazione per il pool elastico '%.*ls' non può essere ridotto dal momento che non si fornisce spazio di archiviazione sufficiente per i database. | Nome del pool elastico. | Tentativo di ridurre il limite di archiviazione del pool elastico sotto il relativo utilizzo dell'archiviazione. | Provare a ridurre l'utilizzo dell'archiviazione dei singoli database nel pool elastico o rimuovere i database dal pool per ridurre le DTU o il limite di archiviazione. | | 40891 | EX\_USER | Il numero minimo di DTU per ogni database (%d) non può superare il numero massimo di DTU per ogni database (%d). | Numero minimo di DTU per database; numero massimo di DTU per database. | Tentativo di impostare un numero minimo di DTU per ogni database superiore al numero massimo di DTU per ogni database. | Verificare che il numero minimo di DTU per database non superi il numero massimo di DTU per database. | | TBD | EX\_USER | Le dimensioni di archiviazione di un singolo database in un pool elastico non possono superare la dimensione massima consentita per il livello di servizio del pool elastico '%.* ls'. | Livello di servizio del pool elastico | La dimensione massima per il database supera la dimensione massima consentita per il livello di servizio del pool elastico. | Impostare la dimensione massima del database entro i limiti della dimensione massima consentita per il livello di servizio del pool elastico. |
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

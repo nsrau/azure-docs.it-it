@@ -78,7 +78,7 @@ Le funzionalità offline delle app per dispositivi mobili di Azure consentono di
 
 7. In MainPage.cs, nell'area contrassegnata come `Offline sync`, rimuovere i simboli di commento dai metodi `InitLocalStoreAsync` e `SyncAsync`. Il metodo `InitLocalStoreAsync` inizializza il contesto di sincronizzazione del client con un archivio SQLite. In Visual Studio è possibile selezionare tutte le righe commentate e usare i tasti di scelta rapida **CTRL**+**K**+**U** per rimuovere i commenti.
 
-	Si noti che in `SyncAsync` viene eseguita un'operazione push da `MobileServiceClient.SyncContext` anziché da `IMobileServicesSyncTable`. Questo avviene perché il contesto tiene traccia delle modifiche apportate dal client per tutte le tabelle. Questa operazione serve per gli scenari in cui sono presenti relazioni tra tabelle. Per altre informazioni su questo comportamento, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
+	Si noti che in `SyncAsync` viene eseguita un'operazione push da `MobileServiceClient.SyncContext` anziché da `IMobileServicesSyncTable`. Questo avviene perché il contesto tiene traccia delle modifiche apportate dal client per tutte le tabelle. Per altre informazioni su questo comportamento, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
         private async Task InitLocalStoreAsync()
         {
@@ -272,4 +272,4 @@ Per sincronizzare l'archivio locale con il server sono stati usati i metodi `IMo
 [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: App con supporto offline in Servizi mobili di Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

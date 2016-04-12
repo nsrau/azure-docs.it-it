@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="11/17/2015"
+  ms.date="03/02/2016"
   ms.author="araguila"/>
   
 # Autorizzazioni per il sito azureiotsuite.com
@@ -66,27 +66,27 @@ Nell'applicazione sono presenti due ruoli definiti e un ruolo implicito creati q
 
 -   **SOLA LETTURA IMPLICITO:** è lo stesso di Sola lettura, ma è concesso a tutti gli utenti del tenant di AAD. Questa impostazione è stata aggiunta per motivi di praticità durante lo sviluppo. È possibile rimuovere questo ruolo modificando il file di origine [RolePermissions.cs][lnk-resource-cs].
 
-### Modifica dei ruoli applicazione
+### Modifica dei ruoli applicazione di un utente
+
+È possibile usare la procedura seguente per configurare un utente di Active Directory come amministratore della soluzione preconfigurata.
 
 Per modificare i ruoli per un utente, è necessario essere un amministratore globale di AAD:
 
 1. Passare al [portale di Azure classico][lnk-classic-portal].
 
-2. Selezionare **Active Directory**
+2. Selezionare **Active Directory**.
 
-3. Fare clic sul nome del tenant di AAD.
+3. Fare clic sul nome del tenant AAD, ovvero la directory selezionata in azureiotsuite.com durante il provisioning della soluzione.
 
 4. Fare clic su **Applicazioni**.
 
-5. Se l'applicazione non viene visualizzata nell'elenco, nell'elenco a discesa **Mostra** selezionare **Applicazioni di proprietà dell'azienda** e fare clic sul segno di spunta.
-
-6. Fare clic sul nome dell'applicazione che coincide con il nome della soluzione preconfigurata.
+5. Fare clic sul nome dell'applicazione che coincide con il nome della soluzione preconfigurata. Se l'applicazione non viene visualizzata nell'elenco, nell'elenco a discesa **Mostra** selezionare **Applicazioni di proprietà dell'azienda** e fare clic sul segno di spunta.
 
 7. Fare clic su **Utenti**.
 
 8. Selezionare l'utente per cui si vogliono scambiare i ruoli.
 
-9. Fare clic sul pulsante Assegna e selezionare un ruolo che si vuole assegnare, quindi fare clic sul segno di spunta.
+9. Fare clic su **Assegna** e selezionare il ruolo, ad esempio **Amministratore**, che si desidera assegnare all'utente, fare clic sul segno di spunta.
 
 ## Domande frequenti
 
@@ -112,7 +112,7 @@ L'utente deve chiedere a un amministratore globale di assegnargli un ruolo di am
 
 1. Creare una nuova directory di AAD nel [portale di gestione di Azure][lnk-classic-portal].
 
-2. Passare a <https://github.com/Azure/azure-iot-remote-monitoring>. Per altre informazioni sulle distribuzioni cloud, vedere [Distribuzione cloud][lnk-wiki-clouddeployment].
+2. Passare a <https://github.com/Azure/azure-iot-remote-monitoring>.
 
 3. Eseguire `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}`. Ad esempio `build.cmd cloud debug myRMSolution`.
 
@@ -140,10 +140,9 @@ Se si è certi di che avere una sottoscrizione di Azure, convalidare il mapping 
 [lnk-aad-admin]: https://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
-[lnk-assign-app-roles]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Manually-setting-up-roles-and-assigning-permissions-in-Azure-Active-Directory-(AAD)#assigning-users-to-the-roles
+[lnk-assign-app-roles]: https://azure.microsoft.com/documentation/articles/active-directory-application-manifest/
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
-[lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

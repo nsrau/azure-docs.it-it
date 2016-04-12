@@ -15,11 +15,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
 
-# Creare una nuova API di SQL Server nell’ambiente del servizio app dell'organizzazione
+# Creare una nuova API SQL Server in PowerApps Enterprise
+
+Aggiungere l'API SQL Server all'ambiente del servizio app dell'organizzazione (tenant).
 
 ## Creare l'API nel portale di Azure
 
@@ -38,14 +40,14 @@ Al termine, verrà aggiunta una nuova API di SQL Server all'ambiente del servizi
 
 È possibile connettersi a SQL Server locale. Per stabilire questa connettività ibrida, è possibile sfruttare soluzioni di rete ibrida esistenti in Azure, soluzioni di rete tra cui:
 
-- [ExpressRoute](../expressroute-introduction.md)
-- [Da sito a VPN](../vpn-gateway-create-site-to-site-rm-powershell.md)
-- [Connettività Point-to-Site](../vpn-gateway-point-to-site-create.md)  
+- [ExpressRoute](../expressroute/expressroute-introduction.md)
+- [Da sito a VPN](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Connettività Point-to-Site](../vpn-gateway/vpn-gateway-point-to-site-create.md)  
 
-	> [AZURE.NOTE]Ogni ambiente del servizio app è associato a una rete virtuale. È possibile stabilire questa connettività di rete a questa rete virtuale.  
-- [Connessioni ibride](../web-sites-hybrid-connection-get-started.md)  
+	> [AZURE.NOTE]  Ogni ambiente del servizio app è associato a una rete virtuale. È possibile stabilire questa connettività di rete a questa rete virtuale.  
+- [Connessioni ibride](../app-service-web/web-sites-hybrid-connection-get-started.md)  
 
-	> [AZURE.NOTE]Tutte le API registrate nell'ambiente del servizio app hanno un'app Web corrispondente. È possibile stabilire connessioni ibride da questa app Web proprio come per qualsiasi altra applicazione Web.
+	> [AZURE.NOTE]  Tutte le API registrate nell'ambiente del servizio app hanno un'app Web corrispondente. È possibile stabilire connessioni ibride da questa app Web proprio come per qualsiasi altra applicazione Web.
 	
 Il seguente esempio mostra come creare una connessione ibrida:
 
@@ -53,7 +55,7 @@ Il seguente esempio mostra come creare una connessione ibrida:
 
 2.  Selezionare il riquadro **Risorse** e quindi selezionare l’app Web con lo stesso nome dell'API di SQL Server. In questo esempio selezionare *sqlconnectordemo*: ![App Web di SQL](./media/powerapps-create-api-sqlserver/sqlwebapp.png)
 
-3.  In **Impostazioni** selezionare **Rete**. Selezionare **Configurare gli endpoint di connessione ibrida**, quindi seguire [queste istruzioni](../web-sites-hybrid-connection-get-started.md) per creare la connessione ibrida: ![Rete](./media/powerapps-create-api-sqlserver/network.png)
+3.  In **Impostazioni** selezionare **Rete**. Selezionare **Configurare gli endpoint di connessione ibrida**, quindi seguire [queste istruzioni](../app-service-web/web-sites-hybrid-connection-get-started.md) per creare la connessione ibrida: ![Rete](./media/powerapps-create-api-sqlserver/network.png)
 
 Una volta che la connessione ibrida è stata creata e connessa, è stata abilitata la connessione al server locale. Successivamente, creare la connessione ai dati e fornire agli utenti l'accesso: ![Connessione ibrida](./media/powerapps-create-api-sqlserver/hybridconn.png)
 
@@ -78,4 +80,4 @@ In questo argomento è stato aggiunta l'API di SQL Server per connettersi a SQL 
 [14]: ./media/powerapps-create-api-sqlserver/browseall.png
 [15]: ./media/powerapps-create-api-sqlserver/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

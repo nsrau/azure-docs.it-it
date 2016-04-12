@@ -20,14 +20,19 @@
 
 Questo documento descrive la funzionalità di integrazione del servizio app di Azure in una rete virtuale, specificando come configurarla con le app del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Se non si ha familiarità con le reti virtuali di Azure, si tratta di una funzionalità che consente di posizionare molte delle risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali con diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure][VNETOverview].
 
-Il servizio app di Azure è disponibile in due forme. La prima, che è anche la più comune, è costituita da sistemi multi-tenant che supportano l'intera gamma dei piani tariffari. La seconda è costituita dalla funzionalità Premium ambiente del servizio app (ASE) che consente la distribuzione in una rete virtuale del cliente. Con un ambiente del servizio app in genere non è necessario usare l'integrazione di reti virtuali, perché il sistema si trova già nella rete virtuale e ha accesso a tutte le risorse in quella rete. L'unico motivo per usare la funzionalità Integrazione rete virtuale con un ambiente del servizio app potrebbe essere la necessità di accedere a risorse in un'altra rete virtuale non connessa a quella che ospita l'ambiente del servizio app.
+Il servizio app di Azure è disponibile in due forme.
+
+1. I sistemi multi-tenant che supportano l'intera gamma dei piani tariffari
+1. La funzionalità Premium ambiente del servizio app (ASE) che consente la distribuzione nella rete virtuale.  
+
+Questo articolo non descrive l'inserimento di un ambiente ASE in una rete virtuale V2 in quanto si tratta di una funzionalità non ancora supportata e quindi non correlata all'articolo. Questo articolo descrive l'abilitazione delle app per l'utilizzo delle risorse in una rete virtuale V1 o V2.
 
 Integrazione rete virtuale consente all'app Web di accedere alle risorse presenti nella propria rete virtuale. Al contrario, l'accesso privato all'app Web dalla rete virtuale non viene concesso. Questa funzionalità viene comunemente usata per consentire all'app Web l'accesso a un database o a servizi Web in esecuzione in una macchina virtuale nella rete virtuale di Azure. Con Integrazione rete virtuale non è necessario esporre un endpoint pubblico per le applicazioni nella macchina virtuale ma è possibile usare gli indirizzi instradabili non Internet privati.
 
 La funzionalità Integrazione rete virtuale:
 
 - richiede un piano tariffario Premium o Standard 
-- attualmente funziona solo con reti virtuali V1 o classiche 
+- funzionerà con la rete virtuale V1 (classica) o V2 (Resource Manager) 
 - supporta TCP e UDP
 - funziona con le app Web, le app per dispositivi mobili e le app per le API
 - consente a un'app di connettersi a 1 sola rete virtuale alla volta
@@ -66,28 +71,41 @@ Se l'app non è inclusa nel piano tariffario corretto, l'interfaccia utente perm
 ![][1]
  
 ###Abilitazione della funzionalità Integrazione rete virtuale con una rete virtuale preesistente###
-L'interfaccia utente di Integrazione rete virtuale consente di selezionare da un elenco di reti virtuali V1. L'immagine seguente mostra che è possibile selezionare solo una rete virtuale. Una rete virtuale può risultare disattivata per diversi motivi, ad esempio:
+L'interfaccia utente di Integrazione rete virtuale consente di selezionare da un elenco di reti virtuali. Le reti virtuali V1 sono quelle indicate dalla parola "classica" tra parentesi accanto al nome della rete virtuale. L'elenco è ordinato in modo che le reti virtuali V2 vengano elencate per prime. L'immagine seguente mostra che è possibile selezionare solo una rete virtuale. Una rete virtuale può risultare disattivata per diversi motivi, ad esempio:
 
 - la rete virtuale è in un'altra sottoscrizione a cui l'account ha accesso
 - la rete virtuale non è da punto a sito
 - la rete virtuale non ha un gateway di routing dinamico
 
-Si noti anche che le reti virtuali V2 non sono presenti nell'elenco perché l'integrazione con queste reti non è ancora supportata.
 
 ![][2]
 
 Per abilitare l'integrazione è sufficiente fare clic sulla rete virtuale con cui eseguire l'integrazione. Dopo aver selezionato la rete virtuale, l'app verrà riavviata automaticamente per rendere effettive le modifiche.
 
-Se la rete virtuale non ha un gateway e non è da punto a sito, è necessario eseguirne prima di tutto la configurazione. A questo scopo, passare al portale di Azure e visualizzare l'elenco Reti virtuali (classico). Qui fare clic sulla rete con cui eseguire l'integrazione e quindi sulla casella grande Connessioni VPN in Informazioni di base. Da qui è possibile creare la VPN da punto a sito e anche fare in modo che venga creato un gateway. La rete da punto a sito con gateway appena creata sarà pronta dopo circa 30 minuti.
+##### Abilitare la connessione da punto a sito in una rete virtuale V1 #####
+Se la rete virtuale non ha un gateway e non è da punto a sito, è necessario eseguirne prima di tutto la configurazione. Per eseguire questa operazione per una rete virtuale V1, passare al [portale di Azure][AzurePortal] e visualizzare l'elenco Reti virtuali (classico). Qui fare clic sulla rete con cui eseguire l'integrazione e quindi sulla casella grande Connessioni VPN in Informazioni di base. Da qui è possibile creare la VPN da punto a sito e anche fare in modo che venga creato un gateway. La rete da punto a sito con gateway appena creata sarà pronta dopo circa 30 minuti.
 
 ![][8]
 
-### Creazione e integrazione di una rete virtuale ###
-Nella creazione di una nuova rete virtuale occorre tenere presente che attualmente è possibile creare solo una rete virtuale V1 o classica. Per creare una rete virtuale V1 usando l'interfaccia utente di Integrazione rete virtuale, è sufficiente selezionare Crea una nuova rete virtuale e quindi specificare il nome della rete virtuale e il relativo spazio di indirizzi.
+##### Abilitare la connessione da punto a sito in una rete virtuale V2 #####
 
-Per permettere alla rete virtuale di connettersi alle altre reti è consigliabile evitare di scegliere uno spazio di indirizzi IP che si sovrappone a tali reti.
+Per configurare una rete virtuale V2 con un gateway e una connessione da punto a sito, è necessario usare PowerShell come descritto in [Configurare una connessione da punto a sito a una rete virtuale con PowerShell][V2VNETP2S]. L'interfaccia utente per eseguire questa funzionalità non è ancora disponibile.
 
->[AZURE.NOTE] La creazione di una nuova rete virtuale completa di gateway operativi può richiedere fino a 30 minuti. Al termine, l'interfaccia utente verrà aggiornata.
+### Creazione di una rete virtuale preconfigurata ###
+Se si vuole creare una nuova rete virtuale configurata con un gateway e una connessione da punto a sito, è possibile usare l'interfaccia utente di rete del servizio app, ma solo per una rete virtuale V2. Se si vuole creare una rete virtuale V1 con un gateway e una connessione da punto a sito, è necessario eseguire questa operazione manualmente tramite l'interfaccia utente di rete.
+
+Per creare una rete virtuale V2 tramite l'interfaccia utente di Integrazione rete virtuale, selezionare semplicemente **Crea una nuova rete virtuale** e specificare:
+
+- Nome della rete virtuale
+- Blocco di indirizzi della rete virtuale
+- Nome della subnet
+- Blocco di indirizzi della subnet
+- Blocco di indirizzi del gateway
+- Blocco di indirizzi della connessione da punto a sito
+
+Se si vuole che la rete virtuale si connetta alle altre reti è consigliabile evitare di scegliere uno spazio di indirizzi IP che si sovrappone a tali reti.
+
+>[AZURE.NOTE] La creazione della rete virtuale V2 con un gateway richiede circa 30 minuti e attualmente non integra la rete virtuale con l'app. Dopo la creazione della rete virtuale con il gateway è necessario tornare all'interfaccia utente di Integrazione rete virtuale dell'app e selezionare la nuova rete virtuale.
 
 ![][3]
 
@@ -109,7 +127,6 @@ Questa funzionalità sfrutta la tecnologia VPN da punto a sito per connettere l'
 ![][4]
  
 Se non è stato configurato un server DNS con la propria rete virtuale, è necessario usare gli indirizzi IP. Quando si usano gli indirizzi IP, il vantaggio principale di questa funzionalità consiste nella possibilità di usare gli indirizzi privati all'interno della rete privata. Se si imposta l'app per l'uso di indirizzi IP pubblici per una delle proprie macchine virtuali, la funzionalità Integrazione rete virtuale non viene usata e le comunicazioni avvengono via Internet.
-
 
 
 ##Gestione delle integrazioni di reti virtuali##
@@ -156,7 +173,7 @@ Sono disponibili due azioni principali. La prima è la possibilità di aggiunger
 
 Uno dei vantaggi della funzionalità Integrazione rete virtuale è la possibilità per le app di accedere alle risorse locali dall'app, se la rete virtuale è connessa alla rete locale con una VPN da sito a sito. Perché ciò sia possibile, potrebbe essere necessario aggiornare il gateway VPN locale con le route per l'intervallo IP da punto a sito. Quando la connessione VPN da sito a sito viene configurata per la prima volta, gli script usati per la configurazione devono impostare route che includono la VPN da punto a sito. Se la VPN da punto a sito viene aggiunta dopo aver creato la VPN da sito a sito, è necessario aggiornare le route manualmente. Le informazioni dettagliate su come eseguire questa operazione variano in base al gateway e non sono descritte in questo documento.
 
->[AZURE.NOTE] La funzionalità Integrazione rete virtuale permette di accedere alle risorse locali con una VPN da sito a sito. Attualmente non è possibile fare lo stesso con una VPN ExpressRoute.
+>[AZURE.NOTE] La funzionalità Integrazione rete virtuale permette di accedere alle risorse locali con una VPN da sito a sito. Attualmente non è possibile fare lo stesso con una VPN ExpressRoute. Questo vale quando si integra con la rete virtuale V1 o V2. Se si desidera accedere alle risorse tramite una VPN ExpressRoute è possibile usare un ambiente ASE che può essere eseguito nella rete virtuale.
 
 ##Dettagli prezzi##
 Quando si usa la funzionalità Integrazione rete virtuale è opportuno tenere presente alcune differenze nei prezzi. I 3 costi correlati all'uso della funzionalità sono:
@@ -265,8 +282,10 @@ Oltre a differenze funzionali, vanno considerate le differenze di prezzo. La fun
 
 <!--Links-->
 [VNETOverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-overview/
+[AzurePortal]: http://portal.azure.com/
 [ASPricing]: http://azure.microsoft.com/pricing/details/app-service/
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
+[V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

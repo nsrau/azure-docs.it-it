@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Eseguire la migrazione della soluzione in SQL Data Warehouse
@@ -28,7 +28,7 @@ Prima di intraprendere la procedura di migrazione, leggere gli articoli seguenti
 - [Eseguire la migrazione dello schema][]
 - [Eseguire la migrazione dei dati][]
 - [Eseguire la migrazione del codice][]
- 
+
 ## Passaggi successivi
 Per altri suggerimenti relativi allo sviluppo, vedere la [panoramica sullo sviluppo][].
 
@@ -45,11 +45,11 @@ Vedere infine la [panoramica sul caricamento][] che illustra diverse opzioni di 
 
 [panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
 [panoramica sul caricamento]: sql-data-warehouse-overview-load.md
-[guida di riferimento per Transact-SQL]: sql-data-warehouse-overview-migrate.md
+[guida di riferimento per Transact-SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0316_2016-->

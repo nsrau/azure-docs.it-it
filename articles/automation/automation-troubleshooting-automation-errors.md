@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/21/2016"
    ms.author="sngun; v-reagie"/>
 
 # Suggerimenti sulla risoluzione dei problemi relativi agli errori comuni in Automazione di Azure
@@ -75,9 +75,7 @@ Questo articolo illustra alcuni degli errori più comuni che possono verificarsi
 
 **Motivo dell'errore:** se il runbook è un flusso di lavoro di PowerShell, archivia gli oggetti complessi in un formato deserializzato per rendere persistente lo stato del runbook se il flusso di lavoro viene sospeso.
 
-**Suggerimenti sulla risoluzione dei problemi:**
-
-una qualsiasi delle tre soluzioni seguenti consente di correggere questo problema.
+**Suggerimenti sulla risoluzione dei problemi:** una qualsiasi delle tre soluzioni seguenti consente di correggere questo problema.
 
 1. Se si inviano tramite pipe oggetti complessi da un cmdlet a altro, eseguire il wrapping dei cmdlet in un InlineScript.  
 2. Passare il nome o il valore necessario dall'oggetto complesso invece di passare l'intero oggetto.  
@@ -107,7 +105,7 @@ una qualsiasi delle tre soluzioni seguenti consente di correggere questo problem
 
 **Suggerimenti per la risoluzione dei problemi:** una qualsiasi delle soluzioni seguenti consente di correggere il problema.
 
-- Verificare di aver digitato correttamente il nome del cmdlet e controllare che il percorso del cmdlet sia corretto.  
+- Verificare di aver immesso correttamente il nome del cmdlet.  
 
 - Assicurarsi che il cmdlet esista nell'account di automazione e che non siano presenti conflitti. Per verificare se il cmdlet è presente, aprire un runbook in modalità di modifica e cercare il cmdlet nella libreria o eseguire **Get-Command ``<CommandName>``**. Dopo aver verificato che il cmdlet è disponibile per l'account e che non ci sono conflitti di nomi con altri cmdlet o runbook, aggiungerlo all'area di disegno e assicurarsi di usare un set di parametri valido nel runbook.
 
@@ -139,9 +137,7 @@ una qualsiasi delle tre soluzioni seguenti consente di correggere questo problem
 
 - Il cmdlet **New AzureRmAutomationModule** viene usato per caricare il modulo e non è stato specificato il percorso di archiviazione completo oppure il modulo non è stato caricato con un URL accessibile pubblicamente.
 
-**Suggerimenti per la risoluzione dei problemi:**
-
-una qualsiasi delle soluzioni seguenti consente di correggere il problema.
+**Suggerimenti per la risoluzione dei problemi:** una qualsiasi delle soluzioni seguenti consente di correggere il problema.
 
 - Verificare che il modulo segua questo formato: NomeModulo.Zip **->** NomeModulo o NumeroVersione **->** (NomeModulo.psm1, NomeModulo.psd1)
 
@@ -167,7 +163,7 @@ una qualsiasi delle soluzioni seguenti consente di correggere il problema.
     - Per assegnare a un nodo una configurazione nodo mediante PowerShell, usare il cmdlet **Set-AzureRmAutomationDscNode**.
 
 
-### Scenario: Non sono state prodotte configurazioni di nodo (file con estensione mof) durante la compilazione di una configurazione.
+### Scenario: Non sono state prodotte configurazioni di nodo (file con estensione MOF) durante la compilazione di una configurazione.
 
 **Errore:** il processo di compilazione di DSC viene sospeso e restituisce un errore simile al seguente "La compilazione è stata completata, ma non sono stati generati file con estensione mof di configurazione nodo".
 
@@ -210,4 +206,4 @@ Se sono state seguite le procedure precedenti per la risoluzione dei problemi e 
 
 - Inviare commenti o suggerimenti oppure richieste di funzionalità per Automazione di Azure al forum dedicato ai [suggerimenti degli utenti](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

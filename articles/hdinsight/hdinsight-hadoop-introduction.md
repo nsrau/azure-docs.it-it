@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/27/2016"
+   ms.date="03/29/2016"
    ms.author="cgronlun"/>
 
 
@@ -81,11 +81,15 @@ I seguenti gli script di esempio vengono forniti dal team di HDInsight:
 
 Per informazioni su come sviluppare azioni script personalizzate, vedere [Sviluppo di azioni script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
+## HDInsight Standard e HDInsight Premium
+
+HDInsight fornisce offerte cloud per i Big Data in due categorie, Standard e Premium. HDInsight Standard offre un cluster su scala aziendale che le organizzazioni possono usare per eseguire i carichi di lavoro legati ai Big Data. HDInsight Premium offre in più funzionalità analitiche e di sicurezza avanzate per un cluster HDInsight. Per altre informazioni, vedere l'articolo relativo ad [Azure HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
+
 ## Quali sono i componenti e le utilità di Hadoop?
 
 I componenti e le utilità seguenti sono inclusi nei cluster HDInsight.
 
-* **[Ambari](#ambari)**: provisioning, gestione, monitoraggio e utilità del cluster.
+* **[Ambari](#ambari)**: provisioning, gestione, monitoraggio e utilità dei cluster.
 
 * **[Avro](#avro)** (la libreria Microsoft .NET per Avro): serializzazione dei dati per l'ambiente Microsoft .NET.
 
@@ -93,7 +97,7 @@ I componenti e le utilità seguenti sono inclusi nei cluster HDInsight.
 
 * **[Mahout](#mahout)**: Machine Learning.
 
-* **[MapReduce](#mapreduce)**: framework legacy per l'elaborazione distribuita e la gestione delle risorse Hadoop. Vedere [YARN](#yarn), il framework risorse di nuova generazione.
+* **[MapReduce](#mapreduce)**: framework legacy per l'elaborazione distribuita e la gestione delle risorse Hadoop. Vedere [YARN](#yarn), il framework delle risorse di nuova generazione.
 
 * **[Oozie](#oozie)**: gestione dei flussi di lavoro.
 
@@ -105,7 +109,7 @@ I componenti e le utilità seguenti sono inclusi nei cluster HDInsight.
 
 * **[Tez](#tez)**: consente di eseguire in modo efficiente a livello di scalabilità processi a elevato utilizzo di dati.
 
-* **[YARN](#yarn)**: parte della libreria centrale Hadoop e della prossima generazione di framework software MapReduce.
+* **[YARN](#yarn)**: parte della libreria principale Hadoop e framework del software MapReduce di nuova generazione.
 
 * **[ZooKeeper](#zookeeper)**: coordinamento di processi in sistemi distribuiti.
 
@@ -139,7 +143,7 @@ Hadoop Distributed File System (HDFS) è un file system distribuito che, insieme
 ### <a name="mapreduce"></a>MapReduce
 MapReduce è un software legacy per Hadoop per la scrittura di applicazioni per l'elaborazione batch di set di Big Data in parallelo. Un processo MapReduce suddivide i set di dati di grandi dimensioni e organizza i dati in coppie chiave-valore per l'elaborazione.
 
-[YARN](#yarn) è il framework applicazioni e lo strumento di gestione delle risorse di nuova generazione di Hadoop e viene denominato MapReduce 2.0. I processi MapReduce verranno eseguiti in YARN.
+[YARN](#yarn) è il framework applicazioni e lo strumento di gestione delle risorse di nuova generazione di Hadoop ed è denominato MapReduce 2.0. I processi MapReduce verranno eseguiti in YARN.
 
 Per altre informazioni su MapReduce, vedere <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a> in Hadoop Wiki.
 
@@ -170,7 +174,7 @@ Per informazioni su YARN, vedere <a target="_blank" href="http://hadoop.apache.o
 
 ## Linguaggi di programmazione in HDInsight
 
-I cluster di HDInsight - cluster Hadoop, HBase, Storm e Spark - supportano diversi linguaggi di programmazione, ma per impostazione predefinita alcuni linguaggi non sono installati. Per le librerie, i moduli o i pacchetti non installati per impostazione predefinita, usare un'azione script per installare il componente. Vedere l'articolo relativo allo [sviluppo di azioni script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
+I cluster di HDInsight - cluster Hadoop, HBase, Storm e Spark - supportano diversi linguaggi di programmazione, ma per impostazione predefinita alcuni linguaggi non sono installati. Per le librerie, i moduli o i pacchetti non installati per impostazione predefinita, usare un'azione script per installare il componente. Vedere [Sviluppo di azioni di script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 ### Supporto per i linguaggi di programmazione predefiniti
 
@@ -180,7 +184,7 @@ Per impostazione predefinita, i cluster HDInsight supportano:
 
 * Python
 
-È possibile installare lingue aggiuntive usando azioni script, vedere l'articolo relativo allo [sviluppo di azioni script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
+È possibile installare linguaggi aggiuntivi usando azioni script. Vedere [Sviluppo di azioni di script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 ### Linguaggi per macchine virtuali Java
 
@@ -211,11 +215,19 @@ All'interno dell'ecosistema cloud Azure, Hadoop in HDInsight offre numerosi vant
 
 * Componenti Hadoop aggiornati. Per dettagli, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight][component-versioning].
 
-* Disponibilità e affidabilità elevate dei cluster. Per dettagli, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md).
+* Disponibilità e affidabilità elevate dei cluster. È stato aggiunto un secondo nodo head ai cluster Hadoop distribuiti da HDInsight per aumentare la disponibilità del servizio. Le implementazioni standard dei cluster Hadoop hanno in genere un singolo nodo head. HDInsight elimina questo singolo punto di errore con l'aggiunta di un nodo head secondario. Il passaggio alla nuova configurazione del cluster a disponibilità elevata non modifica il prezzo del cluster, a meno che i clienti non creino cluster con un nodo head molto grande al posto del nodo di dimensioni predefinite.
+
+	Per dettagli, vedere [Disponibilità e affidabilità dei cluster Hadoop in HDInsight](hdinsight-high-availability-linux.md).
 
 * Archiviazione dei dati efficace e conveniente con l'archiviazione BLOB di Azure, un'opzione compatibile con Hadoop. Per dettagli, vedere [Usare l'archivio BLOB di Azure con Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 * Integrazione con altri servizi di Azure, inclusi [App Web](../documentation/services/app-service/web/) e [Database SQL](../documentation/services/sql-database/).
+
+* Dimensioni delle macchine virtuali aggiuntive. I cluster HDInsight sono disponibili in dimensioni e tipi di macchina virtuale diversi. I cluster HDInsight possono usare macchine virtuali di dimensioni da A2 ad A7 creati per scopi generali, nodi serie D che presentano unità SSD e processori del 60% più veloci, nonché macchine virtuali di dimensioni A8 e A9 con supporto per InfiniBand per connessioni di rete veloci. I clienti di Apache HBase in Azure HDInsight possono trarre vantaggio dalle configurazioni di memoria più estese della serie D per migliorare le prestazioni. I clienti di Apache Storm in Azure HDInsight anche la possibilità di usare memoria aggiuntiva per caricare set di dati di riferimento più grandi, oltre a CPU più veloci per ottenere una velocità effettiva più elevata.
+
+* Ridimensionamento del cluster. Il ridimensionamento del cluster consente di modificare il numero di nodi di un cluster HDInsight in esecuzione senza doverlo eliminare o ricreare.
+
+* Supporto della rete virtuale. I cluster HDInsight possono essere usati con la rete virtuale di Azure per supportare l'isolamento delle risorse cloud o gli scenari ibridi che collegano le risorse cloud con quelle del data center.
 
 * Costo iniziale ridotto. Scaricare una [versione di valutazione gratuita](/pricing/free-trial/) o consultare [Dettagli prezzi di HDInsight](/pricing/details/hdinsight/).
 
@@ -256,7 +268,7 @@ Integrare questa introduzione a Hadoop nel cloud e nell'analisi dei Big Data con
 
 * [Database SQL di azure](/documentation/services/sql-database/): documentazione, esercitazioni e video per il Database SQL.
 
-* [Database SQL nel Portale di Azure](sql-database-manage-portal.md): uno strumento semplificato e di facile utilizzo per la gestione di database SQL nel cloud.
+* [Database SQL nel Portale di Azure](../sql-database/sql-database-manage-portal.md): uno strumento semplificato e di facile utilizzo per la gestione di database SQL nel cloud.
 
 * [Adventure Works per database SQL](http://msftdbprodsamples.codeplex.com/releases/view/37304): pagina di download del database di esempio di database SQL.
 
@@ -292,4 +304,4 @@ Usare l'analisi dei Big Data sui dati dell'organizzazione per ottenere informazi
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

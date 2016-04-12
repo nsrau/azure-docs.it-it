@@ -47,7 +47,7 @@ Per altri dettagli sulle stringhe di connessione, vedere [Configurare le stringh
 
 Alcune librerie client dell'archiviazione di Azure, ad esempio la libreria Xamarin, supportano solo l'autenticazione con un token di firma di accesso condiviso. Sarà necessario creare il token di firma di accesso condiviso mediante uno strumento o un'applicazione che supporta l'autenticazione con chiave condivisa. Un modo semplice per generare il token di firma di accesso condiviso è tramite Azure PowerShell:
 
-1. Installare Azure PowerShell, se non è stato già installato. È consigliabile usare l'ultima versione dei cmdlet di Azure PowerShell. Per istruzioni per l'installazione, vedere [Come installare e configurare Azure PowerShell](../articles/powershell-install-configure.md#Install).
+1. Installare Azure PowerShell, se non è stato già installato. È consigliabile usare l'ultima versione dei cmdlet di Azure PowerShell. Per istruzioni per l'installazione, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md#Install).
 
 2. Aprire Azure PowerShell ed eseguire i comandi riportati di seguito. Ricordarsi di sostituire *ACCOUNT\_NAME* e *ACCOUNT\_KEY==* con le credenziali personali. ostituire *CONTAINER\_NAME* con un nome a scelta.
 
@@ -232,4 +232,4 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 - La versione 2013-08-15 dei servizi di archiviazione di Azure è ora completamente supportata. (In precedenza questa versione era supportata solo dalla versione 2.2.1 dell'emulatore di archiviazione di anteprima.)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

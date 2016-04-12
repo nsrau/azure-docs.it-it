@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="03/10/2016"
 	ms.author="piyushjo" />
 
 
@@ -35,9 +35,10 @@ Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-android-sdk
 
 ##Note sulla versione
 
-##4\.1.5 (01/02/2016)
+##4\.2.0 (11/03/2016)
 
-- Miglioramenti della stabilità.
+- L'SDK ora è concesso in licenza con MIT.
+- Consentire la specifica di un identificatore del dispositivo personalizzato in fase di inizializzazione dell'SDK.
 
 ##4\.1.0 (08/25/2015)
 
@@ -46,10 +47,10 @@ Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-android-sdk
 - Correzione di un bug delle autorizzazioni: se si utilizza `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` non è più necessario.
 - Miglioramenti della stabilità.
 
-Per le versioni precedenti, vedere le [note sulla versione complete](mobile-engagement-android-release-notes.md).
+Per tutte le versioni, vedere le [note sulla versione complete](mobile-engagement-android-release-notes.md).
 
 ##Procedure di aggiornamento
 
 Se è già stata integrata una versione precedente di Windows SDK nell'applicazione, consultare [Procedure di aggiornamento](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

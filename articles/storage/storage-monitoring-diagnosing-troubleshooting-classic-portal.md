@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="03/18/2016"
 	ms.author="jahogg"/>
 
 # Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
@@ -232,7 +232,7 @@ Storage Client Library per .NET consente di raccogliere i dati della registrazio
 
 In molti casi, i dati di log provenienti dalla registrazione dell'archiviazione e da Storage Client Library saranno sufficienti per diagnosticare un problema, ma in alcune situazione può essere necessario disporre di informazioni più dettagliate rispetto a quelle fornite da questi strumenti. Ad esempio, l'utilizzo di Fiddler per visualizzare i messaggi HTTP e HTTPS consente di visualizzare i dati di intestazione e di payload inviati e ricevuti dai servizi di archiviazione e quindi di esaminare il modo in cui un'applicazione client ritenti le operazioni di archiviazione. Gli strumenti di analisi dei protocolli, come Wireshark, funzionano a livello di pacchetto e consentono di visualizzare i dati TCP, quindi di risolvere i problemi dovuti alla perdita di pacchetti e a errori di connessione. Message Analyzer è in grado di funzionare sia sul livello HTTP che sul livello TCP.
 
-## <a name="end-to-end-tracing">Traccia end-to-end</a>
+## <a name="end-to-end-tracing"></a>Traccia end-to-end
 
 La funzionalità di traccia end-to-end basata sull'utilizzo di una varietà di file di log è una tecnica utile per l'analisi dei potenziali problemi. È possibile usare le informazioni su data e ora estratte dai dati delle metriche come indicazione del punto da cui deve partire la ricerca nei file di log dei dettagli necessari per la risoluzione del problema.
 
@@ -666,7 +666,10 @@ L'applicazione client deve usare nomi univoci per i contenitori ogni volta che c
 
 La metrica **PercentSuccess** acquisisce la percentuale di operazioni eseguite correttamente in base al relativo codice di stato HTTP. Le operazioni con codici di stato 2XX hanno avuto esito positivo, mentre le operazioni con codici 3XX, 4XX e 5XX hanno avuto esito negativo e riducono il valore della metrica **PercentSucess**. Nei file di log dell'archiviazione sul lato server, queste operazioni vengono registrate con stato della transazione **ClientOtherErrors**.
 
-È importante notare che queste operazioni sono state completate correttamente e quindi non influiscono sulle altre metriche, ad esempio la disponibilità. Alcuni esempi di operazioni che vengono eseguite correttamente, ma che possono generare codici di stato HTTP non riusciti: - **ResourceNotFound** (Non trovato 404), ad esempio da una richiesta GET per un BLOB che non esiste. - **ResouceAlreadyExists** (Conflitto 409), ad esempio da un’operazione **CreateIfNotExist** in cui la risorsa esiste già. - **ConditionNotMet** (Non modificato 304), ad esempio da un'operazione condizionale, ad esempio quando un client invia un valore **ETag** e un’intestazione HTTP **If-None-Match** per richiedere un'immagine solo se è stata aggiornata dall'ultima operazione.
+È importante notare che queste operazioni sono state completate correttamente e quindi non influiscono sulle altre metriche, ad esempio la disponibilità. Alcuni esempi di operazioni eseguite correttamente ma che possono restituire codici di stato HTTP negativi sono:
+- **ResourceNotFound** (Non trovato 404), ad esempio da una richiesta GET a un oggetto BLOB che non esiste.
+- **ResouceAlreadyExists** (Conflitto 409), ad esempio da un'operazione **CreateIfNotExist** quando la risorsa esiste già.
+- **ConditionNotMet** (Non modificato 304), ad esempio da un'operazione condizionale come quando un client invia un valore **ETag** e un'intestazione HTTP **If-None-Match** per richiedere un'immagine solo se è stata aggiornata dall'ultima operazione.
 
 Per l'elenco dei codici di errore API REST che i servizi di archiviazione restituiscono più di frequente, vedere la pagina <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Codici di errore comuni dell'API REST</a>.
 
@@ -914,4 +917,4 @@ Al momento della redazione di questo documento Application Insights è disponibi
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0323_2016-->

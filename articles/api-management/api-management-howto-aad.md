@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="API Management" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Come autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
@@ -228,4 +228,4 @@ L'utente ora è connesso al portale per sviluppatori per l'istanza del servizio 
 
 [Accedere al portale per sviluppatori con un account Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

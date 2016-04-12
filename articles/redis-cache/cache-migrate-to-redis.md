@@ -4,7 +4,7 @@
     services="redis-cache"
     documentationCenter="na"
     authors="steved0x"
-    manager="dwrede"
+    manager="erikre"
     editor="tysonn" />
 <tags 
     ms.service="cache"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="12/03/2015"
+    ms.date="03/17/2016"
     ms.author="sdanie" />
 
 # Eseguire la migrazione dal Servizio cache gestita alla Cache Redis di Azure
@@ -49,6 +49,7 @@ Il Servizio cache gestita di Azure e la Cache Redis di Azure sono simili, ma imp
 |Criteri di scadenza|Il criterio di scadenza predefinito è Assoluto e l'intervallo di scadenza predefinito è di dieci minuti. Sono disponibili anche i criteri Scorrevole e Mai.|Per impostazione predefinita, gli elementi nella cache non scadono, ma è possibile impostare una scadenza per ogni scrittura usando gli overload impostati della cache. Per altre informazioni, vedere [Aggiungere e recuperare oggetti dalla cache](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache).|
 |Aree e aggiunta di tag|Le aree sono sottogruppi degli elementi memorizzati nella cache. Le aree supportano anche l'annotazione degli elementi memorizzati nella cache con stringhe descrittive aggiuntive chiamate tag. Le aree supportano l'esecuzione di operazioni di ricerca in tutti gli elementi con tag di tale area. Tutti gli elementi in un'area si trovano in un singolo nodo del cluster di cache.|Una cache Redis è costituita da un singolo nodo (a meno che non sia abilitato il cluster Redis) e quindi il concetto di aree del Servizio cache gestita non è applicabile. Poiché Redis supporta le operazioni di ricerca e con caratteri jolly quando si recuperano le chiavi, i tag descrittivi possono essere incorporati nei nomi delle chiavi e usati per recuperare gli elementi in seguito. Per un esempio di implementazione di una soluzione di aggiunta di tag con Redis, vedere la pagina relativa all'[implementazione dell'aggiunta di tag della cache con Redis](http://stackify.com/implementing-cache-tagging-redis/).|
 |Serializzazione|La cache gestita supporta NetDataContractSerializer, BinaryFormatter e l'uso di serializzatori personalizzati. Il valore predefinito è NetDataContractSerializer.|È responsabilità dell'applicazione client serializzare gli oggetti .NET prima di inserirli nella cache, con il serializzatore scelto dallo sviluppatore dell'applicazione client. Per altre informazioni e per il codice di esempio, vedere [Gestire gli oggetti .NET nella cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).|
+| Emulatore di cache | Il servizio Cache gestita offre un emulatore di cache locale. | Cache Redis di Azure non ha un emulatore, ma per ottenere un'esperienza di emulazione è possibile [eseguire la build MSOpenTech di redis-server.exe in locale](cache-faq.md#cache-emulator). |
 
 ## Scegliere un'offerta per il servizio cache
 
@@ -71,7 +72,7 @@ Le cache in Cache Redis di Azure possono essere create nel [portale di Azure](ht
 -	Per creare una cache usando Azure PowerShell, vedere [Gestire Cache Redis di Azure con Azure PowerShell](cache-howto-manage-redis-cache-powershell.md).
 -	Per creare una cache usando l'interfaccia della riga di comando di Azure, vedere [Come creare e gestire Cache Redis di Azure tramite l'interfaccia della riga di comando di Azure (Azure CLI)](cache-manage-cli.md).
 
->[AZURE.NOTE] Per usare la Cache Redis di Azure, è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
+>[AZURE.NOTE] Per usare la Cache Redis di Azure, è necessario un account Azure. Se non si ha un account, è possibile creare un account gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
 
 ## Configurare i client della cache
 
@@ -195,4 +196,4 @@ La Cache Redis di Azure include provider sia per lo stato della sessione ASP.NET
 
 Per esercitazioni, esempi, video e altro ancora, vedere la [documentazione sulla Cache Redis di Azure](https://azure.microsoft.com/documentation/services/cache/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

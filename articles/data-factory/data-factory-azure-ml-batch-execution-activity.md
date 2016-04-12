@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creare pipeline predittive tramite l'attività AzureMLBatchExecution di Azure Machine Learning | Microsoft Azure" 
+	pageTitle="Usare le attività di Machine Learning | Microsoft Azure" 
 	description="Illustra come creare pipeline predittive usando Data factory di Azure e Azure Machine Learning" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -772,4 +772,4 @@ Aggiungere una sezione **typeProperties** alla sezione **AzureMLBatchScoringActi
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

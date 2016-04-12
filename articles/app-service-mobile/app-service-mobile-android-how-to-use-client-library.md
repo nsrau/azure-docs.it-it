@@ -25,19 +25,20 @@ Questa guida illustra come usare Android SDK lato client per le app per disposit
 
 Questa guida descrive Android SDK lato client. Per altre informazioni sugli SDK lato server per le app per dispositivi mobili, vedere [Usare l'SDK del server back-end .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) o [Come usare Node.js SDK back-end](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
+## Documentazione di riferimento
 
-<!---You can find the Javadocs API reference for the Android client library [here](http://go.microsoft.com/fwlink/p/?LinkId=298735).-->
+È possibile trovare il riferimento API Javadocs per la libreria client Android [in GitHub](http://azure.github.io/azure-mobile-apps-android-client/).
 
 ## Installazione e prerequisiti
 
 Mobile Services SDK per Android supporta Android versione 2.2 o successiva, tuttavia è consigliabile usare la versione 4.2 o successiva.
 
-Completare l'[esercitazione introduttiva alle app per dispositivi mobili](app-service-mobile-android-get-started.md) per essere sicuri di avere installato Android Studio. Sarà anche più facile configurare l'account e creare il primo back-end di app per dispositivi mobili. In questo caso, si potrà ignorare il resto di questa sezione.
+Completare l'[esercitazione introduttiva alle app per dispositivi mobili](app-service-mobile-android-get-started.md) per essere sicuri di avere installato Android Studio. Sarà anche più facile configurare l'account e creare il primo back-end delle app per dispositivi mobili. In questo caso, si potrà ignorare il resto di questa sezione.
 
 Se si decide di non completare l'esercitazione introduttiva e si vuole connettere un'app Android a un back-end di app per dispositivi mobili, è necessario seguire questa procedura:
 
-- [Creare un back-end dell'app per dispositivi mobili](app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend) da usare con l'app Android, a meno che ne sia già disponibile uno per la propria app.
-- In Android Studio [aggiornare i file di compilazione Gradle](#gradle-build).
+- [Creare un back-end dell'app per dispositivi mobili](app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend) da usare con l'app Android, a meno che ne sia già disponibile uno per la propria app
+- In Android Studio [aggiornare i file di compilazione Gradle](#gradle-build) e
 - [Abilitare l'autorizzazione per Internet.](#enable-internet)
 
 Si dovrà quindi completare la procedura descritta nella sezione di approfondimento.
@@ -56,9 +57,9 @@ Modificare entrambi i file **build.gradle**:
 
 2. Aggiungere il codice seguente al livello *Module app* del file **build.gradle** all'interno del tag *dependencies*:
 
-		compile 'com.microsoft.azure:azure-mobile-android:3.0'
+		compile 'com.microsoft.azure:azure-mobile-android:3.1'
 
-	Attualmente la versione più recente è la 3.0. Le versioni supportate sono elencate [qui](http://go.microsoft.com/fwlink/p/?LinkID=717034).
+	La versione più recente è la 3.1. Le versioni supportate sono elencate [qui](http://go.microsoft.com/fwlink/p/?LinkID=717034).
 
 ###<a name="enable-internet"></a>Abilitare l'autorizzazione per Internet
 Per accedere ad Azure, è necessario abilitare l'autorizzazione INTERNET per l'app. Se non è già abilitata, aggiungere la riga di codice seguente al file **AndroidManifest.xml**:
@@ -157,7 +158,7 @@ Il data binding riguarda tre componenti:
 - Layout della schermata
 - Adattatore che collega i due componenti.
 
-Nel codice di esempio i dati vengono restituiti dalla tabella SQL Azure di app per dispositivi mobili in una matrice *ToDoItem*. Si tratta di un modello molto comune per le applicazioni dati: le query su database restituiscono spesso una raccolta di righe che il client riceve in un elenco o una matrice. In questo esempio la matrice è l'origine dati.
+Nel codice di esempio i dati vengono restituiti dalla tabella di app per dispositivi mobili di SQL Azure *ToDoItem* a una matrice. Si tratta di un modello molto comune per le applicazioni dati: le query su database restituiscono spesso una raccolta di righe che il client riceve in un elenco o una matrice. In questo esempio la matrice è l'origine dati.
 
 Nel codice viene specificato un layout di schermata che definisce la visualizzazione dei dati che appariranno sul dispositivo.
 
@@ -319,7 +320,7 @@ L'esecuzione della query seguente restituisce tutti gli elementi della tabella *
 
 Definire un filtro con la chiamata al metodo **where** sul riferimento alla tabella. Questa chiamata è seguita da una chiamata al metodo **field**, seguita a sua volta da una chiamata al metodo che specifica il predicato logico. I possibili metodi di predicato includono **eq** (uguale a), **ne** (non uguale a), **gt** (maggiore di), **ge** (maggiore o uguale a), **lt** (minore di), **le** (minore o uguale a) e così via. Questi metodi consentono di confrontare campi numerici e campi stringa con valori specifici,
 
-ad esempio filtrare in base alle date. I metodi seguenti consentono di confrontare l'intero campo data o parti della data: **year**, **month**, **day**, **hour**, **minute** e **second**. L'esempio seguente aggiunge un filtro per gli elementi la cui *data di scadenza* (due) è uguale a 2013.
+ad esempio filtrare in base alle date. I metodi seguenti consentono di confrontare l'intero campo data o parti della data: **year**, **month**, **day**, **hour**, **minute** e **second**. L'esempio seguente aggiunge un filtro per gli elementi la cui *data di scadenza* è uguale a 2013.
 
 	mToDoTable.where().year("due").eq(2013).execute().get();
 
@@ -348,7 +349,7 @@ Per una descrizione più dettagliata ed esempi di filtro, vedere il post relativ
 
 ### <a name="sorting"></a>Procedura: Ordinare i dati restituiti
 
-Il codice di esempio seguente restituisce tutti gli elementi di una tabella di oggetti *ToDoItems* elencati in ordine crescente in base al campo *text*. *mToDoTable* è il riferimento alla tabella del back-end creata in precedenza.
+Il codice seguente restituisce tutti gli elementi di una tabella di oggetti *ToDoItems* elencati in ordine crescente in base al campo *text*. *mToDoTable* è il riferimento alla tabella del back-end creata in precedenza:
 
 	mToDoTable.orderBy("text", QueryOrder.Ascending).execute().get();
 
@@ -415,7 +416,7 @@ In seguito si esegue il seguente codice:
 
 L'entità restituita corrisponde ai dati inseriti nella tabella del back-end, inclusi l'ID e gli eventuali altri valori impostati sul back-end.
 
-App per dispositivi mobili richiede la presenza di una colonna denominata **id** in ogni tabella, usata per indicizzare la tabella. Per impostazione predefinita, questa colonna usa dati di tipo stringa, necessari per supportare la sincronizzazione offline. Il valore predefinito della colonna ID è un GUID, ma è possibile fornire altri valori univoci, ad esempio indirizzi di posta elettronica o nomi utente. Se non si fornisce un valore ID di stringa per un record inserito, il back-end genera un nuovo valore GUID.
+Le app per dispositivi mobili richiedono la presenza di una colonna denominata **id** in ogni tabella, usata per indicizzare la tabella. Per impostazione predefinita, questa colonna usa dati di tipo stringa, necessari per supportare la sincronizzazione offline. Il valore predefinito della colonna ID è un GUID, ma è possibile fornire altri valori univoci, ad esempio indirizzi di posta elettronica o nomi utente. Se non si fornisce un valore ID di stringa per un record inserito, il back-end genera un nuovo valore GUID.
 
 I valori ID di stringa offrono i vantaggi seguenti:
 
@@ -543,7 +544,7 @@ Il seguente codice illustra come recuperare un'intera tabella. Poiché si sta us
 
 Un'API personalizzata consente di definire endpoint personalizzati che espongono la funzionalità del server di cui non è possibile eseguire il mapping a un'operazione di inserimento, aggiornamento, eliminazione o lettura. L'utilizzo di un'API personalizzata offre maggiore controllo sulla messaggistica, incluse la lettura e l'impostazione delle intestazioni del messaggio HTTP e la definizione di un formato del corpo del messaggio diverso da JSON.
 
-Per chiamare l'endpoint dell'API personalizzata da un client Android, chiamare il metodo **invokeApi**. L'esempio seguente illustra come chiamare un endpoint API denominato *completeAll*, che restituisce una classe della raccolta denominata MarkAllResult.
+Per chiamare l'endpoint API personalizzato da un client Android, chiamare il metodo **invokeApi**. L'esempio seguente illustra come chiamare un endpoint API denominato *completeAll*, che restituisce una classe della raccolta denominata MarkAllResult.
 
 	public void completeItem(View view) {
 
@@ -605,7 +606,7 @@ Quando si prova a usare un token scaduto, viene visualizzata una risposta di tip
 
 È possibile usare Active Directory Authentication Library (ADAL) per far accedere gli utenti all'applicazione tramite Azure Active Directory. Questa procedura è spesso preferibile all'uso dei metodi `loginAsync()`, perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
 
-1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa.
+1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione relativa alla [configurazione del servizio app per usare l'account di accesso di Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa.
 
 2. Installare ADAL modificando il file build.gradle per includere quanto segue:
 
@@ -840,4 +841,4 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 [Introduzione all'autenticazione]: app-service-mobile-android-get-started-users.md
 [Introduzione all'autenticazione in Servizi mobili]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

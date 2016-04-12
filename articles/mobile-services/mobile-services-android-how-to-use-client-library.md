@@ -19,12 +19,13 @@
 
 # Come usare la libreria client Android per Servizi mobili
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
-
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Come usare la libreria client Android per le app per dispositivi mobili](../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md).
+ 
 Questa guida illustra come eseguire scenari comuni usando un client Android per Servizi mobili di Azure. Gli scenari presentati includono l'esecuzione di query su dati, l'inserimento, l'aggiornamento e l'eliminazione di dati, l'autenticazione di utenti, la gestione di errori e la personalizzazione del client.
 
 Se non si ha familiarità con Servizi mobili, si consiglia di completare prima l’esercitazione di guida introduttiva [Introduzione a Servizi mobili]. Il completamento corretto dell'esercitazione garantisce che Android Studio sia installato e consente di configurare l'account, creare il primo servizio mobile e installare l'SDK di Servizi mobili, che supporta Android 2.2 o versione successiva, anche se è consigliabile usare Android 4.2 o versione successiva.
@@ -303,7 +304,7 @@ Il valore di ID specificato da un'applicazione verrà archiviato da Servizi mobi
 Il valore per `id` deve essere univoco e non deve includere caratteri appartenenti ai set seguenti:
 
 + Caratteri di controllo: [0x0000-0x001F] e [0x007F-0x009F]. Per ulteriori informazioni, vedere la pagina relativa ai [codici di controllo ASCII C0 e C1].
-+  Caratteri stampabili: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
++  Caratteri stampabili: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  Gli ID "." e ".."
 
 In alternativa è possibile utilizzare ID di tipo integer per le tabelle. Per usare un ID integer, è necessario creare la tabella con il comando `mobile table create` e l'opzione `--integerId`. Questo comando viene utilizzato con l'interfaccia della riga di comando (CLI) per Azure. Per ulteriori informazioni sull'utilizzo dell'interfaccia della riga di comando, vedere [CLI per la gestione delle tabelle di Servizi mobili].
@@ -721,7 +722,7 @@ Per le prime due attività viene utilizzato il [portale di Azure classico](https
 
     L'utente viene autenticato nel codice tramite un account di accesso di Google. Viene visualizzata una finestra di dialogo che riporta l'ID dell'utente autenticato. Senza un'autenticazione positiva non è possibile procedere.
 
-    > [AZURE.NOTE]Se si usa un provider di identità diverso da Google, sostituire il valore passato al metodo **login** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Facebook_, _Twitter_ o _WindowsAzureActiveDirectory_.
+    > [AZURE.NOTE] Se si usa un provider di identità diverso da Google, sostituire il valore passato al metodo **login** riportato in precedenza con uno dei seguenti: _MicrosoftAccount_, _Facebook_, _Twitter_ o _WindowsAzureActiveDirectory_.
 
 
 3. Quando si esegue l'app, effettuare l'accesso con il provider di identità scelto.
@@ -937,4 +938,4 @@ Per un esempio relativo a questa operazione, vedere il post del blog relativo al
 [Introduzione a Servizi mobili]: mobile-services-android-get-started.md
 [codici di controllo ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

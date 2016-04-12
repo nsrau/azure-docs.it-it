@@ -53,7 +53,8 @@ Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazi
 
 	In alternativa, installare un certificato di gestione che consenta l'accesso al proprio account. Se si sceglie di installare un certificato, fare clic con il pulsante destro del mouse sul nodo **Azure** in **Esplora server**, quindi scegliere **Gestisci sottoscrizioni** dal menu di scelta rapida. Nella finestra di dialogo **Gestisci sottoscrizioni di Azure** fare clic sulla scheda **Certificati** e quindi su **Importa**. Attenersi alle istruzioni per scaricare e importare un file di sottoscrizione, denominato anche file *.publishsettings* per l'account Azure.
 
-	> [AZURE.NOTE]Se si sceglie di scaricare un file di sottoscrizione, salvarlo in una cartella all'esterno delle directory del codice sorgente, ad esempio nella cartella Download, quindi eliminarlo al termine dell'importazione. Un utente malintenzionato che riesce ad accedere al file di sottoscrizione può modificare, creare ed eliminare i servizi di Azure.
+	> [AZURE.NOTE]
+	Se si sceglie di scaricare un file di sottoscrizione, salvarlo in una cartella all'esterno delle directory del codice sorgente, ad esempio nella cartella Download, quindi eliminarlo al termine dell'importazione. Un utente malintenzionato che riesce ad accedere al file di sottoscrizione può modificare, creare ed eliminare i servizi di Azure.
 
 	Per ulteriori informazioni sul collegamento a risorse di Azure da Visual Studio, vedere [Gestire account, sottoscrizioni e ruoli amministrativi](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 
@@ -89,7 +90,7 @@ In genere, un progetto Web viene distribuito con il flag `customErrors` impostat
 
 ![Messaggio di errore poco utile](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-Spesso, il modo più semplice per trovare la causa dell'errore consiste nell'abilitare i messaggi di errore dettagliati, come illustrato nella prima schermata precedente. In questo caso, è necessario apportare una modifica nel file Web.config distribuito. Questo richiede una modifica nel file Web.config distribuito. È possibile modificare il file *Web.config* nel progetto e quindi ridistribuire il progetto oppure creare una [trasformazione Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) e distribuire una build di debug. Tuttavia, è disponibile un metodo più rapido, ossia visualizzare e modificare direttamente i file in **Esplora soluzioni** sul sito remoto usando la funzionalità di *visualizzazione remota*.
+Spesso, il modo più semplice per trovare la causa dell'errore consiste nell'abilitare i messaggi di errore dettagliati, come illustrato nella prima schermata precedente. In questo caso, è necessario apportare una modifica nel file Web.config distribuito. Che richiede una modifica nel file Web. config distribuito. È possibile modificare il file *Web.config* nel progetto e quindi ridistribuire il progetto oppure creare una [trasformazione Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) e distribuire una build di debug. Tuttavia, è disponibile un metodo più rapido, ossia visualizzare e modificare direttamente i file in **Esplora soluzioni** sul sito remoto usando la funzionalità di *visualizzazione remota*.
 
 1. In **Esplora server** espandere **Azure** e **App Service**, quindi espandere il gruppo di risorse in cui si trova l'app Web e infine espandere il nodo relativo all'app Web.
 
@@ -683,7 +684,7 @@ In questo articolo è stato illustrato come visualizzare in Visual Studio i log 
 
 ### Risoluzione dei problemi relativi alle app Web di Azure
 
-Per altre informazioni sulla risoluzione dei problemi di App Web nel servizio app di Azure, vedere le risorse seguenti:
+Per altre informazioni sulla risoluzione dei problemi di app Web in Servizio app di Azure, vedere le risorse seguenti:
 
 * [Come monitorare le app Web](/manage/services/web-sites/how-to-monitor-websites/)
 * [Analisi delle perdite di memoria in App Web di Azure con Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Post del blog di Microsoft ALM sulle funzionalità di Visual Studio per l'analisi dei problemi relativi alla memoria gestita.
@@ -756,10 +757,9 @@ Se si desidera eseguire il debug di un servizio cloud di Azure anziché di un'ap
 
 ## Modifiche apportate
 * Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per informazioni su cosa è cambiato nel passaggio dal portale di Azure al portale di anteprima di Azure, vedere [Informazioni di riferimento per l'esplorazione del portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

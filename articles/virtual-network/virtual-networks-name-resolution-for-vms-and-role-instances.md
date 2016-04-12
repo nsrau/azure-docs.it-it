@@ -42,7 +42,7 @@ Il tipo di risoluzione dei nomi usato dipende dal modo in cui VM e istanze del r
 
 ## Risoluzione dei nomi fornita da Azure
 
-Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nomi interni per VM e istanze del ruolo che si trovano all'interno della stessa rete virtuale o dello stesso servizio cloud. Le VM e le istanze in un servizio cloud condividono lo stesso suffisso DNS, quindi il nome host da solo è sufficiente, tuttavia, nelle reti virtuali classiche, servizi cloud diversi hanno suffissi DNS diversi, quindi è necessario il nome di dominio completo per la risoluzione dei nomi tra diversi servizi cloud. Nelle reti virtuali basate su Azure Resource Manager il suffisso DNS è coerente nella rete virtuale, quindi il nome di dominio completo non è necessario e i nomi DNS possono essere assegnati sia alle schede di interfaccia di rete che alle macchine virtuali. Sebbene la risoluzione dei nomi fornita da Azure non richieda alcuna configurazione, non è la scelta più appropriata per tutti gli scenari di distribuzione, come illustrato nella tabella precedente.
+Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nomi interni per VM e istanze del ruolo che si trovano all'interno della stessa rete virtuale o dello stesso servizio cloud. Le VM e le istanze in un servizio cloud condividono lo stesso suffisso DNS, quindi il nome host da solo è sufficiente, tuttavia, nelle reti virtuali classiche, servizi cloud diversi hanno suffissi DNS diversi, quindi è necessario il nome di dominio completo per la risoluzione dei nomi tra diversi servizi cloud. Nelle reti virtuali nel modello di distribuzione di Resource Manager il suffisso DNS è coerente nella rete virtuale, quindi il nome di dominio completo non è necessario e i nomi DNS possono essere assegnati sia alle schede di interfaccia di rete che alle macchine virtuali. Sebbene la risoluzione dei nomi fornita da Azure non richieda alcuna configurazione, non è la scelta più appropriata per tutti gli scenari di distribuzione, come illustrato nella tabella precedente.
 
 > [AZURE.NOTE] Nel caso dei ruoli web e di lavoro, è possibile accedere anche gli indirizzi IP interni delle istanze del ruolo in base al numero di nome e al numero di istanza del ruolo utilizzando l'API REST di gestione dei servizi Azure. Per altre informazioni, vedere [Riferimento all'API REST di gestione dei servizi](https://msdn.microsoft.com/library/azure/ee460799.aspx).
 
@@ -58,7 +58,7 @@ Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nom
 
 - La risoluzione dei nomi viene offerta tra istanze del ruolo e VM presenti nello stesso servizio cloud senza necessità di un nome di dominio completo.
 
-- La risoluzione dei nomi viene fornita tra macchine virtuali nelle reti virtuali basate su Gestione risorse di Azure senza la necessità del nome di dominio completo, mentre le reti classiche richiedono il nome di dominio completo per la risoluzione dei nomi in servizi cloud diversi.
+- Viene fornita la risoluzione dei nomi tra VM in reti virtuali che usano il modello di distribuzione di Resource Manager, senza necessità del nome di dominio completo. Le reti virtuali nel modello di distribuzione classica richiedono il nome di dominio completo per la risoluzione dei nomi in diversi servizi cloud.
 
 - È possibile usare nomi host personalizzati in grado di descrivere in modo più adeguato le distribuzioni, anziché usare nomi generati automaticamente.
 
@@ -74,7 +74,7 @@ Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nom
 
 - Il traffico di query DNS è limitato per ogni VM. Questo in genere non comporta alcun impatto sulla maggior parte delle applicazioni. Se viene osservata la limitazione delle richieste, assicurarsi che la memorizzazione nella cache sul lato client sia abilitata. Per altre informazioni, vedere l'articolo che illustra [come usare al meglio la risoluzione dei nomi fornita da Azure](#Getting-the-most-from-Azure-provided-name-resolution).
 
-- Solo le macchine virtuali nei primi 180 servizi cloud sono registrate per ogni rete virtuale classica. Questo non si applica alle reti virtuali basate su Gestione risorse di Azure.
+- Solo le VM nei primi 180 servizi cloud sono registrate per ogni rete virtuale in un modello di distribuzione classica. Ciò non si applica alle reti virtuali nei modelli di distribuzione di Resource Manager.
 
 
 ### Come usare al meglio la risoluzione dei nomi fornita da Azure
@@ -137,8 +137,8 @@ L'inoltro DNS consente anche la risoluzione DNS tra reti virtuali e permette all
 
 Quando si usa la risoluzione dei nomi di Azure, il suffisso DNS interno viene fornito a ogni macchina virtuale tramite DHCP. Quando si usa la soluzione di risoluzione dei nomi personalizzata, questo suffisso non viene fornito alle macchine virtuali perché interferisce con altre architetture DNS. Per fare riferimento alle macchine virtuali usando il nome di dominio completo o per configurare il suffisso nelle macchine virtuali, è possibile determinare il suffisso tramite PowerShell o l'API:
 
--  Per le reti virtuali gestite tramite Azure Resource Manager, il suffisso è disponibile tramite la risorsa [scheda di interfaccia di rete](https://msdn.microsoft.com/library/azure/mt163668.aspx) o il cmdlet [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx).    
--  Per le distribuzioni classiche, il suffisso è disponibile tramite una chiamata all'[API GetDeployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) o il cmdlet [Get-AzureVM -Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx).
+-  Per le reti virtuali nei modelli di distribuzione di Resource Manager, il suffisso è disponibile tramite la risorsa [scheda di interfaccia di rete](https://msdn.microsoft.com/library/azure/mt163668.aspx) o il cmdlet [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx).    
+-  Nei modelli di distribuzione classica il suffisso è disponibile tramite una chiamata all'[API GetDeployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) o il cmdlet [Get-AzureVM -Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx).
 
 
 Se l'inoltro delle query ad Azure non soddisfa le esigenze correnti, sarà necessario fornire una soluzione DNS personalizzata. Questa soluzione DNS dovrà:
@@ -151,34 +151,34 @@ Se l'inoltro delle query ad Azure non soddisfa le esigenze correnti, sarà neces
 > [AZURE.NOTE] Per prestazioni ottimali, quando si usano macchine virtuali di Azure come server DNS, è necessario disabilitare IPv6 e assegnare un indirizzo [IP pubblico a livello di istanza](virtual-networks-instance-level-public-ip.mp) a ogni macchina virtuale del server DNS. Se si sceglie di usare Windows Server come server DNS, [questo articolo](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) offre un'analisi delle prestazioni e ottimizzazioni aggiuntive.
 
 
+### Specificare i server DNS
 
-## Specificare i server DNS
+Quando si usano i propri server DNS, Azure offre la possibilità di specificare più server DNS per ogni rete virtuale o per ogni interfaccia di rete (Resource Manager)/servizio cloud (classico). I server DNS specificati per un'interfaccia di rete o un servizio cloud ottengono la precedenza su quelli specificati per la rete virtuale.
 
-È possibile specificare più server DNS da utilizzare per le macchine virtuali e le istanze del ruolo. Per ogni query DNS, il client proverà per prima cosa il server DNS preferito e proverà i server alternativi solo nel caso in cui quello preferito non risponda, ovvero non è previsto il bilanciamento del carico tra i diversi server DNS per le query DNS. Per questo motivo, verificare di avere i server DNS elencati nell'ordine corretto per il proprio ambiente.
+> [AZURE.NOTE] Le proprietà di connessione di rete, ad esempio gli indirizzi IP del server DNS, non devono essere modificate direttamente all'interno delle VM di Windows in quanto possono essere cancellate durante il servizio di correzione quando la scheda di rete virtuale viene sostituita.
 
-> [AZURE.NOTE] Se si modificano le impostazioni DNS in un file di configurazione di rete per rete virtuale che è già stato distribuito, è necessario riavviare ogni macchina virtuale affinché le modifiche vengano applicate.
 
-### Impostazione di un server DNS nel portale di gestione
+Quando si usa il modello di distribuzione di Resource Manager, i server DNS possono essere specificati nel portale, nelle API, nei modelli ([vnet](https://msdn.microsoft.com/library/azure/mt163661.aspx), [nic](https://msdn.microsoft.com/library/azure/mt163668.aspx)) o in PowerShell ([vnet](https://msdn.microsoft.com/library/mt603657.aspx), [nic](https://msdn.microsoft.com/library/mt619370.aspx)).
 
-Quando si crea una rete virtuale nel portale di gestione, è possibile specificare l'indirizzo IP e il nome di uno o più server DNS da usare. Una volta creata la rete virtuale, le macchine virtuali e le istanze del ruolo distribuite nella rete virtuale vengono configurate automaticamente con le impostazioni DNS specificate. I server DNS specificati per un determinato servizio cloud (portale di Azure classico) o una scheda di interfaccia rete (distribuzioni basate su Azure Resource Manager) hanno la precedenza su quelli specificati per la rete virtuale.
+Quando si usa il modello di distribuzione classica, i server DNS possono essere specificati per la rete virtuale nel portale o [ nel file di *configurazione di rete*](https://msdn.microsoft.com/library/azure/jj157100). Per i servizi cloud, i server DNS vengono specificati tramite [il file di *configurazione del servizio*](https://msdn.microsoft.com/library/azure/ee758710) o in PowerShell ([New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)).
 
-### Impostazione di un server DNS usando file di configurazione (portale di Azure classico)
-
-Per le reti virtuali classiche, è possibile specificare le impostazioni DNS usando due file di configurazione diversi: il file di *configurazione di rete* e il file di *configurazione del servizio*.
-
-Il file di configurazione della rete descrive le reti virtuali della sottoscrizione corrente. Quando si aggiungono istanze del ruolo o VM a un servizio cloud in una rete virtuale, le impostazioni DNS del file di configurazione della rete vengono applicate a ogni istanza del ruolo o VM, a meno che non siano stati specificati server DNS specifici del servizio cloud.
-
-Il file di configurazione del servizio viene creato per ogni servizio cloud aggiunto ad Azure. Quando si aggiungono istanze del ruolo o VM al servizio cloud, le impostazioni DNS del file di configurazione del servizio vengono applicate a ogni istanza del ruolo o VM.
-
-> [AZURE.NOTE] I server DNS nel file di configurazione del servizio hanno la precedenza sulle impostazioni nel file di configurazione della rete.
+> [AZURE.NOTE] Se si modificano le impostazioni DNS per una rete virtuale o una macchina virtuale che è già stata distribuita, è necessario riavviare ogni VM interessata affinché le modifiche vengano applicate.
 
 
 ## Passaggi successivi
 
-[Schema di configurazione dei servizi di Azure](https://msdn.microsoft.com/library/azure/ee758710)
+Modello di distribuzione di Resource Manager:
 
-[Schema di configurazione di Rete virtuale](https://msdn.microsoft.com/library/azure/jj157100)
+- [Creare o aggiornare una rete virtuale](https://msdn.microsoft.com/library/azure/mt163661.aspx)
+- [Creare o aggiornare una scheda dell'interfaccia di rete](https://msdn.microsoft.com/library/azure/mt163668.aspx)
+- [New-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx)
+- [New-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx)
 
-[Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md)
+ 
+Modello di distribuzione classica:
 
-<!---HONumber=AcomDC_0302_2016-->
+- [Schema di configurazione dei servizi di Azure](https://msdn.microsoft.com/library/azure/ee758710)
+- [Schema di configurazione di Rete virtuale](https://msdn.microsoft.com/library/azure/jj157100)
+- [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md) 
+
+<!---HONumber=AcomDC_0309_2016-->

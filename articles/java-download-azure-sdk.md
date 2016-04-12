@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="03/09/2016" 
 	ms.author="robmcm"/>
 
-# Download di Azure SDK per Java #
+# Download di Azure SDK per Java
 
 Questo articolo contiene le istruzioni per scaricare e installare le librerie di Azure per Java.
 
 **Nota:** Le librerie di Azure per Java vengono distribuite con la [licenza Apache versione 2.0][license].
 
-## Librerie di Azure per Java - Download manuale ##
+## Librerie di Azure per Java - Download manuale
 
 Per installare manualmente le librerie di Azure per Java, fare clic su <http://go.microsoft.com/fwlink/?LinkId=690320> per scaricare un file ZIP che contiene tutte le librerie e tutte le dipendenze.
 
@@ -32,53 +32,55 @@ Dopo aver scaricato il file zip sul computer, estrarre il contenuto e usare una 
 
 * Configurare il **Percorso di compilazione** per il progetto Java in Eclipse per includere il percorso verso i file JAR.
 
-Per informazioni dettagliate sull'impostazione dei percorsi di compilazione in Eclipse, vedere l’articolo [Java Build Path][] sul sito Web Eclipse.
+Per informazioni dettagliate sull'impostazione dei percorsi di compilazione in Eclipse, vedere l’articolo [Java Build Path] sul sito Web Eclipse.
 
 **Nota:** Per i dettagli sulla licenza e altre informazioni, vedere i file license.txt e ThirdPartyNotices.txt all'interno dell'archivio ZIP.
 
-## Librerie di Azure per Java - Compilazione con Maven ##
+## Librerie di Azure per Java - Compilazione con Maven
 
-### Passaggio 1: configurare il progetto per usare Maven per la compilazione ###
+### Passaggio 1: configurare il progetto per usare Maven per la compilazione
 
 Per creare progetti Maven in Eclipse, che usano le librerie di Azure per Java, seguire le istruzioni presenti nell’articolo [Introduzione ad Azure Management Libraries per Java][maven-getting-started].
 
-### Passaggio 2 - configurare le impostazioni di Maven con le dipendenze necessarie ###
+### Passaggio 2 - configurare le impostazioni di Maven con le dipendenze necessarie
 
 Una volta che il progetto è stato configurato per l’uso di Maven per la compilazione, è possibile aggiungere le dipendenze necessarie al file pom.xml usando una sintassi simile a quella dell’esempio seguente. Notare che non è necessario aggiungere tutte le dipendenze elencate nel seguente esempio; è sufficiente aggiungere le dipendenze specifiche richieste dal progetto.
 
+> [AZURE.NOTE] All'interno di ogni elemento `<version>` nell'esempio seguente, sostituire i segnaposto "n.n.n" di questo esempio con numeri di versione validi, che possono essere ottenuti dall'[archivio delle librerie di Azure su Maven].
+
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-management</artifactId>
+        <artifactId>azure-svc-mgmt</artifactId>
         <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-management-compute</artifactId>
+        <artifactId>azure-svc-mgmt-compute</artifactId>
         <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-management-network</artifactId>
+        <artifactId>azure-svc-mgmt-network</artifactId>
         <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-management-sql</artifactId>
+        <artifactId>azure-svc-mgmt-sql</artifactId>
         <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-management-storage</artifactId>
+        <artifactId>azure-svc-mgmt-storage</artifactId>
         <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-management-websites</artifactId>
+        <artifactId>azure-svc-mgmt-websites</artifactId>
         <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-media</artifactId>
+        <artifactId>azure-svc-mgmt-media</artifactId>
         <version>n.n.n</version>
     </dependency>
     <dependency>
@@ -92,35 +94,33 @@ Una volta che il progetto è stato configurato per l’uso di Maven per la compi
         <version>n.n.n</version>
     </dependency>
 
-**Nota:** all'interno di ogni elemento `<version>` nell'esempio precedente, sostituire i segnaposto "n.n.n" di questo esempio con numeri di versione validi, che possono essere ottenuti dall'[archivio delle librerie di Azure su Maven][].
+## Installare il Toolkit di Azure per Eclipse.
 
-## Installare il Toolkit di Azure per Eclipse. ##
+Questa sezione contiene istruzioni di base per l'installazione del Toolkit di Azure per Eclipse; per istruzioni dettagliate, vedere l’[Installazione del Toolkit di Azure per Eclipse].
 
-Questa sezione contiene istruzioni di base per l'installazione del Toolkit di Azure per Eclipse; per istruzioni dettagliate, vedere l’[Installazione del Toolkit di Azure per Eclipse][].
+### Prerequisiti
 
-### Prerequisiti ###
-
-1. I sistemi operativi Windows elencati nell’articolo [Novità del Toolkit di Azure per Eclipse][].
-1. I sistemi operativi Macintosh o Linux elencati nell’articolo [Novità del Toolkit di Azure per Eclipse][].
+1. I sistemi operativi Windows elencati nell’articolo [Novità del Toolkit di Azure per Eclipse].
+1. I sistemi operativi Macintosh o Linux elencati nell’articolo [Novità del Toolkit di Azure per Eclipse].
 1. IDE Eclipse per sviluppatori Java EE, Indigo o versione successiva. È possibile scaricare il pacchetto all'indirizzo <http://www.eclipse.org/downloads/>.
 
-### Procedura dell’installazione di base ###
+### Procedura dell’installazione di base
 
 1. Dal menu **Help** di Eclipse, scegliere **Install New Software**.
-1. Immettere il percorso del sito <http://dl.msopentech.com/eclipse> e premere **INVIO**.
+1. Immettere il percorso del sito <http://dl.microsoft.com/eclipse> e premere **INVIO**.
 1. Selezionare gli elementi da installare e fare clic su **Finish**.
 
 Il Toolkit di Azure per Eclipse usa l'ultima versione dell’SDK di Azure. Questa può essere scaricata utilizzando Installazione guidata piattaforma Web (WebPI) all'indirizzo <http://go.microsoft.com/fwlink/?LinkID=252838>. Se tale piattaforma non è installata, tuttavia, quando si crea il primo progetto di distribuzione di Azure, il Toolkit di Azure per Eclipse installerà automaticamente la versione appropriata di Azure SDK.
 
-## Vedere anche ##
+## Vedere anche
 
-[Toolkit di Azure per Eclipse][]
+[Toolkit di Azure per Eclipse]
 
-[Installare il Toolkit di Azure per Eclipse.][]
+[Installare il Toolkit di Azure per Eclipse.]
 
-[Creare un'applicazione Hello World per Azure in Eclipse][]
+[Creare un'applicazione Hello World per Azure in Eclipse]
 
-Per altre informazioni su come usare Azure con Java, visitare il [Centro per sviluppatori Java di Azure][].
+Per altre informazioni su come usare Azure con Java, visitare il [Centro per sviluppatori Java di Azure].
 
 <!-- URL List -->
 
@@ -136,4 +136,4 @@ Per altre informazioni su come usare Azure con Java, visitare il [Centro per svi
 [zip-download]: http://go.microsoft.com/fwlink/?LinkId=690320
 [Novità del Toolkit di Azure per Eclipse]: http://go.microsoft.com/fwlink/?LinkId=690333
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

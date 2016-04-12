@@ -1,0 +1,5 @@
+- **Tipo di VPN basata su criteri:** nel modello di distribuzione classica le VPN basate su criteri sono definite gateway con routing statico. Le VPN basate su criteri crittografano e reindirizzano i pacchetti tramite tunnel IPsec basati sui criteri IPsec configurati con le combinazioni di prefissi di indirizzo tra la rete locale e la rete virtuale di Azure. I criteri o selettori di traffico vengono in genere definiti come un elenco di accesso nella configurazione del dispositivo VPN. Il valore per una VPN basata su criteri è *PolicyBased*.
+
+- **Tipo di VPN basata su route:** nel modello di distribuzione classica le VPN basate su route sono definite gateway con routing dinamico. Le VPN basate su route usano "route" nella tabella di inoltro IP o di routing per reindirizzare i pacchetti nelle interfacce tunnel corrispondenti. Le interfacce tunnel consentono quindi di crittografare o decrittografare i pacchetti all'interno e all'esterno dei tunnel. I criteri o selettori di traffico per le VPN basate su route vengono configurati come any-to-any o caratteri jolly. Il valore per un tipo di VPN basato su route è *RouteBased*.
+
+<!---HONumber=AcomDC_0323_2016-->

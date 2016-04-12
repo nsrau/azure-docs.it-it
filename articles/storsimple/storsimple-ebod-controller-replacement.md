@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="03/22/2016"
    ms.author="alkohli" />
 
 # Sostituzione di un controller EBOD nel dispositivo StorSimple
@@ -30,7 +30,7 @@ Prima di iniziare, tenere in considerazione le informazioni seguenti:
 
 - Il controller EBOD è dispone del supporto per lo swapping a caldo e può essere rimosso o sostituito. Non rimuovere un modulo guasto finché non si dispone di una sostituzione. Quando si avvia il processo di sostituzione, deve essere completato entro 10 minuti.
 
->[AZURE.IMPORTANT]Prima di rimuovere e sostituire un controller EBOD, esaminare le informazioni di sicurezza descritte in [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Prima di tentare di rimuovere o sostituire qualsiasi componente di StorSimple, leggere le[convenzioni di sicurezza](storsimple-safety.md#safety-icon-conventions)e altre[precauzioni di sicurezza](storsimple-safety.md).
 
 ## Rimozione di un controller EBOD
 
@@ -48,7 +48,7 @@ Prima di sostituire il modulo controller EBOD guasto nel dispositivo StorSimple,
 
 5. Prendere nota dell'esatta porta SAS del modulo controller EBOD collegata al controller. Dopo la sostituzione del modulo EBOD, sarà necessario ripristinare il sistema a questa configurazione.
 
-    >[AZURE.NOTE]In genere, questa sarà la porta A, etichettata come **Host in entrata** nel diagramma seguente.
+    >[AZURE.NOTE] In genere, questa sarà la porta A, etichettata come **Host in entrata** nel diagramma seguente.
 
     ![Backplane del controller EBOD](./media/storsimple-ebod-controller-replacement/IC741049.png)
 
@@ -101,10 +101,10 @@ Nella procedura e nella tabella seguenti viene illustrato come installare un mod
     |6|Controller 0 EBOD|
     |7|Controller 1 EBOD|
     |8|Chassis EBOD|
-    |9|PDU|
+    |9|Unità PDU (Power Distribution Unit)|
 
 ## Passaggi successivi
 
 Leggere ulteriori informazioni sulla [Sostituzione dei componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

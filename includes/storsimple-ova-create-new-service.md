@@ -1,6 +1,6 @@
 #### Per creare un nuovo servizio
 
-1.  Usare le credenziali dell'account Microsoft per accedere al portale di Azure classico all'URL seguente: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
+1.  Usare le credenziali dell'account Microsoft e accedere al portale di Azure classico all'URL seguente: [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Se si esegue la distribuzione del dispositivo nel portale per enti pubblici, accedere a: [https://manage.windowsazure.us/](https://manage.windowsazure.us/)
 
 2.  Nel portale, fare clic su **Nuovo > Servizi dati > StorSimple Manager > Creazione rapida**.
 
@@ -14,7 +14,9 @@
 
 	 -   Se si dispone di altri carichi di lavoro in Azure che si intende distribuire con il dispositivo StorSimple, si consiglia l'uso di quel data center.
 
-   	 -   StorSimple Manager e Archiviazione di Azure possono trovarsi in due posizioni distinte. In tal caso, è necessario creare il servizio StorSimple Manager e l'account di archiviazione di Azure separatamente. Per creare un account Archiviazione di Azure, andare al servizio Archiviazione di Azure nel portale e seguire i passaggi relativi alla [creazione di un account di Archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account). Dopo aver creato questo account, aggiungerlo al servizio StorSimple Manager seguendo i passaggi relativi alla [configurazione di un nuovo account di archiviazione per il servizio](#optional-step-configure-a-new-storage-account-for-the-service).
+   	 -   StorSimple Manager e Archiviazione di Azure possono trovarsi in due posizioni distinte. In tal caso, è necessario creare il servizio StorSimple Manager e l'account di archiviazione di Azure separatamente. Per creare un account di archiviazione di Azure, passare al servizio di archiviazione di Azure nel portale e seguire la procedura descritta in [Creare un account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account). Dopo aver creato questo account, aggiungerlo al servizio StorSimple Manager seguendo la procedura descritta in [Configurare un nuovo account di archiviazione per il servizio](#optional-step-configure-a-new-storage-account-for-the-service).
+   	 
+   	 -   Se si esegue la distribuzione del dispositivo virtuale nel portale per enti pubblici, il servizio StorSimple Manager è disponibile nelle località statunitensi dell'Iowa e della Virginia.
    	 
    	 	
 	1.  Scegliere una **Sottoscrizione** dall'elenco a discesa. La sottoscrizione viene collegata all'account di fatturazione. Questo campo non è presente se si dispone di una sola sottoscrizione.
@@ -23,12 +25,12 @@
 
 	1.  Fare clic su **Crea StorSimple Manager** per creare il servizio.
 
-		![](./media/storsimple-ova-create-new-service/image1-include.png)
+		![](./media/storsimple-ova-create-new-service/image1m-include.png)
 
 	Si verrà indirizzati alla pagina di destinazione del **Servizio**. La creazione del servizio richiederà alcuni minuti. Dopo aver creato correttamente il servizio, si riceverà la relativa notifica.
 
 	![](./media/storsimple-ova-create-new-service/image2-include.png)
 
-	Lo stato del servizio si trasformerà in **Attivo**.
+	Lo stato del servizio verrà modificato in **Attivo**.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

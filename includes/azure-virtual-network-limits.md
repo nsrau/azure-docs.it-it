@@ -5,12 +5,12 @@ Risorsa| Limite predefinito | Limite massimo
 Reti virtuali per sottoscrizione | 50 | 100
 Siti di reti locali per sottoscrizione | 20 | Contattare il supporto tecnico
 Server DNS per rete virtuale | 20 | 100
-Le macchine virtuali e le istanze del ruolo per ogni rete virtuale | 2048 | 2048
+Indirizzi IP privati per rete virtuale | 4096 | 4096
 Connessioni TCP simultanee per un'istanza del ruolo o della macchina virtuale | 500K | 500K 
 Gruppi di sicurezza di rete (NGS) | 100 | 200
 Regole NSG per NSG | 200 | 400
 Tabelle di route definite dall’utente | 100 | 200
-Le route definite dall’utente per ogni tabella di route | 100 | 500
+Le route definite dall’utente per ogni tabella di route | 100 | 400
 Indirizzi IP pubblici (dinamici) | 5 | Contattare il supporto tecnico
 Indirizzi IP pubblici riservati. | 20 | Contattare il supporto tecnico
 VIP pubblico per ogni distribuzione | 5 | Contattare il supporto tecnico
@@ -26,13 +26,13 @@ Risorsa| Limite predefinito | Limite massimo
 --- | --- | ---
 Reti virtuali per sottoscrizione | 50 | 500
 Server DNS per rete virtuale | 9 | 25
-Le macchine virtuali e le istanze del ruolo per ogni rete virtuale | 2048 | 2048
+Indirizzi IP privati per rete virtuale | 4096 | 4096
 Connessioni TCP simultanee per un'istanza del ruolo o della macchina virtuale | 500K |500K
-Interfacce di rete (NIC) | 300 | 1000
+Interfacce di rete (NIC) | 300 | 10000
 Gruppi di sicurezza di rete (NGS) | 100 | 400
 Regole NSG per NSG | 200 | 500
 Tabelle di route definite dall’utente | 100 | 400
-Le route definite dall’utente per ogni tabella di route | 100 | 500
+Le route definite dall’utente per ogni tabella di route | 100 | 400
 Indirizzi IP pubblici (dinamici) | 60 | Contattare il supporto tecnico
 Indirizzi IP pubblici riservati. | 20 | Contattare il supporto tecnico
 Bilanciamento del carico (interno e con connessione Internet) | 100 | Contattare il supporto tecnico
@@ -43,4 +43,4 @@ Gateway di applicazione | 50 | 50
 
 Nel caso in cui sia necessario aumentare questi limiti rispetto all'impostazione predefinita, contattare il supporto tecnico.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

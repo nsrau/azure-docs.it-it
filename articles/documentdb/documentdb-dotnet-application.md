@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="02/09/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Esercitazione su MVC ASP.NET: Sviluppo di applicazioni Web con DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
-- [Node.js](documentdb-nodejs-application.md)
+- [Node.JS](documentdb-nodejs-application.md)
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md) 
 
@@ -99,17 +99,17 @@ Ora che è disponibile la maggior parte del plumbing MVC ASP.NET necessario per 
 
   	![Schermata delle opzioni del menu di scelta rapida per il progetto applicazione web in Esplora soluzioni, con Gestisci pacchetti NuGet evidenziato.](./media/documentdb-dotnet-application/image21.png)
 
-    Viene visualizzata la finestra di dialogo **Gestione pacchetti NuGet**.
+	Viene visualizzata la finestra di dialogo **Gestione pacchetti NuGet**.
 
 2. Nella casella **Cerca online** digitare ***Azure DocumentDB***.
-    
-    Dai risultati installare il pacchetto delle **librerie client Microsoft Azure DocumentDB**. Il pacchetto DocumentDB verrà scaricato e installato, insieme a tutte le dipendenze, ad esempio Newtonsoft.Json.
+	
+	Dai risultati installare il pacchetto delle **librerie client Microsoft Azure DocumentDB**. Il pacchetto DocumentDB verrà scaricato e installato, insieme a tutte le dipendenze, ad esempio Newtonsoft.Json.
 
   	![Schermata della finestra Gestisci pacchetti NuGet, con la libreria del client di Microsoft Azure DocumentDB evidenziata](./media/documentdb-dotnet-application/nuget.png)
 
   	In alternativa, è possibile usare la console di Gestione pacchetti per installare il pacchetto. A tale scopo, dal menu **Strumenti** fare clic su **Gestione pacchetti NuGet** e quindi su **Console di Gestione pacchetti**. Al prompt dei comandi, immettere quanto segue.
 
-    	Install-Package Microsoft.Azure.DocumentDB
+		Install-Package Microsoft.Azure.DocumentDB
 
 3. Una volta installato il pacchetto, la soluzione di Visual Studio dovrebbe assomigliare alla seguente, con due nuovi riferimenti aggiunti, Microsoft.Azure.Documents.Client e Newtonsoft.Json.
 
@@ -146,20 +146,20 @@ Creare prima di tutto l'elemento che corrisponde alla lettera **M** in MVC, ovve
 		}
 
 	con il codice seguente:
-		
-        public class Item
-        {
-        	[JsonProperty(PropertyName="id")]
-        	public string Id { get; set; }
-		
-        	[JsonProperty(PropertyName="name")]
-        	public string Name { get; set; }
-		
-        	[JsonProperty(PropertyName = "desc")]
-        	public string Description { get; set; }
-		
-       		[JsonProperty(PropertyName="isComplete")]
-        	public bool Completed { get; set; }    
+
+		public class Item
+		{
+			[JsonProperty(PropertyName = "id")]
+			public string Id { get; set; }
+			 
+			[JsonProperty(PropertyName = "name")]
+			public string Name { get; set; }
+
+			[JsonProperty(PropertyName = "description")]
+			public string Description { get; set; }
+
+			[JsonProperty(PropertyName = "isComplete")]
+			public bool Completed { get; set; }
 		}
 
 	Tutti i dati presenti in DocumentDB vengono passati in rete e archiviati come JSON. Per controllare il modo in cui gli oggetti vengono serializzati/deserializzati da JSON.NET, è possibile usare l'attributo **JsonProperty**, come mostrato nella classe **Item** appena creata. Questa operazione **non è necessaria**, ma è utile per verificare che le proprietà seguano le convenzioni di denominazione maiuscole-minuscole JSON.
@@ -173,7 +173,7 @@ Una volta creato il modello **M**, si passa alla creazione di una classe control
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Controller**, scegliere **Aggiungi** e quindi fare clic su **Controller**.
 
-    Verrà visualizzata la finestra di dialogo **Aggiungi scaffolding**.
+	Verrà visualizzata la finestra di dialogo **Aggiungi scaffolding**.
 
 2. Selezionare **Controller MVC 5 - Vuoto** e quindi fare clic su **Aggiungi**.
 
@@ -222,12 +222,12 @@ Viene ora creata una nuova visualizzazione per la creazione di nuovi oggetti **I
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Elemento**, scegliere **Aggiungi** e quindi fare clic su **Visualizzazione**.
 
 2. Nella finestra di dialogo **Aggiungi visualizzazione** eseguire le operazioni seguenti:
-    - Nella casella **Nome visualizzazione** digitare ***Create***.
-    - Nella casella **Modello** selezionare ***Create***.
-    - Nella casella **Classe modello** selezionare ***Item (todo.Models)***.
-    - Lasciare vuota la casella **Classe contesto dati**.
-    - Nella casella della pagina di layout digitare ***~/Views/Shared/\_Layout.cshtml***.
-    - Fare clic su **Aggiungi**.
+	- Nella casella **Nome visualizzazione** digitare ***Create***.
+	- Nella casella **Modello** selezionare ***Create***.
+	- Nella casella **Classe modello** selezionare ***Item (todo.Models)***.
+	- Lasciare vuota la casella **Classe contesto dati**.
+	- Nella casella della pagina di layout digitare ***~/Views/Shared/\_Layout.cshtml***.
+	- Fare clic su **Aggiungi**.
 
 #### <a name="_Toc395888515"></a>Aggiungere una visualizzazione Modifica elemento
 
@@ -236,12 +236,12 @@ Viene ora creata una nuova visualizzazione per la creazione di nuovi oggetti **I
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Elemento**, scegliere **Aggiungi** e quindi fare clic su **Visualizzazione**.
 
 2. Nella finestra di dialogo **Aggiungi visualizzazione** eseguire le operazioni seguenti:
-    - Nella casella **Nome visualizzazione** digitare ***Edit***.
-    - Nella casella **Modello** selezionare ***Edit***.
-    - Nella casella **Classe modello** selezionare ***Item (todo.Models)***.
-    - Lasciare vuota la casella **Classe contesto dati**. 
-    - Nella casella della pagina di layout digitare ***~/Views/Shared/\_Layout.cshtml***.
-    - Fare clic su **Aggiungi**.
+	- Nella casella **Nome visualizzazione** digitare ***Edit***.
+	- Nella casella **Modello** selezionare ***Edit***.
+	- Nella casella **Classe modello** selezionare ***Item (todo.Models)***.
+	- Lasciare vuota la casella **Classe contesto dati**. 
+	- Nella casella della pagina di layout digitare ***~/Views/Shared/\_Layout.cshtml***.
+	- Fare clic su **Aggiungi**.
 
 Al termine, chiudere tutti i documenti con estensione cshtml in Visual Studio. Si tornerà a queste visualizzazioni in un secondo momento.
 
@@ -264,8 +264,8 @@ La prima cosa da fare è aggiungere una classe che contenga tutta la logica per 
 2. Appena creata la classe **DocumentDBRepository** e aggiungere le seguenti *istruzioni using* sopra la dichiarazione dello *spazio dei nomi*
 		
 		using Microsoft.Azure.Documents; 
-	    using Microsoft.Azure.Documents.Client; 
-	    using Microsoft.Azure.Documents.Linq; 
+		using Microsoft.Azure.Documents.Client; 
+		using Microsoft.Azure.Documents.Linq; 
 		using System.Configuration;
 		using System.Linq.Expressions;
 		using System.Threading.Tasks;
@@ -274,151 +274,97 @@ La prima cosa da fare è aggiungere una classe che contenga tutta la logica per 
 
 		public class DocumentDBRepository
 		{
-    	}
+		}
 
 	con il codice seguente:
 
-    	
-		public static class DocumentDBRepository<T>
-    	{
-			//Use the Database if it exists, if not create a new Database
-	    	private static Database ReadOrCreateDatabase()
-	    	{
-	        	var db = Client.CreateDatabaseQuery()
-	        	                .Where(d => d.Id == DatabaseId)
-	        	                .AsEnumerable()
-	        	                .FirstOrDefault();
-				
-	        	if (db == null)
-	        	{
-	        	    db = Client.CreateDatabaseAsync(new Database { Id = DatabaseId }).Result;
-	        	}
-				
-	        	return db;
-	    	}
-			
-			//Use the DocumentCollection if it exists, if not create a new Collection
-	    	private static DocumentCollection ReadOrCreateCollection(string databaseLink)
-	   		{
-	    	    var col = Client.CreateDocumentCollectionQuery(databaseLink)
-	        	                  .Where(c => c.Id == CollectionId)
-	        	                  .AsEnumerable()
-	        	                  .FirstOrDefault();
-		
-	        	if (col == null)
-	        	{
-					var collectionSpec = new DocumentCollection { Id = CollectionId };
-					var requestOptions = new RequestOptions {OfferType = "S1" };
-					
-	        	    col = Client.CreateDocumentCollectionAsync(databaseLink, collectionSpec, requestOptions).Result;
-	        	}
-				
-	        	return col;
-	    	}
-			
-			//Expose the "database" value from configuration as a property for internal use
-     	   	private static string databaseId;
-     	   	private static String DatabaseId
-     	   	{
-				get
+		public static class DocumentDBRepository<T> where T : class
+		{
+			private static readonly string DatabaseId = ConfigurationManager.AppSettings["database"];
+			private static readonly string CollectionId = ConfigurationManager.AppSettings["collection"];
+			private static DocumentClient client;
+	
+			public static void Initialize()
+			{
+				client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
+				CreateDatabaseIfNotExistsAsync().Wait();
+				CreateCollectionIfNotExistsAsync().Wait();
+			}
+	
+			private static async Task CreateDatabaseIfNotExistsAsync()
+			{
+				try
 				{
-					if (string.IsNullOrEmpty(databaseId))
-					{
-						databaseId = ConfigurationManager.AppSettings["database"];
-					}
-				
-					return databaseId;
+					await client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(DatabaseId));
 				}
-       	 	}
-			
-			//Expose the "collection" value from configuration as a property for internal use
-    	    private static string collectionId;
-    	    private static String CollectionId
-    	    {
-				get
+				catch (DocumentClientException e)
 				{
-					if (string.IsNullOrEmpty(collectionId))
+					if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
 					{
-						collectionId = ConfigurationManager.AppSettings["collection"];
+						await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
 					}
-				
-					return collectionId;
+					else
+					{
+						throw;
+					}
 				}
-    	    }
-			
-			//Use the ReadOrCreateDatabase function to get a reference to the database.
-    	    private static Database database;
-    	    private static Database Database
-    	    {
-				get
+			}
+	
+			private static async Task CreateCollectionIfNotExistsAsync()
+			{
+				try
 				{
-					if (database == null)
-					{
-						database = ReadOrCreateDatabase();
-					}
-					
-					return database;
+					await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
 				}
-    	    }
-			
-			//Use the ReadOrCreateCollection function to get a reference to the collection.
-    	    private static DocumentCollection collection;
-    	    private static DocumentCollection Collection
-    	    {
-				get
+				catch (DocumentClientException e)
 				{
-					if (collection == null)
+					if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
 					{
-						collection = ReadOrCreateCollection(Database.SelfLink);
+						await client.CreateDocumentCollectionAsync(
+							UriFactory.CreateDatabaseUri(DatabaseId),
+							new DocumentCollection { Id = CollectionId },
+							new RequestOptions { OfferThroughput = 1000 });
 					}
-					
-					return collection;
+					else
+					{
+						throw;
+					}
 				}
-    	    }
-			
-			//This property establishes a new connection to DocumentDB the first time it is used, 
-			//and then reuses this instance for the duration of the application avoiding the
-			//overhead of instantiating a new instance of DocumentClient with each request
-    	    private static DocumentClient client;
-    	    private static DocumentClient Client
-    	    {
-    	        get
-    	        {
-    	            if (client == null)
-    	            {
-						string endpoint = ConfigurationManager.AppSettings["endpoint"];
-						string authKey = ConfigurationManager.AppSettings["authKey"];
-						Uri endpointUri = new Uri(endpoint);
-						client = new DocumentClient(endpointUri, authKey);
-    	            }
-    	            
-    	            return client;
-    	        }
-    	    }
-    	}
+			}
+		}
 
 	> [AZURE.TIP] Quando si crea un nuovo DocumentCollection è possibile fornire un parametro RequestOptions facoltativo di OfferType, che consente di specificare il livello di prestazioni della nuova raccolta. Se questo parametro non viene passato verrà usato il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta DocumentDB vedere [livelli di prestazioni DocumentDB](documentdb-performance-levels.md)
 
 3. Poiché alcuni valori vengono letti dalla configurazione, aprire il file** Web.config** dell'applicazione e aggiungere le righe seguenti dopo la sezione `<AppSettings>`.
 	
-    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>
-    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal"/>
-    	<add key="database" value="ToDoList"/>
-    	<add key="collection" value="Items"/>
+		<add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>
+		<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal"/>
+		<add key="database" value="ToDoList"/>
+		<add key="collection" value="Items"/>
 	
 4. A questo punto, aggiornare i valori per *endpoint* e *authKey* usando il pannello Chiavi del portale di Azure. Usare il valore di **URI** dal pannello Chiavi come valore dell'impostazione dell'endpoint e usare **CHIAVE PRIMARIA** oppure **CHIAVE SECONDARIA** dal pannello Chiavi come valore dell'impostazione authKey.
 
 
-    Che consente di collegare i repository DocumentDB, ora possibile aggiunta la logica dell'applicazione.
+	Che consente di collegare i repository DocumentDB, ora possibile aggiunta la logica dell'applicazione.
 
 5. Un'applicazione per un elenco di azioni deve innanzitutto consentire la visualizzazione degli elementi incompleti. Copiare e incollare il seguente frammento di codice in un punto qualsiasi all'interno della classe **DocumentDBRepository**.
 
-	    public static IEnumerable<T> GetItems(Expression<Func<T, bool>> predicate) 
-	    {
-			return Client.CreateDocumentQuery<T>(Collection.DocumentsLink) 
-				.Where(predicate) 
-				.AsEnumerable(); 
-		} 
+		public static async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
+		{
+			IDocumentQuery<T> query = client.CreateDocumentQuery<T>(
+				UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId))
+				.Where(predicate)
+				.AsDocumentQuery();
+
+			List<T> results = new List<T>();
+			while (query.HasMoreResults)
+			{
+				results.AddRange(await query.ExecuteNextAsync<T>());
+			}
+
+			return results;
+		}
+
 
 6. Aprire il file **ItemController** aggiunto in precedenza e aggiungere le seguenti *istruzioni using* sopra la dichiarazione dello spazio dei nomi.
 
@@ -438,11 +384,12 @@ La prima cosa da fare è aggiungere una classe che contenga tutta la logica per 
 
 	con il codice seguente:
 
-    	public ActionResult Index()
-    	{
-			var items = DocumentDBRepository<Item>.GetItems(d => !d.Completed);
+		[ActionName("Index")]
+		public async Task<ActionResult> IndexAsync()
+		{
+			var items = await DocumentDBRepository<Item>.GetItemsAsync(d => !d.Completed);
 			return View(items);
-    	}
+		}
 	
 A questo punto dovrebbe essere possibile compilare la soluzione senza errori.
 
@@ -450,7 +397,7 @@ Se si eseguisse l'applicazione a questo punto, si passerebbe a **HomeController*
 
 Aprire ***App\\_Start\\RouteConfig.cs***, trovare la riga che inizia con "defaults:" e modificarla in modo che sia analoga a quanto riportato di seguito.
 
-    	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
+		defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 Questo codice indica a MVC ASP.NET che, se non è stato specificato alcun valore nell'URL per controllare il comportamento di routing, sarà necessario usare **Item** invece di **Home** come controller e **Index** come visualizzazione.
 
@@ -468,35 +415,39 @@ Sarà ora effettuata l'aggiunta di codice a DocumentDBRepository e ItemControlle
 
 1.  Aggiungere il metodo seguente alla classe **DocumentDBRepository**.
 
-    	public static async Task<Document> CreateItemAsync(T item)
-   	 	{
-   	   		return await Client.CreateDocumentAsync(Collection.SelfLink, item);
-   		}
+		public static async Task<Document> CreateItemAsync(T item)
+		{
+			return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
+		}
 
 	Questo metodo accetta semplicemente un oggetto passato al metodo stesso e lo rende permanente in DocumentDB.
 
 2. Aprire il file ItemController.cs e aggiungere il seguente frammento di codice all'interno della classe. In tal modo, ASP.NET MVC individua le operazioni da eseguire per l'azione **Create**. In questo caso, eseguire semplicemente il rendering della visualizzazione Create.cshtml associata creata in precedenza.
 
-    	public ActionResult Create()
-    	{ 
-			return View(); 
-   		}
+		[ActionName("Create")]
+		public async Task<ActionResult> CreateAsync()
+		{
+			return View();
+		}
 
 	Nel controller è necessario avere più codici, ed il controller stesso accetterà la presentazione dal codice **Crea**visualizzazione.
 
 2. Aggiungere il blocco di codice successivo alla classe ItemController.cs, che indica a MVC ASP.NET le operazioni da eseguire con un POST per i moduli per questo controller.
 	
-    	[HttpPost]
-    	[ValidateAntiForgeryToken]
-   	 	public async Task<ActionResult> Create([Bind(Include = 	"Id,Name,Description,Completed")] Item item)  
-  	  	{
-			if (ModelState.IsValid)  
-			{  
-			    await DocumentDBRepository<Item>.CreateItemAsync(item);
-			    return RedirectToAction("Index");  
-			}   
-			return View(item);   
+		[HttpPost]
+		[ActionName("Create")]
+		[ValidateAntiForgeryToken]
+		public async Task<ActionResult> CreateAsync([Bind(Include = "Id,Name,Description,Completed")] Item item)
+		{
+			if (ModelState.IsValid)
+			{
+				await DocumentDBRepository<Item>.CreateItemAsync(item);
+				return RedirectToAction("Index");
+			}
+
+			return View(item);
 		}
+
 	Tale codice chiama DocumentDBRepository e utilizza il metodo CreateItemAsync per rendere persistente la nuova voce al database.
  
 	**Nota sulla sicurezza**: l'attributo **ValidateAntiForgeryToken** viene usato qui per proteggere l'applicazione da attacchi di richiesta intersito falsa. Oltre ad aggiungere questo attributo, è necessario che le visualizzazioni usino questo token antifalsificazione. Per ulteriori informazioni sull'oggetto e sugli esempi di come implementarla correttamente, vedere[impedendo Cross-Site Request Forgery][]. Il codice sorgente fornito in [GitHub][] permette l'implementazione completa.
@@ -512,27 +463,30 @@ Vi è un'ultima operazione da eseguire ovvero l'aggiunta della possibilità di m
 
 1. Aggiungere il codice seguente alla classe **DocumentDBRepository**.
 
-    	public static T GetItem(Expression<Func<T, bool>> predicate)
-    	{
-        	return Client.CreateDocumentQuery<T>(Collection.DocumentsLink)
-                    	.Where(predicate)
-                    	.AsEnumerable()
-                    	.FirstOrDefault();
-    	}		
+		public static async Task<Document> UpdateItemAsync(string id, T item)
+		{
+			return await client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id), item);
+		}
 
-    	public static async Task<Document> UpdateItemAsync(string id, T item)
-    	{
-        	Document doc = GetDocument(id);	
-        	return await Client.ReplaceDocumentAsync(doc.SelfLink, item);
-    	}
-
-		private static Document GetDocument(string id) 
-		{ 
-			return Client.CreateDocumentQuery(Collection.DocumentsLink) 
-				.Where(d => d.Id == id) 
-				.AsEnumerable() 
-				.FirstOrDefault(); 
-		} 
+		public static async Task<T> GetItemAsync(string id)
+		{
+			try
+			{
+				Document document = await client.ReadDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));
+				return (T)(dynamic)document;
+			}
+			catch (DocumentClientException e)
+			{
+				if (e.StatusCode == HttpStatusCode.NotFound)
+				{
+					return null;
+				}
+				else
+				{
+					throw;
+				}
+			}
+		}
 	
 	Il primo di questi metodi, **GetItem** recupera un elemento da DocumentDB, che viene passato a **ItemController** e quindi alla visualizzazione **Edit**.
 	
@@ -540,36 +494,36 @@ Vi è un'ultima operazione da eseguire ovvero l'aggiunta della possibilità di m
 
 2. Aggiungere il codice seguente alla classe **ItemController**.
 
-		public ActionResult Edit(string id)
+		[HttpPost]
+		[ActionName("Edit")]
+		[ValidateAntiForgeryToken]
+		public async Task<ActionResult> EditAsync([Bind(Include = "Id,Name,Description,Completed")] Item item)
 		{
-		    if (string.IsNullOrEmpty(id))
-		    {
-		        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-		    }
-					 
-		    Item item = (Item)DocumentDBRepository<Item>.GetItem(d => d.Id == id);
-		 	
-		    if (item == null)
-		    {
-		        return HttpNotFound();
-		    }
-		 	
-		    return View(item);
-		}
-		
-    	[HttpPost]
-   		[ValidateAntiForgeryToken]
-    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
-    	{
-     	   if (ModelState.IsValid)
-    	    {
-    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
-    	        return RedirectToAction("Index");
-    	    }
+			if (ModelState.IsValid)
+			{
+				await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
+				return RedirectToAction("Index");
+			}
 
-  	      return View(item);
- 	   	}
-		
+			return View(item);
+		}
+
+		[ActionName("Edit")]
+		public async Task<ActionResult> EditAsync(string id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+
+			Item item = await DocumentDBRepository<Item>.GetItemAsync(id);
+			if (item == null)
+			{
+				return HttpNotFound();
+			}
+
+			return View(item);
+		}
 	
 	Il primo metodo per gestire Http GET che si verifica quando l'utente fa clic sul collegamento**Modifica** dall’**indice**di visualizzazione. Questo metodo recupera un[**documento**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)da DocumentDB e passa alla visualizzazione **Modifica**.
 
@@ -611,11 +565,11 @@ Ora che è completa e funziona correttamente con DocumentDB, è possibile distri
 
 1. Per pubblicare l'applicazione, è sufficiente fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica**.
 
-    ![Schermata dell'opzione Pubblica in Esplora soluzioni](./media/documentdb-dotnet-application/image28.png)
+	![Schermata dell'opzione Pubblica in Esplora soluzioni](./media/documentdb-dotnet-application/image28.png)
 
 2. Ogni impostazione dovrebbe già essere configurata in base alle credenziali e in effetti il sito Web è già stato creato in Azure secondo il valore specificato in **URL di destinazione** ed è sufficiente fare clic su **Pubblica**.
 
-    ![Schermata della finestra di dialogo Pubblica sito Web in Visual Studio - Esercitazione dettagliata su MVC ASP NET](./media/documentdb-dotnet-application/image29.png)
+	![Schermata della finestra di dialogo Pubblica sito Web in Visual Studio - Esercitazione dettagliata su MVC ASP NET](./media/documentdb-dotnet-application/image29.png)
 
 Dopo alcuni secondi, Visual Studio completerà la pubblicazione dell'applicazione Web e avvierà un browser in cui sarà possibile ammirare il proprio lavoro in esecuzione in Azure.
 
@@ -633,4 +587,4 @@ Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibil
 [operazioni CRUD di base in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0211_2016-->
+<!-----HONumber=AcomDC_0330_2016-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="03/18/2016"
 	ms.author="dastrock"/>
 
-# Perché usare l'endpoint 2.0 
+# Perché usare l'endpoint 2.0
 
 Nella compilazione di applicazioni che si integrano con Azure Active Directory è necessario stabilire se i protocolli di autenticazione e l'endpoint 2.0 rispondono ai requisiti specifici. Il modello di app Azure AD originale è ancora completamente supportato e, per alcuni aspetti, include più funzionalità della versione 2.0. L'endpoint 2.0, tuttavia, [introduce vantaggi importanti](active-directory-v2-compare.md) per gli sviluppatori che possono convincere a usare il nuovo modello di programmazione. Nel tempo la versione 2.0 crescerà fino a includere tutte le funzionalità di Azure AD e verrà usato solo l'endpoint 2.0.
 
@@ -74,13 +74,15 @@ Per usare l'endpoint 2.0 in un'applicazione di produzione, sono disponibili le o
 
 - Se si compila un'applicazione Web, è possibile usare il middleware lato server disponibile a livello generale per eseguire operazioni di accesso e convalida dei token. È incluso il middleware OpenID Connect OWIN per ASP.NET e il plug-in di Passport per NodeJS. Nella sezione [Introduzione](active-directory-appmodel-v2-overview.md#getting-started) sono disponibili anche esempi di codice che usano tale middleware.
 - Per altre piattaforme e per le applicazioni native e per dispositivi mobili, è possibile realizzare l'integrazione con l'endpoint 2.0 anche con l'invio e la ricezione diretta di messaggi di protocollo nel codice dell'applicazione. I protocolli OAuth e OpenID Connect della versione 2.0 [sono stati documentati in modo esplicito](active-directory-v2-protocols.md) per consentire tale integrazione.
-- Per l'integrazione con l'endpoint 2.0 è anche possibile usare librerie OpenID Connect e OAuth open source. Il protocollo della versione 2.0 dovrebbe essere compatibile con molte librerie di protocollo open source senza modifiche rilevanti. La disponibilità di tali librerie varia in base alla piattaforma e al linguaggio. Nei siti Web di [OpenID Connect](http://openid.net/connect/) e [OAuth 2.0](http://oauth.net/2/) sono disponibili elenchi delle implementazioni più diffuse. Di seguito sono elencate le librerie client open source e gli esempi che sono stati testati con l'endpoint 2.0. Si noti che funzionalità come [OpenID Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html) e gli endpoint di convalida dei token non sono ancora supportate e potrebbe essere necessario disabilitarle nella libreria per poter usare l'endpoint 2.0: 
+- Per l'integrazione con l'endpoint 2.0 è anche possibile usare librerie OpenID Connect e OAuth open source. Il protocollo della versione 2.0 dovrebbe essere compatibile con molte librerie di protocollo open source senza modifiche rilevanti. La disponibilità di tali librerie varia in base alla piattaforma e al linguaggio. Nei siti Web di [OpenID Connect](http://openid.net/connect/) e [OAuth 2.0](http://oauth.net/2/) sono disponibili elenchi delle implementazioni più diffuse. Di seguito sono elencate le librerie client open source e gli esempi che sono stati testati con l'endpoint 2.0.
 
   - [Java WSO2 Identity Server](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
   - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
   - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
   - [PHP OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)
-  - [Esempio di OpenID Connect per Android](https://github.com/learning-layers/android-openid-connect)
+  - [Libreria client OAuth2 per iOS](https://github.com/nxtbgthng/OAuth2Client)
+  - [Libreria client OAuth2 per Android](https://github.com/wuman/android-oauth-client)
+  - [Client OpenID Connect per Android](https://github.com/kalemontes/OIDCAndroidLib)
 
 ## Restrizioni relative ai protocolli
 L'endpoint 2.0 supporta unicamente i protocolli OpenID Connect e OAuth 2.0. Tuttavia, non tutte le funzionalità e caratteristiche dei vari protocolli sono state incorporate nell'endpoint 2.0. Di seguito sono riportati alcuni esempi:
@@ -96,4 +98,4 @@ Nel servizio Azure Active Directory è disponibile un set di funzionalità per s
 - Attestazioni di gruppo per utenti di Azure AD
 - Ruoli applicazione e attestazioni basate sui ruoli
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

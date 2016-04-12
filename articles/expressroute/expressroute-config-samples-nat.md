@@ -17,9 +17,9 @@
 
 # Esempi di configurazione del router per l'impostazione e la gestione NAT
 
-Questa pagina fornisce gli esempi di configurazione NAT per i router Cisco ASA e Juniper MX. Devono essere intesi come esempi a solo scopo informativo e non devono essere usati per altri scopi. È possibile rivolgersi al fornitore per ottenere le configurazioni appropriate per la rete in uso.
+Questa pagina fornisce gli esempi di configurazione NAT per i router Cisco ASA e Juniper SRX. Devono essere intesi come esempi a solo scopo informativo e non devono essere usati per altri scopi. È possibile rivolgersi al fornitore per ottenere le configurazioni appropriate per la rete in uso.
 
->[AZURE.IMPORTANT]Gli esempi inclusi in questa pagina devono essere intesi solo come linee guida. È necessario collaborare con il team di vendita/tecnico del fornitore e il team di rete per ottenere le configurazioni appropriate in base alle specifiche esigenze. Microsoft non offre supporto per i problemi relativi alle configurazioni elencate in questa pagina. È necessario contattare il fornitore del dispositivo per assistenza.
+>[AZURE.IMPORTANT] Gli esempi inclusi in questa pagina devono essere intesi solo come linee guida. È necessario collaborare con il team di vendita/tecnico del fornitore e il team di rete per ottenere le configurazioni appropriate in base alle specifiche esigenze. Microsoft non offre supporto per i problemi relativi alle configurazioni elencate in questa pagina. È necessario contattare il fornitore del dispositivo per assistenza.
 
 Gli esempi di configurazione di router riportati di seguito si applicano al peering pubblico di Azure e al peering Microsoft. Non è necessario configurare NAT per il peering privato di Azure. Per altre informazioni sul routing, vedere [Peering di ExpressRoute](expressroute-circuit-peerings.md) e [Requisiti NAT di ExpressRoute](expressroute-nat.md).
 
@@ -78,7 +78,7 @@ Comandi NAT:
 	nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
 
-## Router serie Juniper MX 
+## Router serie Juniper SRX 
 
 ### 1\. Creare interfacce Ethernet ridondanti per il cluster
 
@@ -319,4 +319,4 @@ Fare riferimento agli esempi riportati nella pagina [Esempi di configurazione de
 
 Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

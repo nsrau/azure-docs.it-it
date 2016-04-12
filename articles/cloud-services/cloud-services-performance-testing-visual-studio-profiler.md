@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/21/2015" 
+	ms.date="03/28/2016" 
 	ms.author="tarcher"/>
 
 # Test locale delle prestazioni di un servizio cloud nell'emulatore di calcolo di Azure mediante il profiler di Visual Studio
@@ -26,7 +26,7 @@ In questo articolo viene illustrato il metodo Campionamento CPU per la profilatu
 
 
 
-## Passaggio 1: Configurare Visual Studio per la profilatura
+## 1: Configurare Visual Studio per la profilatura
 
 Visual Studio include alcune opzioni di configurazione che possono risultare utili per la profilatura. Per rendere comprensibili i rapporti di profilatura, saranno necessari simboli (file con estensione pdb) per l'applicazione, oltre a simboli per le librerie di sistema. È necessario assicurarsi di fare riferimento ai server dei simboli disponibili. A tale scopo, dal menu **Strumenti** in Visual Studio scegliere **Opzioni**, quindi **Debugging** e infine **Simboli**. Verificare che Server dei simboli Microsoft sia elencato in **Percorsi dei file di simboli (pdb)**. È anche possibile vedere http://referencesource.microsoft.com/symbols, dove potrebbero essere disponibili file di simboli aggiuntivi.
 
@@ -70,7 +70,7 @@ Chiamare tale codice dal metodo RunAsync nella classe del ruolo di lavoro deriva
 
 Compilare ed eseguire localmente il servizio cloud senza eseguire il debug (CTRL+F5) con la configurazione della soluzione impostata su **Release**. In tale modo, tutti i file e le cartelle verranno creati per l'esecuzione locale dell'applicazione e tutti gli emulatori verranno avviati. Avviare l'interfaccia utente dell'emulatore di calcolo dalla barra delle applicazioni per verificare che il ruolo di lavoro sia in esecuzione.
 
-## Passaggio 2: Connettersi a un processo
+## 2: Connettersi a un processo
 
 Invece di eseguire la profilatura dell'applicazione avviandola dall'IDE di Visual Studio 2010, è necessario connettere il profiler a un processo in esecuzione.
 
@@ -104,7 +104,7 @@ Per interrompere la profilatura, scegliere il collegamento **Interrompi la profi
 
 ![][10]
 
-## Passaggio 3: Visualizzare i report delle prestazioni
+## 3: Visualizzare i rapporti relativi alle prestazioni
 
 Viene visualizzato il rapporto relativo alle prestazioni dell'applicazione.
 
@@ -123,7 +123,7 @@ Se è stato aggiunto il codice di concatenazione di stringa disponibile in quest
 
 ![][14]
 
-## Passaggio 4: Apportare modifiche e confrontare le prestazioni
+## 5: Apportare modifiche e confrontare le prestazioni
 
 È anche possibile confrontare le prestazioni prima e dopo la modifica del codice. Arrestare il processo in esecuzione e modificare il codice per sostituire l'operazione di concatenazione di stringa usando StringBuilder:
 
@@ -148,7 +148,7 @@ Nei rapporti vengono evidenziate le differenze tra le due esecuzioni.
 
 Congratulazioni. sono state eseguite le operazioni preliminari con il profiler.
 
-##  Risoluzione dei problemi
+## Risoluzione dei problemi
 
 - Assicurarsi di eseguire la profilatura di una compilazione di rilascio e avviarla senza eseguire il debug.
 
@@ -186,4 +186,4 @@ La strumentazione dei file binari di Azure nell'emulatore non è supportata nel 
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0330_2016-->

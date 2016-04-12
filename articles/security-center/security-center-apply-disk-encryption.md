@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="03/10/2016"
    ms.author="terrylan"/>
 
 # Applicare la crittografia del disco nel Centro sicurezza Azure
@@ -33,25 +33,38 @@ Crittografia dischi sfrutta la funzionalità [BitLocker](https://technet.microso
 
 ![][1]
 
+Per crittografare le macchine virtuali di Azure che in base al Centro sicurezza PC devono essere crittografate, è consigliabile seguire questa procedura:
+
+- Installare e configurare Azure PowerShell. In questo modo sarà possibile eseguire i comandi di PowerShell per configurare i prerequisiti necessari per crittografare le macchine virtuali di Azure.
+- Ottenere ed eseguire lo script di Azure PowerShell dei prerequisiti di Crittografia dischi di Azure.
+- Crittografare le macchine virtuali.
+
+L'articolo [Crittografare una macchina virtuale di Azure](security-center-disk-encryption.md) illustrerà la procedura. Questo articolo presuppone l'uso di Windows 10 nel computer client da cui si esegue la configurazione di crittografia dischi.
+
+L'installazione dei prerequisiti e la configurazione della crittografia per le macchine virtuali di Azure possono essere eseguite in diversi modi. Se si ha buona familiarità con Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile adottare soluzioni alternative. Per altre informazioni sugli altri approcci, vedere [Azure Disk Encryption](../azure-security-disk-encryption.md).
+
+
+
 ## Passaggi successivi
 
 In questo documento è stato illustrato come implementare la raccomandazione "Applicare crittografia dischi" del Centro sicurezza. Per altre informazioni sulla crittografia dischi, vedere gli argomenti seguenti:
 
 - [Crittografia e gestione delle chiavi con l'insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (video, 36 minuti 39 secondi): informazioni su come usare la gestione della crittografia dischi per le VM IaaS e l'insieme di credenziali delle chiavi di Azure per proteggere e salvaguardare i dati.
-- [Crittografia dischi di Azure](../azure-security-disk-encryption.md) (documento): informazioni su come abilitare la crittografia dischi per le VM Windows e Linux.
+- [Crittografare una macchina virtuale di Azure](security-center-disk-encryption.md) (documento): informazioni su come crittografare le macchine virtuali di Azure.
+- [Azure disk encryption](../azure-security-disk-encryption.md) (documento): informazioni su come abilitare la crittografia dischi per le VM Windows e Linux.
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 - [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza.
 - [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
 - [Come gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
-- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui i suggerimenti facilitano la protezione delle risorse di Azure.
+- [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni facilitano la protezione delle risorse di Azure.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
-- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
+- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post del blog sulla sicurezza e sulla conformità di Azure.
 
 
 
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

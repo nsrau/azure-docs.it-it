@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Privileged Identity Management: Come usare il log di controllo"
+   pageTitle="Come usare il log di controllo | Microsoft Azure"
    description="Informazioni su come usare il log di controllo nell'estensione Azure Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: Come usare il log di controllo
+# Azure AD Privileged Identity Management: Come usare il log di controllo
 
 È possibile usare il log di controllo di Privileged Identity Management (PIM) per visualizzare tutte le assegnazioni utente e le attivazioni per un periodo di tempo specificato.
 
@@ -56,4 +56,4 @@ Dopo aver impostato tutti i filtri desiderati per il log di controllo, fare clic
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

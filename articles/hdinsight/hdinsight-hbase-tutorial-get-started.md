@@ -13,7 +13,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/05/2016"
 	ms.author="jgao"/>
 
@@ -29,7 +29,9 @@ Le informazioni contenute in questo documento sono specifiche per i cluster HDIn
 
 > [AZURE.NOTE] HBase (versione 0.98.0) in HDInsight basato su Windows è disponibile solo per l'uso con cluster HDInsight 3.1 (basati su Apache Hadoop e YARN 2.4.0). Per informazioni sulla versione, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight][hdinsight-versions]
 
-###Prerequisiti
+###Prima di iniziare
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Prima di iniziare questa esercitazione di HBase, è necessario disporre di quanto segue:
 
@@ -291,7 +293,9 @@ Per aprire l'interfaccia utente Web, è necessario effettuare una connessione RD
 
 In un cluster a disponibilità elevata, verrà visualizzato un collegamento al nodo master HBase attivo corrente che ospita l'interfaccia utente Web.
 
+##Eliminazione del cluster
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## Passaggi successivi
@@ -331,4 +335,4 @@ Per altre informazioni, vedere:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
  
 
-##Informazioni generali
+##Panoramica
 
 Servizi multimediali di Microsoft Azure consente di distribuire contenuti crittografati (dinamicamente) con AES (Advanced Encryption Standard), mediante chiavi di crittografia a 128 bit, e con PlayReady DRM. Servizi multimediali fornisce inoltre un servizio per la distribuzione di chiavi e licenze PlayReady ai client autorizzati.
 
@@ -483,4 +483,4 @@ Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passa
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

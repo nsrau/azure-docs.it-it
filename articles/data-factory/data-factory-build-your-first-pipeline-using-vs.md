@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="02/16/2016"
+	ms.date="03/16/2016"
 	ms.author="spelluru"/>
 
 # Creare la prima data factory di Azure con Microsoft Visual Studio
@@ -32,7 +32,7 @@ Questo articolo descrive come usare Microsoft Visual Studio per creare la prima 
 1. Prima di procedere è **necessario** leggere l'articolo [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) ed eseguire i passaggi richiesti.
 2. Questo articolo non fornisce una panoramica concettuale del servizio Data factory di Azure. Si consiglia di leggere l'articolo [Introduzione al servizio Data factory di Azure](data-factory-introduction.md) per una panoramica dettagliata del servizio.  
 
-## Procedura dettagliata: Creare e distribuire entità della data factory usando Visual Studio 
+## Creare e distribuire le entità della data factory  
 
 ### Prerequisiti
 
@@ -44,7 +44,7 @@ Questo articolo descrive come usare Microsoft Visual Studio per creare la prima 
 	
 	
 
-### Creare il progetto di Visual Studio 
+## Creare un progetto di Visual Studio 
 1. Avviare **Visual Studio 2013** o **Visual Studio 2015**. Fare clic su **File**, scegliere **Nuovo** e quindi fare clic su **Progetto**. Verrà visualizzata la finestra di dialogo **Nuovo progetto**.  
 2. Nella finestra di dialogo **Nuovo progetto** selezionare il modello **DataFactory** e fare clic su **Progetto data factory vuoto**.   
 
@@ -54,7 +54,7 @@ Questo articolo descrive come usare Microsoft Visual Studio per creare la prima 
 
 	![Esplora soluzioni](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
-### Creazione di servizi collegati
+## Creazione di servizi collegati
 Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, attività di copia per copiare dati da un'origine a un archivio dati di destinazione e attività Hive di HDInsight per eseguire uno script Hive e trasformare i dati di input in dati di output di prodotto. Il nome e le impostazioni per la data factory verranno specificati in un secondo momento, quando si pubblica la soluzione Data factory.
 
 In questo passaggio l'account di archiviazione di Azure e un cluster HDInsight su richiesta di Azure vengono collegati alla data factory. In questo esempio l'account di archiviazione di Azure contiene i dati di input e di output per la pipeline. In questo esempio il servizio collegato HDInsight viene usato per eseguire lo script Hive specificato nell'attività della pipeline. È necessario identificare l'archivio dati/i servizi di calcolo usati nello scenario e collegare tali servizi alla data factory creando servizi collegati.
@@ -110,10 +110,10 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
 	Per i dettagli, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
 4. Salvare il file **HDInsightOnDemandLinkedService1.json**.
 
-### Creare set di dati
+## Creare set di dati
 In questo passaggio vengono creati set di dati per rappresentare i dati di input e di output per l'elaborazione Hive. I set di dati fanno riferimento all'oggetto **AzureStorageLinkedService1** creato in precedenza in questa esercitazione. Il servizio collegato punta a un account di archiviazione di Azure e i set di dati specificano il contenitore, la cartella e il nome del file nella risorsa di archiviazione che contiene i dati di input e di output.
 
-#### Creare il set di dati di input
+#### Creare set di dati di input
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Tabelle**, scegliere **Aggiungi** e fare clic su **Nuovo elemento**. 
 2. Selezionare **Blob di Azure** dall'elenco, cambiare il nome del file in **InputDataSet.json** e quindi fare clic su **Aggiungi**.
@@ -192,7 +192,7 @@ Viene creato ora il set di dati di output per rappresentare i dati di output arc
 4. Salvare il file **OutputDataset.json**.
 
 
-### Creazione della prima pipeline
+### Creare una pipeline
 In questo passaggio viene creata la prima pipeline con un'attività **HDInsightHive**. Si noti che la sezione di input è disponibile ogni mese (frequenza: Month, intervallo: 1), la sezione di output viene generata ogni mese e anche la proprietà dell'utilità di pianificazione dell'attività è impostata su una frequenza mensile (vedere sotto). Le impostazioni per il set di dati di output e l'utilità di pianificazione dell'attività devono corrispondere. In questo momento la pianificazione è basata sul set di dati di output, quindi è necessario creare un set di dati di output anche se l'attività non genera alcun output. Se l'attività non richiede input, è possibile ignorare la creazione del set di dati di input. Le proprietà usate nel codice JSON seguente sono illustrate in fondo a questa sezione.
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Pipeline**, scegliere **Aggiungi** e fare clic su **Nuovo elemento**. 
@@ -256,7 +256,7 @@ In questo passaggio viene creata la prima pipeline con un'attività **HDInsightH
 
 	Nel codice JSON dell'attività si specifica che lo script Hive viene eseguito sulla risorsa di calcolo specificata da **linkedServiceName** - **HDInsightOnDemandLinkedService**.
 
-	> [ACOM.NOTE] Per informazioni dettagliate sulle proprietà JSON usate nell'esempio precedente, vedere [Anatomia di una pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline). 
+	> [AZURE.NOTE] Per informazioni dettagliate sulle proprietà JSON usate nell'esempio precedente, vedere [Anatomia di una pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline). 
 3. Salvare il file **HiveActivity1.json**.
 
 ### Aggiungere partitionweblogs.hql e input.log come dipendenza 
@@ -289,7 +289,7 @@ Quando si pubblica la soluzione nel passaggio successivo, il file **partitionweb
 24. Esaminare il riepilogo e fare clic su **Avanti** per avviare il processo di distribuzione e visualizzare lo **Stato della distribuzione**.
 25. Nella pagina **Stato della distribuzione**, è possibile visualizzare lo stato del processo di distribuzione. Fare clic su Fine dopo il termine della distribuzione. 
  
-## Passaggio 4: Monitorare la pipeline
+## Monitorare la pipeline
 
 6. Accedere al [portale di Azure](https://portal.azure.com/) e seguire questa procedura:
 	1. Fare clic su **Sfoglia** e selezionare **Data factory**.
@@ -327,7 +327,7 @@ Quando si pubblica la soluzione nel passaggio successivo, il file **partitionweb
 
 Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i set di dati creati in questa esercitazione, vedere [Monitorare i set di dati e la pipeline](data-factory-monitor-manage-pipelines.md).
 
-## Usare Esplora Server per esaminare le entità della data factory
+## Usare Esplora Server per visualizzare le data factory
 
 1. In **Visual Studio** fare clic su **Visualizza** nel menu e fare clic su **Esplora server**.
 2. Nella finestra Esplora server espandere **Azure** e **Data factory**. Se viene visualizzata la finestra **Accedi a Visual Studio**, immettere l'**account** associato alla sottoscrizione di Azure e fare clic su **Continua**. Immettere la **password** e fare clic su **Accedi**. Visual Studio cerca di ottenere le informazioni su tutte le data factory di Azure nella sottoscrizione. Lo stato di questa operazione verrà visualizzato nella finestra relativa all'**elenco attività della data factory**.
@@ -348,7 +348,7 @@ Per aggiornare gli strumenti di Data Factory di Azure per Visual Studio, eseguir
 ## Usare i file di configurazione
 È possibile usare i file di configurazione in Visual Studio per configurare le proprietà di pipeline/tabelle/servizi collegati in modo diverso a seconda dell'ambiente.
 
-Considerare la definizione JSON seguente per un servizio collegato Archiviazione di Azure. Per specificare **connectionString** con valori diversi per accountname e accountkey in base all'ambiente di sviluppo, di test o di produzione in cui si stanno distribuendo le entità di Data Factory, usare un file di configurazione separato per ogni ambiente.
+Considerare la definizione JSON seguente per un servizio collegato Archiviazione di Azure. Per specificare **connectionString** con valori diversi per accountname e accountkey in base all'ambiente di sviluppo, di test o di produzione, in cui vengono distribuite le entità di Data Factory, usare un file di configurazione separato per ogni ambiente.
 
 	{
 	    "name": "StorageLinkedService",
@@ -365,7 +365,7 @@ Considerare la definizione JSON seguente per un servizio collegato Archiviazione
 Per aggiungere un file di configurazione per ogni ambiente, seguire questa procedura:
 
 1. Fare clic con il pulsante destro del mouse sul progetto di Data Factory nella soluzione di Visual Studio, scegliere **Aggiungi** e fare clic su **Nuovo elemento**.
-2. Selezionare **Config** nell'elenco di modelli installati sulla sinistra, selezionare **File di configurazione**, immettere un **nome** per il file di configurazione e fare clic su **Aggiungi**.
+2. Selezionare **Config** nell'elenco di modelli installati a sinistra, selezionare **File di configurazione**, immettere un **nome** per il file di configurazione e fare clic su **Aggiungi**.
 
 	![Aggiungere un file di configurazione](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
 3. Aggiungere i parametri di configurazione e i valori nel formato indicato di seguito:
@@ -450,4 +450,4 @@ Quando si esegue la distribuzione, i valori del file di configurazione vengono u
 In questo articolo è stata creata una pipeline con un'attività di trasformazione (attività HDInsight) che esegue uno script Hive in un cluster HDInsight su richiesta. Per informazioni su come usare un'attività di copia per copiare i dati da un BLOB di Azure ad Azure SQL, vedere [Esercitazione: Copiare i dati di un BLOB di Azure in Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

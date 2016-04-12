@@ -5,14 +5,14 @@
    documentationCenter="na"
    authors="sethmanheim"
    manager="timlt"
-   editor="tysonn" /> 
+   editor="" /> 
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/28/2015"
+   ms.date="03/16/2016"
    ms.author="sethm" />
 
 # Modelli di messaggistica asincrona e disponibilità elevata
@@ -45,7 +45,7 @@ Sono disponibili diverse modalità di gestione dei problemi relativi a entità e
 
 -   Errore del bus di servizio in un data center di Azure. Questo è il classico "errore irreversibile" durante il quale il sistema risulta irraggiungibile per diversi minuti o per alcune ore.
 
-> [AZURE.NOTE]Il termine **archiviazione** può indicare sia Archiviazione di Azure sia SQL Azure.
+> [AZURE.NOTE] Il termine **archiviazione** può indicare sia Archiviazione di Azure sia SQL Azure.
 
 Nel bus di servizio sono disponibili diverse misure di prevenzione per questi problemi. Le sezioni seguenti illustrano ogni problema e le relative misure di prevenzione.
 
@@ -63,7 +63,7 @@ Anche per altri componenti di Azure possono occasionalmente verificarsi problemi
 
 In qualsiasi applicazione possono verificarsi casi in cui un componente interno del bus di servizio diventa incoerente. Quando il bus di servizio rileva questo problema, raccoglie dati dall'applicazione a fini diagnostici. Una volta raccolti i dati, l'applicazione viene riavviata nel tentativo di ripristinarne un stato coerente. Questo processo avviene abbastanza velocemente e causa la mancata disponibilità di un'entità per alcuni minuti, anche se in genere i tempi di inattività sono molto più brevi.
 
-In questi casi, l'applicazione client genera un'eccezione di tipo [System.TimeoutException][] o [MessagingException][]. .NET SDK per il bus di servizio include una misura di prevenzione per questo problema basata sulla logica di ripetizione automatica dei tentativi del client. Al termine del periodo di ripetizione, se il messaggio non è stato recapitato, è possibile provare a usare altre funzionalità, ad esempio gli [spazi dei nomi associati][]. Questi ultimi possono presentare altri ostacoli che saranno illustrati più avanti in questo documento.
+In questi casi, l'applicazione client genera un'eccezione di tipo [System.TimeoutException][] o [MessagingException][]. .NET SDK per il bus di servizio include una misura di prevenzione per questo problema basata sulla logica di ripetizione automatica dei tentativi del client. Al termine del periodo di ripetizione, se il messaggio non è stato recapitato, è possibile provare a usare altre funzionalità, ad esempio gli [spazi dei nomi associati][]. Gli spazi dei nomi associati possono presentare altri ostacoli illustrati nell’articolo [Dettagli di implementazione e implicazioni in termini di costi relativi allo spazio dei nomi associato](service-bus-paired-namespaces.md).
 
 ### Errore del bus di servizio in un data center di Azure
 
@@ -149,7 +149,7 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 
 ## Passaggi successivi
 
-Dopo avere appreso le nozioni di base della messaggistica asincrona, per altre informazioni vedere l'articolo su [spazi dei nomi associati e implicazioni in termini di costo][].
+Dopo avere appreso le nozioni di base della messaggistica asincrona, per altre informazioni vedere l'articolo su [spazi dei nomi associati][].
 
   [ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
   [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
@@ -169,7 +169,6 @@ Dopo avere appreso le nozioni di base della messaggistica asincrona, per altre i
   [IsTransient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.istransient.aspx
   [UnauthorizedAccessException]: https://msdn.microsoft.com/library/azure/system.unauthorizedaccessexception.aspx
   [BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
-  [spazi dei nomi associati e implicazioni in termini di costo]: service-bus-paired-namespaces.md
   [spazi dei nomi associati]: service-bus-paired-namespaces.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

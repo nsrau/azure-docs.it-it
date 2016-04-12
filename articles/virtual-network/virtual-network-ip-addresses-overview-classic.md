@@ -61,7 +61,7 @@ Gli indirizzi IP pubblici statici (riservati) sono comunemente usati negli scena
 >[AZURE.NOTE] Quando si crea una VM classica, Azure crea un *servizio cloud* contenitore con un indirizzo IP virtuale (VIP). Quando la creazione avviene tramite portale, il portale configura un *endpoint* RDP o SSH predefinito, in modo da potersi connettere alla VM tramite l'indirizzo VIP del servizio cloud. L'indirizzo VIP del servizio cloud può essere riservato, in modo da avere a disposizione un indirizzo IP riservato per connettersi alla VM. È possibile aprire porte aggiuntive tramite la configurazione di più endpoint.
 
 ### Istanze del ruolo PaaS e delle macchine virtuali IaaS
-È possibile assegnare un indirizzo IP pubblico a una [VM](../virtual-machines/virtual-machines-about.md) IaaS o un'istanza del ruolo PaaS all'interno di un servizio cloud. In questo caso si definisce indirizzo IP pubblico a livello di istanza ([ILPIP](virtual-networks-instance-level-public-ip.md)). Questo indirizzo IP pubblico può essere solo dinamico.
+È possibile assegnare un indirizzo IP pubblico direttamente a una [VM](../virtual-machines/virtual-machines-linux-about.md) IaaS o a un'istanza del ruolo PaaS all'interno di un servizio cloud. In questo caso si definisce indirizzo IP pubblico a livello di istanza ([ILPIP](virtual-networks-instance-level-public-ip.md)). Questo indirizzo IP pubblico può essere solo dinamico.
 
 >[AZURE.NOTE] Questo è diverso dall'indirizzo VIP del servizio cloud, che è un contenitore per le VM IaaS o le istanze del ruolo PaaS, in quanto un servizio cloud può contenere più VM IaaS, o più istanze del ruolo PaaS, esposte tramite lo stesso indirizzo VIP del servizio cloud.
 
@@ -152,7 +152,7 @@ Nella maggior parte dei casi, gli indirizzi IP pubblici sono gratuiti. È previs
 ## Differenze tra le distribuzioni di Gestione risorse e le distribuzioni classiche
 Di seguito è riportato un confronto tra la funzione di assegnazione degli indirizzi IP in Gestione risorse e quella usata nel modello di distribuzione classico.
 
-|| Risorsa| Classico| Gestione risorse|
+||Risorsa|Classico|Gestione risorse|
 |---|---|---|---|
 |**Indirizzo IP pubblico**|VM|Indicato come un ILPIP (solo dinamico)|Indicato come un IP pubblico (dinamico o statico)|
 |||Assegnato a una VM IaaS o a un'istanza del ruolo PaaS|Associato alla scheda NIC della VM|
@@ -166,4 +166,4 @@ Di seguito è riportato un confronto tra la funzione di assegnazione degli indir
 ## Passaggi successivi
 - [Distribuire una VM con un indirizzo IP privato statico](virtual-networks-static-private-ip-classic-pportal.md) con il portale classico.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

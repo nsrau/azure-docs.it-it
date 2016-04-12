@@ -3,7 +3,7 @@
    description="Descrive la pagina Processi del servizio StorSimple Manager e illustra come utilizzarla per tenere traccia dei processi recenti e correnti dell'array virtuale StorSimple."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor=""/>
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/22/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# Usare il servizio StorSimple Manager per visualizzare i processi per l'array virtuale StorSimple (anteprima)
+# Usare il servizio StorSimple Manager per visualizzare i processi per l'array virtuale StorSimple
 
 ## Panoramica
 
@@ -72,4 +72,4 @@ Questi errori possono verificarsi con processi di backup, ripristino, aggiorname
 
 [Informazioni su come usare l'interfaccia utente Web locale per amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

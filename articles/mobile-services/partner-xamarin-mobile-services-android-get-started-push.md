@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/17/2016"
 	ms.author="glenga"/>
 
 # Aggiungere notifiche push all'app di Servizi mobili
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Per la versione equivalente di questo argomento per le app per dispositivi mobili, vedere [Aggiungere notifiche push all'app Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started-push.md).
 
 ##Panoramica
 Questo argomento descrive come usare Servizi mobili di Azure per inviare notifiche push a un'app per Xamarin.Android. In questa esercitazione si userà il servizio Google Cloud Messaging (GCM) per aggiungere notifiche push al progetto [Introduzione a Servizi mobili]. Al termine dell'esercitazione, il servizio mobile invierà una notifica push ogni volta che viene inserito un record.
@@ -45,7 +45,7 @@ Si presuppone che i componenti [Xamarin.Android] e [Servizi mobili di Azure] sia
 
 ##<a id="update-scripts"></a>Aggiornare lo script insert registrato per l'invio di notifiche
 
->[AZURE.TIP]Le procedure seguenti descrivono come aggiornare lo script registrato per l'operazione di inserimento nella tabella TodoItem del portale di Azure classico. È anche possibile accedere e modificare questo script del servizio mobile direttamente in Visual Studio, nel nodo Azure di Esplora server.
+>[AZURE.TIP] Le procedure seguenti descrivono come aggiornare lo script registrato per l'operazione di inserimento nella tabella TodoItem del portale di Azure classico. È anche possibile accedere e modificare questo script del servizio mobile direttamente in Visual Studio, nel nodo Azure di Esplora server.
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -72,11 +72,11 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 
 * [Introduzione all'autenticazione](mobile-services-android-get-started-users.md) <br/>Informazioni sull'autenticazione degli utenti dell'app con tipi di account diversi tramite Servizi mobili.
 
-* [Informazioni su Hub di notifica](../notification-hubs-overview.md) <br/>Altre informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
+* [Informazioni su Hub di notifica](../notification-hubs/notification-hubs-overview.md) <br/>Altre informazioni sull'uso di Hub di notifica per recapitare le notifiche alle app in tutte le principali piattaforme client.
 
 * [Eseguire il debug delle applicazioni di Hub di notifica](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Informazioni aggiuntive per la risoluzione dei problemi e il debug delle soluzioni di Hub di notifica.
 
-* [Come usare la libreria client .NET per Servizi mobili](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>Informazioni sull'uso di Servizi mobili con codice C# per Xamarin.
+* [Come usare la libreria client .NET per Servizi mobili](mobile-services-dotnet-how-to-use-client-library.md) <br/>Informazioni sull'uso di Servizi mobili con codice C# per Xamarin.
 
 * [Riferimento per gli script del server di Servizi mobili](mobile-services-how-to-use-server-scripts.md) <br/>Informazioni su come implementare la logica di business nel servizio mobile.
 
@@ -87,4 +87,4 @@ Per altre informazioni su Servizi mobili e su Hub di notifica, fare riferimento 
 [Xamarin.Android]: http://xamarin.com/download/
 [Servizi mobili di Azure]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -42,7 +42,7 @@ Per creare un set con servizio di bilanciamento del carico e i server che invier
 
 In questa guida viene illustrato come creare un servizio di bilanciamento del carico interno in base allo scenario precedente.
 
-1. Se non è mai stata usata l'infrastruttura CLI di Azure, vedere [Installare e configurare l'infrastruttura CLI di Azure](xplat-cli.md) e seguire le istruzioni fino al punto in cui si seleziona l'account e la sottoscrizione di Azure.
+1. Se non è mai stata usata l'infrastruttura CLI di Azure, vedere [Installare e configurare l'infrastruttura CLI di Azure](../../articles/xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si seleziona l'account e la sottoscrizione di Azure.
 
 2. Eseguire il comando **azure config mode** per passare alla modalità classica, come illustrato di seguito.
 
@@ -179,4 +179,4 @@ Per ulteriori informazioni, vedere `azure vm endpoint --help`.
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

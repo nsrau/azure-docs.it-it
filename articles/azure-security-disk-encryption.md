@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="03/22/2016"
    ms.author="devtiw"/>
 
 
@@ -196,7 +196,7 @@ Azure Disk Encryption protegge i segreti e le chiavi di crittografia del disco n
 Per creare un nuovo insieme di credenziali delle chiavi, usare una delle opzioni elencate di seguito:
 
 - Usare il modello ARM "101-Create-KeyVault" disponibile [qui](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json)
-- Usare i cmdlet dell'insieme di credenziali delle chiavi di Azure PowerShell descritti [qui](key-vault-get-started.md)
+- Usare i cmdlet dell'insieme di credenziali delle chiavi di Azure PowerShell.
 
 **Nota:** se per la sottoscrizione è già configurato un insieme di credenziali delle chiavi, passare alla sezione successiva.
 
@@ -527,11 +527,11 @@ La crittografia del disco può essere abilitata in un VHD crittografato del clie
 
 ### Ottenere lo stato della crittografia di una VM IaaS crittografata
 
-È possibile ottenere lo stato della crittografia tramite il portale di gestione di Azure, i [cmdlet di PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) o i comandi dell'interfaccia della riga di comando. Le sezioni seguenti illustrano come usare il portale di gestione (anteprima) di Azure e i comandi dell'interfaccia della riga di comando per ottenere lo stato della crittografia.
+È possibile ottenere lo stato della crittografia tramite il portale di gestione di Azure, i [cmdlet di PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) o i comandi dell'interfaccia della riga di comando. Le sezioni seguenti illustrano come usare il portale di Azure e i comandi dell'interfaccia della riga di comando per ottenere lo stato della crittografia.
 
 #### Ottenere lo stato della crittografia di una VM IaaS crittografata usando il portale di gestione di Azure
 
-È possibile ottenere lo stato della crittografia della VM IaaS dal portale di gestione di Azure. Accedere al portale di Azure all'indirizzo https://portal.azure.com/, fare clic sul collegamento Macchine virtuali nel menu a sinistra per passare alla visualizzazione di riepilogo della macchine virtuali nella propria sottoscrizione. È possibile filtrare la visualizzazione Macchine virtuali selezionando il nome della sottoscrizione dall'elenco a discesa Sottoscrizione. Fare clic sulle colonne che trovano in alto nel menu della pagina Macchine virtuali. Selezionare la colonna relativa alla crittografia del disco nel pannello per la scelta delle colonne e fare clic su Aggiorna. Verrà visualizzata la colonna relativa alla crittografia del disco con lo stato della crittografia "Abilitata" o "Non abilitata" per ogni VM, come illustrato nella figura seguente.
+È possibile ottenere lo stato della crittografia della VM IaaS dal portale di gestione di Azure. Accedere al portale di Azure all'indirizzo https://portal.azure.com/, fare clic sul collegamento Macchine virtuali nel menu a sinistra per passare alla visualizzazione di riepilogo della macchine virtuali disponibili nella sottoscrizione corrente. È possibile filtrare la visualizzazione Macchine virtuali selezionando il nome della sottoscrizione dall'elenco a discesa Sottoscrizione. Fare clic sulle colonne che trovano in alto nel menu della pagina Macchine virtuali. Selezionare la colonna relativa alla crittografia del disco nel pannello per la scelta delle colonne e fare clic su Aggiorna. Verrà visualizzata la colonna relativa alla crittografia del disco con lo stato della crittografia "Abilitata" o "Non abilitata" per ogni VM, come illustrato nella figura seguente.
 
 ![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig2.JPG)
 
@@ -804,4 +804,4 @@ Il segreto può essere facoltativamente crittografato con una chiave di crittogr
 
 [Esplorare Azure Disk Encryption con Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="03/17/2016"
 	ms.author="raymondl;garye"/>
 
 
@@ -51,8 +51,8 @@ Diagramma 1: panoramica del processo di ripetizione del training
 
 	Al termine dell'esecuzione dell'esperimento, fare clic su Crea esperimento predittivo. In questo modo verrà creato un esperimento predittivo, verrà salvato il modello come modello con training e verranno aggiunti i moduli di input e output del servizio Web, come illustrato di seguito. A questo punto, fare clic su Run.
 
-	Al termine dell'esecuzione dell'esperimento, facendo clic su "Pubblica servizio Web" l'esperimento predittivo verrà pubblicato come servizio Web e verrà creato un endpoint predefinito. Il modello con training in questo servizio Web è aggiornabile, come illustrato di seguito. I dettagli dell'endpoint verranno visualizzati sullo schermo.  
-3. *Pubblicare l'esperimento di training come servizio Web* Per ripetere il training del modello con training, è necessario pubblicare l'esperimento di training creato nel precedente passaggio 1 come servizio Web. Per produrre nuovi modelli con training, questo servizio Web dovrà disporre di un modulo di output del servizio Web connesso al modulo [modello di training][train-model]. Fare clic sull'icona Experiments nel riquadro sinistro e quindi sull'esperimento denominato Modello di censimento per tornare all'esperimento di training.  
+	Al termine dell'esecuzione dell'esperimento, facendo clic su "Pubblica servizio Web" l'esperimento predittivo verrà pubblicato come servizio Web e verrà creato un endpoint predefinito. Il modello con training in questo servizio Web è aggiornabile, come illustrato di seguito. I dettagli dell'endpoint verranno visualizzati sullo schermo.
+3. *Pubblicare l'esperimento di training come servizio Web*: per ripetere il training del modello con training, è necessario pubblicare l'esperimento di training creato nel precedente passaggio 1 come servizio Web. Per produrre nuovi modelli con training, questo servizio Web dovrà disporre di un modulo di output del servizio Web connesso al modulo [modello di training][train-model]. Fare clic sull'icona Experiments nel riquadro sinistro e quindi sull'esperimento denominato Modello di censimento per tornare all'esperimento di training.  
 
 	Aggiungere quindi un modulo di input del servizio Web e due moduli di output del servizio Web al flusso di lavoro. Tramite l'output del servizio Web per il modello di training sarà possibile ottenere il nuovo modello con training. L'output associato al modello di valutazione restituirà l'output del modello di valutazione del modulo.
 
@@ -61,7 +61,7 @@ Diagramma 1: panoramica del processo di ripetizione del training
 	![][4]
 
 	Fare clic sul pulsante Distribuisci servizio Web e quindi su Sì. L'esperimento di training verrà distribuito come un servizio Web che produce un modello con training e risultati di valutazione del modello. Verrà visualizzato il dashboard del servizio Web con la chiave API e la pagina della guida dell'API per Esecuzione batch. Si noti che è possibile usare solo il metodo Esecuzione batch per la creazione di modelli di training.  
-4. *Aggiungere un nuovo endpoint* Il servizio Web predittivo pubblicato nel precedente passaggio 2 è stato creato con un endpoint predefinito. Gli endpoint predefiniti vengono mantenuti sincronizzati con gli esperimenti di training e di assegnazione dei punteggi di origine, pertanto un modello con training dell'endpoint predefinito non può essere sostituito. Per creare un endpoint aggiornabile, visitare il portale di Azure classico e fare clic su Aggiungi endpoint (altri dettagli sono disponibili [qui](machine-learning-create-endpoint.md)).
+4. *Aggiungere un nuovo endpoint* Il servizio Web predittivo pubblicato nel precedente passaggio 2 è l'endpoint di assegnazione dei punteggi predefinito. Gli endpoint predefiniti vengono mantenuti sincronizzati con gli esperimenti di training e di assegnazione dei punteggi di origine, pertanto un modello con training dell'endpoint predefinito non può essere sostituito. Per creare un nuovo endpoint di assegnazione dei punteggi con un modello aggiornabile, visitare il portale di Azure classico e fare clic su Aggiungi endpoint (altri dettagli sono disponibili [qui](machine-learning-create-endpoint.md)). È anche possibile aggiungere gli endpoint di assegnazione dei punteggi usando il codice di esempio disponibile [qui](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
 
 5. *Ripetere il training del modello con nuovi dati e con il servizio Esecuzione batch* Per chiamare le API per la ripetizione del training, creare una nuova applicazione console C# in Visual Studio (Nuovo->Progetto->Windows Desktop->Applicazione console).
 
@@ -94,9 +94,9 @@ Diagramma 1: panoramica del processo di ripetizione del training
 
 	In questo modo sarà possibile sapere se le prestazioni del modello appena sottoposto a training sono abbastanza elevate da sostituire quello esistente.
 
-7. *Aggiornare il modello con training dell'endpoint aggiunto* Per completare il processo, è necessario aggiornare il modello con training dell'endpoint predittivo creato nel precedente passaggio 4.
+7. *Aggiornare il modello con training dell'endpoint aggiunto* Per completare il processo, è necessario aggiornare il modello con training dell'endpoint predittivo (di assegnazione dei punteggi) creato nel precedente passaggio 4.
 
-	Se è stato aggiunto il nuovo endpoint tramite il portale di Azure, è possibile fare clic sul nome del nuovo endpoint, quindi sul collegamento UpdateResource per ottenere l'URL necessario per aggiornare il modello dell'endpoint.
+	Se il nuovo endpoint è stato aggiunto usando il portale di Azure, è possibile fare clic sul nome del nuovo endpoint, quindi sul collegamento UpdateResource per ottenere l'URL necessario per aggiornare il modello dell'endpoint. Se l'endpoint è stato aggiunto usando il codice, l'output di tale chiamata avrà l'URL dell'endpoint.
 
 	L'output del servizio Esecuzione batch sopra riportato mostra le informazioni relative al risultato della ripetizione del training per "output1", contenente le informazioni sul percorso del modello sottoposto nuovamente a training. A questo punto è necessario aggiornare l'endpoint di assegnazione dei punteggi creato nel precedente passaggio 4. Segue il codice di esempio:
 
@@ -141,6 +141,8 @@ Diagramma 1: panoramica del processo di ripetizione del training
 	```
 
 	I valori "apiKey" e "endpointUrl" per questa chiamata sono visibili nel dashboard dell'endpoint. Il parametro "Name" in Risorse deve corrispondere al nome del modello sottoposto a training e salvato nell'esperimento predittivo.
+	
+	Si noti che il token di firma di accesso condiviso scade dopo 1 ora (55 minuti). Sarà necessario eseguire un'operazione GET con l'ID processo per ottenere un nuovo token.
 
 	Se la chiamata ha esito positivo, il nuovo endpoint verrà avviato entro circa 15 secondi usando un modello sottoposto nuovamente a training.
 
@@ -158,4 +160,4 @@ Mediante le API per la ripetizione del training è possibile aggiornare il model
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

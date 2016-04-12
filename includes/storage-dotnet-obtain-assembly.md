@@ -1,7 +1,7 @@
-### Recupero dell'assembly
+### Ottenere il pacchetto della libreria client di archiviazione
 
-Per ottenere l'assembly `Microsoft.WindowsAzure.Storage.dll`, è possibile usare NuGet. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
+È possibile usare NuGet per ottenere il pacchetto della libreria client di archiviazione e le relative dipendenze. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto Archiviazione di Azure e le dipendenze.
 
-`Microsoft.WindowsAzure.Storage.dll` è inoltre incluso in Azure SDK per .NET, che può essere scaricato dal <a href="http://azure.microsoft.com/develop/net/#"> Centro per sviluppatori .NET</a>. L'assembly viene installato nella directory `%Program Files%\Microsoft SDKs\Azure\.NET SDK<sdk-version>\ref`.
+Il pacchetto della libreria client di archiviazione è incluso anche in [Azure SDK per .NET](https://azure.microsoft.com/downloads/). È tuttavia consigliabile installare la libreria client di archiviazione da NuGet per assicurarsi di avere sempre la versione più recente di questa libreria.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0406_2016-->

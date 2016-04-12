@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/09/2015"
+   ms.date="03/02/2016"
    ms.author="guayan"/>
 
 # Registrare un'API ospitata all'interno dell'ambiente del servizio app
@@ -23,19 +23,20 @@ PowerApps supporta la registrazione delle API esistenti ospitate in un punto qua
 - Implementare alcune nuove funzionalità che l'organizzazione può utilizzare.
 - Basarsi sulle funzionalità o sui dati esistenti per fornire una migliore esperienza agli utenti che creano le proprie app.
 
-Quando si ospitano le API nell'ambiente del servizio app, sfruttare tutte le funzionalità esistenti dell’[ambiente del servizio app](../app-service-app-service-environment-intro.md) e ottenere anche una migliore esperienza di integrazione.
+Quando si ospitano le API nell'ambiente del servizio app, sfruttare tutte le funzionalità esistenti dell’[ambiente del servizio app](../app-service-web/app-service-app-service-environment-intro.md) e ottenere anche una migliore esperienza di integrazione.
 
-Per utilizzare queste API nelle applicazioni, è necessario "registrare" le API nel portale di Azure. Sono disponibili le seguenti opzioni:
+Per usare queste API nelle app, è necessario "registrare" le API nel portale di Azure usando un'API gestita o le API esistenti nell'ambiente del servizio app oppure creando un'API con Swagger.
 
-- Registrare un'[API gestita da Microsoft o gestita dal reparto IT](powerapps-register-from-available-apis.md) predefinita.
-- Registrare un'app Web, un'app per le API e un'app per dispositivi mobili ospitata nell'ambiente del servizio app (in questo argomento).
-- Registrare una delle API Swagger usando una [definizione API di Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
+> [AZURE.SELECTOR]
+- [API gestite](../articles/power-apps/powerapps-register-from-available-apis.md)
+- [API nell'ambiente del servizio app](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
+- [API Swagger](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
 
-Questo articolo illustra come **registrare un'app Web, un'app per le API e un'app per dispositivi mobili ospitata nell'ambiente del servizio app**.
+In questo argomento si esaminerà la seconda opzione, ovvero la **registrazione di un'app Web, un'app per le API e un'app per dispositivi mobili ospitate nell'ambiente del servizio app**.
 
 #### Prerequisiti per iniziare
 
-- Iscriversi a [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
+- Iscrizione a [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
 - Creare un [ambiente di servizio app](powerapps-get-started-azure-portal.md).
 
 
@@ -43,11 +44,11 @@ Questo articolo illustra come **registrare un'app Web, un'app per le API e un'ap
 
 Lo sviluppo di un'API nell'ambiente del servizio app è semplice. Si sceglie il linguaggio di programmazione preferito per creare un'API Web e quindi si utilizza [Swagger 2.0](http://swagger.io) per descrivere la definizione dell'API. Di seguito sono riportati alcuni esempi:
 
-- [Compilare e distribuire un'app .NET nel servizio app di Azure](../app-service-api-dotnet-get-started.md)
-- [Compilare e distribuire un'app per le API Java nel servizio app di Azure](../app-service-api-java-api-app.md)
-- [Compilare e distribuire un'app per le API Node.js in Servizio app di Azure](../app-service-api-nodejs-api-app.md)
+- [Compilare e distribuire un'app .NET nel servizio app di Azure](../app-service-api/app-service-api-dotnet-get-started.md)
+- [Compilare e distribuire un'app per le API Java nel servizio app di Azure](../app-service-api/app-service-api-java-api-app.md)
+- [Compilare e distribuire un'app per le API Node.js in Servizio app di Azure](../app-service-api/app-service-api-nodejs-api-app.md)
 
-Sono inoltre disponibili opzioni per distribuire l'API Web in un ambiente del servizio app, tra cui la distribuzione da Visual Studio e la distribuzione continua mediante un sistema di controllo del codice sorgente. [Distribuire un'app Web nel servizio app di Azure](../web-sites-deploy.md) rappresenta una buona risorsa.
+Sono inoltre disponibili opzioni per distribuire l'API Web in un ambiente del servizio app, tra cui la distribuzione da Visual Studio e la distribuzione continua mediante un sistema di controllo del codice sorgente. [Distribuire un'app Web nel servizio app di Azure](../app-service-web/web-sites-deploy.md) rappresenta una buona risorsa.
 
 ## Registrare l'API personalizzata nell'ambiente del servizio app
 
@@ -62,7 +63,7 @@ Dopo aver distribuito l'API nell'ambiente del servizio app, utilizzare la proced
 4. In **API ospitata nell'ambiente del servizio app** selezionare l'API che si desidera importare. Questo elenco mostra tutte le app Web, le app per le API e le app per dispositivi mobili nell'ambiente del servizio app la cui proprietà **apiDefinition.url** è configurata. Per importare l'API, viene utilizzata la definizione API Swagger 2.0 esposta tramite questa proprietà. Assicurarsi che questo URL sia pubblicamente accessibile quando si registra l'API: ![][14]
 5. Selezionare **AGGIUNGI** per completare questi passaggi.
 
-> [AZURE.TIP]Quando si registra un'API, ciò avviene nel proprio ambiente del servizio app. Una volta effettuata tale registrazione, l'API è utilizzabile da altre app presenti nello stesso ambiente del servizio app.
+> [AZURE.TIP] Quando si registra un'API, ciò avviene nel proprio ambiente del servizio app. Una volta effettuata tale registrazione, l'API è utilizzabile da altre app presenti nello stesso ambiente del servizio app.
 
 ## Riepilogo e passaggi successivi
 In questo articolo è stato possibile esaminare come registrare API ospitate nell'ambiente del servizio app. Per altre informazioni sulle PowerApps, vedere gli articoli e le risorse correlati seguenti:
@@ -77,4 +78,4 @@ In questo articolo è stato possibile esaminare come registrare API ospitate nel
 [13]: ./media/powerapps-register-api-hosted-in-app-service/add-api-blade.png
 [14]: ./media/powerapps-register-api-hosted-in-app-service/add-api-select-from-ase.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

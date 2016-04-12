@@ -4,8 +4,8 @@
 	keywords="codice di errore sql, accesso sql, errore di connessione del database, codici di errore sql"
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor="" />
 
 
@@ -15,8 +15,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/06/2015"
-	ms.author="genemi"/>
+	ms.date="03/22/2016"
+	ms.author="annemill"/>
 
 
 # Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database
@@ -29,7 +29,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 -->
 
 
-Questo articolo elenca i codici di errore SQL per l'applicazione client del database SQL, inclusi errori di connessione del database, errori temporanei (noti anche come guasti temporanei), errori di governance delle risorse, problemi di copia del database e altri errori. La maggior parte delle categorie sono specifiche di Database SQL di Azure e non si applicano a Microsoft SQL Server.
+Questo articolo elenca i codici di errore di SQL per le applicazioni client del database SQL, inclusi errori di connessione del database, errori temporanei (noti anche come guasti temporanei), errori di governance delle risorse, errori di copia del database, errori relativi al pool elastico e altri errori. La maggior parte delle categorie sono specifiche di Database SQL di Azure e non si applicano a Microsoft SQL Server.
 
 Nell'applicazione client per ogni errore specificato è possibile inviare all'utente un messaggio personalizzato.
 
@@ -139,8 +139,40 @@ Per altre informazioni sulla governance delle risorse e gli errori correlati, ve
 - [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md)
 
 
-
 <a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
+
+## Errori relativi al pool elastico
+
+Argomenti correlati:
+
+* [Creare un pool di database elastici (C#)](sql-database-elastic-pool-create-csharp.md) 
+* [Gestire un pool di database elastici (C#)](sql-database-elastic-pool-manage-csharp.md) 
+* [Creare un pool di database elastici (PowerShell)](sql-database-elastic-pool-create-powershell.md) 
+* [Monitorare e gestire un pool di database elastici (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
+
+| ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| 1132 | EX\_RESOURCE | Il pool elastico ha raggiunto il limite di archiviazione. L'utilizzo dell'archiviazione per il pool elastico non può superare (%d) MB. | Limite di spazio del pool elastico in MB. | Tentativo di scrittura dei dati in un database quando viene raggiunto il limite di archiviazione del pool elastico. | Prendere in considerazione l’aumento delle DTU del pool elastico, se possibile, per aumentare il limite di archiviazione, ridurre la memoria utilizzata dai singoli database all'interno del pool elastico o rimuovere i database dal pool elastico. |
+| 10929 | EX\_USER | La %s di garanzia minima è %d, il limite massimo è %d e l'utilizzo corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per assistenza, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Altrimenti, riprovare più tardi. | Numero minimo DTU per database. Numero massimo DTU per database | Il numero totale dei processi di lavoro simultanei (richieste) in tutti i database nel pool elastico ha tentato di superare il limite del pool. | Prendere in considerazione l’aumento delle DTU del pool elastico, se possibile, per aumentare il limite dei processi di lavoro o rimuovere i database dal pool elastico. |
+| 40844 | EX\_USER | Il database '%ls' sul Server '%ls' è un database versione '%ls' in un pool elastico e non può avere una relazione di copia continua. | nome database, versione database, nome server | Viene emesso un comando StartDatabaseCopy per un database non premium in un pool elastico. | Presto disponibile |
+| 40857 | EX\_USER | Pool elastico non trovato per il server: '%ls', nome del pool elastico: '%ls'. | nome del server; nome del pool elastico | Il pool elastico specificato non esiste nel server specificato. | Fornire un nome pool elastico valido. |
+| 40858 | EX\_USER | Il pool elastico '%ls' esiste già nel server: '%ls' | nome del pool elastico, nome del server | Il pool elastico specificato esiste già nel server logico specificato. | Fornire un nuovo nome pool elastico. |
+| 40859 | EX\_USER | Il pool elastico non supporta il livello di servizio '%ls'. | livello di servizio del pool elastico | Il livello di servizio specificato non è supportato per il provisioning del pool elastico. | Fornire l'edizione corretta oppure lasciare vuoto il livello di servizio per utilizzare il livello di servizio predefinito. |
+| 40860 | EX\_USER | La combinazione di pool elastico '%ls' e di obiettivo di servizio '%ls' non è valida. | nome pool elastico; nome obiettivo del livello di servizio | Il pool elastico e l’obiettivo del servizio possono essere specificati insieme solo se l’obiettivo di servizio viene specificato come 'ElasticPool'. | Specificare la combinazione corretta di pool elastico e obiettivo di servizio. |
+| 40861 | EX\_USER | L'edizione del database '%.*ls' non può essere diversa dal livello di servizio del pool elastico che è '%.*ls'. | edizione del database, livello di servizio del pool elastico | L'edizione del database è diversa dal livello di servizio del pool elastico. | Non specificare un'edizione del database diversa dal livello di servizio del pool elastico. Si noti che non è necessario specificare l'edizione del database. |
+| 40862 | EX\_USER | Nome del pool elastico deve essere specificato quando viene specificato l'obiettivo del servizio del pool elastico. | Nessuno | L’obiettivo del servizio del pool elastico non identifica in modo univoco un pool elastico. | Specificare il nome del pool elastico se si utilizza l'obiettivo del servizio del pool elastico. |
+| 40864 | EX\_USER | Il numero di DTU per il pool elastico deve essere almeno (%d) DTU per il livello di servizio '%.*ls'. | DTU per il pool elastico; livello di servizio del pool elastico. | Tentativo di impostazione di un numero di DTU per il pool elastico inferiore al limite minimo. | Riprovare impostando le DTU per il pool elastico almeno al limite minimo. |
+| 40865 | EX\_USER | Le DTU per il pool elastico non possono superare (%d) DTU per il livello di servizio '%.*ls'. | DTU per il pool elastico; livello di servizio del pool elastico. | Tentativo di impostazione di un numero di DTU per il pool elastico superiore al limite massimo. | Riprovare impostando un numero di DTU per il pool elastico non superiore al limite massimo. |
+| 40867 | EX\_USER | Il numero massimo di DTU per ogni database deve essere di almeno (%d) per il livello di servizio '%.*ls'. | Numero massimo di DTU per database; livello di servizio del pool elastico | Tentativo di impostare un numero massimo di DTU per ogni database sotto il limite supportato. | È consigliabile utilizzare il livello di servizio del pool elastico che supporta l'impostazione desiderata. |
+| 40868 | EX\_USER | Il numero massimo di DTU per ogni database non può superare (%d) per il livello di servizio '%.*ls'. | Numero massimo di DTU per database; livello di servizio del pool elastico. | Tentativo di impostare un numero massimo di DTU per ogni database oltre il limite supportato. | È consigliabile utilizzare il livello di servizio del pool elastico che supporta l'impostazione desiderata. |
+| 40870 | EX\_USER | Il numero minimo di DTU per ogni database non può superare (%d) per il livello di servizio '%.*ls'. | Numero minimo di DTU per database; livello di servizio del pool elastico. | Tentativo di impostare un numero minimo di DTU per ogni database oltre il limite supportato. | È consigliabile utilizzare il livello di servizio del pool elastico che supporta l'impostazione desiderata. |
+| 40873 | EX\_USER | Il numero di database (%d) e DTU min per ogni database (%d) non può superare le DTU del pool elastico (%d). | Numero di database nel pool elastico; DTU minime per database; DTU del pool elastico. | Tentativo di specificare un numero minimo di DTU per i database nel pool elastico che supera le DTU del pool elastico. | Provare ad aumentare le DTU del pool elastico o a diminuire il numero minimo di DTU per ogni database oppure ridurre il numero di database nel pool elastico. |
+| 40877 | EX\_USER | Impossibile eliminare un pool elastico, a meno che non contenga alcun database. | Nessuno | Il pool elastico contiene uno o più database e pertanto non può essere eliminato. | Rimuovere i database dal pool elastico per eliminarlo. |
+| 40881 | EX\_USER | Il pool elastico '%.* ls' ha raggiunto il numero massimo di database. Il numero massimo di database per il pool elastico non può superare (%d) per un pool elastico con DTU (%d). | Nome del pool elastico; numero massimo di database di pool elastico; DTU per pool di risorse. | Tentativo di creare o aggiungere database al pool elastico quando viene raggiunto il numero massimo di database nel pool elastico. | Provare ad aumentare le DTU del pool elastico se possibile, per aumentare il limite di database o rimuovere i database dal pool elastico. |
+| 40889 | EX\_USER | Il limite di DTU o risorse di archiviazione per il pool elastico '%.*ls' non può essere ridotto dal momento che non si fornisce spazio di archiviazione sufficiente per i database. | Nome del pool elastico. | Tentativo di ridurre il limite di archiviazione del pool elastico sotto il relativo utilizzo dell'archiviazione. | Provare a ridurre l'utilizzo dell'archiviazione dei singoli database nel pool elastico o rimuovere i database dal pool per ridurre le DTU o il limite di archiviazione. |
+| 40891 | EX\_USER | Il numero minimo di DTU per ogni database (%d) non può superare il numero massimo di DTU per ogni database (%d). | Numero minimo di DTU per database; numero massimo di DTU per database. | Tentativo di impostare un numero minimo di DTU per ogni database superiore al numero massimo di DTU per ogni database. | Verificare che il numero minimo di DTU per database non superi il numero massimo di DTU per database. |
+| TBD | EX\_USER | Le dimensioni di archiviazione di un singolo database in un pool elastico non possono superare la dimensione massima consentita per il livello di servizio del pool elastico '%.* ls'. | Livello di servizio del pool elastico | La dimensione massima per il database supera la dimensione massima consentita per il livello di servizio del pool elastico. | Impostare la dimensione massima del database entro i limiti della dimensione massima consentita per il livello di servizio del pool elastico. |
+
 
 ## Errori generali
 
@@ -211,8 +243,8 @@ La tabella seguente elenca tutti gli errori generali che non rientrano nelle cat
 |40651|16|Impossibile creare il server perché la sottoscrizione <subscription-id> è disabilitata.|
 |40652|16|Impossibile spostare o creare il server. La sottoscrizione <subscription-id> supera la quota del server.|
 |40671|17|Si è verificato un errore di comunicazione tra il gateway e il servizio di gestione. Riprovare più tardi.|
-|40852|16|Impossibile aprire il database "%.*ls" nel server "%.*ls" richiesto dall'account di accesso. L'accesso al database è consentito solo tramite una stringa di connessione con sicurezza abilitata. Per accedere al database, modificare le stringhe di connessione in modo che contengano "sicuro" nel FQDN del server - "nome server".database.windows.net deve essere modificato in "nome server".database.`secure`.windows.net.| 
-|45168|16|Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del database per un singolo server (ad esempio, creare il database). Il server specificato nel messaggio di errore ha superato il numero massimo di connessioni simultanee. Riprovare più tardi.| 
+|40852|16|Impossibile aprire il database "%.*ls" nel server "%.*ls" richiesto dall'account di accesso. L'accesso al database è consentito solo tramite una stringa di connessione con sicurezza abilitata. Per accedere al database, modificare le stringhe di connessione in modo che contengano "sicuro" nel FQDN del server - "nome server".database.windows.net deve essere modificato in "nome server".database.`secure`.windows.net.|
+|45168|16|Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del database per un singolo server (ad esempio, creare il database). Il server specificato nel messaggio di errore ha superato il numero massimo di connessioni simultanee. Riprovare più tardi.|
 |45169|16|Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del server per una singola sottoscrizione (ad esempio, creare il server). La sottoscrizione specificata nel messaggio di errore ha superato il numero massimo di connessioni simultanee e la richiesta è stata negata. Riprovare più tardi.|
 
 
@@ -221,4 +253,4 @@ La tabella seguente elenca tutti gli errori generali che non rientrano nelle cat
 - [Limitazioni e linee guida generali per il database SQL di Azure](sql-database-general-limitations.md)
 - [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="02/25/2016"
+	ms.date="03/11/2016"
 	ms.author="yidingz;marsma"/>
 
 # Cenni preliminari sulle funzionalità di Azure Batch
@@ -44,7 +44,7 @@ Le sezioni seguenti illustrano ognuna delle risorse citate nel flusso di lavoro 
 
 ## <a name="resource"></a> Risorse del servizio Batch
 
-Quando si usa il servizio Azure Batch, è possibile usare le risorse seguenti:
+Quando si usa il servizio Batch, si usano molte delle risorse seguenti. Alcune di queste risorse, ad esempio gli account, i nodi di calcolo, i pool, i processi e le attività, vengono usate in tutte le soluzioni del servizio Batch. Altre risorse, ad esempio le pianificazioni di processi e i pacchetti dell'applicazione, sono funzionalità utili ma facoltative.
 
 - [Account](#account)
 - [Nodo di calcolo](#computenode)
@@ -55,7 +55,9 @@ Quando si usa il servizio Azure Batch, è possibile usare le risorse seguenti:
 	- [Attività di gestione dei processi](#jobmanagertask)
 	- [Attività di preparazione e rilascio dei processi](#jobpreprelease)
 	- [Attività a istanze multiple](#multiinstance)
-- [Pianificazione processo](#jobschedule)
+    - [Dipendenze dell'attività](#taskdep)
+- [Pianificazioni dei processi](#jobschedule)
+- [Pacchetti dell'applicazione](#appkg)
 
 ### <a name="account"></a>Account
 
@@ -122,7 +124,6 @@ Un processo è una raccolta di attività e specifica la modalità di esecuzione 
 	- Azure Batch può rilevare attività con esito negativo e provare a eseguirle di nuovo. Il **numero massimo di tentativi per l'attività** può essere specificato sotto forma di vincolo, indicando anche se un'attività viene sempre ripetuta o mai. Per nuovo tentativo si intende che l'attività viene riaccodata per essere eseguita di nuovo.
 - Le attività possono essere aggiunte al processo dall'applicazione client oppure si può specificare un'[attività del gestore di processi](#jobmanagertask). Un'attività del gestore di processi usa l'API Batch e contiene le informazioni necessarie per creare le attività necessarie per un processo. L'attività viene eseguita in uno dei nodi di calcolo del pool. L'attività del gestore di processi viene gestita in modo specifico da Batch, ovvero viene accodata non appena si crea il processo e viene riavviata se l'operazione non riesce. Per i processi creati in base a una pianificazione del processo è obbligatorio usare un'attività del gestore di processi, perché è l'unico modo per definire le attività prima di creare istanze del processo. Di seguito sono riportate altre informazioni sulle attività del gestore di processi.
 
-
 ### <a name="task"></a>Attività
 
 Un'attività è un'unità di calcolo associata a un processo ed eseguita in un nodo. Le attività vengono assegnate a un nodo per l'esecuzione o vengono accodate fino a quando non diventa disponibile un nodo. Un'attività usa le risorse seguenti:
@@ -141,6 +142,7 @@ Oltre alle attività definite dall'utente per eseguire il calcolo in un nodo, il
 - [Attività di gestione dei processi](#jobmanagertask)
 - [Attività di preparazione e rilascio dei processi](#jobmanagertask)
 - [Attività a istanze multiple](#multiinstance)
+- [Dipendenze dell'attività](#taskdep)
 
 #### <a name="starttask"></a>Attività di avvio
 
@@ -185,11 +187,31 @@ Per altre informazioni sulle attività di preparazione e rilascio dei processi, 
 
 Un'[attività a istanze multiple](batch-mpi.md) è un'attività configurata per l'esecuzione contemporanea in più nodi di calcolo. Con le attività a istanze multiple è possibile abilitare scenari high performance computing, ad esempio MPI (Message Passing), che richiedono l'allocazione di un gruppo di nodi di calcolo per l'elaborazione di un singolo carico di lavoro.
 
-Per una discussione dettagliata sull'esecuzione di processi MPI in Batch usando la libreria Batch .NET, vedere l'articolo relativo all'[uso di attività a istanze multiple per l'esecuzione di applicazioni MPI (Message Passing Interface) in Azure Batch](batch-mpi.md).
+Per una discussione dettagliata sull'esecuzione di processi MPI in Batch usando la libreria Batch .NET, vedere [Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Azure Batch](batch-mpi.md).
+
+#### <a name="taskdep"></a>Relazioni tra attività
+
+Le relazioni tra attività consentono di specificare che un'attività dipende dal completamento di altre attività prima della rispettiva esecuzione. Questa funzionalità fornisce il supporto nelle situazioni in cui un'attività di "downstream" utilizza l'output di un'attività di "upstream" oppure quando un'attività di upstream esegue un'inizializzazione richiesta da un'attività di downstream. Per usare questa funzionalità, prima è necessario abilitare le relazioni tra attività nel processo batch. Per ogni attività che dipende da un'altra (o da più altre), specificare quindi le attività da cui dipende tale attività.
+
+Con le relazioni tra attività, è possibile configurare scenari come i seguenti:
+
+* L'*attivitàB* dipende dall'*attivitàA* (l'esecuzione dell'*attivitàB* inizierà solo dopo il completamento dell'*attivitàA*)
+* L'*attivitàC* dipende sia dall'*attivitàA* che dall'*attivitàB*
+* L'*attivitàD* dipende da un intervallo di attività, ad esempio le attività da *1* a *10*, prima che venga eseguita
+
+Vedere l'esempio di codice [TaskDependencies][github_sample_taskdeps] nel repository di GitHub [azure-batch-samples][github_samples], in cui viene illustrato come configurare le attività che dipendono da altre attività usando la libreria [Batch .NET][batch_net_api].
 
 ### <a name="jobschedule"></a>Processi pianificati
 
 Le pianificazioni dei processi consentono di creare processi ricorrenti nel servizio Batch. Una pianificazione del processo specifica quando eseguire i processi e include le specifiche per i processi da eseguire. Una pianificazione del processo consente di specificare la durata della pianificazione, per quanto tempo e quando è effettiva la pianificazione, e con quale frequenza devono essere creati i processi durante quell'intervallo di tempo.
+
+### <a name="appkg"></a>Pacchetti dell'applicazione
+
+La funzionalità relativa ai [pacchetti dell'applicazione](batch-application-packages.md) consente di gestire e distribuire con facilità le applicazioni ai nodi di calcolo nei pool. I pacchetti dell'applicazione consentono di caricare e gestire con facilità più versioni delle applicazioni eseguite dalle attività, inclusi i file binari e i file di supporto, quindi di distribuire automaticamente una o più applicazioni nei nodi di calcolo del pool.
+
+Il servizio Batch gestisce i dettagli dell'uso in background dell'Archiviazione di Azure, per archiviare e distribuire in modo sicuro i pacchetti dell'applicazione ai nodi di calcolo, in modo che sia possibile semplificare il codice e l'overhead di gestione.
+
+Per altre informazioni sulla funzionalità relativa ai pacchetti dell'applicazione, vedere [Distribuzione di applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md).
 
 ## <a name="files"></a>File e directory
 
@@ -222,7 +244,7 @@ Un approccio combinato, usato in genere per gestire un carico variabile ma conti
 
 ## <a name="scaling"></a>Scalabilità delle applicazioni
 
-Con il [ridimensionamento automatico](batch-automatic-scaling.md), è possibile fare in modo che il servizio Batch modifichi dinamicamente il numero di nodi di calcolo in un pool in base al carico di lavoro corrente e all'utilizzo delle risorse dello scenario di calcolo. In questo modo è possibile ridurre il costo complessivo dell'esecuzione dell'applicazione usando solo le risorse necessarie e rilasciando quelle non necessarie. È possibile specificare le impostazioni di ridimensionamento automatico per un pool quando viene creato oppure abilitare il ridimensionamento in seguito ed è possibile aggiornare le impostazioni di ridimensionamento in un pool abilitato per il ridimensionamento automatico.
+Con il [ridimensionamento automatico](batch-automatic-scaling.md) è possibile fare in modo che il servizio Batch modifichi dinamicamente il numero di nodi di calcolo in un pool in base al carico di lavoro corrente e all'utilizzo delle risorse dello scenario di calcolo. In questo modo è possibile ridurre il costo complessivo dell'esecuzione dell'applicazione usando solo le risorse necessarie e rilasciando quelle non necessarie. È possibile specificare le impostazioni di ridimensionamento automatico per un pool quando viene creato oppure abilitare il ridimensionamento in seguito ed è possibile aggiornare le impostazioni di ridimensionamento in un pool abilitato per il ridimensionamento automatico.
 
 Il ridimensionamento automatico viene eseguito specificando una **formula di ridimensionamento automatico** per un pool. Il servizio Batch usa questa formula per determinare il numero di nodi di destinazione nel pool per l'intervallo di ridimensionamento successivo (un intervallo che è possibile specificare).
 
@@ -332,7 +354,7 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 
 - **Disabilitare la pianificazione delle attività nel nodo** ([REST][rest_offline] | [.NET][net_offline])
 
-	In questo modo il nodo in realtà passa "offline" e non è possibile assegnargli altre attività, ma può rimanere in esecuzione e nel pool. È quindi possibile eseguire altre indagini sulla causa degli errori senza perdere i dati delle attività non riuscite e senza che il nodo generi altri errori delle attività. È possibile, ad esempio, disabilitare la pianificazione delle attività nel nodo, quindi accedere in remoto per esaminare i registri eventi del nodo o eseguire altre operazioni di risoluzione dei problemi. Una volta completata l'indagine, è possibile riportare il nodo online abilitando la pianificazione delle attività ([REST][rest_online], [.NET][net_online]) o eseguire una delle altre azioni illustrate sopra.
+	In questo modo il nodo in realtà passa "offline" e non è possibile assegnargli altre attività, ma può rimanere in esecuzione e nel pool. È quindi possibile eseguire altre indagini sulla causa degli errori senza perdere i dati delle attività non riuscite e senza che il nodo generi altri errori delle attività. È possibile, ad esempio, disabilitare la pianificazione delle attività nel nodo, quindi accedere in remoto per esaminare i registri eventi del nodo o eseguire altre operazioni di risoluzione dei problemi. Al termine dell'indagine, è possibile riportare il nodo online abilitando la pianificazione delle attività ([REST][rest_online], [.NET][net_online]) o eseguire una delle altre azioni illustrate in precedenza.
 
 > [AZURE.IMPORTANT] Con ogni azione precedente (riavvio, ricreazione dell'immagine, rimozione, disabilitazione della pianificazione delle attività) è possibile specificare come gestire le attività attualmente in esecuzione nel nodo quando si esegue l'azione. Ad esempio, quando si disabilita la pianificazione delle attività in un nodo con la libreria client Batch .NET, è possibile specificare un valore enum [DisableComputeNodeSchedulingOption][net_offline_option] per specificare se eseguire l'operazione **Terminate** per terminare le attività in esecuzione o **Requeue** per riaccodarle per la pianificazione in altri nodi oppure consentire il completamento delle attività in esecuzione prima di eseguire l'azione (**TaskCompletion**).
 
@@ -351,6 +373,8 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -377,7 +401,7 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
-[rest_multiinstance]: https://msdn.microsoft.com/it-IT/library/azure/mt637905.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
@@ -387,4 +411,4 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

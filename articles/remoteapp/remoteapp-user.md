@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="03/02/2016"
     ms.author="elizapo" />
 
 # Come aggiungere un utente alla raccolta di Azure RemoteApp
@@ -41,15 +41,15 @@ Gli utenti di Office 365 sono utenti di Azure Active Directory. Agli utenti che 
 |Sincronizzazione Active Directory con sincronizzazione password |Sì |Sì |
 |Sincronizzazione Active Directory senza sincronizzazione password|	Sì |No |
 |Sincronizzazione Active Directory con ADFS |Sì |Sì |
-|Provider di identità di terze parti supportati da Azure (ad esempio Ping) |Sì |Sì|
+|[Provider di identità di terze parti supportati da Azure ](https://msdn.microsoft.com/library/azure/jj679342.aspx) (ad esempio Ping) |Sì |Sì|
 |Autenticazione a più fattori |Sì |Sì |
 
 Per [altre informazioni](remoteapp-ad.md), vedere Configurare Azure Active Directory per RemoteApp.
 
 
-> [AZURE.NOTE]Gli utenti di Azure Active Directory devono provenire dal tenant associato alla sottoscrizione (è possibile visualizzare e modificare la sottoscrizione nella scheda **Impostazioni** nel portale. Per altre informazioni, vedere l'articolo relativo alla [modifica del tenant di Azure Active Directory usato da RemoteApp](remoteapp-changetenant.md)).
+> [AZURE.NOTE] Gli utenti di Azure Active Directory devono provenire dal tenant associato alla sottoscrizione (è possibile visualizzare e modificare la sottoscrizione nella scheda **Impostazioni** nel portale. Per altre informazioni, vedere l'articolo relativo alla [modifica del tenant di Azure Active Directory usato da RemoteApp](remoteapp-changetenant.md)).
 
 ## Informazioni sugli account utente di Office 365 ProPlus
 Se si usa l'immagine modello di Office 365 ProPlus nella raccolta *o* se è stata creata un'immagine personalizzata che usa Office 365, è possibile solo aggiungere gli utenti di Azure Active Directory che dispongono di sottoscrizioni a Office 365 per il dominio predefinito della sottoscrizione. Per altre informazioni, vedere l'articolo relativo all'[uso di Office 365 con Azure RemoteApp](remoteapp-o365.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

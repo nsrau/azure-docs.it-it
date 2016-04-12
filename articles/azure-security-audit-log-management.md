@@ -108,7 +108,7 @@ Il diagramma seguente illustra un flusso di dati di alto livello per la raccolta
 
 ![][1]
 
-La Diagnostica di Azure sposta i log da applicazioni di servizi Cloud cliente e [macchine virtuali di Azure](virtual-machines-about.md) ad Archiviazione di Azure. Sulla base di un formato di log, alcuni dati vengono archiviati in tabelle di Azure e alcuni in BLOB. I dati raccolti in [Archiviazione di Azure](storage-introduction.md) possono essere scaricati su sistemi SIEM locali tramite la libreria client di Archiviazione di Azure per il monitoraggio e l’analisi.
+La Diagnostica di Azure sposta i log da applicazioni di servizi Cloud cliente e [macchine virtuali di Azure](virtual-machines/virtual-machines-linux-about.md) ad Archiviazione di Azure. Sulla base di un formato di log, alcuni dati vengono archiviati in tabelle di Azure e alcuni in BLOB. I dati raccolti in [Archiviazione di Azure](storage-introduction.md) possono essere scaricati su sistemi SIEM locali tramite la libreria client di Archiviazione di Azure per il monitoraggio e l’analisi.
 
 Inoltre, HDInsight può essere utilizzato per un'ulteriore analisi dei dati nel cloud. Di seguito sono riportati alcuni esempi di raccolta dati di protezione utilizzati dalla Diagnostica di Azure.
 
@@ -614,4 +614,4 @@ Le risorse seguenti forniscono informazioni generali su Microsoft Azure e i serv
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

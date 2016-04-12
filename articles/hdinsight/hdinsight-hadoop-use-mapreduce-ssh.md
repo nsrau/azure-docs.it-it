@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 # Usare MapReduce con Hadoop in HDInsight con SSH
@@ -23,7 +23,7 @@
 
 In questo articolo si apprenderà come usare SSH (Secure Shell) per connettersi a un cluster Hadoop in HDInsight e quindi inviare processi MapReduce usando i comandi Hadoop.
 
-> [AZURE.NOTE]Se si ha già familiarità con l'uso di server Hadoop basati su Linux ma non si è esperti di HDInsight, vedere [Informazioni sull'uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md).
+> [AZURE.NOTE] Se si ha già familiarità con l'uso di server Hadoop basati su Linux ma non si è esperti di HDInsight, vedere [Informazioni sull'uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md).
 
 ##<a id="prereq"></a>Prerequisiti
 
@@ -61,7 +61,7 @@ Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su
 
 	Viene avviata la classe **wordcount**, contenuta nel file **hadoop-mapreduce-examples.jar**. Come input, usa il documento ****wasb://example/data/gutenberg/davinci.txt** e l'output viene archiviato in ****wasb:///example/data/WordCountOutput**.
 
-	> [AZURE.NOTE]Per altre informazioni su questo processo MapReduce e per dati di esempio, vedere [Usare MapReduce in Hadoop in HDInsight](hdinsight-use-mapreduce.md).
+	> [AZURE.NOTE] Per altre informazioni su questo processo MapReduce e per dati di esempio, vedere [Usare MapReduce in Hadoop in HDInsight](hdinsight-use-mapreduce.md).
 
 2. Il processo genera dettagli durante l'elaborazione e al completamento restituisce informazioni simili alle seguenti:
 
@@ -76,7 +76,7 @@ Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su
 
 	In questo modo, vengono visualizzati due file: **\_SUCCESS** e **part-r-00000**. Il file **part-r-00000** contiene l'output del processo.
 
-	> [AZURE.NOTE]Alcuni processi MapReduce possono dividere i risultati in più file **part-r-#####**. In questo caso, usare il suffisso ##### per indicare l'ordine dei file.
+	> [AZURE.NOTE] Alcuni processi MapReduce possono dividere i risultati in più file **part-r-#####**. In questo caso, usare il suffisso ##### per indicare l'ordine dei file.
 
 4. Per visualizzare l'output, usare il seguente comando:
 
@@ -108,4 +108,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 
@@ -82,9 +82,9 @@ Un altro scenario di tipo line-of-business prevede l'uso di una rete VPN da sito
 
 ## Passaggi successivi
 
-[Introduzione alla configurazione del bilanciamento del carico Internet](load-balancer-internet-getstarted.md)
+[Introduzione alla configurazione del bilanciamento del carico Internet](load-balancer-get-started-internet-arm-ps.md)
 
-[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-internal-getstarted.md)
+[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configurare una modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md)
 
@@ -92,4 +92,4 @@ Un altro scenario di tipo line-of-business prevede l'uso di una rete VPN da sito
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -3,7 +3,7 @@
    description="Vengono descritte le condizioni di avviso dell'array virtuale StorSimple e la loro gravità. Viene inoltre illustrato come usare il servizio StorSimple Manager per gestire gli avvisi."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# Usare il servizio StorSimple Manager per visualizzare e gestire gli avvisi per l'array virtuale StorSimple (anteprima)
+# Usare il servizio StorSimple Manager per visualizzare e gestire gli avvisi per l'array virtuale StorSimple
 
 ## Panoramica
 
@@ -141,58 +141,45 @@ Nelle tabelle seguenti sono elencati alcuni degli avvisi di Microsoft Azure Stor
 |:---|:---|:---|
 |Il dispositivo *<device name>* non è connesso al cloud.|Il dispositivo denominato non può connettersi al cloud. |Impossibile connettersi al cloud. L'inconveniente potrebbe essere causato da uno dei motivi seguenti:<ul><li>Può essere presente un problema con le impostazioni di rete sul dispositivo.</li><li>Può essere presente un problema con le credenziali dell'account di archiviazione.</li></ul>Per altre informazioni sulle risoluzione dei problemi di connettività, vedere l'[interfaccia utente Web locale](storsimple-ova-web-ui-admin.md) del dispositivo.|
 
-#### StorSimple comportamento quando si verifica un errore di connettività cloud
-
-Cosa accade se si verifica un errore di connettività cloud per il dispositivo StorSimple in esecuzione nell'ambiente di produzione?
-
-Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, quindi a seconda dello stato del dispositivo, può verificarsi quanto segue:
-
-- **Per i dati locali nel dispositivo**: per un certo periodo, non ci sarà alcuna interruzione del servizio e le letture continueranno a essere gestite. Tuttavia, come il numero di IOs attesa aumenta e supera un limite, le operazioni di lettura è possibile avviare esito negativo. 
-
-	A seconda della quantità di dati nel dispositivo, anche le operazioni di scrittura continueranno a essere eseguite per alcune ore dopo l'interruzione della connettività cloud. Le operazioni di scrittura verrà quindi rallentano e alla fine iniziano ad avere esito negativo se viene interrotta la connettività cloud per diverse ore. Nel dispositivo è presente un archivio temporaneo per i dati di cui è necessario effettuare il push nel cloud. Quest'area viene scaricata quando i dati vengono inviati. Se si verifica un errore di connettività, non verrà effettuato il push dei dati nel cloud in quest'area di archiviazione e l'I/O avrà esito negativo.
- 
-- **Per i dati nel cloud**: per la maggior parte dei problemi di connettività cloud, viene restituito un errore. Una volta la connettività viene ripristinata, senza che sia necessario portare il volume in linea viene ripresi IOs. In rari casi, l'intervento dell'utente potrebbe essere necessario per riportare in linea il volume dal portale di Azure classico.
- 
-- **Per gli snapshot cloud in corso**: l'operazione viene ripetuta alcune volte nell'arco di 4-5 ore e, se non viene ripristinata la connettività, gli snapshot cloud avranno esito negativo.
 
 ### Avvisi di configurazione
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Configurazione del servizio virtuale locale non supportata.|Rallentamento delle prestazioni.|La configurazione corrente può influire negativamente sulle prestazioni. Assicurarsi che il server soddisfi i requisiti minimi di configurazione. Per altre informazioni, vedere [Requisiti di sistema dell'array virtuale StorSimple (anteprima)](storsimple-ova-system-requirements.md). 
-|Sta per esaurirsi lo spazio su disco con provisioning su <*nome dispositivo*>.|Avviso relativo allo spazio su disco.|Sta per esaurirsi lo spazio su disco con provisioning. Per liberare spazio, provare a spostare i carichi di lavoro su un altro volume oppure a condividere o eliminare dei dati.
+|Configurazione del servizio virtuale locale non supportata.|Rallentamento delle prestazioni.|La configurazione corrente può influire negativamente sulle prestazioni. Assicurarsi che il server soddisfi i requisiti minimi di configurazione. Per altre informazioni, vedere [Requisiti di sistema dell'array virtuale StorSimple](storsimple-ova-system-requirements.md). 
+|Lo spazio su disco di cui è stato effettuato il provisioning in <*nome dispositivo*> è quasi esaurito.|Avviso relativo allo spazio su disco.|Sta per esaurirsi lo spazio su disco con provisioning. Per liberare spazio, provare a spostare i carichi di lavoro su un altro volume oppure a condividere o eliminare dei dati.
 
 ### Avvisi di errore di processo
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Non è stato possibile completare il backup di <*nome dispositivo*>.|Il processo di backup non è riuscito.|Non è stato possibile creare un backup. Considerare una delle possibilità seguenti:<ul><li>Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di backup. Assicurarsi che non siano presenti problemi di connettività. Per altre informazioni sulla risoluzione dei problemi di connettività, vedere l'[interfaccia utente Web locale](storsimple-ova-web-ui-admin.md) del dispositivo virtuale.</li><li>È stato raggiunto il limite di archiviazione disponibile. Per liberare spazio, è consigliabile eliminare tutti i backup che non sono più necessari.</li></ul> Risolvere i problemi, cancellare l'avviso e ripetere l'operazione.|
-|Il ripristino del <*nome dispositivo*> non è stato completato.|Il processo di ripristino non è riuscito.|Impossibile ripristinare dal backup. Considerare una delle possibilità seguenti:<ul><li>L'elenco di backup potrebbe non essere valido. Aggiornare l'elenco per verificare che sia ancora valido.</li><li>Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di ripristino. Assicurarsi che non siano presenti problemi di connettività.</li><li>È stato raggiunto il limite di archiviazione disponibile. Per liberare spazio, è consigliabile eliminare tutti i backup non più necessari.</li></ul>Risolvere i problemi, cancellare l'avviso, quindi riprovare l'operazione di ripristino.|
-|La clonazione del <*nome dispositivo*> non è stata completata.|Il processo di clonazione non è riuscito.|Impossibile creare un clone. Considerare una delle possibilità seguenti:<ul><li>L'elenco di backup potrebbe non essere valido. Aggiornare l'elenco per verificare che sia ancora valido.</li><li>Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di clonazione. Assicurarsi che non siano presenti problemi di connettività.</li><li>È stato raggiunto il limite di archiviazione disponibile. Per liberare spazio, è consigliabile eliminare tutti i backup non più necessari.</li></ul>Risolvere i problemi, cancellare l'avviso, quindi riprovare l'operazione di clonazione.|
+|Non è stato possibile completare il backup di <*nome dispositivo*>.|Il processo di backup non è riuscito.|Non è stato possibile creare un backup. Considerare uno degli aspetti seguenti:<ul><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di backup. Assicurarsi che non siano presenti problemi di connettività. Per altre informazioni sulla risoluzione dei problemi di connettività, accedere all'[interfaccia utente Web locale](storsimple-ova-web-ui-admin.md) del dispositivo virtuale.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul> Risolvere i problemi, cancellare l'avviso e ripetere l'operazione.|
+|Non è stato possibile completare il ripristino di <*nome dispositivo*>.|Il processo di ripristino non è riuscito.|Impossibile ripristinare dal backup. Considerare uno degli aspetti seguenti:<ul><li>L'elenco di backup potrebbe non essere valido. Aggiornare l'elenco per verificare che sia ancora valido.</li><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di ripristino. Verificare che non siano presenti problemi di connettività.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul>Risolvere i problemi, cancellare l'avviso e ripetere l'operazione di ripristino.|
+|Non è stato possibile completare la creazione del clone di <*nome dispositivo*>.|Il processo di clonazione non è riuscito.|Impossibile creare un clone. Considerare uno degli aspetti seguenti:<ul><li>L'elenco di backup potrebbe non essere valido. Aggiornare l'elenco per verificare che sia ancora valido.</li><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di clonazione. Verificare che non siano presenti problemi di connettività.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul>Risolvere i problemi, cancellare l'avviso e ripetere l'operazione.|
 
 ### Avvisi di prestazioni
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|Si stanno verificando ritardi imprevisti nel trasferimento dei dati.|Trasferimento dati lento.|Gli errori di limitazione si verificano quando si superano gli obiettivi di scalabilità di un servizio di archiviazione. In questo modo il servizio di archiviazione assicura che nessun client o tenant possa usare il servizio a spese di altri. Per altre informazioni sulla risoluzione dei problemi relativi all'account di archiviazione di Azure, vedere [Monitorare, diagnosticare e risolvere i problemi di Archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
-|Sta per esaurirsi lo spazio su disco con prenotazione su <*nome dispositivo*>.|Tempo di risposta lento.|Il 10% della dimensione totale di provisioning per <*nome dispositivo*> è riservata sul dispositivo locale e ora lo spazio riservato sta per esaurirsi. Il carico di lavoro su <*nome dispositivo*> sta generando un elevato livello di varianza oppure è possibile che recentemente sia stata eseguita la migrazione di una grande quantità di dati. Questo può comportare una riduzione delle prestazioni. Per risolvere il problema, è possibile eseguire una delle azioni seguenti:<ul><li>Aumentare la larghezza di banda del cloud per il dispositivo.</li><li>Ridurre i carichi di lavoro oppure spostarli su un altro volume o condivisione.</li></ul>
+|Si stanno verificando ritardi imprevisti nel trasferimento dei dati.|Trasferimento dati lento.|Gli errori di limitazione si verificano quando si superano gli obiettivi di scalabilità di un servizio di archiviazione. In questo modo il servizio di archiviazione assicura che nessun client o tenant possa usare il servizio a spese di altri. Per altre informazioni sulla risoluzione dei problemi relativi all'account di archiviazione di Azure, vedere [Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
+|Lo spazio su disco riservato in locale in <*nome dispositivo*> è quasi esaurito.|Tempo di risposta lento.|Il 10% delle dimensioni totali di cui è stato effettuato il provisioning per <*nome dispositivo*> è riservato nel dispositivo locale e al momento lo spazio riservato è quasi esaurito. Il carico di lavoro in <*nome dispositivo*> sta generando un'elevata varianza o è possibile che di recente sia stata eseguita la migrazione di una grande quantità di dati causando una riduzione delle prestazioni. Questo può comportare una riduzione delle prestazioni. Per risolvere questo problema, provare a eseguire una delle azioni seguenti:<ul><li>Aumentare la larghezza di banda del cloud in questo dispositivo.</li><li>Ridurre o spostare i carichi di lavoro in un altro volume o in un'altra condivisione.</li></ul>
 
 ### Avvisi di sicurezza
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
-|La password per <*nome dispositivo*> scadrà tra <*numero*> giorni.|Avviso relativo alla password.| La password scadrà tra <numero> giorni. Provare a modificare la password. Per altre informazioni, vedere [Modificare la password amministratore del dispositivo array virtuale StorSimple (anteprima)](storsimple-ova-change-device-admin-password.md).
+|La password per <*nome dispositivo*> scadrà tra <*numero*> giorni.|Avviso relativo alla password.| La password scadrà tra <numero> giorni. Provare a modificare la password. Per altre informazioni, vedere [Modificare la password amministratore del dispositivo array virtuale StorSimple](storsimple-ova-change-device-admin-password.md).
 
 ### Avvisi di aggiornamento
 
 |Testo dell'avviso|Evento|Ulteriori informazioni/Azioni consigliate|
 |:---|:---|:---|
 |Sono disponibili nuovi aggiornamenti per il dispositivo.|Sono disponibili aggiornamenti per l'array virtuale StorSimple.|È possibile installare i nuovi aggiornamenti dalla pagina **Manutenzione**.|
-|Non è stato possibile verificare la disponibilità di aggiornamenti su <*nome dispositivo*>.|Errore durante l'aggiornamento. |Errore durante l'installazione di nuovi aggiornamenti. È possibile installare manualmente gli aggiornamenti. Se il problema persiste, contattare il [supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).|
+|Non è stato possibile verificare la disponibilità di aggiornamenti in <*nome dispositivo*>.|Errore durante l'aggiornamento. |Errore durante l'installazione di nuovi aggiornamenti. È possibile installare manualmente gli aggiornamenti. Se il problema persiste, contattare il [supporto Microsoft](storsimple-contact-microsoft-support.md).|
 
 
 ## Passaggi successivi
 
 - [Informazioni sull'array virtuale StorSimple](storsimple-ova-overview.md).
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

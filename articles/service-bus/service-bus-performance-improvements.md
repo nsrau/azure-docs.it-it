@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Procedure consigliate per ottimizzare le prestazioni tramite il bus di servizio | Microsoft Azure"
-   description="Descrive come usare il bus di servizio di Azure per ottimizzare le prestazioni durante gli scambi di messaggi negoziati."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Procedure consigliate per ottimizzare le prestazioni tramite il bus di servizio | Microsoft Azure"
+    description="Descrive come usare il bus di servizio di Azure per ottimizzare le prestazioni durante gli scambi di messaggi negoziati."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio
 
@@ -31,7 +31,7 @@ Se non indicato in modo esplicito, il contenuto di questo argomento presuppone l
 
 ## Riutilizzo di factory e client
 
-Gli oggetti client del bus di servizio, ad esempio [QueueClient][] o [MessageSender][], vengono creati tramite un oggetto [MessagingFactory][] che fornisce anche la gestione interna delle connessioni. È consigliabile non chiudere le factory di messaggistica o i client di coda, argomento e sottoscrizione dopo aver inviato un messaggio e crearli di nuovo per l'invio del messaggio successivo. Quando si chiude una factory di messaggistica viene eliminata la connessione al servizio Bus di servizio e viene stabilita una nuova connessione quando si crea di nuovo la factory. Stabilire una nuova connessione è un'operazione costosa che si può evitare riutilizzando la stessa factory e gli stessi oggetti client per più operazioni.
+Gli oggetti client del bus di servizio, ad esempio [QueueClient][] o [MessageSender][], vengono creati tramite un oggetto [MessagingFactory][] che fornisce anche la gestione interna delle connessioni. È consigliabile non chiudere le factory di messaggistica o i client di coda, argomento e sottoscrizione dopo aver inviato un messaggio e crearli di nuovo per l'invio del messaggio successivo. Quando si chiude una factory di messaggistica viene eliminata la connessione al servizio Bus di servizio e viene stabilita una nuova connessione quando si crea di nuovo la factory. Stabilire una nuova connessione è un'operazione costosa che si può evitare riutilizzando la stessa factory e gli stessi oggetti client per più operazioni. È possibile usare l'oggetto [QueueClient][] per inviare messaggi da più thread e operazioni asincrone simultanee.
 
 ## Operazioni simultanee
 
@@ -81,7 +81,7 @@ Quando si crea un client di coda o sottoscrizione, è possibile specificare una 
 
 Quando la modalità di ricezione è impostata su [ReceiveAndDelete][], entrambi i passaggi vengono combinati in una singola richiesta. Questo permette di ridurre il numero complessivo di operazioni e di migliorare la velocità effettiva dei messaggi. Questo miglioramento delle prestazioni tuttavia comporta il rischio di perdere alcuni messaggi.
 
-Il bus di servizio non supporta le transazioni per le operazioni receive-and-delete. Inoltre, è necessaria la semantica peek-lock (blocco anteprima) per qualsiasi scenario in cui il client voglia rinviare un messaggio o inserirlo nella coda dei messaggi non recapitabili.
+Il bus di servizio non supporta le transazioni per le operazioni receive-and-delete. Inoltre, è necessaria la semantica peek-lock (blocco anteprima) per qualsiasi scenario in cui il client voglia posticipare l'invio di un messaggio o inserirlo nella coda dei messaggi non recapitabili.
 
 ## Invio in batch sul lato client
 
@@ -130,7 +130,7 @@ La prelettura non influisce sul numero di operazioni di messaggistica fatturabil
 
 ## Code e argomenti rapidi
 
-Le entità rapide consentono scenari che prevedono velocità effettiva elevata e latenza minima. Quando si usano le entità rapide, un messaggio inviato a una coda o a un argomento non viene archiviato immediatamente nell'archivio di messaggistica, ma viene memorizzato nella cache. Se un messaggio resta nella coda per più di alcuni secondi, viene automaticamente scritto in un'archiviazione stabile, proteggendolo così da eventuali perdite a causa di un'interruzione. La scrittura di un messaggio in una cache consente di incrementare la velocità effettiva e di ridurre la latenza, perché al momento dell'invio del messaggio non si verificano tentativi di accesso all'archiviazione stabile. I messaggi usati nell'arco di pochi secondi non vengono inseriti nell'archivio di messaggistica. L'esempio seguente illustra la creazione di un argomento rapido.
+Le entità rapide consentono scenari che prevedono velocità effettiva elevata e latenza minima. Quando si usano le entità rapide, un messaggio inviato a una coda o a un argomento non viene archiviato immediatamente nell'archivio di messaggistica, ma viene memorizzato nella cache in memoria. Se un messaggio resta nella coda per più di alcuni secondi, viene automaticamente scritto in un'archiviazione stabile, proteggendolo così da eventuali perdite a causa di un'interruzione. La scrittura di un messaggio in una cache consente di incrementare la velocità effettiva e di ridurre la latenza, perché al momento dell'invio del messaggio non si verificano tentativi di accesso all'archiviazione stabile. I messaggi usati nell'arco di pochi secondi non vengono inseriti nell'archivio di messaggistica. L'esempio seguente illustra la creazione di un argomento rapido.
 
 ```
 TopicDescription td = new TopicDescription(TopicName);
@@ -291,4 +291,4 @@ Per altre informazioni sull'ottimizzazione delle prestazioni del bus di servizio
   [Entità di messaggistica partizionate]: service-bus-partitioning.md
   
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

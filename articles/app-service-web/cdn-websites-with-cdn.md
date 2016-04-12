@@ -573,7 +573,6 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 
 ## Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Per una Guida per la modifica del portale precedente per il nuovo portale, vedere: [riferimento per lo spostamento tra il portale di anteprima](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

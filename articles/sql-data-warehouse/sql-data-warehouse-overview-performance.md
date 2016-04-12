@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/08/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;jrj;nicw;sonyama"/>
 
 # Panoramica delle prestazioni e della scalabilità
@@ -23,11 +23,14 @@ SQL Data Warehouse è una piattaforma di database distribuita e basata sul cloud
 
 *Le informazioni seguenti si applicano ad Azure SQL Data Warehouse in versione di anteprima. Tali informazioni verranno aggiornate continuamente durante il periodo di anteprima man mano che il servizio verrà migliorato fino a giungere alla fase di disponibilità generale.*
 
-Gli obiettivi Microsoft per SQL Data Warehouse sono i seguenti: - Prestazioni prevedibili e scalabilità lineare fino a petabyte di dati - Elevata affidabilità per tutte le operazioni relative al data warehouse con il supporto di un contratto di servizio - Breve intervallo di tempo tra il caricamento e la comprensione dei dati, sia relazionali che non relazionali
+Gli obiettivi per SQL Data Warehouse sono:
+-	Prestazioni prevedibili e scalabilità lineare fino a petabyte di dati
+-	Elevata affidabilità per tutte le operazioni di data warehouse, supportate da un contratto di servizio.
+-	Tempi minimi dal caricamento dei dati alle analisi sui dati per i dati relazionali e non relazionali
 
 Microsoft continuerà a lavorare per il raggiungimento di tali obiettivi durante il periodo di anteprima, in modo che possano essere realizzati prima di giungere alla fase di disponibilità generale.
 
->[AZURE.NOTE]Le sezioni seguenti illustrano il servizio Azure SQL Data Warehouse al momento del lancio dell'anteprima pubblica. Tali informazioni verranno aggiornate continuamente durante il periodo di anteprima man mano che il servizio verrà migliorato fino a giungere alla fase di disponibilità generale.
+>[AZURE.NOTE] Le sezioni seguenti illustrano il servizio Azure SQL Data Warehouse al momento del lancio dell'anteprima pubblica. Tali informazioni verranno aggiornate continuamente durante il periodo di anteprima man mano che il servizio verrà migliorato fino a giungere alla fase di disponibilità generale.
 
 ## Protezione dati
 SQL Data Warehouse archivia tutti i dati in Archiviazione di Azure tramite BLOB con ridondanza geografica. Nell'area di Azure locale vengono mantenute tre copie sincrone dei dati per garantire una protezione trasparente degli stessi in caso di problemi localizzati, quali malfunzionamenti delle unità di archiviazione. Inoltre, in un'area di Azure remota vengono mantenute tre copie asincrone allo scopo di proteggere i dati qualora si verificassero problemi nell'area (ripristino di emergenza). L'area locale e quella remota vengono abbinate per mantenere latenze di sincronizzazione accettabili, ad esempio Stati Uniti orientali e Stati Uniti occidentali.
@@ -40,12 +43,14 @@ SQL Data Warehouse è un sistema distribuito con più componenti, il cui numero 
 
 In base ai dati di telemetria raccolti, l'affidabilità di SQL Data Warehouse è stimata al 98% per i carichi di lavoro di data warehouse tipici. Questo significa che, in media, 2 su 100 query potrebbero non riuscire a seguito di errori di sistema. Non si tratta di un contratto di servizio per l'anteprima, bensì di un indicatore dell'affidabilità prevista per le query eseguite. Si noti che la probabilità di esito negativo di una query cresce con l'aumentare del relativo tempo di esecuzione (ad esempio, una query che richiede più di 2 ore presenta molte più possibilità di errore rispetto a una query di una durata inferiore a 10 minuti). Durante il periodo di anteprima verranno apportati miglioramenti continui per garantire lo stesso livello di affidabilità per le operazioni, indipendentemente dal tempo di esecuzione. L'affidabilità prevista verrà aggiornata man mano che tali miglioramenti verranno effettuati, con l'obiettivo di fornire un contratto di servizio completo insieme alla versione di disponibilità generale.
 
-Nel corso del periodo di anteprima SQL Data Warehouse può essere soggetto a un massimo di cinque eventi di manutenzione al mese per l'installazione di correzioni critiche. Ogni evento può causare problemi di esecuzione delle query per un massimo di 2 ore, intervallo di tempo che dipende dalla quantità di DWU usate dall'istanza di SQL Data Warehouse. Microsoft tenterà in tutti i modi di informare i clienti del verificarsi di tali eventi con un preavviso di 48 ore per consentire una pianificazione appropriata.
+Durante l'anteprima, SQL Data Warehouse verrà aggiornato periodicamente per aggiungere nuove funzionalità e installare aggiornamenti critici. Questi aggiornamenti possono comportare interruzioni del servizio e per il momento la pianificazione degli aggiornamenti non è prevedibile. Se questo processo causa troppe interruzioni del servizio, è consigliabile [creare un ticket di supporto][] per ricevere informazioni su una soluzione alternativa a questo processo.
 
 ## Prestazioni e scalabilità
 In SQL Data Warehouse sono state introdotte le unità data warehouse (DWU) come astrazione delle risorse di calcolo (CPU, memoria, I/O di archiviazione) aggregate tra diversi nodi. Aumentando il numero di DWU, aumentano le risorse di calcolo aggregate di un'istanza di SQL Data Warehouse. Quest'ultimo distribuisce le operazioni, ad esempio una query o un caricamento di dati, all'interno dell'intera infrastruttura di calcolo nell'istanza per aumentare o ridurre le prestazioni dei caricamenti e delle query man mano che il sistema viene scalato verticalmente o orizzontalmente.
 
-Qualsiasi data warehouse prevede principalmente due metriche relative alle prestazioni: - **Velocità di caricamento**, ovvero il numero di record che è possibile caricare al secondo nel data warehouse. Nello specifico, viene misurato il numero di record che può essere importato, tramite PolyBase, dall'archivio BLOB di Azure a una tabella con un indice cluster columnstore. - **Velocità di analisi**, ovvero il numero di record che è possibile recuperare sequenzialmente al secondo dal data warehouse. Questa metrica misura in modo specifico il numero di record restituito da una query a partire da una tabella con un indice cluster columnstore.
+Qualsiasi data warehouse ha 2 metriche delle prestazioni fondamentali:
+- **Velocità di caricamento**: il numero di record che possono essere caricati nel data warehouse al secondo. Misuriamo il numero di record che può essere importato tramite PolyBase dall'archiviazione Blob di Azure a una tabella con un indice columnstore cluster.
+- **Velocità di analisi**: il numero di record che possono essere recuperati in sequenza dal data warehouse al secondo. Questa metrica misura in modo specifico il numero di record restituito da una query a partire da una tabella con un indice cluster columnstore.
 
 Durante il periodo di anteprima verranno apportati miglioramenti continui per aumentare tali velocità e assicurare una scalabilità prevedibile.
 
@@ -72,9 +77,10 @@ Per alcune indicazioni sulla creazione della soluzione SQL Data Warehouse, veder
 [Scegliere una chiave di distribuzione hash per la tabella]: sql-data-warehouse-develop-hash-distribution-key.md
 [Statistiche per migliorare le prestazioni]: sql-data-warehouse-develop-statistics.md
 [panoramica sullo sviluppo]: sql-data-warehouse-overview-develop.md
+[creare un ticket di supporto]: sql-data-warehouse-get-started-create-support-ticket.md
 
 <!--MSDN references-->
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

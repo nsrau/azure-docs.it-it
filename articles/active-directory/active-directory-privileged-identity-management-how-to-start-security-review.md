@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Privileged Identity Management: Come avviare una revisione della sicurezza"
+   pageTitle="Come avviare una verifica della sicurezza | Microsoft Azure"
    description="Informazioni su come creare una revisione della sicurezza per identità con privilegi con l'estensione Azure Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: Come avviare una verifica della sicurezza
+# Azure AD Privileged Identity Management: Come avviare una verifica della sicurezza
 
 ## Avvio di una verifica della sicurezza
 Infine, sarà possibile eseguire revisioni della sicurezza in altre posizioni nel portale di Azure. Questo documento illustra i passaggi per l'avvio di un'analisi della sicurezza nell'interfaccia **Privileged Identity Management (PIM)**.
@@ -62,4 +62,4 @@ Se è stata selezionata l'opzione "Io" come revisore, passare alla revisione del
 ## Sommario PIM
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

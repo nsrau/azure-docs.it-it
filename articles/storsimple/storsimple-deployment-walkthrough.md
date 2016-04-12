@@ -18,9 +18,9 @@
 # Distribuire un dispositivo StorSimple locale
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
-- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
-- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
+- [Aggiornamento 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Aggiornamento 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [Versione di disponibilità generale (GA)](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## Panoramica
 
@@ -34,7 +34,7 @@ Le informazioni contenute in queste esercitazioni prevedono che siano state esam
 
 Per completare il processo di installazione e configurazione sono necessari privilegi di amministratore. Si consiglia di esaminare l'elenco di controllo di pre-installazione prima di iniziare. Il processo di distribuzione e configurazione può richiedere parecchio tempo.
 
-> [AZURE.NOTE] Le informazioni sulla distribuzione di StorSimple pubblicate nel sito Web di Microsoft Azure si applicano solo ai dispositivi di StorSimple serie 8000. Per informazioni complete sui dispositivi serie 7000, vedere: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Per informazioni sulla distribuzione della serie 7000, vedere la [Guida introduttiva al sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
+> [AZURE.NOTE] Le informazioni sulla distribuzione di StorSimple pubblicate nel sito Web di Microsoft Azure si applicano solo ai dispositivi di StorSimple serie 8000. Per informazioni complete sui dispositivi serie 5000 e 7000, vedere: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Per informazioni sulla distribuzione delle serie 5000 e 7000, vedere la [Guida introduttiva al sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
 
 ## Passaggi di distribuzione
 
@@ -167,7 +167,7 @@ Effettuare i passaggi seguenti per creare una nuova istanza del servizio StorSim
 
 > [AZURE.IMPORTANT] Se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio, sarà necessario creare almeno un account di archiviazione dopo avere creato un servizio. Tale account di archiviazione verrà utilizzato in fase di creazione di un contenitore di volumi.
 >
-> Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#configure-a-new-storage-account-for-the-service) per istruzioni dettagliate.
+> Se non è stato creato automaticamente un account di archiviazione, andare a [Configurare un nuovo account di archiviazione per il servizio](#configure-a-new-storage-account-for-the-service) per istruzioni dettagliate. 
 > Se è stata abilitata la creazione automatica di un account di archiviazione, andare al [Passaggio 2: Ottenere la chiave di registrazione del servizio](#step-2:-get-the-service-registration-key).
 
 ## Passaggio 2: Ottenere la chiave di registrazione del servizio
@@ -294,4 +294,4 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un backup 
 
 - Utilizzare il [servizio StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) per gestire il dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

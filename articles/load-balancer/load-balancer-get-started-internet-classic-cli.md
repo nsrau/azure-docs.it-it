@@ -32,7 +32,7 @@
 
 In questa guida viene illustrato come creare un servizio di bilanciamento del carico Internet in base allo scenario precedente.
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../../articles/xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 
 2. Eseguire il comando **azure config mode** per passare alla modalità classica, come illustrato di seguito.
 
@@ -135,7 +135,7 @@ L'output sarà:
 
 ## Passaggi successivi
 
-[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-internal-getstarted.md)
+[Introduzione alla configurazione del bilanciamento del carico interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
@@ -143,4 +143,4 @@ L'output sarà:
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

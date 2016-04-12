@@ -20,7 +20,7 @@
 # Sviluppo di database in C&#x23;: Creare e configurare un pool di database elastici per database SQL
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Portale di Azure](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -576,4 +576,4 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

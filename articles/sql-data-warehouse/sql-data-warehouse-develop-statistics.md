@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gestire le statistiche in SQL Data Warehouse
@@ -36,7 +36,7 @@ Per altri dettagli, vedere [DBCC SHOW\_STATISTICS][] su MSDN.
 ## Importanza delle statistiche
 Senza statistiche appropriate, non sarà possibile ottenere le prestazioni che SQL Data Warehouse è in grado di offrire. SQL Data Warehouse non genera automaticamente statistiche per le tabelle e le colonne, quindi sarà necessario crearle manualmente. È consigliabile creale quando si creano le tabelle e quindi aggiornarle dopo averle popolate.
 
-> [AZURE.NOTE]Se si usa SQL Server, è possibile che SQL Server crei e aggiorni automaticamente le statistiche a colonna singola in base alla necessità. Da questo punto di vista, SQL Data Warehouse è diverso. Poiché i dati sono distribuiti, SQL Data Warehouse non aggrega automaticamente le statistiche in tutti i dati distribuiti. Genererà le statistiche aggregate solo quando si creano e aggiornano le statistiche.
+> [AZURE.NOTE] Se si usa SQL Server, è possibile che SQL Server crei e aggiorni automaticamente le statistiche a colonna singola in base alla necessità. Da questo punto di vista, SQL Data Warehouse è diverso. Poiché i dati sono distribuiti, SQL Data Warehouse non aggrega automaticamente le statistiche in tutti i dati distribuiti. Genererà le statistiche aggregate solo quando si creano e aggiornano le statistiche.
 
 ## Quando creare le statistiche
 Un set coerente di statistiche aggiornate è una parte importante di SQL Data Warehouse. È quindi essenziale creare statistiche come parte della progettazione delle tabelle.
@@ -45,7 +45,9 @@ La creazione di statistiche a colonna singola su ogni colonna è un modo semplic
 
 Le statistiche a più colonne vengono usate da Query Optimizer solo quando le colonne si trovano nelle clausole JOIN composite o GROUP BY. I filtri compositi non traggono attualmente alcun vantaggio dalle statistiche a più colonne.
 
-Quando si avvia lo sviluppo per SQL Data Warehouse è quindi consigliabile implementare il modello seguente: - Creare statistiche a colonna singola su ogni colonna in ogni tabella - Creare statistiche a più colonne sulle colonne usate dalle query nelle clausole JOIN e GROUP BY.
+Quando si avvia lo sviluppo per SQL Data Warehouse, è quindi consigliabile implementare il modello seguente:
+- Creare statistiche a colonna singola in ogni colonna di ogni tabella.
+- Creare statistiche a più colonne nelle colonne usate dalle query nei join e nelle clausole group by.
 
 Dopo avere stabilito come si vogliono eseguire query sui dati, sarà possibile perfezionare questo modello, in particolare se le tabelle sono di dimensioni elevate. Per informazioni su un approccio più avanzato, vedere la sezione [Implementazione della gestione delle statistiche](## Implementing statistics management).
 
@@ -74,7 +76,7 @@ Di seguito sono disponibili alcuni principi guida per l'aggiornamento delle stat
 - Prendere in considerazione una minore frequenza per l'aggiornamento delle colonne relative alla distribuzione statica.
 - Occorre ricordare che ogni oggetto statistiche viene aggiornato in serie. La semplice implementazione di `UPDATE STATISTICS <TABLE_NAME>` potrebbe non essere ottimale, in particolare per tabelle di grandi dimensioni con molti oggetti statistici.
 
-> [AZURE.NOTE]Per altre informazioni sulla [parola chiave Ascending], vedere il white paper sul modello di stima della cardinalità di SQL Server 2014.
+> [AZURE.NOTE] Per altre informazioni sulla [parola chiave Ascending], vedere il white paper sul modello di stima della cardinalità di SQL Server 2014.
 
 Per altre informazioni, vedere [Stima della cardinalità][] su MSDN.
 
@@ -88,13 +90,13 @@ Per creare statistiche su una colonna, è sufficiente fornire un nome per l'ogge
 
 Questa sintassi usa tutte le opzioni predefinite. Per impostazione predefinita, SQL Data Warehouse esegue il campionamento del 20% della tabella quando crea le statistiche.
 
-```
+```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
 Ad esempio:
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
@@ -104,13 +106,13 @@ La frequenza di campionamento del 20% è sufficiente per la maggior parte delle 
 
 Per eseguire il campionamento dell'intera tabella, usare la sintassi seguente:
 
-```
+```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
 Ad esempio:
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
@@ -118,7 +120,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 
 In alternativa, è possibile specificare le dimensioni del campione sotto forma di percentuale:
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -130,17 +132,17 @@ Ad esempio, è possibile usare le statistiche filtrate quando si prevede di eseg
 
 Questo esempio crea statistiche su un intervallo di valori. È possibile definire con facilità i valori in modo che corrispondano all'intervallo di valori in una partizione.
 
-```
+```sql
 CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
-> [AZURE.NOTE]Per fare in modo che Query Optimizer prenda in considerazione l'uso delle statistiche filtrate quando sceglie il piano di query distribuite, è necessario che la query rientri nella definizione dell'oggetto statistiche. Usando l'esempio precedente, la clausola where della query deve specificare valori col1 compresi tra 2000101 e 20001231.
+> [AZURE.NOTE] Per fare in modo che Query Optimizer prenda in considerazione l'uso delle statistiche filtrate quando sceglie il piano di query distribuite, è necessario che la query rientri nella definizione dell'oggetto statistiche. Usando l'esempio precedente, la clausola where della query deve specificare valori col1 compresi tra 2000101 e 20001231.
 
 ### E. Creare statistiche a colonna singola con tutte le opzioni
 
 È ovviamente possibile combinare tutte le opzioni. L'esempio seguente crea un oggetto statistiche filtrato con una dimensione di campionamento personalizzata:
 
-```
+```sql
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -150,11 +152,11 @@ Per i riferimenti completi, vedere [CREATE STATISTICS][] su MSDN.
 
 Per creare statistiche a più colonne, è sufficiente usare gli esempi precedenti ma specificare più colonne.
 
-> [AZURE.NOTE]L'istogramma, che viene usato per stimare il numero di righe nei risultati delle query, sarà disponibile solo per la prima colonna elencata nella definizione dell'oggetto statistiche.
+> [AZURE.NOTE] L'istogramma, che viene usato per stimare il numero di righe nei risultati delle query, sarà disponibile solo per la prima colonna elencata nella definizione dell'oggetto statistiche.
 
 In questo esempio l'istogramma è disponibile su *product\_category*. Le statistiche tra le colonne vengono calcolate su *product\_category* e *product\_sub\_c\\ategory*:
 
-```
+```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -164,8 +166,8 @@ Poiché è presente una correlazione tra *product\_category* e *product\_sub\_ca
 
 Un modo per creare le statistiche consiste nell'emettere comandi CREATE STATISTICS dopo la creazione della tabella.
 
-```
-CREATE TABLE dbo.table1 
+```sql
+CREATE TABLE dbo.table1
 (
    col1 int
 ,  col2 int
@@ -188,7 +190,7 @@ SQL Data Warehouse non include una stored procedure di sistema equivalente a [sp
 
 Ciò permetterà di iniziare a progettare il database. È possibile adattare l'operazione alle proprie esigenze.
 
-```
+```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
 (   @create_type    tinyint -- 1 default 2 Fullscan 3 Sample
 ,   @sample_pct     tinyint
@@ -271,7 +273,7 @@ DROP TABLE #stats_ddl;
 
 Per creare statistiche su tutte le colonne della tabella con questa procedura, è sufficiente chiamarla.
 
-```
+```sql
 prc_sqldw_create_stats;
 ```
 
@@ -286,13 +288,13 @@ Per aggiornare le statistiche, è possibile eseguire le operazioni seguenti:
 ### A. Aggiornare un oggetto statistiche specifico ###
 Usare la sintassi seguente per aggiornare un oggetto statistiche specifico:
 
-```
+```sql
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
 Ad esempio:
 
-```
+```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
@@ -302,19 +304,19 @@ L'aggiornamento di oggetti statistiche specifici permette di ridurre al minimo i
 ### B. Aggiornare tutte le statistiche in una tabella ###
 Illustra un semplice metodo di aggiornamento di tutti gli oggetti statistiche in una tabella.
 
-```
+```sql
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
 Ad esempio:
 
-```
+```sql
 UPDATE STATISTICS dbo.table1;
 ```
 
 Questa istruzione è facile da usare. Occorre ricordare che aggiorna tutte le statistiche nella tabella e che quindi potrebbe eseguire più lavoro del necessario. Se le prestazioni non sono un problema, questo è decisamente il modo più semplice e più completo per assicurare che le statistiche siano aggiornate.
 
-> [AZURE.NOTE]Quando si aggiornano tutte le statistiche in una tabella, SQL Data Warehouse esegue un'analisi per campionare la tabella per ogni statistica. Se la tabella è grande, include molte colonne e molte statistiche, potrebbe risultare più efficiente aggiornare le singole statistiche in base alla necessità.
+> [AZURE.NOTE] Quando si aggiornano tutte le statistiche in una tabella, SQL Data Warehouse esegue un'analisi per campionare la tabella per ogni statistica. Se la tabella è grande, include molte colonne e molte statistiche, potrebbe risultare più efficiente aggiornare le singole statistiche in base alla necessità.
 
 Per l'implementazione di una procedura `UPDATE STATISTICS`, vedere l'articolo relativo alle [tabelle temporanee]. Il metodo di implementazione è leggermente diverso rispetto alla procedura `CREATE STATISTICS` precedente, ma il risultato finale è uguale.
 
@@ -349,7 +351,7 @@ Queste funzioni di sistema sono utili per usare le statistiche:
 
 Questa visualizzazione riunisce le colonne relative alle statistiche e i risultati della funzione [STATS\_DATE()][].
 
-```
+```sql
 CREATE VIEW dbo.vstats_columns
 AS
 SELECT
@@ -380,7 +382,7 @@ JOIN    sys.columns         AS co ON    sc.[column_id]      = co.[column_id]
 JOIN    sys.types           AS ty ON    co.[user_type_id]   = ty.[user_type_id]
 JOIN    sys.tables          AS tb ON  co.[object_id]        = tb.[object_id]
 JOIN    sys.schemas         AS sm ON  tb.[schema_id]        = sm.[schema_id]
-WHERE   1=1 
+WHERE   1=1
 AND     st.[user_created] = 1
 ;
 ```
@@ -399,13 +401,13 @@ Metadati di intestazione sulle statistiche. L'istogramma mostra la distribuzione
 
 Questo semplice esempio mostra tutte e tre le parti di un oggetto statistiche.
 
-```
+```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
 Ad esempio:
 
-```
+```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
@@ -413,13 +415,13 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 
 Se si è interessati a visualizzare solo parti specifiche, usare la clausola `WITH` e specificare le parti da visualizzare:
 
-```
+```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
 Ad esempio:
 
-```
+```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
@@ -459,4 +461,4 @@ Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="03/04/2016"
 	ms.author="jgao"/>
 
 
@@ -85,7 +85,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 	<tr><td>Nome del database SQL</td><td>$sqlDatabaseName</td><td></td><td>Il database SQL di Azure in cui Sqoop esporterà i dati. </td></tr>
 	</table>
 
-	> [AZURE.NOTE] Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di Azure. Per istruzioni sulla creazione di un database SQL e sulla configurazione di regole del firewall, vedere [Come creare e configurare un database SQL]\[sqldatabase-create-configure].
+	> [AZURE.NOTE] Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di Azure. Per istruzioni sulla creazione di un database SQL e sulla configurazione di regole del firewall, vedere [Come creare e configurare un database SQL][sqldatabase-create-configure].
 
 
 > [AZURE.NOTE] L'inserimento dei valori nelle tabelle potrà essere utile per completare questa esercitazione.
@@ -192,12 +192,18 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
 	<tr><td>${jobTracker}</td><td>Specifica l'URL dell'utilità di analisi dei processi Hadoop. Usare <strong>jobtrackerhost:9010</strong> nel cluster HDInsight versione 3.0 e 2.0.</td></tr>
 	<tr><td>${nameNode}</td><td>Specifica l'URL del nodo dei nomi di Hadoop. Usare l'indirizzo wasb:// del file system predefinito, ad esempio <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>.</td></tr>
 	<tr><td>${queueName}</td><td>Consente di specificare il nome della coda alla quale verrà inviato il processo. Usare <strong>default</strong>.</td></tr>
-	</table><table border = "1">
+	</table>
+
+
+	<table border = "1">
 	<tr><th>Variabile azione Hive</th><th>Descrizione</th></tr>
 	<tr><td>${hiveDataFolder}</td><td>La directory di origine per il comando Hive Create Table.</td></tr>
 	<tr><td>${hiveOutputFolder}</td><td>La cartella di output per l'istruzione INSERT OVERWRITE.</td></tr>
 	<tr><td>${hiveTableName}</td><td>Il nome della tabella di Hive che fa riferimento ai file di dati log4j.</td></tr>
-	</table><table border = "1">
+	</table>
+
+
+	<table border = "1">
 	<tr><th>Variabile azione Sqoop</th><th>Descrizione</th></tr>
 	<tr><td>${sqlDatabaseConnectionString}</td><td>Stringa di connessione del database SQL.</td></tr>
 	<tr><td>${sqlDatabaseTableName}</td><td>La tabella del database SQL di Azure in cui verranno esportati i dati.</td></tr>
@@ -639,7 +645,7 @@ Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei pr
 
 **Per verificare il log degli errori del processo**
 
-Per risolvere i problemi relativi a un flusso di lavoro, consultare il file di log di Oozie in C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log dal nodo head del cluster. Per informazioni su RDP vedere [Amministrazione di cluster HDInsight tramite il portale di anteprima di Azure][hdinsight-admin-portal].
+Per risolvere i problemi relativi a un flusso di lavoro, consultare il file di log di Oozie in C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log dal nodo head del cluster. Per informazioni su RDP vedere [Amministrazione di cluster HDInsight tramite il portale di Azure][hdinsight-admin-portal].
 
 **Per ripetere l'esecuzione dell'esercitazione**
 
@@ -688,7 +694,6 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 - [Usare Sqoop con Hadoop in HDInsight][hdinsight-use-sqoop]
 - [Usare Hive con HDInsight][hdinsight-use-hive]
 - [Usare Pig con HDInsight][hdinsight-use-pig]
-- [Sviluppare programmi per la creazione di flussi Hadoop in C# per HDInsight][hdinsight-develop-streaming-jobs]
 - [Sviluppare programmi MapReduce Java per HDInsight][hdinsight-develop-java-mapreduce]
 
 
@@ -710,7 +715,6 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 
@@ -738,4 +742,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

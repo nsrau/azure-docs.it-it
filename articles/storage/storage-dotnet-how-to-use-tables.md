@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introduzione all'archiviazione tabelle di Azure con .NET | Microsoft Azure"
-	description="Archiviare dati non strutturati nel cloud con l'archiviazione tabelle di Azure, ovvero l'archivio dati NoSQL di Microsoft. Introduzione a semplici operazioni dell'archiviazione tabelle, incluse le operazioni di creazione ed eliminazione di una tabella, nonché di inserimento, aggiornamento, eliminazione dei dati e di esecuzione delle query."
+	description="Archiviare dati non strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero l'archivio dati NoSQL di Microsoft. Introduzione a semplici operazioni dell'archiviazione tabelle, incluse le operazioni di creazione ed eliminazione di una tabella, nonché di inserimento, aggiornamento, eliminazione dei dati e di esecuzione delle query."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/14/2016"
+	ms.date="03/27/2016"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Panoramica
 
-Archiviazione tabelle di Azure è un servizio che archivia dati NoSQL non strutturati nel cloud. Archiviazione tabelle è un archivio di chiavi/attributi con una struttura senza schema. Poiché l'archiviazione tabelle è senza schema, è facile adattare i dati con il variare delle esigenze dell'applicazione. L'accesso ai dati è rapido e conveniente per tutti i tipi di applicazione. L'archiviazione tabelle presenta in genere costi decisamente più bassi rispetto alle soluzioni SQL tradizionali per volumi simili di dati.
+Il servizio di archiviazione tabelle di Azure archivia dati NoSQL non strutturati nel cloud. Archiviazione tabelle è un archivio di chiavi/attributi con una struttura senza schema. Poiché l'archiviazione tabelle è senza schema, è facile adattare i dati con il variare delle esigenze dell'applicazione. L'accesso ai dati è rapido e conveniente per tutti i tipi di applicazione. L'archiviazione tabelle presenta in genere costi decisamente più bassi rispetto alle soluzioni SQL tradizionali per volumi simili di dati.
 
 È possibile usare l'archiviazione tabelle per archiviare set di dati flessibili, ad esempio i dati utente per le applicazioni Web, le rubriche, le informazioni sui dispositivi e altri tipi di metadati richiesti dal servizio. In una tabella possono essere archiviate il numero desiderato di tabelle e un account di archiviazione può contenere un numero qualsiasi di tabelle, fino a che non viene raggiunto il limite di capacità dell'account di archiviazione.
 
@@ -257,7 +257,7 @@ Per aggiornare un'entità, recuperarla dal servizio tabelle, modificare l'oggett
 	   // Change the phone number.
 	   updateEntity.PhoneNumber = "425-555-0105";
 
-	   // Create the InsertOrReplace TableOperation.
+	   // Create the Replace TableOperation.
 	   TableOperation updateOperation = TableOperation.Replace(updateEntity);
 
 	   // Execute the operation.
@@ -444,4 +444,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

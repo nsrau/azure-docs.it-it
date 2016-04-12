@@ -41,7 +41,6 @@ No. È possibile configurare Servizi di dominio Azure AD solo nel portale di ges
 #### È possibile aggiungere controller di dominio a un dominio gestito di Servizi di dominio Azure Active Directory?
 No. Il dominio fornito da Servizi di dominio Azure Active Directory è un dominio gestito. Non è necessario eseguire il provisioning, configurare o gestire in altro modo i controller di dominio per questo dominio. Queste attività di gestione vengono fornite come servizio da Microsoft. Non sarà quindi possibile aggiungere altri controller di dominio, di lettura-scrittura o sola lettura, per il dominio gestito.
 
-
 ### Amministrazione e gestione
 
 #### Dopo aver abilitato Servizi di dominio Azure AD, quale account utente è necessario usare per aggiungere i computer a questo dominio?
@@ -56,7 +55,7 @@ No. Le appartenenze ai gruppi non possono essere modificate nei domini gestiti d
 #### È possibile estendere lo schema del dominio fornito da Servizi di dominio Azure Active Directory?
 No. Lo schema è amministrato da Microsoft per il dominio gestito. Le estensioni dello schema non sono supportate da Servizi di dominio Azure Active Directory.
 
-### È possibile modificare i record DNS forniti da Servizi di dominio di Azure AD?
+#### È possibile modificare i record DNS forniti da Servizi di dominio di Azure AD?
 Sì. Gli utenti che fanno parte del gruppo amministrativo (ad esempio gli amministratori di controller di dominio di AAD) dispongono delle autorizzazioni di amministratore DNS per modificare i record DNS.
 
 ### Fatturazione e disponibilità
@@ -76,4 +75,4 @@ Per un elenco di aree di Azure per cui è disponibile Servizi di dominio Azure A
 #### Quando sarà disponibile a livello generale Servizi di dominio Azure AD?
 Non è attualmente possibile condividere informazioni sulla tempistica prevista per la disponibilità del servizio a livello generale.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

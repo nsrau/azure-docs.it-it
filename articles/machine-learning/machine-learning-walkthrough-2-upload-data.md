@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016" 
+	ms.date="03/09/2016" 
 	ms.author="garye"/>
 
 
@@ -84,4 +84,4 @@ Per altre informazioni sull'importazione di vari tipi di dati in un esperimento,
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/14/2016"
 	ms.author="meetb"/>
 
 
@@ -23,43 +23,21 @@
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
-
 Questo argomento presenta un esempio di codice scritto in Python. L'esempio viene eseguito su un computer Mac e si connette a un database SQL di Azure tramite il driver **pymssql**. Inoltre, utilizzare il video [Guida introduttiva a Python su Mac](https://www.youtube.com/watch?v=OMpugPTwnTI) per integrare questa documentazione.
 
+## Passaggio 1: Configurare l'ambiente di sviluppo
 
-## Prerequisiti
+[Prerequisiti per l'uso del driver pymssql Python per SQL Server](https://msdn.microsoft.com/library/mt694094.aspx#Mac)
 
-
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/).
-- [FreeTDS](https://github.com/brianb/FreeTDS)
-- [Pymssql](https://github.com/pymssql/pymssql)
-
-### Installare i moduli necessari
-
-
-Aprire il terminale in uso e installare
-
-**1) Homebrew**: eseguire il comando seguente dal terminale. In questo modo verrà scaricato Gestione pacchetto di Homebrew nel computer.
-
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-**2) FreeTDS**: eseguire il comando seguente dal terminale. In questo modo verrà scaricato FreeTDS nel computer. FreeTDS è necessario per il funzionamento corretto di pymmsql.
-
-    brew install FreeTDS
-
-**3) Pymmsql**: eseguire il comando seguente dal terminale. In questo modo pymmsql verrà installato nel computer
-
-    sudo -H pip install pymssql
-
-### Un database SQL
+## Passaggio 2: Creare un database SQL
 
 Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su come creare un database di esempio. È importante seguire le istruzioni per creare un **modello di database AdventureWorks**. Gli esempi illustrati di seguito funzionano solo con lo **schema di AdventureWorks**.
 
-## Passaggio 1: Ottenere i dettagli di connessione
+## Passaggio 3: Ottenere i dettagli di connessione
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Passaggio 2: Connettersi
+## Passaggio 4: Effettuare la connessione
 
 Per connettersi al database SQL viene usata la funzione [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html).
 
@@ -67,7 +45,7 @@ Per connettersi al database SQL viene usata la funzione [pymssql.connect](http:/
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
 
-## Passaggio 3: Eseguire una query
+## Passaggio 5: Eseguire una query
 
 Per recuperare un set di risultati di una query sul database SQL è possibile usare la funzione [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute). Questa funzione accetta essenzialmente qualsiasi query e restituisce un set di risultati su cui è possibile eseguire l'iterazione mediante [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
@@ -82,7 +60,7 @@ Per recuperare un set di risultati di una query sul database SQL è possibile us
 	    row = cursor.fetchone()
 
 
-## Passaggio 4: Inserire una riga
+## Passaggio 6: Inserire una riga
 
 Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) in modo sicuro, come passare i parametri che proteggono l'applicazione da attacchi [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e come recuperare il valore di [Chiave primaria](https://msdn.microsoft.com/library/ms179610.aspx) generato automaticamente.
 
@@ -98,7 +76,7 @@ Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.micros
 	    row = cursor.fetchone()
 
 
-## Passaggio 5: Rollback di una transazione
+## Passaggio 7: Eseguire il rollback di una transazione
 
 
 Questo esempio di codice illustra l'uso di transazioni con le operazioni seguenti:
@@ -123,4 +101,4 @@ Questo esempio di codice illustra l'uso di transazioni con le operazioni seguent
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

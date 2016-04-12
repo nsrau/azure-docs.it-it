@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Schemi definiti dall'utente in SQL Data Warehouse
@@ -22,9 +22,9 @@ I data warehouse tradizionali spesso usano database separati per creare i limiti
 
 Al contrario, SQL Data Warehouse esegue tutto il carico di lavoro del data warehouse all'interno di un database. I join tra database non sono consentiti. SQL Data Warehouse prevede pertanto che tutte le tabelle usate dal data warehouse siano archiviate all'interno di un database.
 
-> [AZURE.NOTE]SQL Data Warehouse non supporta query tra database di alcun tipo. Di conseguenza, le implementazioni di data warehouse che usano questo modello dovranno essere modificate.
+> [AZURE.NOTE] SQL Data Warehouse non supporta query tra database di alcun tipo. Di conseguenza, le implementazioni di data warehouse che usano questo modello dovranno essere modificate.
 
-## Indicazioni 
+## Indicazioni
 
 Si tratta di indicazioni per il consolidamento di carichi di lavoro, sicurezza, dominio e i limiti funzionali mediante l'uso di schemi definiti dall'utente.
 
@@ -40,14 +40,14 @@ Se gli schemi sono già stati usati, sono disponibili alcune opzioni:
 2. Mantenere i nomi degli schemi legacy premettendo il nome dello schema legacy al nome della tabella.
 3. Mantenere i nomi degli schemi legacy implementando viste sulla tabella in uno schema aggiuntivo per ricreare la struttura dello schema precedente.
 
-> [AZURE.NOTE]A prima vista, l'opzione 3 può sembrare quella più interessante. È tuttavia importante osservare i dettagli. Le viste sono di sola lettura in SQL Data Warehouse. Qualsiasi modifica di dati o tabelle dovrà essere eseguita sulla tabella di base. L'opzione 3 introduce anche un livello di viste nel sistema. È consigliabile valutare attentamente questo aspetto se si usano già viste nell'architettura.
+> [AZURE.NOTE] A prima vista, l'opzione 3 può sembrare quella più interessante. È tuttavia importante osservare i dettagli. Le viste sono di sola lettura in SQL Data Warehouse. Qualsiasi modifica di dati o tabelle dovrà essere eseguita sulla tabella di base. L'opzione 3 introduce anche un livello di viste nel sistema. È consigliabile valutare attentamente questo aspetto se si usano già viste nell'architettura.
 
 
 ### Esempi:
 
 1. Implementare schemi definiti dall'utente in base ai nomi di database.
 
-```
+```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
 GO
 CREATE SCHEMA [edw]; -- edw previously database name for the data warehouse
@@ -65,7 +65,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 
 2. Mantenere nomi di schemi legacy premettendoli al nome della tabella. Usare schemi per il limite del carico di lavoro.
 
-```
+```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
 GO
 CREATE SCHEMA [edw]; -- edw defines the data warehouse boundary
@@ -83,7 +83,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 
 3. Mantenere i nomi di schemi legacy usando viste.
 
-```
+```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
 GO
 CREATE SCHEMA [edw]; -- stg defines the data warehouse boundary
@@ -108,7 +108,7 @@ FROM	[edw].customer
 ;
 ```
 
-> [AZURE.NOTE]Qualsiasi modifica nella strategia relativa agli schemi richiede una revisione del modello di sicurezza per il database. In molti casi è possibile semplificare il modello di sicurezza assegnando le autorizzazioni a livello di schema. Se sono necessarie autorizzazioni più granulari, è possibile utilizzare i ruoli del database.
+> [AZURE.NOTE] Qualsiasi modifica nella strategia relativa agli schemi richiede una revisione del modello di sicurezza per il database. In molti casi è possibile semplificare il modello di sicurezza assegnando le autorizzazioni a livello di schema. Se sono necessarie autorizzazioni più granulari, è possibile utilizzare i ruoli del database.
 
 ## Passaggi successivi
 Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][].
@@ -122,4 +122,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

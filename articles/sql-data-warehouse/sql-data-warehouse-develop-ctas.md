@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Create Table As Select (CTAS) in SQL Data Warehouse
@@ -58,13 +58,13 @@ Ora si desidera creare una nuova copia di questa tabella con un indice cluster c
 
 ```
 CREATE TABLE FactInternetSales_new
-WITH 
+WITH
 (
     CLUSTERED COLUMNSTORE INDEX,
     DISTRIBUTION = HASH(ProductKey),
     PARTITION
     (
-        OrderDateKey RANGE RIGHT FOR VALUES 
+        OrderDateKey RANGE RIGHT FOR VALUES
         (
         20000101,20010101,20020101,20030101,20040101,20050101,20060101,20070101,20080101,20090101,
         20100101,20110101,20120101,20130101,20140101,20150101,20160101,20170101,20180101,20190101,
@@ -84,19 +84,19 @@ RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 DROP TABLE FactInternetSales_old;
 ```
 
-> [AZURE.NOTE]SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico. Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati. Per una spiegazione dettagliata delle statistiche, vedere l'argomento [Statistiche][] nel gruppo di argomenti sullo sviluppo.
+> [AZURE.NOTE] SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico. Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati. Per una spiegazione dettagliata delle statistiche, vedere l'argomento [Statistiche][] nel gruppo di argomenti sullo sviluppo.
 
 ## Uso di CTAS per ovviare a funzionalità non supportate
 
 CTAS può anche essere usato per ovviare ad alcune funzionalità non supportate elencate di seguito. Questo può spesso rivelarsi una situazione favorevole in quando non solo il codice sarà conforme, ma l’esecuzione sarà più veloce in SQL Data Warehouse. Si tratta del risultato della progettazione completamente parallelizzata. Gli scenari che è possibile trattare con CTAS includono:
 
 - SELECT..INTO
-- ANSI JOINS su UPDATE 
+- ANSI JOINS su UPDATE
 - ANSI JOINs su DELETE
 - Istruzione MERGE
 
-> [AZURE.NOTE]Provare a considerare "prima CTAS". Se si ritiene che sia possibile risolvere un problema con CTAS, in genere è il migliore approccio anche se si scrivono più dati.
-> 
+> [AZURE.NOTE] Provare a considerare "prima CTAS". Se si ritiene che sia possibile risolvere un problema con CTAS, in genere è il migliore approccio anche se si scrivono più dati.
+>
 
 ## SELECT..INTO
 È possibile trovare SELECT..INTO in diverse posizioni nella soluzione.
@@ -123,7 +123,7 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-> [AZURE.NOTE]CTAS attualmente richiede che venga specificata una colonna di distribuzione. Se non si sta intenzionalmente cercando di modificare la colonna di distribuzione, le prestazioni di CTAS risulteranno ottimizzate se si seleziona una colonna di distribuzione corrispondente a quella della tabella sottostante, in quanto questa strategia evita lo spostamento dei dati. Se si sta creando una tabella di piccole dimensioni per la quale le prestazioni non sono importanti, è possibile specificare ROUND\_ROBIN per evitare di dover selezionare una colonna di distribuzione.
+> [AZURE.NOTE] CTAS attualmente richiede che venga specificata una colonna di distribuzione. Se non si sta intenzionalmente cercando di modificare la colonna di distribuzione, le prestazioni di CTAS risulteranno ottimizzate se si seleziona una colonna di distribuzione corrispondente a quella della tabella sottostante, in quanto questa strategia evita lo spostamento dei dati. Se si sta creando una tabella di piccole dimensioni per la quale le prestazioni non sono importanti, è possibile specificare ROUND\_ROBIN per evitare di dover selezionare una colonna di distribuzione.
 
 ## Sostituzione di join ANSI per le istruzioni update
 
@@ -192,7 +192,7 @@ GROUP BY
 ,		[CalendarYear]
 ;
 
--- Use an implicit join to perform the update 
+-- Use an implicit join to perform the update
 UPDATE  AnnualCategorySales
 SET     AnnualCategorySales.TotalSalesAmount = CTAS_ACS.TotalSalesAmount
 FROM    CTAS_acs
@@ -212,7 +212,7 @@ Un esempio di istruzione DELETE convertita è disponibile di seguito:
 
 ```
 CREATE TABLE dbo.DimProduct_upsert
-WITH 
+WITH
 (   Distribution=HASH(ProductKey)
 ,   CLUSTERED INDEX (ProductKey)
 )
@@ -220,8 +220,8 @@ AS -- Select Data you wish to keep
 SELECT     p.ProductKey
 ,          p.EnglishProductName
 ,          p.Color
-FROM       dbo.DimProduct p 
-RIGHT JOIN dbo.stg_DimProduct s 
+FROM       dbo.DimProduct p
+RIGHT JOIN dbo.stg_DimProduct s
 ON         p.ProductKey = s.ProductKey
 ;
 
@@ -236,11 +236,11 @@ Un esempio di `UPSERT` è riportato di seguito:
 
 ```
 CREATE TABLE dbo.[DimProduct_upsert]
-WITH 
+WITH
 (   DISTRIBUTION = HASH([ProductKey])
 ,   CLUSTERED INDEX ([ProductKey])
 )
-AS 
+AS
 -- New rows and new versions of rows
 SELECT      s.[ProductKey]
 ,           s.[EnglishProductName]
@@ -278,7 +278,7 @@ CREATE TABLE result
 WITH (DISTRIBUTION = ROUND_ROBIN)
 
 INSERT INTO result
-SELECT @d*@f 
+SELECT @d*@f
 ;
 ```
 
@@ -334,9 +334,13 @@ AS
 SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 ```
 
-Si noti che CAST o CONVERT possono essere stati utilizzati, ISNULL è utilizzato per imporre NULLability non COALESCE, ISNULL è la funzione più esterna. La seconda parte di ISNULL è una costante, ad esempio 0
+Tenere presente quanto segue:
+- Era possibile usare CAST o CONVERT
+- ISNULL viene usato per forzare NULLability e non COALESCE
+- ISNULL è la funzione più esterna
+- La seconda parte di ISNULL è una costante, ad esempio 0
 
-> [AZURE.NOTE]Per impostare correttamente il supporto di valori null è fondamentale utilizzare ISNULL e non COALESCE. COALESCE non è una funzione deterministica e pertanto il risultato dell'espressione sarà sempre NULLable. ISNULL è diverso. È deterministico. Pertanto quando la seconda parte della funzione ISNULL è una costante o un valore letterale, il valore risultante sarà NOT NULL.
+> [AZURE.NOTE] Per impostare correttamente il supporto di valori null è fondamentale utilizzare ISNULL e non COALESCE. COALESCE non è una funzione deterministica e pertanto il risultato dell'espressione sarà sempre NULLable. ISNULL è diverso. È deterministico. Pertanto quando la seconda parte della funzione ISNULL è una costante o un valore letterale, il valore risultante sarà NOT NULL.
 
 Questo suggerimento non è utile solo per garantire l'integrità dei calcoli. È importante anche per il cambio di partizione della tabella. Si supponga di disporre di questa tabella definita come dato di fatto:
 
@@ -350,14 +354,14 @@ CREATE TABLE [dbo].[Sales]
 ,   [price]     MONEY   NOT NULL
 ,   [amount]    MONEY   NOT NULL
 )
-WITH 
+WITH
 (   DISTRIBUTION = HASH([product])
 ,   PARTITION   (   [date] RANGE RIGHT FOR VALUES
                     (20000101,20010101,20020101
                     ,20030101,20040101,20050101
                     )
                 )
-) 
+)
 ;
 ```
 
@@ -377,8 +381,8 @@ WITH
 AS
 SELECT
     [date]    
-,   [product] 
-,   [store] 
+,   [product]
+,   [store]
 ,   [quantity]
 ,   [price]   
 ,   [quantity]*[price]  AS [amount]
@@ -401,8 +405,8 @@ WITH
 AS
 SELECT
     [date]    
-,   [product] 
-,   [store] 
+,   [product]
+,   [store]
 ,   [quantity]
 ,   [price]   
 ,   ISNULL(CAST([quantity]*[price] AS MONEY),0) AS [amount]
@@ -429,4 +433,4 @@ Per altri suggerimenti relativi allo sviluppo, vedere [Panoramica sullo sviluppo
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

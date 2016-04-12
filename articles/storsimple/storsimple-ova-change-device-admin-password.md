@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="03/02/2016"
    ms.author="alkohli" />
 
-# Modificare la password amministratore del dispositivo StorSimple Virtual Array (anteprima)
+# Modificare la password amministratore del dispositivo dell'array virtuale StorSimple
 
 ## Panoramica
 
@@ -69,4 +69,4 @@ Eseguire i passaggi seguenti per modificare la password amministratore del dispo
 
 Scoprire come [amministrare lo StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

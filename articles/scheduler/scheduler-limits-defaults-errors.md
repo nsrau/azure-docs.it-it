@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="12/04/2015"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione
@@ -25,7 +25,7 @@
 
 Ogni richiesta effettuata per il servizio dell’Utilità di pianificazione restituisce un'intestazione di risposta denominata **x-ms-request-id**. Questa intestazione contiene un valore opaco che identifica in modo univoco la richiesta.
 
-Se una richiesta fallisce sistematicamente e si è verificato che la richiesta è formulata in modo appropriato, si può usare questo valore per riportare l'errore a Microsoft. Nel report, includere il valore di x-ms-request-id, l'ora approssimativa in cui è stata effettuata la richiesta, l'identificativo della sottoscrizione, il servizio cloud, la raccolta di processi e/o il processo e il tipo di operazione tentata con la richiesta.
+Se una richiesta fallisce sistematicamente e si è verificato che la richiesta è formulata in modo appropriato, si può usare questo valore per riportare l'errore a Microsoft. Nel report includere il valore di x-ms-request-id, l'ora approssimativa in cui è stata effettuata la richiesta, l'identificativo della sottoscrizione, la raccolta processi e/o il processo e il tipo di operazione tentata con la richiesta.
 
 ## Stato dell'Utilità di pianificazione e codici di errore:
 
@@ -55,7 +55,7 @@ Le operazioni API possono inoltre restituire informazioni aggiuntive sugli error
 
 
  [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
- 
+
  [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
 
  [Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure](scheduler-get-started-portal.md)
@@ -69,7 +69,5 @@ Le operazioni API possono inoltre restituire informazioni aggiuntive sugli error
  [Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione di Azure](scheduler-high-availability-reliability.md)
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
- 
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

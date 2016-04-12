@@ -72,7 +72,7 @@
 | Ripristino | L'insieme di credenziali di backup e l'account di archiviazione di destinazione si trovano in due aree diverse. Assicurarsi che l'account di archiviazione specificato nell'operazione di ripristino si trovi nella stessa area di Azure dell'insieme di credenziali di backup. | Nessuno |
 | Ripristino | L'account di archiviazione specificato per l'operazione di ripristino non è supportato. Sono supportati solo gli account di archiviazione dei piani Basic/Standard con le impostazioni di replica con ridondanza locale o ridondanza geografica. Selezionare un account di archiviazione supportato | Nessuno |
 | Ripristino | Il tipo di account di archiviazione specificato per l'operazione di ripristino non è online. Assicurarsi che l'account di archiviazione specificato nell'operazione di ripristino sia online | Questo problema può essere provocato da un errore temporaneo nel servizio di archiviazione di Azure o da un'interruzione del servizio. Scegliere un altro account di archiviazione. |
-| Ripristino | È stata raggiunta la quota del gruppo di risorse. Eliminare alcuni gruppi di risorse dal portale di anteprima o contattare il supporto tecnico di Azure per richiedere un aumento dei limiti. | Nessuno |
+| Ripristino | È stata raggiunta la quota del gruppo di risorse. Eliminare alcuni gruppi di risorse dal portale di Azure o contattare il supporto tecnico di Azure per richiedere un aumento dei limiti. | Nessuno |
 | Ripristino | La subnet selezionata non esiste. Selezionare una subnet esistente | Nessuno |
 
 
@@ -149,6 +149,6 @@ Dopo la corretta risoluzione dei nomi, sarà necessario fornire anche l'accesso 
     - Se si dispone di alcune limitazioni di rete (un gruppo di sicurezza di rete, ad esempio) distribuire un server proxy HTTP per indirizzare il traffico. I passaggi per distribuire un server proxy HTTP sono reperibili [qui](backup-azure-vms-prepare.md#2-network-connectivity).
     - Aggiungere regole al gruppo di sicurezza di rete (se esistente) per consentire l'accesso a INTERNET dal proxy HTTP.
 
->[AZURE.NOTE] DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite la piattaforma. L'opzione DHCP all'interno della VM deve essere abilitata. È possibile ottenere altre informazioni sull'impostazione di un indirizzo IP privato interno statico [qui](virtual-networks-reserved-private-ip.md).
+>[AZURE.NOTE] DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite la piattaforma. L'opzione DHCP all'interno della VM deve essere abilitata. Altre informazioni sull'[impostazione di un indirizzo IP privato interno statico](../virtual-network/virtual-networks-reserved-private-ip.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

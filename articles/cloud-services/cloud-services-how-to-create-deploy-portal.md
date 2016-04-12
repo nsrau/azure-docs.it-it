@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Come creare e distribuire un servizio Cloud | Microsoft Azure"
-	description="Informazioni su come creare e distribuire un servizio cloud usando il metodo Creazione rapida in Azure. Questi esempi utilizzano il portale di Azure."
+	description="Informazioni su come creare e distribuire un servizio cloud mediante il portale di Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -22,8 +22,8 @@
 # Come creare e distribuire un servizio Cloud
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Portale di Azure](cloud-services-how-to-create-deploy-portal.md)
+- [Portale di Azure classico](cloud-services-how-to-create-deploy.md)
 
 Nel portale di Azure sono disponibili due modi per creare e distribuire un servizio cloud: *Creazione rapida* e *Creazione personalizzata*.
 
@@ -54,7 +54,7 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 
 - Se si vogliono configurare connessioni Desktop remoto a istanze del ruolo, [configurare i ruoli](cloud-services-role-enable-remote-desktop.md) per Desktop remoto. Questa operazione può essere eseguita solo nel portale classico.
 
-- Se si desidera configurare il monitoraggio dettagliato per il servizio cloud, abilitare la Diagnostica Azure per il servizio cloud. *Monitoraggio minimo* (livello di monitoraggio predefinito) ricorre a contatori delle prestazioni raccolti dai sistemi operativi host per istanze del ruolo (macchine virtuali). *Il *monitoraggio dettagliato raccoglie metriche supplementari in base ai dati delle prestazioni all'interno delle istanze del ruolo per consentire un'analisi più accurata dei problemi che si verificano durante l'elaborazione dell'applicazione. Per scoprire come abilitare la Diagnostica Azure, vedere [Abilitazione della diagnostica in Azure](cloud-services-dotnet-diagnostics.md).
+- Se si desidera configurare il monitoraggio dettagliato per il servizio cloud, abilitare la Diagnostica Azure per il servizio cloud. *Monitoraggio minimo* (livello di monitoraggio predefinito) ricorre a contatori delle prestazioni raccolti dai sistemi operativi host per istanze del ruolo (macchine virtuali). *Il monitoraggio* dettagliato raccoglie metriche supplementari in base ai dati delle prestazioni all'interno delle istanze del ruolo per consentire un'analisi più accurata dei problemi che si verificano durante l'elaborazione dell'applicazione. Per scoprire come abilitare la Diagnostica Azure, vedere [Abilitazione della diagnostica in Azure](cloud-services-dotnet-diagnostics.md).
 
 Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di lavoro, è necessario [creare il pacchetto del servizio](cloud-services-model-and-package.md#servicepackagecspkg).
 
@@ -67,9 +67,9 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 - Se si prevede di distribuire il servizio cloud a un gruppo di affinità, creare il gruppo di affinità. Per distribuire il servizio cloud e altri servizi di Azure alla stessa posizione all'interno di un'area, è possibile usare un gruppo di affinità. È possibile creare il gruppo di affinità nell'area **Reti** del portale di Azure classico, alla pagina **Gruppi di affinità**.
 
 
-## Passaggio 3: creare un servizio cloud e caricare il pacchetto di distribuzione
+## Creazione e distribuzione
 
-1. Accedere al [Portale di Azure][].
+1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Nuovo > Calcolo** e quindi scorrere verso il basso e fare clic su **Servizio cloud**.
 
     ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
@@ -118,4 +118,4 @@ Se il pacchetto di distribuzione è stato [configurato per usare i certificati](
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0316_2016-->

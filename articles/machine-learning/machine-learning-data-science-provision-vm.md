@@ -125,7 +125,11 @@ Nota: è possibile che venga visualizzato un messaggio indicante che il periodo 
 Con Visual Studio Community Edition viene fornita anche una versione limitata di SQL Server. È possibile accedere a SQL Server avviando **SQL Server Management Studio**. Il nome della VM verrà popolato come Nome server. Usare l'autenticazione di Windows durante l'accesso come amministratore a Windows. Una volta eseguito l'accesso a SQL Server Management Studio è possibile creare altri utenti, creare database, importare i dati ed eseguire query SQL.
 
 ### Azure 
-Nella VM sono installati diversi strumenti di Azure: un collegamento sul desktop per accedere alla documentazione di Azure SDK; **AzCopy**, usato per spostare i dati fuori e dentro l'account di Archiviazione di Microsoft Azure; **Esplora archivi di Azure**, usato per scorrere gli oggetti archiviati nell'account di Archiviazione di Azure; **Microsoft Azure PowerShell**, uno strumento installato nella VM e usato per gestire le risorse di Azure nel linguaggio di script di PowerShell.
+Diversi strumenti di Azure vengono installati nella macchina virtuale:
+- Sul desktop c'è un collegamento per accedere alla documentazione di Azure SDK. 
+- **AzCopy** sposta i dati da e verso l'account di archiviazione di Microsoft Azure. 
+- **Esplora archivi di Azure** esplora gli oggetti archiviati nell'account di archiviazione di Azure. 
+- Anche **Microsoft Azure Powershell**, uno strumento che consente di amministrare le risorse di Azure nel linguaggio di scripting Powershell, viene installato nella VM. 
 
 ###Power BI
 
@@ -141,7 +145,8 @@ Ecco alcuni passaggi successivi per continuare l'apprendimento e l'esplorazione.
 
 * Esaminare i vari strumenti di analisi scientifica dei dati nella macchina virtuale per l'analisi scientifica dei dati facendo clic sul pulsante di avvio ed estraendo gli strumenti elencati nel menu
 * Passare a **C:\\Programmi\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts** per esempi d'uso della libreria RevoScaleR in R che supporta l'analisi dei dati a livello aziendale.  
-* Informazioni su come creare soluzioni di analisi end-to-end sistematicamente usando il [processo di analisi scientifica dei dati](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-* Visitare la [raccolta di Cortana Analytics](http://gallery.cortanaanalytics.com) per esempi sull'apprendimento automatico e l'analisi dei dati usando la suite di Cortana Analytics. Viene inoltre fornita un'icona sul desktop e nel menu di avvio della macchina virtuale per semplificare l'accesso 
+* Leggere l'articolo intitolato [Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati](http://aka.ms/dsvmtenthings)
+* Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando l'[analisi scientifica dei dati](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Visitare la [raccolta di Cortana Analytics](http://gallery.cortanaanalytics.com) per esempi di Machine Learning e di analisi dei dati usando la suite di Cortana Analytics. Viene inoltre fornita un'icona sul desktop e nel menu di avvio della macchina virtuale per semplificare l'accesso 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

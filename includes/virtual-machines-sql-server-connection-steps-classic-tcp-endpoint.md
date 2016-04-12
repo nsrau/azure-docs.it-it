@@ -2,7 +2,7 @@
 
 Per poter accedere a SQL Server da internet, nella macchina virtuale deve essere presente un endpoint per l'ascolto delle comunicazioni TCP in entrata. In questo passaggio di configurazione di Azure, il traffico della porta TCP in ingresso viene indirizzato a una porta TCP accessibile alla macchina virtuale.
 
->[AZURE.NOTE]Se ci si connette all'interno della stesso servizio cloud o rete virtuale, non è necessario creare un endpoint accessibile pubblicamente. In tal caso, è possibile continuare al passaggio successivo. Per altre informazioni, vedere [Scenari di connessione](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios).
+>[AZURE.NOTE] Se ci si connette all'interno della stesso servizio cloud o rete virtuale, non è necessario creare un endpoint accessibile pubblicamente. In tal caso, è possibile continuare al passaggio successivo. Per altre informazioni, vedere [Scenari di connessione](../articles/virtual-machines/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
 
 1. Nel portale di gestione di Azure fare clic su **VIRTUAL MACHINES**.
 	
@@ -19,4 +19,4 @@ Per poter accedere a SQL Server da internet, nella macchina virtuale deve essere
 
 6. Fare clic sul segno di spunta per continuare. La creazione dell'endpoint è completata.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

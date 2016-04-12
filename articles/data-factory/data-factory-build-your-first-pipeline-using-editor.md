@@ -31,7 +31,7 @@ Questo articolo descrive come usare il [portale di Azure](https://portal.azure.c
 1. Prima di procedere è **necessario** leggere l'articolo [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) ed eseguire i passaggi richiesti.
 2. Questo articolo non fornisce una panoramica concettuale del servizio Data factory di Azure. Si consiglia di leggere l'articolo [Introduzione al servizio Data factory di Azure](data-factory-introduction.md) per una panoramica dettagliata del servizio.  
 
-## Passaggio 1: Creare la data factory
+## Creare un'istanza di Data Factory
 Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, attività di copia per copiare dati da un'origine a un archivio dati di destinazione e attività Hive di HDInsight per eseguire uno script Hive e trasformare i dati di input in dati di output di prodotto. In questo passaggio iniziale viene creata la data factory.
 
 1.	Dopo l'accesso al [portale di Azure](https://portal.azure.com/), seguire questa procedura:
@@ -61,7 +61,7 @@ Una data factory può comprendere una o più pipeline. Una pipeline può compren
 
 Prima di creare una pipeline è necessario creare alcune entità di Data factory. Creare prima di tutto i servizi collegati per collegare archivi dati/servizi di calcolo all'archivio dati, definire i set di dati di input e di output per rappresentare i dati negli archivi dati collegati e quindi creare la pipeline con un'attività che usa questi set di dati.
 
-## Passaggio 2: Creare servizi collegati
+## Creazione di servizi collegati
 In questo passaggio l'account di archiviazione di Azure e un cluster HDInsight su richiesta di Azure vengono collegati alla data factory. In questo esempio l'account di archiviazione di Azure contiene i dati di input e di output per la pipeline. In questo esempio il servizio collegato HDInsight viene usato per eseguire lo script Hive specificato nell'attività della pipeline. È necessario identificare l'archivio dati/i servizi di calcolo usati nello scenario e collegare tali servizi alla data factory creando servizi collegati.
 
 ### Creare il servizio collegato Archiviazione di Azure
@@ -80,7 +80,7 @@ In questo passaggio l'account di archiviazione di Azure viene collegato alla dat
 
 	![Pulsante Distribuisci](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Al termine della distribuzione del servizio collegato, la finestra **Bozza-1** viene nascosta e viene visualizzato **StorageLinkedService** nella visualizzazione albero a sinistra. 
+   Al termine della distribuzione del servizio collegato, la finestra **Bozza-1** viene nascosta e nella visualizzazione albero a sinistra viene visualizzato **AzureStorageLinkedService**. 
    	![Servizio collegato Archiviazione nel menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
@@ -100,7 +100,7 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
 		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
-		      "linkedServiceName": "StorageLinkedService"
+		      "linkedServiceName": "AzureStorageLinkedService"
 		    }
 		  }
 		}
@@ -124,14 +124,14 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
 
 	Per informazioni dettagliate, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 3. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato. 
-4. Verificare che nella visualizzazione albero a sinistra siano presenti sia **StorageLinkedService** che **HDInsightOnDemandLinkedService**.
+4. Verificare che nella visualizzazione albero a sinistra siano presenti sia **AzureStorageLinkedService** che **HDInsightOnDemandLinkedService**.
 
 	![Visualizzazione albero con servizi collegati](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
-## Passaggio 3: Creare set di dati
-In questo passaggio vengono creati set di dati per rappresentare i dati di input e di output per l'elaborazione Hive. I set di dati fanno riferimento all'oggetto **StorageLinkedService** creato in precedenza in questa esercitazione. Il servizio collegato punta a un account di archiviazione di Azure e i set di dati specificano il contenitore, la cartella e il nome del file nella risorsa di archiviazione che contiene i dati di input e di output.
+## Creare set di dati
+In questo passaggio vengono creati set di dati per rappresentare i dati di input e di output per l'elaborazione Hive. I set di dati fanno riferimento all'oggetto **AzureStorageLinkedService** creato in precedenza in questa esercitazione. Il servizio collegato punta a un account di archiviazione di Azure e i set di dati specificano il contenitore, la cartella e il nome del file nella risorsa di archiviazione che contiene i dati di input e di output.
 
-### Creare il set di dati di input
+### Creare set di dati di input
 
 1. In **Editor di Data factory** fare clic su **Nuovo set di dati** sulla barra dei comandi e selezionare **Archivio BLOB di Azure**.
 
@@ -142,7 +142,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
 			"name": "AzureBlobInput",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "input.log",
 		            "folderPath": "adfgetstarted/inputdata",
@@ -165,7 +165,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
 	| Proprietà | Descrizione |
 	| :------- | :---------- |
 	| type | La proprietà type è impostata su AzureBlob perché i dati si trovano nell'archiviazione BLOB di Azure. |  
-	| linkedServiceName | Fa riferimento all'oggetto StorageLinkedService creato in precedenza. |
+	| linkedServiceName | Fa riferimento all'oggetto AzureStorageLinkedService creato in precedenza. |
 	| fileName | Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In tal caso viene elaborato solo il file input.log. |
 	| type | I file di log sono in formato testo, si usa quindi TextFormat. | 
 	| columnDelimiter | Le colonne nei file di log sono delimitate da virgola (,). |
@@ -186,7 +186,7 @@ Viene creato ora il set di dati di output per rappresentare i dati di output arc
 		  "name": "AzureBlobOutput",
 		  "properties": {
 		    "type": "AzureBlob",
-		    "linkedServiceName": "StorageLinkedService",
+		    "linkedServiceName": "AzureStorageLinkedService",
 		    "typeProperties": {
 		      "folderPath": "adfgetstarted/partitioneddata",
 		      "format": {
@@ -207,10 +207,10 @@ Viene creato ora il set di dati di output per rappresentare i dati di output arc
 
 	![Visualizzazione albero con servizi collegati](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
-## Passaggio 4: Creare la prima pipeline
+## Creare una pipeline
 In questo passaggio viene creata la prima pipeline con un'attività **HDInsightHive**. Si noti che la sezione di input è disponibile ogni mese (frequenza: Month, intervallo: 1), la sezione di output viene generata ogni mese e anche la proprietà dell'utilità di pianificazione dell'attività è impostata su una frequenza mensile (vedere sotto). Le impostazioni per il set di dati di output e l'utilità di pianificazione dell'attività devono corrispondere. In questo momento la pianificazione è basata sul set di dati di output, quindi è necessario creare un set di dati di output anche se l'attività non genera alcun output. Se l'attività non richiede input, è possibile ignorare la creazione del set di dati di input. Le proprietà usate nel codice JSON seguente sono illustrate in fondo a questa sezione.
 
-1. Nell'**editor di Data factory** fare clic sui **puntini di sospensione (…)** e quindi su **Nuova pipeline**.
+1. Nell'**editor di Data factory** fare clic sui **puntini di sospensione (…)** per visualizzare altri comandi e quindi su **Nuova pipeline**.
 	
 	![Pulsante Nuova pipeline](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Copiare e incollare il frammento di codice sottostante nella finestra Bozza-1.
@@ -226,7 +226,7 @@ In questo passaggio viene creata la prima pipeline con un'attività **HDInsightH
 		                "type": "HDInsightHive",
 		                "typeProperties": {
 		                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-		                    "scriptLinkedService": "StorageLinkedService",
+		                    "scriptLinkedService": "AzureStorageLinkedService",
 		                    "defines": {
 		                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
 		                        "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
@@ -254,15 +254,15 @@ In questo passaggio viene creata la prima pipeline con un'attività **HDInsightH
 		                "linkedServiceName": "HDInsightOnDemandLinkedService"
 		            }
 		        ],
-		        "start": "2014-02-01T00:00:00Z",
-		        "end": "2014-02-02T00:00:00Z",
+		        "start": "2016-02-01T00:00:00Z",
+		        "end": "2016-02-02T00:00:00Z",
 		        "isPaused": false
 		    }
 		}
  
 	Nel frammento di codice JSON si crea una pipeline costituita da una singola attività che usa Hive per elaborare i dati in un cluster HDInsight.
 	
-	Il file di script Hive, **partitionweblogs.hql**, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato **StorageLinkedService**) e nella cartella **script** nel contenitore **adfgetstarted**.
+	Il file di script Hive, **partitionweblogs.hql**, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato **AzureStorageLinkedService**) e nella cartella **script** nel contenitore **adfgetstarted**.
 
 	La sezione **defines** è usata per specificare le impostazioni di runtime che verranno passate allo script Hive come valori di configurazione Hive (ad esempio, ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
 
@@ -270,15 +270,19 @@ In questo passaggio viene creata la prima pipeline con un'attività **HDInsightH
 
 	Nel codice JSON dell'attività si specifica che lo script Hive viene eseguito sulla risorsa di calcolo specificata da **linkedServiceName** - **HDInsightOnDemandLinkedService**.
 
-	> [ACOM.NOTE] Per informazioni dettagliate sulle proprietà JSON usate nell'esempio precedente, vedere [Anatomia di una pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline).
+	> [AZURE.NOTE] Per informazioni dettagliate sulle proprietà JSON usate nell'esempio precedente, vedere [Anatomia di una pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline).
 
-3. Verificare che il file input.log si trovi nella cartella adfgetstarted/inputdata nell'archiviazione BLOB di Azure e fare clic su **Distribuisci** sulla barra dei comandi per distribuire la pipeline. Dal momento che gli orari di **inizio** e **fine** sono impostati nel passato e **isPaused** è impostato su false, la pipeline (l'attività nella pipeline) viene eseguita immediatamente dopo la distribuzione.
+3. Verificare quanto segue:
+	1. Il file **input.log** è presente nella cartella **inputdata** del contenitore **adfgetstarted** nell'archivio BLOB di Azure.
+	2. Il file **partitionweblogs.hql** è presente nella cartella **script** del contenitore **adfgetstarted** nell'archivio BLOB di Azure. Se questi file non sono visibili, completare i passaggi preliminari nella sezione [Panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md). 
+	3. Verificare di avere sostituito **storageaccountname** con il nome dell'account di archiviazione nel codice JSON della pipeline. 
+2. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire la pipeline. Dal momento che gli orari di **inizio** e **fine** sono impostati nel passato e **isPaused** è impostato su false, la pipeline (l'attività nella pipeline) viene eseguita immediatamente dopo la distribuzione. 
 4. Verificare che la pipeline sia visibile nella visualizzazione albero.
 
 	![Visualizzazione albero con pipeline](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 5. La creazione della prima pipeline è così completata.
 
-## Passaggio 4: Monitorare la pipeline
+## Monitorare la pipeline
 
 6. Fare clic su **X** per chiudere i pannelli dell'editor di Data factory, tornare al pannello Data factory e quindi fare clic su **Diagramma**.
   
@@ -324,4 +328,4 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 
   
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

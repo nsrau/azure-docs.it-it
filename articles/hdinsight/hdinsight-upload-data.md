@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/29/2015"
+	ms.date="03/22/2016"
 	ms.author="jgao"/>
 
 
@@ -109,18 +109,12 @@ Azure PowerShell è un ambiente di scripting che può essere usato per controlla
 1. Aprire la console di Azure PowerShell come illustrato in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 2. Impostare i valori delle prime cinque variabili nello script seguente:
 
-		$subscriptionName = "<AzureSubscriptionName>"
 		$resourceGroupName = "<AzureResourceGroupName>"
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"
 
 		$fileName ="<LocalFileName>"
 		$blobName = "<BlobName>"
-
-		Switch-AzureMode -Name AzureResourceManager
-
-		Add-AzureAccount
-		Select-AzureSubscription $subscriptionName
 
 		# Get the storage account key
 		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
@@ -284,4 +278,4 @@ Dopo aver appreso come importare dati in HDInsight, leggere gli articoli seguent
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

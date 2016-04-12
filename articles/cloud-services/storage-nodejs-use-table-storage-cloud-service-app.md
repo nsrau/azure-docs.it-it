@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="03/04/2016" 
 	ms.author="robmcm"/>
 
 # Creazione di un'applicazione Web Node.js con Archiviazione
@@ -39,7 +39,7 @@ Di seguito è riportata una schermata dell'applicazione completata:
 
 Per accedere ad Archiviazione di Azure, è necessario passare le credenziali di archiviazione. A questo scopo, si utilizzano le impostazioni dell'applicazione web.config. Tali impostazioni verranno passate a Node come variabili di ambiente, che verranno quindi lette da Azure SDK.
 
-> [AZURE.NOTE]Le credenziali di archiviazione vengono usate solo quando l'applicazione viene distribuita in Azure. L'applicazione, quando viene eseguita nell'emulatore, utilizzerà l'emulatore di archiviazione.
+> [AZURE.NOTE] Le credenziali di archiviazione vengono usate solo quando l'applicazione viene distribuita in Azure. L'applicazione, quando viene eseguita nell'emulatore, utilizzerà l'emulatore di archiviazione.
 
 Eseguire i passaggi seguenti per recuperare le credenziali dell'account di archiviazione e aggiungerle alle impostazioni di web.config:
 
@@ -53,7 +53,7 @@ Eseguire i passaggi seguenti per recuperare le credenziali dell'account di archi
 
 	Verrà recuperato l'elenco di account di archiviazione e di chiavi dell'account associati al servizio ospitato.
 
-	> [AZURE.NOTE]Dal momento che Azure SDK crea un account di archiviazione quando si distribuisce un servizio, esisterà già un account di archiviazione dalla distribuzione dell'applicazione nelle guide precedenti.
+	> [AZURE.NOTE] Dal momento che Azure SDK crea un account di archiviazione quando si distribuisce un servizio, esisterà già un account di archiviazione dalla distribuzione dell'applicazione nelle guide precedenti.
 
 4.  Aprire il file **ServiceDefinition.csdef** contenente le impostazioni dell'ambiente usate quando l'applicazione viene distribuita in Azure:
 
@@ -403,4 +403,4 @@ Nella procedura seguente viene illustrato come arrestare ed eliminare l'applicaz
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

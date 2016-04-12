@@ -2,7 +2,7 @@
 	pageTitle="Uso della regressione lineare in Machine Learning | Microsoft Azure" 
 	description="Confronto tra i modelli di regressione lineare in Excel e in Azure Machine Learning Studio" 
 	metaKeywords="" 
-	services="machine-learning"  
+	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="paulettm" 
@@ -14,15 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="03/02/2016" 
 	ms.author="kbaroni;garye" />
 
 # Uso della regressione lineare Azure Machine Learning
 
 > *Kate Baroni* e *Ben Boatman* sono architetti di soluzioni aziendali in Microsoft Data Insights Center of Excellence. In questo articolo descrivono la propria esperienza durante la migrazione di una suite esistente per l'analisi di regressione a una soluzione basata sul cloud tramite Azure Machine Learning.
-
+ 
+&nbsp;
+  
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
+ 
 ## Obiettivo
 
 Il progetto è iniziato con due obiettivi prefissati:
@@ -77,14 +79,14 @@ Dopo aver applicato i suggerimenti, in Azure ML sono state raggiunte le stesse p
 || Excel|Azure ML (iniziale)|Azure ML con Least Squares|
 |---|:---:|:---:|:---:|
 |Valore etichettato |Valori effettivi (numerici)|uguale|uguale|
-|Strumento di apprendimento |Excel -\> Analisi dei dati -\> Regressione|Regressione lineare|Regressione lineare|
+|Strumento di apprendimento |Excel -> Analisi dati -> Regressione|Regressione lineare.|Regressione lineare|
 |Opzioni strumento di apprendimento|N/D|Valori predefiniti|Ordinary Least Squares<br />L2 = 0,005|
 |Set di dati|26 righe, 3 funzionalità, 1 etichetta. Tutti valori numerici.|uguale|uguale|
 |Divisione: training|Excel con training sulle prime 18 righe, con test delle ultime 8 righe.|uguale|uguale|
 |Divisione: test|Formula di regressione Excel applicata alle ultime 8 righe|uguale|uguale|
 |**Prestazioni**||||
-|Adjusted R Square|0,96|N/D||
-|Coefficiente di determinazione|N/DA|0,78|0,952049|
+|R-quadrato corretto|0,96|N/D||
+|Coefficiente di determinazione|N/D|0,78|0,952049|
 |Errore assoluto medio |$ 9,5 milioni|$ 19,4 milioni|$ 9,5 milioni|
 |Errore assoluto medio (%)|<span style="background-color: 00FF00;"> 6,03%</span>|12,2%|<span style="background-color: 00FF00;"> 6,03%</span>|
 
@@ -92,7 +94,7 @@ Inoltre, i coefficienti di Excel hanno dato buoni risultati anche confrontati co
 
 ||Coefficienti di Excel|Pesi delle funzionalità di Azure|
 |---|:---:|:---:|
-|Intercetta/differenza|19470209,88|19328500|
+|Intercetta/distorsione|19470209,88|19328500|
 |Funzionalità A|0,832653063|0,834156|
 |Funzionalità B|11071967,08|11007300|
 |Funzionalità C|25383318,09|25140800|
@@ -157,4 +159,4 @@ Alcune risorse vengono elencate per agevolare l'uso della regressione:
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->
