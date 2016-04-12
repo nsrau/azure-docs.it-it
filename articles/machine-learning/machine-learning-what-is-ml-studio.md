@@ -56,9 +56,9 @@ Fare clic sulla scheda **Studio**. Verrà richiesto di effettuare l'accesso usan
 
 ### Raccolta
 
-Fare clic sulla scheda **Gallery**. Verrà visualizzata la raccolta Cortana Analytics. La raccolta è un'area in cui una community di sviluppatori e data scientist condividono le soluzioni create mediante Cortana Analytics Suite.
+Fare clic sulla scheda **Gallery**. Verrà visualizzata Cortana Intelligence Gallery. La raccolta è un'area in cui una community di sviluppatori e data scientist condivide le soluzioni create usando i componenti di Cortana Intelligence Suite.
 
-Per altre informazioni sulla raccolta, vedere [Condividere e individuare soluzioni nella raccolta Cortana Analytics](machine-learning-gallery-how-to-use-contribute-publish.md).
+Per altre informazioni sulla raccolta, vedere [Condividere e trovare soluzioni in Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 ## Componenti di un esperimento
 
@@ -115,4 +115,4 @@ Quando il modello di analisi predittiva è pronto, è possibile distribuirlo com
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

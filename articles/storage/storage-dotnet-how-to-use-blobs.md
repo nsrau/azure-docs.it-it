@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introduzione all'archiviazione BLOB di Azure con .NET | Microsoft Azure"
-	description="Archiviare i dati dei file nel cloud con l'archivio BLOB (archivio di oggetti) di Azure. Introduzione a semplici operazioni di archiviazione BLOB, incluse le operazioni di creazione di un contenitore e caricamento, download, elenco ed eliminazione di contenuto dei BLOB."
+	pageTitle="Introduzione all'archivio BLOB di Azure con .NET | Microsoft Azure"
+	description="Archiviare i dati dei file nel cloud con l'archivio BLOB (archivio di oggetti) di Azure. Introduzione a semplici operazioni dell'archivio BLOB, incluse le operazioni di creazione di un contenitore e caricamento, download, elenco ed eliminazione di contenuto dei BLOB."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/25/2016"
+	ms.date="04/01/2016"
 	ms.author="tamram"/>
 
 
-# Introduzione all'archiviazione BLOB di Azure con .NET
+# Introduzione all'archivio BLOB di Azure con .NET
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Panoramica
 
-Archiviazione BLOB di Azure è un servizio che archivia i dati dei file nel cloud. Archiviazione BLOB può archiviare qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. L'archivio BLOB è anche denominato archivio di oggetti.
+Archivio BLOB di Azure è un servizio che archivia i dati dei file nel cloud. Archivio BLOB può archiviare qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. L'archivio BLOB è anche denominato archivio di oggetti.
 
 ### Informazioni sull'esercitazione
 
-Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comuni dell'archiviazione BLOB di Azure. Gli scenari presentati includono caricamento, visualizzazione dell'elenco, download ed eliminazione di BLOB.
+Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comuni dell'archivio BLOB di Azure. Gli scenari presentati includono caricamento, visualizzazione dell'elenco, download ed eliminazione di BLOB.
 
 **Tempo previsto per il completamento:** 45 minuti
 
@@ -45,28 +45,26 @@ Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comun
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-configure-connection-string-include](../../includes/storage-configure-connection-string-include.md)]
+[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-## Accedere all'archiviazione BLOB a livello di programmazione
+### Aggiungere le dichiarazioni dello spazio dei nomi
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
+Aggiungere le istruzioni `using` seguenti all'inizio del file `program.cs`.
 
-### Dichiarazioni dello spazio dei nomi
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+    using Microsoft.WindowsAzure.Storage.Auth; // Namespace for authentication types
+    using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
-Aggiungere le seguenti dichiarazioni dello spazio dei nomi all'inizio del file C# in cui si desidera accedere ad Archiviazione di Azure a livello di programmazione:
+[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-    using Microsoft.WindowsAzure;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Blob;
+### Creare il client del servizio BLOB
 
-Assicurarsi di fare riferimento all'assembly `Microsoft.WindowsAzure.Storage.dll`.
-
-[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
-
-Il tipo **CloudBlobClient** consente di recuperare oggetti che rappresentano contenitori e BLOB archiviati nel servizio di archiviazione BLOB. Il codice seguente consente di creare un oggetto **CloudBlobClient** utilizzando l'oggetto account di archiviazione recuperato in precedenza:
+La classe **CloudBlobClient** consente di recuperare gli oggetti che rappresentano contenitori e BLOB archiviati nell'archivio BLOB. Aggiungere il codice seguente al metodo Main():
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+A questo punto si è pronti a scrivere codice che legge e scrive i dati nell'archivio BLOB.
 
 ## Creare un contenitore
 
@@ -90,14 +88,13 @@ In questo esempio viene creato un contenitore, nel caso in cui non esista già:
 Per impostazione predefinita, il nuovo contenitore è privato ed è necessario specificare la chiave di accesso alle risorse di archiviazione per scaricare BLOB da questo contenitore. Se si desidera che i file all'interno del contenitore siano disponibili a tutti, è possibile impostare il contenitore come pubblico usando il codice seguente:
 
     container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess =
- 	    BlobContainerPublicAccessType.Blob });
+        new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
 I BLOB in un contenitore pubblico sono visibili a tutti gli utenti di Internet, tuttavia è possibile modificarli o eliminarli solo se si dispone della chiave di accesso appropriata.
 
 ## Caricare un BLOB in un contenitore
 
-In Archiviazione BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Nella maggior parte dei casi è consigliabile utilizzare il tipo di BLOB in blocchi.
+Nell'archivio BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Nella maggior parte dei casi è consigliabile utilizzare il tipo di BLOB in blocchi.
 
 Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un contenitore e utilizzarlo per ottenere un riferimento a un BLOB in blocchi. Dopo aver ottenuto un riferimento al BLOB, sarà possibile caricarvi qualsiasi flusso di dati chiamando il metodo **UploadFromStream**. Questa operazione consentirà di creare il BLOB se non già esistente o di sovrascriverlo se già esistente.
 
@@ -161,7 +158,7 @@ Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenit
 		}
 	}
 
-Come illustrato in precedenza, è possibile assegnare il nome ai BLOB con le informazioni sul percorso nel nome. Consente di creare una struttura di directory virtuale che è possibile organizzare e attraversare come un file system tradizionale. Si noti che la struttura di directory è solo virtuale, le uniche risorse disponibili nell'archiviazione BLOB sono i contenitori e i BLOB. Tuttavia, la libreria client di archiviazione offre un oggetto **CloudBlobDirectory** per fare riferimento a una directory virtuale e semplificare il processo di utilizzo dei BLOB organizzati in questo modo.
+Come illustrato in precedenza, è possibile assegnare il nome ai BLOB con le informazioni sul percorso nel nome. Consente di creare una struttura di directory virtuale che è possibile organizzare e attraversare come un file system tradizionale. Si noti che la struttura di directory è solo virtuale, le uniche risorse disponibili nell'archivio BLOB sono i contenitori e i BLOB. Tuttavia, la libreria client di archiviazione offre un oggetto **CloudBlobDirectory** per fare riferimento a una directory virtuale e semplificare il processo di utilizzo dei BLOB organizzati in questo modo.
 
 Si consideri, ad esempio, il seguente set di BLOB in blocchi di un contenitore denominato `photos`:
 
@@ -380,4 +377,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

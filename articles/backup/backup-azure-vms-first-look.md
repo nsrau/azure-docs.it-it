@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/14/2016"
+	ms.date="03/30/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # Primo approccio: Backup di macchine virtuali di Azure
+
+> [AZURE.SELECTOR]
+- [Backup di VM di Azure Resource Manager](backup-azure-vms-first-look-arm.md)
+- [Backup di VM in modalità classica](backup-azure-vms-first-look.md)
 
 Questo articolo contiene un'esercitazione che illustra le operazioni di preparazione dell'ambiente Azure per il backup di una macchina virtuale di Azure. Questa esercitazione presuppone che sia disponibile una macchina virtuale nella sottoscrizione di Azure e che al servizio Backup sia stato concesso l'accesso alla macchina virtuale. Di seguito è riportata, a livello generale, la procedura da seguire.
 
@@ -230,4 +234,4 @@ Ora che è stato eseguito il backup di una macchina virtuale, sono disponibili d
 ## Domande?
 In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

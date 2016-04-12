@@ -1,6 +1,6 @@
 <properties
- pageTitle="Panoramica dell’hub IoT di Azure | Microsoft Azure"
- description="Una panoramica del servizio hub IoT di Azure, inclusi la connettività dei dispositivi, i modelli di comunicazione e il modello di comunicazione assistita con i servizi"
+ pageTitle="Panoramica dell'hub IoT di Azure | Microsoft Azure"
+ description="Panoramica del servizio hub IoT di Azure, inclusi l'architettura Internet delle cose, la connettività dei dispositivi, i modelli di comunicazione e il modello di comunicazione assistita con i servizi"
  services="iot-hub"
  documentationCenter=""
  authors="dominicbetts"
@@ -27,7 +27,7 @@ L'hub IoT di Azure è un servizio completamente gestito che consente comunicazio
 - Fornisce un monitoraggio esteso per gli eventi relativi alla connettività dei dispositivi e alla gestione delle identità dei dispositivi.
 - Comprende librerie di dispositivi per i linguaggi e le piattaforme più diffusi.
 
-![L'hub IoT come gateway cloud][img-architecture]
+![Hub IoT di Azure come gateway cloud in una soluzione Internet delle cose][img-architecture]
 
 ## Problematiche relative alla connettività dei dispositivi IoT
 
@@ -112,4 +112,4 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

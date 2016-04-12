@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introduzione al Catalogo dati di Azure con catalogo dati"
-   description="Esercitazione end-to-end degli scenari e delle funzionalità del Catalogo dati di Azure."
+   pageTitle="Introduzione ad Azure Data Catalog | Microsoft Azure"
+   description="Esercitazione end-to-end sugli scenari e le funzionalità di Azure Data Catalog."
    documentationCenter=""
    services="data-catalog"
    authors="dvana"
@@ -258,4 +258,4 @@ In questo esercizio sono state analizzate le funzionalità di gestione del **Cat
 
 In questa esercitazione sono state analizzate le funzionalità di base di **Azure Data Catalog**, compresa la registrazione, l'annotazione, l'individuazione e la gestione di origini dati aziendali. Ora che è stata completata l'esercitazione, è possibile iniziare. È possibile iniziare subito registrando le origini dati usate personalmente o dal team e invitando i colleghi a usare il catalogo.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/27/2015"
+	ms.date="03/27/2016"
 	ms.author="jeffreyg"/>
 
 # Esercitazione sul database SQL: Creare un database SQL in pochi minuti usando il portale di Azure
@@ -128,4 +128,4 @@ Al termine dell'esercitazione sul database SQL e dopo aver creato un database co
 
 - [Tutti gli argomenti per il servizio database SQL di Azure](sql-database-index-all-articles.md) - indice
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

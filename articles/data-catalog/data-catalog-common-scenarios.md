@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Scenari comuni del Catalogo dati di Azure"
+   pageTitle="Scenari comuni di Azure Data Catalog | Microsoft Azure"
    description="Panoramica degli scenari comuni per il Catalogo dati di Azure, incluse la registrazione e l'individuazione delle origini dati ad alto valore, l'abilitazione della business intelligence in modalità self-service e l'acquisizione di conoscenze specifiche esistenti sulle origini dati e i processi."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -66,4 +66,4 @@ Talvolta questi esperti di dati si applicano per documentare le proprie conoscen
 
 Il Catalogo dati di Azure fornisce un percorso per la condivisione di queste conoscenze specifiche e per renderle facilmente individuabili. Gli esperti di dati possono annotare direttamente gli asset di dati e possono includere anche i collegamenti alla documentazione esistente. In tal modo non solo si acquisisce conoscenza, ma inserisce la competenza nella stessa esperienza impiegata per l'individuazione dell’origine dati. Quando un utente usa il catalogo per individuare un'origine dati, non solo trova l'origine, ma ha inoltre a disposizione le informazioni di un esperto che esistevano in precedenza solo nella mente dell'esperto stesso.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

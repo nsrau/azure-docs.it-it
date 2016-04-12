@@ -127,7 +127,11 @@ A questo punto, è possibile provare a eseguire l'app creata.
 
 ## Passaggi successivi
 
-- [Informazioni su come è possibile esporre i servizi in Internet con un front-end di servizio Web](service-fabric-add-a-web-frontend.md)
+<!--
+Temporarily removing this link because we have removed the ASP.NET template.
+
+ - [See how you can expose your services to the Internet with a web service front end](service-fabric-add-a-web-frontend.md)
+-->
 - [Informazioni su come creare un cluster in Azure](service-fabric-cluster-creation-via-portal.md)
 - [Altre informazioni su Reliable Services](service-fabric-reliable-services-quick-start.md)
 - [Provare a creare un servizio con il modello di programmazione Reliable Actors](service-fabric-reliable-actors-get-started.md)
@@ -146,4 +150,4 @@ A questo punto, è possibile provare a eseguire l'app creata.
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

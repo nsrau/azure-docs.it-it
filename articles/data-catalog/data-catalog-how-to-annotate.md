@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -61,4 +61,4 @@ La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più
 ## Vedere anche
 - Per altre informazioni dettagliate sull'annotazione delle origini dati, vedere [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

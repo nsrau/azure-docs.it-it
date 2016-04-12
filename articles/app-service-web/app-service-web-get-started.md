@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/17/2016" 
+	ms.date="04/04/2016" 
 	ms.author="cephalin"
 />
 	
@@ -67,7 +67,7 @@ Verrà ora distribuita un'app Web in Servizio app di Azure.
 
 4. Creare la risorsa dell'app del servizio app in Azure con un nome app univoco con il comando successivo. L'URL dell'app Web sarà http://&lt;app_name>.azurewebsites.net.
 
-        azure site create --git <app_name> 
+        azure site create --git <app_name>
       
     >[AZURE.NOTE] Se non sono mai state configurate credenziali di distribuzione per la sottoscrizione di Azure, verrà chiesto di crearle. Queste credenziali, e non le credenziali dell'account Azure, vengono usate dal servizio app solo per le distribuzioni Git e gli accessi FTP.
     
@@ -85,11 +85,9 @@ La distribuzione dell'app in Servizio app di Azure è stata completata.
 
 ## Visualizzare l'app eseguita dinamicamente
 
-Per visualizzare l'app in esecuzione dinamicamente in Azure, eseguire questo comando:
+Per visualizzare l'app eseguita dinamicamente in Azure, eseguire questo comando da qualsiasi directory del repository:
 
-    azure site browse <app_name>
-
-Se viene visualizzato il messaggio di errore `Site <app_name> does not exist or has no hostnames`, provare a eseguire di nuovo il comando dopo qualche secondo. Alcune app, ad esempio le app Java, impiegano più tempo per eseguire il wrapping della distribuzione.
+    azure site browse
 
 ## Eseguire aggiornamenti dell'app
 
@@ -141,4 +139,4 @@ In alternativa, è possibile trovare altri contenuti sull'intervallo di app che 
 - [Creare App per dispositivi mobili](/documentation/learning-paths/appservice-mobileapps/)
 - [Creare app per le API](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="01/07/2016"
+    ms.date="04/05/2016"
     ms.author="elizapo" />
 
 # Cosa è incluso nelle immagini modello di Azure RemoteApp
@@ -104,4 +104,4 @@ Si tratta di un'estensione dell'immagine "vanilla" e presenta i seguenti compone
 
 > [AZURE.IMPORTANT]**Informazioni legali:** questa immagine non include una licenza di Microsoft Office e *non può essere usata per ambienti di produzione*. L'immagine di Office 2013 Professional Plus è destinata esclusivamente alla valutazione. Se si desidera usare le applicazioni Office in Azure RemoteApp per la produzione, è necessario usare l'immagine di Office 365 ProPlus. Per altre informazioni sulla licenza di Office, vedere [Usare Office 365 con Azure RemoteApp](remoteapp-o365.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0406_2016-->

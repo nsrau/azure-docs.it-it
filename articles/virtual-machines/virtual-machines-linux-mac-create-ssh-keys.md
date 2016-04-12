@@ -14,76 +14,61 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/13/2016"
+	ms.date="04/04/2016"
 	ms.author="v-livech"/>
 
 # Creare chiavi SSH in Linux e Mac per le VM Linux in Azure
 
-Questo argomento illustra come:
-
-1. Creare una coppia di chiavi private e pubbliche protette da password con `ssh-keygen`.
-2. Creare un file `~/.ssh/config` per velocizzare l'accesso e abilitare importanti impostazioni predefinite di configurazione e sicurezza.
-3. Accedere a una VM Linux o BSD in Azure tramite SSH
-
-## Prerequisiti
-
-Un account Azure ([ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)) e un terminale Mac o Linux con installati i toolkit SSH. Impostare l'interfaccia della riga di comando in modalità risorsa digitando `azure config mode arm`.
-
-## Introduzione
-
-L'uso di chiavi SSH pubbliche e private è il modo più sicuro **e** semplice di accedere ai server Linux. [Crittografia a chiave pubblica](https://en.wikipedia.org/wiki/Public-key_cryptography) fornisce un modo molto più sicuro per accedere a una VM Linux o BSD in Azure rispetto all'uso di password, che possono essere molto più facilmente soggette ad attacchi di forza bruta. La chiave pubblica può essere condivisa con chiunque. La chiave privata appartiene solo all'utente o all'infrastruttura di sicurezza locale.
-
-Questo articolo crea file delle chiavi nel formato *ssh-rsa*, consigliati per distribuzioni in Gestione risorse e richieste nel [portale](https://portal.azure.com) per le distribuzioni sia classica che di Gestione risorse.
-
-> [AZURE.NOTE] Se si accede alle VM da un computer Windows, vedere [Come usare le chiavi SSH in Windows](virtual-machines-linux-ssh-from-windows.md).
+Per creare una chiave pubblica e privata SSH protetta con password è necessaria l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) in modalità Azure Resource Manager (`azure config mode arm`).
 
 ## Breve elenco di comandi
 
 Negli esempi di comandi seguenti sostituire i valori compresi tra &lt; e &gt; con i valori dell'ambiente locale.
 
 ```bash
-[username@fedora22 ~]$ ssh-keygen -t rsa -b 4096 -C "<your_user@yourdomain.com>"
+[chrisL@fedora ~]$ ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
 
 #Enter the name of the file that will be saved in the `~/.ssh/` directory.
-
 azure_fedora_id_rsa
 
 #Enter (twice) a [secure](https://www.xkcd.com/936/) password for the SSH key.
 
 #Enter passphrase for github_id_rsa:
-
 correct horse battery staple
 
 #Add the newly created key to `ssh-agent` on Linux and Mac (also added to OSX Keychain).
-
-[username@fedora22 ~]$ eval "$(ssh-agent -s)"
-
-[username@fedora22 ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa
+[chrisL@fedora ~]$ eval "$(ssh-agent -s)"
+[chrisL@fedora ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa
 
 #Copy the SSH public key to your Linux Server.
-
-[username@fedora22 ~]$ ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
+[chrisL@fedora ~]$ ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
 
 #Test the login using keys instead of a password.
-
-[username@fedora22 ~]$ ssh -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
+[chrisL@fedora ~]$ ssh -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
 
 Last login: Tue Dec 29 07:07:09 2015 from 66.215.21.201
-[username@fedora22 ~]$
+[chrisL@fedora ~]$
 
 ```
 
+## Introduzione
+
+L'uso di chiavi pubbliche e private SSH è il modo più sicuro **e** più semplice per accedere ai server Linux, ma la [crittografia a chiave pubblica](https://en.wikipedia.org/wiki/Public-key_cryptography) fornisce anche un modo molto più sicuro per l'accesso alla VM Linux o BSD in Azure rispetto alle password, che sono più facilmente soggette ad attacchi di forza bruta. La chiave pubblica può essere condivisa con chiunque, ma la chiave privata appartiene solo all'utente o all'infrastruttura di sicurezza locale.
+
+Questo articolo consente di creare file delle chiavi nel formato *ssh-rsa*, consigliati per distribuzioni in Azure Resource Manager e richiesti nel [portale](https://portal.azure.com) per le distribuzioni sia classica che di Azure Resource manager.
+
+
 ## Creare le chiavi SSH
 
-Azure richiede chiavi pubbliche e private nel formato ssh-rsa almeno a 2048 bit. Per creare la coppia, usare `ssh-keygen`, che presenta una serie di domande e quindi scrive una chiave privata e una chiave pubblica corrispondente. Quando si crea la VM di Azure, si passa il contenuto della chiave pubblica, che viene copiato nella VM Linux e usato con la chiave privata locale e archiviata in modo sicuro per autenticare l'utente quando esegue l'accesso.
-
-
+Azure richiede chiavi pubbliche e private nel formato ssh-rsa almeno a 2048 bit. Per creare la coppia, usare `ssh-keygen`, che presenta una serie di domande e quindi scrive una chiave privata e una pubblica corrispondente. Quando si crea la VM di Azure, si passa il contenuto della chiave pubblica, che viene copiato nella VM Linux e usato con la chiave privata locale e archiviata in modo sicuro per autenticare l'utente quando esegue l'accesso.
 
 ### Uso di `ssh-keygen`
 
 Questo comando crea una coppia di chiavi SSH tramite RSA a 2048 bit che sarà impostata come commento per identificarla facilmente.
 
-    username@macbook$ ssh-keygen -t rsa -b 4096 -C "username@fedoraVMAzure"
+```
+chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "username@fedoraVMAzure"
+```
 
 ##### Descrizione del comando
 
@@ -98,7 +83,7 @@ Questo comando crea una coppia di chiavi SSH tramite RSA a 2048 bit che sarà im
 #### Procedura dettagliata di `ssh-keygen`
 
 ```bash
-username@macbook$ ssh-keygen -t rsa -b 4096 -C "username@fedoraVMAzure"
+chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "username@fedoraVMAzure"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/steve/.ssh/id_rsa): azure_fedora_id_rsa
 Enter passphrase (empty for no passphrase):
@@ -120,16 +105,16 @@ The key's randomart image is:
 |        .        |
 +-----------------+
 
-username@macbook$ ls -al ~/.ssh
+chrisL@fedora$ ls -al ~/.ssh
 -rw------- 1 username staff  1675 Aug 25 18:04 azure_fedora_id_rsa
 -rw-r--r-- 1 username staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
 ```
 
-`Enter file in which to save the key (/Users/steve/.ssh/id_rsa): azure_fedora_id_rsa` è il nome della coppia di chiavi per questo articolo. Avere una coppia di chiavi denominata **id\_rsa** è l'impostazione predefinita ed è possibile alcuni strumenti prevedano un file della chiave privata con nome **id\_rsa**, quindi è opportuno averne uno. (`~/.ssh/` è il percorso predefinito per tutte le coppie di chiavi SSH e il file config SSH).
+`Enter file in which to save the key (/Users/steve/.ssh/id_rsa): azure_fedora_id_rsa` è il nome della coppia di chiavi per questo articolo. Avere una coppia di chiavi denominata **id\_rsa** è l'impostazione predefinita ed è possibile che alcuni strumenti prevedano un file della chiave privata con nome **id\_rsa**, quindi è opportuno averne uno. `~/.ssh/` è il percorso predefinito per tutte le coppie di chiavi SSH e il file config SSH.
 
 `Enter passphrase (empty for no passphrase):` è consigliabile aggiungere una password (`ssh-keygen` la definisce "passphrase") alle coppie di chiavi. Senza una password che protegge la coppia di chiavi, chiunque disponga di una copia del file della chiave privata può usarlo per accedere a qualsiasi server dell'utente che ha la chiave pubblica corrispondente. L'aggiunta di una password offre quindi maggiore protezione nel caso in cui qualcuno riesca ad accedere al file della chiave privata, consentendo all'utente il tempo necessario per modificare le chiavi usate per l'autenticazione.
 
-`username@macbook$ ls -al ~/.ssh`: mostra le nuove coppie di chiavi e le relative autorizzazioni. `ssh-keygen` crea la directory `~/.ssh` se non è presente e imposta anche le modalità corrette per file e proprietà.
+`chrisL@fedora$ ls -al ~/.ssh`: mostra le nuove coppie di chiavi e le relative autorizzazioni. `ssh-keygen` crea la directory `~/.ssh` se non è presente e imposta anche le modalità corrette per file e proprietà.
 
 ## Creare e configurare un file config SSH
 
@@ -140,13 +125,13 @@ L'esempio seguente illustra una configurazione standard.
 ### Creare il file
 
 ```bash
-username@macbook$ touch ~/.ssh/config
+chrisL@fedora$ touch ~/.ssh/config
 ```
 
 ### Modificare il file per aggiungere la nuova configurazione SSH
 
 ```bash
-username@macbook$ vim ~/.ssh/config
+chrisL@fedora$ vim ~/.ssh/config
 
 #Azure Keys
 Host fedora22
@@ -181,7 +166,7 @@ Host *
   UseRoaming=no
 ```
 
-Questo file config SSH include sezioni per ogni servizio, per consentire a ognuno di essi di avere una coppia di chiavi dedicata. Le impostazioni predefinite sono valide per tutti gli host a cui ci si connette e che non corrispondono ad alcuno dei gruppi indicati sopra. Il file config SSH consente anche di avere due account di accesso [GitHub](https://github.com), uno per le attività di lavoro pubbliche e un secondo solo per i repository privati che possono essere comuni nell'ambiente di lavoro.
+Questo file config SSH include sezioni per ogni servizio, per consentire a ognuno di essi di avere una coppia di chiavi dedicata. Le impostazioni predefinite sono valide per tutti gli host a cui ci si connette e che non corrispondono ad alcuno dei gruppi indicati sopra. Il file config SSH consente anche di avere due account di accesso [GitHub](https://github.com) distinti, uno per le attività di lavoro pubbliche e un secondo solo per i repository privati che possono essere comuni nell'ambiente di lavoro.
 
 
 ##### Descrizione del file config
@@ -201,14 +186,14 @@ Questo file config SSH include sezioni per ogni servizio, per consentire a ognun
 
 Con una coppia di chiavi SSH e un file config SSH configurato è ora possibile accedere alla VM Linux in modo rapido e sicuro. La prima volta che si accede a un server con una chiave SSH, il comando richiede la passphrase per il file della chiave.
 
-`username@macbook$ ssh fedora22`
+`chrisL@fedora$ ssh fedora22`
 
 ##### Descrizione del comando
 
-Quando si esegue `username@macbook$ ssh fedora22`, SSH trova e carica prima di tutto le impostazioni dal blocco `Host fedora22`, quindi carica tutte le impostazioni rimanenti dell'ultimo blocco `Host *`.
+Quando si esegue `chrisL@fedora$ ssh fedora22`, SSH trova e carica prima di tutto le impostazioni dal blocco `Host fedora22`, quindi carica tutte le impostazioni rimanenti dell'ultimo blocco `Host *`.
 
 ## Passaggi successivi
 
-A questo punto è possibile usare i file delle chiavi per [creare una VM Linux protetta in Azure usando un modello](virtual-machines-linux-create-ssh-secured-vm-from-template.md).
+A questo punto è possibile usare i file delle chiavi per [Creare una VM Linux protetta usando un modello di Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

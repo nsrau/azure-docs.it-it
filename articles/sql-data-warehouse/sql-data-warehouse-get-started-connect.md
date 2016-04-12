@@ -3,7 +3,7 @@
    description="Introduzione alla connessione a SQL Data Warehouse e all'esecuzione di alcune query."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/26/2016"
+   ms.date="03/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Connettersi a SQL Data Warehouse con Visual Studio
@@ -22,7 +22,7 @@
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-Questa procedura dettagliata mostra come connettersi ed eseguire query su un database di Azure SQL Data Warehouse in pochi minuti usando SQL Server Data Tools in Visual Studio. Una volta stabilita la connessione, si eseguirà una query semplice.
+Questa procedura dettagliata mostra come connettersi a un database di Azure SQL Data Warehouse in pochi minuti usando SQL Server Data Tools in Visual Studio. Una volta stabilita la connessione, si eseguirà una query semplice.
 
 ## Prerequisiti
 
@@ -57,7 +57,7 @@ Per risultati ottimali, usare Visual Studio 2015 con l'[aggiornamento più recen
 
     ![Connetti al server][4]
 
-    - **Nome server**. Immettere il *nome server* trovato in precedenza.
+    - **Nome server**. Immettere il *nome server* identificato in precedenza.
     - **Autenticazione**. Selezionare Autenticazione di SQL Server.
     - **Nome utente** e **Password**. Immettere il nome utente e la password per il server di Azure SQL.
     - **Nome database**. Immettere il nome del database per il database di SQL DW.
@@ -70,7 +70,7 @@ Per risultati ottimali, usare Visual Studio 2015 con l'[aggiornamento più recen
 
 ## Passaggio 3: Eseguire una query di esempio
 
-Dopo essersi connessi al server, è possibile scrivere una query.
+Ora che è stata stabilita una connessione al database, si procederà alla scrittura di una query.
 
 1. Fare clic con il pulsante destro del mouse sul database in Esplora oggetti di SQL Server.
 
@@ -110,4 +110,4 @@ Ora che è possibile connettersi ed eseguire una query, provare a [visualizzare 
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

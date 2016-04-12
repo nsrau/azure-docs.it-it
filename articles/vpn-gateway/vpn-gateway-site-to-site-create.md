@@ -20,8 +20,10 @@
 # Creare una rete virtuale con una connessione VPN da sito a sito usando il portale di Azure classico
 
 > [AZURE.SELECTOR]
-- [Portale di Azure classico](vpn-gateway-site-to-site-create.md)
+- [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Portale di Azure - Classico](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Gestione risorse](vpn-gateway-create-site-to-site-rm-powershell.md)
+
 
 In questo argomento verrà illustrata la creazione di una rete virtuale e una connessione VPN da sito a sito alla rete locale. Le connessioni da sito a sito possono essere usate per le configurazioni cross-premise e ibride. Questo articolo si applica al modello di distribuzione classica e fa uso del portale di Azure classico.
 
@@ -46,7 +48,7 @@ Prima di iniziare la configurazione, verificare che ci siano le condizioni segue
 
 -  Un indirizzo IP pubblico esterno per il dispositivo VPN. L’indirizzo IP non può trovarsi dietro un NAT.
 
-- Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi dell'abbonamento a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
+- Una sottoscrizione di Azure. Se non si ha già una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Creare la rete virtuale
@@ -81,7 +83,7 @@ Immettere le informazioni riportate di seguito e quindi fare clic sulla freccia 
 - 	**Nome**: nome da assegnare al sito di rete locale.
 - 	**Indirizzo IP dispositivo VPN**: indirizzo IPv4 pubblico del dispositivo VPN locale che verrà usato per la connessione ad Azure. Il dispositivo VPN non può trovarsi dietro un NAT.
 - 	**Spazio di indirizzi**: includono l'indirizzo IP iniziale e CIDR (conteggio indirizzi). Si tratta dell'opzione con cui è possibile specificare gli intervalli di indirizzi da inviare tramite il gateway di rete virtuale al percorso locale. Se un indirizzo IP di destinazione rientra negli intervalli specificati qui, verrà instradato tramite il gateway della rete virtuale.
-- 	**Aggiungi spazio di indirizzi**: se si vuole inviare più intervalli di indirizzi tramite il gateway di rete virtuale, questa opzione permette di specificare i singoli intervalli di indirizzi aggiuntivi. È possibile aggiungere o rimuovere gli intervalli in un secondo momento nella pagina **Rete locale**.
+- 	**Aggiungi spazio di indirizzi**: se si vogliono inviare più intervalli di indirizzi tramite il gateway di rete virtuale, questa opzione consente di specificare i singoli intervalli di indirizzi aggiuntivi. È possibile aggiungere o rimuovere gli intervalli in un secondo momento nella pagina **Rete locale**.
 
 ## Spazi di indirizzi della rete virtuale
 
@@ -105,6 +107,6 @@ Configurare quindi il gateway di rete virtuale per creare una connessione da sit
 
 ## Passaggi successivi
 
-Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere la documentazione relativa alle [macchine virtuali](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->
