@@ -69,17 +69,17 @@ Un modello definisce le risorse di Azure create e i parametri con cui è possibi
  - **serverName**: *testapp1devsrv*
  - **serverLocation**: *Central US*
  - **administratorLogin**: *testapp1Admin*
- - **administratorLoginPassword**: * sostituire con la propria password*
+ - **administratorLoginPassword**: *sostituire con la propria password*
  - **databaseName**: *testapp1devdb*
 
 4. Con un editor di testo o JSON modificare il file di parametri per l'ambiente di test creato nel passaggio 3, sostituendo i valori elencati a destra dei valori dei parametri nel file con i *valori* elencati a destra dei **parametri** seguenti:
  - **siteName**: *TestApp1TestApp*
- - **hostingPlanName**: *TestApp1TestPla*n
+ - **hostingPlanName**: *TestApp1TestPla*
  - **siteLocation**: *Central US*
  - **serverName**: *testapp1testsrv*
  - **serverLocation**: *Central US*
  - **administratorLogin**: *testapp1Admin*
- - **administratorLoginPassword**: * sostituire con la propria password*
+ - **administratorLoginPassword**: *sostituire con la propria password*
  - **databaseName**: *testapp1testdb*
 
 5. Con un editor di testo o JSON modificare il file di parametri per l'ambiente di pre-produzione creato nel passaggio 3. Sostituire l'intero contenuto del file con il codice seguente:
@@ -361,4 +361,4 @@ Dopo avere constatato la semplicità dei processi di creazione, gestione ed elim
 - [Assegnare tag](resource-group-using-tags.md) ai gruppi di risorse per ogni ambiente e/o per le singole risorse. È possibile aggiungere un tag "Environment" ai gruppi di risorse e impostarne il valore in modo che corrisponda ai nomi di ambiente. I tag possono essere particolarmente utili quando occorre organizzare le risorse per la fatturazione o la gestione.
 - Monitorare gli avvisi e la fatturazione per le risorse del gruppo di risorse nel [portale di Azure](https://portal.azure.com).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->

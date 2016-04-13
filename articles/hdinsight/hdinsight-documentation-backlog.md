@@ -31,7 +31,7 @@ Automazione | Aggiornare l'articolo su [come usare Sqoop con cluster HDInsight i
 Automazione | Aggiornare l'articolo su [Analizzare i dati del sensore con Apache Storm](hdinsight-storm-sensor-data-analysis.md) per usare un modello di Azure Resource Manager | 2 | In sospeso | [@mumian](https://github.com/mumian) |- 
 Archiviazione | Articolo che descrive le opzioni di archiviazione WASB e Data Lake Storeas | 2 | In sospeso | [@mumian](https://github.com/mumian) |- 
 Prestazioni | Linee guida per l'ottimizzazione delle prestazioni nelle applicazioni MapReduce | 1 | In sospeso | [@blackmist](https://github.com/blackmist) |- 
-Prestazioni | Linee guida per l'ottimizzazione delle prestazioni per i cluster Spark | 1 | In sospeso | [@nitinme](https://github.com/nitinme) | -
+Prestazioni | Linee guida per l'ottimizzazione delle prestazioni per i cluster Spark | 1 | In sospeso | [@nitinme](https://github.com/nitinme) | - 
 Sviluppo | autenticazione non interattiva con l’applicazione HDInsight .NET |2| Scrittura | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
 
 
@@ -41,4 +41,4 @@ Sono disponibili alcune opzioni per fornire commenti e suggerimenti per il backl
 * Aggiungere un commento di seguito.
 * Inviare una richiesta pull su questo documento nell'[Archivio di contenuti di Azure](https://github.com/Azure/azure-content/blob/master/articles/hdinsight/hdinsight-documentation-backlog.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->
