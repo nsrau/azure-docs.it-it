@@ -32,6 +32,7 @@ Automazione | Aggiornare l'articolo su [Analizzare i dati del sensore con Apache
 Archiviazione | Articolo che descrive le opzioni di archiviazione WASB e Data Lake Storeas | 2 | In sospeso | [@mumian](https://github.com/mumian) |- 
 Prestazioni | Linee guida per l'ottimizzazione delle prestazioni nelle applicazioni MapReduce | 1 | In sospeso | [@blackmist](https://github.com/blackmist) |- 
 Prestazioni | Linee guida per l'ottimizzazione delle prestazioni per i cluster Spark | 1 | In sospeso | [@nitinme](https://github.com/nitinme) | -
+Sviluppo | autenticazione non interattiva con l’applicazione HDInsight .NET |2| Scrittura | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
 
 
 ## Come fornire commenti e suggerimenti per il backlog

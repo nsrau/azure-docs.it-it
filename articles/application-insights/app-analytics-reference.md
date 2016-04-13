@@ -27,9 +27,10 @@
 
 [> Descrizione generale delle espressioni regolari](https://github.com/google/re2/wiki/Syntax).
 
-Questa pagina descrive la sintassi delle espressioni regolari accettata da RE2. Viene inoltre descritta la sintassi accettata da PCRE, PERL e VIM.
+Questa pagina descrive la sintassi delle espressioni regolari accettata da RE2. 
+Viene inoltre descritta la sintassi accettata da PCRE, PERL e VIM. 
 
-|
+||
 |---|---
 |Caratteri singoli: | 
 |. |qualsiasi carattere, possibilmente con nuova riga (s=true) 

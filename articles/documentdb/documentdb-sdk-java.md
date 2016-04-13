@@ -75,8 +75,10 @@ Tutte le versioni dell'SDK per Java di Azure DocumentDB precedenti alla versione
 
 <br/>
 
-| Versione | Data di rilascio | Data di ritiro 
+| Versione | Data di rilascio | Data di ritiro
 | ---	  | ---	         | ---
+| [1.6.0](#1.6.0) | 29 marzo 2016 |---
+| [1.5.1](#1.5.1) | 19 dicembre 2015 |---
 | [1.5.0](#1.5.0) | 04 dicembre 2015  |---
 | [1\.4.0](#1.4.0) | 05 ottobre 2015 |---
 | [1\.3.0](#1.3.0) | 05 ottobre 2015 |---
