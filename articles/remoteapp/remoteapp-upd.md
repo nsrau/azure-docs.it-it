@@ -115,7 +115,7 @@ Inoltre, è possibile utilizzare App di sincronizzazione dati come OneDrive for 
 
 ## Come eseguire uno script di avvio in Azure RemoteApp
 
-Se si desidera eseguire uno script di avvio, iniziare creando un'attività pianificata nell'immagine modello che si intende utilizzare per la raccolta. (Eseguire tale operazione*prima*di eseguire sysprep.)
+Se si desidera eseguire uno script di avvio, iniziare creando un'attività pianificata nell'immagine modello che si intende utilizzare per la raccolta. (Eseguire tale operazione *prima* di eseguire sysprep.)
 
 ![Creare un'attività di sistema](./media/remoteapp-upd/upd1.png)
 
@@ -159,4 +159,4 @@ NO, i dati archiviati in un punto qualsiasi della VM diverso dall’UPD andranno
 
 In questo modo è possibile ignorare il parametro - Credential nel cmdlet New-PSDrive.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->

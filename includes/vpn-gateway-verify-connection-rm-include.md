@@ -1,6 +1,6 @@
 ### Per verificare la connessione tramite il portale di Azure
 
-Per verificare una connessione VPN nel portale di Azure, passare a **Gateway di rete virtuale** **>** *** fare clic su clic sul nome del gateway*** **>** **Impostazioni** **>** **Connessioni**. Selezionando il nome della connessione è possibile visualizzare informazioni aggiuntive sulla connessione. Nell'esempio seguente la connessione non è connessa e non è presente alcun flusso di dati.
+Per verificare una connessione VPN nel portale di Azure, passare a **Gateway di rete virtuale** **>** ***fare clic su clic sul nome del gateway*** **>** **Impostazioni** **>** **Connessioni**. Selezionando il nome della connessione è possibile visualizzare informazioni aggiuntive sulla connessione. Nell'esempio seguente la connessione non è connessa e non è presente alcun flusso di dati.
 
 
 ![Verificare la connessione](./media/vpn-gateway-verify-connection-rm-include/connectionverify450.png)
@@ -41,4 +41,4 @@ Per verificare una connessione VPN nel portale di Azure, passare a **Gateway di 
 	    "egressBytesTransferred": 4142431
 	  }
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->
