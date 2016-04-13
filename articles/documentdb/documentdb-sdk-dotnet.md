@@ -104,7 +104,8 @@
 - SDK con disponibilità generale
 
 > [AZURE.NOTE]
-Tra l'anteprima e la disponibilità generale è stata apportata una modifica al nome del pacchetto NuGet, da **Microsoft.Azure.Documents.Client** a **Microsoft.Azure.DocumentDB** <br/>.
+Tra l'anteprima e la disponibilità generale è stata apportata una modifica al nome del pacchetto NuGet, da **Microsoft.Azure.Documents.Client** a **Microsoft.Azure.DocumentDB**.
+<br/>
 
 
 ### <a name="0.9.x-preview"/>[0\.9.x-anteprima](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
@@ -124,6 +125,8 @@ Tutte le versioni dell'SDK per .NET di Azure DocumentDB precedenti alla versione
  
 | Versione | Data di rilascio | Data di ritiro 
 | ---	  | ---	         | ---
+| [1.6.1](#1.6.1) | 29 marzo 2016 |---
+| [1.5.3](#1.5.3) | 19 febbraio 2016 |---
 | [1\.5.2](#1.5.2) | 14 dicembre 2015 |---
 | [1\.5.1](#1.5.1) | 23 novembre 2015 |---
 | [1\.5.0](#1.5.0) | 05 ottobre 2015 |---

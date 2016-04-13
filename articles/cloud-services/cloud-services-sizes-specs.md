@@ -148,7 +148,7 @@ Per database di grandi dimensioni, server farm di SharePoint e applicazioni a ve
 
 È possibile specificare la dimensione di un'istanza del ruolo di macchina virtuale come parte del modello del servizio descritto dal [file csdef](cloud-services-model-and-package.md#csdef). Le dimensioni di un ruolo determinano il numero di memorie centrali CPU, la capacità di memoria e la dimensione del file system locale allocati a una istanza in esecuzione. Scegliere le dimensioni del ruolo in base ai requisiti delle risorse dell'applicazione.
 
-Di seguito è riportato un esempio per impostare la dimensione [Standard\_D2] del ruolo (Scopo generico (D) per un'istanza del ruolo Web:
+Di seguito è riportato un esempio per impostare la dimensione [Standard\_D2](Scopo generico (D)) del ruolo  per un'istanza del ruolo Web:
 
 ```xml
 <WebRole name="WebRole1" vmsize="<mark>Standard_D2</mark>">

@@ -148,7 +148,13 @@ Nella tabella seguente vengono descritti i parametri e valori utilizzati per cre
 |Posizione di questa regola di avviso|	Stati Uniti orientali|
 |ResourceGroup|	montest|
 |TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
-|MetricName dell'avviso creato|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Vedere il cmdlet `Get-MetricDefinitions` sottostante relativo a come recuperare i nomi esatti della metrica| |operatore| GreaterThan| |Valore di soglia (conteggio/sec per questa metrica)| 1| |WindowSize (formato hh:mm:ss)| 00:05:00| |aggregatore (statistica della metrica, che in questo caso utilizza il conteggio Average)| Average| |messaggi di posta elettronica personalizzati (matrice di stringhe)|'foo@example.com','bar@example.com'| |invio di messaggi di posta elettronica a proprietari, collaboratori e lettori| -SendToServiceOwners|
+|MetricName dell'avviso creato|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Vedere il cmdlet `Get-MetricDefinitions` sottostante relativo a come recuperare i nomi esatti della metrica|
+|operatore| GreaterThan|
+|Valore di soglia (conteggio/sec per questa metrica)| 1|
+|WindowSize (formato hh:mm:ss)| 00:05:00|
+|aggregatore (statistica della metrica, che in questo caso utilizza il conteggio Average)| Average|
+|messaggi di posta elettronica personalizzati (matrice di stringhe)|'foo@example.com','bar@example.com'|
+|invio di messaggi di posta elettronica a proprietari, collaboratori e lettori| -SendToServiceOwners|
 
 Creazione di un’azione di posta elettronica
 
