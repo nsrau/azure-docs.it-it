@@ -2,7 +2,7 @@
 
 Questo è il repository GitHub in cui è disponibile l'origine della documentazione tecnica pubblicata nel Centro documentazione di Azure all'indirizzo [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation).
 
-Questo repository include anche informazioni aggiuntive per che vogliono fornire il proprio contributo alla documentazione tecnica. Per un elenco degli articoli della Guida per i collaboratori, vedere [l'indice](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).
+Questo repository include anche informazioni aggiuntive per chi volesse fornire il proprio contributo al miglioramento della documentazione tecnica. Per un elenco degli articoli della Guida per i collaboratori, vedere [l'indice](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).
 
 ## Contribuire alla documentazione di Azure
 
