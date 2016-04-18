@@ -1,6 +1,6 @@
 <properties
    pageTitle="Esempio introduttivo"
-   description=""
+   description="Esempio introduttivo"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -44,7 +44,7 @@ Di seguito viene spiegata la procedura di configurazione dell'ambiente di svilup
 
     ![](media\powerbi-embedded-get-started-sample\console-option-5.png)
 
-6. Immettere il nome della **raccolta di aree di lavoro ** e la **chiave di accesso**. È possibile ottenere questi dati nel **portale di Azure**. Per altre informazioni su come ottenere la **chiave di accesso**, vedere [Visualizzare le chiavi di accesso all'API Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) in Introduzione alla versione di anteprima di Microsoft Power BI Embedded.
+6. Immettere il nome della **raccolta di aree di lavoro** e la **chiave di accesso**. È possibile ottenere questi dati nel **portale di Azure**. Per altre informazioni su come ottenere la **chiave di accesso**, vedere [Visualizzare le chiavi di accesso all'API Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) in Introduzione alla versione di anteprima di Microsoft Power BI Embedded.
 
     ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
 
@@ -228,4 +228,4 @@ Dopo aver creato un **report**, viene usato un **IFrame** per incorporare il **r
 - [Introduzione alla versione di anteprima di Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 - [Informazioni sul flusso dei token delle app in Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016--->

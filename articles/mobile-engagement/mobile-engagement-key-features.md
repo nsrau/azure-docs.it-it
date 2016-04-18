@@ -28,7 +28,7 @@ L'articolo fornisce una panoramica generale sulle funzionalità principali della
 
 - **Disponibilità di API REST aperte** Per integrare e automatizzare sistemi CRM/CMS/IT, sono disponibili API REST aperte e .NET SDK per il relativo utilizzo, consentendo una semplice integrazione e automatizzazione con Mobile Engagement. Vedere [qui](mobile-engagement-api-authentication.md) per informazioni dettagliate.
 
-- **Disponibilità del connettore Power BI** È anche possibile estrarre i principali grafici analitici in un dashboard di Power BI. Vedere questa [guida](https://powerbi.microsoft.com/it-IT/documentation/powerbi-content-pack-azure-mobile/)
+- **Disponibilità del connettore Power BI** È anche possibile estrarre i principali grafici analitici in un dashboard di Power BI. Vedere questa [guida](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-mobile/)
 
 - **Garanzia di sicurezza e privacy** Azure Mobile Engagement fa parte della famiglia di prodotti Azure e segue tutte le procedure consigliate standard relative alla sicurezza e alla privacy previste per un servizio cloud.
 

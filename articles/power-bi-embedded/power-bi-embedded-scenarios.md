@@ -1,6 +1,6 @@
 <properties
    pageTitle="Scenari comuni di Microsoft Power BI Embedded"
-   description=""
+   description="Scenari comuni di Microsoft Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

@@ -24,9 +24,11 @@ ETW viene usato dal runtime di Service Fabric per ottenere informazioni di diagn
 
 Per poter essere visualizzate in ElasticSearch, le tracce devono essere acquisite nei nodi del cluster di Service Fabric in tempo reale, mentre è in esecuzione l'applicazione, e inviate all'endpoint ElasticSearch. Per l'acquisizione di tracce sono disponibili due opzioni principali:
 
-+ **Acquisizione di tracce in-process** L'applicazione, o più esattamente il processo del servizio, è responsabile dell'invio dei dati di diagnostica all'archivio di traccia (ElasticSearch).
++ **Acquisizione di tracce in-process**  
+L'applicazione, o più precisamente il processo del servizio, è responsabile dell'invio di dati di diagnostica all'archivio di traccia (ElasticSearch).
 
-+ **Acquisizione di tracce out-of-process** Un agente separato acquisisce le tracce dal processo (o dai processi) di servizio e le invia all'archivio di traccia.
++ **Acquisizione di tracce out-of-process**  
+Un agente separato acquisisce le tracce da processi di servizio e le invia all'archivio di traccia.
 
 Di seguito si descrive come configurare ElasticSearch in Azure, si illustrano i vantaggi e gli svantaggi di entrambe le opzioni di acquisizione e si spiega come configurare un servizio di Service Fabric per inviare dati a ElasticSearch.
 

@@ -270,7 +270,7 @@ Le richieste dell'elemento di visualizzazione **PUT** e **POST** possono essere 
       ]
     }
 
-  **Assegnare i proprietari e limitare la visibilità di un elemento radice esistente****PUT**https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+  **Assegnare i proprietari e limitare la visibilità di un elemento radice esistente** **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
     {
       "roles": [
@@ -316,4 +316,4 @@ Le richieste dell'elemento di visualizzazione **PUT** e **POST** possono essere 
 
   > [AZURE.NOTE] In PUT non è necessario specificare un payload dell'elemento nel corpo: PUT consente di aggiornare solo i ruoli e/o le autorizzazioni.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->

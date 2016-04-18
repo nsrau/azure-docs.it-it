@@ -154,7 +154,8 @@ Quando si usa Azure Active Directory con la replica geografica, l'amministratore
 4. Nel pannello **Amministratore di Active Directory (anteprima)** fare clic per visualizzare i dettagli e quindi fare clic su **OK** per accettare le condizioni per l'anteprima.
 5. Nel pannello **Amministratore di Active Directory (anteprima)** fare clic su **Amministratore di Active Directory** e quindi fare clic su **Imposta amministratore** in alto.
 6. Nel pannello **Aggiungi amministratore** cercare un utente, selezionare l'utente o il gruppo da impostare come amministratore e quindi fare clic su **Seleziona**. Nel pannello Amministratore di Active Directory saranno visualizzati tutti i membri e i gruppi di Active Directory. Gli utenti e i gruppi non disponibili (in grigio) non possono essere selezionati, perché non sono supportati come amministratori di Azure AD. Vedere l'elenco degli amministratori supportati nella sezione precedente **Funzionalità e limitazioni di Azure AD**. Il controllo di accesso basata sui ruoli (RBAC) si applica solo al portale e non viene propagato a SQL Server.
-7. Nel pannello **Amministratore di Active Directory** in alto fare clic su **SALVA**. ![scegliere l'amministratore][10]
+7. Nel pannello **Amministratore di Active Directory** in alto fare clic su **SALVA**.
+![scegliere l'amministratore][10]
 
 	Il processo di modifica dell'amministratore può richiedere alcuni minuti. Il nuovo amministratore sarà quindi visualizzato nella casella **Amministratore di Active Directory**.
 
@@ -259,7 +260,7 @@ Usare questo metodo per connettersi con il nome dell'entità di Azure AD tramite
 Usare questo metodo se si è connessi a Windows con le credenziali di un dominio non federato con Azure o quando si usa l'autenticazione di Azure AD con Azure AD basato sul dominio iniziale o client.
 
 1. Avviare Management Studio e nella finestra di dialogo **Connetti al server** (o **Connetti al motore di database**) selezionare **Autenticazione della password di Active Directory** nella **casella Autenticazione**.
-2. Nella casella **Nome utente** digitare il nome utente di Azure Active Directory nel formato ****username@domain.com**. Deve essere un account di Azure Active Directory o un account di un dominio federato con Azure Active Directory.
+2. Nella casella **Nome utente** digitare il nome utente di Azure Active Directory nel formato **username@domain.com**. Deve essere un account di Azure Active Directory o un account di un dominio federato con Azure Active Directory.
 3. Nella casella **Password** digitare la password utente per l'account Azure Active Directory o l'account di dominio federato.
 4. Fare clic sul pulsante **Opzioni** e quindi nella pagina **Proprietà connessione** digitare il nome del database utente a cui si desidera connettersi nella casella **Connetti al database**.
 
@@ -354,4 +355,4 @@ Questo tipo di autenticazione consente ai servizi di livello intermedio di conne
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->

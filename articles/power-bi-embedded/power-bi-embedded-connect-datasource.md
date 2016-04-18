@@ -1,6 +1,6 @@
 <properties
    pageTitle="Microsoft Power BI Embedded - Connessione a un'origine dati"
-   description=""
+   description="Microsoft Power BI Embedded - Connessione a un'origine dati"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

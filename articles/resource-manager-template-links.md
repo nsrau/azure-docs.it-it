@@ -46,14 +46,14 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 | ---- | ---- |
 | type | Enum<br />Obbligatorio<br />**{spazio dei nomi}/{tipo}/providers/links**<br /><br />Tipo di risorsa da creare. I valori {spazio dei nomi} e {tipo} fanno riferimento allo spazio dei nomi del provider e al tipo di risorsa della risorsa di origine. |
 | apiVersion | Enum<br />Obbligatorio<br />**2015-01-01**<br /><br />Versione dell'API da usare per la creazione della risorsa. |  
-| name | String<br />Obbligatorio<br />**{risorsa}/Microsoft.Resources/{nome collegamento}****<br /> fino a 64 caratteri e non può contenere i caratteri <, > %, &, ? né caratteri di controllo.<br /><br />Valore che specifica sia il nome della risorsa di origine che il nome del collegamento. | | dependsOn | Array<br />Facoltativo<br />Elenco con valori delimitati da virgole di nomi o di identificatori univoci di risorse.<br /><br />Raccolta di risorse da cui il collegamento dipende. Se le risorse che si stanno collegando vengono distribuite nello stesso modello, includerne i nomi in questo elemento per assicurarsi che vengano distribuite per prime. | | properties | Oggetto<br />Obbligatorio<br />[oggetto properties](#properties)<br /><br />Oggetto che identifica la risorsa a cui collegarsi e note sul collegamento. | 
+| name | String<br />Obbligatorio<br />**{risorsa}/Microsoft.Resources/{nome collegamento}**<br /> fino a 64 caratteri e non può contenere i caratteri <, > %, &, ? né caratteri di controllo.<br /><br />Valore che specifica sia il nome della risorsa di origine che il nome del collegamento. | | dependsOn | Array<br />Facoltativo<br />Elenco con valori delimitati da virgole di nomi o di identificatori univoci di risorse.<br /><br />Raccolta di risorse da cui il collegamento dipende. Se le risorse che si stanno collegando vengono distribuite nello stesso modello, includerne i nomi in questo elemento per assicurarsi che vengano distribuite per prime. | | properties | Oggetto<br />Obbligatorio<br />[oggetto properties](#properties)<br /><br />Oggetto che identifica la risorsa a cui collegarsi e note sul collegamento. | 
 
 <a id="properties" />
 ### oggetto delle proprietà
 
 | Nome | Valore |
 | ------- | ---- |
-| targetId | String<br />Obbligatorio<br />**{ID risorsa}****<br /><br />Identificatore della risorsa di destinazione a cui collegarsi. | | notes | String<br />Facoltativo<br />fino a 512 caratteri<br /><br />Descrizione del blocco. |
+| targetId | String<br />Obbligatorio<br />**{ID risorsa}**<br /><br />Identificatore della risorsa di destinazione a cui collegarsi. | | notes | String<br />Facoltativo<br />fino a 512 caratteri<br /><br />Descrizione del blocco. |
 
 
 ## Come usare la risorsa di collegamento
@@ -138,4 +138,4 @@ I modelli di Guida introduttiva seguenti consentono di distribuire risorse con u
 
 - Per altre informazioni sulla struttura del modello, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->

@@ -222,7 +222,8 @@ Ripetere il processo per ogni piattaforma in cui viene eseguita l'app.
 - Usare l'[ID app](http://support.hockeyapp.net/kb/app-management-2/how-to-find-the-app-id) del dashboard per inviare dati di arresto anomalo del sistema e commenti dall'app. In MyDriving, aggiornare gli ID in src/MobileApps/MyDriving/MyDriving.Utils/Logger.cs 
 -   [**Invitare utenti di test**](http://support.hockeyapp.net/kb/app-management-2/how-to-invite-beta-testers). Si riceverà un URL per selezionare gli utenti di test, che potranno registrarsi al team, scaricare l'app e inviare i propri commenti.
 
--   Se invece si preferisce una versione beta più aperta, impostare la distribuzione su Public: fare clic su **Manage App, Distribution, Download = Public.** In questo modo tutti gli utenti possono scaricare l'app e inviare commenti, oltre a visualizzare una notifica quando viene pubblicata una nuova versione, e si potrebbe anche ricevere da loro alcune segnalazioni di arresti anomali del sistema. ![](./media/iot-solution-build-system/image3.png)
+-   Se invece si preferisce una versione beta più aperta, impostare la distribuzione su Public: fare clic su **Manage App, Distribution, Download = Public.** In questo modo tutti gli utenti possono scaricare l'app e inviare commenti, oltre a visualizzare una notifica quando viene pubblicata una nuova versione, e si potrebbe anche ricevere da loro alcune segnalazioni di arresti anomali del sistema.
+![](./media/iot-solution-build-system/image3.png)
 
 -   [**Per collegare le segnalazioni di arresti anomali del sistema a Visual Studio Team Services**](http://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs): fare clic su **Manage App, Visual Studio Team Services**. HockeyApp riesce a creare automaticamente gli elementi di lavoro in Team Services quando sono presenti segnalazioni di arresti anomali del sistema o si ricevono commenti.
 
@@ -389,7 +390,8 @@ Impostare il trigger di rilascio sulla distribuzione continua; ciò significa ch
 
 ![](./media/iot-solution-build-system/image8.png)
 
-Per le app per dispositivi mobili la distribuzione viene effettuata in HockeyApp: ![](./media/iot-solution-build-system/image9.png)
+Per le app per dispositivi mobili la distribuzione viene effettuata in HockeyApp:
+![](./media/iot-solution-build-system/image9.png)
 
 ## Application Insights
 
@@ -475,4 +477,4 @@ MyDriving è stato creato per aiutare gli utenti a usare rapidamente i propri si
 
 Tutti i commenti e suggerimenti saranno apprezzati.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!-----HONumber=AcomDC_0406_2016-->

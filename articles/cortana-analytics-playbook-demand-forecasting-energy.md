@@ -167,7 +167,8 @@ In molti casi il cliente può essere interessato a una motivazione aziendale per
 
 È importante avere una buona conoscenza del valore commerciale di una previsione della domanda di energia, che sia a breve o a lungo termine. Di fatto, è importante conoscere il valore commerciale di ogni operazione di previsione. Ad esempio, la previsione accurata del carico elettrico per le 24 ore successive può evitare la sovrapproduzione e contribuire a prevenire i sovraccarichi della rete. Tutto questo può essere quantificato in termini di risparmio economico su base giornaliera.
 
-Di seguito è riportata una formula di base per il calcolo del vantaggio economico della soluzione di previsione della domanda: ![Formula di base per il calcolo del vantaggio economico della soluzione di previsione della domanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Di seguito è riportata una formula di base per il calcolo del vantaggio economico della soluzione di previsione della domanda:
+![Formula di base per il calcolo del vantaggio economico della soluzione di previsione della domanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Dal momento che la suite Cortana Intelligence offre un modello tariffario con pagamento in base al consumo, non è necessario inserire una componente di costo fisso in questa formula. La formula può essere calcolata su base giornaliera, mensile o annuale.
 
@@ -384,4 +385,4 @@ Il diagramma seguente illustra una tipica architettura basata su Cortana Intelli
 
 Per altre informazioni su ognuno dei componenti e sull'intera architettura, vedere il modello di soluzione energetica.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->
