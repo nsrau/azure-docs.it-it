@@ -42,7 +42,7 @@ In generale, per implementare un modello di failover regionale con l'hub IoT è 
 
 * **Un hub IoT secondario e una logica di routing del dispositivo**: in caso di interruzione del servizio nell'area primaria, i dispositivi devono avviare la connessione all'area secondaria. Data la condizione con riconoscimento dello stato della maggior parte dei servizi coinvolti, gli amministratori delle soluzioni attivano comunemente il processo di failover tra aree. Il modo migliore per comunicare il nuovo endpoint ai dispositivi, mantenendo il controllo del processo, consiste nel fare in modo che controllino regolarmente un servizio *concierge* per verificare la disponibilità dell'endpoint attualmente attivo. Il servizio concierge può essere una semplice applicazione Web replicata e mantenuta raggiungibile con tecniche di reindirizzamento DNS, ad esempio con [Gestione traffico di Azure][].
 * **Replica del registro di identità**: per essere utilizzabile, l'hub IoT secondario deve contenere tutte le identità dei dispositivi che possono connettersi alla soluzione. La soluzione deve mantenere backup con replica geografica delle identità dei dispositivi e caricarli nell'hub IoT secondario prima del passaggio all'endpoint attivo per i dispositivi. La funzionalità di esportazione delle identità dei dispositivi dell'hub IoT è molto utile in questo contesto. Per altre informazioni, vedere la [guida per sviluppatori dell'hub IoT - Registro di identità][].
-* **Logica di unione**: quando un'area primaria diventa di nuovo disponibile, deve essere eseguita la migrazione di tutti i dati e dello stato creati nel sito secondario all'area primaria. Queste informazioni sono per lo più correlate alle identità dei dispositivi e ai metadati dell'applicazione, che devono essere uniti all'hub IoT primario egli altri archivi specifici dell'applicazione nell'area primaria. Per semplificare questo passaggio, è di solito consigliabile usare operazioni idempotenti. In questo modo si minimizzano gli effetti collaterali non solo dell'eventuale distribuzione coerente degli eventi, ma anche dei duplicati o del recapito non ordinato degli eventi. La logica dell'applicazione deve essere progettata per tollerare eventuali incoerenze o uno stato "leggermente" obsoleto. Ciò è dovuto al tempo aggiuntivo necessario per l'"integrità" del sistema basata sugli obiettivi del punto di ripristino (RPO). L'articolo seguente fornisce informazioni più dettagliate su questo argomento: [Operatore alternativo: informazioni aggiuntive per architetture cloud resilienti][].
+* **Logica di unione**: quando un'area primaria diventa di nuovo disponibile, deve essere eseguita la migrazione di tutti i dati e dello stato creati nel sito secondario all'area primaria. Queste informazioni sono per lo più correlate alle identità dei dispositivi e ai metadati dell'applicazione, che devono essere uniti all'hub IoT primario egli altri archivi specifici dell'applicazione nell'area primaria. Per semplificare questo passaggio, è di solito consigliabile usare operazioni idempotenti. In questo modo si minimizzano gli effetti collaterali non solo dell'eventuale distribuzione coerente degli eventi, ma anche dei duplicati o del recapito non ordinato degli eventi. La logica dell'applicazione deve essere progettata per tollerare eventuali incoerenze o uno stato "leggermente" obsoleto. Ciò è dovuto al tempo aggiuntivo necessario per l'"integrità" del sistema basata sugli obiettivi del punto di ripristino (RPO).
 
 ## Passaggi successivi
 
@@ -53,11 +53,11 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 
 [Informazioni tecniche sulla continuità aziendale di Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 [Ripristino di emergenza e disponibilità elevata per applicazioni Azure]: https://msdn.microsoft.com/library/azure/dn251004.aspx
-[Operatore alternativo: informazioni aggiuntive per architetture cloud resilienti]: https://msdn.microsoft.com/library/azure/jj853352.aspx
+[Failsafe: Guidance for Resilient Cloud Architectures]: https://msdn.microsoft.com/library/azure/jj853352.aspx
 [Gestione traffico di Azure]: https://azure.microsoft.com/documentation/services/traffic-manager/
 [guida per sviluppatori dell'hub IoT - Registro di identità]: iot-hub-devguide.md#identityregistry
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Che cos'è l’hub IoT Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0406_2016-->

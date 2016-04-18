@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creazione di modelli di Gestione risorse di Azure"
+   pageTitle="Creazione di modelli di Azure Resource Manager | Microsoft Azure"
    description="Creare modelli di Gestione risorse di Azure usando la sintassi dichiarativa JSON per distribuire applicazioni ad Azure."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/17/2016"
+   ms.date="04/04/2016"
    ms.author="tomfitz"/>
 
 # Creazione di modelli di Gestione risorse di Azure
 
-Le applicazioni Azure richiedono in genere una combinazione di risorse (ad esempio un server di database, un database o un sito Web) per raggiungere gli obiettivi desiderati. Anziché distribuire e gestire separatamente ogni risorsa, è possibile creare un modello di Gestione risorse di Azure che distribuisce e fornisce tutte le risorse per l'applicazione in un'unica operazione coordinata. Nel modello vengono definite le risorse necessarie per l'applicazione e vengono specificati i parametri di distribuzione per immettere valori nei diversi ambienti di distribuzione. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione. In questo argomento vengono descritte le sezioni del modello.
+In un modello di Azure Resource Manager si definiscono le risorse da distribuire per una soluzione e si specificano i parametri e le variabili che consentono di immettere i valori per diversi ambienti. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione. In questo argomento vengono descritte le sezioni del modello.
 
 Visual Studio fornisce strumenti per la creazione di modelli. Per altre informazioni sull'utilizzo di Visual Studio con i modelli, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-È necessario limitare le dimensioni del modello a 1 MB e ogni file dei parametri a 64 KB. Il limite di 1 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni delle risorse iterative e i valori di variabili e parametri.
+Per indicazioni sulla creazione di un modello, vedere [Procedura dettagliata per un modello di Azure Resource Manager](resource-manager-template-walkthrough.md).
 
 ## Pianificare il modello
 
@@ -35,13 +35,9 @@ Prima di iniziare a creare il modello, è consigliabile stabilire cosa distribui
 5. Valori da passare durante la distribuzione e valori da definire direttamente nel modello
 6. Eventuale necessità di valori restituiti dalla distribuzione
 
-Per scoprire quali tipi di risorse sono disponibili per la distribuzione, quali aree sono supportate per i tipi e le versioni di API disponibili per ogni tipo, vedere [Provider, aree, versioni API e schemi di Gestione risorse](resource-manager-supported-services.md). Questo argomento fornisce esempi e collegamenti che permettono di determinare i valori da inserire nel modello.
+Per scoprire quali tipi di risorse sono disponibili per la distribuzione, quali aree sono supportate per i tipi e le versioni di API disponibili per ogni tipo, vedere l'articolo relativo a [provider, aree, versioni API e schemi di Gestione risorse](resource-manager-supported-services.md).
 
-Se una risorsa deve essere distribuita dopo un'altra, è possibile contrassegnarla come dipendente dall'altra risorsa. Per sapere come eseguire questa operazione, vedere la sezione [Risorse](#resources) di seguito.
-
-È possibile modificare il risultato della distribuzione del modello fornendo i valori dei parametri durante l'esecuzione. Per sapere come eseguire questa operazione, vedere la sezione [Parametri](#parameters) di seguito.
-
-I valori restituiti dalla distribuzione vengono inseriti nella sezione [Output](#outputs).
+È necessario limitare le dimensioni del modello a 1 MB e ogni file dei parametri a 64 KB. Il limite di 1 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni delle risorse iterative e i valori di variabili e parametri.
 
 ## Formato del modello
 
@@ -69,7 +65,7 @@ Più avanti in questo argomento verranno esaminate le sezioni del modello in mag
 
 ## Espressioni e funzioni
 
-La sintassi di base del modello è JSON. Tuttavia, espressioni e funzioni estendono il codice JSON disponibile nel modello e consentono di creare valori diversi da quelli strettamente letterali. Le espressioni sono racchiuse tra parentesi quadre ([ e ]) e vengono valutate al momento della distribuzione del modello. Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e restituiscono sempre un altro valore JSON. Se è necessario usare una stringa letterale che inizia con una parentesi quadra [, usare due parentesi quadre [[.
+La sintassi di base del modello è JSON. Tuttavia, espressioni e funzioni estendono il codice JSON disponibile nel modello e consentono di creare valori diversi da quelli strettamente letterali. Le espressioni sono racchiuse tra parentesi quadre [ e ] e vengono valutate al momento della distribuzione del modello. Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e restituiscono sempre un altro valore JSON. Se è necessario usare una stringa letterale che inizia con una parentesi quadra [, usare due parentesi quadre [[.
 
 Solitamente, si usano espressioni con funzioni per eseguire operazioni per la configurazione della distribuzione. Proprio come in JavaScript, le chiamate di funzione sono formattate come **functionName(arg1,arg2,arg3)**. Per i riferimenti alle proprietà si usano il punto e gli operatori [index].
 
@@ -171,7 +167,7 @@ Il seguente esempio mostra come definire i parametri:
        }
     }
 
-Per informazioni sull'immissione di valori di parametro durante la distribuzione, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../resource-group-template-deploy/#parameter-file).
+Per informazioni sull'immissione di valori di parametro durante la distribuzione, vedere [Distribuire un'applicazione con un modello di Azure Resource Manager](../resource-group-template-deploy/#parameter-file).
 
 ## Variabili
 
@@ -188,14 +184,6 @@ Le variabili vengono definite con la struttura seguente:
 
 Nell'esempio seguente viene illustrato come definire una variabile creata da due valori di parametro:
 
-    "parameters": {
-       "username": {
-         "type": "string"
-       },
-       "password": {
-         "type": "secureString"
-       }
-     },
      "variables": {
        "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
     }
@@ -256,7 +244,7 @@ Le risorse vengono definite con la struttura seguente:
 | apiVersion | Sì | Versione dell'API REST da utilizzare per la creazione della risorsa. Per determinare i numeri di versione disponibili per un determinato tipo, vedere [Versioni dell'API supportate](../resource-manager-supported-services/#supported-api-versions).
 | type | Sì | Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa che supporta il provider di risorse.
 | name | Sì | Nome della risorsa. Il nome deve rispettare le restrizioni dei componenti URI definite dallo standard RFC3986.
-| location | No | Aree geografiche supportate della risorsa specificata. Per determinare le località disponibili, vedere [Aree supportate](../resource-manager-supported-services/#supported-regions).
+| location | Variabile | Aree geografiche supportate della risorsa specificata. Per determinare le posizioni disponibili, vedere [Aree supportate](../resource-manager-supported-services/#supported-regions). La maggior parte dei tipi di risorsa richiede una posizione, ma alcuni tipi (ad esempio un'assegnazione di ruolo) non la richiedono.
 | tags | No | Tag associati alla risorsa.
 | commenti | No | Le note per documentare le risorse nel modello
 | dependsOn | No | Risorse da cui dipende la risorsa in via di definizione. Le dipendenze tra risorse vengono valutate e le risorse vengono distribuite in base all'ordine di dipendenza. Quando le risorse non sono interdipendenti, si cerca di distribuirle in parallelo. Il valore può essere un elenco delimitato da virgole di nomi di risorse o di identificatori univoci di risorse.
@@ -298,53 +286,58 @@ La sezione resources contiene una matrice delle risorse da distribuire. All'inte
 L'esempio seguente illustra una risorsa **Microsoft.Web/serverfarms** e una risorsa **Microsoft.Web/sites** con una risorsa **Extensions** figlio. Si noti che il sito è contrassegnato come dipendente nella server farm perché per poter distribuire il sito deve esistere la server farm. Si noti anche che la risorsa **Extensions** è un elemento figlio del sito.
 
     "resources": [
-        {
-          "apiVersion": "2014-06-01",
-          "type": "Microsoft.Web/serverfarms",
-          "name": "[parameters('hostingPlanName')]",
-          "location": "[resourceGroup().location]",
-          "properties": {
-              "name": "[parameters('hostingPlanName')]",
-              "sku": "[parameters('hostingPlanSku')]",
-              "workerSize": "0",
-              "numberOfWorkers": 1
-          }
+      {
+        "apiVersion": "2015-08-01",
+        "name": "[parameters('hostingPlanName')]",
+        "type": "Microsoft.Web/serverfarms",
+        "location": "[resourceGroup().location]",
+        "tags": {
+          "displayName": "HostingPlan"
         },
-        {
-          "apiVersion": "2014-06-01",
-          "type": "Microsoft.Web/sites",
-          "name": "[parameters('siteName')]",
-          "location": "[resourceGroup().location]",
-          "tags": {
-              "environment": "test",
-              "team": "ARM"
-          },
-          "dependsOn": [
-              "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-          ],
-          "properties": {
-              "name": "[parameters('siteName')]",
-              "serverFarm": "[parameters('hostingPlanName')]"
-          },
-          "resources": [
-              {
-                  "apiVersion": "2014-06-01",
-                  "type": "Extensions",
-                  "name": "MSDeploy",
-                  "dependsOn": [
-                      "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
-                  ],
-                  "properties": {
-                    "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
-                    "dbType": "None",
-                    "connectionString": "",
-                    "setParameters": {
-                      "Application Path": "[parameters('siteName')]"
-                    }
-                  }
-              }
-          ]
+        "sku": {
+          "name": "[parameters('skuName')]",
+          "capacity": "[parameters('skuCapacity')]"
+        },
+        "properties": {
+          "name": "[parameters('hostingPlanName')]",
+          "numberOfWorkers": 1
         }
+      },
+      {
+        "apiVersion": "2015-08-01",
+        "type": "Microsoft.Web/sites",
+        "name": "[parameters('siteName')]",
+        "location": "[resourceGroup().location]",
+        "tags": {
+          "environment": "test",
+          "team": "ARM"
+        },
+        "dependsOn": [
+          "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
+        ],
+        "properties": {
+          "name": "[parameters('siteName')]",
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+        },
+        "resources": [
+          {
+            "apiVersion": "2015-08-01",
+            "type": "extensions",
+            "name": "MSDeploy",
+            "dependsOn": [
+              "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
+            ],
+            "properties": {
+              "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
+              "dbType": "None",
+              "connectionString": "",
+              "setParameters": {
+                "Application Path": "[parameters('siteName')]"
+              }
+            }
+          }
+        ]
+      }
     ]
 
 
@@ -386,92 +379,11 @@ Per eseguire un'iterazione di un numero di volte specificato durante la creazion
 
 Potrebbe essere necessario usare le risorse esistenti all'interno di un gruppo di risorse diverso. Questo è comune quando si usano account di archiviazione o reti virtuali condivisi tra più gruppi di risorse. Per altre informazioni, vedere la [funzione resourceId](../resource-group-template-functions#resourceid).
 
-## Modello completo
-Il modello seguente distribuisce un'app Web e fornisce il codice da un file con estensione zip.
-
-    {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-         "siteName": {
-           "type": "string"
-         },
-         "hostingPlanName": {
-           "type": "string"
-         },
-         "hostingPlanSku": {
-           "type": "string",
-           "allowedValues": [
-             "Free",
-             "Shared",
-             "Basic",
-             "Standard",
-             "Premium"
-           ],
-           "defaultValue": "Free"
-         }
-       },
-       "resources": [
-         {
-           "apiVersion": "2014-06-01",
-           "type": "Microsoft.Web/serverfarms",
-           "name": "[parameters('hostingPlanName')]",
-           "location": "[resourceGroup().location]",
-           "properties": {
-             "name": "[parameters('hostingPlanName')]",
-             "sku": "[parameters('hostingPlanSku')]",
-             "workerSize": "0",
-             "numberOfWorkers": 1
-           }
-         },
-         {
-           "apiVersion": "2014-06-01",
-           "type": "Microsoft.Web/sites",
-           "name": "[parameters('siteName')]",
-           "location": "[resourceGroup().location]",
-           "tags": {
-             "environment": "test",
-             "team": "ARM"
-           },
-           "dependsOn": [
-             "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-           ],
-           "properties": {
-             "name": "[parameters('siteName')]",
-             "serverFarm": "[parameters('hostingPlanName')]"
-           },
-           "resources": [
-             {
-               "apiVersion": "2014-06-01",
-               "type": "Extensions",
-               "name": "MSDeploy",
-               "dependsOn": [
-                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
-               ],
-               "properties": {
-                 "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
-                 "dbType": "None",
-                 "connectionString": "",
-                 "setParameters": {
-                   "Application Path": "[parameters('siteName')]"
-                 }
-               }
-             }
-           ]
-         }
-       ],
-       "outputs": {
-         "siteUri": {
-           "type": "string",
-           "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-         }
-       }
-    }
-
 ## Passaggi successivi
+- Per visualizzare modelli completi per molti tipi diversi di soluzioni, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
 - Per informazioni dettagliate sulle funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Gestione risorse di Azure](resource-group-template-functions.md).
 - Per informazioni su come distribuire il modello creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 - Per un esempio dettagliato di distribuzione di un'applicazione, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per visualizzare gli schemi disponibili, vedere [Schemi di Gestione risorse di Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

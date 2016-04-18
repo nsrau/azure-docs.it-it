@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/08/2016"
+   ms.date="03/27/2016"
    ms.author="seanmck"/>
 
 # Applicazione dell'infrastruttura di servizi e fasi successive
@@ -35,27 +35,21 @@ Il progetto dell'applicazione è composto da:
 
 - Il manifesto dell'applicazione, che descrive l'applicazione. Il manifesto è disponibile nella cartella ApplicationPackageRoot.
 
-### Reliable Services
-Quando si aggiunge un nuovo Reliable Service, Visual Studio aggiunge un progetto del servizio alla soluzione. Il progetto del servizio contiene una classe che si estende da `StatelessService` o `StatefulService`, a seconda del tipo scelto.
+### Servizio senza stato
+Quando si aggiunge un nuovo servizio senza stato, Visual Studio aggiunge alla soluzione un progetto del servizio, che include un tipo proveniente da `StatelessService`. Il servizio incrementa una variabile locale in un contatore.
 
-### Reliable Actors
+### Servizio con stato
+Quando si aggiunge un nuovo servizio con stato, Visual Studio aggiunge alla soluzione un progetto del servizio, che include un tipo proveniente da `StatefulService`. Il servizio incrementa un contatore nel relativo metodo `RunAsync` e archivia il risultato in un `ReliableDictionary`.
+
+### Servizio Actor
 Quando si aggiunge un nuovo Reliable Actor, Visual Studio aggiunge due progetti alla soluzione: un progetto attore e un progetto interfaccia.
 
-Il progetto attore definisce il tipo di attore e (per attori con stato) il relativo stato. Il progetto di interfaccia fornisce un'interfaccia che può essere utilizzata da altri servizi per richiamare l'attore.
+Il progetto attore fornisce metodi per l'impostazione e il recupero del valore di un contatore che viene mantenuto in modo affidabile all'interno dello stato dell'attore. Il progetto di interfaccia fornisce un'interfaccia che può essere utilizzata da altri servizi per richiamare l'attore.
 
-Notare che i progetti attore non contengono alcun comportamento di avvio predefinito perché gli attori devono essere attivati da altri servizi. È possibile aggiungere un servizio affidabile o un progetto ASP.NET per creare gli attori e potervi interagire.
-
-### ASP.NET 5
-I modelli ASP.NET 5 forniti per le applicazioni Service Fabric sono quasi identici a quelli disponibili per i progetti ASP.NET 5 creati in modo indipendente. Le uniche differenze sono:
-
-- Il progetto contiene una cartella **PackageRoot** in cui memorizzare il file ServiceManifest insieme a pacchetti di dati e di configurazione.
-
-- Il progetto fa riferimento a un pacchetto NuGet aggiuntivo (Microsoft.ServiceFabric.AspNet.Hosting) che agisce da ponte tra .NET Execution Environment (DNX) e Service Fabric.
+### API Web senza stato
+Il progetto API Web senza stato fornisce un servizio Web di base che è possibile usare per aprire l'applicazione ai client esterni. Per altre informazioni su come è strutturato il progetto, vedere [Introduzione ai servizi API Web di Service Fabric con self-hosting OWIN](service-fabric-reliable-services-communication-webapi).
 
 ## Passaggi successivi
-### Aggiungere un front-end web all'applicazione
-L'infrastruttura di servizi fornisce l'integrazione con ASP.NET 5 per la creazione di punti di ingresso basati sul web per l'applicazione. Vedere [Compilare un front-end di servizio Web per l'applicazione][add-web-frontend] per imparare a creare un'interfaccia REST basata su API Web ASP.NET.
-
 ### Creare un cluster di Azure
 LSDK di Infrastruttura di servizi fornisce un cluster locale per lo sviluppo e il test. Per creare un cluster in Azure, vedere [Configurazione di un cluster di Service Fabric dal portale di Azure][create-cluster-in-portal].
 
@@ -67,7 +61,7 @@ Se si vuole provare a distribuire e gestire applicazioni in Azure senza configur
 È possibile pubblicare l'applicazione direttamente da Visual Studio in un cluster di Azure. Per informazioni, vedere [Pubblicare l'applicazione in Azure][publish-app-to-azure].
 
 ### Visualizzare il cluster con Service Fabric Explorer
-Service Fabric Explorer offre un modo semplice per la visualizzazione del cluster, tra cui le applicazioni distribuite e il layout fisico. Per altre informazioni, vedere [Visualizzare il cluster con Service Fabric Explorer][visualize-with-sfx].
+Service Fabric Explorer offre un modo semplice per la visualizzazione del cluster, tra cui le applicazioni distribuite e il layout fisico. Per altre informazioni, vedere [Visualizzazione del cluster con Service Fabric Explorer][visualize-with-sfx].
 
 ### Effettuare il versioning e aggiornare i servizi
 Service Fabric consente il controllo indipendente delle versioni e l'aggiornamento di servizi indipendenti in un'applicazione. Per altre informazioni, vedere l'articolo relativo all'[esecuzione del versioning e dell'aggiornamento dei servizi][app-upgrade-tutorial].
@@ -86,4 +80,4 @@ Per informazioni su come impostare un processo di integrazione continua per l'ap
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

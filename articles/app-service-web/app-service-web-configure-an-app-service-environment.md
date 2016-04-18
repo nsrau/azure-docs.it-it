@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="04/06/2016" 
 	ms.author="ccompy"/>
 
 
@@ -31,6 +31,7 @@ In generale, un ambiente del servizio app è costituito da vari componenti princ
 - Archiviazione
 - Database
 - Una rete virtuale classica “v1” con almeno una subnet
+- Attualmente sono supportate solo le reti virtuali con uno spazio di indirizzi RFC1918, ovvero di indirizzi privati.
 - Subnet con il servizio ospitato Ambiente del servizio app in esecuzione al suo interno
 
 Le risorse di calcolo vengono usate per i 4 pool di risorse. Ogni ambiente del servizio app contiene un set di server front-end e 3 pool di lavoro. Non è necessario usare tutti e 3 i pool di lavoro. Se lo si desidera, è possibile usarne solo uno. I front-end sono gli endpoint HTTP per le app contenute nell'ambiente del servizio app. I ruoli di lavoro è dove le app vengono effettivamente eseguite. Per determinare quando è necessario aggiungere front-end o ruoli di lavoro è necessario conoscere le prestazioni delle app nell'ambiente del servizio app. Ad esempio, si supponga che nell'ambiente del servizio app sia presente un'app hello world che riceve un numero elevato di richieste. In questo caso, sarà necessario aumentare i front-end per gestire il carico HTTP ma non è necessario aumentare i ruoli di lavoro. Gestire tutto questo manualmente può risultare complesso, in particolare se si considera che è probabile che ogni ambiente del servizio app contenga una combinazione di applicazioni con criteri per le prestazioni eterogenei. Tuttavia, per semplificare le operazioni, agli ambienti del servizio app è stata aggiunta la funzionalità di scalabilità automatica. Per informazioni dettagliate sul ridimensionamento e sulla scalabilità degli ambienti del servizio app, vedere [Come configurare la scalabilità automatica in un ambiente del servizio app][ASEAutoscale]
@@ -94,7 +95,10 @@ Per informazioni più approfondite sul ridimensionamento delle app in un ambient
 
 I pool di risorse, i front-end e i ruoli di lavoro non sono direttamente accessibili ai tenant. In altre parole, non è possibile accedervi tramite Remote Desktop Protocol, modificarne il provisioning o eseguire attività amministrative, perché la gestione e la manutenzione vengono effettuate da Azure. Tuttavia, le decisioni relative alla quantità e alle dimensioni delle risorse di calcolo spettano invece all'utente.
 
-Sono disponibili tre modi per controllare il numero di server presenti nei pool di risorse - Passare al pannello Piano dal pannello dal pannello Ambiente del servizio app nella parte superiore - Eseguire un'operazione di ridimensionamento manuale dal pannello Piano del singolo pool di risorse, disponibile in Impostazioni - Impostare la scalabilità automatica nel pannello Piano del pool di risorse
+Sono disponibili tre modi per controllare il numero di server disponibili nei pool di risorse
+- Operazione di ridimensionamento dal pannello dell'ambiente del servizio app principale nella parte superiore
+- Operazione di ridimensionamento manuale dal pannello di ridimensionamento del singolo pool di risorse in Impostazioni
+- Ridimensionamento automatico impostato dal pannello di ridimensionamento del singolo pool di risorse
 
 Per cambiare il piano dal pannello Ambiente del servizio app, è sufficiente fare clic su di esso, trascinare il dispositivo di scorrimento sulla quantità desiderata e salvare. Questa interfaccia utente supporta anche la modifica delle dimensioni.
 
@@ -200,4 +204,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

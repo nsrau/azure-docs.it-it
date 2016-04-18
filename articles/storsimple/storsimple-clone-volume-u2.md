@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="03/31/2016"
    ms.author="alkohli" />
 
 # Utilizzare il servizio StorSimple Manager per clonare un volume (aggiornamento 2)
@@ -117,4 +117,4 @@ Per guardare un video che illustra come è possibile utilizzare le funzionalità
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -91,8 +91,6 @@ Le esercitazioni seguenti illustrano come configurare il servizio App per sfrutt
 
 Se si desidera utilizzare un sistema di identità diverso da quelli qui forniti, è anche possibile sfruttare l’[Anteprima supporto per l'autenticazione personalizzata nell’SDK del server .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
 
-È anche possibile trovare alcuni ulteriori dettagli sui flussi sopra descritti nella [Panoramica dell'autenticazione del servizio App](app-service-authentication-overview.md). Questo argomento include anche informazioni sul Gateway del servizio App, che non è più utilizzato in App per dispositivi mobili, ma il contenuto concettuale viene ancora applicato.
-
 [Aggiungere l'autenticazione all'app iOS]: app-service-mobile-ios-get-started-users.md
 [Aggiungere l'autenticazione all'app Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started-users.md
 [Aggiungere l'autenticazione all'app Xamarin.Android]: app-service-mobile-xamarin-android-get-started-users.md
@@ -104,4 +102,4 @@ Se si desidera utilizzare un sistema di identità diverso da quelli qui forniti,
 [Come configurare un'applicazione per usare l'account di accesso Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Come configurare un'applicazione per usare l'account di accesso di Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

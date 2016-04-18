@@ -1,11 +1,11 @@
 <properties
    pageTitle="Architettura di reliable services | Microsoft Azure"
-   description="Panoramica dell'architettura di Reliable Services per servizi con e senza stato"
+   description="Panoramica dell'architettura per servizi Reliable Services con e senza stato"
    services="service-fabric"
    documentationCenter=".net"
    authors="AlanWarwick"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="Service-Fabric"
@@ -16,9 +16,9 @@
    ms.date="03/30/2016"
    ms.author="alanwar"/>
 
-# Architettura per reliable services con e senza stato
+# Architettura per servizi Reliable Services con e senza stato
 
-Un servizio Reliable Services di Azure Service Fabric può essere con o senza stato. Ogni tipo di servizio viene eseguito all'interno di un'architettura specifica, descritta in questo articolo. Per altre informazioni sulle differenze tra i servizi con e senza stato, vedere [panoramica di reliable services](service-fabric-reliable-services-introduction.md)
+Un servizio Reliable Services di Azure Service Fabric può essere con o senza stato. Ogni tipo di servizio viene eseguito all'interno di un'architettura specifica, descritta in questo articolo. Per altre informazioni sulle differenze tra i servizi con e senza stato, vedere [Panoramica di Reliable Services](service-fabric-reliable-services-introduction.md).
 
 ## Reliable Services con stato
 
@@ -29,7 +29,7 @@ Un servizio Reliable Services di Azure Service Fabric può essere con o senza st
 
 Un servizio Reliable Services con stato può derivare dalla classe StatefulService o StatefulServiceBase. Queste classi di base sono entrambe fornite da Service Fabric e offrono diversi livelli di supporto e astrazione per consentire al servizio con stato di interagire con Service Fabric e di partecipare come servizio al cluster di Service Fabric.
 
-La classe StatefulService deriva dalla classe StatefulServiceBase, che offre ai servizi maggiore flessibilità ma richiede una comprensione approfondita dei componenti interni di Service Fabric. Per altre informazioni sulle specifiche di sviluppo di servizi mediante le classi StatefulService e StatefulServiceBase, vedere [Panoramica di Reliable Services](service-fabric-reliable-services-introduction.md) e [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md).
+La classe StatefulService deriva dalla classe StatefulServiceBase, che offre ai servizi maggiore flessibilità ma richiede una comprensione approfondita dei componenti interni di Service Fabric. Per altre informazioni sulle specifiche di sviluppo di servizi con le classi StatefulService e StatefulServiceBase, vedere [Panoramica di Reliable Services](service-fabric-reliable-services-introduction.md) e [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md).
 
 Entrambe le classi di base gestiscono la durata e il ruolo dell'implementazione del servizio. L'implementazione del servizio può eseguire l'override dei metodi virtuali di una delle classi di base se deve eseguire operazioni in quelle fasi del ciclo di vita dell'implementazione o se deve creare un oggetto CommunicationListener. Si noti che, anche se l'implementazione del servizio può implementare il proprio oggetto CommunicationListener esponendo ICommunicationListener, come mostrato nel diagramma precedente, il listener di comunicazione viene effettivamente implementato da Service Fabric (poiché l'implementazione del servizio usa un listener di comunicazione implementato da Service Fabric).
 
@@ -69,18 +69,18 @@ Ad eccezione di un'interfaccia utente minima usata per l'interazione con il comp
 
 Per altre informazioni sulla configurazione del log, vedere [Configurazione di Reliable Services con stato](service-fabric-reliable-services-configuration.md).
 
-## Reliable services senza stato
+## Reliable Services senza stato
 
 ### Architettura di un servizio senza stato
 ![Diagramma dell'architettura di un servizio senza stato](./media/service-fabric-reliable-services-platform-architecture/reliable-stateless-service-architecture.png)
 
-### Reliable services senza stato
+### Reliable Services senza stato
 
 Le implementazioni di un servizio senza stato derivano dalla classe StatelessService o StatelessServiceBase, che consente una maggiore flessibilità rispetto alla classe StatelessService. Entrambe le classi di base gestiscono la durata e il ruolo di un servizio.
 
 L'implementazione del servizio può eseguire l'override dei metodi virtuali di una delle classi di base se il servizio deve eseguire operazioni in quelle fasi del ciclo di vita del servizio o se deve creare un oggetto CommunicationListener. Si noti che, anche se il servizio può implementare il proprio oggetto CommunicationListener esponendo ICommunicationListener, come mostrato nel diagramma precedente, il listener di comunicazione viene effettivamente implementato da Service Fabric (poiché l'implementazione del servizio usa un listener di comunicazione implementato da Service Fabric).
 
-Per altre informazioni sulle specifiche di sviluppo di servizi mediante le classi StatelessService e StatelessServiceBase, vedere [Panoramica di Reliable Services](service-fabric-reliable-services-introduction.md) e [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md).
+Per altre informazioni sulle specifiche di sviluppo di servizi con le classi StatelessService e StatelessServiceBase, vedere [Panoramica di Reliable Services](service-fabric-reliable-services-introduction.md) e [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
@@ -97,4 +97,4 @@ Per altre informazioni su Service Fabric, vedere:
 
 [Configurazione di Reliable Services con stato](service-fabric-reliable-services-configuration.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

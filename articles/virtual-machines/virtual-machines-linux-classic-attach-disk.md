@@ -3,7 +3,7 @@
 	description="Informazioni su come collegare un disco dati a una macchina virtuale Azure e inizializzarlo in modo che sia pronto per l'uso."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -14,17 +14,17 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
-	ms.author="dkshir"/>
+	ms.date="04/04/2016"
+	ms.author="iainfou"/>
 
 # Come collegare un disco dati a una macchina virtuale Linux
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
 
-È possibile collegare sia dischi vuoti sia dischi contenenti dati. In entrambi i casi, i dischi sono effettivamente file con estensione vhd che risiedono in un account di archiviazione di Azure. Inoltre, dopo avere collegato il disco, sarà necessario inizializzarlo affinché sia pronto per l'uso.
+È possibile collegare sia dischi vuoti sia dischi contenenti dati. I dischi sono effettivamente file con estensione vhd che risiedono in un account di archiviazione di Azure. Dopo aver collegato il disco, sarà necessario inizializzarlo affinché sia pronto per l'uso.
 
-> [AZURE.NOTE] È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Al momento della creazione, una macchina virtuale di Azure dispone di un disco del sistema operativo e di un disco temporaneo. **Non usare il disco temporaneo per archiviare i dati.** Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure. Il disco temporaneo è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** (o **/mnt** nelle immagini Ubuntu). D'altra parte, il kernel potrebbe assegnare a un disco dati il nome `/dev/sdc`; in tal caso sarà necessario suddividere in partizioni, formattare e montare tale risorsa. Per dettagli, vedere [Guida dell'utente dell'agente Linux di Azure][Agent].
+> [AZURE.NOTE] È consigliabile usare uno o più dischi separati per archiviare i dati di una macchina virtuale. Al momento della creazione, una macchina virtuale di Azure dispone di un disco del sistema operativo e di un disco temporaneo. **Non usare il disco temporaneo per archiviare i dati persistenti.** Come si può dedurre dal nome, fornisce solo archiviazione temporanea. Non offre funzionalità di ridondanza o backup perché non risiede nel servizio di archiviazione di Azure. Il disco temporaneo è in genere gestito dall'agente Linux di Azure e viene montato automaticamente in **/mnt/resource** (o **/mnt** nelle immagini Ubuntu). D'altra parte, il kernel potrebbe assegnare a un disco dati il nome `/dev/sdc`; in tal caso sarà necessario suddividere in partizioni, formattare e montare tale risorsa. Per dettagli, vedere [Guida dell'utente dell'agente Linux di Azure][Agent].
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
@@ -38,7 +38,7 @@
 
 2. In seguito è necessario trovare l'identificatore del dispositivo per inizializzare il disco dati. A questo scopo è possibile procedere in due modi:
 
-	a) Nella finestra di SSH digitare il comando seguente, quindi immettere la password per l'account creato per la gestione della macchina virtuale:
+	a) Nella finestra di SSH digitare il comando seguente:
 
 			$sudo grep SCSI /var/log/messages
 
@@ -76,11 +76,9 @@
 
 	L'ultimo numero della tupla in ogni riga è il _lun_. Per altre informazioni, vedere `man lsscsi`.
 
-3. Nella finestra di SSH digitare il comando seguente per creare un nuovo dispositivo, quindi immettere la password per l'account:
+3. Nella finestra di SSH digitare il comando seguente per creare un nuovo dispositivo:
 
 		$sudo fdisk /dev/sdc
-
-	>[AZURE.NOTE] In questo esempio potrebbe essere necessario usare `sudo -i` in alcune distribuzioni se /sbin o /usr/sbin non sono disponibili in `$PATH`.
 
 
 4. Quando richiesto, digitare **n** per creare una nuova partizione.
@@ -107,7 +105,7 @@
 
 	![Scrivere le modifiche sul disco](./media/virtual-machines-linux-classic-attach-disk/DiskWrite.png)
 
-8. Creare il file system nella nuova partizione. Aggiungere il numero della partizione (1) all'id del dispositivo. Ad esempio, digitare il comando seguente, quindi immettere la password dell'account:
+8. Creare il file system nella nuova partizione. Aggiungere il numero della partizione (1) all'id del dispositivo. Ad esempio, per creare una partizione ext4 in /dev/sdc1:
 
 		# sudo mkfs -t ext4 /dev/sdc1
 
@@ -116,7 +114,7 @@
 	>[AZURE.NOTE] Si noti che i sistemi SUSE Linux Enterprise 11 supportano solo l'accesso di sola lettura ai file system ext4. Per questi sistemi è consigliabile formattare il nuovo file system come ext3 anziché ext4.
 
 
-9. Creare una directory per il montaggio del nuovo file system. Ad esempio, digitare il comando seguente e quindi immettere la password dell'account:
+9. Creare una directory per il montaggio del nuovo file system. Ad esempio, digitare il comando seguente:
 
 		# sudo mkdir /datadrive
 
@@ -143,7 +141,7 @@
 
 	>[AZURE.NOTE] Se il file **/etc/fstab** non viene modificato in modo corretto, il sistema potrebbe diventare non avviabile. In caso di dubbi, fare riferimento alla documentazione della distribuzione per informazioni su come modificare correttamente questo file. È inoltre consigliabile creare una copia di backup del file /etc/fstab prima della modifica.
 
-	Successivamente, aprire il file **/etc/fstab** in un editor di testo. Si noti che /etc/fstab è un file system, quindi per apportare modifiche a questo file è necessario usare `sudo`, ad esempio:
+	Successivamente, aprire il file **/etc/fstab** in un editor di testo:
 
 		# sudo vi /etc/fstab
 
@@ -173,10 +171,10 @@
 
 [Informazioni su come scollegare un disco da una macchina virtuale Linux](virtual-machines-linux-classic-detach-disk.md)
 
-[Uso dell’interfaccia della riga di comando di Azure con l’API di gestione del servizio](virtual-machines-command-line-tools.md)
+[Uso dell’interfaccia della riga di comando di Azure con l’API di gestione del servizio](../virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

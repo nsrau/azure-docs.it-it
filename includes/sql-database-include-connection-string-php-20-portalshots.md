@@ -10,7 +10,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ### Ottenere la stringa di connessione dal portale di Azure
 
 
-Utilizzare l’[anteprima del portale Azure](https://portal.azure.com/) per ottenere la stringa di connessione necessaria al programma client per interagire con il Database SQL di Azure:
+Usare il [portale di Azure](https://portal.azure.com/) per ottenere la stringa di connessione necessaria al programma client per interagire con il database SQL di Azure:
 
 
 1. Fare clic su **ESPLORA** > **database SQL**.
@@ -58,4 +58,4 @@ includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

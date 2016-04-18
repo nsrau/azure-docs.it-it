@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="03/31/2016"
    ms.author="curtand"/>
 
-# Azure Active Directory (Azure AD) B2B Collaboration
+# Azure Active Directory B2B Collaboration
 
-Azure A D B2B Collaboration permette di abilitare l'accesso alle applicazioni aziendali da identità gestite dai partner. È possibile creare relazioni tra società invitando e autorizzando gli utenti di società partner ad accedere alle proprie risorse. Questo consente di ridurre la complessità perché ogni società esegue la federazione con Azure Active Directory una sola volta e ogni utente è rappresentato da un singolo account Azure AD e di aumentare la sicurezza perché l'accesso degli utenti che terminano il rapporto di lavoro con le società viene revocato per impedire l'accesso non autorizzato tramite l'appartenenza alle directory interne. Per i partner aziendali che ancora non usano Azure AD, B2B Collaboration offre un'esperienza di iscrizione semplificata per fornire gli account Azure AD ai propri partner aziendali.
+Collaborazione B2B di Azure Active Directory (Azure AD) consente di abilitare l'accesso alle applicazioni aziendali da identità gestite dai partner. È possibile creare relazioni tra società invitando e autorizzando gli utenti di società partner ad accedere alle proprie risorse. Questo consente di ridurre la complessità perché ogni società esegue la federazione con Azure Active Directory una sola volta e ogni utente è rappresentato da un singolo account Azure AD e di aumentare la sicurezza perché l'accesso degli utenti che terminano il rapporto di lavoro con le società viene revocato per impedire l'accesso non autorizzato tramite l'appartenenza alle directory interne. Per i partner aziendali che ancora non usano Azure AD, B2B Collaboration offre un'esperienza di iscrizione semplificata per fornire gli account Azure AD ai propri partner aziendali.
 
 -   I partner aziendali usano le proprie credenziali di accesso, evitando così la necessità di dover gestire una directory del partner esterna e di dover rimuovere l'accesso quando gli utenti terminano il rapporto di lavoro con l'organizzazione del partner.
 
@@ -30,7 +30,7 @@ B2B Collaboration semplifica la gestione e migliora la sicurezza dell'accesso de
 
 Azure Active Directory B2B Collaboration è facile da configurare grazie a una procedura di iscrizione semplificata per partner di tutte le dimensioni. Per i partner che non usano il servizio Azure Active Directory è previsto un processo di verifica tramite posta elettronica. È anche facile da gestire perché non prevede directory esterne o configurazioni federative in base al partner.
 
-Processo:
+## Processo di Collaborazione B2B
 
 1. Azure AD B2B Collaboration consente all'amministratore della società di invitare e autorizzare un set di utenti esterni caricando un file CSV (con valori delimitati da virgole) con un massimo di 2000 righe nel portale di B2B Collaboration.
 
@@ -46,23 +46,8 @@ Gli inviti a indirizzi di posta elettronica personali, ad esempio Gmail o [*comc
 
 Per altre informazioni sul funzionamento di B2B Collaboration, guardare [questo video](http://aka.ms/aadshowb2b).
 
-## Formato del file CSV
-
-Il file CSV deve avere il formato seguente. Aggiungere tutte le virgole richieste, anche se non si specificano una o più opzioni.
-
-**Email:** indirizzo di posta elettronica dell'utente invitato.<br/> **DisplayName:** nome visualizzato dell'utente invitato, in genere nome e cognome.<br/> **InviteAppID:** ID dell'applicazione da usare per personalizzare l'invito tramite posta elettronica e le pagine di accettazione.<br/> **InviteReplyURL:** URL a cui indirizzare gli utenti invitati dopo l'accettazione dell'invito. Deve essere un URL specifico della società, ad esempio [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/). Se questo campo facoltativo non viene specificato, viene generato l’URL del pannello di accesso della società invitante (questo URL è nel formato `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`).<br/> **InviteAppResources:** AppID a cui le applicazioni possono assegnare gli utenti. Per recuperare gli AppID, chiamare `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/> **InviteGroupResources:** ObjectID dei gruppi a cui aggiungere gli utenti. Per recuperare gli ID oggetto, chiamare `Get-MsolGroup | fl DisplayName, ObjectId`<br/>. **InviteContactUsUrl:** URL "Contattaci" da includere negli inviti tramite posta elettronica, qualora l'utente invitato desideri contattare l'organizzazione.<br/>
-
-## File CSV di esempio
-Qui è riportato un file CSV di esempio che è possibile modificare in base alle proprie esigenze. Salvarlo con il nome file che si preferisce, ma assicurarsi che abbia un'estensione di file '.csv'.
-
-```
-Email,DisplayName,InviteAppID,InviteReplyUrl,InviteAppResources,InviteGroupResources,InviteContactUsUrl
-wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
-jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
-bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
-```
 ## Passaggi successivi
-Vedere gli altri articoli su Azure B2B Collaboration.
+Vedere gli altri articoli su Collaborazione B2B di Azure.
 
 - [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Funzionamento](active-directory-b2b-how-it-works.md)
@@ -73,4 +58,4 @@ Vedere gli altri articoli su Azure B2B Collaboration.
 - [Limitazioni correnti della versione di anteprima](active-directory-b2b-current-preview-limitations.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

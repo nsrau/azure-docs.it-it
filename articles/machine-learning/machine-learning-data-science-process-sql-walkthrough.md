@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016" 
+	ms.date="02/08/2016"
 	ms.author="mohabib;fashah;bradsev"/>
 
 
@@ -74,13 +74,15 @@ In questa esercitazione verrà illustrato come eseguire l'importazione in blocco
 
 Per configurare l'ambiente di analisi scientifica dei dati di Azure:
 
-1. [Creare un account di archiviazione](../storage-create-storage-account.md)
+1. [Creare un account di archiviazione](../storage/storage-create-storage-account.md)
 
 2. [Creare un'area di lavoro Azure ML](machine-learning-create-workspace.md)
 
 3. [Eseguire il provisioning di una macchina virtuale Data Science](machine-learning-data-science-setup-sql-server-virtual-machine.md), che servirà come SQL Server e server IPython Notebook.
 
-	> [AZURE.NOTE] Gli script e i blocchi di appunti IPython di esempio verranno scaricati nella macchina virtuale Data Science durante il processo di configurazione. Una volta completato lo script di post installazione della VM, gli esempi saranno disponibili nella libreria dei documenti della VM: - Script di esempio: `C:\Users<user_name>\Documents\Data Science Scripts` - Blocchi di appunti di IPython di esempio: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` dove `<user_name>` è il nome di accesso Windows della VM. Le cartelle di esempio saranno denominate **Script di esempio** e **Blocchi di appunti IPython di esempio**.
+	> [AZURE.NOTE] Gli script e i blocchi di appunti IPython di esempio verranno scaricati nella macchina virtuale Data Science durante il processo di configurazione. Una volta completato lo script di post installazione della VM, gli esempi saranno disponibili nella libreria dei documenti della VM:
+	> - Script di esempio: `C:\Users<user_name>\Documents\Data Science Scripts`  
+	> - Blocchi di appunti di esempio IPython: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` dove `<user_name>` è il nome di accesso Windows della VM. Le cartelle di esempio saranno denominate **Script di esempio** e **Blocchi di appunti IPython di esempio**.
 
 
 In base alle dimensioni del set di dati, al percorso dell'origine dati e all'ambiente di destinazione Azure selezionato, questo scenario è simile allo [Scenario n.5: Set di dati di grandi dimensioni in file locali, con destinazione SQL Server nella macchina virtuale di Azure](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
@@ -714,4 +716,4 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

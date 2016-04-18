@@ -18,10 +18,10 @@
 
 # Introduzione a DNS di Azure utilizzando Powershell
 
-
 > [AZURE.SELECTOR]
-- [Interfaccia della riga di comando di Azure](dns-getstarted-create-dnszone-cli.md)
+- [Portale di Azure](dns-getstarted-create-dnszone-portal.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
+- [Interfaccia della riga di comando di Azure](dns-getstarted-create-dnszone-cli.md)
 
 Il dominio "contoso.com" può contenere una serie di record DNS, ad esempio "mail.contoso.com" (per un server di posta elettronica) e "www.contoso.com" (per un sito Web). Una zona DNS viene usata per ospitare i record DNS per un particolare dominio.
 
@@ -31,7 +31,7 @@ In queste istruzioni viene usato Microsoft Azure PowerShell. Assicurarsi di eseg
 
 I passaggi seguenti devono essere completati prima di poter gestire DNS di Azure con Azure PowerShell.
 
-DNS di Azure usa Gestione risorse di Azure (ARM). Seguire queste istruzioni per Azure PowerShell 1.0.0 e versioni successive. Ulteriori informazioni sono disponibili in [Uso di Azure Powershell con Azure Resource Manager](../powershell-azure-resource-manager.md).
+DNS di Azure usa Gestione risorse di Azure (ARM). Seguire queste istruzioni per Azure PowerShell 1.0.0 e versioni successive. Altre informazioni sono disponibili in [Uso di Azure Powershell con Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Passaggio 1
 Accedere all'account Azure (verrà richiesto di eseguire l'autenticazione con le proprie credenziali)
@@ -147,4 +147,4 @@ Se non è stato ancora delegato il dominio per usare la nuova zona in DNS di Azu
 [Introduzione alla creazione di set di record e di record](dns-getstarted-create-recordset.md)<BR> [Come gestire le zone DNS](dns-operations-dnszones.md)<BR> [Come gestire i record DNS](dns-operations-recordsets.md)<BR> [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)<BR> [Informazioni di riferimento sulle API REST di DNS di Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

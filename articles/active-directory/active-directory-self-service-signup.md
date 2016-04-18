@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Informazioni sull'iscrizione self-service per Azure | Microsoft Azure"
-	description="Una panoramica dell'iscrizione self-service per Azure, come gestire il processo di iscrizione e come."
+	description="Panoramica dell'iscrizione self-service per Azure e informazioni su come gestire il processo di iscrizione e come acquisire un nome di dominio DNS."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/05/2016"
-	ms.author="stevenpo"/>
+	ms.date="04/04/2016"
+	ms.author="curtand"/>
 
 
 # Informazioni sull'iscrizione self-service per Azure
@@ -232,4 +232,4 @@ Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

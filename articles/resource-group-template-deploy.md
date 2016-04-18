@@ -44,7 +44,7 @@ Specificare il tipo di distribuzione tramite la proprietà **Mode**, come illust
 
         PS C:\> Login-AzureRmAccount
 
-        Evironment : AzureCloud
+        Environment : AzureCloud
         Account    : someone@example.com
         ...
 
@@ -292,4 +292,4 @@ Per informazioni su come definire i parametri nel modello, vedere [Creazione di 
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

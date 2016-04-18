@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/28/2015"
+   ms.date="04/01/2016"
    ms.author="masashin"/>
 
 # Indicazioni specifiche del servizio per la ripetizione di tentativi
@@ -1107,4 +1107,4 @@ Il blocco di applicazioni per la gestione degli errori temporanei presenta la se
 | **Lineare (intervallo fisso)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 secondo<br />true | Il numero di tentativi.<br />L'intervallo tra i tentativi.<br />Indica se il primo tentativo verrà eseguito immediatamente. |
 Per esempi di uso del Blocco di applicazioni per la gestione degli errori temporanei, vedere le precedenti sezioni degli esempi per il database SQL di Azure con ADO.NET e Azure Active Directory.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

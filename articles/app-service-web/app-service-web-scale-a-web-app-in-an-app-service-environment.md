@@ -13,29 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016" 
+	ms.date="04/04/2016" 
 	ms.author="ccompy"/>
 
 # Ridimensionamento di app in un ambiente del servizio app #
 
-In generale, gli ambienti del servizio app sono essenzialmente distribuzioni personali del servizio app di Azure nella rete virtuale e sono gestibili solo dalla propria sottoscrizione. Questi ambienti offrono nuove funzionalità di rete dal momento che sono incluse nella rete virtuale e possono essere ridimensionate oltre quanto normalmente disponibile in ambienti del servizio app di Azure. Per altre informazioni sull'ambiente del servizio app, vedere [Informazioni sull'ambiente del servizio app][WhatisASE]. Per informazioni dettagliate sulla creazione di un ambiente del servizio app o sulla creazione di un'app Web in un ambiente del servizio app, vedere [Come creare un ambiente del servizio app][HowtoCreateASE] ed [Come creare un'app Web in ambiente del servizio app][CreateWebappinASE].
-
-In poche parole, quando si modifica un attributo di ridimensionamento per un'app Web, per dispositivi mobili o per le API, la modifica viene effettuata a livello di piano di servizio app (ASP, App Service Plan). Per informazioni dettagliate sul ridimensionamento di piani di servizio app o sui piani di servizio app all'esterno di ambienti del servizio app, vedere [Ridimensionare un'app Web nel servizio app di Azure][ScaleWebapp] e [Panoramica approfondita dei piani di servizio app di Azure][Appserviceplans].
-
-La procedura di ridimensionamento di un'app in un ambiente del servizio app è simile a quella usata normalmente per ridimensionare le app. Nel servizio app di Azure è possibile ridimensionare tre aspetti:
+Nel servizio app di Azure è possibile ridimensionare tre aspetti:
 
 - piano tariffario
-- dimensioni dei processi di lavoro (per le istanze dedicate)
+- dimensioni dei processi di lavoro 
 - numero di istanze.
 
-In un ambiente del servizio app non è necessario selezionare o modificare il piano tariffario. In termini di funzionalità il livello è già quello del piano tariffario Premium. In un ambiente del servizio app non esistono inoltre processi di lavoro condivisi, in quanto tutti i processi di lavoro sono dedicati.
+In un ambiente del servizio app non è necessario selezionare o modificare il piano tariffario. In termini di funzionalità il livello è già quello del piano tariffario Premium.
 
 L'amministratore dell'ambiente del servizio app può quindi assegnare le dimensioni della risorsa di elaborazione da usare per ogni pool di lavoro, rispetto alle dimensioni del processo di lavoro. Questo significa che, se necessario, è possibile avere il pool di lavoro 1 con risorse di calcolo P4 e il pool di lavoro 2 con risorse di calcolo P1, di conseguenza non è necessario che i pool siano ordinati in base alle dimensioni. Per informazioni dettagliate sulle dimensioni e sui relativi prezzi, leggere il documento [Prezzi del servizio app di Azure][AppServicePricing]. In tal modo le opzioni di ridimensionamento per app Web e piani di servizio app in un ambiente del servizio app sono:
 
 - selezione del pool di lavoro
 - numero di istanze
 
-Per modificare uno di questi elementi, usare l'interfaccia utente appropriata visualizzata per i piani di servizio app ospitati nell'ambiente del servizio app. Non è possibile aumentare il numero di risorse del piano di servizio app oltre il numero di risorse di calcolo disponibili nel pool di lavoro in cui si trova il piano di servizio app. Se sono necessarie altre risorse, chiedere all'amministratore dell'ambiente del servizio app di aggiungere altre risorse di calcolo al pool di lavoro in cui servono. Per informazioni sulla riconfigurazione dell'ambiente del servizio app, vedere [Come configurare un ambiente del servizio app][HowtoConfigureASE]. Può anche essere utile sfruttare le funzionalità di scalabilità automatica dell'ambiente del servizio app per aumentare la capacità in base alla pianificazione o alla metrica. Per altri dettagli sulla configurazione della scalabilità automatica per l'ambiente del servizio app, vedere [Come configurare la scalabilità automatica per un ambiente del servizio app][ASEAutoscale].
+Per modificare uno di questi elementi, usare l'interfaccia utente appropriata visualizzata per i piani di servizio app ospitati nell'ambiente del servizio app. Non è possibile aumentare il numero di risorse del piano ASP oltre il numero di risorse di calcolo disponibili nel pool di lavoro in cui si trova il piano ASP. Se sono necessarie altre risorse di calcolo nel pool di lavoro, è necessario chiedere all'amministratore dell'ambiente del servizio app di aggiungerle. Per informazioni sulla riconfigurazione dell'ambiente del servizio app, vedere [Come configurare un ambiente del servizio app][HowtoConfigureASE]. Può anche essere utile sfruttare le funzionalità di scalabilità automatica dell'ambiente del servizio app per aumentare la capacità in base alla pianificazione o alla metrica. Per altri dettagli sulla configurazione della scalabilità automatica per l'ambiente del servizio app, vedere [Come configurare la scalabilità automatica per un ambiente del servizio app][ASEAutoscale].
 
 ![][1]
 
@@ -83,4 +79,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

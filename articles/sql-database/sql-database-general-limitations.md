@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Limitazioni e linee guida generali per il database SQL di Azure"
    description="Questa pagina descrive alcune limitazioni generali per il database SQL di Azure, oltre agli ambiti dell'interoperabilità e del supporto."
    services="sql-database"
@@ -6,7 +6,7 @@
    authors="rothja"
    manager="jeffreyg"
    editor="monicar" />
-<tags 
+<tags
    ms.service="sql-database"
    ms.devlang="na"
    ms.topic="article"
@@ -19,15 +19,15 @@
 
 Questo argomento illustra le limitazioni e le linee guida generali per il database SQL di Azure. Per informazioni complete su quote, gestione delle risorse e supporto, vedere le [risorse aggiuntive](#additional-guidelines) alla fine di questo argomento.
 
-## Connettività
+## Connettività e autenticazione
 
- - L'autenticazione Windows non è supportata. Vedere [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md). 
+  - L'autenticazione Windows non è supportata. Vedere [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md). Tuttavia, l'autenticazione di Azure Active Directory è supportata con alcune limitazioni. Vedere [Connessione al database SQL con l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md).
 
- - Il database SQL di Microsoft Azure supporta la versione client 7.3 o successiva del protocollo TDS (Tabular Data Stream).
+  - Il database SQL di Microsoft Azure supporta la versione client 7.3 o successiva del protocollo TDS (Tabular Data Stream).
 
- - Sono consentite solo connessioni TCP/IP.
+  - Sono consentite solo connessioni TCP/IP.
 
- - SQL Server Browser di SQL Server 2008 non è supportato perché il database SQL di Microsoft Azure non ha porte dinamiche, ma solo la porta 1433.
+  - SQL Server Browser di SQL Server 2008 non è supportato perché il database SQL di Microsoft Azure non ha porte dinamiche, ma solo la porta 1433.
 
 ## SQL Server Agent/Processi
 
@@ -41,11 +41,11 @@ La regola di confronto del database predefinita usata dal database SQL di Micros
 
 Alcuni nomi utente non sono consentiti per motivi di sicurezza. Non è possibile usare i nomi seguenti:
 
- - **admin** 
- - **administrator** 
- - **guest** 
- - **root** 
- - **sa** 
+ - **admin**
+ - **administrator**
+ - **guest**
+ - **root**
+ - **sa**
 
 I nomi di tutti i nuovi oggetti devono essere conformi alle regole di SQL Server per gli identificatori. Per altre informazioni, vedere [Identificatori](https://msdn.microsoft.com/library/ms175874.aspx).
 
@@ -63,4 +63,4 @@ I nomi utente e di accesso non possono nemmeno contenere il carattere \\ (l'aute
 
 - Per informazioni sulla disponibilità di driver e sul supporto per il database SQL, vedere [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

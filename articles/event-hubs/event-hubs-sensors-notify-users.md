@@ -25,7 +25,7 @@ In un altro scenario, si supponga di gestire una pensione per animali domestici 
 
 ![][2]
 
-Il problema è come ottenere informazioni importanti quando vengono soddisfatte determinate condizioni e non quando si ha la possibilità di controllare un report statico. Se si usa un [hub eventi di Azure][] o un [hub IoT di Azure][] per ricevere dati da dispositivi o applicazioni aziendali come [Dynamics AX][], sono disponibili diverse opzioni per l'elaborazione di tali informazioni. È possibile visualizzarle in un sito Web, analizzarle, archiviarle e usarle per attivare i comandi per eseguire un'operazione. A tale scopo, è possibile usare efficaci strumenti come [Siti Web di Azure][], [SQL Azure][], [HDInsight][], [Cortana Analytics Suite][], [IoT Suite][], [App per la logica][] o [Hub di notifica di Azure][]. A volte tuttavia si desidera solo inviare i dati a un utente con un overhead minimo. Per effettuare questa operazione semplicemente con un codice, è disponibile un nuovo esempio, [AppToNotifyUsers][]. Le opzioni incluse sono messaggi di posta elettronica (SMTP), SMS e telefono.
+Il problema è come ottenere informazioni importanti quando vengono soddisfatte determinate condizioni e non quando si ha la possibilità di controllare un report statico. Se si usa un [hub eventi di Azure][] o un [hub IoT di Azure][] per ricevere dati da dispositivi o applicazioni aziendali come [Dynamics AX][], sono disponibili diverse opzioni per l'elaborazione di tali informazioni. È possibile visualizzarle in un sito Web, analizzarle, archiviarle e usarle per attivare i comandi per eseguire un'operazione. A tale scopo è possibile usare strumenti efficaci come [Siti Web di Azure][], [SQL Azure][], [HDInsight][], [Cortana Intelligence Suite][], [IoT Suite][], [App per la logica][] o [Hub di notifica di Azure][]. A volte tuttavia si desidera solo inviare i dati a un utente con un overhead minimo. Per effettuare questa operazione semplicemente con un codice, è disponibile un nuovo esempio, [AppToNotifyUsers][]. Le opzioni incluse sono messaggi di posta elettronica (SMTP), SMS e telefono.
 
 ## Struttura dell'applicazione
 
@@ -74,7 +74,7 @@ Per distribuire la soluzione per l'invio di notifiche agli utenti in base ai dat
 [Siti Web di Azure]: https://azure.microsoft.com/services/app-service/web/
 [SQL Azure]: https://azure.microsoft.com/services/sql-database/
 [HDInsight]: https://azure.microsoft.com/services/hdinsight/
-[Cortana Analytics Suite]: http://www.microsoft.com/server-cloud/cortana-analytics-suite/Overview.aspx?WT.srch=1&WT.mc_ID=SEM_lLFwOJm3&bknode=BlueKai
+[Cortana Intelligence Suite]: http://www.microsoft.com/server-cloud/cortana-analytics-suite/Overview.aspx?WT.srch=1&WT.mc_ID=SEM_lLFwOJm3&bknode=BlueKai
 [IoT Suite]: https://azure.microsoft.com/solutions/iot-suite/
 [App per la logica]: https://azure.microsoft.com/services/app-service/logic/
 [Hub di notifica di Azure]: https://azure.microsoft.com/services/notification-hubs/
@@ -83,4 +83,4 @@ Per distribuire la soluzione per l'invio di notifiche agli utenti in base ai dat
 [1]: ./media/event-hubs-sensors-notify-users/event-hubs-sensor-alert.png
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

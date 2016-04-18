@@ -30,8 +30,8 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 
 >[AZURE.NOTE] **Per tutti gli scenari seguenti, è necessario:**
 
-*   [Creare un account di archiviazione](storage-whatis-account.md)
-*   [Creare un'area di lavoro Azure ML](machine-learning/machine-learning-create-workspace.md)
+*   [Creare un account di archiviazione](../storage/storage-create-storage-account.md)
+*   [Creare un'area di lavoro Azure ML](machine-learning-create-workspace.md)
 
 
 ## <a name="smalllocal"></a>Scenario n. 1: Set di dati tabulari medio-piccolo in un file locale
@@ -168,7 +168,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 
     f. Se sono richiesti join di tabella, creare gli indici per velocizzarli.
 
- > [AZURE.NOTE] Per caricare più velocemente dati di grandi dimensioni, è consigliabile creare tabelle partizionate e importare in blocco i dati in parallelo. Per altre informazioni, vedere l'articolo relativo all'[importazione parallela di dati in tabelle partizionale di SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+ > [AZURE.NOTE] Per caricare più velocemente dati di grandi dimensioni, è consigliabile creare tabelle partizionate e importare in blocco i dati in parallelo. Per altre informazioni, vedere l'articolo relativo all'[importazione parallela di dati in tabelle partizionale di SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Esaminare i dati e creare le funzionalità necessarie. Si noti che le funzionalità non devono essere materializzare nelle tabelle del database. Notare solo la query necessaria per crearle.
 
@@ -208,7 +208,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 
 	f. Se sono richiesti join di tabella, creare gli indici per velocizzarli.
 
-> [AZURE.NOTE] Per caricare più velocemente dati di grandi dimensioni, creare tabelle partizionate e importare in blocco i dati in parallelo. Per altre informazioni, vedere l'articolo relativo all'[importazione parallela di dati in tabelle partizionale di SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE] Per caricare più velocemente dati di grandi dimensioni, creare tabelle partizionate e importare in blocco i dati in parallelo. Per altre informazioni, vedere l'articolo relativo all'[importazione parallela di dati in tabelle partizionale di SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Esaminare i dati e creare le funzionalità necessarie. Si noti che le funzionalità non devono essere materializzare nelle tabelle del database. Notare solo la query necessaria per crearle.
 
@@ -296,8 +296,8 @@ Nel diagramma seguente sono riepilogati gli scenari descritti in precedenza e il
 Per procedure dettagliate end-to-end di Azure Machine Learning che usano ADAPT tramite set di dati pubblici, vedere:
 
 
-* [Il Cortana Analytics Process in azione: mediante SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
-* [Il Cortana Analytics Process in azione: mediante i cluster Hadoop di HDInsight](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
+* [Il Cortana Analytics Process in azione: mediante SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+* [Il Cortana Analytics Process in azione: mediante i cluster Hadoop di HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -314,4 +314,4 @@ Per procedure dettagliate end-to-end di Azure Machine Learning che usano ADAPT t
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

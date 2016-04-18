@@ -19,9 +19,12 @@
 # Come gestire i record DNS utilizzando PowerShell
 
 
+
 > [AZURE.SELECTOR]
+- [Portale di Azure](dns-operations-recordsets-portal.md)
 - [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
+
 
 
 Questa guida descrive come gestire i set di record e i record per la zona DNS usando Azure PowerShell.
@@ -294,4 +297,4 @@ L'oggetto del set di record può essere anche reindirizzato invece che passato c
 [Creare record DNS](dns-getstarted-create-recordset.md)<BR> [Come gestire le zone DNS utilizzando PowerShell](dns-operations-dnszones.md)<BR> [Creazione di zone e set di record DNS con .NET SDK](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

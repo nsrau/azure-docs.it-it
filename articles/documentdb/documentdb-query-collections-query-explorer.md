@@ -13,7 +13,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/23/2016"
 	ms.author="anhoh"/>
 
@@ -79,4 +79,4 @@ Esplora query nel portale di Azure è solo uno dei modi in cui è possibile eseg
 
 Per altre informazioni sulla grammatica SQL di DocumentDB supportata in Esplora query, vedere l'articolo [Query e sintassi SQL in DocumentDB](documentdb-sql-query.md) o stampare una copia del [foglio informativo sulle query SQL](documentdb-sql-query-cheat-sheet.md). La pagina [Query Playground](https://www.documentdb.com/sql/demo) permette di testare le query online usando un set di dati di esempio.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

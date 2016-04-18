@@ -3,8 +3,8 @@
    description="Viene illustrato come utilizzare la pagina del catalogo di backup del servizio StorSimple Manager per ripristinare un volume StorSimple da un set di backup."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
+   authors="alkohli"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
-   ms.author="v-sharos" />
+   ms.date="03/23/2016"
+   ms.author="alkohli" />
 
 # Ripristinare un volume StorSimple da un set di backup
 
@@ -25,7 +25,7 @@ Nella pagina **Catalogo di backup** vengono visualizzati tutti i set di backup c
 
  ![Pagina catalogo di backup](./media/storsimple-restore-from-backup-set/HCS_BackupCatalog.png)
 
-In questa esercitazione viene illustrato come utilizzare la pagina **Catalogo di backup** per ripristinare il dispositivo da un set di backup.
+Questa esercitazione illustra come usare la pagina **Catalogo backup** per ripristinare un volume sul dispositivo da un set di backup.
 
 ## Come utilizzare il catalogo di backup 
 
@@ -45,10 +45,11 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
 
 ## Come ripristinare il volume di StorSimple da un backup
 
-È possibile usare la pagina **Catalogo di backup** per ripristinare il volume StorSimple da un backup specifico. Tenere presente che, effettuando il ripristino, lo stato di un volume torna a quello in cui si trovava al momento dell'esecuzione del backup. Tutti i dati aggiunti dopo l'operazione di backup andranno persi.
+È possibile usare la pagina **Catalogo di backup** per ripristinare il volume StorSimple da un backup specifico.
 
 > [AZURE.WARNING] Il ripristino da un backup sostituisce i volumi esistenti dal backup. Ciò può comportare la perdita dei dati scritti dopo l'esecuzione del backup.
 
+Prima di avviare un ripristino su un volume, assicurarsi che il volume sia offline. È necessario portare offline il volume prima nell'host e poi sul dispositivo. Seguire la procedura illustrata in [Portare un volume offline](storsimple-manage-volumes.md#take-a-volume-offline). Eseguire i passaggi seguenti per ripristinare un volume da un set di backup.
 
 ### Per effettuare il ripristino da un set di backup
 
@@ -64,13 +65,11 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
  
     I backup associati al volume selezionato o al criterio di backup dovrebbero essere visualizzati nell'elenco dei set di backup.
 
-3. Espandere il set di backup per visualizzare i volumi associati. Questi volumi devono essere disconnessi nell'host e nel dispositivo prima di poterli ripristinare. Accedere ai volumi sulla pagina **Contenitori di volumi**, quindi attenersi alla procedura descritta in [Disattivare un volume](storsimple-manage-volumes.md#take-a-volume-offline) per disattivarli.
+3. Espandere il set di backup per visualizzare i volumi associati. Questi volumi devono essere disconnessi nell'host e nel dispositivo prima di poterli ripristinare. Seguire la procedura illustrata in [Portare un volume offline](storsimple-manage-volumes.md#take-a-volume-offline).
 
     >  [AZURE.IMPORTANT] Assicurarsi, in primo luogo, di aver disattivato tutti i volumi sull'host, prima di disattivarli sul dispositivo. Se non si eseguono i volumi offline nell'host, si potrebbe verificare un danneggiamento dei dati.
 
-4. Tornare alla scheda **Catalogo di backup** e selezionare un set di backup.
-
-5. Fare clic su **Ripristina** nella parte inferiore della pagina.
+4. Selezionare un set di backup. Fare clic su **Ripristina** nella parte inferiore della pagina.
 
 6. Verrà richiesto di confermare.
 
@@ -90,4 +89,4 @@ Per guardare un video che illustra come è possibile utilizzare le funzionalità
 
 - Informazioni su come [usare il servizio StorSimple Manager per gestire il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

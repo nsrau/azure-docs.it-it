@@ -52,7 +52,8 @@ Prima di creare una macchina virtuale per l'analisi scientifica dei dati di Micr
 Di seguito sono riportati i passaggi necessari per creare un'istanza della macchina virtuale per l'analisi scientifica dei dati di Microsoft:
 
 1.	Passare all'elenco delle macchine virtuali nel [portale di Azure](https://ms.portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
-2.	 Fare clic sul pulsante **Crea** in basso per visualizzare una procedura guidata. ![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
+2.	 Fare clic sul pulsante **Crea** in basso per visualizzare una procedura guidata.
+![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 Le sezioni seguenti forniscono gli **input** per ognuno dei **5 passaggi** (elencati in ordine numerico nella parte destra della figura precedente) della procedura guidata usata per creare la macchina virtuale per l'analisi scientifica dei dati di Microsoft. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
 
   **a. Informazioni di base**:
@@ -147,6 +148,6 @@ Ecco alcuni passaggi successivi per continuare l'apprendimento e l'esplorazione.
 * Passare a **C:\\Programmi\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts** per esempi d'uso della libreria RevoScaleR in R che supporta l'analisi dei dati a livello aziendale.  
 * Leggere l'articolo intitolato [Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati](http://aka.ms/dsvmtenthings)
 * Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando l'[analisi scientifica dei dati](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-* Visitare la [raccolta di Cortana Analytics](http://gallery.cortanaanalytics.com) per esempi di Machine Learning e di analisi dei dati usando la suite di Cortana Analytics. Viene inoltre fornita un'icona sul desktop e nel menu di avvio della macchina virtuale per semplificare l'accesso 
+* Visitare [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) per esempi di Machine Learning e di analisi dei dati usando Cortana Intelligence Suite. Viene inoltre fornita un'icona sul desktop e nel menu di avvio della macchina virtuale per semplificare l'accesso 
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0406_2016-->

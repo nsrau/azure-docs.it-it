@@ -3,7 +3,7 @@
    description="Informazioni su come eseguire il monitoraggio e la diagnosi dei servizi scritti usando Microsoft Azure Service Fabric in un computer di sviluppo locale."
    services="service-fabric"
    documentationCenter=".net"
-   authors="toddabel"
+   authors="ms-toddabel"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/04/2016"
+   ms.date="03/30/2016"
    ms.author="toddabel"/>
 
 
@@ -33,9 +33,7 @@ Le operazioni di monitoraggio, rilevamento, diagnosi e risoluzione dei problemi 
 
 Service Fabric emette eventi ETW per aiutare gli sviluppatori di applicazioni a capire cosa sta accadendo nella piattaforma. Se necessario, andare avanti e seguire la procedura descritta in [Creare la prima applicazione in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) per creare ed eseguire un'applicazione in cui il visualizzatore degli eventi di diagnostica mostra i messaggi di traccia.
 
-1. Se la finestra degli eventi di diagnostica non viene visualizzata automaticamente, passare alla scheda **Esplora server in Visual Studio** , fare clic con il pulsante destro del mouse sul **cluster di Service Fabric** e scegliere **Visualizza eventi di diagnostica** dal menu di scelta rapida.
-
-  ![Aprire il visualizzatore degli eventi di diagnostica di Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
+1. Se la finestra degli eventi di diagnostica non viene visualizzata automaticamente, passare alla scheda **Visualizza** in Visual Studio, scegliere **Altre finestre** e quindi **Visualizzatore eventi di diagnostica**.
 
 2. Per ogni evento sono disponibili informazioni di metadati standard che indicano il nodo, l'applicazione e il servizio da cui proviene l'evento. È anche possibile filtrare l'elenco degli eventi usando la casella **Filtra eventi** nella parte superiore della finestra. Ad esempio, è possibile filtrare in base al **nome del nodo** al **nome del servizio**. Se si cercano informazioni dettagliate su un evento, inoltre, è possibile sospendere la sessione tramite il pulsante **Pausa** nella parte superiore della finestra degli eventi e riprendere in un secondo momento senza alcuna perdita di eventi.
 
@@ -59,7 +57,7 @@ Dopo aver aggiunto il tracciamento ETW personalizzato al codice del servizio, sa
 
 ## Passaggi successivi
 Lo stesso codice di traccia aggiunto all'applicazione precedente per la diagnostica locale potrà essere usato con gli stessi strumenti di cui è possibile avvalersi per visualizzare gli eventi quando si esegue l'applicazione in un cluster di Azure. Leggere questi articoli che illustrano le diverse opzioni per gli strumenti e descrivono come configurarle.
-* [Raccolta di log da un cluster di Service Fabric con Diagnostica di Azure e Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md)
+* [Come raccogliere log con Diagnostica di Azure](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Uso di ElasticSearch come archivio di traccia dell'applicazione dell'infrastruttura di servizi](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Blocchi di risorse - Schema del modello
@@ -42,20 +42,21 @@ Per creare un blocco, aggiungere lo schema seguente alla sezione delle risorse d
 
 Nelle tabelle seguenti vengono descritti i valori che è necessario impostare nello schema.
 
-| Name | Tipo | Obbligatorio | Valori consentiti | Descrizione |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Sì | Per le risorse: <br />**{namespace}/{type}/providers/locks**<br /><br />per gruppi di risorse:<br />**Microsoft.Authorization/locks** | Il tipo di risorsa da creare. |
-| apiVersion | enum | Sì | **01/01/2015** | La versione dell'API da utilizzare per la creazione della risorsa. |  
-| name | string | Sì | Per le risorse:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />Per gruppi di risorse:<br />**{lockname} * ***<br /><br />fino a 64 caratteri<br />non può contenere <>, % &,?, o tutti i caratteri di controllo. | Un valore che specifica la risorsa da bloccare e un nome per il blocco. | 
-| dependsOn | matrice | Non | Un elenco delimitato da virgole di una risorsa di nomi o gli identificatori univoci delle risorse. | La raccolta di risorse da cui dipende tale blocco. Se la risorsa che si sta bloccando viene distribuita nello stesso modello, includere il nome di risorsa in questo elemento per assicurarsi che la risorsa venga distribuita prima. | 
-| proprietà | oggetto | Sì | (come illustrato di seguito) | Un oggetto che identifica il tipo di blocco, e note relative al blocco. | 
+| Nome | Valore |
+| ---- | ---- | 
+| type | Enum<br />Obbligatorio<br />**{spazio dei nomi}/{tipo}/providers/locks** - per risorse o <br />**Microsoft.Authorization/locks** - per gruppi di risorse<br /><br />Tipo della risorsa da creare. |
+| apiVersion | Enum<br />Obbligatorio<br />**2015-01-01**<br /><br />Versione dell'API da usare per la creazione della risorsa. |  
+| name | String<br />Obbligatorio<br />**{risorsa}/Microsoft.Authorization/{nome blocco}** (per risorse) o <br />**{nome blocco}** (per gruppi di risorse)<br />fino a 64 caratteri e non può contenere <, > %, &, ? o caratteri di controllo.<br /><br />Valore che specifica sia la risorsa da bloccare che il nome del blocco. |
+| dependsOn | Array<br />Facoltativo<br />Elenco di valori separati da virgole di nomi di risorsa o di identificatori univoci di risorse.<br /><br />Raccolta di risorse da cui dipende questo blocco. Se la risorsa che si sta bloccando viene distribuita nello stesso modello, includere il nome della risorsa in questo elemento per assicurarsi che la risorsa venga distribuita per prima. | 
+| properties | Oggetto<br />Obbligatorio<br />[oggetto properties](#properties)<br /><br />Oggetto che identifica il tipo di blocco e note relative al blocco. |  
 
+<a id="properties" />
 ### oggetto delle proprietà
 
-| Name | Tipo | Obbligatorio | Valori consentiti | Descrizione |
-| ------- | ---- | ---------------- | -------- | ----------- |
-| level | enum | Sì | **CannotDelete** | Il tipo di blocco da applicare all'ambito. CanNotDelete consente la modifica, ma impedisce l'eliminazione. |
-| di HDInsight | string | No | 512 caratteri | Descrizione del blocco. |
+| Nome | Valore |
+| ------- | ---- |
+| level | Enum<br />Obbligatorio<br />**CanNotDelete**<br /><br />Tipo di blocco da applicare all'ambito. CanNotDelete consente la modifica, ma impedisce l'eliminazione. |
+| di HDInsight | String<br />Facoltativo<br />fino a 512 caratteri<br /><br />Descrizione del blocco. |
 
 
 ## Come utilizzare la risorsa di blocco
@@ -135,4 +136,4 @@ L'esempio successivo applica un blocco di sola lettura al gruppo di risorse.
 - Per informazioni sulla struttura del modello, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per altre informazioni sui blocchi, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

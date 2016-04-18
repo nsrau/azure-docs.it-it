@@ -28,7 +28,9 @@ Questo **menu** fornisce collegamenti ad argomenti che descrivono come creare fu
 
 Questo argomento illustra le finalità della progettazione di funzioni e offre esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning. Questi esempi sono tratti da Azure Machine Learning Studio.
 
-La progettazione e la selezione delle funzionalità sono parti del processo CAP descritto in [Informazioni su Cortana Analytics Process (CAP)?](machine-learning-data-science-the-cortana-analytics-process.md) La progettazione e la selezione delle funzionalità sono parti del passaggio **Sviluppare funzionalità** del processo CAP. * **Progettazione di funzionalità**: questo processo tenta di creare funzionalità aggiuntive rilevanti da funzionalità esistenti non elaborate nei dati e di aumentare l'efficacia predittiva per l'algoritmo di apprendimento. * **Selezione delle caratteristiche**: questo processo consente di selezionare il subset chiave di funzionalità di dati originali nel tentativo di ridurre la dimensionalità del problema di formazione.
+La progettazione e la selezione delle funzionalità sono parti del processo CAP descritto in [Informazioni su Cortana Analytics Process (CAP)?](machine-learning-data-science-the-cortana-analytics-process.md) La progettazione e la selezione delle funzionalità sono parti del passaggio **Sviluppare funzionalità** del processo CAP.
+* **Progettazione di funzionalità**: questo processo prova a creare altre funzioni rilevanti dalle funzioni non elaborate esistenti nei dati e ad aumentare le potenzialità predittive dell'algoritmo di apprendimento.
+* **Selezione di funzionalità**: questo processo seleziona il subset principale delle funzionalità dei dati originali nel tentativo di ridurre la dimensionalità del problema di training.
 
 In genere **la progettazione di funzioni** viene applicata innanzitutto per generare altre funzioni e quindi viene eseguito il passaggio di **selezione delle funzioni** per eliminare quelle irrilevanti, ridondanti o altamente correlate.
 
@@ -46,7 +48,7 @@ Il tipo di funzioni da creare per migliorare il set di dati durante il training 
 
 Quando si inizia a usare Azure Machine Learning, è più facile afferrare questo processo in modo concreto tramite gli esempi disponibili in Studio. Di seguito ne vengono presentati due:
 
-* Un esempio di regressione basato sulla [stima del numero di noleggi di biciclette](../machine-learning-sample-prediction-of-number-of-bike-rentals.md) in un esperimento controllato in cui sono noti i valori di destinazione.
+* Un esempio di regressione basato sulla [stima del numero di noleggi di biciclette](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) in un esperimento controllato in cui sono noti i valori di destinazione.
 * Un esempio di classificazione di data mining del testo tramite [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/).
 
 ### Esempio 1: Aggiunta di funzioni temporali per il modello di regressione ###
@@ -96,4 +98,4 @@ Le funzioni progettate e selezionate migliorano l'efficienza del processo di tra
 Si noti che non sempre è necessario eseguire la progettazione o la selezione delle funzioni. La necessità o meno di questi passaggi dipende dai dati da raccogliere, dagli algoritmi scelti e dall'obiettivo dell'esperimento.
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0406_2016-->

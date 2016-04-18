@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/28/2016"
    ms.author="sahajs;barbkess"/>
 
 # Ripristinare un database dopo un'interruzione del servizio in SQL Data Warehouse
 
-Il ripristino geografico consente di ripristinare un database da un backup con ridondanza geografica per crearne uno nuovo. Il database può essere creato su qualunque server in qualsiasi area di Azure. Poiché usa un backup con ridondanza geografica come origine, è possibile usarlo per ripristinare un database anche se il database è inaccessibile a causa di un'interruzione del servizio. Oltre al ripristino dopo un'interruzione, il ripristino geografico può anche essere usato per altri scenari come ad esempio la migrazione o la copia del database in un server o un'area differenti.
+Il ripristino geografico consente di ripristinare un database da un backup con ridondanza geografica per crearne uno nuovo. Il database può essere creato su qualunque server in qualsiasi area di Azure. Il ripristino geografico è in grado di recuperare anche un database inaccessibile a causa di un guasto, poiché usa come origine un backup con ridondanza geografica. Oltre al ripristino dopo un'interruzione, il ripristino geografico può anche essere usato per altri scenari come ad esempio la migrazione o la copia del database in un server o un'area differenti.
 
 
 ## Quando avviare il ripristino
@@ -43,14 +43,14 @@ Il ripristino di un database crea un nuovo database dall'ultimo backup con ridon
 ### PowerShell
 Usare Azure PowerShell per eseguire il ripristino del database a livello di codice. Per scaricare il modulo di Azure PowerShell, eseguire l'[Installazione guidata piattaforma Web Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). È possibile controllare la versione in uso eseguendo Get-Module -ListAvailable -Name Azure. Questo articolo si basa su Microsoft Azure PowerShell versione 1.0.4.
 
-Per ripristinare un database, usare il cmdlet [Start-AzureSqlDatabaseRecovery][].
+Per recuperare un database, usare il cmdlet [Restore-AzureRmSqlDatabase][].
 
 1. Aprire Windows PowerShell.
 2. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
 3. Selezionare la sottoscrizione che contiene il database da ripristinare.
 4. Selezionare il database che si desidera ripristinare.
 5. Creare la richiesta di ripristino per il database.
-6. Monitorare lo stato del ripristino.
+6. Verificare lo stato del database recuperato con il ripristino geografico.
 
 ```Powershell
 
@@ -59,17 +59,17 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 
 # Get the database you want to recover
-$Database = Get-AzureRmSqlRecoverableDatabase -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>"
+$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
 # Recover database
-$RecoveryRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourSourceServerName>" -SourceDatabase $Database -TargetDatabaseName "<NewDatabaseName>" -TargetServerName "<YourTargetServerName>"
+$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
 
-# Monitor progress of recovery operation
-Get-AzureSqlDatabaseOperation -ServerName "<YourTargetServerName>" –OperationGuid $RecoveryRequest.RequestID
+# Verify that the geo-restored database is online
+$GeoRestoredDatabase.status
 
 ```
 
-Se il server è foo.database.windows.net, utilizzare "foo" come NomeServer nei cmdlet sopraindicati di powershell.
+>[AZURE.NOTE] Per il server foo.database.windows.net, usare "foo" come -ServerName nei cmdlet di PowerShell sopraindicati.
 
 ### API REST
 Usare REST per eseguire il ripristino del database a livello di codice.
@@ -84,26 +84,26 @@ Usare REST per eseguire il ripristino del database a livello di codice.
 ## Configurare il database dopo il ripristino
 Si tratta di un elenco di controllo che può essere utilizzato per avere pronta la produzione di database ripristinati.
 
-1. **Aggiornare le stringhe di connessione**: accertarsi che le stringhe di connessione degli strumenti client facciano riferimento al database appena ripristinato.
-2. **Modificare le regole del firewall**: verificare le regole del firewall a livello di server di destinazione, quindi assicurarsi che le connessioni tra i computer client o Azure con il server e il database appena ripristinato siano abilitate.
-3. **Verificare gli account di accesso al server e gli utenti del database**: verificare che tutti gli account di accesso usati dall'applicazione siano presenti sul server che ospita il database ripristinato. Ricreare gli account di accesso mancanti e concedere loro le autorizzazioni appropriate per il database ripristinato. 
-4. **Abilitare il controllo**: se è necessario il controllo di accesso al database, occorre attivare il controllo dopo il ripristino del database.
+1. **Aggiornare le stringhe di connessione**: verificare che le stringhe di connessione degli strumenti client facciano riferimento al database appena ripristinato.
+2. **Modificare le regole del firewall**: verificare le regole del firewall sul server di destinazione, quindi assicurarsi che le connessioni tra i computer client o Azure e il server e il database appena ripristinato siano abilitate.
+3. **Verificare gli account di accesso al server e gli utenti del database**: controllare che tutti gli account di accesso usati dall'applicazione siano presenti sul server che ospita il database ripristinato. Ricreare gli account di accesso mancanti e concedere loro le autorizzazioni appropriate per il database ripristinato. 
+4. **Abilitare il controllo**: se è necessario il controllo di accesso al database, attivarlo dopo il ripristino.
 
 Il database ripristinato sarà abilitato TDE se il database di origine è abilitato per questa tecnologia.
 
 
 ## Passaggi successivi
-Per ulteriori informazioni sulle funzionalità di continuità aziendale di altre versioni del database SQL di Azure, leggere la [Panoramica sulla continuità aziendale per database SQL Azure][].
+Per altre informazioni sulle funzionalità di continuità aziendale di altre versioni del database SQL di Azure, leggere la [Panoramica sulla continuità aziendale per database SQL di Azure][].
 
 
 <!--Image references-->
 
 <!--Article references-->
-[Panoramica sulla continuità aziendale per database SQL Azure]: sql-database/sql-database-business-continuity.md
+[Panoramica sulla continuità aziendale per database SQL di Azure]: sql-database/sql-database-business-continuity.md
 [Finalize a recovered database]: sql-database/sql-database-recovered-finalize.md
 
 <!--MSDN references-->
-[Start-AzureSqlDatabaseRecovery]: https://msdn.microsoft.com/library/azure/dn720224.aspx
+[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 [List Recoverable Databases]: http://msdn.microsoft.com/library/azure/dn800984.aspx
 [Get Recoverable Database]: http://msdn.microsoft.com/library/azure/dn800985.aspx
 [Create Database Recovery Request]: http://msdn.microsoft.com/library/azure/dn800986.aspx
@@ -113,4 +113,4 @@ Per ulteriori informazioni sulle funzionalità di continuità aziendale di altre
 [Portale di Azure]: https://portal.azure.com/
 [contattare il supporto]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

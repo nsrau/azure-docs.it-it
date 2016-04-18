@@ -65,7 +65,7 @@ Per usare Archiviazione di Azure, è necessario disporre di Azure Storage SDK pe
 
 Aggiungere il codice seguente all'inizio del file **server.js** nell'applicazione:
 
-    var azure = require('azure-storage');
+	var azure = require('azure-storage');
 
 ## Configurare una connessione di archiviazione di Azure
 
@@ -77,27 +77,27 @@ Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure
 
 Il codice seguente consente di creare un oggetto **TableService** e di utilizzarlo per creare una nuova tabella. Aggiungere il codice seguente nella parte superiore di **server.js**.
 
-    var tableSvc = azure.createTableService();
+	var tableSvc = azure.createTableService();
 
 La chiamata a **createTableIfNotExists** crea una nuova tabella con il nome specificato, se non è già presente. Nell'esempio seguente viene creata una nuova tabella denominata "mytable" se questa non esiste ancora:
 
-    tableSvc.createTableIfNotExists('mytable', function(error, result, response){
-		if(!error){
-			// Table exists or created
-		}
+	tableSvc.createTableIfNotExists('mytable', function(error, result, response){
+	  if(!error){
+	    // Table exists or created
+	  }
 	});
 
-`result` sarà `true` se viene creata una nuova tabella e sarà `false` se la tabella è già presente. `response` conterrà le informazioni sulla richiesta.
+`result.created` sarà `true` se viene creata una nuova tabella e sarà `false` se la tabella è già presente. `response` conterrà le informazioni sulla richiesta.
 
 ### Filtri
 
 Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite utilizzando **TableService**. Le operazioni di filtro possono includere la registrazione, la ripetizione automatica dei tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
 
-		function handle (requestOptions, next)
+	function handle (requestOptions, next)
 
 Dopo aver eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo deve chiamare "next" passando un callback con la firma seguente:
 
-		function (returnObject, finalCallback, next)
+	function (returnObject, finalCallback, next)
 
 In questo callback, e dopo l'elaborazione di returnObject (la risposta della richiesta al server), il callback deve richiamare "next", se questo esiste, per continuare a elaborare altri filtri oppure semplicemente richiamare finalCallback per concludere la chiamata al servizio.
 
@@ -130,19 +130,19 @@ Nell'esempio seguente viene definita un'entità. **dueDate** è definito come ti
 È anche possibile usare **entityGenerator** per creare le entità. Nell'esempio seguente viene creata la stessa entità Task tramite **entityGenerator**.
 
 	var entGen = azure.TableUtilities.entityGenerator;
-    var task = {
+	var task = {
 	  PartitionKey: entGen.String('hometasks'),
-      RowKey: entGen.String('1'),
-      description: entGen.String('take out the trash'),
-      dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
-    };
+	  RowKey: entGen.String('1'),
+	  description: entGen.String('take out the trash'),
+	  dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
+	};
 
 Per aggiungere un'entità alla tabella, passare l'oggetto entità al metodo **insertEntity**.
 
 	tableSvc.insertEntity('mytable',task, function (error, result, response) {
-		if(!error){
-			// Entity inserted
-		}
+	  if(!error){
+	    // Entity inserted
+	  }
 	});
 
 Se l'operazione ha esito positivo, `result` conterrà l'[ETag](http://en.wikipedia.org/wiki/HTTP_ETag) del record inserito e `response` conterrà le informazioni sull'operazione.
@@ -159,7 +159,7 @@ Esempio di risposta:
 
 Esistono vari metodi per aggiornare un'entità esistente:
 
-* **updateEntity**: aggiorna un'entità esistente sostituendola.
+* **replaceEntity**: aggiorna un'entità esistente sostituendola.
 
 * **mergeEntity**: aggiorna un'entità esistente unendovi i nuovi valori delle proprietà.
 
@@ -167,13 +167,13 @@ Esistono vari metodi per aggiornare un'entità esistente:
 
 * **insertOrMergeEntity**: aggiorna un'entità esistente unendovi i nuovi valori delle proprietà. Se non esiste alcuna entità, ne verrà inserita una nuova.
 
-Nell'esempio seguente viene dimostrato l'aggiornamento di un'entità mediante l'utilizzo di **updateEntity**:
+Nell'esempio seguente viene illustrato l'aggiornamento di un'entità mediante **replaceEntity**:
 
-	tableSvc.updateEntity('mytable', updatedTask, function(error, result, response){
-      if(!error) {
-        // Entity updated
-      }
-    });
+	tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
+	  if(!error) {
+	    // Entity updated
+	  }
+	});
 
 > [AZURE.NOTE] Per impostazione predefinita, l'aggiornamento di un'entità non comporta la verifica dei dati per controllare se siano stati modificati da altri processi. Per supportare gli aggiornamenti simultanei:
 >
@@ -182,10 +182,10 @@ Nell'esempio seguente viene dimostrato l'aggiornamento di un'entità mediante l'
 > 2. Quando si esegue un'operazione di aggiornamento su un'entità, aggiungere le informazioni ETag precedentemente recuperate alla nuova entità. Ad esempio:
 >
 >     `entity2['.metadata'].etag = currentEtag;`
->    
+>
 > 3. Eseguire l'operazione di aggiornamento. Se l'entità è stata modificata dall'ultimo recupero del valore di ETag, ad esempio da un'altra istanza dell'applicazione, viene restituito un `error` che indica che la condizione di aggiornamento specificata nella richiesta non è stata soddisfatta.
 
-Con **updateEntity** e **mergeEntity**, se l'entità da aggiornare non esiste, l'operazione di aggiornamento non riuscirà. Se pertanto si desidera archiviare un'entità indipendentemente dal fatto che esista o meno, utilizzare **insertOrReplaceEntity** oppure **insertOrMergeEntity**.
+Con **replaceEntity** e **mergeEntity**, se l'entità da aggiornare non esiste, l'operazione di aggiornamento non riesce. Se pertanto si desidera archiviare un'entità indipendentemente dal fatto che esista o meno, utilizzare **insertOrReplaceEntity** oppure **insertOrMergeEntity**.
 
 In `result` per le operazioni di aggiornamento riuscite correttamente sarà incluso l'**Etag** dell'entità aggiornata.
 
@@ -195,7 +195,7 @@ In `result` per le operazioni di aggiornamento riuscite correttamente sarà incl
 
  Nell'esempio seguente viene dimostrato l'invio di due entità in un batch:
 
-    var task1 = {
+	var task1 = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'},
 	  description: {'_':'Take out the trash'},
@@ -239,11 +239,11 @@ Le operazioni aggiunte a un batch possono essere esaminate visualizzando la prop
 
 Per restituire un'entità specifica in base a **PartitionKey** e **RowKey**, usare il metodo **retrieveEntity**.
 
-    tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
+	tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
 	  if(!error){
 	    // result contains the entity
 	  }
-    });
+	});
 
 Al termine di questa operazione, `result` conterrà l'entità.
 
@@ -296,9 +296,9 @@ Una query su una tabella può recuperare solo alcuni campi da un'entità. Questa
 	  RowKey: {'_': '1'}
 	};
 
-    tableSvc.deleteEntity('mytable', task, function(error, response){
+	tableSvc.deleteEntity('mytable', task, function(error, response){
 	  if(!error) {
-		// Entity deleted
+	    // Entity deleted
 	  }
 	});
 
@@ -308,7 +308,7 @@ Una query su una tabella può recuperare solo alcuni campi da un'entità. Questa
 
 Nell'esempio di codice seguente viene illustrato come eliminare una tabella da un account di archiviazione.
 
-    tableSvc.deleteTable('mytable', function(error, response){
+	tableSvc.deleteTable('mytable', function(error, response){
 		if(!error){
 			// Table deleted
 		}
@@ -379,7 +379,7 @@ L'applicazione client usa quindi la firma di accesso condiviso con il metodo **T
 
 	sharedTableService.queryEntities(query, null, function(error, result, response) {
 	  if(!error) {
-		// result contains the entities
+	    // result contains the entities
 	  }
 	});
 
@@ -391,36 +391,30 @@ Per impostare i criteri di accesso per una firma di accesso condiviso è anche p
 
 Un elenco di controllo di accesso viene implementato usando una matrice di criteri di accesso, con un ID associato a ogni criterio. L'esempio seguente definisce due criteri, uno per 'user1' e uno per 'user2':
 
-	var sharedAccessPolicy = [
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user1'
+	var sharedAccessPolicy = {
+	  user1: {
+	    Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  },
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.TableUtilities.SharedAccessPermissions.ADD,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user2'
+	  user2: {
+	    Permissions: azure.TableUtilities.SharedAccessPermissions.ADD,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  }
-	];
+	};
 
 L'esempio seguente recupera l'elenco di controllo di accesso corrente per la tabella **hometasks** e quindi aggiunge i nuovi criteri tramite **setTableAcl**. Risultato:
 
+	var extend = require('extend');
 	tableSvc.getTableAcl('hometasks', function(error, result, response) {
-      if(!error){
-		//push the new policy into signedIdentifiers
-		result.signedIdentifiers.push(sharedAccessPolicy);
-		tableSvc.setTableAcl('hometasks', result, function(error, result, response){
-	  	  if(!error){
-	    	// ACL set
-	  	  }
-		});
+    if(!error){
+	    var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
+	    tableSvc.setTableAcl('hometasks', newSignedIdentifiers, function(error, result, response){
+	      if(!error){
+	        // ACL set
+	      }
+	    });
 	  }
 	});
 
@@ -448,4 +442,4 @@ Per altre informazioni, vedere le risorse seguenti:
   [App Web Node.js con il servizio tabelle di Azure]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/22/2015"
+   ms.date="04/01/2016"
    ms.author="masashin"/>
 
 # Indicazioni generali per la ripetizione di tentativi
@@ -115,4 +115,4 @@ Le linee guida seguenti consentono di definire un meccanismo di gestione degli e
 * [Modello di transazioni di compensazione](http://msdn.microsoft.com/library/dn589804.aspx)
 * [Modelli di idempotenza](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

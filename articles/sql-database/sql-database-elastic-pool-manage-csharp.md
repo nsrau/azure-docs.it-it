@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/15/2016"
+    ms.date="04/01/2016"
     ms.author="sstein"/>
 
 # Gestire e dimensionare un pool di database elastici con C&#x23;
@@ -22,6 +22,7 @@
 - [Portale di Azure](sql-database-elastic-pool-manage-portal.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 - [C#](sql-database-elastic-pool-manage-csharp.md)
+- [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
 
 Informazioni su come gestire un [pool di database elastici](sql-database-elastic-pool.md) con C&#x23;.
@@ -457,4 +458,4 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
 - [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Riferimento al pool di database elastici](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

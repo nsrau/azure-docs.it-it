@@ -1,6 +1,6 @@
 <properties
    pageTitle="Novità di Catalogo dati di Azure | Microsoft Azure"
-   description="Panoramica delle nuove funzionalità aggiunte al Catalogo dati di Azure."
+   description="Questo articolo fornisce una panoramica delle nuove funzionalità aggiunte ad Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Novità di Catalogo dati di Azure
@@ -216,4 +216,4 @@ Nella settimana del 21 agosto 2015 sono state aggiunte a **Catalogo dati di Azur
 - Edizione Standard: quando si aggiungono proprietari agli asset di dati, il **Catalogo dati di Azure** ora supporta sia gli account utente che i gruppi di sicurezza come proprietari. Per aggiungere un gruppo di sicurezza come proprietario di asset di dati selezionati, è possibile immettere il nome visualizzato o l'indirizzo di posta elettronica UPN del gruppo, se presente.
 - Supporto per le origini dati dell'archivio BLOB di Azure. Gli utenti possono ora registrarsi e individuare i BLOB e le directory di archiviazione di Azure.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -85,11 +85,14 @@ Il *&#60;nome DNS della macchina virtuale>* è disponibile nel portale di Azure 
 
 Viene visualizzato un avviso che indica che _è stato riscontrato un problema con il certificato di sicurezza del sito Web_ (Internet Explorer) oppure che _la connessione non è privata_ (Chrome), come riportato nelle figure seguenti. Fare clic su **Continuare con il sito Web (scelta non consigliata)** (Internet Explorer) oppure **Avanzate** e quindi **Passare a &#60;*Nome DNS*> (non sicuro)** (Chrome) per continuare. Inserire quindi la password specificata in precedenza per accedere a IPython Notebook.
 
-Internet Explorer: ![Creare un'area di lavoro][20]
+Internet Explorer:
+![Creare un'area di lavoro][20]
 
-Chrome: ![Creare un'area di lavoro][21]
+Chrome:
+![Creare un'area di lavoro][21]
 
-Dopo aver eseguito l'accesso a IPython Notebook, nel browser verrà visualizzata la directory *DataScienceSamples*. Tale directory contiene esempi di IPython Notebook condivisi da Microsoft per offrire un supporto agli utenti che svolgono attività legate all'analisi scientifica dei dati. Questi esempi di IPython Notebook sono estratti dal [**repository GitHub**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) nelle macchine virtuali durante la procedura di installazione del server IPython Notebook. Microsoft gestisce e aggiorna frequentemente questi repository. Gli utenti possono visitare il repository GitHub per ottenere gli esempi di IPython Notebook più recenti. ![Creare un'area di lavoro][18]
+Dopo aver eseguito l'accesso a IPython Notebook, nel browser verrà visualizzata la directory *DataScienceSamples*. Tale directory contiene esempi di IPython Notebook condivisi da Microsoft per offrire un supporto agli utenti che svolgono attività legate all'analisi scientifica dei dati. Questi esempi di IPython Notebook sono estratti dal [**repository GitHub**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) nelle macchine virtuali durante la procedura di installazione del server IPython Notebook. Microsoft gestisce e aggiorna frequentemente questi repository. Gli utenti possono visitare il repository GitHub per ottenere gli esempi di IPython Notebook più recenti.
+![Creare un'area di lavoro][18]
 
 ## <a name="upload"></a>Passaggio 5: Caricare un IPython Notebook esistente da un computer locale nel server IPython Notebook
 
@@ -122,9 +125,9 @@ La macchina virtuale verrà deallocata ma non eliminata. È possibile riavviare 
 
 ## La macchina virtuale di Azure è pronta all'utilizzo: passaggi successivi
 
-La macchina virtuale è pronta per essere utilizzata negli esercizi di analisi scientifica dei dati. La macchina virtuale può inoltre essere utilizzata come server di IPython Notebook per la navigazione e l'elaborazione dei dati e per altre attività legate ad Azure Machine Learning e il Cortana Analytics Process (CAP).
+La macchina virtuale è pronta per essere utilizzata negli esercizi di analisi scientifica dei dati. La macchina virtuale può anche essere usata come server di IPython Notebook per la navigazione e l'elaborazione dei dati e per altre attività legate ad Azure Machine Learning e Cortana Analytics Process.
 
-I passaggi successivi del processo di analisi avanzata dei dati sono illustrati in [Guida alla formazione: Elaborazione dati avanzata in Azure](machine-learning-data-science-advanced-data-processing.md) e possono includere le procedure per lo spostamento, l'elaborazione e il campionamento dei dati in HDInsight in preparazione dell'apprendimento dai dati con Azure Machine Learning.
+I passaggi successivi del Cortana Analytics Process sono illustrati nel [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e possono includere le procedure per lo spostamento, l'elaborazione e il campionamento dei dati in HDInsight in preparazione dell'apprendimento dei dati con Azure Machine Learning.
 
 
 [15]: ./media/machine-learning-data-science-setup-virtual-machine/vmshutdown.png
@@ -141,6 +144,5 @@ I passaggi successivi del processo di analisi avanzata dei dati sono illustrati 
 [27]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-4.png
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
- 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!------HONumber=AcomDC_0406_2016-->

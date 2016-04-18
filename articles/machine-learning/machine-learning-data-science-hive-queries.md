@@ -36,7 +36,7 @@ Questo articolo presuppone che l'utente abbia:
  
 * Creato un account di archiviazione di Azure. Per istruzioni per questa attività, vedere [Creare un account di archiviazione di Azure](../hdinsight-get-started.md#storage). 
 * Eseguito il provisioning di un cluster Hadoop con il servizio HDInsight. Per istruzioni, vedere [Provisioning di un cluster HDInsight](../hdinsight-get-started.md#provision).
-* Caricati i dati nelle tabelle Hive nei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-hive-tables.md) per caricare prima di tutto i dati nelle tabelle Hive.
+* Caricati i dati nelle tabelle Hive nei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-move-hive-tables.md) per caricare prima di tutto i dati nelle tabelle Hive.
 * Abilitato l'accesso remoto al cluster. Per istruzioni, vedere [Accesso al nodo head del cluster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 
@@ -127,7 +127,7 @@ In questa sezione, vengono descritte le attività di gestione dei dati seguenti 
 1. [Esplorazione dei dati](#hive-dataexploration)
 2. [Creazione di funzionalità](#hive-featureengineering)
 
-> [AZURE.NOTE] Le query Hive di esempio presuppongono che i dati siano stati caricati nelle tabelle Hive nei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-hive-tables.md) per caricare innanzitutto i dati nelle tabelle Hive.
+> [AZURE.NOTE] Le query Hive di esempio presuppongono che i dati siano stati caricati nelle tabelle Hive nei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-move-hive-tables.md) per caricare innanzitutto i dati nelle tabelle Hive.
 
 ###<a name="hive-dataexploration"></a>Esplorazione dei dati
 Di seguito sono riportati alcuni script Hive di esempio che possono essere usati per esplorare i dati nelle tabelle Hive.
@@ -325,4 +325,4 @@ Le impostazioni predefinite dei parametri del cluster Hive potrebbero non essere
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

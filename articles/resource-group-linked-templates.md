@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Uso di modelli collegati con Gestione risorse di Azure"
+   pageTitle="Modelli collegati con Azure Resource Manager | Microsoft Azure"
    description="Descrive come usare i modelli collegati in un modello di Gestione risorse di Azure per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="04/04/2016"
    ms.author="tomfitz"/>
 
 # Uso di modelli collegati con Gestione risorse di Azure
@@ -113,7 +113,7 @@ Nell'esempio seguente viene illustrato come usare un URL di base per creare due 
 Se è necessario passare un valore dal modello collegato al modello principale, è possibile creare un valore nella sezione **outputs** del modello collegato. Per un esempio vedere[Condivisione dello stato in modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md).
 
 ## Passaggi successivi
-- [Creazione di modelli](./resource-group-authoring-templates.md)
-- [Distribuzione di modelli](resource-group-template-deploy.md)
+- Per informazioni sulla definizione dell'ordine di distribuzione per le risorse, vedere [Definizione delle dipendenze nei modelli di gestione risorse di Azure](resource-group-define-dependencies.md)
+- Per informazioni su come definire una sola risorsa ma creare molte istanze di essa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0406_2016-->

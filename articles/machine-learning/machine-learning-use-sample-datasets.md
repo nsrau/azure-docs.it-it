@@ -21,7 +21,7 @@
 
 [top]: #machine-learning-sample-datasets
 
-Quando si crea una nuova area di lavoro in Azure Machine Learning, per impostazione predefinita è inclusa una serie di set di dati e di esperimenti di esempio. Molti di questi set di dati esempio vengono usati dai modelli di esempio nella [raccolta di modelli di Azure Cortana Analytics](http://gallery.azureml.net/), altri sono inclusi come esempi dei diversi tipi di dati usati in Machine Learning.
+Quando si crea una nuova area di lavoro in Azure Machine Learning, per impostazione predefinita è inclusa una serie di set di dati e di esperimenti di esempio. Molti di questi set di dati esempio vengono usati dai modelli di esempio in [Azure Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/), altri sono inclusi come esempi dei diversi tipi di dati usati in Machine Learning.
 
 Alcuni di questi set di dati sono disponibili nell'archivio BLOB di Azure. Per questi set di dati la tabella seguente fornisce il link diretto. È possibile utilizzare questi set di dati in esperimenti usando il[modulo][reader]di lettura.
 
@@ -316,4 +316,4 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

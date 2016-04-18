@@ -1,21 +1,18 @@
 
-Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-linux-about-disks-vhds.md).
+Per altre informazioni dettagliate sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
 <a id="attachempty"></a>
 ## Procedura: Collegare un disco vuoto
 Il collegamento di un disco vuoto costituisce il modo più semplice per aggiungere un disco dati perché Azure crea automaticamente il file con estensione vhd e lo archivia nell'account di archiviazione.
 
-1.  Aprire CLI di Azure per Mac, Linux e Windows e connettersi alla sottoscrizione di Azure. Per ulteriori informazioni, leggere [connettersi ad Azure da Azure CLI](../xplat-cli-connect.md).
+1.  Aprire l'interfaccia della riga di comando di Azure e [connettersi alla sottoscrizione di Azure](../articles/xplat-cli-connect.md). Assicurarsi che sia attiva la modalità Gestione servizi di Azure (`azure config mode asm`).
 
-2.  Assicurarsi di essere in modalità di Gestione servizi di Azure, ovvero l'impostazione predefinita digitando`azure config
- 	mode asm`.
-
-3.  Utilizzare il comando`azure vm disk attach-new`per creare e collegare un nuovo disco, come illustrato di seguito. Si noti che _ubuntuVMasm_verrà sostituito dal nome della macchina virtuale Linux creata nella sottoscrizione. Il numero 30 è la dimensione del disco in GB in questo esempio.
+2.  Immettere `azure vm disk attach-new` per creare e collegare un nuovo disco, come illustrato di seguito. Sostituire _ubuntuVMasm_ con il nome della macchina virtuale Linux. Quindi specificare la dimensione del disco in GB, che in questo esempio è pari a 30 GB.
 
         azure vm disk attach-new ubuntuVMasm 30
 
-4.	Una volta creato e collegato, il disco dati verrà elencato nell’output `azure vm disk list
-    <virtual-machine-name>` come quanto segue:
+3.	Una volta creato e collegato, il disco dati verrà elencato nell’output di `azure vm disk list
+    <virtual-machine-name>`:
 
         $ azure vm disk list ubuntuVMasm
         info:    Executing command vm disk list
@@ -33,11 +30,9 @@ Il collegamento di un disco vuoto costituisce il modo più semplice per aggiunge
 
 Per collegare un disco esistente, è necessario che in un account di archiviazione sia disponibile un file con estensione vhd.
 
-1. 	Aprire CLI di Azure per Mac, Linux e Windows e connettersi alla sottoscrizione di Azure. Per ulteriori informazioni, leggere [connettersi ad Azure da Azure CLI](../xplat-cli-connect.md).
+1. 	Aprire l'interfaccia della riga di comando di Azure e [connettersi alla sottoscrizione di Azure](../articles/xplat-cli-connect.md). Assicurarsi che sia attiva la modalità Gestione servizi di Azure (`azure config mode asm`).
 
-2.  Assicurarsi di essere in modalità di Gestione servizi di Azure, ovvero l'impostazione predefinita. Se è stata modificata la modalità di gestione delle risorse, è sufficiente ripristinarla digitando`azure config mode asm`.
-
-3.	Scoprire se il disco rigido virtuale che si desidera collegare è già caricato alla sottoscrizione di Azure utilizzando:
+2.	Controllare se il disco rigido virtuale che si desidera collegare è già caricato nella sottoscrizione di Azure:
 
         $azure vm disk list
     	info:    Executing command vm disk list
@@ -49,7 +44,7 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
     	data:    ubuntuVMasm-ubuntuVMasm-0-201508060040530369
     	info:    vm disk list command OK
 
-4.  Se non si trova il disco che si desidera utilizzare, è possibile caricare un disco rigido virtuale locale alla sottoscrizione utilizzando`azure vm disk create`o`azure vm disk upload`. Un esempio potrebbe essere questo:
+3.  Se non si trova il disco che si desidera utilizzare, è possibile caricare un disco rigido virtuale locale alla sottoscrizione utilizzando`azure vm disk create`o`azure vm disk upload`. Un esempio di `disk create` potrebbe essere:
 
         $azure vm disk create myTestVhd2 .\TempDisk\test.VHD -l "East US" -o Linux
 		info:    Executing command vm disk create
@@ -62,9 +57,9 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
 		uploaded successfully
 		info:    vm disk create command OK
 
-	È inoltre possibile utilizzare il`azure vm disk upload`comando per caricare un disco rigido virtuale a un account di archiviazione specifico. Ulteriori informazioni sui comandi per la gestione dei dischi dati della macchina virtuale di Azure[qui](virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
+	È inoltre possibile utilizzare il `azure vm disk upload` per caricare un disco rigido virtuale in un account di archiviazione specifico. Ulteriori informazioni sui comandi per la gestione dei dischi dati della macchina virtuale di Azure[qui](virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
 
-5.  Digitare il comando seguente per collegare il disco rigido virtuale caricato desiderato alla macchina virtuale:
+4.  Ora si collegherà il disco rigido virtuale alla macchina virtuale:
 
 		$azure vm disk attach ubuntuVMasm myTestVhd
 		info:    Executing command vm disk attach
@@ -74,8 +69,8 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
 
 	Assicurarsi di sostituire_ubuntuVMasm_con il nome della macchina virtuale e_myTestVhd_con il disco rigido virtuale desiderato.
 
-6.	È possibile verificare se il disco è collegato alla macchina virtuale con il comando`azure vm disk list
- 	<virtual-machine-name>`come:
+5.	È possibile verificare che il disco sia collegato alla macchina virtuale con `azure vm disk list
+ 	<virtual-machine-name>`:
 
 		$azure vm disk list ubuntuVMasm
 		info:    Executing command vm disk list
@@ -93,4 +88,4 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
 > [AZURE.NOTE]
 Dopo l'aggiunta di un disco dati, sarà necessario accedere alla macchina virtuale e inizializzare il disco in modo che la macchina virtuale possa usarlo per l'archiviazione.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Origini dati supportate da Catalogo dati di Azure | Microsoft Azure"
-   description="Specifica delle origini dati attualmente supportate."
+   description="Questo articolo elenca tutte le origini dati e i tipi di asset di dati supportati per la registrazione in Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,20 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Origini dati supportate da Catalogo dati di Azure
 
-Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API pubblica, uno strumento di registrazione di tipo ClickOnce o immettendo manualmente le informazioni direttamente nel portale Web di Catalogo dati. La griglia riportata di seguito fornisce un riepilogo di tutte le origini supportate oggi dal catalogo e delle relative funzionalità di pubblicazione. Sono anche elencati gli strumenti dati esterni che ogni origine può avviare dall'interno del portale. Più avanti è riportata una seconda griglia che specifica in modo più tecnico le proprietà di connessione delle singole origini dati.
+Gli utenti di **Azure Data Catalog** possono pubblicare metadati con un'API pubblica, un tool di registrazione delle origini dati di tipo ClickOnce o immettendo manualmente le informazioni direttamente nel portale Web di Azure Data Catalog.
+
+La tabella riportata di seguito fornisce un riepilogo di tutte le origini attualmente supportate da Azure Data Catalog e delle relative funzionalità di pubblicazione. Sono elencati anche gli strumenti dati esterni che ogni origine può avviare dall'interno del portale di Azure Data Catalog.
+
+Ancora oltre è visualizzata una seconda tabella che fornisce una specifica tecnica più ampia di ogni proprietà di connessione delle origini dati e la specifica di riferimento per l'origine dati usata per ogni asset di dati supportato quando si usa l'API di Azure Data Catalog.
 
 
-## Elenco di origini dati supportate
+## Elenco di origini dati e asset supportati
 
 <table>
 
     <tr>
-       <td><b>Oggetto origine dati</b></td>
+       <td><b>Asset di dati</b></td>
        <td><b>API</b></td>
        <td><b>Immissione manuale</b></td>
        <td><b>Strumento di registrazione</b></td>
@@ -260,7 +264,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     </tr>
 
     <tr>
-      <td>Tabella di DB2</td>
+      <td>Tabella DB2</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -269,7 +273,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
     </tr>
 
     <tr>
-      <td>Vista di DB2</td>
+      <td>Visualizzazione DB2</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -398,6 +402,7 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
 
 
 <br> <br>
+
 ## Specifica di riferimento per l'origine dati
 
 <table>
@@ -1284,4 +1289,4 @@ Gli utenti di Catalogo dati di Azure possono pubblicare metadati tramite un'API 
 
 </table>
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

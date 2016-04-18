@@ -32,7 +32,7 @@ Questa tabella consente di confrontare le scelte offerte da Azure.
 
 ## Passaggi successivi
 
-Provare una macchina virtuale mediante la creazione di una macchina virtuale semplice rapidamente. Per le istruzioni, vedere [Creare una macchina virtuale che esegue Linux](virtual-machines-linux-cli-create.md).
+Provare una macchina virtuale mediante la creazione di una macchina virtuale semplice rapidamente. Per istruzioni, vedere [Creare una macchina virtuale che esegue Linux](virtual-machines-linux-quick-create-cli.md).
 
 Poiché questa esercitazione consente di creare rapidamente una macchina virtuale, viene descritto solo un metodo per l'esecuzione di questa operazione, invece di descrivere i vari strumenti utilizzabili per creare macchine virtuali. Per un riepilogo di questi strumenti e i collegamenti alle istruzioni, vedere le informazioni sui [diversi modi per creare una macchina virtuale Linux](virtual-machines-linux-creation-choices.md).
 
@@ -42,4 +42,4 @@ Poiché questa esercitazione consente di creare rapidamente una macchina virtual
 [Macchine virtuali]: #tellmevm
 [Servizi cloud]: cloud-services-choose-me.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/31/2016"
    ms.author="kasing"/>
 
 # Gestire le macchine virtuali con Azure PowerShell
@@ -105,4 +105,4 @@ Utilizzare le istruzioni in [Creare e preconfigurare una macchina virtuale Linux
 - Come membro di un set esistente con carico bilanciato
 - Con un indirizzo IP statico
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->
