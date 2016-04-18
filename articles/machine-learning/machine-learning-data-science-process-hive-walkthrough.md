@@ -79,7 +79,7 @@ Prima di usare i dati, è opportuno stabilire il tipo di stima che si desidera o
 
 Per impostare un ambiente Azure per l'analisi avanzata basato su un cluster HDInsight è necessario seguire questa procedura composta da tre passaggi:
 
-1. [Creare un account di archiviazione](../storage-whatis-account.md): l'account di archiviazione viene usato per archiviare i dati nell'archivio BLOB di Azure. Anche i dati usati nei cluster HDInsight vengono archiviati in questa posizione.
+1. [Creare un account di archiviazione](../storage/storage-create-storage-account.md): l'account di archiviazione viene usato per archiviare i dati nell'archivio BLOB di Azure. Anche i dati usati nei cluster HDInsight vengono archiviati in questa posizione.
 
 2. [Personalizzare i cluster Hadoop di Azure HDInsight per Advanced Analytics Process and Technology](machine-learning-data-science-customize-hadoop-cluster.md): questo passaggio consente di creare un cluster Hadoop di Azure HDInsight con la versione a 64 bit di Anaconda Python 2.7 installata in tutti i nodi. Quando si personalizza un cluster HDInsight, è importante non dimenticare due passaggi importanti.
 
@@ -95,7 +95,7 @@ Per impostare un ambiente Azure per l'analisi avanzata basato su un cluster HDIn
 
 Per acquisire il set di dati [Corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) dal relativo percorso pubblico, è possibile usare uno dei metodi descritti in [Spostamento dei dati da e verso l'archiviazione BLOB di Azure](machine-learning-data-science-move-azure-blob.md) e copiare i dati nella nuova macchina virtuale.
 
-Si descrive ora come usare AzCopy per trasferire i file contenenti i dati. Per scaricare e installare AzCopy, seguire le istruzioni fornite in [Introduzione all'utilità della riga di comando AzCopy](../storage-use-azcopy.md).
+Si descrive ora come usare AzCopy per trasferire i file contenenti i dati. Per scaricare e installare AzCopy, seguire le istruzioni fornite in [Introduzione all'utilità della riga di comando AzCopy](../storage/storage-use-azcopy.md).
 
 1. Da una finestra del prompt dei comandi, eseguire i seguenti comandi AzCopy sostituendo *<path_to_data_folder>* con la destinazione desiderata:
 
@@ -786,7 +786,7 @@ b. Per problemi di regressione, l'accuratezza della stima viene misurata esamina
 
 Si noti che il coefficiente di determinazione è 0,709, che implica che circa il 71% della varianza è rappresentato dai coefficienti del modello.
 
-**Nota importante:** per altre informazioni su Azure Machine Learning e su come accedere e usare il servizio, consultare [Cos'è Azure Machine Learning?](machine-learning-what-is-machine-learning.md). Una risorsa molto utile per la riproduzione di una serie di esperimenti di apprendimento automatico su Azure Machine Learning è la [raccolta di Cortana Analytics](https://gallery.azureml.net/). La raccolta include una vasta gamma di esperimenti e fornisce un'introduzione approfondita alle varie funzionalità di Azure Machine Learning.
+**Nota importante:** per altre informazioni su Azure Machine Learning e su come accedere e usare il servizio, consultare [Cos'è Azure Machine Learning?](machine-learning-what-is-machine-learning.md). Una risorsa molto utile per la riproduzione di una serie di esperimenti di apprendimento automatico su Azure Machine Learning è [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). La raccolta include una vasta gamma di esperimenti e fornisce un'introduzione approfondita alle varie funzionalità di Azure Machine Learning.
 
 ## Informazioni sulla licenza
 
@@ -794,9 +794,7 @@ Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con
 
 ## Riferimenti
 
-• [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) 
-•	[Complemento ai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) • [Complemento ai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +808,4 @@ Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

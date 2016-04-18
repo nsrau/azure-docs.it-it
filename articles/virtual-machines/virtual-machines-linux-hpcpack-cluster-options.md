@@ -18,16 +18,18 @@ ms.service="virtual-machines-linux"
 
 # Opzioni per creare e gestire un cluster HPC (High Performance Computing) Linux in Azure con Microsoft HPC Pack
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
 [AZURE.INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
+
+Se si desidera eseguire i carichi di lavoro HPC di Windows con HPC Pack, vedere [Opzioni per la creazione e la gestione di un cluster Windows HPC in Azure con Microsoft HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Eseguire un cluster HPC Pack nelle VM di Azure
 
 ### Modelli di Azure
 
 
-* (Marketplace) [Cluster HPC Pack per carichi di lavoro di Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
+* (Marketplace) [Cluster HPC Pack per carichi di lavoro Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
 
 * (Guida introduttiva) [Creare un cluster HPC con nodi di calcolo Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
 
@@ -64,4 +66,4 @@ ms.service="virtual-machines-linux"
 
 * [Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-classic-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

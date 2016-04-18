@@ -1,7 +1,4 @@
 
-Questo articolo illustra come usare i modelli di Gestione risorse e l'interfaccia della riga di comando di Azure per eseguire attività comuni per la distribuzione e la gestione delle macchine virtuali di Azure. Per altri modelli disponili, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) e [Creare framework di applicazioni utilizzando modelli](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
-
-
 - [Creazione rapida di una macchina virtuale in Azure](#quick-create-a-vm-in-azure)
 - [Distribuire una macchina virtuale in Azure da un modello](#deploy-a-vm-in-azure-from-a-template)
 - [Creare una macchina virtuale da un'immagine personalizzata](#create-a-custom-vm-image)
@@ -16,7 +13,7 @@ Questo articolo illustra come usare i modelli di Gestione risorse e l'interfacci
 
 ## Preparazione
 
-Prima di poter usare l'interfaccia della riga di comando di Azure con i gruppi di risorse di Azure, è necessario disporre della versione corretta dell'interfaccia della riga di comando di Azure e di un account Azure. Se non è disponibile l'interfaccia della riga di comando di Azure, è necessario [installarla](xplat-cli-install.md).
+Prima di poter usare l'interfaccia della riga di comando di Azure con i gruppi di risorse di Azure, è necessario disporre della versione corretta dell'interfaccia della riga di comando di Azure e di un account Azure. Se non è disponibile l'interfaccia della riga di comando di Azure, è necessario [installarla](../articles/xplat-cli-install.md).
 
 ### Aggiornare la versione dell'interfaccia della riga di comando di Azure alla 0.9.0 o successiva
 
@@ -214,7 +211,7 @@ Per distribuire una nuova macchina virtuale di Azure da un modello usando l'inte
 
 ### Passaggio 1: esaminare il file JSON per i parametri del modello
 
-Di seguito il contenuto del file JSON per il modello. Anche il modello è disponibile in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json).
+Di seguito il contenuto del file JSON per il modello. Anche il modello è disponibile in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json).
 
 I modelli sono flessibili, quindi l'autore potrebbe aver scelto di rendere disponibili molti parametri oppure di offrirne un numero più limitato creando un modello più rigido. Per raccogliere le informazioni necessarie per passare il modello come parametri, aprire il file di modello (in questo argomento è un modello inline di seguito riportato) ed esaminare i valori dei **parametri**.
 
@@ -435,7 +432,7 @@ Verrà richiesto di fornire i valori dei parametri contenuti nella sezione "para
 
 Di seguito è fornito un esempio:
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json myResourceGroup firstDeployment
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json myResourceGroup firstDeployment
     info:    Executing command group deployment create
     info:    Supply values for the following parameters
     newStorageAccountName: storageaccount
@@ -477,7 +474,7 @@ Nelle sezioni precedenti è stato illustrato l'utilizzo di base dei modelli. È 
 
 ### Passaggio 1: esaminare il file JSON per il modello
 
-Ecco il contenuto del file JSON per il modello che viene usato come esempio in questa sezione.
+Ecco il contenuto del file JSON per il modello che viene usato come esempio in questa sezione. Anche il modello è disponibile in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).
 
 Anche in questo caso, è necessario trovare i valori da immettere per i parametri privi di valori predefiniti. Quando si esegue il comando `azure group deployment create` dell'interfaccia della riga di comando di Azure, verrà richiesto di immettere tali valori.
 
@@ -1176,7 +1173,7 @@ Per errori specifici ad esempio, è possibile utilizzare strumenti come **jq** p
 
 ## <a id="display-information-about-a-virtual-machine"></a>Attività: Visualizzare informazioni relative a una macchina virtuale
 
-Per visualizzare informazioni sulle macchine virtuali specifiche nel gruppo di risorse in uso, usare il comando `azure vm show <groupname> <vmname> command`. Se nel gruppo sono presenti più macchine virtuali, potrebbe essere prima necessario elencare le macchine virtuali nel gruppo usando il comando `azure vm list <groupname>`.
+Per visualizzare informazioni su VM specifiche nel proprio gruppo di risorse, usare il comando `azure vm show <groupname> <vmname>`. Se nel gruppo sono presenti più macchine virtuali, potrebbe essere prima necessario elencare le macchine virtuali nel gruppo usando il comando `azure vm list <groupname>`.
 
     azure vm list zoo
     info:    Executing command vm list
@@ -1271,7 +1268,7 @@ Per collegare un disco dati esistente, eseguire questo comando:
 
     azure vm disk attach <resource-group> <vm-name> [vhd-url]
 
-Quindi è necessario montare il disco, come si farebbe normalmente in Linux (o in Windows).
+Quindi è necessario montare il disco, come si farebbe normalmente in Linux.
 
 
 ## Passaggi successivi
@@ -1281,4 +1278,4 @@ Per altri esempi che mostrano come usare l'interfaccia della riga di comando di 
 
 Per altri modelli disponibili, vedere gli articoli relativi ai [modelli della Guida introduttiva di Azure](https://azure.microsoft.com/documentation/templates/) e ai [framework applicazioni con modelli](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

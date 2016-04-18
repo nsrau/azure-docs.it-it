@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/25/2015"
+   ms.date="03/25/2016"
    ms.author="vturecek"/>
 
 # Scenari di Testabilità di Service Fabric: comunicazione tra servizi
@@ -97,4 +97,4 @@ In questo esempio `QuorumLossMode` viene impostato su `QuorumReplicas`, per indi
 
 [Scenari di Testabilità](service-fabric-testability-scenarios.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

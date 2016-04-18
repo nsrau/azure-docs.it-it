@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Terminologia del Catalogo dati di Azure"
-   description="Introduzione ai concetti e termini usati nella documentazione del Catalogo dati di Azure."
+   pageTitle="Terminologia di Azure Data Catalog | Microsoft Azure"
+   description="Questo articolo fornisce un'introduzione ai concetti e ai termini usati nella documentazione di Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Terminologia del Catalogo dati di Azure
@@ -86,4 +86,4 @@ La registrazione è l'atto di estrazione dei metadati di asset di dati da un'ori
 
 - [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md). In questo articolo viene fornita un'esercitazione end-to-end in che illustra come utilizzare il Catalogo dati di Azure per l'individuazione dell’origine dati.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -4,7 +4,7 @@
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Schema del modello di chiave privata nell’insieme di credenziali chiave
@@ -38,19 +38,20 @@ Per creare una chiave privata nell’insieme di credenziali chiave, aggiungere l
 
 Nelle tabelle seguenti vengono descritti i valori che è necessario impostare nello schema.
 
-| Name | Tipo | Obbligatorio | Valori consentiti | Descrizione |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Sì | Come risorsa figlio dell'insieme di credenziali chiave:<br />**secrets**<br /><br />Come risorsa di livello superiore:<br />**Microsoft.KeyVault/vaults/secrets** | Il tipo di risorsa da creare. |
-| apiVersion | enum | Sì | **2015-06-01** <br /> **2014-12-19-preview** | La versione dell'API da utilizzare per la creazione della risorsa. | 
-| name | string | Sì | | Nome della chiave privata da creare. Se si distribuisce la chiave privata come una risorsa figlio di un insieme di credenziali chiave, è sufficiente fornire un nome per la chiave privata. Se si distribuisce la chiave privata come una risorsa di livello superiore, i nomi devono essere nel formato **{key-vault-name}/{secret-name}**. |
-| properties | object | Sì | (come illustrato di seguito) | Oggetto che specifica il valore della chiave privata da creare. |
-| dependsOn | array | No | Un elenco delimitato da virgole di nomi di risorse o di identificatori univoci di risorse. | La raccolta di risorse da cui dipende questo collegamento. Se l'insieme di credenziali chiave per la chiave privata viene distribuito nello stesso modello, includere il nome dell'insieme di credenziali chiave in questo elemento per assicurarsi che venga distribuito prima. |
+| Nome | Valore |
+| ---- | ---- | 
+| type | Enum<br />Obbligatorio<br />**secrets** (se distribuito come risorsa figlio dell'insieme di credenziali delle chiavi) o<br /> **Microsoft.KeyVault/vaults/secrets** (se distribuito come risorsa di livello superiore)<br /><br />Tipo della risorsa da creare. |
+| apiVersion | Enum<br />Obbligatorio<br />**2015-06-01** o **2014-12-19-preview**<br /><br />Versione dell'API da usare per creare la risorsa. | 
+| name | String<br />Obbligatorio<br />Parola singola se distribuito come risorsa figlio dell'insieme di credenziali delle chiavi o nel formato **{nome insieme di credenziali delle chiavi}/{secret-name}** se distribuito come risorsa di livello superiore in un insieme di credenziali delle chiavi esistente.<br /><br />Nome del segreto da creare. |
+| properties | Oggetto<br />Obbligatorio<br />[oggetto properties](#properties)<br /><br />Oggetto che specifica il valore del segreto da creare. |
+| dependsOn | Array<br />Facoltativo<br />Elenco di valori separati da virgole di nomi di risorsa o di identificatori univoci di risorse.<br /><br />Raccolta di risorse da cui dipende questo collegamento. Se l'insieme di credenziali chiave per la chiave privata viene distribuito nello stesso modello, includere il nome dell'insieme di credenziali chiave in questo elemento per assicurarsi che venga distribuito prima. |
 
+<a id="properties" />
 ### oggetto delle proprietà
 
-| Name | Tipo | Obbligatorio | Valori consentiti | Descrizione |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| value | string | Sì | | Il valore della chiave privata da memorizzare nell'insieme di credenziali chiave. Quando si passa un valore di questa proprietà, utilizzare un parametro di tipo **securestring**. |
+| Nome | Valore |
+| ---- | ---- | 
+| value | String<br />Obbligatorio<br /><br />Valore del segreto da archiviare nell'insieme di credenziali delle chiavi. Quando si passa un valore di questa proprietà, utilizzare un parametro di tipo **securestring**. |
 
 	
 ## esempi
@@ -226,4 +227,4 @@ Nel secondo esempio viene distribuita una chiave privata come risorsa di livello
 - Per informazioni generali sugli insiemi di credenziali chiave, vedere [Introduzione all'insieme di credenziali chiave Azure](./key-vault/key-vault-get-started.md).
 - Per un esempio di riferimento a una chiave privata nell’insieme di credenziali chiave durante la distribuzione di modelli, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -21,8 +21,9 @@
 
 
 > [AZURE.SELECTOR]
-- [Interfaccia della riga di comando di Azure](dns-getstarted-create-recordset-cli.md)
+- [Portale di Azure](dns-getstarted-create-recordset-portal.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
+- [Interfaccia della riga di comando di Azure](dns-getstarted-create-recordset-cli.md)
 
 Dopo aver creato la zona DNS, è necessario aggiungere i record DNS per il dominio. A tale scopo, è necessario comprendere i record e i set di record DNS.
 
@@ -125,4 +126,4 @@ Le modifiche sono state completate. È possibile recuperare il set di record dal
 [Automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

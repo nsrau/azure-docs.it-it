@@ -30,7 +30,7 @@ Questo articolo illustrerà come installare e configurare PostgreSQL in una macc
 
 ## Installare PostgreSQL
 
-> [AZURE.NOTE] Per poter completare questa esercitazione, è necessario disporre già di una macchina virtuale di Microsoft Azure che esegue Linux. Prima di procedere, vedere l'[esercitazione relativa alle macchine virtuali Linux di Azure](virtual-machines-linux-cli-create.md) per creare e impostare una macchina virtuale Linux.
+> [AZURE.NOTE] Per poter completare questa esercitazione, è necessario disporre già di una macchina virtuale di Microsoft Azure che esegue Linux. Prima di procedere, vedere l'[esercitazione relativa alle macchine virtuali Linux di Azure](virtual-machines-linux-quick-create-cli.md) per creare e impostare una macchina virtuale Linux.
 
 In questo caso, usare la porta 1999 come porta di PostgreSQL.
 
@@ -255,4 +255,4 @@ Per aggiornare dati in una tabella, usare il comando seguente: In questo caso, S
 ##Per altre informazioni su PostgreSQL
 Ora che è stata completata l'installazione di PostgreSQL in una macchina virtuale Linux di Azure, è possibile utilizzarlo in Azure. Per ulteriori informazioni su PostgreSQL, visitare il [sito Web PostgreSQL](http://www.postgresql.org/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

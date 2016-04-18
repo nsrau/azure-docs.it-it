@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="01/12/2016" 
+    ms.date="04/05/2016" 
     ms.author="elizapo" />
 
 # Protezione dell'accesso ad Azure RemoteApp e oltre
@@ -44,7 +44,7 @@ Gli amministratori di Azure RemoteApp possono usare la funzionalità disponibile
 ### Come configurare l'accesso condizionale per Azure RemoteApp
 Verrà ora illustrato uno scenario di esempio: l'amministratore di Azure RemoteApp vuole bloccare l'accesso all'ambiente quando gli utenti sono all'esterno della rete aziendale.
 
->[AZURE.NOTE]Si presuppone che Azure AD sia stato aggiornato al piano Premium e che sia stata creata almeno una raccolta di Azure RemoteApp.
+>[AZURE.NOTE] Si presuppone che Azure AD sia stato aggiornato al piano Premium e che sia stata creata almeno una raccolta di Azure RemoteApp.
 
 1.	Nel portale di Azure fare clic sulla scheda **Active Directory**, quindi fare clic sulla directory che si vuole configurare.
 
@@ -110,4 +110,4 @@ Con Azure RemoteApp è necessario configurare prima la rete virtuale e quindi us
 ## Soluzione completa
 Il diagramma seguente illustra la soluzione completa in cui è stato creato un canale di accesso sicuro dall'utente finale, attraverso Azure RemoteApp (ARA), alla risorsa backend. ![Proteggere Azure RemoteApp](./media/remoteapp-secureaccess/ra-secureoverview.png) Nella fase 1 sono stati selezionati gli utenti e sono state create le regole di accesso che determinano come accedere ad ARA. Nell'esempio seguente viene consentito l'accesso solo agli utenti che lavorano dalla rete aziendale. Gli utenti non conformi non potranno accedere all'ambiente ARA. Nella "fase 2" la risorsa back-end è stata esposta solo tramite la configurazione di rete virtuale/VPN controllata. Azure RemoteApp è stato inserito nella stessa rete virtuale. Come risultato finale la risorsa è accessibile solo dall'ambiente ARA.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configurare una stringa di connessione all'archiviazione di Azure | Microsoft Azure"
-	description="Imparare come configurare una stringa di connessione in un account di archiviazione di Azure Una stringa di connessione include le informazioni necessarie per autenticare l'accesso a livello di codice alle risorse in un account di archiviazione. La stringa di connessione può incapsulare la chiave di accesso account per un account che si è proprietari o può includere una firma di accesso condiviso per accedere alle risorse in un account senza la chiave di accesso."
+	description="Costruire una stringa di connessione a un account di archiviazione di Azure. Una stringa di connessione include le informazioni necessarie per autenticare l'accesso alle risorse in un account di archiviazione dall'applicazione."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="04/01/2016"
 	ms.author="tamram"/>
 
 # Configurare le stringhe di connessione di archiviazione di Azure
@@ -96,13 +96,13 @@ Ad esempio, una stringa di connessione in un endpoint BLOB di un dominio persona
 
 ### Specifica di un endpoint BLOB con una firma di accesso condiviso
 
-È possibile creare una stringa di connessione con endpoint espliciti per accedere alle risorse di archiviazione tramite una firma di accesso condiviso. In tal caso, è possibile specificare la firma di accesso condiviso come parte della stringa di connessione, piuttosto che le credenziali di nome account e chiave. Il token della firma di accesso condiviso incapsula informazioni sulla risorsa a cui è necessario effettuare l'accesso, il periodo di tempo per il quale è disponibile e le autorizzazioni concesse. Per altre informazioni sulle firme di accesso condiviso, vedere [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/ee395415.aspx).
+È possibile creare una stringa di connessione con endpoint espliciti per accedere alle risorse di archiviazione tramite una firma di accesso condiviso. In tal caso, è possibile specificare la firma di accesso condiviso come parte della stringa di connessione, piuttosto che le credenziali di nome account e chiave. Il token della firma di accesso condiviso incapsula informazioni sulla risorsa a cui è necessario effettuare l'accesso, il periodo di tempo per il quale è disponibile e le autorizzazioni concesse. Per altre informazioni sulle firme di accesso condiviso, vedere [Firme di accesso condiviso: conoscere il modello di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
 Per creare una stringa di connessione che include una firma di accesso condiviso, specificare la stringa nel seguente formato:
 
-    BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=base64Signature
+    BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=sasToken
 
-L'endpoint può essere l'endpoint di servizio predefinito oppure un endpoint personalizzato. `base64Signature`corrisponde alla parte di una firma di accesso condiviso relativa alla firma. La firma è un HMAC calcolato sulla base di una stringa valida da firmare e della chiave mediante l'algoritmo SHA256, e quindi codificato con la codifica Base64.
+L'endpoint può essere l'endpoint di servizio predefinito oppure un endpoint personalizzato. `sasToken` è la stringa di query che segue il punto interrogativo (?) nell'URL della firma di accesso condiviso.
 
 ### Creazione di una stringa di connessione con un suffisso dell'endpoint
 
@@ -119,4 +119,9 @@ Ad esempio, la stringa di connessione dovrebbe avere l'aspetto della stringa di 
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-<!---HONumber=AcomDC_0218_2016-->
+## Passaggi successivi
+
+- [Usare l'emulatore di archiviazione di Azure per sviluppo e test](storage-use-emulator.md)
+- [Strumenti di esplorazione degli archivi di Azure](storage-explorers.md)
+
+<!---HONumber=AcomDC_0406_2016-->

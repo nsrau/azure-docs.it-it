@@ -59,7 +59,7 @@ In questa sezione verranno eseguite queste attività:
 * Creare un oggetto AutomationPSCredential con le informazioni di accesso dell'utente
 * Configurare l'utente per l'accesso alle risorse nella sottoscrizione
 
-Prima di poter eseguire i runbook di Automazione di Azure nella sottoscrizione, è necessario consentire l'accesso alla sottoscrizione ad Automazione di Azure. Questa operazione viene eseguita mediante la creazione di un altro utente in Active Directory. È quindi necessario creare un oggetto AutomationPSCredential che consente all'utente di eseguire l'autenticazione in Azure ed eseguire i comandi PowerShell per ridimensionare la macchina virtuale.
+Prima di iniziare a eseguire i runbook di Automazione di Azure nella sottoscrizione, è necessario consentire l'accesso alla sottoscrizione ad Automazione di Azure. Questa operazione viene eseguita mediante la creazione di un altro utente in Active Directory. È quindi necessario creare un oggetto AutomationPSCredential che consente all'utente di eseguire l'autenticazione in Azure ed eseguire i comandi PowerShell per ridimensionare la macchina virtuale.
 
 Una procedura dettagliata per la creazione di un utente e di un oggetto AutomationPSCredential è disponibile nell'articolo seguente:
 
@@ -108,4 +108,4 @@ Assicurarsi di copiare il webhook prima di chiudere la finestra di dialogo del w
 
 ![Aggiunta di un avviso alla macchina virtuale 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

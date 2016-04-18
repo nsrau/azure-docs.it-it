@@ -102,7 +102,7 @@ Lo strumento Importazione/Esportazione di Azure genera un *file journal dell'uni
 
 	Se si dispone del numero di spedizione, selezionare il vettore di consegna dall'elenco, quindi immettere il numero di spedizione.
 
-	Se non si dispone ancora di un numero di spedizione, scegliere **Le informazioni di spedizione per questo processo di importazione verranno fornite dopo la spedizione del pacchetto**, quindi completare il processo di importazione.
+	Se non si dispone ancora di un numero di spedizione, scegliere **I will provide my shipping information for this import job once I have shipped my package**, quindi completare il processo di importazione.
 
 7. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **Importazione/Esportazione** dell'account di archiviazione nel portale classico, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
 
@@ -284,8 +284,8 @@ Per i processi di esportazione, è possibile visualizzare e copiare le chiavi Bi
 [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
 
-[import-job-03]: ./media/storage-import-export-service-classic-portal/import-job-03.png
-[export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
-[export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
+[import-job-03]: ./media/storage-import-export-service/import-job-03.png
+[export-job-03]: ./media/storage-import-export-service/export-job-03.png
+[export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

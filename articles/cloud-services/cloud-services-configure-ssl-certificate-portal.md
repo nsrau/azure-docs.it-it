@@ -22,8 +22,8 @@
 # Configurazione di SSL per un'applicazione in Azure
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
-- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
+- [Portale di Azure](cloud-services-configure-ssl-certificate-portal.md)
+- [Portale di Azure classico](cloud-services-configure-ssl-certificate.md)
 
 La crittografia SSL (Secure Socket Layer) è il metodo più diffuso per proteggere i dati inviati tramite Internet. In questa attività comune viene illustrato come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione.
 
@@ -55,7 +55,7 @@ A questo punto, è necessario includere le informazioni sul certificato nei file
 
 L'applicazione deve essere configurata per utilizzare il certificato ed è necessario aggiungere un endpoint HTTPS. Di conseguenza, è necessario aggiornare i file di definizione e configurazione del servizio.
 
-1.  Nell'ambiente di sviluppo, aprire il file di definizione del servizio (CSDEF), aggiungere una sezione **Certificates** all'interno della sezione **WebRole** e includere le seguenti informazioni relative al certificato:
+1.  Nell'ambiente di sviluppo aprire il file di definizione del servizio (CSDEF), aggiungere una sezione **Certificates** all'interno della sezione **WebRole** e includere le informazioni seguenti relative al certificato (e ai certificati intermedi):
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
@@ -63,6 +63,17 @@ L'applicazione deve essere configurata per utilizzare il certificato ed è neces
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
                     		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
+                <!-- IMPORTANT! Unless your certificate is either
+                self-signed or signed directly by the CA root, you
+                must include all the intermediate certificates
+                here. You must list them here, even if they are
+                not bound to any endpoints. Failing to list any of
+                the intermediate certificates may cause hard-to-reproduce
+                interoperability problems on some clients.-->
+                <Certificate name="CAForSampleCertificate"
+                             storeLocation="LocalMachine"
+                             storeName="CA"
                              permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
@@ -111,6 +122,9 @@ L'applicazione deve essere configurata per utilizzare il certificato ed è neces
             <Certificates>
                 <Certificate name="SampleCertificate" 
                     thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
+                    thumbprintAlgorithm="sha1" />
+                <Certificate name="CAForSampleCertificate"
+                    thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
                     thumbprintAlgorithm="sha1" />
             </Certificates>
         ...
@@ -168,4 +182,4 @@ Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a q
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

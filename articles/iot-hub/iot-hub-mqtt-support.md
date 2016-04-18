@@ -20,6 +20,8 @@
 
 L'hub IoT consente ai dispositivi di comunicare con gli endpoint dei dispositivi dell'hub IoT tramite il protocollo [MQTT v3.1.1][lnk-mqtt-org] sulla porta 8883. L'hub IoT richiede che tutte le comunicazioni del dispositivo siano protette tramite TLS/SSL.
 
+Per altre informazioni, vedere [Note sul supporto di MQTT][lnk-mqtt-devguide] nella Guida per gli sviluppatori dell'hub IoT di Azure.
+
 ## Connessione all'hub IoT
 
 Un dispositivo può connettersi a un hub IoT con il protocollo MQTT usando le librerie disponibili nei [Microsoft Azure IoT SDK][lnk-device-sdks] o direttamente con il protocollo MQTT.
@@ -50,13 +52,13 @@ Se un dispositivo non può usare gli SDK per client per dispositivi, può comunq
 
 - Per il campo **Password** usare un token di firma di accesso condiviso. Il [formato del token di firma di accesso condiviso][lnk-iothub-security] è identico a quello descritto per i protocolli HTTP e AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
 
-    Per altre informazioni su come generare i token di firma di accesso condiviso, vedere l'articolo relativo all'[uso dei token di sicurezza hub IoT][lnk-sas-tokens].
+    Per altre informazioni su come generare i token di firma di accesso condiviso, vedere l'articolo [Uso dei token di sicurezza hub IoT][lnk-sas-tokens].
     
-    Durante il test, è inoltre possibile usare lo strumento [Device Explorer][lnk-device-explorer] per generare rapidamente un token di firma di accesso condiviso da copiare e incollare direttamente nel codice:
+    Durante il test, è anche possibile usare lo strumento [Device Explorer][lnk-device-explorer] per generare rapidamente un token di firma di accesso condiviso da copiare e incollare direttamente nel codice:
     
     1. Andare alla scheda **Management** di Device Explorer.
     2. Fare clic su **SAS Token** in alto a destra.
-    3. In **SASTokenForm** selezionare il dispositivo nell'elenco a discesa **DeviceID**. Impostare il **TTL**.
+    3. In **SASTokenForm** selezionare il dispositivo nell'elenco a discesa **DeviceID**. Impostare il valore **TTL**.
     4. Fare clic su **Generate** per creare il token.
     
     Il token di firma di accesso condiviso generato avrà l'aspetto seguente: `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fMyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
@@ -79,11 +81,11 @@ L'applicazione client per dispositivi può anche usare `devices/{did}/messages/e
 
 ### Ricezione di messaggi
 
-Per ricevere messaggi dall'hub IoT un dispositivo deve eseguire la sottoscrizione con `devices/{did}/messages/devicebound/#”` come **Filtro argomento**. L'hub IoT recapita i messaggi con il **Nome argomento** `devices/{did}/messages/devicebound/` o `devices/{did}/messages/devicebound/{property_bag}` se sono presenti proprietà del messaggio. `{property_bag}` contiene coppie chiave/valore con codifica URL di proprietà del messaggio. Solo le proprietà dell'applicazione e le proprietà di sistema configurabili dall'utente, ad esempio **messageId** o **correlationId**, sono incluse nel contenitore delle proprietà. I nomi delle proprietà di sistema hanno il prefisso **$**. Le proprietà dell'applicazione usano il nome della proprietà originale senza il prefisso.
+Per ricevere messaggi dall'hub IoT, un dispositivo deve eseguire la sottoscrizione con `devices/{did}/messages/devicebound/#”` come **Filtro argomento**. L'hub IoT recapita i messaggi con il **Nome argomento** `devices/{did}/messages/devicebound/` o `devices/{did}/messages/devicebound/{property_bag}` se sono presenti proprietà del messaggio. `{property_bag}` contiene coppie chiave/valore con codifica URL di proprietà del messaggio. Solo le proprietà dell'applicazione e le proprietà di sistema configurabili dall'utente, ad esempio **messageId** o **correlationId**, sono incluse nel contenitore delle proprietà. I nomi delle proprietà di sistema hanno il prefisso **$**. Le proprietà dell'applicazione usano il nome della proprietà originale senza il prefisso.
 
 ## Passaggi successivi
 
-Per altre informazioni sull'uso degli SDK per client dispositivi per comunicare con l'hub IoT, vedere [Introduzione all'hub IoT di Azure per .NET][lnk-iot-get-stated].
+Per altre informazioni sull'uso degli SDK per client per dispositivi che consentono di comunicare con l'hub IoT, vedere [Introduzione all'hub IoT di Azure per .NET][lnk-iot-get-stated].
 
 Per altre informazioni sul protocollo MQTT, vedere la [documentazione di MQTT][lnk-mqtt-docs].
 
@@ -98,5 +100,6 @@ Per altre informazioni sul protocollo MQTT, vedere la [documentazione di MQTT][l
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
 [lnk-sas-tokens]: iot-hub-sas-tokens.md
+[lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

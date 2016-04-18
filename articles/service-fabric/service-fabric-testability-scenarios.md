@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="anmolah"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/03/2016"
+   ms.date="03/25/2016"
    ms.author="anmola"/>
 
 # Scenari di testabilità
 Sistemi distribuiti di grandi dimensioni come le infrastrutture cloud sono intrinsecamente inaffidabili. Azure Service Fabric offre agli sviluppatori la possibilità di scrivere servizi destinati ad essere eseguiti in infrastrutture inaffidabili. Per scrivere servizi di qualità elevata, gli sviluppatori devono essere in grado di mettere alla prova un'infrastruttura inaffidabile in modo da testarne la stabilità dei servizi.
 
-Service Fabric offre agli sviluppatori la possibilità di causare azioni di errore e testare i servizi in presenza di errori. Gli errori simulati indotti, tuttavia, possono arrivare solo fino a un certo punto. Per spingere il test oltre, è possibile usare gli scenari di testi disponibili in Service Fabric: test di chaos e test di failover. Questi scenari simulano in tutto il cluster continui errori interfoliati, normali e anomali, per lunghi periodi di tempo. Una volta configurato con la frequenza e il tipo di errori desiderati, il test viene eseguito come uno strumento lato client, tramite le API C# o PowerShell, allo scopo di generare errori nel cluster e nel servizio.
+Il servizio di analisi degli errori offre agli sviluppatori la possibilità di causare azioni di errore e testare i servizi in presenza di errori. Gli errori simulati indotti, tuttavia, possono arrivare solo fino a un certo punto. Per spingere il test oltre, è possibile usare gli scenari di testi disponibili in Service Fabric: test di chaos e test di failover. Questi scenari simulano in tutto il cluster continui errori interfoliati, normali e anomali, per lunghi periodi di tempo. Dopo la configurazione con la frequenza e il tipo di errori, il test può essere avviato tramite le API C# o PowerShell, allo scopo di generare errori nel cluster e nel servizio.
 
 ## Test chaos
 Lo scenario chaos genera errori nell’intero cluster dell’infrastruttura di servizi. Lo scenario comprime in alcune ore gli errori che in genere si osservano in mesi o anni. La combinazione di errori interfoliati con un'elevata frequenza di errori consente di trovare casi limite che altrimenti non verrebbero considerati. In tal modo è possibile ottenere un notevole miglioramento della qualità del codice del servizio.
@@ -49,8 +49,6 @@ Nella forma attuale, il motore di generazione di errori del test Chaos provoca s
 Esempio C#
 
 ```csharp
-// Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
-
 using System;
 using System.Fabric;
 using System.Fabric.Testability.Scenario;
@@ -159,11 +157,10 @@ Il test di failover provoca un errore scelto e quindi esegue la convalida del se
  - **WaitTimeBetweenFaults**: tempo di attesa tra ogni ciclo di errore e di convalida.
 
 ### Come eseguire il test di failover
-Esempio C#
+
+**C#**
 
 ```csharp
-// Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
-
 using System;
 using System.Fabric;
 using System.Fabric.Testability.Scenario;
@@ -236,7 +233,7 @@ class Test
 ```
 
 
-PowerShell
+**PowerShell**
 
 ```powershell
 $connection = "localhost:19000"
@@ -250,4 +247,4 @@ Connect-ServiceFabricCluster $connection
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

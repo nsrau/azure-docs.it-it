@@ -42,7 +42,7 @@ In questa procedura viene illustrato come usare il programma PuTTY per accedere 
 
 	![Apertura di PuTTY](./media/virtual-machines-linux-classic-log-on/putty.png)
 
-4. Accedere alla macchina virtuale usando l'account specificato durante la creazione del computer Per altre informazioni su come creare una macchina virtuale con un nome utente e una password, vedere [Creazione di una macchina virtuale che esegue Linux](virtual-machines-linux-cli-create.md).
+4. Accedere alla macchina virtuale usando l'account specificato durante la creazione del computer Per altre informazioni su come creare una macchina virtuale con un nome utente e una password, vedere [Creazione di una macchina virtuale che esegue Linux](virtual-machines-linux-classic-createportal.md).
 
 	![Accesso alla macchina virtuale](./media/virtual-machines-linux-classic-log-on/sshlogin.png)
 
@@ -53,4 +53,4 @@ In questa procedura viene illustrato come usare il programma PuTTY per accedere 
 <!-- LINKS -->
 [Come reimpostare una password o SSH per le macchine virtuali Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

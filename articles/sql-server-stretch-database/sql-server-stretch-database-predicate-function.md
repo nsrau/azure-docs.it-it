@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (estensione database) | Microsoft Azure"
+	pageTitle="Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (Database Estensione) | Microsoft Azure"
 	description="Informazioni su come usare un predicato del filtro per selezionare le righe di cui eseguire la migrazione."
 	services="sql-server-stretch-database"
 	documentationCenter=""
@@ -16,18 +16,18 @@
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
-# Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (estensione database)
+# Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (Database Estensione)
 
-Se si archiviano dati cronologici in una tabella separata, è possibile configurare il Database Estensione per eseguire la migrazione dell'intera tabella. Se la tabella contiene dati attuali e cronologici, è tuttavia possibile specificare un predicato del filtro per selezionare le righe di cui eseguire la migrazione. Il predicato del filtro deve chiamare una funzione con valori di tabella inline. Questo argomento descrive come scrivere una funzione con valori di tabella inline per selezionare le righe di cui eseguire la migrazione.
-
-Nelle versioni da CTP 3.1 a RC1 l'opzione che consente di specificare un predicato non è disponibile nella procedura guidata Abilitare il database per l'estensione. È necessario usare l'istruzione ALTER TABLE per configurare il Database Estensione con questa opzione. Per altre informazioni, vedere [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
-
-Se non si specifica alcun predicato del filtro, viene eseguita la migrazione dell'intera tabella.
+Se si archiviano dati cronologici in una tabella separata, è possibile configurare il Database Estensione per eseguire la migrazione dell'intera tabella. Se la tabella contiene dati attuali e cronologici, è tuttavia possibile specificare un predicato del filtro per selezionare le righe di cui eseguire la migrazione. Il predicato del filtro è una funzione con valori di tabella inline. Questo argomento descrive come scrivere una funzione con valori di tabella inline per selezionare le righe di cui eseguire la migrazione.
 
 >   [AZURE.NOTE] Se si specifica un predicato del filtro con esecuzione inadeguata, la migrazione dei dati sarà a sua volta inadeguata. Il Database Estensione applica il predicato del filtro alla tabella tramite l'operatore CROSS APPLY.
 
+Se non si specifica alcun predicato del filtro, viene eseguita la migrazione dell'intera tabella.
+
+Dalla versione CTP 3.1 alla RC2 l'opzione che consente di specificare un predicato non è disponibile nella procedura guidata Abilitare il database per l'estensione. È necessario usare l'istruzione ALTER TABLE per configurare il Database Estensione con questa opzione. Per altre informazioni, vedere l'articolo relativo all'[abilitazione del Database Estensione per una tabella](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+
 ## Requisiti di base per la funzione con valori di tabella inline
-La funzione con valori di tabella inline necessaria per una funzione di filtro del Database Estensione è simile all'esempio seguente.
+La funzione con valori di tabella inline necessaria per un predicato del filtro del Database Estensione è simile all'esempio seguente.
 
 ```tsql
 CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datatype1, @column2 datatype2 [, ...n])
@@ -42,7 +42,7 @@ I parametri della funzione devono essere identificatori per le colonne della tab
 L'associazione allo schema è necessaria per evitare che le colonne usate nel predicato del filtro vengano eliminato o modificato.
 
 ### Valore restituito
-Se la funzione restituisce un risultato non vuoto, la riga è idonea alla migrazione. In caso contrario, ovvero se la funzione non restituisce alcuna riga, la riga non è idonea alla migrazione.
+Se la funzione restituisce un risultato non vuoto, la riga è idonea alla migrazione. In caso contrario, ovvero se la funzione non restituisce un risultato, la riga non è idonea alla migrazione.
 
 ### Condizioni
 Il &lt;*predicato*&gt; può essere costituito da una o più condizioni unite tramite l'operatore logico AND.
@@ -70,7 +70,7 @@ Una condizione di primitiva può eseguire uno dei confronti seguenti.
 
 -   Confrontare un parametro della funzione in un'espressione costante. ad esempio `@column1 < 1000`.
 
-    Questo esempio controlla se il valore di una colonna *date* è &lt; 1/1/2016.
+    In questo esempio viene eseguito il controllo che verifica se il valore di una colonna *date* è &lt; 1/1/2016.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
@@ -91,7 +91,7 @@ Una condizione di primitiva può eseguire uno dei confronti seguenti.
 
 -   Usare l'operatore IN per confrontare un parametro della funzione con un elenco di valori costanti.
 
-    Questo esempio controlla se il valore di una colonna *shipment\_status* è `IN (N'Completed', N'Returned', N'Cancelled')`.
+    In questo esempio viene eseguito il controllo che verifica se il valore di una colonna *shipment\_status* è `IN (N'Completed', N'Returned', N'Cancelled')`.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 nvarchar(15))
@@ -133,7 +133,117 @@ Le costanti usate in un predicato del filtro possono essere un'espressione deter
 
 È possibile usare sottoquery o funzioni non deterministiche, ad esempio RAND() o GETDATE().
 
-## Esempi di funzioni valide
+## Aggiungere un predicato del filtro a una tabella
+Per aggiungere un predicato del filtro a una tabella, eseguire l'istruzione ALTER TABLE e specificare una funzione con valori di tabella inline esistente come valore del parametro FILTER\_PREDICATE. ad esempio:
+
+```tsql
+ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
+	FILTER_PREDICATE = dbo.fn_stretchpredicate(column1, column2),
+	MIGRATION_STATE = <desired_migration_state>
+) )
+```
+Dopo aver associato la funzione alla tabella con predicato, le affermazioni seguenti sono vere.
+
+-   Alla prossima migrazione dei dati, viene eseguita la migrazione solo delle righe per cui la funzione restituisce un valore non vuoto.
+
+-   Le colonne usate dalla funzione sono associate a schema. Non è possibile modificare queste colonne finché una tabella usa la funzione come predicato del filtro.
+
+Non è possibile eliminare una funzione colonne con valori di tabella inline finché una tabella usa la funzione come predicato del filtro.
+
+## Filtrare le righe per data
+Nell'esempio seguente viene eseguita la migrazione di righe in cui la colonna **date** contiene un valore precedente alla data 01/01/2016.
+
+```tsql
+-- Filter by date
+--
+CREATE FUNCTION dbo.fn_stretch_by_date(@date datetime2)
+RETURNS TABLE
+WITH SCHEMABINDING
+AS
+       RETURN SELECT 1 AS is_eligible WHERE @date < CONVERT(datetime2, '1/1/2016', 101)
+GO
+```
+
+## Filtrare le righe in base al valore della colonna dello stato
+Nell'esempio seguente viene eseguita la migrazione di righe in cui la colonna **status** contiene uno dei valori specificati.
+
+```tsql
+-- Filter by status column
+--
+CREATE FUNCTION dbo.fn_stretch_by_status(@status nvarchar(128))
+RETURNS TABLE
+WITH SCHEMABINDING
+AS
+       RETURN SELECT 1 AS is_eligible WHERE @status IN (N'Completed', N'Returned', N'Cancelled')
+GO
+```
+
+## Filtrare le righe tramite una finestra temporale scorrevole
+Per filtrare le righe usando una finestra temporale scorrevole, tenere presente i requisiti seguenti per la funzione di filtro.
+
+-   La funzione deve essere deterministica. Non è possibile quindi creare una funzione che ricalcola automaticamente la finestra temporale scorrevole col passare del tempo.
+
+-   La funzione usa l'associazione allo schema. Non è quindi possibile limitarsi ad aggiornare ogni giorno la funzione "sul posto" chiamando l'istruzione ALTER FUNCTION per spostare la finestra temporale scorrevole.
+
+Iniziare con un predicato del filtro come nell'esempio seguente, che esegue la migrazione di righe in cui la colonna **systemEndTime** contiene un valore precedente a 01/01/2016.
+
+```tsql
+CREATE FUNCTION dbo.fn_StretchBySystemEndTime20160101(@systemEndTime datetime2)
+RETURNS TABLE
+WITH SCHEMABINDING  
+AS  
+RETURN SELECT 1 AS is_eligible
+  WHERE @systemEndTime < CONVERT(datetime2, '2016-01-01T00:00:00', 101) ;
+```
+
+Applicare il predicato del filtro alla tabella.
+
+```tsql
+ALTER TABLE <table name>
+SET (
+        REMOTE_DATA_ARCHIVE = ON
+                (
+                        FILTER_PREDICATE = dbo.fn_StretchBySystemEndTime20160101 (SysEndTime)
+                                , MIGRATION_STATE = OUTBOUND
+                )
+        )
+;
+```
+
+Quando si desidera aggiornare la finestra temporale scorrevole, eseguire le operazioni seguenti.
+
+1.  Creare una nuova funzione che specifica la nuova finestra temporale scorrevole. Nell'esempio seguente vengono selezionate le date precedenti al 02/01/2016, anziché al 01/01/2016.
+
+2.  Sostituire il predicato del filtro precedente con quello nuovo chiamando ALTER TABLE, come illustrato nell'esempio seguente.
+
+3. Facoltativamente, eliminare la precedente funzione di filtro non più in uso chiamando l'istruzione DROP FUNCTION. (Questo passaggio non è illustrato nell'esempio).
+
+```tsql
+BEGIN TRAN
+GO
+        /*(1) Create new predicate function definition */
+        CREATE FUNCTION dbo.fn_StretchBySystemEndTime20160102(@systemEndTime datetime2)
+        RETURNS TABLE
+        WITH SCHEMABINDING
+        AS
+        RETURN SELECT 1 AS is_eligible
+               WHERE @systemEndTime < CONVERT(datetime2,'2016-01-02T00:00:00', 101)
+        GO
+
+        /*(2) Set the new function as filter predicate */
+        ALTER TABLE <table name>
+        SET
+        (
+               REMOTE_DATA_ARCHIVE = ON
+               (
+                       FILTER_PREDICATE = dbo.fn_StretchBySystemEndTime20160102(SysEndTime),
+                       MIGRATION_STATE = OUTBOUND
+               )
+        )
+COMMIT ;
+```
+
+## Altri esempi di predicati del filtro validi
 
 -   L'esempio seguente combina due condizioni primitive usando l'operatore logico AND.
 
@@ -200,7 +310,7 @@ Le costanti usate in un predicato del filtro possono essere un'espressione deter
     GO
     ```
 
-## Esempi di funzioni non valide
+## Esempi di predicati del filtro non validi
 
 -   La funzione seguente non è valida perché contiene una conversione non deterministica.
 
@@ -289,32 +399,6 @@ SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column
 ```
 Se la funzione restituisce un risultato non vuoto per la riga, questa è idonea alla migrazione.
 
-## Aggiungere un predicato del filtro a una tabella
-Per aggiungere un predicato del filtro a una tabella, eseguire l'istruzione ALTER TABLE e specificare una funzione con valori di tabella inline esistente come valore del parametro FILTER\_PREDICATE. ad esempio:
-
-```tsql
-ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
-	FILTER_PREDICATE = dbo.fn_stretchpredicate(column1, column2),
-	MIGRATION_STATE = <desired_migration_state>
-) )
-```
-Dopo aver associato la funzione alla tabella con predicato, le affermazioni seguenti sono vere.
-
--   Alla prossima migrazione dei dati, viene eseguita la migrazione solo delle righe per cui la funzione restituisce un valore non vuoto.
-
--   Le colonne usate dalla funzione sono associate a schema. Non è possibile modificare queste colonne finché una tabella usa la funzione come predicato del filtro.
-
-## Rimuovere un predicato del filtro da una tabella
-Per eseguire la migrazione dell'intera tabella invece che delle righe selezionate, rimuovere il parametro FILTER\_PREDICATE esistente mediante l'impostazione su Null. Ad esempio:
-
-```tsql
-ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
-	FILTER_PREDICATE = NULL,
-	MIGRATION_STATE = <desired_migration_state>
-) )
-```
-Dopo avere rimosso il predicato del filtro, tutte le righe nella tabella saranno idonee per la migrazione.
-
 ## Sostituire un predicato del filtro esistente
 Per sostituire un predicato del filtro specificato in precedenza, eseguire di nuovo l'istruzione ALTER TABLE e specificare un nuovo valore per il parametro FILTER\_PREDICATE. Ad esempio:
 
@@ -400,14 +484,22 @@ RETURN	SELECT 1 AS is_eligible
 GO
 ```
 
-## Eliminare un predicato del filtro
-Non è possibile eliminare una funzione colonne con valori di tabella inline finché una tabella usa la funzione come predicato del filtro.
+## Rimuovere un predicato del filtro da una tabella
+Per eseguire la migrazione dell'intera tabella invece che delle righe selezionate, rimuovere il parametro FILTER\_PREDICATE esistente mediante l'impostazione su Null. Ad esempio:
+
+```tsql
+ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
+	FILTER_PREDICATE = NULL,
+	MIGRATION_STATE = <desired_migration_state>
+) )
+```
+Dopo avere rimosso il predicato del filtro, tutte le righe nella tabella saranno idonee per la migrazione. Di conseguenza, non è possibile specificare un predicato del filtro per la stessa tabella in un secondo momento, a meno che prima non si ripristinino da Azure tutti i dati remoti per la tabella. Questa restrizione esiste per evitare la situazione in cui righe non idonee per la migrazione, quando si specifica un nuovo predicato del filtro, siano già state migrate in Azure.
 
 ## Controllare il predicato del filtro applicato a una tabella
-Per controllare il predicato del filtro applicato a una tabella, aprire la vista del catalogo **sys.remote\_data\_archive\_tables** e controllare il valore della colonna **filter\_predicate**. Se il valore è Null, l'intera tabella è idonea all'archiviazione. Per altre informazioni, vedere [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+Per controllare il predicato del filtro applicato a una tabella, aprire la vista del catalogo **sys.remote\_data\_archive\_tables** e verificare il valore della colonna **filter\_predicate**. Se il valore è Null, l'intera tabella è idonea all'archiviazione. Per altre informazioni, vedere [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
 ## Vedere anche
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Istruzioni di configurazione del dashboard di PowerBI per il modello di soluzione per l'analisi dei dati di telemetria del veicolo | Microsoft Azure" 
-	description="Usare le funzionalità di Cortana Analytics per ottenere informazioni dettagliate predittive e in tempo reale sull'integrità del veicolo e sulle abitudini di guida." 
+	description="Usare le funzionalità di Cortana Intelligence per ottenere informazioni dettagliate predittive e in tempo reale sullo stato di integrità del veicolo e sulle abitudini di guida." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -24,7 +24,7 @@ Questo **menu** contiene i collegamenti alle sezioni dello studio.
 [AZURE.INCLUDE [cap-vehicle-telemetry-playbook-selector](../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 
-La soluzione per l'analisi dei dati di telemetria del veicolo illustra come le concessionarie d'auto, i produttori di automobili e le compagnie di assicurazione possano sfruttare le funzionalità di Cortana Analytics per ottenere informazioni dettagliate predittive e in tempo reale sull'integrità del veicolo e sulle abitudini di guida in modo da apportare miglioramenti nelle aree dell'esperienza cliente, di ricerca e sviluppo e delle campagne di marketing. Questo documento contiene istruzioni dettagliate su come configurare i report e il dashboard di Power BI dopo la distribuzione della soluzione nella sottoscrizione.
+La soluzione per l'analisi dei dati di telemetria del veicolo illustra come le concessionarie d'auto, i produttori di automobili e le compagnie di assicurazione possano sfruttare le funzionalità di Cortana Intelligence per ottenere informazioni dettagliate predittive e in tempo reale sullo stato di integrità del veicolo e sulle abitudini di guida in modo da apportare miglioramenti nelle aree dell'esperienza cliente, di ricerca e sviluppo e delle campagne di marketing. Questo documento contiene istruzioni dettagliate su come configurare i report e il dashboard di Power BI dopo la distribuzione della soluzione nella sottoscrizione.
 
 
 ## Prerequisiti
@@ -34,8 +34,8 @@ La soluzione per l'analisi dei dati di telemetria del veicolo illustra come le c
 4.	Un account di Microsoft Power BI
 	
 
-## Componenti di Cortana Analytics Suite
-Come parte del modello di soluzione per l'analisi dei dati di telemetria del veicolo, vengono distribuiti nella sottoscrizione i servizi di Cortana Analytics seguenti.
+## Componenti di Cortana Intelligence Suite
+Come parte del modello di soluzione per l'analisi dei dati di telemetria del veicolo, nella sottoscrizione vengono distribuiti i servizi di Cortana Intelligence seguenti.
 
 - **Hub eventi** per l'inserimento di milioni di eventi di telemetria del veicolo in Azure.
 - **Analisi di flusso** per ottenere informazioni dettagliate in tempo reale sull'integrità del veicolo e salvare i dati in modo permanente in un archivio a lungo termine per un'analisi batch avanzata.
@@ -393,4 +393,4 @@ Aggiungere grafici al dashboard esistente **Vehicle Telemetry Analytics Dashboar
 
 La procedura è stata completata. Sono stati creati il report e il dashboard per ottenere in tempo reale informazioni dettagliate in batch e predittive sullo stato di integrità dei veicoli e sulle abitudini di guida.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

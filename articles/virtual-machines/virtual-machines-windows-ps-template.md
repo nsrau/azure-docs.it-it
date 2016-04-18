@@ -24,7 +24,7 @@
 - [PowerShell](virtual-machines-windows-create-powershell.md)
 - [PowerShell - Modello](virtual-machines-windows-ps-template.md)
 - [Portale - Linux](virtual-machines-linux-portal-create.md)
-- [CLI](virtual-machines-linux-cli-create.md)
+- [CLI](virtual-machines-linux-quick-create-cli.md)
 
 <br>
 
@@ -289,4 +289,4 @@ Verrà visualizzata una schermata simile alla seguente:
 
 Per informazioni su come gestire la macchina virtuale appena creata, vedere [Gestire le macchine virtuali usando Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

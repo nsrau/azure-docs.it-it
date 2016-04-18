@@ -279,7 +279,7 @@ La macchina virtuale verrà deallocata ma non eliminata. È possibile riavviare 
 
 La macchina virtuale è pronta per essere utilizzata negli esercizi di analisi scientifica dei dati. La macchina virtuale può inoltre essere utilizzata come server di IPython Notebook per la navigazione e l'elaborazione dei dati e per altre attività legate ad Azure Machine Learning e il Cortana Analytics Process (CAP).
 
-I passaggi successivi del processo di analisi scientifica dei dati sono illustrati in [Guida alla formazione: Elaborazione dati avanzata in Azure](machine-learning-data-science-advanced-data-processing.md) e possono includere le procedure per lo spostamento, l'elaborazione e il campionamento dei dati in HDInsight in preparazione dell'apprendimento dei dati con Azure Machine Learning.
+I passaggi successivi del processo di analisi scientifica dei dati sono illustrati in [Guida alla formazione: Elaborazione dati avanzata in Azure](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e possono includere le procedure per lo spostamento, l'elaborazione e il campionamento dei dati in HDInsight in preparazione dell'apprendimento dei dati con Azure Machine Learning.
 
 
 [1]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/selectsqlvmimg.png
@@ -298,4 +298,4 @@ I passaggi successivi del processo di analisi scientifica dei dati sono illustra
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,4 +1,4 @@
-### Tipo di VPN per il modello di distribuzione di Resource Manager
+#### Tipo VPN - modello di distribuzione Resource Manager
 
 | | **Basato su route** | **Basato su criteri** |
 |-----------------------------------|--------------------|------------------|
@@ -10,7 +10,7 @@
 | **Classico a Gestione risorse** | yes | no |
 
 
-### Tipo di VPN per il modello di distribuzione classica
+#### Tipo VPN - modello di distribuzione classica
 
 
 | | **Dinamico** | **Statico** |
@@ -22,4 +22,4 @@
 | **Da punto a sito** | yes | no |
 | **Classico a Gestione risorse** | yes | no |
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

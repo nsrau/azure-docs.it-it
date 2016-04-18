@@ -38,7 +38,7 @@ Hue è un set di applicazioni Web che consente di interagire con un cluster Hado
     
 Questa sezione fornisce istruzioni su come usare lo script quando si effettua il provisioning del cluster usando il portale di Azure.
 
-> [AZURE.NOTE] Per applicare le azioni script è anche possibile usare Azure PowerShell, HDInsight .NET SDK o i modelli di Azure Resource Manager. È anche possibile applicare azioni script a cluster già in esecuzione. Per altre informazioni, vedere [Personalizzare cluster HDInsight tramite azioni script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Per applicare le azioni script è possibile usare anche Azure PowerShell, l'interfaccia della riga di comando di Azure, HDInsight .NET SDK o i modelli di Azure Resource Manager. È anche possibile applicare azioni script a cluster già in esecuzione. Per altre informazioni, vedere [Personalizzare cluster HDInsight tramite azioni script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Avviare il provisioning di un cluster seguendo i passaggi descritti in [Effettuare il provisioning di cluster HDInsight in Linux](hdinsight-hadoop-provision-linux-clusters.md#portal) senza completarlo.
 
@@ -134,4 +134,4 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

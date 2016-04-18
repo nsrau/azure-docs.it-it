@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Mobile Engagement - Funzionalità principali"
-	description="Describes the key features of Azure Mobile Engagement"
+	pageTitle="Funzionalità principali di Azure Mobile Engagement"
+	description="Descrive le funzionalità principali di Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="04/01/2016"
 	ms.author="piyushjo" />
 
-# Azure Mobile Engagement - Funzionalità principali
+# Funzionalità principali di Azure Mobile Engagement
 
-L'articolo fornisce una panoramica di alto livello sulle funzionalità principali della piattaforma Mobile Engagement.
+L'articolo fornisce una panoramica generale sulle funzionalità principali della piattaforma Mobile Engagement.
 
 ## **Generale**
 
-- **SDK per tutte le principali piattaforme** SDK disponibili per tutte le principali piattaforme: iOS, Android, Universal Windows, Windows Phone Silverlight, Kindle, Cordova. Sono previsti SDK facilmente integrabili e una documentazione utile per iniziare a utilizzare la piattaforma scelta. 
+- **SDK per tutte le principali piattaforme** SDK disponibili per tutte le principali piattaforme: iOS, Android, Universal Windows, Windows Phone Silverlight, Kindle, Cordova. Vengono forniti SDK facilmente integrabili e documentazione utile per iniziare a usare la piattaforma scelta. 
 
-- **Portale SaaS separato** Consente di contattare in modo semplice il team di marketing senza passare attraverso il portale di gestione Azure.
+- **Portale SaaS separato** Consente di contattare in modo semplice il team di marketing senza accedere dal portale di gestione di Azure.
 
-- **Disponibilità di API REST aperte** Per integrare e automatizzare sistemi CRM/CMS/IT, sono previste API REST aperte e .NET SDK per il relativo utilizzo, consentendo una semplice integrazione e automatizzazione con Mobile Engagement. Vedere [this](mobile-engagement-api-authentication.md) per maggiori dettagli
+- **Disponibilità di API REST aperte** Per integrare e automatizzare sistemi CRM/CMS/IT, sono disponibili API REST aperte e .NET SDK per il relativo utilizzo, consentendo una semplice integrazione e automatizzazione con Mobile Engagement. Vedere [qui](mobile-engagement-api-authentication.md) per informazioni dettagliate.
 
-- **Disponibilità del connettore Power BI** È inoltre possibile estrarre i principali grafici analitici in un dashboard di Power BI. Vedere questa [guida](https://powerbi.microsoft.com/it-IT/documentation/powerbi-content-pack-azure-mobile/)
+- **Disponibilità del connettore Power BI** È anche possibile estrarre i principali grafici analitici in un dashboard di Power BI. Vedere questa [guida](https://powerbi.microsoft.com/it-IT/documentation/powerbi-content-pack-azure-mobile/)
 
 - **Garanzia di sicurezza e privacy** Azure Mobile Engagement fa parte della famiglia di prodotti Azure e segue tutte le procedure consigliate standard relative alla sicurezza e alla privacy previste per un servizio cloud.
 
@@ -40,15 +40,15 @@ L'articolo fornisce una panoramica di alto livello sulle funzionalità principal
 
 	![][2]
 
-- **Visualizzare i dati aggregati** È inoltre possibile ottenere una visualizzazione più completa dei dati analitici aggregati utilizzando il modulo di analisi che consente di filtrarli facilmente sulla base della versione dell'applicazione e dei periodi di tempo.
+- **Visualizzare i dati aggregati** È anche possibile ottenere una visualizzazione più completa dei dati analitici aggregati usando il modulo Analytics che consente di filtrarli facilmente sulla base della versione dell'app e dei periodi di tempo.
 
 	![][3]
 
-- **Acquisire informazioni dettagliate sul criterio di conservazione e sugli utenti**
+- **Acquisire informazioni dettagliate sul modello di assorbimento e sugli utenti**
 
 	![][4]
 
-- **Acquisire informazioni dettagliate sulla provenienza degli utenti e sul tempo trascorso nella schermata dagli utenti**
+- **Acquisire informazioni dettagliate sulla provenienza degli utenti e sul tempo che trascorrono nella schermata**
 
 	![][5]
 	
@@ -64,7 +64,7 @@ L'articolo fornisce una panoramica di alto livello sulle funzionalità principal
 
 	![][9]
 
-- **Tenere traccia degli arresti anomali ed errori comuni e acquisire informazioni per il team di sviluppo**
+- **Tenere traccia di arresti anomali ed errori comuni e acquisire informazioni per il team di sviluppo**
 
 	![][10]
 	
@@ -90,7 +90,7 @@ L'articolo fornisce una panoramica di alto livello sulle funzionalità principal
 
 	![][16]
 
-- **Inviare notifiche push in-app basate su HTML formattato e out-of-app/di sistema in base al proprio scenario**
+- **Inviare notifiche push in-app basate su HTML formattato e notifiche out-of-app/di sistema in base al proprio scenario**
 
 	![][17]
 
@@ -124,7 +124,7 @@ L'articolo fornisce una panoramica di alto livello sulle funzionalità principal
 
 	![][25]
 
-- **Personalizzare facilmente e fornire i caratteri alle notifiche tramite app-info/tag ed emoji**
+- **Personalizzare facilmente e dare carattere alle notifiche tramite app-info/tag ed emoji**
 
 	![][26]
 
@@ -164,4 +164,4 @@ L'articolo fornisce una panoramica di alto livello sulle funzionalità principal
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

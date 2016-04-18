@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Note sulla versione del Catalogo dati di Azure"
+   pageTitle="Note sulla versione di Azure Data Catalog | Microsoft Azure"
    description="Note sulla versione del Catalogo dati di Azure."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Note sulla versione del Catalogo dati di Azure
@@ -88,4 +88,4 @@ Per altre informazioni, vedere [Configurare i criteri di autenticazione](https:/
 
 Per individuare il file RegistrationTool.exe.config, avviare lo strumento di registrazione e quindi aprire l'utilità Gestione attività Windows. Nella scheda Dettagli di Gestione attività, fare clic con il pulsante destro del mouse su RegistrationTool.exe e scegliere Apri percorso file dal menu a comparsa.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

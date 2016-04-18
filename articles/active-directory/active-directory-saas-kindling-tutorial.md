@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="04/05/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con Kindling, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD.
-- Sottoscrizione di Kindling abilitata per l'accesso Single Sign-On
+- Sottoscrizione Kindling
 
 
 > [AZURE.NOTE] Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -84,7 +84,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Kindling, è 
 
 Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Kindling. Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 
-Per configurare l'accesso Single Sign-On per Kindling, è necessario un dominio registrato. Se ancora non si ha un dominio registrato, contattare il team di supporto di Kindling all'indirizzo [support@kiteworks.com](mailto:support@flatterfiles.com).
+Per configurare l'accesso Single Sign-On per Kindling, è necessario un dominio registrato. Se non si ha ancora un dominio registrato, contattare il team di supporto di Kindling all'indirizzo [support@kindlingapp.com](mailto:support@kindlingapp.com).
 
 
 
@@ -97,11 +97,15 @@ Per configurare l'accesso Single Sign-On per Kindling, è necessario un dominio 
 3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_04.png) <br>
 
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Kindling, (ad esempio **https://fabrikam.Kindling.com/*).
+    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Kindling, ad esempio *https://\<nome società>.kindlingapp.com/*).
 
-    b. Contattare il team di supporto di Kindling per ottenere i valori **Issuer** e **Reply URL**.
+    b. Contattare il team di supporto di Kindling all'indirizzo [support@kindlingapp.com](mailto:support@kindlingapp.com) per ottenere i valori **Autorità di certificazione** e **URL di risposta**.
+
+    c. Nella casella di testo **Autorità di certificazione** digitare l'URL dell'autorità di certificazione.
+
+    d. Nella casella di testo **URL di risposta** digitare l'URL di risposta.
  
-    c. Fare clic su **Next**.
+    e. Fare clic su **Avanti**.
  
  
 4. Nella pagina **Configura accesso Single Sign-On in Kindling** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_05.png) <br>
@@ -216,4 +220,4 @@ Questa sezione descrive come testare la configurazione dell'accesso Single Sign-
 [204]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

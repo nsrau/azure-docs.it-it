@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="03/09/2015"
+	ms.date="03/09/2016"
 	ms.author="danlep"/>
 
 # Guida introduttiva a fleet in un cluster di macchina virtuale CoreOS in Azure
@@ -193,4 +193,4 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload nginx@{1,2,3}.service
 [immagine Docker Hub nginx]: https://hub.docker.com/_/nginx/
 [Computing Linux e open source in Azure]: virtual-machines-linux-opensource-links.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

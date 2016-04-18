@@ -25,6 +25,7 @@
 Questo articolo illustra come usare Azure PowerShell per acquisire una macchina virtuale (VM) di Azure che esegue Windows, in modo da usarla per creare altre macchine virtuali. Questa immagine include il disco del sistema operativo e i dischi dati collegati alla macchina virtuale. Non include le risorse della rete virtuale necessarie per creare una VM di Windows, è quindi necessario configurarle prima di creare un'altra macchina virtuale che usa l'immagine. Questa immagine verrà anche preparata per essere un'[immagine generalizzata di Windows](https://technet.microsoft.com/library/hh824938.aspx).
 
 
+
 ## Prerequisiti
 
 Questa procedura presuppone che sia già stata creata una macchina virtuale di Azure nel modello di distribuzione di Gestione risorse e che sia stato configurato il sistema operativo, incluse le connessioni di eventuali dischi dati e l'applicazione di altre personalizzazioni, ad esempio l'installazione di applicazioni. Se queste operazioni non sono state eseguite, vedere l'articolo relativo a [come creare una macchina virtuale Windows con Resource Manager e PowerShell](virtual-machines-windows-ps-create.md). È possibile creare facilmente una macchina virtuale di Windows usando il [portale di Azure](https://portal.azure.com). Vedere l'articolo relativo a [come creare una macchina virtuale Windows nel portale di Azure](virtual-machines-windows-hero-tutorial.md).
@@ -34,7 +35,9 @@ Questa procedura presuppone che sia già stata creata una macchina virtuale di A
 
 Questa sezione illustra come generalizzare la macchina virtuale di Windows. Questa operazione rimuove anche tutte le informazioni sull'account personale. Questa operazione viene solitamente eseguita quando si vuole usare questa immagine di VM per distribuire rapidamente macchine virtuali simili.
 
-1. Accedere alla macchina virtuale di Windows. Nel [portale di Azure](https://portal.azure.com) selezionare **Sfoglia** > **Macchine virtuali** > *Macchina virtuale di Windows personale* > **Connetti**.
+> [AZURE.WARNING] Si noti che la macchina virtuale non può eseguire l'accesso tramite RDP dopo la generalizzazione poiché il processo rimuove tutti gli account utente. Questa modifica è irreversibile.
+
+1. Accedere alla macchina virtuale di Windows. Nel [portale di Azure](https://portal.azure.com) selezionare **Sfoglia** > **Macchine virtuali** > macchina virtuale di Windows personale > **Connetti**.
 
 2. Aprire una finestra del Prompt dei comandi come amministratore.
 
@@ -75,17 +78,17 @@ Questo articolo presuppone che sia installata la versione 1.0.x di Azure PowerSh
 
 		Select-AzureRmSubscription -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
 
-	È possibile trovare le sottoscrizioni dell'account Azure tramite il comando `Get-AzureRmSubscription`.
+	È possibile trovare le sottoscrizioni dell'account Azure usando il comando `Get-AzureRmSubscription`.
 
 3. A questo punto è necessario deallocare le risorse usate dalla macchina virtuale usando questo comando.
 
 		Stop-AzureRmVM -ResourceGroupName YourResourceGroup -Name YourWindowsVM
 
-	Si noti che lo *stato* della VM nel portale di Azure è cambiato da **Arrestato** a **Arrestato (deallocato)**.
+	Si noti che lo *stato* della macchina virtuale nel portale di Azure è cambiato da **Arrestato** a **Arrestato (deallocato)**.
 
 	>[AZURE.TIP] È anche possibile trovare lo stato della macchina virtuale in PowerShell usando:</br> `$vm = Get-AzureRmVM -ResourceGroupName YourResourceGroup -Name YourWindowsVM -status`</br> `$vm.Statuses`</br> Il campo **DisplayStatus** corrisponde allo **stato** visualizzato nel portale di Azure.
 
-4. È quindi necessario impostare lo stato della macchina virtuale su **Generalizzato**. Questa operazione è necessaria, perché il passaggio di generalizzazione precedente (`sysprep`) non esegue l'operazione in modo comprensibile da parte di Azure.
+4. È quindi necessario impostare lo stato della macchina virtuale su **Generalizzato**. Questa operazione è necessaria perché il passaggio di generalizzazione precedente (`sysprep`) non esegue l'operazione in modo comprensibile da parte di Azure.
 
 		Set-AzureRmVm -ResourceGroupName YourResourceGroup -Name YourWindowsVM -Generalized
 
@@ -95,9 +98,9 @@ Questo articolo presuppone che sia installata la versione 1.0.x di Azure PowerSh
 
 		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -VMName YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
 
-	La variabile `-Path` è facoltativa. È possibile usarla per salvare il modello JSON in locale. La variabile `-DestinationContainerName` è il nome del contenitore in cui si vuole salvare le immagini. L'URL dell'immagine archiviata è simile a `https://YourStorageAccountName.blob.core.windows.net/system/Microsoft.Compute/Images/YourImagesContainer/YourTemplatePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`. Viene creato nello stesso account di archiviazione della macchina virtuale originale.
+	La variabile `-Path` è facoltativa. È possibile usarla per salvare il modello JSON in locale. La variabile `-DestinationContainerName` è il nome del contenitore in cui si desidera conservare le immagini. L'URL dell'immagine archiviata sarà simile a `https://YourStorageAccountName.blob.core.windows.net/system/Microsoft.Compute/Images/YourImagesContainer/YourTemplatePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`. Viene creato nello stesso account di archiviazione della macchina virtuale originale.
 
-	>[AZURE.NOTE] Per trovare la posizione dell'immagine, aprire il modello di file JSON locale. Andare alla sezione **resources** > **storageProfile** > **osDisk** > **image** > **uri** per il percorso completo dell'immagine. Al momento non esiste un modo semplice per controllare queste immagini nel portale, poiché il contenitore del *sistema* nell'account di archiviazione è nascosto. Per questo motivo, anche se la variabile `-Path` è facoltativa, è consigliabile usarla per salvare il modello in locale e trovare facilmente l'URL dell'immagine. In alternativa, trovarlo usando uno strumento denominato **Esplora archivi di Azure**, descritto nella sezione successiva.
+	>[AZURE.NOTE] Per trovare la posizione dell'immagine, aprire il modello di file JSON locale. Passare alla sezione **resources** > **storageProfile** > **osDisk** > **image** > **uri** per il percorso completo dell'immagine. Al momento non esiste un modo semplice per controllare queste immagini nel portale poiché il contenitore *system* nell'account di archiviazione è nascosto. Per questo motivo, anche se la variabile `-Path` è facoltativa, è consigliabile usarla per salvare il modello in locale e trovare facilmente l'URL dell'immagine. In alternativa, trovare l'URL usando uno strumento per l'**esplorazione dei servizi di archiviazione Azure** descritto nei passaggi della sezione successiva.
 
 
 ### Uso di Esplora risorse di Azure (anteprima)
@@ -114,7 +117,7 @@ Per altre informazioni sulle operazioni che è possibile eseguire con questo pot
 
 1. Aprire il [sito Web di Esplora risorse](https://resources.azure.com/) e accedere al proprio account Azure.
 
-2. Nella parte superiore destra dello strumento selezionare **Lettura/Scrittura** per consentire le operazioni _PUT_ e _POST_. L'impostazione predefinita è **Sola lettura** e questo indica che per impostazione predefinita è possibile eseguire solo operazioni _GET_.
+2. Nella parte superiore destra dello strumento selezionare **Lettura/Scrittura** per consentire le operazioni _PUT_ e _POST_. L'impostazione predefinita è **Sola lettura** e indica che per impostazione predefinita è possibile eseguire solo operazioni _GET_.
 
 	![Lettura/Scrittura in Esplora risorse](./media/virtual-machines-windows-capture-image/ArmExplorerReadWrite.png)
 
@@ -128,7 +131,7 @@ Per altre informazioni sulle operazioni che è possibile eseguire con questo pot
 
 	![Resource Explorer Action items](./media/virtual-machines-windows-capture-image/ArmExplorerActionItems.png)
 
-5. Deallocare la macchina virtuale facendo clic sul pulsante di azione per **deallocare**. Lo stato della VM viene modificato da **Arrestato** ad **Arrestato (deallocato)**.
+5. Deallocare la macchina virtuale facendo clic sul pulsante di azione per **deallocare**. Lo stato della macchina virtuale viene modificato da **Arrestato** ad **Arrestato (deallocato)**.
 
 6. Contrassegnare la macchina virtuale come generalizzata facendo clic sul pulsante di azione per **generalizzare**. È possibile verificare le modifiche dello stato facendo clic sul menu **InstanceView** sotto il nome della macchina virtuale sul lato sinistro e passando alla sezione **stati** sul lato destro.
 
@@ -138,7 +141,7 @@ Per altre informazioni sulle operazioni che è possibile eseguire con questo pot
 
 	Fare clic sul pulsante di azione **acquisisci** per acquisire l'immagine della macchina virtuale. Verrà creato un nuovo disco rigido virtuale per l'immagine, nonché un file di modello JSON. Al momento queste funzionalità non sono accessibili tramite Esplora risorse o tramite il [portale di Azure](https://portal.azure.com).
 
-8. Per accedere al nuovo disco rigido virtuale dell'immagine e al modello, scaricare e installare lo strumento di Azure per la gestione delle risorse di archiviazione, [Esplora archivi di Azure](http://storageexplorer.com/). Lo strumento installerà Esplora archivi di Azure localmente nel computer in uso.
+8. Per accedere al nuovo disco rigido virtuale dell'immagine e al modello, scaricare e installare lo strumento di Azure per la gestione delle risorse di archiviazione, [Esplora archivi di Microsoft Azure](http://storageexplorer.com/). Lo strumento installerà Esplora archivi di Azure localmente nel computer in uso.
 
 	- Aprire Esplora archivi e accedere alla sottoscrizione di Azure personale. Vengono visualizzati tutti gli account di archiviazione disponibili per la sottoscrizione.
 
@@ -173,7 +176,7 @@ Usare lo script di esempio PowerShell seguente per impostare una rete virtuale e
 
 ### Creare una nuova macchina virtuale
 
-Lo script PowerShell seguente illustra come impostare le configurazioni della macchina virtuale e usare l'immagine della VM acquisita come origine per la nuova installazione. </br>
+Lo script PowerShell seguente illustra come impostare le configurazioni della macchina virtuale e usare l'immagine della macchina virtuale acquisita come origine per la nuova installazione. </br>
 
 	#Enter a new user name and password in the pop-up for the following
 	$cred = Get-Credential
@@ -199,7 +202,7 @@ Lo script PowerShell seguente illustra come impostare le configurazioni della ma
 	#Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 
-La VM appena creata viene visualizzata nel [portale di Azure](https://portal.azure.com) in **Sfoglia** > **Macchine virtuali** OPPURE usando i comandi PowerShell seguenti:
+La macchina virtuale appena creata viene visualizzata nel [portale di Azure](https://portal.azure.com) in **Sfoglia** > **Macchine virtuali** OPPURE usando i comandi PowerShell seguenti:
 
 	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
 	$vmList.Name
@@ -207,6 +210,6 @@ La VM appena creata viene visualizzata nel [portale di Azure](https://portal.azu
 
 ## Passaggi successivi
 
-Per gestire la nuova macchina virtuale con Azure PowerShell, vedere l'articolo relativo alla [gestione delle macchine virtuali usando Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
+Per gestire la nuova macchina virtuale con Azure PowerShell, vedere [Gestire le macchine virtuali usando Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

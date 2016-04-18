@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/30/2015"   
+   ms.date="04/05/2016"   
    ms.author="seanmck"/>
 
 # Modellare un'applicazione in Service Fabric
@@ -139,7 +139,7 @@ Analogamente ai manifesti dei servizi, gli attributi **Version** sono stringhe n
 
 **DefaultServices** dichiara le istanze dei servizi create automaticamente ogni volta che viene creata un'istanza di un'applicazione sulla base di questo tipo di applicazione. I servizi predefiniti vengono forniti per comodità e dopo la creazione si comportano come normali servizi sotto ogni aspetto. Vengono aggiornati insieme agli altri servizi nell'istanza dell'applicazione e possono anche essere rimossi.
 
-> [AZURE.NOTE]Un manifesto dell'applicazione può contenere più importazioni di manifesti di servizi e servizi predefiniti. È possibile controllare le versioni di ogni manifesto del servizio in modo indipendente.
+> [AZURE.NOTE] Un manifesto dell'applicazione può contenere più importazioni di manifesti di servizi e servizi predefiniti. È possibile controllare le versioni di ogni manifesto del servizio in modo indipendente.
 
 Per informazioni su come mantenere applicazioni diverse e parametri di servizio per ambienti singoli, vedere [Gestione dei parametri dell'applicazione per più ambienti](service-fabric-manage-multiple-environment-app-configuration.md).
 
@@ -254,4 +254,4 @@ Dopo aver inserito correttamente l'applicazione nel pacchetto e aver superato la
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

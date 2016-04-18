@@ -42,8 +42,8 @@ Questa procedura descritta di seguito richiede di disporre di:
 
 * Un **sottoscrizione di Azure**. Se non si dispone di una sottoscrizione, è possibile iscriversi per provare la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Un **account di archiviazione Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account). Dopo avere creato l'account di archiviazione, sarà necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
-* Accesso a un **database SQL di Azure**. Se è necessario impostare un database di SQL Azure, la [Guida introduttiva al database SQL di Microsoft Azure](sql-database-get-started.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database di SQL Azure.
-* Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
+* Accesso a un **database SQL di Azure**. Se è necessario impostare un database di SQL Azure, la [Guida introduttiva al database SQL di Microsoft Azure](../sql-database/sql-database-get-started.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database di SQL Azure.
+* Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 **Dati**: i processi di migrazione vengono illustrati usando il [set di dati NYC Taxi](http://chriswhong.com/open-data/foil_nyc_taxi/). Il set di dati NYC Taxi contiene informazioni sui dati delle tratte e delle tariffe ed è disponibile, come indicato nel post, nell'archiviazione BLOB di Azure: [Dati NYC Taxi](http://www.andresmh.com/nyctaxitrips/). Un esempio e una descrizione di questi file sono inclusi in [Descrizione del set di dati relativo alle corse dei taxi di NYC](machine-learning-data-science-process-sql-walkthrough.md#dataset).
  
@@ -86,4 +86,4 @@ La procedura per lo spostamento dei dati a un database Azure SQL con Azure Data 
 
 È consigliabile utilizzare ADF quando i dati devono essere migrati continuamente in uno scenario ibrido che accede a risorse locali e cloud e quando i dati sono transazionali o devono essere modificati o avere una logica di business aggiunta durante la migrazione. L’ADF consente la pianificazione e il monitoraggio dei processi utilizzando semplici script JSON che gestiscono lo spostamento dei dati su base periodica. ADF dispone anche di altre funzionalità quali il supporto di operazioni complesse.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -60,7 +60,7 @@ Per usare l'archiviazione di Azure, è necessario scaricare Azure Storage SDK pe
 
 Utilizzando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file **server.js** dell'applicazione dove si intende utilizzare l'archiviazione:
 
-    var azure = require('azure-storage');
+	var azure = require('azure-storage');
 
 ## Configurare una connessione di archiviazione di Azure
 
@@ -72,27 +72,27 @@ Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure
 
 La coda seguente crea un oggetto **QueueService** che consente di utilizzare le code.
 
-    var queueSvc = azure.createQueueService();
+	var queueSvc = azure.createQueueService();
 
 Utilizzare il metodo **createQueueIfNotExists** che restituisce la coda specificata se esiste già o, in caso contrario, crea una nuova coda con il nome specificato.
 
 	queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
-      if(!error){
-        // Queue created or exists
+	  if(!error){
+	    // Queue created or exists
 	  }
 	});
 
-Se la coda viene creata, `result` è true. Se la coda esiste già, `result` è false.
+Se la coda viene creata, `result.created` è true. Se la coda esiste già, `result.created` è false.
 
 ### Filtri
 
 Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite utilizzando **QueueService**. Le operazioni di filtro possono includere la registrazione, la ripetizione automaticamente e così via. I filtri sono oggetti che implementano un metodo con la firma:
 
-		function handle (requestOptions, next)
+	function handle (requestOptions, next)
 
 Dopo avere eseguito la pre-elaborazione sulle opzioni della richiesta, il metodo deve chiamare "next" passando un callback con la seguente firma:
 
-		function (returnObject, finalCallback, next)
+	function (returnObject, finalCallback, next)
 
 In questo callback, e dopo l'elaborazione del returnObject (la risposta della richiesta al server), il callback deve richiamare "next", se questo esiste, per continuare a elaborare altri filtri oppure semplicemente richiamare finalCallback per concludere la chiamata al servizio.
 
@@ -117,7 +117,7 @@ Per inserire un messaggio in una coda, utilizzare il metodo **createMessage** pe
 
 	queueSvc.peekMessages('myqueue', function(error, result, response){
 	  if(!error){
-		// Message text is in messages[0].messagetext
+	    // Message text is in messages[0].messageText
 	  }
 	});
 
@@ -136,14 +136,14 @@ L'elaborazione di un messaggio prevede un processo a due fasi:
 Per rimuovere un messaggio dalla coda usare **getMessages**. Il messaggio viene reso invisibile nella coda, quindi nessun altro client può elaborarlo. Dopo che l'applicazione ha elaborato il messaggio, chiamare **deleteMessage** per eliminarlo dalla coda. Nell'esempio seguente il messaggio viene prima richiamato, quindi eliminato:
 
 	queueSvc.getMessages('myqueue', function(error, result, response){
-      if(!error){
-	    // Message text is in messages[0].messagetext
-        var message = result[0];
-        queueSvc.deleteMessage('myqueue', message.messageid, message.popreceipt, function(error, response){
+	  if(!error){
+	    // Message text is in messages[0].messageText
+	    var message = result[0];
+	    queueSvc.deleteMessage('myqueue', message.messageId, message.popReceipt, function(error, response){
 	      if(!error){
-		    //message deleted
-		  }
-		});
+	        //message deleted
+	      }
+	    });
 	  }
 	});
 
@@ -156,15 +156,15 @@ Se si usa **getMessages** in assenza di messaggi nella coda, non viene visualizz
 
 È possibile cambiare il contenuto di un messaggio inserito nella coda con **updateMessage**. Nell'esempio seguente viene aggiornato il testo di un messaggio:
 
-    queueSvc.getMessages('myqueue', function(error, result, response){
+	queueSvc.getMessages('myqueue', function(error, result, response){
 	  if(!error){
-		// Got the message
-		var message = result[0];
-		queueSvc.updateMessage('myqueue', message.messageid, message.popreceipt, 10, {messageText: 'new text'}, function(error, result, response){
-		  if(!error){
-			// Message updated successfully
-		  }
-		});
+	    // Got the message
+	    var message = result[0];
+	    queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, result, response){
+	      if(!error){
+	        // Message updated successfully
+	      }
+	    });
 	  }
 	});
 
@@ -177,18 +177,18 @@ Se si usa **getMessages** in assenza di messaggi nella coda, non viene visualizz
 
 Nell'esempio seguente viene usato il metodo **getMessages** per recuperare 15 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo for. Per tutti i messaggi restituiti dal metodo, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
 
-    queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
+	queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
 	  if(!error){
-		// Messages retreived
-		for(var index in result){
-		  // text is available in result[index].messageText
-		  var message = result[index];
-		  queueSvc.deleteMessage(queueName, message.messageid, message.popreceipt, function(error, response){
-			if(!error){
-			  // Message deleted
-			}
-		  });
-		}
+	    // Messages retreived
+	    for(var index in result){
+	      // text is available in result[index].messageText
+	      var message = result[index];
+	      queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, response){
+	        if(!error){
+	          // Message deleted
+	        }
+	      });
+	    }
 	  }
 	});
 
@@ -196,9 +196,9 @@ Nell'esempio seguente viene usato il metodo **getMessages** per recuperare 15 me
 
 **getQueueMetadata** restituisce metadati relativi alla coda, includendo il numero approssimativo di messaggi in attesa nella coda.
 
-    queueSvc.getQueueMetadata('myqueue', function(error, result, response){
+	queueSvc.getQueueMetadata('myqueue', function(error, result, response){
 	  if(!error){
-		// Queue length is available in result.approximatemessagecount
+	    // Queue length is available in result.approximateMessageCount
 	  }
 	});
 
@@ -218,10 +218,10 @@ Se non possono essere restituite tutte le code, è possibile usare `result.conti
 
 Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **deleteQueue** sull'oggetto coda.
 
-    queueSvc.deleteQueue(queueName, function(error, response){
-		if(!error){
-			// Queue has been deleted
-		}
+	queueSvc.deleteQueue(queueName, function(error, response){
+	  if(!error){
+	    // Queue has been deleted
+	  }
 	});
 
 Per deselezionare tutti i messaggi da una coda senza eliminarla, usare **clearMessages**.
@@ -269,36 +269,30 @@ Per impostare i criteri di accesso per una firma di accesso condiviso è anche p
 
 Un elenco di controllo di accesso viene implementato usando una matrice di criteri di accesso, con un ID associato a ogni criterio. Nell'esempio seguente vengono definiti due criteri, uno per 'user1' e uno per 'user2':
 
-	var sharedAccessPolicy = [
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user1'
+	var sharedAccessPolicy = {
+	  user1: {
+	    Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  },
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user2'
+	  user2: {
+	    Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  }
-	];
+	};
 
 Nell'esempio seguente viene recuperato l'elenco di controllo di accesso corrente per **myqueue** e vengono aggiunti i nuovi criteri tramite **setQueueAcl**. Risultato:
 
+	var extend = require('extend');
 	queueSvc.getQueueAcl('myqueue', function(error, result, response) {
-      if(!error){
-		//push the new policy into signedIdentifiers
-		result.signedIdentifiers = result.signedIdentifiers.concat(sharedAccessPolicy);
-		queueSvc.setQueueAcl('myqueue', result.signedIdentifiers, function(error, result, response){
-	  	  if(!error){
-	    	// ACL set
-	  	  }
-		});
+	  if(!error){
+	    var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
+	    queueSvc.setQueueAcl('myqueue', newSignedIdentifiers, function(error, result, response){
+	      if(!error){
+	        // ACL set
+	      }
+	    });
 	  }
 	});
 
@@ -331,4 +325,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   [Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Guida tecnica del modello di soluzione Cortana Analytics per la manutenzione predittiva nel settore aerospaziale e in altri campi | Microsoft Azure"
-	description="Guida tecnica del modello di soluzione con Microsoft Cortana Analytics per la manutenzione predittiva nel settore aerospaziale, nei servizi pubblici e nei trasporti."
+	pageTitle="Guida tecnica del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi | Microsoft Azure"
+	description="Guida tecnica del modello di soluzione con Microsoft Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale, nei servizi pubblici e nei trasporti."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="fboylu"
@@ -16,14 +16,14 @@
 	ms.date="01/29/2016"
 	ms.author="fboylu" />
 
-# Guida tecnica del modello di soluzione Cortana Analytics per la manutenzione predittiva nel settore aerospaziale e in altri campi
+# Guida tecnica del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi
 
 ## **Riconoscimenti**
 Autori di questo articolo sono gli esperti di gestione dati Yan Zhang, Gauher Shaheen e Fidan Boylu Uz e il programmatore Microsoft Dan Grecoe.
 
 ## **Panoramica**
 
-I modelli di soluzione sono progettati per accelerare il processo di compilazione di una demo end-to-end basata sulla suite Cortana Analytics. Un modello distribuito esegue il provisioning alla sottoscrizione dei componenti Cortana Analytics necessari e permette di creare le relazioni tra di essi. Esegue anche il seeding nella pipeline di dati, a cui indirizza dati di esempio generati da un'applicazione di generazione dati, da scaricare e installare nel computer locale dopo aver distribuito il modello di soluzione. I dati generati dall'applicazione attivano la pipeline di dati e avviano la creazione di stime di Machine Learning che possono essere visualizzate nel dashboard di Power BI. Il processo di distribuzione prevede diversi passaggi per l'impostazione delle credenziali della soluzione. Assicurarsi di prendere nota delle credenziali, ad esempio il nome della soluzione, il nome utente e la password forniti durante la distribuzione.
+I modelli di soluzione sono progettati per accelerare il processo di compilazione di una demo end-to-end basata su Cortana Intelligence Suite. Un modello distribuito esegue il provisioning alla sottoscrizione dei componenti Cortana Intelligence necessari e permette di creare le relazioni tra di essi. Esegue anche il seeding nella pipeline di dati, a cui indirizza dati di esempio generati da un'applicazione di generazione dati, da scaricare e installare nel computer locale dopo aver distribuito il modello di soluzione. I dati generati dall'applicazione attivano la pipeline di dati e avviano la creazione di stime di Machine Learning che possono essere visualizzate nel dashboard di Power BI. Il processo di distribuzione prevede diversi passaggi per l'impostazione delle credenziali della soluzione. Assicurarsi di prendere nota delle credenziali, ad esempio il nome della soluzione, il nome utente e la password forniti durante la distribuzione.
 
 L'obiettivo di questo documento è illustrare l'architettura di riferimento e i vari componenti di cui è stato eseguito il provisioning alla sottoscrizione nell'ambito di questo modello di soluzione. Il documento illustra anche come sostituire i dati di esempio con dati reali per poter visualizzare informazioni dettagliate e stime dai propri dati e illustra poi le parti del modello di soluzione da modificare per personalizzare la soluzione con i propri dati. Alla fine del documento vengono fornite istruzioni sulla compilazione del dashboard di Power BI per questo modello di soluzione.
 
@@ -272,4 +272,4 @@ I due strumenti indicati di seguito permettono di comprendere meglio i costi tot
 
 -   [Microsoft Azure Cost Estimator Tool (PC desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

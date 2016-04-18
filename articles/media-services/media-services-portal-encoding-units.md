@@ -4,7 +4,7 @@
 	services="media-services"
 	documentationCenter=""
 	authors="juliako,milangada"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="03/29/2016"
 	ms.author="juliako"/>
 
 
@@ -21,20 +21,41 @@
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
-- [Portal](media-services-portal-encoding-units.md)
+- [Portale](media-services-portal-encoding-units.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 - [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 ## Panoramica
 
-Un account di Servizi multimediali è associato a un tipo di unità riservata che determina la velocità dei processi di elaborazione dei multimedia. È possibile scegliere uno dei seguenti tipi di unità riservata: **S1**, **S2** o **S3**. Ad esempio, lo stesso processo di codifica viene eseguito più velocemente quando si usa il tipo di unità riservata **S2** rispetto al tipo **S1**. Per altre informazioni, vedere il post di blog relativo ai [tipi di unità riservate di codifica](https://azure.microsoft.com/blog/author/milanga/).
+Un account di Servizi multimediali è associato a un tipo di unità riservata che determina la velocità dei processi di elaborazione dei multimedia. È possibile scegliere uno dei seguenti tipi di unità riservata: **S1**, **S2** o **S3**. Ad esempio, lo stesso processo di codifica viene eseguito più velocemente quando si usa il tipo di unità riservata **S2** rispetto al tipo **S1**. Per altre informazioni vedere [Tipi di unità riservate](https://azure.microsoft.com/blog/author/milanga/).
 
-Oltre al tipo di unità riservata, è possibile specificare il provisioning dell'account con unità riservate di codifica. Il numero delle unità riservate di codifica sottoposte a provisioning determina il numero di attività multimediali che possono essere elaborate contemporaneamente in un determinato account. Se, ad esempio, il proprio account dispone di cinque unità riservate, è possibile eseguire simultaneamente cinque attività multimediali, purché siano presenti attività da elaborare. Le attività rimanenti verranno messe in coda e prelevate in sequenza per l'elaborazione non appena un'attività in esecuzione viene completata. Se per un account non sono state fornite unità riservate, le attività verranno prelevate in sequenza. In questo caso, il tempo di attesa tra il completamento di un'attività e l'avvio di quella successiva dipende dalle risorse disponibili nel sistema.
+Oltre al tipo di unità riservata, è possibile specificare il provisioning dell'account con unità riservate. Il numero delle unità riservate sottoposte a provisioning determina il numero di attività multimediali che possono essere elaborate contemporaneamente in un determinato account. Se, ad esempio, il proprio account dispone di cinque unità riservate, è possibile eseguire simultaneamente cinque attività multimediali, purché siano presenti attività da elaborare. Le attività rimanenti verranno messe in coda e prelevate in sequenza per l'elaborazione non appena un'attività in esecuzione viene completata. Se per un account non sono state fornite unità riservate, le attività verranno prelevate in sequenza. In questo caso, il tempo di attesa tra il completamento di un'attività e l'avvio di quella successiva dipende dalle risorse disponibili nel sistema.
 
->[AZURE.IMPORTANT] Unità riservate di lavoro per la parallelizzazione di tutta l'elaborazione di supporti di memorizzazione, tra cui l'indicizzazione di processi tramite Azure Media Indexer. Tuttavia, a differenza della codifica, l'indicizzazione di processi non elaborerà più velocemente con unità riservate più veloci.
+## Scelta tra i tipi diversi di unità riservata
 
-Per cambiare il tipo di unità riservata e il numero di unità riservate di codifica, seguire questa procedura:
+La tabella seguente consente di scegliere tra diverse velocità di codifica. Indica inoltre alcuni casi di benchmark e riporta gli URL di firma di accesso condiviso che è possibile usare per scaricare i video in cui eseguire test personali:
+
+ |**S1**|**S2**|**S3**|
+----------|------------|----------|------------
+Caso d'uso previsto| Codifica con velocità in bit singola. <br/>File SD o con risoluzione inferiore, non dipendenti dall'ora, a basso costo.|Codifica con velocità in bit singola e multipla.<br/>Normale uso per la codifica SD e HD. |Codifica con velocità in bit singola e multipla.<br/>Video Full HD e con risoluzione 4K. Codifica dipendente dall'ora con completamento più rapido. 
+Benchmark|[File di input: della durata di 5 minuti, con risoluzione 640x360p, a 29,97 fotogrammi al secondo](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>La codifica di un file MP4 con velocità in bit singola con la stessa risoluzione richiede circa 11 minuti.|[File di input: della durata di 5 minuti, con risoluzione 1280x720p, a 29,97 fotogrammi al secondo](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)<br/><br/>La codifica con "Codec video H.264 a bitrate singolo con risoluzione 720p" preconfigurato richiede circa 5 minuti.<br/><br/>La codifica con "Codec video H.264 a bitrate multiplo con risoluzione 720p" preconfigurato richiede circa 11,5 minuti.|[File di input: della durata di 5 minuti, con risoluzione 1920x1080p, a 29,97 fotogrammi al secondo](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D). <br/><br/>La codifica con "Codec video H.264 a bitrate singolo con risoluzione 1080p" preconfigurato richiede circa 2,7 minuti.<br/><br/>La codifica con "Codec video H.264 a bitrate multiplo con risoluzione 1080p" preconfigurato richiede circa 5,7 minuti.
+
+##Considerazioni
+
+>[AZURE.IMPORTANT] Si applicano le considerazioni seguenti:
+
+- Unità riservate di lavoro per la parallelizzazione di tutta l'elaborazione di supporti di memorizzazione, tra cui l'indicizzazione di processi tramite Azure Media Indexer. Tuttavia, a differenza della codifica, l'indicizzazione di processi non elaborerà più velocemente con unità riservate più veloci.
+
+- Se si usa il pool condiviso, vale a dire senza unità riservate, le attività di codifica avranno le stesse prestazioni di quando si usano le unità riservate S1. Non vi è tuttavia alcun limite superiore al tempo che le attività possono trascorrere nello stato in coda e in qualsiasi momento può essere eseguita una sola attività al massimo.
+
+- I seguenti data center non offrono il tipo di unità riservata **S3**: Brasile meridionale, India occidentale, India centrale e India meridionale.
+
+- Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo.
+
+## Modificare il tipo di unità riservata
+
+Per modificare il tipo di unità riservata e il numero di unità riservate, effettuare le operazioni seguenti:
 
 1. Nel [portale di Azure classico](https://manage.windowsazure.com/) fare clic su **Servizi multimediali**. Fare quindi clic sul nome del servizio multimediale.
 
@@ -47,14 +68,10 @@ Per cambiare il tipo di unità riservata e il numero di unità riservate di codi
 
 	![Pagina relativa ai processori](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
 
+3. Fare clic sul pulsante SAVE per salvare le modifiche apportate.
 
-	>[AZURE.NOTE] I seguenti data center non offrono il tipo di unità riservata Premium: Singapore, Hong Kong, Osaka, Beijing, Shanghai.
-
-3. Fare clic sul pulsante SALVA per salvare le modifiche apportate.
-
-	Le nuove unità riservate di codifica vengono allocate non appena si fa clic su SALVA.
-
-	>[AZURE.NOTE] Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo.
+	Le nuove unità riservate vengono allocate non appena si fa clic su SALVA.
+ 
 
 ##Quote e limitazioni
 
@@ -70,4 +87,4 @@ Per informazioni su quote e limitazioni e su come aprire un ticket di supporto, 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

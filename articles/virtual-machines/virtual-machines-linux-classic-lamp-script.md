@@ -34,7 +34,7 @@ Per questo esempio, creare innanzitutto due macchine virtuali di Azure che esegu
 
 Sono inoltre necessari un account di archiviazione di Azure e una chiave di accesso (che è possibile ottenere nel portale di Azure classico).
 
-Per informazioni sulla creazione delle macchine virtuali Linux in Azure, fare riferimento a [Creare una macchina virtuale che esegue Linux](virtual-machines-linux-cli-create.md).
+Per informazioni sulla creazione delle macchine virtuali Linux in Azure, fare riferimento a [Creare una macchina virtuale che esegue Linux](virtual-machines-linux-classic-createportal.md).
 
 I comandi di installazione presuppongono Ubuntu, ma è possibile adattare l'installazione per qualsiasi distro Linux supportata.
 
@@ -110,4 +110,4 @@ Di seguito sono riportate alcune risorse aggiuntive per l’interfaccia della ri
 
 [Computing Linux e open source in Azure](virtual-machines-linux-opensource-links.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="DocumentDB - Capacità - Archiviazione di documenti | Microsoft Azure" 
+<properties
+	pageTitle="Archiviazione e prestazioni in DocumentDB | Microsoft Azure" 
 	description="Informazioni sull'archiviazione dei dati e dei documenti in DocumentDB e sulla scalabilità di DocumentDB per soddisfare le esigenze di capacità dell'applicazione." 
 	keywords="archiviazione documenti"
 	services="documentdb" 
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016" 
+	ms.date="03/30/2016" 
 	ms.author="mimig"/>
 
-# Informazioni sulla capacità e sull'archiviazione di documenti in DocumentDB
+# Informazioni sull'archiviazione e sul provisioning con prestazioni stimabili in DocumentDB
 DocumentDB è un servizio database NoSQL orientato ai documenti, scalabile e completamente gestito per i documenti in formato JSON. Grazie a DocumentDB, non sarà necessario affittare macchine virtuali, distribuire software, monitorare database o preoccuparsi del ripristino di emergenza. DocumentDB è gestito e monitorato costantemente da tecnici Microsoft, in modo da offrire disponibilità, prestazioni e protezione dei dati di elevata qualità.
 
-È possibile iniziare a usare DocumentDB [creando un account database](documentdb-create-account.md) tramite il [portale di Azure](https://portal.azure.com/). DocumentDB è offerto in unità di risorse di archiviazione e velocità effettiva basate su unità SSD. Queste unità sono sottoposte a provisioning mediante la creazione di raccolte di database all'interno dell'account di database. Ogni raccolta include 10 GB di archiviazione del database con una velocità effettiva riservata. Se i requisiti di velocità effettiva dell'applicazione cambiano, è possibile modificare dinamicamente questa impostazione configurando il [livello di prestazioni](documentdb-performance-levels.md) per ogni raccolta.
+È possibile iniziare a usare DocumentDB [creando un account database](documentdb-create-account.md) tramite il [portale di Azure](https://portal.azure.com/). DocumentDB è offerto in unità di risorse di archiviazione e velocità effettiva basate su unità SSD. Queste unità sono sottoposte a provisioning mediante la creazione di raccolte di database all'interno dell'account di database. Ogni raccolta ha una velocità effettiva riservata. Se i requisiti di velocità effettiva dell'applicazione cambiano, è possibile modificare dinamicamente questa impostazione configurando il [livello di prestazioni](documentdb-performance-levels.md) per ogni raccolta.
 
 Quando l'applicazione supera i livelli delle prestazioni per una o più raccolte, le richieste saranno limitate in base a ogni raccolta. Ciò significa che alcune richieste di applicazione possono avere esito positivo mentre altre possono essere limitate.
 
@@ -31,30 +31,29 @@ Gli utenti che hanno sottoscritto Azure possono eseguire il provisioning di uno 
 
 Il portale di Azure fornisce le metriche di utilizzo per il monitoraggio degli account del database, dei database e delle raccolte. Per altre informazioni, vedere [Monitorare un account DocumentDB](documentdb-monitor-accounts.md).
 
-## Database con archiviazione illimitata dei documenti
-Un singolo database di DocumentDB può includere una quantità praticamente illimitata di archiviazione documenti, partizionata in base alle raccolte. Le raccolte costituiscono i domini transazione per i documenti incluse nelle raccolte stesse. Un database di DocumentDB è flessibile per quanto riguarda le dimensioni e può includere da pochi GB a, potenzialmente, terabyte di archiviazione documenti e velocità effettiva con provisioning basate su SSD. A differenza del database RDBMS tradizionale, l'ambito di un database in DocumentDB non è limitato a una singola macchina.
+## Database
+Un singolo database di DocumentDB può includere risorse di archiviazione documenti praticamente illimitate, raggruppate per raccolte. Le raccolte garantiscono l'isolamento delle prestazioni. È possibile effettuare il provisioning di ogni raccolta con una velocità effettiva non condivisa con le altre raccolte nello stesso database o account. I database di DocumentDB hanno dimensioni flessibili e possono includere da pochi gigabyte a diversi terabyte di archiviazione documenti e velocità effettiva con provisioning basate su unità SSD. A differenza del database RDBMS tradizionale, l'ambito di un database in DocumentDB non è limitato a un unico computer e può estendersi a più computer o cluster.
 
-Con DocumentDB, in caso di esigenza di scalabilità delle applicazioni, sarà possibile creare più raccolte o più database o entrambi. Molte applicazioni prodotte direttamente da Microsoft usano DocumentDB su scala consumer, creando database DocumentDB di dimensioni estremamente elevate, ognuno dei quali include centinaia o migliaia di raccolte con terabyte di archiviazione documenti. È possibile aumentare o ridurre le dimensioni di un database aggiungendo o rimuovendo raccolte per soddisfare i requisiti di scalabilità dell'applicazione.
+Con DocumentDB, in caso di esigenza di scalabilità delle applicazioni, sarà possibile creare più raccolte o più database o entrambi.
 
 ## Raccolte di database
 Ogni database di DocumentDB può includere una o più raccolte. Le raccolte fungono da partizioni di dati a disponibilità elevata per l'elaborazione e archiviazione dei documenti. Ogni raccolta è in grado di archiviare documenti con schemi eterogenei. Le funzionalità di indicizzazione automatica e query di DocumentDB consentono di filtrare e recuperare documenti facilmente. Una raccolta fornisce l'ambito per l'archiviazione documenti e l'esecuzione di query. Una raccolta costituisce anche un dominio di transazione per tutti i documenti inclusi nella raccolta stessa. La velocità effettiva delle raccolte viene allocata in base al livello delle prestazioni specificato. Questa impostazione può essere modificata in modo dinamico tramite il portale di Azure o uno degli SDK.
 
-È possibile creare qualunque numero di raccolte necessario per soddisfare i requisiti di archiviazione dei dati e scalabilità della velocità effettiva dell'applicazione. È possibile creare le raccolte tramite il [portale di Azure](https://portal.azure.com/) o uno degli [SDK di DocumentDB](documentdb-sdk-dotnet.md).
+Le raccolte vengono partizionate automaticamente in uno o più server fisici da DocumentDB. Quando si crea una raccolta, è possibile specificare la velocità effettiva con provisioning in termini di unità richiesta al secondo e una proprietà chiave di partizione. Il valore di questa proprietà viene usato da DocumentDB per distribuire i documenti tra le partizioni e indirizzare le richieste come query. Il valore della chiave di partizione funge anche da limite della transazione per le stored procedure e i trigger. Ogni raccolta ha una quantità di velocità effettiva riservata che non viene condivisa con altre raccolte nello stesso account. È quindi possibile aumentare il numero di istanze dell'applicazione sia in termini di archiviazione che di velocità effettiva.
 
->[AZURE.NOTE] Ogni raccolta supporta l'archiviazione di dati del documento fino a 10 GB. Per poter archiviare set di dati di dimensioni maggiori, è necessario eseguire la partizione tra più raccolte. Per altre informazioni, vedere [Come partizionare i dati in DocumentDB con .NET SDK](documentdb-sharding.md).
+È possibile creare le raccolte tramite il [portale di Azure](https://portal.azure.com/) o uno degli [SDK di DocumentDB](documentdb-sdk-dotnet.md).
  
 ## Unità di richiesta e operazioni di database
-DocumentDB permette un'ampia gamma di operazioni di database, incluse le query relazionali e gerarchiche con funzioni UDF, stored procedure e trigger operative nei documenti in una raccolta di database. Il costo di elaborazione associato a ognuna di queste operazioni dipende da CPU, I/O e memoria necessari per il completamento dell'operazione. Invece di occuparsi della pianificazione e della gestione delle risorse hardware, sarà possibile usare un'unità di richiesta come misura singola per le risorse necessarie per eseguire diverse operazioni di database e rispondere a una richiesta dell'applicazione.
 
-Le unità di richiesta sono sottoposte a provisioning e assegnate in base al livello di prestazioni impostato per una raccolta. Per ogni raccolta viene designato un livello di prestazioni al momento della creazione. Questo livello di prestazioni determina la capacità di elaborazione di una raccolta in unità di richiesta al secondo. È possibile regolare i livelli di prestazioni per tutta la durata di una raccolta per adattarsi alle esigenze di elaborazione mutevoli e accedere ai modelli dell'applicazione. Per altre informazioni, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).
+Quando si crea una raccolta, la velocità effettiva viene riservata in termini di unità richiesta (UR) al secondo. Invece di preoccuparsi delle risorse hardware e della relativa gestione, è possibile considerare un'**unità richiesta** come una singola misura per le risorse necessarie per eseguire diverse operazioni di database e soddisfare una richiesta di applicazione. Un'operazione di lettura di un documento di 1 KB utilizza 1 UR indipendentemente dal numero di elementi archiviati nella raccolta o dal numero di richieste simultanee in esecuzione contemporaneamente. Tutte le richieste a DocumentDB, incluse operazioni complesse come le query SQL, hanno un valore UR stimabile che può essere determinato in fase di sviluppo. Se si conoscono le dimensioni dei documenti e la frequenza di ogni operazione di lettura, scrittura e query per il supporto dell'applicazione, è possibile effettuare il provisioning dell'esatta quantità di velocità effettiva necessaria per rispondere alle esigenze dell'applicazione e aumentare o ridurre le prestazioni del database secondo necessità.
 
->[AZURE.IMPORTANT] Le raccolte sono entità fatturabili. Il costo è determinato dal livello di prestazioni assegnato alla raccolta.
+La velocità effettiva per ogni raccolta può essere riservata in blocchi di 100 unità richiesta al secondo, da poche centinaia a milioni di unità richiesta al secondo. È possibile regolare la velocità effettiva con provisioning per tutta la durata di una raccolta, per adattarla alle diverse esigenze di elaborazione e ai modelli di accesso dell'applicazione. Per altre informazioni, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).
 
-Il consumo delle unità di richiesta è valutato in base alla frequenza al secondo. Per le applicazioni che superano il livello di unità di richiesta con provisioning per una raccolta, le richieste a tale raccolta saranno limitate fino al ritorno del livello sotto il valore riservato. Se l'applicazione richiede un livello di velocità effettiva superiore, è possibile modificare il livello di prestazioni delle raccolte esistenti o distribuire le richieste delle applicazioni tra nuove raccolte.
+>[AZURE.IMPORTANT] Le raccolte sono entità fatturabili. Il costo è determinato dalla velocità effettiva con provisioning della raccolta, misurata in unità richiesta al secondo, e dallo spazio di archiviazione totale utilizzato, misurato in gigabyte.
 
-Un'unità di richiesta è una misura normalizzata del costo di elaborazione della richiesta. Una singola unità di richiesta rappresenta la capacità di elaborazione necessaria per leggere un singolo documento JSON da 1 KB costituito da 10 valori di proprietà univoci. L'addebito delle unità di richiesta presuppone un livello di coerenza impostato sul valore predefinito "Sessione" e che tutti i documenti siano indicizzati automaticamente. Una richiesta di inserimento, sostituzione o eliminazione dello stesso documento utilizzerà più potenza di elaborazione del servizio e pertanto più unità di richiesta. Ogni risposta dal servizio include un'intestazione personalizzata (x-ms-request-charge) che misura le unità di richiesta usate per la richiesta. Questa intestazione è accessibile anche tramite gli [SDK](documentdb-sdk-dotnet.md). In .NET SDK, RequestCharge è una proprietà dell'oggetto ResourceResponse.
+Come prevedere quante unità richiesta utilizzerà una determinata operazione di inserimento o eliminazione oppure l'esecuzione di una query o una stored procedure? Un'unità di richiesta è una misura normalizzata del costo di elaborazione della richiesta. Un'operazione di lettura di un documento di 1 KB corrisponde a 1 UR, ma una richiesta di inserimento, sostituzione o eliminazione dello stesso documento utilizzerà più capacità di elaborazione del servizio e quindi più unità richiesta. Ogni risposta dal servizio include un'intestazione personalizzata, `x-ms-request-charge`, in cui sono riportate le unità richiesta utilizzate per la richiesta. Questa intestazione è accessibile anche tramite gli [SDK](documentdb-sdk-dotnet.md). In .NET SDK, RequestCharge è una proprietà dell'oggetto ResourceResponse.
 
->[AZURE.NOTE] La base di 1 unità di una richiesta per un documento da 1 KB corrisponde a un'operazione GET semplice dal collegamento self del documento.
+>[AZURE.NOTE] La base di 1 unità richiesta per un documento da 1 KB corrisponde a una semplice operazione GET del documento con la coerenza di sessione.
 
 Ci sono diversi fattori che influiscono sulle unità di richiesta utilizzate per un'operazione in un account di database DocumentDB. Questi fattori includono:
 
@@ -64,7 +63,59 @@ Ci sono diversi fattori che influiscono sulle unità di richiesta utilizzate per
 - Proprietà indicizzate. I criteri di indicizzazione in ogni raccolta determinano le proprietà che vengono indicizzate per impostazione predefinita. È possibile ridurre l'utilizzo di unità di richiesta limitando il numero di proprietà indicizzate. 
 - Indicizzazione del documento. Per impostazione predefinita ogni documento viene indicizzato automaticamente, ma se si sceglie di non indicizzare alcuni documenti si utilizzeranno meno unità di richiesta.
 
+Per altre informazioni, vedere l'articolo relativo alle [unità richiesta di DocumentDB](documentdb-request-units.md).
+
+La tabella riportata di seguito mostra il numero di unità richiesta di cui effettuare il provisioning per tre dimensioni di documento diverse, ovvero 1 KB, 4 KB e 64 KB, e due livelli di prestazioni diversi, ovvero 500 letture al secondo + 100 scritture al secondo e 500 letture al secondo + 500 scritture al secondo. La coerenza dei dati è stata configurata come Sessione e i criteri di indicizzazione sono stati impostati su Nessuno.
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top"><p><strong>Dimensioni del documento</strong></p></td>
+            <td valign="top"><p><strong>Letture al secondo</strong></p></td>
+            <td valign="top"><p><strong>Scritture al secondo</strong></p></td>
+            <td valign="top"><p><strong>Unità richiesta</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>1 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>100</p></td>
+            <td valign="top"><p>(500 * 1) + (100 * 5) = 1.000 UR/sec</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>1 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>(500 * 5) + (100 * 5) = 3.000 UR/sec</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>4 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>100</p></td>
+            <td valign="top"><p>(500 * 1,3) + (100 * 7) = 1.350 UR/sec</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>4 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>(500 * 1,3) + (500 * 7) = 4.150 UR/sec</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>64 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>100</p></td>
+            <td valign="top"><p>(500 * 10) + (100 * 48) = 9.800 UR/sec</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>64 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>(500 * 10) + (500 * 48) = 29.000 UR/sec</p></td>
+        </tr>
+    </tbody>
+</table>
+
 Query, stored procedure e trigger utilizzeranno le unità di richiesta in base alla complessità delle operazioni eseguite. Quando si sviluppa l'applicazione, controllare l'intestazione per l'addebito delle richieste per comprendere meglio il modo in cui ciascuna operazione usa la capacità delle unità di richiesta.
+
 
 ## Scelta del livello di coerenza e velocità effettiva
 La scelta del livello di coerenza predefinita influisce sulla velocità effettiva e sulla latenza. È possibile impostare il livello di coerenza predefinito sia a livello di codice che tramite il portale di Azure. È anche possibile eseguire l'override del livello di coerenza per singole richieste. Per impostazione predefinita, il livello di coerenza corrisponde a quello della sessione che fornisce letture/scritture costanti e legge le garanzie di scrittura fornite. La coerenza delle sessioni è ideale per applicazioni incentrate sugli utenti e offre un compromesso ideale tra coerenza e prestazioni.
@@ -72,14 +123,13 @@ La scelta del livello di coerenza predefinita influisce sulla velocità effettiv
 Per istruzioni sulla modifica del livello di coerenza nel portale di Azure, vedere [Come gestire un account DocumentDB](documentdb-manage-account.md#consistency). In alternativa, per altre informazioni sui livelli di coerenza, vedere [Uso dei livelli di coerenza](documentdb-consistency-levels.md).
 
 ## Archiviazione documenti con provisioning e sovraccarico dell'indice
-A ogni raccolta creata, viene eseguito il provisioning dell'account con 10 GB di archiviazione documenti basata su SSD. I 10 GB di archiviazione documenti includono i documenti e l'archiviazione per l'indice. Per impostazione predefinita, una raccolta DocumentDB è configurata per l'indicizzazione automatica di tutti i documenti, senza richiedere esplicitamente indici o schemi secondari. In base alle applicazioni che utilizzano DocumentDB, il sovraccarico tipico dell’indice è compreso tra 2-20%. La tecnologia di indicizzazione usata da DocumentDB assicura che, indipendentemente dai valori delle proprietà, il sovraccarico dell'indice non supererà l'80% delle dimensioni dei documenti con impostazioni predefinite.
+DocumentDB supporta la creazione di raccolte a partizione singola e raccolte partizionate. Ogni partizione in DocumentDB supporta fino a 10 GB di spazio di archiviazione basato su SSD. I 10 GB di archiviazione documenti includono i documenti e l'archiviazione per l'indice. Per impostazione predefinita, una raccolta DocumentDB è configurata per l'indicizzazione automatica di tutti i documenti, senza richiedere esplicitamente indici o schemi secondari. In base alle applicazioni che utilizzano DocumentDB, il sovraccarico tipico dell’indice è compreso tra 2-20%. La tecnologia di indicizzazione usata da DocumentDB assicura che, indipendentemente dai valori delle proprietà, il sovraccarico dell'indice non supererà l'80% delle dimensioni dei documenti con impostazioni predefinite.
 
 Per impostazione predefinita, tutti i documenti sono indicizzati automaticamente da DocumentDB. Se tuttavia si vuole ottimizzare il sovraccarico dell'indice, è possibile scegliere di rimuovere determinati documenti dall'indicizzazione al momento dell'inserimento o della sostituzione di un documento, come descritto in [Criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md). È possibile configurare una raccolta di DocumentDB in modo da escludere dall'indicizzazione tutti i documenti nella raccolta. È anche possibile configurare una raccolta DocumentDB in modo che indicizzi in modo selettivo solo determinate proprietà o alcuni percorsi con caratteri jolly dei documenti JSON, come descritto in [Configurazione dei criteri di indicizzazione di una raccolta](documentdb-indexing-policies.md#configuring-the-indexing-policy-of-a-collection). L'esclusione di proprietà o documenti migliora anche la velocità effettiva di scrittura, permettendo quindi di usare meno unità di richiesta.
- 
 ## Passaggi successivi
 Per istruzioni su come monitorare i livelli di prestazioni nel portale di Azure, vedere [Monitorare un account DocumentDB](documentdb-monitor-accounts.md).
 
 Per altre informazioni sulla scelta dei livelli di prestazioni delle raccolte, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

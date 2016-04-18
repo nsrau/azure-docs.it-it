@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/30/2016"
 	ms.author="femila"/>
 
 # Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1
 
-È possibile usare un oggetto Criteri di gruppo di Active Directory per configurare i dispositivi appartenenti a un dominio di Windows 8.1 per la registrazione automatica in Azure AD. Per configurare l'oggetto Criteri di gruppo, è necessario avere almeno un computer Windows Server 2012 R2 o Windows 8.1 appartenente al dominio con la funzionalità Gestione Criteri di gruppo. Una volta attivato l'oggetto Criteri di gruppo per il dominio, qualsiasi utente del dominio che eseguirà l'accesso al computer verrà registrato in modo automatico e invisibile con un oggetto dispositivo in Azure AD, in cui sarà presente un oggetto dispositivo per ogni utente registrato del dispositivo fisico. Leggere i prerequisiti elencati in Registrazione automatica dei dispositivi con Azure Active Directory per dispositivi appartenenti a un dominio di Windows e assicurarsi che siano soddisfatti.
+È possibile usare un oggetto Criteri di gruppo di Active Directory per configurare i dispositivi appartenenti a un dominio di Windows 8.1 per la registrazione automatica in Azure AD. Per configurare Criteri di gruppo, è necessario avere almeno un computer Windows Server 2012 R2 o Windows 8.1 aggiunto a un dominio con la funzionalità Gestione Criteri di gruppo installata. Dopo aver abilitato Criteri di gruppo per il dominio, qualsiasi utente di dominio che accede al computer verrà automaticamente registrato con un oggetto dispositivo in Azure AD. in cui sarà presente un oggetto dispositivo per ogni utente registrato del dispositivo fisico. Leggere i prerequisiti elencati in Registrazione automatica dei dispositivi con Azure Active Directory per dispositivi appartenenti a un dominio di Windows e assicurarsi che siano soddisfatti.
 
 ## Configurare l'oggetto Criteri di gruppo per i dispositivi appartenenti al dominio di Windows 8.1
 
@@ -44,9 +44,13 @@ Annullare la registrazione dei computer Windows 8.1 appartenenti al dominio sceg
 * Opzione 2: Annullare la registrazione di un dispositivo Windows 8.1 appartenente al dominio con uno script
   	1. Aprire un prompt dei comandi sul computer Windows 8.1 ed eseguire il seguente comando: ` %SystemRoot%\System32\AutoWorkplace.exe leave`
    
-Questo comando deve essere eseguito nel contesto di ogni utente di dominio che ha eseguito l'accesso al computer. Visualizzatore eventi ed errori per i dispositivi Windows 8.1 appartenenti a un dominio
+Questo comando deve essere eseguito nel contesto di ogni utente di dominio che ha eseguito l'accesso al computer.
 
-Il registro eventi del computer Windows 8.1 visualizza i messaggi correlati alla registrazione dei dispositivi. È possibile trovare messaggi per gli eventi riusciti e non. Il registro eventi si trova nel Visualizzatore eventi in **Registri** applicazioni e servizi > **Microsoft** > **Windows > Aggiunta all'area di lavoro**.
+##Visualizzatore eventi ed errori per i dispositivi Windows 8.1 appartenenti a un dominio
+
+Il registro eventi di Windows in un computer Windows 8.1 visualizza i messaggi relativi alla registrazione dei dispositivi. È possibile trovare messaggi per gli eventi riusciti e non.
+
+Il registro eventi si trova nel Visualizzatore eventi in **Registri** applicazioni e servizi > **Microsoft** > **Windows > Aggiunta all'area di lavoro**.
 
 ##Dettagli aggiuntivi
 
@@ -57,4 +61,4 @@ L'oggetto Criteri di gruppo abilita nel sistema un'attività pianificata che vie
 - [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows 10 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration.md)
 - [Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

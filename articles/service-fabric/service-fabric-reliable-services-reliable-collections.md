@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="mcoskun"
    manager="timlt"
-   editor="masnider,jessebenson"/>
+   editor="masnider,vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="11/11/2015"
+   ms.date="03/25/2016"
    ms.author="mcoskun"/>
 
 # Introduzione alle Reliable Collections nei servizi con stato di Service Fabric
@@ -39,7 +39,7 @@ Le raccolte Reliable Collections offrono garanzie predefinite di coerenza assolu
 Le API Reliable Collections sono un'evoluzione delle API delle raccolte disponibili nello spazio dei nomi **System.Collections.Concurrent**:
 
 - Asincrone: restituiscono un'attività dal momento che, a differenza delle raccolte Concurrent Collections, le operazioni vengono replicate e rese persistenti.
-- Senza parametri out: usano **ConditionalResult<T>** per restituire una variabile booleana e un valore anziché parametri out. **ConditionalResult<T>** è simile a **Nullable<T>**, ma non necessita di T per essere un tipo struct.
+- Senza parametri out: usano `ConditionalValue<T>` per restituire una variabile booleana e un valore anziché parametri out. `ConditionalValue<T>` è simile a `Nullable<T>` ma non necessità di T per essere una struttura.
 - Transazioni: usano un oggetto transazione per consentire all'utente di raggruppare azioni su più raccolte Reliable Collections in una transazione.
 
 Attualmente **Microsoft.ServiceFabric.Data.Collections** include due raccolte:
@@ -97,18 +97,18 @@ Si noti che un argomento timeout delle API Reliable Collections viene usato per 
 
 Lo scenario di deadlock sopra descritto è un perfetto esempio di come il blocco di aggiornamento possa impedire i deadlock.
 
-## Consigli
+## Recommendations
 
-- Non modificare un oggetto di tipo personalizzato restituito da operazioni di lettura, ad esempio **TryPeekAsync** o **TryGetAsync**. Le raccolte Reliable Collections, così come le raccolte Concurrent Collections, restituiscono un riferimento agli oggetti, non una copia.
+- Non modificare un oggetto di tipo personalizzato restituito da operazioni di lettura, ad esempio `TryPeekAsync` o `TryGetAsync`. Le raccolte Reliable Collections, così come le raccolte Concurrent Collections, restituiscono un riferimento agli oggetti, non una copia.
 - Eseguire una copia completa dell'oggetto di tipo personalizzato restituito prima di modificarlo. Poiché le strutture e i tipi predefiniti vengono passati per valore, non è necessario eseguirne una copia completa.
-- Non usare **TimeSpan. MaxValue** per i timeout. I timeout devono essere usati per rilevare i deadlock.
+- Non usare `TimeSpan.MaxValue` per i timeout. I timeout devono essere usati per rilevare i deadlock.
 - Non creare una transazione all'interno dell'istruzione `using` di un'altra transazione. Questa operazione può causare deadlock.
 
 Occorre tenere presente i concetti seguenti:
 
 - Il timeout predefinito di tutte le API Reliable Collections è di 4 secondi. La maggior parte degli utenti non deve ignorare questo valore.
-- Il token di annullamento predefinito è **CancellationToken.None** in tutte le API Reliable Collections.
-- Il parametro di tipo di chiave (*TKey*) per un oggetto ReliableDictionary deve implementare correttamente **GetHashCode()** and **Equals()**. Le chiavi non devono essere modificabili.
+- Il token di annullamento predefinito è `CancellationToken.None` in tutte le API di Reliable Collections.
+- Il parametro di tipo di chiave (*TKey*) per un oggetto ReliableDictionary deve implementare correttamente `GetHashCode()` e `Equals()`. Le chiavi non devono essere modificabili.
 - All'interno di una raccolta le enumerazioni sono coerenti con gli snapshot. Le enumerazioni di più raccolte, tuttavia, non sono coerenti tra le diverse raccolte.
 - Per ottenere una disponibilità elevata per le raccolte Reliable Collections, ogni servizio deve avere almeno un set di repliche di destinazione costituito da un minimo di 3 repliche.
 
@@ -119,4 +119,4 @@ Occorre tenere presente i concetti seguenti:
 - [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 - [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

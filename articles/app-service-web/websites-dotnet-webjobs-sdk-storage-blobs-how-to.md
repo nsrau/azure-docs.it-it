@@ -30,7 +30,7 @@ Nella guida si presuppone che si sappia come [creare un progetto WebJob in Visua
 
 Questa sezione illustra come usare l'attributo `BlobTrigger`.
 
-> [AZURE.NOTE]WebJobs SDK esegue la scansione dei file di log per verificare la presenza di BLOB nuovi o modificati. Questo processo non avviene in tempo reale. Una funzione potrebbe non essere attivata per diversi minuti o più dopo la creazione del BLOB. Inoltre, [i log di archiviazione vengono creati in base al principio del "massimo sforzo"](https://msdn.microsoft.com/library/azure/hh343262.aspx). Non è garantito che tutti gli eventi vengano acquisiti. In alcune condizioni, l'acquisizione dei log potrebbe non riuscire. Se le limitazioni di velocità e affidabilità dei trigger dei BLOB non sono accettabili per l'applicazione, il metodo consigliato consiste nel creare un messaggio nella coda quando si crea il BLOB e usare l'attributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) invece dell'attributo `BlobTrigger` nella funzione che elabora il BLOB.
+> [AZURE.NOTE] WebJobs SDK esegue la scansione dei file di log per verificare la presenza di BLOB nuovi o modificati. Questo processo non avviene in tempo reale. Una funzione potrebbe non essere attivata per diversi minuti o più dopo la creazione del BLOB. Inoltre, [i log di archiviazione vengono creati in base al principio del "massimo sforzo"](https://msdn.microsoft.com/library/azure/hh343262.aspx). Non è garantito che tutti gli eventi vengano acquisiti. In alcune condizioni, l'acquisizione dei log potrebbe non riuscire. Se le limitazioni di velocità e affidabilità dei trigger dei BLOB non sono accettabili per l'applicazione, il metodo consigliato consiste nel creare un messaggio nella coda quando si crea il BLOB e usare l'attributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) invece dell'attributo `BlobTrigger` nella funzione che elabora il BLOB.
 
 ### Singolo segnaposto per il nome di BLOB con estensione  
 
@@ -150,6 +150,21 @@ Il codice di associazione `WebImage` viene fornito in una classe `WebImageBinder
 		    }
 		}
 
+## Ottenere il percorso BLOB per il BLOB di attivazione
+
+Per ottenere il nome del contenitore e il nome BLOB del BLOB che ha attivato la funzione, includere un parametro stringa `blobTrigger` nella firma della funzione.
+
+		public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
+		    string name,
+		    string blobTrigger,
+		    TextWriter logger)
+		{
+		     logger.WriteLine("Full blob path: {0}", blobTrigger);
+		     logger.WriteLine("Content:");
+		     logger.WriteLine(logMessage);
+		}
+
+
 ## <a id="poison"></a> Come gestire i BLOB non elaborabili
 
 Quando una funzione `BlobTrigger` ha esito negativo, l'SDK la chiama nuovamente in caso in cui il problema sia stato causato da un errore temporaneo. Se il problema è causato dal contenuto del BLOB, la funzione ha esito negativo ogni volta che tenta di elaborare il BLOB. Per impostazione predefinita, l'SDK chiama una funzione fino a cinque volte per un determinato BLOB. Se il quinto tentativo ha esito negativo, l'SDK aggiunge un messaggio a una coda denominata *webjobs-blobtrigger-poison*.
@@ -238,4 +253,4 @@ Tra gli argomenti correlati trattati nell'articolo sono inclusi i seguenti:
 Questa guida ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di BLOB di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

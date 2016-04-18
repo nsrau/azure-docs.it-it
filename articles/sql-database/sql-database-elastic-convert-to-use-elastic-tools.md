@@ -13,14 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/29/2016"
+   ms.date="04/01/2016"
    ms.author="SilviaDoomra"/>
 
 # Convertire database esistenti per l'uso di strumenti dei database elastici
 
-Se si ha una soluzione esistente partizionata e con scalabilità orizzontale, è possibile usare gli strumenti dei database elastici mediante le tecniche descritte in questo articolo. Dopo la conversione, è possibile usare la [libreria client dei database elastici](sql-database-elastic-database-client-library.md) e lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md).
+Se si ha una soluzione esistente scalabile orizzontalmente e partizionata, è possibile usare gli strumenti dei database elastici, ad esempio la [libreria client di database elastici](sql-database-elastic-database-client-library.md) e lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md), mediante le tecniche descritte in questo articolo.
 
 Queste tecniche possono essere implementate tramite la [libreria client .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) o gli script PowerShell disponibili nella pagina relativa agli [script degli strumenti dei database elastici - database SQL di Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Negli esempi in questo articolo vengono usati gli script PowerShell.
+
+Si noti che è necessario creare i database prima di eseguire i cmdlet Add-Shard e New-ShardMapManager. I cmdlet non creano i database.
 
 i quattro passaggi della creazione di una distribuzione cloud.
 
@@ -29,10 +31,10 @@ i quattro passaggi della creazione di una distribuzione cloud.
 3. Preparare le singole partizioni.  
 2. Aggiungere i mapping alla mappa partizioni.
 
-Per altre informazioni sull'oggetto ShardMapManager, vedere [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md). Per altre informazioni sugli strumenti dei database elastici, vedere [Panoramica sulle funzionalità di database elastico](sql-database-elastic-scale-introduction.md).
+Per altre informazioni sull'oggetto ShardMapManager, vedere [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md). Per altre informazioni sugli strumenti dei database elastici, vedere la [Panoramica sulle funzionalità di database elastico](sql-database-elastic-scale-introduction.md).
 
 ## Preparazione del database di gestione delle mappe partizioni
-Come gestore mappe partizioni è possibile usare un database nuovo o uno esistente. Si tratta di un'operazione occasionale.
+Come gestore mappe partizioni è possibile usare un database nuovo o uno esistente.
 
 ## Passaggio 1: Creare un gestore mappe partizioni
 Si noti che un database che agisce da gestore mappe partizioni non deve essere lo stesso della partizione.
@@ -167,7 +169,7 @@ Dopo aver completato l'installazione, è possibile iniziare a usare la libreria 
 
 Ottenere gli script PowerShell dalla pagina relativa agli [script degli strumenti dei database elastici - database SQL di Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-Gli strumenti sono disponibili anche all'indirizzo di GitHub [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
+Gli strumenti sono disponibili anche all'indirizzo di GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
 Usare lo strumento di suddivisione-unione per spostare dati in o da un modello multi-tenant a un modello single-tenant. Vedere la pagina relativa allo [strumento di suddivisione-unione](sql-database-elastic-scale-get-started.md).
 
@@ -179,4 +181,4 @@ Usare lo strumento di suddivisione-unione per spostare dati in o da un modello m
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -98,9 +98,9 @@ Nei diagrammi che seguono sono illustrati i dati usati.
 
 
 *Figure 7: Funzionalità estratte dall'origine dati*
-> Questi dati sono privati e quindi il modello e i dati non possono essere condivisi. Tuttavia, per un modello simile usando dati disponibili pubblicamente, vedere questo esperimento di esempio nella [raccolta di Cortana Analytics](http://gallery.azureml.net/): [varianza del cliente in ambito di telecomunicazioni](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Questi dati sono privati e quindi il modello e i dati non possono essere condivisi. Tuttavia, per un modello simile che usa dati disponibili pubblicamente, vedere questo esperimento di esempio in [Cortana Analytics Gallery](http://gallery.cortanaintelligence.com/): [varianza del cliente in ambito di telecomunicazioni](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
-> Per altre informazioni su come è possibile implementare un modello di analisi della varianza usando Cortana Analytics Suite, si consiglia inoltre [questo video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) del Senior Program Manager Wee Hyong Tok.
+> Per altre informazioni su come è possibile implementare un modello di analisi della varianza usando Cortana Intelligence Suite, si consiglia anche [questo video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) del Senior Program Manager Wee Hyong Tok.
 > 
 
 ###Algoritmi usati nel prototipo
@@ -172,7 +172,7 @@ Il grafico seguente illustra i risultati non elaborati della valutazione usando 
 
 La tabella seguente riepiloga le prestazioni degli algoritmi:
 
-*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi*
+*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi *
 
 | LR|BT|AP|SVM|
 |---|---|---|---|
@@ -209,10 +209,9 @@ Il documento è stato di aiuto? Gradiremmo ricevere commenti e suggerimenti. Ind
 -	Si sta assegnando un punteggio alto perché l'articolo contiene degli ottimi esempi, schermate eccellenti, il linguaggio è chiaro o per un altro motivo?
 -	Si sta assegnando un punteggio basso perché gli esempi sono scarsi, le schermate poco chiare o il linguaggio è incomprensibile?  
 
-Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei white paper prodotti.   
+Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei white paper prodotti.
 
 [Invia commenti e suggerimenti](mailto:sqlfback@microsoft.com).
-
 ##Riferimenti
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, luglio/agosto 2011, pp.18-20.
 
@@ -222,7 +221,7 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 
 [4] [Big Data Marketing: coinvolgere i clienti e valorizzare i prodotti in modo più efficace](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modello di varianza Telco] (http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5) nella raccolta di Cortana Analytics
+[5] [Modello di varianza Telco] (http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
 ##Appendice
 
 ![][10]
@@ -241,4 +240,4 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

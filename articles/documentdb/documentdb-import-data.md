@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="04/05/2016"
 	ms.author="anhoh"/>
 
 # Importare dati in DocumentDB con lo strumento di migrazione del database
@@ -32,13 +32,13 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 -	Come è possibile importare dati da HBase a DocumentDB
 -	Come è possibile eseguire la migrazione dei dati tra le raccolte DocumentDB?
 
-##<a id="Prerequisites"></a>Prerequisiti ##
+##<a id="Prerequisites"></a>Prerequisiti
 
 Prima di seguire le istruzioni di questo articolo, verificare che siano installati i seguenti elementi:
 
 - [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) o versione successiva.
 
-##<a id="Overviewl"></a>Panoramica dello strumento di migrazione dati di DocumentDB ##
+##<a id="Overviewl"></a>Panoramica dello strumento di migrazione dati di DocumentDB
 
 Lo strumento di migrazione dati di DocumentDB è una soluzione open source che importa dati in DocumentDB da svariate origini, tra cui:
 
@@ -61,7 +61,7 @@ Il codice sorgente dello strumento di migrazione è disponibile su GitHub in [qu
 - **Dtui.exe**: versione con interfaccia grafica dello strumento
 - **Dt.exe**: versione con riga di comando dello strumento
 
-##<a id="JSON"></a>Importare file JSON ##
+##<a id="JSON"></a>Importare file JSON
 
 L'opzione dell'utilità di importazione dell'origine file JSON consente di importare uno o più file JSON di singoli documenti o file JSON contenenti ciascuno una matrice di documenti JSON. Quando si aggiungono le cartelle contenenti i file JSON da importare, è possibile eseguire una ricerca ricorsiva dei file nelle sottocartelle.
 
@@ -84,7 +84,7 @@ Ecco alcuni esempi di riga di comando per importare file JSON:
 	#Import a single JSON file and partition the data across 4 collections
 	dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
 
-##<a id="MongoDB"></a>Importare da MongoDB ##
+##<a id="MongoDB"></a>Importare da MongoDB
 
 L'opzione dell'utilità di importazione dell'origine MongoDB consente di importare da una singola raccolta MongoDB e, facoltativamente, di filtrare i documenti usando una query e/o di modificare la struttura di documenti usando una proiezione.
 
@@ -106,7 +106,7 @@ Ecco alcuni esempi di riga di comando per importare da MongoDB:
 	#Import documents from a MongoDB collection which match the query and exclude the loc field
 	dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /s.Query:{pop:{$gt:50000}} /s.Projection:{loc:0} /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZipsTransform /t.IdField:_id/t.CollectionTier:S3
 
-##<a id="MongoDBExport"></a>Importare file di esportazione MongoDB ##
+##<a id="MongoDBExport"></a>Importare file di esportazione MongoDB
 
 L'opzione dell'utilità di importazione dell'origine file JSON di esportazione MongoDB consente di importare uno o più file JSON prodotti dall'utilità mongoexport.
 
@@ -118,7 +118,7 @@ Ecco un esempio di riga di comando per importare dai file JSON di esportazione M
 
 	dt.exe /s:MongoDBExport /s.Files:D:\mongoemployees.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:employees /t.IdField:_id /t.Dates:Epoch /t.CollectionTier:S3
 
-##<a id="SQL"></a>Importare da SQL Server ##
+##<a id="SQL"></a>Importare da SQL Server
 
 L'opzione dell'utilità di importazione dell'origine SQL consente di importare da un singolo database SQL Server e, facoltativamente, di filtrare i record da importare usando una query. Inoltre, è possibile modificare la struttura di documenti specificando un separatore di annidamento, di cui si parlerà tra poco.
 
@@ -148,7 +148,7 @@ Ecco alcuni esempi di riga di comando per importare da SQL Server:
 	#Import records from sql which match a query and create hierarchical relationships
 	dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /s.NestingSeparator:. /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:StoresSub /t.IdField:Id /t.CollectionTier:S3
 
-##<a id="CSV"></a>Importare file CSV - Convertire file CSV in formato JSON ##
+##<a id="CSV"></a>Importare file CSV - Convertire file CSV in formato JSON
 
 L'opzione dell'utilità di importazione dell'origine file CSV consente di importare uno o più file CSV. Quando si aggiungono le cartelle contenenti i file CSV da importare, è possibile eseguire una ricerca ricorsiva dei file nelle sottocartelle.
 
@@ -175,7 +175,7 @@ Ecco un esempio di riga di comando per l'importazione CSV:
 
 	dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionTier:S3
 
-##<a id="AzureTableSource"></a>Importare da Archiviazione tabelle di Azure ##
+##<a id="AzureTableSource"></a>Importare da Archiviazione tabelle di Azure
 
 L'opzione dell'utilità di importazione dell'origine Archiviazione tabelle di Azure consente di importare da una singola tabella di Archiviazione tabelle di Azure e, facoltativamente, di filtrare le entità tabelle da importare.
 
@@ -230,7 +230,7 @@ Ecco un esempio di riga di comando per importare file JSON dall'archiviazione Bl
 
 	dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:doctest
 
-##<a id="DocumentDBSource"></a>Importare da DocumentDB ##
+##<a id="DocumentDBSource"></a>Importare da DocumentDB
 
 L'opzione dell'utilità di importazione dell'origine DocumentDB consente di importare i dati da una o più raccolte DocumentDB e, facoltativamente, di filtrare i documenti usando una query.
 
@@ -239,6 +239,10 @@ L'opzione dell'utilità di importazione dell'origine DocumentDB consente di impo
 Il formato della stringa di connessione di DocumentDB è:
 
 	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
+
+La stringa di connessione dell'account DocumentDB può essere recuperata dal pannello Chiavi del portale di Azure, come descritto in [Come gestire un account DocumentDB](documentdb-manage-account.md), tuttavia il nome del database deve essere aggiunto alla stringa di connessione nel formato seguente:
+
+    Database=<DocumentDB Database>;
 
 > [AZURE.NOTE] Usare il comando Verify per assicurarsi che l'istanza di DocumentDB specificata nel campo della stringa di connessione sia accessibile.
 
@@ -289,13 +293,17 @@ Ecco un esempio di riga di comando per importare da HBase:
 
 ##<a id="DocumentDBBulkTarget"></a>Importare in DocumentDB (importazione in blocco)
 
-L'utilità di importazione in blocco di DocumentDB consente di importare da qualsiasi opzione di origine disponibile, usando una stored procedure di DocumentDB per una maggiore efficienza. Lo strumento supporta l'importazione in un'unica raccolta DocumentDB, nonché l'importazione partizionata in cui i dati vengono partizionati in più raccolte DocumentDB. Per altre informazioni sul partizionamento dei dati in DocumentDB, vedere [qui](documentdb-partition-data.md). Lo strumento creerà, eseguirà e quindi eliminerà la stored procedure dalla raccolta o dalle raccolte di destinazione.
+L'utilità di importazione in blocco di DocumentDB consente di importare da qualsiasi opzione di origine disponibile, usando una stored procedure di DocumentDB per una maggiore efficienza. Lo strumento supporta l'importazione in un'unica raccolta DocumentDB, nonché l'importazione partizionata in cui i dati vengono partizionati in più raccolte DocumentDB. Per altre informazioni sul partizionamento dei dati, vedere [Dati di partizione e di scalabilità in DocumentDB](documentdb-partition-data.md). Lo strumento creerà, eseguirà e quindi eliminerà la stored procedure dalla raccolta o dalle raccolte di destinazione.
 
 ![Schermata delle opzioni in blocco DocumentDB](./media/documentdb-import-data/documentdbbulk.png)
 
 Il formato della stringa di connessione di DocumentDB è:
 
 	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
+
+La stringa di connessione dell'account DocumentDB può essere recuperata dal pannello Chiavi del portale di Azure, come descritto in [Come gestire un account DocumentDB](documentdb-manage-account.md), tuttavia il nome del database deve essere aggiunto alla stringa di connessione nel formato seguente:
+
+    Database=<DocumentDB Database>;
 
 > [AZURE.NOTE] Usare il comando Verify per assicurarsi che l'istanza di DocumentDB specificata nel campo della stringa di connessione sia accessibile.
 
@@ -305,7 +313,7 @@ Per importare in un'unica raccolta, immettere il nome della raccolta in cui verr
 2. È possibile usare una sintassi abbreviata: collection[3] restituirà lo stesso set di raccolte citato nel passaggio 1.
 3. È possibile specificare più di una sostituzione. Ad esempio, collection[0-1] [0-9] genererà 20 nomi di raccolte con zeri iniziali (collection01, ..02, ..03).
 
-Dopo aver specificato il nome della raccolta, scegliere il livello di prezzo desiderato della raccolta (S1, S2 o S3). Per ottimizzare le prestazioni di importazione, scegliere S3. Per altre informazioni sui livelli di prestazioni in DocumentDB, vedere [qui](documentdb-performance-levels.md).
+Dopo aver specificato il nome della raccolta, scegliere il livello di prezzo desiderato della raccolta (S1, S2 o S3). Per ottimizzare le prestazioni di importazione, scegliere S3. Per altre informazioni sui livelli di prestazioni, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).
 
 > [AZURE.NOTE] L'impostazione del livello delle prestazioni si applica solo alla creazione della raccolta. Se la raccolta specificata esiste già, il piano tariffario non verrà modificato.
 
@@ -342,13 +350,17 @@ L'utilità di importazione in blocco di DocumentDB presenta le seguenti opzioni 
 
 ##<a id="DocumentDBSeqTarget"></a>Importazione in DocumentDB (importazione di record sequenziali)
 
-L'utilità di importazione di record sequenziali di DocumentDB consente di importare un record alla volta da qualsiasi opzione di origine disponibile. È possibile scegliere questa opzione se si sta importando in una raccolta esistente che ha raggiunto la quota di stored procedure. Lo strumento supporta l'importazione in un'unica raccolta DocumentDB, nonché l'importazione partizionata in cui i dati vengono partizionati in più raccolte DocumentDB. Per altre informazioni sul partizionamento dei dati in DocumentDB, vedere [qui](documentdb-partition-data.md).
+L'utilità di importazione di record sequenziali di DocumentDB consente di importare un record alla volta da qualsiasi opzione di origine disponibile. È possibile scegliere questa opzione se si sta importando in una raccolta esistente che ha raggiunto la quota di stored procedure. Lo strumento supporta l'importazione in un'unica raccolta DocumentDB, nonché l'importazione partizionata in cui i dati vengono partizionati in più raccolte DocumentDB. Per altre informazioni sul partizionamento dei dati, vedere [Dati di partizione e di scalabilità in DocumentDB](documentdb-partition-data.md).
 
 ![Schermata delle opzioni di importazione di record sequenziali DocumentDB](./media/documentdb-import-data/documentdbsequential.png)
 
 Il formato della stringa di connessione di DocumentDB è:
 
 	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
+
+La stringa di connessione dell'account DocumentDB può essere recuperata dal pannello Chiavi del portale di Azure, come descritto in [Come gestire un account DocumentDB](documentdb-manage-account.md), tuttavia il nome del database deve essere aggiunto alla stringa di connessione nel formato seguente:
+
+    Database=<DocumentDB Database>;
 
 > [AZURE.NOTE] Usare il comando Verify per assicurarsi che l'istanza di DocumentDB specificata nel campo della stringa di connessione sia accessibile.
 
@@ -358,7 +370,7 @@ Per importare in un'unica raccolta, immettere il nome della raccolta in cui verr
 2. È possibile usare una sintassi abbreviata: collection[3] restituirà lo stesso set di raccolte citato nel passaggio 1.
 3. È possibile specificare più di una sostituzione. Ad esempio, collection[0-1] [0-9] genererà 20 nomi di raccolte con zeri iniziali (collection01, ..02, ..03).
 
-Dopo aver specificato il nome della raccolta, scegliere il livello di prezzo desiderato della raccolta (S1, S2 o S3). Per ottimizzare le prestazioni di importazione, scegliere S3. Per altre informazioni sui livelli di prestazioni in DocumentDB, vedere [qui](documentdb-performance-levels.md).
+Dopo aver specificato il nome della raccolta, scegliere il livello di prezzo desiderato della raccolta (S1, S2 o S3). Per ottimizzare le prestazioni di importazione, scegliere S3. Per altre informazioni sui livelli di prestazioni, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).
 
 > [AZURE.NOTE] L'impostazione del livello delle prestazioni si applica solo alla creazione della raccolta. Se la raccolta specificata esiste già, il piano tariffario non verrà modificato.
 
@@ -387,7 +399,7 @@ L'utilità di importazione di record sequenziali di DocumentDB presenta le segue
 
 > [AZURE.TIP] Per impostazione predefinita, la modalità di connessione dello strumento di importazione è DirectTcp. Se si verificano problemi con il firewall, passare alla modalità di connessione Gateway, che richiede solo la porta 443.
 
-##<a id="IndexingPolicy"></a>Specificare un criterio di indicizzazione durante la creazione di raccolte di DocumentDB ##
+##<a id="IndexingPolicy"></a>Specificare un criterio di indicizzazione durante la creazione di raccolte di DocumentDB
 
 Quando si consente all'utilità di migrazione di creare raccolte durante l'importazione, è possibile specificare i criteri di indicizzazione delle raccolte. Nelle opzioni avanzate importare sezione del blocco DocumentDB e opzioni DocumentDB sequenziale di record, passare alla sezione criteri l'indicizzazione.
 
@@ -403,7 +415,7 @@ I modelli dei criteri che lo strumento fornisce sono:
 
 ![Schermata di DocumentDB indicizzazione criteri opzioni avanzate](./media/documentdb-import-data/indexingpolicy2.png)
 
-> [AZURE.NOTE] Se non si specifica un criterio di indicizzazione, verrà applicato il criterio predefinito. Ulteriori informazioni sull'indicizzazione criteri DocumentDB[qui](documentdb-indexing-policies.md).
+> [AZURE.NOTE] Se non si specifica un criterio di indicizzazione, verrà applicato il criterio predefinito. Per altre informazioni sui criteri di indicizzazione, vedere [Criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md).
 
 
 ## Esportare in file JSON
@@ -476,6 +488,6 @@ Quindi, scegliere se registrare tutti i messaggi di errore, quelli critici o nes
 
 ## Passaggi successivi
 
-- Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
+- Per altre informazioni su DocumentDB, visitare il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

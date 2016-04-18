@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="04/01/2016"
    ms.author="masashin"/>
 
 # Guida all'implementazione API
@@ -1152,4 +1152,4 @@ Se l'API Web è stata pubblicata mediante il Servizio di gestione API, la pagina
 - La pagina [Verifica codice utilizzando Unit test ](https://msdn.microsoft.com/library/dd264975.aspx) sul sito Web Microsoft fornisce informazioni dettagliate sulla creazione e gestione di unit test utilizzando Visual Studio.
 - La pagina [Eseguire test delle prestazioni in un'applicazione prima del rilascio](https://msdn.microsoft.com/library/dn250793.aspx) sul sito Web Microsoft descrive come utilizzare Visual Studio Ultimate per creare un prestazioni Web e caricare il progetto di test.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

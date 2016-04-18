@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Raccolta Cortana Analytics | Microsoft Azure"
-	description="Condividere e individuare soluzioni di analisi e altro nella raccolta Cortana Analytics Imparare da altri utenti e offrire il proprio contributo alla community."
+	pageTitle="Cortana Intelligence Gallery | Microsoft Azure"
+	description="Condividere e scoprire soluzioni di analisi e altro in Cortana Intelligence Gallery. Imparare da altri utenti e offrire il proprio contributo alla community."
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -17,11 +17,11 @@
 	ms.author="chhavib;cgronlun;garye"/>
 
 
-# Condividere e individuare soluzioni nella raccolta Cortana Analytics
+# Condividi e individua soluzioni in Cortana Intelligence Gallery
 
-La raccolta Cortana Analytics è un sito basato su community per l'individuazione e la condivisione delle soluzioni create con il set di prodotti Cortana Analytics Suite. È una destinazione utile per gli utenti che desiderano imparare da altri utenti, iniziare a sviluppare le proprie soluzioni o offrire il contribuito del proprio lavoro alla community che si occupa di analisi avanzate.
+Cortana Intelligence Gallery è un sito basato su community per l'individuazione e la condivisione delle soluzioni create con la famiglia di prodotti Cortana Intelligence Suite. È una destinazione utile per gli utenti che desiderano imparare da altri utenti, iniziare a sviluppare le proprie soluzioni o offrire il contribuito del proprio lavoro alla community che si occupa di analisi avanzate.
 
-**[VAI ALLA RACCOLTA >>](http://gallery.cortanaanalytics.com)**
+**[VAI ALLA RACCOLTA >>](http://gallery.cortanaintelligence.com)**
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -44,7 +44,7 @@ Nella raccolta si possono trovare con facilità le soluzioni pubblicate di recen
 Nella pagina di ogni soluzione è disponibile una sezione dedicata ai commenti in cui è possibile inserire un commento, inviare suggerimenti o porre una domanda. È anche possibile condividere con amici o colleghi una soluzione di particolare interesse usando le funzionalità di condivisione di LinkedIn o Twitter. È possibile infine inviare il collegamento alle pagine della soluzione tramite e-mail ad altri utenti.
 
 ## Scaricare gli esperimenti
-La raccolta Cortana Analytics consente di copiare facilmente gli esperimenti di analisi predittiva nell'area di lavoro di Machine Learning Studio con un solo clic, in modo da iniziare subito a usarli a proprio vantaggio. Se si esplora la raccolta senza aver eseguito l'accesso, prima di copiare un esperimento nella propria area di lavoro verrà richiesto di accedere con un account Microsoft.
+Cortana Intelligence Gallery consente di copiare facilmente gli esperimenti di analisi predittiva nell'area di lavoro di Machine Learning Studio con un solo clic, in modo da iniziare subito a usarli a proprio vantaggio. Se si esplora la raccolta senza aver eseguito l'accesso, prima di copiare un esperimento nella propria area di lavoro verrà richiesto di accedere con un account Microsoft.
 
 ## Contribuire
 Con l'accesso si diventa membri della community della raccolta e ciò consente di offrire il proprio contributo pubblicando esperimenti e raccolte, in modo che altri utenti possono trarre vantaggio dalle soluzioni individuate.
@@ -53,7 +53,7 @@ Con l'accesso si diventa membri della community della raccolta e ciò consente d
 
 Un *esperimento* è un canvas in Machine Learning Studio che consente di creare un modello di analisi predittiva collegando i dati a vari moduli analitici. È possibile provare idee diverse, effettuare esecuzioni di prova e alla fine pubblicare il modello come servizio Web in Azure. Per un esempio di creazione di un esperimento semplice, vedere [Esercitazione di Machine Learning: Creare il primo esperimento in Azure Machine Learning Studio](machine-learning-create-experiment.md). Per una procedura dettagliata più completa della creazione di una soluzione di analisi predittiva, vedere [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
-Seguire questi passaggi per pubblicare un esperimento nella raccolta Cortana Analytics:
+Seguire questi passaggi per pubblicare un esperimento in Cortana Intelligence Gallery:
 
 - Accedere a Machine Learning Studio con il proprio account Microsoft.
 - Creare l'esperimento ed eseguirlo
@@ -61,11 +61,11 @@ Seguire questi passaggi per pubblicare un esperimento nella raccolta Cortana Ana
 
 ### Pubblicare raccolte
 
-Una *raccolta* è un elenco di elementi correlati dalla raccolta Cortana Analytics raggruppati a scopi di riferimento, uso o condivisione per il futuro. La raccolta può contenere elementi di proprietà dell'utente o forniti dalla community.
+Una *raccolta* è un elenco di elementi correlati da Cortana Intelligence Gallery raggruppati a scopi di riferimento, uso o condivisione per il futuro. La raccolta può contenere elementi di proprietà dell'utente o forniti dalla community.
 
 Ad esempio, è possibile usare una raccolta per raggruppare elementi su un argomento specifico oppure è possibile raggruppare un esperimento costituito da più passaggi per la risoluzione di un problema complesso. Le raccolte iniziali fornite da Microsoft sono costituite da modelli di esperimenti di Machine Learning in più passaggi per la soluzione di problemi reali, quali la rilevazione di frodi online, la classificazione di testo, le previsioni di vendita al dettaglio e la manutenzione predittiva.
 
-Seguire questi passaggi per creare e pubblicare una raccolta nella raccolta Cortana Analytics:
+Seguire questi passaggi per creare e pubblicare una raccolta in Cortana Intelligence Gallery:
 
 - Accedere alla raccolta con il proprio account Microsoft
 - Fare clic sulla propria immagine nella parte superiore della finestra e fare clic sul nome
@@ -74,7 +74,7 @@ Seguire questi passaggi per creare e pubblicare una raccolta nella raccolta Cort
 - Aggiungere un'immagine per identificare la raccolta
 - Fare clic su **Crea**
 
-La raccolta fa ora parte della raccolta Cortana Analytics.
+La raccolta fa ora parte di Cortana Intelligence Gallery.
 
 È possibile aggiungere elementi alla raccolta. A tale scopo, aprire la raccolta, fare clic su **Modifica** e quindi fare clic su **Aggiungi elemento**. Se durante l'esplorazione della raccolta si trova invece un elemento che si desidera includere, è sufficiente aprire l'elemento, fare clic su **Aggiungi alla raccolta** e specificare la raccolta in cui si desidera aggiungerlo.
 
@@ -134,6 +134,6 @@ Per delimitare i tag è possibile usare la tabulazione.
 
 La funzionalità di rendering per descrizioni dettagliate non è ancora disponibile per tutti gli utenti della raccolta, ma Microsoft sta lavorando per rendere disponibile questa funzione tramite il supporto per il rendering del markdown.
 
-**[VAI ALLA RACCOLTA >>](http://gallery.cortanaanalytics.com)**
+**[VAI ALLA RACCOLTA >>](http://gallery.cortanaintelligence.com)**
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

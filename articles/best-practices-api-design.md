@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="04/01/2016"
    ms.author="masashin"/>
 
 # Linee guida per la progettazione di un’API
@@ -38,7 +38,7 @@ Lo scopo di queste linee guida è descrivere i problemi da prendere in considera
 
 Nella sua dissertazione del 2000, Roy Fielding ha proposto un approccio architetturale alternativo per strutturare le operazioni esposte da servizi Web, denominato REST. REST è uno stile architetturale per la creazione di sistemi distribuiti basati su ipermedia. Uno dei principali vantaggi del modello REST sta nel fatto che è basato su standard aperti e che non vincola l'implementazione del modello o le applicazioni client che vi accedono a nessuna implementazione specifica. Ad esempio, un servizio Web REST può essere implementato usando l’API Web Microsoft ASP.NET e le applicazioni client possono essere sviluppate usando qualsiasi linguaggio e set di strumenti in grado di generare richieste HTTP e analizzare le risposte HTTP.
 
-> [AZURE.NOTE] In realtà REST è indipendente da qualsiasi protocollo sottostante e non è necessariamente legato a HTTP. Tuttavia, le implementazioni più comuni dei sistemi basati su REST usano HTTP come protocollo di applicazione per l'invio e la ricezione di richieste. Questo documento è incentrato sul mapping dei principi REST ai sistemi progettati per funzionare con HTTP.
+> [AZURE.NOTE]In realtà REST è indipendente da qualsiasi protocollo sottostante e non è necessariamente legato a HTTP. Tuttavia, le implementazioni più comuni dei sistemi basati su REST usano HTTP come protocollo di applicazione per l'invio e la ricezione di richieste. Questo documento è incentrato sul mapping dei principi REST ai sistemi progettati per funzionare con HTTP.
 
 Il modello di REST utilizza uno schema di spostamento per rappresentare gli oggetti e i servizi, denominati _risorse_, in una rete. Molti sistemi che implementano REST in genere usano il protocollo HTTP per trasmettere le richieste di accesso a queste risorse. In questi sistemi, un'applicazione client invia una richiesta sotto forma di un URI che identifica una risorsa e un metodo HTTP (i più comuni sono GET, POST, PUT o DELETE) che indica l'operazione da eseguire su tale risorsa. Il corpo della richiesta HTTP contiene i dati necessari per eseguire l'operazione. Il punto importante da comprendere è che REST definisce un modello di richiesta senza stato. Le richieste HTTP devono essere indipendenti e possono verificarsi in qualsiasi ordine, per cui il tentativo di mantenere le informazioni di stato temporaneo tra due richieste non è realizzabile. L'unico punto in cui sono memorizzate le informazioni sono le risorse stesse e ogni richiesta deve essere un'operazione atomica. In effetti, un modello REST implementa una macchina a stati finiti in cui una richiesta passa una risorsa da uno stato non temporaneo ben definito a un altro.
 
@@ -106,7 +106,6 @@ Nei sistemi più complessi possono essere presenti molti altri tipi di entità e
 Un altro punto da considerare è che tutte le richieste Web impongono un carico sul server Web e che il carico aumenta in modo proporzionale alle richieste. È necessario provare a definire le risorse in modo da evitare API Web "frammentate" che espongono un numero elevato di risorse piccole. Questo tipo di API può richiedere che un'applicazione client invii più richieste per trovare tutti i dati che richiede. Può essere utile denormalizzare i dati e combinare le informazioni correlate tra loro in risorse più grandi che possono essere recuperate tramite l'esecuzione di una singola richiesta. Tuttavia, è necessario bilanciare questo approccio rispetto al sovraccarico del recupero di dati che potrebbero non essere richiesti spesso dal client. Il recupero di oggetti di grandi dimensioni può aumentare la latenza di una richiesta e comportare costi di larghezza di banda aggiuntivi a fronte di un piccolo vantaggio se i dati aggiuntivi non vengono utilizzati spesso.
 
 Evitare di introdurre dipendenze tra l'API Web e la struttura, il tipo o il percorso delle origini dati sottostanti. Ad esempio, se i dati si trovano in un database relazionale, non è necessario che l'API Web esponga ogni tabella come raccolta di risorse. Considerare l'API Web come un'astrazione del database e, se necessario, introdurre un livello di mapping tra il database e l'API Web. In questo modo, se viene modificata la progettazione o l’implementazione del database (ad esempio, si passa da un database relazionale contenente una raccolta di tabelle normalizzate a un sistema di archiviazione NoSQL denormalizzato, come un database di documenti) le applicazioni client sono isolate da tali modifiche.
-
 > [AZURE.TIP] Non è necessario che l'origine dei dati che supporta un'API Web sia un archivio dati. Potrebbe essere un altro servizio o un’applicazione line-of-business o persino un'applicazione legacy in esecuzione in locale all'interno di un’organizzazione.
 
 Infine, potrebbe non essere possibile eseguire il mapping di ogni operazione implementata da un'API Web a una risorsa specifica. È possibile gestire tali scenari _non di risorsa_ tramite richieste HTTP GET che richiamano una parte di funzionalità e restituiscono i risultati come messaggio di risposta HTTP. Un’API Web che implementa semplici operazioni in stile calcolatrice, ad esempio addizioni e sottrazioni, potrebbe fornire URI che espongono queste operazioni come pseudo risorse e utilizzare la stringa di query per specificare i parametri richiesti. Ad esempio, una richiesta GET all’URI _/add?operand1=99&operand2=1_ può restituire un messaggio di risposta con un valore 100 all’interno del corpo e una richiesta GET all’URI _/subtract?operand1=50&operand2=20_ può restituire un messaggio di risposta con un valore 30 all’interno del corpo. Utilizzare tuttavia questi formati di URI solo in casi limitati.
@@ -192,7 +191,7 @@ Content-Length: ...
 {"message":"No such order"}
 ```
 
-Quando un'applicazione invia una richiesta HTTP PUT per aggiornare una risorsa, specifica l'URI della risorsa e fornisce i dati da modificare nel corpo del messaggio di richiesta. Deve anche specificare il formato di questi dati tramite l'intestazione Content-Type. Un formato comune utilizzato per le informazioni basate su testo è _application/x-www-form-urlencoded_, che comprende un set di coppie nome/valore separate dal carattere &. L'esempio seguente illustra una richiesta PUT HTTP che consente di modificare le informazioni nell'ordine 1:
+Quando un'applicazione invia una richiesta HTTP PUT per aggiornare una risorsa, specifica l'URI della risorsa e fornisce i dati da modificare nel corpo del messaggio di richiesta. Deve anche specificare il formato di questi dati tramite l'intestazione Content-Type. Un formato comune usato per le informazioni basate su testo è _application/x-www-form-urlencoded_, che comprende un set di coppie nome/valore separate dal carattere &. L'esempio seguente illustra una richiesta PUT HTTP che consente di modificare le informazioni nell'ordine 1:
 
 ```HTTP
 PUT http://adventure-works.com/orders/1 HTTP/1.1
@@ -359,7 +358,7 @@ Accept: application/json
 ...
 ```
 
-Il corpo del messaggio di risposta contiene una matrice `links` (evidenziata nell’esempio di codice) in cui sono specificati la natura della relazione (_Customer_), l’URI del cliente (_http://adventure-works.com/customers/3_), come recuperare i dettagli di questo cliente (_GET_) e i tipi MIME supportati dal server Web per il recupero di queste informazioni (_text/xml_ e _application/json_). Si tratta di tutte le informazioni di cui necessita un'applicazione client per essere in grado di recuperare i dettagli del cliente. La matrice Links include anche collegamenti per le altre operazioni che è possibile eseguire, come PUT (per modificare il cliente, insieme al formato che il server Web prevede che il client fornisca), e DELETE.
+Il corpo del messaggio di risposta contiene una matrice `links` (evidenziata nell’esempio di codice) in cui sono specificati la natura della relazione (_Customer_), l’URI del cliente (\__http://adventure-works.com/customers/3_), come recuperare i dettagli di questo cliente (_GET_) e i tipi MIME supportati dal server Web per il recupero di queste informazioni (_text/xml_ e _application/json_). Si tratta di tutte le informazioni di cui necessita un'applicazione client per essere in grado di recuperare i dettagli del cliente. La matrice Links include anche collegamenti per le altre operazioni che è possibile eseguire, come PUT (per modificare il cliente, insieme al formato che il server Web prevede che il client fornisca), e DELETE.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -371,7 +370,7 @@ Content-Length: ...
 customer","href":" http://adventure-works.com /customers/3", "action":"PUT","types":["application/x-www-form-urlencoded"]},{"rel":"customer","href":" http://adventure-works.com /customers/3","action":"DELETE","types":[]}]}
 ```
 
-Per motivi di completezza, la matrice Links deve includere anche informazioni autoreferenziali riguardanti la risorsa che è stata recuperata. Questi collegamenti sono stati omessi dall'esempio precedente, ma vengono evidenziati nel codice seguente. Si noti che in questi collegamenti, la relazione _self_ è stata utilizzata per indicare che si tratta di un riferimento alla risorsa restituita dall'operazione:
+Per motivi di completezza, la matrice Links deve includere anche informazioni autoreferenziali riguardanti la risorsa che è stata recuperata. Questi collegamenti sono stati omessi dall'esempio precedente, ma vengono evidenziati nel codice seguente. Si noti che in questi collegamenti, la relazione _self_ è stata usata per indicare che si tratta di un riferimento alla risorsa restituita dall'operazione:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -395,7 +394,7 @@ Il controllo delle versioni consente a un’API Web di indicare le funzionalità
 
 Si tratta dell'approccio più semplice e può essere accettabile per alcune API interne. Grandi cambiamenti potrebbero essere rappresentati come nuove risorse o nuovi collegamenti. L’aggiunta di contenuto alle risorse esistenti potrebbe non presentare una modifica sostanziale in quanto le applicazioni client che non prevedono di visualizzare che questo contenuto lo ignoreranno semplicemente.
 
-Ad esempio, una richiesta all'URI _http://adventure-works.com/customers/3_ deve restituire i dettagli di un singolo cliente contenente i campi `id`, `name`, e `address` previsti dall'applicazione client:
+Ad esempio, una richiesta all'URI \__http://adventure-works.com/customers/3_ deve restituire i dettagli di un singolo cliente contenente i campi `id`, `name`, e `address` previsti dall'applicazione client:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -440,7 +439,7 @@ Questo meccanismo di controllo delle versioni è molto semplice, ma dipende dal 
 
 ### Controllo delle versioni tramite la stringa di query
 
-Anziché fornire più URI, è possibile specificare la versione della risorsa utilizzando un parametro all'interno della stringa di query aggiunta alla richiesta HTTP, ad esempio _http://adventure-works.com/customers/3?version=2_. Il parametro della versione deve essere impostato su un valore predefinito significativo, ad esempio 1 se viene omesso dalle applicazioni client meno recenti.
+Anziché fornire più URI, è possibile specificare la versione della risorsa utilizzando un parametro all'interno della stringa di query aggiunta alla richiesta HTTP, ad esempio \__http://adventure-works.com/customers/3?version=2_. Il parametro della versione deve essere impostato su un valore predefinito significativo, ad esempio 1 se viene omesso dalle applicazioni client meno recenti.
 
 Questo approccio ha il vantaggio semantico che la stessa risorsa viene sempre recuperata dallo stesso URI, ma dipende dal codice che gestisce la richiesta analizzare la stringa di query e inviare la risposta HTTP appropriata. Questo approccio presenta anche le stesse complicazioni per l'implementazione di HATEOAS del meccanismo di controllo delle versioni tramite URI.
 
@@ -523,4 +522,4 @@ Questo approccio è senza dubbio il meccanismo di controllo delle versioni più 
 - La [guida di riferimento dettagliata relativa a RESTful ](http://restcookbook.com/) contiene un’introduzione alla creazione delle API RESTful.
 - L’[elenco di controllo delle API Web](https://mathieu.fenniak.net/the-api-checklist/) contiene un utile elenco di elementi da considerare durante la progettazione e l’implementazione di un'API Web.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0406_2016-->

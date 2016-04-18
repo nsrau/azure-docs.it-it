@@ -48,7 +48,7 @@ Uno script di esempio per l'installazione di Giraph in un cluster HDInsight è d
 
 Questa sezione descrive come usare lo script di esempio per creare il cluster con il portale di Azure.
 
-> [AZURE.NOTE] Per applicare le azioni script è anche possibile usare Azure PowerShell, HDInsight .NET SDK o i modelli di Azure Resource Manager. È anche possibile applicare azioni script a cluster già in esecuzione. Per altre informazioni, vedere [Personalizzare cluster HDInsight tramite azioni script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Per applicare le azioni script è possibile usare anche Azure PowerShell, l'interfaccia della riga di comando di Azure, HDInsight .NET SDK o i modelli di Azure Resource Manager. È anche possibile applicare azioni script a cluster già in esecuzione. Per altre informazioni, vedere [Personalizzare cluster HDInsight tramite azioni script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Avviare la creazione di un cluster utilizzando la procedura descritta in [Creazione di cluster HDInsight basati su Linux](hdinsight-provision-linux-clusters.md#portal), ma non completare la creazione.
 
@@ -154,4 +154,4 @@ Una volta completata la creazione di un cluster, usare la procedura seguente per
 
 - [Installare Solr in cluster HDInsight](hdinsight-hadoop-solr-install-linux.md). Usare la personalizzazione cluster per installare Solr in cluster Hadoop di HDInsight. Solr consente di eseguire operazioni di ricerca avanzate sui dati archiviati.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

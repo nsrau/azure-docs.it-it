@@ -68,7 +68,7 @@ Quando si usano gli SDK o le integrazioni del prodotto non compatibili con l'hub
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] A volte l'SDK richiede un valore per **Nome host** o **Spazio dei nomi**. In tal caso sarà necessario rimuovere lo schema dall'**Endpoint compatibile con l'hub eventi**. Ad esempio, se l'endpoint compatibile con l'hub eventi è **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, il **Nome host** sarà **iothub-ns-myiothub-1234.servicebus.windows.net** e lo **Spazio dei nomi** sarà **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] A volte l'SDK richiede un valore per **Nome host** o **Spazio dei nomi**. In tal caso sarà necessario rimuovere lo schema dall'**Endpoint compatibile con l'hub eventi**. Ad esempio, se l'endpoint compatibile con l'hub eventi è ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, il **Nome host** sarà **iothub-ns-myiothub-1234.servicebus.windows.net** e lo **Spazio dei nomi** sarà **iothub-ns-myiothub-1234**.
 
 È quindi possibile usare qualsiasi tipo di criteri di sicurezza di accesso condiviso con autorizzazioni **ServiceConnect** per la connessione all'hub eventi specificato.
 
@@ -380,6 +380,7 @@ In generale, è consigliabile usare AMQP, o AMQP su WebSockets, quando possibile
 
 > [AZURE.NOTE] Durante lo sviluppo è ovviamente accettabile eseguire il polling con una frequenza maggiore di 25 minuti.
 
+<a id="mqtt-support">
 #### Note sul supporto di MQTT
 L'hub IoT implementa il protocollo MQTT v3.1.1 con le limitazioni e il comportamento specifico seguenti:
 
@@ -412,13 +413,13 @@ Si noti che ciò non significa che sia possibile sostituire Hub eventi con l'hub
 
 Per informazioni dettagliate sull'uso della messaggistica da dispositivo a cloud, vedere [API e SDK dell'hub IoT][lnk-apis-sdks].
 
-> [AZURE.NOTE] Quando si usa HTTP per inviare messaggi da dispositivo a cloud, le stringhe seguenti possono contenere solo caratteri ASCII: valori delle proprietà di sistema e nomi e valori delle proprietà delle applicazioni.
+> [AZURE.NOTE] Quando si usa HTTP per inviare messaggi da dispositivo a cloud, valori e nomi di proprietà possono contenere solo caratteri ASCII alfanumerici più ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 #### Traffico non di telemetria
 
 In molti casi, oltre ai punti dati di telemetria, i dispositivi inviano anche messaggi e richieste che devono essere eseguiti e gestiti dal livello della logica di business dell'applicazione. Ad esempio, avvisi critici che devono attivare un'azione specifica nel back-end o risposte a comandi inviati dal back-end.
 
-Per altre informazioni, vedere l'articolo su come [elaborare messaggi da dispositivo a cloud][lnk-guidance-d2c-processing] in modo ideale.
+Per altre informazioni sul modo migliore per elaborare questa tipologia di messaggi, vedere l'articolo relativo all'[elaborazione dei messaggi da dispositivo a cloud][lnk-guidance-d2c-processing].
 
 #### Opzioni di configurazione da dispositivo a cloud <a id="d2cconfiguration"></a>
 
@@ -459,7 +460,7 @@ Ogni messaggio da cloud a dispositivo è destinato a un singolo dispositivo, qui
 
 **Importante**: ogni coda di dispositivo può includere al massimo 50 messaggi da cloud a dispositivo. Se si prova a inviare più messaggi allo stesso dispositivo, si verificherà un errore.
 
-> [AZURE.NOTE] Quando si inviano messaggi da cloud a dispositivo, le stringhe seguenti possono contenere solo caratteri ASCII: valori delle proprietà di sistema e nomi e valori delle proprietà delle applicazioni.
+> [AZURE.NOTE] Quando si inviano messaggi da cloud a dispositivo, valori e nomi di proprietà possono contenere solo caratteri ASCII alfanumerici più ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 #### Ciclo di vita del messaggio <a id="message lifecycle"></a>
 
@@ -575,6 +576,11 @@ Ecco di seguito l'elenco di limitazioni applicate. I valori fanno riferimento a 
 | Inoltri dal cloud al dispositivo | 100/min/unità |
 | Ricezioni dal cloud al dispositivo | 1000/min/unità |
 
+È importante chiarire che la limitazione delle *connessioni del dispositivo* determina la frequenza con cui è possibile stabilire nuove connessioni del dispositivo con un hub IoT e non il numero massimo di dispositivi connessi contemporaneamente. La limitazione dipende dal numero di unità di cui viene effettuato il provisioning per l'hub.
+
+Ad esempio, se si acquista una singola unità S1 si ottiene un limite di 100 connessioni al secondo. Ciò significa che per connettere 100.000 dispositivi sono necessari almeno 1000 secondi (circa 16 minuti). Tuttavia, è consentito un numero di dispositivi connessi simultaneamente pari al numero di dispositivi registrati nel registro delle identità dei dispositivi.
+
+
 **Nota**. È possibile incrementare le quote o le limitazioni in qualsiasi momento aumentando il numero di unità sottoposte a provisioning in un hub IoT.
 
 **Importante**: le operazioni del registro delle identità sono destinate all'uso in fase di esecuzione negli scenari di gestione e provisioning di dispositivi. La lettura o l'aggiornamento di un numero elevato di identità dei dispositivi è supportato tramite [processi di importazione ed esportazione](#importexport).
@@ -634,4 +640,4 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

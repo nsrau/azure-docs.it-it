@@ -19,7 +19,7 @@
 # Introduzione alla maschera dati dinamica del database SQL (portale di Azure classico)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure Portal](sql-database-dynamic-data-masking-get-started.md)
+- [Maschera dati dinamica: portale di Azure](sql-database-dynamic-data-masking-get-started.md)
 
 ## Panoramica
 
@@ -88,6 +88,10 @@ Il mascheramento dei dati dinamici può essere configurato dall'amministratore d
 9. Fare clic su **SALVA** per salvare il criterio di maschera nuovo o aggiornato.
 
 
+## Impostare la maschera dei dati dinamica per il database usando le istruzioni Transact-SQL
+
+Vedere [Maschera dati dinamica](https://msdn.microsoft.com/library/mt130841.aspx).
+
 ## Configurare il mascheramento dei dati dinamici per il database usando i cmdlet di PowerShell.
 
 Vedere [Cmdlet del database SQL di Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx).
@@ -96,4 +100,4 @@ Vedere [Cmdlet del database SQL di Azure](https://msdn.microsoft.com/library/azu
 
 Vedere [Operazioni per i database SQL di Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

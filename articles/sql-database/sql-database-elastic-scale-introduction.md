@@ -3,7 +3,7 @@
     description="Gli sviluppatori di Software come Servizio (Saas) possono facilmente creare database elastici e scalabili nel cloud utilizzando questi strumenti"
     services="sql-database"
     documentationCenter=""
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="ddove"
     editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/24/2016"
+    ms.date="04/04/2016"
     ms.author="ddove;sidneyh"/>
 
 # Panoramica sulle funzionalità di database elastico
@@ -24,6 +24,7 @@ Le funzionalità di **database elastico** consentono di utilizzare le risorse di
 * [Pool di database elastici](sql-database-elastic-pool-guidance.md) (anteprima): un pool è una raccolta di database a cui è possibile aggiungere o rimuovere i database in qualsiasi momento. I database nel pool condividono una quantità fissa di risorse (note come unità di transazione del database o DTU). Per le risorse viene pagato un prezzo fisso, che consente di calcolare facilmente i costi durante la gestione delle prestazioni.
 * [Processi di database elastico](sql-database-elastic-jobs-overview.md) (anteprima): utilizzare i processi per gestire un numero elevato di database SQL di Azure. Consente di eseguire facilmente operazioni amministrative, ad esempio le modifiche dello schema, la gestione delle credenziali, gli aggiornamenti dei dati di riferimento, la raccolta dei dati sulle prestazioni o la raccolta di dati di telemetria tenant (cliente) utilizzando i processi.
 * [Query di database elastico](sql-database-elastic-query-overview.md) (anteprima): consente di eseguire una query Transact-SQL che si estende in più database. Tale query consente una connessione a strumenti di report, ad esempio Excel, PowerBI, Tableau e così via.
+* [Transazioni di database elastico](sql-database-elastic-transactions-overview.md): questa funzionalità consente di eseguire transazioni estese a più database nel database SQL di Azure. Le transazioni di database elastico SQL sono disponibili per le applicazioni .NET tramite ADO .NET e si integrano con i tipi di programmazione più diffusi grazie alle classi [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
 
 Nel grafico seguente è illustrata un'architettura che include le **funzionalità dei database elastici** in relazione a una raccolta di database.
 
@@ -108,4 +109,4 @@ Cosa si può fare meglio? Questo argomento spiega chiaramente la funzionalità? 
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

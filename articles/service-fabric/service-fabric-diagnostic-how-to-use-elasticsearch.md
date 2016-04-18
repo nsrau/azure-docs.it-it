@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/31/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Usare ElasticSearch come archivio di traccia delle applicazioni di Service Fabric
@@ -24,11 +24,9 @@ ETW viene usato dal runtime di Service Fabric per ottenere informazioni di diagn
 
 Per poter essere visualizzate in ElasticSearch, le tracce devono essere acquisite nei nodi del cluster di Service Fabric in tempo reale, mentre è in esecuzione l'applicazione, e inviate all'endpoint ElasticSearch. Per l'acquisizione di tracce sono disponibili due opzioni principali:
 
-+ **Acquisizione di tracce in-process** 
-L'applicazione, o più esattamente il processo del servizio, è responsabile dell'invio dei dati di diagnostica all'archivio di traccia (ElasticSearch).
++ **Acquisizione di tracce in-process** L'applicazione, o più esattamente il processo del servizio, è responsabile dell'invio dei dati di diagnostica all'archivio di traccia (ElasticSearch).
 
-+ **Acquisizione di tracce out-of-process** 
-Un agente separato acquisisce le tracce dal processo (o dai processi) di servizio e le invia all'archivio di traccia.
++ **Acquisizione di tracce out-of-process** Un agente separato acquisisce le tracce dal processo (o dai processi) di servizio e le invia all'archivio di traccia.
 
 Di seguito si descrive come configurare ElasticSearch in Azure, si illustrano i vantaggi e gli svantaggi di entrambe le opzioni di acquisizione e si spiega come configurare un servizio di Service Fabric per inviare dati a ElasticSearch.
 
@@ -37,17 +35,15 @@ Di seguito si descrive come configurare ElasticSearch in Azure, si illustrano i 
 L'uso dei [**modelli di Gestione risorse di Azure**](../resource-group-overview.md) costituisce il modo più semplice per configurare il servizio ElasticSearch in Azure. Un [modello di avvio rapido di Gestione risorse di Azure per ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) è disponibile nel repository dei modelli di avvio rapido di Azure. Questo modello usa account di archiviazione separati per le unità di scala (gruppi di nodi) e può effettuare il provisioning di nodi client e server distinti con configurazioni diverse e un numero variabile di dischi dati collegati.
 
 In questo caso si userà un altro modello, denominato **ES-MultiNode**, creato dal [ramo ELK di Microsoft Patterns & Practices](https://github.com/mspnp/semantic-logging/tree/elk/). Questo modello è più semplice da usare e crea un cluster ElasticSearch protetto per impostazione predefinita dall'autenticazione di base HTTP. Prima di procedere, scaricare nel computer locale il [repository ELK di Microsoft Patterns & Practices ](https://github.com/mspnp/semantic-logging/tree/elk/) disponibile in GitHub (clonando il repository o scaricando un file con estensione zip). Il modello ES-MultiNode si trova nella cartella con lo stesso nome.
->[AZURE.NOTE] Il modello ES-MultiNode e gli script associati supportano attualmente ElasticSearch versione 1.7. Il supporto per ElasticSearch 2.0 verrà aggiunto in un secondo momento.
 
 ### Preparare un computer per l'esecuzione degli script di installazione di ElasticSearch
 Il modo più semplice per usare il modello ES-MultiNode consiste nell'eseguire uno script di Azure PowerShell predefinito denominato `CreateElasticSearchCluster`. Per usare lo script, è necessario installare i moduli di PowerShell e uno strumento denominato **openssl**, indispensabile per la creazione di una chiave SSH che può essere usata per amministrare il cluster ElasticSearch in modalità remota.
 
-Nota: lo script `CreateElasticSearchCluster` è progettato per semplificare l'uso del modello ES-MultiNode da un computer Windows. È possibile usare il modello in un computer non Windows, ma questo scenario non rientra nell'ambito di questo articolo.
+Notare che lo script `CreateElasticSearchCluster` è progettato per semplificare l'uso del modello ES-MultiNode da un computer Windows. È possibile usare il modello in un computer non Windows, ma questo scenario non rientra nell'ambito di questo articolo.
 
-1. Se necessario, installare i [**moduli di Azure PowerShell**](http://go.microsoft.com/fwlink/p/?linkid=320376). Quando richiesto, fare clic su **Esegui** e quindi su **Installa**.
->[AZURE.NOTE] Con la versione di Azure PowerShell 1.0, Azure PowerShell è sottoposto a una modifica sostanziale. CreateElasticSearchCluster è progettato attualmente per funzionare con Azure PowerShell 0.9.8 e non supporta Azure PowerShell 1.0 Preview. In una data successiva verrà fornito uno script compatibile con Azure PowerShell 1.0.
+1. Se necessario, installare i [**moduli di Azure PowerShell**](http://aka.ms/webpi-azps). Quando richiesto, fare clic su **Esegui** e quindi su **Installa**.
 
-2. Lo strumento **openssl** è incluso nella distribuzione di [**Git per Windows**](http://www.git-scm.com/downloads). Se necessario, installare [Git per Windows](http://www.git-scm.com/downloads) accettando le opzioni di installazione predefinite.
+2. Lo strumento **openssl** è incluso nella distribuzione di [**Git per Windows**](http://www.git-scm.com/downloads). Se necessario, installare [Git per Windows](http://www.git-scm.com/downloads). accettando le opzioni di installazione predefinite.
 
 3. Supponendo che Git sia già installato, ma non incluso nel percorso di sistema, aprire una finestra di Microsoft Azure PowerShell ed eseguire i comandi seguenti:
 
@@ -58,7 +54,7 @@ Nota: lo script `CreateElasticSearchCluster` è progettato per semplificare l'us
 
     Sostituire `<Git installation folder>` con il percorso Git nel computer locale. Il percorso predefinito è **"C:\\Programmi\\Git"**. Si noti il carattere punto e virgola all'inizio del primo percorso.
 
-4. Assicurarsi di essere connessi ad Azure tramite il cmdlet [**Add-AzureAccount**](https://msdn.microsoft.com/library/azure/dn790372.aspx) e di avere selezionato la sottoscrizione da usare per creare il cluster ElasticSearch ([**Select-AzureSubscription**](https://msdn.microsoft.com/library/azure/dn790367.aspx)).
+4. Assicurarsi di essere connessi ad Azure (tramite il cmdlet [`Add-AzureRmAccount`](https://msdn.microsoft.com/library/mt619267.aspx)) e di avere selezionato la sottoscrizione da usare per creare il cluster ElasticSearch. Per verificare che sia selezionata la sottoscrizione corretta, è possibile usare i cmdlet `Get-AzureRmContext` e `Get-AzureRmSubscription`.
 
 5. Se non è già stato fatto, passare dalla directory corrente alla cartella ES-MultiNode.
 
@@ -67,22 +63,31 @@ Prima di eseguire lo script, aprire il file `azuredeploy-parameters.json` e veri
 
 |Nome parametro |Descrizione|
 |-----------------------  |--------------------------|
-|dnsNameForLoadBalancerIP |Nome che verrà usato per creare il nome DNS (Domain Name System) visibile pubblicamente per il cluster ElasticSearch aggiungendo il dominio dell'area di Azure al nome fornito. Ad esempio, se il valore del parametro è "myBigCluster" e l'area di Azure scelta è Stati Uniti occidentali, il nome DNS risultante per il cluster sarà **myBigCluster.westus.cloudapp.azure.com**. <br /><br />Questo nome viene usato anche come radice per i nomi di molti elementi associati al cluster ElasticSearch, ad esempio i nomi dei nodi dati.|
-|storageAccountPrefix |Prefisso per gli account di archiviazione che verranno creati per il cluster ElasticSearch. <br /><br /> La versione corrente del modello usa un account di archiviazione condivisa, che tuttavia potrebbe cambiare in futuro.|
+|dnsNameForLoadBalancerIP |Nome che verrà usato per creare il nome DNS visibile pubblicamente per il cluster ElasticSearch aggiungendo il dominio dell'area di Azure al nome fornito. Ad esempio, se il valore del parametro è "myBigCluster" e l'area di Azure scelta è Stati Uniti occidentali, il nome DNS risultante per il cluster sarà myBigCluster.westus.cloudapp.azure.com. <br /><br />Questo nome viene usato anche come radice per i nomi di molti elementi associati al cluster ElasticSearch, ad esempio i nomi dei nodi dati.|
 |adminUsername |Nome dell'account amministratore per la gestione del cluster ElasticSearch; le chiavi SSH corrispondenti saranno generate automaticamente.|
-|dataNodeCount |Numero di nodi nel cluster ElasticSearch. La versione corrente dello script non fa distinzione tra nodi dati e di query, tutti i nodi eseguiranno entrambi i ruoli.|
-|dataDiskSize |Dimensioni dei dischi dati (in gigabyte) che saranno allocati per ogni nodo dati. Ogni nodo riceverà quattro dischi dati dedicati esclusivamente al servizio ElasticSearch.|
+|dataNodeCount |Numero di nodi nel cluster ElasticSearch. La versione corrente dello script non fa distinzione tra nodi dati e di query, tutti i nodi eseguiranno entrambi i ruoli. Il valore predefinito è 3 nodi.|
+|dataDiskSize |Dimensioni dei dischi dati (in GB) che saranno allocati per ogni nodo dati. Ogni nodo riceverà 4 dischi dati dedicati esclusivamente al servizio ElasticSearch.|
 |region |Nome dell'area di Azure in cui dovrà trovarsi il cluster ElasticSearch.|
-|esClusterName |Nome interno del cluster ElasticSearch. <br /><br />È necessario modificare l'impostazione predefinita di questo valore, a meno che non si preveda di eseguire più cluster ElasticSearch nella stessa rete virtuale, configurazione attualmente non supportata dal modello ES-MultiNode.|
-|esUserName esPassword |Credenziali relative all'utente che sarà configurato per l'accesso al cluster ElasticSearch (soggetto all'autenticazione di base HTTP).|
+|esUserName |Nome utente che sarà configurato per l'accesso al cluster ElasticSearch (soggetto all'autenticazione HTTP di base). La password non fa parte del file dei parametri e deve essere specificata quando viene richiamato lo script `CreateElasticSearchCluster`.|
+|vmSizeDataNodes |Dimensioni della macchina virtuale di Azure per i nodi del cluster ElasticSearch. Il valore predefinito è Standard\_D1.|
 
-A questo punto è possibile eseguire lo script. Eseguire questo comando: ```powershell
+A questo punto è possibile eseguire lo script. Eseguire il comando seguente:
+
+```powershell
 CreateElasticSearchCluster -ResourceGroupName <es-group-name>
-``` dove `<es-group-name>` è il nome del gruppo di risorse di Azure che conterrà tutte le risorse cluster.
+```
 
->[AZURE.NOTE] Se il cmdlet Test-AzureResourceGroup restituisce un messaggio NullReferenceException, significa che non è ancora stato eseguito l'accesso ad Azure (`Add-AzureAccount`).
+dove
 
-Se viene restituito un errore dell'esecuzione dello script e si stabilisce che l'errore è stato causato da un valore di parametro del modello errato, correggere il file dei parametri ed eseguire di nuovo lo script con il nome di un gruppo di risorse diverso. È anche possibile riusare lo stesso nome di gruppo di risorse e impostare lo script di pulizia in modo che elimini quello precedente aggiungendo il parametro `-RemoveExistingResourceGroup` alla chiamata dello script.
+|Nome del parametro di script |Descrizione|
+|-----------------------  |--------------------------|
+|`<es-group-name>` |nome del gruppo di risorse di Azure che conterrà tutte le risorse cluster ElasticSearch.|
+|`<azure-region>` |nome dell'area di Azure in cui si deve creare il cluster ElasticSearch|         
+|`<es-password>` |password per l'utente di ElasticSearch|
+
+>[AZURE.NOTE] Se il cmdlet Test-AzureResourceGroup restituisce un messaggio NullReferenceException, significa che non è ancora stato eseguito l'accesso ad Azure (`Add-AzureRmAccount`).
+
+Se viene restituito un errore dell'esecuzione dello script e si stabilisce che l'errore è stato causato da un valore di parametro del modello errato, correggere il file dei parametri ed eseguire di nuovo lo script con il nome di un gruppo di risorse diverso. È anche possibile riusare lo stesso nome di gruppo di risorse e fare in modo che lo script elimini quello precedente aggiungendo il parametro `-RemoveExistingResourceGroup` alla chiamata dello script.
 
 ### Risultato dell'esecuzione dello script CreateElasticSearchCluster
 Dopo aver eseguito lo script `CreateElasticSearchCluster` verranno creati gli elementi principali seguenti. Per chiarezza, si suppone in questo caso che sia stato usato "myBigCluster" come valore del parametro `dnsNameForLoadBalancerIP` e che l'area in cui è stato creato il cluster sia Stati Uniti occidentali.
@@ -151,14 +156,14 @@ La libreria Microsoft.Diagnostic.Listeners fa parte dell'applicazione di Service
 
     ![Riferimenti di progetto alle librerie Microsoft.Diagnostics.EventListeners e Microsoft.Diagnostics.EventListeners.Fabric][1]
 
-### Anteprima di novembre 2015 di Service Fabric e del pacchetto NuGet Microsoft.Diagnostics.Tracing
-Le applicazioni compilate con l'anteprima di novembre 2015 di Service Fabric fanno riferimento a **.NET Framework 4.5.1**, la versione più recente di .NET Framework supportata da Azure al momento del rilascio dell'anteprima. Questa versione del framework, purtroppo, non include alcune API EventListener richieste dalla libreria Microsoft.Diagnostics.Listeners. Poiché EventSource, il componente di base per la registrazione delle API in applicazioni di Service Fabric, ed EventListener sono strettamente collegati, ogni progetto che usa la libreria Microsoft.Diagnostics.Listeners deve usare anche un'implementazione alternativa di EventSource, inclusa nel **pacchetto NuGet Microsoft.Diagnostics.Tracing** creato da Microsoft. Questo pacchetto è totalmente compatibile con la versione di EventSource inclusa nel framework e quindi non dovrebbero essere necessarie modifiche al codice oltre a quelle riguardanti lo spazio dei nomi a cui viene fatto riferimento.
+### Versione di disponibilità generale di Service Fabric e pacchetto NuGet Microsoft.Diagnostics.Tracing
+Il framework di destinazione delle applicazioni compilate con la versione di disponibilità generale di Service Fabric (2.0.135, rilasciata il 31 marzo 2016) è **.NET Framework 4.5.2**, la versione più recente di .NET Framework supportata da Azure al momento del rilascio della versione di disponibilità generale. Questa versione del framework, purtroppo, non include alcune API EventListener richieste dalla libreria Microsoft.Diagnostics.Listeners. Poiché EventSource, il componente di base per la registrazione delle API in applicazioni di Service Fabric, ed EventListener sono strettamente collegati, ogni progetto che usa la libreria Microsoft.Diagnostics.Listeners deve usare anche un'implementazione alternativa di EventSource, inclusa nel **pacchetto NuGet Microsoft.Diagnostics.Tracing** creato da Microsoft. Questo pacchetto è totalmente compatibile con la versione di EventSource inclusa nel framework e quindi non dovrebbero essere necessarie modifiche al codice oltre a quelle riguardanti lo spazio dei nomi a cui viene fatto riferimento.
 
 Per iniziare a usare l'implementazione Microsoft.Diagnostics.Tracing della classe EventSource, seguire questi passaggi per ogni progetto di servizio che deve inviare dati a ElasticSearch:
 
 1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
 
-2. Passare all'origine del pacchetto nuget.org, se non è già selezionata, e cercare "**Microsoft.Diagnostics.Tracing**.
+2. Passare all'origine del pacchetto nuget.org, se non è già selezionata, e cercare "**Microsoft.Diagnostics.Tracing**".
 
 3. Installare il pacchetto `Microsoft.Diagnostics.Tracing.EventSource` e le relative dipendenze.
 
@@ -174,6 +179,8 @@ using System;
 using System.Diagnostics;
 using System.Fabric;
 using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.ServiceFabric.Services.Runtime;
 
 // **** Add the following directives
 using Microsoft.Diagnostics.EventListeners;
@@ -181,38 +188,38 @@ using Microsoft.Diagnostics.EventListeners.Fabric;
 
 namespace Stateless1
 {
-    public class Program
+    internal static class Program
     {
-        public static void Main(string[] args)
+        /// <summary>
+        /// This is the entry point of the service host process.
+        /// </summary>        
+        private static void Main()
         {
             try
             {
-                using (FabricRuntime fabricRuntime = FabricRuntime.Create())
+                // **** Instantiate ElasticSearchListener
+                var configProvider = new FabricConfigurationProvider("ElasticSearchEventListener");
+                ElasticSearchListener esListener = null;
+                if (configProvider.HasConfiguration)
                 {
-
-                    // **** Instantiate ElasticSearchListener
-                    var configProvider = new FabricConfigurationProvider("ElasticSearchEventListener");
-                    ElasticSearchListener esListener = null;
-                    if (configProvider.HasConfiguration)
-                    {
-                        esListener = new ElasticSearchListener(configProvider);
-                    }
-
-                    // This is the name of the ServiceType that is registered with FabricRuntime.
-                    // This name must match the name defined in the ServiceManifest. If you change
-                    // this name, please change the name of the ServiceType in the ServiceManifest.
-                    fabricRuntime.RegisterServiceType("Stateless1Type", typeof(Stateless1));
-
-                    ServiceEventSource.Current.ServiceTypeRegistered(
-						Process.GetCurrentProcess().Id,
-						typeof(Stateless1).Name);
-
-                    Thread.Sleep(Timeout.Infinite);
-
-                    // **** Ensure that the ElasticSearchListner instance is not garbage-collected prematurely
-                    GC.KeepAlive(esListener);
-
+                    esListener = new ElasticSearchListener(configProvider);
                 }
+
+                // The ServiceManifest.XML file defines one or more service type names.
+                // Registering a service maps a service type name to a .NET type.
+                // When Service Fabric creates an instance of this service type,
+                // an instance of the class is created in this host process.
+
+                ServiceRuntime.RegisterServiceAsync("Stateless1Type", 
+                    context => new Stateless1(context)).GetAwaiter().GetResult();
+
+                ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(Stateless1).Name);
+
+                // Prevents this host process from terminating so services keep running.
+                Thread.Sleep(Timeout.Infinite);
+
+                // **** Ensure that the ElasticSearchListner instance is not garbage-collected prematurely
+                GC.KeepAlive(esListener);
             }
             catch (Exception e)
             {
@@ -237,7 +244,7 @@ I dati di connessione di ElasticSearch devono essere inseriti in una sezione sep
 I valori di `serviceUri`, `userName` e `password` corrispondono rispettivamente all'indirizzo dell'endpoint del cluster ElasticSearch e al nome utente e password di ElasticSearch. `indexNamePrefix` è il prefisso per gli indici di ElasticSearch; la libreria Microsoft.Diagnostics.Listeners crea quotidianamente un nuovo indice per i propri dati.
 
 ### Verifica
-L'operazione è terminata. A questo punto, ogni volta che il servizio viene eseguito, inizierà a inviare tracce al servizio ElasticSearch specificato nella configurazione. È possibile verificare questa configurazione aprendo l'interfaccia utente di Kibana associata all'istanza ElasticSearch di destinazione (in questo esempio l'indirizzo della pagina sarà http://myBigCluster.westus.cloudapp.azure.com/) e controllando che gli indici con il prefisso di nome scelto per l'istanza `ElasticSearchListener` siano stati effettivamente creati e popolati con i dati necessari.
+L'operazione è terminata. A questo punto, ogni volta che il servizio viene eseguito, inizierà a inviare tracce al servizio ElasticSearch specificato nella configurazione. È possibile verificare questa configurazione aprendo l'interfaccia utente di Kibana associata all'istanza ElasticSearch di destinazione (in questo esempio l'indirizzo della pagina sarà http://myBigCluster.westus.cloudapp.azure.com/) e controllando che gli indici con il prefisso di nome scelto per l'istanza di `ElasticSearchListener` siano stati effettivamente creati e popolati con i dati necessari.
 
 ![Eventi di Kibana che mostrano l'applicazione PartyCluster][2]
 
@@ -248,4 +255,4 @@ L'operazione è terminata. A questo punto, ogni volta che il servizio viene eseg
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!----CI Staging Not Merged Final Only staging manually, no other change made HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0406_2016-->

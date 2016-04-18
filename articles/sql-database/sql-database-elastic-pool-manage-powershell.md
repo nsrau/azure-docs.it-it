@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="03/15/2016"
+    ms.date="04/01/2016"
     ms.author="sstein"/>
 
 # Monitorare, gestire e dimensionare un pool di database elastici con PowerShell 
@@ -22,9 +22,9 @@
 - [Portale di Azure](sql-database-elastic-pool-manage-portal.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 - [C#](sql-database-elastic-pool-manage-csharp.md)
+- [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
-
-Informazioni su come gestire un [pool di database elastici](sql-database-elastic-pool.md) tramite i cmdlets PowerShell.
+Informazioni su come gestire un [pool di database elastici](sql-database-elastic-pool.md) tramite i cmdlet di PowerShell.
 
 Per i codici di errore comuni, vedere [Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database](sql-database-develop-error-messages.md).
 
@@ -178,4 +178,4 @@ Esportare in un file CSV:
 
 Per ulteriori informazioni sui database elastici e sui pool di database elastici, inclusi i dettagli sulle API e sugli errori, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

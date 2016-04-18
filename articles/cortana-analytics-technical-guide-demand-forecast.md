@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Guida tecnica per il modello di soluzione per la previsione della domanda nel settore energetico | Microsoft Azure"
-	description="Guida tecnica per il modello di soluzione di Cortana Analytics per la previsione della domanda nel settore energetico."
+	description="Guida tecnica per il modello di soluzione di Microsoft Cortana Intelligence per la previsione della domanda nel settore energetico."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="yijichen"
@@ -16,11 +16,11 @@
 	ms.date="01/24/2016"
 	ms.author="inqiu;yijichen;ilanr9"/>
 
-# Guida tecnica per il modello di soluzione di Cortana Analytics per la previsione della domanda nel settore energetico
+# Guida tecnica per il modello di soluzione di Cortana Intelligence per la previsione della domanda nel settore energetico
 
 ## **Panoramica**
 
-I modelli di soluzione sono progettati per accelerare il processo di compilazione di una demo end-to-end basata sulla suite Cortana Analytics. Un modello distribuito esegue il provisioning alla sottoscrizione del componente Cortana Analytics necessario e permette di creare le relazioni al suo interno. Inoltre effettua il seeding della pipeline di dati con dati di esempio generati da un'applicazione di simulazione di dati. Scaricare il simulatore di dati dal collegamento specificato e installarlo nel computer locale. Fare riferimento al file readme.txt per istruzioni sull'uso del simulatore. I dati generati dal simulatore attivano la pipeline di dati e avviano la creazione di una stima di Machine Learning che possono essere visualizzate nel dashboard di Power BI.
+I modelli di soluzione sono progettati per accelerare il processo di compilazione di una demo end-to-end basata su Cortana Intelligence Suite. Un modello distribuito esegue il provisioning alla sottoscrizione dei componenti Cortana Intelligence necessari e consente di creare le relazioni tra di essi. Inoltre effettua il seeding della pipeline di dati con dati di esempio generati da un'applicazione di simulazione di dati. Scaricare il simulatore di dati dal collegamento specificato e installarlo nel computer locale. Fare riferimento al file readme.txt per istruzioni sull'uso del simulatore. I dati generati dal simulatore attivano la pipeline di dati e avviano la creazione di una stima di Machine Learning che possono essere visualizzate nel dashboard di Power BI.
 
 Il processo di distribuzione prevede diversi passaggi per l'impostazione delle credenziali della soluzione. Assicurarsi di prendere nota delle credenziali, ad esempio il nome della soluzione, il nome utente e la password forniti durante la distribuzione.
 
@@ -288,4 +288,4 @@ I due strumenti indicati di seguito permettono di comprendere meglio i costi tot
 
 -   [Microsoft Azure Cost Estimator Tool (PC desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

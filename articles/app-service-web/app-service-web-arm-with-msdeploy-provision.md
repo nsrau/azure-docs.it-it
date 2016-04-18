@@ -174,7 +174,7 @@ Lo script PowerShell seguente illustra la distribuzione completa chiamando Deplo
 
 	.\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation "East US" `
 									-ResourceGroupName $rgName `
-									-UploadArtifacts "container-name" `
+									-UploadArtifacts `
 									-StorageAccountName "name-of-storage-acct-for-package" `
 									-StorageAccountResourceGroupName "resource-group-name-storage-acct" `
 									-TemplateFile "web-app-deploy.json" `
@@ -197,4 +197,4 @@ Lo script PowerShell seguente illustra la distribuzione completa chiamando Deplo
 
 A questo punto l'applicazione è stata distribuita ed è possibile accedervi tramite https://www.yourcustomdomain.com
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->
