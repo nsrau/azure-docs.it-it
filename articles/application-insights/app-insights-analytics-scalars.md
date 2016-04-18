@@ -185,7 +185,7 @@ True o false a seconda se il valore è null o not null.
 | "" | false
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 **Esempio**
@@ -676,7 +676,7 @@ Indica se l'argomento è una stringa vuota o isnull.
 | "" | true
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 
@@ -1144,4 +1144,4 @@ Per contare gli eventi, usare `sum(itemCount)` invece di `count()` per ottenere 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0330_2016-->
