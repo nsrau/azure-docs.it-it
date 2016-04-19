@@ -25,7 +25,7 @@
 
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per Xamarin Android con Servizi mobili di Azure. In questa esercitazione si creeranno sia un nuovo servizio mobile che una semplice app _To do list_ che archivia i dati dell'app nel nuovo servizio mobile. Il servizio mobile che verrà creato usa i linguaggi .NET supportati tramite Visual Studio per la logica di business sul lato server e per la gestione del servizio mobile. Per creare un servizio mobile che consenta di scrivere la logica di business sul lato server in JavaScript, vedere la [versione per back-end JavaScript] di questo argomento.
 
->[AZURE.NOTE]Questo argomento descrive come creare un nuovo progetto di servizio mobile usando il portale di Azure classico. Visual Studio 2013 Update 2 consente di aggiungere un nuovo progetto di servizio mobile a una soluzione Visual Studio esistente. Per altre informazioni, vedere [Guida rapida: Aggiungere un servizio mobile (back-end .NET)](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)
+>[AZURE.NOTE] Questo argomento descrive come creare un nuovo progetto di servizio mobile usando il portale di Azure classico. Visual Studio 2013 Update 2 consente di aggiungere un nuovo progetto di servizio mobile a una soluzione Visual Studio esistente. Per altre informazioni, vedere [Guida rapida: Aggiungere un servizio mobile (back-end .NET)](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)
 
 Di seguito è riportata una schermata dell'app completata:
 
@@ -33,7 +33,7 @@ Di seguito è riportata una schermata dell'app completata:
 
 Il completamento di questa esercitazione è un prerequisito per tutte le altre esercitazioni di Servizi mobili per app per Xamarin Android.
 
->[AZURE.NOTE]Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started). Per completare questa esercitazione, è necessario disporre di [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=257546). È disponibile una versione di valutazione gratuita.
+>[AZURE.NOTE] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started). Per completare questa esercitazione, è necessario disporre di [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=257546). È disponibile una versione di valutazione gratuita.
 
 ## Creare un nuovo servizio mobile
 

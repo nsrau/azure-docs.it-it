@@ -21,7 +21,7 @@ Usare la procedura seguente nel portale di Azure per creare un nuovo database SQ
 
      ![nuovo database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
    
-4. Fare clic su **Crea ** per creare un nuovo servizio database SQL.
+4. Fare clic su **Crea** per creare un nuovo servizio database SQL.
 
      ![nuovo database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)
 

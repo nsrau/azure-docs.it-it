@@ -47,7 +47,7 @@ Questo articolo contiene un elenco di domande comuni (e le relative risposte) su
 
 **D3. Quale versione del server SCDPM è supportata?** <br/> R3. È consigliabile installare la versione [più recente](http://aka.ms/azurebackup_agent) dell'agente Backup di Azure sull'aggiornamento cumulativo più recente di SCDPM (UR6 a luglio 2015)
 
-****D4. Quando si configura l'agente di Backup di Azure, viene richiesto di immettere le **credenziali dell'insieme di credenziali**. Le credenziali dell'insieme di credenziali scadono? R4. Sì, le credenziali dell'insieme di credenziali scadono dopo 48 ore. Se il file scade, accedere al portale di Azure e scaricare i file delle credenziali di insieme dall'insieme di credenziali per il backup.
+**D4. Quando si configura l'agente di Backup di Azure, viene richiesto di immettere le **credenziali dell'insieme di credenziali**. Le credenziali dell'insieme di credenziali scadono? R4. Sì, le credenziali dell'insieme di credenziali scadono dopo 48 ore. Se il file scade, accedere al portale di Azure e scaricare i file delle credenziali di insieme dall'insieme di credenziali per il backup.
 
 **D5. Esistono limiti al numero degli insiemi di credenziali per il backup che è possibile creare in ogni sottoscrizione di Azure?** <br/> R5. Sì. A partire da marzo 2015, è possibile creare 25 insiemi di credenziali per ogni sottoscrizione. Se sono necessari più insiemi di credenziali, creare una nuova sottoscrizione.
 

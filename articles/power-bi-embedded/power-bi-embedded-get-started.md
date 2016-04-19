@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introduzione a Microsoft Power BI Embedded - Anteprima"
-   description=""
+   description="Introduzione a Microsoft Power BI Embedded - Anteprima"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -74,7 +74,7 @@ Dopo aver creato un'istanza di Power BI per l'applicazione e le **Chiavi di acce
 
 ## Creare set di dati e report di Power BI da incorporare in un'app
 
-Dopo avere creato un'istanza di Power BI per l'applicazione e avere preso nota delle **Chiavi di accesso**, è necessario creare i set di dati e i report di Power BI da incorporare. I set di dati e i report possono essere creati con **Power BI Desktop**. È possibile scaricare [Power BI Desktop gratuitamente](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). In alternativa, per iniziare rapidamente, è possibile scaricare l'[esempio Retail Analysis PBIX](http://go.microsoft.com/fwlink/?LinkID=780547). Per altre informazioni su come usare **Power BI Desktop**, vedere l'articolo di [introduzione a Power BI Desktop](https://powerbi.microsoft.com/it-IT/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+Dopo avere creato un'istanza di Power BI per l'applicazione e avere preso nota delle **Chiavi di accesso**, è necessario creare i set di dati e i report di Power BI da incorporare. I set di dati e i report possono essere creati con **Power BI Desktop**. È possibile scaricare [Power BI Desktop gratuitamente](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). In alternativa, per iniziare rapidamente, è possibile scaricare l'[esempio Retail Analysis PBIX](http://go.microsoft.com/fwlink/?LinkID=780547). Per altre informazioni su come usare **Power BI Desktop**, vedere l'articolo di [introduzione a Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 **Power BI Desktop** consente di connettersi all'origine dati mediante l'importazione di una copia dei dati in **Power BI Desktop** o tramite la connessione diretta all'origine dati con **DirectQuery**.
 
@@ -82,7 +82,7 @@ Ecco le differenze tra l'**importazione** e la modalità **DirectQuery**.
 
 |Importazione | DirectQuery
 |---|---
-|Tabelle, colonne, *e dati* vengono importati o copiati in **Power BI Desktop**. Mentre si utilizzano le visualizzazioni, **Power BI Desktop** esegue query su una copia dei dati. Per visualizzare le eventuali modifiche apportate ai dati sottostanti, è necessario aggiornare o importare di nuovo un set di dati completo e aggiornato.|Solo *tabelle e colonne * vengono importate o copiate in **Power BI Desktop**. Mentre si utilizzano le visualizzazioni, **Power BI Desktop** esegue query sull'origine dati sottostante, quindi vengono sempre visualizzati dati aggiornati.
+|Tabelle, colonne, *e dati* vengono importati o copiati in **Power BI Desktop**. Mentre si utilizzano le visualizzazioni, **Power BI Desktop** esegue query su una copia dei dati. Per visualizzare le eventuali modifiche apportate ai dati sottostanti, è necessario aggiornare o importare di nuovo un set di dati completo e aggiornato.|Solo *tabelle e colonne* vengono importate o copiate in **Power BI Desktop**. Mentre si utilizzano le visualizzazioni, **Power BI Desktop** esegue query sull'origine dati sottostante, quindi vengono sempre visualizzati dati aggiornati.
 
 Per altre informazioni sulla connessione a un'origine dati, vedere [Connessione a un'origine dati](power-bi-embedded-connect-datasource.md).
 

@@ -183,7 +183,7 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
     public static void main( String[] args ) throws IOException
     ```
 
-12. Aggiungere il codice seguente al metodo **main** nella classe **App**. Questo codice crea un'istanza di **EventHubClient** per la connessione all'endpoint compatibile con l'hub eventi dell'hub IoT. Crea quindi due thread per la lettura dalle due partizioni. Sostituire **{youriothubkey}**, **{youreventhubcompatiblenamespace}** e **{youreventhubcompatiblename}** con i valori annotati in precedenza. Il valore del segnaposto **{youreventhubcompatiblenamespace}** proviene dall'**endpoint compatibile con l'hub eventi** ed è espresso nel formato **xxxxnamespace**. In altre parole, rimuovere il prefisso ****sb://** e il suffisso **.servicebus.windows.net** dal valore dell'endpoint compatibile con l'hub eventi proveniente dal portale.
+12. Aggiungere il codice seguente al metodo **main** nella classe **App**. Questo codice crea un'istanza di **EventHubClient** per la connessione all'endpoint compatibile con l'hub eventi dell'hub IoT. Crea quindi due thread per la lettura dalle due partizioni. Sostituire **{youriothubkey}**, **{youreventhubcompatiblenamespace}** e **{youreventhubcompatiblename}** con i valori annotati in precedenza. Il valore del segnaposto **{youreventhubcompatiblenamespace}** proviene dall'**endpoint compatibile con l'hub eventi** ed è espresso nel formato **xxxxnamespace**. In altre parole, rimuovere il prefisso **sb://** e il suffisso **.servicebus.windows.net** dal valore dell'endpoint compatibile con l'hub eventi proveniente dal portale.
 
     ```
     String policyName = "iothubowner";
