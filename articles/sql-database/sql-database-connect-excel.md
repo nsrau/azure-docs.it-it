@@ -5,8 +5,8 @@
 	keywords="connettere Excel a SQL, importare i dati in Excel"
 	documentationCenter=""
 	authors="joseidz"
-	manager="jeffreyg"
-	editor="jeffreyg"/>
+	manager="jhubbard"
+	editor=""/>
 
 
 <tags
@@ -83,4 +83,4 @@ Dopo aver stabilito la connessione e creato il file con dati e informazioni sull
 - Informazioni sui vantaggi dei [pool elastici](sql-database-elastic-pool.md).
 - Informazioni su come [creare un'app Web che si connette al database SQL nel back-end](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

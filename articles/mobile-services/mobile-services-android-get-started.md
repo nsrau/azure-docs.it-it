@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="03/05/2016"
+	ms.date="04/08/2016"
 	ms.author="ricksal"/>
 
 # Introduzione a Servizi mobili per Android (back-end JavaScript)
@@ -35,7 +35,7 @@ Di seguito è riportata una schermata dell'app completata:
 
 ## Prerequisiti
 
-Per completare questa esercitazione, è necessario disporre di [Android Developer Tools](https://developer.android.com/sdk/index.html), che include l'ambiente di sviluppo integrato Android Studio e la piattaforma Android più recente. È necessario Android 4.2 o versione successiva.
+Per completare questa esercitazione, è necessario disporre di [Android Developer Tools](https://developer.android.com/sdk/index.html) che include l'ambiente di sviluppo integrato di Android Studio e la piattaforma Android più recente. È necessario Android 4.2 o versione successiva.
 
 Il progetto di guida introduttiva scaricato contiene l'SDK di Servizi mobili di Azure per Android.
 
@@ -94,4 +94,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Introduzione alle notifiche push]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

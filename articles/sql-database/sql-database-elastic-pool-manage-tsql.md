@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/01/2016"
+    ms.date="04/11/2016"
     ms.author="sidneyh"/>
 
 # Monitorare e gestire un pool di database elastici con Transact-SQL  
@@ -81,8 +81,13 @@ Usare la [vista sys.elastic\_pool\_resource\_stats](https://msdn.microsoft.com/l
 ## Monitorare l'utilizzo delle risorse di un database in un pool elastico
 Usare la [vista sys.dm\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) o la [vista sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) per esaminare le statistiche di utilizzo delle risorse di un database in un pool elastico. Questo processo è simile all'esecuzione di query sull'utilizzo delle risorse per un database singolo.
 
+## Latenza delle operazioni dei pool elastici
+
+- La modifica delle eDTU garantite per database o il numero massimo di eDTU per database in genere viene completata in 5 minuti al massimo.
+- La modifica del limite di risorse di archiviazione del pool dipende dalla quantità totale di spazio usato da tutti i database nel pool. Le modifiche richiedono una media di 90 minuti o meno per 100 GB. Ad esempio, se lo spazio totale utilizzato da tutti i database nel pool è pari a 200 GB, la latenza prevista per la modifica del limite di eDTU / risorse di archiviazione è di 3 ore o meno.
+
 ## Passaggi successivi
 
 Dopo aver creato un pool di database elastici, è possibile gestire i database elastici nel pool mediante la creazione di processi elastici. I processi elastici facilitano l’esecuzione di script T-SQL su qualsiasi numero di database nel pool. Per ulteriori informazioni, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

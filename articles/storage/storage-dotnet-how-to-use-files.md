@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="03/03/2016"
+	  ms.date="04/07/2016"
       ms.author="minet" />
 
 # Introduzione ad Archiviazione file di Azure in Windows
@@ -172,10 +172,12 @@ Caricare un file locale nella directory. Nel seguente esempio viene caricato un 
 
 ### Elencare i file nella directory
 
-Per visualizzare un file nella directory, è possibile elencare i file della directory. Questo comando elenca anche le sottodirectory, ma in questo esempio non ci sono sottodirectory, quindi viene elencato solo il file.
+Per visualizzare un file nella directory, è possibile elencare tutti i file della directory. Questo comando restituisce file e sottodirectory, se presenti, nella directory CustomLogs.
 
 	# list files in the new directory
-	Get-AzureStorageFile -Share $s -Path CustomLogs
+	Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
+
+Get-AzureStorageFile restituisce un elenco di file e directory per qualsiasi oggetto di directory passato. "Get-AzureStorageFile -Share $s" restituisce un elenco di file e directory nella directory radice. Per ottenere un elenco di file in una sottodirectory, è necessario passare la sottodirectory a Get-AzureStorageFile. La prima parte del comando fino alla pipe restituisce un'istanza di directory della sottodirectory CustomLogs. Il comando viene quindi passato a Get-AzureStorageFile, che restituisce i file e le directory in CustomLogs.
 
 ### Copiare i file
 
@@ -212,7 +214,7 @@ Per illustrare come si monta una condivisione file di Azure, viene creata una ma
 
 
 1. Creare prima di tutto una nuova macchina virtuale di Azure seguendo le istruzioni in [Creare una macchina virtuale di Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Creare prima di tutto una nuova macchina virtuale di Azure seguendo le istruzioni in [Accedere a una macchina virtuale di Windows tramite il portale di Azure](../virtual-machines/virtual-machines-windows-log-on.md).
+2. Accedere quindi in remoto alla nuova macchina virtuale seguendo le istruzioni in [Accedere a una macchina virtuale di Windows tramite il portale di Azure](../virtual-machines/virtual-machines-windows-log-on.md).
 3. Aprire una finestra di PowerShell nella macchina virtuale.
 
 ### Mantenere le credenziali dell'account di archiviazione per la macchina virtuale
@@ -266,21 +268,14 @@ Per usare Archiviazione file a livello di codice, è possibile usare le librerie
 
 ### Aggiungere le dichiarazioni dello spazio dei nomi
 
-Aprire il file program.cs da Esplora soluzioni e aggiungere le dichiarazioni dello spazio dei nomi seguenti all'inizio del file.
+Aprire il file `program.cs` da Esplora soluzioni e aggiungere le dichiarazioni dello spazio dei nomi seguenti all'inizio del file.
 
 	using Microsoft.Azure; // Namespace for Azure Configuration Manager
-	using Microsoft.WindowsAzure.Storage; // Namespaces for Storage Client Library
-	using Microsoft.WindowsAzure.Storage.Blob;
-	using Microsoft.WindowsAzure.Storage.File;
+	using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
+	using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage
+	using Microsoft.WindowsAzure.Storage.File; // Namespace for File storage
 
-### Recuperare la stringa di connessione a livello di programmazione
-
-È possibile recuperare le credenziali salvate dal file app.config usando la classe `Microsoft.WindowsAzure.CloudConfigurationManager` o `System.Configuration.ConfigurationManager `. Il pacchetto Gestione configurazione di Microsoft Azure, che include la classe `Microsoft.WindowsAzure.CloudConfigurationManager`, è disponibile in [NuGet](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager).
-
-L'esempio seguente illustra come recuperare le credenziali usando la classe `CloudConfigurationManager` e incapsularle con la classe `CloudStorageAccount`. Aggiungere il codice seguente al metodo `Main()` in program.cs.
-
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
+[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Accedere alla condivisione file a livello di programmazione
 
@@ -614,7 +609,7 @@ Si noti che, mentre gli archivi BLOB, tabelle e code usano il tipo `ServicePrope
 
 13. **Patch rilasciata per risolvere il problema di prestazioni lente con file di Azure**
 
-	Il team di Windows ha recentemente rilasciato una patch per risolvere un problema di prestazioni lente quando il cliente accede all'archivio file di Azure da Windows 8.1 o Windows Server 2012 R2. Per altre informazioni, vedere l'articolo KB associato, [Rallentamento delle prestazioni quando si accede all'archivio file di Azure da Windows 8.1 o Server 2012 R2](https://support.microsoft.com/it-IT/kb/3114025).
+	Il team di Windows ha recentemente rilasciato una patch per risolvere un problema di prestazioni lente quando il cliente accede all'archivio file di Azure da Windows 8.1 o Windows Server 2012 R2. Per altre informazioni, vedere l'articolo della Knowledge Base associato, [Rallentamento delle prestazioni quando si accede all'archivio file di Azure da Windows 8.1 o Windows Server 2012 R2](https://support.microsoft.com/it-IT/kb/3114025).
 
 14. **Uso dell'archivio file di Azure con IBM MQ**
 
@@ -647,4 +642,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 - [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/23/2016"
+	ms.date="04/13/2016"
 	ms.author="billmath"/>
 
 # Confronto degli strumenti di integrazione directory per la soluzione ibrida di gestione delle identità
 
 Nel corso degli anni gli strumenti di integrazione di directory sono aumentati e si sono evoluti. Questo documento offre una panoramica consolidata di questi strumenti e un confronto delle funzionalità disponibili in ognuno.
 
+<!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
+
 >[AZURE.NOTE] Azure AD Connect include i componenti e le funzionalità resi disponibili in precedenza come DirSync e AAD Sync. Questi strumenti non vengono più resi disponibili singolarmente e tutti i miglioramenti futuri verranno inclusi negli aggiornamenti per Azure AD Connect, in modo da poter individuare sempre da dove ottenere la funzionalità più aggiornata.
 >
->Attualmente Dirsync è ancora supportato, ma in futuro verrà deprecato. Una volta è deprecato, verrà supportato solo per un certo periodo di tempo. Dopo questo periodo, il supporto per Dirsync terminerà.
+>DirSync e Azure AD Sync sono funzionalità deprecate. Per altre informazioni, vedere [Eseguire l'aggiornamento dello Strumento di sincronizzazione di Microsoft Azure Active Directory ("DirSync") e di Azure Active Directory Sync ("Azure AD Sync")](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM).
 
 
 Usare la seguente chiave per ognuna delle tabelle.
@@ -82,14 +84,14 @@ Usare la seguente chiave per ognuna delle tabelle.
 
 Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory | Strumento di sincronizzazione di Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM)| Microsoft Identity Manager 2016 (MIM)
 :-------- |:--------:|:--------:|:--------:|:--------:|:--------:|
-Filtro di domini e unità organizzative | ● | ● | ● | ● | ● 
-Filtro in base ai valori di attributo degli oggetti | ● | ● | ● | ●| ● 
+Filtro di domini e unità organizzative | ● | ● | ● | ● | ●
+Filtro in base ai valori di attributo degli oggetti | ● | ● | ● | ●| ●
 Possibilità di sincronizzare un set minimo di attributi (MinSync) | ● | ● | ||
 Possibilità di applicare differenti modelli di servizio ai flussi di attributi |● | ● | ||
 Possibilità di interrompere il flusso di attributi da AD ad Azure AD | ● | ● | | |
-Personalizzazione avanzata dei flussi di attributi | ● | ● | | ● | ● 
+Personalizzazione avanzata dei flussi di attributi | ● | ● | | ● | ●
 
 ## Passaggi successivi
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [Portale di Azure classico](site-recovery-vmm-to-azure.md)
 - [PowerShell - Classico](site-recovery-deploy-with-powershell.md)
-- [PowerShell - Gestione risorse](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+- [PowerShell - Gestione risorse](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 
 
 Il servizio Azure Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza (BCDR) orchestrando le operazioni di replica, failover e ripristino delle macchine virtuali e dei server fisici. È possibile replicare i computer in Azure o in un data center locale secondario. Per una panoramica rapida, vedere [Che cos'è Azure Site Recovery?](site-recovery-overview.md).
@@ -48,9 +48,9 @@ Ecco gli elementi richiesti in Azure.
 
 **Prerequisito** | **Dettagli**
 --- | ---
-**Account di Azure**| È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). [Altre informazioni](https://azure.microsoft.com/pricing/details/site-recovery/) sui prezzi di Site Recovery. 
+**Account di Azure**| È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). [Altre informazioni](https://azure.microsoft.com/pricing/details/site-recovery/) sui prezzi di Site Recovery.
 **Archiviazione di Azure** | Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure. I dati replicati vengono memorizzati nell'archiviazione di Azure e le macchine virtuali di Azure vengono attivate quando si verifica il failover. <br/><br/>È necessario un [account di archiviazione con ridondanza geografica standard](../storage/storage-redundancy.md#geo-redundant-storage). L'account deve trovarsi nella stessa area del servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione. Si noti che la replica in account di archiviazione Premium non è attualmente supportata e non deve essere usata.<br/><br/>[Altre informazioni](../storage/storage-introduction.md) sull'archiviazione di Azure.
-**Rete di Azure** | È necessaria una rete virtuale di Azure a cui le macchine virtuali di Azure possano connettersi quando si verifica il failover. La rete virtuale di Azure deve essere nella stessa area dell'insieme di credenziali di Site Recovery. 
+**Rete di Azure** | È necessaria una rete virtuale di Azure a cui le macchine virtuali di Azure possano connettersi quando si verifica il failover. La rete virtuale di Azure deve essere nella stessa area dell'insieme di credenziali di Site Recovery.
 
 ## Prerequisiti locali
 
@@ -113,10 +113,11 @@ Generare una chiave di registrazione nell'insieme di credenziali. Dopo aver scar
 ## Passaggio 3: installare il provider di Azure Site Recovery
 
 1. In **Avvio rapido** > **Preparare i server VMM** fare clic su **Scaricare il provider di Microsoft Azure Site Recovery e installarlo nei server VMM** per ottenere la versione più recente del file di installazione del provider.
-2. Eseguire il file nel server VMM di origine. Se VMM viene distribuito in un cluster e si installa il provider per la prima volta, installarlo in un nodo attivo nel cluster e completare l'installazione per registrare il server VMM nell'insieme di credenziali. Quindi, installare il provider sugli altri nodi. Si noti che se si sta aggiornando il provider sarà necessario eseguire l'aggiornamento su tutti i nodi, in quanto dovrebbero eseguire tutti la stessa versione del provider.
-3. Il programma di installazione esegue una verifica dei prerequisiti e chiede l'autorizzazione per arrestare il servizio VMM e avviare l'installazione del provider. Il servizio VMM verrà riavviato automaticamente al termine dell'installazione. Se si esegue l'installazione in un cluster VMM, verrà richiesto di interrompere il ruolo Cluster.
+2. Eseguire il file nel server VMM di origine.
 
-	![Prerequisiti](./media/site-recovery-vmm-to-azure/prereq.png)
+	>[AZURE.NOTE] Se VMM viene distribuito in un cluster e si installa il provider per la prima volta, installarlo in un nodo attivo nel cluster e completare l'installazione per registrare il server VMM nell'insieme di credenziali. Quindi, installare il provider sugli altri nodi. Si noti che se si sta aggiornando il provider sarà necessario eseguire l'aggiornamento su tutti i nodi, in quanto dovrebbero eseguire tutti la stessa versione del provider.
+	
+3. Il programma di installazione esegue una verifica dei prerequisiti e chiede l'autorizzazione per arrestare il servizio VMM e avviare l'installazione del provider. Il servizio VMM verrà riavviato automaticamente al termine dell'installazione. Se si esegue l'installazione in un cluster VMM, verrà richiesto di interrompere il ruolo Cluster.
 
 4. In **Microsoft Update** è possibile fornire il consenso esplicito agli aggiornamenti. Se questa impostazione è abilitata, gli aggiornamenti del provider verranno installati in base ai criteri indicati in Microsoft Update.
 
@@ -143,12 +144,12 @@ Generare una chiave di registrazione nell'insieme di credenziali. Dopo aver scar
 		- *.backup.windowsazure.com
 		- *.blob.core.windows.net
 		- *.store.core.windows.net
-	- Consentire gli indirizzi IP descritti nella pagina relativa a [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) e nel protocollo HTTPS (443). È anche consigliabile aggiungere all'elenco di indirizzi consentiti gli IP dell'area di Azure che si prevede di usare e quello degli Stati Uniti occidentali.
+	- Consentire gli indirizzi IP descritti nella pagina relativa agli [intervalli di indirizzi IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) e il protocollo HTTPS (443). È anche consigliabile aggiungere all'elenco di indirizzi consentiti gli IP dell'area di Azure che si prevede di usare e quello degli Stati Uniti occidentali.
 
 	- Se si usa un proxy personalizzato, un account RunAs di VMM (DRAProxyAccount) verrà creato automaticamente con le credenziali del proxy specificate. Configurare il server proxy in modo che l'account possa eseguire correttamente l'autenticazione. Le impostazioni dell'account RunAs di VMM possono essere modificate nella console VMM. A tale scopo, aprire l'area di lavoro Impostazioni, espandere Sicurezza, fare clic su Account RunAs, quindi modificare la password di DRAProxyAccount. È necessario riavviare il servizio VMM per rendere effettiva l'impostazione.
 
 8. In **Registration Key** selezionare il codice di registrazione scaricato da Azure Site Recovery e copiato nel server VMM.
-9. In **Vault name** verificare il nome dell'insieme di credenziali in cui verrà registrato il server. 
+9. In **Vault name** verificare il nome dell'insieme di credenziali in cui verrà registrato il server.
 
 	![Server registration](./media/site-recovery-vmm-to-azure/credentials.png)
 
@@ -188,7 +189,7 @@ I parametri sono i seguenti:
 
  - **/Credentials**: parametro obbligatorio che specifica la posizione in cui si trova il file della chiave di registrazione.  
  - **/FriendlyName**: parametro obbligatorio per il nome del server host Hyper-V che viene visualizzato nel portale di Azure Site Recovery.
- - **/EncryptionEnabled**: parametro facoltativo per specificare se devono essere crittografate le macchine virtuali di replica in Azure (crittografia dei dati inattivi). Il nome file deve avere un'estensione **pfx**.
+ - **/EncryptionEnabled**: parametro facoltativo per specificare se devono essere crittografate le macchine virtuali di Azure (crittografia dei dati inattivi). Il nome file deve avere un'estensione **pfx**.
  - **/proxyAddress**: parametro facoltativo che specifica l'indirizzo del server proxy.
  - **/proxyport**: parametro facoltativo che specifica la porta del server proxy.
  - **/proxyUsername**: parametro facoltativo che specifica il nome utente proxy.
@@ -206,7 +207,7 @@ I parametri sono i seguenti:
 
 Installare l'agente di Servizi di ripristino di Azure su ogni server host Hyper-V nel cloud VMM.
 
-1. Fare clic su **Avvio rapido** > **Scarica l'agente di servizi di Azure Site Recovery per l'installazione negli host** per ottenere la versione più recente del file di installazione dell'agente.
+1. Fare clic su **Avvio rapido** > **Scarica l'agente di Servizi di ripristino di Microsoft Azure ed esegui l'installazione negli host** per ottenere la versione più recente del file di installazione dell'agente.
 
 	![Installare l'agente di Servizi di ripristino](./media/site-recovery-vmm-to-azure/install-agent.png)
 
@@ -217,15 +218,15 @@ Installare l'agente di Servizi di ripristino di Azure su ogni server host Hyper-
 
 4. Nella pagina **Impostazioni di installazione** specificare dove si vuole installare l'agente e selezionare il percorso della cache in cui verranno installati i metadati di backup. Fare clic su **Installa**.
 5. Al termine di installazione fare clic su **Chiudi** per completare la procedura guidata.
-	
+
 	![Registrare l'Agente di Servizi di ripristino di Microsoft Azure](./media/site-recovery-vmm-to-azure/agent-register.png)
 
-### Installazione dalla riga di comando 
+### Installazione dalla riga di comando
 
 È anche possibile installare l'agente di Servizi di ripristino di Microsoft Azure dalla riga di comando con questo comando:
 
     marsagentinstaller.exe /q /nu
-	
+
 ## Passaggio 6: configurare le impostazioni di protezione del cloud
 
 Dopo la registrazione del server VMM, sarà possibile configurare le impostazioni di protezione del cloud. Quando si installa il provider, abilitare l'opzione **Sincronizza dati cloud con insieme credenziali** in modo che tutti i cloud presenti sul server VMM vengano visualizzati nella scheda <b>Elementi protetti</b> dell'insieme di credenziali.
@@ -281,7 +282,7 @@ Dopo la configurazione corretta di server, cloud e reti, sarà possibile abilita
 
 	![Abilitare la protezione delle macchine virtuali](./media/site-recovery-vmm-to-azure/select-vm.png)
 
-	Tenere traccia dell'avanzamento dell'azione **Abilita protezione**, inclusa la replica iniziale, nella scheda **Processi**. Dopo l'esecuzione del processo di **finalizzazione della protezione** la macchina virtuale è pronta per il failover. Al termine dell'operazione di abilitazione della protezione e di replica delle macchine virtuali, sarà possibile visualizzarle in Azure.
+	Tenere traccia dell'avanzamento dell'azione **Abilita protezione**, inclusa la replica iniziale, nella scheda **Processi**. Dopo l'esecuzione del processo **Finalizza protezione**, la macchina virtuale è pronta per il failover. Al termine dell'operazione di abilitazione della protezione e di replica delle macchine virtuali, sarà possibile visualizzarle in Azure.
 
 
 	![Processo di protezione delle macchine virtuali](./media/site-recovery-vmm-to-azure/vm-jobs.png)
@@ -320,6 +321,8 @@ Il failover di test consente di simulare il meccanismo di failover e di ripristi
 - Per eseguire la connessione alla macchina virtuale in Azure tramite Desktop remoto dopo il failover, abilitare Connessione Desktop remoto sulla macchina virtuale prima di eseguire il failover di test.
 - Dopo il failover si userà un indirizzo IP pubblico per connettersi alla macchina virtuale in Azure tramite Desktop remoto. Se si vuole procedere in questo senso, assicurarsi che non siano presenti criteri di dominio che impediscono la connessione a una macchina virtuale mediante un indirizzo pubblico.
 
+>[AZURE.NOTE] Per ottenere prestazioni ottimali quando si esegue un failover in Azure, assicurarsi di aver installato l'agente di Azure nel computer protetto. Questo consente un avvio più veloce e facilita anche la diagnosi nel caso di problemi. L'agente Linux è disponibile [qui](https://github.com/Azure/WALinuxAgent), mentre agente Windows è disponibile [qui](http://go.microsoft.com/fwlink/?LinkID=394789)
+
 ### Creare un piano di ripristino
 
 1. Nella scheda **Piani di ripristino** aggiungere un nuovo piano. Specificare un nome, immettere **VMM** nel campo **Tipo origine**, specificare il server VMM di origine in **Origine** e digitare Azure nel campo relativo alla destinazione.
@@ -329,7 +332,7 @@ Il failover di test consente di simulare il meccanismo di failover e di ripristi
 2. Nella pagina **Seleziona macchine virtuali** selezionare le macchine virtuali da aggiungere al piano di ripristino. Le macchine virtuali verranno aggiunte al gruppo predefinito del piano di ripristino, ossia il Gruppo 1. In un singolo piano di ripristino è stato testato un massimo di 100 macchine virtuali.
 
 	- Se si vuole verificare le proprietà delle macchine virtuali prima di aggiungerle al piano, fare clic sulla macchina virtuale nella pagina delle proprietà nel cloud in cui si trova. È anche possibile configurare le proprietà della macchina virtuale nella console VMM.
-	- Tutte le macchine virtuali visualizzate sono state abilitate per la protezione. L'elenco include sia le macchine virtuali abilitate per la protezione e per cui la replica iniziale è stata completata sia quelle abilitate per la protezione con la replica iniziale in corso. Solo le macchine virtuali con la replica iniziale completa possono eseguire il failover come parte di un piano di ripristino. 
+	- Tutte le macchine virtuali visualizzate sono state abilitate per la protezione. L'elenco include sia le macchine virtuali abilitate per la protezione e per cui la replica iniziale è stata completata sia quelle abilitate per la protezione con la replica iniziale in corso. Solo le macchine virtuali con la replica iniziale completa possono eseguire il failover come parte di un piano di ripristino.
 
 
 	![Crea piano di ripristino](./media/site-recovery-vmm-to-azure/select-rp.png)
@@ -341,7 +344,7 @@ Una volta creato il piano di ripristino, verrà visualizzato nella scheda **Pian
 È possibile eseguire un failover di test in Azure in due modi.
 
 - **Failover di test senza una rete di Azure**: questo tipo di failover di test verifica che la macchina virtuale sia rilevata correttamente in Azure. La macchina virtuale non sarà connessa ad alcuna rete di Azure dopo il failover.
-- **Failover di test con una rete di Azure**: questo tipo di failover verifica che l'intero ambiente di replica venga rilevato come previsto e che le macchine virtuali di cui viene eseguito il failover siano connesse alla rete di Azure di destinazione specificata. Per la gestione della subnet, nel failover di test la subnet della macchina virtuale di test verrà rilevata in base alla subnet della macchina virtuale di replica. Questo comportamento è diverso dalla replica normale quando la subnet della macchina virtuale di replica si basa sulla subnet della macchina virtuale di origine.
+- **Failover di test con una rete di Azure**: questo tipo di failover verifica che l'intero ambiente di replica venga rilevato come previsto e che le macchine virtuali di cui viene eseguito il failover siano connesse alla rete di destinazione di Azure specificata. Per la gestione della subnet, nel failover di test la subnet della macchina virtuale di test verrà rilevata in base alla subnet della macchina virtuale di replica. Questo comportamento è diverso dalla replica normale quando la subnet della macchina virtuale di replica si basa sulla subnet della macchina virtuale di origine.
 
 Per eseguire un failover di test per una macchina virtuale abilitata per la protezione in Azure senza specificare una rete di Azure di destinazione, non occorre preparare l'ambiente. Per eseguire un failover di test con una rete di Azure di destinazione, è necessario creare una nuova rete di Azure isolata dalla rete di Azure di produzione, ovvero il comportamento predefinito quando si crea una nuova rete in Azure. Altre informazioni dettagliate su come [eseguire un failover di test](site-recovery-failover.md#run-a-test-failover).
 
@@ -372,4 +375,4 @@ Per eseguire un failover di test, eseguire le operazioni seguenti:
 
 Informazioni su [configurazione dei piani di ripristino](site-recovery-create-recovery-plans.md) e [failover](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

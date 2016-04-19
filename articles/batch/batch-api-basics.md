@@ -225,7 +225,7 @@ La directory radice contiene la struttura di directory seguente:
 
 - **Condiviso**: questo percorso è una directory condivisa per tutte le attività eseguite in un nodo, indipendentemente dal processo. Nel nodo è possibile accedere alla directory condivisa tramite `%AZ_BATCH_NODE_SHARED_DIR%`. Questa directory fornisce l'accesso in lettura/scrittura a tutte le attività eseguite nel nodo. L'attività possono creare, leggere, aggiornare ed eliminare file in questa directory.
 
-- **Start**: questo percorso viene usato da un'attività di avvio come directory di lavoro. Anche tutti i file scaricati dal servizio Batch per avviare l'attività di avvio vengono archiviati in tale directory. Nel nodo la directory di avvio è disponibile tramite la variabile di ambiente `%AZ_BATCH_NODE_START_DIR%`. L'attività di avvio può creare, leggere, aggiornare ed eliminare i file in questa directory, che può essere usata dalle attività di avvio per configurare il sistema operativo.
+- **Start**: questo percorso viene usato da un'attività di avvio come directory di lavoro. Anche tutti i file scaricati dal servizio Batch per avviare l'attività di avvio vengono archiviati in tale directory. Nel nodo la directory di avvio è disponibile tramite la variabile di ambiente `%AZ_BATCH_NODE_STARTUP_DIR%`. L'attività di avvio può creare, leggere, aggiornare ed eliminare i file in questa directory, che può essere usata dalle attività di avvio per configurare il sistema operativo.
 
 - **Attività**: viene creata una directory per ogni attività in esecuzione sul nodo, accessibile tramite `%AZ_BATCH_TASK_DIR%`. All'interno di ogni directory di attività, il servizio Batch crea una directory di lavoro (`wd`), il cui percorso univoco viene specificato dalla variabile di ambiente `%AZ_BATCH_TASK_WORKING_DIR%`. Questa directory fornisce l'accesso in lettura/scrittura all'attività. L'attività può creare, leggere, aggiornare ed eliminare i file nella directory che viene mantenuta in base al vincolo *RetentionTime* specificato per l'attività.
   - `stdout.txt` e `stderr.txt`: questi file vengono scritti nella cartella dell'attività durante l'esecuzione di quest'ultima.
@@ -411,4 +411,4 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

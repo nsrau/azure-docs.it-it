@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/30/2016"
+	 ms.date="04/04/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Servizio Backup di Azure: Domande frequenti
@@ -23,7 +23,7 @@
 - [Domande frequenti su Backup per la modalità classica](backup-azure-backup-faq.md)
 - [Domande frequenti su Backup per la modalità Azure Resource Manager](backup-azure-backup-ibiza-faq.md)
 
-Questo articolo contiene un elenco di domande comuni (e le relative risposte) sul servizio Backup di Azure. La community risponde rapidamente e, se una domanda viene fatta spesso, viene aggiunta a questo articolo. Le risposte alle domande contengono in genere informazioni di riferimento o di supporto. È possibile formulare le domande su Backup di Azure nella sezione Disqus di questo articolo o di un articolo correlato. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione]( https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Questo articolo contiene un elenco di domande comuni (e le relative risposte) sul servizio Backup di Azure. La community risponde rapidamente e, se una domanda viene fatta spesso, viene aggiunta a questo articolo. Le risposte alle domande contengono in genere informazioni di riferimento o di supporto. È possibile formulare le domande su Backup di Azure nella sezione Disqus di questo articolo o di un articolo correlato. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## Installazione e configurazione
 **D1. Qual è l'elenco dei sistemi operativi supportati da cui è possibile eseguire il backup in Azure con Backup di Azure?** <br/> R1. Backup di Azure supporta l'elenco seguente di sistemi operativi.
@@ -43,11 +43,11 @@ Questo articolo contiene un elenco di domande comuni (e le relative risposte) su
 |Windows Server 2008 R2 SP1, |64 bit|	Standard, Enterprise, Datacenter, Foundation|
 |Windows Server 2008 SP2 |64 bit|	Standard, Enterprise, Datacenter, Foundation|
 
-**D2. Dov'è possibile scaricare l'agente Backup di Azure più recente?** <br/> R2. È possibile scaricare l'agente più recente per il backup di Windows Server, System Center DPM o dei client Windows da [qui]( http://aka.ms/azurebackup_agent). Per eseguire il backup di una macchina virtuale usare l'agente di macchine virtuali, che installa automaticamente l'estensione appropriata. L'agente di VM è già presente nelle macchine virtuali create dalla raccolta di Azure.
+**D2. Dov'è possibile scaricare l'agente Backup di Azure più recente?** <br/> R2. È possibile scaricare l'agente più recente per il backup di Windows Server, System Center DPM o dei client Windows da [qui](http://aka.ms/azurebackup_agent). Per eseguire il backup di una macchina virtuale usare l'agente di macchine virtuali, che installa automaticamente l'estensione appropriata. L'agente di VM è già presente nelle macchine virtuali create dalla raccolta di Azure.
 
-**D3. Quale versione del server SCDPM è supportata?** <br/> R3. È consigliabile installare la versione [più recente]( http://aka.ms/azurebackup_agent) dell'agente Backup di Azure sull'aggiornamento cumulativo più recente di SCDPM (UR6 a luglio 2015)
+**D3. Quale versione del server SCDPM è supportata?** <br/> R3. È consigliabile installare la versione [più recente](http://aka.ms/azurebackup_agent) dell'agente Backup di Azure sull'aggiornamento cumulativo più recente di SCDPM (UR6 a luglio 2015)
 
-****D4. Quando si configura l'agente di Backup di Azure, viene richiesto di immettere le **credenziali dell'insieme di credenziali**. Le credenziali dell'insieme di credenziali scadono? R4. Sì, le credenziali dell'insieme di credenziali scadono dopo 48 ore. Se il file scade, accedere al portale di Azure e scaricare i file delle credenziali di insieme dall'insieme di credenziali per il backup.
+**D4. Quando si configura l'agente di Backup di Azure, viene richiesto di immettere le **credenziali dell'insieme di credenziali**. Le credenziali dell'insieme di credenziali scadono? R4. Sì, le credenziali dell'insieme di credenziali scadono dopo 48 ore. Se il file scade, accedere al portale di Azure e scaricare i file delle credenziali di insieme dall'insieme di credenziali per il backup.
 
 **D5. Esistono limiti al numero degli insiemi di credenziali per il backup che è possibile creare in ogni sottoscrizione di Azure?** <br/> R5. Sì. A partire da marzo 2015, è possibile creare 25 insiemi di credenziali per ogni sottoscrizione. Se sono necessari più insiemi di credenziali, creare una nuova sottoscrizione.
 
@@ -110,9 +110,14 @@ Questo articolo contiene un elenco di domande comuni (e le relative risposte) su
 
 **D22. È possibile installare l'agente di Backup di Azure in una macchina virtuale di Azure per eseguire il backup di file e cartelle presenti nell'archivio temporaneo fornito dalla macchina virtuale di Azure?** <br/> R22. È possibile installare l'agente di Backup di Azure nel sistema operativo guest di Windows ed eseguire il backup di file e cartelle nell'archivio temporaneo. Tenere presente, tuttavia, che dopo la cancellazione dei dati dall'archivio temporaneo i backup avranno esito negativo. Se poi i dati nell'archivio temporaneo sono stati eliminati, è possibile eseguire il ripristino solo in un archivio non temporaneo.
 
-**D23. Qual è la lunghezza del percorso file che può essere specificata come parte dei criteri di Backup di Azure usando l'agente di Backup di Azure?** <br/> R23. L'agente di Backup di Azure si basa su NTFS. La [specifica della lunghezza del percorso file è limitata dall'API Windows]( https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Se la lunghezza del percorso file è superiore a quella consentita dall'API Windows, è possibile eseguire il backup della cartella padre o dell'unità disco in cui si trovano i file.
+**D23. Qual è la lunghezza del percorso file che può essere specificata come parte dei criteri di Backup di Azure usando l'agente di Backup di Azure?** <br/> R23. L'agente di Backup di Azure si basa su NTFS. La [specifica della lunghezza del percorso file è limitata dall'API Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Se la lunghezza del percorso file è superiore a quella consentita dall'API Windows, è possibile eseguire il backup della cartella padre o dell'unità disco in cui si trovano i file.
 
-**D24 Quali caratteri sono consentiti nel percorso file dei criteri di Backup di Azure che usano l'agente di Backup di Azure?** <br/> R24. L'agente di Backup di Azure si basa su NTFS. Consente i [caratteri supportati da NTFS]( https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) come parte della specifica file.
+**D24. Quali caratteri sono consentiti nel percorso file dei criteri di Backup di Azure che usano l'agente di Backup di Azure?** <br/> R24. L'agente di Backup di Azure si basa su NTFS. Consente i [caratteri supportati da NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) come parte della specifica file.
+
+**D25. È possibile usare il server di Backup di Azure per creare un backup di ripristino bare metal per un server fisico?** <br/> R25. Sì.
+
+**D26. È possibile configurare il servizio Backup per inviare un messaggio se un processo di backup non riesce?** <br/> R26. Sì, il servizio Backup ha diversi avvisi basati su eventi che possono essere usati con uno script di PowerShell. Per una descrizione completa, vedi [Notifiche di avviso](backup-azure-manage-vms.md#alert-notifications)
+
 
 
 ## Backup e conservazione
@@ -160,6 +165,8 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 
 **D12. È possibile modificare la quantità di larghezza di banda usata dal servizio Backup?**<br/> R12. Sì, usare l'opzione **Modifica proprietà** nell'agente di Backup per modificare la larghezza di banda. Modificare la quantità di larghezza di banda e gli orari in cui si usa tale larghezza di banda. Per altre informazioni, vedere [Limitazione della larghezza di banda della rete](../backup-configure-vault.md#enable-network-throttling).
 
+**D13. La larghezza di banda Internet è limitata per la quantità di dati di cui è necessario eseguire il backup. È possibile spostare i dati in una determinata posizione con una pipe di rete di grandi dimensioni ed effettuare il push di tali dati in Azure?** <br/> D13. È possibile eseguire il backup dei dati in Azure con il processo di backup online standard oppure è possibile usare il servizio Importazione/Esportazione di Azure per trasferire i dati nell'archivio BLOB in Azure. Non c'è altro modo per eseguire il backup nell'archiviazione di Azure. Per informazioni su come usare il servizio Importazione/Esportazione di Azure con Backup di Azure, vedere l'articolo [Flusso di lavoro di Backup offline](backup-azure-backup-import-export).
+
 
 ## Ripristino
 **D1. Quanti ripristini è possibile eseguire sui dati sottoposti a backup in Azure?**<br/> R1. Non esistono limiti al numero di ripristini da Backup di Azure.
@@ -197,4 +204,4 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 
   Una volta completata la creazione del backup nel nuovo percorso della cache, è possibile rimuovere la cartella della cache originale.
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

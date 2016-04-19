@@ -40,7 +40,7 @@ Al giorno d'oggi, vi sono quantità enormi di dati trasferite ad alta velocità 
 
 -   **Dati di riferimento:** Analisi di flusso fornisce agli utenti la possibilità di specificare e usare dati di riferimento. Può trattarsi di dati cronologici o semplicemente di dati non di streaming che cambiano meno frequentemente nel tempo. Il sistema semplifica l'uso dei dati di riferimento in modo che vengano trattati come qualsiasi altro flusso di eventi in ingresso da unire ad altri flussi di eventi acquisiti in tempo reale per eseguire le trasformazioni.
 
--   **Connettività:** Analisi di flusso di Azure si connette direttamente a Hub eventi di Azure per l'inserimento dei flussi nonché al servizio BLOB di Azure per acquisire dati cronologici. Analisi di flusso può quindi scrivere i risultati nei BLOB o nelle tabelle di archiviazione di Azure, nei database SQL di Azure, negli Hub eventi, negli argomenti del bus di servizio o nelle code di Azure e in Power BI, dove potranno essere visualizzati, ulteriormente elaborati dai flussi di lavoro, usati nell'analisi batch tramite [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) oppure rielaborati come serie di eventi. Quando si usano gli Hub eventi è possibile comporre più Analisi di flusso con altre origini dati e motori di elaborazione senza perdere la natura di streaming dei calcoli.
+-   **Connettività:** Analisi di flusso di Azure si connette direttamente a hub eventi e hub IoT di Azure per l'inserimento dei flussi, nonché al servizio BLOB di Azure per inserire dati cronologici. Analisi di flusso può quindi scrivere i risultati nei BLOB o nelle tabelle di archiviazione di Azure, nei database SQL di Azure, negli Hub eventi, negli argomenti del bus di servizio o nelle code di Azure e in Power BI, dove potranno essere visualizzati, ulteriormente elaborati dai flussi di lavoro, usati nell'analisi batch tramite [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) oppure rielaborati come serie di eventi. Quando si usano gli Hub eventi è possibile comporre più Analisi di flusso con altre origini dati e motori di elaborazione senza perdere la natura di streaming dei calcoli.
 
 ## Ottenere aiuto
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/it-IT/home?forum=AzureStreamAnalytics)
@@ -53,4 +53,4 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 - [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

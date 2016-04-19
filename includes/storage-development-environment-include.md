@@ -8,7 +8,9 @@ In Visual Studio creare una nuova applicazione console di Windows come illustrat
 
 ![Creare un'applicazione console di Windows](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
-È possibile usare la libreria client di archiviazione di Azure da qualsiasi tipo di applicazione .NET, ad esempio un servizio cloud di Azure, un'app Web di Azure, un'applicazione desktop o un'applicazione per dispositivi mobili. Per semplicità, in questa guida si userà un'applicazione console.
+Tutti gli esempi di codice in questa esercitazione possono essere aggiunti al metodo **Main()** in `program.cs` nell'applicazione console.
+
+Si noti che è possibile usare la libreria client di archiviazione di Azure da qualsiasi tipo di applicazione .NET, ad esempio un servizio cloud di Azure, un'app Web di Azure, un'applicazione desktop o un'applicazione per dispositivi mobili. Per semplicità, in questa guida si usa un'applicazione console.
 
 ### Usare NuGet per installare i pacchetti necessari
 
@@ -57,10 +59,10 @@ Per configurare la stringa di connessione, aprire il file `app.config` da Esplor
 
 Ad esempio, l'impostazione di configurazione sarà simile a:
 
-	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln9fT7bvY+rxu2iWAEyzPNITGkhM88J8HUoyofpK7C8fHcZc2kIZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
+	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln6fT7mvY+rxu2iWAEyzPKITGkhM88J8HUoyofpK7C8fHcZc2kIZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
 
 Per impostare come destinazione l'emulatore di archiviazione, è possibile usare un collegamento con mapping al nome dell'account e alla chiave noti. In questo caso, l'impostazione della stringa di connessione sarà:
 
 	<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

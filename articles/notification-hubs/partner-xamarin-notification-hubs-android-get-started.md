@@ -39,7 +39,7 @@ Il codice completo per questa esercitazione è disponibile su GitHub [qui](https
 
 Per completare questa esercitazione, è necessario disporre di:
 
-+ [Xamarin.Android]
++ Visual Studio con Xamarin su Windows o Xamarin Studio su Mac OS X. Per istruzioni di installazione complete, vedere [Configurazione e installazione per Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 + Un account Google attivo
 + [Componente di messaggistica di Azure]
 + [Componente client di Google Cloud Messaging]
@@ -517,8 +517,7 @@ In questo semplice esempio le notifiche sono state trasmesse a tutti i dispositi
 [GCMClient Component page]: http://components.xamarin.com/view/GCMClient
 [Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
-[Xamarin.Android]: http://xamarin.com/download/
 [Componente client di Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Componente di messaggistica di Azure]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

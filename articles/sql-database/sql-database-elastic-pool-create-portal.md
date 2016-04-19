@@ -4,21 +4,21 @@
 	keywords="database scalabile,configurazione del database"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+	authors="sidneyh"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="03/24/2016"
-	ms.author="jeffreyg"
+	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Creare un pool di database elastici scalabile per database SQL nel portale di Azure
+# Creare un pool di database elastici con il portale di Azure
 
 > [AZURE.SELECTOR]
 - [Portale di Azure](sql-database-elastic-pool-create-portal.md)
@@ -70,7 +70,7 @@ Questo articolo illustra come creare un [pool di database elastici](sql-database
     | **MIN eDTU** per l'impostazione del database| Numero minimo di eDTU dal pool garantito per tutti i database nel pool in qualsiasi momento. In genere, **MIN eDTU** è impostato su un valore compreso tra 0 e l'utilizzo cronologico medio di eDTU per ogni database. Si tratta di un'impostazione globale che si applica a tutti i database nel pool. |
     | **MAX eDTU** per l'impostazione del database | Numero massimo di eDTU che può essere usato da un database singolo nel pool. È possibile impostare questo limite fino a quello di **eDTU POOL**. Impostare **MAX eDTU** per ogni database su un valore sufficientemente elevato per gestire burst massimi o picchi di utilizzo del database. È previsto un certo grado di overcommit del gruppo, perché il pool in genere presuppone schemi di utilizzo a freddo e a caldo per i database, in cui tutti i database non raggiungono il picco contemporaneamente. **Esempio**: si supponga che il picco di utilizzo per ogni database sia 50 DTU e che solo il 20% dei 100 database nel gruppo raggiunga il picco contemporaneamente. Se il limite di utilizzo delle eDTU per ogni database è impostato su 50 eDTU, è ragionevole eseguire l'overcommit del pool moltiplicando per 5 e impostare il valore di **eDTU POOL** su 1.000. **MAX eDTU** non è una garanzia di risorse per un database, ma un limite massimo di eDTU che è possibile raggiungere, se disponibili. Si tratta di un'impostazione globale che si applica a tutti i database nel pool. |
 
-    Vedere [Riferimento al pool di database elastici](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) per altri dettagli sui limiti per ogni livello di servizio e [Considerazioni su prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md) per istruzioni dettagliate sul ridimensionamento di un pool.
+    Vedere [Riferimento al pool di database elastici](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) per altri dettagli sui limiti per ogni livello di servizio e [Considerazioni su prezzo e prestazioni per un pool di database elastici](sql-database-elastic-pool-guidance.md) per istruzioni dettagliate sul ridimensionamento di un pool.
 
 7. Al termine, fare clic su **Seleziona** e quindi su **OK** per creare il pool.
 
@@ -90,7 +90,6 @@ Il servizio valuta le risorse necessarie e la convenienza dello spostamento di s
 
 - [Gestire un pool di database elastici SQL con il portale](sql-database-elastic-pool-manage-portal.md)
 - [Gestire un pool di database elastici SQL con PowerShell](sql-database-elastic-pool-manage-powershell.md)
-- [Gestire un pool di database elastici SQL con C#](sql-database-client-library.md)
-- [Riferimento ai database elastici](sql-database-elastic-pool-reference.md)
+- [Gestire un pool di database elastici SQL con C#](sql-database-elastic-pool-manage-csharp.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

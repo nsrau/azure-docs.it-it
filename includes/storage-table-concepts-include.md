@@ -27,9 +27,9 @@ Il servizio tabelle contiene i componenti seguenti:
 
 -   **Proprietà**: una proprietà è una coppia nome-valore. Ogni entità può includere fino a 252 proprietà per l'archiviazione dei dati. Ogni entità dispone inoltre di 3 proprietà di sistema che specificano una chiave di partizione, una chiave di riga e un timestamp. Le entità con la stessa chiave di partizione possono essere interrogate più rapidamente e inserite o aggiornate in operazioni atomiche. La chiave di riga di un'entità ne rappresenta l'identificatore univoco all'interno di una partizione.
 
-
+Per informazioni sulle proprietà e i tipi di tabelle, vedere [Informazioni sul modello di dati del servizio tabelle](https://msdn.microsoft.com/library/azure/dd179338.aspx).
   
   [Table1]: ./media/storage-table-concepts-include/table1.png
   [OData.org]: http://www.odata.org/
 
-<!-----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -23,7 +23,7 @@
 Per creare un lab DevTest sono necessari gli elementi seguenti:
 
 - Una sottoscrizione di Azure. Per altre informazioni sulle opzioni di acquisto di Azure, vedere [come acquistare Azure](https://azure.microsoft.com/pricing/purchase-options/) o [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/). È necessario essere il proprietario della sottoscrizione per creare il lab.
-- Gruppo di risorse di Azure per il lab. Vedere [Panoramica di Gestione risorse di Microsoft Azure](/resource-group-overview.md) e [Controllo degli accessi in base al ruolo di Azure](/active-directory/role-based-access-control-configure.md).
+- Gruppo di risorse di Azure per il lab. Vedere [Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md) e [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md).
 
 
 ## Creare un lab
@@ -42,7 +42,7 @@ Per creare un lab DevTest sono necessari gli elementi seguenti:
 
     1. Immettere un valore in **Nome lab** per il nuovo lab.
     1. Selezionare la **Sottoscrizione** da associare al lab.
-    1. Selezionare un **Percorso ** in cui archiviare il lab.
+    1. Selezionare un **Percorso** in cui archiviare il lab.
     1. Fare clic su **Crea**.
 
     ![Pannello Crea lab DevTest](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
@@ -61,4 +61,4 @@ Una volta creato il lab, ecco alcuni passaggi successivi da considerare:
 
 - [Aggiungere una VM con elementi a un lab DevTest di Azure](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

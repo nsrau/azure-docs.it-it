@@ -68,4 +68,8 @@ In un **piano di servizio app dinamico** non ci si dovrà preoccupare della gest
 
 Un **piano di servizio app classico** consente di eseguire funzioni esattamente come le app Web, per dispositivi mobili e per le API. È un'ottima soluzione se si usa già il servizio app per altre applicazioni, perché le funzioni possono essere eseguite nello stesso piano senza costi aggiuntivi. I dettagli completi sono disponibili nella pagina [Prezzi di Servizio app](/pricing/details/app-service/).
 
-<!---HONumber=AcomDC_0406_2016-->
+## Segnalazione di problemi
+
+[AZURE.INCLUDE [Segnalazione di problemi](../../includes/functions-reporting-issues.md)]
+
+<!---HONumber=AcomDC_0413_2016-->

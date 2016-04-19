@@ -32,10 +32,10 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* [Visual Studio Community 2013] o versione successiva. Se si installa Visual Studio Community 2013, installare [Xamarin] separatamente. È possibile installare gli strumenti Xamarin quando si installa Visual Studio 2015.
+* Visual Studio con Xamarin. Per istruzioni, vedere [Configurazione e installazione per Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
-* Un computer Mac in cui siano stati installati [Xcode] v7.0 o versione successiva e [Xamarin Studio]. Se si prevede di compilare l'app in un computer Windows usando Visual Studio, sarà comunque necessario accedere a un computer Mac in rete per eseguire questa operazione.
-
+* Un computer Mac in cui siano stati installati Xcode v7.0 o versione successiva e Xamarin Studio Community. Vedere [Configurazione e installazione per Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) e [Configurazione, installazione e verifiche per gli utenti Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
+ 
 >[AZURE.NOTE] Se si desidera iniziare a usare il servizio app di Azure prima di creare un account Azure, passare al sito [Prova il servizio app](https://tryappservice.azure.com/?appServiceName=mobile), in cui è possibile creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Creare un nuovo back-end dell'app per dispositivi mobili di Azure
@@ -63,13 +63,9 @@ Se è stata scelta una configurazione back-end .NET, facoltativamente è possibi
 
 ##Scaricare ed eseguire la soluzione Xamarin.Forms
 
-Sono disponibili un paio di opzioni. È possibile scaricare la soluzione in un computer Mac e aprirla in Xamarin Studio oppure è possibile scaricarla in un computer Windows e aprirla in Visual Studio. È anche possibile usare entrambi gli ambienti e spostarsi da uno all'altro. Tenere presente questi elementi:
+Sono disponibili un paio di opzioni. È possibile scaricare la soluzione in un computer Mac e aprirla in Xamarin Studio oppure è possibile scaricarla in un computer Windows e aprirla in Visual Studio usando un Mac collegato alla rete per creare l'app per iOS. Per istruzioni, vedere sempre [Configurazione e installazione per Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
-* L'esecuzione del progetto iOS per la soluzione risulta più semplice in un computer Mac. È anche possibile usare Visual Studio nel computer Windows, ma la procedura è più complessa perché è necessario connettersi a un Mac in rete. Per informazioni su questa procedura, vedere [Installazione di Xamarin.iOS in Windows].
-* È possibile eseguire il progetto Android nel computer Mac o Windows.
-* È possibile eseguire i progetti Windows solo usando Visual Studio in un computer Windows.
-
-Si può ora continuare con la procedura.
+Procedura:
 
  1. Nel computer Mac o Windows aprire il [portale di Azure] in una finestra del browser.
  2. Nel pannello delle impostazioni dell'app per dispositivi mobili, fare clic su **Introduzione** (in Dispositivi mobili) > **Xamarin.Forms**. Al passaggio 3 fare clic su **Crea una nuova app**, se l'opzione non è già selezionata. Fare quindi clic sul pulsante **Download**.
@@ -172,11 +168,4 @@ Il codice che accede al back-end dell'app per dispositivi mobili è disponibile 
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portale di Azure]: https://portal.azure.com/
 
-
-[Xamarin Studio]: http://xamarin.com/download
-[Xamarin]: http://xamarin.com/download
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
-[Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-[Installazione di Xamarin.iOS in Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

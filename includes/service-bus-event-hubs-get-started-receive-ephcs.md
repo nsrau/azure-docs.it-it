@@ -14,17 +14,15 @@ Per poter usare [EventProcessorHost][], è necessario avere un [account di Archi
 
     ![][12]
 
-    Copiare la chiave di accesso da usare più avanti in questa esercitazione.
+    Copiare la chiave di accesso primaria da usare più avanti in questa esercitazione.
 
 4. In Visual Studio creare un nuovo progetto di app desktop di Visual C# usando il modello di progetto **Applicazione console**. Assegnare al progetto il nome **Receiver**.
 
     ![][14]
 
-5. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Gestisci pacchetti NuGet**.
+5. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Gestisci pacchetti NuGet per la soluzione**.
 
-	Viene visualizzata la finestra di dialogo **Gestione pacchetti NuGet**.
-
-6. Cercare `Microsoft Azure Service Bus Event Hub - EventProcessorHost`, fare clic su **Installa** e accettare le condizioni per l'uso.
+6. Fare clic sulla scheda **Sfoglia**, quindi cercare `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Assicurarsi che il nome del progetto (**Receiver**) sia specificato nella casella **Versione/i **. Fare clic su **Installa** e accettare le condizioni per l'utilizzo.
 
     ![][13]
 
@@ -37,7 +35,6 @@ Per poter usare [EventProcessorHost][], è necessario avere un [account di Archi
 	```
 	using Microsoft.ServiceBus.Messaging;
 	using System.Diagnostics;
-	using System.Threading.Tasks;
 	```
 
 	Sostituire quindi il corpo della classe con il codice seguente:
@@ -82,25 +79,23 @@ Per poter usare [EventProcessorHost][], è necessario avere un [account di Archi
             }
 	    }
 	}
-    ````
+    ```
 
 	Questa classe verrà chiamata da **EventProcessorHost** per elaborare eventi ricevuti dall'hub eventi. Si noti che la classe `SimpleEventProcessor` usa un cronometro per chiamare periodicamente il metodo checkpoint sul contesto di **EventProcessorHost**. Questo assicura che, se il ricevitore viene riavviato, non perderà più di cinque minuti di lavoro di elaborazione.
 
-9. Nella classe **Program** aggiungere le istruzioni `using` seguenti all’inizio del file:
+9. Nella classe **Program** aggiungere l'istruzione `using` seguente all'inizio del file:
 
 	```
 	using Microsoft.ServiceBus.Messaging;
-	using Microsoft.Threading;
-	using System.Threading.Tasks;
 	```
 
-	Modificare quindo il metodo `Main` nella classe `Program` come segue, sostituendo il nome dell'hub eventi, la stringa di connessione, nonché l'account di archiviazione e la chiave copiata nelle sezioni precedenti:
+	Modificare quindo il metodo `Main` nella classe `Program` come segue, sostituendo il nome dell'hub eventi, la stringa di connessione **ReceiveRule** e l'account di archiviazione e la chiave copiata nelle sezioni precedenti: Assicurarsi di rimuovere il suffisso `EntityPath` dalla stringa di connessione:
 
     ```
 	static void Main(string[] args)
     {
-      string eventHubConnectionString = "{event hub connection string}";
-      string eventHubName = "{event hub name}";
+      string eventHubConnectionString = "{Event Hub connection string}";
+      string eventHubName = "{Event Hub name}";
       string storageAccountName = "{storage account name}";
       string storageAccountKey = "{storage account key}";
       string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
@@ -116,7 +111,7 @@ Per poter usare [EventProcessorHost][], è necessario avere un [account di Archi
       Console.ReadLine();
       eventProcessorHost.UnregisterEventProcessorAsync().Wait();
     }
-	````
+	```
 
 > [AZURE.NOTE] Questa esercitazione usa una singola istanza di [EventProcessorHost][]. Per aumentare la velocità effettiva, è consigliabile eseguire più istanze di [EventProcessorHost][], come illustrato nell'esempio di [elaborazione di eventi scalata orizzontalmente][]. In questi casi, le varie istanze si coordinano automaticamente tra loro per ottenere il bilanciamento del carico relativo agli eventi ricevuti. Se si vuole che ognuno dei vari ricevitori elabori *tutti* gli eventi, è necessario usare il concetto **ConsumerGroup**. Quando si ricevono eventi da più macchine, potrebbe risultare utile specificare nomi per le istanze di [EventProcessorHost][] in base alle macchine (o ai ruoli) in cui sono distribuite. Per altre informazioni su questi argomenti, vedere [Panoramica di Hub eventi di Azure][] e [Guida alla programmazione di Hub eventi][].
 
@@ -135,4 +130,4 @@ Per poter usare [EventProcessorHost][], è necessario avere un [account di Archi
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->
