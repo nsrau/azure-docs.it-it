@@ -88,4 +88,4 @@ Per allinearlo con il formato Microsoft SQL Server [datetime](http://msdn.micros
     puts row
     end
 
-<!----HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->
