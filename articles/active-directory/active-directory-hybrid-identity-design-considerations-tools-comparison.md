@@ -24,7 +24,7 @@ Nel corso degli anni gli strumenti di integrazione di directory sono aumentati e
 
 >[AZURE.NOTE] Azure AD Connect include i componenti e le funzionalità resi disponibili in precedenza come DirSync e AAD Sync. Questi strumenti non vengono più resi disponibili singolarmente e tutti i miglioramenti futuri verranno inclusi negli aggiornamenti per Azure AD Connect, in modo da poter individuare sempre da dove ottenere la funzionalità più aggiornata.
 >
->DirSync e Azure AD Sync sono funzionalità deprecate. Per altre informazioni, vedere [Eseguire l'aggiornamento dello Strumento di sincronizzazione di Microsoft Azure Active Directory ("DirSync") e di Azure Active Directory Sync ("Azure AD Sync")](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM).
+>DirSync e Azure AD Sync sono funzionalità deprecate. Per altre informazioni, vedere [Eseguire l'aggiornamento dello Strumento di sincronizzazione di Microsoft Azure Active Directory ("DirSync") e di Azure Active Directory Sync ("Azure AD Sync")]( https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM).
 
 
 Usare la seguente chiave per ognuna delle tabelle.
