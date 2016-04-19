@@ -66,9 +66,9 @@ Sono disponibili strumenti per la generazione di dischi rigidi virtuali Debian p
 
         # sudo update-grub
 
-6. Aggiungere i repository Azure di Debian al file /etc/apt/sources.list per Debian 6 o 7:
+6. Aggiungere i repository Azure di Debian al file /etc/apt/sources.list per Debian 7 o 8:
 
-	**Debian 6.x "Wheezy"**
+	**Debian 7.x "Wheezy"**
 
 		deb http://debian-archive.trafficmanager.net/debian wheezy-backports main
 		deb-src http://debian-archive.trafficmanager.net/debian wheezy-backports main
@@ -76,7 +76,7 @@ Sono disponibili strumenti per la generazione di dischi rigidi virtuali Debian p
 		deb-src http://debian-archive.trafficmanager.net/debian-azure wheezy main
 
 
-	**Debian 7.x "Jessie"**
+	**Debian 8.x "Jessie"**
 
 		deb http://debian-archive.trafficmanager.net/debian jessie-backports main
 		deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
@@ -110,4 +110,4 @@ Sono disponibili strumenti per la generazione di dischi rigidi virtuali Debian p
 
 È ora possibile usare il disco rigido virtuale Debian per creare nuove macchine virtuali in Azure. Se è la prima volta che si carica il file VHD in Azure, vedere i passaggi 2 e 3 nell'articolo relativo a [creazione e caricamento di un disco rigido virtuale contenente il sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

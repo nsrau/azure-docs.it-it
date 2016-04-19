@@ -148,7 +148,13 @@ Nella tabella seguente vengono descritti i parametri e valori utilizzati per cre
 |Posizione di questa regola di avviso|	Stati Uniti orientali|
 |ResourceGroup|	montest|
 |TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
-|MetricName dell'avviso creato|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Vedere il cmdlet `Get-MetricDefinitions` sottostante relativo a come recuperare i nomi esatti della metrica| |operatore| GreaterThan| |Valore di soglia (conteggio/sec per questa metrica)| 1| |WindowSize (formato hh:mm:ss)| 00:05:00| |aggregatore (statistica della metrica, che in questo caso utilizza il conteggio Average)| Average| |messaggi di posta elettronica personalizzati (matrice di stringhe)|'foo@example.com','bar@example.com'| |invio di messaggi di posta elettronica a proprietari, collaboratori e lettori| -SendToServiceOwners|
+|MetricName dell'avviso creato|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Vedere il cmdlet `Get-MetricDefinitions` sottostante relativo a come recuperare i nomi esatti della metrica|
+|operatore| GreaterThan|
+|Valore di soglia (conteggio/sec per questa metrica)| 1|
+|WindowSize (formato hh:mm:ss)| 00:05:00|
+|aggregatore (statistica della metrica, che in questo caso utilizza il conteggio Average)| Average|
+|messaggi di posta elettronica personalizzati (matrice di stringhe)|'foo@example.com','bar@example.com'|
+|invio di messaggi di posta elettronica a proprietari, collaboratori e lettori| -SendToServiceOwners|
 
 Creazione di un’azione di posta elettronica
 
@@ -223,10 +229,9 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 Un elenco completo delle opzioni disponibili per `Get-AzureRmMetricDefinition` si trova su [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
-Per visualizzare un elenco delle metriche disponibili e le relative unità per i vari servizi Azure, vedere [TITOLO PAGINA WEB QUI](http://link).
 
 ## Creazione e gestione delle impostazioni di scalabilità automatica
-Una risorsa, ad esempio un'app Web, VM, un servizio cloud o un’impostazione di scala della macchina virtuale può avere una sola impostazione di scalabilità automatica configurata. Tuttavia, ogni impostazione di scalabilità automatica può includere diversi profili. Ad esempio, una per un profilo di scalabilità in base alle prestazioni e un altro per un profilo basato sulla pianificazione. Ogni profilo può avere più regole associate configurate. Per ulteriori informazioni sulla scalabilità automatica, vedere [Come scalare automaticamente un'applicazione](../cloud-services/cloud-services-how-to-scale.md).
+Una risorsa, ad esempio un'app Web, VM, un servizio cloud o un’impostazione di scala della macchina virtuale può avere una sola impostazione di scalabilità automatica configurata. Tuttavia, ogni impostazione di scalabilità automatica può includere diversi profili. Ad esempio, una per un profilo di scalabilità in base alle prestazioni e un altro per un profilo basato sulla pianificazione. Ogni profilo può avere più regole associate configurate. Per altre informazioni sulla scalabilità automatica, vedere [Come scalare automaticamente un'applicazione](../cloud-services/cloud-services-how-to-scale.md).
 
 Ecco i passaggi da utilizzare:
 
@@ -273,7 +278,7 @@ Infine, creare l'impostazione di scalabilità automatica da aggiungere al profil
 Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
 ```
 
-Per ulteriori informazioni sulla gestione delle impostazioni di scalabilità automatica, vedere [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx).
+Per altre informazioni sulla gestione delle impostazioni di scalabilità automatica, vedere [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx).
 
 ## Cronologia di scalabilità automatica
 Il seguente esempio illustra come visualizzare gli eventi di scalabilità automatica e avviso recenti. Utilizzare la ricerca dei log di controllo per consultare la cronologia di scalabilità automatica.
@@ -282,16 +287,16 @@ Il seguente esempio illustra come visualizzare gli eventi di scalabilità automa
 Get-AzureRmLog -Caller "Microsoft.Insights/autoscaleSettings" -DetailedOutput -StartTime 2015-03-01
 ```
 
-È possibile utilizzare il cmdlet `Get-AzureRmAutoScaleHistory` per recuperare la cronologia di scalabilità automatica.
+È possibile usare il cmdlet `Get-AzureRmAutoScaleHistory` per recuperare la cronologia di scalabilità automatica.
 
 ```
 Get-AzureRmAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/microsoft.insights/autoscalesettings/myScaleSetting -StartTime 2016-03-15 -DetailedOutput
 ```
 
-Per ulteriori informazioni, vedere [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx).
+Per altre informazioni, vedere [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx).
 
 ### Visualizzazione dei dettagli per un'impostazione di scalabilità automatica
-È possibile utilizzare il cmdlet `Get-Autoscalesetting` per recuperare ulteriori informazioni sull'impostazione di scalabilità automatica.
+È possibile usare il cmdlet `Get-Autoscalesetting` per recuperare altre informazioni sull'impostazione di scalabilità automatica.
 
 L'esempio seguente mostra dettagli su tutte le impostazioni di scalabilità automatica nel gruppo di risorse 'myrg1'.
 
@@ -306,7 +311,7 @@ Get-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting -Detai
 ```
 
 ### Rimozione di un'impostazione di scalabilità automatica
-È possibile utilizzare il cmdlet `Remove-Autoscalesetting` per eliminare un'impostazione di scalabilità automatica.
+È possibile usare il cmdlet `Remove-Autoscalesetting` per eliminare un'impostazione di scalabilità automatica.
 
 ```
 Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
@@ -314,10 +319,10 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 
 ## Gestione dei profili di log per i log di controllo
 
-È possibile creare un *profilo di log* ed esportare i dati dal log di controllo in un account di archiviazione ed è possibile configurare il mantenimento dei dati per lo stesso. Facoltativamente, è inoltre possibile trasmettere i dati all'hub eventi. Questa funzionalità attualmente è in anteprima ed è possibile creare solo un profilo di log per ogni sottoscrizione. Per creare e gestire i profili di log, è possibile utilizzare i cmdlet seguenti con la sottoscrizione corrente. È anche possibile scegliere una sottoscrizione specifica. Sebbene PowerShell per impostazione predefinita adotti la sottoscrizione corrente, è sempre possibile modificarla utilizzando `Set-AzureRmContext`. È possibile configurare i log di controllo per indirizzare dati a qualsiasi account di archiviazione o all'hub di eventi all'interno di tale sottoscrizione. I dati sono scritti come file blob in formato JSON.
+È possibile creare un *profilo di log* ed esportare i dati dai log di controllo a un account di archiviazione ed è possibile configurare la conservazione dei dati per tale account. Facoltativamente, è inoltre possibile trasmettere i dati all'hub eventi. Questa funzionalità attualmente è in anteprima ed è possibile creare solo un profilo di log per ogni sottoscrizione. Per creare e gestire i profili di log, è possibile utilizzare i cmdlet seguenti con la sottoscrizione corrente. È anche possibile scegliere una sottoscrizione specifica. Anche se PowerShell usa la sottoscrizione corrente per impostazione predefinita, è sempre possibile modificarla usando `Set-AzureRmContext`. È possibile configurare i log di controllo per indirizzare dati a qualsiasi account di archiviazione o all'hub di eventi all'interno di tale sottoscrizione. I dati sono scritti come file blob in formato JSON.
 
 ### Acquisizione di un profilo di log
-Per recuperare i profili di log esistenti, utilizzare il cmdlet `Get-AzureRmLogProfile`.
+Per recuperare i profili di log esistenti, usare il cmdlet `Get-AzureRmLogProfile`.
 
 ### Aggiunta di un profilo di log senza conservazione dei dati
 
@@ -379,4 +384,4 @@ Abilitazione dell’impostazione di diagnostica con conservazione per una catego
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

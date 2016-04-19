@@ -20,7 +20,7 @@
 # Attività per preparare i dati per operazioni avanzate con Machine Learning
 
 ## Introduzione
-La pre-elaborazione e la pulizia dei dati rappresentano attività importanti che in genere devono essere eseguite prima di poter usare un set di dati in modo efficace per Machine Learning. I dati non elaborati sono fastidiosi, non affidabili e potrebbero non contenere alcuni valori. Utilizzare tali dati per la modellazione può produrre risultati fuorvianti. Queste attività fanno parte di Cortana Analytics Process (CAP) e generalmente seguono un'analisi iniziale di un set di dati usato per individuare e pianificare la pre-elaborazione necessaria. Per altre istruzioni su CAP, vedere i passaggi descritti nell'articolo relativo a [Cortana Analytics Process](cortana-analytics-process.md).
+La pre-elaborazione e la pulizia dei dati rappresentano attività importanti che in genere devono essere eseguite prima di poter usare un set di dati in modo efficace per Machine Learning. I dati non elaborati sono fastidiosi, non affidabili e potrebbero non contenere alcuni valori. Utilizzare tali dati per la modellazione può produrre risultati fuorvianti. Queste attività fanno parte di Cortana Analytics Process (CAP) e generalmente seguono un'analisi iniziale di un set di dati usato per individuare e pianificare la pre-elaborazione necessaria. Per altre istruzioni su CAP, vedere i passaggi descritti nell'articolo relativo a [Cortana Analytics Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 Le attività di pre-elaborazione e pulizia, ad esempio l'attività di esplorazione dei dati, possono essere eseguite in un'ampia gamma di ambienti, ad esempio SQL, Hive o Azure Machine Learning Studio, e con vari strumenti e linguaggi, ad esempio R o Python, a seconda della posizione in cui sono memorizzati i dati e della modalità di formattazione. Poiché CAP è iterativo per natura, queste attività possono essere eseguite in vari passaggi nel flusso di lavoro del processo.
 
@@ -47,9 +47,9 @@ La qualità dei dati è un prerequisito per modelli predittivi di qualità. Per 
 * Il numero di **attributi** (o **funzionalità**).
 * I **tipi di dati** di attributi (nominali, ordinali o continui).
 * Il numero di **valori mancanti**.
-* La **formulazione** dei dati. 
-	* Se i dati sono in formato TSV o CSV, verificare che i separatori di colonne e righe separino correttamente colonne e righe. 
-	* Se i dati sono in formato HTML o XML, verificare che i dati siano formulati correttamente in base ai rispettivi standard. 
+* La **formulazione** dei dati.
+	* Se i dati sono in formato TSV o CSV, verificare che i separatori di colonne e righe separino correttamente colonne e righe.
+	* Se i dati sono in formato HTML o XML, verificare che i dati siano formulati correttamente in base ai rispettivi standard.
 	* L'analisi potrebbe inoltre essere necessaria per estrarre informazioni strutturate da dati non strutturati o semistrutturati.
 * **Record di dati incoerenti**. Verificare l'intervallo di valori consentiti. Ad esempio, se i dati contengono la media dello studente, controllare se il GPA è compreso nell'intervallo designato, ad esempio 0~4.
 
@@ -92,7 +92,7 @@ I dati possono essere discretizzati convertendo i valori continui in attributi o
 * **Creazione di contenitori di uguale ampiezza**: si divide l'intervallo di tutti i possibili valori di un attributo in N gruppi della stessa dimensione a cui si assegnano i valori che rientrano in un contenitore con il numero di contenitore.
 * **Creazione di contenitori di uguale altezza**: si divide l'intervallo di tutti i possibili valori di un attributo in N gruppi, ciascuno contenente lo stesso numero di istanze, quindi si assegnano i valori che rientrano in un contenitore con il numero di contenitore.  
 
-## Come ridurre i dati? 
+## Come ridurre i dati?
 
 Esistono vari metodi per ridurre le dimensioni dei dati e renderne più semplice la gestione. A seconda della dimensione e del dominio dei dati, è possibile utilizzare i seguenti metodi:
 
@@ -109,6 +109,5 @@ L'**esplorazione dei dati** offre una visualizzazione anticipata dei dati. Duran
 ## Riferimenti
 
 >*Data Mining: Concepts and Techniques*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, and Jian Pei
- 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

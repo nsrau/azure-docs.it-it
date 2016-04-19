@@ -225,7 +225,7 @@ Per eliminare il dispositivo periferico dell'organizzazione come origine dell'er
 
 ![Diagramma che evidenzia il dispositivo periferico dell'organizzazione](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-Se non si dispone di un computer connesso direttamente a Internet, è possibile creare facilmente e usare una nuova macchina virtuale di Azure nel suo proprio gruppo di risorse o servizio cloud. Per altre informazioni, vedere [Creare una macchina virtuale con Linux in Azure](virtual-machines-linux-cli-create.md). Dopo aver completato i test, eliminare il gruppo di risorse o la macchina virtuale e il servizio cloud.
+Se non si dispone di un computer connesso direttamente a Internet, è possibile creare facilmente e usare una nuova macchina virtuale di Azure nel suo proprio gruppo di risorse o servizio cloud. Per altre informazioni, vedere [Creare una macchina virtuale con Linux in Azure](virtual-machines-linux-quick-create-cli.md). Dopo aver completato i test, eliminare il gruppo di risorse o la macchina virtuale e il servizio cloud.
 
 Se è possibile creare una connessione SSH con un computer collegato direttamente a Internet, controllare se nel dispositivo periferico dell'organizzazione si verificano le seguenti condizioni:
 
@@ -243,7 +243,7 @@ Per eliminare l'endpoint di servizio cloud e l'elenco di controllo di accesso (A
 
 ![Diagramma che evidenzia l'endpoint del servizio cloud e l'elenco di controllo di accesso](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
-Se non si dispone di un'altra macchina virtuale nella stessa rete virtuale, è possibile crearne facilmente una nuova. Per altre informazioni, vedere [Creare una macchina virtuale con Linux in Azure](virtual-machines-linux-cli-create.md). Dopo aver completato i test, eliminare la macchina virtuale aggiuntiva.
+Se non si dispone di un'altra macchina virtuale nella stessa rete virtuale, è possibile crearne facilmente una nuova. Per altre informazioni, vedere [Creare una macchina virtuale con Linux in Azure](virtual-machines-linux-quick-create-cli.md). Dopo aver completato i test, eliminare la macchina virtuale aggiuntiva.
 
 Se è possibile creare una connessione SSH con una macchina virtuale presente nella stessa rete virtuale, verificare quanto segue:
 
@@ -281,4 +281,4 @@ Per le macchine virtuali nel modello di distribuzione classica, [Come reimpostar
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

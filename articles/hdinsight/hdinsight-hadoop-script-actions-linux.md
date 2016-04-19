@@ -32,10 +32,11 @@ L'azione script può essere applicata tramite i metodi seguenti:
 | ----- |:-----:|:-----:|
 | Portale di Azure | ✓ | ✓ |
 | Azure PowerShell | ✓ | ✓ |
+| Interfaccia della riga di comando di Azure | &nbsp; | ✓ |
 | HDInsight .NET SDK | ✓ | ✓ |
 | Modello di Azure Resource Manager | ✓ | &nbsp; |
 
-Per altre informazioni sull'uso di questi metodi per applicare azioni script, vedere [Personalizzare cluster HDInsight tramite azioni script](hdinsight-hadoop-customize-cluster-linux.md).
+Per altre informazioni sull'uso di questi metodi per l'applicazione di azioni script, vedere [Personalizzare cluster HDInsight tramite azioni script](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="bestPracticeScripting"></a>Procedure consigliate per lo sviluppo di script
 
@@ -94,7 +95,7 @@ Ad esempio, il codice seguente copia il file giraph-examples.jar dal file system
 
 Le informazioni scritte in STDOUT e STDERR durante l'esecuzione dello script vengono registrate e possono essere visualizzate tramite l'interfaccia utente Web di Ambari.
 
-> [AZURE.NOTE] Ambari sarà disponibile solo se il cluster viene creato correttamente. Se si usa un'azione script durante la creazione del cluster e la creazione ha esito negativo, vedere la sezione relativa alla risoluzione dei problemi nell'articolo [Personalizzare cluster HDInsight tramite azioni script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting), che illustra altri modi per accedere alle informazioni registrate.
+> [AZURE.NOTE] Ambari sarà disponibile solo se il cluster viene creato correttamente. Se si usa un'azione script durante la creazione del cluster e la creazione ha esito negativo, vedere la sezione relativa alla risoluzione dei problemi nell'articolo [Personalizzare cluster HDInsight tramite azione script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) che illustra altri modi per accedere alle informazioni registrate.
 
 La maggior parte delle utilità e dei pacchetti di installazione scrivono già le informazioni in STDOUT e STDERR, tuttavia è possibile aggiungere altre opzioni di registrazione. Per inviare testo a STDOUT, usare `echo`. Ad esempio:
 
@@ -226,10 +227,10 @@ Per il comando precedente sostituire __INFILE__ con il file contenente il caratt
 
 ## <a name="seeAlso"></a>Passaggi successivi
 
-* Informazioni su come [Personalizzare cluster HDInsight tramite azioni script](hdinsight-hadoop-customize-cluster-linux.md)
+* Informazioni su come [Personalizzare cluster HDInsight tramite azione script](hdinsight-hadoop-customize-cluster-linux.md)
 
-* Vedere il [Riferimento di HDInsight .NET SDK](https://msdn.microsoft.com/library/mt271028.aspx) per informazioni su come creare applicazioni .NET che gestiscono HDInsight
+* Vedere il [Riferimento di HDInsight .NET SDK](https://msdn.microsoft.com/library/mt271028.aspx) per informazioni sulla creazione di applicazioni .NET che gestiscono HDInsight
 
-* Vedere l'[API REST HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) per informazioni su come usare REST per eseguire azioni di gestione sui cluster HDInsight.
+* Vedere l'[API REST HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) per informazioni su come usare REST per eseguire azioni di gestione nei cluster HDInsight.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

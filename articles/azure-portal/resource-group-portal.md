@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="timlt" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="azure-resource-manager" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/29/2016" 
+	ms.date="04/08/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -27,7 +27,7 @@ Non tutti i servizi attualmente supportano il portale o Gestione risorse. Per qu
 
 È anche possibile gestire le risorse usando Azure PowerShell e l'interfaccia della riga di comando di Azure. Per altre informazioni sull'uso di queste interfacce, vedere [Uso di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md) e [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](../xplat-cli-azure-resource-manager.md). Per altre informazioni sulla distribuzione di soluzioni con Visual Studio, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-## Creare e gestire gruppi di risorse
+## Creare un gruppo di risorse
 
 Per creare un gruppo di risorse vuoto, selezionare **Nuovo**, **Gestione** e **Gruppo di risorse**.
 
@@ -37,7 +37,9 @@ Assegnare un nome e un percorso e, se necessario, selezionare una sottoscrizione
 
 ![impostare i valori del gruppo](./media/resource-group-portal/set-group-properties.png)
 
-Dopo aver creato il gruppo di risorse, è possibile distribuirvi le risorse. Per avviare la distribuzione, è sufficiente selezionare **Nuovo** e il tipo di risorsa da distribuire.
+## Distribuire le risorse
+
+Dopo aver creato il gruppo di risorse, è possibile distribuirvi le risorse. Per avviare una distribuzione, è sufficiente selezionare **Nuovo** e il tipo di risorsa da distribuire.
 
 ![distribuire risorse](./media/resource-group-portal/deploy-resource.png)
 
@@ -57,15 +59,81 @@ Verrà avviata la distribuzione. L'operazione può richiedere alcuni minuti. Al 
 
 ![visualizzare notifiche](./media/resource-group-portal/view-notification.png)
 
-### Aggiungere risorse a un gruppo di risorse esistente
-
-È possibile aggiungere risorse a un gruppo usando il comando **Add** nel pannello corrispondente.
+Dopo avere distribuito le risorse, è possibile che si decida che è necessario aggiungere altre risorse al gruppo. È possibile aggiungere risorse a un gruppo usando il comando **Aggiungi** nel pannello corrispondente.
 
 ![aggiungere una risorsa](./media/resource-group-portal/add-resource.png)
 
-È possibile selezionare la risorsa desiderata dall'elenco disponibile.
+## Esportare il modello
 
-### Esplorare i gruppi di risorse
+Dopo avere configurato il gruppo di risorse, è possibile che si voglia visualizzare il modello di Azure Resource Manager per il gruppo di risorse. L'esportazione del modello offre due vantaggi:
+
+1. È possibile automatizzare le distribuzioni future della soluzione, perché tutti gli elementi dell'infrastruttura sono definiti nel modello.
+
+2. È possibile acquisire familiarità con la sintassi del modello esaminando il codice JSON (JavaScript Object Notation) che rappresenta la soluzione.
+
+Il portale consente di generare un modello che rappresenta lo stato corrente del gruppo di risorse oppure di recuperare il modello usato per una distribuzione specifica. Entrambe le opzioni sono illustrate in questo argomento.
+
+L'esportazione del modello per un gruppo di risorse risulta utile quando si apportano modifiche a un gruppo di risorse ed è necessario recuperare la rappresentazione JSON del rispettivo stato corrente. Il modello generato, tuttavia, contiene solo un numero minimo di parametri e nessuna variabile. La maggior parte dei valori del modello è hardcoded. Prima di distribuire il modello generato, è possibile che si voglia convertire altri valori in parametri, per potere personalizzare la distribuzione per diversi ambienti.
+
+L'esportazione del modello per una distribuzione specifica è utile quando è necessario visualizzare il modello effettivo usato per distribuire le risorse. Il modello includerà tutte le variabili e tutti i parametri definiti per la distribuzione originale. Se, tuttavia, un utente dell'organizzazione ha modificato il gruppo di risorse in modo diverso da quanto definito nel modello, questo modello non rappresenterà lo stato corrente del gruppo di risorse.
+
+> [AZURE.NOTE] La funzionalità di esportazione del modello è disponibile in anteprima e non tutti i tipi di risorse supportano attualmente l'esportazione di un modello. Quando si prova a esportare un modello, è possibile che venga visualizzato un errore che indica che alcune risorse non sono state esportate. Se necessario, è possibile definire manualmente queste risorse nel modello dopo averlo scaricato.
+
+### Esportare il modello per un gruppo di risorse
+
+Dal pannello del gruppo di risorse è possibile esportare il modello che rappresenta lo stato attuale del gruppo di risorse.
+
+Per visualizzare il modello per un gruppo di risorse, selezionare **Esporta modello**.
+
+![esportare un gruppo di risorse](./media/resource-group-portal/export-resource-group.png)
+
+Azure Resource Manager genera automaticamente quattro file:
+
+1. Modello che definisce l'infrastruttura per la soluzione
+
+2. File dei parametri che può essere usato per passare i valori durante la distribuzione
+
+3. File di script di Azure PowerShell che può essere eseguito per distribuire il modello
+
+4. File di script dell'interfaccia della riga di comando di Azure che può essere eseguito per distribuire il modello
+
+Esaminare prima di tutto il modello che rappresenta il gruppo di risorse corrente.
+
+![visualizzare il modello](./media/resource-group-portal/show-rg-template.png)
+
+Nella sezione **resources** vengono visualizzate le definizioni per la risorsa da distribuire.
+
+Nel file dei parametri è possibile salvare i valori dei parametri da passare durante la distribuzione.
+
+![visualizzare i parametri](./media/resource-group-portal/show-parameters.png)
+
+È disponibile un file di script per la distribuzione del modello tramite Azure PowerShell.
+
+![visualizzare Azure PowerShell](./media/resource-group-portal/show-powershell.png)
+
+È anche disponibile un file di script per la distribuzione del modello tramite l'interfaccia della riga di comando di Azure.
+
+![visualizzare l'interfaccia della riga di comando di Azure](./media/resource-group-portal/show-cli.png)
+
+Il portale offre tre opzioni per l'utilizzo di questo modello. Per ridistribuire subito il modello, selezionare **Distribuisci**. Per scaricare localmente tutti i file, selezionare **Download**. Per salvare i file nell'account di Azure per un uso successivo tramite il portale, selezionare **Salva modello**.
+
+### Scaricare il modello da una distribuzione
+
+Nel pannello del gruppo di risorse è possibile visualizzare la data e lo stato dell'ultima distribuzione per questo gruppo di risorse. Se si seleziona il collegamento, viene visualizzata la cronologia delle distribuzioni per il gruppo.
+
+![ultima distribuzione](./media/resource-group-portal/last-deployment.png)
+
+Se si seleziona una distribuzione dalla cronologia, vengono visualizzate informazioni dettagliate su tale distribuzione. Ogni volta che si distribuiscono risorse, Azure Resource Manager salva in modo permanente il modello usato. È possibile recuperare il modello effettivo usato per la distribuzione selezionando **Visualizza modello**.
+
+![esportare il modello](./media/resource-group-portal/export-template.png)
+
+Verrà visualizzato il modello usato per questa distribuzione. Contiene tutti i parametri e le variabili definiti.
+
+![visualizzare il modello](./media/resource-group-portal/show-template.png)
+
+Come indicato in precedenza, è possibile che questa non sia una rappresentazione completa del gruppo di risorse. Se sono state aggiunte o eliminate risorse all'esterno di questa distribuzione, le azioni non vengono riflesse nel modello. È possibile visualizzare il modello, il file dei parametri e i file di script, come illustrato nella sezione precedente. È anche possibile ridistribuire, scaricare o salvare il modello, come illustrato nella sezione precedente.
+
+## Gestire il gruppo di risorse
 
 È possibile esplorare tutti i gruppi di risorse facendo clic su **Gruppi di risorse**.
 
@@ -105,56 +173,24 @@ Dopo avere aggiunto la sezione al dashboard, ne verrà visualizzato il riepilogo
 
 Selezionandola si potranno vedere altri dettagli sui dati.
 
-### Eliminare un gruppo di risorse
-
-Poiché i gruppi di risorse consentono di gestire il ciclo di vita di tutte le risorse contenute, l'eliminazione di un gruppo comporterà la rimozione di tutte le risorse al suo interno. È anche possibile eliminare singole risorse all'interno di un gruppo. Prestare attenzione quando si elimina un gruppo di risorse, in quanto potrebbe essere collegato ad altre risorse. È possibile visualizzare le risorse collegate nella mappa e quindi eseguire i passaggi necessari per evitare conseguenze involontarie quando si eliminano i gruppi. Le risorse collegate non verranno eliminate, ma è possibile che non funzionino come previsto.
+Poiché i gruppi di risorse consentono di gestire il ciclo di vita di tutte le risorse contenute, l'eliminazione di un gruppo comporterà la rimozione di tutte le risorse al suo interno. È anche possibile eliminare singole risorse all'interno di un gruppo. Prestare attenzione quando si elimina un gruppo di risorse, perché è possibile che altri gruppi di risorse includano risorse collegate ad esso. Le risorse collegate non verranno eliminate, ma è possibile che non funzionino come previsto.
 
 ![eliminare un gruppo](./media/resource-group-portal/delete-group.png)
-
-
-## Visualizzare le distribuzioni precedenti
-
-Nel pannello del gruppo di risorse è possibile visualizzare la data e lo stato dell'ultima distribuzione per questo gruppo di risorse. Se si seleziona il collegamento, viene visualizzata la cronologia delle distribuzioni per il gruppo.
-
-![ultima distribuzione](./media/resource-group-portal/last-deployment.png)
-
-Se si seleziona una distribuzione dalla cronologia, vengono visualizzate informazioni dettagliate su tale distribuzione.
-
-![riepilogo della distribuzione](./media/resource-group-portal/deployment-summary.png)
-
-È possibile visualizzare le singole operazioni eseguite durante la distribuzione. L'immagine seguente illustra un'operazione che ha avuto esito positivo e una che non è riuscita.
-
-![dettagli dell'operazione](./media/resource-group-portal/operation-details.png)
-
-Per informazioni sulla risoluzione dei problemi di una distribuzione, vedere l'articolo relativo alla [risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md).
-
-È possibile recuperare il modello usato per la distribuzione selezionando **Esporta modello**.
-
-![esportare il modello](./media/resource-group-portal/export-template.png)
-
-Verrà visualizzato il modello esatto usato per questa distribuzione.
-
-![visualizzare il modello](./media/resource-group-portal/show-template.png)
-
-Non è una rappresentazione completa del gruppo di risorse, perché se sono state aggiunte o eliminate risorse all'esterno di questa distribuzione, le azioni non vengono riflesse nel modello. Il pannello include il modello, un file di parametri da usare con il modello e uno script di PowerShell per distribuire il modello. È possibile scaricare questi 3 file selezionando **Salva su file**.
-
-## Visualizzare i log di controllo
-
-Il log di controllo include non solo le operazioni di distribuzione, ma tutte le operazioni di gestione eseguite sulle risorse nella sottoscrizione. Ad esempio, nei log di controllo è possibile visualizzare quando un utente dell'organizzazione ha arrestato un'app. Per visualizzare i log di controllo, selezionare **Esplora tutto** e **Log di controllo**.
-
-![esplorare i log di controllo](./media/resource-group-portal/browse-audit-logs.png)
-
-Nella sezione delle operazioni è possibile visualizzare le singole operazioni eseguite nella sottoscrizione.
-
-![visualizzare i log di controllo](./media/resource-group-portal/view-audit-log.png)
-
-Selezionando una delle operazioni, è possibile visualizzare maggiori dettagli, tra cui informazioni sull'utente che ha eseguito l'operazione.
-
-Per altre informazioni sulla visualizzazione dei log di controllo, vedere [Operazioni di controllo con Gestione risorse](../resource-group-audit.md).
 
 ## Aggiungere tag alle risorse
 
 È possibile applicare tag ai gruppi di risorse e alle risorse per organizzare logicamente gli asset. Per informazioni sull'utilizzo dei tag tramite il portale, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md).
+
+## Distribuire un modello salvato
+
+Se è stato salvato un modello nell'account, è possibile visualizzarlo in seguito selezionando **Sfoglia** e **Modelli**.
+
+![esplorare i modelli](./media/resource-group-portal/browse-templates.png)
+
+Verrà visualizzata la raccolta personalizzata di modelli.
+
+![visualizzare la raccolta di modelli](./media/resource-group-portal/show-template-collection.png)
+
 
 ## Distribuire un modello personalizzato
 
@@ -171,6 +207,12 @@ Selezionare **Distribuzione modello** nelle risorse disponibili.
 Dopo aver avviato la distribuzione del modello, è possibile creare il modello personalizzato e impostare i valori per la distribuzione.
 
 ![creare un modello](./media/resource-group-portal/show-custom-template.png)
+
+In alternativa, è possibile selezionare un modello preesistente dai [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/). Questi modelli sono forniti dalla community. I modelli sono relativi a molti scenari comuni ed è possibile che qualcuno abbia aggiunto un modello simile a quello che si sta provando a distribuire. È possibile eseguire ricerche nei modelli per trovare aspetti corrispondenti al proprio scenario.
+
+![selezionare un modello di Guida introduttiva](./media/resource-group-portal/select-quickstart-template.png)
+
+Dopo la selezione, il modello viene caricato nell'editor.
 
 ## Visualizzare la sottoscrizione e i costi
 
@@ -196,8 +238,7 @@ Si noti che i singoli riquadri del dashboard applicano requisiti di controllo di
 
 ## Passaggi successivi
 
-- Per un'introduzione ai concetti di Gestione risorse, vedere [Panoramica di Gestione risorse di Azure](../resource-group-overview.md).
-- Per un'introduzione all'uso di Azure PowerShell per la distribuzione delle risorse, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
-- Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure per la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](../xplat-cli-azure-resource-manager.md).
+- Per visualizzare i log di controllo, vedere [Operazioni di controllo con Azure Resource Manager](../resource-group-audit.md).
+- Per risolvere gli errori della distribuzione, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di Azure](../resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

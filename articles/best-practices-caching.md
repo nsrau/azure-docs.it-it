@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="04/01/2016"
    ms.author="masashin"/>
 
 
@@ -934,4 +934,4 @@ Anche il modello seguente potrebbe essere importante per lo scenario quando si i
 - Pagina sulle [transazioni in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) nel repository di StackExchange.Redis
 - Pagina di [guida al partizionamento dei dati](http://msdn.microsoft.com/library/dn589795.aspx) nel sito Web Microsoft
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

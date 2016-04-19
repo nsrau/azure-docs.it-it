@@ -25,6 +25,8 @@ La configurazione è molto semplice e i risultati saranno visibili in pochi minu
 
 Al momento sono supportate app iOS, Android e Windows, applicazioni Web J2EE e ASP.NET, nonché servizi WCF. Le app Web possono essere eseguite in Azure o in server locali personali. JavaScript SDK viene eseguito in qualsiasi pagina Web.
 
+[Osservare l'animazione dell'introduzione](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
+
 ## Introduzione
 
 Inizializzazione con qualsiasi combinazione, in qualsiasi ordine, dei punti di ingresso che vengono visualizzati nel diagramma seguente. Seguire il percorso più adatto alle proprie esigenze.
@@ -74,4 +76,4 @@ Risultato desiderato | Operazione da eseguire | Risultato finale
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

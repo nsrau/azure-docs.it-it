@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Studio della soluzione di analisi dei dati di telemetria del veicolo: Approfondimento della soluzione | Microsoft Azure" 
-	description="Usare le funzionalità di Cortana Analytics per ottenere informazioni dettagliate predittive e in tempo reale sul funzionamento del veicolo e sulle abitudini di guida." 
+	description="Usare le funzionalità di Cortana Intelligence per ottenere informazioni dettagliate predittive e in tempo reale sullo stato di integrità del veicolo e sulle abitudini di guida." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -155,9 +155,9 @@ Dopo aver eseguito correttamente la pipeline e aver contrassegnato come "Ready" 
 
 ### Riferimenti
 
-[Azure Event Hub SDK per l'inserimento di flussi](event-hubs-csharp-ephcs-getstarted.md)
+[Azure Event Hub SDK per l'inserimento di flussi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-[Funzionalità di spostamento dei dati di Data factory di Azure](data-factory-data-movement-activities.md) [Attività DotNet di Data factory di Azure](data-factory-use-custom-activities.md)
+[Funzionalità di spostamento dei dati di Azure Data Factory](../data-factory/data-factory-data-movement-activities.md) [Attività DotNet di Azure Data Factory](../data-factory/data-factory-use-custom-activities.md)
 
 [Soluzione di Visual Studio per l'attività DotNet di Data factory di Azure per la preparazione dei dati di esempio](http://go.microsoft.com/fwlink/?LinkId=717077)
 
@@ -706,4 +706,4 @@ Fare clic qui per informazioni dettagliate su come configurare i report e il das
 
 Questo documento contiene un'analisi dettagliata e approfondita della soluzione di analisi dei dati di telemetria del veicolo. Questa presenta un modello di architettura lambda per l'analisi batch e in tempo reale completa di stime e azioni. Il modello si applica a una vasta gamma di casi d'uso che richiedono l'analisi del percorso critico (in tempo reale) e di quello non critico (batch).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

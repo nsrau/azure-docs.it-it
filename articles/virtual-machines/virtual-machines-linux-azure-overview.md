@@ -52,7 +52,7 @@ Ecco alcune linee guida fondamentali per la selezione delle dimensioni di una VM
 * La serie Dv2, la versione più recente della serie D, vanta una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswalle) e con tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,2 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 * Le macchine virtuali serie G offrono la maggiore quantità di memoria e vengono eseguite su host con processori della famiglia Intel Xeon E5 V3.
 
-Nota: le VM serie DS e GS hanno accesso all'archiviazione Premium, l'archiviazione a bassa latenza e alte prestazioni basata su unità SSD per carichi di lavoro con uso intensivo di I/O. L'archiviazione Premium è disponibile solo in determinate aree geografiche. Per altre informazioni, vedere **[Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage-preview-portal.md)**.
+Nota: le VM serie DS e GS hanno accesso all'archiviazione Premium, l'archiviazione a bassa latenza e alte prestazioni basata su unità SSD per carichi di lavoro con uso intensivo di I/O. L'archiviazione Premium è disponibile solo in determinate aree geografiche. Per altre informazioni, vedere **[Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage.md)**.
 
 Ogni sottoscrizione di Azure ha limiti di quota predefiniti che possono influire sulla distribuzione di un numero elevato di VM per un progetto. Il limite corrente per ogni sottoscrizione è di 20 macchine virtuali per area. Questi limiti di quota possono essere aumentati creando un ticket di supporto in cui si richiede appunto un aumento del limite. Per altre informazioni sui limiti di quota, vedere**[Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md)**.
 
@@ -60,4 +60,4 @@ Ogni sottoscrizione di Azure ha limiti di quota predefiniti che possono influire
 
 Account di valutazione gratuita. **[Richiederne uno](https://azure.microsoft.com/pricing/free-trial/)**. Se è già disponibile, provarlo. **[Installare l'interfaccia della riga di comando di Azure.](../xplat-cli-install.md)**. Se questa operazione è già stata eseguita, [creare una VM Linux ora](virtual-machines-linux-quick-create-cli.md).
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="04/04/2016"
    ms.author="alkohli" />
 
 # Configurare MPIO in un host di StorSimple che esegue CentOS
@@ -467,23 +467,23 @@ Per altre informazioni, vedere come [usare il comando interattivo di risoluzione
 |Tipo|Comando|Descrizione|
 |---|---|---|
 |**iSCSI**|`service iscsid start`|Avviare il servizio iSCSI|
-|`service iscsid stop`|Arrestare il servizio iSCSI|
-|`service iscsid restart`|Riavviare il servizio iSCSI|
-|`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Individuare le destinazioni disponibili all'indirizzo specificato|
-|`iscsiadm -m node --login -T <TARGET_IQN>`|Accedere alla destinazione iSCSI|
-|`iscsiadm -m node --logout -p <Target_IP>`|Disconnettersi dalla destinazione iSCSI|
-|`cat /etc/iscsi/initiatorname.iscsi`|Stampare il nome dell'iniziatore iSCSI|
-|`iscsiadm –m session –s <sessionid> -P 3`|Controllare lo stato della sessione e del volume iSCSI individuati nell'host|
-|`iscsi –m session`|Mostra tutte le sessioni iSCSI stabilite tra l'host e il dispositivo StorSimple|
+||`service iscsid stop`|Arrestare il servizio iSCSI|
+||`service iscsid restart`|Riavviare il servizio iSCSI|
+||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Individuare le destinazioni disponibili all'indirizzo specificato|
+||`iscsiadm -m node --login -T <TARGET_IQN>`|Accedere alla destinazione iSCSI|
+||`iscsiadm -m node --logout -p <Target_IP>`|Disconnettersi dalla destinazione iSCSI|
+||`cat /etc/iscsi/initiatorname.iscsi`|Stampare il nome dell'iniziatore iSCSI|
+||`iscsiadm –m session –s <sessionid> -P 3`|Controllare lo stato della sessione e del volume iSCSI individuati nell'host|
+||`iscsi –m session`|Mostra tutte le sessioni iSCSI stabilite tra l'host e il dispositivo StorSimple|
 | | | |
 |**Percorsi multipli**|`service multipathd start`|Avviare il daemon a percorsi multipli|
-|`service multipathd stop`|Arrestare il daemon a percorsi multipli|
-|`service multipathd restart`|Riavviare il daemon a percorsi multipli|
-|`chkconfig multipathd on` </br> OPPURE </br> `mpathconf –with_chkconfig y`|Abilitare l'avvio del daemon a percorsi multipli all'avvio del computer|
-|`multipathd –k`|Avviare la console interattiva per la risoluzione dei problemi|
-|`multipath –l`|Elencare le connessioni e i dispositivi a percorsi multipli|
-|`mpathconf --enable`|Creare un file mulitpath.conf di esempio in `/etc/mulitpath.conf`|
-|
+||`service multipathd stop`|Arrestare il daemon a percorsi multipli|
+||`service multipathd restart`|Riavviare il daemon a percorsi multipli|
+||`chkconfig multipathd on` </br> OPPURE </br> `mpathconf –with_chkconfig y`|Abilitare l'avvio del daemon a percorsi multipli all'avvio del computer|
+||`multipathd –k`|Avviare la console interattiva per la risoluzione dei problemi|
+||`multipath –l`|Elencare le connessioni e i dispositivi a percorsi multipli|
+||`mpathconf --enable`|Creare un file mulitpath.conf di esempio in `/etc/mulitpath.conf`|
+||||
 
 ## Passaggi successivi
 
@@ -492,4 +492,4 @@ Nella configurazione di MPIO sull'host Linux può anche essere necessario consul
 - [Configurazione di MPIO su CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Guida alla formazione Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

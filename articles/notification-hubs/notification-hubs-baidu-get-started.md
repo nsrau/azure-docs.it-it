@@ -413,7 +413,7 @@ In questa esercitazione verrà usata un'app semplice e verrà illustrato solo il
 
 * **Node.js**: vedere [Come usare Hub di notifica da Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
 
-* **Servizi mobili di Azure**: per un esempio di invio di notifiche da un back-end di Servizi mobili di Azure integrato con Hub di notifica, vedere "Introduzione alle notifiche push in Servizi mobili" ([Back-end .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [Back-end JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
+* **Servizi mobili di Azure**: per un esempio di come inviare notifiche da un back-end di Servizi mobili di Azure integrato con Hub di notifica, vedere [Aggiungere notifiche push all'app di Servizi mobili](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md).
 
 * **Java/PHP**: per un esempio di invio di notifiche con le API REST, vedere "Come usare Hub di notifica da Java/PHP" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
@@ -503,4 +503,4 @@ Per inviare una notifica di prova, è possibile usare la scheda Debug del portal
 [portale di Azure classico]: https://manage.windowsazure.com/
 [portale di Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

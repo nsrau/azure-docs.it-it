@@ -235,8 +235,8 @@ Un modo semplice per serializzare gli oggetti prevede l'uso dei metodi di serial
 A questo punto, dopo aver appreso le nozioni di base, visitare i collegamenti seguenti per altre informazioni sulla Cache Redis di Azure.
 
 -	Vedere i provider ASP.NET per la Cache Redis di Azure.
-	-	[Provider di stato della sessione Redis di Azure](cache-asp.net-session-state-provider.md)
-	-	[Provider di cache di output ASP.NET della Cache Redis di Azure](cache-asp.net-output-cache-provider.md)
+	-	[Provider di stato della sessione Redis di Azure](cache-aspnet-session-state-provider.md)
+	-	[Provider di cache di output ASP.NET della Cache Redis di Azure](cache-aspnet-output-cache-provider.md)
 -	[Abilitare la diagnostica della cache](cache-how-to-monitor.md#enable-cache-diagnostics) per poter [monitorare](cache-how-to-monitor.md) l'integrità della cache. È possibile visualizzare le metriche nel portale di Azure, nonché [scaricarle e analizzarle](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) usando gli strumenti preferiti.
 -	Vedere la [documentazione del client della cache StackExchange.Redis][].
 	-	È possibile accedere a Cache Redis di Azure da numerosi linguaggi di sviluppo e client Redis. Per ulteriori informazioni, vedere [http://redis.io/clients][] and [Sviluppo in altri linguaggi per Cache Redis di Azure][].
@@ -336,4 +336,4 @@ A questo punto, dopo aver appreso le nozioni di base, visitare i collegamenti se
 
 [versione di valutazione gratuita di Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

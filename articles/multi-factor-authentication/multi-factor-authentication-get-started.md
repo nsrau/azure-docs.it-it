@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/03/2016" 
+	ms.date="04/07/2016" 
 	ms.author="billmath"/>
 
 #Scegliere la soluzione di sicurezza Multi-Factor più adatta
@@ -65,7 +65,7 @@ SMS unidirezionale come secondo fattore | ● | ●
 SMS bidirezionale come secondo fattore | | ● 
 Token hardware come secondo fattore | | ● 
 Password di app per i client che non supportano MFA | ● |  
-Controllo amministrazione sui metodi di autenticazione | (anteprima pubblica) | ● 
+Controllo amministrazione sui metodi di autenticazione | ● | ● 
 Modalità PIN | | ●
 Avviso di illecito | ● | ●
 Report MFA | ● | ● 
@@ -81,4 +81,4 @@ Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authen
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

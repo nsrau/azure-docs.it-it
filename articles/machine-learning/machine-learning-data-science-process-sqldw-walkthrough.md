@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016" 
+	ms.date="02/05/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
@@ -48,11 +48,11 @@ I dati di NYC Taxi Trip sono costituiti da circa 20 GB di file CSV compressi (ci
 
 La **chiave univoca** usata per unire trip\_data e trip\_fare è costituita dai tre campi seguenti:
 
-- medallion, 
-- hack\_license e 
+- medallion,
+- hack\_license e
 - pickup\_datetime.
 
-## <a name="mltasks"></a>Risolvere tre tipi di attività di stima 
+## <a name="mltasks"></a>Risolvere tre tipi di attività di stima
 
 Sono stati formulati tre problemi di stima basati sul valore di *tip\_amount* per illustrare tre tipi di attività di modellazione:
 
@@ -75,23 +75,23 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure, seguire que
 
 **Creare l'account di archiviazione BLOB di Azure**
 
-- Quando si effettua il provisioning dell'archivio BLOB di Azure, scegliere una località geografica per l'archivio BLOB di Azure il più vicino possibile agli **Stati Uniti centro-meridionali**, dove vengono archiviati i dati relativi alle corse dei taxi di New York. I dati verranno copiati tramite AzCopy dal contenitore di archiviazione BLOB pubblico a un contenitore nell'account di archiviazione. Quanto più l'archivio BLOB di Azure è vicino agli Stati Uniti centro-meridionali tanto più rapidamente verrà completata questa attività (passaggio 4). 
-- Per creare l'account di archiviazione di Azure, seguire i passaggi descritti in [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md). Assicurarsi di prendere nota dei valori delle credenziali dell'account di archiviazione seguenti perché saranno necessarie più avanti nella procedura dettagliata. 
+- Quando si effettua il provisioning dell'archivio BLOB di Azure, scegliere una località geografica per l'archivio BLOB di Azure il più vicino possibile agli **Stati Uniti centro-meridionali**, dove vengono archiviati i dati relativi alle corse dei taxi di New York. I dati verranno copiati tramite AzCopy dal contenitore di archiviazione BLOB pubblico a un contenitore nell'account di archiviazione. Quanto più l'archivio BLOB di Azure è vicino agli Stati Uniti centro-meridionali tanto più rapidamente verrà completata questa attività (passaggio 4).
+- Per creare l'account di archiviazione di Azure, seguire i passaggi descritti in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). Assicurarsi di prendere nota dei valori delle credenziali dell'account di archiviazione seguenti perché saranno necessarie più avanti nella procedura dettagliata.
 
   - **Storage Account Name**
   - **Chiave dell'account di archiviazione**
   - **Nome contenitore** (in cui si vogliono salvare i dati nell'archivio BLOB di Azure)
 
-**Effettuare il provisioning dell'istanza di Azure SQL DW.** Seguire la documentazione in [Creare un SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) per effettuare il provisioning di un'istanza di SQL Data Warehouse. Verificare di avere preso nota delle credenziali di SQL Data Warehouse seguenti che verranno usate nei passaggi successivi.
- 
+**Effettuare il provisioning dell'istanza di Azure SQL DW.** Per effettuare il provisioning di un'istanza di SQL Data Warehouse seguire la documentazione in [Creare un SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Verificare di avere preso nota delle credenziali di SQL Data Warehouse seguenti che verranno usate nei passaggi successivi.
+
   - **Nome server**: <server Name>.database.windows.net
-  - **Nome SQLDW (database)** 
+  - **Nome SQLDW (database)**
   - **Nome utente**
   - **Password**
 
-**Installare Visual Studio 2015 e SQL Server Data Tools.** Per istruzioni, vedere [Installare Visual Studio 2015 e/o SSDT per SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md).
+**Installare Visual Studio 2015 e SQL Server Data Tools.** Per istruzioni, vedere [Installare Visual Studio 2015 e/o SSDT per SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Connettersi ad Azure SQL DW con Visual Studio.** Per istruzioni, vedere i passaggi 1 e 2 in [Connettersi a SQL Data Warehouse con Visual Studio](sql-data-warehouse-get-started-connect.md).
+**Connettersi ad Azure SQL DW con Visual Studio.** Per istruzioni, vedere i passaggi 1 e 2 in [Connettersi a SQL Data Warehouse con Visual Studio](../sql-data-warehouse/sql-data-warehouse-get-started-connect.md).
 
 >[AZURE.NOTE] Eseguire la query SQL seguente nel database creato in SQL Data Warehouse (anziché la query specificata nel passaggio 3 dell'argomento relativo alla connessione) per **creare una chiave master**.
 
@@ -114,7 +114,7 @@ Aprire una console dei comandi di Windows PowerShell. Eseguire i comandi di Powe
 	$source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
 	$ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
 	$wc = New-Object System.Net.WebClient
-	$wc.DownloadFile($source, $ps1_dest) 
+	$wc.DownloadFile($source, $ps1_dest)
 	.\Download_Scripts_SQLDW_Walkthrough.ps1 –DestDir 'C:\tempSQLDW'
 
 Al termine dell'esecuzione, la directory di lavoro corrente diventa *-DestDir*. Verrà visualizzata una schermata simile alla seguente:
@@ -149,13 +149,13 @@ Questo file di **script di PowerShell** completa le attività seguenti:
 				if ($env_path -notlike '*' +$AzCopy_path_i+'*'){
 					Write-Host $AzCopy_path_i 'not in system path, add it...'
 					[Environment]::SetEnvironmentVariable("Path", "$AzCopy_path_i;$env_path", "Machine")
-					$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") 
+					$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
 					$env_path = $env:Path
-				}	
+				}
 
 - **Copia dei dati dal BLOB pubblico all'account di archiviazione BLOB privato** con AzCopy
 
-		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"	
+		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"
 		$start_time = Get-Date
 		AzCopy.exe /Source:$Source /Dest:$DestURL /DestKey:$StorageAccountKey /S
 		$end_time = Get-Date
@@ -166,20 +166,20 @@ Questo file di **script di PowerShell** completa le attività seguenti:
 
 
 - **Caricamento dei dati usando Polybase (eseguendo LoadDataToSQLDW.sql) in Azure SQL DW** dall'account di archiviazione BLOB privato tramite i comandi seguenti.
-	
+
 	- Creare uno schema
 
 			EXEC (''CREATE SCHEMA {schemaname};'');
 
 	- Creare una credenziale con ambito di database
-			
-			CREATE DATABASE SCOPED CREDENTIAL {KeyAlias} 
-			WITH IDENTITY = ''asbkey'' , 
+
+			CREATE DATABASE SCOPED CREDENTIAL {KeyAlias}
+			WITH IDENTITY = ''asbkey'' ,
 			Secret = ''{StorageAccountKey}''
 
 	- Creare un'origine dati esterna per un BLOB di archiviazione di Azure
 
-			CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage} 
+			CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage}
 			WITH
 			(
     			TYPE = HADOOP,
@@ -188,7 +188,7 @@ Questo file di **script di PowerShell** completa le attività seguenti:
 			)
 			;
 
-			CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage} 
+			CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage}
 			WITH
 			(
     			TYPE = HADOOP,
@@ -199,10 +199,10 @@ Questo file di **script di PowerShell** completa le attività seguenti:
 
 	- Creare un formato di file esterno da un file con estensione csv. I dati non sono compressi e i campi sono separati dal carattere barra verticale.
 
-			CREATE EXTERNAL FILE FORMAT {csv_file_format} 
-			WITH 
+			CREATE EXTERNAL FILE FORMAT {csv_file_format}
+			WITH
 			(   
-    			FORMAT_TYPE = DELIMITEDTEXT, 
+    			FORMAT_TYPE = DELIMITEDTEXT,
     			FORMAT_OPTIONS  
     			(
         			FIELD_TERMINATOR ='','',
@@ -210,7 +210,7 @@ Questo file di **script di PowerShell** completa le attività seguenti:
     			)
 			)
 			;
-		
+
 	- Creare tabelle esterne relative a tariffe e corse per il set di dati relativo alle corse dei taxi di New York nell'archivio BLOB di Azure.
 
 			CREATE EXTERNAL TABLE {external_nyctaxi_fare}
@@ -244,7 +244,7 @@ Questo file di **script di PowerShell** completa le attività seguenti:
        			rate_code char(3),
        			store_and_fwd_flag char(3),
        			pickup_datetime datetime  not null,
-       			dropoff_datetime datetime, 
+       			dropoff_datetime datetime,
        			passenger_count int,
        			trip_time_in_secs bigint,
        			trip_distance float,
@@ -264,40 +264,40 @@ Questo file di **script di PowerShell** completa le attività seguenti:
 	- Caricare dati dalle tabelle esterne nell'archivio BLOB di Azure in SQL Data Warehouse
 
 			CREATE TABLE {schemaname}.{nyctaxi_fare}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
-			SELECT * 
+			AS
+			SELECT *
 			FROM   {external_nyctaxi_fare}
 			;
 
 			CREATE TABLE {schemaname}.{nyctaxi_trip}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
-			SELECT * 
+			AS
+			SELECT *
 			FROM   {external_nyctaxi_trip}
 			;
 
 	- Creazione di una tabella dati di esempio (NYCTaxi\_Sample) con inserimento di dati dalla selezione di query SQL sulle tabelle delle corse e delle tariffe. Per alcuni passaggi di questa procedura dettagliata deve essere usata la tabella di esempio.
 
 			CREATE TABLE {schemaname}.{nyctaxi_sample}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
+			AS
 			(
 	    		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount,
 				tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
-				tip_class = CASE 
+				tip_class = CASE
 						WHEN (tip_amount = 0) THEN 0
                         WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
                         WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
@@ -316,12 +316,12 @@ Questo file di **script di PowerShell** completa le attività seguenti:
 
 >[AZURE.NOTE] A seconda della posizione geografica dell'account di archiviazione BLOB privato, il processo di copia dei dati da un BLOB pubblico all'account di archiviazione privato può richiedere circa 15 minuti o anche di più e il processo di caricamento dei dati dall'account di archiviazione ad Azure SQL DW può richiedere 20 minuti o più.
 
->[AZURE.NOTE] Se i file da copiare dall'archivio BLOB pubblico all'account di archiviazione BLOB privato esistono già nell'account di archiviazione BLOB privato, AzCopy chiederà se li si vuole sovrascrivere. Se non si vuole farlo, digitare **n** quando richiesto. Per sovrascriverli **tutti**, digitare **a** quando richiesto. È anche possibile digitare **y** per sovrascrivere i file con estensione csv singolarmente.
+>[AZURE.NOTE] Se i file con estensione csv da copiare dall'archivio BLOB pubblico all'account di archiviazione BLOB privato esistono già nell'account di archiviazione BLOB privato, AzCopy chiederà se li si vuole sovrascrivere. Se non si vuole farlo, digitare **n** quando richiesto. Per sovrascriverli **tutti**, digitare **a** quando richiesto. È anche possibile digitare **y** per sovrascrivere i file con estensione csv singolarmente.
 
 ![Grafico n. 21][21]
 
 >[AZURE.TIP] **Usare i dati locali:** se i dati si trovano nel computer locale nell'applicazione reale, è comunque possibile usare AzCopy per caricare i dati locali nell'archivio BLOB di Azure privato. È sufficiente sostituire la posizione **Source**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, nel comando di AzCopy del file di script di PowerShell con la directory locale contenente i dati.
-	
+
 >[AZURE.TIP] Se i dati sono già nell'archivio BLOB di Azure privato nell'applicazione reale, è possibile saltare il passaggio di AzCopy nello script di PowerShell e caricare direttamente i dati in Azure SQL DW. Saranno necessarie altre modifiche dello script per adattarlo al formato dei dati.
 
 
@@ -453,7 +453,7 @@ In questo esempio, la longitudine e la latitudine del prelievo e dello scarico v
 
 	-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
-	
+
 	RETURNS float
 	AS
 	BEGIN
@@ -474,7 +474,7 @@ In questo esempio, la longitudine e la latitudine del prelievo e dello scarico v
 	END
 	GO
 
-	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude, 
+	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
 	dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
 	FROM <schemaname>.<nyctaxi_trip>
 	WHERE datepart("mi",pickup_datetime)=1
@@ -500,7 +500,7 @@ Ecco lo script SQL che definisce la funzione della distanza.
 
 	-- User-defined function calculate the direct distance between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
-	
+
 	RETURNS float
 	AS
 	BEGIN
@@ -519,12 +519,12 @@ Ecco lo script SQL che definisce la funzione della distanza.
   		END
   		RETURN @distance
 	END
-	GO 
+	GO
 
 Ecco un esempio per chiamare questa funzione per generare le funzionalità nella query SQL:
 
 	-- Sample query to call the function to create features
-	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude, 
+	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
 	dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
 	FROM <schemaname>.<nyctaxi_trip>
 	WHERE datepart("mi",pickup_datetime)=1
@@ -534,7 +534,7 @@ Ecco un esempio per chiamare questa funzione per generare le funzionalità nella
 
 **Output:** questa query genera una tabella (con 2.803.538 righe) con la latitudine e la longitudine del prelievo e dello scarico e le corrispondenti distanze dirette in miglia. Di seguito sono riportati i risultati delle prime 3 righe:
 
-|pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
+||pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
 |---| --------- | -------|-------| --------- | -------|
 |1 | 40\.731804 | -74.001083 | 40\.736622 | -73.988953 | .7169601222 |
 |2 | 40\.715794 | -74,010635 | 40\.725338 | -74.00399 | .7448343721 |
@@ -564,7 +564,7 @@ Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e
 Una volta pronti a proseguire con Azure Machine Learning, è possibile effettuare una delle seguenti operazioni:
 
 1. Salvare la query SQL per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Lettore][reader] in Azure Machine Learning
-2. Salvare in modo definitivo i dati campionati e progettati che si prevede di usare per la compilazione di modelli in una nuova tabella di SQL DW e usare la nuova tabella nel modulo [Reader][reader] in Azure Machine Learning. Questa operazione è stata eseguita dallo script di PowerShell nel passaggio precedente. È possibile leggere direttamente in questa tabella nel modulo Reader. 
+2. Salvare in modo definitivo i dati campionati e progettati che si prevede di usare per la compilazione di modelli in una nuova tabella di SQL DW e usare la nuova tabella nel modulo [Reader][reader] in Azure Machine Learning. Questa operazione è stata eseguita dallo script di PowerShell nel passaggio precedente. È possibile leggere direttamente in questa tabella nel modulo Reader.
 
 
 ## <a name="ipnb"></a>Esplorazione dei dati e progettazione di funzionalità in IPython Notebook
@@ -575,7 +575,7 @@ Le informazioni di Azure SQL DW necessarie nell'esempio di IPython Notebook e il
 
 Se si è già configurata un'area di lavoro di AzureML, è possibile caricare direttamente l'esempio di IPython Notebook nel servizio IPython Notebook di AzureML e avviarne l'esecuzione. Ecco i passaggi per caricare il servizio IPython Notebook di AzureML:
 
-1. Accedere all'area di lavoro AzureML, fare clic su "Studio" in alto e fare clic su "NOTEBOOKS" a sinistra nella pagina Web. 
+1. Accedere all'area di lavoro AzureML, fare clic su "Studio" in alto e fare clic su "NOTEBOOKS" a sinistra nella pagina Web.
 
 	![Grafico n. 22][22]
 
@@ -964,4 +964,4 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

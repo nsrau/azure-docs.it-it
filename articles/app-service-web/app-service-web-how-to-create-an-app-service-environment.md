@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016" 
+	ms.date="04/06/2016" 
 	ms.author="ccompy"/>
 
 # Come creare un ambiente del servizio app #
@@ -31,12 +31,14 @@ La creazione di un ambiente del servizio app richiede ai clienti di fornire le i
 - definizione del pool di risorse dell'ambiente del servizio app
 
 Per ciascuno di questi elementi tenere presente le informazioni importanti che seguono.
+
 - Il nome dell'ambiente del servizio app verrà usato nel sottodominio per tutte le app create in tale ambiente
 - Tutte le app create in un ambiente saranno incluse nella stessa sottoscrizione dell'ambiente del servizio app
 - Se non si dispone dell'accesso alla sottoscrizione usata per l'ambiente del servizio app non è possibile usare l'ambiente per la creazione delle app
 - Le reti virtuali usate per l'hosting di un ambiente del servizio app devono essere reti virtuali regionali classiche "v1" 
 - La subnet usata per l'hosting dell'ambiente del servizio app non deve contenere altre risorse di calcolo
 - Una subnet può includere un solo ambiente del servizio app
+- Attualmente sono supportate solo le reti virtuali con uno spazio di indirizzi RFC1918, ovvero di indirizzi privati.
 
 Ogni distribuzione dell'ambiente del servizio app è un servizio ospitato gestito e mantenuto da Azure. Le risorse di calcolo che ospitano i ruoli di sistema dell'ambiente del servizio app non sono accessibili al cliente anche se questi può gestire la quantità di istanze e le relative dimensioni.
 
@@ -62,7 +64,7 @@ Il nome specificato per l'ambiente del servizio app verrà usato per le app crea
 Le impostazioni predefinite sono molto utili nella maggior parte delle situazioni, ma in alcuni casi sarà necessario apportare alcune modifiche. Le sezioni successive descrivono in modo dettagliato le sezioni della procedura di configurazione relative all'ambiente del servizio app.
 
 ### Rete virtuale ###
-Sebbene sia disponibile la funzionalità di creazione rapida che consente di creare automaticamente una nuova rete virtuale, è anche possibile selezionare una rete virtuale esistente o crearne una manualmente. È possibile selezionare una rete virtuale esistente (al momento sono supportate solo reti virtuali classiche “v1”) se questa è sufficientemente grande per supportare la distribuzione di un ambiente del servizio app. La rete virtuale deve includere 8 o più indirizzi.
+Sebbene sia disponibile la funzionalità di creazione rapida che consente di creare automaticamente una nuova rete virtuale, è anche possibile selezionare una rete virtuale esistente o crearne una manualmente. È possibile selezionare una rete virtuale esistente (al momento sono supportate solo reti virtuali classiche “v1”) se questa è sufficientemente grande per supportare la distribuzione di un ambiente del servizio app. La rete virtuale deve includere 8 o più indirizzi. Attualmente sono supportate solo le reti virtuali con uno spazio di indirizzi RFC1918, ovvero di indirizzi privati.
 
 Se si seleziona una rete virtuale esistente, sarà necessario specificare anche la subnet da usare o crearne una nuova. La subnet deve includere 8 o più indirizzi e non può contenere altre risorse già esistenti. La creazione dell'ambiente del servizio app non riuscirà se si usa una subnet a cui sono già allocate macchine virtuali.
 
@@ -163,4 +165,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

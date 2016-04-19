@@ -1240,7 +1240,17 @@ Si noti che esistono altri modi per ottenere questo risultato:
 || |
 |---|-------------|
 | + | Aggiungi |
-| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
+| - | Sottrai |
+| * | Moltiplica |
+| / | Dividi |
+| % | Modulo |
+||
+|`<` |Minore
+|`<=`|Minore o uguale a
+|`>` |Maggiore
+|`>=`|Maggiore o uguale a
+|`<>`|Non uguale a
+|`!=`|Non uguale a
 
 
 
@@ -2139,3 +2149,4 @@ Si noti che "[0]" indica la presenza di una matrice, ma non specifica l'indice u
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 <!---HONumber=AcomDC_0330_2016-->
+

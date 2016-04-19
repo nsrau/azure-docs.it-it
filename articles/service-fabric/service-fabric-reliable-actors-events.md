@@ -3,9 +3,9 @@
    description="Introduzione agli eventi per Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
-   editor="vturecek"/>
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/19/2016"
+   ms.date="03/25/2016"
    ms.author="amanbha"/>
 
 
@@ -38,7 +38,6 @@ public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
 {
     Task UpdateGameStatus(GameStatus status);
 
-    [Readonly]
     Task<string> GetGameScore();
 }
 ```
@@ -60,7 +59,8 @@ Sul client creare il proxy per l'attore che pubblica l'evento e sottoscrivere gl
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
                     new ActorId(Guid.Parse(arg)), ApplicationName);
-proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler()).Wait();
+                    
+await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 ```
 
 In caso di failover, l'attore può eseguire il failover su un processo o un nodo diverso. Il proxy dell'attore gestisce le sottoscrizioni attive e le rieffettua in modo automatico. È possibile controllare l'intervallo di risottoscrizione tramite l'API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Per annullare la sottoscrizione usare l'`ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`API.
@@ -69,7 +69,13 @@ Nell'attore pubblicare semplicemente gli eventi man mano che si verificano. Se v
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
-ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
+ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 
-<!---HONumber=AcomDC_0323_2016-->
+## Passaggi successivi
+ - [Rientranza di Reliable Actors](service-fabric-reliable-actors-reentrancy.md)
+ - [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+ - [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Codice di esempio](https://github.com/Azure/servicefabric-samples)
+
+<!---HONumber=AcomDC_0406_2016-->

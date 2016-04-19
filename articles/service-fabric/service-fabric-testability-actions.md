@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="heeldin"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/14/2016"
+   ms.date="03/25/2016"
    ms.author="heeldin;motanv"/>
 
 # Azioni di Testabilità
@@ -95,7 +95,7 @@ L'output del primo **Get ServiceFabricNode** (un cmdlet dal modulo PowerShell di
 
 L'esecuzione di un'azione di testabilità (con PowerShell) su un cluster di Azure è simile all'esecuzione della stessa azione su un cluster locale. L'unica differenza è che, prima di poter eseguire l'azione, invece di connettersi al cluster locale, è necessario connettersi al cluster di Azure.
 
-## Esecuzione di un'azione di testabilità con C#
+## Esecuzione di un'azione di verificabilità
 
 Per eseguire un'azione di testabilità con C#, è necessario prima connettersi al cluster tramite FabricClient. Ottenere quindi i parametri necessari per eseguire l'azione. Per eseguire la stessa azione possono essere utilizzati parametri diversi. In merito all'azione RestartServiceFabricNode, per eseguirla è possibile usare le informazioni sul nodo (nodo del nome e ID dell'istanza del nodo) disponibili nel cluster.
 
@@ -236,4 +236,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Simulare gli errori durante i carichi di lavoro del servizio](service-fabric-testability-workload-tests.md)
    - [Errori di comunicazione da servizio a servizio](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

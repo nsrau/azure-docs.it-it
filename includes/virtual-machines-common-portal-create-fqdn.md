@@ -1,7 +1,7 @@
 
 
 
-Quando si crea una macchina virtuale nel [portale di Azure](https://portal.azure.com) utilizzando il modello di distribuzione **Gestione risorse di**, il portale crea una risorsa IP pubblica per la macchina virtuale. È possibile utilizzare questo indirizzo IP per accedere in remoto alla macchina virtuale. Anche se, per impostazione predefinita, il portale non consente la creazione di un [nome di dominio completo](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) o FQDN (Fully Qualified Domain Name), è estremamente semplice crearne uno dopo aver creato la macchina virtuale. Questo articolo illustra i passaggi per creare un nome DNS o un FQDN.
+Quando si crea una macchina virtuale nel [portale di Azure](https://portal.azure.com) utilizzando il modello di distribuzione **Resource Manager**, il portale crea automaticamente una risorsa IP pubblica per la macchina virtuale. È possibile utilizzare questo indirizzo IP per accedere in remoto alla macchina virtuale. Anche se, per impostazione predefinita, il portale non consente la creazione di un [nome di dominio completo](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) o FQDN (Fully Qualified Domain Name), è estremamente semplice crearne uno dopo aver creato la macchina virtuale. Questo articolo illustra i passaggi per creare un nome DNS o un FQDN.
 
 L'articolo presuppone che sia già stata effettuata la connessione alla sottoscrizione nel portale e che sia stata creata una macchina virtuale con le immagini disponibili tramite **Gestione risorse**. Una volta avviata la macchina virtuale, seguire questi passaggi.
 
@@ -24,6 +24,6 @@ L'articolo presuppone che sia già stata effettuata la connessione alla sottoscr
     ![FQDN creato](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
 
-    È ora possibile connettersi in remoto alla macchina virtuale utilizzando questo nome DNS. Ad esempio, utilizzare `SSH adminuser@testdnslabel.centralus.cloudapp.azure.com`, quando ci si connette a una macchina virtuale Linux che ha il nome di dominio completo di `testdnslabel.centralus.cloudapp.azure.com` e il nome utente di `adminuser`.
+    È ora possibile connettersi in remoto alla macchina virtuale utilizzando questo nome DNS. Ad esempio, utilizzare `ssh adminuser@testdnslabel.centralus.cloudapp.azure.com`, quando ci si connette a una macchina virtuale Linux che ha il nome di dominio completo di `testdnslabel.centralus.cloudapp.azure.com` e il nome utente di `adminuser`.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -28,7 +28,7 @@ In questo articolo verrà illustrato come installare e configurare MySQL in una 
 
 ##Installare MySQL nella macchina virtuale.
 
-> [AZURE.NOTE] Per poter completare questa esercitazione, è necessario disporre già di una macchina virtuale di Microsoft Azure che esegue Linux. Prima di procedere, vedere l’[esercitazione relativa alle macchine virtuali Linux di Azure](virtual-machines-linux-cli-create.md) per creare e impostare una macchina virtuale Linux con `mysqlnode` come nome macchina virtuale e `azureuser` come utente.
+> [AZURE.NOTE] Per poter completare questa esercitazione, è necessario disporre già di una macchina virtuale di Microsoft Azure che esegue Linux. Prima di procedere, vedere l’[esercitazione relativa alle macchine virtuali Linux di Azure](virtual-machines-linux-quick-create-cli.md) per creare e impostare una macchina virtuale Linux con `mysqlnode` come nome macchina virtuale e `azureuser` come utente.
 
 [In questo caso, usare la porta 3306 come porta di MySQL].
 
@@ -185,4 +185,4 @@ In questa circostanza si utilizzerà una VM Linux con OpenSUSE.
 ###Passaggio successivo
 Ulteriori utilizzi e informazioni su MySQL sono disponibili [qui](https://www.mysql.com/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

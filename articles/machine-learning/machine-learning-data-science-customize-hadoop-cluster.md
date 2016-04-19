@@ -57,7 +57,7 @@ Nell'ultima pagina di configurazione **Azioni script**, fare clic sul pulsante *
  
 * **NOME**: qualsiasi stringa con il nome dello script azione 
 * **TIPO DI NODO**: selezionare **Tutti i nodi** 
-* **SCRIPT URI** - *http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+* **SCRIPT URI** - **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
 	* *publicscripts* è un contenitore pubblico nell'account di archiviazione 
 	* *getgoing* viene usato per condividere file di script di PowerShell per facilitare agli utenti l'uso di Azure 
 * **PARAMETRI**: lasciare vuoto
@@ -88,7 +88,7 @@ Gli utenti devono abilitare l'accesso remoto al cluster Hadoop in Azure prima di
 
 	 ![Creare un'area di lavoro][9]
 
-I passaggi successivi del processo di analisi avanzata dei dati sono illustrati in [Guida alla formazione: Elaborazione dati avanzata in Azure](machine-learning-data-science-advanced-data-processing.md) e possono includere le procedure per lo spostamento, l'elaborazione e il campionamento dei dati in HDInsight in preparazione dell'apprendimento dei dati con Azure Machine Learning.
+I passaggi successivi del processo di analisi avanzata dei dati sono illustrati in [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e possono includere le procedure per lo spostamento, l'elaborazione e il campionamento dei dati in HDInsight in preparazione dell'apprendimento dei dati con Azure Machine Learning.
 
 Vedere [Invio di query Hive ai cluster Hadoop di HDInsight nel processo di analisi scientifica dei dati cloud](machine-learning-data-science-process-hive-tables.md) per istruzioni sull'accesso ai moduli di Python inclusi in Anaconda dal nodo head del cluster nelle funzioni definite dall'utente (UDF) che consentono di elaborare i record di Hive archiviati nel cluster.
 
@@ -104,4 +104,4 @@ Vedere [Invio di query Hive ai cluster Hadoop di HDInsight nel processo di anali
 
  
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

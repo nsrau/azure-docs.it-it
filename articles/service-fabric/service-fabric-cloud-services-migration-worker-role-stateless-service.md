@@ -138,7 +138,7 @@ Le impostazioni di configurazione in Servici cloud vengono impostate per un ruol
  - **Config:** tutti i file di configurazione e le impostazioni per un servizio.
  - **Data:** file di dati statici associati al servizio.
 
-Per ognuno di questi pacchetti l'aggiornamento e il controllo delle versioni possono essere gestiti in modo indipendente. Analogamente a Servizi cloud, è possibile accedere a un pacchetto di configurazione a livello di codice tramite un'API e sono disponibili eventi per notificare al servizio una modifica del pacchetto di configurazione. È possibile usare un file Settings.xml per la configurazione di chiave-valore e l'accesso a livello di codice simile a . Tuttavia, a differenza di Servizi cloud, un pacchetto di configurazione di Service Fabric può contenere qualsiasi file di configurazione in qualsiasi formato, ovvero XML, JSON, YAML o un formato binario personalizzato.
+Per ognuno di questi pacchetti l'aggiornamento e il controllo delle versioni possono essere gestiti in modo indipendente. Analogamente a Servizi cloud, è possibile accedere a un pacchetto di configurazione a livello di codice tramite un'API e sono disponibili eventi per notificare al servizio una modifica del pacchetto di configurazione. È possibile usare un file Settings.xml per la configurazione di chiave-valore e l'accesso a livello di codice simile alla sezione app settings di un file App.config. Tuttavia, a differenza di Servizi cloud, un pacchetto di configurazione di Service Fabric può contenere qualsiasi file di configurazione in qualsiasi formato, ovvero XML, JSON, YAML o un formato binario personalizzato.
 
 
 ### Accesso alla configurazione
@@ -277,4 +277,4 @@ Altre informazioni su Reliable Services di Service Fabric e le differenze fondam
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0406_2016-->

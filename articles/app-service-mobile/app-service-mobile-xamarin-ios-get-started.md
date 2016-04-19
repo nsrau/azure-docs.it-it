@@ -33,13 +33,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* [Visual Studio Community 2013](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) o versione successiva. Se si installa Visual Studio Community 2013, installare [Xamarin] separatamente. È possibile installare gli strumenti Xamarin quando si installa Visual Studio 2015.
+* Visual Studio con Xamarin. Per istruzioni, vedere [Configurazione e installazione per Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
-* Un computer Mac in cui siano stati installati [Xcode] v7.0 o versione successiva e [Xamarin Studio].
+* Un computer Mac in cui siano stati installati Xcode v7.0 o versione successiva e Xamarin Studio Community. Vedere [Configurazione e installazione per Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) e [Configurazione, installazione e verifiche per gli utenti Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
-* Se si prevede di compilare l'app in un computer basato su Windows con Visual Studio, è comunque necessario accedere a un computer Mac in rete che esegue l'host di compilazione Xamarin.iOS per compilare e distribuire effettivamente l'app. Per altre informazioni, vedere la pagina relativa all'[installazione di Xamarin.iOS in Windows](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/)
-
->[AZURE.NOTE] Se si desidera iniziare a usare il servizio app di Azure prima di creare un account Azure, passare alla pagina [Prova il servizio app](https://tryappservice.azure.com/?appServiceName=mobile). In questa pagina è possibile creare immediatamente un'app per dispositivi mobili iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](https://tryappservice.azure.com/?appServiceName=mobile). In questa pagina è possibile creare immediatamente un'app per dispositivi mobili iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Creare un nuovo back-end dell'app per dispositivi mobili di Azure
 
@@ -66,9 +64,7 @@ Se è stata scelta una configurazione back-end .NET, facoltativamente è possibi
 
 ## Scaricare ed eseguire l'app per Xamarin.iOS
 
-1. Nel computer Mac aprire il [portale di Azure] in una finestra del browser.
-
-	>[AZURE.NOTE] L'esecuzione dell'app per Xamarin.iOS risulta più facile in un Mac. È anche possibile eseguire l'app per Xamarin.iOS in Visual Studio nel computer basato su Windows, ma la procedura è più complessa perché è necessario connettersi a un Mac in rete. Per informazioni su questa procedura, vedere la pagina relativa all'[installazione di Xamarin.iOS in Windows].
+1. Aprire il [portale di Azure] in una finestra del browser.
 
 2. Nel pannello delle impostazioni dell'app per dispositivi mobili, fare clic su **Introduzione** > **Xamarin.iOS**. Al passaggio 3 fare clic su **Crea una nuova app**, se l'opzione non è già selezionata. Fare quindi clic sul pulsante **Download**.
 
@@ -112,11 +108,4 @@ Se è stata scelta una configurazione back-end .NET, facoltativamente è possibi
 <!-- URLs. -->
 [portale di Azure]: https://portal.azure.com/
 
-
-[Xamarin Studio]: http://xamarin.com/download
-[Xamarin]: http://xamarin.com/download
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
-[Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-[installazione di Xamarin.iOS in Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
-
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="03/30/2016"
    ms.author="toddabel"/>
 
 
 # Come raccogliere log con Diagnostica di Azure
 
-Quando si esegue un cluster Azure Service Fabric, è consigliabile raccogliere i log da tutti i nodi in una posizione centrale. Il salvataggio dei log in una posizione centrale semplifica l'analisi e la risoluzione di eventuali problemi nel cluster o nelle applicazioni e nei servizi in esecuzione nel cluster. Uno dei modi per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Azure, che carica i log nell'archiviazione di Azure. Effettivamente i log non sono utili direttamente nell'archiviazione, ma è possibile usare un processo esterno per leggere gli eventi dall'archiviazione e inserirli in un prodotto, ad esempio [Operational Insights](https://azure.microsoft.com/services/operational-insights/), Elastic Search o un'altra soluzione.
+Quando si esegue un cluster Azure Service Fabric, è consigliabile raccogliere i log da tutti i nodi in una posizione centrale. Il salvataggio dei log in una posizione centrale semplifica l'analisi e la risoluzione di eventuali problemi nel cluster o nelle applicazioni e nei servizi in esecuzione nel cluster. Uno dei modi per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Azure, che carica i log nell'archiviazione di Azure. Effettivamente i log non sono utili direttamente nell'archiviazione, ma è possibile usare un processo esterno per leggere gli eventi dalla risorsa di archiviazione e inserirli in un prodotto, ad esempio [ElasticSearch](service-fabric-diagnostic-how-to-use-elasticsearch.md) o un'altra soluzione di analisi di log.
 
 ## Prerequisiti
 Questi strumenti verranno usati per eseguire alcune operazioni nel documento:
@@ -45,7 +45,7 @@ Per distribuire Diagnostica nelle VM del cluster come parte della creazione di c
 
 ![Impostazione di Diagnostica di Azure nel portale per la creazione di cluster](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/portal-cluster-creation-diagnostics-setting.png)
 
-I log di supporto sono **necessari** affinché il team di supporto tecnico di Azure possa gestire le richieste di supporto create. Questi log vengono raccolti in tempo reale e verranno archiviati nell'account di archiviazione creato nel gruppo di risorse corrente. Diagnostica applicazioni consente di configurare eventi a livello di applicazione inclusi eventi [Actor](service-fabric-reliable-actors-diagnostics.md), eventi [Reliable Service](service-fabric-reliable-services-diagnostics.md) e alcuni eventi Service Fabric a livello di sistema da archiviare nell'archiviazione di Azure. Gli eventi possono essere acquisiti dall'account di archiviazione da prodotti come [Operational Insights](https://azure.microsoft.com/services/operational-insights/) o da un processo personalizzato. Attualmente non è possibile filtrare o eliminare gli eventi inviati alla tabella. Se non viene implementato un processo per rimuovere gli eventi dalla tabella, le dimensioni della tabella continueranno ad aumentare. Quando si crea un cluster tramite il portale, è consigliabile esportare il modello al termine della distribuzione. I modelli possono essere esportati dal portale in questo modo
+I log di supporto sono **necessari** affinché il team di supporto tecnico di Azure possa gestire le richieste di supporto create. Questi log vengono raccolti in tempo reale e verranno archiviati nell'account di archiviazione creato nel gruppo di risorse corrente. Diagnostica applicazioni consente di configurare eventi a livello di applicazione inclusi eventi [Actor](service-fabric-reliable-actors-diagnostics.md), eventi [Reliable Service](service-fabric-reliable-services-diagnostics.md) e alcuni eventi Service Fabric a livello di sistema da archiviare nell'archiviazione di Azure. Gli eventi possono essere acquisiti dall'account di archiviazione da prodotti come [ElasticSearch](service-fabric-diagnostic-how-to-use-elasticsearch.md) o da un processo personalizzato. Attualmente non è possibile filtrare o eliminare gli eventi inviati alla tabella. Se non viene implementato un processo per rimuovere gli eventi dalla tabella, le dimensioni della tabella continueranno ad aumentare. Quando si crea un cluster tramite il portale, è consigliabile esportare il modello al termine della distribuzione. I modelli possono essere esportati dal portale in questo modo
 1. Aprire il gruppo di risorse
 2. Selezionare Impostazioni per visualizzare il pannello Impostazioni
 3. Selezionare Distribuzioni per visualizzare il pannello Cronologia distribuzioni
@@ -178,4 +178,4 @@ Per aggiornare la diagnostica in modo da raccogliere log da un nuovo canale Even
 ## Passaggi successivi
 Verificare gli eventi di diagnostica emessi per [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) e [Reliable Services](service-fabric-reliable-services-diagnostics.md) per ottenere informazioni più dettagliate sugli eventi da esaminare durante la risoluzione dei problemi.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -18,9 +18,12 @@
 
 # Come gestire i record DNS utilizzando CLI
 
+
 > [AZURE.SELECTOR]
+- [Portale di Azure](dns-operations-recordsets-portal.md)
 - [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
+
 
 Questa guida descrive come gestire i set di record e i record per la zona DNS usando l'interfaccia della riga di comando multipiattaforma di Azure.
 
@@ -238,8 +241,8 @@ L'opzione ‘-q’ facoltativa può essere usata per eliminare la richiesta di c
 
 ## Passaggi successivi
 
-Dopo aver creato la zona e i record DNS, è possibile [delegare il dominio a DNS di Azure](dns-domain-delegation.md).<BR> Informazioni su come [gestire le zone DNS](dns-operations-dnszones-cli.md) mediante l'interfaccia della riga di comando.<BR> È anche possibile [automatizzare le operazioni usando .NET SDK](dns-sdk.md) per codificare le operazioni DNS di Azure nell'applicazione.
+Dopo aver creato la zona e i record DNS, è possibile [delegare il dominio a DNS di Azure](dns-domain-delegation.md).<BR> Informazioni su come [gestire le zone DNS](dns-operations-dnszones-cli.md) con l'interfaccia della riga di comando.<BR> È anche possibile [automatizzare le operazioni usando .NET SDK](dns-sdk.md) per codificare le operazioni DNS di Azure nell'applicazione.
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

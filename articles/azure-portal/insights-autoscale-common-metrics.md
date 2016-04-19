@@ -51,7 +51,33 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 |Nome della metrica|	Unità|
 |---|---|
-|\\Processor(\_Total)\\% Tempo processore |Percentuale| |\\Processor(\_Total)\\% Tempo privilegiato |Percentuale| |\\Processor(\_Total)\\% Tempo utente |Percentuale| |\\Processor Information(\_Total)\\Frequenza processore |Conteggio| |\\System\\Processi| Conteggio| |\\Process(\_Total)\\Conteggio dei thread| Conteggio| |\\Process(\_Total)\\Conteggio degli handle |Conteggio| |\\Memory\\% Byte vincolati in uso |Percentuale| |\\Memory\\Byte disponibili| Byte| |\\Memory\\Byte vincolati |Byte| |\\Memory\\Limite memoria vincolata| Byte| |\\Memory\\Byte del pool di paging| Byte| |\\Memory\\Byte del pool non di paging| Byte| |\\PhysicalDisk(\_Total)\\% Tempo disco| Percentuale| |\\PhysicalDisk(\_Total)\\% Tempo lettura disco| Percentuale| |\\PhysicalDisk(\_Total)\\% Tempo scrittura disco| Percentuale| |\\PhysicalDisk(\_Total)\\Trasferimenti disco/sec |Conteggio al secondo| |\\PhysicalDisk(\_Total)\\Letture disco/sec |Conteggio al secondo| |\\PhysicalDisk(\_Total)\\Scritture disco/sec |Conteggio al secondo| |\\PhysicalDisk(\_Total)\\Byte da/a disco/sec |Byte al secondo| |\\PhysicalDisk(\_Total)\\Byte letti da disco/sec| Byte al secondo| |\\PhysicalDisk(\_Total)\\Byte scritti su disco/sec |Byte al secondo| |\\PhysicalDisk(\_Total)\\Lunghezza media coda del disco| Conteggio| |\\PhysicalDisk(\_Total)\\Lunghezza media lettura coda del disco| Conteggio| |\\PhysicalDisk(\_Total)\\Lunghezza media scrittura coda del disco |Conteggio| |\\LogicalDisk(\_Total)\\% di spazio disponibile| Percentuale| |\\LogicalDisk(\_Total)\\Megabyte liberi| Conteggio|
+|\\Processor(\_Total)\\% Tempo processore |Percentuale|
+|\\Processor(\_Total)\\% Tempo privilegiato |Percentuale|
+|\\Processor(\_Total)\\% Tempo utente |Percentuale|
+|\\Processor Information(\_Total)\\Frequenza processore |Conteggio|
+|\\System\\Processi| Conteggio|
+|\\Process(\_Total)\\Conteggio dei thread| Conteggio|
+|\\Process(\_Total)\\Conteggio degli handle |Conteggio|
+|\\Memory\\% Byte vincolati in uso |Percentuale|
+|\\Memory\\Byte disponibili| Byte|
+|\\Memory\\Byte vincolati |Byte|
+|\\Memory\\Limite memoria vincolata| Byte|
+|\\Memory\\Byte del pool di paging| Byte|
+|\\Memory\\Byte del pool non di paging| Byte|
+|\\PhysicalDisk(\_Total)\\% Tempo disco| Percentuale|
+|\\PhysicalDisk(\_Total)\\% Tempo lettura disco| Percentuale|
+|\\PhysicalDisk(\_Total)\\% Tempo scrittura disco| Percentuale|
+|\\PhysicalDisk(\_Total)\\Trasferimenti disco/sec |Conteggio al secondo|
+|\\PhysicalDisk(\_Total)\\Letture disco/sec |Conteggio al secondo|
+|\\PhysicalDisk(\_Total)\\Scritture disco/sec |Conteggio al secondo|
+|\\PhysicalDisk(\_Total)\\Byte da/a disco/sec |Byte al secondo|
+|\\PhysicalDisk(\_Total)\\Byte letti da disco/sec| Byte al secondo|
+|\\PhysicalDisk(\_Total)\\Byte scritti su disco/sec |Byte al secondo|
+|\\PhysicalDisk(\_Total)\\Lunghezza media coda del disco| Conteggio|
+|\\PhysicalDisk(\_Total)\\Lunghezza media lettura coda del disco| Conteggio|
+|\\PhysicalDisk(\_Total)\\Lunghezza media scrittura coda del disco |Conteggio|
+|\\LogicalDisk(\_Total)\\% di spazio disponibile| Percentuale|
+|\\LogicalDisk(\_Total)\\Megabyte liberi| Conteggio|
 
 
 

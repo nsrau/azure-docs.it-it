@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Assegnazioni di ruolo - Schema del modello
@@ -26,7 +26,7 @@ Per creare un'assegnazione di ruolo, aggiungere lo schema seguente alla sezione 
     
     {
         "type": "Microsoft.Authorization/roleAssignments",
-        "apiVersion": "2015-07-01",
+        "apiVersion": "2014-10-01-preview",
         "name": string,
         "dependsOn": [ array values ],
         "properties":
@@ -41,21 +41,22 @@ Per creare un'assegnazione di ruolo, aggiungere lo schema seguente alla sezione 
 
 Nelle tabelle seguenti vengono descritti i valori che è necessario impostare nello schema.
 
-| Name | Tipo | Obbligatorio | Valori consentiti | Descrizione |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Sì | **Microsoft.Authorization/roleAssignments** | Il tipo di risorsa da creare. |
-| apiVersion | enum | Sì | **01-07-2015** | La versione dell'API da utilizzare per la creazione della risorsa. |  
-| name | string | Sì | Identificatore univoco globale | Un identificatore per la nuova assegnazione di ruolo. |
-| dependsOn | array | No | Un elenco delimitato da virgole di nomi di risorse o di identificatori univoci di risorse. | La raccolta di risorse da cui dipende questa assegnazione di ruolo. Se l'assegnazione di un ruolo ha come ambito una risorsa e tale risorsa viene distribuita nello stesso modello, includere il nome della risorsa in questo elemento per assicurarsi che la risorsa venga distribuita per prima. | 
-| properties | object | Sì | (come illustrato di seguito) | Un oggetto che identifica la definizione del ruolo, l'entità e l'ambito. |  
+| Nome | Valore |
+| ---- | ---- |
+| type | Enum<br />Obbligatorio<br />**Microsoft.Authorization/roleAssignments**<br /><br />Tipo della risorsa da creare. |
+| apiVersion | Enum<br />Obbligatorio<br />**2014-10-01-preview**<br /><br />Versione dell'API da usare per creare la risorsa. |  
+| name | String<br />Obbligatorio<br />**Identificatore univoco globale**<br /><br />Identificatore della nuova assegnazione di ruolo. |
+| dependsOn | Array<br />Facoltativo<br />Elenco di valori separati da virgole di nomi di risorsa o di identificatori univoci di risorse.<br /><br />Raccolta di risorse da cui dipende questa assegnazione di ruolo. Se l'assegnazione di un ruolo ha come ambito una risorsa e tale risorsa viene distribuita nello stesso modello, includere il nome della risorsa in questo elemento per assicurarsi che la risorsa venga distribuita per prima. | 
+| properties | Oggetto<br />Obbligatorio<br />[oggetto properties](#properties)<br /><br />Oggetto che identifica la definizione del ruolo, l'entità e l'ambito. |  
 
+<a id="properties" />
 ### oggetto delle proprietà
 
-| Name | Tipo | Obbligatorio | Valori consentiti | Descrizione |
-| ------- | ---- | ---------------- | -------- | ----------- |
-| roleDefinitionId | string | Sì | **/subscriptions/{id-sottoscrizione}/providers/Microsoft.Authorization/roleDefinitions/{id-definizione-ruolo}** | L'identificatore di una definizione di ruolo esistente da usare nell'assegnazione di ruolo. |
-| principalId | string | Sì | Identificatore univoco globale | Identificatore di un'entità esistente. Esegue il mapping all'id all'interno della directory e può fare riferimento a un utente, all'entità servizio o a un gruppo di sicurezza. |
-| scope | string | Sì | Per il gruppo di risorse:<br />**/subscriptions/{id-sottoscrizione}/resourceGroups/{nome-gruppo-risorse}**<br /><br />Per la risorsa:<br />**/subscriptions/{id-sottoscrizione}/resourceGroups/{nome-gruppo-risorse}/providers/{spazio dei nomi-provider}/{tipo-risorsa}/{nome-risorsa}** | L'ambito a cui si applica questa assegnazione di ruolo. |
+| Nome | Valore |
+| ------- | ---- |
+| roleDefinitionId | String<br />Obbligatorio<br /> **/subscriptions/{ID sottoscrizione}/providers/Microsoft.Authorization/roleDefinitions/{ID definizione ruolo}**<br /><br />Identificatore di una definizione di ruolo esistente da usare nell'assegnazione di ruolo. |
+| principalId | String<br />Obbligatorio<br />**Identificatore univoco globale**<br /><br />Identificatore di un'entità esistente. Esegue il mapping all'id all'interno della directory e può fare riferimento a un utente, all'entità servizio o a un gruppo di sicurezza. |
+| scope | String<br />Obbligatorio<br />**/subscriptions/{ID sottoscrizione}/resourceGroups/{nome gruppo risorse}** (per i gruppi di risorse) o<br />**/subscriptions/{ID sottoscrizione}/resourceGroups/{nome gruppo risorse}/providers/{spazio dei nomi provider}/{tipo risorsa}/{nome risorsa}** (per le risorse)<br /><br />Ambito a cui si applica l'assegnazione di ruolo. |
 
 
 ## Come usare la risorsa di assegnazione di ruolo
@@ -123,13 +124,13 @@ L'esempio seguente assegna un gruppo a un ruolo per il gruppo di risorse.
 
 I modelli seguenti illustrano come usare la risorsa di assegnazione di ruolo:
 
-- [Assegnare un ruolo predefinito al gruppo di risorse](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-resourcegroup)
-- [Assegnare un ruolo predefinito a una macchina virtuale esistente](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-virtualmachine)
-- [Assegnare un ruolo predefinito a più macchine virtuali esistenti](https://github.com/Azure/azure-quickstart-templates/tree/master/201-rbac-builtinrole-multipleVMs)
+- [Assegnare un ruolo predefinito al gruppo di risorse](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-resourcegroup)
+- [Assegnare un ruolo predefinito a una macchina virtuale esistente](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-virtualmachine)
+- [Assegnare un ruolo predefinito a più macchine virtuali esistenti](https://azure.microsoft.com/documentation/templates/201-rbac-builtinrole-multipleVMs)
 
 ## Passaggi successivi
 
 - Per informazioni sulla struttura del modello, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 - Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Controllo di accesso in base al ruolo di Azure Active Directory](active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

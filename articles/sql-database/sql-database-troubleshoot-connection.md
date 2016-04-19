@@ -13,25 +13,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="03/29/2016"
 	ms.author="daleche"/>
 
-# Risoluzione dell'errore "Il database nel server non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento." e altri errori di connessione.
-"Il database <dbname> nel server <servername> non è attualmente disponibile..." è l'errore di connessione temporaneo più comune per il database SQL di Azure. Gli errori di connessione temporanei sono in genere quelli che si verificano a causa di un evento pianificato, ad esempio un aggiornamento del software, o di un evento non pianificato, ad esempio l'arresto anomalo di un processo. Tali errori hanno in genere breve durata, da un minimo di pochi secondi a un massimo di un minuto. Se si visualizza un errore diverso, esaminare il [messaggio di errore](sql-database-develop-error-messages.md) per ottenere indicazioni sulla causa, determinare se il problema è temporaneo o permanente e seguire le indicazioni riportate in questo argomento.
+# Risoluzione dell'errore "Il database &lt;x&gt; nel server &lt;y&gt; non è attualmente disponibile. Eseguire un altro tentativo di connessione più tardi.
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+Quando un'applicazione si connette a un database SQL di Azure, viene visualizzato il messaggio di errore seguente:
+
+```
+Error code 40613: "Database <x> on server <y> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <z>"
+```
+
+> [AZURE.NOTE] Questo messaggio di errore è in genere temporaneo.
+
+Questo errore si verifica quando il database di Azure viene spostato o riconfigurato e di conseguenza l'applicazione perde la connessione al database SQL. La riconfigurazione del database SQL avviene in seguito a eventi pianificati, nel caso ad esempio degli aggiornamenti software, o non pianificati, ad esempio per l'arresto di un processo o il bilanciamento del carico. La maggior parte degli eventi di riconfigurazione è di breve durata e deve essere completata in meno di 60 secondi al massimo. Tuttavia, il completamento di questi eventi in alcuni casi può richiedere più tempo, ad esempio quando una transazione di grandi dimensioni provoca un ripristino a esecuzione prolungata.
 
 ## Passaggi per risolvere problemi di connettività temporanei
-1.	Verificare il [Dashboard servizi di Microsoft Azure](https://azure.microsoft.com/status) per le interruzioni note.
-2.	Assicurarsi che l'app usi una logica di tentativi. Per le strategie generali di ripetizione dei tentativi, vedere i [problemi di connettività](sql-database-connectivity-issues.md) e le [procedure consigliate e le linee guida di progettazione](sql-database-connect-central-recommendations.md). Per informazioni dettagliate, vedere anche gli [esempi di codice](sql-database-develop-quick-start-client-code-samples.md).
-3.	Quando un database sta per raggiungere i limiti delle risorse, può sembrare che si sia verificato un problema di connettività temporaneo. Vedere la pagina relativa alla [risoluzione dei problemi di prestazioni](sql-database-troubleshoot-performance.md).
-4.	Se i problemi di connettività persistono, inviare una richiesta di supporto tecnico selezionando **Ottieni supporto** nel sito del [supporto tecnico di Azure](https://azure.microsoft.com/support/options).
+1.	Controllare il [Dashboard dei servizi di Microsoft Azure](https://azure.microsoft.com/status) per le interruzioni note che si sono verificate durante il periodo nel quale sono stati segnalati errori dall'applicazione.
+2. Le applicazioni che si connettono a un servizio cloud, come il database SQL di Azure, devono prevedere il verificarsi periodico di eventi di riconfigurazione e implementare la logica di ripetizione per gestire gli errori, invece di lasciare che vengano visualizzati dagli utenti come errori dell'applicazione. Esaminare la sezione [Errori temporanei](sql-database-connectivity-issues.md) e [le procedure consigliate e linee guida per la progettazione](sql-database-connect-central-recommendations.md) per altre informazioni e per le strategie di replica generali. Quindi, vedere gli [esempi di codice](sql-database-develop-quick-start-client-code-samples.md) per i dettagli.
+3.	Quando un database sta per raggiungere i limiti delle risorse, può sembrare che si stia verificando un problema di connettività temporaneo. Vedere la pagina relativa alla [risoluzione dei problemi di prestazioni](sql-database-troubleshoot-performance.md).
+4.	Se i problemi di connettività persistono, oppure se l'applicazione rileva l'errore per più di 60 secondi o se vengono visualizzate più occorrenze dell'errore in un dato giorno, inoltrare una richiesta di supporto tecnico di Azure selezionando **Ottenere supporto** sul sito del [supporto tecnico di Azure](https://azure.microsoft.com/support/options).
 
-## Passaggi per risolvere problemi di connettività permanenti
-Se l'app non è in grado di connettersi, in genere si tratta di un problema con la configurazione IP e firewall. Può trattarsi di un problema di riconfigurazione di rete sul lato client, ad esempio un nuovo indirizzo IP o un nuovo proxy. È anche comune che siano presenti parametri di connessione errati, ad esempio la stringa di connessione.
+## Passaggi successivi
+- Se si riceve un errore diverso, leggere il [messaggio di errore](sql-database-develop-error-messages.md) per indicazioni sulla causa.
+- Se il problema persiste, consultare il materiale sussidiario in [Risoluzione dei problemi di connessione comuni al database SQL di Azure](sql-database-troubleshoot-common-connection-issues.md).
 
-1.	Impostare le [regole del firewall](sql-database-configure-firewall-settings.md) per consentire l'indirizzo IP del client.
-2.	Assicurarsi che la porta 1433 sia aperta per le connessioni in uscita in tutti i firewall tra il client e Internet.
-3.	Verificare la stringa di connessione e le altre impostazioni di connessione. Vedere la sezione sulla stringa di connessione nell'[argomento relativo ai problemi di connettività](sql-database-connectivity-issues.md).
-4.	Controllare lo stato del servizio nel dashboard. Se si ritiene che si sia verificata un'interruzione regionale, vedere [Ripristinare un database SQL di Azure in seguito a un'interruzione del servizio](sql-database-disaster-recovery.md) per i passaggi di ripristino in una nuova area.
-5.	Se i problemi di connettività persistono, inviare una richiesta di supporto tecnico selezionando **Ottieni supporto** nel sito del [supporto tecnico di Azure](https://azure.microsoft.com/support/options).
-
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

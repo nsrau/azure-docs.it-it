@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="04/11/2016"
    ms.author="tomfitz"/>
 
 # Panoramica di Gestione risorse di Microsoft Azure
@@ -79,11 +79,13 @@ In Gestione risorse sono disponibili estensioni utili negli scenari che richiedo
 
 Quando si crea una soluzione da Marketplace, la soluzione include automaticamente un modello di distribuzione. Non è necessario creare un modello da zero perché è possibile iniziare con il modello per la soluzione e personalizzarlo per soddisfare esigenze specifiche.
 
+È possibile recuperare un modello per un gruppo di risorse esistente esportando lo stato corrente del gruppo di risorse in un modello oppure visualizzando il modello usato per una distribuzione specifica. Entrambe le opzioni sono illustrate in [Uso del portale di Azure per distribuire e gestire le risorse di Azure](./azure-portal/resource-group-portal.md).
+
 Infine, il modello diventa parte del codice sorgente per l'applicazione. È possibile archiviarlo nel repository del codice sorgente e aggiornarlo con l'evoluzione dell'applicazione. È possibile modificare il modello tramite Visual Studio.
 
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](./resource-group-authoring-templates.md).
 
-Per informazioni sull'uso di un modello per la distribuzione, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
+Per istruzioni dettagliate sulla creazione di un modello, vedere [Procedura dettagliata per un modello di Azure Resource Manager](resource-manager-template-walkthrough.md).
 
 Per indicazioni su come strutturare i modelli, vedere [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](best-practices-resource-manager-design-templates.md).
 
@@ -121,7 +123,7 @@ Per informazioni su PowerShell, vedere [Utilizzo di Azure PowerShell con Gestion
 
 Per informazioni sull'interfaccia della riga di comando di Azure, vedere [Utilizzo dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione delle risorse di Azure](./xplat-cli-azure-resource-manager.md).
 
-Per informazioni sull'API REST, vedere [Informazioni si riferimento sull'API REST di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+Per informazioni sull'API REST, vedere [Informazioni si riferimento sull'API REST di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx). Per visualizzare le operazioni REST per le risorse distribuite, vedere [Utilizzo di Esplora risorse di Azure per visualizzare e modificare le risorse](resource-manager-resource-explorer.md).
 
 Per informazioni sull'uso del portale, vedere [Uso del portale di Azure per gestire le risorse di Azure](azure-portal/resource-group-portal.md).
 
@@ -138,4 +140,4 @@ Ecco una dimostrazione video di questa panoramica:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

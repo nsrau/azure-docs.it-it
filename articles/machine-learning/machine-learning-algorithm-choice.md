@@ -35,7 +35,7 @@ Queste indicazioni sono commenti e suggerimenti compilati da parte di scienziati
 
 Leggere il percorso e le etichette degli algoritmi sul grafico come "Per *&lt;path label&gt;* utilizzare *&lt;algorithm&gt;*". Ad esempio, "Per *velocità* utilizzare *regressione logistica a due classi*". A volte è possibile applicare più di una branca. A volte nessuno di essi sarà la scelta perfetta. Devono essere considerati consigli generali, pertanto non è necessario che siano esatti. Diversi scienziati dei dati con cui ho parlato hanno detto che l'unico modo sicuro per trovare l'algoritmo migliore consiste nel provarli tutti.
 
-Ecco un esempio tratto dalla [raccolta di Cortana Analytics](http://gallery.azureml.net/) di un esperimento che prova diversi algoritmi sugli stessi dati e ne confronta i risultati: [Confrontare classificatori multiclasse: riconoscimento di lettere](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+Ecco un esempio tratto da [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) di un esperimento che prova diversi algoritmi sugli stessi dati e ne confronta i risultati: [Confrontare classificatori multiclasse: riconoscimento di lettere](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 >[AZURE.TIP] Per scaricare e stampare un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
@@ -237,4 +237,4 @@ Azure Machine Learning include inoltre l'accesso a una struttura di Machine Lear
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

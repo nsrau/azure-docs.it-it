@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SDK per Python di DocumentDB| Microsoft Azure" 
+	pageTitle="SDK per Python di DocumentDB | Microsoft Azure" 
 	description="Altre informazioni sulle date di rilascio e le date di ritiro dell'SDK per Python e sulle modifiche apportate tra le versioni dell'SDK per Python di DocumentDB." 
 	services="documentdb" 
 	documentationCenter="python" 
@@ -72,8 +72,10 @@ Tutte le versioni dell'SDK per Python di Azure DocumentDB precedenti alla versio
 
 <br/>
 
-| Versione | Data di rilascio | Data di ritiro 
+| Versione | Data di rilascio | Data di ritiro
 | ---	  | ---	         | ---
+| [1.6.0](#1.6.0) | 29 marzo 2016 |---
+| [1.5.0](#1.5.0) | 03 gennaio 2016 |---
 | [1\.4.2](#1.4.2) | 06 ottobre 2015 |---
 | [1\.4.1](#1.4.1) | 06 ottobre 2015 |---
 | [1\.2.0](#1.2.0) | 06 agosto 2015 |---

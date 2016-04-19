@@ -21,7 +21,7 @@
 
 # Esercitazione: Eseguire l'analisi dei sentimenti con analisi di flusso e Machine Learning #
 
-Questa esercitazione è stata realizzata per consentire la configurazione rapida dell'integrazione di un semplice processo di Analisi di flusso con Machine Learning. Si sfrutterà un modello di Machine Learning per l'analisi dei sentimenti, proveniente dalla raccolta Cortana Analytics, per analizzare il flusso di dati di testo e determinare il punteggio dei sentimenti in tempo reale. Questa esercitazione è utile per comprendere scenari come l'analisi dei sentimenti in tempo reale in un flusso di dati di Twitter, l'analisi dei record delle chat dei clienti con il personale del supporto, i commenti in forum/blog/video e diversi altri scenari di assegnazione punteggi predittivi in tempo reale.
+Questa esercitazione è stata realizzata per consentire la configurazione rapida dell'integrazione di un semplice processo di Analisi di flusso con Machine Learning. Si sfrutterà un modello di Machine Learning per l'analisi dei sentimenti proveniente dalla raccolta Cortana Intelligence per analizzare il flusso di dati di testo e determinare il punteggio dei sentimenti in tempo reale. Questa esercitazione è utile per comprendere scenari come l'analisi dei sentimenti in tempo reale in un flusso di dati di Twitter, l'analisi dei record delle chat dei clienti con il personale del supporto, i commenti in forum/blog/video e diversi altri scenari di assegnazione punteggi predittivi in tempo reale.
   
 In questa esercitazione viene fornito un file CSV di esempio contenente testo (come illustrato sotto nella figura 1) come input nell'archivio BLOB di Azure. Il processo applicherà il modello di analisi dei sentimenti come funzione definita dall'utente ai dati del testo di esempio dell'archivio BLOB. Il risultato finale verrà inserito nello stesso nell'archivio BLOB di Azure in un altro file CSV. Un diagramma di questa configurazione è disponibile sotto nella figura 2. Per uno scenario più realistico, questo input per l'archivio BLOB può essere sostituito con il flusso di dati di Twitter provenienti da un input di Hub eventi di Azure. È anche possibile compilare una visualizzazione in tempo reale di [Power BI](https://powerbi.microsoft.com/) del sentimento di aggregazione. Le iterazioni future di questo articolo includeranno tali estensioni.
 
@@ -43,7 +43,7 @@ I prerequisiti per questo articolo sono i seguenti:
 In generale, verranno eseguiti i passaggi seguenti:
 
 1.	Caricare il file di input CSV in Archiviazione BLOB
-2.	Aggiungere un modello di analisi dei sentimenti dalla raccolta Cortana Analytics all'area di lavoro di Machine Learning
+2.	Aggiungere un modello di analisi dei sentimenti dalla raccolta Cortana Intelligence all'area di lavoro di Machine Learning
 3.	Distribuire questo modello come servizio Web nell'area di lavoro di Azure Machine Learning
 4.	Creare un processo di Analisi di flusso che chiami questo servizio Web come funzione per determinare il sentimento per l'input di testo
 5.	Avviare il processo di Analisi di flusso ed esaminare l'output 
@@ -63,9 +63,9 @@ Per questo passaggio, è possibile usare qualsiasi file CSV, incluso quello spec
 
 3.	Caricare il file CSV facendo clic sull'icona **Carica BLOB** e quindi scegliere **file dal disco locale**.
 
-## Aggiungere il modello di analisi dei sentimenti dalla raccolta Cortana Analytics
+## Aggiungere il modello di analisi dei sentimenti dalla raccolta Cortana Intelligence
 
-1.	Scaricare il [modello di analisi dei sentimenti predittiva](https://gallery.cortanaanalytics.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) nella raccolta Cortana Analytics.  
+1.	Scaricare il [modello di analisi predittiva dei sentimenti](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) nella raccolta Cortana Intelligence.  
 2.	Fare clic su **Open** in Studio:  
 
     ![Apertura di Machine Learning Studio nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)
@@ -140,7 +140,7 @@ Prendere nota dell'URL del servizio Web e della chiave di accesso dal file di Ex
 
 ## Conclusioni
 
-In questa esercitazione è stato creato un processo di Analisi di flusso che legge i flussi di dati di testo e l'analisi dei sentimenti applicata in tempo reale. Tutto questo è stato fatto senza doversi preoccupare delle difficoltà derivanti dalla compilazione di un modello di analisi dei sentimenti. Questo è uno dei vantaggi della suite Cortana Analytics.
+In questa esercitazione è stato creato un processo di Analisi di flusso che legge i flussi di dati di testo e l'analisi dei sentimenti applicata in tempo reale. Tutto questo è stato fatto senza doversi preoccupare delle difficoltà derivanti dalla compilazione di un modello di analisi dei sentimenti. Questo è uno dei vantaggi della suite Cortana Intelligence.
 
 È possibile osservare anche le metriche correlate alla funzione Azure Machine Learning. Fare clic sulla scheda **MONITOR**. Sono presenti tre metriche correlate alla funzione.
   
@@ -150,4 +150,4 @@ In questa esercitazione è stato creato un processo di Analisi di flusso che leg
 
     ![Visualizzazione monitoraggio ML nell'esercitazione su Machine Learning e Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0406_2016-->

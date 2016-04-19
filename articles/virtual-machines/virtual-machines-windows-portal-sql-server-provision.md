@@ -75,7 +75,7 @@ Nel pannello **Crea macchina virtuale** in **Informazioni di base** specificare 
 >![Nozioni di base di Gestione risorse di Azure per SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-basic.png) <br/>
 
 ## 2\. Scegliere le dimensioni della macchina virtuale
-Nel pannello **Crea macchina virtuale** scegliere una dimensione di macchina virtuale in **Dimensioni**. Il portale di Azure visualizzerà le dimensioni consigliate. Per altre informazioni sulle dimensioni di macchine virtuali, vedere [Dimensioni delle macchine virtuali](virtual-machines-linux-sizes.md). Le dimensioni sono basate sul modello selezionato. Le dimensioni stimano il costo mensile per l'esecuzione della VM. Selezionare le dimensioni della macchina virtuale per il server. Per considerazioni sulle dimensioni delle VM di SQL Server, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-perf.md).
+Nel pannello **Crea macchina virtuale** scegliere una dimensione di macchina virtuale in **Dimensioni**. Il portale di Azure visualizzerà le dimensioni consigliate. Per altre informazioni sulle dimensioni di macchine virtuali, vedere [Dimensioni delle macchine virtuali](virtual-machines-linux-sizes.md). Le dimensioni sono basate sul modello selezionato. Le dimensioni stimano il costo mensile per l'esecuzione della VM. Selezionare le dimensioni della macchina virtuale per il server. Per considerazioni sulle dimensioni delle VM di SQL Server, vedere l'articolo relativo alle [procedure consigliate sulle prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
 
 ## 3\. Configurare le impostazioni della macchina virtuale
 Nel pannello **Crea macchina virtuale** configurare l'archiviazione di Azure, la rete e il monitoraggio per la macchina virtuale in **Impostazioni**.
@@ -146,7 +146,7 @@ L'immagine seguente mostra il pannello Configurazione dell'archiviazione. <br/>!
 
 <br/>![Applicazione di patch di Gestione risorse di Azure per SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png) <br/>
 
-Per altre informazioni, vedere [Applicazione automatizzata di patch per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-ps-sql-patch.md).
+Per altre informazioni, vedere l'articolo relativo all'[applicazione automatizzata di patch per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-automated-patching.md).
 
 ### Backup
 Abilitare i backup automatici del database per tutti i database in **Backup automatico di SQL**. Quando si abilita il backup automatico di SQL è possibile configurare quanto segue:
@@ -157,7 +157,7 @@ Abilitare i backup automatici del database per tutti i database in **Backup auto
 
 <br/>![Backup di Gestione risorse di Azure per SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png) <br/>
 
- Per altre informazioni, vedere [Backup automatizzato per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-ps-sql-backup.md).
+ Per altre informazioni, vedere [Backup automatizzato per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-automated-backup.md).
 
 ### Integrazione dell'insieme di credenziali delle chiavi
 Per archiviare i segreti di sicurezza in Azure per la crittografia, fare clic su **Integrazione dell'insieme di credenziali delle chiavi di Azure** e quindi su **Abilita**.
@@ -201,6 +201,6 @@ I passaggi seguenti non sono necessari se si deve solo accedere alla macchina vi
 > [AZURE.INCLUDE [Connettersi a SQL Server da una VM in Gestione risorse](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ##<a id="Next">Passaggi successivi
-Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-overview.md).
+Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

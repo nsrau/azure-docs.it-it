@@ -19,12 +19,6 @@
 
 # Creare e preconfigurare una macchina virtuale Linux tramite Azure PowerShell
 
-> [AZURE.SELECTOR]
-- [Interfaccia della riga di comando di Azure](virtual-machines-linux-cli-create.md)
-- [PowerShell](virtual-machines-linux-classic-createpowershell.md)
-
-
-<br>
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
  
@@ -36,7 +30,7 @@ Per l'argomento associato per le macchine virtuali basate su Windows, vedere [Ut
 
 ## Installare Azure PowerShell
 
-Se non è già stato fatto, [Installare e configurare Azure PowerShell](powershell-install-configure.md). Quindi, aprire un prompt dei comandi di Azure PowerShell.
+Se non è già stato fatto, [Installare e configurare Azure PowerShell](../powershell-install-configure.md). Quindi, aprire un prompt dei comandi di Azure PowerShell.
 
 ## Impostare l'account di archiviazione e la sottoscrizione
 
@@ -275,10 +269,10 @@ Ecco il set di comandi corrispondente di Azure PowerShell per creare la macchina
 
 [Panoramica delle macchine virtuali di Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Come installare e configurare Azure PowerShell](powershell-install-configure.md)
+[Come installare e configurare Azure PowerShell](../powershell-install-configure.md)
 
 [Come accedere a una macchina virtuale che esegue Linux](virtual-machines-linux-classic-log-on.md)
 
 [Uso di Azure PowerShell per creare e preconfigurare macchine virtuali basate su Windows](virtual-machines-windows-classic-create-powershell.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

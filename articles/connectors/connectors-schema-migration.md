@@ -28,7 +28,6 @@ Per spostare le app per la logica esistenti nel nuovo schema, seguire questa pro
 >[AZURE.NOTE] Quando si seleziona **Aggiorna schema**, vengono eseguiti automaticamente i passaggi della migrazione e viene generato l'output del codice. È possibile usare questi elementi per aggiornare la definizione. Assicurarsi, tuttavia, di seguire le procedure di codifica consigliate, ad esempio quelle indicate nella **sezione seguente**.
 
 ##Procedure consigliate durante la migrazione di app per la logica alla versione più recente dello schema  
-Non sovrascrivere. Iniziare il passaggio alle nuove API.
 
 - Copiare lo script di cui è stata eseguita la migrazione in una nuova app per la logica. Non sovrascrivere l'app precedente fino a quando non è stato completato il test ed è stato confermato il corretto funzionamento dell'app di cui è stata eseguita la migrazione.
 - Testare l'app per la logica **prima** di passare alla fase di produzione.
@@ -43,4 +42,4 @@ Non sovrascrivere. Iniziare il passaggio alle nuove API.
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

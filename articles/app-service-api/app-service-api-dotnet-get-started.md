@@ -25,10 +25,10 @@
 Questa è la prima di una serie di esercitazioni che illustrano come usare le funzionalità del servizio app di Azure utili per lo sviluppo e l'hosting di API RESTful:
 
 * Supporto integrato per i metadati dell'API
-* Supporto CORS
+* Supporto per [Condivisione risorse tra le origini (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 * Supporto per l'autenticazione e l'autorizzazione
 
-Verrà distribuita un'applicazione di esempio a due [app per le API](app-service-api-apps-why-best-platform.md) e a un'app Web nel servizio app di Azure. L'applicazione di esempio è un elenco di attività con un front-end costituito da un'applicazione a singola pagina AngularJS, un livello intermedio API Web ASP.NET e un livello dati API Web ASP.NET.
+Verrà distribuita un'applicazione di esempio in due [app per le API](app-service-api-apps-why-best-platform.md) e in un'app Web nel servizio app di Azure. L'applicazione di esempio è un elenco attività con un front-end costituito da un'applicazione a singola pagina, un livello intermedio con un'API Web ASP.NET e un livello dati con un'API Web ASP.NET. Il front-end dell'applicazione a singola pagina è basato sul framework [AngularJS](https://angularjs.org/).
 
 ![Diagramma dell'applicazione di esempio di app per le API](./media/app-service-api-dotnet-get-started/noauthdiagram.png)
 
@@ -59,16 +59,7 @@ In questa esercitazione si apprenderà come:
 
 2. Aprire la soluzione ToDoList in Visual Studio 2015 o 2013.
 
-	La soluzione di Visual Studio è un'applicazione di esempio che usa attività semplici costituite da una descrizione e un proprietario.
-
-		public class ToDoItem 
-		{ 
-		    public int ID { get; set; } 
-		    public string Description { get; set; } 
-		    public string Owner { get; set; } 
-		} 
- 
-	La soluzione contiene tre progetti:
+	La soluzione di Visual Studio è un'applicazione di esempio che usa attività semplici costituite da una descrizione e un proprietario. La soluzione contiene tre progetti:
 
 	![](./media/app-service-api-dotnet-get-started/projectsinse.png)
 
@@ -76,25 +67,33 @@ In questa esercitazione si apprenderà come:
 
 	* **ToDoListAPI**: livello intermedio. Un progetto API Web ASP.NET che chiama il livello dati per eseguire operazioni CRUD sulle attività.
 
-	* **ToDoListDataAPI**: livello dati. Un progetto API Web ASP.NET che esegue operazioni CRUD sulle attività. Le attività sono archiviate in memoria, ciò significa che ogni volta che l'applicazione viene riavviata tutte le modifiche vengono perse.
+	* **ToDoListDataAPI**: livello dati. Un progetto API Web ASP.NET che esegue operazioni CRUD sulle attività.
 
-	Il livello intermedio fornisce l'ID utente nel campo `Owner` durante la chiamata al livello dati. Nel codice scaricato, l'ID utente è sempre "*". Aggiungendo l'autenticazione nelle esercitazioni successive, il livello intermedio fornirà l'ID utente effettivo al livello dati.
+	L'architettura a tre livelli è comune in numerose applicazioni, ma non è adatta a tutti gli scenari. In questo caso viene usata principalmente per facilitare la dimostrazione delle funzionalità delle app per le API e anche il codice per ogni livello è stato semplificato a questo scopo. Diversamente da un'applicazione reale, il livello intermedio non contiene logica di business significativa. Il livello dati usa invece la memoria del server anziché un database come meccanismo di salvataggio permanente, di conseguenza ogni volta che l'applicazione viene riavviata vengono perse tutte le modifiche.
 
 2. Compilare la soluzione per ripristinare i pacchetti NuGet.
 
-### Eseguire l'applicazione in locale (facoltativo)
+## Eseguire l'applicazione in locale (facoltativo)
 
 In questa sezione si verifica la possibilità di eseguire il client in locale e di chiamare l'API mentre è anch'essa in esecuzione in locale.
 
-**Nota:** queste istruzioni sono valide per i browser Internet Explorer ed Edge che consentono le chiamate JavaScript multiorigine da e verso gli URL `http://localhost`. Se si usa Chrome, avviare il browser con l'opzione `--disable-web-security`. Se si usa Firefox, saltare questa sezione.
+**Nota:** queste istruzioni sono valide per i browser Internet Explorer ed Edge che consentono le chiamate JavaScript tra le origini da e verso gli URL `http://localhost`. Se si usa Chrome, avviare il browser con l'opzione `--disable-web-security`. Se si usa Firefox, saltare questa sezione.
 
-1. Impostare i tre progetti come progetti di avvio, partendo da ToDoListDataAPI, quindi ToDoListAPI e infine ToDoListAngular. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Proprietà**, selezionare **Progetti di avvio multipli**, mettere i progetti nell'ordine corretto e impostare **Azione** su **Avvio** per ogni progetto.  
+1. Impostare i tre progetti come progetti di avvio, partendo da ToDoListDataAPI, quindi ToDoListAPI e infine ToDoListAngular.
+
+	a. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Proprietà**.
+
+	b. Selezionare **Progetti di avvio multipli** e quindi selezionare i progetti in base all'ordine desiderato.
+
+	c. Impostare **Azione** su **Avvio** per ogni progetto.
 
 2. Premere F5 per avviare i progetti.
 
 	Vengono aperte tre finestre del browser. Due finestre del browser mostrano pagine di errore HTTP 403 (esplorazione directory non consentita), come è normale per i progetti API Web. La terza finestra del browser mostra l'interfaccia utente di AngularJS.
 
-3. Nella finestra del browser che mostra l'interfaccia utente di AngularJS fare clic sulla scheda **Todo List**.
+	In alcuni browser verranno visualizzate finestre di dialogo che indicano che il progetto è configurato per usare SSL. Per...
+
+3. Nella finestra del browser che mostra l'interfaccia utente di AngularJS fare clic sulla scheda **To Do List**.
 
 	L'interfaccia utente mostra due attività predefinite.
 
@@ -104,7 +103,7 @@ In questa sezione si verifica la possibilità di eseguire il client in locale e 
 
 	Le modifiche apportate vengono archiviate nella memoria e vengono perse quando si riavvia l'applicazione.
 
-3. Chiudere le finestre del browser.
+3. Chiudere le finestre del browser e arrestare il debug di Visual Studio.
 
 ## Usare l'interfaccia utente e i metadati di Swagger
 
@@ -169,9 +168,9 @@ In questa sezione dell'esercitazione si esaminano i metadati di Swagger 2.0 gene
 		        "deprecated": false
 		      },
 
-1. Chiudere il browser.
+1. Chiudere il browser e arrestare il debug di Visual Studio.
 
-3. Nel progetto ToDoListDataAPI in **Esplora soluzioni** aprire il file *App\_Start\\SwaggerConfig.cs*, quindi scorrere in basso fino al codice seguente e rimuovere il commento.
+3. Nel progetto ToDoListDataAPI in **Esplora soluzioni** aprire il file *App\_Start\\SwaggerConfig.cs*, quindi scorrere verso il basso fino al codice seguente e rimuovere il commento.
 
 		/*
 		    })
@@ -195,6 +194,8 @@ In questa sezione dell'esercitazione si esaminano i metadati di Swagger 2.0 gene
 
 6. Immettere un asterisco come valore del parametro `owner` e quindi fare clic su **Try it out**.
 
+	Aggiungendo l'autenticazione nelle esercitazioni successive, il livello intermedio fornirà l'ID utente effettivo al livello dati. Per ora, il campo del proprietario mostrerà un asterisco per tutte le attività mentre l'applicazione viene eseguita senza autenticazione abilitata.
+
 	![Prova dell'interfaccia utente di Swagger](./media/app-service-api-dotnet-get-started/gettryitout1.png)
 
 	L'interfaccia utente di Swagger chiama il metodo Get ToDoList e visualizza il codice di risposta e i risultati JSON.
@@ -207,7 +208,7 @@ In questa sezione dell'esercitazione si esaminano i metadati di Swagger 2.0 gene
 
 	![Post della prova dell'interfaccia utente di Swagger](./media/app-service-api-dotnet-get-started/post.png)
 
-7. Modificare lo script JSON nella casella di input del parametro `contact`, in modo che appaia come l'esempio seguente, oppure sostituire con il proprio testo descrittivo:
+7. Modificare il codice JSON nella casella di input del parametro `todo`, in modo che appaia come l'esempio seguente, oppure sostituire con un testo descrittivo personalizzato:
 
 		{
 		  "ID": 2,
@@ -225,11 +226,11 @@ In questa sezione dell'esercitazione si esaminano i metadati di Swagger 2.0 gene
 
 12. Provare anche i metodi Put, Delete e Get by ID.
 
-14. Chiudere il browser.
+14. Chiudere il browser e arrestare il debug di Visual Studio.
 
 Swashbuckle funziona con qualsiasi progetto API Web ASP.NET. Se si vuole aggiungere la generazione metadati di Swagger a un progetto esistente, è sufficiente installare il pacchetto Swashbuckle.
 
-**Note:** i metadati di Swagger includono un ID univoco per ogni operazione API. Per impostazione predefinita, Swashbuckle può generare ID operazione di Swagger duplicati per i metodi del controller dell'API Web. Ciò si verifica se il controller presenta metodi di overload HTTP, ad esempio `Get()` e `Get(id)`. Per informazioni su come gestire gli overload, vedere [Personalizzare le definizioni delle API generate da Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md). Se si crea un progetto di API Web in Visual Studio usando il modello App per le API di Azure, al file *SwaggerConfig.cs* viene aggiunto automaticamente codice che genera ID operazione univoci.
+**Nota:** i metadati di Swagger includono un ID univoco per ogni operazione API. Per impostazione predefinita, Swashbuckle può generare ID operazione di Swagger duplicati per i metodi del controller dell'API Web. Ciò si verifica se il controller presenta metodi di overload HTTP, ad esempio `Get()` e `Get(id)`. Per informazioni su come gestire gli overload, vedere [Personalizzare le definizioni delle API generate da Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md). Se si crea un progetto di API Web in Visual Studio usando il modello App per le API di Azure, al file *SwaggerConfig.cs* viene aggiunto automaticamente codice che genera ID operazione univoci.
 
 ## Creare un'app per le API in Azure e distribuire il progetto ToDoListAPI nell'app
 
@@ -255,11 +256,11 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
 
 	![Tipo di app nella finestra di dialogo Servizio app](./media/app-service-api-dotnet-get-started/apptype.png)
 
-	<a id="apptype"></a> Le funzionalità disponibili per la nuova app per le API, app Web o app per dispositivi mobili non sono determinate dal tipo di app. Tutte le funzionalità dell'app per le API illustrate in questa esercitazione sono disponibili per tutti e tre i tipi. La sola differenza è data dell'icona e dal testo visualizzati nel portale di Azure per identificare il tipo di app e l'ordine in cui le funzionalità vengono elencate in alcune pagine nel portale. Il portale di Azure verrà illustrato più avanti nell'esercitazione. Si tratta di un'interfaccia Web per la gestione delle risorse di Azure.
+	Le funzionalità disponibili per la nuova app per le API, app Web o app per dispositivi mobili non sono determinate dal tipo di app. Tutte le funzionalità dell'app per le API illustrate in questa esercitazione sono disponibili per tutti e tre i tipi. La sola differenza è data dell'icona e dal testo visualizzati nel portale di Azure per identificare il tipo di app e l'ordine in cui le funzionalità vengono elencate in alcune pagine nel portale. Il portale di Azure verrà illustrato più avanti nell'esercitazione. Si tratta di un'interfaccia Web per la gestione delle risorse di Azure.
 
 	Per queste esercitazioni il front-end dell'applicazione a singola pagina è in esecuzione in un'app Web e ogni back-end dell'API Web è in esecuzione in un'app per le API, ma sarebbe esattamente lo stesso se si trattasse di tre app Web o di tre app per le API. Una singola app per le API o app Web può anche ospitare sia il front-end dell'applicazione a singola pagina che il back-end di livello intermedio.
 
-4. Immettere un **Nome app per le API** univoco nel dominio *azurewebsites.net*, ad esempio ToDoListDataAPI più un numero che lo renda univoco.
+4. Immettere un **Nome app per le API** univoco nel dominio *azurewebsites.net*, ad esempio ToDoListDataAPI aggiungendovi un numero per renderlo univoco.
 
 	Visual Studio propone un nome univoco aggiungendo una stringa di data e ora al nome del progetto. Se si preferisce, è possibile accettare questo nome.
 
@@ -299,19 +300,19 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
 
 	![Fare clic su Crea nella finestra di dialogo Crea servizio app](./media/app-service-api-dotnet-get-started/clickcreate.png)
 
-	Visual Studio crea l'app per le API.
+	Visual Studio crea l'app per le API e un profilo di pubblicazione che include tutte le impostazioni necessarie per l'app per le API. Apre quindi la procedura guidata **Pubblica sul Web** che verrà usata per distribuire il progetto.
 
 	**Nota:** esistono altri modi per creare app per le API nel servizio app di Azure. In Visual Studio, ad esempio, quando si crea un nuovo progetto, è possibile creare risorse di Azure esattamente come è stato fatto per un progetto esistente. È anche possibile creare app per le API usando il [portale di Azure](https://portal.azure.com/), i [cmdlet di Azure per Windows PowerShell](../powershell-install-configure.md) o l'[interfaccia della riga di comando multipiattaforma](../xplat-cli.md).
 
-	Quando Visual Studio termina la creazione dell'app per le API, crea un profilo di pubblicazione che include tutte le impostazioni necessarie per la nuova app per le API. Nei passaggi seguenti usare il nuovo profilo di pubblicazione per distribuire il progetto.
+	All'apertura, la procedura guidata **Pubblica sul Web** visualizzerà la scheda **Connessione**, come mostrato sotto.
 
-8. Nella scheda **Connessione** della procedura guidata **Pubblica sul Web** fare clic su **Avanti**.
+	Nella scheda **Connessione** le impostazioni per **Server** e **Nome sito** fanno riferimento all'app per le API. I valori di **Nome utente** e **Password** sono credenziali di distribuzione create automaticamente da Azure. Al termine della distribuzione, Visual Studio apre un browser sull'**URL di destinazione**.
 
-	Ora sarebbe anche possibile andare avanti e fare clic su **Pubblica** per distribuire immediatamente il progetto nella nuova app per le API, ma ai fini dell'esercitazione si esamineranno le altre schede di questa finestra di dialogo per conoscere quali operazioni è possibile eseguire.
+8. Fare clic su **Avanti**.
 
 	![Fare clic su Avanti nella scheda Connessione di Pubblica sul Web](./media/app-service-api-dotnet-get-started/connnext.png)
 
-	La scheda successiva è **Impostazioni**, dove è possibile modificare la configurazione della build per distribuire una build di debug per il [debug remoto](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). La scheda include anche alcune **Opzioni pubblicazione file**:
+	La scheda successiva è la scheda **Impostazioni**, mostrata sotto, in cui è possibile modificare la configurazione della build per distribuire una build di debug per il [debug remoto](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). La scheda include anche numerose **Opzioni pubblicazione file**:
 
 	* Rimuovi i file aggiuntivi nella destinazione
 	* Precompila durante la pubblicazione
@@ -323,13 +324,13 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
 
 	![Fare clic su Avanti nella scheda Impostazioni di Pubblica sul Web](./media/app-service-api-dotnet-get-started/settingsnext.png)
 
-	La scheda **Anteprima** consente di visualizzare quali file verranno copiati dal progetto all'app per le API. Quando si distribuisce un progetto in un'app per le API che è già stato distribuito prima, vengono copiati solo i file modificati. Per visualizzare un elenco di quelli che verranno copiati, è possibile fare clic sul pulsante **Avvia anteprima**.
+	Si passa quindi alla scheda **Anteprima**, mostrata sotto, che consente di visualizzare quali file verranno copiati dal progetto all'app per le API. Quando si distribuisce un progetto in un'app per le API che è già stato distribuito prima, vengono copiati solo i file modificati. Per visualizzare un elenco di quelli che verranno copiati, è possibile fare clic sul pulsante **Avvia anteprima**.
 
 15. Fare clic su **Pubblica**.
 
 	![Fare clic su Pubblica nella scheda Anteprima di Pubblica sul Web](./media/app-service-api-dotnet-get-started/clickpublish.png)
 
-	Visual Studio distribuisce il progetto ToDoListDataAPI nella nuova app per le API. La finestra **Output** registra la distribuzione riuscita e una pagina indicante che la creazione è avvenuta correttamente viene visualizzata in una finestra del browser aperta nell'URL dell'app per le API.
+	Visual Studio distribuisce il progetto ToDoListDataAPI nella nuova app per le API. La finestra **Output** registra la distribuzione riuscita e una pagina indicante che la creazione è avvenuta correttamente viene visualizzata in una finestra del browser aperta all'indirizzo dell'URL dell'app per le API.
 
 	![Finestra di output che segnala che la distribuzione è completata](./media/app-service-api-dotnet-get-started/deploymentoutput.png)
 
@@ -347,7 +348,7 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
 
 	![Selezionare Servizi app](./media/app-service-api-dotnet-get-started/browseas.png)
 
-15. Nel pannello **Servizi app** trovare e fare clic sulla nuova app per le API. Nel portale di Azure le finestre che si aprono sulla destra vengono chiamate *pannelli*.
+15. Nel pannello **Servizi app** trovare nuova app per le API e fare clic su di essa. Nel portale di Azure le finestre che si aprono sulla destra vengono chiamate *pannelli*.
 
 	![Pannello Servizi app](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
 
@@ -411,23 +412,33 @@ Il progetto ToDoListAPI include già il codice client generato, ma è necessario
 
 	Il frammento seguente illustra come il codice crea un'istanza dell'oggetto client e chiama il metodo Get.
 
-		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
-		
-		public ActionResult Index()
+		private static ToDoListDataAPI NewDataAPIClient()
 		{
-		    return View(db.Contacts.Get());
+		    var client = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
+		    return client;
+		}
+		
+		public async Task<IEnumerable<ToDoItem>> Get()
+		{
+		    using (var client = NewDataAPIClient())
+		    {
+		        var results = await client.ToDoList.GetByOwnerAsync(owner);
+		        return results.Select(m => new ToDoItem
+		        {
+		            Description = m.Description,
+		            ID = (int)m.ID,
+		            Owner = m.Owner
+		        });
+		    }
 		}
 
 	Il parametro del costruttore ottiene l'URL dell'endpoint dall'impostazione `toDoListDataAPIURL` dell'app. Nel file Web.config questo valore è impostato sull'URL di IIS Express locale del progetto API per consentire l'esecuzione dell'applicazione in locale. Se si omette il parametro del costruttore, l'endpoint predefinito sarà l'URL da cui è stato generato il codice.
 
 6. La classe del client verrà generata con un nome diverso basato sul nome dell'app per le API. Modificare il codice in *Controllers\\ToDoListController.cs* in modo che il nome del tipo corrisponda a quanto generato nel progetto. Ad esempio, se l'app per le API è stata denominata ToDoListDataAPI0121, il codice sarà simile all'esempio seguente:
 
-		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
-		
-		public ActionResult Index()
+		private static ToDoListDataAPI0121 NewDataAPIClient()
 		{
-		    return View(db.Contacts.Get());
-		}
+		    var client = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 ### Creare un'app per le API per ospitare il livello intermedio
 
@@ -437,7 +448,7 @@ Il progetto ToDoListAPI include già il codice client generato, ma è necessario
 
 5. Nella finestra di dialogo **Servizio App** fare clic su **Nuovo**.
 
-3. Nella scheda **Hosting** della finestra di dialogo **Crea servizio app** immettere un **Nome app per le API** che sia univoco nel dominio *azurewebsites.net*.
+3. Nella scheda **Hosting** della finestra di dialogo **Crea servizio app** in **Nome app per le API** immettere un nome che sia univoco nel dominio *azurewebsites.net*.
 
 5. Scegliere la **Sottoscrizione** di Azure da usare.
 
@@ -447,7 +458,7 @@ Il progetto ToDoListAPI include già il codice client generato, ma è necessario
 
 7. Fare clic su **Create**.
 
-	Visual Studio crea l'app per le API, crea un profilo di pubblicazione per l'app e visualizza il passaggio **Connessione** della procedura guidata **Pubblica sito Web**.
+	Visual Studio crea l'app per le API, crea un profilo di pubblicazione per l'app e visualizza il passaggio **Connessione** della procedura guidata **Pubblica sul Web**.
 
 3.  Nel passaggio **Connessione** della procedura guidata **Pubblica sito Web** fare clic su **Pubblica**.
 
@@ -457,7 +468,7 @@ Il progetto ToDoListAPI include già il codice client generato, ma è necessario
 
 Se l'app per le API di livello intermedio venisse chiamata ora, cercherebbe di chiamare il livello dati usando l'URL localhost che si trova ancora nel file Web.config. In questa sezione si immette l'URL dell'app per le API del livello dati in un'impostazione dell'ambiente nell'app per le API del livello intermedio. Quando il codice nell'app per le API del livello intermedio recupera l'impostazione dell'URL del livello dati, l'impostazione dell'ambiente esegue l'override del contenuto del file Web.config.
  
-1. Andare al [portale di Azure](https://portal.azure.com/) e passare al pannello **App per le API** per l'app per le API creata per ospitare il progetto TodoListAPI (livello intermedio).
+1. Andare al [portale di Azure](https://portal.azure.com/) e passare al pannello **App per le API** relativo all'app per le API creata per ospitare il progetto TodoListAPI (livello intermedio).
 
 2. Nel pannello **Impostazioni** dell'app per le API fare clic su **Impostazioni app**.
  
@@ -465,7 +476,7 @@ Se l'app per le API di livello intermedio venisse chiamata ora, cercherebbe di c
 
 	| **Chiave** | toDoListDataAPIURL |
 	|---|---|
-	| **Valore** | https://{your nome dell'app per le API di livello dati}.azurewebsites.net |
+	| **Valore** | https://{your nome dell'app per le API del livello dati}.azurewebsites.net |
 	| **Esempio** | https://todolistdataapi0121.azurewebsites.net |
 
 4. Fare clic su **Save**.
@@ -480,7 +491,7 @@ Se l'app per le API di livello intermedio venisse chiamata ora, cercherebbe di c
 
 13. Nella barra degli indirizzi del browser aggiungere "swagger" all'URL e quindi premere INVIO. L'URL è `http://{apiappname}.azurewebsites.net/swagger`.
 
-	Il browser visualizza la stessa interfaccia utente di Swagger vista in precedenza per ToDoListDataAPI, ma `owner` non è un campo obbligatorio per l'operazione Get perché ora è l'app per le API di livello intermedio a inviare tale valore all'app per le API di livello dati. Quando si eseguiranno le esercitazioni sull'autenticazione, il livello intermedio invierà gli ID utente effettivi per il parametro `owner`. Per il momento imposta un asterisco come hardcoded.
+	Il browser visualizza la stessa interfaccia utente di Swagger vista in precedenza per ToDoListDataAPI, ma `owner` non è un campo obbligatorio per l'operazione Get perché ora è l'app per le API del livello intermedio a inviare tale valore all'app per le API del livello dati. Quando si eseguiranno le esercitazioni sull'autenticazione, il livello intermedio invierà gli ID utente effettivi per il parametro `owner`. Per il momento imposta un asterisco come hardcoded.
 
 12. Provare a usare il metodo Get e gli altri metodi per verificare che l'app per le API di livello intermedio chiami correttamente l'app per le API di livello dati.
 
@@ -495,30 +506,6 @@ In questa esercitazione si scaricano progetti API Web ASP.NET per la distribuzio
 ![Modello di app per le API in Visual Studio](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
 Scegliere il modello di progetto **App per le API di Azure** equivale a scegliere il modello di ASP.NET 4.5.2 **Vuoto**, fare clic sulla casella di controllo per aggiungere il supporto per l'API Web e installare il pacchetto Swashbuckle. Il modello aggiunge anche un codice di configurazione di Swashbuckle progettato per evitare la creazione di ID operazione di Swagger duplicati.
-
-## Facoltativo: Modifica di un tipo di app
-
-Come illustrato [prima](#apptype), la sola differenza tra le app per le API, le app Web e le app per dispositivi mobili è il modo in cui sono rappresentate nel portale. Poiché hanno tutte le stesse funzionalità, non è mai necessario modificare un tipo di app.
-
-Se, tuttavia, si vuole modificare la rappresentazione nel portale, è possibile farlo facilmente. Ad esempio, per sostituire una delle app per le API appena create con un'app Web, eseguire questa procedura.
-
-1. Aprire [Esplora risorse](https://resources.azure.com/).
-
-2. Nel riquadro di spostamento sinistro espandere **subscriptions** e quindi espandere la sottoscrizione usata.
-
-4. Espandere **resourceGroups** e quindi espandere il gruppo di risorse usato.
-
-5. Espandere **Microsoft.Web**, espandere **sites** e quindi selezionare l'app per le API che si vuole modificare.
-
-6. Fare clic su **Modifica**.
-
-8. Trovare la proprietà `kind` e modificarla da "api" a "WebApp".
-
-	![Proprietà kind per l'istanza del servizio app](./media/app-service-api-dotnet-get-started/resexp.png)
-
-9. Fare clic su **PUT**.
-
-10. Andare al portale di Azure e verificare che l'icona sia stata modificata per riflettere il nuovo tipo di app.
 
 ## Facoltativo: URL di definizione dell'API nei modelli di Gestione risorse di Azure
 
@@ -536,10 +523,12 @@ Se si verifica un problema durante l'esecuzione di questa esercitazione, assicur
 
 Se si ha una rete aziendale e si prova a eseguire la distribuzione nel servizio app di Azure tramite un firewall, assicurarsi che le porte 443 e 8172 siano aperte per la distribuzione Web. Se non è possibile aprire queste porte, vedere la sezione Passaggi successivi seguente per altre opzioni di distribuzione.
 
+Se in un'app per le API è stato accidentalmente distribuito il progetto errato e successivamente viene distribuito quello corretto, potrebbero essere restituiti messaggi di errore che indicano che i nomi delle route devono essere univoci. Per risolvere il problema, ridistribuire il progetto nell'app per le API e nella scheda **Impostazioni** della procedura guidata **Pubblica sul Web** selezionare **Rimuovi i file aggiuntivi nella destinazione**.
+
 Quando l'app per le API ASP.NET è in esecuzione nel servizio app di Azure, è possibile approfondire la conoscenza delle funzionalità di Visual Studio che semplificano la risoluzione dei problemi. Per informazioni sulla registrazione, il debug remoto e altro ancora, vedere [Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Passaggi successivi
 
 Questa esercitazione ha illustrato come creare app per le API, distribuire il codice in queste app, generare il relativo codice client e usarle dai client .NET. L'esercitazione successiva della serie di esercitazioni introduttive sulle app per le API mostra come [utilizzare app per le API da client JavaScript tramite CORS](app-service-api-cors-consume-javascript.md). Le esercitazioni successive della serie illustrano come implementare l'autenticazione e l'autorizzazione.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

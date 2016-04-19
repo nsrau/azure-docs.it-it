@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="erikre"
+	manager="douge"
 	editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/27/2016"
+	ms.date="04/13/2016"
 	ms.author="sdanie"/>
 
 # Proteggere le API con limiti di frequenza usando Gestione API di Azure
 
 Questa guida illustra quanto sia semplice aggiungere la protezione all'API back-end configurando il limite di frequenza e i criteri di quota con Gestione API di Azure.
 
-In questa esercitazione si creerà un prodotto API "Free Trial" che consente agli sviluppatori di eseguire fino a 10 chiamate al minuto e un massimo di 200 chiamate API alla settimana usando i criteri [Limitare la frequenza delle chiamate per sottoscrizione](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) e [Impostare la quota di utilizzo per sottoscrizione](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). L'API verrà quindi pubblicata e verranno testati i criteri del limite di frequenza.
+In questa esercitazione si creerà un prodotto API "Free Trial" che consente agli sviluppatori di eseguire fino a 10 chiamate al minuto e un massimo di 200 chiamate API alla settimana usando i criteri [Limita frequenza delle chiamate per sottoscrizione](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) e [Imposta quota di utilizzo per sottoscrizione](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). L'API verrà quindi pubblicata e verranno testati i criteri del limite di frequenza.
 
 Per scenari di limitazione più avanzati che usano i criteri [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) e [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), vedere [Limitazione avanzata delle richieste con Gestione API di Azure](api-management-sample-flexible-throttling.md).
 
@@ -34,7 +34,7 @@ Per iniziare, fare clic su **Gestisci** nel portale di Azure classico per il ser
 
 ![Portale di pubblicazione][api-management-management-console]
 
->Se non è stato creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][] nell'esercitazione [Introduzione a Gestione API di Azure][].
+>Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][] nell'esercitazione [Gestire la prima API in Gestione API di Azure][].
 
 Fare clic su **Prodotti** nel menu **Gestione API** sulla sinistra per visualizzare la pagina **Prodotti**.
 
@@ -70,7 +70,7 @@ Selezionare la casella di controllo **Sviluppatori** e quindi fare clic su **Sal
 
 In questo passaggio dell'esercitazione si aggiungerà l'API My Echo al nuovo prodotto Free Trial.
 
->Ogni istanza del servizio Gestione API è preconfigurata con un'API Echo utilizzabile per sperimentare e ottenere altre informazioni su Gestione API. Per altre informazioni, vedere [Introduzione a Gestione API di Azure][].
+>Ogni istanza del servizio Gestione API è preconfigurata con un'API Echo utilizzabile per sperimentare e ottenere altre informazioni su Gestione API. Per altre informazioni, vedere [Gestire la prima API in Gestione API di Azure][].
 
 Scegliere **Prodotti** nel menu **Gestione API** a sinistra e quindi fare clic su **Free Trial** per configurare il prodotto.
 
@@ -98,11 +98,11 @@ Per inserire criteri, posizionare il cursore nella sezione **inbound** o **outbo
 
 ![Policy editor][api-management-policy-editor-inbound]
 
-I due criteri che verranno aggiunti in questa esercitazione sono [Limit call rate][] e [Set usage quota][].
+I due criteri che verranno aggiunti in questa esercitazione sono [Limita frequenza chiamate per sottoscrizione](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) e [Imposta quota di utilizzo per sottoscrizione](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota).
 
 ![Policy statements][api-management-limit-policies]
 
-Dopo aver posizionato il cursore nell'elemento dei criteri **inbound**, fare clic sulla freccia accanto a **Limita frequenza chiamate** per inserire il modello dei criteri.
+Dopo aver posizionato il cursore nell'elemento dei criteri **inbound**, fare clic sulla freccia accanto a **Limita frequenza chiamate per sottoscrizione** per inserire il modello dei criteri corrispondente.
 
 	<rate-limit calls="number" renewal-period="seconds">
 	<api name="name" calls="number">
@@ -110,7 +110,7 @@ Dopo aver posizionato il cursore nell'elemento dei criteri **inbound**, fare cli
 	</api>
 	</rate-limit>
 
-È possibile usare **Limita frequenza chiamate** a livello di prodotto, oltre che a livello di nome di singola operazione e di API. In questa esercitazione vengono usati solo criteri a livello di prodotto, quindi eliminare gli elementi **api** e **operation** dall'elemento **rate-limit**, in modo che resti solo l'elemento **rate-limit** esterno, come illustrato nell'esempio seguente.
+È possibile usare **Limita frequenza chiamate per sottoscrizione** a livello di prodotto, oltre che a livello di nome di singola operazione e di API. In questa esercitazione vengono usati solo criteri a livello di prodotto, quindi eliminare gli elementi **api** e **operation** dall'elemento **rate-limit**, in modo che resti solo l'elemento **rate-limit** esterno, come illustrato nell'esempio seguente.
 
 	<rate-limit calls="number" renewal-period="seconds">
 	</rate-limit>
@@ -120,7 +120,7 @@ Nel prodotto Free Trial la frequenza massima consentita è pari a 10 chiamate al
 	<rate-limit calls="10" renewal-period="60">
 	</rate-limit>
 
-Per configurare i criteri **Imposta quota utilizzo**, posizionare il cursore immediatamente sotto il nuovo elemento **rate-limit** aggiunto nell'elemento **inbound** e fare clic sulla freccia a sinistra di **Imposta quota utilizzo**.
+Per configurare i criteri **Imposta quota utilizzo per sottoscrizione**, posizionare il cursore immediatamente sotto il nuovo elemento **rate-limit** aggiunto nell'elemento **inbound** e fare clic sulla freccia a sinistra di **Imposta quota utilizzo per sottoscrizione**.
 
 	<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
 	<api name="name" calls="number" bandwidth="kilobytes">
@@ -145,7 +145,7 @@ Nel prodotto Free Trial la quota è pari a 200 chiamate alla settimana. Specific
 
 >Gli intervalli dei criteri sono specificati in secondi. Per calcolare l'intervallo per una settimana, è possibile moltiplicare il numero di giorni (7) per il numero di ore in una giornata (24) per il numero di minuti in un'ora (60) per il numero di secondi in un minuto (60): 7 * 24 * 60 * 60 = 604800.
 
-Un volta completata la configurazione, i criteri dovrebbero essere simili a quelli dell'esempio seguente.
+Una volta completata la configurazione, i criteri dovrebbero essere simili a quelli dell'esempio seguente.
 
 	<policies>
 		<inbound>
@@ -275,11 +275,11 @@ Quando sono attivi i criteri dei limiti di frequenza pari a 10 chiamate al minut
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Gestire la prima API in Gestione API di Azure]: api-management-get-started.md
 [Come creare e usare i gruppi in Gestione API di Azure]: api-management-howto-create-groups.md
 [View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
-[Introduzione a Gestione API di Azure]: api-management-get-started.md
-[Creare un'istanza del servizio Gestione API]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Creare un'istanza di Gestione API]: api-management-get-started.md#create-service-instance
 [Next steps]: #next-steps
 
 [Create a product]: #create-product
@@ -293,4 +293,4 @@ Quando sono attivi i criteri dei limiti di frequenza pari a 10 chiamate al minut
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

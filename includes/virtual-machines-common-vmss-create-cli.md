@@ -1,20 +1,20 @@
-Virtual Machine Scale Sets allow you to manage multiple VMs as a set. At a high level, scale sets have the following pros and cons:
+I set di scalabilità di macchine virtuali consentono di gestire più VM come un unico set. A livello generale, i set di scalabilità presentano i vantaggi e gli svantaggi seguenti:
 
-Pros:
+Vantaggi:
 
-1. High availability. Each scale set puts its VMs into an Availability Set with 5 Fault Domains (FDs) and 5 Update Domains (UDs) to ensure availability (for more information on FDs and UDs, see [VM availability](../articles/virtual-machines/virtual-machines-linux-manage-availability.md)).
-2. Easy integration with Azure Load Balancer and App Gateway.
-3. Easy integration with Azure Autoscale.
-4. Simplified deployment, management, and clean up of VMs.
-5. Support common Windows and Linux flavors, as well as custom images.
+1. Disponibilità elevata. Ogni set di scalabilità inserisce le relative VM in un set di disponibilità con 5 domini di errore (FD) e 5 domini di aggiornamento (UD) per garantire la disponibilità (per altre informazioni su domini di errore e domini di aggiornamento, vedere [Gestire la disponibilità delle macchine virtuali Linux](../articles/virtual-machines/virtual-machines-linux-manage-availability.md)).
+2. Facile integrazione con il servizio di bilanciamento del carico di Azure e il gateway app.
+3. Facile integrazione con la scalabilità automatica di Azure.
+4. Distribuzione, gestione e pulizia semplificate delle VM.
+5. Supporto delle versioni comuni di Windows e Linux e di immagini personalizzate.
 
-Cons:
+Svantaggi:
 
-1. Cannot attach data disks to VM instances in a scale set. Instead, must use Blob Storage, Azure Files, Azure Tables, or other storage solution.
+1. Impossibile collegare dischi dati a istanze di VM in un set di scalabilità. Di contro, è necessario utilizzare l'archiviazione BLOB, file di Azure, tabelle di Azure o un'altra soluzione di archiviazione.
 
-## Quick-Create Using Azure CLI
+## Creazione rapida tramite riga di comando di Azure
 
-If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI](../articles/xplat-cli-install.md) [connected to your Azure account](../articles/xplat-cli-connect.md). Once you do, you can run the following commands to quick-create a VM scale set:
+Ove non già fatto in precedenza, è possibile ottenere una [versione di valutazione gratuita della sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/) e la [riga di comando di Azure](../articles/xplat-cli-install.md) [connessa all'account Azure](../articles/xplat-cli-connect.md). Al termine dell'operazione, è possibile eseguire i comandi seguenti per la creazione rapida di un set di scalabilità di VM:
 
 ```bash
 # make sure we are in resource manager mode 
@@ -29,9 +29,9 @@ azure config mode arm
 azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4$$w0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
 ```
 
-If you want to customize the location or image-urn, please look into the commands `azure location list` and `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
+Se si desidera personalizzare il percorso o l'URN immagine, esaminare i comandi `azure location list` e `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
 
-Once this command has returned, the scale set will have been created. This scale set will have a load balancer with NAT rules mapping port 50,000+i on the load balancer to port 22 on VM i. Thus, once we figure out the FQDN of the load balancer, we will be able to SSH into our VMs:
+Il set di scalabilità viene creato dopo la restituzione di questo comando. Questo set di scalabilità avrà un servizio di bilanciamento del carico con regole NAT che eseguono il mapping della porta 50000+i sulla porta 22 della VM i. Dopo aver determinato l'FQDN del servizio di bilanciamento del carico, sarà quindi possibile usare SSH per accedere alle VM:
 
 ```bash
 # list load balancers in the resource group we created
@@ -70,10 +70,12 @@ FQDN=${split_line[3]}
 ssh -p 50000 $FQDN
 ```
 
-## Next Steps
+## Passaggi successivi
 
-For general information, check out the [main landing page for VM scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+Per informazioni generali vedere la [pagina di destinazione principale per i set di scalabilità di VM](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
-For documentation, check out the [main documentation page for VM scale sets](https://azure.microsoft.com/documentation/services/virtual-machines-scale-sets/).
+Per la documentazione vedere la [pagina della documentazione principale per i set di scalabilità di VM](https://azure.microsoft.com/documentation/services/virtual-machines-scale-sets/).
 
-For example Azure resource manager templates using VM scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
+Ad esempio, per i modelli di Azure Resource Manager con set di scalabilità di VM, cercare "vmss" nel [repository di GitHub di modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates).
+
+<!---HONumber=AcomDC_0406_2016-->

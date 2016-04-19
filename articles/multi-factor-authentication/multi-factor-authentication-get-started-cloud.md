@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/31/2016" 
+	ms.date="04/06/2016" 
 	ms.author="billmath"/>
 
 # Introduzione ad Azure Multi-Factor Authentication nel cloud
@@ -92,7 +92,7 @@ Stato | Descrizione |App interessate non basate su browser| Note
 :-------------: | :-------------: |:-------------: |:-------------: |
 Disabled | Lo stato predefinito per un nuovo utente non registrato alla modalità Multi-Factor Authentication.|No|L'utente attualmente non usa la modalità Multi-Factor Authentication.
 Enabled |L'utente è stato registrato alla modalità Multi-Factor Authentication.|No. Continuano a funzionare fino al completamento della registrazione.|L'utente è abilitato ma non ha completato la procedura di registrazione. All'utente verrà chiesto di completare la procedura all'accesso successivo.
-Enforced|L'utente è stato registrato e ha completato la procedura di registrazione per l'utilizzo della modalità Multi-Factor Authentication.|Sì. Le app non funzioneranno finché non verranno create e usate le relative password. | È possibile che l'utente abbia o non abbia completato la registrazione. Se la procedura di registrazione è stata completata, l'utente userà la modalità Multi-Factor Authentication. In caso contrario, all'utente verrà chiesto di completare la procedura all'accesso successivo.
+Enforced|L'utente è stato registrato e ha completato la procedura di registrazione per l'utilizzo della modalità Multi-Factor Authentication.|Sì. Le app richiedono password per le app. | È possibile che l'utente abbia o non abbia completato la registrazione. Se la procedura di registrazione è stata completata, l'utente userà la modalità Multi-Factor Authentication. In caso contrario, all'utente verrà chiesto di completare la procedura all'accesso successivo.
 
 Per abilitare MFA per gli utenti, seguire questa procedura.
 
@@ -105,7 +105,7 @@ Per abilitare MFA per gli utenti, seguire questa procedura.
 5.  Nella parte inferiore della pagina fare clic sull'opzione per gestire la modalità Multi-Factor Authentication.
 6.  Trovare l'utente che si desidera abilitare alla modalità Multi-Factor Authentication Potrebbe essere necessario modificare la visualizzazione nella parte superiore. Verificare che lo stato sia disabilitato e inserire un segno di spunta nella casella accanto al nome.
 7.  A destra fare clic su Abilita. Fare clic sull'opzione per abilitare la modalità Multi-Factor Authentication.
-8.  Dopo avere abilitato gli utenti, è consigliabile inviare una notifica con un messaggio di posta elettronica È anche opportuno informarli su come possono usare le app non basate su browser per evitare di essere bloccati.
+8.  Dopo avere abilitato gli utenti, è consigliabile inviare una notifica tramite posta elettronica. È anche opportuno informarli su come possono usare le app non basate su browser per evitare di essere bloccati.
 
 <center>![Abilitare gli utenti](./media/multi-factor-authentication-get-started-cloud/user.png)</center>
 
@@ -157,4 +157,4 @@ Dopo aver abilitato gli utenti, inviare un messaggio di posta elettronica in cui
 ## Passaggi successivi
 Dopo avere configurato l'autenticazione a più fattori nel cloud, è possibile configurare e impostare la distribuzione. Vedere [Configurazione di Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

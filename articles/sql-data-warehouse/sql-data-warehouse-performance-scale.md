@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/29/2016"
    ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # Scalabilità e prestazioni elastiche con SQL Data Warehouse
@@ -36,7 +36,7 @@ Se si dispone di un'applicazione con un carico di lavoro molto variabile, aument
 ## Aumento e riduzione delle risorse di calcolo
 L'elasticità di SQL Data Warehouse consente di aumentare, ridurre o sospendere la potenza di calcolo usando una scala scorrevole di unità data warehouse (DWU) in modo del tutto indipendente dall'archiviazione nel cloud. Questo conferisce la flessibilità necessaria per regolare la potenza di calcolo in modo ottimale per la propria azienda.
 
-Per aumentare la potenza di calcolo è possibile aggiungere ulteriori DWU al servizio utilizzando il dispositivo di scorrimento scala nel portale di Azure classico. È inoltre possibile aggiungere DWU tramite T-SQL, le API REST o i cmdlet di Powershell. L'aumento o la riduzione annulla tutte le attività in esecuzione o in coda, ma avviene in pochi secondi, pertanto è possibile riprendere con più o meno potenza di calcolo.
+Per aumentare la potenza di calcolo è possibile aggiungere ulteriori DWU al servizio utilizzando il dispositivo di scorrimento scala nel portale di Azure classico. È inoltre possibile aggiungere DWU tramite T-SQL, le API REST o i cmdlet di Azure Powershell. L'aumento o la riduzione annulla tutte le attività in esecuzione o in coda, ma avviene in pochi secondi, pertanto è possibile riprendere con più o meno potenza di calcolo.
 
 Nel [portale di Azure classico][], è possibile fare clic sull'icona "Scalabilità" nella parte superiore della pagina SQL Data Warehouse e quindi utilizzare il dispositivo di scorrimento per aumentare o ridurre la quantità di DWU applicati al Data Warehouse prima di fare clic su "Salva". Se si vuole modificare la scalabilità a livello di programmazione, il codice T-SQL seguente illustra come modificare l'allocazione di DWU per il proprio SQL Data Warehouse:
 
@@ -47,10 +47,10 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ```
 Si noti che questo T-SQL deve essere eseguito sul server logico e non sull’istanza stessa di SQL Data Warehouse.
 
-È possibile ottenere lo stesso risultato con PowerShell usando il codice seguente:
+È inoltre possibile ottenere lo stesso risultato con Azure Powershell mediante l'importazione del modulo AzureRM.Sql, usando il codice seguente:
 
 ```Powershell
-Set-AzureSQLDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -ServiceObjective "DW1000"
+Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -RequestedServiceObjectiveName "DW1000"
 ```
 
 ## Sospensione delle risorse di calcolo
@@ -60,22 +60,27 @@ L'azione di sospensione riporta le risorse di calcolo nel pool delle risorse dis
 
 > [AZURE.NOTE] Poiché l'archiviazione è separata dal calcolo, la sospensione non ha alcun effetto su di essa.
 
-Per sospendere e riprendere la potenza di calcolo, è possibile usare il [portale di Azure classico][], le API REST oppure Powershell. Con la sospensione vengono annullate tutte le attività in esecuzione o in coda e, al ritorno, è possibile riprendere le risorse di calcolo nel giro di qualche secondo.
+Per sospendere e riprendere la potenza di calcolo, è possibile usare il [portale di Azure classico][], le API REST oppure Azure Powershell. Con la sospensione vengono annullate tutte le attività in esecuzione o in coda e, al ritorno, è possibile riprendere le risorse di calcolo nel giro di qualche secondo.
 
-Il codice seguente illustra come eseguire una sospensione tramite PowerShell:
-
-```Powershell
-Suspend-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName
-"Server01" –DatabaseName "Database02"
-```
-
-La ripresa del servizio è altrettanto semplice con PowerShell:
+Prima di sospendere e riprendere il servizio usando Azure Powershell, è necessario importare il modulo AzureRM.Sql come indicato di seguito:
 
 ```Powershell
-Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+Import-Module AzureRM.Sql
 ```
 
-Per altre informazioni sull'uso di PowerShell consultare [Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse][].
+Il codice seguente illustra come eseguire una sospensione tramite Azure PowerShell:
+
+```Powershell
+Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
+
+La ripresa del servizio è altrettanto semplice con Azure PowerShell:
+
+```Powershell
+Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
+
+Per altre informazioni sull'uso di Azure PowerShell consultare [Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse][].
 
 ## Passaggi successivi
 Per qualche cenno preliminare sulle prestazioni, vedere la [panoramica sulle prestazioni][].
@@ -93,4 +98,4 @@ Per qualche cenno preliminare sulle prestazioni, vedere la [panoramica sulle pre
 
 [portale di Azure classico]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

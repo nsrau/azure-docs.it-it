@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="04/06/2016" 
 	ms.author="stefsch"/>
 
 # Connessione sicura alle risorse back-end da un ambiente del servizio app #
 
 ## Panoramica ##
-Poiché un ambiente del servizio app viene sempre creato in una [rete virtuale][virtualnetwork] regionale classica “v1”, le connessioni in uscita da un ambiente del servizio app ad altre risorse back-end possono transitare esclusivamente tramite la rete virtuale.
+Poiché un ambiente del servizio app viene sempre creato in una [rete virtuale][virtualnetwork] regionale classica “v1”, le connessioni in uscita da un ambiente del servizio app ad altre risorse back-end possono transitare esclusivamente tramite la rete virtuale. Si noti che sono supportate solo le reti virtuali con uno spazio di indirizzi RFC1918, ovvero di indirizzi privati.
 
 **Nota:** non è possibile creare un ambiente del servizio app in una rete virtuale "v2" gestita da ARM.
 
@@ -116,4 +116,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

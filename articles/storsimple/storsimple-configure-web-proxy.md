@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="03/30/2016"
    ms.author="alkohli" />
 
 # Configurare il proxy web per il dispositivo StorSimple
@@ -151,4 +151,4 @@ Se le impostazioni proxy Web sono state configurate in modo non corretto, verran
 
 - Per informazioni sull’utilizzo del servizio StorSimple Manager, passare a[utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

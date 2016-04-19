@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introduzione a Microsoft Power BI Embedded - Anteprima"
-   description=""
+   description="Introduzione a Microsoft Power BI Embedded - Anteprima"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -74,19 +74,17 @@ Dopo aver creato un'istanza di Power BI per l'applicazione e le **Chiavi di acce
 
 ## Creare set di dati e report di Power BI da incorporare in un'app
 
-Dopo avere creato un'istanza di Power BI per l'applicazione e avere preso nota delle **Chiavi di accesso**, è necessario creare i set di dati e i report di Power BI da incorporare. I set di dati e i report possono essere creati con **Power BI Desktop**. È possibile scaricare [Power BI Desktop gratuitamente](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). In alternativa, per iniziare rapidamente, è possibile scaricare l'[esempio Analyzing Sales Data PBIX](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix). Per altre informazioni su come usare **Power BI Desktop**, vedere l'articolo di [introduzione a Power BI Desktop](https://powerbi.microsoft.com/it-IT/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+Dopo avere creato un'istanza di Power BI per l'applicazione e avere preso nota delle **Chiavi di accesso**, è necessario creare i set di dati e i report di Power BI da incorporare. I set di dati e i report possono essere creati con **Power BI Desktop**. È possibile scaricare [Power BI Desktop gratuitamente](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). In alternativa, per iniziare rapidamente, è possibile scaricare l'[esempio Retail Analysis PBIX](http://go.microsoft.com/fwlink/?LinkID=780547). Per altre informazioni su come usare **Power BI Desktop**, vedere l'articolo di [introduzione a Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
-> [AZURE.NOTE] Per informazioni su come è stato creato il file di esempio Analyzing Sales Data PBIX, vedere [Esercitazione: Analisi dei dati di vendita da Excel e da un feed OData](https://powerbi.microsoft.com/it-IT/documentation/powerbi-desktop-tutorial-analyzing-sales-data-from-excel-and-an-odata-feed).
+**Power BI Desktop** consente di connettersi all'origine dati mediante l'importazione di una copia dei dati in **Power BI Desktop** o tramite la connessione diretta all'origine dati con **DirectQuery**.
 
-Con **Power BI Desktop** è possibile connettersi all'origine dati importando una copia dei dati in **Power BI Desktop** oppure connettersi direttamente all'origine dati con **DirectQuery**.
-
-Ecco le differenze tra l'uso di **Importa** e **DirectQuery**.
+Ecco le differenze tra l'**importazione** e la modalità **DirectQuery**.
 
 |Importazione | DirectQuery
 |---|---
-|Tabelle, colonne, *e dati* vengono importati o copiati in **Power BI Desktop**. Mentre si utilizzano le visualizzazioni, **Power BI Desktop** esegue query su una copia dei dati. Per visualizzare le eventuali modifiche apportate ai dati sottostanti, è necessario aggiornare o importare di nuovo un set di dati completo e aggiornato.|Solo *tabelle e colonne * vengono importate o copiate in **Power BI Desktop**. Mentre si utilizzano le visualizzazioni, **Power BI Desktop** esegue query sull'origine dati sottostante, quindi vengono sempre visualizzati dati aggiornati.
+|Tabelle, colonne, *e dati* vengono importati o copiati in **Power BI Desktop**. Mentre si utilizzano le visualizzazioni, **Power BI Desktop** esegue query su una copia dei dati. Per visualizzare le eventuali modifiche apportate ai dati sottostanti, è necessario aggiornare o importare di nuovo un set di dati completo e aggiornato.|Solo *tabelle e colonne* vengono importate o copiate in **Power BI Desktop**. Mentre si utilizzano le visualizzazioni, **Power BI Desktop** esegue query sull'origine dati sottostante, quindi vengono sempre visualizzati dati aggiornati.
 
-Per altre informazioni sulla connessione a un'origine dati, vedere l'articolo relativo alla [connessione a un'origine dati](power-bi-embedded-connect-datasource.md).
+Per altre informazioni sulla connessione a un'origine dati, vedere [Connessione a un'origine dati](power-bi-embedded-connect-datasource.md).
 
 Dopo aver salvato il lavoro in **Power BI Desktop**, viene creato un file PBIX. Questo file contiene il report. Se si importano dati, il PBIX include il set di dati completo, mentre se si usa **DirectQuery**, il PBIX contiene solo uno schema del set di dati. Distribuire a livello di codice il PBIX nell'area di lavoro con l'[API di importazione di Power BI](https://msdn.microsoft.com/library/mt711504.aspx).
 
@@ -109,4 +107,4 @@ Nei passaggi precedenti è stata creata una raccolta di aree di lavoro e i primi
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Prezzi di Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

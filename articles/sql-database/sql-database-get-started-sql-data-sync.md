@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="04/04/2016"
 	ms.author="jhubbard"/>
 
 
@@ -22,7 +22,7 @@ In questa esercitazione vengono fornite le nozioni di base della sincronizzazion
 
 Per questa esercitazione è necessario conoscere già in generale SQL Server e il database SQL di Azure. Nell'esercitazione verrà creato un gruppo di sincronizzazione ibrido (istanze del database SQL Server e del database SQL) completamente configurato e impostato per la sincronizzazione in base alla pianificazione specificata.
 
-> [AZURE.NOTE]La documentazione tecnica completa impostata per la sincronizzazione dati SQL di Azure, che si trovava in precedenza su MSDN, è ora disponibile in formato PDF. Scaricarla [qui](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+> [AZURE.NOTE] La documentazione tecnica completa impostata per la sincronizzazione dati SQL di Azure, che si trovava in precedenza su MSDN, è ora disponibile in formato PDF. Scaricarla [qui](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 ## Passaggio 1: connettersi al database SQL di Azure
 
@@ -44,7 +44,7 @@ Questo passaggio è necessario solo se il gruppo di sincronizzazione includerà 
 
 <a id="InstallRequiredSoftware"></a>
 ### Passaggio 2a: installare il software necessario
-Nel computer in cui viene installato l'agente client devono essere installati anche i seguenti prodotti.
+Nel computer in cui viene installato l'agente client devono essere installati anche i prodotti seguenti.
 
 - **.NET Framework 4.0**
 
@@ -52,7 +52,7 @@ Nel computer in cui viene installato l'agente client devono essere installati an
 
 - **Tipi CLR di sistema di Microsoft SQL Server 2008 R2 SP1 (x86)**
 
- È possibile installare i tipi CLR di sistema di Microsoft SQL Server 2008 R2 SP1 (x86) da [qui](http://www.microsoft.com/download/en/details.aspx?id=26728)
+ È possibile installare Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86) da [qui](http://www.microsoft.com/download/en/details.aspx?id=26728)
 
 - **Oggetti di gestione condivisa di Microsoft SQL Server 2008 R2 SP1 (x86)**
 
@@ -117,7 +117,7 @@ Dopo aver installato l'agente client, registrare con l'agente tutti i database d
 3. Attendere che la sincronizzazione dati SQL verifichi il nome utente e la password. Quando le credenziali risultano verificate, viene visualizzato un segno di spunta verde a destra del campo PASSWORD.
 4. Nell'elenco a discesa **CONFLICT RESOLUTION** selezionare i criteri di risoluzione dei conflitti.
 
- **Hub Wins** indica che tutte le modifiche scritte nel database hub vengono scritte nei database di riferimento, sovrascrivendo le modifiche nello stesso record del database di riferimento. Dal punto di vista funzionale, questo significa che la prima modifica scritta nell'hub viene propagata negli altri database.
+ **Priorità hub**: indica che tutte le modifiche scritte nel database hub vengono scritte nei database di riferimento e sovrascrivono le modifiche nello stesso record dei database di riferimento. Dal punto di vista funzionale, ciò significa che la prima modifica scritta nel database hub si propaga agli altri database.
 
 
  **Client Wins** indica che le modifiche scritte nell'hub vengono sovrascritte dalle modifiche presenti nei database di riferimento. Dal punto di vista funzionale, questo significa che l'ultima modifica scritta nell'hub corrisponde a quella conservata e propagata negli altri database.
@@ -153,7 +153,7 @@ Ripetere questo passaggio per ogni ulteriore database da aggiungere al gruppo di
 
 ## Passaggio 5: definire i dati da sincronizzare
 
-La sincronizzazione dati SQL di Azure consente di selezionare le tabelle e le colonne da sincronizzare. Se si desidera inoltre filtrare una colonna in modo che vengano sincronizzate solo le righe con valori specifici (ad esempio Età>=65), utilizzare il portale di sincronizzazione dei dati SQL in Azure e la documentazione relativa alla selezione di tabelle, colonne e righe da sincronizzare per definire quali dati sincronizzare.
+La sincronizzazione dati SQL di Azure consente di selezionare le tabelle e le colonne da sincronizzare. Se si desidera inoltre filtrare una colonna in modo che vengano sincronizzate solo le righe con valori specifici (ad esempio Età>=65), usare il portale di sincronizzazione dati SQL in Azure e la documentazione relativa alla selezione di tabelle, colonne e righe da sincronizzare per definire quali dati sincronizzare.
 
 1.	Tornare al [portale classico](http://manage.windowsazure.com).
 2.	Fare clic su **SQL DATABASES**.
@@ -174,7 +174,7 @@ La sincronizzazione dati SQL di Azure consente di selezionare le tabelle e le co
 
 ## Passaggio 6: configurare il gruppo di sincronizzazione
 
-È sempre possibile sincronizzare un gruppo di sincronizzazione facendo clic su SINCRONIZZA nella parte inferiore della pagina di destinazione Sincronizzazione dati. Se si desidera sincronizzare un gruppo di sincronizzazione in base a una pianificazione, configurarlo.
+È sempre possibile sincronizzare un gruppo di sincronizzazione facendo clic su SINCRONIZZA nella parte inferiore della pagina di destinazione Sincronizzazione dati. Se si desidera eseguire la sincronizzazione in base a una programmazione, configurare un gruppo di sincronizzazione.
 
 1.	Tornare al [portale classico](http://manage.windowsazure.com).
 2.	Fare clic su **SQL DATABASES**.
@@ -202,4 +202,4 @@ Per altre informazioni sul database SQL e la sincronizzazione dati SQL, vedere:
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

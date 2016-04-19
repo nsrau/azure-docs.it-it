@@ -60,4 +60,4 @@ Questa versione aggiunge il supporto [Insieme di credenziali delle chiavi](../re
 
 [Post di annuncio di Azure SDK 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->

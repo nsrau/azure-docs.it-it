@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="masnider"
    manager="timlt"
-   editor="jessebenson; mani-ramaswamy"/>
+   editor="vturecek; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/13/2016"
-   ms.author="masnider;jesseb"/>
+   ms.date="03/25/2016"
+   ms.author="masnider;vturecek"/>
 
 # Panoramica di Reliable Services
 Azure Service Fabric semplifica la scrittura e la gestione di Reliable Services con e senza stato. In questo documento verranno illustrate:
@@ -25,14 +25,14 @@ Azure Service Fabric semplifica la scrittura e la gestione di Reliable Services 
 
 Reliable Services è uno dei modelli di programmazione disponibili in Service Fabric. Per altre informazioni sul modello di programmazione Reliable Actors, vedere [Introduzione a Reliable Actors in Service Fabric](service-fabric-reliable-actors-introduction.md).
 
-In Service Fabric un servizio è costituito da configurazione, codice dell'applicazione e stato \(facoltativo\).
+In Service Fabric un servizio è costituito da configurazione, codice dell'applicazione e stato (facoltativo).
 
 Service Fabric gestisce il ciclo di vita dei servizi, dalle fasi di provisioning e distribuzione fino all'aggiornamento e all'eliminazione, usando gli strumenti di [gestione delle applicazioni di Service Fabric](service-fabric-deploy-remove-applications.md).
 
 ## Informazioni su Reliable Services
 Reliable Services offre un modello di programmazione di alto livello, semplice e potente, per specificare gli elementi importanti per l'applicazione. Il modello di programmazione Reliable Services offre quanto indicato di seguito:
 
-- Per i servizi con stato, il modello di programmazione Reliable Services consente di archiviare lo stato in modo coerente e affidabile all'interno del servizio usando raccolte Reliable Collections. È un semplice set di classi di raccolte a disponibilità elevata che risulterà familiare a chiunque abbia usato raccolte C\#. In passato, per la gestione di uno stato affidabile i servizi dovevano contare su sistemi esterni. Le raccolte Reliable Collections consentono di archiviare lo stato insieme ai calcoli effettuati con gli stessi livelli di disponibilità elevata e affidabilità garantiti dagli archivi esterni a disponibilità elevata e con i miglioramenti aggiuntivi a livello di latenza forniti dalla condivisione di risorse di calcolo e stato.
+- Per i servizi con stato, il modello di programmazione Reliable Services consente di archiviare lo stato in modo coerente e affidabile all'interno del servizio usando raccolte Reliable Collections. È un semplice set di classi di raccolte a disponibilità elevata che risulterà familiare a chiunque abbia usato raccolte C#. In passato, per la gestione di uno stato affidabile i servizi dovevano contare su sistemi esterni. Le raccolte Reliable Collections consentono di archiviare lo stato insieme ai calcoli effettuati con gli stessi livelli di disponibilità elevata e affidabilità garantiti dagli archivi esterni a disponibilità elevata e con i miglioramenti aggiuntivi a livello di latenza forniti dalla condivisione di risorse di calcolo e stato.
 
 - Un modello semplice per l'esecuzione di codice personalizzato simile ai modelli di programmazione di uso comune. Il codice ha un punto di ingresso ben definito e un ciclo di vita facile da gestire.
 
@@ -89,7 +89,7 @@ Un servizio senza stato è un servizio al cui interno non viene letteralmente ge
 
 Si consideri ad esempio un servizio Calculator privo di memoria che riceve contemporaneamente tutti i termini e le operazioni da eseguire.
 
-In questo caso il metodo RunAsync\(\) del servizio può essere vuoto, dal momento che il servizio non deve eseguire alcuna elaborazione di attività in background. Quando viene creato, il servizio Calculator restituisce un ICommunicationListener, ad esempio [Web API](service-fabric-reliable-services-communication-webapi.md), che apre un endpoint di ascolto su una porta. L'endpoint di ascolto si collegherà ai diversi metodi, ad esempio "Add\(n1, n2\)", che definiscono l'API pubblica del servizio Calculator.
+In questo caso il metodo RunAsync() del servizio può essere vuoto, dal momento che il servizio non deve eseguire alcuna elaborazione di attività in background. Quando viene creato, il servizio Calculator restituisce un ICommunicationListener, ad esempio [Web API](service-fabric-reliable-services-communication-webapi.md), che apre un endpoint di ascolto su una porta. L'endpoint di ascolto si collegherà ai diversi metodi, ad esempio "Add(n1, n2)", che definiscono l'API pubblica del servizio Calculator.
 
 Quando viene effettuata una chiamata da un client, viene richiamato il metodo appropriato. Il servizio Calculator esegue le operazioni sui dati forniti e restituisce il risultato, senza archiviare alcuno stato.
 
@@ -125,13 +125,13 @@ Una delle caratteristiche di questo servizio è che ha l'aspetto di un normale s
 
 - L'applicazione deve creare o eliminare definitivamente in modo dinamico gli oggetti ReliableDictionary e ReliableQueue in fase di esecuzione.
 
-- È necessario controllare a livello di codice i backup forniti da Service Fabric e ripristinare le funzionalità per lo stato del servizio\*.
+- È necessario controllare a livello di codice i backup forniti da Service Fabric e ripristinare le funzionalità per lo stato del servizio*.
 
-- L'applicazione deve gestire la cronologia delle modifiche per le unità di stato\*.
+- L'applicazione deve gestire la cronologia delle modifiche per le unità di stato*.
 
-- Si vogliono utilizzare provider di stato di terze parti o svilupparne di personalizzati\*.
+- Si vogliono utilizzare provider di stato di terze parti o svilupparne di personalizzati*.
 
-> [AZURE.NOTE]\*Funzionalità disponibili con la disponibilità generale dell'SDK.
+> [AZURE.NOTE] *Funzionalità disponibili con la disponibilità generale dell'SDK.
 
 
 ## Passaggi successivi
@@ -139,4 +139,4 @@ Una delle caratteristiche di questo servizio è che ha l'aspetto di un normale s
 + [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 + [Modello di programmazione Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0406_2016-->

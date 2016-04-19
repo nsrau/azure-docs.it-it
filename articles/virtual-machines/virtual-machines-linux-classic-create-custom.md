@@ -3,7 +3,7 @@
 	description="Come creare una macchina virtuale personalizzata con il modello di distribuzione classico che esegue il sistema operativo Linux."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -35,4 +35,4 @@ Questo argomento descrive come creare una macchina virtuale *personalizzata* con
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

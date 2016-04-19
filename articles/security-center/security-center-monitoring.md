@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="04/11/2016"
    ms.author="yurid"/>
 
 #Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure
@@ -34,7 +34,7 @@ Per ulteriori informazioni su come applicare i suggerimenti leggere [Implementaz
 
 Il riquadro **Integrità sicurezza delle risorse** consente di monitorare lo stato di sicurezza delle risorse. L'esempio seguente mostra alcuni problemi con livelli di gravità medio e alto che richiedono attenzione. I criteri di sicurezza abilitati influiranno sui tipi di controlli monitorati.
 
-![Integrità delle risorse](./media/security-center-monitoring/security-center-monitoring-fig1-new.png)
+![Integrità delle risorse](./media/security-center-monitoring/security-center-monitoring-fig1-new2.png)
 
 Se il Centro sicurezza identifica una vulnerabilità che deve essere risolta, ad esempio una macchina virtuale a cui mancano aggiornamenti della sicurezza o una subnet senza un [gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md), viene elencata qui.
 
@@ -188,4 +188,4 @@ In questo documento è stato descritto come utilizzare le funzionalità di monit
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'utilizzo del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"  />
 
 <tags
@@ -16,7 +16,7 @@
 	ms.date="02/08/2016"
 	ms.author="hangzh;bradsev" />
 
-#<a name="heading"></a> Inviare query Hive ai cluster Hadoop di HDInsight in Advanced Analytics Process and Technology 
+#<a name="heading"></a> Inviare query Hive ai cluster Hadoop di HDInsight in Advanced Analytics Process and Technology
 
 Questo documento descrive le differenti modalità di invio delle query Hive ai cluster Hadoop gestiti dal servizio HDInsight in Azure. Questa attività è parte del Cortana Analytics Process (CAP). Il documento illustra inoltre due attività di gestione dei dati: creazione di funzionalità ed esplorazione dei dati. Vengono presentate le query Hive generiche che illustrano come esplorare i dati o creare funzionalità usando Hive in un cluster Hadoop del servizio HDInsight di Azure. Tali query Hive usano le funzioni definite dall'utente fornite.
 
@@ -106,7 +106,7 @@ Gli utenti possono anche restituire i risultati della query Hive in un BLOB di A
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-Nell'esempio seguente, l'output della query Hive viene scritto in una directory del BLOB `queryoutputdir` nel contenitore predefinito del cluster Hadoop. In questo caso, è necessario fornire solo il nome della directory e non anche quello del BLOB. Verrà generato un errore se si specificano i nomi della directory e del BLOB, ad esempio *wasb:///queryoutputdir/queryoutput.txt*.
+Nell'esempio seguente, l'output della query Hive viene scritto in una directory del BLOB `queryoutputdir` nel contenitore predefinito del cluster Hadoop. In questo caso, è necessario fornire solo il nome della directory e non anche quello del BLOB. Verrà generato un errore se si specificano i nomi della directory e del BLOB, ad esempio **wasb:///queryoutputdir/queryoutput.txt*.
 
 ![Creare un'area di lavoro](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
 
@@ -167,7 +167,7 @@ Di seguito sono riportati alcuni script Hive di esempio che possono essere usati
 
 In questa sezione viene descritto come creare funzionalità tramite le query Hive.
 
-> [AZURE.NOTE] Le query Hive di esempio riportate presuppongono che i dati siano stati caricati nelle tabelle Hive dei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-hive-tables.md) per caricare innanzitutto i dati nelle tabelle Hive.
+> [AZURE.NOTE] Le query Hive di esempio riportate presuppongono che i dati siano stati caricati nelle tabelle Hive dei cluster Hadoop di Azure HDInsight. Se questa operazione non è stata effettuata, seguire le istruzioni riportate in [Creazione e caricamento di dati nelle tabelle Hive](machine-learning-data-science-move-hive-tables.md) per caricare innanzitutto i dati nelle tabelle Hive.
 
 Dopo aver creato le funzionalità aggiuntive, è possibile aggiungerle come colonne alla tabella esistente oppure creare una nuova tabella con le funzionalità aggiuntive e la chiave primaria, che quindi può essere unita alla tabella originale.
 
@@ -310,8 +310,4 @@ Le impostazioni predefinite per i parametri del cluster Hive potrebbero non esse
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-
-
- 
-
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

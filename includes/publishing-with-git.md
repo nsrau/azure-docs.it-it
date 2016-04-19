@@ -1,6 +1,6 @@
-Il [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) supporta la distribuzione continua ad App Web da strumenti di repository e controllo del codice sorgente come BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial e TFS. È possibile usare questi strumenti per gestire il contenuto e il codice dell'applicazione e quindi effettuare il push delle modifiche all'app Web di Azure in modo rapido e immediato.
+Il [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) supporta la distribuzione continua da strumenti di repository e controllo del codice sorgente come GitHub, BitBucket e Visual Studio Team Services. È possibile usare questi strumenti per gestire il contenuto e il codice per l'app, quindi effettuare il push delle modifiche al servizio app in modo rapido e immediato quando è necessario.
 
-Questo articolo illustra l'uso di Git per pubblicare direttamente dal computer locale in App Web. In Azure questo metodo di pubblicazione è detto **Git locale**. Si apprenderà anche come abilitare la distribuzione continua da siti di repository, come BitBucket, CodePlex, Dropbox, GitHub o Mercurial. Per informazioni sull'utilizzo di TFS per la distribuzione continua, vedere [Distribuzione continua in Azure tramite Visual Studio Team Services].
+Questo articolo illustra l'uso di Git per pubblicare direttamente dal computer locale in App Web. In Azure questo metodo di pubblicazione è detto **Git locale**. Si apprenderà anche come abilitare la distribuzione continua da siti di repository, come BitBucket e GitHub. Per informazioni sull'utilizzo di VSTS per la distribuzione continua, vedere [Recapito continuo in Azure tramite Visual Studio Team Services].
 
 > [AZURE.NOTE] Molti comandi Git descritti in questo articolo vengono eseguiti automaticamente quando si crea un'app Web usando gli [strumenti da riga di comando di Azure per Mac e Linux](/develop/nodejs/how-to-guides/command-line-tools/).
 
@@ -293,6 +293,6 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 [creazione di archivi (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [guida introduttiva di Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [utilizzo di Dropbox per la condivisione di archivi Git]: https://gist.github.com/trey/2722927
-[Distribuzione continua in Azure tramite Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
+[Recapito continuo in Azure tramite Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

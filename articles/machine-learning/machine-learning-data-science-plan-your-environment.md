@@ -76,7 +76,7 @@ Si consideri ad esempio l'ambiente di Azure Machine Learning Studio:
 - Per un elenco dei formati e dei tipi di dati supportati da Azure Machine Learning Studio, vedere la sezione [Tipi di dati e formati di dati supportati](machine-learning-data-science-import-data.md#data-formats-and-data-types-supported).
 - Per informazioni sulle limitazioni dei dati per Azure Machine Learning Studio, vedere la sezione **Qual è la grandezza massima dei set di dati per i moduli?** in [Importazione ed esportazione dei dati per Machine Learning](machine-learning-faq.md#machine-learning-studio-questions).
 
-Per informazioni sulle limitazioni di altri servizi Azure usati nel processo di analisi, vedere [Sottoscrizione ad Azure e limiti, quote e vincoli del servizio](azure-subscription-service-limits.md).
+Per informazioni sulle limitazioni di altri servizi Azure usati nel processo di analisi, vedere [Sottoscrizione ad Azure e limiti, quote e vincoli del servizio](../azure-subscription-service-limits.md).
 
 ## Domande sulla qualità dei dati: esplorazione e pre-elaborazione
 
@@ -104,7 +104,7 @@ Sono disponibili numerose opzioni a seconda dei linguaggi e degli strumenti o am
 
 
 ## Identificare lo scenario di analisi avanzata
-Dopo aver risposto alle domande nella sezione precedente, si è pronti per determinare quale scenario è più adatto al caso specifico. Gli scenari di esempio sono descritti in [Scenari per l'analisi avanzata in Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md).
+Dopo aver risposto alle domande nella sezione precedente, si è pronti per determinare quale scenario è più adatto al caso specifico. Gli scenari di esempio sono descritti in [Scenari per l'analisi avanzata in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
 
 
 
@@ -114,4 +114,4 @@ Dopo aver risposto alle domande nella sezione precedente, si è pronti per deter
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

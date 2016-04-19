@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
-   ms.author="dkshir;memccror"/>
+   ms.date="04/04/2016"
+   ms.author="iainfou;memccror"/>
 
 # Come assegnare un tag a una macchina virtuale Windows in Azure
 
@@ -101,4 +101,4 @@ Per altre informazioni sull'assegnazione di tag tramite PowerShell, consultare i
 [Comprendere la fattura per Microsoft Azure]: ../billing-understand-your-bill.md
 [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

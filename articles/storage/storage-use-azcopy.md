@@ -565,7 +565,7 @@ Specifica la modalità ricorsiva per le operazioni di copia. Nella modalità ric
 
 ### /BlobType:"block" | "page" | "append"
 
-Specifica la modalità ricorsiva per le operazioni di copia. Nella modalità ricorsiva, AzCopy copierà tutti i BLOB o file corrispondenti al criterio di file specificato, inclusi quelli nelle sottocartelle.
+Specifica se il BLOB di destinazione è un BLOB in blocchi, un BLOB di pagine o un BLOB di accodamento. Questa opzione è applicabile solo per l'upload di un BLOB. In caso contrario, viene generato un errore. Se la destinazione è un BLOB e questa opzione non è specificata, per impostazione predefinita AzCopy crea un BLOB in blocchi.
 
 **Applicabile a:** BLOB
 
@@ -864,4 +864,4 @@ Per altre informazioni su Archiviazione di Azure e AzCopy, vedere le risorse seg
 - [AzCopy: uso del comando di copia dei BLOB tra account](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Caricamento e download di file per BLOB di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

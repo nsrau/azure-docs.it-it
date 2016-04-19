@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/04/2016"
    ms.author="yuridio"/>
 
 #Introduzione alla sicurezza in Microsoft Azure
@@ -138,9 +138,9 @@ Azure offre tre livelli principali di separazione delle reti in ogni cluster di 
 Il traffico di rete verso e dalle VM deve passare attraverso il commutatore virtuale dell'hypervisor. Il componente del filtro IP nel sistema operativo radice isola la VM radice dalle VM guest e le VM guest l'una dall'altra. Applica filtri al traffico per limitare la comunicazione tra i nodi del tenant e Internet pubblico (in base alla configurazione del servizio del cliente), separandoli dagli altri tenant.
 
 Il filtro IP impedisce alle VM guest di:
- 
+
 - Generare traffico falsificato
- 
+
 - Ricevere traffico non indirizzato a esse
 
 - Indirizzare il traffico agli endpoint dell'infrastruttura protetti
@@ -209,7 +209,7 @@ Gli amministratori di Azure accedono ai log da un portale Web per l'accesso aute
 
 Microsoft raccoglie i log dai dispositivi di rete con il protocollo Syslog e dai server host con Microsoft Audit Collection Services (ACS). Questi log vengono inseriti in un database di log dal quale vengono generati avvisi relativi a eventi sospetti direttamente per un amministratore Microsoft. L'amministratore può accedere a questi log e analizzarli.
 
-[Diagnostica di Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) è una funzionalità che consente di raccogliere dati di diagnostica da un'applicazione in esecuzione in Azure. Si tratta dei dati di diagnostica per il debug, la risoluzione dei problemi, la valutazione delle prestazioni, il monitoraggio dell'utilizzo delle risorse, l'analisi del traffico, la pianificazione della capacità e il controllo. Una volta raccolti i dati di diagnostica, è possibile trasferirli in modo permanente in un account di archiviazione di Azure. I trasferimenti possono essere pianificati o su richiesta. L'articolo [Gestione dei registri di protezione e dei log di controllo di Microsoft Azure](azure-security-audit-log-management.md) contiene istruzioni dettagliate per raccogliere queste informazioni e analizzarle.
+[Diagnostica di Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) è una funzionalità che consente di raccogliere dati di diagnostica da un'applicazione in esecuzione in Azure. Si tratta dei dati di diagnostica per il debug, la risoluzione dei problemi, la valutazione delle prestazioni, il monitoraggio dell'utilizzo delle risorse, l'analisi del traffico, la pianificazione della capacità e il controllo. Una volta raccolti i dati di diagnostica, è possibile trasferirli in modo permanente in un account di archiviazione di Azure. I trasferimenti possono essere pianificati o su richiesta.
 
 ##Prevenzione delle minacce
 
@@ -241,4 +241,4 @@ Azure usa controlli di sicurezza per implementare la prevenzione delle minacce e
 
 [Blog di Active Directory](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

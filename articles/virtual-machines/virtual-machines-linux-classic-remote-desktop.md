@@ -32,7 +32,7 @@ L'articolo seguente risponderà a questa domanda. Consentirà di installare e co
 Xrdp è un server RDP open source, che consente di connettere il server Linux con Desktop remoto da un computer Windows. Funziona molto meglio di VNC (Virtual Network Computing). VNC ha fama di qualità "JPEG" e di lentezza di funzionamento, mentre RDP è veloce e nitido.
 
 
-> [AZURE.NOTE] È necessario disporre di una macchina virtuale di Microsoft Azure che esegue Linux. Vedere l'[esercitazione relativa alle macchine virtuali Linux di Azure](virtual-machines-linux-cli-create.md) per creare e impostare una macchina virtuale Linux.
+> [AZURE.NOTE] È necessario disporre di una macchina virtuale di Microsoft Azure che esegue Linux. Vedere l'[esercitazione relativa alle macchine virtuali Linux di Azure](virtual-machines-linux-classic-createportal.md) per creare e impostare una macchina virtuale Linux.
 
 
 ##Creare endpoint per Desktop remoto
@@ -116,4 +116,4 @@ Accedere con `user` e `password` per la macchina Linux e sarà possibile usare s
 ##Avanti
 Per altre informazioni sull'uso di xrdp, vedere [questa pagina](http://www.xrdp.org/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

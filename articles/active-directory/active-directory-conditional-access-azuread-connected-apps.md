@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="03/30/2016"
 	ms.author="femila"/>
 
 # Anteprima dell'accesso condizionale di Azure per app SaaS
@@ -49,6 +49,7 @@ Questa sezione descrive come configurare le regole di accesso per ogni applicazi
 ##Informazioni sulle regole di accesso
 
 Questa sezione contiene una descrizione dettagliata delle regole di accesso supportate nella versione di anteprima dell'accesso condizionale alle applicazioni di Azure.
+
 ### Definizione degli utenti a cui applicare le regole di accesso
 
 Per impostazione predefinita, i criteri verranno applicati a tutti gli utenti che hanno accesso all'applicazione. Tuttavia, è anche possibile limitare i criteri agli utenti membri dei gruppi di sicurezza specificati. Il pulsante **Aggiungi gruppo** permette di selezionare uno o più gruppi a cui applicare la regola di accesso nella finestra di dialogo di selezione dei gruppi. Questa finestra di dialogo può essere utilizzata anche per rimuovere i gruppi selezionati. Una volta selezionate le regole da applicare ai gruppi, le regole di accesso verranno applicate solo agli utenti che appartengono a uno dei gruppi di sicurezza specificati.
@@ -78,7 +79,7 @@ Quando un utente accede a un'applicazione federata che utilizza OAuth 2.0, OpenI
 
 Per tenant federati, l’autenticazione a più fattori (MFA) potrebbe eseguita da Azure Active Directory o dal server ADFS locale.
 
-Per impostazione predefinita, MFA viene eseguita in una pagina ospitata da Azure Active Directory. Per configurare MFA in locale, la proprietà -SupportsMFA deve essere impostata su true in Azure Active Directory, mediante il modulo di Azure AD per Windows PowerShell.
+Per impostazione predefinita, MFA viene eseguita in una pagina ospitata da Azure Active Directory. Per configurare l'MFA (Multi-Factor Authentication, Autenticazione a più fattori) locale, è necessario impostare la proprietà –SupportsMFA su **true** in Azure Active Directory usando il modulo di Azure AD per Windows PowerShell.
 
 L'esempio seguente illustra come abilitare MFA in locale usando il [cmdlet Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx) nel tenant contoso.com:
 
@@ -88,6 +89,7 @@ Oltre a impostare questo flag, l'istanza di AD FS del tenant federato deve esser
 
 ##Articoli correlati
 
+- [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access.md)
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

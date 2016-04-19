@@ -1,21 +1,66 @@
-<properties 
-	pageTitle="Note sulla versione per l'estensione di Visual Studio per Application Insights" 
-	description="Aggiornamenti più recenti per Strumenti di Visual Studio per Application Insights" 
-	services="application-insights" 
+<properties
+	pageTitle="Note sulla versione per l'estensione di Visual Studio per Developer Analytics"
+	description="Aggiornamenti più recenti per Strumenti di Visual Studio per Developer Analytics"
+	services="application-insights"
     documentationCenter=""
-	authors="aruna" 
+	authors="aruna"
 	manager="douge"/>
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/26/2016" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/28/2016"
 	ms.author="acearun"/>
- 
-# Note sulla versione per Strumenti Application Insights per Visual Studio
 
+# Note sulla versione: Strumenti di analisi per sviluppatori
+##### Analisi di Application Insights e di HockeyApp in Visual Studio
+## Versione 5.2
+Microsoft è lieta di annunciare l'introduzione di scenari di HockeyApp in Visual Studio. La prima integrazione abilitata è la distribuzione beta delle app Windows universale e Windows Form in VS.
+
+La distribuzione beta consente di caricare le versioni non definitive delle app in HockeyApp per distribuirle a un subset scelto di clienti o tester. La distribuzione beta, combinata con le funzionalità di feedback degli utenti e di raccolta degli arresti anomali di HockeyApp, può fornire utili informazioni sull'app prima di un rilascio su vasta scala. È possibile usare queste informazioni per risolvere i problemi relativi all'app prima che diventino gravi (valutazioni basse, feedback insufficiente e così via).
+
+Caricare build per la distribuzione beta da VS è davvero semplice.
+### App Windows universali
+Il menu contestuale per il nodo di un progetto per la piattaforma UWP ora include un'opzione per caricare la build in HockeyApp.
+
+![Menu contestuale del progetto per le app universali](./media/app-insights-release-notes-vsix/UniversalContextMenu.png)
+
+Scegliere la voce per visualizzare la finestra di dialogo di caricamento di HockeyApp. Per caricare la build, sarà necessario un account HockeyApp. I nuovi utenti potranno creare un account con un semplice processo.
+
+Una volta connessi, verrà visualizzato il form per il caricamento nella finestra di dialogo.
+
+![Finestra di dialogo di caricamento per le app universali](./media/app-insights-release-notes-vsix/UniversalUploadDialog.png)
+
+Selezionare il contenuto da caricare (APPXBUNDLE o APPX) e scegliere le opzioni per la versione nella procedura guidata. Nella pagina successiva è possibile aggiungere le note sulla versione. Scegliere "Fine" per iniziare il caricamento.
+
+Al termine del caricamento, verrà visualizzato un avviso popup di HockeyApp con la conferma e un collegamento all'app nel portale di HockeyApp.
+
+![Avviso popup di caricamento completato](./media/app-insights-release-notes-vsix/UploadComplete.png)
+
+Sono bastati pochi clic per caricare una build per la distribuzione beta.
+
+Il portale di HockeyApp consente di gestire l'applicazione in diversi modi (invitare gli utenti, visualizzare i report sugli arresti anomali e il feedback, modificare i dettagli e così via).
+
+![Portale di HockeyApp](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
+
+Per altri dettagli sulla gestione dell'app, vedere la [Knowledge Base di Hockey App](http://support.hockeyapp.net/kb/app-management-2).
+
+### App Windows Form
+Il menu contestuale per il nodo di un progetto per Windows Form include un'opzione per caricare la build in HockeyApp.
+
+![Menu contestuale del progetto per le app Windows Form](./media/app-insights-release-notes-vsix/WinFormContextMenu.png)
+
+In questo modo viene visualizzata la finestra di dialogo di caricamento di HockeyApp, simile a quella per le app universali.
+
+![Finestra di dialogo di caricamento per le app Windows Form](./media/app-insights-release-notes-vsix/WinFormsUploadDialog.png)
+
+In questa procedura guidata è presente un campo in più per specificare la versione dell'app. Per le app universali, le informazioni vengono inserite dal manifesto. Purtroppo non esiste un equivalente per Windows Form e quindi è necessario specificare manualmente le informazioni.
+
+Il resto del flusso è simile a quello delle app universali: selezione della build e delle opzioni per la versione, aggiunta delle note sulla versione, caricamento e gestione nel portale di HockeyApp.
+
+È davvero semplice. È possibile provare e inviare commenti e suggerimenti.
 ## Versione 4.3
 ### Ricercare i dati di telemetria da sessioni di debug locali
 In questa versione è possibile ricercare i dati di telemetria di Application Insights generati nella sessione di debug di Visual Studio. Nelle versioni precedenti la ricerca è possibile soltanto se l'app è stata registrata in Application Insights. In questa versione, per ricercare i dati di telemetria locali è sufficiente che nell'app sia stato installato Application Insights SDK.
@@ -39,18 +84,24 @@ In questa versione sono state aggiunte funzionalità per semplificare la ricerca
 ###- Accesso a zero clic
 Se si usa il sistema di traccia NLog, Log4Net o System.Diagnostics non è necessario spostare le tracce in AI. Gli adattatori di accesso di Application Insights sono integrati nel normale processo di configurazione. Se si dispone già di uno di questi framework di registrazione configurato:
 ####Se Application Insights è già stato aggiunto
-- Fare clic con il pulsante destro del mouse su Nodo progetto->Application Insights->Configura Application Insights. Assicurarsi che venga visualizzata l'opzione che consente di aggiungere l'adattatore appropriato nella finestra di configurazione. 
-- In alternativa, durante la compilazione della soluzione, nella finestra popup visualizzata nella parte superiore destra della schermata fare clic su Configura. ![Avviso popup](./media/app-insights-release-notes-vsix/LoggingToast.png)
+- Fare clic con il pulsante destro del mouse su Nodo progetto->Application Insights->Configura Application Insights. Assicurarsi che venga visualizzata l'opzione che consente di aggiungere l'adattatore appropriato nella finestra di configurazione.
+- In alternativa, durante la compilazione della soluzione, nella finestra popup visualizzata nella parte superiore destra della schermata fare clic su Configura.
+![Avviso popup](./media/app-insights-release-notes-vsix/LoggingToast.png)
 
-Dopo aver installato l'adattatore di registrazione, è possibile eseguire l'applicazione e assicurarsi di visualizzare i dati nella scheda degli strumenti di diagnostica come indicato di seguito: ![Tracce](./media/app-insights-release-notes-vsix/Traces.png)
+Dopo aver installato l'adattatore di registrazione, è possibile eseguire l'applicazione e verificare di visualizzare i dati nella scheda degli strumenti di diagnostica come indicato di seguito:
+![Tracce](./media/app-insights-release-notes-vsix/Traces.png)
 ###- L'utente può trovare/passare al codice in cui viene generata la proprietà dell'evento di telemetria
-Con la nuova versione l'utente può fare clic su qualsiasi valore nei dettagli dell'evento per ricercare una stringa corrispondente nella soluzione aperta. I risultati verranno visualizzati nell'elenco "Risultati ricerca" di Visual Studio come illustrato di seguito: ![Ricerca della corrispondenza](./media/app-insights-release-notes-vsix/FindMatch.png)
+Con la nuova versione l'utente può fare clic su qualsiasi valore nei dettagli dell'evento per ricercare una stringa corrispondente nella soluzione aperta. I risultati verranno visualizzati nell'elenco "Risultati ricerca" di Visual Studio come illustrato di seguito:
+![Ricerca della corrispondenza](./media/app-insights-release-notes-vsix/FindMatch.png)
 ###- Nuova schermata per l'utente che non ha eseguito l'accesso nella finestra di ricerca
-La finestra di ricerca è stata modificata per consentire agli utenti di ricercare i dati nell'ambiente di produzione. ![Finestra di ricerca](./media/app-insights-release-notes-vsix/SearchWindow.png)
+La finestra di ricerca è stata modificata per consentire agli utenti di ricercare i dati nell'ambiente di produzione.
+![Finestra di ricerca](./media/app-insights-release-notes-vsix/SearchWindow.png)
 ###- L'utente può visualizzare tutti gli eventi di telemetria associati all'evento
-È stata aggiunta una nuova scheda accanto ai dettagli dell'evento contenente query predefinite per la visualizzazione di tutti i dati correlati all'evento di telemetria visualizzato dall'utente. Ad esempio: la richiesta include un campo denominato ID operazione e ogni evento associato alla richiesta avrà lo stesso ID operazione. In questo modo, se si è verificata un'eccezione durante l'elaborazione della richiesta, l'eccezione avrà lo stesso ID operazione della richiesta per facilitare la ricerca, ecc. L'utente che visualizza la richiesta potrà fare clic su "Tutti i dati di telemetria per questa operazione" per aprire una nuova scheda con i nuovi risultati della ricerca. ![Elementi correlati](./media/app-insights-release-notes-vsix/RelatedItems.png)
+È stata aggiunta una nuova scheda accanto ai dettagli dell'evento contenente query predefinite per la visualizzazione di tutti i dati correlati all'evento di telemetria visualizzato dall'utente. Ad esempio: la richiesta include un campo denominato ID operazione e ogni evento associato alla richiesta avrà lo stesso ID operazione. In questo modo, se si è verificata un'eccezione durante l'elaborazione della richiesta, l'eccezione avrà lo stesso ID operazione della richiesta per facilitare la ricerca, ecc. L'utente che visualizza la richiesta potrà fare clic su "Tutti i dati di telemetria per questa operazione" per aprire una nuova scheda con i nuovi risultati della ricerca.
+![Elementi correlati](./media/app-insights-release-notes-vsix/RelatedItems.png)
 ### - Aggiunta dell'opzione di passaggio alla schermata successiva/ritorno all'ultima schermata nella finestra di ricerca
-L'utente può ora passare alla schermata successiva o tornare a quella precedente dei risultati di ricerca. ![Tornare alla schermata precedente](./media/app-insights-release-notes-vsix/GoBAck.png)
+L'utente può ora passare alla schermata successiva o tornare a quella precedente dei risultati di ricerca.
+![Tornare alla schermata precedente](./media/app-insights-release-notes-vsix/GoBAck.png)
 
 ##Versione 4.1
 Questa versione include numerose nuove funzionalità e miglioramenti per quelle esistenti. Per ottenere questa versione è necessario avere installato Update 1 nel computer.
@@ -69,7 +120,7 @@ Facendo clic sul collegamento ipertestuale si passerà al punto in cui si trova 
 
 ![Clic su un'eccezione](./media/app-insights-release-notes-vsix/jumptocode.png)
 
-###Nuovi punti di ingresso per l'esperienza di ricerca in Esplora soluzioni 
+###Nuovi punti di ingresso per l'esperienza di ricerca in Esplora soluzioni
 
 ![Punto di ingresso in Esplora soluzioni](./media/app-insights-release-notes-vsix/searchentry.png)
 
@@ -104,6 +155,4 @@ Al *Connect();* 2015 [è stato annunciato](https://azure.microsoft.com/blog/deep
 
 Nelle versioni future dell'estensione Application Insights saranno introdotte nuove funzionalità per consentire un'esperienza maggiormente integrata tra HockeyApp e Visual Studio. Per ora è possibile iniziare a usare HockeyApp semplicemente aggiungendo il riferimento NuGet. Per altre informazioni, vedere la [documentazione](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone).
 
- 
-
-<!---HONumber=AcomDC_0302_2016-->
+<!-----HONumber=AcomDC_0330_2016-->

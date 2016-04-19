@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/19/2016"
+   ms.date="04/05/2016"
    ms.author="seanmck"/>
 
 
 # Compilare un front-end di servizio Web per l'applicazione
+
+>[AZURE.WARNING] A causa delle modifiche apportate in ASP.NET Core RC2, questo articolo è temporaneamente non corretto perché il modello di progetto di riferimento è stato rimosso dall'SDK. Questo articolo verrà aggiornato quando sarà rilasciato ASP.NET Core RC2. Nel frattempo, è possibile usare il modello di API Web senza stato, descritto in [Introduzione ai servizi API Web di Service Fabric con self-hosting OWIN](service-fabric-reliable-services-communication-webapi.md).
 
 Per impostazione predefinita, i servizi di Azure Service Fabric non forniscono un'interfaccia pubblica per il Web. Per esporre la funzionalità dell'applicazione ai client HTTP, sarà necessario creare un progetto Web da usare come punto di ingresso da cui comunicare con i singoli servizi.
 
@@ -52,7 +54,7 @@ Per avere un'idea di quanto è stato fatto, si distribuirà ora la nuova applica
 
 2. Al termine della distribuzione, Visual Studio avvierà il browser nella radice del servizio API Web ASP.NET, ad esempio http://localhost:33003. Il numero della porta viene assegnato casualmente e può essere diverso su ciascun computer. Poiché il modello API Web ASP.NET 5 non prevede un comportamento predefinito per la radice, verrà visualizzato un errore nel browser.
 
-3. Aggiungere `/api/values` al percorso nel browser. Questa operazione richiamerà il metodo `Get` in ValuesController del modello API Web e restituirà la risposta predefinita fornita dal modello, una matrice JSON contenente due stringhe:
+3. Aggiungere `/api/values` al percorso nel browser. Questa operazione richiamerà il metodo `Get` in ValuesController del modello API Web. e restituirà la risposta predefinita fornita dal modello, una matrice JSON contenente due stringhe:
 
     ![Valori predefiniti restituiti dal modello API Web ASP.NET 5][browser-aspnet-template-values]
 
@@ -105,7 +107,7 @@ Dopo aver definito l'interfaccia, è ora necessario implementarla nel servizio c
 
     ![Aggiunta di un riferimento al progetto libreria di classi nel servizio con stato][vs-add-class-library-reference]
 
-2. Individuare la classe che eredita da `StatefulService`, ad esempio `MyStatefulService`, ed estenderla per implementare l'interfaccia `ICounter`.
+2. Trovare la classe che eredita da `StatefulService`, ad esempio `MyStatefulService`, ed estenderla per implementare l'interfaccia `ICounter`.
 
     ```c#
     using MyStatefulService.Interfaces;
@@ -237,4 +239,4 @@ Per informazioni su come configurare valori diversi a seconda dell'ambiente, ved
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

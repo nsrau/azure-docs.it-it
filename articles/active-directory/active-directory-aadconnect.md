@@ -14,11 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/29/2016"
+	ms.date="04/13/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integrazione delle identità locali con Azure Active Directory
 Azure AD Connect è lo strumento che permette di integrare il sistema di gestione delle identità locale, ad esempio Windows Server Active Directory, con Azure Active Directory e connettere gli utenti a Office 365, ad Azure e a migliaia di applicazioni SaaS. Questo argomento fornisce una guida completa alla preparazione e alla distribuzione dei componenti necessari per permettere agli utenti finali di accedere ai servizi cloud con la stessa identità che usano oggi per accedere alle app aziendali esistenti.
+
+<!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
+
+> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.]( https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
 
 ![Cos'è Azure AD Connect](./media/active-directory-aadconnect/arch.png)
 
@@ -93,7 +97,7 @@ Il [writeback dei dispositivi](active-directory-aadconnect-feature-device-writeb
 
 La funzionalità di [prevenzione delle eliminazioni accidentali](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) è attivata per impostazione predefinita e consente di proteggere la directory cloud da numerose eliminazioni contemporanee. Per impostazione predefinita, consente 500 eliminazioni per esecuzione. Questo valore può essere modificato in base alle dimensioni dell'organizzazione.
 
-L'[aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md) è abilitato per impostazione predefinita per le installazioni con impostazioni rapide e verifica che Azure AD Connect sia sempre aggiornato alla versione più recente.
+L'[aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md) è abilitato per impostazione predefinita per le installazioni con impostazioni rapide e garantisce che Azure AD Connect sia sempre aggiornato alla versione più recente.
 
 ### Configurare le funzionalità - Passaggi successivi
 
@@ -144,4 +148,4 @@ Presentazione Ignite 2015 su come estendere le directory locali nel cloud.
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

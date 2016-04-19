@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/25/2016"
+   ms.date="04/11/2016"
    ms.author="yurid"/>
 
 # Ottenere informazioni dettagliate sui dati del Centro sicurezza di Azure con Power BI
@@ -77,7 +77,7 @@ A questo punto è anche possibile salvare una copia di questo report, stamparlo 
 
 1\. Nel dashboard **Centro sicurezza di Azure** fare clic sul pulsante **Esplora in Power BI**.
 
-![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig9.png)
+![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig9-new.png)
 
 2\. Sul lato destro verrà visualizzato il pannello **Esplora in Power BI**, come illustrato di seguito:
 
@@ -95,6 +95,8 @@ A questo punto è anche possibile salvare una copia di questo report, stamparlo 
 
 8\. Si verrà reindirizzati a una pagina di autenticazione in cui è necessario digitare le credenziali usate per connettersi al Centro sicurezza di Azure. Al termine del processo di autenticazione, Power BI inizierà a importare dati per compilare i report.
 
+> [AZURE.NOTE] Un aggiornamento del report è pianificato su base giornaliera. In caso di errore di questo aggiornamento, leggere il blog relativo ai [potenziali problemi di aggiornamento con Power BI nel Centro sicurezza di Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/07/azure-security-center-power-bi-refresh-fails/), per altre informazioni su come risolverli.
+
 ## Passaggi successivi
 In questo documento è stato descritto come usare Power BI nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
@@ -103,4 +105,4 @@ In questo documento è stato descritto come usare Power BI nel Centro sicurezza 
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'utilizzo del servizio
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

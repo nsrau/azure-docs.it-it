@@ -18,9 +18,11 @@ ms.service="virtual-machines-windows"
 
 # Opzioni per creare e gestire un cluster high performance computing (HPC) Windows in Azure con Microsoft HPC Pack
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
 [AZURE.INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
+
+Se si desidera eseguire i carichi di lavoro HPC di Linux con HPC Pack, vedere [Opzioni per la creazione e la gestione di un cluster HPC Linux in Azure con Microsoft HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Eseguire un cluster HPC Pack nelle VM di Azure
 
@@ -87,4 +89,4 @@ ms.service="virtual-machines-windows"
 
 * [Configurare un cluster RDMA di Windows con HPC Pack per eseguire applicazioni MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

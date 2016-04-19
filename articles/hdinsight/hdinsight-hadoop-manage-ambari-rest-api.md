@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="03/29/2016"
    ms.author="larryfr"/>
 
 #Gestire i cluster HDInsight mediante l'API REST Ambari
@@ -40,7 +40,15 @@ Ambari viene fornito per impostazione predefinita con i cluster HDInsight basati
 
 L'URI di base per l'API REST Ambari su HDInsight è https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, dove __CLUSTERNAME__ è il nome del cluster.
 
-> [AZURE.IMPORTANT] La connessione ad Ambari su HDInsight richiede HTTPS. È anche necessario effettuare l'autenticazione in Ambari mediante il nome dell'account amministratore (il valore predefinito è __admin__) e la password fornita durante la creazione del cluster.
+> [AZURE.IMPORTANT] A differenza delle altre occorrenze nell'URI, nel nome del cluster nella parte del nome di dominio completo (FQDN) dell'URI (CLUSTERNAME.azurehdinsight.net) non viene fatta distinzione tra maiuscole e minuscole. Ad esempio, se il cluster è denominato MyCluster, gli URI seguenti sono validi:
+>
+> `https://mycluster.azurehdinsight.net/api/v1/clusters/MyCluster` `https://MyCluster.azurehdinsight.net/api/v1/clusters/MyCluster`
+>
+> Gli URI seguenti restituiscono un errore perché nella seconda occorrenza del nome non vengono usate le maiuscole/minuscole corrette.
+>
+> `https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster` `https://MyCluster.azurehdinsight.net/api/v1/clusters/mycluster`
+
+La connessione ad Ambari su HDInsight richiede HTTPS. È necessario anche eseguire l'autenticazione ad Ambari utilizzando il nome dell'account admin (il valore predefinito è __admin__,) e la password fornita al momento della creazione del cluster.
 
 L'esempio seguente illustra l'uso di cURL per eseguire una richiesta GET nell'API REST:
 
@@ -129,10 +137,121 @@ Verrà restituito un valore analogo al seguente, dove __CONTAINER__ è il conten
 
     Ad esempio, se si vuole che il file venga visualizzato in HDInsight in corrispondenza di wasb://example/data/filename.txt,__BLOBPATH__ sarà `example/data/filename.txt`.
 
+##Esempio: Aggiornare la configurazione di Ambari
+
+1. Ottenere la configurazione corrente, archiviata da Ambari come "configurazione desiderata":
+
+        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_configs"
+        
+    Verrà restituito un documento JSON contenente la configurazione corrente identificata dal valore _tag_ dei componenti installati nel cluster. Ad esempio, di seguito è riportato un estratto dei dati restituiti da un tipo di cluster Spark.
+    
+        "spark-metrics-properties" : {
+            "tag" : "INITIAL",
+            "user" : "admin",
+            "version" : 1
+        },
+        "spark-thrift-fairscheduler" : {
+            "tag" : "INITIAL",
+            "user" : "admin",
+            "version" : 1
+        },
+        "spark-thrift-sparkconf" : {
+            "tag" : "INITIAL",
+            "user" : "admin",
+            "version" : 1
+        }
+
+    È necessario copiare il nome del componente, ad esempio __spark\_thrift\_sparkconf__, e il valore __tag__ dall'elenco.
+    
+2. Recuperare la configurazione del componente e del tag usando il comando seguente. Sostituire __spark-thrift-sparkconf__ e __INITIAL__ con il componente e il tag di cui si desidera recuperare la configurazione.
+
+        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
+    
+    Curl recupera il documento JSON, quindi jq viene usato per apportare alcune modifiche per creare un modello che è possibile usare per aggiungere o modificare i valori di configurazione. In particolare, esegue le operazioni seguenti:
+    
+    * Crea un valore univoco contenente la stringa "version" e la data che viene archiviato in __newtag__
+    * Crea un documento radice per la nuova configurazione desiderata
+    * Ottiene il contenuto della matrice .items e lo aggiunge sotto l'elemento __desired\_config__.
+    * Elimina gli elementi __href__, __version__ e __Config__ poiché non sono necessari per l'invio di una nuova configurazione
+    * Aggiunge un nuovo elemento __tag__ e imposta il valore su __version#################__ dove la parte numerica è basata sulla data corrente. Ogni configurazione deve avere un tag univoco.
+    
+    Infine, i dati vengono salvati nel documento __newconfig.json__. La struttura del documento sarà simile a quella riportata di seguito:
+    
+        {
+            "Clusters": {
+                "desired_config": {
+                "tag": "version1459260185774265400",
+                "type": "spark-thrift-sparkconf",
+                "properties": {
+                    ....
+                 },
+                 "properties_attributes": {
+                     ....
+                 }
+            }
+        }
+
+3. Aprire il documento __newconfig.json__ e modificare o aggiungere i valori nell'oggetto __properties__. Ad esempio, modificare il valore di __"spark.yarn.am.memory"__ da __"1g"__ a __"3g"__ e aggiungere un nuovo elemento per __"spark.kryoserializer.buffer.max"__ con valore __"256m"__.
+
+        "spark.yarn.am.memory": "3g",
+        "spark.kyroserializer.buffer.max": "256m",
+
+    Al termine delle modifiche, salvare il file.
+
+4. Usare il codice seguente per inviare la configurazione aggiornata ad Ambari..
+
+        cat newconfig.json | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME"
+        
+    Questo comando invia tramite pipe il contenuto del file __newconfig.json__ alla richiesta curl che lo invia al cluster come nuova configurazione desiderata. Verrà restituito un documento JSON. L'elemento __versionTag__ di questo documento deve corrispondere alla versione inviata, mentre l'oggetto __configs__ conterrà le modifiche di configurazione richieste.
+
+###Esempio: Riavviare un componente del servizio
+
+A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Spark richiederà il riavvio per rendere effettiva la nuova configurazione. Usare la procedura seguente per riavviare il servizio. In particolare:
+
+1. Usare il codice seguente per attivare la modalità di manutenzione del servizio Spark.
+
+        echo '{"RequestInfo": {"context": "turning on maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
+
+    Viene inviato un documento JSON al server, contenuto nell'istruzione `echo`, che attiva la modalità di manutenzione. È possibile verificare che il servizio sia in modalità di manutenzione usando la richiesta seguente.
+    
+        curl -u admin:PASSWORD -H "X-Requested-By: ambari" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK" | jq .ServiceInfo.maintenance_state
+        
+    Viene restituito il valore `"ON"`.
+
+3. Successivamente, usare il codice seguente per disattivare il servizio.
+
+        echo '{"RequestInfo": {"context" :"Stopping the Spark service"}, "Body": {"ServiceInfo": {"state": "INSTALLED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
+        
+    Viene ricevuta una risposta simile alla seguente:
+    
+        {
+            "href" : "http://10.0.0.18:8080/api/v1/clusters/CLUSTERNAME/requests/29",
+            "Requests" : {
+                "id" : 29,
+                "status" : "Accepted"
+            }
+        }
+    
+    Il valore `href` restituito dall'URI usa l'indirizzo IP interno del nodo del cluster. Per usarlo dall'esterno del cluster, sostituire la parte '10.0.0.18:8080' con il nome FQDN del cluster. Ad esempio, il codice seguente recupera lo stato della richiesta.
+    
+        curl -u admin:PASSWORD -H "X-Requested-By: ambari" "https://CLUSTERNAME/api/v1/clusters/CLUSTERNAME/requests/29" | jq .Requests.request_status
+    
+    Se il valore restituisce `"COMPLETED"`, la richiesta è stata completata.
+
+4. Dopo aver completato la richiesta precedente, usare il codice seguente per avviare il servizio.
+
+        echo '{"RequestInfo": {"context" :"Restarting the Spark service"}, "Body": {"ServiceInfo": {"state": "STARTED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
+
+    Dopo il riavvio, il servizio userà le nuove impostazioni di configurazione.
+
+5. Infine, usare il codice seguente per disattivare la modalità di manutenzione.
+
+        echo '{"RequestInfo": {"context": "turning off maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"OFF"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
+
 ##Passaggi successivi
 
 Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle [informazioni di riferimento per l'API Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 > [AZURE.NOTE] Alcune funzionalità di Ambari sono disabilitate, perché vengono gestite dal servizio cloud HDInsight, ad esempio, l'aggiunta o la rimozione di host dal cluster o l'aggiunta di nuovi servizi.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

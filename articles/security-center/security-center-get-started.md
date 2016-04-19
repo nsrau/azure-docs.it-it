@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="04/11/2016"
    ms.author="terrylan"/>
 
 # Introduzione al Centro sicurezza di Azure
@@ -45,7 +45,7 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
 
 È possibile configurare criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure. Verranno configurati i **criteri** di sicurezza per la sottoscrizione:
 
-1. Selezionare il riquadro **Criterio di sicurezza** nel pannello **Centro sicurezza**. ![Centro sicurezza][3]
+1. Selezionare il riquadro **Criteri** nel pannello **Centro sicurezza**. ![Centro sicurezza][3]
 
 2. Nel pannello **Criteri di sicurezza - Definire i criteri per sottoscrizione o gruppo di risorse** selezionare una sottoscrizione. ![Pannello Avvisi di sicurezza nel Centro sicurezza di Azure][4]
 
@@ -64,20 +64,36 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
 1. Tornare al pannello **Centro sicurezza** e selezionare il riquadro **Raccomandazioni**. Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse di Azure. Quando identifica potenziali vulnerabilità di sicurezza, al suo interno vengono visualizzate raccomandazioni.
 2.	Selezionare ogni raccomandazione per visualizzare informazioni aggiuntive e/o intervenire per risolvere il problema. ![Raccomandazioni nel Centro sicurezza di Azure][5]
 
-Visualizzare lo stato di integrità e di sicurezza delle risorse tramite **Integrità risorse**:
+Visualizzare lo stato di integrità e di sicurezza delle risorse tramite **Integrità sicurezza delle risorse**:
 
 1.	Tornare al pannello **Centro sicurezza PC**.
-2.	Il riquadro **Integrità risorse** contiene indicatori dello stato della protezione per **Macchine virtuali**, **Rete**, **SQL** e **Applicazioni**.
+2.	Il riquadro **Integrità sicurezza delle risorse** contiene indicatori dello stato di sicurezza per **Macchine virtuali**, **Rete**, **SQL** e **Applicazioni**.
 3.	Selezionare **Macchine virtuali** per visualizzare ulteriori informazioni.
 4.	Il pannello **Macchine virtuali** visualizza un riepilogo dello stato, che mostra lo stato di programmi antimalware, aggiornamenti del sistema, riavvii e regole della baseline delle macchine virtuali.
-5.	Selezionare un elemento in **PASSAGGI DI PREVENZIONE** per visualizzare altre informazioni e/o intervenire per configurare i controlli necessari.
+5.	Selezionare un elemento in **RACCOMANDAZIONI SULLE MACCHINE VIRTUALI** per visualizzare altre informazioni e/o intervenire per configurare i controlli necessari.
 6.	Eseguire il drill-down per visualizzare informazioni aggiuntive per specifiche macchine virtuali. ![Riquadro Integrità delle risorse nel Centro sicurezza di Azure][6]
 
-**Avvisi di sicurezza** indirizzo:
+Gestire gli **Avvisi di sicurezza**:
 
 1.	Tornare al pannello **Centro sicurezza** e selezionare il riquadro **Avvisi di sicurezza**. Nel pannello **Avvisi di sicurezza** viene visualizzato un elenco di avvisi. Gli avvisi vengono generati dall'analisi dei log di sicurezza e dell'attività di rete effettuata dal Centro protezione. Sono inclusi anche gli avvisi generati da soluzioni partner integrate. ![Avvisi di sicurezza nel Centro sicurezza di Azure][7]
 
 2.	Selezionare un avviso per visualizzare informazioni aggiuntive. ![Dettagli degli avvisi di sicurezza nel Centro sicurezza di Azure][8]
+
+Visualizzare l'integrità delle **Soluzioni partner**:
+
+1. Tornare al pannello **Centro sicurezza PC**. Il riquadro **Soluzioni partner** consente di monitorare a colpo d'occhio lo stato di integrità delle soluzioni dei partner integrate nella sottoscrizione di Azure.
+2. Selezionare il riquadro **Soluzioni partner**. Viene visualizzato un pannello contenente un elenco di soluzioni dei partner collegato al Centro sicurezza. ![Soluzioni partner][9]
+
+3. Selezionare una soluzione dei partner. In questo esempio, si selezionerà la soluzione **F5-WAF2**. Viene visualizzato un pannello che mostra che lo stato della soluzione partner e le risorse associate alla soluzione. Selezionare **Console della soluzione** per aprire l'esperienza di gestione del partner per questa soluzione. ![Dettagli della soluzione di un partner][10]
+
+Lo **STATO** di una soluzione del partner può essere:
+
+- Integro (verde): non sono presenti problemi di integrità.
+- Non integro (rosso): è presente un problema di integrità che richiede attenzione immediata.
+- Segnalazione arrestata (arancione): la soluzione ha interrotto la segnalazione dello stato di integrità.
+- Sconosciuto (arancione): lo stato di integrità della soluzione è sconosciuto al momento, a causa di un processo di aggiunta di una nuova risorsa alla soluzione esistente non riuscito.
+- Non segnalato (grigio): la soluzione non ha ancora inviato alcuna segnalazione. Lo stato di una soluzione può essere non segnalato se è appena stata connesso e ancora in fase di distribuzione.
+
 
 ## Passaggi successivi
 In questo documento sono stati presentati i componenti del monitoraggio della sicurezza e della gestione dei criteri nel Centro sicurezza. Per altre informazioni, vedere gli argomenti seguenti:
@@ -85,9 +101,9 @@ In questo documento sono stati presentati i componenti del monitoraggio della si
 - [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 - [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni facilitano la protezione delle risorse di Azure.
 - [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
+- [Come gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
-- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): ottenere le ultime informazioni e notizie sulla sicurezza di Azure.
+- [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-get-started/security-tile.png
@@ -98,5 +114,7 @@ In questo documento sono stati presentati i componenti del monitoraggio della si
 [6]: ./media/security-center-get-started/resources-health.png
 [7]: ./media/security-center-get-started/security-alert.png
 [8]: ./media/security-center-get-started/security-alert-detail.png
+[9]: ./media/security-center-get-started/partner-solutions.png
+[10]: ./media/security-center-get-started/partner-solutions-detail.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Collegamenti alle risorse - Schema del modello
@@ -42,20 +42,18 @@ Per creare un collegamento, aggiungere lo schema seguente alla sezione delle ris
 
 Nelle tabelle seguenti vengono descritti i valori che è necessario impostare nello schema.
 
-| Name | Tipo | Obbligatorio | Valori consentiti | Descrizione |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Sì | **{spazio dei nomi}/{tipo}/provider/collegamenti** | Il tipo di risorsa da creare. I valori {spazio dei nomi} e {tipo} fanno riferimento allo spazio dei nomi del provider e al tipo di risorsa della risorsa di origine. |
-| apiVersion | enum | Sì | **01/01/2015** | La versione dell'API da utilizzare per la creazione della risorsa. |  
-| name | string | Sì | **{risorsa}/Microsoft.Resources/{nome collegamento}**<br /><br />fino a 64 caratteri<br />Non può contenere <, >, %, &, ? o eventuali caratteri di controllo. | Valore che specifica sia il nome della risorsa di origine sia un nome per il collegamento. |
-| dependsOn | array | No | Un elenco delimitato da virgole di nomi di risorse o di identificatori univoci di risorse. | La raccolta di risorse da cui dipende questo collegamento. Se le risorse che vengono collegate sono distribuite nello stesso modello, includere i nomi delle risorse in questo elemento per assicurarsi che vengano distribuiti per primi. | 
-| properties | object | Sì | (come illustrato di seguito) | Oggetto che identifica la risorsa a cui collegarsi e note relative al collegamento. |  
+| Nome | Valore |
+| ---- | ---- |
+| type | Enum<br />Obbligatorio<br />**{spazio dei nomi}/{tipo}/providers/links**<br /><br />Tipo di risorsa da creare. I valori {spazio dei nomi} e {tipo} fanno riferimento allo spazio dei nomi del provider e al tipo di risorsa della risorsa di origine. |
+| apiVersion | Enum<br />Obbligatorio<br />**2015-01-01**<br /><br />Versione dell'API da usare per la creazione della risorsa. |  
+| name | String<br />Obbligatorio<br />**{risorsa}/Microsoft.Resources/{nome collegamento}**<br /> fino a 64 caratteri e non può contenere i caratteri <, > %, &, ? né caratteri di controllo.<br /><br />Valore che specifica sia il nome della risorsa di origine che il nome del collegamento. | | dependsOn | Array<br />Facoltativo<br />Elenco con valori delimitati da virgole di nomi o di identificatori univoci di risorse.<br /><br />Raccolta di risorse da cui il collegamento dipende. Se le risorse che si stanno collegando vengono distribuite nello stesso modello, includerne i nomi in questo elemento per assicurarsi che vengano distribuite per prime. | | properties | Oggetto<br />Obbligatorio<br />[oggetto properties](#properties)<br /><br />Oggetto che identifica la risorsa a cui collegarsi e note sul collegamento. | 
 
+<a id="properties" />
 ### oggetto delle proprietà
 
-| Name | Tipo | Obbligatorio | Valori consentiti | Descrizione |
-| ------- | ---- | ---------------- | -------- | ----------- |
-| targetId | stringa | Sì | | Identificatore della risorsa di destinazione a cui collegarsi. |
-| di HDInsight | string | No | 512 caratteri | Descrizione del blocco. |
+| Nome | Valore |
+| ------- | ---- |
+| targetId | String<br />Obbligatorio<br />**{ID risorsa}**<br /><br />Identificatore della risorsa di destinazione a cui collegarsi. | | notes | String<br />Facoltativo<br />fino a 512 caratteri<br /><br />Descrizione del blocco. |
 
 
 ## Come usare la risorsa di collegamento
@@ -68,7 +66,7 @@ Per lavorare con i collegamenti tramite REST, vedere le [risorse collegate](http
 
 Usare il comando seguente di Azure PowerShell per vedere tutti i collegamenti nella sottoscrizione. È possibile usare altri parametri per limitare i risultati.
 
-    Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -OutputObjectFormat New
+    Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -ResourceGroupName <YourResourceGroupName>
 
 ## esempi
 
@@ -128,16 +126,16 @@ Nell'esempio seguente viene applicato un blocco di sola lettura a un'app web.
 
 I modelli di Guida introduttiva seguenti consentono di distribuire risorse con un collegamento.
 
-- [Avviso alla coda con un'app per la logica](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
-- [Avviso a Slack con un'app per la logica](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-- [Eseguire il provisioning di un'app per le API con un gateway esistente](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-existing)
-- [Eseguire il provisioning di un'app per le API con un nuovo gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-new)
-- [Creare un'app per la logica e un'app per le API usando un modello](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-api-app-create)
-- [App per la logica che invia un messaggio di testo quando viene generato un avviso](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+- [Avviso alla coda con un'app per la logica](https://azure.microsoft.com/documentation/templates/201-alert-to-queue-with-logic-app)
+- [Avviso a Slack con un'app per la logica](https://azure.microsoft.com/documentation/templates/201-alert-to-slack-with-logic-app)
+- [Eseguire il provisioning di un'app per le API con un gateway esistente](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-existing)
+- [Eseguire il provisioning di un'app per le API con un nuovo gateway](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-new)
+- [Creare un'app per la logica e un'app per le API usando un modello](https://azure.microsoft.com/documentation/templates/201-logic-app-api-app-create)
+- [App per la logica che invia un messaggio di testo quando viene generato un avviso](https://azure.microsoft.com/documentation/templates/201-alert-to-text-message-with-logic-app)
 
 
 ## Passaggi successivi
 
 - Per altre informazioni sulla struttura del modello, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!----HONumber=AcomDC_0406_2016-->

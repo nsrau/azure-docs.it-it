@@ -38,7 +38,7 @@ I dati del dispositivo archiviati da una soluzione IoT dipendono dai requisiti s
 
 Il *provisioning dei dispositivi* è il processo di aggiunta dei dati iniziali dei dispositivi agli archivi nella soluzione. Per attivare un nuovo dispositivo per la connessione all'hub è necessario aggiungere un nuovo ID dispositivo e le relative chiavi al [registro delle identità dell'hub IoT][lnk-devguide-identityregistry]. Come parte del processo di provisioning, può essere necessario inizializzare i dati specifici del dispositivo in altri archivi di soluzioni.
 
-L'articolo relativo alla [guida alla gestione dei dispositivi dell'hub IoT][lnk-device-management] descrive alcune strategie comuni per il provisioning dei dispositivi. Le [API del registro delle identità dell'hub IoT][lnk-devguide-identityregistry] consentono di integrare l'hub IoT nel processo di provisioning.
+Le [API del registro delle identità dell'hub IoT][lnk-devguide-identityregistry] consentono di integrare l'hub IoT nel processo di provisioning.
 
 ## Gateway sul campo
 
@@ -101,9 +101,9 @@ Il [registro delle identità dell'hub IoT][lnk-devguide-identityregistry] contie
 
 Nel modello di heartbeat il dispositivo invia messaggi da dispositivo a cloud almeno una volta ogni intervallo di tempo stabilito, ad esempio almeno una volta ogni ora. Ciò significa che anche se in un dispositivo non sono presenti dati da inviare, invia comunque un messaggio vuoto da dispositivo a cloud, in genere con una proprietà che lo identifica come un heartbeat. Sul lato del servizio, la soluzione gestisce una mappa con l'ultimo heartbeat ricevuto per ogni dispositivo, presupponendo che esista un problema con un dispositivo se non riceve un messaggio di tipo heartbeat entro l'intervallo previsto.
 
-Un'implementazione più complessa può includere le informazioni dal [monitoraggio delle operazioni][lnk-devguide-opmon] per identificare i dispositivi che provano a connettersi o a comunicare ma non riescono. Quando si implementa il modello di heartbeat, assicurarsi di controllare [quote e limitazioni dell'hub IoT][].
+Un'implementazione più complessa può includere le informazioni acquisite dal [monitoraggio delle operazioni][lnk-devguide-opmon] per identificare i dispositivi che provano a connettersi o a comunicare ma non riescono. Quando si implementa il modello di heartbeat, assicurarsi di controllare [le quote e le limitazioni dell'hub IoT][].
 
-> [AZURE.NOTE] Se una soluzione IoT richiede lo stato di connessione del dispositivo esclusivamente per determinare se inviare i messaggi da cloud a dispositivo e i messaggi non vengono trasmessi a grandi gruppi di dispositivi, un modello molto più semplice da considerare è usare un intervallo di scadenza breve. Consente di ottenere lo stesso risultato del mantenimento di un registro dello stato di connessione del dispositivo con un modello heartbeat, pur essendo molto più efficiente. È inoltre possibile, richiedendo gli acknowledgement messaggi, ricevere una notifica tramite l'hub IoT indicante i dispositivi in grado di ricevere i messaggi e che non sono online o sono malfunzionanti. Fare riferimento alla [Guida per gli sviluppatori di hub IoT][lnk-devguide-messaging] per altre informazioni sui messaggi C2D.
+> [AZURE.NOTE] Se una soluzione IoT richiede lo stato di connessione del dispositivo esclusivamente per determinare se inviare i messaggi da cloud a dispositivo e i messaggi non vengono trasmessi a grandi gruppi di dispositivi, un modello molto più semplice da considerare è usare un intervallo di scadenza breve. Consente di ottenere lo stesso risultato del mantenimento di un registro dello stato di connessione del dispositivo con un modello heartbeat, pur essendo molto più efficiente. È inoltre possibile, richiedendo gli acknowledgement messaggi, ricevere una notifica tramite l'hub IoT indicante i dispositivi in grado di ricevere i messaggi e che non sono online o sono malfunzionanti. Vedere la [Guida per gli sviluppatori di hub IoT][lnk-devguide-messaging] per altre informazioni sui messaggi C2D.
 
 ## Passaggi successivi
 
@@ -115,7 +115,6 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
-[lnk-device-management]: iot-hub-device-management.md
 [lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
 [lnk-device-sdks]: iot-hub-sdks-summary.md
@@ -132,6 +131,6 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 [lnk-devguide-messaging]: iot-hub-devguide.md#messaging
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
-[quote e limitazioni dell'hub IoT]: iot-hub-devguide.md#throttling
+[le quote e le limitazioni dell'hub IoT]: iot-hub-devguide.md#throttling
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

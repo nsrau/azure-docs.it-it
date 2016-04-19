@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/09/2016"
+   	ms.date="04/05/2016"
    	ms.author="nitinme"/>
 
 #Creare cluster basati su Linux in HDInsight tramite Azure PowerShell
@@ -57,7 +57,7 @@ Lo script seguente illustra come creare un nuovo cluster:
     ###########################################
 
     # Sign in
-    Add-AzureRmAccount
+    Login-AzureRmAccount
 
     # Select the subscription to use
     $subscriptionID = "<SubscriptionName>"        # Provide your Subscription Name
@@ -75,8 +75,8 @@ Lo script seguente illustra come creare un nuovo cluster:
     # Create an Azure Blob Storage container
     $containerName = "<ContainerName>"              # Provide a container name
     $storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
-    $destContext = New-AzureRmStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-    New-AzureRmStorageContainer -Name $containerName -Context $destContext
+    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+    New-AzureStorageContainer -Name $containerName -Context $destContext
 
     ###########################################
     # Create an HDInsight Cluster
@@ -91,8 +91,8 @@ Lo script seguente illustra come creare un nuovo cluster:
     # Set these variables
     $clusterName = $containerName           		# As a best practice, have the same name for the cluster and container
     $clusterNodes = <ClusterSizeInNodes>    		# The number of nodes in the HDInsight cluster
-    $credentials = Get-Credential
-    $sshCredentials = Get-Credential
+    $credentials = Get-Credential -Message "Enter Cluster user credentials" -UserName "admin"
+    $sshCredentials = Get-Credential -Message "Enter SSH user credentials"
 
     # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
     $location = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
@@ -146,4 +146,4 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->
