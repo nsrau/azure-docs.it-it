@@ -155,4 +155,4 @@ Questo esempio illustra come eseguire un'istruzione [INSERT](https://msdn.micros
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/develop/nodejs/).
 
-<!----HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->
