@@ -36,7 +36,7 @@ Di seguito è riportata una schermata dell'app completata:
 
 ![][0]
 
-Per completare questa esercitazione, è necessario disporre di [Xamarin.Android], che installa Xamarin Studio e un plug-in di Visual Studio (in Windows), nonché della piattaforma Android più recente. È necessario Android 4.2 SDK o una versione successiva.
+Per completare questa esercitazione sono necessari XCode e Xamarin Studio per OS X o Visual Studio su Windows con un computer Mac connesso in rete. Le istruzioni di installazione complete sono disponibili in [Configurazione e installazione per Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
 Il progetto di Guida introduttiva scaricato contiene il componente Servizi mobili di Azure per Xamarin.Android. Questo progetto richiede Android 4.2 o versioni successive, mentre l'SDK di Servizi mobili richiede solo Android 2.2 o versioni successive.
 
@@ -137,9 +137,8 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [Introduzione alla sincronizzazione dei dati offline]: mobile-services-xamarin-android-get-started-offline-data.md
 [Introduzione all'autenticazione]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
 [Introduzione alle notifiche push]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
-[Xamarin.Android]: http://xamarin.com/download
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Azure]: http://azure.microsoft.com/
 [portale di Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

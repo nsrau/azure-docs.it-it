@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creare un'app Web con Visual Studio | Microsoft Azure"
+	pageTitle="Introduzione ad ASP.NET e al servizio app di Azure | Microsoft Azure"
 	description="Informazioni su come creare un progetto Web ASP.NET in Visual Studio e distribuirlo in una nuova app Web nel servizio app di Azure."
 	services="app-service\web"
 	documentationCenter=".net"
@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="03/02/2016"
 	ms.author="tdykstra"/>
 
@@ -42,7 +42,7 @@ Si apprenderà come:
 
 Alla fine dell'esercitazione la sezione [Risoluzione dei problemi](#troubleshooting) fornisce indicazioni su cosa procedere in caso di problemi, mentre la sezione [Passaggi successivi](#next-steps) include i collegamenti ad altre esercitazioni che approfondiscono i concetti relativi all'uso del servizio app di Azure.
 
-> [AZURE.NOTE] Per contribuire a migliorare l'ambito e l'approccio di questa esercitazione, nel caso si vogliano vedere trattati altri argomenti in un'esercitazione introduttiva, è possibile lasciare un [commento](#comments) alla fine dell'esercitazione.
+## Prerequisiti
 
 [AZURE.INCLUDE [prerequisiti](../../includes/app-service-web-dotnet-get-started-prereqs.md)]
 
@@ -170,7 +170,7 @@ In questa sezione si distribuisce il progetto Web nell'app Web, come illustrato 
 
 	![Fare clic su Avanti nella scheda Connessione della procedura guidata Pubblica sito Web](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
 
-	La scheda successiva è **Impostazioni**, dove è possibile modificare la configurazione della build per distribuire una build di debug per il [debug remoto](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). La scheda include anche alcune **Opzioni pubblicazione file**:
+	La scheda successiva è **Impostazioni**, in cui è possibile modificare la configurazione della build per distribuire una build di debug per il [debug remoto](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). La scheda include anche numerose **Opzioni pubblicazione file**:
 
 	* Rimuovi i file aggiuntivi nella destinazione
 	* Precompila durante la pubblicazione
@@ -182,7 +182,7 @@ In questa sezione si distribuisce il progetto Web nell'app Web, come illustrato 
 
 	![Scheda Impostazioni della procedura guidata Pubblica sito Web](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
-	La scheda successiva è **Anteprima**, che consente di visualizzare quali file verranno copiati dal progetto all'app per le API. Quando si distribuisce un progetto in un'app per le API che è già stato distribuito prima, vengono copiati solo i file modificati. Per visualizzare un elenco di ciò che verrà copiato, è possibile fare clic sul pulsante **Avvia anteprima**.
+	La scheda successiva è **Anteprima**, che consente di visualizzare quali file verranno copiati dal progetto all'app per le API. Quando si distribuisce un progetto in un'app per le API che è già stato distribuito prima, vengono copiati solo i file modificati. Per visualizzare un elenco di quelli che verranno copiati, è possibile fare clic sul pulsante **Avvia anteprima**.
 
 11. Nella scheda **Anteprima** fare clic su **Pubblica**.
 
@@ -220,7 +220,7 @@ Il [portale di Azure](/services/management-portal/) è un'interfaccia Web che co
 
 	![Pannello Impostazioni nel portale di Azure](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
-	Si noti il collegamento **Credenziali per la distribuzione** nella sezione **Pubblicazione**. Qui è possibile creare un nome utente e una password personalizzati per la distribuzione. Fare clic sul pulsante **Salva** nella parte superiore del pannello per salvare la modifica. Se si creano un nome utente e una password personalizzati, è necessario immettere gli stessi valori nella scheda **Connessione** della procedura guidata **Pubblica sul Web** nel progetto Web.
+	Si noti il collegamento **Credenziali per la distribuzione** nella sezione **Pubblicazione** sezione. Qui è possibile creare un nome utente e una password personalizzati per la distribuzione. Fare clic sul pulsante **Salva** nella parte superiore del pannello per salvare la modifica. Se si creano un nome utente e una password personalizzati, è necessario immettere gli stessi valori nella scheda **Connessione** della procedura guidata **Pubblica sul Web** nel progetto Web.
 	
 	Lo screenshot è solo una visualizzazione parziale del pannello **Impostazioni**. Questo pannello contiene più sezioni di quelle visualizzate.
 
@@ -238,7 +238,7 @@ Quando l'app Web creata per questa esercitazione non è più necessaria, è poss
 
 Un modo semplice per eliminare l'app Web consiste nel fare clic sul pulsante **Elimina** all'inizio del relativo pannello **App Web** nel portale di Azure. Una soluzione migliore consiste nell'eliminare il gruppo di risorse creato per contenere l'app Web. Il gruppo di risorse per questa esercitazione contiene solo l'app Web, ma in genere un gruppo di risorse contiene una raccolta di risorse correlate. Ad esempio, un'app Web può usare un database o un account di archiviazione di Azure che non è più necessario quando l'app Web non serve più. Quando si elimina un gruppo di risorse, tutto il relativo contenuto viene eliminato. Per eliminare un gruppo di risorse tramite il portale di Azure, seguire questa procedura.
 
-1. Andare alla home page del [portale di Azure](https://portal.azure.com).
+1. Passare alla home page del [portale di Azure](https://portal.azure.com).
 
 2. Fare clic su **Gruppi di risorse**.
 
@@ -276,7 +276,7 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 * Altri modi per distribuire un progetto Web
 
-	Per informazioni su altre modalità di distribuzione di progetti Web in app Web tramite Visual Studio o [automatizzando la distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) da un [sistema di controllo del codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), vedere [Come distribuire un'app Web di Azure](web-sites-deploy.md).
+	Per informazioni su altre modalità di distribuzione di progetti Web in app Web tramite Visual Studio o [automatizzando la distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) da un [sistema di controllo del codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), vedere [Introduzione alle app Web in Servizio app di Azure](app-service-web-get-started.md) e [Come distribuire un'app Web di Azure](web-sites-deploy.md).
 
 * Come aggiungere un nome di dominio personalizzato e SSL
 
@@ -293,4 +293,4 @@ In questa esercitazione sono state illustrate le procedure per creare una sempli
 
 	In Azure è possibile eseguire applicazioni Web in app Web del servizio app, come descritto in questa esercitazione, oppure in Servizi cloud o Macchine virtuali. Per altre informazioni, vedere [Confronto tra app Web, servizi cloud e macchine virtuali di Azure](/manage/services/web-sites/choose-web-app-service/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -196,4 +196,4 @@ Al termine della distribuzione è possibile passare al sito e verificare che l'a
 - Per informazioni sulla gestione delle risorse tramite il portale, vedere [Uso del portale di Azure per gestire le risorse di Azure](./azure-portal/resource-group-portal.md).
 - Per altre informazioni sui modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -20,7 +20,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
+- [Interfaccia della riga di comando di Azure](dns-getstarted-create-dnszone-cli.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
 
 
@@ -40,7 +40,7 @@ Installare l'interfaccia della riga di comando di Azure. È possibile installare
 
 
 >[AZURE.IMPORTANT] I comandi DNS richiedono la versione 0.9.8 di Azure CLI o versione successiva. Digitare `azure -v`per controllare quale versione di Azure CLI è attualmente installata nel computer.
- 
+
 ### Passaggio 2
 
 DNS di Azure usa Gestione risorse di Azure. Assicurarsi di abilitare l'interfaccia della riga di comando di Azure per l'uso dei comandi di Gestione risorse di Azure e DNS.
@@ -78,7 +78,7 @@ Il servizio DNS di Azure viene gestito dal provider di risorse Microsoft.Network
 
 ## Tag
 
-I tag sono diversi dagli Etag. I tag sono un elenco di coppie nome-valore, usati da Gestione risorse di Azure per etichettare le risorse a scopo di fatturazione o di raggruppamento. Per altre informazioni sui tag, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md). L'interfaccia della riga di comando di DNS di Azure supporta i tag sia nelle zone che nei set di record specificati usando il parametro '-Tag'. L'esempio seguente illustra come creare una zona DNS con due tag: "project = demo" e "env = test":
+I tag sono diversi dagli Etag. I tag sono un elenco di coppie nome-valore, usati da Gestione risorse di Azure per etichettare le risorse a scopo di fatturazione o di raggruppamento. Per altre informazioni sui tag, vedere [Uso dei tag per organizzare le risorse di Azure](../resource-group-using-tags.md). L'interfaccia della riga di comando di DNS di Azure supporta i tag sia nelle zone che nei set di record specificati usando il parametro '-Tag'. L'esempio seguente illustra come creare una zona DNS con due tag: "project = demo" e "env = test":
 
 	Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
@@ -103,7 +103,7 @@ Per visualizzare i record, usare il comando "azure network dns-record-set show":
 
 
 Nell'esempio seguente, l’esecuzione del comando con il gruppo di risorse "myresourcegroup", nome del set di record "@" (per un record radice) e tipo "SOA" produrrà il seguente output:
- 
+
 
 	azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
 	info:    Executing command network dns-record-set show
@@ -171,4 +171,4 @@ L'esempio seguente usa DIG per eseguire una query sul dominio contoso.com usando
 
 Dopo aver creato una zona DNS, è necessario creare [set di record e record](dns-getstarted-create-recordset-cli.md) per avviare la risoluzione dei nomi per il dominio Internet.<BR> È anche possibile apprendere [come gestire le zone DNS](dns-operations-dnszones-cli.md) e le relative operazioni per zone DNS.<BR> Informazioni su [come gestire i record DNS](dns-operations-recordsets-cli.md) e [automatizzare le operazioni di Azure con .NET SDK](dns-sdk.md).<BR> [Riferimento all'API REST di Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

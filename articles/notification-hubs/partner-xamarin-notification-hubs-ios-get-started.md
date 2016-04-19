@@ -35,7 +35,7 @@ Per completare questa esercitazione, è necessario disporre di:
 + [Xcode 6.0][Install Xcode]
 + Dispositivo compatibile con iOS 7.0 o versione successiva
 + Iscrizione a iOS Developer Program
-+ [Xamarin.iOS]
++ [Xamarin Studio]
 
    > [AZURE.NOTE] Considerati i requisiti di configurazione delle notifiche push di iOS, è necessario distribuire e testare l'applicazione di esempio in un dispositivo iOS, iPhone o iPad, anziché in un simulatore.
 
@@ -324,8 +324,8 @@ In questo semplice esempio le notifiche push vengono trasmesse a tutti i disposi
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
-[Xamarin.iOS]: http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 [portale di Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0218_2016---->
+<!---HONumber=AcomDC_0413_2016-->

@@ -4,8 +4,8 @@
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="azure-resource-manager" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/17/2016" 
+	ms.date="04/11/2016" 
 	ms.author="tomfitz"/>
 
 # Uso di Azure PowerShell con Gestione risorse di Azure
@@ -24,7 +24,16 @@
 
 Con Gestione risorse di Azure è stato introdotto un metodo completamente nuovo per gestire le risorse di Azure. Invece di creare e gestire le singole risorse, si inizia immaginando un'intera soluzione, ad esempio un blog, una raccolta foto, un portale di SharePoint o un wiki. Si usa un modello (una rappresentazione dichiarativa della soluzione) per creare un gruppo di risorse contenente tutte le risorse necessarie per supportare la soluzione. A questo punto, si gestisce e distribuisce il gruppo di risorse come unità logica.
 
-In questa esercitazione viene descritto come usare Azure PowerShell con Gestione risorse di Azure. Verrà illustrato il processo di creazione e distribuzione di un gruppo di risorse per un'app Web ospitata in Azure con un database SQL, completo di tutte le risorse necessarie per supportarlo.
+In questa esercitazione viene descritto come usare Azure PowerShell con Gestione risorse di Azure. Illustra in modo dettagliato il processo di distribuzione di una soluzione e di utilizzo della soluzione. Per la distribuzione verranno usati Azure PowerShell e un modello di Azure Resource Manager:
+
+- Server SQL: per ospitare il database
+- Database SQL: per archiviare i dati
+- Regole del firewall: per consentire all'app Web di connettersi al database
+- Piano di servizio app: per definire le funzionalità e il costo dell'app Web
+- Sito Web: per eseguire l'app Web
+- Configurazione Web: per archiviare la stringa di connessione al database 
+- Regole di avviso: per il monitoraggio delle prestazioni e degli errori
+- App Insights: per le impostazioni del ridimensionamento automatico
 
 ## Prerequisiti
 
@@ -38,30 +47,19 @@ Per completare questa esercitazione, sono necessari:
 
 Questa esercitazione è stata ideata per gli utenti di Windows PowerShell non esperti, ma presuppone che si conoscano i concetti di base, quali moduli, cmdlet e sessioni.
 
-## Elementi distribuiti
-
-In questa esercitazione si userà Azure PowerShell per distribuire un'app Web e un database SQL. Questa soluzione con l'app Web e il database SQL, tuttavia, è costituita da diversi tipi di risorsa integrati. Le risorse effettive che verranno distribuite sono:
-
-- Server SQL: per ospitare il database
-- Database SQL: per archiviare i dati
-- Regole del firewall: per consentire all'app Web di connettersi al database
-- Piano di servizio app: per definire le funzionalità e il costo dell'app Web
-- Sito Web: per eseguire l'app Web
-- Configurazione Web: per archiviare la stringa di connessione al database 
-
 ## Ottenere la guida per i cmdlet
 
 Per informazioni dettagliate sui cmdlet usati in questa esercitazione, eseguire il cmdlet Get-Help.
 
-	Get-Help <cmdlet-name> -Detailed
+    Get-Help <cmdlet-name> -Detailed
 
 Ad esempio, per informazioni sul cmdlet Get-AzureRmResource, digitare:
 
-	Get-Help Get-AzureRmResource -Detailed
+    Get-Help Get-AzureRmResource -Detailed
 
 Per un elenco dei cmdlet del modulo Resources con un riepilogo di supporto, digitare:
 
-    PS C:\> Get-Command -Module AzureRM.Resources | Get-Help | Format-Table Name, Synopsis
+    Get-Command -Module AzureRM.Resources | Get-Help | Format-Table Name, Synopsis
 
 L'output sarà simile al seguente:
 
@@ -75,281 +73,59 @@ L'output sarà simile al seguente:
 
 Per informazioni complete per un cmdlet, digitare un comando con il formato seguente:
 
-	Get-Help <cmdlet-name> -Full
+    Get-Help <cmdlet-name> -Full
   
 ## Accedere al proprio account Azure
 
 Prima di usare la soluzione, è necessario accedere al proprio account.
 
-Per accedere al proprio account Azure, usare il cmdlet **Login-AzureRmAccount**.
+Per accedere al proprio account Azure, usare il cmdlet **Add-AzureRmAccount**.
 
-    PS C:\> Login-AzureRmAccount
+    Add-AzureRmAccount
 
 Il cmdlet richiede le credenziali di accesso per l'account di Azure. Dopo l'accesso, vengono scaricate le impostazioni dell'account in modo che siano disponibili per Azure PowerShell.
 
-Le impostazioni dell'account hanno una scadenza, quindi è necessario aggiornarle regolarmente. Per aggiornare le impostazioni dell'account, eseguire di nuovo **Login-AzureRmAccount**.
+Le impostazioni dell'account hanno una scadenza, quindi è necessario aggiornarle regolarmente. Per aggiornare le impostazioni dell'account, eseguire di nuovo **Add-AzureRmAccount**.
 
->[AZURE.NOTE] I moduli di Gestione risorse richiedono Login-AzureRmAccount. Non è sufficiente un file di impostazioni di pubblicazione.
+>[AZURE.NOTE] I moduli di Azure Resource Manager richiedono Add-AzureRmAccount. Non è sufficiente un file di impostazioni di pubblicazione.
 
-## Recuperare la posizione dei tipi di risorsa
+Se sono disponibili più sottoscrizioni, specificare l'ID sottoscrizione da usare per la distribuzione con il cmdlet **Set-AzureRmContext**.
 
-Quando si distribuisce una risorsa, è necessario specificare dove ospitarla. Non tutte le aree supportano ogni tipo di risorsa. Prima di distribuire l'app Web e il database SQL, è necessario sapere quali aree supportano tali tipi. Anche se un gruppo di risorse può contenere risorse che si trovano in aree diverse, quando è possibile, è consigliabile creare le risorse nella stessa posizione per ottimizzare le prestazioni. In particolare, è consigliabile assicurarsi che il database si trovi nello stesso percorso dell'applicazione che esegue l'accesso.
-
-Per recuperare le posizioni che supportano ciascun tipo di risorsa, sarà necessario usare il cmdlet **Get-AzureRmResourceProvider**. Prima di tutto, ecco che cosa restituisce questo comando:
-
-    PS C:\> Get-AzureRmResourceProvider -ListAvailable
-
-    ProviderNamespace               RegistrationState ResourceTypes
-    -----------------               ----------------- -------------
-    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
-    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
-    Microsoft.Batch                 Registered        {batchAccounts}
-    ...
-
-ProviderNamespace rappresenta una raccolta di tipi di risorsa correlati. Questi spazi dei nomi in genere sono perfetti per i servizi che si vuole creare in Azure. Per usare un provider di risorse elencato come **Unregistered**, è possibile registrarlo eseguendo il cmdlet **Register-AzureRmResourceProvider** e specificando lo spazio dei nomi del provider da registrare. Molto probabilmente, il provider di risorse da usare in questa esercitazione sarà già registrato per la sottoscrizione.
-
-Per ottenere altri dettagli su un provider, specificare tale spazio dei nomi:
-
-    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql
-
-    ProviderNamespace RegistrationState ResourceTypes                                 Locations
-    ----------------- ----------------- -------------                                 ---------
-    Microsoft.Sql     Registered        {operations}                                  {East US 2, South Central US, Cent...
-    Microsoft.Sql     Registered        {locations}                                   {East US 2, South Central US, Cent...
-    Microsoft.Sql     Registered        {locations/capabilities}                      {East US 2, South Central US, Cent...
-    ...
-
-Per limitare l'output alle posizioni supportate per un tipo specifico di risorsa, ad esempio i siti Web, usare:
-
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
-    
-L'output sarà analogo al seguente:
-
-    Brazil South
-    East Asia
-    East US
-    Japan East
-    Japan West
-    North Central US
-    North Europe
-    South Central US
-    West Europe
-    West US
-    Southeast Asia
-    Central US
-    East US 2
-
-Le posizioni visualizzate potrebbero essere leggermente diverse dai risultati precedenti. I risultati potrebbero essere diversi perché un amministratore dell'organizzazione ha creato un criterio che limita le aree che possono essere usate nella sottoscrizione o perché possono esistere restrizioni correlate alle politiche fiscali della propria sede contrattuale.
-
-Provare a eseguire lo stesso comando per il database:
-
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql).ResourceTypes | Where-Object ResourceTypeName -eq servers).Locations
-    East US 2
-    South Central US
-    Central US
-    North Central US
-    West US
-    East US
-    East Asia
-    Southeast Asia
-    Japan West
-    Japan East
-    North Europe
-    West Europe
-    Brazil South
-
-Sembra che queste risorse siano disponibili in più aree. Per questo argomento verrà usata l'area **West US**, ma è possibile specificare una qualsiasi delle aree supportate.
+    Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ## Creare un gruppo di risorse
 
-Questa sezione dell'esercitazione descrive il processo di creazione di un gruppo di risorse. Il gruppo di risorse verrà usato come contenitore per tutte le risorse della soluzione che condividono lo stesso ciclo di vita. Più avanti nell'esercitazione, si distribuiranno l'app Web e il database SQL in questo gruppo di risorse.
+Prima di distribuire risorse nella sottoscrizione, è necessario creare un gruppo di risorse che conterrà le risorse.
 
 Per creare un gruppo di risorse, usare il cmdlet **New-AzureRmResourceGroup**.
 
 Il comando utilizza il parametro **Name** per specificare un nome per il gruppo di risorse e il parametro **Location** per specificarne la posizione. In base a quanto stabilito nella sezione precedente, verrà usata la posizione "West US".
 
-    PS C:\> New-AzureRmResourceGroup -Name TestRG1 -Location "West US"
+    New-AzureRmResourceGroup -Name TestRG1 -Location "West US"
     
+L'output sarà analogo al seguente:
+
     ResourceGroupName : TestRG1
     Location          : westus
     ProvisioningState : Succeeded
     Tags              :
-    Permissions       :
-                    Actions  NotActions
-                    =======  ==========
-                    *
-
     ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1
 
 Il gruppo di risorse è stato creato.
 
+## Distribuire la soluzione
 
-## Ottenere le versioni dell'API disponibili per le risorse
+Questo argomento non spiega come creare il modello e non ne illustra la struttura. Per informazioni, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md) e [Procedura dettagliata per un modello di Azure Resource Manager](resource-manager-template-walkthrough.md). Il modello predefinito per il [provisioning di un'app Web con un database SQL](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) verrà distribuito da [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
 
-Quando si distribuisce un modello, è necessario specificare una versione dell'API da usare per la creazione della risorsa. Le versioni dell'API disponibili corrispondono alle versioni delle operazioni API REST che vengono rilasciate dal provider di risorse. Quando i provider di risorse abilitano nuove funzionalità, rilasciano le nuove versioni dell'API REST. Di conseguenza, la versione dell'API specificata nel modello influisce sulle proprietà disponibili quando si crea il modello. In generale, è opportuno selezionare la versione più recente dell'API durante la creazione di nuovi modelli. Per i modelli esistenti, è possibile decidere se continuare a usare una versione dell'API che certamente non modificherà la distribuzione o se aggiornare il modello alla versione più recente per sfruttare i vantaggi delle nuove funzionalità.
+Dopo avere creato il gruppo di risorse e il modello, si è pronti per distribuire nel gruppo di risorse l'infrastruttura definita nel modello. Le risorse vengono distribuite con il cmdlet **New-AzureRmResourceGroupDeployment**. Il modello specifica molti valori predefiniti, che verranno usati per evitare che sia necessario fornire valori per questi parametri. La sintassi di base è simile alla seguente:
 
-Questo passaggio può sembrare poco chiaro, ma individuare le versioni dell'API disponibili per la risorsa non è difficile. Si userà ancora una volta il comando **Get-AzureRmResourceProvider**.
+    New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -administratorLogin exampleadmin -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
 
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
-    2015-08-01
-    2015-07-01
-    2015-06-01
-    2015-05-01
-    2015-04-01
-    2015-02-01
-    2014-11-01
-    2014-06-01
-    2014-04-01-preview
-    2014-04-01
-
-Come si può notare, questa API è stata aggiornata spesso. In genere, per tutte le risorse di un provider di risorse saranno disponibili gli stessi numeri di versione dell'API. L'unica eccezione si verifica se, a un certo punto, una risorsa viene aggiunta o rimossa. Si presuppone che per la risorsa serverFarms siano disponibili le stesse versioni dell'API, ma è possibile verificare se sono presenti risorse che si ritiene possano avere un elenco diverso di versioni dell'API disponibili.
-
-Per il database, verrà visualizzato:
-
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql).ResourceTypes | Where-Object ResourceTypeName -eq servers/databases).ApiVersions
-    2014-04-01-preview
-    2014-04-01 
-
-## Creare il modello
-
-Questo argomento non spiega come creare il modello e non ne illustra la struttura. Per queste informazioni, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md). Il modello che si distribuirà è riportato di seguito. Si noti che il modello usa le versioni dell'API recuperate nella sezione precedente. Per assicurarsi che tutte le risorse si trovino nella stessa area, viene usata l'espressione del modello **resourceGroup().location** per usare la posizione del gruppo di risorse.
-
-Si noti anche la sezione dei parametri. Questa sezione definisce i valori che è possibile specificare quando si distribuiscono le risorse. Questi valori verranno usati più avanti nell'esercitazione.
-
-È possibile copiare il modello e salvarlo in locale come file con estensione json. In questa esercitazione si presume che sia stato salvato in c:\\Azure\\Templates\\azuredeploy.json, ma è possibile salvarlo in qualsiasi percorso e con il nome che si preferisce.
-
-    {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "hostingPlanName": {
-                "type": "string"
-            },
-            "serverName": {
-                "type": "string"
-            },
-            "databaseName": {
-                "type": "string"
-            },
-            "administratorLogin": {
-                "type": "string"
-            },
-            "administratorLoginPassword": {
-                "type": "securestring"
-            }
-        },
-        "variables": {
-            "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
-        },
-        "resources": [
-            {
-                "name": "[parameters('serverName')]",
-                "type": "Microsoft.Sql/servers",
-                "location": "[resourceGroup().location]",
-                "apiVersion": "2014-04-01",
-                "properties": {
-                    "administratorLogin": "[parameters('administratorLogin')]",
-                    "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-                    "version": "12.0"
-                },
-                "resources": [
-                    {
-                        "name": "[parameters('databaseName')]",
-                        "type": "databases",
-                        "location": "[resourceGroup().location]",
-                        "apiVersion": "2014-04-01",
-                        "dependsOn": [
-                            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
-                        ],
-                        "properties": {
-                            "edition": "Basic",
-                            "collation": "SQL_Latin1_General_CP1_CI_AS",
-                            "maxSizeBytes": "1073741824",
-                            "requestedServiceObjectiveName": "Basic"
-                        }
-                    },
-                    {
-                        "name": "AllowAllWindowsAzureIps",
-                        "type": "firewallrules",
-                        "location": "[resourceGroup().location]",
-                        "apiVersion": "2014-04-01",
-                        "dependsOn": [
-                            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
-                        ],
-                        "properties": {
-                            "endIpAddress": "0.0.0.0",
-                            "startIpAddress": "0.0.0.0"
-                        }
-                    }
-                ]
-            },
-            {
-                "apiVersion": "2015-08-01",
-                "type": "Microsoft.Web/serverfarms",
-                "name": "[parameters('hostingPlanName')]",
-                "location": "[resourceGroup().location]",
-                "sku": {
-                    "tier": "Free",
-                    "name": "f1",
-                    "capacity": 0
-                },
-                "properties": {
-                    "numberOfWorkers": 1
-                }
-            },
-            {
-                "apiVersion": "2015-08-01",
-                "name": "[variables('siteName')]",
-                "type": "Microsoft.Web/sites",
-                "location": "[resourceGroup().location]",
-                "tags": {
-                    "team": "webdev"
-                },
-                "dependsOn": [
-                    "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
-                ],
-                "properties": {
-                    "serverFarmId": "[parameters('hostingPlanName')]"
-                },
-                "resources": [
-                    {
-                        "name": "web",
-                        "type": "config",
-                        "apiVersion": "2015-08-01",
-                        "dependsOn": [
-                            "[concat('Microsoft.Web/Sites/', variables('siteName'))]"
-                        ],
-                        "properties": {
-                            "connectionStrings": [
-                                {
-                                    "ConnectionString": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-                                    "Name": "DefaultConnection",
-                                    "Type": 2
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        ]
-    }
-
-
-## Distribuire il modello
-
-Dopo avere creato il gruppo di risorse e il modello, si è pronti per distribuire nel gruppo di risorse l'infrastruttura definita nel modello. Le risorse vengono distribuite con il cmdlet **New-AzureRmResourceGroupDeployment**. La sintassi di base è simile alla seguente:
-
-    PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json
-
-Vengono specificati il gruppo di risorse e il percorso del modello. Se il modello non è locale, è possibile usare il parametro **-TemplateUri** e specificare un URI per il modello. È possibile impostare il parametro **-Mode** su **Incremental** o **Complete**. Per impostazione predefinita, Gestione risorse esegue un aggiornamento incrementale durante la distribuzione. Non è pertanto fondamentale impostare il parametro **-Mode** se si vuole la modalità **Incremental**. Per comprendere le differenze tra le modalità di distribuzione, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
+Vengono specificati il gruppo di risorse e il percorso del modello. Se il modello è un file locale, usare il parametro **-TemplateFile** e specificare il percorso del modello. È possibile impostare il parametro **-Mode** su **Incremental** o **Complete**. Per impostazione predefinita, Gestione risorse esegue un aggiornamento incrementale durante la distribuzione. Non è pertanto fondamentale impostare il parametro **-Mode** se si vuole la modalità **Incremental**. Per comprendere le differenze tra le modalità di distribuzione, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md).
 
 ###Parametri del modello dinamici
 
-Se si ha familiarità con PowerShell, è possibile cercare un cmdlet tra i parametri disponibili digitando un segno meno (-) e quindi premendo TAB. Questa stessa funzionalità può essere usata anche con i parametri definiti nel modello. Quando si digita il nome del modello, il cmdlet recupera il modello, lo analizza e aggiunge i relativi parametri al comando in modo dinamico. In questo modo è molto semplice specificare i valori dei parametri del modello. Inoltre, se si dimentica un valore per un parametro obbligatorio, PowerShell richiede il valore.
-
-Di seguito viene riportato il comando completo con i parametri inclusi. È possibile specificare i propri valori per i nomi delle risorse.
-
-    PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json -hostingPlanName freeplanwest -serverName exampleserver -databaseName exampledata -administratorLogin exampleadmin
+Se si ha familiarità con PowerShell, è possibile cercare un cmdlet tra i parametri disponibili digitando un segno meno (-) e quindi premendo TAB. Questa stessa funzionalità può essere usata anche con i parametri definiti nel modello. Quando si digita il nome del modello, il cmdlet recupera il modello, lo analizza e aggiunge i relativi parametri al comando in modo dinamico. In questo modo è molto semplice specificare i valori dei parametri del modello.
 
 Quando si inserisce il comando, viene richiesto il parametro obbligatorio mancante **administratorLoginPassword**. Inoltre, quando si digita la password, il valore della stringa sicura viene oscurato. Questa strategia elimina il rischio di fornire la password in testo normale.
 
@@ -365,29 +141,52 @@ Il comando viene eseguito e restituisce dei messaggi quando le risorse vengono c
     DeploymentName    : azuredeploy
     ResourceGroupName : TestRG1
     ProvisioningState : Succeeded
-    Timestamp         : 10/16/2015 12:55:50 AM
+    Timestamp         : 4/11/2016 7:26:11 PM
     Mode              : Incremental
     TemplateLink      :
+                Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
+                ContentVersion : 1.0.0.0
     Parameters        :
-                    Name             Type                       Value
-                    ===============  =========================  ==========
-                    hostingPlanName  String                     freeplanwest
-                    serverName       String                     exampleserver
-                    databaseName     String                     exampledata
-                    administratorLogin  String                  exampleadmin
-                    administratorLoginPassword  SecureString
+                Name             Type                       Value
+                ===============  =========================  ==========
+                skuName          String                     F1
+                skuCapacity      Int                        1
+                administratorLogin  String                  exampleadmin
+                administratorLoginPassword  SecureString
+                databaseName     String                     sampledb
+                collation        String                     SQL_Latin1_General_CP1_CI_AS
+                edition          String                     Basic
+                maxSizeBytes     String                     1073741824
+                requestedServiceObjectiveName  String       Basic
 
     Outputs           :
+                Name             Type                       Value
+                ===============  =========================  ==========
+                siteUri          String                     websites5wdai7p2k2g4.azurewebsites.net
+                sqlSvrFqdn       String                     sqlservers5wdai7p2k2g4.database.windows.net
+                    
+    DeploymentDebugLogLevel :
 
 In pochi passaggi, sono state create e distribuite le risorse necessarie per un sito Web complesso.
+
+### Registrare le informazioni di debug
+
+Quando si distribuisce un modello, è possibile registrare informazioni aggiuntive sulla richiesta e sulla risposta, specificando il parametro **-DeploymentDebugLogLevel** quando si esegue **New-AzureRmResourceGroupDeployment**. Queste informazioni possono essere utili per risolvere gli errori di distribuzione. Il valore predefinito è **None**, ovvero non vengono registrati contenuti relativi alla richiesta o alla risposta. È possibile specificare la registrazione del contenuto dalla richiesta, dalla risposta o da entrambi. Per altre informazioni sulla risoluzione dei problemi relativi alle distribuzioni e sulla registrazione delle informazioni di debug, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md). L'esempio seguente registra il contenuto di richieste e risposte per la distribuzione.
+
+    New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -DeploymentDebugLogLevel All -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
+
+> [AZURE.NOTE] Quando si imposta il parametro DeploymentDebugLogLevel, occorre valutare attentamente il tipo di informazioni passate durante la distribuzione. La registrazione di informazioni sulla richiesta o sulla risposta può esporre dati riservati, che vengono recuperati tramite le operazioni di distribuzione.
+
 
 ## Ottenere informazioni sui gruppi di risorse
 
 Dopo avere creato un gruppo di risorse, è possibile usare i cmdlet del modulo di Gestione risorse per gestire i gruppi di risorse.
 
-- Per ottenere tutti i gruppi di risorse della sottoscrizione, usare il cmdlet **Get-AzureRmResourceGroup**:
+- Per ottenere un gruppo di risorse nella sottoscrizione, usare il cmdlet **Get-AzureRmResourceGroup**:
 
-		PS C:\> Get-AzureRmResourceGroup
+		Get-AzureRmResourceGroup -ResourceGroupName TestRG1
+	
+	Che restituisce le informazioni seguenti:
 
 		ResourceGroupName : TestRG1
 		Location          : westus
@@ -397,32 +196,32 @@ Dopo avere creato un gruppo di risorse, è possibile usare i cmdlet del modulo d
 		
 		...
 
-      Se si vuole ottenere un determinato gruppo di risorse, fornire il parametro **Nome**.
-      
-          PS C:\> Get-AzureRmResourceGroup -Name TestRG1
+	Se non si specifica alcun nome di gruppo di risorse, il cmdlet restituisce tutti i gruppi di risorse della sottoscrizione.
 
 - Per ottenere le risorse nel gruppo di risorse, usare il cmdlet **Find-AzureRmResource** e il relativo parametro **ResourceGroupNameContains**. Senza parametri, Find-AzureRmResource recupera tutte le risorse nella sottoscrizione di Azure.
 
-        PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
+        Find-AzureRmResource -ResourceGroupNameContains TestRG1
+	
+     Viene restituito un elenco di risorse con formato analogo al seguente:
 		
-        Name              : exampleserver
-        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
-        ResourceName      : exampleserver
+        Name              : sqlservers5wdai7p2k2g4
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/sqlservers5wdai7p2k2g4
+        ResourceName      : sqlservers5wdai7p2k2g4
         ResourceType      : Microsoft.Sql/servers
-        Kind              : v12.0
+        Kind              : v2.0
         ResourceGroupName : TestRG1
         Location          : westus
         SubscriptionId    : {guid}
-                
+        Tags              : {System.Collections.Hashtable}
         ...
 	        
-- Il modello precedente include un tag di una risorsa. È possibile usare i tag per organizzare logicamente tutte le risorse nella sottoscrizione. Usare i comandi **Find-AzureRmResource** e **Find-AzureRmResourceGroup** per eseguire una query sulle risorse in base ai tag.
+- È possibile usare i tag per organizzare in modo logico le risorse della sottoscrizione, quindi recuperare le risorse con i cmdlet **Find-AzureRmResource** e **Find-AzureRmResourceGroup**.
 
-        PS C:\> Find-AzureRmResource -TagName team
+        Find-AzureRmResource -TagName displayName -TagValue Website
 
-        Name              : ExampleSiteuxq53xiz5etmq
-        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/ExampleSiteuxq53xiz5etmq
-        ResourceName      : ExampleSiteuxq53xiz5etmq
+        Name              : webSites5wdai7p2k2g4
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/webSites5wdai7p2k2g4
+        ResourceName      : webSites5wdai7p2k2g4
         ResourceType      : Microsoft.Web/sites
         ResourceGroupName : TestRG1
         Location          : westus
@@ -438,7 +237,35 @@ Per aggiungere una risorsa al gruppo di risorse, è possibile usare il cmdlet **
 
 È possibile spostare le risorse esistenti in un nuovo gruppo di risorse. Per esempi, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).
 
-## Eliminare un gruppo di risorse
+## Esportare il modello
+
+Per un gruppo di risorse esistente, distribuito mediante PowerShell o uno degli altri metodi quali il portale, è possibile visualizzare il modello di Azure Resource Manager per il gruppo di risorse. L'esportazione del modello offre due vantaggi:
+
+1. È possibile automatizzare le distribuzioni future della soluzione, perché tutti gli elementi dell'infrastruttura sono definiti nel modello.
+
+2. È possibile acquisire familiarità con la sintassi del modello esaminando il codice JSON (JavaScript Object Notation) che rappresenta la soluzione.
+
+PowerShell consente di generare un modello che rappresenta lo stato corrente del gruppo di risorse oppure di recuperare il modello usato per una distribuzione specifica.
+
+L'esportazione del modello per un gruppo di risorse risulta utile quando si apportano modifiche a un gruppo di risorse ed è necessario recuperare la rappresentazione JSON del rispettivo stato corrente. Il modello generato, tuttavia, contiene solo un numero minimo di parametri e nessuna variabile. La maggior parte dei valori del modello è hardcoded. Prima di distribuire il modello generato, è possibile che si voglia convertire altri valori in parametri, per potere personalizzare la distribuzione per diversi ambienti.
+
+L'esportazione del modello per una distribuzione specifica è utile quando è necessario visualizzare il modello effettivo usato per distribuire le risorse. Il modello includerà tutte le variabili e tutti i parametri definiti per la distribuzione originale. Se, tuttavia, un utente dell'organizzazione ha modificato il gruppo di risorse in modo diverso da quanto definito nel modello, questo modello non rappresenterà lo stato corrente del gruppo di risorse.
+
+> [AZURE.NOTE] La funzionalità di esportazione del modello è disponibile in anteprima e non tutti i tipi di risorse supportano attualmente l'esportazione di un modello. Quando si prova a esportare un modello, è possibile che venga visualizzato un errore che indica che alcune risorse non sono state esportate. Se necessario, è possibile definire manualmente queste risorse nel modello dopo averlo scaricato.
+
+###Esportare il modello da un gruppo di risorse
+
+Per visualizzare il modello per un gruppo di risorse, eseguire il cmdlet **Export-AzureRmResourceGroup**.
+
+    Export-AzureRmResourceGroup -ResourceGroupName TestRG1 -Path c:\Azure\Templates\Downloads\TestRG1.json
+    
+###Scaricare il modello dalla distribuzione
+
+Per scaricare il modello usato per una distribuzione specifica, eseguire il cmdlet **Save-AzureRmResourceGroupDeploymentTemplate**.
+
+    Save-AzureRmResourceGroupDeploymentTemplate -DeploymentName azuredeploy -ResourceGroupName TestRG1 -Path c:\Azure\Templates\Downloads\azuredeploy.json
+
+## Eliminare le risorse o il gruppo di risorse
 
 - Per eliminare una risorsa dal gruppo di risorse, usare il cmdlet **Remove-AzureRmResource**. Questo cmdlet elimina la risorsa, ma non il gruppo di risorse.
 
@@ -448,13 +275,103 @@ Per aggiungere una risorsa al gruppo di risorse, è possibile usare il cmdlet **
 
 - Per eliminare un gruppo di risorse, usare il cmdlet **Remove-AzureRmResourceGroup**. Questo cmdlet elimina il gruppo di risorse e le relative risorse.
 
-		PS C:\> Remove-AzureRmResourceGroup -Name TestRG1
+		Remove-AzureRmResourceGroup -Name TestRG1
+		
+	È necessario confermare l'eliminazione.
 		
 		Confirm
 		Are you sure you want to remove resource group 'TestRG1'
 		[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
+## Script di distribuzione
 
+Gli esempi di distribuzione precedenti di questo argomento hanno illustrato solo i singoli cmdlet necessari per distribuire risorse in Azure. L'esempio seguente mostra uno script di distribuzione che crea il gruppo di risorse e quindi distribuisce le risorse.
+
+    <#
+      .SYNOPSIS
+      Deploys a template to Azure
+      
+      .DESCRIPTION
+      Deploys an Azure Resource Manager template
+
+      .PARAMETER subscriptionId
+      The subscription id where the template will be deployed.
+
+      .PARAMETER resourceGroupName
+      The resource group where the template will be deployed. Can be the name of an existing or a new resource group.
+
+      .PARAMETER resourceGroupLocation
+      Optional, a resource group location. If specified, will try to create a new resource group in this location. If not specified, assumes resource group is existing.
+
+      .PARAMETER deploymentName
+      The deployment name.
+
+      .PARAMETER templateFilePath
+      Optional, path to the template file. Defaults to template.json.
+
+      .PARAMETER parametersFilePath
+      Optional, path to the parameters file. Defaults to parameters.json. If file is not found, will prompt for parameter values based on template.
+    #>
+
+    param(
+      [Parameter(Mandatory=$True)]
+      [string]
+      $subscriptionId,
+
+      [Parameter(Mandatory=$True)]
+      [string]
+      $resourceGroupName,
+
+      [string]
+      $resourceGroupLocation,
+
+      [Parameter(Mandatory=$True)]
+      [string]
+      $deploymentName,
+
+      [string]
+      $templateFilePath = "template.json",
+
+      [string]
+      $parametersFilePath = "parameters.json"
+    )
+
+    #******************************************************************************
+    # Script body
+    # Execution begins here 
+    #******************************************************************************
+    $ErrorActionPreference = "Stop"
+
+    # sign in
+    Write-Host "Logging in...";
+    Add-AzureRmAccount;
+
+    # select subscription
+    Write-Host "Selecting subscription '$subscriptionId'";
+    Set-AzureRmContext -SubscriptionID $subscriptionId;
+
+    #Create or check for existing resource group
+    $resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
+    if(!$resourceGroup)
+    {
+      Write-Host "Resource group '$resourceGroupName' does not exist. To create a new resource group, please enter a location.";
+      if(!$resourceGroupLocation) {
+        $resourceGroupLocation = Read-Host "resourceGroupLocation";
+      }
+      Write-Host "Creating resource group '$resourceGroupName' in location '$resourceGroupLocation'";
+      New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
+    }
+    else{
+      Write-Host "Using existing resource group '$resourceGroupName'";
+    }
+
+    # Start the deployment
+    Write-Host "Starting deployment...";
+    if(Test-Path $parametersFilePath) {
+      New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath;
+    } else {
+      New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath;
+    }
 
 ## Passaggi successivi
 
@@ -463,4 +380,4 @@ Per aggiungere una risorsa al gruppo di risorse, è possibile usare il cmdlet **
 - Per un esempio dettagliato della distribuzione di un progetto, vedere [Distribuire microservizi in modo prevedibile in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Per informazioni sulla risoluzione dei problemi relativi a una distribuzione non riuscita, vedere [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

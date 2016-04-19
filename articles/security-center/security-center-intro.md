@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="04/11/2016"
    ms.author="terrylan"/>
 
 # Introduzione al Centro sicurezza di Azure
@@ -54,7 +54,7 @@ Nel Centro sicurezza è possibile impostare i criteri di sicurezza, monitorare l
 
 > [AZURE.NOTE] Per modificare i criteri di sicurezza a livello di sottoscrizione o di gruppo di risorse, è necessario essere il proprietario della sottoscrizione o un collaboratore.
 
-Nel pannello **Centro sicurezza** selezionare il riquadro **Criteri di sicurezza** per un elenco delle sottoscrizioni e dei gruppi di risorse.
+Nel pannello **Centro sicurezza** selezionare il riquadro **Criteri** per visualizzare un elenco di sottoscrizioni e gruppi di risorse.
 
 ![Pannello Centro sicurezza][2]
 
@@ -100,9 +100,9 @@ Fare clic sul riquadro **Suggerimenti** per visualizzarne un elenco. Fare clic s
 
 ### Integrità delle risorse
 
-Il riquadro **Integrità delle risorse** visualizza il comportamento di sicurezza complessivo dell'ambiente per tipo di risorsa, ad esempio macchine virtuali, applicazioni Web e altre risorse.
+Il riquadro **Integrità sicurezza delle risorse** visualizza il comportamento di sicurezza complessivo dell'ambiente per tipo di risorsa, ad esempio macchine virtuali, applicazioni Web e altre risorse.
 
-Selezionare un tipo di risorsa nel riquadro **Integrità delle risorse** per visualizzare altre informazioni, incluso un elenco delle potenziali vulnerabilità di sicurezza identificate. Nell'esempio seguente è selezionata la risorsa **Macchine virtuali**.
+Selezionare un tipo di risorsa nel riquadro **Integrità sicurezza delle risorse** per visualizzare altre informazioni, incluso un elenco delle potenziali vulnerabilità di sicurezza identificate. Nell'esempio seguente è selezionata la risorsa **Macchine virtuali**.
 
 ![Riquadro Integrità delle risorse][6]
 
@@ -123,6 +123,14 @@ Se si seleziona un avviso, verranno visualizzate altre informazioni sull'attacco
 
 ![Dettagli dell'avviso di sicurezza][8]
 
+### Soluzioni partner
+
+Il riquadro **Soluzioni partner** consente di monitorare a colpo d'occhio lo stato di integrità delle soluzioni dei partner integrate nella sottoscrizione di Azure. Il Centro sicurezza visualizza gli avvisi provenienti dalle soluzioni.
+
+Selezionare il riquadro **Soluzioni partner**. Viene visualizzato un pannello contenente un elenco di tutte le soluzioni dei partner connessi.
+
+![Soluzioni partner][9]
+
 ## Introduzione
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Il Centro sicurezza viene abilitato con la sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -136,7 +144,7 @@ Questo documento ha illustrato il Centro sicurezza, le funzionalità principali 
 - [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 - [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md): informazioni sul modo in cui le raccomandazioni facilitano la protezione delle risorse di Azure.
 - [Monitoraggio dello stato della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
+- [Come gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 - [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 - [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
 
@@ -149,5 +157,6 @@ Questo documento ha illustrato il Centro sicurezza, le funzionalità principali 
 [6]: ./media/security-center-intro/resources-health.png
 [7]: ./media/security-center-intro/security-alert.png
 [8]: ./media/security-center-intro/security-alert-detail.png
+[9]: ./media/security-center-intro/partner-solutions.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

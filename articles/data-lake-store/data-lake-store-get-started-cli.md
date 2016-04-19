@@ -13,17 +13,19 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="04/07/2016"
    ms.author="nitinme"/>
 
 # Introduzione ad Azure Data Lake Store tramite la riga di comando di Azure
 
 > [AZURE.SELECTOR]
-- [Uso del portale](data-lake-store-get-started-portal.md)
-- [Tramite PowerShell](data-lake-store-get-started-powershell.md)
-- [Uso di .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Utilizzare l'interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
-- [Uso di Node.js](data-lake-store-manage-use-nodejs.md)
+- [Portale](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [.NET SDK](data-lake-store-get-started-net-sdk.md)
+- [SDK per Java](data-lake-store-get-started-java-sdk.md)
+- [API REST](data-lake-store-get-started-rest-api.md)
+- [Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
+- [Node.JS](data-lake-store-manage-use-nodejs.md)
 
 Informazioni su come la riga di comando di Azure per creare un account di Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake Store, vedere [Panoramica di Data Lake](data-lake-store-overview.md).
 
@@ -177,12 +179,6 @@ ad esempio:
 
 Quando viene richiesto, immettere **Y** per eliminare l'account.
 
-## Altre modalità di creazione di un account di Data Lake Store
-
-- [Introduzione a Data Lake Store mediante il portale](data-lake-store-get-started-portal.md)
-- [Introduzione a Data Lake Store mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Introduzione ad Archivio Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
-
 
 ## Passaggi successivi
 
@@ -193,4 +189,4 @@ Quando viene richiesto, immettere **Y** per eliminare l'account.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

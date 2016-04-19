@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.topic="get-started-article"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 
@@ -114,4 +114,4 @@ Si può fare molto di più con il proxy dell'applicazione:
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 - [Informazioni sulla delega vincolata Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

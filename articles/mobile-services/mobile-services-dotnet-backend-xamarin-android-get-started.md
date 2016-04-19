@@ -45,9 +45,11 @@ Dopo aver creato il servizio mobile, è possibile seguire una facile guida intro
 
 In questa sezione si scaricherà una nuova app per Xamarin Android e un progetto di servizio per il servizio mobile.
 
-1. Nel [portale classico] fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
+1. Se non è già installato, installare Visual Studio con Xamarin. Le istruzioni sono disponibili in [Configurazione e installazione per Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). È anche possibile usare Xamarin Studio in un computer Mac OS X. Vedere [Configurazione, installazione e verifiche per gli utenti Mac](https://msdn.microsoft.com/library/mt488770.aspx).  
 
-2. Nella scheda Quickstart fare clic su **Xamarin** in **Scegli piattaforma **ed espandere **Crea una nuova app Xamarin**.
+2. Nel [portale classico] fare clic su **Servizi mobili** e quindi sul servizio mobile appena creato.
+
+3. Nella scheda Quickstart fare clic su **Xamarin** in **Scegli piattaforma **ed espandere **Crea una nuova app Xamarin**.
 
    	![][6]
 
@@ -55,15 +57,11 @@ In questa sezione si scaricherà una nuova app per Xamarin Android e un progetto
 
   	![][7]
 
-3. Se necessario, scaricare e installare [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=257546) nel computer locale o nella macchina virtuale.
-
-4. Se necessario, scaricare e installare [Xamarin Studio] o Xamarin per Visual Studio.
-
-5. In **Scaricare e pubblicare il servizio nel cloud** selezionare **Android** e fare clic su **Download**.
+4. In **Scaricare e pubblicare il servizio nel cloud** selezionare **Android** e fare clic su **Download**.
 
   	Verrà scaricata una soluzione che contiene i progetti per il servizio mobile e per l'applicazione _To do list_ di esempio connessa al servizio mobile. Salvare il file del progetto compresso nel computer locale e prendere nota del percorso.
 
-6. Scaricare il proprio profilo di pubblicazione, salvare il file scaricato nel computer locale e prendere nota del percorso.
+5. Scaricare il proprio profilo di pubblicazione, salvare il file scaricato nel computer locale e prendere nota del percorso.
 
 ## Testare il servizio mobile
 
@@ -132,9 +130,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 [versione per back-end JavaScript]: mobile-services-android-get-started.md
 [Risoluzione dei problemi relativi a un back-end .NET di Servizi mobili]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-
-[Xamarin Studio]: http://xamarin.com/download
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
-[Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

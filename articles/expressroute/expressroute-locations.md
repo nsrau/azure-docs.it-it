@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/31/2016"
+   ms.date="04/06/2016"
    ms.author="cherylmc" />
 
 # Partner e località di peering per ExpressRoute
@@ -145,7 +145,8 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 
 |**Integratore di sistemi**|**Continente**|
 |---|---|
-|**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|Europa|
+|**[Avanade Inc.](http://www.avanade.com/)**| Asia, Europa, Stati Uniti |
+|**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**| Europa |
 |**[Nimbo](http://www.nimbo.com/)**|Stati Uniti||
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asia |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | Stati Uniti |
@@ -156,4 +157,4 @@ L'abilitazione della connettività privata per soddisfare le proprie esigenze pu
 - Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 - Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

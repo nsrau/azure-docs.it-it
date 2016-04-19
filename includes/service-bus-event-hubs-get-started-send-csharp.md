@@ -8,25 +8,23 @@ In questa sezione si scriverà un'app di console Windows che invia eventi all'hu
 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Gestisci pacchetti NuGet per la soluzione**. 
 
-	Verrà visualizzata la finestra di dialogo Gestisci pacchetti NuGet.
-
-3. Cercare `Microsoft Azure Service Bus`, fare clic su **Installa** e accettare le condizioni per l'uso.
+3. Fare clic sulla scheda **Sfoglia**, quindi cercare `Microsoft Azure Service Bus`. Assicurarsi che il nome del progetto (**Sender**) sia specificato nella casella **Versione/i **. Fare clic su **Installa** e accettare le condizioni per l'utilizzo.
 
 	![][8]
 
 	Verrà quindi scaricato e installato il <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">pacchetto NuGet Azure Service Bus library</a> e verrà aggiunto un riferimento a tale pacchetto.
 
-4. Aggiungere l'istruzione `using` seguente all'inizio del file **Program.cs**:
+4. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs**:
 
 	```
 	using System.Threading;
 	using Microsoft.ServiceBus.Messaging;
 	```
 
-5. Aggiungere i campi seguenti per la classe **Program**, sostituendo i valori dei segnaposto con il nome dell'hub eventi creato nella sezione precedente e la stringa di connessione con i diritti **Send**:
+5. Aggiungere i campi seguenti per la classe **Program**, sostituendo i valori dei segnaposto con il nome dell'hub eventi creato nella sezione precedente e la stringa di connessione con i diritti **Send** (stringa di connessione **SendRule**). Assicurarsi di rimuovere il suffisso `EntityPath` dalla stringa di connessione:
 
 	```
-	static string eventHubName = "{event hub name}";
+	static string eventHubName = "{Event Hub name}";
 	static string connectionString = "{send connection string}";
 	```
 
@@ -72,4 +70,4 @@ In questa sezione si scriverà un'app di console Windows che invia eventi all'hu
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

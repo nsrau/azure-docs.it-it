@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/01/2016"
+	ms.date="04/07/2016"
 	ms.author="tamram"/>
 
 
@@ -33,10 +33,10 @@ Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comun
 
 **Prerequisiti:**
 
-- [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+- [Microsoft Visual Studio](https://www.visualstudio.com/it-IT/visual-studio-homepage-vs.aspx)
 - [Libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Gestione configurazione di Azure per .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- Un [account di archiviazione Azure](storage-create-storage-account.md#create-a-storage-account).
+- Un [account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account)
 
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -53,14 +53,13 @@ Aggiungere le istruzioni `using` seguenti all'inizio del file `program.cs`.
 
 	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
-    using Microsoft.WindowsAzure.Storage.Auth; // Namespace for authentication types
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Creare il client del servizio BLOB
 
-La classe **CloudBlobClient** consente di recuperare gli oggetti che rappresentano contenitori e BLOB archiviati nell'archivio BLOB. Aggiungere il codice seguente al metodo Main():
+La classe **CloudBlobClient** consente di recuperare contenitori e BLOB archiviati nell'archivio BLOB. Aggiungere il codice seguente al metodo **Main()**:
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
@@ -85,12 +84,12 @@ In questo esempio viene creato un contenitore, nel caso in cui non esista già:
     // Create the container if it doesn't already exist.
     container.CreateIfNotExists();
 
-Per impostazione predefinita, il nuovo contenitore è privato ed è necessario specificare la chiave di accesso alle risorse di archiviazione per scaricare BLOB da questo contenitore. Se si desidera che i file all'interno del contenitore siano disponibili a tutti, è possibile impostare il contenitore come pubblico usando il codice seguente:
+Per impostazione predefinita, il nuovo contenitore è privato, ovvero è necessario specificare la chiave di accesso alle risorse di archiviazione per scaricare BLOB da questo contenitore. Se si desidera che i file all'interno del contenitore siano disponibili a tutti, è possibile impostare il contenitore come pubblico usando il codice seguente:
 
     container.SetPermissions(
         new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
-I BLOB in un contenitore pubblico sono visibili a tutti gli utenti di Internet, tuttavia è possibile modificarli o eliminarli solo se si dispone della chiave di accesso appropriata.
+I BLOB in un contenitore pubblico sono visibili a tutti gli utenti di Internet, tuttavia è possibile modificarli o eliminarli solo se è disponibile la chiave di accesso dell'account appropriata o una firma di accesso condiviso.
 
 ## Caricare un BLOB in un contenitore
 
@@ -377,4 +376,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

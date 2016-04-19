@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/21/2016"
+	ms.date="04/08/2016"
 	ms.author="nitinme"/>
 
 
@@ -86,8 +86,8 @@ In questa sezione è possibile usare un notebook Jupyter per eseguire query SQL 
 
 In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) sono descritti in dettaglio i vantaggi dell'uso del kernel PySpark. Ecco, tuttavia, i principali vantaggi dell'uso del kernel PySpark:
 
-* Non è necessario impostare i contesti per Spark, SQL e Hive. Questi vengono impostati automaticamente.
-* È possibile usare magic di cella diversi, ad esempio %%sql o %%hive, per eseguire direttamente query SQL o Hive senza farle precedere da alcun frammento di codice.
+* Non è necessario impostare i contesti per Spark e Hive. Questi vengono impostati automaticamente.
+* È possibile usare Magic di cella come `%%sql` per eseguire direttamente query SQL o Hive senza farle precedere da alcun frammento di codice.
 * L'output delle query SQL o Hive viene visualizzato automaticamente.
 
 ### Creare un notebook di Jupyter con il kernel PySpark 
@@ -108,7 +108,7 @@ In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibil
 
 	![Specificare un nome per il notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Specificare un nome per il notebook")
 
-4. Poiché il notebook è stato creato tramite il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark, SQL e Hive verranno creati automaticamente quando si esegue la prima cella di codice. È possibile iniziare con l'importazione dei tipi necessari per questo scenario. A tale scopo, incollare il frammento di codice seguente in una cella e premere **MAIUSC+INVIO**.
+4. Poiché il notebook è stato creato tramite il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark e Hive vengono creati automaticamente quando si esegue la prima cella di codice. È possibile iniziare con l'importazione dei tipi necessari per questo scenario. A tale scopo, incollare il frammento di codice seguente in una cella e premere **MAIUSC+INVIO**.
 
 		from pyspark.sql.types import *
 		
@@ -135,7 +135,7 @@ In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibil
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. Dato che si sta usando un kernel PySpark, ora è possibile eseguire direttamente una query SQL sulla tabella temporanea **hvac** appena creata usando la sintassi Magic `%%sql`. Per altre informazioni sulla sintassi Magic `%%sql` e sulle altre sintassi Magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Dato che si sta usando un kernel PySpark, ora è possibile eseguire direttamente una query SQL sulla tabella temporanea **hvac** appena creata usando la sintassi Magic `%%sql`. Per altre informazioni sul Magic `%%sql` e sugli altri Magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
@@ -206,4 +206,4 @@ In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibil
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

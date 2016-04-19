@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="04/07/2016"
    ms.author="derrickv"/>
 
 # Eseguire il profiling dati delle origini dati
@@ -91,4 +91,4 @@ Il profiling dati fornisce statistiche e informazioni sugli asset di dati regist
 -	[Come registrare le origini dati](data-catalog-how-to-register.md)
 -	[Introduzione ad Azure Data Catalog](data-catalog-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

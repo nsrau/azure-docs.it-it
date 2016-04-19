@@ -25,6 +25,8 @@ Il [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) è una piattafo
 
 ![Marketplace Web](./media/app-service-web-overview/marketplace.png)
 
+[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+
 ## Molto più di semplici siti Web##
 
 Le aziende moderne interagiscono con i propri clienti in modi sempre più sofisticati. Imprese di ogni tipo considerano la propria presenza sul Web un aspetto critico della propria attività, nonché un componente principale del proprio business plan. Per adattare questa importanza, le aziende cercano una piattaforma che dovrà fornire loro flessibilità, sicurezza e la scalabilità. Inoltre, richiedono la possibilità di collegarsi al sistema aziendale esistente, di essere in grado di distribuire rapidamente un nuovo codice e di creare istanze in tutto il mondo. Con il servizio app di Azure e le app Web, le organizzazioni sono finalmente in grado di soddisfare i propri clienti in modo rapido ed economico.
@@ -64,4 +66,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 
  
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,17 +13,19 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/07/2016"
+   ms.date="04/07/2016"
    ms.author="nitinme"/>
 
 # Introduzione ad Azure Data Lake Store con .NET SDK
 
 > [AZURE.SELECTOR]
-- [Uso del portale](data-lake-store-get-started-portal.md)
-- [Tramite PowerShell](data-lake-store-get-started-powershell.md)
-- [Uso di .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Utilizzare l'interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
-- [Uso di Node.js](data-lake-store-manage-use-nodejs.md)
+- [Portale](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [.NET SDK](data-lake-store-get-started-net-sdk.md)
+- [SDK per Java](data-lake-store-get-started-java-sdk.md)
+- [API REST](data-lake-store-get-started-rest-api.md)
+- [Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
+- [Node.JS](data-lake-store-manage-use-nodejs.md)
 
 Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un account di Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake, vedere [Azure Data Lake Store](data-lake-store-overview.md).
 
@@ -32,19 +34,19 @@ Informazioni su come usare .NET SDK con Azure Data Lake Store per creare un acco
 * Visual Studio 2013 o 2015. Le istruzioni seguenti fanno riferimento a Visual Studio 2015.
 * Una **sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
-* Creare un'applicazione Azure Active Directory (AAD) e recuperare l'**ID Client** e l'**URI di risposta**. Per altre informazioni sulle applicazioni AAD e istruzioni su come ottenere un ID client, vedere [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](../resource-group-create-service-principal-portal.md). L'URI di risposta sarà disponibile anche dal portale dopo aver creato l'applicazione.
+* Creare un'applicazione Azure Active Directory (AAD) e recuperare l'**ID client** e l'**URI di risposta**. Per altre informazioni sulle applicazioni AAD e istruzioni su come ottenere un ID client, vedere [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](../resource-group-create-service-principal-portal.md). L'URI di risposta sarà disponibile anche dal portale dopo aver creato l'applicazione.
 
 ## Come si esegue l'autenticazione tramite Azure Active Directory?
 
 Il frammento di codice riportato di seguito offre due metodi per l'autenticazione:
 
-* **Interattivo** in cui l'utente accede tramite l'applicazione. Ciò viene implementato nel metodo `AuthenticateUser` nel frammento di codice riportato di seguito.
+* **Interattivo**, in cui l'utente accede tramite l'applicazione. Questo viene implementato nel metodo `AuthenticateUser` nel frammento di codice riportato di seguito.
 
-* **Non interattivo** in cui l'applicazione fornisce le proprie credenziali. Ciò viene implementato nel metodo `AuthenticateAppliaction` nel frammento di codice riportato di seguito.
+* **Non interattivo**, in cui l'applicazione fornisce le proprie credenziali. Questo viene implementato nel metodo `AuthenticateAppliaction` nel frammento di codice riportato di seguito.
 
-Anche se il frammento di codice riportato di seguito fornisce i metodi per entrambi gli approcci, in questo articolo viene usato il metodo `AuthenticateUser`. Questo metodo richiede l'immissione dell'ID client dell'applicazione AAD e dell'URI di risposta. Il collegamento nella sezione dei prerequisiti include le istruzioni per ottenere tali valori.
+Anche se nel frammento di codice riportato di seguito sono inclusi i metodi per entrambi gli approcci, questo articolo usa il metodo `AuthenticateUser`. Questo metodo richiede l'immissione dell'ID client dell'applicazione AAD e dell'URI di risposta. Il collegamento nella sezione dei prerequisiti include le istruzioni per ottenere tali valori.
 
->[AZURE.NOTE] Se si desidera modificare il frammento di codice e usare il metodo `AuthenticateApplication`, è necessario immettere anche la chiave di autenticazione del client, oltre all'ID client e all'URI di risposta, come input del metodo. L'articolo [Creare un'applicazione e un'entità di servizio di Active Directory tramite il portale](../resource-group-create-service-principal-portal.md) offre inoltre informazioni su come generare e recuperare la chiave di autenticazione del client.
+>[AZURE.NOTE] Per modificare il frammento di codice e usare invece il metodo `AuthenticateApplication`, oltre all'ID client e all'URI di risposta è necessario specificare anche la chiave di autenticazione client come input del metodo. Per informazioni su come generare e recuperare la chiave di autenticazione client, vedere anche l'articolo [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](../resource-group-create-service-principal-portal.md).
 
 
 
@@ -307,12 +309,6 @@ Anche se il frammento di codice riportato di seguito fornisce i metodi per entra
 
 8. Compilare ed eseguire l'applicazione. Seguire le istruzioni per eseguire e completare l'applicazione.
 
-## Altre modalità di creazione di un account di Data Lake Store
-
-- [Introduzione a Data Lake Store mediante il portale](data-lake-store-get-started-portal.md)
-- [Introduzione ad Archivio Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
-- [Introduzione a Data Lake Store mediante l'interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
-
 
 ## Passaggi successivi
 
@@ -320,4 +316,4 @@ Anche se il frammento di codice riportato di seguito fornisce i metodi per entra
 - [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

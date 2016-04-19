@@ -75,7 +75,7 @@ Dopo aver selezionato l'immagine, è possibile usare le impostazioni predefinite
 
 	![Schermata che mostra le dimensioni di VM di Azure disponibili per la selezione](./media/virtual-machines-windows-hero-tutorial/create_vm_size.PNG)
 
-	>[AZURE.NOTE] Il servizio di archiviazione Premium è disponibile per le macchine virtuali della serie DS in alcune aree. Il servizio di archiviazione Premium è la migliore opzione di archiviazione per i carichi di lavoro con utilizzo intensivo, come ad esempio un database. Per ulteriori informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage-preview-portal.md).
+	>[AZURE.NOTE] Il servizio di archiviazione Premium è disponibile per le macchine virtuali della serie DS in alcune aree. Il servizio di archiviazione Premium è la migliore opzione di archiviazione per i carichi di lavoro con utilizzo intensivo, come ad esempio un database. Per ulteriori informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage.md).
 
 3. Fare clic su **Impostazioni** per visualizzare le impostazioni di archiviazione e di rete per la nuova macchina virtuale. Per la prima macchina virtuale è in genere possibile accettare le impostazioni predefinite. Se sono state selezionate dimensioni di macchina virtuale che lo supportano, è possibile provare il servizio Archiviazione Premium selezionando **Premium (SSD)** in **Tipo di disco**.
 
@@ -117,4 +117,4 @@ Dopo aver creato la macchina virtuale, sarà possibile accedervi per gestire le 
 * Automatizzare la gestione e la distribuzione della macchina virtuale e del carico di lavoro con [Modelli di Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 * È anche possibile [creare rapidamente una macchina virtuale Linux](virtual-machines-linux-quick-create-cli.md) usando l'interfaccia della riga di comando di Azure.
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

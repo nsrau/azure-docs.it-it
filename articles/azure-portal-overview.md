@@ -11,14 +11,18 @@
 	ms.service="na"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="na" 
+	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="12/16/2015"
 	ms.author="dwrede"/>
 
 # Panoramica del portale di Microsoft Azure
 
-Il portale di Microsoft Azure è una posizione centrale in cui è possibile eseguire il provisioning e gestire le risorse di Azure. Questa esercitazione fornisce informazioni generali sul portale e mostra come usare alcune delle funzionalità chiave: - Un **Marketplace completo** che permette di esplorare migliaia di elementi offerti da Microsoft e da altri fornitori e che possono essere acquistati e/o sottoposti a provisioning. - Un'**esperienza di esplorazione unificata e scalabile** che semplifica l'individuazione delle risorse desiderate e l'esecuzione di diverse operazioni di gestione. - **Pagine di gestione coerenti** (o pannelli) che permettono di gestire la vasta gamma di servizi di Azure tramite una modalità coerente di esposizione di impostazioni, azioni, informazioni sulla fatturazione, monitoraggio dello stato, dati di utilizzo e altro ancora. - Un'**esperienza personale** che permette di creare una schermata di avvio personalizzata che mostra le informazioni desiderate a ogni accesso. È anche possibile personalizzare tutti i pannelli di gestione che includono riquadri.
+Il portale di Microsoft Azure è una posizione centrale in cui è possibile eseguire il provisioning e gestire le risorse di Azure. Questa esercitazione consente di familiarizzare con il portale e illustra come usare alcune di queste funzionalità chiave:
+- Un **Marketplace completo** che consente di scegliere tra migliaia di elementi di Microsoft e di altri fornitori, che possono essere acquistati e/o di cui è possibile effettuare il provisioning.
+- Un'**esperienza di esplorazione unificata e scalabile** per trovare facilmente le risorse a cui si è interessati ed eseguire diverse operazioni di gestione.
+- **Pagine di gestione coerenti** (o pannelli) che consentono di gestire un'ampia gamma di servizi di Azure grazie alla visualizzazione coerente di impostazioni, azioni, informazioni sulla fatturazione, monitoraggio dello stato, dati di utilizzo e molto altro.
+- Un'**esperienza personale** che consente di creare una schermata Start personalizzata contenente le informazioni che si vuole visualizzare quando si esegue l'accesso. È anche possibile personalizzare tutti i pannelli di gestione che includono riquadri.
 
  ![Orientamento dell'interfaccia utente del portale di Azure][UIOrientation]
 
@@ -47,7 +51,7 @@ L'hub di notifica avviserà l'utente quando la risorsa è stata creata e verrà 
 
 ## Come gestire e delegare l'accesso a una risorsa
 
-Questo pannello permette di connettersi alla macchina virtuale usando il desktop remoto, monitorare le metriche delle prestazioni chiave, controllare l'accesso a questa macchina virtuale usando il controllo degli accessi in base al ruolo (RBAC, Role Based Access Control), configurare la VM ed eseguire altre importanti attività di gestione. La delega dell'accesso in base al ruolo è essenziale per la gestione su vasta scala. Per altre informazioni, fare clic [qui](role-based-access-control-configure.md). Per delegare l'accesso a una risorsa, eseguire le operazioni seguenti:
+Questo pannello permette di connettersi alla macchina virtuale usando il desktop remoto, monitorare le metriche delle prestazioni chiave, controllare l'accesso a questa macchina virtuale usando il controllo degli accessi in base al ruolo (RBAC, Role Based Access Control), configurare la VM ed eseguire altre importanti attività di gestione. La delega dell'accesso in base al ruolo è essenziale per la gestione su vasta scala. Per altre informazioni, fare clic [qui](./active-directory/role-based-access-control-configure.md). Per delegare l'accesso a una risorsa, eseguire le operazioni seguenti:
 
 1.	Passare alla risorsa.
 2.	Nella sezione Informazioni di base fare clic su 'Tutte le impostazioni'.
@@ -76,7 +80,14 @@ In caso di problemi, sono disponibili numerose opzioni per il supporto. Il porta
 
 ## Riepilogo
 
-In questa esercitazione è stato illustrato quanto segue: - Come iscriversi, ottenere una sottoscrizione e passare al portale - Informazioni generali sull'interfaccia utente del portale e su come creare e visualizzare le risorse - Come creare una risorsa ed esplorare le risorse - Informazioni sulla struttura o sui pannelli di gestione e su come gestire in modo coerente diversi tipi di risorse - Come personalizzare il portale per evidenziare le informazioni rilevanti - Come controllare l'accesso alle risorse mediante il controllo degli accessi in base al ruolo - Come visualizzare la Guida e ottenere supporto
+In questa esercitazione è stato illustrato quanto segue:
+- Come iscriversi, ottenere una sottoscrizione e passare al portale
+- Informazioni generali sull'interfaccia utente del portale e su come creare e visualizzare le risorse
+- Come creare una risorsa ed esplorare le risorse
+- Informazioni sulla struttura o sui pannelli di gestione e su come gestire in modo coerente diversi tipi di risorse
+- Come personalizzare il portale per evidenziare le informazioni rilevanti
+- Come controllare l'accesso alle risorse con il controllo degli accessi in base al ruolo
+- Come visualizzare la Guida e ottenere supporto
 
 Il portale di Microsoft Azure semplifica in modo radicale lo sviluppo e la gestione delle applicazioni nel cloud. Vedere il [blog sulla gestione](https://azure.microsoft.com/blog/topics/management/) per rimanere aggiornati, poiché Microsoft [esamina i commenti e i suggerimenti](https://feedback.azure.com/forums/223579-azure-preview-portal/) e apporta miglioramenti costantemente. Il [blog di ScottGu](http://weblogs.asp.net/scottgu) è un'altra risorsa ottimale per ottenere informazioni su tutti gli aggiornamenti di Azure.
 
@@ -87,4 +98,4 @@ Il portale di Microsoft Azure semplifica in modo radicale lo sviluppo e la gesti
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,9 +1,3 @@
-| Opzioni di calcolo | Destinatari |
-| ------------------ | --------   |
-| [Servizio app] | App per dispositivi mobili, app per le API, app per la logica e app Web scalabili per qualsiasi dispositivo |
-| [Servizi cloud] | App per cloud a più livelli scalabili e altamente disponibili con maggiore controllo del sistema operativo |
-| [Macchine virtuali] | Macchine virtuali Windows e Linux personalizzate con controllo completo del sistema operativo |
-
 <a name="tellmevm"></a>
 ## Informazioni sulle macchine virtuali
 
@@ -11,7 +5,7 @@ La funzionalità Macchine virtuali di Azure consente di creare e usare macchine 
 
 - **Macchine virtuali (VM) per lo sviluppo e il testing.** I gruppi di sviluppo in genere usano le macchine virtuali perché consentono di creare in modo semplice e rapido un computer con configurazioni specifiche necessarie per scrivere il codice e testare un'applicazione. Macchine virtuali di Azure fornisce un modo facile e conveniente per creare tali macchine virtuali, usarle ed eliminarle quando non sono più necessarie.
 - **Esecuzione di applicazioni nel cloud.** L'esecuzione nel cloud pubblico risulta economicamente vantaggiosa per alcune applicazioni, ad esempio per un'applicazione con picchi elevati a livello di domanda. Benché sia possibile dotare il proprio data center di hardware sufficiente a far fronte a questi picchi, è probabile che la maggior parte di tale hardware venga sottoutilizzato per molto tempo. L'esecuzione di un'applicazione di questo tipo in Azure consente di pagare le macchine virtuali aggiuntive solo quando sono necessarie e di arrestarle al termine del picco nella domanda. Oppure si immagini uno scenario in cui una start-up necessita di risorse di elaborazione su richiesta in modo rapido e senza impegno di acquisto. Anche in questo caso Azure può rappresentare la scelta giusta.
-- **Estensione del data center nel cloud pubblico.** Quando si usa Rete virtuale di Azure, l'organizzazione può creare una rete virtuale (VNET) come estensione della rete locale e aggiungervi macchine virtuali. Sarà quindi possibile eseguire applicazioni quali [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm-structure.md), [SQL Server](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md) e altre ancora in una macchina virtuale di Azure . Tale approccio potrebbe essere più semplice da distribuire o meno costoso rispetto all'esecuzione delle applicazioni nelle macchine virtuali del proprio data center.   
+- **Estensione del data center nel cloud pubblico.** Quando si usa Rete virtuale di Azure, l'organizzazione può creare una rete virtuale (VNET) come estensione della rete locale e aggiungervi macchine virtuali. Sarà quindi possibile eseguire applicazioni quali [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm-structure.md), [SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) e altre ancora in una macchina virtuale di Azure . Tale approccio potrebbe essere più semplice da distribuire o meno costoso rispetto all'esecuzione delle applicazioni nelle macchine virtuali del proprio data center.   
 - **Ripristino di emergenza.** Invece di effettuare pagamenti continui per un data center di backup usato raramente, il ripristino di emergenza basato su IaaS consente di pagare le risorse di elaborazione necessarie solo quando servono effettivamente. Ad esempio, se il funzionamento del data center primario si interrompe, è possibile creare macchine virtuali in Azure per eseguire le applicazioni essenziali, quindi chiuderle quando non sono più necessarie.
 
 Come le altre macchine virtuali, una macchina virtuale di Azure dispone di un sistema operativo e di funzionalità di archiviazione e connessione di rete e può eseguire una vasta gamma di applicazioni. È possibile usare un'immagine fornita da Azure o da uno dei relativi partner oppure usare un'immagine personalizzata. Gli esempi includono diverse versioni, edizioni e configurazioni di:
@@ -42,4 +36,4 @@ Altri vantaggi da considerare per le macchine virtuali sono i seguenti:
 
 **Resilienza**. Azure effettua il monitoraggio dell'hardware fisico che ospita ogni macchina virtuale in esecuzione. Se si verifica un problema su un server fisico che esegue una macchina virtuale, Azure rileva il problema, sposta la macchina virtuale su nuovo hardware e quindi la riavvia. Questo processo a volte viene indicato come correzione del servizio. Azure inoltre protegge i dati di una macchina virtuale mantenendo copie ridondanti dei dischi rigidi virtuali nell'archivio BLOB.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

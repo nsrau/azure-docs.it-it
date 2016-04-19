@@ -1,4 +1,4 @@
-<properties pageTitle="Monitoraggio delle prestazioni del database nel Database SQL Azure" | Microsoft Azure description="Informazioni sulle opzioni per il monitoraggio del database con strumenti di Azure e viste a gestione dinamica." keywords="monitoraggio di database, prestazioni del database cloud" services="sql-database" documentationCenter="" authors="jeffgoll" manager="jeffreyg" editor="jeffreyg"/>
+<properties pageTitle="Monitoraggio delle prestazioni del database nel database SQL Azure" | Microsoft Azure description="Informazioni sulle opzioni per il monitoraggio del database con strumenti di Azure e viste a gestione dinamica." keywords="monitoraggio di database, prestazioni del database cloud" services="sql-database" documentationCenter="" authors="carlrabeler" manager="jhubbard" editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -7,7 +7,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="03/25/2016"
-	ms.author="jeffreyg"/>
+	ms.author="carlrab"/>
 
 # Monitoraggio delle prestazioni del database nel database SQL di Azure
 Il monitoraggio delle prestazioni di un database SQL in Azure inizia con il monitoraggio dell'utilizzo delle risorse rispetto al livello di prestazioni scelto per il database. Il monitoraggio consente di determinare se il database ha capacità in eccesso o se presenta problemi perché è stato superato il limite massimo di risorse e quindi decidere se opportuno modificare il livello di prestazioni e [livello di servizio](sql-database-service-tiers.md) del database. È possibile monitorare il database con strumenti grafici nel [portale di Azure](https://portal.azure.com) o con le [viste a gestione dinamica](https://msdn.microsoft.com/library/ms188754.aspx) di SQL.
@@ -39,4 +39,4 @@ Le stesse metriche esposte nel portale sono disponibili anche tramite le viste d
 
 Per i pool di database elastici, è possibile monitorare i singoli database nel pool con le tecniche descritte in questa sezione. Tuttavia, è anche possibile monitorare il pool nel complesso. Per informazioni, vedere [Monitorare e gestire un pool di database elastici](sql-database-elastic-pool-manage-portal.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

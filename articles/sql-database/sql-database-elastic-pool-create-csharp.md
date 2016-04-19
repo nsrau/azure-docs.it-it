@@ -278,6 +278,5 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
 
 - [Database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-- [Riferimento al pool di database elastici](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

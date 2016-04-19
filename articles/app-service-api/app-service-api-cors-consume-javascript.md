@@ -58,7 +58,7 @@ Questo articolo contiene due sezioni:
 
 	Dopo aver fatto clic su **Salva**, l'app per le API accetterà le chiamate JavaScript dagli URL specificati.
 
-### Configurare CORS con gli strumenti di Gestione risorse di Azure
+#### Configurare CORS con gli strumenti di Gestione risorse di Azure
 
 È anche possibile configurare CORS per un'app per le API usando [modelli di Azure Resource Manager](../resource-group-authoring-templates.md) in strumenti della riga di comando come [Azure PowerShell](../powershell-install-configure.md) e l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
@@ -261,11 +261,9 @@ I passaggi seguenti riepilogano il processo di abilitazione del supporto di CORS
 		namespace ToDoListAPI.Controllers 
 		{
 		    [HttpOperationExceptionFilterAttribute]
-		    [EnableCors(origins:"*", headers:"*", methods: "*")]
+		    [EnableCors(origins:"https://todolistangular0121.azurewebsites.net", headers:"accept,content-type,origin,x-my-header", methods: "get,post")]
 		    public class ToDoListController : ApiController
  
-	> **Nota**: usare questo attributo con cautela. Se si specificano caratteri jolly per tutti i parametri, l'API sarà aperta a tutte le origini e a tutte le richieste HTTP. Le impostazioni riportate di seguito sono solo a scopo dimostrativo.
-
 ## Risoluzione dei problemi
 
 Se si verifica un problema durante l'esecuzione di questa esercitazione, assicurarsi che sia in uso la versione più recente di Azure SDK per .NET. Il modo più semplice per farlo consiste nel procedere al [download di Azure SDK per Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Se è installata la versione corrente, l'Installazione guidata piattaforma Web informa che non è necessaria alcuna installazione.
@@ -283,4 +281,4 @@ Per altre informazioni sulle funzionalità di Visual Studio che semplificano la 
 
 In questo articolo è stato illustrato come abilitare il supporto di CORS del servizio app perché il codice JavaScript del client possa chiamare un'API in un dominio diverso. Nel prossimo articolo della serie introduttiva alle app per le API viene illustrata l'[autenticazione per le app per le API del servizio app](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -34,7 +34,7 @@ Di seguito è riportata una schermata dell'app completata:
 
 ![][0]
 
-Per completare questa esercitazione è necessario disporre di XCode e [Xamarin Studio] per OS X oppure del plug-in Xamarin Visual Studio per Visual Studio in Windows. L'esempio verrà eseguito su iOS 5.0 e versioni successive.
+Per completare questa esercitazione sono necessari XCode e Xamarin Studio per OS X o Visual Studio su Windows con un computer Mac connesso in rete. Le istruzioni di installazione complete sono disponibili in [Configurazione e installazione per Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
 > [AZURE.IMPORTANT] Per completare l'esercitazione, è necessario un account Azure. Se non si ha un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 servizi mobili gratuiti che potranno essere usati anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -136,4 +136,4 @@ Dopo aver completato la guida introduttiva, è possibile eseguire altre importan
 
 [portale di Azure classico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

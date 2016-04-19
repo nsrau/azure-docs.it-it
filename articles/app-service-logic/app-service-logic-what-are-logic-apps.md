@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="03/01/2016"
+	ms.date="04/07/2016"
 	ms.author="klam"/>
 
 #Cosa sono le app per la logica?
@@ -65,11 +65,12 @@ Di seguito sono riportate alcune informazioni fondamentali per comprendere appie
 -  **Azioni**: ogni passaggio dopo il trigger in un flusso di lavoro viene chiamato azione. Di ogni azione viene in genere eseguito il mapping a un'operazione sulle app per le API gestite o personalizzate.
 - **BizTalk**: per altri scenari di integrazione più avanzati, App per la logica include le funzionalità di BizTalk. BizTalk è la piattaforma di integrazione leader del settore di Microsoft. Le app per le API di BizTalk consentono di includere facilmente la convalida, la trasformazione, le regole e molto altro nei flussi di lavoro dell'app per la logica. Leggere altre informazioni sul [funzionamento delle app per le API di BizTalk][biztalk].
 
-## Introduzione
+## Introduzione  
 
-Per iniziare a usare le app per la logica, seguire l'esercitazione [Creare una nuova app per la logica][create].
-
-Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure][appservice].
+ - Per iniziare a usare le app per la logica, seguire l'esercitazione [Creare una nuova app per la logica][create].  
+ - [Le app per la logica consentono di automatizzare i processi aziendali](http://channel9.msdn.com/Events/Build/2016/T694) 
+ - [Informazioni su come integrare i sistemi correnti con le app per la logica](http://channel9.msdn.com/Events/Build/2016/P462)
+- Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure][appservice].
 
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
@@ -79,4 +80,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

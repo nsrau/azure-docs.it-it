@@ -86,9 +86,4 @@ Questo script crea un nuovo server, quindi quando viene richiesto un nome utente
 - [Gestire il pool](sql-database-elastic-pool-manage-powershell.md)
 - [Creare processi elastici](sql-database-elastic-jobs-overview.md): i processi elastici consentono di eseguire script T-SQL su un numero qualsiasi di database nel pool.
 
-
-## Riferimento ai database elastici
-
-Per altre informazioni sui database elastici e sui pool di database elastici, vedere [Riferimento ai pool di database elastici](sql-database-elastic-pool-reference.md).
-
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

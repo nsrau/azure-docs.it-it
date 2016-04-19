@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/28/2016"
+	ms.date="04/07/2016"
 	ms.author="gusapost"/>
 
 # Introduzione all'archiviazione code di Azure con .NET
@@ -24,7 +24,19 @@
 
 Archiviazione code di Azure è un servizio che fornisce code di messaggi nel cloud. Durante la progettazione di applicazioni scalabili, i componenti dell'applicazione vengono spesso separati, per poter essere scalati in modo indipendente. L'archiviazione di accodamento offre una soluzione di messaggistica affidabile per la comunicazione asincrona tra i componenti dell'applicazione, che possono essere eseguiti nel cloud, in un desktop, in un server locale o in un dispositivo mobile. Archiviazione code supporta anche la gestione di attività asincrone e la creazione di flussi di lavoro dei processi.
 
+### Informazioni sull'esercitazione
+
 Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comuni dell'archiviazione code di Azure. Gli scenari presentati includono creazione ed eliminazione di code, nonché aggiunta, lettura ed eliminazione di messaggi nella coda.
+
+**Tempo previsto per il completamento:** 45 minuti
+
+**Prerequisiti:**
+
+- [Microsoft Visual Studio](https://www.visualstudio.com/it-IT/visual-studio-homepage-vs.aspx)
+- [Libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+- [Gestione configurazione di Azure per .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+- Un [account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account)
+
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -32,37 +44,38 @@ Questa esercitazione illustra come scrivere codice .NET per alcuni scenari comun
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-configure-connection-string-include](../../includes/storage-configure-connection-string-include.md)]
+[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-## Accedere all'archiviazione di accodamento a livello di codice
+### Aggiungere le dichiarazioni dello spazio dei nomi
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
+Aggiungere le istruzioni `using` seguenti all'inizio del file `program.cs`.
 
-### Dichiarazioni dello spazio dei nomi
-Aggiungere le seguenti dichiarazioni dello spazio dei nomi del codice all'inizio del file C# in cui si desidera accedere ad Archiviazione di Azure a livello di codice:
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+    using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Queue;
+[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-Assicurarsi di fare riferimento all'assembly `Microsoft.WindowsAzure.Storage.dll`.
+### Creare il client del servizio di accodamento
 
-[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
+La classe **CloudQueueClient** consente di recuperare le code archiviate nell'archivio code. Aggiungere il codice seguente al metodo **Main()**:
+
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+
+A questo punto si è pronti a scrivere codice che legge e scrive i dati nell'archivio code.
 
 ## Creare una coda
 
-Per ottenere oggetti di riferimento per le code, è possibile usare un oggetto **CloudQueueClient**. Il codice seguente consente di creare un oggetto **CloudQueueClient**. In tutto il codice di questa guida viene usata una stringa di connessione di archiviazione archiviata nel servizio di configurazione dell'applicazione Azure. Sono inoltre disponibili altri modi per creare un oggetto **CloudStorageAccount**. Per informazioni dettagliate, vedere la documentazione relativa a [CloudStorageAccount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount_methods.aspx).
+Questo esempio illustra come creare una coda, se non esiste già:
 
-    // Retrieve storage account from connection string
+    // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the queue client
+    // Create the queue client.
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-Utilizzare l'oggetto **queueClient** per ottenere un riferimento alla coda da utilizzare. È possibile creare la coda se non esiste già.
-
-    // Retrieve a reference to a queue
+    // Retrieve a reference to a container.
     CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
     // Create the queue if it doesn't already exist
@@ -260,4 +273,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

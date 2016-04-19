@@ -28,6 +28,8 @@ Una macchina virtuale di Azure offre la flessibilità della virtualizzazione sen
 
 Questa tabella consente di confrontare le scelte offerte da Azure.
 
+[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 
@@ -35,12 +37,6 @@ Questa tabella consente di confrontare le scelte offerte da Azure.
 
 Provare una macchina virtuale mediante la creazione di una macchina virtuale semplice rapidamente. Per istruzioni, vedere [Creare una macchina virtuale che esegue Windows nel portale di Azure](virtual-machines-windows-hero-tutorial.md).
 
-Poiché questa esercitazione consente di creare rapidamente una macchina virtuale, viene descritto solo un metodo per l'esecuzione di questa operazione, invece di descrivere i vari strumenti utilizzabili per creare macchine virtuali. Per un riepilogo di questi strumenti e i collegamenti alle istruzioni, vedere l'articolo che illustra i [diversi modi per creare una macchina virtuale di Windows](virtual-machines-windows-creation-choices.md).
+Poiché questa esercitazione consente di creare rapidamente una macchina virtuale, viene descritto solo un metodo per l'esecuzione di questa operazione, invece di descrivere i vari strumenti utilizzabili per creare macchine virtuali. Per un riepilogo di questi strumenti e i collegamenti alle istruzioni, vedere [Diversi modi per creare una macchina virtuale Windows con Gestione risorse](virtual-machines-windows-creation-choices.md).
 
-
-<!--links-->
-[Servizio app]: app-service-choose-me.md
-[Servizi cloud]: cloud-services-choose-me.md
-[Macchine virtuali]: #tellmevm
-
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

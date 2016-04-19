@@ -88,7 +88,9 @@ In questa sezione si scriverà un'app console di Java che consente di creare una
 
 ## Ricezione di messaggi da dispositivo a cloud
 
-In questa sezione si creerà un'app console di Java che legge i messaggi da dispositivo a cloud dall'hub IoT. L'hub IoT espone un endpoint compatibile con [Hub eventi][lnk-event-hubs-overview] per abilitare la lettura dei messaggi da dispositivo a cloud. Per semplicità, questa esercitazione crea un lettore di base non adatto per una distribuzione con velocità effettiva elevata. L'esercitazione [Elaborare messaggi da dispositivo a cloud][lnk-processd2c-tutorial] illustra come elaborare messaggi da un dispositivo al cloud su vasta scala. L'esercitazione [Introduzione a Hub eventi][lnk-eventhubs-tutorial] fornisce altre informazioni su come elaborare i messaggi da Hub eventi ed è applicabile agli endpoint compatibili con Hub eventi dell'hub IoT.
+In questa sezione si creerà un'app console di Java che legge i messaggi da dispositivo a cloud dall'hub IoT. L'hub IoT espone un endpoint compatibile con [Hub eventi][lnk-event-hubs-overview] per abilitare la lettura dei messaggi da dispositivo a cloud. Per semplicità, questa esercitazione crea un lettore di base non adatto per una distribuzione con velocità effettiva elevata. L'esercitazione [Elaborare messaggi da dispositivo a cloud][lnk-processd2c-tutorial] illustra come elaborare i messaggi da dispositivo a cloud su vasta scala. L'esercitazione [Introduzione a Hub eventi][lnk-eventhubs-tutorial] fornisce altre informazioni su come elaborare i messaggi da Hub eventi ed è applicabile agli endpoint compatibili con l'hub eventi dell'hub IoT.
+
+> [AZURE.NOTE] L'endpoint compatibile con Hub eventi per la lettura di messaggi da dispositivo a cloud usa sempre il protocollo AMQPS.
 
 1. Nella cartella iot-java-get-started creata nella sezione *Creare un'identità del dispositivo* creare un nuovo progetto Maven denominato **read-d2c-messages** usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
 
@@ -132,7 +134,7 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
     private static long now = System.currentTimeMillis();
     ```
 
-8. Aggiungere la classe annidata seguente nella classe **App**. L'applicazione crea due thread per eseguire **MessageReceiver** per leggere i messaggi dalle due partizioni nell'hub eventi:
+8. Aggiungere la classe annidata seguente nella classe **App**. L'applicazione crea due thread per eseguire **MessageReceiver** per la lettura dei messaggi dalle due partizioni nell'hub eventi:
 
     ```
     private static class MessageReceiver implements Runnable
@@ -173,7 +175,7 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
     }
     ```
 
-    > [AZURE.NOTE] Questo metodo usa un filtro quando crea il ricevitore e quindi il ricevitore legge solo i messaggi inviati all'hub IoT dopo che l'esecuzione del ricevitore è iniziata. Ciò è utile in un ambiente di test perché consente di visualizzare il set di messaggi corrente, ma in un ambiente di produzione il codice deve verificare di elaborare tutti i messaggi. Per altre informazioni, vedere l'esercitazione [Come elaborare messaggi da dispositivo a cloud dell'hub IoT][lnk-processd2c-tutorial].
+    > [AZURE.NOTE] Questo metodo usa un filtro quando crea il ricevitore e quindi il ricevitore legge solo i messaggi inviati all'hub IoT dopo che l'esecuzione del ricevitore è iniziata. Ciò è utile in un ambiente di test perché consente di visualizzare il set di messaggi corrente, ma in un ambiente di produzione il codice deve verificare l'elaborazione di tutti i messaggi. Per altre informazioni, vedere l'esercitazione [Elaborare messaggi da dispositivo a cloud dell'hub IoT][lnk-processd2c-tutorial].
 
 11. Modificare la firma del metodo **main** per includere le eccezioni visualizzate sotto:
 
@@ -181,7 +183,7 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
     public static void main( String[] args ) throws IOException
     ```
 
-12. Aggiungere il codice seguente al metodo **main** nella classe **App**. Questo codice crea un'istanza di **EventHubClient** per la connessione all'endpoint compatibile con Hub eventi nell'hub IoT. Crea quindi due thread per la lettura dalle due partizioni. Sostituire **{youriothubkey}**, **{youreventhubcompatiblenamespace}** e **{youreventhubcompatiblename}** con i valori annotati in precedenza. Il valore del segnaposto **{youreventhubcompatiblenamespace}** proviene dall'**endpoint compatibile con l'hub eventi** ed è espresso nel formato **xxxxnamespace**. In altre parole, rimuovere il prefisso ****sb://** e il suffisso **.servicebus.windows.net** dal valore dell'endpoint compatibile con l'hub eventi proveniente dal portale.
+12. Aggiungere il codice seguente al metodo **main** nella classe **App**. Questo codice crea un'istanza di **EventHubClient** per la connessione all'endpoint compatibile con l'hub eventi dell'hub IoT. Crea quindi due thread per la lettura dalle due partizioni. Sostituire **{youriothubkey}**, **{youreventhubcompatiblenamespace}** e **{youreventhubcompatiblename}** con i valori annotati in precedenza. Il valore del segnaposto **{youreventhubcompatiblenamespace}** proviene dall'**endpoint compatibile con l'hub eventi** ed è espresso nel formato **xxxxnamespace**. In altre parole, rimuovere il prefisso ****sb://** e il suffisso **.servicebus.windows.net** dal valore dell'endpoint compatibile con l'hub eventi proveniente dal portale.
 
     ```
     String policyName = "iothubowner";
@@ -223,9 +225,9 @@ In questa sezione si creerà un'app console di Java che legge i messaggi da disp
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
-[lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-eventhubs-tutorial]: ../articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-devguide-identity]: ../articles/iot-hub/iot-hub-devguide.md#identityregistry
+[lnk-event-hubs-overview]: ../articles/event-hubs/event-hubs-overview.md
+[lnk-processd2c-tutorial]: ../articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->
