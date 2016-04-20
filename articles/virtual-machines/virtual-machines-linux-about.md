@@ -42,4 +42,4 @@ Poiché questa esercitazione consente di creare rapidamente una macchina virtual
 [Macchine virtuali]: #tellmevm
 [Servizi cloud]: cloud-services-choose-me.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!------HONumber=AcomDC_0406_2016-->
