@@ -60,4 +60,4 @@ Dopo aver applicato i tag alle risorse tramite l'interfaccia della riga di coman
 [Comprendere la fattura per Microsoft Azure]: ../billing-understand-your-bill.md
 [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->
