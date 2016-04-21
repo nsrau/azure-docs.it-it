@@ -231,7 +231,17 @@ Si noti che esistono altri modi per ottenere questo risultato:
 || |
 |---|-------------|
 | + | Aggiungi |
-| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
+| - | Sottrai | 
+| * | Moltiplica | 
+| / | Dividi | 
+| % | Modulo | 
+|| 
+|`<` |Minore 
+|`<=`|Minore o uguale a 
+|`>` |Maggiore 
+|`>=`|Maggiore o uguale a 
+|`<>`|Non uguale a 
+|`!=`|Non uguale a
 
 
 
