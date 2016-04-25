@@ -56,7 +56,7 @@ Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud (PaaS) che f
 
 ##Aggiornamenti alla Cache nel ruolo
 
-- La **Cache nel ruolo ** è stata aggiornata per usare **Microsoft Azure Storage SDK** versione 4.3. Fino ad ora, la **Cache nel ruolo ** ha usato Azure Storage SDK versione 1.7.
+- La **Cache nel ruolo** è stata aggiornata per usare **Microsoft Azure Storage SDK** versione 4.3. Fino ad ora, la **Cache nel ruolo** ha usato Azure Storage SDK versione 1.7.
 
 	I clienti che usano Azure SDK 2.5 o versioni precedenti devono effettuare l'aggiornamento ad Azure SDK 2.6 e passare alla nuova versione di Azure Storage SDK.
 

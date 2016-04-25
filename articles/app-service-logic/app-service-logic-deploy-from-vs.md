@@ -27,15 +27,19 @@ Per eseguire la procedura seguente è necessario avere installato Azure SDK 2.7 
 
 ## Creare un progetto
 
-1. Andare al menu **File** e selezionare **Nuovo** > **Progetto**. In alternativa, è possibile selezionare **Aggiungi** e quindi **Nuovo progetto** per aggiungerlo a una soluzione esistente: ![File menu](./media/app-service-logic-deploy-from-vs/filemenu.png)
+1. Andare al menu **File** e selezionare **Nuovo** > **Progetto**. In alternativa, è possibile selezionare **Aggiungi** e quindi **Nuovo progetto** per aggiungerlo a una soluzione esistente:
+![File menu](./media/app-service-logic-deploy-from-vs/filemenu.png)
 
-2. Nella finestra di dialogo **Cloud** selezionare **Gruppo di risorse di Azure**. Digitare un **Nome** e fare clic su **OK**. ![Add new project](./media/app-service-logic-deploy-from-vs/addnewproject.png)
+2. Nella finestra di dialogo **Cloud** selezionare **Gruppo di risorse di Azure**. Digitare un **Nome** e fare clic su **OK**.
+![Add new project](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
-3. È ora necessario selezionare **App per la logica** o **App per la logica e App per le API**. Se si seleziona **App per la logica** è necessario puntare delle API esistenti. Se si seleziona **App per la logica e App per le API** è anche possibile creare contemporaneamente un'app per le API nuova e vuota. In questo documento è stata selezionata App per la logica. ![Select Azure template](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
+3. È ora necessario selezionare **App per la logica** o **App per la logica e App per le API**. Se si seleziona **App per la logica** è necessario puntare delle API esistenti. Se si seleziona **App per la logica e App per le API** è anche possibile creare contemporaneamente un'app per le API nuova e vuota. In questo documento è stata selezionata App per la logica.
+![Select Azure template](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
 
 4. Dopo aver selezionato il **Modello** fare clic su **OK**.
 
-Il progetto di app per la logica viene aggiunto alla soluzione. Verrà visualizzata la distribuzione in Esplora soluzioni: ![Distribuzione](./media/app-service-logic-deploy-from-vs/deployment.png)
+Il progetto di app per la logica viene aggiunto alla soluzione. Verrà visualizzata la distribuzione in Esplora soluzioni:
+![Distribuzione](./media/app-service-logic-deploy-from-vs/deployment.png)
 
 ## Configurazione dell'app per la logica
 
@@ -59,12 +63,14 @@ Infine, dopo aver configurato l'app è possibile distribuirla direttamente da Vi
 
 2. Verrà richiesto di accedere alla sottoscrizione di Azure.
 
-3. A questo punto è necessario scegliere i dettagli del gruppo di risorse in cui si vuole distribuire l'app per la logica. ![Deploy to resource group](./media/app-service-logic-deploy-from-vs/deploytoresourcegroup.png)
+3. A questo punto è necessario scegliere i dettagli del gruppo di risorse in cui si vuole distribuire l'app per la logica.
+![Deploy to resource group](./media/app-service-logic-deploy-from-vs/deploytoresourcegroup.png)
 
      > [AZURE.NOTE]    Assicurarsi di selezionare il modello e i file dei parametri appropriati per il gruppo di risorse (ad esempio, se si effettua la distribuzione in un ambiente di produzione è opportuno scegliere il file dei parametri di produzione). 
 4.  Selezionare il pulsante Distribuisci
     
-5. Lo stato della distribuzione viene visualizzato nella finestra **Output**. Potrebbe essere necessario scegliere **Provisioning Azure**. ![Output](./media/app-service-logic-deploy-from-vs/output.png)
+5. Lo stato della distribuzione viene visualizzato nella finestra **Output**. Potrebbe essere necessario scegliere **Provisioning Azure**.
+![Output](./media/app-service-logic-deploy-from-vs/output.png)
 
 In futuro sarà possibile modificare l'app per la logica nel controllo del codice sorgente e usare Visual Studio per distribuire nuove versioni.
 

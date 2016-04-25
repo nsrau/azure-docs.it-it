@@ -64,8 +64,10 @@ Seguire questi passaggi per creare una **connessione** del bus di servizio che s
 3. Selezionare **Add an action** ![Configurare il Bus di servizio][2]   
 4. Immettere **Service Bus** nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con Service Bus nel nome
 5. Selezionare **Service Bus - Send message** ![Configurare il Bus di servizio][3]
-7. Specificare un nome e una stringa di connessione in **Connection name** e **Connection string**e quindi selezionare **Create connection**: ![Configurare il Bus di servizio][4]
-7. Dopo aver creato la connessione, verrà visualizzata la finestra di dialogo **Send message**. Immettere tutte le informazioni necessarie per l'invio di un messaggio. ![Configurare il Bus di servizio][5]
+7. Specificare un nome e una stringa di connessione in **Connection name** e **Connection string**e quindi selezionare **Create connection**:
+![Configurare il Bus di servizio][4]
+7. Dopo aver creato la connessione, verrà visualizzata la finestra di dialogo **Send message**. Immettere tutte le informazioni necessarie per l'invio di un messaggio.
+![Configurare il Bus di servizio][5]
 8. Selezionare il pulsante **Salva** nel menu in alto per salvare i dati.    
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.

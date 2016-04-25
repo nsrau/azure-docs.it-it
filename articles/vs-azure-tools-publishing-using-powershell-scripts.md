@@ -322,7 +322,7 @@ Per visualizzare la Guida per le funzioni è possibile utilizzare il prompt dei 
 |Trovare-AzureVM|Ottiene la macchina virtuale di Azure specificata.|
 |Formato DevTestMessageWithTime|Antepone la data e l’ora a un messaggio. Questa funzione è progettata per i messaggi scritti ai flussi di errore e dettagliati.|
 |Get-AzureSQLDatabaseConnectionString|Assembla una stringa di connessione per connettersi a un database SQL Azure.|
-|Get-AzureVMStorage|Restituisce il nome del primo account di archiviazione con il nome del modello "devtest *" (maiuscole e minuscole) nel percorso specificato o gruppo di affinità. Se l'account di archiviazione "devtest *" non corrisponde alla posizione o a un gruppo di affinità, la funzione lo ignora. È necessario specificare un percorso o un gruppo di affinità.|
+|Get-AzureVMStorage|Restituisce il nome del primo account di archiviazione con il nome del modello "devtest " *(maiuscole e minuscole) nel percorso specificato o gruppo di affinità. Se l'account di archiviazione* "devtest" non corrisponde alla posizione o a un gruppo di affinità, la funzione lo ignora. È necessario specificare un percorso o un gruppo di affinità.|
 |Get-MSDeployCmd|Restituisce un comando per eseguire lo strumento MsDeploy.exe.|
 |Nuovo AzureVMEnvironment|Trova o crea una macchina virtuale nella sottoscrizione che corrisponde ai valori nel file di configurazione JSON.|
 |Pubblicare-WebPackage|Utilizza MsDeploy.exe e un file Zip del pacchetto di pubblicazione web per distribuire le risorse a un sito Web. Questa funzione non genera alcun output. Se la chiamata a MSDeploy.exe non riesce, la funzione genera un'eccezione. Per ottenere un output più dettagliato, utilizzare l’opzione **-Verbose**.|

@@ -77,7 +77,8 @@ Questo argomento descrive e illustra la distribuzione e la configurazione di un 
 	
 	- **Nuova password** e **Conferma**. Questa password viene usata per il nuovo account di amministratore ed è consigliabile usare una password complessa.
 	
-	- Fare clic su **Avanti**. ![avanti](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+	- Fare clic su **Avanti**.
+![avanti](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
 1. Nella pagina successiva, modificare i campi seguenti:
 
@@ -97,11 +98,13 @@ Questo argomento descrive e illustra la distribuzione e la configurazione di un 
 
 		- **HTTPS**: le porte pubbliche e private predefinite hanno il numero **443**. Come procedura consigliata, modificare la porta privata e configurare il firewall e il server di report per usare la porta privata. Per altre informazioni sugli endpoint, vedere [Come configurare le comunicazioni con una macchina virtuale](virtual-machines-windows-classic-setup-endpoints.md). Si noti che se si usa una porta diversa dalla 443, è necessario modificare il parametro **$HTTPsport = 443** nello script HTTPS.
 	
-	- Fare clic su Avanti. ![avanti](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+	- Fare clic su Avanti.
+![avanti](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
 1. Nell'ultima pagina della procedura guidata lasciare selezionata l'impostazione predefinita **Installa l'agente di macchine virtuali**. I passaggi descritti in questo argomento non usano l'agente di macchine virtuali, ma se si prevede di usare questa macchina virtuale, le estensioni e l'agente di macchine virtuali consentono di migliorare la gestione delle comunicazioni. Per altre informazioni sull'agente di macchine virtuali, vedere l'articolo relativo ad [agente di macchine virtuali ed estensioni - Parte 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Una delle estensioni predefinite installate e in esecuzione è l'estensione "BGINFO" che visualizza sul desktop della macchina virtuale le informazioni di sistema, ad esempio l'IP interno e lo spazio libero su disco.
 
-1. Fare clic su Completa. ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+1. Fare clic su Completa.
+![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 
 1. Lo **Stato** della macchina virtuale viene visualizzato come **Avvio (provisioning)** durante il processo di provisioning e come **In esecuzione** quando la macchina virtuale è disponibile e pronta all'uso.
 
@@ -633,7 +636,7 @@ Per verificare che la funzionalità di base del server di report funzioni, aprir
 
 		http://localhost/Reports
 
-- Dal computer locale passare a Gestione report **remota** nella macchina virtuale. Aggiornare il nome DNS nell'esempio seguente nel modo appropriato. Quando viene richiesta una password, usare le credenziali di amministratore create quando è stato eseguito il provisioning della macchina virtuale. Il nome utente è nel formato [dominio] [nome utente], dove il dominio è il nome computer della macchina virtuale, ad esempio ssrsnativecloud\\testuser. Se non si usa HTTP**S**, rimuovere la **S** dall'URL. Vedere la sezione successiva per informazioni sulla creazione di utenti aggiuntivi nella macchina virtuale.
+- Dal computer locale passare a Gestione report **remota** nella macchina virtuale. Aggiornare il nome DNS nell'esempio seguente nel modo appropriato. Quando viene richiesta una password, usare le credenziali di amministratore create quando è stato eseguito il provisioning della macchina virtuale. Il nome utente è nel formato [dominio] \[nome utente], dove il dominio è il nome computer della macchina virtuale, ad esempio ssrsnativecloud\\testuser. Se non si usa HTTP**S**, rimuovere la **S** dall'URL. Vedere la sezione successiva per informazioni sulla creazione di utenti aggiuntivi nella macchina virtuale.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 

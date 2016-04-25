@@ -32,9 +32,11 @@ Anche nel contesto dell’app per la logica, è possibile utilizzare la propria 
 
 2. Selezionare **Impostazioni** > **autenticazione**:![][2]
 
-3. Copiare il valore **Reindirizzamento URI**: ![][3]
+3. Copiare il valore **Reindirizzamento URI**:
+![][3]
 
-4. Andare a [Twitter](http://apps.twitter.com) e **Creare una nuova app**. Nella proprietà **URL Callback**, incollare il valore **URI di reindirizzamento** copiato dal connettore Twitter: ![][4]
+4. Andare a [Twitter](http://apps.twitter.com) e **Creare una nuova app**. Nella proprietà **URL Callback**, incollare il valore **URI di reindirizzamento** copiato dal connettore Twitter:
+![][4]
 5. Quando viene creata l'app Twitter, selezionare **Chiave e token di accesso**. Copiare questi valori.
 6. Nelle impostazioni di autenticazione del connettore Twitter, incollare questi valori nell’**ID Client** e **Client segreto **proprietà:![][5]  
 7. Salvare le impostazioni del connettore.  

@@ -266,7 +266,8 @@ Di seguito è riportato lo script completo per riferimento
 
 Quando lo script è pronto, è possibile aggiungerlo al piano di ripristino creato in precedenza.
 
-1.  Nel piano di ripristino creato, scegliere di aggiungere uno script dopo il gruppo 2. ![](media/site-recovery-runbook-automation/15.png)
+1.  Nel piano di ripristino creato, scegliere di aggiungere uno script dopo il gruppo 2.
+![](media/site-recovery-runbook-automation/15.png)
 
 2.  Specificare un nome per lo script. Si tratta semplicemente di un nome descrittivo per lo script, per la visualizzazione all'interno del piano di ripristino.
 

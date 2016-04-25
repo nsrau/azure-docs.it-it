@@ -157,7 +157,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 1.  Nel portale di Azure AD creare un account di test.
 
-2.  Nella pagina di integrazione dell’applicazione **TeamSeer ** fare clic su **Assegna utenti**.
+2.  Nella pagina di integrazione dell’applicazione **TeamSeer** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-teamseer-tutorial/IC789642.png "Assegna utenti")
 

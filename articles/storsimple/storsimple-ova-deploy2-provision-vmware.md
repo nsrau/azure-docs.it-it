@@ -148,7 +148,8 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image15.png)
 
-1.  Viene visualizzata una finestra **Create New Virtual Machine**. Nella pagina **Configuration**, selezionare l'opzione **Custom**. Fare clic su **Next**. ![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
+1.  Viene visualizzata una finestra **Create New Virtual Machine**. Nella pagina **Configuration**, selezionare l'opzione **Custom**. Fare clic su **Next**.
+![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
 
 2.  Nel **Name and Location** specificare il nome della macchina virtuale. Questo nome deve corrispondere al nome della cartella (procedura consigliata) specificato in precedenza nel passaggio 8.
 

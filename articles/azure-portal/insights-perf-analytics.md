@@ -56,7 +56,8 @@ L’SDK fornisce un'API per [scrivere dati di telemetria personalizzati](../appl
 Usare l'applicazione per un breve periodo di tempo per generare alcuni dati di telemetria.
 
 1. Nel pannello relativo all'app Web o alla macchina virtuale verrà quindi visualizzata l'estensione installata.
-2. Fare clic sulla riga che rappresenta l'applicazione per passare a tale provider: ![Selezione di Refresh](./media/insights-perf-analytics/06-overview.png)
+2. Fare clic sulla riga che rappresenta l'applicazione per passare a tale provider:
+![Selezione di Refresh](./media/insights-perf-analytics/06-overview.png)
 
 È inoltre possibile usare **Sfoglia** per passare direttamente al componente Application Insights o all’account New Relic usato.
 

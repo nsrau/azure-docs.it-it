@@ -30,9 +30,11 @@ In Azure è possibile usare diversi tipi di log per gestire e risolvere i proble
 ##Abilitazione della registrazione
 La registrazione di controllo viene abilitata automaticamente in qualsiasi momento per ogni risorsa di Gestione risorse. È necessario abilitare la registrazione degli accessi e delle prestazioni per iniziare a raccogliere i dati disponibili in tali log. Per abilitare la registrazione, seguire questa procedura.
 
-1. Prendere nota dell'ID di risorsa dell'account di archiviazione in cui verranno archiviati i dati di log. Il formato sarà il seguente: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>. Può essere usato qualsiasi account di archiviazione della sottoscrizione. È possibile usare il portale di anteprima per reperire queste informazioni. ![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics1.png)
+1. Prendere nota dell'ID di risorsa dell'account di archiviazione in cui verranno archiviati i dati di log. Il formato sarà il seguente: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>. Può essere usato qualsiasi account di archiviazione della sottoscrizione. È possibile usare il portale di anteprima per reperire queste informazioni.
+![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics1.png)
  
-2. Prendere nota dell'ID di risorsa del gateway applicazione per cui abilitare la registrazione. Il formato sarà il seguente: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>. È possibile usare il portale di anteprima per reperire queste informazioni. ![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics2.png)
+2. Prendere nota dell'ID di risorsa del gateway applicazione per cui abilitare la registrazione. Il formato sarà il seguente: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>. È possibile usare il portale di anteprima per reperire queste informazioni.
+![Portale di anteprima: Diagnostica del gateway applicazione](./media/application-gateway-diagnostics/diagnostics2.png)
 
 3. Abilitare la registrazione diagnostica usando il cmdlet di PowerShell seguente.
 

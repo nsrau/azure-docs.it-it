@@ -81,7 +81,7 @@ I metodi elencati nella sezione seguente presuppongono che il documento JSON sia
 
 	SELECT * FROM StudentsOneLine
 
-Il file JSON non elaborato è disponibile in ****wasb://processjson@hditutorialdata.blob.core.windows.net/**. La tabella Hive *StudentsRaw* punta al documento JSON non elaborato e non flat.
+Il file JSON non elaborato è disponibile in **wasb://processjson@hditutorialdata.blob.core.windows.net/**. La tabella Hive *StudentsRaw* punta al documento JSON non elaborato e non flat.
 
 La tabella Hive *StudentsOneLine* archivierà i dati nel file system predefinito di HDInsight nel percorso */json/students/*.
 

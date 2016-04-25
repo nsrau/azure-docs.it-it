@@ -98,9 +98,11 @@ Ora che il file Swagger (file JSON) è stato generato per l'API personalizzata, 
 
 	> [AZURE.NOTE] Per il momento le API personalizzate possono essere usate solo nel portale Web di PowerApps. Non possono essere usate nel client PowerApps.
 
-2. Selezionare **Connections** e quindi selezionare **Add a connection**: ![](./media/powerapps-register-custom-api/createnewconnection.png "Creare un'API personalizzata")
+2. Selezionare **Connections** e quindi selezionare **Add a connection**:
+![](./media/powerapps-register-custom-api/createnewconnection.png "Creare un'API personalizzata")
 
-3. Selezionare **Add a custom API**: ![](./media/powerapps-register-custom-api/connecttocustomapi.png "Creare un'API personalizzata") Aggiungere le proprietà dell'API, inclusi i file JSON e dell'icona. Selezionare quindi **Next**:
+3. Selezionare **Add a custom API**:
+![](./media/powerapps-register-custom-api/connecttocustomapi.png "Creare un'API personalizzata") Aggiungere le proprietà dell'API, inclusi i file JSON e dell'icona. Selezionare quindi **Next**:
 
 	|Proprietà|Descrizione|
 |---|---|
@@ -138,11 +140,14 @@ In questo passaggio si crea un flusso logico molto semplice che illustra come ag
 2. In **Make a logic flow** selezionare **Get started**. 
 3. In questa finestra sono disponibili diversi modelli di flusso logico già creati che usano alcuni scenari comuni. È possibile usarne uno qualsiasi e aggiungervi l'API personalizzata. È anche possibile scegliere **Create from blank** per creare un flusso logico da zero.  
 
-	Il modo più rapido per aggiungere l'API personalizzata è selezionare **Create from blank**. In questo modo viene aperto il flusso logico seguente: ![](./media/powerapps-register-custom-api/createfromblank.png "Avvio di un flusso logico")
+	Il modo più rapido per aggiungere l'API personalizzata è selezionare **Create from blank**. In questo modo viene aperto il flusso logico seguente:
+![](./media/powerapps-register-custom-api/createfromblank.png "Avvio di un flusso logico")
 
-4. Selezionare **Recurrence** e impostare la frequenza su 1 minuto: ![](./media/powerapps-register-custom-api/logicrecurrence.png "Selezionare una ricorrenza")
+4. Selezionare **Recurrence** e impostare la frequenza su 1 minuto:
+![](./media/powerapps-register-custom-api/logicrecurrence.png "Selezionare una ricorrenza")
 
-5. Selezionare il segno più (![](./media/powerapps-register-custom-api/flowplussign.png)) e selezionare **Add an action**. Nell'elenco viene inserita l'API personalizzata: ![](./media/powerapps-register-custom-api/logicflow.png "API personalizzata")
+5. Selezionare il segno più (![](./media/powerapps-register-custom-api/flowplussign.png)) e selezionare **Add an action**. Nell'elenco viene inserita l'API personalizzata:
+![](./media/powerapps-register-custom-api/logicflow.png "API personalizzata")
 
 I passaggi successivi dipendono dalle operazioni che possono essere eseguite dall'API. In un esempio relativo al meteo l'API potrebbe ottenere la temperatura corrente e quindi inviare un messaggio di posta elettronica con Office 365:
 
@@ -155,10 +160,14 @@ In questo passaggio si crea una PowerApp molto semplice che illustra come aggiun
 
 > [AZURE.NOTE] Per il momento le API personalizzate possono essere usate solo nel portale Web di PowerApps. Non possono essere usate nel client PowerApps.
 
-1. Nel [portale Web][9] di PowerApps selezionare **New PowerApp**: ![](./media/powerapps-register-custom-api/newpowerapp.png "Selezionare New PowerApp")  
-2. Viene aperta una nuova scheda nel browser. In questa nuova scheda viene automaticamente creata una PowerApp vuota. Selezionare **connect to data**: ![](./media/powerapps-register-custom-api/blankpowerapp.png "Selezionare connect to data")  
-3. Nella scheda **Content** selezionare **Data sources**: ![](./media/powerapps-register-custom-api/datasources.png "Selezionare connect to data")  
-4. Nella nuova schermata selezionare l'API personalizzata in **My connections**: ![](./media/powerapps-register-custom-api/screencustomapi.png "Selezionare l'API personalizzata.")  
+1. Nel [portale Web][9] di PowerApps selezionare **New PowerApp**:
+![](./media/powerapps-register-custom-api/newpowerapp.png "Selezionare New PowerApp")  
+2. Viene aperta una nuova scheda nel browser. In questa nuova scheda viene automaticamente creata una PowerApp vuota. Selezionare **connect to data**:
+![](./media/powerapps-register-custom-api/blankpowerapp.png "Selezionare connect to data")  
+3. Nella scheda **Content** selezionare **Data sources**:
+![](./media/powerapps-register-custom-api/datasources.png "Selezionare connect to data")  
+4. Nella nuova schermata selezionare l'API personalizzata in **My connections**:
+![](./media/powerapps-register-custom-api/screencustomapi.png "Selezionare l'API personalizzata.")  
 5. Selezionare **Add data source**.
 
 Una volta aggiunta l'API personalizzata, è possibile usarla nella barra delle funzioni, in una casella di testo e altro. Nella barra delle funzioni, ad esempio, è possibile iniziare a digitare **MySampleWebAPI** per visualizzare le funzioni disponibili. [Visualizzare i dati da Office 365][12] è un esempio dell'uso dell'API di Office 365.

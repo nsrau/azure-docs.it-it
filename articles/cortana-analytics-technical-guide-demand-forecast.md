@@ -225,7 +225,8 @@ La procedura seguente mostra come visualizzare l'output dei dati in tempo reale 
 
 	-	Passare il puntatore del mouse su questo riquadro nel dashboard e fare clic sull'icona "Modifica" nell'angolo superiore destro per modificarne il titolo in "Demand by Timestamp".
 
-4.	Creare altri riquadri del dashboard in base a set di dati appropriati. La visualizzazione finale del dashboard è riportata di seguito. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
+4.	Creare altri riquadri del dashboard in base a set di dati appropriati. La visualizzazione finale del dashboard è riportata di seguito.
+![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
 
 
 ### Configurare il dashboard per il percorso non critico
@@ -252,7 +253,8 @@ Nella pipeline di dati del percorso non critico l'obiettivo principale consiste 
 
 	-	Nella cartella **DemandForecastingDataGeneratorv1.0** scaricata fare doppio clic sul file **Power BI Template\\DemandForecastPowerBI.pbix**. Le visualizzazioni iniziali sono basate su dati fittizi. **Nota:** se viene visualizzato un messaggio di errore, assicurarsi che sia installata la versione più recente di Power BI Desktop.
 
-		Dopo averlo aperto, fare clic su **Modifica query** nella parte superiore del file. Nella finestra popup fare doppio clic su **Origine** nel pannello di destra. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
+		Dopo averlo aperto, fare clic su **Modifica query** nella parte superiore del file. Nella finestra popup fare doppio clic su **Origine** nel pannello di destra.
+![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
 	-   Nella finestra popup sostituire **Server** e **Database** con i nomi del server e del database usati e quindi fare clic su **OK**. Per il nome del server, assicurarsi di specificare la porta 1433, **NomeDellaSoluzione.database.windows.net, 1433**. Ignorare i messaggi di avviso visualizzati sullo schermo.
 

@@ -110,8 +110,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Save Changes](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Save Changes")
 
-    1.  Nella casella di testo **User id** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-2.  Nella casella di testo **Email** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    1.  Nella casella di testo **User id** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+2.  Nella casella di testo **Email** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
 3.  Fare clic su **Salva modifiche**.
 
 10. Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.

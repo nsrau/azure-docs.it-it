@@ -334,7 +334,7 @@ I passaggi descritti in questa sezione **riepilogano** l'installazione della mod
 
 1. Fare clic su **Avanti** nella pagina degli aggiornamenti del prodotto.
 
-1. Nella pagina **Tipo di installazione** selezionare **Esegui una nuova installazione di SQL Server ** e fare clic su **Avanti**.
+1. Nella pagina **Tipo di installazione** selezionare **Esegui una nuova installazione di SQL Server** e fare clic su **Avanti**.
 
 1. Nella pagina **Impostazione ruolo** fare clic su **Installazione funzionalità SQL Server**.
 
@@ -388,7 +388,9 @@ Questa sezione riepiloga gli endpoint della macchina virtuale di Microsoft Azure
 
 	|Port|Tipo|Descrizione|
 |---|---|---|
-|**80**|TCP|Accesso remoto al server di report (*). | |**1433**|TCP|SQL Server Management Studio (*).| |**1434**|UDP|Browser SQL Server. Necessario quando la macchina virtuale viene associata a un dominio.|
+|**80**|TCP|Accesso remoto al server di report (*). | 
+|**1433**|TCP|SQL Server Management Studio (*).| 
+|**1434**|UDP|Browser SQL Server. Necessario quando la macchina virtuale viene associata a un dominio.|
 |**2382**|TCP|Browser SQL Server.|
 |**2383**|TCP|Istanza predefinita di SQL Server Analysis Services e cluster delle istanze denominate.|
 |**Definito dall'utente**|TCP|Creare una porta statica dell’istanza Analysis Services per un numero di porta e sbloccare il numero di porta nel firewall.|

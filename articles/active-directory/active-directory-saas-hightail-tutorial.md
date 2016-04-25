@@ -165,7 +165,7 @@ L'applicazione Hightail si aspetta che le asserzioni SAML abbiano un formato spe
 
 	![Configura accesso Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_06.png)
 
-	a. Nella casella di testo URL di accesso, digitare l'URL usato dagli utenti per accedere all'applicazione Hightail adottando il modello seguente: ****https://www.hightail.com/loginSSO**. Questa è la pagina di accesso tradizionale per tutti i clienti che desiderano utilizzare l'accesso SSO.
+	a. Nella casella di testo URL di accesso, digitare l'URL usato dagli utenti per accedere all'applicazione Hightail adottando il modello seguente: **https://www.hightail.com/loginSSO**. Questa è la pagina di accesso tradizionale per tutti i clienti che desiderano utilizzare l'accesso SSO.
 
 	b. Fare clic su **Avanti**
 

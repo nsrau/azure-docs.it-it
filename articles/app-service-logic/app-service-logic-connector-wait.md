@@ -28,13 +28,16 @@ Per usare il connettore Wait, è innanzitutto necessario creare un'istanza dell'
 Il connettore Wait può essere usato come azione. Non include trigger.
 
 ### Azione
-- Fare clic sul connettore Wait nel riquadro destro: ![Elenco di azioni][1]
+- Fare clic sul connettore Wait nel riquadro destro:
+![Elenco di azioni][1]
 - Il connettore Wait supporta due azioni: 
 	- Delay
 	- Delay Until
 	 
-- Selezionare *Delay*: ![Input relativo al ritardo][2]
-- Fornire gli input per l'azione e configurarla: ![Azione configurata][3]
+- Selezionare *Delay*:
+![Input relativo al ritardo][2]
+- Fornire gli input per l'azione e configurarla:
+![Azione configurata][3]
 
 Parametro|Tipo|Descrizione del parametro
 ---|---|---

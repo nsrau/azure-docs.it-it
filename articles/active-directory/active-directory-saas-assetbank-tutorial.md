@@ -198,7 +198,8 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 
     e. Fare clic su **Avanti**.
 
-7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**. ![Creazione di un utente test di Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
+7. Nella pagina della finestra di dialogo **Ottieni password temporanea** fare clic su **crea**.
+![Creazione di un utente test di Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
 
 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:

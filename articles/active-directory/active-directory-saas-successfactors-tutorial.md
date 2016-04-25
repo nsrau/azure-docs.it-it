@@ -85,7 +85,7 @@ Per configurare l'accesso Single Sign-On, è necessario contattare il team di su
     ![Configura URL app](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Configura URL app")
 
     1.  Nella casella di testo **URL di accesso a SuccessFactors** digitare l'URL utilizzato dagli utenti per accedere all'applicazione SuccessFactors (ad esempio: "**https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
-2.  Nella casella di testo **URL di risposta SuccessFactors** digitare ****https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
+    2.  Nella casella di testo **URL di risposta SuccessFactors** digitare **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
         >[AZURE.NOTE] Questo valore è solo un segnaposto temporaneo. Ottenere il valore effettivo del team di supporto di SuccessFactors. Più avanti in questa esercitazione sono disponibili le istruzioni su come contattare il team di SuccessFactors. Nel contesto della conversazione, viene fornito l'URL di risposta SuccessFactors effettivo.
 
@@ -121,7 +121,7 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
 
 1.  Nel portale di Azure AD creare un account di test.
 
-2.  Nella pagina di integrazione dell’applicazione **SuccessFactors ** fare clic su **Assegna utenti**.
+2.  Nella pagina di integrazione dell’applicazione **SuccessFactors** fare clic su **Assegna utenti**.
 
     ![Assegna utenti](./media/active-directory-saas-successfactors-tutorial/IC791143.png "Assegna utenti")
 

@@ -44,7 +44,8 @@ Per iscriversi per ottenere una sottoscrizione della versione di valutazione gra
 
 1. Aprire la [pagina della versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/) e quindi selezionare **Prova subito**.
 2. Accedere al proprio account Microsoft o all'account aziendale o dell'istituto di istruzione.
-3. Nella sezione **Informazioni personali** immettere le informazioni personali. ![Schermata delle informazioni personali](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
+3. Nella sezione **Informazioni personali** immettere le informazioni personali.
+![Schermata delle informazioni personali](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
  **Nota** L'indirizzo di posta elettronica e le informazioni relative al paese specificati al momento dell'iscrizione a una sottoscrizione di Azure saranno sempre associati alla sottoscrizione e non potranno essere modificati in un secondo momento.</br>
 4. Nella sezione **Verifica tramite telefono** è necessario specificare un numero di telefono per ricevere un codice di verifica che è possibile fornire per completare il processo di verifica.

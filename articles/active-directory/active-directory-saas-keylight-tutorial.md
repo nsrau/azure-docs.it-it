@@ -173,11 +173,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     j. Per **Auto-provision security config (Configurazione di sicurezza del provisioning automatico)** selezionare **Standard User Configuration (Configurazione utente standard)**.
    
-    k. Nella casella di testo Email attribute (Attributo di posta elettronica) digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    k. Nella casella di testo Email attribute (Attributo di posta elettronica) digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    l. Nella casella di testo **First name attribute (Attributo nome)** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    l. Nella casella di testo **First name attribute (Attributo nome)** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
-    m. Nella casella di testo **Last name attribute (Attributo cognome)** digitare ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    m. Nella casella di testo **Last name attribute (Attributo cognome)** digitare **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
     n. Fare clic su **Save**.
    

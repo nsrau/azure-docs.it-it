@@ -101,7 +101,7 @@ Per configurare un servizio cloud da compilare e distribuire automaticamente in 
 
 	![][38]
 
-6. Scegliere il collegamento **Push** per effettuare il push del commit al repository in Visual Studio Team Services. È anche possibile usare il pulsante **Sincronizza** per copiare i commit nel repository. La differenza sta nel fatto che **Sincronizza ** effettua anche il pull delle ultime modifiche dal repository.
+6. Scegliere il collegamento **Push** per effettuare il push del commit al repository in Visual Studio Team Services. È anche possibile usare il pulsante **Sincronizza** per copiare i commit nel repository. La differenza sta nel fatto che **Sincronizza** effettua anche il pull delle ultime modifiche dal repository.
 
 	![][39]
 

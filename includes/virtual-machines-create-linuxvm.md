@@ -28,7 +28,7 @@
 
     >[AZURE.NOTE] Per una macchina virtuale Linux, è necessario fornire l’opzione`-e`in `vm create`; non è possibile abilitare SSH dopo aver creato la macchina virtuale. Per altre informazioni su SSH, vedere la pagina relativa all'[Uso di SSH con Linux in Azure](virtual-machines-linux-ssh-from-linux.md).
 
-    Si noti che l'immagine *b39f27a8b8c64d52b05eac6a62ebad85\_\_Ubuntu-14\_04\_4-LTS-amd64-server-20160314-it-IT-30GB* è quella selezionata dall'elenco delle immagini nel passaggio precedente. *MyTestVM*è il nome della nostra nuova macchina virtuale, e*adminUser*è il nome utente che verrà utilizzato per SSH nella macchina virtuale. È possibile sostituire queste variabili in base alle proprie esigenze. Per altre informazioni su questo comando, vedere l'argomento relativo all'[uso dell'interfaccia della riga di comando di Azure con Gestione servizi di Azure](virtual-machines-command-line-tools.md).
+    Si noti che l'immagine *b39f27a8b8c64d52b05eac6a62ebad85\_\_Ubuntu-14\_04\_4-LTS-amd64-server-20160314-it-IT-30GB* è quella selezionata dall'elenco delle immagini nel passaggio precedente. *MyTestVM* è il nome della nostra nuova macchina virtuale, e *adminUser* è il nome utente che verrà utilizzato per SSH nella macchina virtuale. È possibile sostituire queste variabili in base alle proprie esigenze. Per altre informazioni su questo comando, vedere l'argomento relativo all'[uso dell'interfaccia della riga di comando di Azure con Gestione servizi di Azure](virtual-machines-command-line-tools.md).
 
 5. La macchina virtuale Linux appena creata verrà visualizzata nell'elenco specificato da:
 

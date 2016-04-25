@@ -1,7 +1,7 @@
 Se non è già stato fatto in precedenza, è possibile ottenere una [versione di valutazione gratuita della sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/) e l'[interfaccia della riga di comando di Azure](../articles/xplat-cli-install.md) [connessa all'account Azure](../articles/xplat-cli-connect.md). Al termine dell'operazione, è possibile eseguire i comandi seguenti per creare rapidamente un set di scalabilità:
 
 ```bash
-# make sure we are in Resource Manager mode (https://azure.microsoft.com/it-IT/documentation/articles/resource-manager-deployment-model/)
+# make sure we are in Resource Manager mode (https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/)
 azure config mode arm
 
 # quick-create a scale set

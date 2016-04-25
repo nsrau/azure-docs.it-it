@@ -31,23 +31,31 @@ In questa esercitazione vengono illustrati i passaggi necessari per registrare u
 
 In primo luogo, è necessario creare un'applicazione di Azure Active Directory (AAD) che esegue l'autenticazione quando si chiama l'endpoint dell'API ARM.
 
-1. Per creare un'applicazione di AAD, accedere alla [sottoscrizione di Azure][7] e passare a **Active Directory**: ![](./media/powerapps-azure-resource-manager-tutorial/azureaad.png "Azure Active Directory")  
+1. Per creare un'applicazione di AAD, accedere alla [sottoscrizione di Azure][7] e passare a **Active Directory**:
+![](./media/powerapps-azure-resource-manager-tutorial/azureaad.png "Azure Active Directory")  
 
-2. In questa pagina scegliere la directory in cui si vuole creare l'applicazione di AAD. Selezionare la directory, quindi nella scheda **Applicazioni** selezionare **Aggiungi**: ![](./media/powerapps-azure-resource-manager-tutorial/azureapplication.png "Applicazione di Azure")
+2. In questa pagina scegliere la directory in cui si vuole creare l'applicazione di AAD. Selezionare la directory, quindi nella scheda **Applicazioni** selezionare **Aggiungi**:
+![](./media/powerapps-azure-resource-manager-tutorial/azureapplication.png "Applicazione di Azure")
 
-3. Immettere un nome per l'applicazione, selezionare **App Web/API**, quindi fare clic sul pulsante **Avanti**: ![](./media/powerapps-azure-resource-manager-tutorial/newapplication.png "Nuova applicazione")
+3. Immettere un nome per l'applicazione, selezionare **App Web/API**, quindi fare clic sul pulsante **Avanti**:
+![](./media/powerapps-azure-resource-manager-tutorial/newapplication.png "Nuova applicazione")
 
-4. In **URL di accesso** immettere: **http://login.windows.net*. In **URI ID app** immettere un URI univoco. Selezionare quindi **Completa**: ![](./media/powerapps-azure-resource-manager-tutorial/newapplication2.png "Nuova seconda applicazione")
+4. In **URL di accesso** immettere: **http://login.windows.net*. In **URI ID app** immettere un URI univoco. Selezionare quindi **Completa**:
+![](./media/powerapps-azure-resource-manager-tutorial/newapplication2.png "Nuova seconda applicazione")
 
 5. Una volta creata l'applicazione di ADD, selezionare la scheda **Configura**. In questa scheda è possibile configurare le autorizzazioni per l'applicazione.
 
-6. In **Autorizzazioni per altre applicazioni** selezionare **Aggiungi applicazione** e immettere le seguenti autorizzazioni, come illustrato: ![](./media/powerapps-azure-resource-manager-tutorial/permissions.png "Autorizzazioni")
+6. In **Autorizzazioni per altre applicazioni** selezionare **Aggiungi applicazione** e immettere le seguenti autorizzazioni, come illustrato:
+![](./media/powerapps-azure-resource-manager-tutorial/permissions.png "Autorizzazioni")
 
-	Assicurarsi di concedere le autorizzazioni necessarie per l'applicazione: ![](./media/powerapps-azure-resource-manager-tutorial/permissions2.png "Concedere autorizzazioni")
+	Assicurarsi di concedere le autorizzazioni necessarie per l'applicazione:
+![](./media/powerapps-azure-resource-manager-tutorial/permissions2.png "Concedere autorizzazioni")
 
-7. Selezionare una durata in **Chiavi**. **Copiare e salvare la chiave in un percorso sicuro** poiché andrà usata più avanti. Annotare anche l'__ID client__: ![](./media/powerapps-azure-resource-manager-tutorial/configurekeys.png "Configurare le chiavi")
+7. Selezionare una durata in **Chiavi**. **Copiare e salvare la chiave in un percorso sicuro** poiché andrà usata più avanti. Annotare anche l'__ID client__:
+![](./media/powerapps-azure-resource-manager-tutorial/configurekeys.png "Configurare le chiavi")
 
-8. In **Single Sign-On** immettere l'URL seguente in __URL di risposta__: https://msmanaged-na.consent.azure-apim.net/redirect: ![](./media/powerapps-azure-resource-manager-tutorial/redirecturl.png "URL di reindirizzamento")
+8. In **Single Sign-On** immettere l'URL seguente in __URL di risposta__: https://msmanaged-na.consent.azure-apim.net/redirect:
+![](./media/powerapps-azure-resource-manager-tutorial/redirecturl.png "URL di reindirizzamento")
 
 9. **Salvare** le modifiche. **Copiare e salvare la chiave in un percorso sicuro**.
 
@@ -55,15 +63,20 @@ In primo luogo, è necessario creare un'applicazione di Azure Active Directory (
 
 Dopo avere configurato l'applicazione di AAD, procedere con l'aggiunta dell'API personalizzata.
 
-1. Aprire il [portale web di PowerApp][1], accedere alla scheda **Connessioni** e selezionare __Aggiungi connessione__ nell'angolo in alto a destra: ![](./media/powerapps-azure-resource-manager-tutorial/createnewconnection.png "Creare un'API personalizzata")  
+1. Aprire il [portale web di PowerApp][1], accedere alla scheda **Connessioni** e selezionare __Aggiungi connessione__ nell'angolo in alto a destra:
+![](./media/powerapps-azure-resource-manager-tutorial/createnewconnection.png "Creare un'API personalizzata")  
 
-2. Selezionare __Aggiungi API personalizzata__: ![](./media/powerapps-azure-resource-manager-tutorial/connecttocustomapi.png "Creare un'API personalizzata")
+2. Selezionare __Aggiungi API personalizzata__:
+![](./media/powerapps-azure-resource-manager-tutorial/connecttocustomapi.png "Creare un'API personalizzata")
 
-3. Caricare il file Swagger ARM, disponibile [per il download][8]\: ![](./media/powerapps-azure-resource-manager-tutorial/createcustom.png "Creare un'API personalizzata")
+3. Caricare il file Swagger ARM, disponibile [per il download][8]\:
+![](./media/powerapps-azure-resource-manager-tutorial/createcustom.png "Creare un'API personalizzata")
 
-4. Nella schermata successiva, poiché il file Swagger viene rilevato per l'autenticazione di AAD, è necessario immettere l'ID client AAD, il segreto client (la **chiave** archiviata in un percorso sicuro) e altre impostazioni: ![](./media/powerapps-azure-resource-manager-tutorial/oauthsettings.png "Impostazioni OAuth")
+4. Nella schermata successiva, poiché il file Swagger viene rilevato per l'autenticazione di AAD, è necessario immettere l'ID client AAD, il segreto client (la **chiave** archiviata in un percorso sicuro) e altre impostazioni:
+![](./media/powerapps-azure-resource-manager-tutorial/oauthsettings.png "Impostazioni OAuth")
 
-5. Se tutto è configurato correttamente, è possibile usare l'API ARM personalizzata creando una connessione e quindi farvi riferimento durante la compilazione di PowerApp o del flusso logico: ![](./media/powerapps-azure-resource-manager-tutorial/createdcustomapi.png "API personalizzata creata")
+5. Se tutto è configurato correttamente, è possibile usare l'API ARM personalizzata creando una connessione e quindi farvi riferimento durante la compilazione di PowerApp o del flusso logico:
+![](./media/powerapps-azure-resource-manager-tutorial/createdcustomapi.png "API personalizzata creata")
 
 È possibile accedere allo stesso modo ai dati che vengono esposti tramite API RESTful e autenticati con OAuth2 di AAD.
 

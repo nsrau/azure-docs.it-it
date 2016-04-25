@@ -116,9 +116,9 @@ La metrica di base del benchmark è rappresentata dalla velocità effettiva e da
 
 | Classe di servizio | Misura della velocità effettiva | Requisito di tempi di risposta |
 |---|---|---|
-| Premium | Transazioni al secondo | 95° percentile a 0,5 secondi |
-| Standard | Transazioni al minuto | 90° percentile a 1,0 secondi |
-| Basic | Transazioni all'ora | 80° percentile a 2,0 secondi |
+| Premium | Transazioni al secondo | 95ª percentile a 0,5 secondi |
+| Standard | Transazioni al minuto | 90ª percentile a 1,0 secondi |
+| Basic | Transazioni all'ora | 80ª percentile a 2,0 secondi |
 
 ## Conclusione
 Il benchmark ASDB misura le prestazioni relative del database SQL di Azure in esecuzione con i diversi livelli di servizio e di prestazioni disponibili. Il benchmark testa una combinazione di operazioni di database di base che si verificano con maggiore frequenza con carichi di lavoro di elaborazione di transazioni online (OLTP). Misurando le prestazioni effettive, il benchmark fornisce una valutazione più significativa dell'impatto prodotto sulla velocità effettiva dalla modifica del livello di prestazioni rispetto alla valutazione che è possibile ottenere elencando semplicemente le risorse fornite da ogni livello, ad esempio la velocità della CPU, le dimensioni della memoria e le operazioni di input/output al secondo (IOPS). In futuro il benchmark verrà esteso in modo da ampliarne l'ambito ed espandere i dati forniti.

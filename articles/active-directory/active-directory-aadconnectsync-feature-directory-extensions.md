@@ -21,7 +21,8 @@ Le estensioni della directory consentono di estendere lo schema in Azure AD con 
 
 Attualmente nessun carico di lavoro di Office 365 utilizza questi attributi.
 
-È possibile configurare gli attributi aggiuntivi da sincronizzare nel percorso delle impostazioni personalizzate nell'installazione guidata. ![Procedura guidata per l'estensione dello schema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) L'installazione mostrerà gli attributi seguenti, che sono candidati validi:
+È possibile configurare gli attributi aggiuntivi da sincronizzare nel percorso delle impostazioni personalizzate nell'installazione guidata.
+![Procedura guidata per l'estensione dello schema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) L'installazione mostrerà gli attributi seguenti, che sono candidati validi:
 
 - Tipi di oggetto utente e gruppo
 - Attributi a valore singolo: String, Boolean, Integer, Binary
@@ -29,9 +30,11 @@ Attualmente nessun carico di lavoro di Office 365 utilizza questi attributi.
 
 Un oggetto può avere al massimo 100 attributi delle estensioni della directory. La lunghezza massima consentita è di 250 caratteri. Se il valore di un attributo è più lungo, verrà troncato dal motore di sincronizzazione.
 
-Durante l'installazione di Azure AD Connect, verrà registrata un'applicazione dove saranno disponibili questi attributi. È possibile visualizzare questa applicazione nel portale di Azure. ![App estensione dello schema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3.png)
+Durante l'installazione di Azure AD Connect, verrà registrata un'applicazione dove saranno disponibili questi attributi. È possibile visualizzare questa applicazione nel portale di Azure.
+![App estensione dello schema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3.png)
 
-Questi attributi ora saranno disponibili tramite Graph: ![Grafico](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
+Questi attributi ora saranno disponibili tramite Graph:
+![Grafico](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
 Gli attributi sono preceduti da extension\_{AppClientId}\_. AppClientId avrà lo stesso valore per tutti gli attributi della directory Azure AD.
 

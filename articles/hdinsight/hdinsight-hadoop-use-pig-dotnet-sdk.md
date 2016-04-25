@@ -40,7 +40,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 Ogni sottoscrizione Azure è identificata da un valore GUID, noto come ID sottoscrizione. Per trovare questo valore, seguire questa procedura.
 
-1. Visitare il [portale di Azure][preview-portal].
+1. Visitare il [portale di Azure](preview-portal).
 
 2. Dalla barra a sinistra del portale, selezionare __ESPLORA TUTTO__, quindi selezionare __Sottoscrizioni__ dal pannello __Sfoglia__.
 

@@ -76,8 +76,10 @@ Azure offre un'immagine della raccolta per l'intera soluzione. Per individuare i
 
 1. 	Accedere al portale di Azure con il proprio account.
 1.	Nel portale di Azure fare clic su **+Nuovo**. Nel portale si aprirà il pannello Nuovo.
-1.	Nel pannello Nuovo cercare **AlwaysOn**. ![Individuare il modello AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
-1.	Nei risultati della ricerca individuare il cluster **SQL Server (AlwaysOn)**. ![Modello AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
+1.	Nel pannello Nuovo cercare **AlwaysOn**.
+![Individuare il modello AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
+1.	Nei risultati della ricerca individuare il cluster **SQL Server (AlwaysOn)**.
+![Modello AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 1.	In **Selezionare un modello di distribuzione** scegliere **Gestione risorse**.
 
 ### Nozioni di base
@@ -243,7 +245,8 @@ Per connettersi al controller di dominio primario mediante il protocollo RDP, se
 
 1.	Nel pannello **Risorse** fare clic su **ad-primary-dc**. Si tratta del nome del computer della macchina virtuale per il controller di dominio primario.
 
-1.	Nel pannello relativo a **ad-primary-dc** fare clic su **Connetti**. Il browser chiederà se si desidera aprire o salvare l'oggetto connessione remota. Fare clic su **Apri**. ![Connessione al controller di dominio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
+1.	Nel pannello relativo a **ad-primary-dc** fare clic su **Connetti**. Il browser chiederà se si desidera aprire o salvare l'oggetto connessione remota. Fare clic su **Apri**.
+![Connessione al controller di dominio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
 1.	**Connessione desktop remoto** può avvertire l'utente che l'autore della connessione remota non può essere identificato. Fare clic su **Connect**.
 
 1.	Il sistema di sicurezza di Windows chiede all'utente di immettere le proprie credenziali per eseguire la connessione all'indirizzo IP del controller di dominio primario. Fare clic su **Usa un altro account**. Nella casella **Nome utente** digitare **contoso\\DomainAdmin**. Si tratta dell'account scelto come nome utente dell'amministratore. Usare la password complessa scelta durante la configurazione del modello.

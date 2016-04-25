@@ -68,7 +68,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 ###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
 
-1.  Nella pagina di integrazione dell’applicazione **Thoughtworks Mingle ** nel portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura Single Sign On **.
+1.  Nella pagina di integrazione dell’applicazione **Thoughtworks Mingle** nel portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura Single Sign On **.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "Configura accesso Single Sign-On")
 

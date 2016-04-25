@@ -55,10 +55,13 @@ Seguire questa procedura per accedere a Slack e completare la configurazione del
 3. Selezionare **Add an action** ![Configurare Slack][1]  
 4. Immettere Slack nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con Slack nel nome
 5. Selezionare **Slack - Post message**
-6. Selezionare **Sign in to Slack**: ![Configurare Slack][2]
+6. Selezionare **Sign in to Slack**:
+![Configurare Slack][2]
 7. Specificare le credenziali di Slack per accedere e autorizzare l'applicazione ![Configurare Slack][3]  
-8. Si verrà reindirizzati alla pagina di accesso dell'organizzazione. **Autorizzare** Slack a interagire con l'app per la logica: ![Configurare Slack][5] 
-9. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla tramite la configurazione della sezione **Slack - Get all messages**. Aggiungere altri trigger e azioni necessari. ![Configurare Slack][6]
+8. Si verrà reindirizzati alla pagina di accesso dell'organizzazione. **Autorizzare** Slack a interagire con l'app per la logica:
+![Configurare Slack][5] 
+9. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla tramite la configurazione della sezione **Slack - Get all messages**. Aggiungere altri trigger e azioni necessari.
+![Configurare Slack][6]
 10. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.
 
 

@@ -121,7 +121,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 
 	c. Nella casella di testo **Identificatore** digitare l'URL del tenant.
 
-    d. Nella casella di testo **URL di risposta** digitare l'URL nel modello seguente: "****https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
+    d. Nella casella di testo **URL di risposta** digitare l'URL nel modello seguente: "**https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
 
 	e. Fare clic su **Avanti**
 

@@ -102,7 +102,8 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
     2.  Nella finestra di dialogo **Configura accesso Single Sign-On in XMatters OnDemand** del portale di Azure copiare il valore di **ID provider di identità** e quindi incollarlo nella casella di testo **Identity Provider ID**.
     3.  Nella finestra di dialogo **Configura accesso Single Sign-On in XMatters OnDemand** del portale di Azure copiare il valore di **URL servizio Single Sign-On** e quindi incollarlo nella casella di testo **Single Sign On URL**.
     4.  Nella finestra di dialogo **Configura accesso Single Sign-On in XMatters OnDemand** del portale di Azure copiare il valore di **URL servizio Single Sign-Out** e quindi incollarlo nella casella di testo **Single Logout URL**.
-    5.  Nella parte superiore della pagina Informazioni sull’azienda fare clic su **Salva modifiche**. ![Company details](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Company details")
+    5.  Nella parte superiore della pagina Informazioni sull’azienda fare clic su **Salva modifiche**.
+![Company details](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Company details")
 
 8.  Nel portale di Azure AD, selezionare la conferma della configurazione dell'accesso Single Sign-On, quindi fare clic su **Completa** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
 
