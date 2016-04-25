@@ -17,7 +17,7 @@
 	ms.date="04/01/2016"
 	ms.author="iainfou"/>
 
-# Gestire la disponibilità delle macchine virtuali Linux
+# Gestione della disponibilità delle macchine virtuali
 
 Informazioni su come configurare e gestire più macchine virtuali per garantire disponibilità elevata per un'applicazione Linux in Azure. È anche possibile [gestire la disponibilità delle macchine virtuali Windows](virtual-machines-windows-manage-availability.md).
 
@@ -25,4 +25,4 @@ Informazioni su come configurare e gestire più macchine virtuali per garantire 
 
 [AZURE.INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

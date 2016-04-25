@@ -24,7 +24,7 @@ Attenersi alle linee guida seguenti per decidere quando includere informazioni s
 1.	**Per le origini dati strutturate** che contengono schemi di dati e informazioni sul tipo, oltre ai dati stessi (origini come SQL Server, Oracle, tabelle di Azure e così via), è necessario specificare la sezione "structure" solo se si desidera eseguire il mapping di colonne di origine specifiche a colonne specifiche nel sink e i relativi nomi non corrispondono (vedere i dettagli nella sezione sul mapping di colonne di seguito). 
 
 	Come indicato in precedenza, le informazioni sul tipo sono facoltative nella sezione "structure". Per le origini strutturate, le informazioni sul tipo sono già disponibili come parte della definizione del set di dati nell'archivio dati, pertanto non è necessario includere le informazioni sul tipo quando si include la sezione "structure".
-2. **Per gli schemi in origini dati di lettura (in particolare BLOB di Azure)** è possibile scegliere di archiviare i dati senza memorizzare informazioni sullo schema o sul tipo con i dati. Per questi tipi di origini dati è necessario includere la sezione "structure" nei 2 casi seguenti:
+2. **Per gli schemi delle origini dati di lettura, in particolare BLOB di Azure,** è possibile scegliere di archiviare i dati senza memorizzare insieme ai dati informazioni sullo schema o sul tipo. Per questi tipi di origini dati è necessario includere la sezione "structure" nei 2 casi seguenti:
 	1. Si desidera eseguire il mapping di colonne.
 	2. Quando il set di dati è un'origine in un'attività di copia, è possibile specificare informazioni sul tipo in "structure", che verranno usate da Data factory per la conversione a tipi nativi per il sink. Vedere l'articolo sullo [spostamento di dati da e verso BLOB di Azure](../articles/data-factory/data-factory-azure-blob-connector.md) per altre informazioni.
 
@@ -47,4 +47,4 @@ Data factory supporta i valori di tipo basati su .NET conformi a CLS per specifi
 
 Per Datetime e Datetimeoffset è anche possibile specificare la stringa "culture" e "format" per facilitare l'analisi della stringa Datetime personalizzata. Vedere l'esempio seguente di conversione del tipo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -3,7 +3,7 @@
    description="Informazioni su come gestire gli account Archivio Data Lake e il file system." 
    services="data-lake-store" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="nitinme" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,18 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
-   ms.author="jgao"/>
+   ms.date="04/07/2016"
+   ms.author="nitinme"/>
 
 # Gestire Archivio Azure Data Lake utilizzando Azure SDK per Node.js
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
-
+- [Portale](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [.NET SDK](data-lake-store-get-started-net-sdk.md)
+- [SDK per Java](data-lake-store-get-started-java-sdk.md)
+- [API REST](data-lake-store-get-started-rest-api.md)
+- [Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
+- [Node.JS](data-lake-store-manage-use-nodejs.md)
 
 L’ADK di Azure per Node.js è utilizzabile per gestire account di Archivio Azure Data Lake e il file system:
 
@@ -37,7 +38,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Un account di Archivio Azure Data Lake**. Vedere [Introduzione ad Archivio Azure Data Lake tramite il portale di Azure](data-lake-store-get-started-portal.md) per creare un account.
-- **Un'entità servizio con autorizzazioni per accedere all'account Data Lake Analytics**. Vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md).
+- **Un'entità servizio con autorizzazioni per accedere all'account Data Lake Analytics**. Vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](../resource-group-authenticate-service-principal.md).
 
 ## Installare l'SDK
 
@@ -110,6 +111,6 @@ Nell'esempio seguente viene creato un file in un account Archivio Data Lake e ve
 ##Vedere anche 
 
 - [Azure SDK per Node.js](http://azure.github.io/azure-sdk-for-node/)
-- [Gestire Azure Data Lake Analytics tramite Node.js](data-lake-analytics-use-nodejs.md)
+- [Gestire Azure Data Lake Analytics tramite Node.js](../data-lake-analytics/data-lake-analytics-manage-use-nodejs.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0413_2016-->

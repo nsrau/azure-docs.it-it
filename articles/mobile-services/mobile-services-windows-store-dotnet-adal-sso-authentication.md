@@ -27,7 +27,7 @@
 
 ##Panoramica
 
-Questa esercitazione consente di aggiungere l'autenticazione al progetto di guida introduttiva tramite Active Directory Authentication Library per supportare le [operazioni di accesso dirette dal client](http://msdn.microsoft.com/library/azure/jj710106.aspx) con Azure Active Directory. Per supportare le [operazioni di accesso dirette dal servizio](http://msdn.microsoft.com/library/azure/dn283952.aspx) con Azure Active Directory, iniziare con l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md).
+Questa esercitazione consente di aggiungere l'autenticazione al progetto di guida introduttiva tramite Active Directory Authentication Library per supportare le [operazioni di accesso dirette dal client](http://msdn.microsoft.com/library/azure/jj710106.aspx) con Azure Active Directory. Per supportare le [operazioni di accesso dirette dal servizio](http://msdn.microsoft.com/library/azure/dn283952.aspx) con Azure Active Directory, iniziare con l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
 Per poter autenticare gli utenti è necessario registrare l'app in Azure Active Directory. Questa operazione si esegue in due passaggi. Prima di tutto, è necessario registrare il servizio mobile ed esporre le registrazioni sul servizio. In secondo luogo, è necessario registrare l'app di Windows Store e concederle accesso alle autorizzazioni.
 
@@ -214,4 +214,4 @@ Il servizio mobile è ora configurato in Azure Active Directory per ricevere acc
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [dashboard di Windows Dev Center]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2016" 
+	ms.date="04/11/2016" 
 	ms.author="billmath"/>
 
 # Gestione delle impostazioni utente con Azure Multi-Factor Authentication nel cloud
@@ -22,7 +22,7 @@ Come amministratore, è possibile gestire le impostazioni relative all'utente e 
 
 - [Richiedere agli utenti selezionati di fornire di nuovo i metodi di contatto](#require-selected-users-to-provide-contact-methods-again)
 - [Eliminare le password per le app esistenti degli utenti](#delete-users-existing-app-passwords)
-- [Ripristinare Multi-Factor Authentication in tutti i dispositivi sospesi per un utente (anteprima pubblica)](#restore-mfa-on-all-suspended-devices-for-a-user)
+- [Ripristinare Multi-Factor Authentication in tutti i dispositivi sospesi per un utente](#restore-mfa-on-all-suspended-devices-for-a-user)
 
 
 
@@ -86,4 +86,4 @@ Gli amministratori hanno la possibilità di ripristinare Multi-Factor Authentica
 9. Fare clic su Salva.
 10. Fare clic su Chiudi.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/05/2016" 
+	ms.date="04/10/2016" 
 	ms.author="arramac"/>
 
 # Partizionamento e scalabilità in Azure DocumentDB
@@ -210,7 +210,7 @@ Si procede alla lettura del documento, all'aggiornamento e infine all'eliminazio
     // Read document. Needs the partition key and the ID to be specified
     Document result = await client.ReadDocumentAsync(
       UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      new RequestOptions { PartitionKey = new object[] { "XMS-0001" }});
+      new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 
     DeviceReading reading = (DeviceReading)(dynamic)result;
 
@@ -225,7 +225,7 @@ Si procede alla lettura del documento, all'aggiornamento e infine all'eliminazio
     // Delete document. Needs partition key
     await client.DeleteDocumentAsync(
       UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      new RequestOptions { PartitionKey = new object[] { "XMS-0001" } });
+      new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 
 
 
@@ -261,12 +261,10 @@ Nella sezione successiva verrà illustrato come passare alle raccolte partiziona
 ### Migrazione da raccolte a partizione singola a raccolte partizionate
 Quando un'applicazione che usa una raccolta a partizione singola necessita di una velocità effettiva più alta (> 10.000 unità richiesta/secondo) o di uno spazio di archiviazione dati maggiore (> 10 GB), è possibile usare lo [strumento di migrazione dati di DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) per eseguire la migrazione dei dati dalla raccolta a partizione singola a una raccolta partizionata.
 
-Inoltre, poiché le chiavi di partizione possono essere specificate solo durante la creazione della raccolta, è necessario esportare e reimportare i dati usando lo [strumento di migrazione dati di DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) per creare una raccolta partizionata.
-
 Per eseguire la migrazione da una raccolta a partizione singola a una raccolta partizionata
 
 1. Esportare i dati da una raccolta a partizione singola a JSON. Vedere [Esportare in file JSON](documentdb-import-data.md#export-to-json-file) per altre informazioni.
-2. Importare i dati in una raccolta partizionata creata con una definizione della chiave di partizione e con più di 10.000 unità richiesta al secondo, come illustrato nell'esempio seguente. Vedere [Importare dati in DocumentDB con lo strumento di migrazione del database](documentdb-import-data.md#DocumentDBSeqTarget) per altre informazioni.
+2. Importare i dati in una raccolta partizionata creata con una definizione della chiave di partizione e con più di 10.000 unità richiesta al secondo, come illustrato nell'esempio seguente. Per altre informazioni, vedere [Importare dati in DocumentDB con lo strumento di migrazione del database](documentdb-import-data.md#DocumentDBSeqTarget).
 
 ![Migrazione dei dati a una raccolta partizionata in DocumentDB][3]
 
@@ -278,7 +276,7 @@ Dopo aver acquisito le nozioni di base, si esamineranno alcune importanti consid
 La scelta della chiave di partizione è una decisione importante da prendere in fase di progettazione. Questa sezione descrive alcuni dei compromessi da applicare quando si seleziona una chiave di partizione per la raccolta.
 
 ### Chiave di partizione come limite delle transazioni
-La scelta della chiave di partizione deve bilanciare la necessità di consentire l'uso di transazioni rispetto al requisito di distribuire le entità tra più partizioni per garantire una soluzione scalabile. Da una parte, è possibile archiviare tutte le entità in una partizione singola. Tuttavia, questa scelta potrebbe limitare la scalabilità della soluzione. Dall'altra parte, è possibile archiviare un documento per ogni chiave di partizione. In questo modo, la soluzione risulterebbe altamente scalabile, ma impedirebbe di usare transazioni tra documenti diversi mediante stored procedure e trigger. Una chiave di partizione ideale consente di usare query efficienti e dispone di un numero sufficiente di partizioni per garantire la scalabilità della soluzione.
+La scelta della chiave di partizione deve bilanciare la necessità di consentire l'uso di transazioni rispetto al requisito di distribuire le entità tra più chiavi di partizione per garantire una soluzione scalabile. Da una parte, è possibile impostare la stessa chiave di partizione per tutti i documenti. Tuttavia, questa scelta potrebbe limitare la scalabilità della soluzione. Dall'altra parte, è possibile assegnare a ogni documento una chiave di partizione univoca. In questo modo, la soluzione risulterebbe altamente scalabile, ma impedirebbe di usare transazioni tra documenti diversi mediante stored procedure e trigger. Una chiave di partizione ideale consente di usare query efficienti e dispone di una quantità sufficiente di cardinalità per garantire la scalabilità della soluzione.
 
 ### Come evitare colli di bottiglia per l'archiviazione e le prestazioni 
 Un altro elemento importante è scegliere una proprietà che consenta di distribuire le scritture su una serie di valori distinti. Le richieste per la stessa chiave di partizione non possono superare la velocità effettiva di una partizione singola e saranno limitate. Di conseguenza, è importante scegliere una chiave di partizione che non generi **"aree sensibili"** all'interno dell'applicazione. Inoltre, lo spazio di archiviazione totale per i documenti con la stessa chiave di partizione non può superare 10 GB.
@@ -321,4 +319,4 @@ Questo articolo descrive il funzionamento del partizionamento in Azure DocumentD
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

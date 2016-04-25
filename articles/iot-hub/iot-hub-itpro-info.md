@@ -31,7 +31,7 @@ I dispositivi possono comunicare con l'hub IoT in Azure tramite una varietà di 
 | AMQP su WebSockets | 443 |
 | MQTT | 8883 |
 
-Dopo aver creato un hub IoT in un'area di Azure, l'hub manterrà lo stesso indirizzo IP per la durata di tale hub. Tuttavia, in uno scenario di ripristino di emergenza, se Microsoft sposta l'hub IoT su un'unità di scala diversa, verrà assegnato ad esso un nuovo indirizzo IP.
+Dopo aver creato un hub IoT in un'area di Azure, l'hub manterrà lo stesso indirizzo IP per la durata di tale hub. Tuttavia, per mantenere la qualità del servizio, se Microsoft sposta l'hub IoT su un'unità di scala diversa, verrà assegnato ad esso un nuovo indirizzo IP.
 
 ## Hub IoT e sicurezza
 
@@ -51,4 +51,4 @@ Questo articolo contiene informazioni specifiche per i professionisti dell’IT 
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

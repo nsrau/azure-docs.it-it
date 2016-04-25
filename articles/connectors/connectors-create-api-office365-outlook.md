@@ -30,7 +30,7 @@ Connettersi a Outlook di Office 365 per ricevere la posta elettronica, risponder
 
 &nbsp;
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic sull'[API di Office 365](../app-service-logic/app-service-logic-connector-office365.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 Con Outlook di Office 365 è possibile:
 
@@ -49,7 +49,7 @@ L'API Outlook di Office 365 dispone dei trigger e delle azioni seguenti.
 
 | Trigger | Azioni|
 | --- | --- |
-|<ul><li>All'avvio imminente di un evento</li><li>All'arrivo di un nuovo messaggio di posta elettronica</li><li>In presenza di nuovi elementi</li><li>In presenza di elementi aggiornati</li></ul>| <ul><li>Creare un contatto</li><li>Creare un evento</li><li>Inviare un messaggio di posta elettronica di approvazione</li><li>Inviare un messaggio di posta elettronica</li><li>Eliminare un contatto</li><li>Eliminare un messaggio di posta elettronica</li><li>Eliminare un evento</li><li>Ottenere l'allegato</li><li>Ottenere calendari</li><li>Ottenere un contatto</li><li>Ottenere cartelle dei contatti</li><li>Ottenere contatti</li><li>Ottenere messaggi di posta elettronica</li><li>Ottenere un evento</li><li>Ottenere eventi</li><li>Contrassegnare come già letto</li><li>All'avvio imminente di un evento</li><li>All'arrivo di un nuovo messaggio di posta elettronica</li><li>In presenza di nuovi elementi</li><li>In presenza di elementi aggiornati</li><li>Rispondere al messaggio</li><li>Inviare un messaggio di posta elettronica con opzioni</li><li>Aggiornare un contatto</li><li>Aggiornare un evento</li></ul> |
+|<ul><li>On event starting soon</li><li>On new email</li><li>On new items</li><li>On updated items</li></ul>| <ul><li>Create contact</li><li>Create event</li><li>Send approval email</li><li>Send email</li><li>Delete contact</li><li>Delete email</li><li>Delete event</li><li>Get attachment</li><li>Get calendars</li><li>Get contact</li><li>Get contact folders</li><li>Get contacts</li><li>Get emails</li><li>Get event</li><li>Get events</li><li>Mark as read</li><li>On event starting soon</li><li>On new email</li><li>On new items</li><li>On updated items</li><li>Reply to message</li><li>Send email with options</li><li>Update contact</li><li>Update event</li></ul> |
 
 Tutte le API supportano dati nei formati JSON e XML.
 
@@ -70,7 +70,7 @@ Si applica alla versione 1.0.
 
 
 ### All'avvio imminente di un evento 
-Attiva un flusso all'avvio di un evento del calendario imminente. ```GET: /Events/OnUpcomingEvents```
+Attiva un flusso all'avvio di un evento imminente del calendario. ```GET: /Events/OnUpcomingEvents```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -433,7 +433,7 @@ Non sono disponibili parametri per questa chiamata.
 
 
 ### Ottenere contatti 
-Recupera i contatti da una cartella di contatti. ```GET: /datasets/contacts/tables/{table}/items```
+Recupera i contatti da una cartella dei contatti. ```GET: /datasets/contacts/tables/{table}/items```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -468,7 +468,7 @@ Crea un nuovo contatto. ```POST: /datasets/contacts/tables/{table}/items```
 
 
 ### Ottenere un contatto 
-Recupera un contatto specifico da una cartella di contatti. ```GET: /datasets/contacts/tables/{table}/items/{id}```
+Recupera un contatto specifico da una cartella dei contatti. ```GET: /datasets/contacts/tables/{table}/items/{id}```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -768,4 +768,4 @@ Tornare all'[elenco di API](apis-list.md).
 [12]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
 [13]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

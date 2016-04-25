@@ -3,7 +3,7 @@
    description="Descrive il dashboard del servizio StorSimple Manager e illustra come usarlo per monitorare l'integrità dell'array virtuale StorSimple."
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="04/07/2016"
+   ms.author="alkohli" />
 
-# Usare il dashboard del servizio StorSimple Manager per l'array virtuale StorSimple (anteprima)
+# Usare il dashboard del servizio StorSimple Manager per l'array virtuale StorSimple
 
 ## Panoramica
 
@@ -62,4 +62,4 @@ Per altre informazioni sulla chiave di registrazione, vedere il video su [come o
 
 Scoprire come usare l'interfaccia utente Web locale per [amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

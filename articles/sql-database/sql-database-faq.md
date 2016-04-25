@@ -3,8 +3,8 @@
    description="Le risposte a domande comuni dei clienti su database cloud e Database SQL di Azure, sistema di gestione di database relazionali di Microsoft (RDBMS) e database come servizio nel cloud." 
    services="sql-database" 
    documentationCenter="" 
-   authors="jeffgoll" 
-   manager="jeffreyg" 
+   authors="carlrabeler" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="02/25/2016"
-   ms.author="sashan"/>
+   ms.author="sashan;carlrab"/>
 
 # Domande frequenti sul database SQL
 
@@ -61,9 +61,9 @@ Con i database V12 è possibile modificare il livello di servizio (tra Basic, St
 Numero di volte desiderato.
 
 ## Quanto tempo è necessario per modificare il livello di servizio e il livello di prestazioni di un database singolo o spostare un database da e verso un pool di database elastici? 
-La modifica del livello di servizio di un database e lo spostamento da e verso un pool richiede che il database venga copiato nella piattaforma come operazione in background. A seconda delle dimensioni dei database, possono essere necessari da pochi minuti a diverse ore. In entrambi i casi, i database rimangono in linea e disponibili durante lo spostamento. Per ulteriori informazioni sulla modifica dei singoli database vedere [Modificare il livello di servizio di un database](sql-database-scale-up.md). Per i database elastici, vedere [Riferimento al pool elastico](sql-database-elastic-pool-reference.md#latency-of-elastic-pool-operations)
+La modifica del livello di servizio di un database e lo spostamento da e verso un pool richiede che il database venga copiato nella piattaforma come operazione in background. A seconda delle dimensioni dei database, possono essere necessari da pochi minuti a diverse ore. In entrambi i casi, i database rimangono in linea e disponibili durante lo spostamento. Per ulteriori informazioni sulla modifica dei singoli database vedere [Modificare il livello di servizio di un database](sql-database-scale-up.md).
 
-##Quando è meglio usare un database singolo e quando invece è meglio usare database elastici? 
+## Quando è meglio usare un database singolo e quando invece è meglio usare database elastici? 
 In generale, i pool di database elastici sono progettati per un modello di applicazione tipico di software-as-a-service (SaaS), in cui è presente un solo database per client o tenant. L'acquisto di singoli database e l'overprovisioning al fine di soddisfare una domanda variabile e i picchi di domanda per ogni database non sono spesso metodi convenienti. Per i pool, è possibile gestire le prestazioni collettive del pool e i database aumentano e diminuiscono automaticamente.
 
 Il motore intelligente di Azure consiglia un pool per i database, se ne rileva un modello di utilizzo che lo garantisca. Per altri dettagli, vedere [Indicazioni sui livelli di prezzo del database SQL](sql-database-service-tier-advisor.md). Per istruzioni dettagliate sulla scelta tra database singoli e elastici, consultare [Considerazioni su prezzi e prestazioni per i pool di database elastici](sql-database-elastic-pool-guidance.md).
@@ -89,4 +89,4 @@ La replica geografica secondaria è una replica asincrona per la quale non viene
 ## Quali strumenti sono disponibili per monitorare l'intervallo di replica tra il database primario e la replica geografica secondaria?
 L'intervallo di replica in tempo reale tra il database primario e la replica geografica secondaria è esposto attraverso una vista a gestione dinamica (DMV). Per informazioni dettagliate, vedere [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

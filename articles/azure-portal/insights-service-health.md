@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Tenere traccia dell’integrità del servizio" 
-	description="Scoprire quando Azure ha subito un calo delle prestazioni o interruzioni del servizio." 
-	authors="stepsic-microsoft-com" 
-	manager="kamrani" 
-	editor="" 
-	services="azure-portal" 
+<properties
+	pageTitle="Tenere traccia dell’integrità del servizio"
+	description="Scoprire quando Azure ha subito un calo delle prestazioni o interruzioni del servizio."
+	authors="stepsic-microsoft-com"
+	manager="kamrani"
+	editor=""
+	services="azure-portal"
 	documentationCenter="na"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Tenere traccia dell’integrità del servizio
@@ -45,12 +45,11 @@ Azure viene pubblicizzato ogni volta che si verifica un’interruzione del servi
 7. Verranno ora visualizzati tutti gli eventi di integrità del servizio che hanno influito sulla sottoscrizione: ![Gruppi di risorse](./media/insights-service-health/Insights_HealthEvent.png)
 
 8. Da qui è possibile passare al pannello dei dettagli per vedere le specifiche dell'evento.
-   
+
 ## Passaggi successivi
 
 * [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) ogni volta che si verifica un evento.
 * [Monitorare le metriche del servizio](insights-how-to-customize-monitoring.md) per assicurarsi che il servizio sia disponibile e reattivo.
-* [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
- 
+* [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

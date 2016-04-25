@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -137,11 +137,11 @@ Verificare che le impostazioni della regola di avviso esistenti facciano riferim
   + Nel database ripristinato viene utilizzato un nome diverso rispetto al nome del database di origine
   + Il database ripristinato si trova in un server diverso rispetto al server di origine
 
-Per altre informazioni sulle regole di avviso per il database, vedere [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) e [Tracciare l’integrità del servizio](insights-service-health.md).
+Per altre informazioni sulle regole di avviso per il database, vedere [Ricevere notifiche di avviso](../azure-portal/insights-receive-alert-notifications.md) e [Tracciare l’integrità del servizio](../azure-portal/insights-service-health.md).
 
 
 ### Attivare il controllo
 
 Se è necessario il controllo di accesso al database, occorre attivare il controllo dopo il ripristino del database. Un indicatore efficace del fatto che è necessario un controllo è che le applicazioni client utilizzano stringhe di connessione protette in base a un modello di *.database.secure.windows.net. Per altre informazioni, vedere l'[Introduzione al controllo del database SQL](sql-database-auditing-get-started.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

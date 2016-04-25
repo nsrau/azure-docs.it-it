@@ -13,7 +13,6 @@
 | Numero massimo di backup conservati dal dispositivo virtuale nella cartella *.backups* per file server | 5 | Sono inclusi i backup pianificati (generati dal criterio di backup predefinito) e manuali più recenti. |
 | Numero massimo di backup pianificati conservati dal dispositivo | 55 | 30 backup giornalieri<br>12 backup mensili<br>13 backup annuali |
 | Numero massimo di backup manuali conservati dal dispositivo | 45 | |
-| Numero massimo di volumi che possono essere elaborati parallelamente per backup o ripristino | 3 | Se sono presenti più di 3 volumi, questi vengono elaborati in sequenza man mano che gli slot di elaborazione si rendono disponibili. |
-| Tempo di recupero del ripristino | Ripristino rapido | Il ripristino si basa sulla mappa termica ed è dipende dalla dimensione del volume.<br>Operazioni di backup possono verificarsi quando un'operazione di ripristino è in corso. |
+| Tempo di recupero del ripristino | Ripristino rapido | Il ripristino si basa sulla mappa termica e dipende dalla dimensione del volume.<br>Le operazioni di backup possono verificarsi quando un'operazione di ripristino è in corso. |
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Interfaccia utente di Azure Mobile Engagement - Monitoraggio" 
-   description="Informazioni su come monitorare in tempo reale i dati dell'applicazione usando Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
+<properties
+   pageTitle="Interfaccia utente di Azure Mobile Engagement - Monitoraggio"
+   description="Informazioni su come monitorare in tempo reale i dati dell'applicazione usando Azure Mobile Engagement"
+   services="mobile-engagement"
+   documentationCenter=""
+   authors="piyushjo"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,23 +12,23 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
+   ms.workload="mobile"
    ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # Come monitorare in tempo reale i dati relativi all'applicazione
 
-In questo articolo viene descritta la scheda **MONITORAGGIO** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**. Per ulteriori informazioni, vedere [Creare un account Azure Mobile Engagement](mobile-engagement-create-account.md).
+In questo articolo viene descritta la scheda **MONITORAGGIO** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**.
 
 
 Nella sezione Monitoraggio dell'interfaccia utente vengono fornite informazioni di analisi in tempo reale ed è possibile impostare gli avvisi quando vengono raggiunte le soglie per la maggior parte delle informazioni cronologicamente disponibili anche nella sezione [ANALISI](mobile-engagement-user-interface-analytics.md) dell'interfaccia utente. Nella sezione **Glossario** nell’argomento [Concetti](http://go.microsoft.com/fwlink/?LinkId=525555) sono riportate le definizioni dei termini e delle abbreviazioni usati in Analisi e Monitoraggio, ad esempio: utente attivo, nuovo utente, utente assorbito, sessione, grafico percorso utenti, mapping utenti, URL di rilevamento, tendenze, attività, evento, processo, errore, informazioni supplementari, arresto anomalo e informazioni sull'app.
 
->[AZURE.NOTE]Molte sezioni dell’interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
+>[AZURE.NOTE] Molte sezioni dell’interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
 
 ## Monitoraggio: sessioni, processi, eventi, errori e arresti anomali
 
 È possibile verificare quanti utenti sono attualmente in sessione e su schermi specifici o stanno eseguendo particolari azioni. È possibile visualizzare l'attività dell'utente per sessioni, processi, eventi, errori e arresti anomali. È possibile visualizzare le informazioni correnti e mostrare le informazioni dall'ora, del giorno o della settimana più recente. È possibile visualizzare tutte le informazioni in ogni categoria o ordinarle per sessione, processo, evento, errore e arresto anomalo specifico. Il monitoraggio in tempo reale è utile durante eventi quali una campagna di push per verificare se esiste un aumento nell'azione subito dopo l'invio di una notifica push.
- 
+
 ![Monitor1][14]
 
 ## Risoluzione dei problemi con Monitoraggio - Eventi - Dettagli
@@ -49,14 +49,14 @@ Per ulteriori informazioni, vedere le [Documentazione SDK - Note di rilascio][Li
 
 ## Monitoraggio - Avvisi
 È inoltre possibile specificare condizioni per gli avvisi da inviare automaticamente all'utente tramite posta elettronica o messaggistica istantanea (sono supportati tutti i servizi compatibili con XMPP come GTalk di Google o iChat Apple). Gli avvisi sono basati su una soglia di rilevamento predefinita maggiore (>) o minore (<) di un numero specifico di sessioni, processi, eventi, errori o arresti anomali al secondo, minuto o ora. Tramite Avvisi è possibile monitorare tutte le attività di un determinato tipo o semplicemente l'attività di un particolare processo, evento o errore. È inoltre possibile specificare una velocità minima di rilevamento, ossia la quantità minima di tempo che separa due notifiche per lo stesso avviso, per assicurarsi che quando viene attivato l'avviso non si riceva mai più di una notifica ogni X minuti.
- 
+
 ![Monitor4][17]
 
 
 ## Vedere anche
 
 - [Concetti][Link 6]
-- [Assistenza guida per la risoluzione dei problemi][Link 24]
+- [Guida per la risoluzione dei problemi - Assistenza][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -152,6 +152,5 @@ Per ulteriori informazioni, vedere le [Documentazione SDK - Note di rilascio][Li
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0413_2016-->

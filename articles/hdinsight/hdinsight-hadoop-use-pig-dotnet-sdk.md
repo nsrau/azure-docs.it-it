@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="04/06/2016"
    ms.author="larryfr"/>
 
 #Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight
@@ -29,27 +29,18 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'utilizzo dei
 
 * [Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
 
-##<a id="prereq"></a>Prerequisiti
+## Prerequisiti
 
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
-* Un cluster Azure HDInsight (Hadoop in HDInsight) (basato su Windows o su Linux)
+* Un cluster Azure HDInsight (Hadoop in HDInsight) basato su Windows o su Linux.
+* Visual Studio 2012, 2013 o 2015.
 
-* Visual Studio 2012 o 2013 o 2015
-
-##<a id="certificate"></a>Creazione di un certificato di gestione
-
-Per autenticare l'applicazione in Azure HDInsight, è necessario creare un certificato autofirmato, installarlo nella workstation e caricarlo nella sottoscrizione Azure.
-
-Per istruzioni su come eseguire questa operazione, vedere [Creare un certificato autofirmato](http://go.microsoft.com/fwlink/?LinkId=511138).
-
-> [AZURE.NOTE] Quando si crea il certificato, assicurarsi di prendere nota del nome descrittivo usato, in quanto sarà utile in un secondo momento.
-
-##<a id="subscriptionid"></a>Trovare l'ID sottoscrizione
+## Trovare l'ID sottoscrizione
 
 Ogni sottoscrizione Azure è identificata da un valore GUID, noto come ID sottoscrizione. Per trovare questo valore, seguire questa procedura.
 
-1. Visitare il [portale di anteprima di Azure][portale di anteprima].
+1. Visitare il [portale di Azure][preview-portal].
 
 2. Dalla barra a sinistra del portale, selezionare __ESPLORA TUTTO__, quindi selezionare __Sottoscrizioni__ dal pannello __Sfoglia__.
 
@@ -57,7 +48,12 @@ Ogni sottoscrizione Azure è identificata da un valore GUID, noto come ID sottos
 
 Salvare l'ID sottoscrizione, che verrà usato in un secondo momento.
 
-##<a id="create"></a>Creare l'applicazione
+## Creazione dell'applicazione
+
+HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei cluster HDInsight da .NET.
+
+Nell'esempio che segue viene usata l'autenticazione utente interattiva. Per usare l'autenticazione non interattiva, vedere [Creare applicazioni .NET HDInsight di autenticazione non interattive](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+
 
 1. Aprire Visual Studio 2012 o 2013.
 2. Scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
@@ -85,66 +81,122 @@ Salvare l'ID sottoscrizione, che verrà usato in un secondo momento.
 5. Selezionare **Gestione pacchetti libreria** o **Gestione pacchetti NuGet** dal menu **Strumenti** e quindi scegliere **Console di Gestione pacchetti**.
 6. Usare il seguente comando nella console per installare i pacchetti di .NET SDK.
 
-		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
+        Install-Package Microsoft.Azure.Common.Authentication -Pre
+        Install-Package Microsoft.Azure.Management.HDInsight -Pre
+        Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
 
 7. In Esplora soluzioni fare doppio clic su **Program.cs** per aprirlo. Replace Sostituire il codice esistente con il seguente.
 
         using System;
+        using System.Collections.Generic;
+        using System.Security;
+        using System.Threading;
+        using Microsoft.Azure;
+        using Microsoft.Azure.Common.Authentication;
+        using Microsoft.Azure.Common.Authentication.Factories;
+        using Microsoft.Azure.Common.Authentication.Models;
+        using Microsoft.Azure.Management.Resources;
+        using Microsoft.Azure.Management.HDInsight;
         using Microsoft.Azure.Management.HDInsight.Job;
         using Microsoft.Azure.Management.HDInsight.Job.Models;
         using Hyak.Common;
-        
-        namespace HDInsightSubmitPigJobsDotNet
+
+        namespace SubmitHDInsightJobDotNet
         {
             class Program
             {
+                private static HDInsightManagementClient _hdiManagementClient;
+                private static HDInsightJobManagementClient _hdiJobManagementClient;
+
+                private static Guid SubscriptionId = new Guid("<Your Subscription ID>");
+                private const string ResourceGroupName = "<Your Resource Group Name>";
+
+                private const string ExistingClusterName = "<Your HDInsight Cluster Name>";
+                private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+                private const string ExistingClusterUsername = "<Cluster Username>";
+                private const string ExistingClusterPassword = "<Cluster User Password>";
+
+                private const string DefaultStorageAccountName = "<Default Storage Account Name>";
+                private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
+                private const string DefaultStorageContainerName = "<Default Blob Container Name>";
+
                 static void Main(string[] args)
                 {
-                    var ExistingClusterName = "<HDInsightClusterName>";
-                    var ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
-                    var ExistingClusterUsername = "<HDInsightClusterHttpUsername>";
-                    var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
-        
-                    // The Pig Latin statements to run
-                    string queryString = "LOGS = LOAD 'wasb:///example/data/sample.log';" +
-                        "LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
-                        "FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
-                        "GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
-                        "FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;" +
-                        "RESULT = order FREQUENCIES by COUNT desc;" +
-                        "DUMP RESULT;";
-        
-        
-                    HDInsightJobManagementClient _hdiJobManagementClient;
+                    System.Console.WriteLine("The application is running ...");
+
+                    var tokenCreds = GetTokenCloudCredentials();
+                    var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+
+                    var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+                    var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+
+                    _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+
                     var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
                     _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
-        
-                    // Define the Pig job
-                    var parameters = new PigJobSubmissionParameters()
+
+                    SubmitPigJob();
+
+                    System.Console.WriteLine("Press ENTER to continue ...");
+                    System.Console.ReadLine();
+                }
+
+                public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+                {
+                    var authFactory = new AuthenticationFactory();
+
+                    var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+
+                    if (username != null && password != null)
+                        account.Id = username;
+
+                    var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+
+                    var accessToken =
+                        authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
+                            .AccessToken;
+
+                    return new TokenCloudCredentials(accessToken);
+                }
+
+                public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(TokenCloudCredentials creds, Guid subId)
+                {
+                    return new TokenCloudCredentials(subId.ToString(), creds.Token);
+                }
+
+
+                private static void SubmitPigJob()
+                {
+                    var parameters = new PigJobSubmissionParameters
                     {
-                        Query = queryString,
+                        Query = @"LOGS = LOAD 'wasb:///example/data/sample.log';
+                            LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+                            FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+                            GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+                            FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+                            RESULT = order FREQUENCIES by COUNT desc;
+                            DUMP RESULT;"
                     };
-        
+
                     System.Console.WriteLine("Submitting the Pig job to the cluster...");
                     var response = _hdiJobManagementClient.JobManagement.SubmitPigJob(parameters);
                     System.Console.WriteLine("Validating that the response is as expected...");
                     System.Console.WriteLine("Response status code is " + response.StatusCode);
                     System.Console.WriteLine("Validating the response object...");
                     System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
-                    Console.WriteLine("Press ENTER to continue ...");
-                    Console.ReadLine();
                 }
             }
         }
 
+
 7. Premere **F5** per avviare l'applicazione.
 8. Premere **INVIO** per uscire dall'applicazione.
 
-##<a id="summary"></a>Riepilogo
+## Riepilogo
 
 Come si può notare, .NET SDK per Hadoop consente di creare applicazioni .NET che inviano processi Pig a un cluster HDInsight, monitorare lo stato del processo e recuperare l'output.
 
-##<a id="nextsteps"></a>Passaggi successivi
+## Passaggi successivi
 
 Per informazioni generali su Pig in HDInsight.
 
@@ -155,6 +207,6 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
-[portale di anteprima]: https://portal.azure.com/
+[preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

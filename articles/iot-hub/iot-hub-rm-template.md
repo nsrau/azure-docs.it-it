@@ -115,7 +115,7 @@ Usare un modello JSON e un file di parametri per creare un nuovo hub IoT nel gru
 
 3. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, fare clic su **Aggiungi** e infine su **Nuovo elemento**. Aggiungere un nuovo file JSON denominato **parameters.json** al progetto.
 
-4. Sostituire il contenuto di **parameters.json** con le informazioni di parametro seguenti che impostano il nome del nuovo hub IoT su **mynewiothub**:
+4. Sostituire il contenuto di **parameters.json** con le informazioni di parametro seguenti che impostano il nome del nuovo hub IoT su **mynewiothub** (il nome deve essere globalmente univoco):
 
     ```
     {
@@ -215,4 +215,4 @@ Dopo aver distribuito un hub IoT usando un modello di Gestione risorse di Azure 
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

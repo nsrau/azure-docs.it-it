@@ -17,8 +17,8 @@ Azure AD consente di integrare le app e gli account di cui è stato eseguito il 
 
 - Se l'app non è presente nella raccolta, è comunque possibile impostare la maggior parte delle app in Azure AD come un'app personalizzata. Questa operazione richiede un livello leggermente superiore di esperienza tecnica per la configurazione. È possibile aggiungere qualunque applicazione che supporta SAML 2.0 come applicazione federata o qualunque applicazione che dispone di una pagina di accesso basata su HTML come applicazione Single Sign-On con password.
 
-Nel caso gli utenti abbiano creato i propri account per app SaaS che non sono gestite dal reparto IT, lo strumento [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) offre una soluzione. Questo strumento monitora il traffico Web per identificare le app che vengono usate in tutta l'organizzazione e il numero di utenti che usano ognuna di esse. Il personale IT può usare queste informazioni per determinare quali sono le app preferite dagli utenti e decidere quali integrare in Azure AD per l'accesso SSO.
+Nel caso gli utenti abbiano creato i propri account per app SaaS che non sono gestite dal reparto IT, lo strumento [Cloud App Discovery](../articles/active-directory/active-directory-cloudappdiscovery-whatis.md) offre una soluzione. Questo strumento monitora il traffico Web per identificare le app che vengono usate in tutta l'organizzazione e il numero di utenti che usano ognuna di esse. Il personale IT può usare queste informazioni per determinare quali sono le app preferite dagli utenti e decidere quali integrare in Azure AD per l'accesso SSO.
 
 Quando si integra un'app in Azure AD, è possibile mappare le identità delle applicazioni stabilite dagli utenti alle rispettive identità di Azure AD.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

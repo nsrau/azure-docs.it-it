@@ -41,7 +41,7 @@ Le considerazioni seguenti potrebbero essere utili all’utente per scegliere un
 
 * Le dimensioni delle macchine virtuali A8/A10 e A9/A11 hanno la stessa capacità. Le istanze di macchine virtuali A8 e A9 includono una scheda di rete aggiuntiva connessa a una rete con accesso diretto a memoria remota (RDMA) per una comunicazione rapida tra macchine virtuali. Le istanze A8 e A9 sono progettate per applicazioni di elaborazione ad alte prestazioni che richiedono comunicazione costante e a bassa latenza tra i nodi durante l'esecuzione, ad esempio, le applicazioni che usano l'interfaccia MPI (Message Passing Interface). Le istanze di macchina virtuale A10 e A11 non includono la scheda di rete aggiuntiva. Le istanze A10 e A11 sono progettate per applicazioni di calcolo ad alte prestazioni che non richiedono una comunicazione costante e a bassa latenza tra i nodi, note anche come applicazioni parametriche o imbarazzantemente parallele.
 
-    >[AZURE.NOTE] Se si sono considerando le dimensioni da A8 ad A11, leggere [questo](..\virtual-machines\virtual-machines-a8-a9-a10-a11-specs.md) informazioni.
+    >[AZURE.NOTE] Se si stanno considerando dimensioni da A8 ad A11, selezionare [qui](..\virtual-machines\virtual-machines-windows-a8-a9-a10-a11-specs.md) per altre informazioni.
 
 >[AZURE.NOTE] Tutte le dimensioni delle macchine forniscono un **disco dell’applicazione** che archivia tutti i file del pacchetto di servizio cloud grande circa 1,5 GB.
 
@@ -104,7 +104,7 @@ Per siti Web, database di piccole e medie dimensioni e altre applicazioni normal
 | Standard\_D1 | 1 | 3,5 GB | 50 GB |
 | Standard\_D2 | 2 | 7 GB | 100 GB |
 | Standard\_D3 | 4 | 14 GB | 200 GB |
-| Standard\_D4 | 8 | 28 GB | 400 GB |
+| Standard\_D4 | 8 | 28 GB | 400 GB |
 
 ## A elevato utilizzo di memoria (D)
 
@@ -114,8 +114,8 @@ Per database di grandi dimensioni, server farm di SharePoint e applicazioni a ve
 | --------------- | :-------: | ------: | ------: |
 | Standard\_D11 | 2 | 14 GB | 100 GB |
 | Standard\_D12 | 4 | 28 GB | 200 GB |
-| Standard\_D13 | 8 | 56 GB | 400 GB |
-| Standard\_D14 | 16 | 112 GB | 800 GB |
+| Standard\_D13 | 8 | 56 GB | 400 GB |
+| Standard\_D14 | 16 | 112 GB | 800 GB |
 
 ## Serie Dv2: calcolo ottimizzato
 
@@ -130,8 +130,8 @@ Per siti Web, database di piccole e medie dimensioni e altre applicazioni normal
 | Standard\_D1\_v2 | 1 | 3,5 GB | 50 GB |
 | Standard\_D2\_v2 | 2 | 7 GB | 100 GB |
 | Standard\_D3\_v2 | 4 | 14 GB | 200 GB |
-| Standard\_D4\_v2 | 8 | 28 GB | 400 GB |
-| Standard\_D5\_v2 | 16 | 56 GB | 800 GB |
+| Standard\_D4\_v2 | 8 | 28 GB | 400 GB |
+| Standard\_D5\_v2 | 16 | 56 GB | 800 GB |
 
 ## A elevato utilizzo di memoria (Dv2)
 
@@ -141,14 +141,14 @@ Per database di grandi dimensioni, server farm di SharePoint e applicazioni a ve
 | --------------- | :-------: | ------: | ------: |
 | Standard\_D11\_v2 | 2 | 14 GB | 100 GB |
 | Standard\_D12\_v2 | 4 | 28 GB | 200 GB |
-| Standard\_D13\_v2 | 8 | 56 GB | 400 GB |
-| Standard\_D14\_v2 | 16 | 112 GB | 800 GB |
+| Standard\_D13\_v2 | 8 | 56 GB | 400 GB |
+| Standard\_D14\_v2 | 16 | 112 GB | 800 GB |
 
 ## Configurare le dimensioni per i servizi Cloud
 
 È possibile specificare la dimensione di un'istanza del ruolo di macchina virtuale come parte del modello del servizio descritto dal [file csdef](cloud-services-model-and-package.md#csdef). Le dimensioni di un ruolo determinano il numero di memorie centrali CPU, la capacità di memoria e la dimensione del file system locale allocati a una istanza in esecuzione. Scegliere le dimensioni del ruolo in base ai requisiti delle risorse dell'applicazione.
 
-Di seguito è riportato un esempio per impostare la dimensione [Standard\_D2](Scopo generico (D)) del ruolo  per un'istanza del ruolo Web:
+Di seguito è riportato un esempio per impostare la dimensione del ruolo [Standard\_D2](#general-purpose-d) per un'istanza di ruolo Web:
 
 ```xml
 <WebRole name="WebRole1" vmsize="<mark>Standard_D2</mark>">
@@ -156,4 +156,4 @@ Di seguito è riportato un esempio per impostare la dimensione [Standard\_D2](Sc
 </WebRole>
 ```
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

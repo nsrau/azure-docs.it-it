@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/01/2016"
+    ms.date="04/11/2016"
     ms.author="sstein"/>
 
 # Gestire e dimensionare un pool di database elastici con C&#x23;
@@ -34,7 +34,6 @@ Per i codici di errore comuni, vedere [Codici di errore SQL per le applicazioni 
 Negli esempi viene usata la [libreria di database SQL per .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), quindi è necessario installarla. È possibile installarla con il comando seguente nella [Console di Gestione pacchetti](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio, scegliendo **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**:
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
-
 
 
 ## Aggiornare un pool
@@ -124,7 +123,10 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
         Console.WriteLine("  Database {0}", db.Name);
     }
 
+## Latenza delle operazioni dei pool elastici
 
+- La modifica delle eDTU garantite per database (databaseDtuMin) o il numero massimo di eDTU per database (databaseDtuMax) in genere viene completata in 5 minuti o meno.
+- La modifica del limite di eDTU/ risorse di archiviazione (storageMB) del pool dipende dalla quantità totale di spazio utilizzato da tutti i database nel pool. Le modifiche richiedono una media di 90 minuti o meno per 100 GB. Ad esempio, se lo spazio totale utilizzato da tutti i database nel pool è pari a 200 GB, la latenza prevista per la modifica del limite di eDTU / risorse di archiviazione è di 3 ore o meno.
 
 
 ## Esempio di gestione di un pool C&#x23;
@@ -135,7 +137,7 @@ Le librerie seguenti sono necessarie per eseguire questo esempio. È possibile i
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Creare un'app console e sostituire il contenuto del file Program.cs con il codice seguente. Per ottenere l'ID client necessario e i valori correlati, vedere l'articolo relativo alla [registrazione dell'app e al recupero dei valori client necessari per la connessione dell'app al database SQL](sql-database-client-id-keys.md).
+Creare un'app console e sostituire il contenuto del file Program.cs con il codice seguente. Per ottenere l'ID client richiesto e i valori correlati, vedere l'articolo relativo a [registrare l'app e ottenere i valori client per la connessione dell'applicazione al database SQL](sql-database-client-id-keys.md).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -458,4 +460,4 @@ Creare un'app console e sostituire il contenuto del file Program.cs con il codic
 - [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Riferimento al pool di database elastici](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

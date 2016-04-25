@@ -30,7 +30,7 @@ Connettersi a Dropbox per gestire file, ad esempio creare i file, recuperarli e 
 
 &nbsp;
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic sul [connettore Dropbox](../app-service-logic/app-service-logic-connector-dropbox.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 
 Con Dropbox è possibile:
@@ -49,7 +49,7 @@ Dropbox include i trigger e le azioni seguenti.
 
 Trigger | Azioni
 --- | ---
-<ul><li>Quando un file viene creato</li><li>Quando un file viene modificato</li></ul> | <ul><li>Crea file</li><li>Quando un file viene creato</li><li>Copia file</li><li>Elimina file</li><li>Estrai archivio in una cartella</li><li>Ottieni contenuto di file tramite ID</li><li>Ottieni file tramite percorso</li><li>Ottieni metadati di file tramite ID</li><li>Ottieni metadati di file tramite percorso</li><li>Aggiorna file</li><li>Quando un file viene modificato</li></ul>
+<ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content using id</li><li>Get file using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>Update file</li><li>When a file is modified</li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
@@ -60,7 +60,7 @@ Quando si aggiunge questa API alle app per la logica, è necessario autorizzare 
 1. Accedere all'account Dropbox.
 2. Selezionare **Autorizza** e consentire alle app per la logica di connettersi e usare Dropbox. 
 
-Dopo aver creato la connessione immettere le proprietà di Dropbox, ad esempio nome file o percorso cartella. Tali proprietà vengono descritte nelle **Informazioni di riferimento sulle API REST** in questo argomento.
+Dopo aver creato la connessione immettere le proprietà di Dropbox, ad esempio nome file o percorso cartella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di Dropbox in altre app per la logica.
 
@@ -84,7 +84,7 @@ Carica un file in Dropbox. ```POST: /datasets/default/files```
 
 
 ### Quando un file viene creato    
-Attiva un flusso quando un nuovo file viene creato in una cartella di Dropbox. ```GET: /datasets/default/triggers/onnewfile```
+Attiva un flusso quando un nuovo file viene creato in una cartella di Dropbox ```GET: /datasets/default/triggers/onnewfile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -128,7 +128,7 @@ Elimina un file da Dropbox. ```DELETE: /datasets/default/files/{id}```
 
 
 ### Estrai archivio in una cartella    
-Estrae un file di archivio in una cartella di Dropbox, ad esempio con estensione zip. **```POST: /datasets/default/extractFolderV2```**
+Estrae un file di archivio in una cartella di Dropbox, ad esempio un file con estensione zip. **```POST: /datasets/default/extractFolderV2```**
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -286,4 +286,4 @@ Tornare all'[elenco di API](apis-list.md).
 [10]: ./media/connectors-create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/connectors-create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

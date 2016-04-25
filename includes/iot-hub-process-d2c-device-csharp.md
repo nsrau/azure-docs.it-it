@@ -17,7 +17,7 @@ In questa sezione verrà modificata l'applicazione del dispositivo simulato crea
         await deviceClient.SendEventAsync(interactiveMessage);
         Console.WriteLine("{0} > Sending interactive message: {1}", DateTime.Now, interactiveMessageString);
 
-        Thread.Sleep(10000);
+        Task.Delay(10000).Wait();
       }
     }
     ```
@@ -36,6 +36,6 @@ In questa sezione verrà modificata l'applicazione del dispositivo simulato crea
 
 <!-- Links -->
 [gestione degli errori temporanei]: https://msdn.microsoft.com/library/hh675232.aspx
-[Introduzione all'hub IoT]: iot-hub-csharp-csharp-getstarted.md
+[Introduzione all'hub IoT]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

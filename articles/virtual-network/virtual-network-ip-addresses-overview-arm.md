@@ -23,12 +23,12 @@ Gli indirizzi IP pubblici consentono di comunicare con Internet e con i servizi 
 
 Gli indirizzi IP privati vengono usati per la comunicazione all'interno di una rete virtuale Azure (VNet) e della rete locale quando si usa un gateway VPN o un circuito ExpressRoute per estendere la rete ad Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [Modello di distribuzione classica](virtual-network-ip-addresses-overview-classic.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
 
 Se si ha familiarità con il modello di distribuzione classico, verificare le [differenze tra gli indirizzi IP nella versione classica e in Gestione risorse](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
 ## Indirizzi IP pubblici
-Gli indirizzi IP pubblici consentono alle risorse di Azure di comunicare con Internet e i servizi pubblici di Azure, ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache/), [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), [Database SQL](sql-database-technical-overview.md) e [Archiviazione di Azure](storage-introduction.md).
+Gli indirizzi IP pubblici consentono alle risorse di Azure di comunicare con Internet e i servizi pubblici di Azure, ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache/), [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), [Database SQL](../sql-database/sql-database-technical-overview.md) e [Archiviazione di Azure](../storage/storage-introduction.md).
 
 In Gestione risorse di Azure un [indirizzo IP pubblico](resource-groups-networking.md#public-ip-address) è una risorsa che ha proprietà specifiche. È possibile associare una risorsa indirizzo IP pubblico con una qualsiasi delle risorse seguenti:
 
@@ -62,13 +62,13 @@ Gli indirizzi IP pubblici statici sono comunemente usati negli scenari seguenti:
 È possibile associare un indirizzo IP pubblico a una [macchina virtuale](../virtual-machines/virtual-machines-linux-about.md) (VM) assegnandola alla relativa **scheda di interfaccia di rete**. In caso di una macchina virtuale con più schede di interfaccia di rete, è possibile assegnarla solo alla scheda di interfaccia di rete *primaria*. A una macchina virtuale è possibile assegnare un indirizzo IP pubblico statico o dinamico.
 
 ### Servizi di bilanciamento del carico con connessione Internet
-È possibile associare un indirizzo IP pubblico a un [servizio di bilanciamento del carico di Azure](load-balancer-overview.md), assegnandolo alla configurazione **front-end** del servizio di bilanciamento del carico. Questo indirizzo IP pubblico viene usato come indirizzo IP virtuale (VIP) di bilanciamento del carico. A un servizio di bilanciamento del carico front-end è possibile assegnare un indirizzo IP pubblico statico o dinamico. È anche possibile assegnare più indirizzi IP pubblici a un servizio di bilanciamento del carico front-end, consentendo così scenari con [più indirizzi VIP](load-balancer-multivip.md) come un ambiente multi-tenant con siti Web basati su SSL.
+È possibile associare un indirizzo IP pubblico a un [servizio di bilanciamento del carico di Azure](../load-balancer/load-balancer-overview.md), assegnandolo alla configurazione **front-end** del servizio di bilanciamento del carico. Questo indirizzo IP pubblico viene usato come indirizzo IP virtuale (VIP) di bilanciamento del carico. A un servizio di bilanciamento del carico front-end è possibile assegnare un indirizzo IP pubblico statico o dinamico. È anche possibile assegnare più indirizzi IP pubblici a un servizio di bilanciamento del carico front-end, consentendo così scenari con [più indirizzi VIP](../load-balancer/load-balancer-multivip.md) come un ambiente multi-tenant con siti Web basati su SSL.
 
 ### Gateway VPN
-Il [gateway VPN di Azure](vpn-gateway-about-vpngateways.md) può essere usato per connettere una rete virtuale di Azure ad altre reti virtuali o locali di Azure. È necessario assegnare un indirizzo IP pubblico alla relativa **configurazione IP** per abilitare la comunicazione con la rete remota. Attualmente, è possibile assegnare solo un indirizzo IP pubblico dinamico a un gateway VPN.
+Il [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md) può essere usato per connettere una rete virtuale di Azure ad altre reti virtuali o locali di Azure. È necessario assegnare un indirizzo IP pubblico alla relativa **configurazione IP** per abilitare la comunicazione con la rete remota. Attualmente, è possibile assegnare solo un indirizzo IP pubblico dinamico a un gateway VPN.
 
 ### Gateway di applicazione
-È possibile associare un indirizzo IP pubblico a un [gateway applicazione](application-gateway-introduction.md) di Azure, assegnandolo alla configurazione **front-end** del gateway. Questo indirizzo IP pubblico viene usato come indirizzo VIP con carico bilanciato. Attualmente, è possibile assegnare solo un indirizzo IP pubblico *dinamico* alla configurazione front-end di un gateway applicazione.
+È possibile associare un indirizzo IP pubblico a un [gateway applicazione](../application-gateway/application-gateway-introduction.md) di Azure, assegnandolo alla configurazione **front-end** del gateway. Questo indirizzo IP pubblico viene usato come indirizzo VIP con carico bilanciato. Attualmente, è possibile assegnare solo un indirizzo IP pubblico *dinamico* alla configurazione front-end di un gateway applicazione.
 
 ### Riepilogo
 La tabella seguente illustra la proprietà specifica tramite la quale un indirizzo IP pubblico può essere associato a una risorsa di livello superiore e i metodi di allocazione possibili (dinamici o statici) utilizzabili.
@@ -113,7 +113,7 @@ Quando si crea una macchina virtuale, ai server DNS gestiti da Azure viene aggiu
 Le macchine virtuali configurate con server DNS gestiti di Azure potranno risolvere i nomi host di tutte le VM all'interno la rete virtuale nei relativi indirizzi IP privati.
 
 ### Servizi di bilanciamento del carico interno e gateway applicazione
-È possibile assegnare un indirizzo IP privato alla configurazione **front-end** di un [servizio di bilanciamento del carico interno di Azure](load-balancer-internal-overview.md) o di un [gateway applicazione di Azure](application-gateway-introduction.md). Questo indirizzo IP privato funge da endpoint interno, accessibile solo alle risorse all'interno della rete virtuale e alle reti remote connesse alla rete virtuale. È possibile assegnare un indirizzo IP privato dinamico o statico alla configurazione front-end.
+È possibile assegnare un indirizzo IP privato alla configurazione **front-end** di un [servizio di bilanciamento del carico interno di Azure](../load-balancer/load-balancer-internal-overview.md) o di un [gateway applicazione di Azure](../application-gateway/application-gateway-introduction.md). Questo indirizzo IP privato funge da endpoint interno, accessibile solo alle risorse all'interno della rete virtuale e alle reti remote connesse alla rete virtuale. È possibile assegnare un indirizzo IP privato dinamico o statico alla configurazione front-end.
 
 ### Riepilogo
 La tabella seguente illustra la proprietà specifica tramite la quale un indirizzo IP privato può essere associato a una risorsa di livello superiore e i metodi di allocazione possibili (dinamici o statici) utilizzabili.
@@ -137,4 +137,4 @@ Nella maggior parte dei casi, gli indirizzi IP pubblici sono gratuiti. È previs
 - Informazioni su come [distribuire una VM con un IP pubblico statico tramite un modello](virtual-network-deploy-static-pip-arm-template.md).
 - [Distribuire una VM con un indirizzo IP privato statico](virtual-networks-static-private-ip-arm-pportal.md) tramite il portale di Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

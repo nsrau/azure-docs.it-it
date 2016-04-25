@@ -35,7 +35,7 @@ L'hub IoT Hub monitora quattro categorie di eventi:
 
     ![][1]
 
-3. Selezionare le categorie di monitoraggio da controllare e quindi fare clic su **Salva**. Gli eventi sono disponibili per la lettura nell'endpoint compatibile con l'hub eventi elencato in **Impostazioni di monitoraggio**.
+3. Selezionare le categorie di monitoraggio da controllare e quindi fare clic su **Salva**. Gli eventi sono disponibili per la lettura nell'endpoint compatibile con l'hub eventi elencato in **Impostazioni di monitoraggio**. L'endpoint IoT Hub è chiamato `messages/operationsmonitoringevents`.
 
     ![][2]
 
@@ -139,4 +139,4 @@ Al termine di questa panoramica del monitoraggio delle operazioni, è possibile 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

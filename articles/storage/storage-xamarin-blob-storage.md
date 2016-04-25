@@ -55,8 +55,7 @@ Per altre informazioni sulle firme di accesso condiviso, vedere [Firme di access
 
 Per questa esercitazione, l'applicazione Xamarin verrà creata in Visual Studio. Attenersi alla seguente procedura per creare l'applicazione:
 
-1. Scaricare e installare [Visual Studio](https://www.visualstudio.com/).
-2. Scaricare e installare [Xamarin](http://xamarin.com/platform).
+1. Eseguire il [programma di installazione di Visual Studio 2015](https://www.visualstudio.com/), scegliendo un'installazione **personalizzata** e selezionando la casella sotto **Sviluppo di app per dispositivi mobili multipiattaforma > C#/.NET (Xamarin)**. Se Visual Studio è già installato, scaricare e installare [Xamarin](http://xamarin.com/platform) direttamente. Per istruzioni dettagliate su Visual Studio e Xamarin, vedere la pagina di [configurazione e installazione](https://msdn.microsoft.com/library/mt613162.aspx) su MSDN.
 3. Aprire Visual Studio e scegliere **File > Nuovo > Progetto > Android > Applicazione vuota (Android)**.
 4. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e selezionare **Gestisci pacchetti NuGet**. Cercare quindi **Archiviazione di Azure** e installare **Archiviazione di Azure 4.4.0-preview**.
 
@@ -180,4 +179,4 @@ In questa esercitazione, è stato illustrato come utilizzare l'archivio BLOB di 
 - [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md)
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

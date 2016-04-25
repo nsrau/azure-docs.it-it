@@ -1,12 +1,12 @@
 <properties pageTitle="Configurare un nome di dominio personalizzato per un’app web in Servizio app di Azure che utilizza Gestione traffico "wpickett"Usare un nome di dominio personalizzato per un app web in Servizio app di Azure che includa Gestione traffico per il bilanciamento del carico." description="Usare un nome di dominio personalizzato per un'app Web nel servizio app di Azure che usa Gestione traffico per il bilanciamento del carico." services="app-service\\web" documentationCenter="" authors="rmcmurray" manager="wpickett" editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/04/2016" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 #Configurazione di un nome di dominio personalizzato per un'app Web nel servizio app di Azure con Gestione traffico
@@ -59,4 +59,4 @@ Per associare il dominio personalizzato a un'app Web nel servizio app di Azure, 
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

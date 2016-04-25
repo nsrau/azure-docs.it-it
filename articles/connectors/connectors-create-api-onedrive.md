@@ -30,7 +30,7 @@ Connettersi a OneDrive per gestire i file, ad esempio, caricare, recuperare ed e
 
 &nbsp;
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic sull'[API di OneDrive](../app-service-logic/app-service-logic-connector-onedrive.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 Con OneDrive è possibile:
 
@@ -48,7 +48,7 @@ L'API di OneDrive include i trigger e le azioni seguenti.
 
 | Trigger | Azioni|
 | --- | --- |
-|<ul><li>Quando un file viene creato</li><li>Quando un file viene modificato</li></ul> | <ul><li>Crea file</li><li>Elenca file in una cartella</li><li>Quando un file viene creato</li><li>Copia file</li><li>Elimina file</li><li>Estrai cartella</li><li>Recupera contenuto di file tramite ID</li><li>Recupera contenuto di file tramite percorso</li><li>Recupera metadati di file tramite ID</li><li>Recupera metadati di file tramite percorso</li><li>Elenca cartella radice</li><li>Aggiorna file</li><li>Quando un file viene modificato</li></ul>
+|<ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>List files in a folder</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract folder</li><li>Get file content using id</li><li>Get file content using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>List root folder</li><li>Update file</li><li>When a file is modified</li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
@@ -59,7 +59,7 @@ Quando si aggiunge questa API alle app per la logica, è necessario autorizzare 
 1. Accedere all'account OneDrive.
 2. Consentire alle app per la logica di connettersi e usare OneDrive. 
 
-Dopo aver creato la connessione immettere le proprietà di OneDrive, ad esempio nome file o percorso cartella. Tali proprietà vengono descritte nelle **Informazioni di riferimento sulle API REST** in questo argomento.
+Dopo aver creato la connessione immettere le proprietà di OneDrive, ad esempio nome file o percorso cartella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione in altre app per la logica.
 
@@ -129,7 +129,7 @@ Recupera i metadati di un file in OneDrive tramite percorso. ```GET: /datasets/d
 
 
 ### Recupera contenuto di file tramite percorso
-Recupera il contenuto dei file in OneDrive tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera i contenuti di un file in OneDrive tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -147,7 +147,7 @@ Recupera il contenuto dei file in OneDrive tramite percorso. ```GET: /datasets/d
 
 
 ### Recupera contenuto di file tramite ID
-Recupera il contenuto dei file in OneDrive tramite ID. ```GET: /datasets/default/files/{id}/content```
+Recupera i contenuti di un file in OneDrive tramite ID. ```GET: /datasets/default/files/{id}/content```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -312,4 +312,4 @@ Tornare all'[elenco di API](apis-list.md).
 [6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
 [7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -3,7 +3,7 @@
     description="Illustra come gestire partizioni e spostare dati tramite un servizio self-hosted usando API di database elastici." 
     services="sql-database" 
     documentationCenter="" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     authors="ddove"/>
 
 <tags 
@@ -27,7 +27,13 @@ Per iniziare, vedere lo [strumento di divisione-unione del database elastico](sq
 
 La versione 1.1.0 dello strumento suddivisione-unione consente di pulire automaticamente i metadati da richiesta completata. Un'opzione di configurazione controlla il periodo di conservazione di questi metadati prima che vengano rimossi.
 
-La versione 1.0.0 dello strumento suddivisione-unione offre i miglioramenti seguenti: * le API .Net sono incluse per interfacciarsi con divisione-unione - il ruolo web è ora facoltativo * Data e ora sono ora supportati per le chiavi di partizionamento orizzontale * Le mappe di partizionamento di elenco sono ora supportate. * I limiti di intervallo nelle richieste possono corrispondere più facilmente con gli intervalli archiviati nella mappa di partizionamento. * Più istanze del ruolo di lavoro sono ora supportate per migliorare la disponibilità. * Le credenziali archiviate come parte dell'operazione di suddivisione-unione vengono ora crittografate in stato inattivo.
+La versione 1.0.0 dello strumento di suddivisione-unione offre i seguenti miglioramenti:
+* Sono incluse API .Net per interfacciarsi con la suddivisione-unione: il ruolo Web ora è facoltativo 
+* Tipi di data e ora sono ora supportati per le chiavi di partizionamento 
+* Ora sono supportate le mappe partizioni di tipo elenco. 
+* I limiti dell'intervallo nelle richieste possono corrispondere più facilmente agli intervalli archiviati nella mappa partizioni.
+* Per migliorare la disponibilità ora sono supportate più istanze del ruolo di lavoro. 
+* Le credenziali archiviate come parte dell'operazione di suddivisione-unione ora vengono crittografate in stato inattivo.
 
 ## Come eseguire l'aggiornamento
 
@@ -169,7 +175,7 @@ Il servizio di suddivisione-unione fornisce la tabella **RequestStatus** nel dat
 
 ### Diagnostica Azure
 
-Il servizio di suddivisione-unione utilizza la diagnostica Azure basata su Azure SDK 2.5 per il monitoraggio e la diagnostica. È possibile controllare la configurazione della diagnostica come indicato di seguito: [Abilitazione della diagnostica nei servizi cloud e nelle macchine virtuali di Azure](../service-fabric/cloud-services-dotnet-diagnostics.md). Il pacchetto di download include due configurazioni della diagnostica: una per il ruolo Web e una per il ruolo di lavoro. Queste configurazioni della diagnostica per il servizio seguono le istruzioni fornite dai [Dati fondamentali dei servizi cloud di Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Essi includono le definizioni per la registrazione di contatori delle prestazioni, log IIS, registri eventi di Windows e registri eventi dell'applicazione di suddivisione-unione.
+Il servizio di suddivisione-unione utilizza la diagnostica Azure basata su Azure SDK 2.5 per il monitoraggio e la diagnostica. È possibile controllare la configurazione della diagnostica come indicato di seguito: [Abilitazione della diagnostica nei servizi cloud e nelle macchine virtuali di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). Il pacchetto di download include due configurazioni della diagnostica: una per il ruolo Web e una per il ruolo di lavoro. Queste configurazioni della diagnostica per il servizio seguono le istruzioni fornite dai [Dati fondamentali dei servizi cloud di Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Essi includono le definizioni per la registrazione di contatori delle prestazioni, log IIS, registri eventi di Windows e registri eventi dell'applicazione di suddivisione-unione.
 
 ## Distribuzione della diagnostica 
 
@@ -195,7 +201,7 @@ Per abilitare il monitoraggio e la diagnostica utilizzando la configurazione del
     
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker" 
 
-Altre informazioni su come configurare e distribuire le impostazioni di diagnostica sono disponibili qui: [Abilitazione della diagnostica nei servizi cloud e nelle macchine virtuali di Azure](../cloud-services-dotnet-diagnostics.md).
+Altre informazioni su come configurare e distribuire le impostazioni di diagnostica sono disponibili qui: [Abilitazione della diagnostica nei servizi cloud e nelle macchine virtuali di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## Recupero della diagnostica 
 
@@ -239,4 +245,4 @@ Una proprietà di univocità con la chiave di partizionamento orizzontale come c
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

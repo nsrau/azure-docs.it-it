@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="04/06/2016"
 	ms.author="jahogg"/>
 
 # Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
@@ -25,6 +25,8 @@
 La diagnosi e la risoluzione dei problemi in un'applicazione distribuita ospitata in un ambiente cloud possono essere più complesse rispetto agli ambienti tradizionali. Le applicazioni possono essere distribuite in un'infrastruttura PaaS o IaaS, in locale, su un dispositivo mobile o in una combinazione di questi tipi di distribuzione. In genere, il traffico in rete dell'applicazione può passare su reti pubbliche e private e l'applicazione può usare più tecnologie di archiviazione, ad esempio tabelle, BLOB, code o file di Microsoft Azure oltre ad altri archivi di dati come i database relazionali e di documenti.
 
 Per gestire in modo efficace queste applicazioni, è necessario monitorarle attivamente e capire in che modo diagnosticare e risolvere i problemi correlati a tutti gli aspetti delle applicazioni e delle tecnologie dipendenti. L'utente dei servizi di archiviazione di Azure deve monitorare continuamente i servizi di archiviazione usati dall'applicazione per riscontrare eventuali cambiamenti inattesi nel comportamento, ad esempio tempi di risposta insolitamente lenti, e deve usare la registrazione per raccogliere dati più dettagliati e analizzare i problemi più in profondità. Le informazioni di diagnostica ottenute dal monitoraggio e dalla registrazione consentiranno di determinare la causa principale del problema riscontrato dall'applicazione. Sarà quindi possibile identificare il problema e determinare le misure appropriate per risolverlo. L'Archiviazione di Azure è uno dei principali servizi di Azure ed è un componente importante della maggior parte delle soluzioni distribuite dai client nell'infrastruttura Azure. Include funzionalità che consentono di semplificare le attività di monitoraggio, diagnostica e risoluzione dei problemi di archiviazione nelle applicazioni basate su cloud.
+
+> [AZURE.NOTE] Per gli account di archiviazione con un tipo di replica di archiviazione con ridondanza della zona (ZRS) al momento non sono abilitate le funzionalità di metrica e registrazione.
 
 Per una guida interattiva alla risoluzione dei problemi end-to-end in applicazioni di Archiviazione di Azure, vedere la pagina relativa alla [risoluzione dei problemi end-to-end usando Metriche e Registrazione di Archiviazione di Azure, AzCopy e Analizzatore messaggi](../storage-e2e-troubleshooting/).
 
@@ -87,15 +89,15 @@ La guida è destinata in particolare agli sviluppatori dei servizi online che us
 
 ### <a name="how-this-guide-is-organized"></a>Organizzazione di questa guida
 
-La sezione "[Monitoraggio del servizio di archiviazione]" descrive le modalità di controllo dell'integrità e delle prestazioni dei servizi di archiviazione di Azure tramite le metriche di Analisi archiviazione di Azure (metriche di archiviazione).
+La sezione "[Monitoraggio del servizio di archiviazione]" descrive le modalità di controllo dell'integrità e delle prestazioni dei servizi di archiviazione Azure tramite le metriche di Analisi archiviazione di Azure (metriche di archiviazione).
 
-La sezione "[Diagnosi dei problemi di archiviazione]" descrive in che modo vengono diagnosticati i problemi usando la funzione di registrazione di Analisi archiviazione di Azure (registrazione dell'archiviazione). Descrive anche in che modo si abilita la registrazione lato client usando gli strumenti di una libreria client come la libreria client di archiviazione per .NET o Azure SDK per Java.
+La sezione "[Diagnosi dei problemi di archiviazione]" descrive in che modo vengono diagnosticati i problemi utilizzando la funzione di registrazione di Analisi archiviazione di Azure (registrazione dell'archiviazione). Descrive anche in che modo si abilita la registrazione lato client usando gli strumenti di una libreria client come la libreria client di archiviazione per .NET o Azure SDK per Java.
 
 La sezione "[Traccia end-to-end]" descrive come si possono correlare le informazioni contenute in vari file di log e dati delle metriche.
 
 La sezione "[Guida alla risoluzione dei problemi]" fornisce indicazioni utili per identificare alcuni dei problemi relativi all'archiviazione che si riscontrano più di frequente.
 
-La sezione "[Appendici]" include informazioni sull'uso di altri strumenti quali Wireshark e Netmon per l'analisi dei dati dei pacchetti di rete, Fiddler per l'analisi dei messaggi HTTP/HTTPS e Microsoft Message Analyzer per la correlazione dei dati di log.
+La sezione "[Appendici]" include informazioni sull'utilizzo di altri strumenti quali Wireshark e Netmon per l'analisi dei dati dei pacchetti di rete, Fiddler per l'analisi dei messaggi HTTP/HTTPS e Microsoft Message Analyzer per la correlazione dei dati di log.
 
 
 ## <a name="monitoring-your-storage-service"></a>Monitoraggio del servizio di archiviazione
@@ -104,14 +106,14 @@ Per chi ha familiarità con il monitoraggio delle prestazioni di Windows, le met
 
 È possibile scegliere quali metriche orarie visualizzare nel [portale di Azure](https://portal.azure.com) e configurare le regole che inviano una notifica agli amministratori ogni volta che una metrica oraria supera una soglia particolare. Per altre informazioni, vedere <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">Procedura: Ricevere notifiche di avviso e gestire le relative regole in Azure</a>. Il servizio di archiviazione raccoglie le metriche usando la procedura migliore, ma potrebbe non registrare tutte le operazioni di archiviazione.
 
-Nel portale di Azure sono visualizzate metriche come la disponibilità, le richieste totali e i numeri di latenza media per un account di archiviazione. È stata configurata anche una regola di notifica per avvisare un amministratore se la disponibilità scende al di sotto di un determinato livello. Dopo avere visualizzato questi dati, è possibile analizzare i motivi per cui la percentuale di successo dei servizi della tabella risulta inferiore al 100%. Per altre informazioni, vedere la sezione "[Le metriche indicano un valore PercentSuccess basso o le voci del log di analisi contengono operazioni con stato della transazione ClientOtherErrors]".
+Nel portale di Azure sono visualizzate metriche come la disponibilità, le richieste totali e i numeri di latenza media per un account di archiviazione. È stata configurata anche una regola di notifica per avvisare un amministratore se la disponibilità scende al di sotto di un determinato livello. Dalla visualizzazione di questi dati, un'area di analisi possibile è la percentuale di successo dei servizi della tabella che risulta inferiore al 100% (per ulteriori informazioni, vedere la sezione "[Le metriche indicano un valore PercentSuccess basso o le voci del log di analisi contengono operazioni con stato della transazione ClientOtherErrors]").
 
 È necessario monitorare continuamente le applicazioni Azure per assicurarsi che siano integre e funzionino come previsto, eseguendo queste operazioni.
 
 - Stabilire alcune metriche di base per le applicazioni che consentano di confrontare i dati correnti e identificare eventuali modifiche significative del comportamento dell'Archiviazione di Azure e dell'applicazione. I valori delle metriche di base in molti casi saranno specifici per ogni singola applicazione e dovranno essere definiti quando si testano le prestazioni dell'applicazione.
 - Registrare metriche al minuto e usarle per monitorare attivamente eventuali anomalie ed errori imprevisti, ad esempio picchi dei conteggi degli errori o della frequenza delle richieste.
 - Registrare metriche orarie e usarle per monitorare valori medi, come la media dei conteggi degli errori e della frequenza delle richieste.
-- Esaminare i potenziali problemi usando gli strumenti di diagnostica descritti più avanti nella sezione "[Diagnosi dei problemi di archiviazione]".
+- Esaminare i potenziali problemi utilizzando gli strumenti di diagnostica descritti più avanti nella sezione "[Diagnosi dei problemi di archiviazione]."
 
 I grafici della figura 3 illustrano in che modo il calcolo della media delle metriche orarie può nascondere dei picchi di attività. Le metriche orarie sembrano indicare una frequenza costante delle richieste, mentre le metriche al minuto rivelano le fluttuazioni che si verificano effettivamente.
 
@@ -123,14 +125,13 @@ La parte rimanente di questa sezione descrive le metriche che è necessario moni
 
 Usare il [portale di Azure](https://portal.azure.com) per visualizzare lo stato del servizio di archiviazione (e altri servizi di Azure) in tutte le aree Azure del mondo. Ciò consente di vedere immediatamente se un problema al di fuori del proprio controllo incide sul servizio di archiviazione nell'area in uso per l'applicazione.
 
-Il [portale di Azure](https://portal.azure.com) può inoltre fornire notifiche sugli incidenti che influiscono sui vari servizi di Azure.
-Nota: queste informazioni in precedenza erano disponibili, insieme ai dati cronologici, sul dashboard del servizio di Azure all'indirizzo <a href="http://status.azure.com" target="_blank">http://status.azure.com</a>.
+Il [portale di Azure](https://portal.azure.com) può inoltre fornire notifiche sugli incidenti che influiscono sui vari servizi di Azure. Nota: queste informazioni in precedenza erano disponibili, insieme ai dati cronologici, sul dashboard del servizio di Azure all'indirizzo </a>http://status.azure.com<a href="http://status.azure.com" target="_blank">.
 
 Benché il [portale di Azure](https://portal.azure.com) raccolga le informazioni sullo stato dall'interno dei data center di Azure (monitoraggio da interno a esterno), si può anche considerare l'adozione di un approccio da esterno a interno per generare transazioni sintetiche che accedano periodicamente all'applicazione Web in hosting su Azure da più postazioni. I servizi offerti da <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> e Application Insights per Visual Studio Team Services sono esempi di tale approccio da esterno a interno. Per altre informazioni su Application Insights per Visual Studio Team Services, vedere la sezione "[Appendice 5: monitoraggio con Application Insights per Visual Studio Team Services]".
 
 ### <a name="monitoring-capacity"></a>Monitoraggio della capacità
 
-Lo strumento Metriche di archiviazione memorizza solo le metriche di capacità per il servizio BLOB poiché gli oggetti BLOB normalmente raccolgono la proporzione maggiore di dati archiviati. Attualmente non è possibile usare Metriche di archiviazione per monitorare la capacità di tabelle e code. Questi dati sono contenuti nella tabella **$MetricsCapacityBlob** se è stato attivato il monitoraggio per il servizio BLOB. Le metriche di archiviazione registrano i dati una volta al giorno ed è possibile usare il valore di **RowKey** per determinare se la riga contiene un'entità che fa riferimento ai dati utente (valore **data**) o dati analitici (valore **analytics**). Ogni entità archiviata contiene informazioni sulla quantità di spazio di archiviazione usato (valore **Capacity** in byte) e il numero attuale di contenitori (**ContainerCount**) e di oggetti BLOB (**ObjectCount**) usati nell'account di archiviazione. Per ulteriori informazioni sulle metriche di capacità archiviate nella tabella **$MetricsCapacityBlob**, vedere <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Schema di tabella della metrica di Analisi di archiviazione</a> su MSDN.
+Lo strumento Metriche di archiviazione memorizza solo le metriche di capacità per il servizio BLOB poiché gli oggetti BLOB normalmente raccolgono la proporzione maggiore di dati archiviati. Attualmente non è possibile usare Metriche di archiviazione per monitorare la capacità di tabelle e code. Questi dati sono contenuti nella tabella **$MetricsCapacityBlob** se è stato attivato il monitoraggio per il servizio BLOB. Metriche di archiviazione registrano i dati una volta al giorno ed è possibile utilizzare il valore di **RowKey** per determinare se la riga contiene un'entità che fa riferimento ai dati utente (valore **data**) o dati analitici (valore **analytics**). Ogni entità archiviata contiene informazioni sulla quantità di spazio di archiviazione utilizzato (valore **Capacity** in byte) e il numero attuale di contenitori (**ContainerCount**) e oggetti BLOB (**ObjectCount**) utilizzati nell'account di archiviazione. Per ulteriori informazioni sulle metriche di capacità archiviate nella tabella **$MetricsCapacityBlob**, vedere <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Schema di tabella della metrica di Analisi di archiviazione</a> su MSDN.
 
 > [AZURE.NOTE] È necessario monitorare questi valori per essere avvisati tempestivamente quando si stanno raggiungendo i limiti di capacità dell'account di archiviazione. Nel portale di Azure è possibile aggiungere regole di avviso per ricevere una notifica nel caso in cui l'archiviazione degli aggregati superi o sia inferiore alle soglie specificate.
 
@@ -138,9 +139,9 @@ Per sapere come stimare le dimensioni dei vari oggetti di archiviazione, ad esem
 
 ### <a name="monitoring-availability"></a>Monitoraggio della disponibilità
 
-Per verificare la disponibilità dei servizi di archiviazione nel proprio account di archiviazione, è necessario monitorare il valore della colonna **Availability** nelle tabelle delle metriche orarie o al minuto: **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. La colonna **Availability** contiene un valore percentuale che indica la disponibilità del servizio o dell'operazione API rappresentata dalla riga. Il valore **RowKey** indica se la riga contiene metriche per i servizio nel suo insieme o per un'operazione API specifica.
+Per verificare la disponibilità dei servizi di archiviazione nel proprio account di archiviazione, è necessario monitorare il valore della colonna della **disponibilità** nelle tabelle delle metriche orarie o al minuto: **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. La colonna della **disponibilità** contiene un valore percentuale che indica la disponibilità del servizio o dell'operazione API rappresentata dalla riga (il valore **RowKey** indica se la riga contiene metriche per i servizio nel suo insieme o per un'operazione API specifica).
 
-Eventuali valori inferiori al 100% indicano che alcune richieste di archiviazione hanno esito negativo. È possibile vedere perché le richieste hanno esito negativo esaminando le altre colonne di dati delle metriche che indicano il numero di richieste con tipi diversi di errore, ad esempio **ServerTimeoutError**. Il valore di **Availability** può scendere momentaneamente al di sotto del 100% per diversi motivi, ad esempio per un timeout temporaneo del server mentre il servizio sposta le partizioni per bilanciare meglio il carico della richiesta. La logica di ripetizione dei tentativi dell'applicazione client dovrebbe gestire tali condizioni intermittenti. La pagina <a href="http://msdn.microsoft.com/library/azure/hh343260.aspx" target="_blank"></a> contiene i tipi di transazione che le metriche di archiviazione includono nel calcolo della **disponibilità**.
+Eventuali valori inferiori al 100% indicano che alcune richieste di archiviazione hanno esito negativo. È possibile vedere perché le richieste hanno esito negativo esaminando le altre colonne di dati della metrica che indicano il numero di richieste con tipi diversi di errore, ad esempio **ServerTimeoutError**. La **disponibilità** può scendere momentaneamente al di sotto del 100% per diversi motivi, ad esempio per un timeout temporaneo del server mentre il servizio sposta le partizioni per bilanciare meglio il carico della richiesta. La logica di ripetizione dell'applicazione client dovrebbe gestire tali condizioni intermittenti. La pagina <a href="http://msdn.microsoft.com/library/azure/hh343260.aspx" target="_blank"></a> contiene i tipi di transazione che le metriche di archiviazione includono nel calcolo della **disponibilità**.
 
 Nel [portale di Azure](https://portal.azure.com) è possibile aggiungere regole di avviso per ricevere una notifica nel caso in cui la **disponibilità** di un servizio cada al di sotto di una soglia specificata.
 
@@ -151,7 +152,7 @@ La sezione "[Guida alla risoluzione dei problemi]" di questa guida descrive alcu
 Per monitorare le prestazioni dei servizi di archiviazione è possibile usare le seguenti metriche estratte dalle tabelle delle metriche orarie e al minuto.
 
 - I valori nelle colonne **AverageE2ELatency** e **AverageServerLatency** indicano il tempo medio impiegato dal servizio di archiviazione o dal tipo di operazione API per elaborare le richieste. **AverageE2ELatency** è una misura della latenza end-to-end che include il tempo impiegato a leggere la richiesta e inviare la risposta sommato al tempo impiegato per elaborare la richiesta (di conseguenza include la latenza di rete quando la richiesta raggiunge il servizio di archiviazione); **AverageServerLatency** è una misura del tempo di elaborazione ed esclude quindi qualsiasi latenza di rete relativa alla comunicazione con il client. Vedere la sezione "[Le metriche indicano un valore AverageE2ELatency alto e un valore AverageServerLatency basso]" più avanti in questa guida per sapere perché esiste una differenza significativa tra i due valori.
-- I valori nelle colonne **TotalIngress** e **TotalEgress** indicano il volume totale dei dati, in byte, in entrata e in uscita dal servizio di archiviazione o gestiti da un tipo specifico di operazione API.
+- I valori nelle colonne **TotalIngress** e **TotalEgress** indicano il volume totale dei dati, in byte, in entrata nel e in uscita dal servizio di archiviazione o gestiti da un tipo specifico di operazione API.
 - I valori presenti nella colonna **TotalRequests** indicano il numero totale di richieste ricevute dal servizio di archiviazione o dall'operazione API. **TotalRequests** è il numero totale di richieste ricevute dal servizio di archiviazione.
 
 In genere, questi valori vengono monitorati per verificare la presenza di eventuali cambiamenti imprevisti che possono indicare l'esistenza di problemi da sottoporre ad analisi.
@@ -166,7 +167,7 @@ La sezione "[Guida alla risoluzione dei problemi]" di questa guida descrive alcu
 Esistono alcuni sintomi che indicano la presenza di un problema dell'applicazione, tra cui:
 
 - Un errore grave che causa l'arresto anomalo o interrompe l'esecuzione dell'applicazione.
-- Cambiamenti significativi dei valori di base delle metriche monitorate come descritto nella sezione precedente, "[Monitoraggio del servizio di archiviazione]".
+- cambiamenti significativi dei valori di base delle metriche monitorate come descritto nella sezione precedente, "[Monitoraggio del servizio di archiviazione]"
 - Segnalazione da parte degli utenti dell'applicazione in merito al fatto che una determinata operazione non viene completata come previsto o che non è possibile usare una funzionalità.
 - Errori generati all'interno dell'applicazione che appaiono nei file di log o vengono segnalati con altri metodi.
 
@@ -229,7 +230,7 @@ Storage Client Library per .NET consente di raccogliere i dati della registrazio
 
 In molti casi, i dati di log provenienti dalla registrazione dell'archiviazione e da Storage Client Library saranno sufficienti per diagnosticare un problema, ma in alcune situazione può essere necessario disporre di informazioni più dettagliate rispetto a quelle fornite da questi strumenti. Ad esempio, l'utilizzo di Fiddler per visualizzare i messaggi HTTP e HTTPS consente di visualizzare i dati di intestazione e di payload inviati e ricevuti dai servizi di archiviazione e quindi di esaminare il modo in cui un'applicazione client ritenti le operazioni di archiviazione. Gli strumenti di analisi dei protocolli, come Wireshark, funzionano a livello di pacchetto e consentono di visualizzare i dati TCP, quindi di risolvere i problemi dovuti alla perdita di pacchetti e a errori di connessione. Message Analyzer è in grado di funzionare sia sul livello HTTP che sul livello TCP.
 
-## <a name="end-to-end-tracing"></a>Traccia end-to-end
+## <a name="end-to-end-tracing">Traccia end-to-end</a>
 
 La funzionalità di traccia end-to-end basata sull'utilizzo di una varietà di file di log è una tecnica utile per l'analisi dei potenziali problemi. È possibile usare le informazioni su data e ora estratte dai dati delle metriche come indicazione del punto da cui deve partire la ricerca nei file di log dei dettagli necessari per la risoluzione del problema.
 
@@ -488,7 +489,7 @@ In questo scenario, è necessario verificare perché il token SAS scade prima ch
 
 - Di solito non è consigliabile impostare un orario di inizio quando si crea una SAS che un client deve utilizzare immediatamente. Se esistono piccoli sfasamenti di orario tra l'host che genera la SAS utilizzando l'ora attuale e il servizio di archiviazione, è possibile che il servizio di archiviazione riceva una SAS non ancora valida.
 - Non impostare tempi troppo brevi per la scadenza di una SAS. Come già detto, eventuali piccole differenze di orario tra l'host che genera la SAS e il servizio di archiviazione possono causa un'apparente scadenza della SAS prima del tempo.
-- Il parametro della versione nella chiave di firma di accesso condiviso (ad esempio **sv=2015-04-05**) deve corrispondere alla versione di Storage Client Library in uso? Si consiglia di usare sempre la versione più recente di [Libreria del client di archiviazione](https://www.nuget.org/packages/WindowsAzure.Storage/). Per altre informazioni sul controllo della versione del token di firma di accesso condiviso e delle dipendenze nella versione della libreria client, vedere [Novità di Archiviazione di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
+- Il parametro della versione nella chiave di firma di accesso condiviso (ad esempio **sv=2015-04-05**) deve corrispondere alla versione di Storage Client Library in uso? Si consiglia di usare sempre la versione più recente di [Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/). Per altre informazioni sul controllo della versione del token di firma di accesso condiviso e delle dipendenze nella versione della libreria client, vedere [Novità di Archiviazione di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
 - Se si rigenerano le chiavi di accesso di archiviazione, questa operazione può invalidare tutti i token della firma di accesso condiviso esistenti. Questo può essere un problema se si generano token SAS con tempo di scadenza lungo per le applicazioni client da memorizzare nella cache.
 
 Se si usa Storage Client Library per generare i token SAS, sarà semplice creare un token valido. Tuttavia, se si utilizza l'API REST di archiviazione e si creano i token della firma di accesso condiviso manualmente, si consiglia di leggere con attenzione l'argomento <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">Delega dell'accesso con una firma di accesso condiviso</a> su MSDN.
@@ -669,7 +670,10 @@ L'applicazione client deve usare nomi univoci per i contenitori ogni volta che c
 
 La metrica **PercentSuccess** acquisisce la percentuale di operazioni eseguite correttamente in base al relativo codice di stato HTTP. Le operazioni con codici di stato 2XX hanno avuto esito positivo, mentre le operazioni con codici 3XX, 4XX e 5XX hanno avuto esito negativo e riducono il valore della metrica **PercentSucess**. Nei file di log dell'archiviazione sul lato server, queste operazioni vengono registrate con stato della transazione **ClientOtherErrors**.
 
-È importante notare che queste operazioni sono state completate correttamente e quindi non influiscono sulle altre metriche, ad esempio la disponibilità. Alcuni esempi di operazioni che vengono eseguite correttamente, ma che possono generare codici di stato HTTP non riusciti: - **ResourceNotFound** (Non trovato 404), ad esempio da una richiesta GET per un BLOB che non esiste. - **ResouceAlreadyExists** (Conflitto 409), ad esempio da un’operazione **CreateIfNotExist** in cui la risorsa esiste già. - **ConditionNotMet** (Non modificato 304), ad esempio da un'operazione condizionale, ad esempio quando un client invia un valore **ETag** e un’intestazione HTTP **If-None-Match** per richiedere un'immagine solo se è stata aggiornata dall'ultima operazione.
+È importante notare che queste operazioni sono state completate correttamente e quindi non influiscono sulle altre metriche, ad esempio la disponibilità. Alcuni esempi di operazioni eseguite correttamente ma che possono restituire codici di stato HTTP negativi sono:
+- **ResourceNotFound** (Non trovato 404), ad esempio da una richiesta GET a un oggetto BLOB che non esiste.
+- **ResouceAlreadyExists** (Conflitto 409), ad esempio da un'operazione **CreateIfNotExist** quando la risorsa esiste già.
+- **ConditionNotMet** (Non modificato 304), ad esempio da un'operazione condizionale come quando un client invia un valore **ETag** e un'intestazione HTTP **If-None-Match** per richiedere un'immagine solo se è stata aggiornata dall'ultima operazione.
 
 Per l'elenco dei codici di errore API REST che i servizi di archiviazione restituiscono più di frequente, vedere la pagina <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Codici di errore comuni dell'API REST</a>.
 
@@ -916,4 +920,4 @@ Al momento della redazione di questo documento Application Insights è disponibi
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

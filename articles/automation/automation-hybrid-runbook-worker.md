@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
+   ms.date="04/11/2016"
    ms.author="bwren" />
 
 # Funzionalità Hybrid Runbook Workers di Automazione di Azure
@@ -23,11 +23,9 @@ Questa funzionalità è illustrata nella figura seguente.
 
 ![Panoramica di Hybrid Runbook Workers](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-overview.png)
 
-Grazie a tale funzionalità, è possibile designare uno o più computer del data center come computer di lavoro runbook ibridi ed eseguire i runbook da Automazione di Azure. Ogni ruolo di lavoro richiede l'agente di gestione Microsoft con una connessione a Microsoft Operations Management Suite e all'ambiente runbook di Automazione di Azure. Operations Management Suite viene usato solo per installare e gestire l'agente di gestione e per monitorare la funzionalità del ruolo di lavoro. La distribuzione dei runbook e l'istruzione per eseguirli vengono gestite mediante Automazione di Azure.
+Grazie a tale funzionalità, è possibile designare uno o più computer del data center come computer di lavoro runbook ibridi ed eseguire i runbook da Automazione di Azure. Ogni ruolo di lavoro richiede l'agente di gestione Microsoft con una connessione a Microsoft Operations Management Suite (OMS) e all'ambiente runbook di Automazione di Azure. OMS viene usato solo per installare e gestire l'agente di gestione e per monitorare la funzionalità del computer di lavoro. La distribuzione dei runbook e l'istruzione per eseguirli vengono gestite mediante Automazione di Azure.
 
 ![Componenti di Hybrid Runbook Workers](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-components.png)
-
->[AZURE.NOTE] Operational Insights sta per essere integrato in Operations Management Suite, pertanto nel portale e nella documentazione è possibile che vengano usati entrambi i nomi.
 
 Non sono previsti requisiti di firewall in ingresso per supportare Hybrid Runbook Workers. L'agente nel computer locale avvia tutte le comunicazioni con Automazione di Azure nel cloud. Quando un runbook viene avviato, Automazione di Azure crea un'istruzione che viene recuperata dall'agente, che esegue quindi il pull del runbook e di tutti i parametri prima dell'esecuzione, oltre a recuperare da Automazione di Azure gli eventuali [asset](http://msdn.microsoft.com/library/dn939988.aspx) usati dal runbook.
 
@@ -59,23 +57,23 @@ Requisiti di firewall:
 ## Installazione di Hybrid Runbook Workers
 La procedura riportata di seguito descrive come installare e configurare il ruolo di lavoro ibrido per runbook. Eseguire i primi due passaggi una volta per l'ambiente di automazione e quindi ripetere i passaggi rimanenti per ogni computer di lavoro.
 
-### 1\. Creare l'area di lavoro di Operations Management Suite
-Se non è ancora disponibile un'area di lavoro di Operations Management Suite nell'account Azure, crearne una seguendo le istruzioni contenute nell'articolo [Configurare l'area di lavoro](https://technet.microsoft.com/library/mt484119.aspx). Se già si dispone di un'area di lavoro, è possibile usarla.
+### 1\. Creare un'area di lavoro OMS
+Se non si dispone ancora di un'area di lavoro OMS, crearne una seguendo le istruzioni contenute nell'articolo [Configurare l'area di lavoro](https://technet.microsoft.com/library/mt484119.aspx). Se già si dispone di un'area di lavoro, è possibile usarla.
 
-### 2\. Aggiungere la soluzione di automazione all'area di lavoro di Operations Management Suite
-Le soluzioni aggiungono funzionalità a Operations Management Suite. La soluzione di automazione aggiunge funzionalità per Automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per runbook. Quando si aggiunge la soluzione all'area di lavoro, i componenti del ruolo di lavoro vengono automaticamente propagati al computer dell'agente che verrà installato nel passaggio successivo.
+### 2\. Aggiungere una soluzione di automazione all'area di lavoro OMS
+Le soluzioni aggiungono funzionalità a OMS. La soluzione di automazione aggiunge funzionalità per Automazione di Azure, incluso il supporto per il ruolo di lavoro ibrido per runbook. Quando si aggiunge la soluzione all'area di lavoro, i componenti del ruolo di lavoro vengono automaticamente propagati al computer dell'agente che verrà installato nel passaggio successivo.
 
-Per aggiungere la soluzione **Automazione** all'area di lavoro di Operations Management Suite, seguire le istruzioni contenute nell'articolo relativo a [come aggiungere una soluzione tramite la raccolta soluzioni](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions).
+Seguire le istruzioni in [Aggiungere soluzioni](https://technet.microsoft.com/library/mt674635.aspx) per aggiungere la soluzione di **Automazione** nell'area di lavoro OMS.
 
 ### 3\. Installare l'agente di gestione Microsoft
-L'agente di gestione Microsoft collega i computer a Operations Management Suite. Quando si installa l'agente nel computer locale e lo si connette all'area di lavoro, viene eseguito automaticamente il download dei componenti necessari per il ruolo di lavoro ibrido per runbook.
+L'agente di gestione Microsoft collega i computer a OMS. Quando si installa l'agente nel computer locale e lo si connette all'area di lavoro, viene eseguito automaticamente il download dei componenti necessari per il ruolo di lavoro ibrido per runbook.
 
-Per installare l'agente nel computer locale, seguire le istruzioni contenute nell'articolo relativo alla [connessione dei computer direttamente a Operational Insights](../operational-insights/operational-insights-direct-agent.md). È possibile ripetere questo processo per più computer per aggiungere più ruoli di lavoro nell'ambiente.
+Per installare l'agente nel computer locale, seguire le istruzioni contenute nell'articolo [Connettere i computer Windows direttamente a OMS](https://technet.microsoft.com/library/mt484108.aspx). È possibile ripetere questo processo per più computer per aggiungere più ruoli di lavoro nell'ambiente.
 
-Dopo che l'agente si è connesso a Operations Management Suite, viene elencato nella scheda **Origini connesse** del riquadro **Impostazioni** di Operations Management Suite. È possibile verificare che l'agente abbia scaricato correttamente la soluzione di automazione se include una cartella **AzureAutomationFiles** in C:\\Programmi\\Microsoft Monitoring Agent\\Agent.
+Dopo che l'agente si è connesso a OMS, viene elencato nella scheda **Origini connesse** del riquadro **Impostazioni** di OMS. È possibile verificare che l'agente abbia scaricato correttamente la soluzione di automazione se include una cartella **AzureAutomationFiles** in C:\\Programmi\\Microsoft Monitoring Agent\\Agent.
 
 ### 4\. Installare l'ambiente runbook e connettersi ad Automazione di Azure
-Quando si aggiunge un agente a Operations Management Suite, la soluzione di automazione esegue il push del modulo **HybridRegistration** di PowerShell, che contiene il cmdlet **Add-HybridRunbookWorker**. È possibile usare questo cmdlet per installare l'ambiente runbook nel computer e registrarlo in Automazione di Azure.
+Quando si aggiunge un agente a OMS, la soluzione di automazione esegue il push del modulo **HybridRegistration** di PowerShell, che contiene il cmdlet **Add-HybridRunbookWorker**. È possibile usare questo cmdlet per installare l'ambiente runbook nel computer e registrarlo in Automazione di Azure.
 
 Aprire una sessione di PowerShell in modalità amministratore ed eseguire i comandi seguenti per importare il modulo.
 
@@ -141,7 +139,7 @@ Per evitare che i runbook debbano autenticarsi per le risorse locali, è possibi
 
 Il nome utente per le credenziali deve essere in uno dei formati seguenti:
 
-- dominio\\nome utente 
+- dominio\\nome utente
 - username@domain
 - nome utente (per gli account locali nel computer locale)
 
@@ -152,7 +150,7 @@ Usare la procedura seguente per specificare un account RunAs per un gruppo di la
 2. Nel portale di Azure aprire l'account di automazione.
 2. Selezionare il riquadro **Gruppi di ruoli di lavoro ibridi** e quindi selezionare il gruppo.
 3. Selezionare **Tutte le impostazioni** e quindi **Impostazioni del gruppo di lavoro ibrido**.
-4. Modificar **Esegui come** da **Predefinito** a **Personalizzato**.
+4. Modificare **Esegui come** da **Predefinito** a **Personalizzato**.
 5. Selezionare le credenziali e fare clic su **Salva**.
 
 
@@ -177,7 +175,7 @@ Gli utenti SMA già esistenti possono spostare i runbook in Automazione di Azure
 
 Per determinare se per le proprie esigenze sia più opportuno ricorrere ad Automazione di Azure con Hybrid Runbook Workers o a Service Management Automation, è possibile usare i criteri seguenti.
 
-- SMA richiede un'installazione locale di Windows Azure Pack che prevede risorse locali e costi di manutenzione superiori rispetto ad Automazione di Azure, che richiede solo l'installazione di un agente nei ruoli lavoro per runbook locali. Gli agenti vengono gestiti da Operations Management Suite, riducendo ulteriormente i costi di manutenzione.
+- SMA richiede un'installazione locale di Windows Azure Pack che prevede risorse locali e costi di manutenzione superiori rispetto ad Automazione di Azure, che richiede solo l'installazione di un agente nei ruoli lavoro per runbook locali. Gli agenti vengono gestiti da OMS, riducendo ulteriormente i costi di manutenzione.
 - Automazione di Azure archivia i runbook nel cloud e li distribuisce ai computer di lavoro Runbook ibridi in locale. Se i criteri di sicurezza non consentono questo comportamento, è consigliabile usare SMA.
 - Windows Azure Pack è disponibile come download gratuito, mentre per Automazione di Azure possono essere applicate spese di sottoscrizione.
 - Automazione di Azure con Hybrid Runbook Workers consente di gestire i runbook per le risorse cloud e le risorse locali in un'unica posizione invece di avere una gestione separata per Automazione di Azure e SMA.
@@ -188,6 +186,5 @@ Per determinare se per le proprie esigenze sia più opportuno ricorrere ad Autom
 
 - [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
 - [Modifica di un runbook in Automazione di Azure](https://msdn.microsoft.com/library/dn879137.aspx)
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

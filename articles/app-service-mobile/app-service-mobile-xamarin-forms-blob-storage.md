@@ -30,23 +30,15 @@ In questa esercitazione si creerà un account di archiviazione e si aggiungerà 
 
 ## Prerequisiti
 
-Per completare l'esercitazione, sono necessari gli elementi seguenti:
-
-* Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-* [Visual Studio Community 2013] o versione successiva.
-
-* Un computer Mac in cui siano stati installati [Xcode](https://go.microsoft.com/fwLink/?LinkID=266532) v7.0 o versione successiva e [Xamarin Studio](http://xamarin.com/download).
-
-* Completamento dell'esercitazione [Creare un'app Xamarin.Forms]. Questo articolo usa l'app completata di quell'esercitazione.
+* Completare l'esercitazione [Creare un'app Xamarin.Forms], che elenca altri prerequisiti. Questo articolo usa l'app completata di quell'esercitazione.
 
 >[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](https://tryappservice.azure.com/?appServiceName=mobile). In questa pagina è possibile creare immediatamente un'app per dispositivi mobili iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Creare un account di archiviazione
 
-1. Creare un account di archiviazione seguendo le istruzioni nella sezione [Creare un account di archiviazione] dell'esercitazione. 
+1. Creare un account di archiviazione seguendo le istruzioni nella sezione [Creare un account di archiviazione di Azure] dell'esercitazione. 
 
-2. Nel portale di Azure passare all'account di archiviazione appena creato e fare clic sull'icona **Chiavi**. Copiare il valore presente in **Stringa di connessione primaria**.
+2. Nel portale di Azure passare all'account di archiviazione appena creato e fare clic sull'icona **Chiavi**. Copiare la **Stringa di connessione primaria**.
 
 3. Passare al back-end dell'app per dispositivi mobili In **Tutte le impostazioni** -> **Impostazioni applicazione** -> **Stringhe di connessione** creare una nuova chiave denominata `MS_AzureStorageAccountConnectionString` e usare il valore copiato dall'account di archiviazione. Usare **Personalizzata** come tipo di chiave.
 
@@ -61,7 +53,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
         using Microsoft.Azure.Mobile.Server.Files;
         using Microsoft.Azure.Mobile.Server.Files.Controllers;
 
-4. Modificare la classe di base in `StorageController`:
+4. Modificare la classe base in `StorageController`:
     
         public class TodoItemStorageController : StorageController<TodoItem>
 
@@ -93,7 +85,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
             return base.DeleteFileAsync(id, name);
         }
 
-6. Aggiornare la configurazione dell'API Web per configurare il routing degli attributi. In **Startup.MobileApp.cs**, aggiungere la riga seguente al metodo `ConfigureMobileApp()` dopo la definizione della variabile `config`:
+6. Aggiornare la configurazione dell'API Web per configurare il routing degli attributi. In **Startup.MobileApp.cs** aggiungere la riga seguente al metodo `ConfigureMobileApp()` dopo la definizione della variabile `config`:
 
         config.MapHttpAttributeRoutes();
 
@@ -121,9 +113,9 @@ Il nuovo `TodoItemStorageController` espone due sottorisorse nel record gestito:
 
 ###Comunicazione tra client e server
 
-Si noti che per `TodoItemStorageController` *non* è disponibile una route per caricare o scaricare un BLOB. Infatti, per eseguire queste operazioni un client mobile interagisce *direttamente* con l'archivio BLOB, dopo aver ottenuto un token di firma di accesso condivido per accedere in modo sicuro a un BLOB o un contenitore specifico. Questa è una progettazione architetturale importante, perché diversamente l'accesso all'archiviazione sarebbe limitato dalla scalabilità e dalla disponibilità del back-end mobile. Connettendosi invece direttamente all'archiviazione di Azure, il client mobile può sfruttarne le funzionalità, come il partizionamento automatico e la distribuzione geografica.
+Si noti che per `TodoItemStorageController` *non* è disponibile una route per caricare o scaricare un BLOB. Infatti, per eseguire queste operazioni un client mobile interagisce *direttamente* con l'archivio BLOB, dopo aver ottenuto un token di firma di accesso condiviso per accedere in modo sicuro a un BLOB o un contenitore specifico. Questa è una progettazione architetturale importante, perché diversamente l'accesso all'archiviazione sarebbe limitato dalla scalabilità e dalla disponibilità del back-end mobile. Connettendosi invece direttamente all'archiviazione di Azure, il client mobile può sfruttarne le funzionalità, come il partizionamento automatico e la distribuzione geografica.
 
-Una firma di accesso condiviso fornisce accesso delegato controllato alle risorse dell'account di archiviazione. Questo significa che è possibile concedere a un client autorizzazioni limitate per BLOB, code o tabelle per un periodo di tempo specificato e con un set di autorizzazioni specificato senza dover condividere le chiavi di accesso dell'account. Per altre informazioni, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso].
+Una firma di accesso condiviso fornisce accesso delegato controllato alle risorse dell'account di archiviazione. Questo significa che è possibile concedere a un client autorizzazioni limitate per BLOB, code o tabelle per un periodo di tempo specificato e con un set di autorizzazioni specificato senza dover condividere le chiavi di accesso dell'account. Per altre informazioni, vedere [Informazioni sulle firme di accesso condiviso].
 
 Il diagramma seguente mostra le interazioni di client e server. Prima di caricare un file, il client richiede al servizio un token di firma di accesso condiviso. Il servizio usa la stringa di connessione a risorsa di archiviazione per generare una nuova firma di accesso condiviso, che restituisce quindi al client. La firma di accesso condiviso ha una durata limitata e limita le autorizzazioni solo a un file o un contenitore specifico. Il client mobile usa quindi questa firma di accesso condiviso e Azure Storage SDK per client per caricare il file nell'archivio BLOB.
 
@@ -145,13 +137,13 @@ Fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **
 
   - [PCLStorage]
 
-Per praticità, questo esempio usa la libreria [PCLStorage], che però non è richiesta da Azure Mobile Apps SDK per client.
+Per praticità, questo esempio usa la libreria [PCLStorage], che però non è richiesta da Azure Mobile Apps Client SDK.
 
 [PCLStorage]: https://www.nuget.org/packages/PCLStorage/
 
 ###Aggiungere l'interfaccia IPlatform
 
-Creare una nuova interfaccia `IPlatform` nel progetto di libreria portabile principale. Questo criterio segue il modello [Xamarin.Forms DependencyService] che prevede di caricare la classe specifica della piattaforma corretta in fase di esecuzione. Successivamente si aggiungeranno le implementazioni specifiche della piattaforma in ogni progetto client.
+Creare una nuova interfaccia `IPlatform` nel progetto di libreria portabile principale. Questo criterio segue il modello [Xamarin.Forms DependencyService] per caricare la classe specifica della piattaforma corretta in fase di esecuzione. Successivamente si aggiungeranno le implementazioni specifiche della piattaforma in ogni progetto client.
 
 1. Aggiungere le istruzioni using seguenti:
 
@@ -234,7 +226,7 @@ Creare una nuova interfaccia `IPlatform` nel progetto di libreria portabile prin
 
 Creare una nuova classe `TodoItemFileSyncHandler` nel progetto di libreria portabile principale. Questa classe contiene i callback da Azure SDK per notificare al codice quando un file viene aggiunto o rimosso.
 
-Azure Mobile SDK per client non archivia in effetti i dati dei file. Questo SDK richiama l'implementazione di `IFileSyncHandler` che a sua volta determina se e come i file vengono archiviati nel dispositivo locale.
+Azure Mobile Client SDK non archivia in effetti i dati dei file. Questo SDK richiama l'implementazione di `IFileSyncHandler` che a sua volta determina se e come i file vengono archiviati nel dispositivo locale.
 
 1. Aggiungere le istruzioni using seguenti:
 
@@ -274,7 +266,7 @@ Azure Mobile SDK per client non archivia in effetti i dati dei file. Questo SDK 
 
 ###Aggiornare TodoItemManager
 
-1. In **TodoItemManager.cs**, rimuovere il commento dalla riga `#define OFFLINE_SYNC_ENABLED`.
+1. In **TodoItemManager.cs** rimuovere il commento dalla riga `#define OFFLINE_SYNC_ENABLED`.
 
 2. In **TodoItemManager.cs** aggiungere le istruzioni using seguenti:
 
@@ -682,7 +674,7 @@ Aggiungere codice specifico della piattaforma al progetto iOS.
 
 Questo articolo descrive come usare il nuovo supporto file in Azure Mobile SDK per client e server per consentire l'interazione con Archiviazione di Azure.
 
-- Creare un account di archiviazione e aggiungere la stringa di connessione al back-end dell'app per dispositivi mobili. Solo il back-end include la chiave per Archiviazione di Azure. Il client mobile richiede un token di firma di accesso condiviso ogni volta che deve accedere ad Archiviazione di Azure. Per altre informazioni sui token di firma di accesso condiviso in Archiviazione di Azure, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso].
+- Creare un account di archiviazione e aggiungere la stringa di connessione al back-end dell'app per dispositivi mobili. Solo il back-end include la chiave per Archiviazione di Azure. Il client mobile richiede un token di firma di accesso condiviso ogni volta che deve accedere ad Archiviazione di Azure. Per altre informazioni sui token di firma di accesso condiviso in Archiviazione di Azure, vedere [Informazioni sulle firme di accesso condiviso].
 
 - Creare un controller che rappresenta le sottoclassi `StorageController` per gestire le richieste di token di firma di accesso condiviso e per ottenere i file associati a un record. Per impostazione predefinita, i file vengono associati a un record usando l'ID record come parte del nome del contenitore. Il comportamento può essere personalizzato specificando un'implementazione di `IContainerNameResolver`. Anche i criteri del token di firma di accesso condiviso possono essere personalizzati.
 
@@ -690,11 +682,11 @@ Questo articolo descrive come usare il nuovo supporto file in Azure Mobile SDK p
 
         client.InitializeFileSync(new MyFileSyncHandler(), store);
 
-      + `IFileSyncHandler.GetDataSource` viene chiamato quando Azure Mobile SDK per client necessita dei dati dei file, ad esempio come parte del processo di caricamento. In questo modo è possibile gestire se e come vengono archiviati i file nel dispositivo locale e restituire le informazioni, se necessario.
+      + `IFileSyncHandler.GetDataSource` viene chiamato quando Azure Mobile Client SDK necessita dei dati dei file, ad esempio come parte del processo di caricamento. In questo modo è possibile gestire se e come vengono archiviati i file nel dispositivo locale e restituire le informazioni, se necessario.
 
       + `IFileSyncHandler.ProcessFileSynchronizationAction` viene richiamato come parte del flusso di sincronizzazione dei file. Vengono forniti un riferimento a file e un valore di enumerazione FileSynchronizationAction per poter decidere in che modo l'applicazione dovrà gestire l'evento. Ad esempio, scaricare automaticamente un file quando questo viene creato o aggiornato, eliminare un file dal dispositivo locale quando il file viene eliminato nel server.
 
-- È possibile usare un oggetto `MobileServiceFile` in modalità online oppure offline, usando rispettivamente `IMobileServiceTable` o `IMobileServiceSyncTable`. Nello scenario offline il caricamento si verifica quando l'app chiama `PushFileChangesAsync`, attivando l'elaborazione della coda operazioni offline. Per ogni operazione su file, Azure Mobile SDK per client richiama il metodo `GetDataSource` nell'istanza di `IFileSyncHandler` per recuperare il contenuto del file per il caricamento.
+- È possibile usare un oggetto `MobileServiceFile` in modalità online oppure offline, usando rispettivamente `IMobileServiceTable` o `IMobileServiceSyncTable`. Nello scenario offline il caricamento si verifica quando l'app chiama `PushFileChangesAsync`, attivando l'elaborazione della coda operazioni offline. Per ogni operazione su file, Azure Mobile Client SDK richiama il metodo `GetDataSource` nell'istanza di `IFileSyncHandler` per recuperare il contenuto del file per il caricamento.
 
 - Per recuperare i file di un elemento, chiamare il metodo '`GetFilesAsync` nell'istanza di `IMobileServiceTable<T>` o IMobileServiceSyncTable<T>'. Questo metodo restituisce un elenco di file associato all'elemento di dati fornito. Nota: questa è un'operazione *locale* che restituirà i file in base allo stato dell'oggetto al momento dell'ultima sincronizzazione. Per ottenere un elenco aggiornato di file dal server, è necessario avviare prima un'operazione di sincronizzazione.
 
@@ -712,17 +704,17 @@ Questo articolo descrive come usare il nuovo supporto file in Azure Mobile SDK p
 
     Questo requisito è necessario perché alcuni client mobili hanno già il record nell'archivio locale. Quando questi client effettuano un pull incrementale, il record non viene restituito e il client non esegue una query sui nuovi file associati. Per evitare questo problema, è consigliabile aggiornare il timestamp del record durante l'esecuzione di una modifica dell'archivio BLOB che non usa Azure Mobile SDK per client.
 
-- Il progetto client usa il modello [Xamarin.Forms DependencyService] che prevede di caricare la classe specifica della piattaforma corretta in fase di esecuzione. In questo esempio è stata definita un'interfaccia `IPlatform` con implementazioni in ognuno dei progetti specifici della piattaforma.
+- Il progetto client usa il modello [Xamarin.Forms DependencyService] per caricare la classe specifica della piattaforma corretta in fase di esecuzione. In questo esempio è stata definita un'interfaccia `IPlatform` con implementazioni in ogni progetto specifico della piattaforma.
 
 <!-- URLs. -->
 
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
-[Creare un'app Xamarin.Forms]: ../app-service-mobile-xamarin-forms-get-started.md
+[Creare un'app Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started.md
 [Xamarin.Forms DependencyService]: https://developer.xamarin.com/guides/xamarin-forms/dependency-service/
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
-[Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso]: ../storage/storage-dotnet-shared-access-signature-part-1.md
-[Creare un account di archiviazione]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Informazioni sulle firme di accesso condiviso]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[Creare un account di archiviazione di Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -19,7 +19,7 @@
 
 Per sfruttare i servizi di hosting e scalabilità di Azure, è possibile eseguire la migrazione e la pubblicazione dell'applicazione Web su un servizio cloud di Azure. È possibile eseguire un'applicazione Web in Azure con modifiche minime all'applicazione esistente.
 
->[AZURE.NOTE] Oggetto di questo argomento è la distribuzione in servizi cloud, non in siti Web. Per informazioni sulla distribuzione in siti Web, vedere [Distribuire un'app Web nel servizio app di Azure](/app-service-web/web-sites-deploy.md).
+>[AZURE.NOTE] Oggetto di questo argomento è la distribuzione in servizi cloud, non in siti Web. Per informazioni sulla distribuzione in siti Web, vedere [Distribuire un'app Web nel servizio app di Azure](./app-service-web/web-sites-deploy.md).
 
 Per un elenco di modelli specifici supportati sia per Visual C# che per Visual Basic, vedere la sezione **Modelli di progetto supportati** più avanti in questo argomento.
 
@@ -208,4 +208,4 @@ Per pubblicare un'applicazione Web in Azure, l'applicazione deve utilizzare uno 
 ## Passaggi successivi
 Per altre informazioni sulla pubblicazione, vedere [Preparare la pubblicazione o la distribuzione di un'applicazione Azure da Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Vedere anche [Configurazione delle credenziali per l'autenticazione denominate](vs-azure-tools-setting-up-named-authentication-credentials.md)
 
-<!-----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

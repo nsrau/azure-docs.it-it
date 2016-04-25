@@ -34,7 +34,7 @@ Per completare questa esercitazione, è necessario disporre di:
 + Account Google attivo
 + [Componente client di Google Cloud Messaging] Questo componente verrà aggiunto durante l'esercitazione.
 
-Si presuppone che i componenti [Xamarin.Android] e [Servizi mobili di Azure][Azure Mobile Services Component] siano già installati nel progetto da quando è stata completata l'esercitazione [Introduzione a Servizi mobili].
+Si presuppone che i componenti Xamarin.Android e [Servizi mobili di Azure][Azure Mobile Services Component] siano già installati nel progetto da quando è stata completata l'[Introduzione a Servizi mobili].
 
 ##<a id="register"></a>Abilitare Google Cloud Messaging
 
@@ -68,10 +68,7 @@ Si presuppone che i componenti [Xamarin.Android] e [Servizi mobili di Azure][Azu
 
 <!-- URLs. -->
 [Introduzione a Servizi mobili]: mobile-services-dotnet-backend-xamarin-android-get-started.md
-
-
 [Componente client di Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
-[Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

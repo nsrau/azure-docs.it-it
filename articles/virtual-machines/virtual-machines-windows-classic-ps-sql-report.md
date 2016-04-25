@@ -633,7 +633,7 @@ Per verificare che la funzionalità di base del server di report funzioni, aprir
 
 		http://localhost/Reports
 
-- Dal computer locale passare a Gestione report **remota** nella macchina virtuale. Aggiornare il nome DNS nell'esempio seguente nel modo appropriato. Quando viene richiesta una password, usare le credenziali di amministratore create quando è stato eseguito il provisioning della macchina virtuale. Il nome utente è nel formato [dominio] \[nome utente], dove il dominio è il nome computer della macchina virtuale, ad esempio ssrsnativecloud\\testuser. Se non si usa HTTP**S**, rimuovere la **S** dall'URL. Vedere la sezione successiva per informazioni sulla creazione di utenti aggiuntivi nella macchina virtuale.
+- Dal computer locale passare a Gestione report **remota** nella macchina virtuale. Aggiornare il nome DNS nell'esempio seguente nel modo appropriato. Quando viene richiesta una password, usare le credenziali di amministratore create quando è stato eseguito il provisioning della macchina virtuale. Il nome utente è nel formato [dominio] [nome utente], dove il dominio è il nome computer della macchina virtuale, ad esempio ssrsnativecloud\\testuser. Se non si usa HTTP**S**, rimuovere la **S** dall'URL. Vedere la sezione successiva per informazioni sulla creazione di utenti aggiuntivi nella macchina virtuale.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -703,6 +703,6 @@ Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per 
 
 ### Collegamenti ad altre risorse di SQL Server in Macchine virtuali di Azure
 
-[Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-overview.md)
+[Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

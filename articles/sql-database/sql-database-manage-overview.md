@@ -3,9 +3,9 @@
 	description="Confronta strumenti e le opzioni per la gestione di database SQL di Azure"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
-	editor="jeffreyg"/>
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="jeffreyg"/>
+	ms.date="04/04/2016"
+	ms.author="sstein"/>
 
 # Panoramica: strumenti di gestione per database SQL
 
@@ -36,4 +36,12 @@ SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) in Visual Stu
 
 Per ulteriori informazioni sulla gestione dei database SQL di Azure con gli strumenti da riga di comando vedere[Gestione di Database SQL con PowerShell](sql-database-command-line-tools.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+## Strumenti di database elastici
+Usare gli strumenti di database elastico per eseguire azioni quali:
+
+* Esecuzione di uno script T-SQL su un set di database usando un [processo elastico](sql-database-elastic-jobs-overview.md)
+* Spostamento di database modello multi-tenant in un modello single-tenant con lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md)
+* Gestione di database in un modello single-tenant o multi-tenant tramite la [libreria client della scalabilità elastica](sql-database-elastic-database-client-library.md).
+ 
+
+<!---HONumber=AcomDC_0413_2016-->

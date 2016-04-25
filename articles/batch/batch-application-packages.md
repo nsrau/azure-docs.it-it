@@ -198,10 +198,11 @@ La classe [ApplicationPackageReference][net_pkgref] specifica un ID applicazione
 ```csharp
 // Create the unbound CloudPool
 CloudPool myCloudPool =
-    batchClient.PoolOperations.CreatePool(poolId: "myPool",
-                                          osFamily: "4",
-                                          virtualMachineSize: "small",
-                                          targetDedicated: "1");
+    batchClient.PoolOperations.CreatePool(
+        poolId: "myPool",
+        targetDedicated: "1",
+        virtualMachineSize: "small",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
 // Specify the application and version to install on the compute nodes
 myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
@@ -316,4 +317,4 @@ Con i pacchetti dell’applicazione, è più semplice per i clienti scegliere le
 [12]: ./media/batch-application-packages/app_pkg_12.png "Finestra di conferma eliminazione pacchetto nel portale di Azure"
 [13]: ./media/batch-application-packages/app_pkg_13.png "Dettaglio file metadati selezionato"
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="04/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -66,7 +66,8 @@ Per configurare l'integrazione di Heroku in Azure AD, è necessario aggiungere H
 4. Fare clic su **Aggiungi** nella parte inferiore della pagina.<br><br> ![Applicazioni][3]<br>
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.<br><br> ![Applicazioni][4]<br>
 6. Nella casella di ricerca digitare **Heroku**.<br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_01.png)<br>
-7. Nel riquadro dei risultati selezionare **Heroku** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br>
+7. Nel riquadro dei risultati selezionare **Heroku** e quindi fare clic su **Completa** per aggiungere l'applicazione. <br><br> ![Creazione di un utente test di Azure AD](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_02.png)<br>
+
 
 ##  Configurazione e test dell'accesso Single Sign-On di Azure AD
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Heroku con un utente test di nome "Britta Simon".
@@ -94,17 +95,21 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 3. Nella pagina **Configurare le impostazioni dell'app**, seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_04.png) <br>
 
+    > [AZURE.NOTE] Se non si conoscono i valori corretti dell'URL di accesso e dell'URL dell'identificatore, vedere "[Per abilitare l'accesso Single Sign-On in Heroku, eseguire la procedura seguente](#x123)" per istruzioni su come ottenerli.
 
-    a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Heroku adottando il modello seguente: **"https://sso.heroku.com/saml/<nome società>/init"**.
 
-    b. Fare clic su **Avanti**.
+    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Heroku adottando il modello seguente:**"https://sso.heroku.com/saml/<nome società>/init"**.
+
+    b. Nella casella di testo **Identificatore** digitare un URL con il modello seguente: "**https://sso.heroku.com/saml/\<nome società>**".
+
+    c. Fare clic su **Avanti**.
 
 
 4. Nella pagina **Configura accesso Single Sign-On in Heroku** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_05.png) <br>
 
     a. Fare clic su **Scarica metadati** e quindi salvare il file nel computer.
 
-    b. Fare clic su **Next**.
+    b. Fare clic su **Avanti**.
 
 
 5. Per abilitare l'accesso Single Sign-On in Heroku, eseguire la procedura seguente:
@@ -119,7 +124,8 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     e. Al termine dell'installazione, agli amministratori verrà visualizzata una finestra di dialogo di conferma e l'URL di accesso Single Sign-On per gli utenti finali.
 
-    f. Copiare il valore **Heroku Login URL**, quindi nel portale di Azure classico tornare alla pagina **Configurare le impostazioni dell'app** e incollare il valore nella casella di testo **URL di accesso**.
+    f. <a name="x123"></a>Copiare i valori **Heroku Login URL** e **Heroku Entity ID**, quindi nel portale di Azure classico tornare alla pagina **Configurare le impostazioni dell'app** e incollare i valori nelle caselle di testo corrispondenti.
+
   
     <br>![Configura accesso Single Sign-On](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_52.png) <br><br>
 
@@ -232,4 +238,4 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 [204]: ./media/active-directory-saas-heroku-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-heroku-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

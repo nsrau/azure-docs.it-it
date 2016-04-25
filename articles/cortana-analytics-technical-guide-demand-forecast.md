@@ -225,8 +225,7 @@ La procedura seguente mostra come visualizzare l'output dei dati in tempo reale 
 
 	-	Passare il puntatore del mouse su questo riquadro nel dashboard e fare clic sull'icona "Modifica" nell'angolo superiore destro per modificarne il titolo in "Demand by Timestamp".
 
-4.	Creare altri riquadri del dashboard in base a set di dati appropriati. La visualizzazione finale del dashboard è riportata di seguito.
-![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
+4.	Creare altri riquadri del dashboard in base a set di dati appropriati. La visualizzazione finale del dashboard è riportata di seguito. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
 
 
 ### Configurare il dashboard per il percorso non critico
@@ -253,8 +252,7 @@ Nella pipeline di dati del percorso non critico l'obiettivo principale consiste 
 
 	-	Nella cartella **DemandForecastingDataGeneratorv1.0** scaricata fare doppio clic sul file **Power BI Template\\DemandForecastPowerBI.pbix**. Le visualizzazioni iniziali sono basate su dati fittizi. **Nota:** se viene visualizzato un messaggio di errore, assicurarsi che sia installata la versione più recente di Power BI Desktop.
 
-		Dopo averlo aperto, fare clic su **Modifica query** nella parte superiore del file. Nella finestra popup fare doppio clic su **Origine** nel pannello di destra.
-![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
+		Dopo averlo aperto, fare clic su **Modifica query** nella parte superiore del file. Nella finestra popup fare doppio clic su **Origine** nel pannello di destra. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
 	-   Nella finestra popup sostituire **Server** e **Database** con i nomi del server e del database usati e quindi fare clic su **OK**. Per il nome del server, assicurarsi di specificare la porta 1433, **NomeDellaSoluzione.database.windows.net, 1433**. Ignorare i messaggi di avviso visualizzati sullo schermo.
 
@@ -279,7 +277,7 @@ Nella pipeline di dati del percorso non critico l'obiettivo principale consiste 
 
 	-   Espandere la sezione **Pianifica aggiornamento**. Attivare l'opzione "Mantieni aggiornati i dati".
 
-	-   Pianificare l'aggiornamento in base alle esigenze. Per altre informazioni, vedere [Aggiornamento dei dati in Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
+	-   Pianificare l'aggiornamento in base alle esigenze. Per altre informazioni, vedere [Aggiornamento dei dati in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
 
 ## **Strumenti di stima dei costi**
@@ -290,4 +288,4 @@ I due strumenti indicati di seguito permettono di comprendere meglio i costi tot
 
 -   [Microsoft Azure Cost Estimator Tool (PC desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

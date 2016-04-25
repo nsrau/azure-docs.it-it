@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="04/08/2016"
    ms.author="hascipio"/>
 
 # Completare la creazione dell’offerta con contenuti di marketing
@@ -25,6 +25,8 @@ In questo passaggio del processo di pubblicazione, sarà necessario fornire alcu
   1. Passare al portale di pubblicazione, [https://publish.windowsazure.com](https://publish.windowsazure.com).
   2. Nel menu a sinistra fare clic sulla scheda **Marketing**.
   3. Nel pannello principale, fare clic sul pulsante **English (US)**.
+
+  > [AZURE.IMPORTANT] Tutti i campi devono essere completati, incluse le immagini, per poter passare alla gestione temporanea.
 
 ### Dettagli
 1. Immettere il riepilogo dell'offerta, un riepilogo più approfondito e la descrizione dell'offerta.
@@ -52,8 +54,7 @@ Nella scheda **Immagini di esempio** nel menu a sinistra caricare una nuova imma
 ### Note legali
 Nella scheda **Note legali** specificare un collegamento alle politiche/condizioni per l'utilizzo. Immettere o incollare le condizioni per l'utilizzo nella casella grande **Condizioni per l'utilizzo**.
 
-> [AZURE.IMPORTANT] Tutti i campi devono essere completati, incluse le immagini, per poter passare alla gestione temporanea.
-
+> [AZURE.NOTE] Per le macchine virtuali, non è possibile modificare gli elementi seguenti quando lo SKU è in gestione temporanea o attivo: **Identificatore offerta**, **Identificatore publisher** e **Identificatore SKU**.
 
 ## Passaggio 2: Impostare i prezzi
 ### Modelli di prezzi
@@ -83,10 +84,12 @@ Nella scheda **Note legali** specificare un collegamento alle politiche/condizio
 3.	Se l’SKU è BYOL, selezionare la casella di controllo per disponibilità SKU (BYOL) concesso in licenza esternamente.
 4.	Se l’SKU è orario, immettere il prezzo del software. SKU senza prezzi non sono disponibili per l'acquisto o l’utilizzo.
 
-  >[AZURE.NOTE] Se si dispone sia di BYOL che di SKU orari, verificare che entrambi i requisiti siano soddisfatti: casella di controllo BYOL e valori del prezzo per orario.
+  > [AZURE.NOTE] Se si dispone sia di BYOL che di SKU orari, verificare che entrambi i requisiti siano soddisfatti: casella di controllo BYOL e valori del prezzo per orario.
 
 5.	Verrà aperta una procedura guidata relativa ai prezzi. Eseguire tutti i passaggi per completare l'impostazione dei prezzi, inclusi quelli per gli altri paesi se si è scelto di consentire gli acquisti al di fuori del mercato specificato.
 6.	Alcuni paesi sono paesi di rimessa ISV. Per vendere in un paese di rimessa ISV, è necessario essere in grado di addebitare e tassare gli SKU, nonché di calcolare e pagare le imposte all'autorità del paese. Microsoft non è in condizione di fornire supporto legale o fiscale. Vedere la sezione "Vendere a paesi dell'offerta" nell'Introduzione di questo documento per ulteriori informazioni su "Vendere a paesi".
+
+  > [AZURE.NOTE] Per le macchine virtuali, non è possibile modificare gli elementi seguenti quando un SKU è attivo, poiché influisce sulla fatturazione dei clienti esistenti: **Modifica dei prezzi**, **Modifica del modello di fatturazione** e **Rimozione delle aree di fatturazione**.
 
 ### 2\.2. Impostare i prezzi del servizio di sviluppatore
 I piani possono essere qualsiasi combinazione di Base + Consumo, dove base è il prezzo mensile e l'eccedenza è il prezzo da pagare in base all’utilizzo. (Vedere di seguito per ulteriori dettagli).
@@ -144,9 +147,9 @@ Di seguito è riportata una visualizzazione dettagliata di come vengono utilizza
 ## Passaggi successivi
 Ora che il contenuto del Marketplace è caricato, è possibile passare al test dell'offerta nella gestione temporanea. Tuttavia, è necessario selezionare il tipo di offerta appropriato dall'elenco riportato di seguito, poiché i passaggi variano in base al tipo di offerta.
 
-|Immagine di macchina virtuale |Servizio per gli sviluppatori | Servizio dati | Modello di soluzione |
+||Immagine di macchina virtuale |Servizio per gli sviluppatori | Servizio dati | Modello di soluzione |
 |----|----|----|----|----|
-| **Passaggio 3. Push dell'offerta nella gestione temporanea** | [Testare l'offerta VM nello staging](marketplace-publishing-vm-image-test-in-staging.md) | Testare l'offerta del servizio per gli sviluppatori nello staging | [Test dell'offerta del servizio dati nello staging](marketplace-publishing-data-service-test-in-staging.md) | [Test del modello di soluzione nello staging](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Passaggio 3. Push dell'offerta nella gestione temporanea** | [Testare l'offerta VM nello staging](marketplace-publishing-vm-image-test-in-staging.md) | Anteprima privata | [Test dell'offerta del servizio dati nello staging](marketplace-publishing-data-service-test-in-staging.md) | [Test del modello di soluzione nello staging](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -160,4 +163,4 @@ Ora che il contenuto del Marketplace è caricato, è possibile passare al test d
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

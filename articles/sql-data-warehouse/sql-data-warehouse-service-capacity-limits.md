@@ -1,9 +1,9 @@
 <properties
    pageTitle="Limiti di capacità di SQL Data Warehouse | Microsoft Azure"
-   description="Vengono forniti i valori massimi per connessioni, query, DDL e DML Transact-SQL, oltre a viste di sistema per SQL Data Warehouse."
+   description="I valori massimi per i database, le tabelle, le connessioni e le query per SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="barbkess;jrj;sonyama"/>
+   ms.date="04/12/2016"
+   ms.author="sonyama;barbkess;jrj"/>
 
 # Limiti di capacità di SQL Data Warehouse
 
@@ -24,38 +24,30 @@ Valori massimi per supportare i carichi di lavoro analitici più impegnativi, as
 
 | Categoria | Descrizione | Massima |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Database | Sessioni simultanee aperte | 1024<br/><br/>È supportato un massimo di 1024 connessioni attive che possono inviare richieste ad ogni database SQL Data Warehouse nello stesso momento. Si noti che vi sono dei limiti previsti per il numero di query effettivamente eseguibili in contemporanea. Quando un limite viene superato, la richiesta viene inviata a una coda interna in cui resta in attesa di elaborazione.|
+| Database | Dimensione massima | 60 TB compressi<br/><br/>SQL Data Warehouse consente di avere fino a 60 TB di spazio su disco per database. Lo spazio su disco corrisponde alla dimensione compressa per le tabelle permanenti. Questo spazio è indipendente dallo spazio di tempdb o del log ed è dedicato alle tabelle permanenti. La compressione columnstore cluster è stimata a 5x, ovvero la dimensione non compressa del database potrebbe crescere a circa 300 TB quando tutte le tabella sono columnstore cluster (il tipo di tabella predefinito). Il limite di 60 TB diventerà di 240 TB alla fine della fase di anteprima pubblica e questo dovrebbe consentire a molti database di crescere fino a oltre 1 PB di dati non compressi.|
+| Database | Sessioni simultanee aperte | 1024<br/><br/>È supportato un massimo di 1024 connessioni attive che possono inviare richieste a ogni database SQL Data Warehouse contemporaneamente. Si noti che vi sono dei limiti previsti per il numero di query effettivamente eseguibili in contemporanea. Quando un limite viene superato, la richiesta viene inviata a una coda interna in cui resta in attesa di elaborazione.|
 | Connessione del database | Memoria massima per le istruzioni preparate | 20 MB |
+| Gestione del carico di lavoro | Numero massimo di query simultanee | 32<br/><br/> SQL Data Warehouse offre 32 unità di concorrenza chiamate slot di concorrenza.<br/><br/>Se tutte le query vengono eseguite con l'allocazione delle risorse predefinita di uno slot di concorrenza, è possibile avere 32 query utente simultanee. In pratica, il numero massimo di query simultanee dipende dall'obiettivo del livello di servizio (SLO) e dai requisiti di risorse per ogni query. Quando non sono disponibili risorse, le query vengono messe in attesa in una coda interna. Per altre informazioni, vedere [Gestione della concorrenza e del carico di lavoro][].|
+| Gestione del carico di lavoro | Numero massimo di slot di concorrenza per obiettivo del livello di servizio (SLO) |Questo è il numero di slot di concorrenza che ogni livello di servizio può usare per eseguire query che richiedono ulteriori risorse di CPU e memoria. Per la gestione del carico di lavoro, è possibile utilizzare le classi di risorse integrate per incrementare le risorse di CPU e memoria per una query. L'esecuzione con più risorse comporta che la query richieda più slot di concorrenza.<br/><br/>Alcune query non vengono eseguite nell'ambito di classi di risorse. Tali query usano una sola unità di concorrenza e non consumano nessuno degli slot di concorrenza elencati di seguito. Per un elenco delle query eseguite (e non eseguite) da SQL Data Warehouse all'interno di classi di risorse, vedere [Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse][].<br/><br/>DWU100 = 4<br/><br/>DWU200 = 8<br/><br/>DWU300 = 12<br/><br/>DWU400 = 16<br/><br/>DWU500 = 20<br/><br/>DWU600 = 24<br/><br/>DWU1000 = 40<br/><br/>DWU1200 = 48<br/><br/>DWU1500 = 60 |
 
 
-## Elaborazione di query
-
-| Categoria | Descrizione | Massima |
-| :---------------- | :------------------------------------------- | :----------------- |
-| Query | Query simultanee nelle tabelle utente. | 32<br/><br/>È il numero massimo di query che è possibile eseguire contemporaneamente. Il numero effettivo dipende in qualsiasi momento dall'obiettivo del livello di servizio del database e dalla classe di risorse della query. Quando non sono disponibili risorse, le query vengono messe in attesa in una coda interna. Per altre informazioni, vedere [Gestione della concorrenza e del carico di lavoro][].|
-| Query | Query in coda nelle tabelle utente | 1000 |
-| Query | Query simultanee nelle viste di sistema | 100 |
-| Query | Query in coda nelle viste di sistema | 1000 |
-| Query | Parametri massimi | 2098 |
-| Batch | Dimensione massima | 65\.536*4096 |
-
-
-## DDL (Data Definition Language)
+## Oggetti di database
 
 | Categoria | Descrizione | Massima |
 | :---------------- | :------------------------------------------- | :----------------- |
+| Tabella | Dimensioni massime | 60 TB compressi su disco |
 | Tabella | Tabelle per database | 2 miliardi |
 | Tabella | Colonne per tabella | 1024 colonne |
 | Tabella | Byte per colonna | 8000 byte |
-| Tabella | Byte per riga, dimensioni definite | 8060 byte<br/><br/>Il numero di byte per riga viene calcolato come per SQL Server, con la compressione pagina attivata. Come SQL Server, SQL Data Warehouse supporta l'archiviazione di dati di overflow della riga che consente di spostare colonne a lunghezza variabile all'esterno delle righe. Nel record principale viene archiviata solo una radice di 24 byte per le colonne di lunghezza variabile spostate all'esterno delle righe. Per altre informazioni vedere l'argomento [Dati di overflow della riga che superano 8 KB](https://msdn.microsoft.com/library/ms186981.aspx) nella documentazione online di SQL Server.<br/><br/>Per un elenco delle dimensioni dei tipi di dati di SQL Data Warehouse, vedere [CREATE TABLE (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt203953.aspx). |
-| Table | Byte per riga, dimensioni del buffer interno per lo spostamento dei dati | 32\.768<br/><br/>NOTA: questo limite è attualmente presente ma verrà presto rimosso.<br/><br/>SQL Data Warehouse usa un buffer interno per spostare le righe all'interno del sistema SQL Data Warehouse distribuito. Il servizio che sposta le righe è denominato DMS (Data Movement Service) e archivia le righe in un formato diverso da SQL Server.<br/><br/>Se una riga non rientra nel buffer interno verrà visualizzato un errore di compilazione di query o un errore interno di spostamento dei dati. Per evitare questo problema, vedere [Informazioni dettagliate sulle dimensioni del buffer DMS](#details-about-the-dms-buffer-size).|
-| Table | Partizioni per tabella | 15\.000<br/><br/>Per prestazioni elevate, è consigliabile ridurre al minimo il numero di partizioni necessarie pur supportando i requisiti aziendali. Con l'aumentare del numero di partizioni, l'overhead per le operazioni DDL (Data Definition Language) e DML (Data Manipulation Language ) aumenta e le prestazioni rallentano.|
+| Tabella | Byte per riga, dimensioni definite | 8060 byte<br/><br/>Il numero di byte per riga viene calcolato come per SQL Server, con la compressione pagina attivata. Come SQL Server, SQL Data Warehouse supporta l'archiviazione di dati di overflow della riga che consente di spostare colonne a lunghezza variabile all'esterno delle righe. Nel record principale viene archiviata solo una radice di 24 byte per le colonne di lunghezza variabile spostate all'esterno delle righe. Per altre informazioni, vedere l'articolo dedicato ai [dati di overflow della riga che superano gli 8 KB](https://msdn.microsoft.com/library/ms186981.aspx) nella documentazione online di SQL Server.<br/><br/>Per un elenco delle dimensioni dei tipi di dati di SQL Data Warehouse, vedere l'articolo dedicato a [CREATE TABLE in Azure SQL Data Warehouse](https://msdn.microsoft.com/library/mt203953.aspx). |
+| Table | Byte per riga, dimensioni del buffer interno per lo spostamento dei dati | 32\.768<br/><br/>NOTA: questo limite è attualmente presente ma verrà presto rimosso.<br/><br/>SQL Data Warehouse usa un buffer interno per spostare le righe all'interno del sistema SQL Data Warehouse distribuito. Il servizio che sposta le righe è denominato DMS (Data Movement Service) e archivia le righe in un formato diverso da SQL Server.<br/><br/>Se una riga non rientra nel buffer interno si otterrà un errore di compilazione di query o un errore interno di spostamento dei dati. Per evitare questo problema, vedere [Informazioni dettagliate sulle dimensioni del buffer DMS](#details-about-the-dms-buffer-size).|
+| Table | Partizioni per tabella | 15\.000<br/><br/>Per ottenere prestazioni elevate è consigliabile ridurre al minimo il numero di partizioni necessarie pur supportando i requisiti aziendali. Con l'aumentare del numero di partizioni, l'overhead per le operazioni DDL (Data Definition Language) e DML (Data Manipulation Language ) aumenta e le prestazioni rallentano.|
 | Table | Caratteri per valore limite della partizione.| 4000 |
 | Indice | Indici non in cluster per tabella. | 999<br/><br/>Si applica solo alle tabelle rowstore.|
 | Indice | Indici in cluster per tabella. | 1<br><br/>Si applica sia alle tabelle rowstore che columnstore.|
 | Indice | Righe in un gruppo righe dell'indice columnstore | 1024<br/><br/>Ogni indice columnstore è implementato come più indici columnstore. Si noti che se si inseriscono 1024 righe in un indice columnstore SQL Data Warehouse, non tutte le righe andranno nello stesso gruppo righe.|
 | Indice | Compilazioni simultanee di indici columnstore in cluster. | 32<br/><br/>Si applica quando gli indici columnstore in cluster sono tutti compilati in tabelle diverse. È consentita solo una compilazione dell'indice columnstore in cluster per tabella. Le richieste aggiuntive resteranno in coda.|
-| Indice | Dimensioni della chiave indice. | 900 byte.<br/><br/>Si applica solo agli indici rowstore.<br/><br/>È possibile creare indici in colonne varchar con una dimensione massima di oltre 900 byte se i dati esistenti nelle colonne non superano i 900 byte quando l'indice viene creato. Tuttavia, le azioni INSERT o UPDATE successive eseguite nelle colonne che causano un aumento delle dimensioni totali oltre i 900 byte avranno esito negativo.|
+| Indice | Dimensioni della chiave indice. | 900 byte.<br/><br/>Si applica solo agli indici rowstore.<br/><br/>È possibile creare indici in colonne varchar con una dimensione massima di oltre 900 byte se i dati esistenti nelle colonne non superano i 900 byte quando viene creato l'indice. Tuttavia, le azioni INSERT o UPDATE successive eseguite nelle colonne che causano un aumento delle dimensioni totali oltre i 900 byte avranno esito negativo.|
 | Indice | Colonne chiave per indice. | 16<br/><br/>Si applica solo agli indici rowstore. Gli indici columnstore in cluster includono tutte le colonne.|
 | Statistiche | Dimensione dei valori combinati delle colonne. | 900 byte. |
 | Statistiche | Colonne per oggetto statistiche. | 32 |
@@ -64,18 +56,25 @@ Valori massimi per supportare i carichi di lavoro analitici più impegnativi, as
 | View | Colonne per vista | 1\.024 |
 
 
-## DML (Data Manipulation Language)
+## Query
 
 | Categoria | Descrizione | Massima |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Risultati SELECT | Colonne per riga | 4096<br/><br/>Non è possibile avere più di 4096 colonne per riga nel risultato SELECT. Non è garantito che si possa avere sempre 4096. Se il piano di query richiede una tabella temporanea, potrebbe venire applicato il valore massimo di 1024 colonne per tabella.|
+| Query | Query in coda nelle tabelle utente | 1000 |
+| Query | Query simultanee nelle viste di sistema | 100 |
+| Query | Query in coda nelle viste di sistema | 1000 |
+| Query | Parametri massimi | 2098 |
+| Batch | Dimensione massima | 65\.536*4096 |
+| Risultati SELECT | Colonne per riga | 4096<br/><br/>Non è possibile avere più di 4096 colonne per riga nel risultato di SELECT. Non è garantito che si possa avere sempre 4096. Se il piano di query richiede una tabella temporanea, potrebbe venire applicato il valore massimo di 1024 colonne per tabella.|
 | SELECT | Sottoquery nidificate | 32<br/><br/>Non è possibile avere più di 32 sottoquery nidificate in un'istruzione SELECT. Non è garantito che si possa averne sempre 32. Ad esempio, un JOIN può introdurre una sottoquery nel piano di query. Il numero di sottoquery può essere limitato anche dalla memoria disponibile.|
 | SELECT | Colonne per JOIN | 1024 colonne<br/><br/>Non è possibile avere più di 1024 colonne nel JOIN. Non è garantito che si possa averne sempre 1024. Se il piano JOIN richiede una tabella temporanea con più colonne del risultato JOIN, il limite di 1024 viene applicato alla tabella temporanea. |
 | SELECT | Byte per le colonne GROUP BY. | 8060<br/><br/>Le colonne presenti nella clausola GROUP BY possono avere un massimo di 8060 byte.|
 | SELECT | Byte per le colonne ORDER BY | 8060 byte<br/><br/>Le colonne presenti nella clausola ORDER BY possono avere un massimo di 8060 byte.|
-| Identificatori e costanti per istruzione | Numero di identificatori e costanti di riferimento. | 65\.535<br/><br/>SQL Data Warehouse limita il numero di identificatori e costanti che possono essere contenuti nella singola espressione di una query. Il limite è 65.535. Il superamento di questo numero genera un errore 8632 di SQL Server. Per altre informazioni, vedere [Errore interno: è stato raggiunto un limite di servizi di espressione](http://support.microsoft.com/kb/913050/).|
+| Identificatori e costanti per istruzione | Numero di identificatori e costanti di riferimento. | 65\.535<br/><br/>SQL Data Warehouse limita il numero di identificatori e costanti che possono essere contenuti nella singola espressione di una query. Il limite è 65.535. Il superamento di questo numero genera un errore 8632 di SQL Server. Per altre informazioni, vedere [Messaggio di errore quando si esegue una query in SQL Server 2005: "Errore interno: è stato raggiunto un limite di servizi di espressione"](http://support.microsoft.com/kb/913050/).|
 
-## Viste di sistema
+
+
+## Metadata
 
 | Vista di sistema | Righe massime |
 | :--------------------------------- | :------------|
@@ -231,7 +230,8 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 <!--Article references-->
 [panoramica degli argomenti di riferimento di SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
 [Gestione della concorrenza e del carico di lavoro]: sql-data-warehouse-develop-concurrency.md
+[Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse]: sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

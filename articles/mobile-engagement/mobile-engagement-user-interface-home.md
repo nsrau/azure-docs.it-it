@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Interfaccia utente di Azure Mobile Engagement - Home" 
-   description="Informazioni su come gestire l'applicazione e i progetti esistenti usando Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
+<properties
+   pageTitle="Interfaccia utente di Azure Mobile Engagement - Home"
+   description="Informazioni su come gestire l'applicazione e i progetti esistenti usando Azure Mobile Engagement"
+   services="mobile-engagement"
+   documentationCenter=""
+   authors="piyushjo"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,17 +12,17 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
+   ms.workload="mobile"
    ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # Come gestire l'applicazione e i progetti esistenti
 
 
-In questo articolo viene descritta la **Home page** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**. Per ulteriori informazioni, vedere [Creare un account Azure Mobile Engagement](mobile-engagement-create-account.md).
- 
+In questo articolo viene descritta la **Home page** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**.
+
 Per accedere alla home page, fare clic su **Home** nella parte superiore sinistra della pagina. Contiene l'elenco di tutte le applicazioni che fanno parte della raccolta selezionata. In questa pagina è possibile vedere una rapida panoramica delle applicazioni.
-   
+
 La home page contiene inoltre tutti i progetti che possono includere tutte le applicazioni presenti nell'account. Si noti che chiunque può accedere alla home page dell'interfaccia utente creando un account. Tuttavia, è necessario concedere l'autorizzazione agli altri utenti affinché possano accedere alle applicazioni personalizzate presenti in **Progetti personali**.
 
 È inoltre possibile visualizzare il grafico di confronto per le applicazioni selezionate. In alternativa, è possibile scegliere di visualizzare il grafico di confronto per le applicazioni selezionate in un progetto.
@@ -33,13 +33,13 @@ La home page contiene inoltre tutti i progetti che possono includere tutte le ap
 ## Applicazioni personali
 
 La panoramica rapida delle applicazioni consente di selezionare l'applicazione da aprire per visualizzare in dettaglio le opzioni della barra multifunzione. È possibile selezionare il nome dell'applicazione per tornare al percorso della barra multifunzione visitato più di recente nell'applicazione oppure è possibile selezionare l'icona a ingranaggio per accedere direttamente alla pagina delle impostazioni dell'applicazione. È possibile cercare, filtrare oppure ordinare le informazioni visualizzate nelle tabelle delle applicazioni. È possibile trascinare e rilasciare le intestazioni della colonne per modificarne l'ordine.
- 
+
 Tra le altre cose, la panoramica delle applicazioni include:
 
 - **Tendenza nuovi utenti**: evoluzione dei nuovi utenti nelle ultime due settimane.
 - **Utenti attivi**: numero di utenti attivi negli ultimi 30 giorni.
 - **Tendenza utenti attivi**: evoluzione degli utenti attivi nelle ultime due settimane.
-- **Sessioni**: una sessione indica un uso dell'applicazione da parte di un utente, dal momento in cui inizia a usarla fino a quando finisce. 
+- **Sessioni**: una sessione indica un uso dell'applicazione da parte di un utente, dal momento in cui inizia a usarla fino a quando finisce.
 - **Tendenze della sessione**: evoluzione delle sessioni nelle ultime due settimane.
 
 Dopo avere fatto clic su un'applicazione, è possibile avviare il monitoraggio e la gestione delle app tramite l'interfaccia utente. Ad esempio:
@@ -48,7 +48,7 @@ Dopo avere fatto clic su un'applicazione, è possibile avviare il monitoraggio e
 - [Analizzare i dati cronologici sull'applicazione](mobile-engagement-user-interface-analytics.md)
 - [Creare e gestire segmenti di utenti per identificare modelli di utilizzo](mobile-engagement-user-interface-segments.md)
 - [Raggiungere gli utenti dell'applicazione con le notifiche push](mobile-engagement-user-interface-reach.md)
- 
+
 ## Progetti personali
 
 È possibile utilizzare i progetti per raggruppare le applicazioni e concedere le autorizzazioni alle applicazioni stesse ad altri utenti. Si assegnano autorizzazioni ad altri utenti fornendo l'indirizzo di posta elettronica. Il pulsante **Nuovo progetto** consente di creare un nuovo progetto inserendo soltanto un "nome" e una "descrizione". Una volta creato un progetto, è possibile selezionarne il nome per modificare la descrizione e il nome del prodotto e per selezionare tutte le applicazioni che si desidera visualizzare nel progetto.
@@ -59,7 +59,7 @@ Dopo avere fatto clic su un'applicazione, è possibile avviare il monitoraggio e
 I ruoli includono:
 
 - **Visualizzatore**: un visualizzatore può soltanto visualizzare le applicazioni associate a un progetto. Un visualizzatore può accedere alle analisi, monitorare i dati e consultare i risultati Reach. Un visualizzatore non può modificare le informazioni, né gestire le applicazioni o gli utenti. Un visualizzatore non può creare o modificare lo stato di una campagna Reach.
-- **Sviluppatore**: uno sviluppatore può eseguire le stesse attività di un visualizzatore nonché gestire le applicazioni. Uno sviluppatore può attivare o disattivare le applicazioni, modificare le informazioni delle applicazioni (pacchetto e firma, ad esempio) e creare campagne Reach. Uno sviluppatore non può gestire utenti. 
+- **Sviluppatore**: uno sviluppatore può eseguire le stesse attività di un visualizzatore nonché gestire le applicazioni. Uno sviluppatore può attivare o disattivare le applicazioni, modificare le informazioni delle applicazioni (pacchetto e firma, ad esempio) e creare campagne Reach. Uno sviluppatore non può gestire utenti.
 - **Amministratore**: un amministratore può eseguire tutte le attività di uno sviluppatore e gestire gli utenti. Un amministratore può invitare gli utenti a partecipare a un progetto, modificare i ruoli degli utenti e le informazioni del progetto. Nelle impostazioni è anche possibile impostare le autorizzazioni a livello di applicazione.
 
 
@@ -170,8 +170,4 @@ Fare clic su un progetto per visualizzare tutte le applicazioni che ne fanno par
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-
- 
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0413_2016-->

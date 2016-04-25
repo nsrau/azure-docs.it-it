@@ -28,7 +28,7 @@ Il numero predefinito di domini di aggiornamento è 5. È possibile specificare 
 
 Quando si esegue un aggiornamento sul posto di uno o più ruoli nel servizio, Azure aggiorna i set di istanze del ruolo in base al dominio di aggiornamento a cui appartengono. Azure aggiorna tutte le istanze in un determinato dominio di aggiornamento (arrestandole, aggiornandole, riportandole online), quindi passa al dominio successivo. Arrestando solo le istanze in esecuzione nel dominio di aggiornamento corrente, Azure fa in modo che un aggiornamento venga eseguito con il minor impatto possibile sul servizio in esecuzione. Per altre informazioni, vedere [Come avviene un aggiornamento](https://msdn.microsoft.com/library/azure/Hh472157.aspx#proceed).
 
-> [AZURE.NOTE]Anche se i termini inglesi **update** e **upgrade** hanno un significato leggermente diverso nel contesto di Azure, sono stati entrambi tradotti con il termine italiano "aggiornamento" in relazione ai processi e alle descrizioni delle funzionalità di questo documento.
+> [AZURE.NOTE] Anche se i termini inglesi **update** e **upgrade** hanno un significato leggermente diverso nel contesto di Azure, sono stati entrambi tradotti con il termine italiano "aggiornamento" in relazione ai processi e alle descrizioni delle funzionalità di questo documento.
 
 Il servizio deve definire almeno due istanze di un ruolo per aggiornarlo sul posto senza tempi di inattività. Se il servizio è costituito da una sola istanza di un ruolo, il servizio non sarà disponibile fino al termine dell'aggiornamento sul posto.
 
@@ -59,7 +59,7 @@ La tabella seguente mostra le modifiche consentite a un servizio durante un aggi
 |Distribuire nuovo codice|Sì|Sì|Sì|
 *Richiede Azure SDK 1.5 o versioni successive.
 
-> [AZURE.WARNING]La modifica della dimensione di una macchina virtuale eliminerà i dati locali.
+> [AZURE.WARNING] La modifica della dimensione di una macchina virtuale eliminerà i dati locali.
 
 
 Gli elementi seguenti non sono supportati durante un aggiornamento:
@@ -81,7 +81,7 @@ Il diagramma successivo illustra come avviene l'aggiornamento se si aggiorna un 
 
 ![Aggiornare il ruolo](media/cloud-services-update-azure-service/IC345880.png "Aggiornare il ruolo")
 
-> [AZURE.NOTE]Quando si aggiorna un servizio da una sola istanza a più istanze, il servizio sarà inattivo durante l'esecuzione dell'aggiornamento a causa della modalità di aggiornamento dei servizi in Azure. Il contratto di servizio che garantisce la disponibilità del servizio si applica solo ai servizi distribuiti con più di una istanza. L'elenco seguente descrive come ogni scenario di aggiornamento di un servizio di Azure influisce sui dati di ogni unità:
+> [AZURE.NOTE] Quando si aggiorna un servizio da una sola istanza a più istanze, il servizio sarà inattivo durante l'esecuzione dell'aggiornamento a causa della modalità di aggiornamento dei servizi in Azure. Il contratto di servizio che garantisce la disponibilità del servizio si applica solo ai servizi distribuiti con più di una istanza. L'elenco seguente descrive come ogni scenario di aggiornamento di un servizio di Azure influisce sui dati di ogni unità:
 >
 >Riavvio VM:
 >
@@ -119,18 +119,18 @@ Il diagramma successivo illustra come avviene l'aggiornamento se si aggiorna un 
 
 Durante un aggiornamento automatico, il controller di infrastruttura di Azure valuta periodicamente l'integrità del servizio cloud per determinare quando è sicuro passare al dominio di aggiornamento successivo. Questa valutazione dell'integrità viene eseguita per ogni singolo ruolo e considera solo le istanze nella versione più recente (ad esempio, le istanze dei domini di aggiornamento già analizzati). Verifica che un numero minimo di istanze del ruolo, per ogni ruolo, abbia raggiunto uno stato finale soddisfacente.
 
-### Timeout dell'avvio dell’istanza del ruolo 
+### Timeout dell'avvio dell’istanza del ruolo
 Il controller di infrastruttura attende 30 minuti affinché ogni istanza del ruolo raggiunga uno stato avviato. Se la durata del timeout scade, il controller di infrastruttura prosegue all'istanza del ruolo successivo.
 
 ## Ripristino dello stato precedente di un aggiornamento
 Azure offre flessibilità nella gestione dei servizi durante un aggiornamento perché consente di avviare altre operazioni su un servizio, dopo che la richiesta di aggiornamento iniziale è stata accettata dal controller di infrastruttura di Azure. Un ripristino dello stato precedente può essere eseguito solo quando una modifica della configurazione o un aggiornamento è nello stato **in corso** durante la distribuzione. Un aggiornamento viene considerato in corso finché almeno un'istanza del servizio non è ancora stata aggiornata alla nuova versione. Per verificare se un ripristino dello stato precedente è consentito, controllare che il valore del flag RollbackAllowed, restituito dalle operazioni [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) e [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx), sia impostato su true.
 
-> [AZURE.NOTE]Chiamare ripristino dello stato precedente è utile solo per un aggiornamento **sul posto** perché gli aggiornamenti con scambio di indirizzo VIP comportano la sostituzione di un'intera istanza in esecuzione del servizio con un'altra.
+> [AZURE.NOTE] Chiamare ripristino dello stato precedente è utile solo per un aggiornamento **sul posto** perché gli aggiornamenti con scambio di indirizzo VIP comportano la sostituzione di un'intera istanza in esecuzione del servizio con un'altra.
 
 Il ripristino dello stato precedente di un aggiornamento in corso ha gli effetti seguenti sulla distribuzione:
 
 -   Le istanze del ruolo che non erano ancora state aggiornate alla nuova versione non vengono aggiornate, perché tali istanze stanno già eseguendo la versione di destinazione del servizio.
--   Per le istanze del ruolo che erano già state aggiornate alla nuova versione del file del pacchetto del servizio (\*.cspkg) o al file di configurazione del service (\*.cscfg) (o di entrambi i file) viene ripristinata la versione pre-aggiornamento di questi file.
+-   Per le istanze del ruolo che erano già state aggiornate alla nuova versione del file del pacchetto del servizio (*.cspkg) o al file di configurazione del service (*.cscfg) (o di entrambi i file) viene ripristinata la versione pre-aggiornamento di questi file.
 
 Questa funzionalità viene fornita dalle funzioni seguenti:
 
@@ -175,9 +175,9 @@ Il diagramma seguente illustra come vengono distribuiti due ruoli contenuti in u
 
 ![Distribuzione di domini di aggiornamento](media/cloud-services-update-azure-service/IC345533.png "Distribuzione di domini di aggiornamento")
 
-> [AZURE.NOTE]Si noti che Azure controlla come le istanze vengono allocate nei domini di aggiornamento. Non è possibile specificare quali istanze vengono allocate in ogni dominio.
+> [AZURE.NOTE] Si noti che Azure controlla come le istanze vengono allocate nei domini di aggiornamento. Non è possibile specificare quali istanze vengono allocate in ogni dominio.
 
 ## Passaggi successivi
-[Come gestire i servizi cloud](cloud-services-how-to-manage.md)<br> [Come monitorare i servizi cloud](cloud-services-how-to-monitor.md)<br> [Come configurare i servizi cloud](cloud-services-how-to-cofigure.md)<br>
+[Come gestire i servizi cloud](cloud-services-how-to-manage.md)<br> [Come monitorare i servizi cloud](cloud-services-how-to-monitor.md)<br> [Come configurare i servizi cloud](cloud-services-how-to-configure.md)<br>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0413_2016-->

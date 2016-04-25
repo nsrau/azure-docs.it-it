@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="02/29/2016"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # Gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure
@@ -23,9 +23,14 @@
 - [Interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md)
 - [API REST](role-based-access-control-manage-access-rest.md)
 
-## Elencare i ruoli Controllo degli accessi in base al ruolo
+Il controllo degli accessi in base al ruolo nel portale di Azure e nell'API di Azure Resource Manager consente di gestire l'accesso alla sottoscrizione e alle risorse a un livello estremamente specifico. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
 
->[AZURE.IMPORTANT] Prima di usare i cmdlet descritti in questo articolo, è necessario [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+Per usare l'interfaccia della riga di comando di Azure per gestire il controllo degli accessi in base al ruolo, è necessario disporre di quanto segue:
+
+- Usare la versione 0.8.8 o successiva dell'interfaccia della riga di comando di Azure. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+- Azure Resource Manager nell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando di Azure con Resource Manager](../xplat-cli-azure-resource-manager.md)
+
+## Elenco dei ruoli
 
 ###	Elencare tutti i ruoli disponibili
 Per elencare tutti i ruoli disponibili, usare
@@ -47,17 +52,17 @@ L'esempio seguente mostra le azioni dei ruoli *Contributor* e *Virtual Machine C
 
 ##	Elencare l'accesso
 ###	Elencare le assegnazioni di ruoli valide per un gruppo di risorse
-Per elencare le assegnazioni di ruoli valide per un gruppo di risorse, usare:
+Per elencare le assegnazioni di ruolo in un gruppo di risorse, usare:
 
     azure role assignment list --resource-group <resource group name>
 
-L'esempio seguente mostra le assegnazioni di ruoli valide per il gruppo *pharma-sales-projecforcast*.
+L'esempio seguente indica le assegnazioni di ruolo nel gruppo *pharma-sales-projecforcast*.
 
 ![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Elenco di assegnazione di ruoli per gruppo - Schermata](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
 ###	Elencare le assegnazioni di ruoli per un utente, inclusi quelli assegnati ai gruppi di un utente
 
-L'esempio seguente mostra le assegnazioni di ruoli valide per l'utente **sameert@aaddemo.com*.
+L'esempio seguente indica le assegnazioni di ruolo valide per l'utente **sameert@aaddemo.com*. Include i ruoli assegnati direttamente all'utente, ma anche i ruoli ereditati da gruppi.
 
 ![Riga di comando di Controllo degli accessi in base al ruolo di Azure - Elenco di assegnazione di ruoli per utente - Schermata](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
@@ -122,9 +127,9 @@ Nell'esempio seguente viene creato un ruolo personalizzato denominato *Operatore
 
 ## Modificare un ruolo personalizzato
 
-Per modificare un ruolo personalizzato, usare il comando `azure role show` per recuperare la definizione di ruolo. Apportare quindi le modifiche desiderate alla definizione del ruolo. Infine, usare `azure role set` per salvare la definizione del ruolo modificata.
+Per modificare un ruolo personalizzato, usare il comando `azure role show` per recuperare la definizione di ruolo. Apportare quindi le modifiche desiderate alla definizione del ruolo. Usare infine `azure role set` per salvare la definizione di ruolo modificata.
 
-L'esempio seguente aggiunge l'operazione Microsoft.Insights/diagnosticSettings/* alle **Azioni** e una sottoscrizione di Azure alla proprietà **AssignableScopes** del ruolo personalizzato Operatore macchina virtuale.
+L'esempio seguente aggiunge l'operazione Microsoft.Insights/diagnosticSettings/* alle **Azioni** e una sottoscrizione di Azure alla proprietà **AssignableScopes** del ruolo personalizzato Virtual Machine Operator.
 
 ![JSON - Modifica della definizione di ruolo personalizzata - Schermata](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
 
@@ -132,7 +137,7 @@ L'esempio seguente aggiunge l'operazione Microsoft.Insights/diagnosticSettings/*
 
 ## Eliminare un ruolo personalizzato
 
-Per eliminare un ruolo personalizzato, usare prima di tutto il comando `azure role show` per determinare l'**ID** del ruolo. Usare quindi il comando `azure role delete` per eliminare il ruolo specificando l'**ID**.
+Per eliminare un ruolo personalizzato, usare prima il comando `azure role show` per determinare l'**ID** del ruolo. Usare quindi il comando `azure role delete` per eliminare il ruolo specificando l'**ID**.
 
 Nell'esempio seguente viene rimosso il ruolo personalizzato *Operatore macchina virtuale*.
 
@@ -157,4 +162,4 @@ Nell'esempio seguente il ruolo personalizzato *Operatore macchina virtuale* non 
 ## Argomenti relativi a Controllo degli accessi in base al ruolo
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

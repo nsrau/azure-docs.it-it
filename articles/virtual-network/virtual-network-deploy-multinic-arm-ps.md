@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Distribuire macchine virtuali con più schede di rete tramite PowerShell in Gestione risorse | Microsoft Azure"
    description="Informazioni su come distribuire macchine virtuali con più schede di rete tramite PowerShell in Gestione risorse"
    services="virtual-network"
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Poiché in questo momento non è possibile disporre di macchine virtuali con una singola scheda di interfaccia di rete e di macchine virtuali con più schede di interfaccia di rete nello stesso gruppo di risorse, i server back-end verranno implementati in un gruppo di risorse diverso da quello di tutti gli altri componenti. La procedura seguente usa un gruppo di risorse denominato *IaaSStory* per il gruppo di risorse principale e *IaaSStory-BackEnd* per i server back-end.
+Attualmente, non è possibile avere macchine virtuali con una singola scheda di rete e macchine virtuali con più schede di rete nello stesso gruppo di risorse. Per questo motivo, è necessario implementare i server back-end in un gruppo di risorse diverso rispetto a tutti gli altri componenti. La procedura seguente usa un gruppo di risorse denominato *IaaSStory* per il gruppo di risorse principale e *IaaSStory-BackEnd* per i server back-end.
 
 ## Prerequisiti
 
@@ -118,7 +118,7 @@ Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate d
 		for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
 
 2. Creare la scheda di rete utilizzata per l'accesso al database.
-		
+
 		    $nic1Name = $nicNamePrefix + $suffixNumber + "-DA"
 		    $ipAddress1 = $ipAddressPrefix + ($suffixNumber + 3)
 		    $nic1 = New-AzureRmNetworkInterface -Name $nic1Name -ResourceGroupName $backendRGName `
@@ -143,14 +143,14 @@ Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate d
 		    $data1VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk1Name + ".vhd"
 		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk1Name -DiskSizeInGB $diskSize `
 				-VhdUri $data1VhdUri -CreateOption empty -Lun 0
-		
+
 		    $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"    
 		    $data2VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk2Name + ".vhd"
 		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk2Name -DiskSizeInGB $diskSize `
 				-VhdUri $data2VhdUri -CreateOption empty -Lun 1
 
 6. Configurare il sistema operativo e l'immagine da utilizzare per la macchina virtuale.
-		    
+
 		    $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 		    $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher -Offer $offer -Skus $sku -Version $version
 
@@ -176,43 +176,43 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 		ResourceGroupName : IaaSStory-Backend
 		Location          : westus
 		ProvisioningState : Succeeded
-		Tags              : 
-		Permissions       : 
+		Tags              :
+		Permissions       :
 		                    Actions  NotActions
 		                    =======  ==========
 		                    *                  
-		                    
+
 		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/IaaSStory-Backend
 
 2. Dopo qualche minuto, inserire le credenziali nella casella di richiesta e fare clic su **OK**. L'output seguente rappresenta una singola macchina virtuale. Si noti che per il completamento dell'intero processo sono stati necessari 8 minuti.
 
-		ResourceGroupName            : 
-		Id                           : 
+		ResourceGroupName            :
+		Id                           :
 		Name                         : DB2
-		Type                         : 
-		Location                     : 
-		Tags                         : 
+		Type                         :
+		Location                     :
+		Tags                         :
 		TagsText                     : null
 		AvailabilitySetReference     : Microsoft.Azure.Management.Compute.Models.AvailabilitySetReference
 		AvailabilitySetReferenceText : {
 		                                 "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/
 		                               Microsoft.Compute/availabilitySets/ASDB"
 		                               }
-		Extensions                   : 
+		Extensions                   :
 		ExtensionsText               : null
 		HardwareProfile              : Microsoft.Azure.Management.Compute.Models.HardwareProfile
 		HardwareProfileText          : {
 		                                 "VirtualMachineSize": "Standard_DS3"
 		                               }
-		InstanceView                 : 
+		InstanceView                 :
 		InstanceViewText             : null
-		NetworkProfile               : 
+		NetworkProfile               :
 		NetworkProfileText           : null
-		OSProfile                    : 
+		OSProfile                    :
 		OSProfileText                : null
-		Plan                         : 
+		Plan                         :
 		PlanText                     : null
-		ProvisioningState            : 
+		ProvisioningState            :
 		StorageProfile               : Microsoft.Azure.Management.Compute.Models.StorageProfile
 		StorageProfileText           : {
 		                                 "DataDisks": [
@@ -232,38 +232,38 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 		                                 "OSDisk": null
 		                               }
 		DataDiskNames                : {DB2-datadisk-1}
-		NetworkInterfaceIDs          : 
-		RequestId                    : 
+		NetworkInterfaceIDs          :
+		RequestId                    :
 		StatusCode                   : 0
-		
-		
-		ResourceGroupName            : 
-		Id                           : 
+
+
+		ResourceGroupName            :
+		Id                           :
 		Name                         : DB2
-		Type                         : 
-		Location                     : 
-		Tags                         : 
+		Type                         :
+		Location                     :
+		Tags                         :
 		TagsText                     : null
 		AvailabilitySetReference     : Microsoft.Azure.Management.Compute.Models.AvailabilitySetReference
 		AvailabilitySetReferenceText : {
 		                                 "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/
 		                               Microsoft.Compute/availabilitySets/ASDB"
 		                               }
-		Extensions                   : 
+		Extensions                   :
 		ExtensionsText               : null
 		HardwareProfile              : Microsoft.Azure.Management.Compute.Models.HardwareProfile
 		HardwareProfileText          : {
 		                                 "VirtualMachineSize": "Standard_DS3"
 		                               }
-		InstanceView                 : 
+		InstanceView                 :
 		InstanceViewText             : null
-		NetworkProfile               : 
+		NetworkProfile               :
 		NetworkProfileText           : null
-		OSProfile                    : 
+		OSProfile                    :
 		OSProfileText                : null
-		Plan                         : 
+		Plan                         :
 		PlanText                     : null
-		ProvisioningState            : 
+		ProvisioningState            :
 		StorageProfile               : Microsoft.Azure.Management.Compute.Models.StorageProfile
 		StorageProfileText           : {
 		                                 "DataDisks": [
@@ -294,18 +294,18 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 		                                 "OSDisk": null
 		                               }
 		DataDiskNames                : {DB2-datadisk-1, DB2-datadisk-2}
-		NetworkInterfaceIDs          : 
-		RequestId                    : 
+		NetworkInterfaceIDs          :
+		RequestId                    :
 		StatusCode                   : 0
-		
-		
+
+
 		EndTime             : 10/30/2015 9:30:03 AM -08:00
-		Error               : 
-		Output              : 
+		Error               :
+		Output              :
 		StartTime           : 10/30/2015 9:22:54 AM -08:00
 		Status              : Succeeded
 		TrackingOperationId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

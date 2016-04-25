@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Eventi estesi nel database SQL | Microsoft Azure" 
-	description="Vengono descritti gli eventi estesi (XEvent) in Azure SQL Database e come le sessioni di eventi sono leggermente diverse da sessioni di eventi in Microsoft SQL Server." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jhubbard" 
-	editor="" 
+<properties
+	pageTitle="Eventi estesi nel database SQL | Microsoft Azure"
+	description="Vengono descritti gli eventi estesi (XEvent) in Azure SQL Database e come le sessioni di eventi sono leggermente diverse da sessioni di eventi in Microsoft SQL Server."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jhubbard"
+	editor=""
 	tags=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/05/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/05/2016"
 	ms.author="genemi"/>
 
 
@@ -27,14 +27,14 @@ In questo argomento viene illustrato come l'implementazione di eventi estesi in 
 
 - SQL Database V12 ha acquisito la funzionalità degli eventi estesi nella seconda metà del calendario 2015.
 - SQL Server ha gli eventi estesi dal 2008.
-- Il set di funzionalità degli eventi estesi nel database SQL è un subset affidabile delle funzionalità in SQL Server. 
+- Il set di funzionalità degli eventi estesi nel database SQL è un subset affidabile delle funzionalità in SQL Server.
 
 
 *XEvent* è un nome alternativo informale utilizzato talvolta per "eventi estesi" in blog e altri percorsi informali.
 
 
 > [AZURE.NOTE] A partire da ottobre 2015, viene attivata la funzionalità della sessione eventi estesi in Azure SQL Database a livello di anteprima. La data di disponibilità generale (GA) non è ancora stabilita.
-> 
+>
 > La pagina degli [aggiornamenti dei servizi](https://azure.microsoft.com/updates/?service=sql-database) di Azure contiene post quando vengono fatti annunci GA.
 
 
@@ -58,7 +58,7 @@ Un’esposizione precedente a quanto riportato di seguito è utile quando si sce
 
 
 - PowerShell
- - [Utilizzo di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full.md): fornisce informazioni complete su PowerShell e il servizio Archiviazione di Azure.
+ - [Utilizzo di Azure PowerShell con Archiviazione di Azure](../storage/storage-powershell-guide-full.md): fornisce informazioni complete su PowerShell e il servizio Archiviazione di Azure.
 
 
 ## Esempi di codice
@@ -244,12 +244,12 @@ La destinazione del **file evento** potrebbe subire una latenza di rete o errori
 ## Collegamenti correlati
 
 
-- [Uso di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full.md)
+- [Uso di Azure PowerShell con Archiviazione di Azure](../storage/storage-powershell-guide-full.md)
 - [Cmdlet di Archiviazione di Azure](http://msdn.microsoft.com/library/dn806401.aspx)
 
 
-- [Utilizzo di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full.md): fornisce informazioni complete su PowerShell e il servizio Archiviazione di Azure.
-- [Come usare l'archiviazione BLOB da .NET](storage-dotnet-how-to-use-blobs.md)
+- [Utilizzo di Azure PowerShell con Archiviazione di Azure](../storage/storage-powershell-guide-full.md): fornisce informazioni complete su PowerShell e il servizio Archiviazione di Azure.
+- [Come usare l'archiviazione BLOB da .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 
 
 - [CREARE CREDENZIALI (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
@@ -269,4 +269,4 @@ Altri argomenti con esempi di codice per gli eventi estesi sono disponibili ai c
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

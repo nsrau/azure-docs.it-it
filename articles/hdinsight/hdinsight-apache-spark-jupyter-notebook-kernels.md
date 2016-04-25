@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2016" 
+	ms.date="04/08/2016" 
 	ms.author="nitinme"/>
 
 
@@ -54,11 +54,10 @@ Questo articolo offre informazioni su come usare questi kernel e i relativi vant
 
 L'uso dei nuovi kernel comporta alcuni vantaggi.
 
-1. **Contesti predefiniti**. Con il kernel predefinito **Python2**, disponibile con i notebook Jupyter, è necessario impostare esplicitamente i contesti Spark, SQL o Hive prima di iniziare a usare l'applicazione in fase di sviluppo. Se si usano i nuovi kernel, **PySpark** o **Spark**, questi contesti sono disponibili per impostazione predefinita. Questi contesti sono:
+1. **Contesti predefiniti**. Con il kernel predefinito **Python2**, disponibile con i notebook Jupyter, è necessario impostare i contesti Spark o Hive in modo esplicito prima di iniziare a usare l'applicazione in corso di sviluppo. Se si usano i nuovi kernel, **PySpark** o **Spark**, questi contesti sono disponibili per impostazione predefinita. Questi contesti sono:
 
 	* **sc**: per il contesto Spark
-	* **sqlContext**: per il contesto SQL
-	* **hiveContext**: per il contesto Hive
+	* **sqlContext**: per il contesto Hive
 
 
 	Quindi non è necessario eseguire istruzioni simili alle seguenti per impostare i contesti:
@@ -67,8 +66,7 @@ L'uso dei nuovi kernel comporta alcuni vantaggi.
 		# YOU DO NOT NEED TO RUN THIS WITH THE NEW KERNELS
 		###################################################
 		sc = SparkContext('yarn-client')
-		sqlContext = SQLContext(sc)
-		hiveContext = HiveContext(sc)
+		sqlContext = HiveContext(sc)
 
 	È possibile invece usare direttamente i contesti preimpostati nell'applicazione.
 	
@@ -80,16 +78,39 @@ L'uso dei nuovi kernel comporta alcuni vantaggi.
 	|-----------|---------------------------------|--------------|
 	| help | `%%help` | Genera una tabella di tutti i magic disponibili con esempi e descrizioni |
 	| info | `%%info` | Visualizza informazioni sulla sessione per l'endpoint Livy corrente |
-	| configure | `%%configure -f {"executorMemory": "1000M", "executorCores": 4`} | Configura i parametri per la creazione di una sessione. Il flag di forzatura (-f) è obbligatorio se è già stata creata una sessione e tale sessione verrà eliminata e ricreata. Visitare la pagina relativa al [corpo della richiesta POST/sessions di Livy](https://github.com/cloudera/livy#request-body) per un elenco dei parametri validi. I parametri devono essere passati come stringa JSON. |
-	| sql | `%%sql -o <variable name>`<br> `SHOW TABLES` | Esegue una query SQL su sqlContext. Se il parametro `-o` viene passato, il risultato della query viene mantenuto nel contesto Python %%local come frame di dati [Pandas](http://pandas.pydata.org/). |
-	| hive | `%%hive -o <variable name>`<br> `SHOW TABLES` | Esegue una query Hive su hivelContext. Se il parametro viene passato, il risultato della query viene mantenuto nel contesto Python %%local come frame di dati [Pandas](http://pandas.pydata.org/). |
+	| configure | `%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} | Configura i parametri per la creazione di una sessione. Il flag di forzatura (-f) è obbligatorio se è già stata creata una sessione e tale sessione verrà eliminata e ricreata. Visitare la pagina relativa al [corpo della richiesta POST/sessions di Livy](https://github.com/cloudera/livy#request-body) per un elenco dei parametri validi. I parametri devono essere passati come una stringa JSON e devono essere nella riga successiva al magic, come illustrato nella colonna di esempio. |
+	| sql | `%%sql -o <variable name>`<br> `SHOW TABLES` | Esegue una query Hive su sqlContext. Se il parametro `-o` viene passato, il risultato della query viene mantenuto nel contesto Python %%local come frame di dati [Pandas](http://pandas.pydata.org/). |
 	| local | `%%local`<br>`a=1` | Tutto il codice presente nelle righe successive verrà eseguito localmente. Deve trattarsi di codice Python valido. |
 	| logs | `%%logs` | Visualizza i log per la sessione Livy corrente. |
 	| delete | `%%delete -f -s <session number>` | Elimina una sessione specifica dell'endpoint Livy corrente. Si noti che non è possibile eliminare la sessione avviata dal kernel stesso. |
 	| cleanup | `%%cleanup -f` | Elimina tutte le sessioni per l'endpoint Livy corrente, inclusa quella del notebook. Il flag di forzatura -f è obbligatorio. |
 
-3. **Visualizzazione automatica**. Il kernel **Pyspark** visualizza automaticamente l'output delle query Hive e SQL. È possibile scegliere tra diversi tipi di visualizzazione, inclusi Table, Pie, Line, Area, Bar.
+3. **Visualizzazione automatica**. Il kernel **Pyspark** visualizza automaticamente l'output delle query Hive ed SQL. È possibile scegliere tra diversi tipi di visualizzazione, inclusi Table, Pie, Line, Area, Bar.
 
+## Parametri supportati con il magic %%sql
+
+Il magic %%sql supporta parametri diversi che è possibile utilizzare per controllare il tipo di output ricevuto quando si eseguono query. La tabella seguente elenca l'output.
+
+| Parametro | Esempio | Descrizione |
+|-----------|---------------------------------|--------------|
+| -o | `-o <VARIABLE NAME>` | Usare questo parametro per mantenere il risultato della query, nel contesto Python %%local, come un frame di dati [Pandas](http://pandas.pydata.org/). Il nome della variabile del frame di dati è il nome della variabile specificato. |
+| -q | `-q` | Consente di disattivare le visualizzazioni per la cella. Se non si desidera visualizzare automaticamente il contenuto di una cella ma solo acquisirlo come un frame di dati, usare `-q -o <VARIABLE>`. Se si desidera disattivare le visualizzazioni senza acquisire i risultati (ad esempio, per l'esecuzione di una query SQL con effetti collaterali, come un'istruzione `CREATE TABLE`), utilizzare semplicemente `-q` senza specificare un argomento `-o`. |
+| -m | `-m <METHOD>` | Dove **METHOD** è **take** o **sample** (per impostazione predefinita è **take**). Se il metodo è **take**, il kernel sceglie elementi dall'inizio del set di dati dei risultati specificato da MAXROWS (descritto più avanti in questa tabella). Se il metodo è **sample**, il kernel campiona in modo casuale gli elementi del set di dati in base al parametro `-r`, descritto di seguito in questa tabella. |
+| -r | `-r <FRACTION>` | Qui **FRACTION** è un numero a virgola mobile compreso tra 0,0 e 1,0. Se il metodo sample per la query SQL è `sample`, allora il kernel campionerà automaticamente in modo casuale la frazione specificata degli elementi del set di risultati. Ad esempio, se si esegue una query SQL con gli argomenti `-m sample -r 0.01`, allora l'1% delle righe dei risultati verrà campionato in modo casuale. |
+| -n | `-n <MAXROWS>` | **MAXROWS** è un valore intero. Il kernel limita il numero di righe di output a **MAXROWS**. Se il valore **MAXROWS** è un numero negativo, ad esempio **-1**, il numero di righe nel set di risultati non sarà limitato. |
+
+**Esempio:**
+
+	%%sql -q -m sample -r 0.1 -n 500 -o query2 
+	SELECT * FROM hivesampletable
+
+L'istruzione precedente esegue le operazioni seguenti:
+
+* Seleziona tutti i record da **hivesampletable**.
+* Dal momento che viene usato -q, disattiva la visualizzazione automatica.
+* Dal momento che si usa `-m sample -r 0.1 -n 500`, campiona in modo casuale il 10% delle righe di hivesampletable e limita la dimensione del set di risultati a 500 righe.
+* Infine, poiché `-o query2` è stato usato, salva anche l'oputput in un frame di dati denominato **query2**.
+	
 
 ## Considerazioni per l'uso dei nuovi kernel
 
@@ -106,6 +127,22 @@ Quando si apre un notebook di Jupyter verranno visualizzate due cartelle a livel
 * La cartella **Scala** contiene notebook di esempio che usano il kernel predefinito **Spark**.
 
 Per conoscere i diversi magic disponibili, è possibile aprire il notebook **00 - [READ ME FIRST] Spark Magic Kernel Features** dalla cartella **PySpark** o **Spark**. Per informazioni su come realizzare diversi scenari usando i notebook Jupyter con cluster HDInsight Spark, è anche possibile usare gli altri notebook di esempio disponibili nelle due cartelle.
+
+## Dove sono archiviati i notebook?
+
+I notebook Jupyter vengono salvati nell'account di archiviazione associato al cluster nella cartella **/HdiNotebooks**. I notebook, i file di testo e le cartelle creati dall'interno di Jupyter saranno accessibili da WASB. Ad esempio, se si usa Jupyter per creare una cartella **myfolder** e un notebook **myfolder/mynotebook.ipynb**, sarà possibile accedere al notebook dal percorso `wasb:///HdiNotebooks/myfolder/mynotebook.ipynb`. È anche vero il contrario, ovvero se si carica un notebook direttamente nell'account di archiviazione al percorso `/HdiNotebooks/mynotebook1.ipynb`, il notebook sarà visibile anche da Jupyter. I notebook vengono conservati nell'account di archiviazione anche dopo l'eliminazione del cluster.
+
+La modalità di salvataggio dei notebook nell'account di archiviazione è compatibile con HDFS. Pertanto, se si usa SSH nel cluster, sarà possibile usare i comandi di gestione dei file nel modo indicato:
+
+	hdfs dfs -ls /HdiNotebooks             				  # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
+	hdfs dfs –copyToLocal /HdiNotebooks    				# Download the contents of the HdiNotebooks folder
+	hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
+
+
+In caso di problemi di accesso all'account di archiviazione per il cluster, anche i notebook vengono salvati nel nodo head `/var/lib/jupyter`.
+
+## Browser supportati
+I notebook Jupyter in esecuzione su cluster HDInsight Spark sono supportati solo su Google Chrome.
 
 ## Commenti e suggerimenti
 
@@ -145,4 +182,4 @@ I nuovi kernel sono ancora in una fase iniziale e si evolveranno nel tempo. Ques
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

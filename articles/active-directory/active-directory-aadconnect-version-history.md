@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/15/2016"
+   ms.date="04/12/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Cronologia delle versioni
@@ -27,6 +27,14 @@ Collegamenti correlati:
 - Metodi per [eseguire l'aggiornamento da una versione precedente alla versione più recente](active-directory-aadconnect-upgrade-previous-version.md) di Azure AD Connect.
 - Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.1.130.0
+Data di rilascio: aprile 2016
+
+**Nuove funzionalità:**
+
+- Aggiunto il supporto per gli attributi multivalore alle [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md).
+- Aggiunto il supporto per altre varianti di configurazione per l'[aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md) da considerare idoneo per l'aggiornamento.
 
 ## 1\.1.119.0
 Data di rilascio: marzo 2016
@@ -54,15 +62,15 @@ Data di rilascio: febbraio 2016
 
 - Funzionalità di [aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md) per i clienti con impostazioni rapide.
 - Supporto per l'uso di MFA e PIM da parte dell'amministratore globale nell'installazione guidata.
-    - Se si usa MFA, è necessario impostare il proxy in modo che consenta il traffico per https://secure.aadcdn.microsoftonline-p.com.
-    - Per il corretto funzionamento di MFA, è necessario aggiungere https://secure.aadcdn.microsoftonline-p.com all'elenco di siti attendibili.
+    - Se si usa l'autenticazione MFA, è necessario impostare il proxy in modo che consenta il traffico per https://secure.aadcdn.microsoftonline-p.com.
+    - Per il corretto funzionamento dell'autenticazione MFA, è necessario aggiungere https://secure.aadcdn.microsoftonline-p.com all'elenco di siti attendibili.
 - Possibilità di modificare il metodo di accesso dell'utente dopo l'installazione iniziale.
 - Possibilità di usare i [filtri basati su dominio e unità organizzativa](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) nell'installazione guidata. Ciò consente anche la connessione a foreste in cui non sono disponibili tutti i domini.
 - L'[utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md) è incorporata nel motore di sincronizzazione.
 
 **Funzionalità passate dal livello di anteprima al livello di disponibilità generale:**
 
-- [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md).
+- [Writeback dispositivi](active-directory-aadconnect-feature-device-writeback.md).
 - [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md).
 
 **Nuove funzionalità di anteprima:**
@@ -257,4 +265,4 @@ Data di rilascio: settembre 2014
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

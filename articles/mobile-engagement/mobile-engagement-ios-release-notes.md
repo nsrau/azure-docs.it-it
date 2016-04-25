@@ -18,6 +18,10 @@
 
 #Note sulla versione
 
+##3\.2.2 (07/04/2016)
+
+-   Correzione del bug sull'annullamento della richiesta HTTP che a volte provoca l'arresto anomalo del sistema. 
+
 ##3\.2.1 (12/11/2015)
 
 -   Correzione del ritardo durante l’attivazione di una nuova istanza dell’app tramite notifica con collegamenti diretti 
@@ -58,4 +62,4 @@
 -   Sono stati introdotti miglioramenti per la sicurezza.
 -   È stato eliminato il rilevamento di SmartAd.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

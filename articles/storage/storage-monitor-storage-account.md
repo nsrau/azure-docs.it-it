@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="04/06/2016"
 	ms.author="robinsh"/>
 
 # Monitorare un account di archiviazione nel portale di Azure
@@ -25,6 +25,8 @@
 > [AZURE.NOTE] All'esame dei dati di monitoraggio nel [portale di Azure](https://portal.azure.com) sono associati costi aggiuntivi. Per ulteriori informazioni, vedere <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Analisi archiviazione e fatturazione</a>. <br />
 
 > L’archiviazione file di Azure attualmente supporta la metrica di analisi di archiviazione, ma non supporta ancora l'accesso. È possibile abilitare la metrica per l'archiviazione file di Azure tramite il [portale di Azure](https://portal.azure.com).
+
+> Per gli account di archiviazione con un tipo di replica di archiviazione con ridondanza della zona (ZRS) al momento non sono abilitate le funzionalità di metrica e registrazione.
 
 > Per una guida dettagliata sull'utilizzo di Analisi archiviazione e di altri strumenti per identificare, diagnosticare e risolvere i problemi relativi ad Archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -157,4 +159,4 @@ Per ogni servizio di archiviazione disponibile con l'account di archiviazione (B
 
 I log di diagnostica vengono salvati in un contenitore BLOB denominato $logs nell'account di archiviazione. Per informazioni sull'accesso al contenitore $logs, vedere [Informazioni sulla registrazione di Analisi archiviazione](http://msdn.microsoft.com/library/azure/hh343262.aspx).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

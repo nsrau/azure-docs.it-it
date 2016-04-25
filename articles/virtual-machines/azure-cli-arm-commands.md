@@ -23,7 +23,7 @@
 
 In questo articolo vengono fornite sintassi e opzioni per i comandi dell’interfaccia della riga di comando (CLI) di Azure utilizzati comunemente per creare e gestire risorse di Azure nel modello di distribuzione Azure Resource Manager. Accedere ai comandi eseguendo l’interfaccia della riga di comando in modalità di gestione risorse (arm). Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi.
 
-Per iniziare, innanzitutto [installare l’interfaccia della riga di comando di Azure](xplat-cli-install.md) e [connettersi alla sottoscrizione di Azure](xplat-cli-connect.md) utilizzando un account aziendale o dell'istituto di istruzione o un'identità dell'account Microsoft.
+Per iniziare, innanzitutto [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [connettersi alla sottoscrizione di Azure](../xplat-cli-connect.md) usando un account aziendale o dell'istituto di istruzione o un'identità dell'account Microsoft.
 
 Per la sintassi e le opzioni dei comandi correnti nella riga di comando in modalità Gestione risorse, digitare `azure help` o `azure help [command]` per visualizzare la Guida per un comando specifico. Sono inoltre disponibili esempi dell'interfaccia della riga di comando nella documentazione per la creazione e la gestione di servizi di Azure specifici.
 
@@ -208,11 +208,11 @@ Esempio: creare un file di configurazione che contiene un'azione script per l'es
 **Comando per creare un cluster in un gruppo di risorse**
 
 	hdinsight cluster create [options] <clusterName>
-	 
+
 Esempio: creare uno Storm nel cluster Linux
 
 	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
-	
+
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...
 	info:    hdinsight cluster create command OK
@@ -220,11 +220,11 @@ Esempio: creare uno Storm nel cluster Linux
 Esempio: creare un cluster con un'azione script
 
 	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
-	
+
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...
 	info:    hdinsight cluster create command OK
-	
+
 Opzioni dei parametri:
 
 	-h, --help                                                 output usage information
@@ -255,7 +255,7 @@ Opzioni dei parametri:
 	--rdpPassword <rdpPassword>                                RDP password (only for Windows clusters)
 	--rdpAccessExpiry <rdpAccessExpiry>                        RDP access expiry.
 	For example 12/12/2015 (only for Windows clusters)
-	--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster. 
+	--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster.
 	Value is a GUID for Windows cluster and ARM resource ID for Linux cluster)
 	--subnetName <subnetName>                                  (Optional) Subnet for the cluster
 	--additionalStorageAccounts <additionalStorageAccounts>    (Optional) Additional storage accounts.
@@ -1872,4 +1872,4 @@ Opzioni dei parametri:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Gestire e monitorare le app per le API e i connettori nel servizio app | Microsoft Azure" 
-	description="Visualizzare le prestazioni dei connettori e delle app per le API nel servizio app di Azure; architettura dei microservizi" 
-	services="app-service\logic" 
+<properties
+	pageTitle="Gestire e monitorare le app per le API e i connettori nel servizio app | Microsoft Azure"
+	description="Visualizzare le prestazioni dei connettori e delle app per le API nel servizio app di Azure; architettura dei microservizi"
+	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/18/2016" 
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/18/2016"
 	ms.author="mandia"/>
 
 # Gestire e monitorare le app per le API e i connettori predefiniti
@@ -40,9 +40,9 @@ All'apertura dell'app per le API sono disponibili diverse funzionalità e attivi
 
 - Visualizzare le informazioni specifiche sull'app per le API, inclusi i dettagli della sottoscrizione e l'elenco degli utenti che hanno accesso all'app per le API in **Impostazioni**. Tra le altre funzionalità disponibili, è anche possibile aumentare o ridurre il numero di istanze dell'app per le API tramite la funzionalità di ridimensionamento.
 - Usare i pulsanti **Avvia** e **Arresta** per controllare l'app per le API.
-- Quando vengono effettuati aggiornamenti del prodotto per i file sottostanti usati dall'app per le API, è possibile fare clic su **Aggiorna** per ottenere le ultime versioni. Ad esempio, se è disponibile una correzione o un aggiornamento della sicurezza rilasciato da Microsoft, facendo clic su **Aggiorna** l'app per le API viene aggiornata automaticamente, in modo da includere la correzione. 
+- Quando vengono effettuati aggiornamenti del prodotto per i file sottostanti usati dall'app per le API, è possibile fare clic su **Aggiorna** per ottenere le ultime versioni. Ad esempio, se è disponibile una correzione o un aggiornamento della sicurezza rilasciato da Microsoft, facendo clic su **Aggiorna** l'app per le API viene aggiornata automaticamente, in modo da includere la correzione.
 - Selezionare **Cambia piano** per effettuare l'aggiornamento o il downgrade, in base all'utilizzo dei dati da parte dell'app per le API. È anche possibile usare questa funzionalità per vedere l'utilizzo dei propri dati.
-- Quando si crea un connettore con tabelle, ad esempio SQL Connector, è possibile immettere un nome di tabella a cui connettersi. Viene creato automaticamente uno schema basato sulla tabella, che sarà disponibile quando si fa clic su **Scarica schemi**. È quindi possibile usare questo schema scaricato per creare una trasformazione o una mappa. 
+- Quando si crea un connettore con tabelle, ad esempio SQL Connector, è possibile immettere un nome di tabella a cui connettersi. Viene creato automaticamente uno schema basato sulla tabella, che sarà disponibile quando si fa clic su **Scarica schemi**. È quindi possibile usare questo schema scaricato per creare una trasformazione o una mappa.
 
 ## Modificare i valori di configurazione del connettore o dell'API immessi
 
@@ -56,7 +56,7 @@ Di seguito è riportata la procedura:
 	![][apiapphost]
 
 3. Nel pannello Host app API selezionare **Impostazioni**. Nel pannello Impostazioni selezionare **Impostazioni applicazione**. I valori di configurazione sono elencati in **Impostazioni app**:
-	
+
 	![][hostsettings]
 
 4. Fare clic sull'impostazione che si vuole modificare, immettere il nuovo valore e scegliere **Salva** per salvare le modifiche.
@@ -79,7 +79,7 @@ La metrica delle prestazioni è costituita da funzionalità predefinite e inclus
 
 È possibile:
 
-- Selezionare **Richieste ed errori** per aggiungere diverse metriche delle prestazioni, inclusi i codici di errore HTTP comunemente noti, come i codici di stato HTTP 200, 400 o 500. È anche possibile vedere i tempi di risposta, la quantità di richieste effettuate all'app per le API e la quantità di dati in entrata e in uscita. In base alla metrica delle prestazioni, è possibile creare avvisi di posta elettronica se una metrica supera una determinata soglia. 
+- Selezionare **Richieste ed errori** per aggiungere diverse metriche delle prestazioni, inclusi i codici di errore HTTP comunemente noti, come i codici di stato HTTP 200, 400 o 500. È anche possibile vedere i tempi di risposta, la quantità di richieste effettuate all'app per le API e la quantità di dati in entrata e in uscita. In base alla metrica delle prestazioni, è possibile creare avvisi di posta elettronica se una metrica supera una determinata soglia.
 - In **Utilizzo** è possibile vedere la quantità di **CPU** usata dall'app per le API, esaminare l'attuale **Quota di utilizzo** in MB e vedere l'utilizzo massimo dei dati in base al proprio piano dei costi. **Spesa stimata** può essere utile per determinare i potenziali costi di esecuzione dell'app per le API.
 - Selezionare **Processi** per aprire Esplora processi. Verranno mostrate le istanze Web e le relative proprietà, incluso il conteggio dei thread e l'utilizzo della memoria.
 
@@ -103,28 +103,25 @@ Vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure]
 ![][access]
 
 - Selezionare **Utenti** per aggiungere un utente, assegnare un ruolo e rimuovere un utente.
-- Selezionare **Ruoli** per vedere tutti gli utenti in un ruolo specifico, aggiungere un utente a un ruolo e rimuovere un utente da un ruolo. 
+- Selezionare **Ruoli** per vedere tutti gli utenti in un ruolo specifico, aggiungere un utente a un ruolo e rimuovere un utente da un ruolo.
 
 
 ## Altre funzionalità utili
 - Selezionare **Definizione API** per aprire il file Swagger creato automaticamente per l'app per le API specifica.
-- Selezionare **Dipendenze** per visualizzare i file richiesti dall'app per le API. Se ad esempio si usa SAP Connector, vengono installati alcuni file aggiuntivi in Gestione connessioni ibride in locale. Queste dipendenze sono visualizzate nel pannello dell'app per le API. 
+- Selezionare **Dipendenze** per visualizzare i file richiesti dall'app per le API. Se ad esempio si usa SAP Connector, vengono installati alcuni file aggiuntivi in Gestione connessioni ibride in locale. Queste dipendenze sono visualizzate nel pannello dell'app per le API.
 
 > [AZURE.IMPORTANT] Quando si visualizzano le proprietà dell'app per le API, in **Informazioni di base** sono presenti i collegamenti **Host** e **Gateway** che aprono nuovi pannelli:
-> 
+>
 > ![][host]
-> 
-> Queste proprietà sono specifiche del sito Web che ospita l'app per le API. Quando si usa un'app per le API o un connettore predefinito, la maggior parte di queste proprietà non sono in effetti applicabili ed è consigliabile non aggiornarle. Se è stata creata un'app per le API personalizzata in Visual Studio ed è stata distribuita nella sottoscrizione di Azure, è possibile usare i pannelli Host e Gateway. In [Gestire le app per le API](../app-service-api/app-service-api-manage-in-portal.md) sono disponibili altre informazioni sulle operazioni che è possibile eseguire in questi pannelli con l'app per le API personalizzata.
+>
+> Queste proprietà sono specifiche del sito Web che ospita l'app per le API. Quando si usa un'app per le API o un connettore predefinito, la maggior parte di queste proprietà non sono in effetti applicabili ed è consigliabile non aggiornarle. Se è stata creata un'app per le API personalizzata in Visual Studio ed è stata distribuita nella sottoscrizione di Azure, è possibile usare i pannelli Host e Gateway.
 
 
->[AZURE.NOTE] Per iniziare a usare le app per la logica prima di creare un account di Azure, passare alla pagina [Prova l'app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+>[AZURE.NOTE] Per iniziare a usare le app per la logica di Azure prima di creare un account di Azure, passare alla pagina [Prova l'app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
 ## Altre informazioni
 
-[Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)<br/>
-[Elenco di connettori e app per le API nel servizio app](app-service-logic-connectors-list.md)<br/>
-[Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](role-based-access-control-configure.md)<br/>
-[Uso di Gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md)
+[Monitorare le app per la logica](app-service-logic-monitor-your-logic-apps.md)<br/> [Elenco di connettori e app per le API nel servizio app](app-service-logic-connectors-list.md)<br/> [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure](../active-directory/role-based-access-control-configure.md)<br/> [Uso di Gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->
@@ -137,4 +134,4 @@ Vedere [Controllo degli accessi in base al ruolo nel portale di Microsoft Azure]
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

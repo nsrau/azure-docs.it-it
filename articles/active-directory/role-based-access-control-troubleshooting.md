@@ -20,7 +20,7 @@
 
 ## Introduzione
 
-[Controllo degli accessi in base al ruolo](../role-based-access-control-configure.md) è uno strumento efficace che consente di delegare con estrema precisione l'accesso alle risorse in Azure. Ciò significa che si può concedere a una determinata persona l'accesso alle risorse specifiche di cui ha bisogno. Tuttavia, a volte il modello di risorse di Azure può essere complicato e può risultare difficile comprendere esattamente quali autorizzazioni si stanno concedendo.
+Il [controllo degli accessi in base al ruolo](role-based-access-control-configure.md) è una funzionalità utile che consente di delegare con estrema precisione l'accesso a risorse di Azure. Ciò significa che si può concedere a una determinata persona l'accesso alle risorse specifiche di cui ha bisogno. Tuttavia, a volte il modello di risorse di Azure può essere complicato e può risultare difficile comprendere esattamente quali autorizzazioni si stanno concedendo.
 
 Questo documento illustra gli effetti prodotti dall'uso di alcuni dei ruoli nel portale di Azure. Ci sono tre ruoli comuni inclusi che coprono tutti i tipi di risorsa: * Proprietario * Collaboratore * Lettore
 
@@ -28,7 +28,7 @@ Questo documento illustra gli effetti prodotti dall'uso di alcuni dei ruoli nel 
 - Collaboratore  
 - Lettore  
 
-Proprietari e collaboratori hanno accesso completo all'esperienza di gestione, ma il collaboratore non può concedere l'accesso ad altri utenti o gruppi. Il ruolo di lettore è maggiormente articolato e verrà quindi esaminato in maniera più approfondita. Per informazioni dettagliate su come concedere l'accesso, vedere l'[articolo introduttivo sul controllo degli accessi in base al ruolo](../role-based-access-control-configure.md).
+Proprietari e collaboratori hanno accesso completo all'esperienza di gestione, ma il collaboratore non può concedere l'accesso ad altri utenti o gruppi. Il ruolo di lettore è maggiormente articolato e verrà quindi esaminato in maniera più approfondita. Per informazioni dettagliate su come concedere l'accesso, vedere [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md).
 
 ## Carichi di lavoro del servizio app
 
@@ -92,4 +92,4 @@ Le risorse correlate delle macchine virtuali sono:
 
 Se non è possibile accedere a nessuno di questi titoli, è necessario richiedere all'amministratore l'accesso come Collaboratore per il gruppo di risorse.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

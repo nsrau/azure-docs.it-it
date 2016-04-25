@@ -253,6 +253,7 @@ Se è stata distribuita la protezione tra un [sito Hyper-V e Azure](site-recover
 9. È possibile accedere alla macchina virtuale locale per verificare che tutto funzioni come previsto. Fare clic su **Commit** per completare il failover.
 10. Fare clic su **Replica inversa** per iniziare a proteggere la macchina virtuale in locale.
 
+	>[AZURE.NOTE] Se si annulla il processo di failback mentre durante la fase di sincronizzazione dei dati, la macchina virtuale locale verrà corrotta. Questo avviene perché la sincronizzazione dei dati copia i dati più recenti dai dischi della macchina virtuale di Azure sui dischi dei dati locali e, fino al completamento della sincronizzazione, il disco dati potrebbe non trovarsi in uno stato coerente. La macchina virtuale locale potrebbe non avviarsi dopo aver annullato la sincronizzazione dei dati. Riattivare il failover per completare la sincronizzazione dei dati.
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

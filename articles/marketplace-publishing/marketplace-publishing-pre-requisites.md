@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="01/07/2016"
+  ms.date="04/07/2016"
   ms.author="hascipio; v-divte"/>
 
 # Prerequisiti generali per la creazione di un'offerta per Azure Marketplace
@@ -31,7 +31,11 @@ Per istruzioni dettagliate su come registrare un account venditore con Microsoft
 
 > Per iniziare, è necessario completare la registrazione dell'azienda. Tuttavia, mentre la società si occupa delle informazioni fiscali e bancarie nell'account del Centro per sviluppatori, gli sviluppatori possono iniziare a lavorare alla creazione dell'immagine di macchina virtuale nel [portale di pubblicazione](https://publish.windowsazure.com), ottenere la certificazione ed eseguire il testing nell'ambiente di gestione temporanea di Azure. L'approvazione completa dell'account venditore è necessaria solo per il passaggio finale di pubblicazione dell'offerta in Azure Marketplace.
 
-> In caso di problemi con il completamento della registrazione del venditore, registrare un ticket di supporto come indicato di seguito: 1. Contattare il [supporto tecnico](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=it-IT&pesid=15635&ccsid=635847950577064286). 2. Scegliere il **Centro per sviluppatori**. 3. Scegliere il **profilo di pubblicazione**. 4. Scegliere il metodo di contatto
+> In caso di problemi con il completamento della registrazione del venditore, registrare un ticket di supporto come indicato di seguito:
+> 1. Contattare il [supporto tecnico](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=it-IT&pesid=15635&ccsid=635847950577064286).
+> 2. Scegliere il **Centro per sviluppatori**.
+> 3. Scegliere il **profilo di pubblicazione**.
+> 4. Scegliere il metodo di contatto
 
 
 ## Acquisire una sottoscrizione di Azure con pagamento in base al consumo
@@ -46,9 +50,9 @@ Di seguito sono riportati i prerequisiti tecnici per ogni tipo di offerta. Fare 
 
 | Immagine di macchina virtuale | Servizio per gli sviluppatori | Servizio dati | Modello di soluzione |
 |-----|-----|-----|-----|
-| [Prerequisiti tecnici per le VM](marketplace-publishing-vm-image-creation-prerequisites.md) | Prerequisiti tecnici per il servizio per gli sviluppatori | [Prerequisiti tecnici per il servizio dati](marketplace-publishing-data-service-creation-prerequisites.md) | [Prerequisiti tecnici per il modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md) |
+| [Prerequisiti tecnici per le VM](marketplace-publishing-vm-image-creation-prerequisites.md) | Anteprima privata | [Prerequisiti tecnici per il servizio dati](marketplace-publishing-data-service-creation-prerequisites.md) | [Prerequisiti tecnici per il modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md) |
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

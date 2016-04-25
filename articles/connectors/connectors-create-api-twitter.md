@@ -30,7 +30,7 @@ Connettersi a Twitter per pubblicare un tweet, recuperare la sequenza temporale 
 
 &nbsp;
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore Twitter](../app-service-logic/app-service-logic-connector-twitter.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 Con Twitter è possibile:
 
@@ -49,7 +49,7 @@ Twitter include i trigger e le azioni seguenti.
 
 Trigger | Azioni
 --- | ---
-<ul><li>Quando viene visualizzato un nuovo tweet</li></ul>| <ul><li>Pubblica un nuovo tweet</li><li>Quando viene visualizzato un nuovo tweet</li><li>Recupera sequenza temporale principale</li><li>Recupera utente</li><li>Recupera sequenza temporale dell'utente</li><li>Cerca tweet</li><li>Recupera follower</li><li>Recupera follower personali</li><li>Recupera following</li><li>Recupera following personali</li></ul>
+<ul><li>When a new tweet appears</li></ul>| <ul><li>Post a new tweet</li><li>When a new tweet appears</li><li>Get home timeline</li><li>Get user</li><li>Get user timeline</li><li>Search tweet</li><li>Get followers</li><li>Get my followers</li><li>Get following</li><li>Get my following</li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
@@ -110,7 +110,7 @@ Attiva un flusso di lavoro quando viene pubblicato un nuovo tweet corrispondente
 
 
 ### Recupera la sequenza temporale principale 
-Recupera i tweet e i re-tweet più recenti pubblicati dall'utente e dai follower. ```GET: /hometimeline```
+Recupera i tweet e i retweet più recenti pubblicati dall'utente e dai follower. ```GET: /hometimeline```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -315,4 +315,4 @@ Tornare all'[elenco di API](apis-list.md).
 [6]: ./media/connectors-create-api-twitter/twitter-apps-page.png
 [7]: ./media/connectors-create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

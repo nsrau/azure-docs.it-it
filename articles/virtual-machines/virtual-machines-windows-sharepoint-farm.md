@@ -13,8 +13,8 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="02/03/2016"
+	ms.topic="article"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # Creare farm di SharePoint Server
@@ -36,7 +36,7 @@ Per creare la farm di SharePoint (tre server) di base:
 1. Fare clic [qui](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/)
 2. Fare clic su **Distribuisci**.
 3. Nel riquadro **SharePoint 2013 non-HA Farm**, fare clic su **Crea**.
-4. Specificare le impostazioni nei 7 passaggi del riquadro **Creare una SharePoint 2013 non-HA Farm**, quindi fare clic su **Crea**.
+4. Specificare le impostazioni nei sette passaggi del riquadro di creazione **SharePoint 2013 non-HA Farm**, quindi fare clic su **Crea**.
 
 La farm di SharePoint a disponibilità elevata è costituita da nove macchine virtuali in questa configurazione.
 
@@ -49,7 +49,9 @@ Per creare la farm di SharePoint a disponibilità elevata (nove server):
 1. Fare clic [qui](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/)
 2. Fare clic su **Distribuisci**.
 3. Nel riquadro **SharePoint 2013 HA Farm**, fare clic su **Crea**.
-4. Specificare le impostazioni per i 7 passaggi del riquadro **Creare una SharePoint 2013 HA Farm**, quindi fare clic su **Crea**.
+4. Specificare le impostazioni nei sette passaggi del riquadro di creazione della **SharePoint 2013 HA Farm**, quindi fare clic su **Crea**.
+
+> [AZURE.NOTE] Non è possibile creare la **SharePoint 2013 non-HA Farm** o **SharePoint 2013 HA Farm** con una versione di valutazione gratuita di Azure.
 
 ## Gestire le farm di SharePoint
 
@@ -59,8 +61,9 @@ Dal sito Amministrazione centrale di SharePoint è possibile configurare i siti 
 
 > [AZURE.NOTE] Il portale di Azure crea entrambe queste farm in una rete virtuale solo cloud con una presenza Web con connessione Internet. Non esiste alcuna connessione VPN o ExpressRoute da sito a sito alla rete dell'organizzazione.
 
-## Passaggio successivo
+## Passaggi successivi
 
+- Distribuire una [farm Intranet SharePoint 2013](virtual-machines-windows-sp-intranet-overview.md) come carico di lavoro di produzione nei servizi di infrastruttura di Azure.
 - Scoprire altre configurazioni [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) nei servizi di infrastruttura di Azure.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

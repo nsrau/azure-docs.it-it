@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="03/07/2016"
+   ms.date="04/11/2016"
    ms.author="robinsh" />
 
 # Obiettivi di scalabilità e prestazioni per Archiviazione di Azure
@@ -57,25 +57,25 @@ Vedere [Dimensioni della macchina virtuale](../virtual-machines/virtual-machines
 
 ## Partizioni in Archiviazione di Azure
 
-Ogni oggetto che contiene i dati archiviati in Archiviazione di Azure (BLOB, messaggi, entità e file) appartiene a una partizione ed è identificato da una chiave di partizione. La partizione determina il modo in cui Archiviazione di Azure bilancia il carico di BLOB, messaggi, entità e i file tra i server per soddisfare le esigenze di traffico di tali oggetti. La chiave di partizione è univoca all'interno dell'account di archiviazione e viene utilizzata per individuare un BLOB, un messaggio o un’entità.
+Ogni oggetto che contiene i dati archiviati in Archiviazione di Azure (BLOB, messaggi, entità e file) appartiene a una partizione ed è identificato da una chiave di partizione. La partizione determina il modo in cui Archiviazione di Azure bilancia il carico di BLOB, messaggi, entità e i file tra i server per soddisfare le esigenze di traffico di tali oggetti. La chiave di partizione è univoca e viene usata per trovare un BLOB, un messaggio o un'entità.
 
 Nella tabella precedente [Obiettivi di scalabilità per gli account di archiviazione Standard](#standard-storage-accounts) elenca gli obiettivi di prestazioni di una singola partizione per ogni servizio.
 
 Le partizioni influiscono sul bilanciamento del carico e sulla scalabilità per ognuno dei servizi di archiviazione nei modi seguenti:
 
-- **BLOB**: la chiave di partizione per un BLOB è il nome del contenitore + il nome del BLOB. Ciò significa che ogni BLOB ha una partizione specifica. Pertanto, i BLOB possono essere distribuiti tra più server allo scopo di aumentare l’accesso. Sebbene i BLOB possano essere raggruppati logicamente in contenitori di BLOB, non vi sono implicazioni sul partizionamento derivanti da questo raggruppamento.
+- **BLOB**: la chiave di partizione per un BLOB è il nome account + il nome del contenitore + il nome del BLOB. Ciò significa che ogni BLOB può avere una partizione specifica se il caricamento nel BLOB la richiede. I BLOB possono essere distribuiti in più server per aumentare il numero di istanze di accesso, ma ogni BLOB può essere gestito da un solo server. Sebbene i BLOB possano essere raggruppati logicamente in contenitori di BLOB, non vi sono implicazioni sul partizionamento derivanti da questo raggruppamento.
 
 - **File**: la chiave di partizione per un file è il nome dell'account + il nome della condivisione file. Ciò significa che tutti i file di una condivisione file sono presenti anche in una singola partizione.
 
-- **Messaggi**: la chiave di partizione per un messaggio è il nome della coda, in modo che tutti i messaggi in una coda vengano raggruppati in una singola partizione e serviti da un singolo server. Code diverse possono essere elaborate da server differenti per bilanciare il carico per quante code un account di archiviazione possa disporre.
+- **Messaggi**: la chiave di partizione per un messaggio è il nome account + il nome della coda, in modo che tutti i messaggi in una coda vengano raggruppati in una singola partizione e serviti da un singolo server. Code diverse possono essere elaborate da server differenti per bilanciare il carico per quante code un account di archiviazione possa disporre.
 
-- **Entità**: la chiave di partizione per un'entità è il nome della tabella + la chiave di partizione, dove la chiave di partizione è il valore della proprietà richiesta **PartitionKey** definita dall’utente per l'entità.
+- **Entità**: la chiave di partizione per un'entità è il nome account + il nome della tabella + la chiave di partizione, dove la chiave di partizione è il valore della proprietà richiesta **PartitionKey** definita dall'utente per l'entità. Tutte le entità con lo stesso valore di chiave di partizione vengono raggruppate nella stessa partizione e vengono gestite nello stesso server partizioni. Si tratta di un punto importante da considerare nella progettazione dell'applicazione. L'applicazione deve bilanciare i vantaggi di scalabilità della distribuzione delle entità in più partizioni con i vantaggi di accesso ai dati derivanti dal raggruppamento di entità in una singola partizione.
 
-	Tutte le entità con lo stesso valore di chiave di partizione vengono raggruppate nella stessa partizione e vengono archiviate nello stesso server partizioni. Si tratta di un punto importante da considerare nella progettazione dell'applicazione. L'applicazione deve bilanciare i vantaggi di scalabilità della distribuzione delle entità in più partizioni con i vantaggi di accesso ai dati derivanti dal raggruppamento di entità in una singola partizione.
+Un vantaggio chiave derivante dal raggruppamento di un set di entità in una tabella in una singola partizione consiste nella possibilità di eseguire operazioni batch atomiche tra le entità nella stessa partizione, in quanto una partizione è presente in un singolo server. Quindi, per eseguire operazioni batch su un gruppo di entità, considerare la possibilità di raggruppare le entità con la stessa chiave di partizione.
 
-	Un vantaggio chiave derivante dal raggruppamento di un set di entità in una tabella in una singola partizione consiste nella possibilità di eseguire operazioni batch atomiche tra le entità nella stessa partizione, in quanto una partizione è presente in un singolo server. Pertanto, se si desidera eseguire operazioni batch, considerare il raggruppamento di entità con la stessa chiave di partizione.
+Dall'altro lato, le entità che si trovano nella stessa tabella, ma che hanno chiavi di partizioni diverse, possono avere il carico bilanciato in server differenti, rendendo possibile una scalabilità maggiore.
 
-	Dall’alto lato, le entità che si trovano nella stessa tabella ma che appartengono a partizioni diverse, possono disporre di carico bilanciato in server differenti, rendendo possibile disporre di una tabella di grandi dimensioni con scalabilità maggiore.
+Suggerimenti dettagliati per la progettazione della strategia di partizionamento per le tabelle sono disponibili [qui](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 
 ## Vedere anche
 
@@ -86,4 +86,4 @@ Le partizioni influiscono sul bilanciamento del carico e sulla scalabilità per 
 - [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](storage-performance-checklist.md)
 - [Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

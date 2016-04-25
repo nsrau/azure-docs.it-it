@@ -69,7 +69,7 @@ Per abilitare Database Estensione in un database o una tabella è necessario dis
     USE <database>
     GO
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD='<password>'
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD ='<password>'
     ```
 
 4.  Quando si configura un database per Database Estensione, è necessario specificare le relative credenziali da usare per la comunicazione tra SQL Server locale e il server Azure remoto. Sono disponibili due opzioni.
@@ -102,13 +102,13 @@ Per abilitare Database Estensione in un database o una tabella è necessario dis
 
     1.  Per l'argomento SERVER, specificare il nome di un server Azure esistente, tra cui la parte `.database.windows.net` del nome, ad esempio `MyStretchDatabaseServer.database.windows.net`.
 
-    2.  Specificare le credenziali amministratore esistenti con l'argomento CREDENTIAL o FEDERATED\_SERVICE\_ACCOUNT \\= ON. Nell'esempio seguente vengono fornite credenziali esistenti.
+    2.  Immettere le credenziali amministratore esistenti con l'argomento CREDENTIAL o specificare FEDERATED\_SERVICE\_ACCOUNT = ON. Nell'esempio seguente vengono fornite credenziali esistenti.
 
     ```tsql
     ALTER DATABASE <database name>
         SET REMOTE_DATA_ARCHIVE = ON
             (
-                SERVER = <server_name> ,
+                SERVER = '<server_name>',
                 CREDENTIAL = <db_scoped_credential_name>
             ) ;
     GO;
@@ -133,4 +133,4 @@ Articolo relativo all'[identificazione di database e tabelle per l'estensione da
 
 [Opzioni ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Bilanciamento del carico per i servizi di infrastruttura | Microsoft Azure"
-	description="Vengono descritti i due tipi diversi di bilanciamento del carico supportati da Azure: Bilanciamento del carico per servizi cloud e Gestione traffico di Azure per il traffico client."
+	description="Descrive i due tipi diversi di bilanciamento del carico supportati da Azure: Bilanciamento del carico per servizi cloud e Gestione traffico di Azure per il traffico client."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="joaoma"
@@ -22,4 +22,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-load-balance](../../includes/virtual-machines-common-load-balance.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -17,7 +17,7 @@
    ms.author="masnider"/>
 
 # Descrizione di un cluster di Service Fabric
-Cluster Resource Manager di Service Fabric fornisce alcuni meccanismi per descrivere un cluster. Durante la fase di esecuzione, Resource Manager verifica queste informazioni per assicurare la disponibilità elevata dei servizi in esecuzione sul cluster, assicurando anche che le risorse del cluster vengano usate correttamente.
+Cluster Resource Manager di Service Fabric fornisce alcuni meccanismi per descrivere un cluster. Durante la fase di esecuzione, Gestione risorse usa queste informazioni per assicurare la disponibilità elevata dei servizi in esecuzione sul cluster, assicurando anche che le risorse del cluster vengano usate correttamente.
 
 ## Concetti chiave
 Le funzionalità di Resource Manager per i cluster che descrivono un cluster sono le seguenti:
@@ -262,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

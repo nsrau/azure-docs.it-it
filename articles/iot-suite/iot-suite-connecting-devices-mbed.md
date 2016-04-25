@@ -48,7 +48,7 @@ Le istruzioni seguenti descrivono i passaggi per connettere un dispositivo [Free
 
     ![][7]
 
-5. Nella finestra del compilatore mbed è possibile osservare che l'importazione del progetto include diverse librerie. Alcune sono fornite e gestite dal team IoT di Azure ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [proton-c-mbed](https://developer.mbed.org/users/AzureIoTClient/code/proton-c-mbed/)), altre invece sono librerie di terze parti disponibili nel catalogo delle librerie di mbed.
+5. Nella finestra del compilatore mbed è possibile osservare che l'importazione del progetto include diverse librerie. Alcune vengono messe a disposizione e gestite dal team IoT di Azure ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure-uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), altre invece sono librerie di terze parti disponibili nel catalogo delle librerie di mbed.
 
     ![][8]
 
@@ -61,7 +61,7 @@ Le istruzioni seguenti descrivono i passaggi per connettere un dispositivo [Free
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
 
-7. Sostituire [Device Id] e [Device Key] con i dati del dispositivo. Usare il nome host dell'hub IoT Hub per sostituire i segnaposto [IoTHub Name] e [IoTHub Suffix, ovvero azure-devices.net]. Ad esempio, se il nome host dell'hub IoT è contoso.azure-devices.net, contoso sarà **hubName** e tutto ciò che segue sarà **hubSuffix**:
+7. Sostituire [Device Id] e [Device Key] con i dati del dispositivo per abilitare il programma di esempio per la connessione all'hub IoT. Usare il nome host dell'hub IoT Hub per sostituire i segnaposto [IoTHub Name] e [IoTHub Suffix, ovvero azure-devices.net]. Ad esempio, se il nome host dell'hub IoT è contoso.azure-devices.net, contoso sarà **hubName** e tutto ciò che segue sarà **hubSuffix**:
 
     ```
     static const char* deviceId = "mydevice";
@@ -72,6 +72,123 @@ Le istruzioni seguenti descrivono i passaggi per connettere un dispositivo [Free
 
     ![][9]
 
+### Esaminare il codice
+
+Se si è interessati a conoscere la modalità di funzionamento del programma, in questa sezione vengono descritte alcune parti chiave del codice di esempio. Se invece si vuole solo eseguire il codice, passare direttamente alla sezione [Compilare ed eseguire il programma](#buildandrun).
+
+#### Definizione del modello
+
+In questo esempio viene usata la libreria [per la serializzazione][lnk-serializer] per definire un modello che specifica i messaggi che il dispositivo può scambiare con l'hub IoT. In questo esempio lo spazio dei nomi **Contoso** definisce un modello **Thermostat** che specifica i dati di telemetria **Temperature**, **ExternalTemperature** e **Humidity** insieme con i metadati come ad esempio l'ID e le proprietà del dispositivo e i comandi cui il dispositivo risponde:
+
+```
+BEGIN_NAMESPACE(Contoso);
+
+DECLARE_STRUCT(SystemProperties,
+    ascii_char_ptr, DeviceID,
+    _Bool, Enabled
+);
+
+DECLARE_STRUCT(DeviceProperties,
+ascii_char_ptr, DeviceID,
+_Bool, HubEnabledState
+);
+
+DECLARE_MODEL(Thermostat,
+
+    /* Event data (temperature, external temperature and humidity) */
+    WITH_DATA(int, Temperature),
+    WITH_DATA(int, ExternalTemperature),
+    WITH_DATA(int, Humidity),
+    WITH_DATA(ascii_char_ptr, DeviceId),
+
+    /* Device Info - This is command metadata + some extra fields */
+    WITH_DATA(ascii_char_ptr, ObjectType),
+    WITH_DATA(_Bool, IsSimulatedDevice),
+    WITH_DATA(ascii_char_ptr, Version),
+    WITH_DATA(DeviceProperties, DeviceProperties),
+    WITH_DATA(ascii_char_ptr_no_quotes, Commands),
+
+    /* Commands implemented by the device */
+    WITH_ACTION(SetTemperature, int, temperature),
+    WITH_ACTION(SetHumidity, int, humidity)
+);
+
+END_NAMESPACE(Contoso);
+```
+
+Alla definizione del modello sono correlate anche le definizioni per i comandi **SetTemperature** e **SetHumidity** cui il dispositivo risponde:
+
+```
+EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
+{
+    (void)printf("Received temperature %d\r\n", temperature);
+    thermostat->Temperature = temperature;
+    return EXECUTE_COMMAND_SUCCESS;
+}
+
+EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
+{
+    (void)printf("Received humidity %d\r\n", humidity);
+    thermostat->Humidity = humidity;
+    return EXECUTE_COMMAND_SUCCESS;
+}
+```
+
+#### Connettere il modello alla libreria
+
+Le funzioni **sendMessage** e **IoTHubMessage** sono codice boilerplate per l'invio di dati di telemetria dal dispositivo e di messaggi di connessione dall'hub IoT ai gestori del comando.
+
+#### La funzione remote\_monitoring\_run
+
+La funzione **principale** del programma chiama la funzione **remote\_monitoring\_run** quando l'applicazione inizia a eseguire il comportamento del dispositivo come un client di dispositivo dell'hub IoT. La funzione **remote\_monitoring\_run** è costituita principalmente da coppie di funzioni nidificate:
+
+- **platform\_init** e **platform\_deinit** eseguono operazioni di inizializzazione e di arresto specifiche della piattaforma.
+- **serializer\_init** e **serializer\_deinit** inizializzano e rimuovono la libreria per la serializzazione.
+- **IoTHubClient\_Create** e **IoTHubClient\_Destroy** creano un handle del client, **iotHubClientHandle**, usando le credenziali del dispositivo per la connessione all'hub IoT.
+
+Nella sezione principale della funzione **remote\_monitoring\_run** il programma esegue le operazioni seguenti usando l'handle **iotHubClientHandle**:
+
+- Crea un'istanza del modello termostato Contoso e configura i callback di messaggio per i due comandi.
+- Invia all'hub IoT le informazioni sul dispositivo, inclusi i comandi supportati, tramite la libreria per la serializzazione. Quando l'hub riceve questo messaggio, modifica lo stato del dispositivo nel dashboard da **In sospeso** a **In esecuzione**.
+- Avvia un ciclo **while** che invia i valori di temperatura, temperatura esterna e umidità all'hub IoT ogni secondo.
+
+Per riferimento, ecco un esempio di messaggio relativo alle **informazioni sul dispositivo** inviato all'hub IoT all'avvio:
+
+```
+{
+  "ObjectType":"DeviceInfo",
+  "Version":"1.0",
+  "IsSimulatedDevice":false,
+  "DeviceProperties":
+  {
+    "DeviceID":"mydevice01", "HubEnabledState":true
+  }, 
+  "Commands":
+  [
+    {"Name":"SetHumidity", "Parameters":[{"Name":"humidity","Type":"double"}]},
+    { "Name":"SetTemperature", "Parameters":[{"Name":"temperature","Type":"double"}]}
+  ]
+}
+```
+
+Per riferimento, ecco un esempio di messaggio relativo alla **telemetria** inviato all'hub IoT:
+
+```
+{"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
+```
+
+Per riferimento, ecco un esempio di messaggio relativo ai **comandi** ricevuto dall'hub IoT:
+
+```
+{
+  "Name":"SetHumidity",
+  "MessageId":"2f3d3c75-3b77-4832-80ed-a5bb3e233391",
+  "CreatedTime":"2016-03-11T15:09:44.2231295Z",
+  "Parameters":{"humidity":23}
+}
+```
+
+<a id="buildandrun"/>
 ### Compilare ed eseguire il programma
 
 1. Fare clic su **Compila** per compilare il programma. È possibile ignorare eventuali avvisi, ma, se la compilazione genera errori, correggerli prima di continuare.
@@ -101,5 +218,6 @@ Le istruzioni seguenti descrivono i passaggi per connettere un dispositivo [Free
 [lnk-mbed-home]: https://developer.mbed.org/platforms/FRDM-K64F/
 [lnk-mbed-getstarted]: https://developer.mbed.org/platforms/FRDM-K64F/#getting-started-with-mbed
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
+[lnk-serializer]: https://azure.microsoft.com/documentation/articles/iot-hub-device-sdk-c-intro/#serializer
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -35,7 +35,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 + Dispositivo iOS 8 (non è possibile testare le notifiche push nel simulatore iOS)
 + Iscrizione a iOS Developer Program
-+ [Xamarin.iOS Studio]
++ [Xamarin Studio]
 + [Componente Servizi mobili di Azure]
 + Un account Google attivo
 + [Componente client di Google Cloud Messaging] Questo componente verrà aggiunto durante l'esercitazione.
@@ -838,7 +838,7 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 [127]: ./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/notification-area-received.png
 
 
-[Xamarin.iOS Studio]: http://xamarin.com/platform
+[Xamarin Studio]: http://xamarin.com/download
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
@@ -852,9 +852,8 @@ Prima che l'app possa ricevere notifiche push, è necessario registrare un canal
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Componente Servizi mobili di Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
-[Xamarin.iOS]: http://xamarin.com/download
 [Componente client di Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [esempio introduttivo sulle notifiche push di Azure per Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [esempio completo di notifiche push di Azure per Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

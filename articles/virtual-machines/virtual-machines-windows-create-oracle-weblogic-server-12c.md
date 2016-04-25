@@ -43,7 +43,7 @@ Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su
 	2. Lasciare **Set di disponibilità** come «Non configurato».
 	3. Al momento non aggiungere alcun **endpoint**.
 
-9.	Scegliere o creare un [gruppo di risorse](../resource-group-portal.md)
+9.	Scegliere o creare un [gruppo di risorse](../azure-portal/resource-group-portal.md)
 
 10. Scegliere una **sottoscrizione**
 
@@ -187,4 +187,4 @@ Dopo aver configurato la macchina virtuale che esegue Oracle WebLogic Server, ve
 
 -	[Immagini di macchine virtuali Oracle per Azure](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

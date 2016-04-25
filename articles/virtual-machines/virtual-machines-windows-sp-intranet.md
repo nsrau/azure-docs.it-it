@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # Carico di lavoro dei servizi di infrastruttura di Azure: farm di SharePoint Intranet
@@ -35,8 +35,6 @@ L'hosting di una farm di SharePoint Intranet nei servizi di infrastruttura di Az
 
 Il passaggio successivo consiste nel configurare una farm di SharePoint Intranet di sviluppo/testing.
 
-> [AZURE.NOTE] Microsoft ha rilasciato l'anteprima di SharePoint Server 2016 IT. Per rendere questa versione di anteprima semplice da installare e testare, è possibile utilizzare un'immagine della raccolta della macchina virtuale di Azure con l’anteprima di SharePoint Server 2016 IT e i relativi prerequisiti pre-installati. Per ulteriori informazioni, vedere [Testare l’anteprima di SharePoint Server 2016 IT in Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
-
 ## Creare una farm di SharePoint Intranet di sviluppo/testing ospitata in Azure
 
 Per creare un ambiente di sviluppo/testing per una farm di SharePoint ospitata in Azure, è possibile scegliere tra due opzioni:
@@ -44,7 +42,7 @@ Per creare un ambiente di sviluppo/testing per una farm di SharePoint ospitata i
 - Rete virtuale solo cloud
 - Rete virtuale cross-premise
 
-È possibile creare questi ambienti di sviluppo/testing gratuitamente con il proprio [abbonamento a Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) o una [sottoscrizione di prova di Azure](https://azure.microsoft.com/pricing/free-trial/).
+È possibile creare questi ambienti di sviluppo/test con la [sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) o una sottoscrizione di Azure.
 
 ### Rete virtuale solo cloud
 
@@ -54,7 +52,7 @@ Una rete virtuale solo cloud non è connessa a una rete locale. Se si vuole solo
 
 ### Rete virtuale cross-premise
 
-Una rete virtuale cross-premise è connessa a una rete locale mediante una connessione ExpressRoute o VPN da sito a sito. Se si vuole creare un ambiente di sviluppo/testing che simuli la configurazione finale e provare ad accedere al server SharePoint e a eseguire le attività di amministrazione remota su una connessione VPN, vedere [Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
+Una rete virtuale cross-premise è connessa a una rete locale mediante una connessione ExpressRoute o VPN da sito a sito. Se si vuole creare un ambiente di sviluppo/testing che simuli la configurazione finale e provare ad accedere al server SharePoint e a eseguire le attività di amministrazione remota su una connessione VPN, vedere [Configurazione di una farm Intranet di SharePoint in un cloud ibrido per l'esecuzione di test](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md).
 
 ![](./media/virtual-machines-windows-sp-intranet/CreateSPFarmHybridCloud.png)
 
@@ -102,4 +100,4 @@ Dopo aver eseguito la configurazione, è possibile espandere questa farm di Shar
 
 - Ottenere una [panoramica](virtual-machines-windows-sp-intranet-overview.md) del carico di lavoro di produzione prima di approfondire la configurazione.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

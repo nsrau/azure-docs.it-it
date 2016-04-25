@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Distribuzione di applicazioni nel servizio app di Azure" 
-	description="Informazioni su come distribuire le applicazioni per l'uso nel servizio app" 
+<properties
+	pageTitle="Distribuzione di applicazioni nel servizio app di Azure"
+	description="Informazioni su come distribuire le applicazioni per l'uso nel servizio app"
 	keywords="servizio app, servizio app di azure, distribuire, distribuzione"
-	services="app-service" 
-	documentationCenter="" 
-	authors="dariagrigoriu" 
-	manager="wpickett" 
+	services="app-service"
+	documentationCenter=""
+	authors="dariagrigoriu"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/09/2016" 
+<tags
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/09/2016"
 	ms.author="dariagrigoriu"/>
 
 # Panoramica della distribuzione nel servizio app di Azure
@@ -23,4 +23,4 @@ Il servizio app di Azure offre una funzionalità integrata e avanzata concepita 
 
 [AZURE.INCLUDE [app-service-blueprint-deployment](../../includes/app-service-blueprint-deployment.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

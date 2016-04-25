@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Connettersi a Yammer per accedere alle conversazioni della rete dell'organizzazione.
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic su [Yammer](../app-service-logic/app-service-logic-connector-yammer.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 Con Yammer è possibile:
 
@@ -36,27 +36,27 @@ Yammer include i trigger e le azioni seguenti.
 
 Trigger | Azioni
 --- | ---
-<ul><li>Quando è presente un nuovo messaggio in un gruppo</li><li>Quando è presente un nuovo messaggio nel feed Seguiti</li></ul>| <ul><li>Ottieni tutti i messaggi</li><li>Ottieni i messaggi in un gruppo</li><li>Ottieni i messaggi dal feed Seguiti</li><li>Pubblica un messaggio</li><li>Quando è presente un nuovo messaggio in un gruppo</li><li>Quando è presente un nuovo messaggio nel feed Seguiti</li></ul>
+<ul><li>When there is a new message in a group</li><li>When there is a new message in my Following feed</li></ul>| <ul><li>Get all messages</li><li>Gets messages in a group</li><li>Gets the messages from my Following feed</li><li>Post message</li><li>When there is a new message in a group</li><li>When there is a new message in my Following feed</li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
 ## Creare una connessione a Yammer
-Per usare l'API di Yammer, creare innanzitutto una **connessione**, quindi fornire i dettagli di queste proprietà:
+Per usare l'API di Yammer, creare prima una **connessione**, quindi specificare i dettagli di queste proprietà:
 
 |Proprietà| Obbligatorio|Descrizione|
 | ---|---|---|
 |Token|Sì|Specificare le credenziali di Yammer|
 
-Seguire questi passaggi per accedere a Yammer e completare la configurazione della **connessione** Yammer nell'app per la logica:
+Seguire questa procedura per accedere a Yammer e completare la configurazione della **connessione** Yammer nell'app per la logica:
 
-1. Selezionare **Ricorrenza**
-2. Selezionare una **Frequenza** e immettere un **Intervallo**
+1. Selezionare **Recurrence**
+2. Selezionare una **frequenza** e immettere un **intervallo**
 3. Selezionare **Add an action** ![Configurare Yammer][1]
 4. Immettere Yammer nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con Yammer nel nome
-5. Selezionare **Yammer - Recupera tutti i messaggi**
+5. Selezionare **Yammer - Get all messages**
 6. Selezionare **Sign in to Yammer**: ![Configurare Yammer][2]
-7. Fornire le credenziali di Yammer per accedere e autorizzare l'applicazione ![Configurare Yammer][3]  
-8. Si verrà reindirizzati alla pagina di accesso dell'organizzazione. Fare clic su **Allow** per autorizzare Yammer a interagire con l'app per la logica: ![Configurare Yammer][4] 
+7. Specificare le credenziali di Yammer per accedere e autorizzare l'applicazione ![Configurare Yammer][3]  
+8. Si verrà reindirizzati alla pagina di accesso dell'organizzazione. **Consentire** a Yammer di interagire con l'app per la logica: ![Configurare Yammer][4] 
 9. Dopo l'accesso, tornare all'app per la logica per completarla configurando la sezione **Yammer - Get all messages** e aggiungendo gli altri trigger e azioni necessari. ![Configurare Yammer][5]  
 10. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.
 
@@ -93,7 +93,7 @@ Corrisponde a "Tutte" le conversazioni nell'interfaccia Web di Yammer. ```GET: /
 
 
 ### Pubblica un messaggio in un gruppo o nel feed generale dell'organizzazione
-Se viene fornito l'ID del gruppo, il messaggio verrà inviato al gruppo specificato altrimenti verrà pubblicato nel feed generale dell'organizzazione. ```POST: /messages.json```
+Se viene indicato l'ID gruppo, il messaggio verrà pubblicato nel gruppo specificato altrimenti verrà pubblicato nel feed generale dell'organizzazione. ```POST: /messages.json```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -206,4 +206,4 @@ Se viene fornito l'ID del gruppo, il messaggio verrà inviato al gruppo specific
 [4]: ./media/connectors-create-api-yammer/connectionconfig4.png
 [5]: ./media/connectors-create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -52,7 +52,6 @@ Prerequisiti per ogni macchina da aggiungere al cluster:
 - Windows Server 2012 R2 o Windows Server 2012 (è necessaria l’installazione di KB2858668 per questo componente).
 - .NET Framework 4.5.1 o versione successiva, installazione completa
 - Windows PowerShell 3.0
-- Visual C++ 2012 (VC++ 11.0) Redistributable Package
 - L'amministratore del cluster che distribuisce e configura il cluster deve avere privilegi da amministratore su ogni computer.
 
 ### Passaggio 3: determinare la dimensione iniziale del cluster
@@ -91,8 +90,8 @@ Aprire il file *ClusterConfig.JSON* dal pacchetto scaricato. È possibile utiliz
 
 |**Impostazioni di configurazione**|**Descrizione**|
 |-----------------------|--------------------------|
-|NodeTypes|I tipi di nodo permettono di separare i nodi del cluster in diversi gruppi. Un cluster deve avere almeno un NodeType. Tutti i nodi in un gruppo possiedono le seguenti caratteristiche comuni. <br> *Name*: nome del tipo di nodo. <br>*EndPoints*: endpoint con nomi diversi (porte) associati a questo tipo di nodo. È possibile utilizzare qualsiasi numero di porta richiesto, purché non sia in conflitto con altri elementi di questo manifesto e non sia già in uso da altri programmi sulla macchina/VM <br> *PlacementProperties*: descrivono le proprietà per questo tipo di nodo utilizzate poi come vincoli di posizionamento per servizi di sistema o i servizi correnti. Queste proprietà del nodo consentono di definire le coppie chiave/valore che forniscono metadati aggiuntivi per un determinato nodo. Tra le proprietà del nodo è possibile elencare la presenza o meno di un'unità disco rigido o di una scheda grafica, il numero di spindle del disco rigido, i core e altre proprietà fisiche. <br> *Capacità*: le capacità del nodo definiscono il nome e la quantità di una particolare risorsa utilizzabile da parte di un determinato nodo. Ad esempio, un nodo può definire la propria capacità per una metrica denominata "MemoryInMb" con un valore predefinito di 2048 MB di memoria disponibile. Queste capacità sono utilizzate in fase di esecuzione per garantire che i servizi che richiedono una determinata quantità di risorse vengano inseriti nei nodi con tali risorse a disposizione.|
-|Nodi|I dettagli per ciascun nodo che farà parte del cluster (tipo di nodo, nome del nodo, indirizzo IP, dominio di errore e dominio di aggiornamento del nodo). Le macchine sulle quali deve essere creato il cluster devono essere elencate qui con il rispettivo indirizzo IP. <br> Se si utilizzano gli stessi indirizzi IP per tutti i nodi, viene creato un cluster da una casella, utilizzabile per scopi di test. Non utilizzare cluster di una casella per la distribuzione dei carichi di lavoro di produzione.|
+|NodeTypes|I tipi di nodo permettono di separare i nodi del cluster in diversi gruppi. Un cluster deve avere almeno un NodeType. Tutti i nodi in un gruppo possiedono le seguenti caratteristiche comuni. <br> *Name*: nome del tipo di nodo. <br>*EndPoints*: endpoint con nomi diversi (porte) associati a questo tipo di nodo. È possibile usare qualsiasi numero di porta richiesto, purché non sia in conflitto con altri elementi di questo manifesto e non sia già in uso da altri programmi sulla macchina/VM <br> *PlacementProperties*: descrivono le proprietà per questo tipo di nodo usate poi come vincoli di posizionamento per servizi di sistema o i servizi correnti. Queste proprietà del nodo consentono di definire le coppie chiave/valore che forniscono metadati aggiuntivi per un determinato nodo. Tra le proprietà del nodo è possibile elencare la presenza o meno di un'unità disco rigido o di una scheda grafica, il numero di spindle del disco rigido, i core e altre proprietà fisiche. <br> *Capacità*: le capacità del nodo definiscono il nome e la quantità di una particolare risorsa utilizzabile da parte di un determinato nodo. Ad esempio, un nodo può definire la propria capacità per una metrica denominata "MemoryInMb" con un valore predefinito di 2048 MB di memoria disponibile. Queste capacità sono utilizzate in fase di esecuzione per garantire che i servizi che richiedono una determinata quantità di risorse vengano inseriti nei nodi con tali risorse a disposizione.|
+|Nodi|I dettagli per ciascun nodo che farà parte del cluster (tipo di nodo, nome del nodo, indirizzo IP, dominio di errore e dominio di aggiornamento del nodo). Le macchine sulle quali deve essere creato il cluster devono essere elencate qui con il rispettivo indirizzo IP. <br> Se si usano gli stessi indirizzi IP per tutti i nodi, viene creato un cluster da una casella, utilizzabile per scopi di test. Non utilizzare cluster di una casella per la distribuzione dei carichi di lavoro di produzione.|
 
 ### Passaggio 2: esecuzione dello script di creazione del cluster
 Dopo aver modificato la configurazione del cluster nel documento JSON e aggiunto tutte le relative le informazioni sul nodo, eseguire lo script PowerShell di creazione del cluster dalla cartella del pacchetto e passare il percorso al file di configurazione e il percorso della radice del pacchetto.
@@ -100,7 +99,7 @@ Dopo aver modificato la configurazione del cluster nel documento JSON e aggiunto
 Questo script può essere eseguito su qualsiasi macchina con accesso da amministratore a tutte le macchine elencate come nodi nel file di configurazione del cluster. La macchina sulla quale viene eseguito questo script può far parte o meno del cluster.
 
 ```
-C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590> .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
 ```
 
 ## Passaggi successivi
@@ -115,4 +114,4 @@ Leggere le seguenti informazioni introduttive sulla distribuzione e sullo svilup
 Per ulteriori informazioni sui cluster di Azure e sui cluster autonomi:
 - [Panoramica della funzionalità di creazione di cluster autonomi e confronto con i cluster gestiti da Azure](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

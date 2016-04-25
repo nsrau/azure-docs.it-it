@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Il provider di connessione di SharePoint fornisce un'API da usare con gli elenchi di SharePoint.
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic su [SharePoint](../app-service-logic/app-service-logic-connector-SharePoint.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 Con SharePoint è possibile:
 
@@ -66,21 +66,21 @@ Nell'API di SharePoint sono disponibili le azioni e/o i trigger seguenti:
 
 
 ## Creare una connessione a SharePoint
-Per usare l'API di SharePoint, creare innanzitutto una **connessione**, quindi fornire i dettagli di queste proprietà:
+Per usare l'API SharePoint, creare prima una **connessione**, quindi indicare i dettagli di queste proprietà:
 
 |Proprietà| Obbligatorio|Descrizione|
 | ---|---|---|
 |Token|Sì|Fornire le credenziali di SharePoint|
 
-Per connettersi a **SharePoint Online**, è necessario fornire la propria identità (nome utente e password, credenziali smart card e così via) in SharePoint Online. Dopo l'autenticazione, è possibile usare l'API di SharePoint Online nella propria app per la logica.
+Per connettersi a **SharePoint Online**, è necessario indicare la propria identità (nome utente e password, credenziali smart card e così via) in SharePoint Online. Dopo l'autenticazione, è possibile usare l'API di SharePoint Online nella propria app per la logica.
 
-Dall'applicazione di progettazione delle app per la logica, seguire questi passaggi per accedere a SharePoint e creare la connessione **connessione** da usare con l'app per la logica:
+Durante la progettazione dell'app per la logica, seguire questa procedura per accedere a SharePoint e creare la **connessione** da usare nell'app per la logica:
 
 1. Nella casella di ricerca digitare SharePoint e attendere che la ricerca restituisca tutte le voci con SharePoint nel nome: ![Configurare SharePoint][1]  
-2. Selezionare **SharePoint Online - Quando un file viene creato**   
+2. Selezionare **SharePoint Online - When a file is created**   
 3. Selezionare **Sign in to SharePoint Online**: ![Configurare SharePoint][2]    
 4. Specificare le credenziali di SharePoint per accedere ed eseguire l'autenticazione con SharePoint ![Configurare SharePoint][3]     
-5. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla tramite la configurazione della finestra di dialogo **When a file is created** di SharePoint. ![Configurare SharePoint][4]  
+5. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla usando i dati di configurazione della finestra di dialogo **When a file is created** di SharePoint. ![Configurare SharePoint][4]  
 6. È quindi possibile aggiungere altri trigger e azioni necessari per completare l'app per la logica.   
 7. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.  
 
@@ -701,4 +701,4 @@ Nessuna delle proprietà è obbligatoria.
 [4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Panoramica di Provider di risorse di rete | Microsoft Azure"
    description="Introduzione al nuovo Provider di risorse di rete in Gestione risorse di Azure"
    services="virtual-network"
@@ -6,7 +6,7 @@
    authors="telmosampaio"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -23,9 +23,9 @@ Gestione risorse di Azure si basa su diversi provider di risorse per fornire l'a
 - **Metadati**: le informazioni alle risorse possono essere aggiunte usando i tag. Questi tag possono essere usati per tenere traccia dell'utilizzo delle risorse tra le sottoscrizioni e i gruppi di risorse.
 - **Maggior controllo della rete**: le risorse di rete sono a regime di controllo libero ed è possibile controllarle in modo più granulare. Questo consente una maggiore flessibilità nella gestione delle risorse di rete.
 - **Configurazione più veloce**: grazie al regime di controllo libero, è possibile creare e orchestrare in parallelo le risorse di rete. Il tempo di configurazione viene ridotto drasticamente.
-- **Controllo degli accessi in base al ruolo**: questa funzionalità fornisce ruoli predefiniti con uno specifico ambito di sicurezza, oltre a consentire la creazione di ruoli personalizzati per una gestione sicura. 
+- **Controllo degli accessi in base al ruolo**: questa funzionalità fornisce ruoli predefiniti con uno specifico ambito di sicurezza, oltre a consentire la creazione di ruoli personalizzati per una gestione sicura.
 - **Gestione e distribuzione più semplice**: la distribuzione e la gestione delle applicazioni è più semplice perché è possibile creare un intero stack di applicazioni sotto forma di un'unica raccolta di risorse in un gruppo di risorse. Inoltre, la distribuzione risulta più rapida perché è possibile eseguirla semplicemente fornendo un payload JSON del modello.
-- **Personalizzazione rapida**: è possibile usare modelli con stile dichiarativo per abilitare la personalizzazione ripetibile e rapida delle distribuzioni. 
+- **Personalizzazione rapida**: è possibile usare modelli con stile dichiarativo per abilitare la personalizzazione ripetibile e rapida delle distribuzioni.
 - **Personalizzazione ripetibile**: è possibile usare modelli con stile dichiarativo per abilitare la personalizzazione ripetibile e rapida delle distribuzioni.
 - **Interfacce di gestione** - è possibile gestire le risorse usando una delle seguenti interfacce:
 	- API basata su REST
@@ -37,7 +37,7 @@ Gestione risorse di Azure si basa su diversi provider di risorse per fornire l'a
 	- Portale di anteprima
 	- Linguaggio del modello ARM
 
-## Risorse di rete 
+## Risorse di rete
 Ora è possibile gestire le risorse di rete in modo indipendente, anziché tutte insieme mediante un'unica risorsa di calcolo (una macchina virtuale). Ciò garantisce una maggiore flessibilità durante la creazione di un'infrastruttura complessa e su larga scala in un gruppo di risorse.
 
 Di seguito è riportata una visualizzazione concettuale di una distribuzione di esempio che interessa un'applicazione multilivello. È possibile gestire in modo indipendente ciascuna risorsa visualizzata, ad esempio schede di rete, indirizzi IP pubblici e VM.
@@ -77,7 +77,7 @@ Ogni risorsa prevede un set comune di proprietà e il proprio set di proprietà.
 ## Interfacce di gestione
 È possibile gestire le risorse di rete Azure tramite interfacce diverse. Questo documento è dedicato a tali interfacce: API REST e modelli.
 
-### API REST 
+### API REST
 Come accennato in precedenza, le risorse di rete possono essere gestite tramite un'ampia gamma di interfacce, tra cui API REST,.NET SDK, Node.JS SDK, Java SDK, PowerShell, l'interfaccia della riga di comando, il portale di Azure e i modelli.
 
 L'API REST è conforme alla specifica del protocollo HTTP 1.1. La struttura generale degli URI dell'API viene presentata di seguito:
@@ -92,7 +92,7 @@ E i parametri tra parentesi graffe rappresentano gli elementi seguenti:
 
 Quando si effettuano chiamate all'API REST sono supportati i seguenti metodi HTTP:
 
-- **PUT**: usato per creare una risorsa di un determinato tipo, modificare una proprietà della risorsa o modificare un'associazione tra le risorse. 
+- **PUT**: usato per creare una risorsa di un determinato tipo, modificare una proprietà della risorsa o modificare un'associazione tra le risorse.
 - **GET**: usato per recuperare le informazioni per una risorsa con provisioning.
 - **DELETE**: usato per eliminare una risorsa esistente.
 
@@ -138,7 +138,7 @@ Il modello è principalmente una descrizione JSON delle risorse e dei valori del
 	        "metadata" : {
 	          "Description" : "Address prefix"
 	        }
-	
+
 	      },
 	      "subnet1Name": {
 	        "type" : "string",
@@ -229,9 +229,9 @@ Quando si usa un modello è possibile specificare manualmente i valori dei param
 
 I principali vantaggi associati all'uso dei modelli sono:
 
-- È possibile compilare un'infrastruttura complessa in un gruppo di risorse con uno stile dichiarativo. L'orchestrazione per la creazione delle risorse, inclusa la gestione delle dipendenze, viene gestita da ARM. 
-- È possibile creare l'infrastruttura in modo ripetibile in diverse aree e all'interno di una sola area modificando semplicemente i parametri. 
-- Lo stile dichiarativo consente tempi più brevi per la compilazione dei modelli e la distribuzione dell'infrastruttura. 
+- È possibile compilare un'infrastruttura complessa in un gruppo di risorse con uno stile dichiarativo. L'orchestrazione per la creazione delle risorse, inclusa la gestione delle dipendenze, viene gestita da ARM.
+- È possibile creare l'infrastruttura in modo ripetibile in diverse aree e all'interno di una sola area modificando semplicemente i parametri.
+- Lo stile dichiarativo consente tempi più brevi per la compilazione dei modelli e la distribuzione dell'infrastruttura.
 
 Per i modelli di esempio, vedere i [modelli della guida introduttiva di Azure](https://github.com/Azure/azure-quickstart-templates).
 
@@ -260,8 +260,8 @@ Il modello di esempio precedente usa la rete virtuale e le risorse della subnet.
 
 [Rete di Azure: modelli di uso comune](https://github.com/Azure/azure-quickstart-templates)
 
-[Provider di risorse di calcolo](../virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
+[Provider di risorse di calcolo](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
 [Panoramica di Gestione risorse di Microsoft Azure](../resource-group-overview.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

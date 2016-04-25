@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="04/06/2016" 
 	ms.author="robinsh"/>
 
 # Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer 
@@ -36,9 +36,11 @@ Per risolvere i problemi relativi alle applicazioni client mediante Archiviazion
 
 	- La **registrazione di archiviazione** registra tutte le richieste in arrivo ai servizi di Archiviazione di Azure in un log sul lato server. Nel log vengono registrati dati dettagliati per ogni richiesta, tra cui l'operazione eseguita, lo stato dell'operazione e le informazioni sulla latenza. Per altre informazioni sui dati di richiesta e risposta che vengono scritti nei log di Analisi di archiviazione, vedere [Formato del log di Analisi archiviazione](http://msdn.microsoft.com/library/azure/hh343259.aspx).
 
-- **Portale di Azure classico**. Nel [portale di Azure classico](https://manage.windowsazure.com) è possibile configurare le metriche e la registrazione per l'account di archiviazione. È possibile anche visualizzare grafici che mostrano le prestazioni dell'applicazione nel tempo e configurare gli avvisi per ricevere una notifica se le prestazioni dell'applicazione si discostano dal previsto per una determinata metrica.
+> [AZURE.NOTE] Per gli account di archiviazione con un tipo di replica di archiviazione con ridondanza della zona (ZRS) al momento non sono abilitate le funzionalità di metrica e registrazione.
+
+- **Portale di Azure classico**. Nel [portale di Azure classico](https://manage.windowsazure.com) è possibile configurare le metriche e la registrazione per l'account di archiviazione. È possibile anche visualizzare grafici che mostrano le prestazioni dell'applicazione nel tempo e configurare gli avvisi per ricevere una notifica se le prestazioni dell'applicazione si discostano dal previsto per una determinata metrica. 
 	
-	Per informazioni sulla configurazione del monitoraggio nel portale di Azure, vedere [Monitorare un account di archiviazione nel portale di Azure classico](storage-monitor-storage-account.md).
+	Per informazioni sulla configurazione del monitoraggio nel portale di Azure classico, vedere [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md).
 
 - **AzCopy**. I log di Archiviazione di Azure vengono memorizzati come BLOB, quindi è possibile usare AzCopy per copiare i BLOB di log in una directory locale per l'analisi mediante Microsoft Message Analyzer. Per altre informazioni su AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
@@ -88,11 +90,11 @@ In questa esercitazione viene usato Message Analyzer per utilizzare tre diversi 
 
 ### Configurare le metriche e la registrazione sul lato server
 
-In primo luogo è necessario configurare la registrazione e le metriche di Archiviazione di Azure, in modo da disporre di dati dell'applicazione client per l'analisi. La registrazione e le metriche possono essere configurate in diversi modi: tramite il [portale di Azure classico](https://manage.windowsazure.com), tramite PowerShell o a livello di codice. Per informazioni dettagliate sulla registrazione e sulle metriche, vedere [Abilitazione delle metriche di archiviazione e visualizzazione dei dati di metrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Abilitazione della registrazione e accesso ai dati del Log di archiviazione](http://msdn.microsoft.com/library/azure/dn782840.aspx).
+In primo luogo è necessario configurare la registrazione e le metriche di Archiviazione di Azure, in modo da disporre di dati dell'applicazione client per l'analisi. La registrazione e le metriche possono essere configurate in diversi modi: tramite il [portale di Azure classico](https://manage.windowsazure.com), tramite PowerShell o a livello di codice. Per informazioni dettagliate sulla configurazione di registrazione e metrica, vedere [Abilitazione delle metriche di archiviazione e visualizzazione dei dati di metrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Abilitazione della registrazione e accesso ai dati del log di archiviazione](http://msdn.microsoft.com/library/azure/dn782840.aspx).
 
 **Tramite il portale di Azure classico**
 
-Per configurare la registrazione e le metriche per l'account di archiviazione tramite il portale, seguire le istruzioni in [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md).
+Per configurare la registrazione e la metrica per l'account di archiviazione tramite il portale, seguire le istruzioni in [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md).
 
 > [AZURE.NOTE] Non è possibile impostare la metrica al minuto mediante il portale di Azure classico. Tuttavia, è consigliabile impostarla ai fini di questa esercitazione e per l'analisi dei problemi di prestazioni relativi all'applicazione. La metrica al minuto può essere impostata tramite PowerShell, come mostrato di seguito, a livello di codice o tramite il portale di Azure classico.
 >
@@ -130,7 +132,7 @@ Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e
 
 ### Configurare la registrazione sul lato client .NET
 
-Per configurare la registrazione sul lato client per un'applicazione .NET, abilitare la diagnostica .NET nel file di configurazione dell'applicazione (web.config o app.config). Per informazioni dettagliate, vedere [Registrazione lato client con la libreria Client di archiviazione .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Registrazione lato client con Microsoft Azure Storage SDK per Java](http://msdn.microsoft.com/library/azure/dn782844.aspx).
+Per configurare la registrazione sul lato client per un'applicazione .NET, abilitare la diagnostica .NET nel file di configurazione dell'applicazione (web.config o app.config). Per informazioni dettagliate, vedere [Registrazione lato client con la libreria client di archiviazione .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Registrazione lato client con Microsoft Azure Storage SDK per Java](http://msdn.microsoft.com/library/azure/dn782844.aspx).
 
 Il log lato client include informazioni dettagliate sul modo in cui il client prepara la richiesta e riceve ed elabora la risposta.
 
@@ -194,7 +196,7 @@ Archiviazione di Azure scrive i dati di log del server nei BLOB, mentre le metri
 
 AzCopy è disponibile per il download nella pagina [Download di Azure](https://azure.microsoft.com/downloads/). Per informazioni dettagliate sull'uso di AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
-Per altre informazioni sul download dei log lato server, vedere [Download dei dati di log di Registrazione archiviazione](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+Per altre informazioni sul download dei log sul lato server, vedere [Download dei dati di log della registrazione di archiviazione](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
 ## Usare Microsoft Message Analyzer per analizzare i dati di log
 
@@ -347,18 +349,7 @@ Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i
 | Ritardi imprevisti nel recapito dei messaggi in una coda | AzureStorageClientDotNetV4.Description contains "Retrying failed operation." | Client |
 | Aumento di PercentThrottlingError HTTP | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Rete |
 | Aumento di PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rete |
-| Aumento di PercentTimeoutError (tutti) |    **StatusCode == 500 | All | 
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | 
-| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | 
-| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | 
-| 404 (all) | *StatusCode == 404 | All | 
-| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | 
-| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | 
-| 409 (all) | *StatusCode == 409 | All | 
-| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | 
-| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | 
-| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | 
-| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
+| Aumento di PercentTimeoutError (tutti) |    **StatusCode == 500 | All | | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | | 404 (all) | *StatusCode == 404 | All | | Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | | HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | | 409 (all) | *StatusCode == 409 | All | | Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | | Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | | Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | | Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## Passaggi successivi
@@ -373,4 +364,4 @@ Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di a
  
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

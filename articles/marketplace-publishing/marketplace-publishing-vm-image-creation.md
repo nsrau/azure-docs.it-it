@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="03/07/2016"
+   ms.date="04/13/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guida alla creazione di un'immagine di macchina virtuale per Azure Marketplace
@@ -45,96 +45,13 @@ Dopo aver aggiunto l'offerta, è necessario definire e identificare gli SKU. È 
 
 1. **Aggiungere uno SKU.** Per lo SKU è necessario un identificatore, che viene usato nell'URL. L'identificatore deve essere univoco nel profilo di pubblicazione, ma non vi è alcun rischio di conflitto tra identificatori con altri editori.
 
-> [AZURE.NOTE] L'identificatore dell'offerta e quello dello SKU vengono visualizzati nell'URL dell'offerta nel Marketplace.
+    > [AZURE.NOTE] L'identificatore dell'offerta e quello dello SKU vengono visualizzati nell'URL dell'offerta nel Marketplace.
 
 2. **Aggiungere una descrizione di riepilogo per lo SKU.** Le descrizioni di riepilogo sono visibili ai clienti, è quindi consigliabile che siano facili da leggere. Non è necessario bloccare queste informazioni fino al raggiungimento della fase "Passa a gestione temporanea". Fino a quel momento, è possibile modificarle liberamente.
 3. Se si usano SKU basati su Windows, seguire i collegamenti consigliati per acquistare le versioni approvate di Windows Server.
 
 ## 2\. Creare un VHD compatibile con Azure (basato su Linux)
-Questa sezione è incentrata sulle procedure consigliate per la creazione di un'immagine di macchina virtuale basata su Linux per Azure Marketplace. Per una procedura dettagliata, vedere la documentazione seguente: [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux][link-azure-vm-1].
-
-> [AZURE.TIP] Molti dei passaggi seguenti (ad esempio, installazione dell'agente e parametri di avvio del kernel) sono già stati eseguiti per le immagini Linux disponibili nella Raccolta immagini di Microsoft Azure. Partendo quindi da una di queste immagini invece di configurare un'immagine Linux non compatibile con Azure, è possibile risparmiare tempo.
-
-### 2\.1 Scegliere la dimensione corretta per il VHD
-Gli SKU (immagini di macchina virtuale) pubblicati devono essere progettati per funzionare con tutte le dimensioni di macchina virtuale che supportano il numero di dischi per lo SKU. È possibile fornire indicazioni sulle dimensioni consigliate, che tuttavia verranno trattate come raccomandazioni, senza alcun obbligo di osservarle.
-
-1. VHD del sistema operativo Linux: il disco rigido virtuale del sistema operativo Linux nell'immagine di macchina virtuale deve essere creato come VHD con formato fisso da 30-50 GB. Le dimensioni non possono essere inferiori a 30 GB. Se la dimensione fisica è inferiore alla dimensione del VHD, il VHD deve essere di tipo sparse. I VHD Linux di dimensioni superiori a 50 GB verranno considerati caso per caso. Se si possiede già un VHD in un formato diverso, è possibile usare il [cmdlet Convert-VHD di PowerShell per modificarne il formato][link-technet-1].
-2. VHD dei dischi dati: i dischi dati possono avere dimensioni fino a 1 TB. I VHD dei dischi dati devono essere creati come VHD con formato fisso, ma devono anche essere di tipo sparse. Nello stabilire le dimensioni dei dischi, tenere presente che i clienti non possono ridimensionare i VHD all'interno di un'immagine.
-
-### 2\.2 Assicurarsi che sia installato l'agente Linux di Azure più aggiornato
-Nel preparare il VHD del sistema operativo, assicurarsi che sia installato l'[agente Linux di Azure][link-azure-vm-2] più aggiornato usando i pacchetti RPM o Deb. Il pacchetto è spesso denominato walinuxagent o WALinuxAgent, ma per esserne certi è consigliabile consultare il distributore. L'agente offre funzioni importanti per distribuzioni IaaS Linux in Azure, quali il provisioning di VM e le funzionalità di rete.
-
-Anche se l'agente può essere configurato in diversi modi, è consigliabile usare una configurazione generica per ottimizzare la compatibilità. È possibile installare l'agente manualmente, ma si consiglia vivamente di usare pacchetti preconfigurati del proprio distributore, se disponibili.
-
-Se si sceglie di installare l'agente manualmente dal [repository GitHub][link-github-waagent], copiare prima di tutto il file Waagent in /usr/sbin ed eseguire questo comando nella directory radice:
-
-    # chmod 755 /usr/sbin/waagent
-    # /usr/sbin/waagent -install
-
-Il file di configurazione dell'agente viene inserito in /etc/waagent.conf.
-
-### 2\.3 Verificare che siano incluse le librerie necessarie
-Oltre all'agente Linux di Azure, devono essere incluse le librerie seguenti:
-
-1. [Linux Integration Services][link-intsvc] 3.0 o versione successiva deve essere abilitato nel kernel. Vedere [Requisiti del kernel Linux](./virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements).
-2. [Patch per il kernel](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c) per la stabilità delle operazioni di I/O di Azure (probabilmente non necessaria per kernel recenti, ma è consigliabile verificare).
-3. [Python][link-python] 2.6 o versione successiva.
-4. Pacchetto pyasn1 per Python, se non già installato.
-5. [OpenSSL][link-openssl] (è consigliata la versione 1.0 o successiva).
-
-### 2\.4 Configurare le partizioni dei dischi
-Si consiglia di non usare la gestione dei volumi logici. Creare una singola partizione radice per il disco del sistema operativo. Non usare una partizione di swapping sul sistema operativo o sul disco dati. È consigliabile rimuovere una partizione di swapping, anche se non è montata in /etc/fstab. Se necessario, una partizione di swapping può essere creata nel disco risorse locale (/dev/sdb) dall'agente Linux.
-
-### 2\.5 Aggiungere i parametri della riga di comando necessari per l'avvio del kernel
-I parametri seguenti devono essere aggiunti anch'essi alla riga di comando per l'avvio del kernel.
-
-        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
-
-In questo modo, il supporto tecnico di Azure può fornire ai clienti l'output della console seriale quando è necessario. Viene anche fornito un timeout adeguato per il montaggio del disco del sistema operativo dall'archiviazione cloud. Anche se lo SKU impedisce ai clienti di usare SSH direttamente nella macchina virtuale, l'output della console seriale deve essere abilitato.
-
-### 2\.6 Includere il server SSH per impostazione predefinita
-È consigliabile abilitare SSH per il cliente. Se il server SSH è abilitato, aggiungere la configurazione per mantenere attive le sessioni SSH con l'opzione seguente: **ClientAliveInterval 180**. Anche se è consigliabile usare il valore 180, l'intervallo accettabile è compreso tra 30 e 235. Non tutte le applicazioni offrono ai clienti un accesso SSH diretto alla macchina virtuale. In caso di blocco esplicito di SSH, non è necessario impostare l'opzione **ClientAliveInterval**.
-
-### 2\.7 Soddisfare i requisiti di rete
-Di seguito sono indicati i requisiti di rete per un'immagine di macchina virtuale Linux compatibile con Azure:
-
-- In molti casi, è meglio disabilitare NetworkManager. Fanno eccezione i sistemi basati su CentOS 7.x (e sistemi derivati) per cui è consigliabile lasciare abilitato NetworkManager.
-- Dovrebbe essere possibile controllare la configurazione di rete con gli script **ifup** e **ifdown**. L'agente Linux può usare questi comandi per riavviare la rete durante il provisioning.
-- Non sono consentite configurazioni di rete personalizzate. Il file Resolv.conf deve essere eliminato come ultimo passaggio. Questa operazione in genere viene eseguita durante il deprovisioning (vedere la [Guida dell'utente dell'agente Linux di Azure](./virtual-machines-linux-agent-user-guide/)). È anche possibile eseguire questo passaggio manualmente con il comando seguente:
-
-        rm /etc/resolv.conf
-
-- Il dispositivo di rete deve essere attivato all'avvio e deve usare DHCP.
-- Azure non supporta IPv6. Se questa proprietà è abilitata, non funzionerà.
-
-### 2\.8 Verificare la corretta applicazione delle procedure consigliate per la sicurezza
-Per gli SKU in Azure Marketplace, è essenziale osservare le procedure consigliate relative alla sicurezza, tra cui:
-
-- Installare tutte le patch di protezione per la distribuzione.
-- Seguire le linee guida per la sicurezza della distribuzione.
-- Evitare di creare account predefiniti, che restano identici, tra diverse istanze di provisioning.
-- Cancellare le voci della cronologia della Bash.
-- Includere il software iptables (firewall), ma non abilitare alcuna regola. In questo modo, è possibile offrire ai clienti un'esperienza predefinita uniforme. I clienti che desiderano usare un firewall per macchine virtuali per eseguire configurazioni aggiuntive possono configurare le regole di iptables in base alle esigenze specifiche.
-
-### 2\.9 Generalizzare l'immagine
-Dal momento che tutte le immagini in Azure Marketplace devono poter essere riutilizzate in modo generico, è necessario eliminare alcuni aspetti più specifici della configurazione. A questo scopo, in Linux è necessario eseguire il deprovisioning del VHD del sistema operativo.
-
-Il comando di Linux per il deprovisioning è il seguente:
-
-        # waagent -deprovision
-
-Il comando esegue automaticamente le operazioni seguenti:
-
-- Rimuove la configurazione di NameServer in /etc/resolv.conf.
-- Rimuove i lease del client DHCP memorizzati nella cache.
-- Reimposta il nome host su localhost.localdomain.
-
-È consigliabile impostare il file di configurazione (/etc/waagent.conf) per garantire il completamento delle operazioni seguenti:
-
-- Impostare Provisioning.RegenerateSshHostKeyPair su "y" nel file di configurazione per rimuovere tutte le chiavi host SSH.
-- Impostare Provisioning.DeleteRootPassword su "y" nel file di configurazione per rimuovere la password "root" da /etc/shadow. Per la documentazione dei contenuti del file di configurazione, vedere la sezione "CONFIGURATION" del file README nella pagina del repository GitHub relativa all'agente ([https://github.com/Azure/WALinuxAgent](https://github.com/Azure/WALinuxAgent) e scorrere verso il basso).  
-
-La generalizzazione della VM Linux è stata completata. Disabilitare la macchina virtuale dal portale di Azure, dalla riga di comando o dall'interno della macchina virtuale. Dopo aver disattivato la macchina virtuale, andare al passaggio 3.4.
+Questa sezione è incentrata sulle procedure consigliate per la creazione di un'immagine di macchina virtuale basata su Linux per Azure Marketplace. Per una procedura dettagliata, fare riferimento alla documentazione seguente: [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md).
 
 ## 3\. Creare un VHD compatibile con Azure (basato su Windows)
 Questa sezione è incentrata sui passaggi necessari per creare uno SKU basato su Windows Server per Azure Marketplace.
@@ -228,11 +145,11 @@ Altre informazioni su RDP sono disponibili nell'articolo di MSDN [Connettersi a 
 Dopo aver scaricato il VHD del sistema operativo, usare Hyper-V e configurare una macchina virtuale per iniziare a creare lo SKU. I passaggi dettagliati sono disponibili nell'articolo di TechNet [Installare Hyper-V e creare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx).
 
 ### 3\.4 Scegliere la dimensione corretta per il VHD
-Il VHD del sistema operativo Windows nell'immagine di macchina virtuale deve essere creato come VHD con formato fisso da 128 GB.
+Il VHD del sistema operativo Windows nell'immagine di macchina virtuale deve essere creato come VHD con formato fisso da 128 GB.
 
-Se la dimensione fisica è inferiore a 128 GB, il VHD deve essere di tipo sparse. Le immagini Windows e SQL Server di base fornite soddisfano già questi requisiti. Evitare di modificare il formato o la dimensione del VHD ottenuto.
+Se la dimensione fisica è inferiore a 128 GB, il VHD deve essere di tipo sparse. Le immagini Windows e SQL Server di base fornite soddisfano già questi requisiti. Evitare di modificare il formato o la dimensione del VHD ottenuto.
 
-I dischi dati possono avere dimensioni fino a 1 TB. Nello stabilire le dimensioni dei dischi, tenere presente che i clienti non possono ridimensionare i VHD all'interno di un'immagine in fase di distribuzione. I VHD dei dischi dati devono essere creati come VHD con formato fisso, ma devono anche essere di tipo sparse. I dischi dati possono essere vuoti o contenere dati.
+I dischi dati possono avere dimensioni fino a 1 TB. Nello stabilire le dimensioni dei dischi, tenere presente che i clienti non possono ridimensionare i VHD all'interno di un'immagine in fase di distribuzione. I VHD dei dischi dati devono essere creati come VHD con formato fisso, ma devono anche essere di tipo sparse. I dischi dati possono essere vuoti o contenere dati.
 
 
 ### 3\.5 Installare le patch per Windows più recenti
@@ -252,7 +169,7 @@ Tutte le immagini in Azure Marketplace devono poter essere riutilizzate in modo 
 
         sysprep.exe /generalize /oobe /shutdown
 
-  Le indicazioni su come preparare con sysprep il sistema operativo sono incluse in un passaggio dell'articolo di MSDN relativo a [creazione e caricamento di un disco rigido virtuale con Windows Server in Azure](./virtual-machines-create-upload-vhd-windows-server/).
+  Le indicazioni su come preparare con sysprep il sistema operativo sono incluse in un passaggio dell'articolo di MSDN relativo a [creazione e caricamento di un disco rigido virtuale con Windows Server in Azure](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md).
 
 ## 4\. Distribuire una macchina virtuale dai VHD
 Dopo aver caricato uno o più VHD (ovvero il VHD del sistema operativo generalizzato e zero o più VHD dei dischi dati) in un account di archiviazione di Azure, è possibile registrarli come immagine di macchina virtuale degli utenti ed eseguirne il test. Dal momento che il VHD del sistema operativo è generalizzato, non è possibile distribuire direttamente la macchina virtuale specificando l'URL del VHD.
@@ -426,7 +343,7 @@ Per creare un'immagine di macchina virtuale da un VHD del sistema operativo e un
         { echo "Not Accepted"
         }
 
-Eseguendo questo script, viene creata un'immagine di macchina virtuale con il nome specificato nel parametro ImageName, ovvero "myVMImage". L'immagine è costituita da un disco del sistema operativo, basato sul VHD passato, e da un disco dati da 32 GB vuoto.
+Eseguendo questo script, viene creata un'immagine di macchina virtuale con il nome specificato nel parametro ImageName, ovvero "myVMImage". L'immagine è costituita da un disco del sistema operativo, basato sul VHD passato, e da un disco dati da 32 GB vuoto.
 
 ### 4\.2 Distribuire una macchina virtuale da un'immagine di macchina virtuale degli utenti
 Per distribuire una macchina virtuale da un'immagine di macchina virtuale degli utenti, è possibile usare l'attuale [portale di Azure](https://manage.windowsazure.com) o PowerShell.
@@ -594,7 +511,7 @@ Dopo aver creato l'offerta e lo SKU, è necessario immettere i dettagli relativi
     ![disegno](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
 ## Passaggio successivo
-Dopo aver specificato i dettagli dello SKU, passare alla [guida dei contenuti marketing di Azure Marketplace][link-pushstaging]. In questo passaggio del processo di pubblicazione vengono forniti i contenuti marketing, i prezzi e le altre informazioni necessarie prima di continuare con il **Passaggio 3: Test dell'offerta di macchina virtuale nell'ambiente di staging**, dove vengono testati diversi scenari di casi d'uso prima di distribuire l'offerta in Azure Marketplace per la visibilità pubblica e l'acquisto.
+Dopo aver specificato i dettagli dell'SKU, passare alla [guida dei contenuti marketing di Azure Marketplace][link-pushstaging]. In questo passaggio del processo di pubblicazione vengono forniti i contenuti marketing, i prezzi e le altre informazioni necessarie prima di continuare con il **Passaggio 3: Test dell'offerta di macchina virtuale nell'ambiente di staging**, dove vengono testati diversi scenari di casi d'uso prima di distribuire l'offerta in Azure Marketplace per la visibilità pubblica e l'acquisto.
 
 ## Vedere anche
 - [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -644,11 +561,10 @@ Dopo aver specificato i dettagli dello SKU, passare alla [guida dei contenuti ma
 [link-datactr-2012]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
 [link-datactr-2008-r2]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
-[link-azure-vm-1]: ./virtual-machines-linux-create-upload-vhd/
 [link-technet-1]: https://technet.microsoft.com/library/hh848454.aspx
 [link-azure-vm-2]: ./virtual-machines-linux-agent-user-guide/
 [link-openssl]: https://www.openssl.org/
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -25,7 +25,7 @@ L'API di SQL Azure può essere usata da:
 
 - App per la logica 
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore di SQL](../app-service-logic/app-service-logic-connector-sql.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 Con SQL Azure, è possibile:
 
@@ -40,7 +40,7 @@ SQL include le azioni seguenti. Non sono disponibili trigger.
 
 Trigger | Azioni
 --- | ---
-Nessuno | <ul><li>Recupera riga</li><li>Recupera righe</li><li>Inserisci riga</li><li>Elimina riga</li><li>Recupera tabelle</li><li>Aggiorna riga</li></ul>
+Nessuno | <ul><li>Get row</li><li>Get rows</li><li>Insert row</li><li>Delete row</li><li>Get tables</li><li>Update row</li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
@@ -51,7 +51,7 @@ Quando si aggiunge questa API alle app per la logica, immettere i valori seguent
 | ---|---|---|
 |Stringa di connessione SQL|Sì|Immettere la stringa di connessione di SQL Azure|
 
-Dopo aver creato la connessione immettere le proprietà di SQL, ad esempio nome tabella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
+Dopo aver creato la connessione immettere le proprietà di SQL, ad esempio nome tabella. **Informazioni di riferimento sulle API REST** in questo articolo descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
@@ -227,4 +227,4 @@ Aggiorna una riga esistente in una tabella SQL. ```PATCH: /datasets/default/tabl
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

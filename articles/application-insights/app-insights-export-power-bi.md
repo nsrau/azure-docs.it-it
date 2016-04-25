@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Usare analisi di flusso per l’esportazione in Power BI da Application Insights" 
-	description="Viene dimostrato come utilizzare analisi di flusso per elaborare i dati esportati." 
+	pageTitle="Esportare in Power BI da Application Insights" 
+	description="Articoli" 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -12,46 +12,50 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="04/05/2016" 
 	ms.author="awills"/>
- 
-# Usare analisi di flusso per il feed di Power BI da Application Insights
 
-In questo articolo viene illustrato come utilizzare [analisi di flusso](https://azure.microsoft.com/services/stream-analytics/) per elaborare i dati [esportati](app-insights-export-telemetry.md) da [Visual Studio Application Insights](app-insights-overview.md). Come destinazione di esempio, inviare i dati a [Microsoft Power BI](https://powerbi.microsoft.com/).
+# Feed di Power BI da Application Insights
 
+[Power BI](http://www.powerbi.com/) è una suite di strumenti di analisi business che consente di analizzare i dati e condividere informazioni dettagliate. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati di diverse origini, inclusi i dati di [Visual Studio Application Insights](app-insights-overview.md).
 
-> [AZURE.NOTE] Il modo più semplice per ottenere dati in Power BI da Application Insights è [utilizzando l’adattatore](https://powerbi.microsoft.com/it-IT/documentation/powerbi-content-pack-application-insights/) che è possibile trovare nella raccolta Power BI in Servizi. Ciò che viene descritto in questo articolo è attualmente più versatile, ma è anche una dimostrazione di come utilizzare l’analisi di flusso con Application Insights.
+Per iniziare, vedere [Visualizzare i dati di Application Insights in Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-application-insights/).
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) presenta i dati usando numerosi elementi visivi avanzati e permette di recuperare e raggruppare le informazioni da più origini.
+Il dashboard iniziale può essere personalizzato unendo i grafici di Application Insights con i grafici di altre origini. È disponibile una raccolta di visualizzazioni nella quale è possibile ottenere più grafici e ogni grafico include parametri che possono essere impostati.
 
-
-![Esempio di vista di Power BI per i dati di utilizzo di Application Insights](./media/app-insights-export-power-bi/010.png)
-
-[Analisi di flusso](https://azure.microsoft.com/services/stream-analytics/) è un servizio di Azure che funziona come un adattatore, che elabora in modo continuo i dati esportati da Application Insights.
-
-![Esempio di vista di Power BI per i dati di utilizzo di Application Insights](./media/app-insights-export-power-bi/020.png)
+![](./media/app-insights-export-power-bi/010.png)
 
 
+Dopo l'importazione iniziale, il dashboard e i report continuano a essere aggiornati ogni giorno. È possibile controllare la pianificazione dell'aggiornamento nel set di dati.
 
 
-## Video
+**Campionamento.** Se l'applicazione invia una grande quantità di dati ed è in uso Application Insights SDK per ASP.NET 2.0.0 Beta3 o versioni successive, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. La stessa considerazione vale se il campionamento è stato impostato manualmente nell'SDK o durante l'inserimento. [Altre informazioni sul campionamento.](app-insights-sampling.md)
 
-Noam Ben Zeev illustra ciò che verrà descritto in questo articolo.
+## Metodi alternativi per la visualizzazione dei dati di Application Insights
 
-> [AZURE.VIDEO export-to-power-bi-from-application-insights]
+* Quando non è necessario visualizzare dati non Azure, può essere consigliabile usare i [dashboard di Azure contenenti i grafici di Application Insights](app-insights-dashboards.md). Ad esempio, se si desidera impostare un dashboard dei grafici di Application Insights che esegue il monitoraggio di diversi componenti di un sistema, anche con alcuni monitoraggi dei servizi di Azure, un dashboard di Azure rappresenta la soluzione ideale. Per impostazione predefinita, l'aggiornamento viene eseguito con una maggiore frequenza. 
+* [Esportazione continua](app-insights-export-telemetry.md) copia i dati in ingresso nell'archiviazione di Azure da cui possono essere spostati ed elaborati nel modo desiderato.
+* [Dati di analisi](app-insights-analytics.md) consente di eseguire query complesse sui dati non elaborati mantenuti in Application Insights.
 
 
-**Campionamento.** Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento.](app-insights-sampling.md)
+## Creare il proprio adattatore Power BI usando Analisi di flusso
 
-## Monitorare l'app con Application Insights
+Il pacchetto di contenuto di Power BI per Application Insights consente di visualizzare un utile subset dei dati di telemetria dell'app probabilmente sufficiente per le proprie esigenze. Tuttavia, se si vuole ottenere una maggior quantità di dati di telemetria o calcolare alcuni dati in base a dati di telemetria non elaborati, è possibile creare un adattatore mediante il servizio Analisi di flusso di Azure.
 
-Se ancora non lo si è provato, è il momento giusto per iniziare. Application Insights è in grado di monitorare qualsiasi dispositivo o app Web in un'ampia gamma di piattaforme, tra cui Windows, iOS, Android, J2EE e altre ancora. [Introduzione](app-insights-overview.md).
+In questo schema, i dati vengono esportati da Application Insights all'archiviazione di Azure. [Analisi di flusso](https://azure.microsoft.com/services/stream-analytics/) effettua il pool dei dati, rinomina ed elabora alcuni campi e invia una pipe dei dati in Power BI. Analisi di flusso è un servizio in grado di filtrare, aggregare ed eseguire calcoli su un flusso continuo di dati.
 
-## Creare l'archiviazione in Azure
+![Diagramma a blocchi per l'esportazione tramite SA in PBI](./media/app-insights-export-power-bi/020.png)
+
+
+>[AZURE.TIP] **Non è necessario seguire la procedura della parte rimanente di questo articolo** usando Analisi di flusso per visualizzare i dati di Application Insights in Power BI. Esiste un modo molto più semplice. È possibile [usare l'adattatore gratuito](https://powerbi.microsoft.com/documentation/powerbi-content-pack-application-insights/). Seguire le istruzioni della parte rimanente di questo articolo solo se l'adattatore non consente di ottenere tutti i dati desiderati oppure se si vuole definire aggregazioni o funzioni personalizzate da eseguire nei dati.
+
+### Creare l'archivio in Azure
 
 L'esportazione continua invia sempre i dati a un account di Archiviazione di Azure, pertanto è prima necessario creare l'archivio.
 
-1. Creare un account di archiviazione "classico" per la sottoscrizione nel [portale di Azure](https://portal.azure.com).
+1. È stato provato [Power BI Power Pack per Application Insights](https://powerbi.microsoft.com/documentation/powerbi-content-pack-application-insights/)? Se è sufficiente per le proprie esigenze, non è necessario procedere con la parte rimanente di questo articolo.
+
+2.  Creare un account di archiviazione "classico" per la sottoscrizione nel [portale di Azure](https://portal.azure.com).
 
     ![Nel portale di Azure scegliere Nuovo, Dati, Archiviazione](./media/app-insights-export-power-bi/030.png)
 
@@ -65,7 +69,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 
     ![Nella risorsa di archiviazione aprire Impostazioni, Chiavi ed eseguire una copia della chiave di accesso primaria](./media/app-insights-export-power-bi/045.png)
 
-## Avviare l'esportazione continua nell'archiviazione di Azure
+### Avviare l'esportazione continua nell'archiviazione di Azure
 
 [Esportazione continua](app-insights-export-telemetry.md) sposta i dati da Application Insights nell'archiviazione di Azure.
 
@@ -98,7 +102,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 
 Gli eventi vengono scritti nei file BLOB in formato JSON. Ogni file può contenere uno o più eventi. A questo punto sarà possibile leggere i dati degli eventi e filtrare i campi preferiti. È possibile eseguire una serie di operazioni sui dati, ma lo scopo di questo articolo è usare l'analisi di flusso per spostare i dati in un Power BI.
 
-## Creare un'istanza di analisi di flusso di Azure
+### Creare un'istanza di analisi di flusso di Azure
 
 Nel [portale di Azure classico](https://manage.windowsazure.com/) selezionare il servizio di analisi di flusso di Azure e creare un nuovo processo di analisi di flusso:
 
@@ -154,7 +158,7 @@ Chiudere la procedura guidata e attendere il completamento dell'installazione.
 
 > [AZURE.TIP] Utilizzare il comando di esempio per scaricare alcuni dati. Utilizzare come esempio di test per eseguire il debug della query.
 
-## Visualizzare l'output
+### Visualizzare l'output
 
 Selezionare il processo e impostare l'output.
 
@@ -164,7 +168,7 @@ Fornire l’**account aziendale o dell’istituto di istruzione** per autorizzar
 
 ![Inventare tre nomi](./media/app-insights-export-power-bi/170.png)
 
-## Impostare la query
+### Impostare la query
 
 La query gestisce la conversione dall'input all'output.
 
@@ -237,7 +241,7 @@ Incollare questa query:
 
 * Questa query include i valori delle proprietà delle dimensioni senza dipendere da una dimensione specifica in un indice fissato nella matrice di dimensioni.
 
-## Eseguire il processo
+### Eseguire il processo
 
 Per la data di inizio del processo, è possibile selezionare una data nel passato.
 
@@ -245,7 +249,7 @@ Per la data di inizio del processo, è possibile selezionare una data nel passat
 
 Attendere fino al termine dell'esecuzione del processo.
 
-## Visualizzare i risultati in Power BI
+### Visualizzare i risultati in Power BI
 
 Aprire Power BI con l’account aziendale o dell’istituto di istruzione e selezionare il set di dati e la tabella definiti come output del processo di Analisi di flusso.
 
@@ -256,7 +260,7 @@ Aprire Power BI con l’account aziendale o dell’istituto di istruzione e sele
 
 ![In Power BI selezionare il set di dati e i campi.](./media/app-insights-export-power-bi/210.png)
 
-## Video
+### Video
 
 Noam Ben Zeev spiega come esportare i dati in Power BI.
 
@@ -268,5 +272,6 @@ Noam Ben Zeev spiega come esportare i dati in Power BI.
 * [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 * [Altri esempi e procedure dettagliate](app-insights-code-samples.md)
+ 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

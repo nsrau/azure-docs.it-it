@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Esercitazione: Integrazione di Azure Active Directory con Novatus | Microsoft Azure"
+	pageTitle="Esercitazione: Integrazione di Azure Active Directory con HackerOne | Microsoft Azure"
 	description="Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e HackerOne."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con HackerOne, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Una sottoscrizione di Azure.
 - Sottoscrizione di HackerOne abilitata per l'accesso Single Sign-On
 
 
@@ -86,38 +86,60 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con HackerOne, è
 
 Successivamente, viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure classico e viene configurato l'accesso Single Sign-On nell'applicazione HackerOne.
 
+Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+
 **Per configurare l'accesso Single Sign-On di Azure AD con HackerOne, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **HackerOne** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**. <br><br> ![Configura accesso Single Sign-On][6] <br>
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a HackerOne** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**. <br><br> ![Configura accesso Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_03.png) <br>
 
-3. Nella pagina **Configurare le impostazioni dell'app** effettuare i passaggi seguenti e quindi fare clic su **Avanti**: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_04.png) <br>
+3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura e quindi fare clic su **Avanti**: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_04.png) <br>
 
 
-    a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione HackerOne adottando il modello seguente: **"https://hackerone.com/nomesocietà/authentication"**. Quando si fa riferimento a un nome generico, **nomesocietà** deve essere sostituito da un nome effettivo.<br>
+    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione HackerOne adottando il modello seguente: **"https://hackerone.com/<nome società>/authentication"**.
 
-	b. Nella casella di testo IDENTIFICATORE digitare l'URL del tenant. Contattare il team di supporto di HackerOne all'indirizzo support@hackerone.com per ottenere l'URL del tenant.
+    b. Contattare il team di supporto di HackerOne all'indirizzo [support@hackerone.com](mailto:support@hackerone.com) per ottenere l'URL del tenant, se non lo si conosce.
 
-	c. Fare clic su **Avanti**
+	c. Nella casella di testo **Identificatore** digitare l'URL del tenant.
+
+	d. Fare clic su **Avanti**.
 
 
-4. Nella pagina **Configura accesso Single Sign-On in HackerOne** effettuare i passaggi seguenti e quindi fare clic su **Avanti**: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_05.png) <br>
+4. Nella pagina **Configura accesso Single Sign-On in HackerOne** seguire questa procedura e quindi fare clic su **Avanti**: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_05.png) <br>
 
     a. Fare clic su **Scarica certificato** e quindi salvare il file nel computer.
 
     b. Fare clic su **Avanti**.
 
 
-5. Per configurare l'accesso Single Sign-On per l'applicazione, è necessario accedere al tenant di HackerOne con l'utente amministratore.
+1. Accedere al tenant di HackerOne come amministratore.
+
+1. Nel menu in alto fare clic su **Settings**.<br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) <br>
+
+1. Passare ad "**Authentication**" e fare clic su "**Add SAML settings**".<br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) <br>
+
+
+1. Nella finestra di dialogo **SAML Settings** seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) <br><br>
+
+    a. Nella casella di testo **Email Domain** digitare un dominio registrato.
+
+	b. Nel portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e quindi incollarlo nella casella di testo relativa all'URL dell'accesso Single Sign-On.
+
+    c. Creare un file con **codifica Base 64** dal certificato scaricato.
+
+       >[AZURE.TIP] Per altre informazioni, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
 	
-	a. Passare al dashboard e fare clic su **Settings** nell'angolo superiore destro della pagina.<br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) <br>
+    d. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **Certificato X509**.
 
-	b. Quindi passare a "**Authentication**"e fare clic sul pulsante "**Add SAML settings**".<br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) <br>
+    e. Fare clic su **Salva**.
 
-	c. Compilare il modulo **SAML Settings**.<br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) <br><br> c1. Immettere un dominio registrato nella casella di testo **Email Domain**. Per registrare il dominio in HackerOne contattare support@hackerone.com.<br><br> c2. Copiare l'URL del servizio Single Sign-On di Azure AD in **Single Sign On URL** in HackerOne.<br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_006.png) <br> c3. Convertire il certificato scaricato in file Base64 e aprirlo in Blocco note, copiare e incollare nella casella di testo **X509 Certificate** di HackerOne.<br>
 
-	d. Fare clic sul pulsante **Save**.<br><br> e. Fare clic sul pulsante **Run test** e verificare il funzionamento del test. Se il test viene eseguito correttamente, richiedere la verifica delle proprie impostazioni SAML al team di supporto di HackerOne all'indirizzo support@hackerone.com che le approverà.<br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) <br><br>
+1. Nella finestra di dialogo relativa alle impostazioni di autenticazione seguire questa procedura: <br><br>![Configura accesso Single Sign-On](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) <br><br>
+
+    a. Fare clic su **Run test**.
+
+    b. Se il valore del campo **Status** equivale a **Last test status: created**, contattare il team di supporto di HackerOne all'indirizzo [support@hackerone.com](mailto:support@hackerone.com) per richiedere una verifica della configurazione.
 
 
 6. Nel portale di Azure classico, selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. <br><br>![Accesso Single Sign-On di Azure AD][10]<br>
@@ -182,7 +204,7 @@ Non è necessario alcun intervento dell'utente in questa sezione. Quando si acce
 
 ### Assegnazione dell'utente test di Azure AD
 
-Successivamente, Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a HackerOne. <br><br>![Assegna utente][200] <br>
+Britta Simon viene quindi abilitata per l'uso dell'accesso Single Sign-On di Azure, mediante la concessione dell'accesso a HackerOne. <br><br>![Assegna utente][200] <br>
 
 **Per assegnare Britta Simon a HackerOne, seguire questa procedura:**
 
@@ -227,4 +249,4 @@ Viene infine eseguito il test della configurazione dell'accesso Single Sign-On d
 [204]: ./media/active-directory-saas-hackerone-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hackerone-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

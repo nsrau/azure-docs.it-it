@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="04/07/2016" 
 	ms.author="billmath"/>
 
 # Configurazione di Azure Multi-Factor Authentication
@@ -36,7 +36,7 @@ Funzionalità| Descrizione| Argomenti trattati
 [Indirizzi IP attendibili](#trusted-ips)|Gli indirizzi IP attendibili sono una funzionalità di Multi-Factor Authentication che offre agli amministratori di un tenant gestito o federato la possibilità di ignorare Multi-Factor Authentication per gli utenti che accedono dalla rete Intranet locale dell'azienda.|Configurare e impostare gli indirizzi IP che non sono interessati da Multi-Factor Authentication	
 [Password dell'app](#app-passwords)|Le password dell'app consentono a un'applicazione che non è in grado di riconoscere Multi-Factor Authentication di ignorare questa funzionalità e continuare a lavorare.|Informazioni sulle password dell'app.
 [Memorizzazione di Multi-Factor Authentication per dispositivi e browser memorizzati](#remember-multi-factor-authentication-for-devices-users-trust)|Consente di memorizzare dispositivi per un determinato numero di giorni dopo che un utente ha effettuato correttamente l'accesso tramite MFA.|Informazioni sull'abilitazione di questa funzionalità e sull'impostazione del numero di giorni.
-[Metodi di verifica selezionabili (anteprima pubblica)](#selectable-verification-methods-public-preview)|Consente di scegliere i metodi di autenticazione disponibili per gli utenti.|Informazioni sull'abilitazione o disabilitazione di specifici metodi di autenticazione, ad esempio chiamate o SMS.
+[Metodi di verifica selezionabili](#selectable-verification-methods)|Consente di scegliere i metodi di autenticazione disponibili per gli utenti.|Informazioni sull'abilitazione o disabilitazione di specifici metodi di autenticazione, ad esempio chiamate o SMS.
 
 
 
@@ -355,7 +355,7 @@ Tuttavia, poiché agli utenti viene consentito di memorizzare MFA per i disposit
 10. Fare clic su Chiudi.
 
 
-## Metodi di verifica selezionabili (anteprima pubblica)
+## Metodi di verifica selezionabili
 È ora possibile scegliere i metodi di autenticazione disponibili per gli utenti quando si usa Azure Multi-Factor Authentication. Questa funzionalità è stata precedentemente disponibile solo nella versione del server locale. La tabella seguente fornisce una breve panoramica dei vari metodi di autenticazione che possono essere abilitati o disabilitati per gli utenti.
 
 Metodo|Descrizione
@@ -376,4 +376,4 @@ Metodo|Descrizione
 9. Fare clic su Salva.
 10. Fare clic su Chiudi.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

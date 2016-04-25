@@ -32,12 +32,12 @@ Azure supporta solo dischi rigidi virtuali fissi in formato VHD. Se si è in pos
 In molti aspetti sono simili alla "generazione 1" di VM di Hyper-V, ma non sono esattamente la stessa cosa. Entrambi i tipi forniscono un hardware virtualizzato e i dischi rigidi virtuali in formato VHD sono compatibili. Ciò significa che è possibile spostarli tra Hyper-V e Azure. Tre differenze principali che talvolta sorprendono gli utenti di Hyper-V sono:
 
 - Azure non fornisce l'accesso tramite console a una macchina virtuale. Non è possibile accedere a una macchina virtuale finché non si è verificato l'avvio.
-- Le macchine virtuali di Azure nella maggior parte delle [dimensioni](virtual-machines-linux-sizes.md) dispongono di una sola scheda di rete virtuale, pertanto possono avere un solo indirizzo IP esterno. (Le dimensioni A8 e A9 utilizzano una seconda scheda di rete per la comunicazione delle applicazioni tra istanze in scenari limitati.)
+- Le macchine virtuali di Azure nella maggior parte delle [dimensioni](../articles/virtual-machines/virtual-machines-linux-sizes.md) dispongono di una sola scheda di rete virtuale, pertanto possono avere un solo indirizzo IP esterno. (Le dimensioni A8 e A9 utilizzano una seconda scheda di rete per la comunicazione delle applicazioni tra istanze in scenari limitati.)
 - Le macchine virtuali di Azure non supportano le funzionalità della macchina virtuale Hyper-V di seconda generazione. Per informazioni dettagliate su queste funzionalità, vedere [Specifiche delle macchine virtuali per Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) e [Panoramica della macchina virtuale di seconda generazione](https://technet.microsoft.com/library/dn282285.aspx).
 
 ## Queste macchine virtuali possono utilizzare l’infrastruttura di rete locale esistente?
 
-Per le macchine virtuali create nel modello di distribuzione classica, è possibile utilizzare la rete virtuale di Azure per estendere l'infrastruttura esistente. L'approccio è simile all’apertura di una succursale. È possibile effettuare il provisioning e la gestione delle reti private virtuali (VPN) in Azure, nonché collegarle in modo sicuro all’infrastruttura IT locale. Per informazioni dettagliate, vedere [Panoramica della rete virtuale](../virtual-network/virtual-networks-overview.md).
+Per le macchine virtuali create nel modello di distribuzione classica, è possibile utilizzare la rete virtuale di Azure per estendere l'infrastruttura esistente. L'approccio è simile all’apertura di una succursale. È possibile effettuare il provisioning e la gestione delle reti private virtuali (VPN) in Azure, nonché collegarle in modo sicuro all’infrastruttura IT locale. Per informazioni dettagliate, vedere [Panoramica della rete virtuale](../articles/virtual-network/virtual-networks-overview.md).
 
 È necessario specificare la rete alla quale si desidera che la macchina virtuale appartenga, quando quest’ultima viene creata. Non è possibile unire una macchina virtuale esistente a una rete virtuale. Tuttavia, è possibile risolvere il problema scollegando il disco rigido virtuale (VHD) dalla macchina virtuale esistente e quindi utilizzarlo per creare una nuova macchina virtuale con la configurazione di rete desiderata.
 
@@ -72,7 +72,7 @@ In una macchina virtuale di Windows, è possibile modificare la lettera di unit�
 Il termine aggiornamento indica in genere il passaggio a una versione più recente del sistema operativo, rimanendo sullo stesso hardware. Per le VM di Azure, il processo per lo spostamento a una versione più recente è diverso per Linux e Windows:
 
 - Per le VM di Linux, utilizzare il pacchetto strumenti di gestione e le procedure appropriate per la distribuzione.
-- Per una macchina virtuale di Windows, è necessario eseguire la migrazione al server usando strumenti come quelli di migrazione di Windows Server. Non tentare di aggiornare il sistema operativo guest mentre questo risiede in Azure. Questo non è supportato a causa del rischio di perdere l'accesso alla macchina virtuale. Se si verificano problemi durante l'aggiornamento, si potrebbe perdere la possibilità di avviare una sessione Desktop remoto e non si sarebbe più in grado di risolvere i problemi. 
+- Per una macchina virtuale di Windows, è necessario eseguire la migrazione al server usando strumenti come quelli di migrazione di Windows Server. Non tentare di aggiornare il sistema operativo guest mentre questo risiede in Azure. Questo non è supportato a causa del rischio di perdere l'accesso alla macchina virtuale. Se si verificano problemi durante l'aggiornamento, si potrebbe perdere la possibilità di avviare una sessione Desktop remoto e non si sarebbe più in grado di risolvere i problemi.
 
 Per informazioni generali sugli strumenti e sui processi per la migrazione a Windows Server, vedere [Migrazione dei ruoli e delle funzionalità a Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940).
 
@@ -128,14 +128,14 @@ Per qualsiasi VM autonoma (vale a dire quando la VM non fa parte di un set di di
 
 È inoltre possibile utilizzare il portale di Azure classico oppure Azure PowerShell per visualizzare i registri di riavvio quando il riavvio si è verificato per interventi di manutenzione pianificata. Per informazioni dettagliate, vedere [Visualizzazione dei registri di riavvio della macchina virtuale](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
-Per garantire la ridondanza, inserire due o più VM configurate in modo analogo nello stesso set di disponibilità. In questo modo si assicura che almeno una VM sia disponibile durante la manutenzione pianificata o non pianificata. Azure garantisce determinati livelli di disponibilità della VM per questa configurazione. Per informazioni dettagliate, vedere [Gestione della disponibilità delle macchine virtuali](virtual-machines-windows-manage-availability.md).
+Per garantire la ridondanza, inserire due o più VM configurate in modo analogo nello stesso set di disponibilità. In questo modo si assicura che almeno una VM sia disponibile durante la manutenzione pianificata o non pianificata. Azure garantisce determinati livelli di disponibilità della VM per questa configurazione. Per informazioni dettagliate, vedere [Gestione della disponibilità delle macchine virtuali](../articles/virtual-machines/virtual-machines-windows-manage-availability.md).
 
 ## Risorse aggiuntive
 
-[Informazioni sulle macchine virtuali di Azure](virtual-machines-linux-about.md)
+[Informazioni sulle macchine virtuali di Azure](../articles/virtual-machines/virtual-machines-linux-about.md)
 
-[Diversi modi per creare una macchina virtuale Linux](virtual-machines-linux-creation-choices.md)
+[Diversi modi per creare una macchina virtuale Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md)
 
-[Diversi modi per creare una macchina virtuale Windows](virtual-machines-windows-creation-choices.md)
+[Diversi modi per creare una macchina virtuale Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

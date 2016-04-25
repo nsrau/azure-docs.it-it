@@ -3,8 +3,8 @@
 	description="Questo argomento descrive le considerazioni relative alla sicurezza per la gestione di scenari di replica geografica attiva o standard per il database SQL."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="carlrabeler"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/22/2015"
-	ms.author="jroth" />
+	ms.date="02/01/2016"
+	ms.author="carlrab" />
 
 # Configurazione della sicurezza per la replica geografica attiva o standard
 
@@ -27,7 +27,7 @@ Con la [versione 12 del database SQL](sql-database-v12-whats-new.md), quest'ulti
 
 Nel caso di utenti indipendenti, se più database usano lo stesso account di accesso, è necessario gestire gli utenti separatamente per ogni database, ad esempio per la modifica di una password, invece di gestire l'account di accesso a livello di server.
 
->[AZURE.NOTE]Se si vuole modificare indipendentemente l'accesso in lettura del database primario e secondario, è necessario usare account di accesso e utenti tradizionali. Gli utenti indipendenti non possono essere gestiti nel database secondario indipendentemente da quello primario.
+>[AZURE.NOTE] Se si vuole modificare indipendentemente l'accesso in lettura del database primario e secondario, è necessario usare account di accesso e utenti tradizionali. Gli utenti indipendenti non possono essere gestiti nel database secondario indipendentemente da quello primario.
 
 ## Uso di account di accesso e utenti tradizionali
 Se si usano account di accesso e utenti tradizionali, invece di utenti indipendenti, è necessario eseguire altri passaggi per assicurare che nel server di database secondario siano presenti gli stessi account di accesso. Le sezioni seguenti illustrano i passaggi da eseguire, oltre a considerazioni aggiuntive.
@@ -67,7 +67,7 @@ La query seguente può essere usata per visualizzare tutte le entità utente e i
 	FROM [sys].[database_principals]
 	WHERE [type_desc] = 'SQL_USER'
 
->[AZURE.NOTE]Gli utenti **INFORMATION\_SCHEMA** e **sys** hanno SID *NULL*, mentre il SID dell'utente **guest** è **0x00**. Se il database è stato creato dall'amministratore del server invece che da un membro del ruolo **DbManager**, il SID dell'utente **dbo** potrebbe iniziare con *0x01060000000001648000000000048454*.
+>[AZURE.NOTE] Gli utenti **INFORMATION\_SCHEMA** e **sys** hanno SID *NULL*, mentre il SID dell'utente **guest** è **0x00**. Se il database è stato creato dall'amministratore del server invece che da un membro del ruolo **DbManager**, il SID dell'utente **dbo** potrebbe iniziare con *0x01060000000001648000000000048454*.
 
 #### 3\. Generare gli account di accesso nel server di destinazione:
 L'ultimo passaggio consiste nel generare gli account di accesso con i SID appropriati nel server o nei server di destinazione. La sintassi di base è la seguente.
@@ -76,7 +76,7 @@ L'ultimo passaggio consiste nel generare gli account di accesso con i SID approp
 	WITH PASSWORD = <login password>,
 	SID = <desired login SID>
 
->[AZURE.NOTE]Se si vuole concedere l'accesso utente al database secondario, ma non al database primario, è possibile modificare l'account di accesso utente nel server primario usando la sintassi seguente.
+>[AZURE.NOTE] Se si vuole concedere l'accesso utente al database secondario, ma non al database primario, è possibile modificare l'account di accesso utente nel server primario usando la sintassi seguente.
 >
 >ALTER LOGIN <login name> DISABLE
 >
@@ -98,4 +98,4 @@ Per altre informazioni sui passaggi necessari dopo un failover, vedere [Finalizz
 ## Passaggi successivi
 Per altre informazioni sulla replica geografica e su altre funzionalità di continuità aziendale del database SQL, vedere [Panoramica della continuità aziendale](sql-database-business-continuity.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0413_2016-->

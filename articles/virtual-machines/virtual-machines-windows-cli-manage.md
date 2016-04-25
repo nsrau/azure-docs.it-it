@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Comandi di CLI di Azure equivalenti per le attività di macchina virtuale | Microsoft Azure"
-	description="Informazioni sui comandi equivalenti di CLI di Azure per creare e gestire macchine virtuali di Azure in modalità Gestione dei servizi e Gestione risorse di Azure."
+	description="Comandi equivalenti dell'interfaccia della riga di comando di Azure per la creazione e la gestione di macchine virtuali di Azure in modalità Resource Manager e Gestione dei servizi"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="dlepow"
@@ -24,4 +24,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-cli-manage](../../includes/virtual-machines-common-cli-manage.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -22,7 +22,7 @@
 
 ##Panoramica
 
-In questa esercitazione si aggiungeranno notifiche push al progetto della [guida introduttiva per Xamarin.Android] per attivare l'invio di una notifica push ogni volta che viene inserito un record. Questa esercitazione è basata sull'esercitazione della [Guida introduttiva per Xamarin.Android], che deve essere completata per prima. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+In questa esercitazione vengono aggiunte notifiche push al progetto [Creare un'app per Xamarin.Android] in modo che venga inviata una notifica push ogni volta che viene inserito un record. Questa esercitazione è basata sull'esercitazione [Creare un'app per Xamarin.Android] che deve essere completata per prima. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##Prerequisiti
 
@@ -31,9 +31,6 @@ Per completare questa esercitazione, è necessario disporre di:
 + Account Google attivo È possibile iscriversi a un account di Google in [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
 + [Componente client di Google Cloud Messaging](http://components.xamarin.com/view/GCMClient/) Questo componente verrà aggiunto durante l'esercitazione.
-
-+ Esercitazione sulla [guida introduttiva per Xamarin.Android] completata
-
 
 ##<a name="create-hub"></a>Creare un hub di notifica
 
@@ -77,10 +74,9 @@ Per completare questa esercitazione, è necessario disporre di:
 
 
 <!-- URLs. -->
-[guida introduttiva per Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
-
+[Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md
+[Creare un'app per Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
-[Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

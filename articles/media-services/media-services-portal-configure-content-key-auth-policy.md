@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/07/2016"  
 	ms.author="juliako"/>
 
 
@@ -24,14 +24,16 @@
 
 ##Panoramica
 
-Servizi multimediali di Microsoft Azure consente di distribuire contenuti crittografati con AES (Advanced Encryption Standard), mediante chiavi di crittografia a 128 bit, e con PlayReady DRM. Servizi multimediali fornisce inoltre un **servizio di distribuzione di chiavi/licenze** dal quale i client possono ottenere una chiave o una licenza per riprodurre i contenuti crittografati.
+Servizi multimediali di Microsoft Azure consente di distribuire flussi MPEG-DASH, Smooth Streaming e HTTP-Live-Streaming (HLS) protetti con Advanced Encryption Standard (AES) con chiavi di crittografia a 128 bit o [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). AMS consente anche di recapitare flussi DASH crittografati con Widevine DRM. PlayReady e Widewine vengono crittografati in base alle specifiche della crittografia comune (ISO/IEC 23001-7 CENC).
+
+Servizi multimediali offre anche un **servizio di distribuzione di chiavi/licenze** dal quale i client possono ottenere chiavi AES o licenze PlayReady/Widevine per riprodurre contenuti crittografati.
 
 Questo argomento illustra come usare il **portale di Azure classico** per configurare i criteri di autorizzazione della chiave simmetrica. La chiave può essere usata in un secondo momento per crittografare i contenuti dinamicamente. Si noti che attualmente è possibile crittografare i formati di streaming seguenti: HLS, MPEG DASH e Smooth Streaming. Non è possibile crittografare il formato di streaming HDS o i download progressivi.
  
-Quando un lettore richiede un flusso impostato per la crittografia dinamica, Servizi multimediali usa la chiave configurata per crittografare dinamicamente i contenuti mediante AES o PlayReady. Per decrittografare il flusso, il lettore richiederà la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
+Quando un lettore richiede un flusso impostato per la crittografia dinamica, Servizi multimediali usa la chiave configurata per crittografare dinamicamente i contenuti con la crittografia DRM o AES. Per decrittografare il flusso, il lettore richiederà la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
 
 
-Se si prevede di usare più chiavi simmetriche o si desidera specificare un URL di **servizio di distribuzione di chiavi/licenze** diverso dal servizio di distribuzione delle chiavi di Servizi multimediali, usare Media Services .NET SDK o le API REST.
+Se si prevede di usare più chiavi di contenuti o si desidera specificare un URL di **servizio di distribuzione di chiavi/licenze** diverso dal servizio di distribuzione delle chiavi di Servizi multimediali, usare Media Services SDK per .NET o le API REST.
 
 [Configurare i criteri di autorizzazione della chiave simmetrica mediante Media Services .NET SDK](media-services-dotnet-configure-content-key-auth-policy.md)
 
@@ -103,4 +105,4 @@ Dopo la configurazione dei criteri di autorizzazione della chiave, passare all'a
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

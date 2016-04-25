@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery | Microsoft Azure" 
-	description="Questo articolo illustra come distribuire Azure Site Recovery per orchestrare la replica, il failover e il ripristino di macchine virtuali VMware locali e server fisici Windows/Linux in Azure." 
+	pageTitle="Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery | Microsoft Azure"
+	description="Questo articolo illustra come distribuire Azure Site Recovery per orchestrare la replica, il failover e il ripristino di macchine virtuali VMware locali e server fisici Windows/Linux in Azure."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -35,7 +35,7 @@ Questo articolo illustra come:
 
 È possibile inviare commenti o domande nella parte inferiore di questo articolo oppure nel [forum sui servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## Distribuzione avanzata 
+## Distribuzione avanzata
 
 Questo articolo contiene istruzioni relative alla distribuzione avanzata nel portale di Azure classico. Si consiglia di usare questa versione per tutte le nuove distribuzioni. Se è già stata eseguita la distribuzione con la versione legacy precedente è consigliabile eseguire la migrazione alla nuova versione. [Altre](site-recovery-vmware-to-azure-classic-legacy.md##migrate-to-the-enhanced-deployment) informazioni sulla migrazione.
 
@@ -57,7 +57,7 @@ La distribuzione avanzata è un aggiornamento importante. Di seguito è riportat
 - Gli amministratori VMware possono configurare in Azure la protezione esterna di carichi di lavoro aziendali e applicazioni in esecuzione su macchine virtuali VMware. I responsabili della gestione dei server possono replicare i server fisici Windows e Linux locali in Azure.
 - La console Azure Site Recovery riunisce in un'unica posizione e semplifica le operazioni di configurazione e gestione dei processi di replica, failover e ripristino.
 - Se si esegue la replica di macchine virtuali VMware gestite da un server vCenter, Site Recovery può rilevare automaticamente le macchine virtuali. Se i computer si trovano in un host ESXi, Site Recovery rileva i computer nell'host.
-- È possibile eseguire facilmente il failover dall'infrastruttura locale in Azure ed eseguire il failback (ripristino) da Azure ai server delle macchine virtuali VMware nel sito locale. 
+- È possibile eseguire facilmente il failover dall'infrastruttura locale in Azure ed eseguire il failback (ripristino) da Azure ai server delle macchine virtuali VMware nel sito locale.
 - È possibile configurare piani di ripristino che raggruppano i carichi di lavoro delle applicazioni a più livelli su più computer. Site Recovery permette di eseguire il failover dei piani di ripristino e assicura la coerenza di più macchine virtuali, in modo che le macchine virtuali che eseguono gli stessi carichi di lavoro possano essere ripristinate insieme in un punto dati coerente.
 
 ## Architettura dello scenario
@@ -86,17 +86,17 @@ Quando si pianifica la capacità, è necessario considerare quanto segue:
 
 ### Considerazioni relative all'ambiente di origine
 
-- **Frequenza di modifica giornaliera massima**: un computer protetto può usare un solo server di elaborazione e un singolo server di elaborazione può gestire fino a 2 TB di modifica dei dati al giorno. La massima frequenza di modifica dei dati giornaliera supportata per una macchina protetta è quindi di 2 TB.
-- **Velocità effettiva massima**: una macchina replicata può appartenere a un account di archiviazione in Azure. Un account di archiviazione standard può gestire fino a 20.000 richieste al secondo ed è consigliabile fare in modo che il numero di IOPS in una macchina di origine rimanga 20.000. Se, ad esempio, si ha un computer di origine con 5 dischi e ogni disco genera 120 IOPS (con una dimensione pari a 8.000) nell'origine, il computer rientra nel limite di Azure pari a 500 IOPS per disco. Il numero di account di archiviazione richiesto è uguale al numero di IOPS di origine totali diviso 20.000. 
- 
+- **Frequenza di modifica giornaliera massima**: un computer protetto può usare un solo server di elaborazione e un singolo server di elaborazione può gestire fino a 2 TB di modifica dei dati al giorno. La massima frequenza di modifica dei dati giornaliera supportata per una macchina protetta è quindi di 2 TB.
+- **Velocità effettiva massima**: una macchina replicata può appartenere a un account di archiviazione in Azure. Un account di archiviazione standard può gestire fino a 20.000 richieste al secondo ed è consigliabile fare in modo che il numero di IOPS in una macchina di origine rimanga 20.000. Se, ad esempio, si ha un computer di origine con 5 dischi e ogni disco genera 120 IOPS (con una dimensione pari a 8.000) nell'origine, il computer rientra nel limite di Azure pari a 500 IOPS per disco. Il numero di account di archiviazione richiesto è uguale al numero di IOPS di origine totali diviso 20.000.
+
 
 ### Considerazioni relative al server di elaborazione
 
 Il server di gestione esegue i componenti di Site Recovery che gestiscono l'ottimizzazione, la replica e la gestione dati. Deve poter gestire la capacità della frequenza di modifica giornaliera in tutti i carichi di lavoro in esecuzione nei computer protetti e avere a disposizione una larghezza di banda sufficiente per eseguire la replica continua dei dati nell'archiviazione di Azure. In particolare:
 
 - Il serve di elaborazione riceve i dati di replica da computer protetti e li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia prima di inviarli ad Azure. Il server di gestione deve avere risorse sufficienti per eseguire queste attività.
-- Il server di elaborazione usa una cache basata su disco. È consigliabile usare un disco a parte per la cache di almeno 600 GB per gestire le modifiche ai dati archiviate in caso di colli di bottiglia o interruzioni della rete. Durante la distribuzione è possibile configurare la cache in qualsiasi unità che abbia almeno 5 GB di spazio di archiviazione disponibile ma 600 GB è il minimo consigliato.
-- Come procedura consigliata, il server di gestione dovrebbe trovarsi nella stessa rete e nello stesso segmento LAN dei computer da proteggere. Può trovarsi in una rete diversa, ma i computer da proteggere devono avere la visibilità di rete L3 per il server. 
+- Il server di elaborazione usa una cache basata su disco. È consigliabile usare un disco a parte per la cache di almeno 600 GB per gestire le modifiche ai dati archiviate in caso di colli di bottiglia o interruzioni della rete. Durante la distribuzione è possibile configurare la cache in qualsiasi unità che abbia almeno 5 GB di spazio di archiviazione disponibile ma 600 GB è il minimo consigliato.
+- Come procedura consigliata, il server di gestione dovrebbe trovarsi nella stessa rete e nello stesso segmento LAN dei computer da proteggere. Può trovarsi in una rete diversa, ma i computer da proteggere devono avere la visibilità di rete L3 per il server.
 
 Le dimensioni consigliate per il server di gestione sono riepilogate nella tabella seguente.
 
@@ -104,13 +104,13 @@ Le dimensioni consigliate per il server di gestione sono riepilogate nella tabel
 --- | --- | --- | --- | ---
 8 vCPU (2 socket * 4 core a 2,5 GHz) | 16 GB | 300 GB | 500 GB o inferiore | Distribuire un server di gestione con queste impostazioni per eseguire la replica di meno di 100 computer.
 12 vCPU (2 socket * 6 core a 2,5 GHz) | 18 GB | 600 GB | Da 500 GB a 1 TB | Distribuire un server di gestione con queste impostazioni per eseguire la replica di 100-150 computer.
-16 vCPU (2 socket * 8 core a 2,5 GHz) | 32 GB | 1 TB | Da 1 TB a 2 TB | Distribuire un server di gestione con queste impostazioni per eseguire la replica di 150-200 computer.
-Distribuire un altro server di elaborazione | | | Superiore a 2 TB | Distribuire server di elaborazione aggiuntivi se si esegue la replica di più di 200 computer o la frequenza di modifica dei dati giornaliera è superiore a 2 TB.
+16 vCPU (2 socket * 8 core a 2,5 GHz) | 32 GB | 1 TB | Da 1 TB a 2 TB | Distribuire un server di gestione con queste impostazioni per eseguire la replica di 150-200 computer.
+Distribuire un altro server di elaborazione | | | Superiore a 2 TB | Distribuire server di elaborazione aggiuntivi se si esegue la replica di più di 200 computer o la frequenza di modifica dei dati giornaliera è superiore a 2 TB.
 
 Dove:
 
 - Ogni computer di origine è configurato con 3 dischi da 100 GB.
-- La risorsa di archiviazione di benchmarking usata per le misurazioni del disco della cache è di 8 unità SAS a 10.000 RPM con RAID 10.
+- La risorsa di archiviazione di benchmarking usata per le misurazioni del disco della cache è di 8 unità SAS a 10.000 RPM con RAID 10.
 
 ### Larghezza di banda dall'origine alla destinazione
 Assicurarsi di calcolare la larghezza di banda necessaria per la replica iniziale e la replica differenziale usando lo [strumento Capacity Planner](site-recovery-capacity-planner.md).
@@ -130,9 +130,9 @@ Il traffico VMware replicato in Azure passa per un server di elaborazione specif
 
 È anche possibile impostare la limitazione usando PowerShell. Ad esempio:
 
-    Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024) 
+    Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024)
 
-#### Ottimizzazione dell'utilizzo della larghezza di banda 
+#### Ottimizzazione dell'utilizzo della larghezza di banda
 Per aumentare la larghezza di banda utilizzata per la replica da Azure Site Recovery è necessario modificare una chiave del Registro di sistema.
 
 La chiave riportata di seguito controlla il numero di thread per disco di replica usati durante la replica:
@@ -146,7 +146,7 @@ La chiave riportata di seguito controlla il numero di thread per disco di replic
 
 ### Server di elaborazione aggiuntivi
 
-Se è necessario proteggere più di 200 computer o la frequenza di modifica giornaliera è superiore a 2 TB è possibile aggiungere altri server per gestire il carico. Per la scalabilità orizzontale è possibile:
+Se è necessario proteggere più di 200 computer o la frequenza di modifica giornaliera è superiore a 2 TB è possibile aggiungere altri server per gestire il carico. Per la scalabilità orizzontale è possibile:
 
 - Aumentare il numero di server di gestione. Ad esempio, è possibile proteggere fino a 400 computer con due server di gestione.
 - Aggiungere altri server di elaborazione e usarli per gestire il traffico al posto del server di gestione o in aggiunta a tale server.
@@ -156,20 +156,20 @@ Questa tabella descrive uno scenario in cui:
 - Il server di gestione originario viene configurato per l'uso esclusivo come server di configurazione.
 - Viene configurato un server di elaborazione aggiuntivo.
 - Le macchine virtuali protette vengono configurate per l'uso del server di elaborazione aggiuntivo.
-- Ogni computer di origine protetto è configurato con tre dischi da 100 GB.
+- Ogni computer di origine protetto è configurato con tre dischi da 100 GB.
 
 **Server di gestione originario**<br/><br/>(server di configurazione) | **Server di elaborazione aggiuntivo**| **Dimensione disco cache** | **Frequenza di modifica dei dati** | **Computer protetti**
---- | --- | --- | --- | --- 
-8 vCPU (2 socket * 4 core a 2,5 GHz), 16 GB di memoria | 4 vCPU (2 socket * 2 core a 2,5 GHz), 8 GB di memoria | 300 GB | 250 GB o inferiore | È possibile eseguire la replica di un massimo di 85 computer.
-8 vCPU (2 socket * 4 core a 2,5 GHz), 16 GB di memoria | 8 vCPU (2 socket * 4 core a 2,5 GHz), 12 GB di memoria | 600 GB | Da 250 GB a 1 TB | È possibile eseguire la replica di 85-150 computer.
-12 vCPU (2 socket * 6 core a 2,5 GHz), 18 GB di memoria | 12 vCPU (2 socket * 6 core a 2,5 GHz), 24 GB di memoria | 1 TB | Da 1 TB a 2 TB | È possibile eseguire la replica di 150-225 computer.
+--- | --- | --- | --- | ---
+8 vCPU (2 socket * 4 core a 2,5 GHz), 16 GB di memoria | 4 vCPU (2 socket * 2 core a 2,5 GHz), 8 GB di memoria | 300 GB | 250 GB o inferiore | È possibile eseguire la replica di un massimo di 85 computer.
+8 vCPU (2 socket * 4 core a 2,5 GHz), 16 GB di memoria | 8 vCPU (2 socket * 4 core a 2,5 GHz), 12 GB di memoria | 600 GB | Da 250 GB a 1 TB | È possibile eseguire la replica di 85-150 computer.
+12 vCPU (2 socket * 6 core a 2,5 GHz), 18 GB di memoria | 12 vCPU (2 socket * 6 core a 2,5 GHz), 24 GB di memoria | 1 TB | Da 1 TB a 2 TB | È possibile eseguire la replica di 150-225 computer.
 
 
 Il modo in cui i server vengono adattati dipende dalle preferenze personali per il modello di scalabilità orizzontale o quello verticale. La scalabilità verticale si ottiene distribuendo pochi server di gestione high-end e server di elaborazione. La scalabilità orizzontale si ottiene distribuendo più server con minori risorse. Ad esempio, per proteggere 220 computer è possibile eseguire una di queste operazioni:
 
-- Configurare il server di gestione originario con 12 vCPU e 18 GB di memoria e un server di elaborazione aggiuntivo con 12 vCPU e 24 GB di memoria. Configurare quindi i computer protetti perché usino soltanto il server di elaborazione aggiuntivo.
-- Configurare due server di gestione, 2 x 8 vCPU e 16 GB di memoria RAM, e due server di elaborazione aggiuntivi, 1 x 8 vCPU e 1 x 4 vCPU per gestire 135 + 85 (220) computer, e configurare i computer protetti perché usino soltanto i server di elaborazione aggiuntivi.
-  
+- Configurare il server di gestione originario con 12 vCPU e 18 GB di memoria e un server di elaborazione aggiuntivo con 12 vCPU e 24 GB di memoria. Configurare quindi i computer protetti perché usino soltanto il server di elaborazione aggiuntivo.
+- Configurare due server di gestione, 2 x 8 vCPU e 16 GB di memoria RAM, e due server di elaborazione aggiuntivi, 1 x 8 vCPU e 1 x 4 vCPU per gestire 135 + 85 (220) computer, e configurare i computer protetti perché usino soltanto i server di elaborazione aggiuntivi.
+
 
 [Seguire queste istruzioni](#deploy-additional-process-servers) per configurare un server di elaborazione aggiuntivo.
 
@@ -182,19 +182,20 @@ La tabella seguente contiene un riepilogo dei prerequisiti per la distribuzione 
 
 **Prerequisito** | **Dettagli**
 --- | ---
-**Account di Azure**| È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). [Altre informazioni](https://azure.microsoft.com/pricing/details/site-recovery/) sui prezzi di Site Recovery. 
-**Archiviazione di Azure** | Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure. I dati replicati vengono memorizzati nell'archiviazione di Azure e le macchine virtuali di Azure vengono attivate quando si verifica il failover. <br/><br/>È necessario un [account di archiviazione con ridondanza geografica standard](../storage/storage-redundancy.md#geo-redundant-storage). L'account deve trovarsi nella stessa area del servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione. Si noti che la replica in account di archiviazione Premium non è attualmente supportata e non deve essere usata.<br/><br/>Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.[Altre informazioni](../storage/storage-introduction.md) sull'Archiviazione di Azure.<br/><br/> 
-**Rete di Azure** | È necessaria una rete virtuale di Azure a cui le macchine virtuali di Azure possano connettersi quando si verifica il failover. La rete virtuale di Azure deve trovarsi nella stessa area dell'insieme di credenziali di Site Recovery.<br/><br/>Si noti che per eseguire il failback dopo il failover in Azure è necessaria una connessione VPN o Azure ExpressRoute configurata dalla rete di Azure al sito locale. 
+**Account di Azure**| È necessario un account [Microsoft Azure](https://azure.microsoft.com/). È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). [Altre informazioni](https://azure.microsoft.com/pricing/details/site-recovery/) sui prezzi di Site Recovery.
+**Archiviazione di Azure** | Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure. I dati replicati vengono memorizzati nell'archiviazione di Azure e le macchine virtuali di Azure vengono attivate quando si verifica il failover. <br/><br/>È necessario un [account di archiviazione con ridondanza geografica standard](../storage/storage-redundancy.md#geo-redundant-storage). L'account deve trovarsi nella stessa area del servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione. Si noti che la replica in account di archiviazione Premium non è attualmente supportata e non deve essere usata.<br/><br/>Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.[Altre informazioni](../storage/storage-introduction.md) sull'Archiviazione di Azure.<br/><br/>
+**Rete di Azure** | È necessaria una rete virtuale di Azure a cui le macchine virtuali di Azure possano connettersi quando si verifica il failover. La rete virtuale di Azure deve trovarsi nella stessa area dell'insieme di credenziali di Site Recovery.<br/><br/>Si noti che per eseguire il failback dopo il failover in Azure è necessaria una connessione VPN o Azure ExpressRoute configurata dalla rete di Azure al sito locale.
 
 
 ### Prerequisiti locali
 
 **Prerequisito** | **Dettagli**
 --- | ---
-**Server di gestione** | È necessario un server Windows 2012 R2 locale in esecuzione in una macchina virtuale o un server fisico. Tutti i componenti locali di Site Recovery vengono installati in questo server di gestione.<br/><br/> È consigliabile distribuire il server come una VM VMware a disponibilità elevata. Il failback da Azure al sito locale deve essere sempre eseguito in macchine virtuali VMware indipendentemente dal fatto che il failover sia stato eseguito in macchine virtuali o in server fisici. Se non si configura il server di gestione come una VM VMware, è necessario configurare un server di destinazione master distinto come una VM VMware perché possa ricevere il traffico di failback.<br/><br/>Il server deve avere un indirizzo IP statico.<br/><br/>Il nome host del server deve essere composto al massimo da 15 caratteri.<br/><br/>Le impostazioni locali del sistema operativo devono essere in lingua inglese.<br/><br/>Per il server di gestione è necessario l'accesso a Internet.<br/><br/>È necessario l'accesso in uscita dal server con le caratteristiche seguenti: accesso temporaneo su HTTP 80 durante la configurazione dei componenti di Site Recovery per il download di MySQL, accesso continuo in uscita su HTTPS 443 per la gestione della replica, accesso continuo in uscita su HTTPS 9443 per il traffico di replica (è possibile modificare questa porta).<br/><br/> Verificare l'accessibilità di questi URL dal server di gestione: <br/>- *.hypervrecoverymanager.windowsazure.com<br/>- *.accesscontrol.windows.net<br/>- *.backup.windowsazure.com<br/>- *.blob.core.windows.net<br/>- *.store.core.windows.net<br/>-https://www.msftncsi.com/ncsi.txt<br/>- [ https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi](https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi "https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi")<br/><br/>Se sono presenti regole firewall basate sull'indirizzo IP, verificare che consentano la comunicazione con Azure. È necessario consentire gli [intervalli IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) e il protocollo HTTPS (433). e aggiungere all'elenco elementi consentiti gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione e per gli Stati Uniti occidentali. Il download di MySQL è disponibile all'URL [https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi](https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi "https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi"). 
+**Server di gestione** | È necessario un server Windows 2012 R2 locale in esecuzione in una macchina virtuale o un server fisico. Tutti i componenti locali di Site Recovery vengono installati in questo server di gestione.<br/><br/> È consigliabile distribuire il server come una VM VMware a disponibilità elevata. Il failback da Azure al sito locale deve essere sempre eseguito in macchine virtuali VMware indipendentemente dal fatto che il failover sia stato eseguito in macchine virtuali o in server fisici. Se non si configura il server di gestione come una VM VMware, è necessario configurare un server di destinazione master distinto come una VM VMware perché possa ricevere il traffico di failback.<br/><br/>Il server deve avere un indirizzo IP statico.<br/><br/>Il nome host del server deve essere composto al massimo da 15 caratteri.<br/><br/>Le impostazioni locali del sistema operativo devono essere in lingua inglese.<br/><br/>Per il server di gestione è necessario l'accesso a Internet.<br/><br/>È necessario l'accesso in uscita dal server con le caratteristiche seguenti: accesso temporaneo su HTTP 80 durante la configurazione dei componenti di Site Recovery per il download di MySQL, accesso continuo in uscita su HTTPS 443 per la gestione della replica, accesso continuo in uscita su HTTPS 9443 per il traffico di replica (è possibile modificare questa porta).<br/><br/> Verificare l'accessibilità di questi URL dal server di gestione: <br/>- *.hypervrecoverymanager.windowsazure.com<br/>- *.accesscontrol.windows.net<br/>- *.backup.windowsazure.com<br/>- *.blob.core.windows.net<br/>- *.store.core.windows.net<br/>-https://www.msftncsi.com/ncsi.txt<br/>- [ https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi](https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi "https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi")<br/><br/>Se sono presenti regole firewall basate sull'indirizzo IP, verificare che consentano la comunicazione con Azure. È necessario consentire gli [intervalli IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) e il protocollo HTTPS (433). e aggiungere all'elenco elementi consentiti gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione e per gli Stati Uniti occidentali. Il download di MySQL è disponibile all'URL [https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi](https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi "https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi").
 **VMware vCenter e host ESXi**: | È necessario almeno un hypervisor VMware vSphere ESX/ESXi che gestisca le macchine virtuali VMware ed esegua ESX/ESXi versione 6.0, 5.5 o 5.1 con gli aggiornamenti più recenti.<br/><br/> Si consiglia di distribuire un server VMware vCenter per gestire gli host ESXi. Il server deve eseguire vCenter versione 6.0 o 5.5 con gli aggiornamenti più recenti.<br/><br/>Tenere presente che Site Recovery non supporta alcune delle nuove funzionalità di vCenter e vSphere 6.0, tra cui cross-vCenter vMotion, Virtual Volumes e Storage DRS. Site Recovery supporta unicamente le funzionalità disponibili anche nella versione 5.5.
-**Computer protetti**: | **AZURE**<br/><br/>I computer da proteggere devono essere conformi ai [prerequisiti di Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) per la creazione di VM di Azure.<br><br/>Per connettersi alle VM di Azure dopo il failover, è necessario abilitare le connessioni Desktop remoto nel firewall locale.<br/><br/>La capacità dei singoli dischi nei computer protetti non deve essere superiore a 1023 GB. Una macchina virtuale può avere fino a 64 dischi (quindi fino a 64 TB). Se si hanno dischi di dimensioni superiori a 1 TB è consigliabile usare la replica di database, ad esempio SQL Server AlwaysOn oppure Oracle Data Guard.<br/><br/>I cluster guest in dischi condivisi non sono supportati. Se è presente una distribuzione cluster è consigliabile usare la replica di database, ad esempio SQL Server AlwaysOn oppure Oracle Data Guard.<br/><br/>L'avvio in modalità UEFI (Unified Extensible Firmware Interface) o EFI (Extensible Firmware Interface) non è supportato.<br/><br/>I nomi dei computer devono essere composti da un minimo di 1 e un massimo di 63 caratteri (lettere, numeri e trattini). Il nome deve iniziare e terminare con una lettera o un numero. Quando un computer è protetto, è possibile modificare il nome di Azure.<br/><br/>**VM VMware**<br/><br>È necessario installare VMware vSphere PowerCLI 6.0 nel server di gestione (server di configurazione).<br/><br/>Gli strumenti VMware devono essere installati e in esecuzione nelle VM VMware da proteggere.<br/><br/>Se nella VM di origine è presente un gruppo NIC, dopo il failover in Azure viene convertito in una singola scheda di interfaccia di rete.<br/><br/>Se nelle VM protette è presente un disco iSCSI, Site Recovery lo converte in un file VHD quando la VM esegue il failover in Azure. Se la destinazione iSCSI può essere raggiunta dalla macchina virtuale di Azure, questa si connette alla destinazione iSCSI. In tal modo sono visibili due dischi: il disco rigido virtuale nella macchina virtuale di Azure e il disco iSCSI di origine. In questo caso è necessario disconnettere la destinazione iSCSI visualizzata nella VM di Azure di cui è stato eseguito il failover.<br/><br/>[Altre informazioni](#vmware-permissions-for-vcenter-access) sulle autorizzazioni utente VMware necessarie per Site Recovery.<br/><br/> **COMPUTER WINDOWS SERVER (in VM VMware o server fisici)**<br/><br/>Nel server deve essere in esecuzione un sistema operativo a 64 bit supportato: Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 con SP1 o versioni successive.<br/><br/>Il nome host, i punti di montaggio, i nomi di dispositivo e il percorso di sistema di Windows, ad esempio C:\\Windows, devono essere specificati in inglese.<br/><br/>Il sistema operativo deve essere installato nell'unità C:\\ e il disco del sistema operativo deve essere un disco di base di Windows, ovvero il sistema operativo non deve essere installato in un disco dinamico di Windows.<br/><br/>È necessario specificare un account amministratore, che deve essere un amministratore locale nel computer Windows, per l'installazione push del servizio Mobility nei server Windows. Se l'account specificato non è un account di dominio, si dovrà disabilitare il Controllo dell'accesso utente remoto nel computer locale. [Altre informazioni](#install-the-mobility-service-with-push-installation).<br/><br/>Site Recovery supporta VM con disco RDM. Se la macchina virtuale di origine e il disco RDM sono disponibili, durante il failback Site Recovery riutilizza il disco RDM. Se non sono disponibili, durante il failback Site Recovery crea un nuovo file VMDK per ogni disco.<br/><br/>**COMPUTER LINUX**<br/><br/>È necessario un sistema operativo a 64 bit supportato: Red Hat Enterprise Linux 6.7, Centos 6.5, 6.6 o 6.7, Oracle Enterprise Linux 6.4 o 6.5 che esegue kernel compatibile con Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3), SUSE Linux Enterprise Server 11 SP3.<br/><br/>I file /etc/hosts nei computer protetti devono contenere voci che eseguono il mapping del nome host locale agli indirizzi IP associati a tutte le schede di rete. <br/><br/>Per connettersi dopo il failover a una macchina virtuale di Azure che esegue Linux usando un client Secure Shell (SSH), verificare che il servizio Secure Shell nel computer protetto sia impostato per l'avvio automatico all'avvio del sistema e che le regole firewall accettino la connessione SSH.<br/><br/>Il nome host, i punti di montaggio, i nomi di dispositivo, i percorsi di sistema e i nomi di file di Linux, ad esempio /etc/ o /usr, devono essere specificati in inglese.<br/><br/>La protezione può essere abilitata soltanto per i computer Linux con le risorse di archiviazione seguenti: file system EXT3, EXT4, ReiserFS o XFS, software per percorsi multipli Device Mapper, gestore dei volumi LVM2. I server fisici con archiviazione del controller HP CCISS non sono supportati. Il file system ReiserFS è supportato solo su SUSE Linux Enterprise Server 11 SP3.<br/><br/>Site Recovery supporta VM con disco RDM. Durante il failback per Linux, Site Recovery non riutilizza il disco RDM, ma crea un nuovo file VMDK per ogni disco RDM corrispondente. 
+**Computer protetti**: | **AZURE**<br/><br/>I computer da proteggere devono essere conformi ai [prerequisiti di Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) per la creazione di VM di Azure.<br><br/>Per connettersi alle VM di Azure dopo il failover, è necessario abilitare le connessioni Desktop remoto nel firewall locale.<br/><br/>La capacità dei singoli dischi nei computer protetti non deve essere superiore a 1023 GB. Una macchina virtuale può avere fino a 64 dischi (quindi fino a 64 TB). Se si hanno dischi di dimensioni superiori a 1 TB è consigliabile usare la replica di database, ad esempio SQL Server AlwaysOn oppure Oracle Data Guard.<br/><br/>I cluster guest in dischi condivisi non sono supportati. Se è presente una distribuzione cluster è consigliabile usare la replica di database, ad esempio SQL Server AlwaysOn oppure Oracle Data Guard.<br/><br/>L'avvio in modalità UEFI (Unified Extensible Firmware Interface) o EFI (Extensible Firmware Interface) non è supportato.<br/><br/>I nomi dei computer devono essere composti da un minimo di 1 e un massimo di 63 caratteri (lettere, numeri e trattini). Il nome deve iniziare e terminare con una lettera o un numero. Quando un computer è protetto, è possibile modificare il nome di Azure.<br/><br/>**VM VMware**<br/><br>È necessario installare VMware vSphere PowerCLI 6.0 nel server di gestione (server di configurazione).<br/><br/>Gli strumenti VMware devono essere installati e in esecuzione nelle VM VMware da proteggere.<br/><br/>Se nella VM di origine è presente un gruppo NIC, dopo il failover in Azure viene convertito in una singola scheda di interfaccia di rete.<br/><br/>Se nelle VM protette è presente un disco iSCSI, Site Recovery lo converte in un file VHD quando la VM esegue il failover in Azure. Se la destinazione iSCSI può essere raggiunta dalla macchina virtuale di Azure, questa si connette alla destinazione iSCSI. In tal modo sono visibili due dischi: il disco rigido virtuale nella macchina virtuale di Azure e il disco iSCSI di origine. In questo caso è necessario disconnettere la destinazione iSCSI visualizzata nella VM di Azure di cui è stato eseguito il failover.<br/><br/>[Altre informazioni](#vmware-permissions-for-vcenter-access) sulle autorizzazioni utente VMware necessarie per Site Recovery.<br/><br/> **COMPUTER WINDOWS SERVER (in VM VMware o server fisici)**<br/><br/>Nel server deve essere in esecuzione un sistema operativo a 64 bit supportato: Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 con SP1 o versioni successive.<br/><br/>Il nome host, i punti di montaggio, i nomi di dispositivo e il percorso di sistema di Windows, ad esempio C:\\Windows, devono essere specificati in inglese.<br/><br/>Il sistema operativo deve essere installato nell'unità C:\\ e il disco del sistema operativo deve essere un disco di base di Windows, ovvero il sistema operativo non deve essere installato in un disco dinamico di Windows.<br/><br/>È necessario specificare un account amministratore, che deve essere un amministratore locale nel computer Windows, per l'installazione push del servizio Mobility nei server Windows. Se l'account specificato non è un account di dominio, si dovrà disabilitare il Controllo dell'accesso utente remoto nel computer locale. [Altre informazioni](#install-the-mobility-service-with-push-installation).<br/><br/>Site Recovery supporta VM con disco RDM. Se la macchina virtuale di origine e il disco RDM sono disponibili, durante il failback Site Recovery riutilizza il disco RDM. Se non sono disponibili, durante il failback Site Recovery crea un nuovo file VMDK per ogni disco.<br/><br/>**COMPUTER LINUX**<br/><br/>È necessario un sistema operativo a 64 bit supportato: Red Hat Enterprise Linux 6.7, Centos 6.5, 6.6 o 6.7, Oracle Enterprise Linux 6.4 o 6.5 che esegue kernel compatibile con Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3), SUSE Linux Enterprise Server 11 SP3.<br/><br/>I file /etc/hosts nei computer protetti devono contenere voci che eseguono il mapping del nome host locale agli indirizzi IP associati a tutte le schede di rete. <br/><br/>Per connettersi dopo il failover a una macchina virtuale di Azure che esegue Linux usando un client Secure Shell (SSH), verificare che il servizio Secure Shell nel computer protetto sia impostato per l'avvio automatico all'avvio del sistema e che le regole firewall accettino la connessione SSH.<br/><br/>Il nome host, i punti di montaggio, i nomi di dispositivo, i percorsi di sistema e i nomi di file di Linux, ad esempio /etc/ o /usr, devono essere specificati in inglese.<br/><br/>La protezione può essere abilitata soltanto per i computer Linux con le risorse di archiviazione seguenti: file system EXT3, EXT4, ReiserFS o XFS, software per percorsi multipli Device Mapper, gestore dei volumi LVM2. I server fisici con archiviazione del controller HP CCISS non sono supportati. Il file system ReiserFS è supportato solo su SUSE Linux Enterprise Server 11 SP3.<br/><br/>Site Recovery supporta VM con disco RDM. Durante il failback per Linux, Site Recovery non riutilizza il disco RDM, ma crea un nuovo file VMDK per ogni disco RDM corrispondente.
 
+Solo per VM Linux: assicurarsi di configurare l'impostazione disk.enableUUID=true nei parametri di configurazione della VM in VMware. Se questa riga non esiste, aggiungerla perché è necessaria per fornire un valore UUID coerente al file VMDK in modo che venga installato correttamente. Si noti anche che, senza questa impostazione, il failback provocherà un download completo anche se la VM è disponibile in locale. L'aggiunta di questa impostazione assicurerà che solo le modifiche differenziali vengano trasferite durante il failback.
 
 ## Passaggio 1: Creare un insieme di credenziali
 
@@ -212,7 +213,7 @@ Controllare la barra di stato per verificare che l'insieme di credenziali sia st
 Configurare una rete di Azure in modo che le macchine virtuali di Azure siano connesse a una rete dopo il failover e in modo che il failback al sito locale possa funzionare come previsto.
 
 1. Nel portale di Azure > **Crea rete virtuale**, quindi specificare il nome della rete, l'intervallo di indirizzi IP e il nome della subnet.
-2. Per eseguire il failback è necessario aggiungere una VPN o ExpressRoute alla rete. La VPN ed ExpressRoute possono essere aggiunti alla rete anche dopo il failover. 
+2. Per eseguire il failback è necessario aggiungere una VPN o ExpressRoute alla rete. La VPN ed ExpressRoute possono essere aggiunti alla rete anche dopo il failover.
 
 [Altre informazioni](../virtual-network/virtual-networks-overview.md) sulle reti di Azure.
 
@@ -236,11 +237,11 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 ## Passaggio 5: Installare il server di gestione
 > [AZURE.TIP] Assicurarsi che questi URL siano accessibili dal server di gestione:
 >
-- *.hypervrecoverymanager.windowsazure.com
-- *.accesscontrol.windows.net
-- *.backup.windowsazure.com
-- *.blob.core.windows.net
-- *.store.core.windows.net
+- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
 - https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi
 - https://www.msftncsi.com/ncsi.txt
 
@@ -274,8 +275,8 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 	![Prerequisiti](./media/site-recovery-vmware-to-azure-classic/combined-wiz4.png)
 
 >[AZURE.WARNING] Se viene visualizzato un avviso per la verifica preliminare **Sincronizzazione ora globale**, verificare che l'ora del clock di sistema corrisponda al fuso orario.
- +	
- +	![TimeSyncIssue](./media/site-recovery-vmware-to-azure-classic/time-sync-issue.png)
+
+![TimeSyncIssue](./media/site-recovery-vmware-to-azure-classic/time-sync-issue.png)
 
 8. In **Configurazione MySQL** creare le credenziali per l'accesso all'istanza del server MySQL. È possibile usare questi caratteri speciali: '\_', '!', '@', '$', ' \\', '%'.
 
@@ -303,11 +304,8 @@ Per eseguire la replica di macchine virtuali VMware, installare i componenti VMw
 	![Riepilogo](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 >[AZURE.WARNING] È necessario configurare il proxy dell'agente di Servizi di ripristino di Microsoft Azure. Dopo aver completato l'installazione, avviare un'applicazione denominata "Microsoft Azure Recovery Services Shell" dal menu di avvio di Windows. Nella finestra di comando visualizzata eseguire il set di comandi seguente per configurare le impostazioni del server proxy.
 >
-	$pwd = ConvertTo-SecureString -String ProxyUserPassword
-	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd
-	net stop obengine
-	net start obengine
-	 
+	$pwd = ConvertTo-SecureString -String ProxyUserPassword Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd net stop obengine net start obengine
+
 
 
 ### Eseguire l'installazione dalla riga di comando
@@ -326,7 +324,7 @@ Dove:
 - /PSIP e /CSIP. Obbligatorio. Indirizzo IP del server di elaborazione e del server di configurazione.
 - /PassphraseFilePath. Obbligatorio. Percorso del file della passphrase.
 - /ByPassProxy. Facoltativo. Specifica che il server di gestione si connette ad Azure senza un proxy.
-- /ProxySettingsFilePath. Facoltativo. Specifica le impostazioni per un proxy personalizzato, ovvero un proxy predefinito nel server che richiede l'autenticazione o un proxy personalizzato. 
+- /ProxySettingsFilePath. Facoltativo. Specifica le impostazioni per un proxy personalizzato, ovvero un proxy predefinito nel server che richiede l'autenticazione o un proxy personalizzato.
 
 
 
@@ -370,7 +368,7 @@ Se si esegue la replica di macchine virtuali VMware è necessario aggiungere un 
 3. Al termine del processo di individuazione, il server vCenter sarà elencato nella scheda **Server di configurazione**.
 
 	![vCenter](./media/site-recovery-vmware-to-azure-classic/add-vcenter3.png)
-		
+
 
 ## Passaggio 8: Creare un gruppo di protezione
 
@@ -412,15 +410,15 @@ Per abilitare la protezione per le macchine virtuali e i server fisici è necess
 Quando si aggiungono computer a un gruppo di protezione, il server di elaborazione effettua automaticamente il push e l'installazione del servizio Mobility in ogni computer.
 
 
-#### Preparare il push automatico nei computer Windows 
+#### Preparare il push automatico nei computer Windows
 
 Di seguito viene illustrato come preparare i computer Windows in modo che il servizio Mobility possa essere installato automaticamente dal server di elaborazione.
 
 1.  Creare un account utilizzabile dal server di elaborazione per accedere al computer. L'account deve avere privilegi di amministratore (locale o di dominio). Si noti che queste credenziali vengono usate solo per l'installazione push del servizio Mobility.
 
-	>[AZURE.NOTE] Se non si usa un account di dominio, è necessario disabilitare il Controllo dell'accesso utente remoto nel computer locale. A tale scopo, aggiungere la voce DWORD LocalAccountTokenFilterPolicy con un valore di 1 nel Registro di sistema in HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System. Per aggiungere la voce del Registro di sistema da un'interfaccia della riga di comando, aprire il comando o tramite PowerShell immettere **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
+	>[AZURE.NOTE] Se non si usa un account di dominio, è necessario disabilitare il Controllo dell'accesso utente remoto nel computer locale. A tale scopo, aggiungere la voce DWORD LocalAccountTokenFilterPolicy con un valore di 1 nel Registro di sistema in HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System. Per aggiungere la voce del Registro di sistema da un'interfaccia della riga di comando, aprire il prompt dei comandi o PowerShell e immettere **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
 
-2.  Nell'istanza di Windows Firewall del computer da proteggere selezionare l'opzione per **consentire app o funzionalità attraverso Windows Firewall** e abilitare **Condivisione file e stampanti** e **Strumentazione gestione Windows**. Per i computer appartenenti a un dominio, è possibile configurare i criteri del firewall con un oggetto Criteri di gruppo.
+2.  Nell'istanza di Windows Firewall del computer da proteggere selezionare **Consenti app o funzionalità attraverso Windows Firewall** e abilitare **Condivisione file e stampanti** e **Strumentazione gestione Windows**. Per i computer appartenenti a un dominio, è possibile configurare i criteri del firewall con un oggetto Criteri di gruppo.
 
 	![Impostazioni del firewall](./media/site-recovery-vmware-to-azure-classic/mobility1.png)
 
@@ -433,7 +431,7 @@ Di seguito viene illustrato come preparare i computer Windows in modo che il ser
 
 #### Preparare il push automatico nei server Linux
 
-1.	Verificare che il computer Linux da proteggere sia supportato come descritto in [Prerequisiti locali](#on-premises-prerequisites). Verificare la disponibilità della connettività di rete tra il computer da proteggere e il server di gestione che esegue il server di elaborazione. 
+1.	Verificare che il computer Linux da proteggere sia supportato come descritto in [Prerequisiti locali](#on-premises-prerequisites). Verificare la disponibilità della connettività di rete tra il computer da proteggere e il server di gestione che esegue il server di elaborazione.
 
 2.	Creare un account utilizzabile dal server di elaborazione per accedere al computer. L'account deve essere un utente ROOT nel server Linux di origine. Si noti che queste credenziali vengono usate solo per l'installazione push del servizio Mobility.
 
@@ -443,14 +441,14 @@ Di seguito viene illustrato come preparare i computer Windows in modo che il ser
 
 3.	Assicurarsi che il file /etc/hosts nel server Linux di origine contenga le voci che eseguono il mapping del nome host locale agli indirizzi IP associati a tutte le schede di rete.
 4.	Installare i pacchetti openssh, openssh-server, openssl più recenti nel computer da proteggere.
-5.	Assicurarsi che SSH sia abilitato e in esecuzione sulla porta 22. 
-6.	Abilitare il sottosistema SFTP e l'autenticazione della password nel file sshd\_config, come segue: 
+5.	Assicurarsi che SSH sia abilitato e in esecuzione sulla porta 22.
+6.	Abilitare il sottosistema SFTP e l'autenticazione della password nel file sshd\_config, come segue:
 
 	- Accedere come utente ROOT.
 	- Nel file /etc/ssh/sshd\_config trovare la riga che inizia con PasswordAuthentication.
-	- Rimuovere il commento dalla riga e modificare il valore da **no** a **sì**.
+	- Rimuovere il commento dalla riga e modificare il valore da **no** a **yes**.
 	- Trovare la riga che inizia con **Subsystem** e rimuovere il commento.
- 
+
 		![Linux](./media/site-recovery-vmware-to-azure-classic/mobility2.png)
 
 
@@ -461,8 +459,7 @@ I programmi di installazione sono disponibili in C:\\Programmi (x86)\\Microsoft 
 Sistema operativo di origine | File di installazione del servizio Mobility
 --- | ---
 Windows Server (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
-SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -490,7 +487,7 @@ Dove:
 - /Role. Obbligatorio. Specifica se deve essere installato il servizio Mobility.
 - /InstallLocation. Obbligatorio. Specifica dove installare il servizio.
 - /PassphraseFilePath. Obbligatorio. Specifica la passphrase del server di configurazione.
-- /LogFilePath. Obbligatorio. Specifica il percorso dei file di impostazione log. 
+- /LogFilePath. Obbligatorio. Specifica il percorso dei file di impostazione log.
 
 #### Modificare l'indirizzo IP del server di gestione
 
@@ -511,14 +508,14 @@ Dopo aver eseguito la procedura guidata è possibile modificare l'indirizzo IP d
 4. Immettere *`sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P passphrase.txt`* per installare il servizio Mobility.
 5. Specificare l'indirizzo IP interno del server di gestione e assicurarsi che la porta 443 sia selezionata.
 
-**È possibile eseguire l'installazione anche dalla riga di comando:**:
+**È possibile eseguire l'installazione anche dalla riga di comando**:
 
 1. Copiare la passphrase da C:\\Program Files (x86)\\InMage Systems\\private\\connection al server di gestione e salvarla come "passphrase.txt" nel server di gestione. Quindi eseguire questi comandi: In questo esempio l'indirizzo IP del server di gestione è 104.40.75.37 e la porta HTTPS deve essere la 443:
 
 Per eseguire l'installazione in un server di produzione:
 
     ./install -t both -a host -R Agent -d /usr/local/ASR -i 104.40.75.37 -p 443 -s y -c https -P passphrase.txt
- 
+
 Per eseguire l'installazione nel server di destinazione master:
 
 
@@ -543,7 +540,7 @@ Si noti anche che:
 
 Aggiungere computer a un gruppo di protezione:
 
-1. Come procedura consigliata, fare clic su **Elementi protetti** > **Gruppo di protezione** > **Computer** > Aggiungi computer. 
+1. Come procedura consigliata, fare clic su **Elementi protetti** > **Gruppo di protezione** > **Computer** > Aggiungi computer.
 2. Se si attiva la protezione per macchine virtuali VMware, nella pagina **Seleziona macchine virtuali** selezionare il server vCenter che gestisce le macchine virtuali (o l'host EXSi in cui sono in esecuzione) e quindi selezionare le macchine.
 
 	![Abilitare la protezione](./media/site-recovery-vmware-to-azure-classic/enable-protection2.png)
@@ -551,7 +548,7 @@ Aggiungere computer a un gruppo di protezione:
 3.  Se si attiva la protezione per server fisici, nella pagina **Seleziona macchine virtuali** della procedura guidata **Aggiungi computer fisici** specificare l'indirizzo IP e il nome descrittivo. Selezionare quindi la famiglia di sistemi operativi.
 
 	![Abilitare la protezione](./media/site-recovery-vmware-to-azure-classic/enable-protection1.png)
-		
+
 4. In **Specificare le risorse di destinazione** selezionare l'account di archiviazione da usare per la replica e indicare se le impostazioni devono essere usate per tutti i carichi di lavoro. Si noti che gli account di archiviazione premium non sono attualmente supportati.
 
 	>[AZURE.NOTE] Non è supportato lo spostamento degli account di archiviazione creati con il [nuovo portale di Azure](../storage/storage-create-storage-account.md) tra gruppi di risorse.
@@ -578,7 +575,7 @@ Lo stato può essere monitorato nella pagina **Processi**.
 ## Passaggio 11: Impostare le proprietà dei computer protetti
 
 1. Quando lo stato della macchina virtuale è **Protetto**, sarà possibile configurarne le proprietà di failover. Nei dettagli del gruppo di protezione selezionare il computer e aprire la scheda **Configura**.
-2. Site Recovery suggerisce automaticamente le proprietà per la macchina virtuale di Azure e rileva le impostazioni della rete locale. 
+2. Site Recovery suggerisce automaticamente le proprietà per la macchina virtuale di Azure e rileva le impostazioni della rete locale.
 
 	![Impostare le proprietà di una macchina virtuale](./media/site-recovery-vmware-to-azure-classic/vm-properties1.png)
 
@@ -588,12 +585,12 @@ Lo stato può essere monitorato nella pagina **Processi**.
 
 	-  **Dimensioni della VM di Azure**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. [Altre informazioni](../virtual-machines/virtual-machines-linux-sizes.md/#size-tables) su dimensioni e schede di rete. Si noti che:
 
-		- Quando si modificano le dimensioni di una macchina virtuale e si salvano le impostazioni, il numero di schede di rete cambia alla successiva apertura della scheda **Configura**. Il numero di schede di rete delle macchine virtuali di destinazione corrisponde minimo al numero di schede di rete nella macchina virtuale di origine e al numero massimo di schede di rete supportate dalla dimensione della macchina virtuale selezionata. 
+		- Quando si modificano le dimensioni di una macchina virtuale e si salvano le impostazioni, il numero di schede di rete cambia alla successiva apertura della scheda **Configura**. Il numero di schede di rete delle macchine virtuali di destinazione corrisponde minimo al numero di schede di rete nella macchina virtuale di origine e al numero massimo di schede di rete supportate dalla dimensione della macchina virtuale selezionata.
 			- Se il numero di schede di rete nella macchina di origine è minore o uguale al numero di schede consentite per la macchina di destinazione, la destinazione avrà lo stesso numero di schede dell’origine.
 			- Se il numero di schede per la macchina virtuale di origine supera il numero consentito per le dimensioni di destinazione, verrà utilizzata la dimensione di destinazione massima.
 			- Ad esempio, se una macchina di origine dispone di due schede di rete e le dimensioni della macchina di destinazione ne supportano quattro, la macchina di destinazione avrà due schede. Se la macchina di origine dispone di due schede ma le dimensioni di destinazione supportate ne consentono solo una, la macchina di destinazione avrà una sola scheda.
-		- Se la macchina virtuale ha più schede di rete, tutte le schede devono essere connesse alla stessa rete di Azure. 
-	- **Rete di Azure**: è necessario specificare una rete di Azure a cui le VM di Azure verranno connesse dopo il failover. In caso contrario, le macchine virtuali di Azure non verranno connesse ad alcuna rete. È necessario specificare una rete di Azure anche per eseguire il failback da Azure nel sito locale. Il failback richiede una connessione VPN tra una rete di Azure e una rete locale.	
+		- Se la macchina virtuale ha più schede di rete, tutte le schede devono essere connesse alla stessa rete di Azure.
+	- **Rete di Azure**: è necessario specificare una rete di Azure a cui le VM di Azure verranno connesse dopo il failover. In caso contrario, le macchine virtuali di Azure non verranno connesse ad alcuna rete. È necessario specificare una rete di Azure anche per eseguire il failback da Azure nel sito locale. Il failback richiede una connessione VPN tra una rete di Azure e una rete locale.
 	- **Indirizzo IP/Subnet di Azure**: per ogni scheda di rete è necessario selezionare la subnet a cui deve connettersi la VM di Azure. Si noti che:
 		- Se la scheda di rete del computer di origine è configurata per l'uso di un indirizzo IP statico, è possibile specificare un indirizzo IP statico per la macchina virtuale di Azure. Se non si specifica un indirizzo IP statico verrà allocato un indirizzo IP disponibile. Se viene specificato un indirizzo IP di destinazione già usato da un'altra macchina virtuale in Azure, il failover avrà esito negativo. Se la scheda di rete del computer di origine è configurata per l'uso del protocollo DHCP, l'impostazione per Azure sarà DHCP.
 
@@ -623,18 +620,19 @@ Prima di eseguire un failover è opportuno tenere presente quanto segue.
 - Assicurarsi che il server di gestione sia in esecuzione e disponibile, perché in caso contrario il failover avrà esito negativo.
 - Se si esegue un failover non pianificato, si noti che:
 
-	- È consigliabile arrestare i computer primari prima di eseguire un failover non pianificato. Questo permette di evitare che il computer di origine e quello di replica siano in esecuzione nello stesso momento. Se si esegue la replica di macchine virtuali VMware, quando si esegue un failover non pianificato è possibile specificare a Site Recovery di arrestare le macchine di origine. L'esito positivo di questa operazione dipende dallo stato del sito primario. Per la replica di server fisici questa opzione non è disponibile. 
+	- È consigliabile arrestare i computer primari prima di eseguire un failover non pianificato. Questo permette di evitare che il computer di origine e quello di replica siano in esecuzione nello stesso momento. Se si esegue la replica di macchine virtuali VMware, quando si esegue un failover non pianificato è possibile specificare a Site Recovery di arrestare le macchine di origine. L'esito positivo di questa operazione dipende dallo stato del sito primario. Per la replica di server fisici questa opzione non è disponibile.
 	- Quando si esegue un failover non pianificato, la replica dei dati dai computer primari viene arrestata per evitare il trasferimento di dati differenziali a failover iniziato.
-	
+
 - Per connettersi alla macchina virtuale di replica in Azure dopo il failover, abilitare Connessione Desktop remoto nel computer di origine prima di eseguire il failover e consentire la connessione RDP attraverso il firewall. È anche necessario consentire il protocollo RDP nell'endpoint pubblico della macchina virtuale di Azure dopo il failover. Per garantire il funzionamento di RDP dopo il failover, seguire queste [procedure consigliate](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
+>[AZURE.NOTE] Per ottenere prestazioni ottimali quando si esegue un failover in Azure, assicurarsi di aver installato l'agente di Azure nel computer protetto. Questo consente un avvio più veloce e facilita anche la diagnosi nel caso di problemi. L'agente Linux è disponibile [qui](https://github.com/Azure/WALinuxAgent), mentre l'agente Windows è disponibile [qui](http://go.microsoft.com/fwlink/?LinkID=394789)
 
 ### Eseguire un failover di test
 
 Eseguire un failover di test per simulare i processi di failover e ripristino in una rete isolata che non influisce sull'ambiente di produzione, in modo che la replica continui normalmente. Il failover di test inizia dall'origine e può essere eseguito in due modi:
 
 - **Senza una rete di Azure**: se si esegue un failover di test senza specificare una rete, il test verifica semplicemente l'avvio e la corretta visualizzazione delle macchine virtuali in Azure. Le macchine virtuali non vengono connesse a una rete di Azure dopo il failover.
-- **Con una rete di Azure**: questo tipo di failover verifica che l'intero ambiente di replica venga rilevato come previsto e che le macchine virtuali di Azure siano connesse alla rete specificata. 
+- **Con una rete di Azure**: questo tipo di failover verifica che l'intero ambiente di replica venga rilevato come previsto e che le macchine virtuali di Azure siano connesse alla rete specificata.
 
 
 1. Nella pagina **Piani di ripristino** selezionare il piano e fare clic su **Failover di test**.
@@ -656,8 +654,6 @@ Eseguire un failover di test per simulare i processi di failover e ripristino in
 6. Fare clic su **Failover di test completato** per pulire automaticamente l'ambiente di test. Al termine, lo stato del failover di test indicherà che l'operazione è **Completata**. Eventuali elementi o macchine virtuali create automaticamente durante il failover di test verranno eliminate. Se un failover di test continua per più di due settimane, ne viene forzato il completamento.
 
 
-	
-
 
 ### Eseguire un failover non pianificato
 
@@ -673,7 +669,7 @@ Il failover non pianificato viene avviato da Azure e può essere eseguito anche 
 	![Aggiungi macchine virtuali.](./media/site-recovery-vmware-to-azure-classic/unplanned-failover2.png)
 
 	>[AZURE.NOTE] Questa opzione non è disponibile se si esegue la replica di server fisici. Se possibile, è necessario provare ad arrestare i computer manualmente.
-	
+
 3. In **Conferma failover** verificare la direzione del failover in Azure e selezionare il punto di ripristino da usare per il failover. Se nella configurazione delle proprietà di replica sono state abilitate più macchine virtuali, è possibile ripristinare fino all'ultimo punto di ripristino dell'applicazione o coerente con l'arresto anomalo del sistema. È anche possibile selezionare **Punto di ripristino personalizzato** per eseguire il ripristino a un punto precedente nel tempo. Fare clic sul segno di spunta per avviare il failover.
 
 	![Aggiungi macchine virtuali.](./media/site-recovery-vmware-to-azure-classic/unplanned-failover3.png)
@@ -693,7 +689,7 @@ Per connettersi a macchine virtuali replicate in Azure al termine del failover, 
 
 ## Distribuire server di elaborazione aggiuntivi
 
-Se è necessario aumentare la distribuzione oltre i 200 computer di origine oppure la varianza totale giornaliera è superiore a 2 TB, sono necessari server di elaborazione aggiuntivi per gestire il volume di traffico. Per configurare un server di elaborazione aggiuntivo, verificare i requisiti in [Server di elaborazione aggiuntivi](#additional-process-servers) e seguire le istruzioni qui riportate per configurare il server di elaborazione. Dopo aver configurato il server è possibile configurarne l'uso da parte dei computer di origine.
+Se è necessario aumentare la distribuzione oltre i 200 computer di origine oppure la varianza totale giornaliera è superiore a 2 TB, sono necessari server di elaborazione aggiuntivi per gestire il volume di traffico. Per configurare un server di elaborazione aggiuntivo, verificare i requisiti in [Server di elaborazione aggiuntivi](#additional-process-servers) e seguire le istruzioni qui riportate per configurare il server di elaborazione. Dopo aver configurato il server è possibile configurarne l'uso da parte dei computer di origine.
 
 ### Configurare un server di elaborazione aggiuntivo
 
@@ -728,17 +724,17 @@ Per configurare un server di elaborazione aggiuntivo, procedere come segue:
 
 	![Aggiornare il server di elaborazione](./media/site-recovery-vmware-to-azure-classic/update-process-server3.png)
 
-	
+
 
 
 ## Autorizzazioni di VMware per l'accesso a vCenter
 
-Il server di elaborazione può rilevare automaticamente le macchine virtuali in un server vCenter. Per eseguire l'individuazione automatica è necessario definire un ruolo (Azure\_Site\_Recovery) a livello di vCenter per permettere a Site Recovery di accedere al server vCenter. Si noti che per eseguire la sola migrazione di computer VMware in Azure, senza eseguire il failback da Azure, è sufficiente definire un ruolo di sola lettura. Impostare le autorizzazioni come descritto nel [Passaggio 6: Impostare le credenziali per il server vCenter](#step-6-set-up-credentials-for-the-vcenter-server). Le autorizzazioni relative ai ruoli sono riepilogate nella tabella seguente.
+Il server di elaborazione può rilevare automaticamente le macchine virtuali in un server vCenter. Per eseguire l'individuazione automatica è necessario definire un ruolo (Azure\_Site\_Recovery) a livello di vCenter per permettere a Site Recovery di accedere al server vCenter. Si noti che per eseguire la sola migrazione di computer VMware in Azure, senza eseguire il failback da Azure, è sufficiente definire un ruolo di sola lettura. Configurare le autorizzazioni come descritto nel [Passaggio 6: Impostare le credenziali per il server vCenter](#step-6-set-up-credentials-for-the-vcenter-server). Le autorizzazioni relative ai ruoli sono riepilogate nella tabella seguente.
 
 **Ruolo** | **Dettagli** | **Autorizzazioni**
 --- | --- | ---
 Ruolo Azure\_Site\_Recovery | Individuazione di macchine virtuali VMware |Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Datastore -> Allocate space, Browse datastore, Low level file operations, Remove file, Update virtual machine files<br/><br/>Rete -> Network assign<br/><br/>Risorsa -> Assign virtual machine to resource pool, Migrate powered off virtual machine, Migrate powered on virtual machine<br/><br/>Attività -> Create task, Update task<br/><br/>Macchina virtuale -> Configuration<br/><br/>Macchina virtuale -> Interact -> Answer question, Device connection, Configure CD media, Configure floppy media, Power off, Power on, VMware tools install<br/><br/>Macchina virtuale -> Inventory -> Create, Register, Unregister<br/><br/>Macchina virtuale -> Provisioning -> Allow virtual machine download, Allow virtual machine files upload<br/><br/>Macchina virtuale -> Snapshots -> Remove snapshots
-Ruolo vCenter User | Individuazione della macchina virtuale VMware/Failover senza arresto della macchina virtuale di origine | Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Oggetto data center –> Propagate to child object, ruolo = Read-only <br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center. Se si vuole limitare l'accesso, assegnare il ruolo **No access** con l'oggetto **Propagate to child object** agli oggetti figlio (host ESX, archivi dati, VM e reti). 
+Ruolo vCenter User | Individuazione della macchina virtuale VMware/Failover senza arresto della macchina virtuale di origine | Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Oggetto data center –> Propagate to child object, ruolo = Read-only <br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center. Se si vuole limitare l'accesso, assegnare il ruolo **No access** con l'oggetto **Propagate to child object** agli oggetti figlio (host ESX, archivi dati, VM e reti).
 Ruolo vCenter User | Failover e failback | Assegnare i privilegi seguenti per il server vCenter:<br/><br/>Oggetto data center –> Propagate to child object, ruolo = Azure\_Site\_Recovery <br/><br/>L'utente viene assegnato a livello di data center e ha quindi accesso a tutti gli oggetti nel data center. Se si vuole limitare l'accesso, assegnare il ruolo **No access** con **Propagate to child object** agli oggetti figlio (host ESX, archivi dati, VM e reti). 
 
 
@@ -759,4 +755,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Altre informazioni sul failback](site-recovery-failback-azure-to-vmware-classic.md) per rendere nuovamente disponibili nell'ambiente locale i computer sottoposti a failover in esecuzione in Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -70,7 +70,7 @@ Di seguito viene visualizzata una sequenza temporale di esempio con un processo 
 
 ![Sequenza monitoraggio di Gestione traffico](./media/traffic-manager-monitoring/IC697947.jpg)
 
-**Figura 1**: Esempio di sequenza di monitoraggio. I numeri nel diagramma corrispondono alla seguente descrizione numerata.
+**Figura 1**: Esempio di sequenza di monitoraggio. I numeri nel diagramma corrispondono alla seguente descrizione numerata.
 
 1. **GET**: il sistema di monitoraggio di Gestione traffico esegue un GET sul percorso e sul file specificati nelle impostazioni di monitoraggio.
 2. **200 OK**: il sistema di monitoraggio prevede un messaggio HTTP 200 OK restituito entro 10 secondi. Alla ricezione della risposta, si presuppone che il servizio cloud è disponibile. 
@@ -85,7 +85,9 @@ Di seguito viene visualizzata una sequenza temporale di esempio con un processo 
 7. **Diminuzione del traffico verso il servizio cloud**: il flusso del traffico verso il servizio cloud non disponibile continua. I client riscontrano degli errori perché il servizio non è disponibile. I client e i server DNS secondari hanno memorizzato nella cache il record DNS per l'indirizzo IP del servizio cloud non disponibile. Continuano a risolvere il nome DNS del dominio aziendale sull'indirizzo IP del servizio. Inoltre, i server DNS secondari potrebbero distribuire le informazioni DNS del servizio non disponibile. Durante l'aggiornamento dei client e dei server DNS secondari, il traffico verso l'indirizzo IP del servizio non disponibile è lento. Il sistema di monitoraggio continua l'esecuzione dei controlli a intervalli di 30 secondi. Nell'esempio, il servizio non risponde e rimane non disponibile.
 8. **Arresto del traffico verso il servizio cloud**: ormai, molti server e client DNS dovrebbero essere aggiornati e il traffico verso il servizio non disponibile si arresta. Il periodo di tempo massimo prima che il traffico si interrompa completamente dipende dal tempo TTL. La durata (TTL) DNS predefinita è 300 secondi (5 minuti). Utilizzando tale valore, i client interrompono l'uso del servizio dopo 5 minuti. Il sistema di monitoraggio continua a eseguire i controlli a intervalli di 30 secondi e il servizio cloud non risponde.
 9. **Il servizio cloud viene riportato online e riceve il traffico**: il servizio diventa disponibile, ma Gestione traffico non dispone delle informazioni fino all'esecuzione di un controllo da parte del sistema di monitoraggio.
-10. **Ripresa del traffico al servizio**: gestione traffico invia un GET e riceve un messaggio 200 OK in meno di 10 secondi. La distribuzione del nome DNS del servizio cloud ai server DNS, viene avviata non appena questi richiedono l'aggiornamento. Quindi il traffico inizia a fluire ancora una volta verso il servizio.
+10. **Ripresa del traffico al servizio**: gestione traffico invia un GET e riceve un messaggio 200 OK in meno di 10 secondi. La distribuzione del nome DNS del servizio cloud ai server DNS, viene avviata non appena questi richiedono l'aggiornamento. Il traffico tornerà all'endpoint ancora una volta non appena scadono le risposte DNS memorizzate nella cache che restituiscono altri endpoint e le connessioni esistenti verso altri endpoint vengono interrotte.
+
+>[AZURE.NOTE] Dal momento che Gestione traffico lavora a livello di DNS, non è in grado di influenzare le connessioni esistenti verso qualsiasi endpoint. Durante il failback, mentre Gestione traffico può indirizzare le nuove connessioni verso l'endpoint primario, gli endpoint secondari continueranno a ricevere il traffico tramite le connessioni esistenti fino all'interruzione di queste sessioni. Se è necessario il failback veloce, le applicazioni dovrebbero limitare la durata della sessione sugli endpoint secondari.
 
 ## Stato degli endpoint padre e figlio per i profili nidificati
 
@@ -115,4 +117,4 @@ Nella seguente tabella viene descritto il comportamento del monitoraggio di Gest
 [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

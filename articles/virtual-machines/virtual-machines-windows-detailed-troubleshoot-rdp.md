@@ -3,7 +3,7 @@
 	description="Passaggi della risoluzione dettagliata dei problemi per le connessioni RDP a una macchina virtuale di Azure che esegue Windows."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
-	ms.author="dkshir"/>
+	ms.date="04/06/2016"
+	ms.author="iainfou"/>
 
 # Risoluzione dettagliata dei problemi relativi a connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows
 
@@ -195,4 +195,4 @@ Verificare che anche l'endpoint Desktop remoto per la VM di Azure usi la porta T
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

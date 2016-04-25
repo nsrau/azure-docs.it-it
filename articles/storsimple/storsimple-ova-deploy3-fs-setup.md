@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="04/07/2016"
    ms.author="alkohli"/>
 
 # Distribuire StorSimple Virtual Array: configurare come file server
@@ -128,7 +128,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
     1.  Immettere la **chiave di registrazione del servizio** ottenuta in [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per StorSimple Virtual Array.
 
-    2.  Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per ulteriori informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
+    2.  Se questo è il primo dispositivo che si registra con questo servizio, ignorare questo passaggio e andare al passaggio successivo. Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio StorSimple Manager. Per ulteriori informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
 
     3.  Fare clic su **Register**. Il dispositivo viene così riavviato. È necessario attendere 2-3 minuti per la corretta registrazione del dispositivo. Dopo avere riavviato il dispositivo, si passa alla pagina di accesso.
 
@@ -232,4 +232,4 @@ Guardare il video per scoprire in che modo configurare e registrare StorSimple V
 
 Scoprire come usare l'interfaccia utente Web locale per [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

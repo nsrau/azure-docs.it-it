@@ -103,35 +103,35 @@ Questo passaggio descrive come eseguire la verifica della proprietà del dominio
 
     * **Verifica del servizio app** 
     
-        1. Questo è il processo più semplice se si dispone già del **dominio personalizzato assegnato alle app del servizio app.** Questo metodo riporta tutte le app del servizio app che soddisfano questi criteri. Ad esempio, in questo caso, **contosocertdemo.com** è un dominio personalizzato assegnato all'app del servizio app denominata **"ContosoCertDemo"** e pertanto è l'unica app del servizio app elencata di seguito. In caso di distribuzione in più aree, verranno elencate tutte le app del servizio app delle aree.
-            > [AZURE.NOTE]
-            Il metodo di verifica è disponibile SOLO per gli acquisti di un certificato Standard (di base). Per i certificati con caratteri jolly, ignorare e passare all'opzione B, C e D riportata di seguito. 
-        2. Fare clic sul pulsante **"Verifica"** per completare questo passaggio.
-        3. Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
+        * Questo è il processo più semplice se si dispone già del **dominio personalizzato assegnato alle app del servizio app.** Questo metodo riporta tutte le app del servizio app che soddisfano questi criteri. Ad esempio, in questo caso, **contosocertdemo.com** è un dominio personalizzato assegnato all'app del servizio app denominata **"ContosoCertDemo"** e pertanto è l'unica app del servizio app elencata di seguito. In caso di distribuzione in più aree, verranno elencate tutte le app del servizio app delle aree.
         
-            ![inserimento immagine della verifica del servizio app](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)
+           Il metodo di verifica è disponibile SOLO per gli acquisti di un certificato Standard (di base). Per i certificati con caratteri jolly, ignorare e passare all'opzione B, C e D riportata di seguito.
+        * Fare clic sul pulsante **"Verifica"** per completare questo passaggio.
+        * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
+        
+        ![inserimento immagine della verifica del servizio app](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)
 
     * **Verifica del dominio**
 
-        1. Questo è il processo più semplice **SOLO** in caso di **[acquisto del dominio personalizzato dal servizio app di Azure.](custom-dns-web-site-buydomains-web-app.md)**
+        * Questo è il processo più semplice **SOLO** in caso di **[acquisto del dominio personalizzato dal Servizio app di Azure.](custom-dns-web-site-buydomains-web-app.md)**
         
-        2. Fare clic sul pulsante **"Verifica"** per completare questo passaggio.
+        * Fare clic sul pulsante **"Verifica"** per completare questo passaggio.
         
-        3. Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
+        * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
 
     * **Verifica tramite posta elettronica**
         
-        1. Un messaggio di posta elettronica di verifica è già stato inviato agli indirizzi di posta elettronica associati al dominio personalizzato.
+        * Un messaggio di posta elettronica di verifica è già stato inviato agli indirizzi di posta elettronica associati al dominio personalizzato.
          
-        2. Aprire il messaggio di posta elettronica e fare clic sul collegamento per la verifica per completare il passaggio di verifica tramite posta elettronica.
+        * Aprire il messaggio di posta elettronica e fare clic sul collegamento per la verifica per completare il passaggio di verifica tramite posta elettronica.
         
-        3. Se è necessario un nuovo invio del messaggio di verifica, fare clic sul pulsante **"Invia di nuovo il messaggio di posta elettronica"**.
+        * Se è necessario un nuovo invio del messaggio di verifica, fare clic sul pulsante **"Invia di nuovo messaggio"**.
          
     * **Verifica manuale**
                  
         1. **Verifica della pagina Web HTML**
         
-            * Creare un file HTML denominato **{token di verifica dominio}**.html (è possibile copiare il token dal pannello Stato di verifica dominio)
+            * Creare un file HTML denominato **{token di verifica dominio}**.html. È possibile copiare il token dal pannello Stato di verifica dominio.
             
             * Il contenuto di questo file deve corrispondere esattamente al nome del **token di verifica del dominio**.
             
@@ -139,10 +139,10 @@ Questo passaggio descrive come eseguire la verifica della proprietà del dominio
             
             * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
             
-            Se si acquista ad esempio un certificato standard per contosocertdemo.com con token di verifica del dominio **'cAGgQrKc'**, una richiesta Web a **'http://contosocertdemo.com/cAGgQrKc.html'** dovrà restituire **cAGgQrKc.**
+            Se si acquista ad esempio un certificato standard per contosocertdemo.com con il token di verifica del dominio **'cAGgQrKc'**, una richiesta Web a **'http://contosocertdemo.com/cAGgQrKc.html'** dovrà restituire **cAGgQrKc.**
         2. **Verifica del record TXT DNS**
 
-            * Mediante il gestore DNS, creare un record TXT nel sottodominio **'DZC'** con valore uguale al **token di verifica del dominio.**
+            * Con il gestore DNS creare un record TXT nel sottodominio **'DZC'** con valore uguale al **token di verifica del dominio.**
             
             * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
                               
@@ -154,17 +154,17 @@ Questo passaggio descrive come eseguire la verifica della proprietà del dominio
 Questo passaggio descrive come assegnare un certificato appena acquistato alle app del servizio app.
 
 > [AZURE.NOTE]
-Prima di eseguire la procedura inclusa in questa sezione, è necessario avere associato un nome di dominio personalizzato all'app. Per altre informazioni, vedere **[Configurare un nome di dominio personalizzato nel servizio app di Azure.](web-sites-custom-domain-name.md)**.
+Prima di eseguire la procedura inclusa in questa sezione, è necessario avere associato un nome di dominio personalizzato all'app. Per altre informazioni, vedere **[Configurare un nome di dominio personalizzato nel servizio app di Azure](web-sites-custom-domain-name.md)**.
 
 1.	Accedere al **[portale di Azure](https://portal.azure.com/)** dal browser.
 2.	Fare clic sull'opzione **Servizio app** a sinistra nella pagina.
 3.	Fare clic sul nome dell'app a cui si desidera assegnare il certificato. 
-4.	Nel pannello **Impostazioni**, fare clic su **Domini personalizzati ed SSL.**
-5.	Nella **sezione dei certificati** fare clic su **Importa certificato** e selezionare il certificato appena acquistato
+4.	Nel pannello **Impostazioni** fare clic su **Domini personalizzati ed SSL**.
+5.	Nella **sezione dei certificati** fare clic su **Importa certificato** e selezionare il certificato appena acquistato.
 
     ![inserimento immagine dell'importazione del certificato](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.jpg)
 
-6. Nella sezione **Associazioni SSL** della scheda **Impostazioni SSL**, usare gli elenchi a discesa per selezionare il nome di dominio da proteggere con SSL e il certificato da usare. È inoltre possibile stabilire se usare il metodo SSL basato su **[Indicazione nome server (SNI, Server Name Indication)](http://en.wikipedia.org/wiki/Server_Name_Indication)** o IP.
+6. Nella sezione **Associazioni SSL** della scheda **Impostazioni SSL**, usare gli elenchi a discesa per selezionare il nome di dominio da proteggere con SSL e il certificato da usare. È possibile anche stabilire se usare il metodo SSL basato su **[Indicazione nome server (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** o IP.
 
     ![inserimento immagine di associazioni SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.jpg)
 
@@ -187,7 +187,7 @@ Se è stata selezionata l'opzione **SSL basato su IP** e il dominio personalizza
 
 ##<a name="bkmk_Rekey"></a>Reimpostare e sincronizzare il certificato
 
-1. Per motivi di sicurezza, sarà possibile reimpostare il certificato semplicemente selezionando l'opzione **"Reimposta e sincronizza"** nel pannello **"Proprietà del certificato"**. 
+1. Per motivi di sicurezza è possibile reimpostare il certificato semplicemente selezionando l'opzione **"Reimposta e sincronizza"** nel pannello **"Proprietà del certificato"**. 
 
 2. Fare clic sul pulsante **"Reimposta"** per avviare il processo. Questo processo può richiedere da 1 a 10 minuti.
 
@@ -208,4 +208,4 @@ Se è stata selezionata l'opzione **SSL basato su IP** e il dominio personalizza
 
 >[AZURE.NOTE] Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

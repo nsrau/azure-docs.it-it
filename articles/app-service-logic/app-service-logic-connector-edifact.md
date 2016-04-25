@@ -41,25 +41,17 @@ Il connettore Edifact può essere usato come trigger o come azione.
 
 ### Trigger
 - Avviare la progettazione del flusso di app per la logica di Azure.
-- Fare clic su Edifact Connector nel riquadro destro:  
-![Impostazioni di trigger][3]
-- Fare clic su ->:  
-![Opzioni di trigger][4]
-- Il connettore Edifact espone un solo trigger. Selezionare *Release Batch*:  
-![Input di Release Batch][5]
-- Questo trigger non include input. Fare clic su ->:  
-![Configurazione di Release Batch][6]
+- Fare clic su Edifact Connector nel riquadro destro:![Impostazioni di trigger][3]
+- Fare clic su ->: ![Opzioni di trigger][4]
+- Il connettore EDIFACT espone un solo trigger. Selezionare *Release Batch*: ![Input di Release Batch][5]
+- Questo trigger non include input. Fare clic su ->: ![Configurazione di Release Batch][6]
 - Come parte dell'output, il connettore restituisce il payload Edifact, l'ID del contratto nonché informazioni che indicano se il messaggio viene inviato in batch.
 
 ### Azione
-- Fare clic su Edifact Connector nel riquadro destro:  
-![Impostazioni di azione][7]
-- Fare clic su ->:  
-![Elenco di azioni][8]
-- Il connettore Edifact supporta molte azioni. Selezionare *Encode*:  
-![Input di Encode][9]
-- Fornire gli input per l'azione e configurarla:  
-![Configurazione di Encode][10]
+- Fare clic su Edifact Connector nel riquadro destro:![Impostazioni di azione][7]
+- Fare clic su ->: ![Elenco di azioni][8]
+- Il connettore Edifact supporta molte azioni. Selezionare *Encode*: ![Input di Encode][9]
+- Fornire gli input per l'azione e configurarla: ![Configurazione di Encode][10]
 
 	Parametro|Tipo|Descrizione del parametro
 ---|---|---
@@ -84,7 +76,7 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere l'articolo relativo alla [gestione e al monitoraggio delle app per le API e del connettore](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 
 <!--References -->
@@ -99,4 +91,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

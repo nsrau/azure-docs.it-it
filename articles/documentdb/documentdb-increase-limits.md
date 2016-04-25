@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="04/07/2016"
 	ms.author="anhoh"/>
 
 # Richiedere un aumento dei limiti di account DocumentDB
@@ -25,9 +25,9 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 -	Quali quote dell'account DocumentDB possono essere modificate contattando il supporto tecnico Azure?
 -	Come è possibile richiedere una modifica delle quote dell'account DocumentDB?
 
-##<a id="AdjustableQuotas"></a> Quote dell'account DocumentDB modificabili
+##<a id="Quotas"></a> Quote dell'account DocumentDB
 
-La tabella seguente descrive le quote di DocumentDB che è possibile modificare contattando il supporto tecnico di Azure:
+La tabella seguente descrive le quote DocumentDB. Le quote elencate con un asterisco (*) possono essere modificate contattando il supporto tecnico Azure:
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
@@ -63,4 +63,4 @@ Una volta creato il ticket di supporto, si dovrebbe ricevere per posta elettroni
 ##<a name="NextSteps"></a> Passaggi successivi
 - Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

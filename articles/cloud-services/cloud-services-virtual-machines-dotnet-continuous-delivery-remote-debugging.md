@@ -39,41 +39,41 @@ Per abilitare il debug remoto in Azure, per i servizi cloud o le macchine virtua
 1. Creare una macchina virtuale di Azure. Per informazioni, vedere [Creazione di una macchina virtuale che esegue Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md) o [Creazione e gestione di macchine virtuali di Azure in Visual Studio](../virtual-machines/virtual-machines-windows-classic-manage-visual-studio.md).
 2. Nella [pagina del portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=269851) visualizzare il dashboard della macchina virtuale per individuare **L’IDENTIFICAZIONE PERSONALE CERTIFICATO RDP** della macchina virtuale. Questo valore viene utilizzato per il valore `ServerThumbprint` nella configurazione dell'estensione.
 3. Creare un certificato client come descritto in [Panoramica sui certificati per i servizi cloud di Azure](cloud-services-certs-create.md) (conservare il file .pfx e l'identificazione personale del certificato RDP).
-4. Installare Azure Powershell (versione 0.7.4 o versione successiva) come descritto in [Come installare e configurare Azure PowerShell](/powershell-install-configure.md).
+4. Installare Azure Powershell (versione 0.7.4 o versione successiva) come descritto in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 5. Eseguire lo script seguente per abilitare l'estensione RemoteDebug. Sostituire i percorsi e i dati personali con i dati personali dell'utente, ad esempio nome della sottoscrizione, nome del servizio e identificazione personale.
 
 	>[AZURE.NOTE] Questo script è configurato per Visual Studio 2015. Se si usa Visual Studio 2013, modificare le assegnazioni `$referenceName` e `$extensionName` di seguito per l'uso di `RemoteDebugVS2013` anziché `RemoteDebugVS2015`.
 
 	<pre>
 	Add-AzureAccount
-
+	
 	Select-AzureSubscription "My Microsoft Subscription"
-
+	
 	$vm = Get-AzureVM -ServiceName "mytestvm1" -Name "mytestvm1"
-
+	
 	$endpoints = @(
 	,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}
 	,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}
 	)
-
+	
 	foreach($endpoint in $endpoints)
 	{
 	Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort
 	}
-
+	
 	$referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2015"
 	$publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"
 	$extensionName = "RemoteDebugVS2015"
 	$version = "1.*"
 	$publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
-
+	
 	$vm | Set-AzureVMExtension `
 	-ReferenceName $referenceName `
 	-Publisher $publisher `
 	-ExtensionName $extensionName `
 	-Version $version `
 	-PublicConfiguration $publicConfiguration
-
+	
 	foreach($extension in $vm.VM.ResourceExtensionReferences)
 	{
 	if(($extension.ReferenceName -eq $referenceName) `
@@ -85,10 +85,10 @@ Per abilitare il debug remoto in Azure, per i servizi cloud o le macchine virtua
 	break
 	}
 	}
-
+	
 	$vm | Update-AzureVM
 	</pre>
 
 6. Importare il certificato (file PFX) nel computer in cui è installato Visual Studio con Azure SDK per .NET.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

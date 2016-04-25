@@ -23,7 +23,9 @@
 
 Se si crea un'applicazione che fornisce l'accesso alle risorse protette, è necessario sapere come proteggere le risorse dall'accesso non autorizzato. Azure AD rende semplici e dirette le operazioni per la protezione di un'API Web usando i token di accesso di OAuth Bearer 2.0 con solo poche righe di codice.
 
-Nelle app Web Asp.NET, a questo scopo si usa l'implementazione di Microsoft del middleware OWIN gestito dalla community e incluso in .NET Framework 4.5. Qui si userà OWIN per compilare un'API Web "To Do List" che: designa quali API vengono protette; verifica che le chiamate all'API Web contengano un token di accesso valido.
+Nelle app Web Asp.NET, a questo scopo si usa l'implementazione di Microsoft del middleware OWIN gestito dalla community e incluso in .NET Framework 4.5. Qui OWIN verrà usato per creare un'API Web "Elenco attività" in grado di:
+-	Impostare le API protette.
+-	Verificare che le chiamate all'API Web contengano un token di accesso valido.
 
 A questo scopo è necessario:
 
@@ -134,10 +136,8 @@ Prima di poter vedere Todo List Service in azione, è necessario configurare Tod
 
 Infine pulire, compilare ed eseguire ogni progetto. Se non si è ancora creato un nuovo utente nel tenant con un dominio *.onmicrosoft.com, ora è possibile farlo. Accedere al client To Do List come l'utente creato e aggiungere alcune attività all'elenco azioni dell'utente.
 
-Come riferimento, viene fornito l'esempio completato (senza i valori di configurazione) [qui](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Ora è possibile passare ad altri scenari relativi alle identità. È possibile:
-
-[Compilare un client nativo .NET con Azure AD >>](../active-directory-devquickstarts-native-dotnet.md)
+Come riferimento, viene fornito l'esempio completato (senza i valori di configurazione) [qui](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). È ora possibile passare ad altri scenari relativi alle identità.
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

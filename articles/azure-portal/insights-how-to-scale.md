@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Scalare il conteggio delle istanze manualmente o automaticamente" 
-	description="Informazioni su come scalare i servizi di Azure." 
-	authors="stepsic-microsoft-com" 
-	manager="ronmart" 
-	editor="" 
-	services="azure-portal" 
+<properties
+	pageTitle="Scalare il conteggio delle istanze manualmente o automaticamente"
+	description="Informazioni su come scalare i servizi di Azure."
+	authors="stepsic-microsoft-com"
+	manager="ronmart"
+	editor=""
+	services="azure-portal"
 	documentationCenter="na"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Scalare il conteggio delle istanze manualmente o automaticamente
@@ -31,11 +31,11 @@ Prima di scalare in base al conteggio delle istanze, occorre tenere presente che
 2. Il riquadro **Scalabilità** in **Operazioni** indicherà lo stato della scalabilità: **Disattivato** nel caso in cui il ridimensionamento venga effettuato manualmente, **Attivato** nel caso in cui il ridimensionamento venga effettuato in base a una o più metriche delle prestazioni. ![Riquadro Scalabilità](./media/insights-how-to-scale/Insights_UsageLens.png)
 
 3. Facendo clic sul riquadro, verrà visualizzato il pannello **Scalabilità**. Nella parte superiore del pannello è possibile visualizzare una cronologia delle azioni di scalabilità automatica per il servizio. ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
-    
->[AZURE.NOTE]In questo grafico verranno visualizzate solo le azioni eseguite con la scalabilità automatica. Se si regola manualmente il conteggio delle istanze, la modifica non verrà applicata nel grafico.
+
+>[AZURE.NOTE] In questo grafico verranno visualizzate solo le azioni eseguite con la scalabilità automatica. Se si regola manualmente il conteggio delle istanze, la modifica non verrà applicata nel grafico.
 
 4. È possibile regolare manualmente il numero di **Istanze** con il dispositivo di scorrimento.
-5. Fare clic sul comando **Salva** e si passerà quasi immediatamente a quel numero di istanze. 
+5. Fare clic sul comando **Salva** e si passerà quasi immediatamente a quel numero di istanze.
 
 ## Scalabilità basata su una metrica preimpostata
 
@@ -44,7 +44,7 @@ Per regolare automaticamente il numero di istanze in base a una metrica, selezio
 1. Quando si seleziona una metrica appare un dispositivo di scorrimento e/o alcune caselle di testo in cui immettere il numero di istanze tra cui applicare la scalabilità:
 
     ![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png)
-    
+
     Con la scalabilità automatica il servizio non sarà mai al di sotto o al di sopra dei limiti impostati, indipendentemente dal carico.
 
 2. Quindi si scegliere l'intervallo di destinazione per la metrica. Ad esempio, se si sceglie **Percentuale CPU**, è possibile impostare un limite per l'utilizzo medio della CPU in tutte le istanze del servizio. Quando l'utilizzo medio della CPU supererà il valore massimo definito, si verificherà una scalabilità orizzontale. Allo stesso modo, quando l'utilizzo medio della CPU scende sotto il valore minimo, si verificherà una riduzione.
@@ -65,9 +65,9 @@ Per regolare automaticamente il numero di istanze in base a una metrica, selezio
 
 4. Ora è necessario selezionare la metrica in base a cui si desidera scalare. Quando si sceglie una metrica, esistono un paio di aspetti da considerare:
     * La *risorsa* da cui proviene la metrica. In genere, sarà la stessa della risorsa da scalare. Tuttavia, se si desidera scalare in base alla profondità di una coda di archiviazione, la risorsa è la coda in base a cui si desidera scalare.
-    * Il *nome della metrica* stesso. 
+    * Il *nome della metrica* stesso.
     * L'*aggregazione temporale* della metrica, ovvero il modo in cui i dati vengono combinati per la *durata*.
-    
+
 5. Dopo aver scelto la metrica, si scelgono la soglia per la metrica e l'operatore. Ad esempio, è possibile specificare **Maggiore di** **80%**.
 
 6. Scegliere quindi l'azione che si desidera eseguire. Esistono diversi tipi di azioni:
@@ -76,7 +76,7 @@ Per regolare automaticamente il numero di istanze in base a una metrica, selezio
     * Aumentare o diminuire fino a: il conteggio delle istanze verrà impostato sul **Valore** definito.
 
 7. Infine è possibile scegliere Disattiva regole dopo: intervallo di attesa applicato alla regola dopo l'azione di scalabilità precedente, prima di una nuova azione di scalabilità.
-    
+
 8. Dopo avere configurato la regola, fare clic su **OK**.
 
 9. Una volta configurate tutte le regole desiderate, assicurarsi di fare clic sul comando **Salva**.
@@ -117,7 +117,7 @@ Tuttavia, è possibile agire con maggiore decisione nei confronti della scalabil
 
 8. Come con il profilo predefinito, in **Giorni** scegliere il numero di giorni da applicare a questo profilo e in **Ora di inizio** un'ora del giorno.
 
->[AZURE.NOTE]Scalabilità automatica userà le regole dell'ora legale per qualsiasi **fuso orario** selezionato. Tuttavia, con l'ora legale l'offeset UTC visualizzerà l'offset del fuso orario di base, non l'offset UTC dell'ora legale.
+>[AZURE.NOTE] Scalabilità automatica userà le regole dell'ora legale per qualsiasi **fuso orario** selezionato. Tuttavia, con l'ora legale l'offeset UTC visualizzerà l'offset del fuso orario di base, non l'offset UTC dell'ora legale.
 
 9. Fare clic su **OK**.
 
@@ -134,7 +134,6 @@ Tuttavia, è possibile agire con maggiore decisione nei confronti della scalabil
 * [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) ogni volta che si verificano eventi operativi o le metriche superano una soglia.
 * [Monitorare le prestazioni dell'applicazione](insights-perf-analytics.md) se si desidera comprendere esattamente il comportamento del codice nel cloud.
 * [Visualizzare eventi e registri di controllo](insights-debugging-with-events.md) per informazioni su tutti gli eventi che si sono verificati nel servizio.
-* [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
- 
+* [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

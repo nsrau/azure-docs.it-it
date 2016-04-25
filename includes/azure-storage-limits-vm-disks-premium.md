@@ -15,6 +15,6 @@ Tipo di disco di Archiviazione Premium | P10 | P20 | P30
 Dimensioni disco | 128 GiB | 512 GiB | 1024 GiB (1 TB)
 Operazioni IOPS al secondo max per disco | 500 | 2300 | 5000
 Velocità effettiva massima per disco | 100 MB al secondo | 150 MB al secondo | 200 MB al secondo
-Numero massimo di dischi a elevato utilizzo | 62 | 41 | 31
+Numero massimo di dischi per account di archiviazione | 280 | 140 | 35
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management" 
+	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -60,7 +60,7 @@ A partire dalla versione 12, il database SQL di Azure supporterà solo i livelli
 Per informazioni dettagliate sui livelli di servizio Basic, Standard e Premium, vedere:
 
 - [Livelli di servizio del database SQL](sql-database-service-tiers.md)
-- [Aggiornare le edizioni Web e Business del database SQL ai nuovi livelli di servizio](sql-database-upgrade-new-service-tiers.md)
+- [Aggiornare le edizioni Web e Business del database SQL ai nuovi livelli di servizio](sql-database-upgrade-server-portal.md)
 
 
 
@@ -225,7 +225,7 @@ Il seguente scenario illustra che un database SQL di Azure versione 11 eliminato
 
 I cmdlet di PowerShell consentono di avviare, arrestare o monitorare un aggiornamento alla versione 12 del database SQL di Azure dalla versione 11 o qualsiasi altra versione precedente alla 12.
 
-- [Eseguire l'aggiornamento a database SQL V12 tramite PowerShell](sql-database-upgrade-server.md)
+- [Eseguire l'aggiornamento a database SQL V12 tramite PowerShell](sql-database-upgrade-server-powershell.md)
 
 Per la documentazione di riferimento sui cmdlet di Powershell, vedere:
 
@@ -252,6 +252,5 @@ Se l'aggiornamento non riesce per qualche motivo, il database versione 11 rimane
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
- 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -195,7 +195,7 @@ Per ulteriori informazioni su sviluppo e pubblicazione di siti Web di Azure, ved
 [Microsoft Azure SDK per Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
 [Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
 [How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
-[Creare una macchina virtuale che esegue Linux]: virtual-machines-linux-cli-create.md
+[Creare una macchina virtuale che esegue Linux]: virtual-machines-linux-quick-create-cli.md
 [Creazione di siti Web con Django]: web-sites-python-create-deploy-django-app.md
 [Creazione di siti Web con Bottle]: web-sites-python-create-deploy-bottle-app.md
 [Creazione di siti Web con Flask]: web-sites-python-create-deploy-flask-app.md
@@ -204,4 +204,4 @@ Per ulteriori informazioni su sviluppo e pubblicazione di siti Web di Azure, ved
 [archiviazione in code]: storage-python-how-to-use-queue-storage.md
 [archiviazione BLOB]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

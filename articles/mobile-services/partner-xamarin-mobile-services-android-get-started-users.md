@@ -35,7 +35,7 @@ Questa esercitazione descrive le operazioni di base per abilitare l'autenticazio
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare prima l'esercitazione [Introduzione a Servizi mobili].
 
-Per completare questa esercitazione, è necessario disporre di Xamarin.Android e di Android SDK 4.2 o versione successiva.
+Per completare questa esercitazione, è necessario avere Visual Studio con Xamarin su Windows o Xamarin Studio su Mac OS X. Le istruzioni complete sull'installazione sono disponibili nella pagina relativa alla [configurazione e installazione di Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
 ##<a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
 
@@ -142,4 +142,4 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [Autorizzazione di utenti con script]: mobile-services-javascript-backend-service-side-authorization.md
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->
