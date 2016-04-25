@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Interfaccia utente di Azure Mobile Engagement - Analytics" 
-   description="Informazioni su come analizzare i dati storici sull'applicazione usando Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
+<properties
+   pageTitle="Interfaccia utente di Azure Mobile Engagement - Analytics"
+   description="Informazioni su come analizzare i dati storici sull'applicazione usando Azure Mobile Engagement"
+   services="mobile-engagement"
+   documentationCenter=""
+   authors="piyushjo"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,32 +12,32 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
+   ms.workload="mobile"
    ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # Come analizzare i dati cronologici sull'applicazione
 
-In questo articolo viene descritta la scheda **ANALYTICS** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**. Per ulteriori informazioni, vedere [Creare un account Azure Mobile Engagement](mobile-engagement-create-account.md).
+In questo articolo viene descritta la scheda **ANALYTICS** del portale **Mobile Engagement**. Utilizzare il portale **Mobile Engagement** per monitorare e gestire le app per dispositivi mobili. Si noti che per iniziare a utilizzare il portale, è innanzitutto necessario creare un account **Azure Mobile Engagement**.
 
 
 La sezione Analytics dell'interfaccia utente fornisce informazioni aggregate sull'applicazione, tratte dai dati cronologici che vengono aggiornati ogni 24 ore. Le informazioni vengono visualizzate in dashboard diversi, composti da grafici a linee/barre/torta, griglie e mappe. I dati possono anche essere scaricati come file con estensione csv. La maggior parte di queste informazioni è disponibile in tempo reale nella sezione Monitoraggio dell'interfaccia utente. Inoltre, è possibile accedervi dall'API Analytics.
 
->[AZURE.NOTE]Molte sezioni dell’interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
+>[AZURE.NOTE] Molte sezioni dell’interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
 
 ## Analisi standard e personalizzate
 
 Azure Mobile Engagement offre un set di informazioni analitiche standard di base relative all'applicazione che possono essere rappresentate in un grafico, non appena si integra l'app con l'SDK. Azure Mobile Engagement offre anche la possibilità di riunire ulteriori informazioni analitiche personalizzate relative al comportamento degli utenti finali. È possibile effettuare questa operazione creando una pianificazione di "tag (informazioni dell'app)" personalizzata creata da **Impostazioni**. In questo modo, Azure Mobile Engagement può raccogliere tali dati aggiuntivi per conto dell'utente.
 
- 
- 
+
+
 ## Analytics
 - Dashboard: visualizza informazioni generali sugli utenti nuovi e attivi e sulle loro tendenze.
-- Utenti: gli utenti sono identificati tramite l'identificatore del dispositivo. Questo valore è univoco per ogni dispositivo (a un nuovo utente corrisponde un nuovo dispositivo). Un utente viene considerato come nuovo in un determinato intervallo di tempo, se ha eseguito la prima sessione durante questo intervallo di tempo. Un utente viene considerato come assorbito se ha eseguito almeno una sessione negli ultimi 7 giorni. Gli utenti attivi sono quelli che hanno effettuato almeno una sessione durante un determinato periodo. È possibile ordinarli per mese, settimana, giorno oppure ora. Tutti i grafici hanno un aspetto simile, ma consentono di filtrare gli elementi in base a funzionalità differenti (ad esempio, la versione dell'applicazione) e successivamente in base all'intervallo di tempo. Tra le informazioni standard raccolte integrando l'SDK sono incluse le seguenti: utenti attivi, nuovo utente, numero di sessioni, durata di ogni sessione, informazioni tecniche sul paese, impostazioni locali, località, lingua, gestore telefonico, dispositivi, firmware, rete (Wi-Fi), versioni dell'app e dell'SDK, utilizzo dei clienti. È possibile visualizzare tali informazioni in tempo reale dalla sezione di monitoraggio. 
+- Utenti: gli utenti sono identificati tramite l'identificatore del dispositivo. Questo valore è univoco per ogni dispositivo (a un nuovo utente corrisponde un nuovo dispositivo). Un utente viene considerato come nuovo in un determinato intervallo di tempo, se ha eseguito la prima sessione durante questo intervallo di tempo. Un utente viene considerato come assorbito se ha eseguito almeno una sessione negli ultimi 7 giorni. Gli utenti attivi sono quelli che hanno effettuato almeno una sessione durante un determinato periodo. È possibile ordinarli per mese, settimana, giorno oppure ora. Tutti i grafici hanno un aspetto simile, ma consentono di filtrare gli elementi in base a funzionalità differenti (ad esempio, la versione dell'applicazione) e successivamente in base all'intervallo di tempo. Tra le informazioni standard raccolte integrando l'SDK sono incluse le seguenti: utenti attivi, nuovo utente, numero di sessioni, durata di ogni sessione, informazioni tecniche sul paese, impostazioni locali, località, lingua, gestore telefonico, dispositivi, firmware, rete (Wi-Fi), versioni dell'app e dell'SDK, utilizzo dei clienti. È possibile visualizzare tali informazioni in tempo reale dalla sezione di monitoraggio.
 
 > Nota: il periodo si basa sulla data definita nelle impostazioni del dispositivo dell'utente. Pertanto, se nel telefono la data non è corretta, è possibile che venga visualizzato il periodo errato.
 
-- Assorbimento: un utente viene considerato come assorbito in un determinato intervallo di tempo se ha eseguito la prima sessione durante questo intervallo. È possibile modificare gli intervalli temporali durante i quali gli utenti assorbiti (e quelli nuovi) vengono conteggiati su base oraria, giornaliera, settimanale o mensile. Le analisi relative all'assorbimento degli utenti vengono realizzate a partire dalle coorti. Si definisce coorte il set di tutti i nuovi utenti rilevati in un determinato periodo di tempo (ad esempio, il set di utenti che eseguono la prima sessione durante questo periodo). Vengono utilizzate coorti di 1 giorno, 2 giorni, 4 giorni, 7 giorni o 1 mese. Data una coorte, ogni giorno, ogni 2 giorni, ogni 4 giorni, ogni 7 giorni oppure ogni mese, Azure Mobile Engagement calcola il set di tutti gli utenti che ne fanno parte e che sono ancora attivi (vale a dire, gli utenti che hanno eseguito almeno una sessione durante questo periodo). Questo set di utenti viene definito come versione coorte. È possibile che Azure Mobile Engagement visualizzi il numero di utenti che ancora utilizzano l'app, ma soltanto lo store di una piattaforma specifica riesce a offrire informazioni sul numero di utenti che hanno disinstallato l'app (ad esempio, Google Play, iTunes, Windows Store e così via). 
+- Assorbimento: un utente viene considerato come assorbito in un determinato intervallo di tempo se ha eseguito la prima sessione durante questo intervallo. È possibile modificare gli intervalli temporali durante i quali gli utenti assorbiti (e quelli nuovi) vengono conteggiati su base oraria, giornaliera, settimanale o mensile. Le analisi relative alla conservazione degli utenti vengono realizzate a partire dalle coorti. Si definisce coorte il set di tutti i nuovi utenti rilevati in un determinato periodo di tempo (ad esempio, il set di utenti che eseguono la prima sessione durante questo periodo). Vengono utilizzate coorti di 1 giorno, 2 giorni, 4 giorni, 7 giorni o 1 mese. Data una coorte, ogni giorno, ogni 2 giorni, ogni 4 giorni, ogni 7 giorni oppure ogni mese, Azure Mobile Engagement calcola il set di tutti gli utenti che ne fanno parte e che sono ancora attivi (vale a dire, gli utenti che hanno eseguito almeno una sessione durante questo periodo). Questo set di utenti viene definito come versione coorte. È possibile che Azure Mobile Engagement visualizzi il numero di utenti che ancora utilizzano l'app, ma soltanto lo store di una piattaforma specifica riesce a offrire informazioni sul numero di utenti che hanno disinstallato l'app (ad esempio, Google Play, iTunes, Windows Store e così via).
 - Sessioni: un singolo utilizzo dell'applicazione da parte di un utente. Le sessioni vengono create dalla sequenza di attività eseguite dall'utente. Solitamente, un'attività viene associata all'utilizzo di una schermata dell'applicazione. Tuttavia, può variare in base al modo in cui l'SDK è stato integrato nell'applicazione. Un utente può eseguire soltanto un'attività per volta: una sessione inizia appena l'utente avvia la prima attività e si interrompe quando conclude l'ultima attività. Se l'utente non esegue attività per alcuni secondi, la sequenza viene suddivisa in due sessioni distinte.
 - Attività: i nomi di ogni schermata dell'applicazione e il tempo trascorso dall'utente su ogni schermata. Le attività rappresentano un'opzione di analisi personalizzata che corrisponde ai tag "informazioni sull'app" impostati per l'app.
 - Percorso utente: indica il percorso di navigazione degli utenti tra le attività (schermate) dell'applicazione. È possibile spostare il dispositivo di scorrimento per regolare il livello dei dettagli. I nodi blu rappresentano le attività dell'applicazione. La loro dimensione è proporzionale al tempo che gli utenti trascorrono nell'app. I nodi bianchi rappresentano l'inizio e la fine della sessione. I nodi rossi rappresentano gli arresti anomali. I collegamenti rappresentano i passaggi tra attività dell'applicazione (o tra attività e arresti anomali). Selezionare un nodo o un collegamento per visualizzare una descrizione comando con ulteriori informazioni sui dati: il tempo trascorso su una determinata schermata, il conteggio dei passaggi, la percentuali di passaggi dall'attività originale a quella di destinazione. A ---60% ---> B indica che, nel 60% dei casi, gli utenti dell'attività A passano a quella B. È possibile riorganizzare il grafico come si desidera per renderlo più chiaro. La sua posizione viene salvata ogni volta che si apporta una modifica. È possibile visualizzare o nascondere gli arresti anomali al fine di evidenziare il grafico.
@@ -46,7 +46,7 @@ Azure Mobile Engagement offre un set di informazioni analitiche standard di base
 - Dati tecnici: informazioni tecniche sui dispositivi degli utenti dell'app di cui è possibile tenere traccia, ad esempio le impostazioni locali, il gestore telefonico, la rete, il dispositivo, il firmware e la dimensione dello schermo, oltre alla versione dell'app e a quella dell'SDK.
 - Errori: informazioni sugli errori tecnici all'interno dell'applicazione che non causano arresti anomali. Un errore rappresenta un problema immediato, ad esempio, un errore di rete o una modifica non valida. Il significato degli eventi dipende dal modo in cui l'SDK è stato integrato nell'applicazione. Un errore può verificarsi durante una sessione o un processo oppure come evento autonomo.
 - Arresti anomali: informazioni sugli errori che causano l'arresto anomalo dell'applicazione. Un arresto anomalo consiste in una situazione imprevista durante la quale l'applicazione smette di eseguire le funzioni previste e deve essere interrotta. Di solito, un arresto anomalo è causato da un bug dell'applicazione.
- 
+
 ![Analytics2][11]
 
 ## Accesso alla schermata Panoramica su assorbimento
@@ -169,6 +169,5 @@ La parte centrale della schermata Panoramica su assorbimento è suddivisa in div
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0413_2016-->

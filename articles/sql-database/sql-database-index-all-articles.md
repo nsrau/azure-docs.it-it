@@ -64,7 +64,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | 19 | [Connettersi al Database SQL utilizzando Ruby in Mac OS X (Yosemite)](sql-database-develop-ruby-simple-mac-osx.md) | Fornire un esempio di codice Ruby che è possibile eseguire su Mac OS X (Yosemite) per connettersi al Database di SQL Azure. |
 | 20 | [Connettersi al database SQL tramite Ruby in Ubuntu Linux](sql-database-develop-ruby-simple-linux.md) | Fornire un esempio di codice Ruby che è possibile eseguire come un client su Ubuntu Linux per connettersi al Database di SQL Azure. |
 | 21 | [Connessione al database SQL tramite Ruby in Windows](sql-database-develop-ruby-simple-windows.md) | Fornire un esempio di codice Ruby che è possibile eseguire su Windows per connettersi al database SQL di Azure. |
-| 22 | [Creare e gestire Database SQL con C#](sql-database-client-library.md) | In questo articolo viene illustrato come creare e gestire un database SQL di Azure con C# utilizzando la libreria di database SQL di Azure per .NET. |
+| 22 | [Creare e gestire Database SQL con C#](sql-database-get-started-csharp.md) | In questo articolo viene illustrato come creare e gestire un database SQL di Azure con C# utilizzando la libreria di database SQL di Azure per .NET. |
 | 23 | [Porte superiori a 1433 per ADO.NET 4.5, e database SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md) | Le connessioni client da ADO.NET al database SQL V12 di Azure talvolta ignorano il proxy e interagiscono direttamente con il database. Le porte diverse da 1433 diventano importanti. |
 | 24 | [Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database](sql-database-develop-error-messages.md) | Informazioni sui codici di errore SQL per le applicazioni client del database SQL, ad esempio errori di connessione comuni del database, problemi di copia del database ed errori generali. |
 | 25 | [Risoluzione dell'errore "Il database nel server non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento." e altri errori di connessione](sql-database-troubleshoot-connection.md) | Passaggi per identificare e risolvere gli errori di connessione per il database SQL di Azure. |
@@ -327,7 +327,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | 163 | [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md) | In questa pagina vengono descritti alcuni limiti di risorse comuni per il Database SQL Azure. |
 | 164 | [Differenze di Transact-SQL del Database SQL di Azure](sql-database-transact-sql-information.md) | Istruzioni Transact-SQL non completamente supportate nel Database SQL di Azure |
 | 165 | [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md) | In questo argomento viene elencato il numero di versione minima per ogni driver che è possibile utilizzare nei programmi client per la connessione al database SQL di Azure o a Microsoft SQL Server. È disponibile un collegamento per le informazioni sulla versione relative ai driver rilasciati dalla community anziché da Microsoft. |
-| 166 | [Ricerca con filtri](https://azure.microsoft.com/it-IT/documentation/articles/?service=sql-database) | Eseguire una ricerca con filtri per gli articoli della documentazione sul database SQL di Azure. |
+| 166 | [Ricerca con filtri](https://azure.microsoft.com/documentation/articles/?service=sql-database) | Eseguire una ricerca con filtri per gli articoli della documentazione sul database SQL di Azure. |
 
 
 ## Miscellaneous
@@ -354,4 +354,4 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 
 - Grafica del percorso di apprendimento: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

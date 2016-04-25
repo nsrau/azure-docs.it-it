@@ -38,7 +38,8 @@ Per utilizzare l'applicazione dell'API C#, è necessario creare innanzitutto un'
 ###Trigger
 È possibile creare un trigger che attiva il polling, in base a un intervallo definito dall'utente, da parte del servizio app per la logica. Se vengono restituiti valori diversi da `false`, esegue l'app per la logica; in caso contrario, attende fino al successivo intervallo di polling per controllare di nuovo.
 
-Gli input per il trigger sono: - **Espressione C#** - Espressione che verrà valutata. Viene richiamata in una funzione e deve restituire `false` quando non si vuole eseguire l'app per la logica. Può restituire qualsiasi altro valore quando si vuole eseguire l'app per la logica. È possibile usare il contenuto della risposta nelle azioni dell'app per la logica.
+Gli input per il trigger sono:
+- **Espressione C#**: espressione che viene valutata. Viene chiamata in una funzione e deve restituire `false` quando non si vuole eseguire l'app per la logica. Può restituire qualsiasi altro valore quando si desidera eseguire l'app per la logica. È possibile usare il contenuto della risposta nelle azioni dell'app per la logica.
 
 Ad esempio, è possibile avere un semplice trigger che eseguirà l'app per la logica solo tra i valori :15 e :30 dell'ora:
 
@@ -50,7 +51,10 @@ var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
 
 Analogamente, è possibile fornire un'azione da eseguire.
 
-Gli input per l'azione sono: - **Espressione C#** - Espressione che verrà valutata. È necessario includere una`return`istruzione per visualizzare qualsiasi contenuto. -**Oggetti contesto**- un oggetto di contesto facoltativo che può essere passato all'interno del trigger. È possibile definire tutte le proprietà desiderate, ma la base deve essere un JObject`{ ... }`e gli oggetti possono essere utilizzati nello script tramite il nome della chiave (il valore viene passato come un corrispondente JToken per nome).-**Librerie**- una matrice facoltativa di file con estensione .dll da includere nella compilazione dello script. La matrice utilizza la seguente struttura e funziona meglio accanto a un connettore di archiviazione blob con .dll come output:
+Gli input per l'azione sono:
+- **Espressione C#**: espressione che viene valutata. È necessario includere l'istruzione `return` per visualizzare qualsiasi contenuto. 
+- **Oggetto/i contesto**: oggetto contesto facoltativo che può essere passato nel trigger. È possibile definire tutte le proprietà desiderate, ma la base deve essere JObject `{ ... }` ed è possibile fare riferimento agli oggetti nello script tramite il nome della chiave (il valore viene passato come JToken corrispondente al nome).
+- **Librerie**: matrice facoltativa di file con estensione dll da includere nella compilazione dello script. La matrice utilizza la seguente struttura e funziona meglio accanto a un connettore di archiviazione blob con .dll come output:
 
 ```javascript
 [{"filename": "name.dll", "assembly": {Base64StringFromConnector}, "usingstatment": "using Library.Reference;"}]
@@ -101,11 +105,11 @@ L'azione restituisce l'oggetto restituito dalla funzione in un oggetto di risult
 ## Altri vantaggi del connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
-È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere l'articolo relativo alla [gestione e al monitoraggio delle app per le API e del connettore](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 <!--References -->
 
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

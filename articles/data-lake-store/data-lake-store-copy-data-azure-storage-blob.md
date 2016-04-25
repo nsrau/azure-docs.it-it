@@ -1,18 +1,18 @@
-<properties 
+<properties
    pageTitle="Copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake| Microsoft Azure"
-   description="Usare lo strumento AdlCopy per copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+   description="Usare lo strumento AdlCopy per copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/05/2016"
    ms.author="nitinme"/>
 
@@ -30,9 +30,9 @@ Archivio Data Lake di Azure fornisce uno strumento da riga di comando, [AdlCopy]
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup). 
+- **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md#signup).
 - Un contenitore **BLOB di Archiviazione di Azure** con alcuni dati.
-- **Un account di Analisi Azure Data Lake (facoltativo)**. Per istruzioni su come creare un account di Archivio Data Lake, vedere [Introduzione ad Analisi Azure Data Lake con il portale di Azure](data-lake-analytics/data-lake-analytics-get-started-portal.md).
+- **Un account di Analisi Azure Data Lake (facoltativo)**. Per istruzioni su come creare un account di Archivio Data Lake, vedere [Introduzione ad Analisi Azure Data Lake con il portale di Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 - **Lo strumento AdlCopy**. Installare lo strumento AdlCopy da [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
 
 ## Sintassi dello strumento AdlCopy
@@ -63,7 +63,7 @@ I parametri nella sintassi sono descritti di seguito:
 
 	Ad esempio:
 
-		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== 
+		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
 	Verrà richiesto di immettere le credenziali per la sottoscrizione di Azure in cui si trova l'account di Archivio Data Lake. L'output visualizzato sarà simile al seguente:
 
@@ -84,15 +84,15 @@ I parametri nella sintassi sono descritti di seguito:
 
 	Ad esempio:
 
-		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== 
+		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-	
+
 
 ## Usare AdlCopy con un account di Analisi Data Lake
 
 È anche possibile usare l'account di Analisi Data Lake per eseguire il processo AdlCopy per copiare dati da BLOB di Archiviazione di Azure ad Archivio Data Lake. In genere si sceglie questa opzione quando i dati da spostare sono nell'ordine di gigabyte e terabyte e si vuole una velocità effettiva delle prestazioni migliore e prevedibile.
 
-Per usare l'account di Analisi Data Lake con AdlCopy, l'origine (BLOB di Archiviazione di Azure) e la destinazione (Archivio Azure Data Lake) devono essere aggiunte come origini dati per l'account di Analisi Data Lake. Per istruzioni sull'aggiunta di origini dati aggiuntive all'account di Analisi Data Lake, vedere [Gestire Analisi Data Lake tramite il portale di Azure](data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
+Per usare l'account di Analisi Data Lake con AdlCopy, l'origine (BLOB di Archiviazione di Azure) e la destinazione (Archivio Azure Data Lake) devono essere aggiunte come origini dati per l'account di Analisi Data Lake. Per istruzioni sull'aggiunta di origini dati aggiuntive all'account di Analisi Data Lake, vedere [Gestire Analisi Data Lake tramite il portale di Azure](..//data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
 
 Eseguire il comando seguente:
 
@@ -100,7 +100,7 @@ Eseguire il comando seguente:
 
 Ad esempio:
 
-	AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeaccount /Units 2 
+	AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeaccount /Units 2
 
 ## Fatturazione
 
@@ -115,7 +115,7 @@ Ad esempio:
 ## Passaggi successivi
 
 - [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
-- [Usare Azure Data Lake Analytics con Data Lake Store](data-lake-analytics-get-started-portal.md)
+- [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0413_2016-->

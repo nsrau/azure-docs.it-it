@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/02/2016"
 	ms.author="dastrock"/>
 
 # Accesso per account Microsoft e utenti di Azure AD nella stessa app
@@ -39,6 +39,7 @@ Le informazioni di carattere generale fornite di seguito saranno utili per indiv
 ## riferimento
 I collegamenti seguenti sono utili per un'esplorazione più approfondita della piattaforma:
 
+- Build 2016: [Guida introduttiva alle identità Microsoft: accesso di classe enterprise per le app](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/)
 - Per ottenere supporto su Stack Overflow, usare i tag [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
 - [Riferimento al protocollo v2.0](active-directory-v2-protocols.md)
 - [Riferimento al token v2.0](active-directory-v2-tokens.md)
@@ -56,10 +57,4 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita della p
   - [Libreria client OAuth2 per Android](https://github.com/wuman/android-oauth-client)
   - [Client OpenID Connect per Android](https://github.com/kalemontes/OIDCAndroidLib)
 
-<!-- TODO: These articles
-- [ADAL Library Reference]()
-- [v2 Endpoint FAQs](active-directory-v2-faq.md)
-- Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
--->
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

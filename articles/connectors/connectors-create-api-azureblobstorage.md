@@ -22,7 +22,7 @@ Connettersi a un BLOB di Azure per gestire file in un contenitore BLOB, ad esemp
 
 - App per la logica 
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema di 2014-12-01-preview, fare clic su [connettore BLOB di Archiviazione di Azure](../app-service-logic/app-service-logic-connector-azurestorageblob.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 Con l'archiviazione BLOB di Azure è possibile:
 
@@ -48,7 +48,7 @@ Quando si aggiunge questa API alle app per la logica, immettere i valori di acco
 |Nome dell'account di archiviazione di Azure | sì | Nome dell'account di archiviazione BLOB|
 |Chiave di accesso dell'account di archiviazione di Azure | sì | Chiave di accesso dell'account di archiviazione BLOB|
 
-Dopo aver creato la connessione immettere le proprietà del BLOB, ad esempio nome file o percorso cartella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
+Dopo aver creato la connessione immettere le proprietà del BLOB, ad esempio nome file o percorso cartella. **Informazioni di riferimento sulle API REST** in questo articolo descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di BLOB in altre app per la logica.
  
@@ -57,7 +57,7 @@ Dopo aver creato la connessione immettere le proprietà del BLOB, ad esempio nom
 Si applica alla versione 1.0.
 
 ### Crea file
-Carica un file nell'archivio BLOB di Azure. ```POST: /datasets/default/files```
+Carica un file locale nell'archivio BLOB di Azure. ```POST: /datasets/default/files```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -118,7 +118,7 @@ Estrae un file di archivio in una cartella dell'archivio BLOB di Azure, ad esemp
 
 
 ### Ottieni contenuto di file
-Recupera il contenuto dei file dall'archivio BLOB di Azure tramite ID. ```GET: /datasets/default/files/{id}/content```
+Recupera i contenuti dei file dall'archivio BLOB di Azure tramite ID. ```GET: /datasets/default/files/{id}/content```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -132,7 +132,7 @@ Recupera il contenuto dei file dall'archivio BLOB di Azure tramite ID. ```GET: /
 
 
 ### Ottieni contenuto di file tramite percorso
-Recupera il contenuto dei file dall'archivio BLOB di Azure tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera i contenuti dei file dall'archivio BLOB di Azure tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -146,7 +146,7 @@ Recupera il contenuto dei file dall'archivio BLOB di Azure tramite percorso. ```
 
 
 ### Ottieni metadati di file
-Recupera i metadati dei file dall'archivio BLOB di Azure tramite ID file. ```GET: /datasets/default/files/{id}```
+Recupera i metadati dei file dall'archivio BLOB di Azure tramite l'ID del file. ```GET: /datasets/default/files/{id}```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -160,7 +160,7 @@ Recupera i metadati dei file dall'archivio BLOB di Azure tramite ID file. ```GET
 
 
 ### Ottieni metadati di file tramite percorso
-Recupera i metadati dei file dall'archivio BLOB di Azure tramite percorso. ```GET: /datasets/default/GetFileByPath```
+Recupera i metadati dei file dall'archivio BLOB di Azure tramite il percorso. ```GET: /datasets/default/GetFileByPath```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -174,7 +174,7 @@ Recupera i metadati dei file dall'archivio BLOB di Azure tramite percorso. ```GE
 
 
 ### Aggiorna file
-Aggiorna un file in Archivio BLOB di Azure. ```PUT: /datasets/default/files/{id}```
+Aggiorna un file locale nell'archivio BLOB di Azure. ```PUT: /datasets/default/files/{id}```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -234,4 +234,4 @@ Aggiorna un file in Archivio BLOB di Azure. ```PUT: /datasets/default/files/{id}
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -45,7 +45,7 @@ Il connettore Edifact può essere usato come trigger o come azione.
 ![Impostazioni di trigger][3]
 - Fare clic su ->:  
 ![Opzioni di trigger][4]
-- Il connettore Edifact espone un solo trigger. Selezionare *Release Batch*:  
+- Il connettore EDIFACT espone un solo trigger. Selezionare *Release Batch*:  
 ![Input di Release Batch][5]
 - Questo trigger non include input. Fare clic su ->:  
 ![Configurazione di Release Batch][6]
@@ -84,7 +84,7 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere l'articolo relativo alla [gestione e al monitoraggio delle app per le API e del connettore](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 
 <!--References -->
@@ -99,4 +99,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

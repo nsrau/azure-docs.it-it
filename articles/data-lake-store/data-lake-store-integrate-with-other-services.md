@@ -2,7 +2,7 @@
    pageTitle="Integrazione di Data Lake Store con altri servizi di Azure | Azure"
    description="Informazioni sulle modalità di integrazione di Data Lake Store con altri servizi di Azure"
    documentationCenter=""
-   services="data-lake-store" 
+   services="data-lake-store"
    authors="nitinme"
    manager="paulettm"
    editor="cgronlun"/>
@@ -32,16 +32,16 @@ Per istruzioni su come eseguire il provisioning di un cluster HDInsight con Data
 
 ## Usare Archivio Data Lake con Analisi Data Lake di Azure
 
-[Azure Data Lake Analytics](data-lake-analytics/data-lake-analytics-overview.md) consente di usare i Big Data a livello di cloud. Il servizio effettua il provisioning dinamico delle risorse e permette di svolgere analisi su terabyte e addirittura exabyte di dati che possono essere archiviati nelle numerose origini dati supportate, ad esempio Data Lake Store. Data Lake Analytics è ottimizzato in modo specifico per usare Azure Data Lake Store in modo da fornire il più elevato livello di prestazioni, velocità effettiva e parallelizzazione dei carichi di lavoro dei Big Data.
+[Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-overview.md) consente di usare i Big Data a livello di cloud. Il servizio effettua il provisioning dinamico delle risorse e permette di svolgere analisi su terabyte e addirittura exabyte di dati che possono essere archiviati nelle numerose origini dati supportate, ad esempio Data Lake Store. Data Lake Analytics è ottimizzato in modo specifico per usare Azure Data Lake Store in modo da fornire il più elevato livello di prestazioni, velocità effettiva e parallelizzazione dei carichi di lavoro dei Big Data.
 
-Per istruzioni su come usare Data Lake Analytics con Data Lake Store, vedere [Introduzione a Data Lake Analytics mediante Data Lake Store](data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Per istruzioni su come usare Data Lake Analytics con Data Lake Store, vedere [Introduzione a Data Lake Analytics mediante Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
 
 ## Usare Archivio Data Lake con Data factory di Azure
 
 È possibile usare [Data factory di Azure](https://azure.microsoft.com/services/data-factory/) per inserire dati da tabelle di Azure, database SQL di Azure, data warehouse SQL di Azure, BLOB di archiviazione di Azure e database locali. Essendo un elemento di primo piano nell'ecosistema Azure, Data factory di Azure può essere usato per gestire l'inserimento di dati da queste origini nel servizio Data Lake Store di Azure.
 
-Per istruzioni su come usare Data factory di Azure con Data Lake Store, vedere [Spostare dati da e verso Data Lake Store mediante Data factory](data-factory/data-factory-azure-datalake-connector.md).
+Per istruzioni su come usare Data factory di Azure con Data Lake Store, vedere [Spostare dati da e verso Data Lake Store mediante Data factory](../data-factory/data-factory-azure-datalake-connector.md).
 
 ## Copiare i dati da BLOB di Archiviazione di Azure ad Archivio Data Lake
 
@@ -54,4 +54,4 @@ Archivio Data Lake di Azure fornisce uno strumento da riga di comando, AdlCopy, 
 - [Introduzione a Data Lake Store mediante il portale](data-lake-store-get-started-portal.md)
 - [Introduzione a Data Lake Store mediante PowerShell](data-lake-store-get-started-powershell.md)  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0413_2016-->

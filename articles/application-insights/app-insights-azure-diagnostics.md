@@ -9,7 +9,7 @@
 <tags
     ms.service="application-insights"
     ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza" 
+	ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
 	ms.date="11/17/2015"
@@ -17,7 +17,7 @@
 
 # Configurare la registrazione di Diagnostica di Azure in Application Insights
 
-Quando si configura un progetto di servizi cloud o una macchina virtuale in Microsoft Azure, [Azure può generare un log di diagnostica](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) che è possibile inviare ad Application Insights per poterlo analizzare insieme alla diagnostica e alla telemetria di utilizzo inviate dall'app da Application Insights SDK. Il log di Azure include eventi di gestione dell'app, ad esempio avvio, arresto e arresti anomali, oltre a contatori delle prestazioni. Il log include anche le chiamate dell'app a System.Diagnostics.Trace.
+Quando si configura un progetto di servizi cloud o una macchina virtuale in Microsoft Azure, [Azure può generare un log di diagnostica](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md/) che è possibile inviare ad Application Insights per poterlo analizzare insieme alla diagnostica e alla telemetria di utilizzo inviate dall'app da Application Insights SDK. Il log di Azure include eventi di gestione dell'app, ad esempio avvio, arresto e arresti anomali, oltre a contatori delle prestazioni. Il log include anche le chiamate dell'app a System.Diagnostics.Trace.
 
 Questo articolo descrive in dettaglio la configurazione dell'acquisizione della diagnostica.
 
@@ -62,7 +62,7 @@ Quando si usano le proprietà dei ruoli per impostare l'invio di dati ad Applica
         <Channel logLevel="Verbose" name="MyLogData"  />
       </Channels>
      </Sink>
-    </SinksConfig> 
+    </SinksConfig>
 
 ```
 
@@ -116,7 +116,7 @@ Ecco un esempio completo del file di configurazione pubblica che invia ad Applic
         <DataSource name="Application!*" />
       </WindowsEventLog>
       <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose"
-            sinks="ApplicationInsights.MyLogData"/> 
+            sinks="ApplicationInsights.MyLogData"/>
        <!-- This specific info sent to this channel -->
      </DiagnosticMonitorConfiguration>
 
@@ -136,9 +136,9 @@ Ecco un esempio completo del file di configurazione pubblica che invia ad Applic
 
 Esistono tuttavia alcune limitazioni relative a questa funzionalità di cui è importante tenere conto:
 
-* I canali possono essere usati solo con i tipi di log e non con i contatori delle prestazioni. Se si specifica un canale con un elemento contatore delle prestazioni, verrà ignorato. 
-* Il livello di log per un canale non può superare il livello di log relativo a quanto raccolto da Diagnostica di Azure. Ad esempio: non è possibile raccogliere errori di log applicazioni nell'elemento Logs e provare a inviare log dettagliati alla funzione di sincronizzazione di Application Insight. L'attributo scheduledTransferLogLevelFilter deve sempre raccogliere un numero di log pari o superiore al numero di log che si sta tentando di inviare a un sink. 
-* Non è possibile inviare ad Application Insights dati BLOB raccolti dall'estensione di Diagnostica di Azure, ad esempio qualsiasi elemento specificato nel nodo Directories. Per i dump di arresto anomalo, il dump effettivo di arresto anomalo del sistema verrà comunque inviato all'archiviazione BLOB e ad Application Insights verrà inviata solo una notifica del dump di arresto anomalo del sistema. 
+* I canali possono essere usati solo con i tipi di log e non con i contatori delle prestazioni. Se si specifica un canale con un elemento contatore delle prestazioni, verrà ignorato.
+* Il livello di log per un canale non può superare il livello di log relativo a quanto raccolto da Diagnostica di Azure. Ad esempio: non è possibile raccogliere errori di log applicazioni nell'elemento Logs e provare a inviare log dettagliati alla funzione di sincronizzazione di Application Insight. L'attributo scheduledTransferLogLevelFilter deve sempre raccogliere un numero di log pari o superiore al numero di log che si sta tentando di inviare a un sink.
+* Non è possibile inviare ad Application Insights dati BLOB raccolti dall'estensione di Diagnostica di Azure, ad esempio qualsiasi elemento specificato nel nodo Directories. Per i dump di arresto anomalo, il dump effettivo di arresto anomalo del sistema verrà comunque inviato all'archiviazione BLOB e ad Application Insights verrà inviata solo una notifica del dump di arresto anomalo del sistema.
 
 ## Argomenti correlati
 
@@ -146,4 +146,4 @@ Esistono tuttavia alcune limitazioni relative a questa funzionalità di cui è i
 * [Uso di PowerShell per l'invio dei dati del servizio Diagnostica di Azure ad Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [File di configurazione di Diagnostica di Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0413_2016-->

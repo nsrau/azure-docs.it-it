@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="04/10/2016"
 	ms.author="robmcm"/>
 
 
@@ -31,7 +31,8 @@ Questa guida illustra come eseguire scenari comuni con il servizio tabelle di Az
 
 ## Creare un'applicazione Ruby
 
-Per istruzioni su come creare un'applicazione Ruby, vedere l'articolo relativo all'[applicazione Web Ruby on Rails in una macchina virtuale di Azure](../virtual-machines/virtual-machines-ruby-rails-linux-classic-web-app.md).
+Per istruzioni su come creare un'applicazione Ruby, vedere [Applicazione Web Ruby on Rails in una macchina virtuale di Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
+
 
 ## Configurare l'applicazione per l'accesso all'archiviazione
 
@@ -163,4 +164,4 @@ Seguire i collegamenti seguenti per ulteriori informazioni sulle attività di ar
 - [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Archivio [Azure SDK per Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) su GitHub
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

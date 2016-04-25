@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/14/2016"
+    ms.date="04/07/2016"
     ms.author="markusvi"/>
 
 
@@ -84,13 +84,13 @@ Sono disponibili moltissime risorse utili online, che forniscono tutte le inform
 
 - [Abilitazione della directory per la gestione ibrida con Azure AD Connect](active-directory-aadconnect.md)
 
-- [Sicurezza aggiuntiva per un mondo sempre connesso](multi-factor-authentication.md)
+- [Sicurezza aggiuntiva per un mondo sempre connesso](../multi-factor-authentication/multi-factor-authentication.md)
 
 - [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
 
 - [Introduzione ad Azure AD Report](active-directory-reporting-getting-started.md)
 
-- [Gestire le password da qualsiasi posizione](articles/active-directory-passwords.md)
+- [Gestire le password da qualsiasi posizione](active-directory-passwords.md)
 
 - [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
@@ -104,4 +104,4 @@ Sono disponibili moltissime risorse utili online, che forniscono tutte le inform
 
 - [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0413_2016-->

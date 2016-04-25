@@ -22,7 +22,7 @@ Connettersi a un server SMTP per inviare messaggi di posta elettronica. L'API di
 
 - App per la logica
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore di SMTP](../app-service-logic/app-service-logic-connector-smtp.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 Con SMTP è possibile:
 
@@ -94,4 +94,4 @@ Invia un messaggio di posta elettronica a uno o più destinatari. ```POST: /Send
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

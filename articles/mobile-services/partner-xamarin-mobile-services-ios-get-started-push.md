@@ -33,7 +33,7 @@ Per completare questa esercitazione, è necessario disporre di:
 
 + Dispositivo iOS 8 (non è possibile testare le notifiche push nel simulatore iOS)
 + Iscrizione a iOS Developer Program
-+ [Xamarin.iOS Studio]
++ [Xamarin Studio]
 + [Componente Servizi mobili di Azure]
 
 >[AZURE.IMPORTANT] Considerati i requisiti di configurazione del servizio APN, è necessario distribuire e testare le notifiche push su un dispositivo con iOS (iPhone o iPad) anziché su un emulatore.
@@ -387,7 +387,6 @@ L'esercitazione è stata completata.
 [121]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-21.png
 [122]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-22.png
 
-[Xamarin.iOS Studio]: http://xamarin.com/platform
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
@@ -401,6 +400,6 @@ L'esercitazione è stata completata.
 [oggetto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Componente Servizi mobili di Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
-[Xamarin.iOS]: http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

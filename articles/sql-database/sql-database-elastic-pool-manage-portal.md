@@ -4,15 +4,15 @@
 	keywords=""
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+	authors="sidneyh"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="04/01/2016"
-	ms.author="jeffreyg"
+	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -125,11 +125,10 @@ I processi elastici consentono l'esecuzione di script Transact-SQL su qualsiasi 
 
 ## Risorse aggiuntive
 
-- [Riferimento ai database elastici](sql-database-elastic-pool-reference.md)
 - [Pool elastico di database SQL](sql-database-elastic-pool.md)
 - [Creare un pool di database elastici con il portale](sql-database-elastic-pool-create-csharp.md)
 - [Creare un pool di database elastici con PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [Creare un pool di database elastici con C#](sql-database-elastic-pool-create-csharp.md)
 - [Considerazioni di prezzo e prestazioni per un pool di database flessibile](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

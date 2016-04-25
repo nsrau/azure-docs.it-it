@@ -42,6 +42,6 @@ Ottenere tutte le dimensioni delle macchine virtuali disponibili | Non disponibi
 
 ## Passaggi successivi
 
-* Per altri esempi di comandi dell’interfaccia della riga di comando, vedere [Uso dell'interfaccia della riga di comando di Azure con Gestione dei servizi di Azure](../articles/virtual-machines-command-line-tools.md) e [Uso dell’interfaccia della riga di comando di Azure con Gestione risorse di Azure](../articles/azure-cli-arm-commands.md).
+* Per altri esempi di comandi dell’interfaccia della riga di comando, vedere [Uso dell'interfaccia della riga di comando di Azure con Gestione dei servizi di Azure](../articles/virtual-machines-command-line-tools.md) e [Uso dell’interfaccia della riga di comando di Azure con Gestione risorse di Azure](../articles/virtual-machines/azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

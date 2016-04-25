@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Connettersi al database SQL usando SQL Server Management Studio in Azure RemoteApp | Microsoft Azure" 
+<properties
+	pageTitle="Connettersi al database SQL usando SQL Server Management Studio in Azure RemoteApp | Microsoft Azure"
 	description="Questa esercitazione spiega come imparare a usare SQL Server Management Studio in Azure RemoteApp per la sicurezza e le prestazioni durante la connessione al database SQL"
-	services="sql-database" 
+	services="sql-database"
 	documentationCenter=""
-	authors="adhurwit" 
+	authors="adhurwit"
 	manager=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="01/20/2016" 
+	ms.topic="article"
+	ms.date="04/12/2016"
 	ms.author="adhurwit"/>
 
 # Usare SQL Server Management Studio in Azure RemoteApp per connettersi al database SQL
@@ -24,7 +24,7 @@ Questa esercitazione illustra come usare SQL Server Management Studio (SSMS) in 
 
 ## SSMS in Azure RemoteApp
 
-Azure RemoteApp è un servizio di Servizi desktop remoto di Azure che fornisce applicazioni. Per altre informazioni, vedere [Che cos'è RemoteApp?](../remoteapp-whatis.md).
+Azure RemoteApp è un servizio di Servizi desktop remoto di Azure che fornisce applicazioni. Per altre informazioni, vedere: [Informazioni su Azure RemoteApp](../remoteapp/remoteapp-whatis.md).
 
 SSMS eseguito in Azure RemoteApp offre la stessa esperienza dell'esecuzione in locale.
 
@@ -37,7 +37,7 @@ SSMS eseguito in Azure RemoteApp offre la stessa esperienza dell'esecuzione in l
 Ecco alcuni dei molti vantaggi che derivano dall'uso di SSMS in Azure RemoteApp:
 
 - La porta 1433 sul server SQL di Azure non deve essere esposta esternamente (all'esterno di Azure).
-- Non è necessario continuare ad aggiungere e rimuovere indirizzi IP nel firewall del server SQL di Azure. 
+- Non è necessario continuare ad aggiungere e rimuovere indirizzi IP nel firewall del server SQL di Azure.
 - Tutte le connessioni di Azure RemoteApp avvengono tramite HTTPS sulla porta 443 con Remote Desktop Protocol crittografato.
 - È multiutente e scalabile.
 - Offre un miglioramento delle prestazioni grazie all'esecuzione di SSMS nella stessa area del database SQL.
@@ -158,4 +158,4 @@ Per altre informazioni su come stabilire la connessione al database SQL, vedere 
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

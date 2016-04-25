@@ -3,7 +3,7 @@
 	description="Introduzione a PowerApps Enterprise e creazione dell'ambiente del servizio app"
 	services=""
     suite="powerapps"
-	documentationCenter="" 
+	documentationCenter=""
 	authors="linhtranms"
 	manager="dwrede"
 	editor=""/>
@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na" 
+   ms.workload="na"
    ms.date="11/29/2015"
    ms.author="litran"/>
 
@@ -33,8 +33,8 @@ Mediante un'interfaccia simile a Office, con le barre multifunzione e le formule
 Gli amministratori IT possono svolgere attività di gestione delle app create dagli utenti aziendali nella propria società, tra cui:
 
 - Gestione delle app e dell'accesso utente a tali app.
-- Creazione di API e connessioni a origini dati diverse. 
-- Gestione dell'accesso utente per le API e le connessioni a tali origini dati. 
+- Creazione di API e connessioni a origini dati diverse.
+- Gestione dell'accesso utente per le API e le connessioni a tali origini dati.
 
 ## Come iniziare?
 
@@ -53,20 +53,20 @@ Quando l'organizzazione o la società si iscrive a un servizio cloud di Microsof
 Per determinare se si dispone già di un tenant o per crearne uno nuovo, usare i passaggi seguenti.
 
 #### L'utente dispone di una sottoscrizione di Office 365
-Se si dispone di una sottoscrizione di Office 365 esistente (o di Microsoft Dynamic CRM Online, Enterprise Mobility Suite o altri servizi Microsoft), si dispone anche di una sottoscrizione gratuita ad Azure Active Directory. Per creare e gestire account di gruppi e utenti, è possibile usare Azure AD. Se non è possibile accedere al portale di Azure, può essere necessario attivare la sottoscrizione. A tale scopo, passare al [portale di Azure classico](https://manage.windowsazure.com/) e completare il processo di registrazione una tantum. Per accedere al tenant di Azure AD, usare questi [passaggi](https://technet.microsoft.com/library/dn832618.aspx).
+Se si dispone di una sottoscrizione di Office 365 esistente (o di Microsoft Dynamic CRM Online, Enterprise Mobility Suite o altri servizi Microsoft), si dispone anche di una sottoscrizione gratuita ad Azure Active Directory. Per creare e gestire account di gruppi e utenti, è possibile usare Azure AD. Se non è possibile accedere al portale di Azure, può essere necessario attivare la sottoscrizione. A tale scopo, passare al [portale di Azure classico]( https://manage.windowsazure.com/) e completare il processo di registrazione una tantum. Per accedere al tenant di Azure AD, usare questi [passaggi]( https://technet.microsoft.com/library/dn832618.aspx).
 
 #### L'utente dispone di una sottoscrizione di Azure associata a un account Microsoft
-Se in precedenza è stata creata una sottoscrizione di Azure usando il proprio account Microsoft personale (hotmail o live), si dispone già di un tenant. Nel [portale di Azure classico](https://manage.windowsazure.com/) il **tenant predefinito** è elencato in **Tutti gli elementi** e in **Active Directory**. È possibile usare questo tenant in base alle esigenze, ma potrebbe essere necessario dover creare un account amministratore aziendale.
+Se in precedenza è stata creata una sottoscrizione di Azure usando il proprio account Microsoft personale (hotmail o live), si dispone già di un tenant. Nel [portale di Azure classico]( https://manage.windowsazure.com/) il **tenant predefinito** è elencato in **Tutti gli elementi** e in **Active Directory**. È possibile usare questo tenant in base alle esigenze, ma potrebbe essere necessario dover creare un account amministratore aziendale.
 
 A tale scopo, seguire questa procedura: In alternativa, è possibile creare un nuovo tenant e creare un amministratore in quel tenant seguendo una procedura simile.
 
-1.	Accedere al [portale di Azure classico](https://manage.windowsazure.com/) con l'account personale.
-2.	Selezionare **Active Directory** nella barra dei menu a sinistra. 
+1.	Accedere al [portale di Azure classico]( https://manage.windowsazure.com/) con l'account personale.
+2.	Selezionare **Active Directory** nella barra dei menu a sinistra.
 3.	Selezionare **Directory predefinita** nell'elenco delle directory disponibili.
 4.	Selezionare la scheda **Utenti** nella parte superiore. È disponibile un unico utente identificato da "Account Microsoft" nella colonna Originato da.
-5.	Selezionare **Aggiungi utente** nella parte inferiore. 
+5.	Selezionare **Aggiungi utente** nella parte inferiore.
 6.	Nel **modulo di aggiunta dell'utente** specificare le informazioni seguenti:  
-	
+
 	Proprietà | Descrizione
 --- | ---
 Type of User | Nuovo utente nell'organizzazione
@@ -75,17 +75,17 @@ First Name/Last Name/Display Name | Immettere i valori
 Role | Amministratore globale
 Alternate Email Address | Immettere i valori
 Optional | Abilitare il servizio Multi-Factor Authentication  
-	
+
 	Selezionare il pulsane **CREA**, per completare e visualizzare la password temporanea.
 
-Al termine, prendere nota della password temporanea per il nuovo utente amministratore. Per modificare la password temporanea, accedere a [https://login.microsoftonline.com](https://login.microsoftonline.com) con questo nuovo account utente e modificare la password. È anche possibile inviare la password direttamente all'utente, usando un indirizzo di posta elettronica alternativo.
+Al termine, prendere nota della password temporanea per il nuovo utente amministratore. Per modificare la password temporanea, accedere a [https://login.microsoftonline.com]( https://login.microsoftonline.com) con questo nuovo account utente e modificare la password. È anche possibile inviare la password direttamente all'utente, usando un indirizzo di posta elettronica alternativo.
 
 
 #### L'utente dispone di una sottoscrizione di Azure associata a un account dell'organizzazione
-Se in precedenza è stata creata una sottoscrizione di Azure usando il proprio account dell'organizzazione, si dispone già di un tenant. Nel [portale di Azure classico](https://manage.windowsazure.com/) il tenant è elencato in **Tutti gli elementi** e in **Active Directory**. È possibile usare questo tenant in base alle esigenze. È inoltre possibile creare un nuovo tenant usando il menu **Nuovo** nella barra delle applicazioni nella parte inferiore.
+Se in precedenza è stata creata una sottoscrizione di Azure usando il proprio account dell'organizzazione, si dispone già di un tenant. Nel [portale di Azure classico]( https://manage.windowsazure.com/) il tenant è elencato in **Tutti gli elementi** e in **Active Directory**. È possibile usare questo tenant in base alle esigenze. È inoltre possibile creare un nuovo tenant usando il menu **Nuovo** nella barra delle applicazioni nella parte inferiore.
 
 #### L'utente non dispone di nessuna delle sottoscrizioni precedenti e desidera iniziare da zero
-Se nessuno dei casi precedenti si applica alla situazione corrente, passare a [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) per iscriversi ad Azure con un nuovo account dell'organizzazione. Una volta effettuata l'iscrizione, si disporrà del proprio tenant di Azure AD con il nome di dominio scelto. Nel [portale di Azure classico](https://manage.windowsazure.com/) è possibile visualizzare il tenant di **Active Directory** nel menu a sinistra.
+Se nessuno dei casi precedenti si applica alla situazione corrente, passare a [https://account.windowsazure.com/organization]( https://account.windowsazure.com/organization) per iscriversi ad Azure con un nuovo account dell'organizzazione. Una volta effettuata l'iscrizione, si disporrà del proprio tenant di Azure AD con il nome di dominio scelto. Nel [portale di Azure classico]( https://manage.windowsazure.com/) è possibile visualizzare il tenant di **Active Directory** nel menu a sinistra.
 
 ## Passaggio 2: Creare una nuova sottoscrizione di Azure o usarne una esistente
 Dopo aver ottenuto il tenant di Active Directory, è possibile creare una nuova sottoscrizione di Azure o usarne una esistente. La sottoscrizione di Azure AD include diverse edizioni. Per PowerApps Enterprise, è possibile usare l'edizione Free. Tuttavia, se è necessario usare il proxy di AAD per creare la connettività ibrida ai dati locali, è necessario usare l'edizione Premium o Basic.
@@ -98,13 +98,13 @@ In [Edizioni di Azure Active Directory](../active-directory/active-directory-edi
 
 Dopo aver ottenuto il tenant di Active Directory e una sottoscrizione di Azure, gli amministratori delle sottoscrizioni aziendali possono iscriversi a PowerApps Enterprise. L'amministratore può inoltre aggiungere utenti della società affinché svolgano attività di 'amministrazione' di PowerApps, tra cui assegnazione di autorizzazioni agli utenti e gestione delle pubblicazioni di PowerApps nella sottoscrizione di Azure.
 
-Se non si esegue l'iscrizione a PowerApps Enterprise, viene visualizzato un pannello che vieta l'accesso quando si passa al [portale di Azure](https://portal.azure.com/) e si cerca PowerApps. Per iscrivere la società, l'**amministratore della sottoscrizione** può passare a [PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=716848) per contattare Microsoft in modo da ottenere altre informazioni sui prezzi e sulla procedura di iscrizione.
+Se non si esegue l'iscrizione a PowerApps Enterprise, viene visualizzato un pannello che vieta l'accesso quando si passa al [portale di Azure]( https://portal.azure.com/) e si cerca PowerApps. Per iscrivere la società, l'**amministratore della sottoscrizione** può passare a [PowerApps]( http://go.microsoft.com/fwlink/p/?LinkId=716848) per contattare Microsoft in modo da ottenere altre informazioni sui prezzi e sulla procedura di iscrizione.
 
 ![][4]
 
 Dopo aver completato il processo di iscrizione e le attività preliminari per l'uso di PowerApps Enterprise, è possibile:
 
-- Aggiungere utenti della società che usano [il controllo degli accessi in base al ruolo](../role-based-access-control-configure.md) e assegnare a tali utenti ruoli di amministrazione di PowerApps per accedere al portale di PowerApps Enterprise.
+- Aggiungere utenti della società che usano [il controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) e assegnare a tali utenti ruoli di amministrazione di PowerApps per accedere al portale di PowerApps Enterprise.
 - Creare un ambiente del servizio app dedicato per ospitare PowerApps.
 - Creare le API e le connessioni da eseguire nell'ambiente del servizio app dedicato.
 - Aggiungere all'ambiente del servizio app, oltre alle applicazioni create in PowerApps, altre app tra cui app Web, app per dispositivi mobili, app per le API e app per la logica.
@@ -120,11 +120,11 @@ Creare un ambiente del servizio app per ospitare le API e le connessioni di Powe
 Un ambiente del servizio app è un ambiente isolato e dedicato che esegue in modo sicuro tutte le app personali. Le risorse di calcolo sono specifiche di un ambiente del servizio app e sono dedicate esclusivamente all'esecuzione delle app personali. Quando si esegue l'iscrizione a PowerApps Enterprise, viene usato un ambiente del servizio app dedicato per ospitare le API e le connessioni usate dalle app. Si tratta di un tipo "speciale" di ambiente del servizio app. In particolare:
 
 - È possibile usarlo per le operazioni desiderate ed è associato all'azienda, non alla sottoscrizione.
-- È possibile configurare le API e le connessioni che le app create in PowerApps possono usare. È tuttavia possibile aggiungere anche app Web, app per dispositivi mobili, app per la logica e app per le API a questo stesso ambiente del servizio app. 
+- È possibile configurare le API e le connessioni che le app create in PowerApps possono usare. È tuttavia possibile aggiungere anche app Web, app per dispositivi mobili, app per la logica e app per le API a questo stesso ambiente del servizio app.
 - La fatturazione è fissa e inclusa in PowerApps Enterprise.  
 - La scalabilità viene gestita automaticamente. Non è necessario monitorare l'ambiente per determinare se sono necessarie risorse di calcolo aggiuntive.
 
-L'ambiente del servizio app di Azure regolare presenta numerose funzionalità. Per informazioni dettagliate, vedere [Introduzione all'ambiente del servizio app](../app-service-app-service-environment-intro.md).
+L'ambiente del servizio app di Azure regolare presenta numerose funzionalità. Per informazioni dettagliate, vedere [Introduzione all'ambiente del servizio app](../app-service-web/app-service-app-service-environment-intro.md).
 
 #### Requisiti iniziali
 
@@ -135,17 +135,27 @@ L'ambiente del servizio app di Azure regolare presenta numerose funzionalità. P
 ### Creare un ambiente del servizio app
 > [AZURE.NOTE] Se non è presente l'opzione per creare l'ambiente del servizio app, l'ambiente è già stato creato per il tenant. Per visualizzare i dettagli, selezionare **Impostazioni** per aprire l'ambiente del servizio app.
 
-1. Nel [portale di Azure](https://portal.azure.com/) accedere con l'account aziendale. Ad esempio, accedere con *NomeUtente*@*Azienda*.com. Quando si esegue questa operazione, si accede automaticamente alla sottoscrizione della propria società.
- 
-2. Selezionare **Sfoglia** nella barra delle applicazioni: ![Esplorare PowerApps][1]
-  
-3. Nell'elenco, è possibile scorrere per trovare PowerApps o digitare *powerapps*: ![Cercare PowerApps][2]
+1. Nel [portale di Azure]( https://portal.azure.com/) accedere con l'account aziendale. Ad esempio, accedere con *NomeUtente*@*Azienda*.com. Quando si esegue questa operazione, si accede automaticamente alla sottoscrizione della propria società.
 
-4. Nel pannello di **PowerApps** selezionare **Crea un ambiente del servizio app per iniziare** o selezionare **Ambiente del servizio app** in *Impostazioni*: ![][5]
+2. Selezionare **Sfoglia** nella barra delle applicazioni:
+
+	![Esplorare PowerApps][1]
+
+3. Nell'elenco, è possibile scorrere per trovare PowerApps o digitare *powerapps*:
+
+	![Cercare PowerApps][2]
+
+4. Nel pannello di **PowerApps** selezionare **Crea un ambiente del servizio app per iniziare** o selezionare **Ambiente del servizio app** in *Impostazioni*:
+
+	![][5]
 
 	> [AZURE.NOTE] Se si seleziona **Crea un ambiente del servizio app per iniziare**, viene visualizzato un pannello aggiuntivo con informazioni dettagliate sull'ambiente del servizio app. Fare clic sul collegamento Crea nel pannello per avviare il pannello correlato.
 
-5. Successivamente, immettere il nome, selezionare la sottoscrizione che si desidera usare, selezionare o creare un nuovo gruppo di risorse e selezionare una rete virtuale. **Si noti** che dopo aver scelto una rete virtuale, non è possibile modificarla: ![][6] Per altre informazioni sul funzionamento delle reti virtuali con un ambiente del servizio app, vedere [Come creare un ambiente del servizio app](../app-service-web-how-to-create-an-app-service-environment.md).
+5. Successivamente, immettere il nome, selezionare la sottoscrizione che si desidera usare, selezionare o creare un nuovo gruppo di risorse e selezionare una rete virtuale. **Si noti** che dopo aver scelto una rete virtuale, non è possibile modificarla:
+
+	![][6]
+
+Per altre informazioni sul funzionamento delle reti virtuali con un ambiente del servizio app, vedere [Come creare un ambiente del servizio app](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md).
 
 6. Selezionare **Aggiungi** per completare la creazione dell'ambiente del servizio app.
 
@@ -158,8 +168,15 @@ Tenere presente che è possibile aggiungere anche app Web, app per dispositivi m
 Per ottenere l'accesso all'ambiente del servizio app e creare API, connessioni e altre risorse, gli utenti devono essere aggiunti con il ruolo di proprietario.
 
 1. Selezionare l'ambiente del servizio app appena creato.
-2. In Informazioni di base selezionare la proprietà **Resource group**. Viene visualizzato il gruppo di risorse che contiene l'ambiente del servizio app: ![][7]
-3. Selezionare l'icona RBAC per gestire le autorizzazioni: ![][8] L'aggiunta degli utenti e l'assegnazione dei ruoli è molto simile all'uso del [controllo degli accessi in base al ruolo]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) in Azure.
+2. In Informazioni di base selezionare la proprietà **Resource group**. Viene visualizzato il gruppo di risorse che contiene l'ambiente del servizio app:
+
+	![][7]
+
+3. Selezionare l'icona RBAC per gestire le autorizzazioni:
+
+	![][8]
+
+L'aggiunta degli utenti e l'assegnazione dei ruoli è molto simile all'uso del [controllo degli accessi in base al ruolo]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) in Azure.
 
 > [AZURE.NOTE] Attualmente, non è possibile assegnare autorizzazioni RBAC all'ambiente del servizio app. È possibile assegnare autorizzazioni RBAC a livello di gruppo di risorse padre.
 
@@ -181,4 +198,4 @@ La società è ora iscritta a PowerApps e dispone di un ambiente del servizio ap
 [7]: ./media/powerapps-get-started-azure-portal/aseessentials.png
 [8]: ./media/powerapps-get-started-azure-portal/resourcegrouprbac.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

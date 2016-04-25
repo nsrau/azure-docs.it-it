@@ -96,7 +96,7 @@ chrisL@fedora$ azure vm show testrg testvm
 
 ### Introduzione
 
-Questo articolo consente di creare una distribuzione simile alla distribuzione di un servizio cloud con una VM Linux all'interno di una subnet di rete virtuale. Illustra in dettaglio l'intera distribuzione di base, comando per comando, fino ad avere una VM Linux funzionante e sicura a cui è possibile connettersi da qualsiasi posizione in Internet.
+In questo articolo viene creata una distribuzione con un unica macchina virtuale Linux all'interno di una subnet di rete virtuale. Illustra in dettaglio l'intera distribuzione di base, comando per comando, fino ad avere una VM Linux funzionante e sicura a cui è possibile connettersi da qualsiasi posizione in Internet.
 
 Durante il processo si apprenderanno informazioni sulla gerarchia delle dipendenze fornita dal modello di distribuzione di Azure Resource Manager e sulle potenzialità che offre. Dopo aver appreso come si compila il sistema, si potrà ricompilarlo molto più rapidamente usando i comandi dell'interfaccia della riga di comando di Azure più diretti (vedere [questo documento](virtual-machines-linux-quick-create-cli.md) per una distribuzione pressoché uguale con il comando `azure vm quick-create`); in alternativa, è possibile proseguire per comprendere a fondo come progettare e automatizzare le distribuzioni delle applicazioni e dell'intera rete e aggiornarle usando i [modelli di Azure Resource Manager](../resource-group-authoring-templates.md). Una volta appreso come interagiscono le parti della distribuzione, diventa più facile creare modelli per automatizzarle.
 
@@ -123,7 +123,7 @@ info:    group create command OK
 
 ### Creare un account di archiviazione
 
-Tra gli altri scenari saranno necessari account di archiviazione per i dischi della VM e per eventuali altri dischi dati che si vuole aggiungere. In breve, si creeranno sempre account di archiviazione quasi subito dopo la creazione di gruppi di risorse.
+Tra gli altri scenari saranno necessari account di archiviazione per i dischi della macchina virtuale e per eventuali altri dischi dati che si vuole aggiungere. In breve, si creeranno sempre account di archiviazione quasi subito dopo la creazione di gruppi di risorse.
 
 Viene usato il comando `azure storage account create`, passando il percorso dell'account, il gruppo di risorse che lo controllerà e il tipo di supporto di archiviazione preferito.
 
@@ -429,7 +429,7 @@ chrisL@fedora$ azure network nic show testrg testnic --json | jq '.'
 
 ### Creare il gruppo di sicurezza di rete e le regole
 
-Ora si creerà il gruppo di sicurezza di rete e le regole in ingresso che regolano l'accesso alla scheda di rete.
+Vengono ora creati il gruppo di sicurezza di rete e le regole in ingresso che regolano l'accesso alla scheda di rete.
 
 ```
 chrisL@fedora$ azure network nsg create testrg testnsg westeurope
@@ -586,7 +586,7 @@ info:    This NIC IP configuration has a public ip already configured "/subscrip
 info:    vm create command OK
 ```
 
-È possibile connettersi immediatamente alla VM usando le chiavi SSH predefinite.
+È possibile connettersi immediatamente alla macchina virtuale usando le chiavi SSH predefinite.
 
 ```
 chrisL@fedora$ ssh ops@testsubdomain.westeurope.cloudapp.azure.com           
@@ -690,4 +690,4 @@ info:    vm show command OK
 
 Ora è possibile iniziare con più componenti di rete e VM.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Criteri in Gestione API di Azure" 
+	pageTitle="Criteri in Gestione API di Azure | Microsoft Azure" 
 	description="Informazioni su come creare, modificare e configurare criteri in Gestione API." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/12/2016" 
 	ms.author="sdanie"/>
 
 
@@ -51,6 +51,8 @@ Il criterio viene dapprima visualizzato come di sola lettura. Per modificare la 
 La definizione criteri è un semplice documento XML che descrive una sequenza di istruzioni in ingresso e in uscita. Il codice XML può essere modificato direttamente nella finestra della definizione. Un elenco di istruzioni è disponibile a destra e le istruzioni applicabili all'ambito corrente sono abilitate ed evidenziate, come ad esempio l'istruzione **Limita frequenza chiamate** nella schermata precedente.
 
 Facendo clic su un'istruzione abilitata, il codice XML appropriato verrà aggiunto in corrispondenza del cursore nella visualizzazione definizione.
+
+>[AZURE.NOTE] Se il criterio che si desidera aggiungere non è abilitato, verificare di essere nell'ambito corretto per il criterio. Ogni istruzione di criterio è progettata per essere usata in determinati ambiti e sezioni dei criteri. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, controllare la sezione relativa all'**utilizzo** del criterio in [Riferimento ai criteri di Gestione API di Azure][].
 
 Un elenco completo di istruzioni dei criteri e le relative impostazioni sono disponibili in [Informazioni di riferimento per i criteri][].
 
@@ -131,6 +133,7 @@ Vedere il video seguente sulle espressioni di criteri.
 > [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
 [Informazioni di riferimento per i criteri]: api-management-policy-reference.md
+[Riferimento ai criteri di Gestione API di Azure]: api-management-policy-reference.md
 [prodotto]: api-management-howto-add-products.md
 [API]: api-management-howto-add-products.md#add-apis
 [operazione]: api-management-howto-add-operations.md
@@ -148,4 +151,4 @@ Vedere il video seguente sulle espressioni di criteri.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

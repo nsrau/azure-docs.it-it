@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="04/08/2016"
    ms.author="toddabel"/>
 
 
@@ -37,15 +37,16 @@ Questi strumenti verranno usati per eseguire alcune operazioni nel documento:
 2. **Eventi dell'applicazione:** eventi emessi dal codice del servizio e scritti mediante la classe helper EventSource disponibile nei modelli di Visual Studio. Per altre informazioni su come scrivere i log dall'applicazione, vedere [l'articolo relativo al monitoraggio e alla diagnosi dei servizi in una configurazione con computer locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 
-## Distribuire l'estensione di diagnostica
+## Distribuzione dell'estensione di diagnostica
 Il primo passaggio per la raccolta dei log consiste nel distribuire l'estensione Diagnostica in ogni VM del cluster Service Fabric. Tale estensione raccoglierà i log in ogni VM e li caricherà nell'account di archiviazione specificato. La procedura varia se si sceglie di usare il portale di Azure o Gestione risorse di Azure e se la distribuzione viene eseguita come parte della creazione di un cluster o per un cluster già esistente. Ecco la procedura per ogni scenario.
 
 ### Distribuire l'estensione di diagnostica come parte della creazione di cluster tramite il portale
-Per distribuire Diagnostica nelle VM del cluster come parte della creazione di cluster, verrà usato il pannello Impostazioni di diagnostica illustrato nella figura seguente. L'impostazione *Log di supporto* risulta **abilitata** per impostazione predefinita e l'impostazione *Diagnostica applicazioni* risulta **disabilitata** per impostazione predefinita. Dopo aver creato il cluster, queste impostazioni non possono essere modificate tramite il portale.
+Per distribuire l'estensione di diagnostica nelle VM del cluster come parte della creazione di cluster, verrà usato il pannello Impostazioni di diagnostica illustrato nella figura seguente. Per abilitare la raccolta di eventi Attore o Reliable Service, verificare che Diagnostica sia impostato su **Attiva**, ovvero sull'impostazione predefinita. Dopo aver creato il cluster, queste impostazioni non possono essere modificate tramite il portale.
 
-![Impostazione di Diagnostica di Azure nel portale per la creazione di cluster](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/portal-cluster-creation-diagnostics-setting.png)
+![Impostazione di Diagnostica di Azure nel portale per la creazione di cluster](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
 
-I log di supporto sono **necessari** affinché il team di supporto tecnico di Azure possa gestire le richieste di supporto create. Questi log vengono raccolti in tempo reale e verranno archiviati nell'account di archiviazione creato nel gruppo di risorse corrente. Diagnostica applicazioni consente di configurare eventi a livello di applicazione inclusi eventi [Actor](service-fabric-reliable-actors-diagnostics.md), eventi [Reliable Service](service-fabric-reliable-services-diagnostics.md) e alcuni eventi Service Fabric a livello di sistema da archiviare nell'archiviazione di Azure. Gli eventi possono essere acquisiti dall'account di archiviazione da prodotti come [ElasticSearch](service-fabric-diagnostic-how-to-use-elasticsearch.md) o da un processo personalizzato. Attualmente non è possibile filtrare o eliminare gli eventi inviati alla tabella. Se non viene implementato un processo per rimuovere gli eventi dalla tabella, le dimensioni della tabella continueranno ad aumentare. Quando si crea un cluster tramite il portale, è consigliabile esportare il modello al termine della distribuzione. I modelli possono essere esportati dal portale in questo modo
+I log di supporto sono **necessari** affinché il team di supporto tecnico di Azure possa gestire le richieste di supporto create. Questi log vengono raccolti in tempo reale e verranno archiviati in uno degli account di archiviazione creato nel gruppo di risorse. Le impostazioni di Diagnostica consente di configurare eventi a livello di applicazione, inclusi eventi [Attore](service-fabric-reliable-actors-diagnostics.md), eventi [Reliable Service](service-fabric-reliable-services-diagnostics.md) e alcuni eventi Service Fabric a livello di sistema da memorizzare in Archiviazione di Azure. Gli eventi possono essere acquisiti dall'account di archiviazione da prodotti come [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) o da un processo personalizzato. Attualmente non è possibile filtrare o eliminare gli eventi inviati alla tabella. Se non viene implementato un processo per rimuovere gli eventi dalla tabella, le dimensioni della tabella continueranno ad aumentare. Quando si crea un cluster tramite il portale, è consigliabile esportare il modello al termine della distribuzione. I modelli possono essere esportati dal portale in questo modo
+
 1. Aprire il gruppo di risorse
 2. Selezionare Impostazioni per visualizzare il pannello Impostazioni
 3. Selezionare Distribuzioni per visualizzare il pannello Cronologia distribuzioni
@@ -56,7 +57,7 @@ I log di supporto sono **necessari** affinché il team di supporto tecnico di Az
 Dopo l'esportazione dei file, è necessario apportare una modifica. Modificare il file **parameters.json** e rimuovere l'elemento **adminPassword**. In questo modo viene richiesta la password quando viene eseguito lo script di distribuzione.
 
 ### Distribuire l'estensione di diagnostica come parte della creazione di cluster tramite Azure Resource Manager
-Per creare un cluster tramite Gestione risorse, è necessario aggiungere il file JSON di configurazione di Diagnostica al modello di Gestione risorse di tipo cluster completo prima di creare il cluster. Gli esempi relativi ai modelli di Gestione risorse includono un modello di cluster con 5 VM con aggiunta della configurazione di Diagnostica, disponibile nella raccolta di esempi di Azure nella pagina relativa all'[esempio di modello di Gestione risorse di cluster con cinque nodi con Diagnostica](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad). Per visualizzare le impostazioni di Diagnostica nel modello di Resource Manager, aprire il file **azuredeploy.json** e cercare **IaaSDiagnostics**. Per creare un cluster con questo modello, è sufficiente premere il pulsante di **distribuzione in Azure** disponibile nel collegamento precedente.
+Per creare un cluster tramite Gestione risorse, è necessario aggiungere il file JSON di configurazione di Diagnostica al modello di Gestione risorse di tipo cluster completo prima di creare il cluster. Gli esempi relativi ai modelli di Gestione risorse includono un modello di cluster con 5 VM con aggiunta della configurazione di Diagnostica, disponibile nella raccolta di esempi di Azure nella pagina relativa all'[esempio di modello di Gestione risorse di cluster con cinque nodi con Diagnostica](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad). Per visualizzare le impostazioni di Diagnostica nel modello di Gestione risorse, aprire il file **azuredeploy.json** e cercare **IaaSDiagnostics**. Per creare un cluster con questo modello, è sufficiente premere il pulsante di **distribuzione in Azure** disponibile nel collegamento precedente.
 
 In alternativa, è possibile scaricare l'esempio di Gestione risorse, modificarlo e creare un cluster con il modello modificato mediante il comando `New-AzureResourceGroupDeployment` in una finestra di Azure PowerShell. Per informazioni sui parametri da passare al comando, vedere più avanti. Per informazioni dettagliate su come distribuire un gruppo di risorse tramite PowerShell, vedere l'articolo [Distribuire un gruppo di risorse con un modello di Gestione risorse di Azure](../resource-group-template-deploy.md)
 
@@ -110,7 +111,7 @@ Aggiungere una nuova risorsa di archiviazione al modello nella sezione risorse.
       }
     },
 ```
-Aggiornare quindi la sezione *VirtualMachineProfile* del file **template.json**, aggiungendo quanto segue all'interno della matrice "estensioni". Assicurarsi di aggiungere una virgola all'inizio o alla fine, a seconda del punto di inserimento.
+Aggiornare quindi la sezione *VirtualMachineProfile* del file **template.json**, aggiungendo quanto segue all'interno dell'array "estensioni". Assicurarsi di aggiungere una virgola all'inizio o alla fine, a seconda del punto di inserimento.
 
 ##### Aggiungere alla matrice di estensioni di VirtualMachineProfile
 ```json
@@ -168,7 +169,7 @@ Aggiornare quindi la sezione *VirtualMachineProfile* del file **template.json**,
 }
 ```
 
-Dopo aver modificato il file **template.json** come descritto, pubblicare nuovamente il modello di Azure Resource Manager. Se il modello è stato esportato, eseguire il file **deploy.ps1** per pubblicare nuovamente il modello. Dopo la distribuzione, assicurarsi che il valore di *ProvisioningState* sia *Operazione riuscita*.
+Dopo aver modificato il file **template.json** come descritto, pubblicare nuovamente il modello di Gestione risorse di Azure. Se il modello è stato esportato, eseguire il file **deploy.ps1** per pubblicare nuovamente il modello. Dopo la distribuzione, assicurarsi che il valore di *ProvisioningState* sia *Operazione riuscita*.
 
 
 ## Aggiornare Diagnostica per raccogliere e caricare log da nuovi canali EventSource
@@ -178,4 +179,4 @@ Per aggiornare la diagnostica in modo da raccogliere log da un nuovo canale Even
 ## Passaggi successivi
 Verificare gli eventi di diagnostica emessi per [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) e [Reliable Services](service-fabric-reliable-services-diagnostics.md) per ottenere informazioni più dettagliate sugli eventi da esaminare durante la risoluzione dei problemi.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

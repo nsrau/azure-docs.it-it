@@ -220,7 +220,7 @@ Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezio
 
 >[AZURE.NOTE] La protezione di macchine virtuali che eseguono Linux con un indirizzo IP statico non è supportata.
 
-1. Nella scheda **Macchine** del gruppo di protezione, fare clic** su Aggiungi macchine virtuali a gruppi di protezione per abilitare la protezione.
+1. Nella scheda **Macchine** del gruppo di protezione, fare clic **su Aggiungi macchine virtuali a gruppi di protezione per abilitare la protezione**.
 2. Nella pagina **Abilita protezione macchine virtuali** selezionare le macchine virtuali da proteggere.
 
 	![Abilitare la protezione delle macchine virtuali](./media/site-recovery-hyper-v-site-to-azure/add-vm.png)
@@ -233,7 +233,7 @@ Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezio
 		- **Nome**: il nome della macchina virtuale in Azure.
 		- **Dimensioni**: le dimensioni della macchina virtuale di destinazione che esegue il failover.
 
-		![Configurare le proprietà della macchina virtuale](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
+		![Configurare le proprietà della macchina virtuale](./media/site-recovery-hyper-v-site-to-azure/vm-properties.png)
 	- Configurare altre impostazioni della macchina virtuale in **Elementi protetti** > **Gruppi protezione dati** > *nome\_gruppodiprotezione* > **Macchine virtuali** *nome\_macchina\_virtuale* > **Configura**:
 
 		- **Schede di rete**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per il numero di schede di rete supportate dalle dimensioni della macchina virtuale, vedere le [specifiche sulle dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md#size-tables).
@@ -274,6 +274,8 @@ Per testare completamente la replica e la distribuzione di rete è necessario co
 
 Eseguire il failover di test come descritto di seguito:
 
+>[AZURE.NOTE] Per ottenere prestazioni ottimali quando si esegue un failover in Azure, assicurarsi di aver installato l'agente di Azure nel computer protetto. Questo consente un avvio più veloce e facilita anche la diagnosi nel caso di problemi. L'agente Linux è disponibile [qui](https://github.com/Azure/WALinuxAgent), mentre l'agente Windows è disponibile [qui](http://go.microsoft.com/fwlink/?LinkID=394789)
+
 1. Nella scheda **Piani di ripristino** selezionare il piano e fare clic su **Failover di test**.
 2. Nella pagina **Conferma failover di test** selezionare **Nessuno** o una rete di Azure specifica. Tenere presente che se si seleziona **Nessuno**, il failover di test verifica che la macchina virtuale venga replicata correttamente in Azure ma non controlla la configurazione della rete di replica.
 
@@ -302,4 +304,4 @@ Eseguire il failover di test come descritto di seguito:
 
 Dopo aver configurato correttamente la distribuzione, leggere [altre informazioni](site-recovery-failover.md) sul failover.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

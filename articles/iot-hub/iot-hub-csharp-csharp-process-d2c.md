@@ -28,28 +28,30 @@ Questa esercitazione è basata sul codice mostrato nell'esercitazione [Introduzi
 
 - L'elaborazione affidabile di messaggi da dispositivo a cloud *interattivi*. I messaggi da dispositivo a cloud sono detti interattivi quando sono trigger immediati per un set di azioni nel back-end dell'applicazione, contrariamente ai messaggi di *punti dati* che vengono inseriti in un motore di analisi. Ad esempio, un avviso proveniente da un dispositivo che deve attivare l'inserimento di un ticket in un sistema CRM è un messaggio da dispositivo a cloud interattivo, mentre i dati di telemetria come i campioni di temperatura rappresentano un messaggio di punti dati.
 
-Dal momento che l'hub IoT espone un endpoint compatibile con Hub eventi per ricevere i messaggi da dispositivo a cloud, questa esercitazione usa un'istanza di [EventProcessorHost] che:
+Dal momento che l'hub IoT espone un endpoint compatibile con [Hub eventi][lnk-event-hubs] per ricevere i messaggi da dispositivo a cloud, questa esercitazione usa un'istanza di [EventProcessorHost] che:
 
 * Archivia in modo affidabile i messaggi di *punti dati* nei BLOB di Azure.
 * Inoltra i messaggi da dispositivo a cloud *interattivi* a una [coda del bus di servizio] per l'elaborazione immediata.
 
 Il bus di servizio è un ottimo modo per assicurare un'elaborazione affidabile dei messaggi interattivi, perché fornisce checkpoint per ogni messaggio e la deduplicazione basata su finestre temporali.
 
+> [AZURE.NOTE] Un'istanza **EventProcessorHost** è solo un modo per elaborare i messaggi interattivi. Altre opzioni includono [Azure Service Fabric][lnk-service-fabric] e [Analisi di flusso di Azure][lnk-stream-analytics].
+
 Al termine di questa esercitazione si eseguiranno tre applicazioni console Windows:
 
-* **SimulatedDevice**, una versione modificata dell'app creata nell'esercitazione [Introduzione all'hub IoT], che invia messaggi da dispositivo a cloud di punti dati ogni secondo e messaggi da dispositivo a cloud interattivi ogni 10 secondi.
+* **SimulatedDevice**, una versione modificata dell'app creata nell'esercitazione [Introduzione all'hub IoT], che invia messaggi da dispositivo a cloud di punti dati ogni secondo e messaggi da dispositivo a cloud interattivi ogni 10 secondi. Questa applicazione usa il protocollo AMQPS per comunicare con l'hub IoT.
 * **ProcessDeviceToCloudMessages**, che usa la classe [EventProcessorHost] per recuperare i messaggi dall'endpoint compatibile con Hub eventi e quindi archiviare in modo affidabile i messaggi di punti dati in un BLOB di Azure e per inoltrare i messaggi interattivi a una coda del bus di servizio.
 * **ProcessD2CInteractiveMessages**, che rimuove i messaggi interattivi dalla coda del bus di servizio.
 
 > [AZURE.NOTE] L'hub IoT offre il supporto SDK per molte piattaforme e linguaggi, inclusi C, Java e JavaScript. Consultare il [Centro per sviluppatori Azure IoT] per istruzioni dettagliate su come sostituire il dispositivo simulato in questa esercitazione con un dispositivo fisico e, in generale, come connettere dispositivi all'hub IoT di Azure.
 
-Il contenuto di questa esercitazione è direttamente applicabile ad altri modi di utilizzare i messaggi compatibili con Hub eventi, ad esempio i progetti [HDInsight (Hadoop)]. Per altre informazioni, vedere [Guida per gli sviluppatori dell'hub IoT di Azure - Dispositivo a cloud].
+Il contenuto di questa esercitazione è direttamente applicabile ad altri modi di usare i messaggi compatibili con Hub eventi, ad esempio i progetti [HDInsight (Hadoop)]. Per altre informazioni, vedere [Guida per gli sviluppatori dell'hub IoT di Azure - Dispositivo a cloud].
 
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 + Microsoft Visual Studio 2015
 
-+ Un account Azure attivo. <br/>Se non si ha un account, è possibile creare un account gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
++ Un account Azure attivo. <br/>Se non si dispone di un account, è possibile creare un account gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fit-IT%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
 
 È necessaria una conoscenza di base dell'[Archiviazione di Azure] e del [bus di servizio di Azure].
 
@@ -63,7 +65,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 A questo punto è possibile eseguire le applicazioni.
 
-1.	In Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Imposta progetti di avvio**. Selezionare **Progetti di avvio multipli**, quindi selezionare l'azione di **avvio** per i progetti **ProcessDeviceToCloudMessages**, **SimulatedDevice** e **ProcessD2CInteractiveMessages**.
+1.	In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Imposta progetti di avvio**. Selezionare **Progetti di avvio multipli**, quindi selezionare l'azione di **Avvio** per i progetti **ProcessDeviceToCloudMessages**, **SimulatedDevice** e **ProcessD2CInteractiveMessages**.
 
 2.	Premere **F5** per avviare le tre applicazioni console. L'applicazione **ProcessD2CInteractiveMessages** deve elaborare tutti i messaggi interattivi inviati dall'applicazione **SimulatedDevice**.
 
@@ -75,7 +77,7 @@ A questo punto è possibile eseguire le applicazioni.
 
 In questa esercitazione si è appreso come elaborare in modo affidabile i messaggi da dispositivo a cloud di punti dati e interattivi con la classe [EventProcessorHost].
 
-L'[esercitazione sul caricamento di file da dispositivi] si basa su questa esercitazione e fa uso della logica di elaborazione dei messaggi analoghi. L'esercitazione descrive un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file da dispositivi.
+L'esercitazione sul [caricamento di file da dispositivi] si basa su questa esercitazione e fa uso della logica di elaborazione dei messaggi analoghi. L'esercitazione descrive un modello che usa i messaggi da cloud a dispositivo per facilitare il caricamento di file da dispositivi.
 
 Altre informazioni sull'hub IoT:
 
@@ -107,7 +109,7 @@ Altre informazioni sull'hub IoT:
 
 
 [Inviare messaggi da cloud a dispositivo con l'hub IoT]: iot-hub-csharp-csharp-c2d.md
-[esercitazione sul caricamento di file da dispositivi]: iot-hub-csharp-csharp-file-upload.md
+[caricamento di file da dispositivi]: iot-hub-csharp-csharp-file-upload.md
 
 [Panoramica dell'hub IoT]: iot-hub-what-is-iot-hub.md
 [Linee guida dell'hub IoT]: iot-hub-guidance.md
@@ -115,5 +117,8 @@ Altre informazioni sull'hub IoT:
 [Introduzione all'hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: iot-hub-tested-configurations.md
 [Centro per sviluppatori Azure IoT]: https://azure.microsoft.com/develop/iot
+[lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
+[lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

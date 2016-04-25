@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Come creare una raccolta ibrida per Azure RemoteApp | Microsoft Azure" 
-	description="Informazioni su come creare una distribuzione di RemoteApp si connette alla rete interna." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
+<properties
+	pageTitle="Come creare una raccolta ibrida per Azure RemoteApp | Microsoft Azure"
+	description="Informazioni su come creare una distribuzione di RemoteApp si connette alla rete interna."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"
 	editor=""/>
 
-<tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/05/2016" 
+<tags
+	ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/05/2016"
 	ms.author="elizapo"/>
 
 # Come creare una raccolta ibrida per Azure RemoteApp
@@ -40,12 +40,12 @@ Questa esercitazione illustra la creazione di una raccolta ibrida. Sono previsti
 
 Prima di creare la raccolta, è necessario eseguire le operazioni seguenti:
 
-- [Accedere](https://azure.microsoft.com/services/remoteapp/) ad Azure RemoteApp. 
+- [Accedere](https://azure.microsoft.com/services/remoteapp/) ad Azure RemoteApp.
 - Creare in Active Directory un account utente da usare come account del servizio RemoteApp di Azure. Limitare le autorizzazioni per l'account in modo che possa aggiungere computer al dominio.
 - Raccogliere informazioni sulla rete locale: informazioni sull'indirizzo IP e dettagli sul dispositivo VPN.
 - Installare il modulo [Azure PowerShell](../powershell-install-configure.md).
 - Raccogliere informazioni sugli utenti a cui concedere l'accesso. È necessario il nome dell'entità utente Azure Active Directory (ad esempio, name@contoso.com) per ogni utente. Assicurarsi che il nome UPN corrisponda tra Azure Active Directory e Active Directory.
-- Scegliere un'immagine modello. Un'immagine modello di RemoteApp di Azure contiene le app e i programmi da pubblicare per gli utenti. Per altre informazioni, vedere [Opzioni immagine di RemoteApp di Azure](remoteapp-imageoptions.md). 
+- Scegliere un'immagine modello. Un'immagine modello di RemoteApp di Azure contiene le app e i programmi da pubblicare per gli utenti. Per altre informazioni, vedere [Opzioni immagine di RemoteApp di Azure](remoteapp-imageoptions.md).
 - Se si desidera usare l'immagine di Office 365 ProPlus, consultare le informazioni in [questo articolo](remoteapp-officesubscription.md).
 - [Configurare Active Directory per RemoteApp](remoteapp-ad.md).
 
@@ -58,9 +58,9 @@ Assicurarsi di rivedere le informazioni relative alla [panificazione della rete 
 
 ### Creare una rete virtuale di Azure e aggiungerla alla distribuzione di Active Directory
 
-Iniziare creando un [rete virtuale](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) nella scheda **Rete** nel portale di gestione di Azure. È necessario connettere la rete virtuale alla distribuzione di Active Directory sincronizzata con il tenant di Azure Active Directory.
+Iniziare creando un [rete virtuale](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) Selezionare a tal proposito la scheda **Rete** nel portale di Azure. È necessario connettere la rete virtuale alla distribuzione di Active Directory sincronizzata con il tenant di Azure Active Directory.
 
-Per altre informazioni, vedere [Informazioni sulle impostazioni della rete virtuale nel portale di gestione](../virtual-network/virtual-networks-settings.md).
+Per altre informazioni, vedere [Creare una rete virtuale usando il portale di Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 ### Assicurarsi che la rete virtuale sia pronta per RemoteApp di Azure
 Prima di creare la raccolta, verificare che la nuova rete virtuale sia pronta. A questo scopo, eseguire le seguenti operazioni:
@@ -91,9 +91,9 @@ Nel caso in cui si siano verificati problemi Estrarre le [informazioni sulla ris
 
 ## Passaggio 3: Collegare la raccolta al dominio locale ##
 
- 
+
 1. Nella pagina **Avvio rapido** fare clic su **Aggiungi un dominio locale**.
-2. Aggiungere l'account del servizio RemoteApp di Azure al dominio di Active Directory locale. È necessario disporre di nome di dominio, unità organizzativa, nome utente e password dell'account del servizio. 
+2. Aggiungere l'account del servizio RemoteApp di Azure al dominio di Active Directory locale. È necessario disporre di nome di dominio, unità organizzativa, nome utente e password dell'account del servizio.
 
 	Si tratta delle informazioni raccolte se è stata seguita la procedura descritta in [Configurare Active Directory per Azure RemoteApp](remoteapp-ad.md).
 
@@ -121,14 +121,14 @@ Per informazioni sulla pianificazione e le procedure dettagliate, vedere [Roadma
 Un'app di Azure RemoteApp è l'app o il programma da fornire ai propri utenti. Si trova nell'immagine modello caricata per la raccolta. Quando un utente accede a un'app, questa si comporta come se venisse eseguita nel suo ambiente locale, mentre in realtà viene eseguita in Azure.
 
 Prima che gli utenti possano accedere alle app, è necessario pubblicarle. In questo modo, gli utenti possono accedere tramite il client di Desktop remoto.
- 
+
 È possibile pubblicare più app nella raccolta. Nella pagina di pubblicazione fare clic su **Pubblica** per aggiungere un’app. È possibile eseguire la pubblicazione dal menu **Start** dell'immagine modello oppure specificando il percorso nell'immagine modello dell'app. Se si sceglie di aggiungere il programma dal menu **Start**, scegliere il programma da aggiungere. Se si sceglie di fornire il percorso all'app, specificare il nome dell'app e il percorso in cui è installata nell'immagine modello.
 
 ## Passaggio 7: Configurare l'accesso utente ##
 
 A questo punto, dopo avere creato la raccolta, è necessario aggiungere gli utenti che potranno usare le risorse remote. Gli utenti o i gruppi a cui viene fornito l'accesso devono esistere nel tenant di Active Directory associato alla sottoscrizione usata per creare la raccolta RemoteApp di Azure.
 
-1.	Nella pagina Avvio rapido fare clic su **Configura accesso utente**. 
+1.	Nella pagina Avvio rapido fare clic su **Configura accesso utente**.
 2.	Immettere l'account di lavoro (da Active Directory) o l'account Microsoft al quale concedere l'accesso.
 
 	**Note:**
@@ -145,8 +145,8 @@ A questo punto, dopo avere creato la raccolta, è necessario aggiungere gli uten
 La procedura è stata completata e la raccolta ibrida RemoteApp di Azure è stata creata e distribuita. Il passaggio successivo consiste nel chiedere agli utenti di scaricare e installare il client Desktop remoto. L'URL del client è indicato nella pagina Avvio rapido di Azure RemoteApp. Chiedere quindi agli utenti di connettersi al client e di accedere alle app pubblicate.
 
 
- 
-### Come contribuire al miglioramento 
+
+### Come contribuire al miglioramento
 Non tutti sanno che oltre alla classificazione di questo articolo e all'aggiunta di commenti di seguito, è possibile apportare modifiche all'articolo stesso. Mancano informazioni? Alcune informazioni non sono corrette? Qualcosa non è abbastanza chiaro? Scorrere verso l'alto e fare clic su **Modifica in GitHub** per apportare modifiche. Dopo che saranno state esaminate e approvate, le modifiche e i miglioramenti suggeriti dagli utenti saranno applicati all'articolo.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

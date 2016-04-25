@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="04/08/2016" 
 	ms.author="johnmac"/>
 
 # Livelli di prestazioni in DocumentDB
@@ -97,9 +97,9 @@ Le raccolte di DocumentDB permettono di raggruppare i dati sulla base di modelli
 
 ## Modifica dei livelli di prestazioni tramite il portale di Azure
 
-Il portale di Azure è una delle opzioni disponibili quando si gestiscono i livelli di prestazioni delle raccolte. Attenersi alla seguente procedura per modificare il livello di prestazioni di una raccolta dal portale di Azure classico.
+Il portale di Azure è una delle opzioni disponibili quando si gestiscono i livelli di prestazioni delle raccolte. Seguire questa procedura per modificare l'uso di livelli di prestazioni predefiniti sui livelli di prestazioni definiti dall'utente nel portale di Azure o guardare il [video di Channel 9](https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance) della durata di 75 secondi. Per altre informazioni sulla modifica delle opzioni relative ai prezzi, vedere il post del blog [DocumentDB: Everything you need to know about using the new pricing options (DocumentDB: tutto quello che occorre sapere sull'uso delle nuove opzioni dei prezzi)](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/).
 
-1. Nel browser passare al [**portale di Microsoft Azure**](https://portal.azure.com).
+1. Passare al [**portale di Azure**](https://portal.azure.com) dal browser.
 2. Fare clic su **Sfoglia** dalla barra di spostamento sul lato sinistro.
 3. Nello hub **Sfoglia**, fare clic su **account DocumentDB** sotto l’etichetta **filtrare in base a**.
 4. Nel pannello **account DocumentDB**, fare clic sull'account DocumentDB che contiene la raccolta desiderata.
@@ -176,4 +176,4 @@ Per altre informazioni su DocumentDB, vedere la [documentazione](https://azure.m
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

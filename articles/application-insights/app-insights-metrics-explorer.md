@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="awills"/>
  
 # Esaminare le metriche in Application Insights
@@ -97,13 +97,14 @@ Il metodo predefinito per ogni metrica viene visualizzato quando si crea un nuov
 ![Deselezionare tutte le metriche per visualizzare le impostazioni predefinite](./media/app-insights-metrics-explorer/06-total.png)
 
 
+
 ## Modifica di grafici e griglie
 
 Per aggiungere un nuovo grafico al pannello:
 
 ![In Esplora metriche scegliere Aggiungi grafico](./media/app-insights-metrics-explorer/04-add.png)
 
-Selezionare un grafico nuovo o esistente per modificare il contenuto visualizzato:
+Selezionare **Modifica** su un grafico nuovo o esistente per modificare il contenuto visualizzato:
 
 ![Selezionare una o più metriche](./media/app-insights-metrics-explorer/08-select.png)
 
@@ -135,21 +136,25 @@ Se non si seleziona alcun valore per una determinata proprietà, è come se si s
 
 Si noti il numero di eventi vicino a ogni valore della proprietà. Quando si selezionano i valori di una proprietà, i conteggi vicino ad altri valori di proprietà vengono modificati.
 
-### Per aggiungere proprietà all'elenco di filtri
+I filtri si applicano a tutti i grafici in un pannello. Se si desidera applicare filtri diversi a grafici differenti, creare e salvare pannelli di metriche diversi. Se si desidera, è possibile aggiungere sul dashboard grafici di pannelli diversi, in modo da visualizzarli uno accanto all'altro.
 
-È possibile che si voglia filtrare i dati di telemetria in base a una categoria personalizzata. Ad esempio, è possibile che si dividano gli utenti in categorie diverse e si voglia segmentare i dati in base a queste categorie.
 
-[Creare una proprietà personalizzata](app-insights-api-custom-events-metrics.md#properties). Configurarla in un [Inizializzatore di telemetria](app-insights-api-custom-events-metrics.md#telemetry-initializers), in modo che sia disponibile in tutti i dati di telemetria, inclusi i dati di telemetria standard inviati da diversi moduli SDK.
-
-## Rimuovere il traffico di bot e test Web
+### Rimuovere il traffico di bot e test Web
 
 Usare il filtro **Traffico reale o sintetico** e selezionare **Reale**.
 
 È possibile anche filtrare in base a **Origine del traffico sintetico**.
 
+### Per aggiungere proprietà all'elenco di filtri
+
+È possibile che si voglia filtrare i dati di telemetria in base a una categoria personalizzata. Ad esempio, è possibile che si dividano gli utenti in categorie diverse e si voglia segmentare i dati in base a queste categorie.
+
+[Creare proprietà personalizzate](app-insights-api-custom-events-metrics.md#properties). Impostazione in un [Inizializzatore di telemetria](app-insights-api-custom-events-metrics.md#telemetry-initializers) affinché venga visualizzato in tutti i dati di telemetria - compresa la telemetria standard inviata dai diversi moduli SDK.
+
+
 ## Modificare il tipo di grafico
 
-In particolare, si noti che è possibile passare dalle griglie ai grafici e viceversa:
+Si noti che è possibile passare dalle griglie ai grafici e viceversa:
 
 ![Selezionare una griglia o un grafico e quindi scegliere un tipo di grafico](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
@@ -159,7 +164,7 @@ Dopo aver creato alcuni grafici, è possibile salvarli come preferiti. È possib
 
 ![Scegliere Preferito](./media/app-insights-metrics-explorer/21-favorite-save.png)
 
-Per visualizzare nuovamente il pannello, **passare al pannello Panoramica** e aprire Preferiti:
+Per visualizzare nuovamente il pannello, **andare al pannello** e aprire Preferiti:
 
 ![Nel pannello Panoramica scegliere Preferiti](./media/app-insights-metrics-explorer/22-favorite-get.png)
 
@@ -198,7 +203,24 @@ Se si vuole che i dati vengano esportati in modo continuo per poterli elaborare 
 
 ### Power BI
 
-Per visualizzazioni dei dati ancora più avanzate, è possibile [esportare in Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
+Per visualizzazione dei dati ancora più avanzate, è possibile [esportare in Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
+
+## Analytics
+
+[Analisi](app-insights-analytics.md) è un modo più versatile per analizzare i dati di telemetria usando un linguaggio di query avanzato. Usare l'opzione se si desidera combinare o calcolare i risultati delle metriche oppure per eseguire un'analisi approfondita delle prestazioni recenti dell'applicazione. Usare Esplora metriche se si desiderano l'aggiornamento automatico, i grafici sul dashboard e gli avvisi.
+
+## Risoluzione dei problemi
+
+*All'interno del grafico non vengono visualizzati dati.*
+
+* I filtri si applicano a tutti i grafici del pannello. Assicurarsi che, mentre ci si concentra su un grafico, non sia stato impostato un filtro che escluda tutti i dati di un altro grafico. 
+
+    Se si desidera impostare filtri diversi nei vari grafici, creare grafici in diversi pannelli e salvarli come Preferiti separati. Se si desidera, è possibile impostarli sul dashboard in modo da visualizzarli uno accanto all'altro.
+
+* Se si raggruppa un grafico per una proprietà non definita sulla metrica, il grafico sarà vuoto. Provare a lasciare il campo "Raggruppa in base a" vuoto o scegliere una proprietà di raggruppamento diversa.
+* I dati sulle prestazioni (CPU, velocità di IO e così via) sono disponibili per i servizi Web Java, app desktop di Windows, [app e servizi Web IIS se si installa Status Monitor](app-insights-monitor-performance-live-website-now.md) e [servizi cloud di Azure](app-insights-azure.md). I dati non sono disponibili per i siti Web di Azure.
+
+
 
 ## Passaggi successivi
 
@@ -214,4 +236,4 @@ Per visualizzazioni dei dati ancora più avanzate, è possibile [esportare in Po
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

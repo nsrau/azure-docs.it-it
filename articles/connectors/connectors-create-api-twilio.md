@@ -21,7 +21,7 @@ ms.author="mandia"/>
 
 Connettersi a Twilio per inviare e ricevere messaggi SMS, MMS e IP globali.
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic su [Twilio](../app-service-logic/app-service-logic-connector-twilio.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 Con Twilio è possibile:
 
@@ -35,7 +35,7 @@ L'API di Twilio include le azioni seguenti. Non sono disponibili trigger.
 
 | Trigger | Azioni|
 | --- | --- |
-|Nessuno| <ul><li>Ottieni messaggio</li><li>Elenca messaggi</li><li>Invia messaggio</li></ul>|
+|Nessuno| <ul><li>Get Message</li><li>List Messages</li><li>Send Message</li></ul>|
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
@@ -49,7 +49,7 @@ Quando si aggiunge questa API alle app per la logica, immettere i valori di Twil
 
 Per creare un token di accesso, vedere [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity).
 
-Dopo aver creato la connessione, immettere le proprietà di Twilio. **Informazioni di riferimento sulle API RESTT** in questo articolo descrive tali proprietà.
+Dopo aver creato la connessione, immettere le proprietà di Twilio. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di Twilio in altre app per la logica.
 
@@ -57,7 +57,7 @@ Dopo aver creato la connessione, immettere le proprietà di Twilio. **Informazio
 #### Questa documentazione è relativa alla versione 1.0
 
 ### Ottieni messaggio
-Restituisce un singolo messaggio offerto dall'ID del messaggio specificato. ```GET: /Messages/{MessageId}.json```
+Restituisce un singolo messaggio specificato dall'ID messaggio indicato. ```GET: /Messages/{MessageId}.json```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -247,4 +247,4 @@ Invia un nuovo messaggio a un numero di telefono cellulare. ```POST: /Messages.j
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

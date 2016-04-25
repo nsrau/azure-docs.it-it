@@ -46,9 +46,10 @@ Questa esercitazione descrive le operazioni di base seguenti:
 
 Per completare questa esercitazione, è necessario disporre di:
 
-* Visual Studio con l'[estensione Xamarin] **o** [Xamarin Studio] in OS X
-* XCode 4.5 e iOS 6.0 (o versioni successive)
-* Esercitazione [Introduzione a Servizi mobili] completata
+* Visual Studio con Xamarin. Per le istruzioni vedere [Configurazione e installazione di Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). 
+* Un computer Mac in cui siano stati installati Xcode v7.0 o versione successiva e Xamarin Studio Community. Vedere [Configurazione e installazione di Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) e [Configurazione, installazione e verifiche per gli utenti Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
+* Esercitazione [Introduzione a Servizi mobili] completata.
+
 
 ## <a name="review-offline"></a>Esaminare il codice di sincronizzazione di Servizi mobili
 
@@ -180,9 +181,6 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 [Introduzione a Servizi mobili]: mobile-services-ios-get-started.md
 [Come usare il componente client Xamarin per Servizi mobili di Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [eliminazione temporanea]: mobile-services-using-soft-delete.md
-
-[Xamarin Studio]: http://xamarin.com/download
-[estensione Xamarin]: http://xamarin.com/visual-studio
 [portale di Azure classico]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

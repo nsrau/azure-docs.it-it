@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2016" 
+	ms.date="04/08/2016" 
 	ms.author="nitinme"/>
 
 
@@ -49,7 +49,7 @@ Riepilogando, il processo di regressione logistica genera una *funzione logistic
 
 ## Qual è lo scopo di questo articolo?
 
-Si userà Spark per eseguire un'analisi predittiva dei dati del controllo degli alimenti (**Food\_Inspections1.csv**) acquisiti dal [portale dati della città di Chicago](https://data.cityofchicago.org/). Questo set di dati contiene informazioni sui controlli degli alimenti condotti a Chicago, incluse informazioni su ogni stabilimento alimentare controllato, sulle eventuali violazioni riscontrate e sui risultati del controllo.
+Si userà Spark per eseguire un'analisi predittiva dei dati del controllo degli alimenti (**Food\_Inspections1.csv**) acquisiti dal [portale dati della città di Chicago](https://data.cityofchicago.org/). Questo set di dati contiene informazioni sui controlli degli alimenti condotti a Chicago, incluse informazioni su ogni stabilimento alimentare controllato, sulle eventuali violazioni riscontrate e sui risultati del controllo. Il file di dati in formato CSV è già disponibile nell'account di archiviazione associato al cluster **/HdiSamples/HdiSamples/FoodInspectionData/Food\_Inspections1.csv**.
 
 Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per superare o non superare un controllo sugli alimenti.
 
@@ -71,7 +71,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
 	![Specificare un nome per il notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Specificare un nome per il notebook")
 
-3. Poiché il notebook è stato creato tramite il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark, SQL e Hive verranno creati automaticamente quando si esegue la prima cella di codice. È possibile iniziare a compilare l'applicazione di Machine Learning importando i tipi necessari per questo scenario. A tale scopo, posizionare il cursore nella cella e premere **MAIUSC + INVIO**.
+3. Poiché il notebook è stato creato tramite il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark e Hive vengono creati automaticamente quando si esegue la prima cella di codice. È possibile iniziare a compilare l'applicazione di Machine Learning importando i tipi necessari per questo scenario. A tale scopo, posizionare il cursore nella cella e premere **MAIUSC + INVIO**.
 
 
 		from pyspark.ml import Pipeline
@@ -83,7 +83,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
 ## Creare un frame di dati di input
 
-È già disponibile un elemento SQLContext che è possibile usare per eseguire trasformazioni sui dati strutturati. La prima attività è il caricamento dei dati di esempio (**Food\_Inspections1.csv**) in un *frame di dati* Spark SQL. I frammenti di codice seguenti presumono che i dati siano già stati caricati nel contenitore di archiviazione predefinito associato al cluster Spark.
+È possibile che venga usato `sqlContext` per eseguire trasformazioni sui dati strutturati. La prima attività è il caricamento dei dati di esempio (**Food\_Inspections1.csv**) in un *frame di dati* Spark SQL.
 
 1. Poiché i dati non elaborati sono in formato con estensione csv, è necessario usare il contesto Spark per eseguire il pull di ogni riga del file nella memoria come testo non strutturato, quindi si usa la libreria CSV di Python per analizzare ogni singola riga. 
 
@@ -189,20 +189,20 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 	    |     Out of Business|
 	    +--------------------+
     
-2. Una visualizzazione rapida aiuta a riflettere sulla distribuzione di questi risultati. Abbiamo già i dati nella tabella temporanea **CountResults**. Per comprendere meglio il modo in cui i risultati vengono distribuiti, è possibile eseguire la query SQL seguente sulla tabella.
+2. Una visualizzazione rapida aiuta a riflettere sulla distribuzione di questi risultati. Sono già disponibili i dati nella tabella temporanea **CountResults**. Per comprendere meglio il modo in cui i risultati vengono distribuiti, è possibile eseguire la query SQL seguente sulla tabella.
 
 		%%sql -o countResultsdf
 		SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
 
-	Il magic `%%sql` seguito da `-o countResultsdf` assicura che l'output della query venga mantenuto in locale nel server di Jupyter, di solito il nodo head del cluster. L'output viene mantenuto come frame di dati [Pandas](http://pandas.pydata.org/) con il nome specificato **countResultsdf**.
+	Il comando speciale `%%sql` seguito da `-o countResultsdf` assicura che l'output della query venga mantenuto in locale nel server Jupyter, di solito il nodo head del cluster. L'output viene conservato come frame di dati [Pandas](http://pandas.pydata.org/) con il nome specificato **countResultsdf**.
 	
 	Verrà visualizzato un output simile al seguente:
 	
 	![Output della query SQL](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "Output della query SQL")
 
-	Per altre informazioni sul magic `%%sql` e sugli altri magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+	Per altre informazioni sul comando speciale `%%sql` e sugli altri comandi speciali disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 
-3. È anche possibile creare un tracciato tramite Matplotlib, una libreria che consente di creare visualizzazioni di dati. Poiché il tracciato deve essere tracciato dal frame di dati **countResultsdf** mantenuto in locale, il frammento di codice deve iniziare con il magic `%%local`. Ciò garantisce che il codice venga eseguito localmente nel server di Jupyter.
+3. È anche possibile creare un tracciato tramite Matplotlib, una libreria che consente di creare visualizzazioni di dati. Poiché il tracciato deve essere tracciato dal frame di dati **countResultsdf** conservato in locale, il frammento di codice deve iniziare con il codice speciale `%%local`. Ciò garantisce che il codice venga eseguito localmente nel server di Jupyter.
 
 		%%local
 		%matplotlib inline
@@ -339,39 +339,32 @@ MLLib consente di eseguire facilmente questa operazione. Prima di tutto, si sudd
 
 ## Creare una rappresentazione visiva della stima
 
-Per comprendere meglio i risultati di questo test, è possibile creare una visualizzazione finale.
+Per comprendere meglio i risultati di questo test, ora è possibile creare una visualizzazione finale.
 
-1. Iniziamo estraendo le diverse stime e i vari risultati dalla tabella temporanea **Predictions** creata in precedenza.
+1. Iniziare dall'estrazione delle diverse stime e dei vari risultati dalla tabella temporanea **Predictions** creata in precedenza. Le query seguenti separano l'output in *true\_positive*, *false\_positive*, *true\_negative* e *false\_negative*. Nelle query seguenti disattivare la visualizzazione usando `-q` e tramite `-o` salvare l'output come frame di dati utilizzabili con il comando speciale `%%local`. 
 
-		%%sql -o predictionstable
-		SELECT prediction, results FROM Predictions
+		%%sql -q -o true_positive
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
 
-2. Nel frammento di codice precedente, **predictionstable** è il frame di dati locale nel server di Jupyter che mantiene l'output della query SQL. È ora possibile usare il magic `%%local` per eseguire i frammenti di codice successivi sul frame di dati locale persistente.
+		%%sql -q -o false_positive
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
 
-		%%local
-		failSuccess = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results == 'Fail')]['prediction'].count()
-		failFailure = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results <> 'Fail')]['prediction'].count()
-		passSuccess = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results <> 'Fail')]['prediction'].count()
-		passFailure = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results == 'Fail')]['prediction'].count()
-		failSuccess,failFailure,passSuccess,passFailure
+		%%sql -q -o true_negative
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND results = 'Fail'
 
-	L'output è simile al seguente:
-	
-		# -----------------
-		# THIS IS AN OUTPUT
-		# -----------------
-	
-		(276, 46, 1917, 261)
+		%%sql -q -o false_negative
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions') 
 
-3. Usare infine il frammento di codice seguente per generare il tracciato.
+2. Usare infine il frammento di codice seguente per generare il tracciato con **Matplotlib**.
 
 		%%local
 		%matplotlib inline
 		import matplotlib.pyplot as plt
 		
 		labels = ['True positive', 'False positive', 'True negative', 'False negative']
-		sizes = [failSuccess, failFailure, passSuccess, passFailure]
-		plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+		sizes = [true_positive['cnt'], false_positive['cnt'], false_negative['cnt'], true_negative['cnt']]
+		colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
+		plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
 		plt.axis('equal')
 	
 	Viene visualizzato l'output seguente.
@@ -419,4 +412,4 @@ Al termine dell'esecuzione dell'applicazione, è necessario arrestare il noteboo
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

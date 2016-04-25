@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creare una macchina virtuale SQL Server in PowerShell | Microsoft Azure"
-	description="Fornisce procedure e script di PowerShell per la creazione di una macchina virtuale di Azure con le immagini della galleria di macchine virtuali SQL Server."
+	pageTitle="Creare una macchina virtuale SQL Server in Azure PowerShell (distribuzione classica) | Microsoft Azure"
+	description="Fornisce procedure e script di PowerShell per la creazione di una macchina virtuale di Azure con le immagini della galleria di macchine virtuali SQL Server. In questo argomento viene usata la modalità di distribuzione classica."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/22/2016"
+	ms.date="04/08/2016"
 	ms.author="jroth" />
 
-# Creare una macchina virtuale SQL Server in Azure (PowerShell)
+# Creare una macchina virtuale SQL Server in Azure PowerShell (Classic)
 
 ## Panoramica
 
@@ -24,14 +24,17 @@ In questo articolo viene descritta la procedura per creare una macchina virtuale
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
-
 ## Installare e configurare PowerShell
 
 1. Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-2. [Installare i cmdlet di Azure PowerShell più recenti](../powershell-install-configure.md/#how-to-install-azure-powershell).
+2. [Installare i cmdlet di Azure PowerShell più recenti](../powershell-install-configure.md).
 
-3. [Connettere PowerShell alla sottoscrizione di Azure](../powershell-install-configure.md/#how-to-connect-to-your-subscription).
+3. Dopo l'installazione, avviare Windows PowerShell.
+
+4. Connettere PowerShell alla sottoscrizione di Azure con il comando Add-AzureAccount.
+
+		Add-AzureAccount
 
 ## Determinare l'area di destinazione di Azure
 
@@ -163,10 +166,10 @@ Dopo aver eseguito l'accesso al computer con desktop remoto, configurare SQL Ser
 
 Per istruzioni aggiuntive sul provisioning delle macchine virtuali con PowerShell, vedere la [documentazione delle macchine virtuali](virtual-machines-windows-classic-create-powershell.md). Per altri script relativi a SQL Server e Archiviazione Premium, vedere [Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali](virtual-machines-windows-classic-sql-server-premium-storage.md).
 
-In molti casi, il passaggio successivo consiste nella migrazione dei database in questa nuova macchina virtuale di SQL Server. Per linee guida sulla migrazione dei database, vedere [Migrazione di un database a SQL Server in una VM di Azure](virtual-machines-windows-classic-migrate-sql.md).
+In molti casi, il passaggio successivo consiste nella migrazione dei database in questa nuova macchina virtuale di SQL Server. Per linee guida sulla migrazione dei database, vedere [Migrazione di un database a SQL Server in una VM di Azure](virtual-machines-windows-migrate-sql.md).
 
 Se si è interessati anche all'uso del Portale di Azure per creare macchine virtuali SQL Server, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md). Si noti che l'esercitazione che illustra il portale descrive la creazione di macchine virtuali mediante il modello consigliato di Gestione risorse anziché il modello classico impiegato in questo argomento di PowerShell.
 
-Oltre a queste risorse, è consigliabile esaminare [altri argomenti relativi all'esecuzione di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-overview.md).
+Oltre a queste risorse, è consigliabile esaminare [altri argomenti relativi all'esecuzione di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

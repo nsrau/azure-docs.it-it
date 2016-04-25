@@ -5,7 +5,7 @@
     keywords="database c#,sviluppo sql"
     documentationCenter=""
     authors="stevestein"
-    manager="jeffreyg"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -285,7 +285,7 @@ L'esempio seguente consente di aggiornare le caratteristiche delle prestazioni d
 
 ## Spostare un database esistente in un pool di database elastici
 
-*Dopo aver creato un pool è anche possibile usare Transact-SQL per lo spostamento dei database esistenti da e verso un pool. Per informazioni dettagliate, vedere il [riferimento al pool di database elastici - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+Dopo aver creato un pool, è anche possibile usare Transact-SQL per lo spostamento di database esistenti dentro e fuori dal pool. Per informazioni dettagliate, vedere l'articolo su come [monitorare e gestire un pool di database elastici con Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 Nell'esempio seguente si sposta un database SQL di Azure esistente in un pool:
 
@@ -576,4 +576,4 @@ Nell'esempio seguente vengono elencati tutti i database in un pool:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

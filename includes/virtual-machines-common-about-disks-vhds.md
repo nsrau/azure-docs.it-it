@@ -1,7 +1,5 @@
 
 
-Analogamente a qualsiasi altro computer, le macchine virtuali in Azure utilizzano i dischi come posizioni per archiviare un sistema operativo, le applicazioni e i dati. Tutte le macchine virtuali di Azure dispongono di almeno due dischi: un disco del sistema operativo e un disco temporaneo. Il disco del sistema operativo viene creato da un'immagine e sia il disco del sistema operativo sia l'immagine sono effettivamente dischi rigidi virtuali archiviati in un account di archiviazione di Azure. Anche le macchine virtuali possono disporre di uno o più dischi dati archiviati in dischi rigidi virtuali.
-
 ## Disco del sistema operativo
 
 Tutte le macchine virtuali dispongono di un disco del sistema operativo collegato. È registrato come unità SATA ed etichettato come unità C. Questo disco ha una capacità massima di 1023 GB. Quando in Azure viene creato un disco del sistema operativo, vengono create tre copie del disco per garantire una durabilità elevata. Inoltre, se la macchina virtuale viene configurata per la replica geografica, il disco rigido virtuale viene anche replicato in diversi siti distanti più di 643 km.
@@ -38,4 +36,4 @@ Prima di poter eliminare un file con estensione .vhd di origine, sarà necessari
 
 >[AZURE.WARNING] Se si elimina un file con estensione .vdh di origine dalla memoria o l'account di archiviazione, Microsoft non può recuperare tali dati.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

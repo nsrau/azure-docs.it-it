@@ -24,7 +24,7 @@
 Molti Software come connettori di Servizio (SaaS), quali Facebook, Twitter, DropBox e così via, richiedono agli utenti di autenticarsi tramite il protocollo OAUTH. Quando si utilizzano questi connettori SaaS dalle App per la logica, si forniscono un'esperienza utente semplificata nella quale si fa clic su "Authorize" nella finestra di progettazione di applicazioni di logica. Quando si fa clic su **Authorize** viene chiesto di accedere in (se non è stato già fatto) e di fornire il consenso per connettersi al servizio SaaS per conto dell'utente. Dopo aver fornito il consenso e l’autorizzazione, le app per la logica possono accedere a questi servizi SaaS.
 
 ## Creare la propria applicazione SaaS
-Questa esperienza semplificata è possibile perché è stata precedentemente creata e registrata l'applicazione in tali servizi SaaS. In alcuni casi, si desidera registrare e utilizzare la propria applicazione. Questo è necessario, ad esempio, quando si desidera utilizzare questi connettori SaaS nelle applicazioni personalizzate, ad esempio in [Distribuire un'app API del connettore SaaS](../app-service-api/app-service-api-connnect-your-app-to-saas-connector.md). In questo esempio si utilizza il connettore DropBox, ma il processo è lo stesso per tutti i connettori che si basano su OAUTH.
+Questa esperienza semplificata è possibile perché è stata precedentemente creata e registrata l'applicazione in tali servizi SaaS. In alcuni casi, si desidera registrare e utilizzare la propria applicazione. Questo è necessario ad esempio quando si vuole usare questi connettori SaaS nelle applicazioni personalizzate. In questo esempio si utilizza il connettore DropBox, ma il processo è lo stesso per tutti i connettori che si basano su OAUTH.
 
 Anche nel contesto dell’app per la logica, è possibile utilizzare la propria applicazione invece di utilizzare l'applicazione predefinita che offriamo. Se il pulsante "Authorize" non riesce a connettersi, è possibile provare a creare la propria app. Di seguito sono elencati questi passaggi per il connettore Twitter:
 
@@ -32,9 +32,11 @@ Anche nel contesto dell’app per la logica, è possibile utilizzare la propria 
 
 2. Selezionare **Impostazioni** > **autenticazione**:![][2]
 
-3. Copiare il valore **Reindirizzamento URI**: ![][3]
+3. Copiare il valore **Reindirizzamento URI**:
+![][3]
 
-4. Andare a [Twitter](http://apps.twitter.com) e **Creare una nuova app**. Nella proprietà **URL Callback**, incollare il valore **URI di reindirizzamento** copiato dal connettore Twitter: ![][4]
+4. Andare a [Twitter](http://apps.twitter.com) e **Creare una nuova app**. Nella proprietà **URL Callback**, incollare il valore **URI di reindirizzamento** copiato dal connettore Twitter:
+![][4]
 5. Quando viene creata l'app Twitter, selezionare **Chiave e token di accesso**. Copiare questi valori.
 6. Nelle impostazioni di autenticazione del connettore Twitter, incollare questi valori nell’**ID Client** e **Client segreto **proprietà:![][5]  
 7. Salvare le impostazioni del connettore.  
@@ -51,4 +53,4 @@ A questo punto, sarà possibile utilizzare il connettore delle App per la logica
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

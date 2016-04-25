@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2016" 
+	ms.date="04/08/2016" 
 	ms.author="nitinme"/>
 
 # Problemi noti di Apache Spark in Azure HDInsight (Linux)
@@ -54,11 +54,32 @@ Il server cronologia Spark non viene avviato automaticamente dopo la creazione d
 
 Avviare manualmente il server cronologia da Ambari.
 
-##Errore durante il caricamento di notebook di maggiori dimensioni
+## Problema di autorizzazioni nella directory log Spark 
+
+**Sintomo:**
+ 
+Quando hdiuser invia un processo con spark-submit, si verifica un errore java.io.FileNotFoundException: /var/log/spark/sparkdriver\_hdiuser.log (autorizzazione negata) e il log del driver non viene scritto.
+
+**Soluzione:**
+ 
+1. Aggiungere hdiuser al gruppo Hadoop. 
+2. Indicare 777 autorizzazioni in /var/log/spark dopo la creazione del cluster. 
+3. Aggiornare il percorso del log Spark tramite Ambari in modo che corrisponda a una directory con 777 autorizzazioni.  
+4. Eseguire spark-submit come sudo.  
+
+## Problemi relativi ai notebook Jupyter
+
+Seguito alcuni problemi noti relativi ai notebook Jupyter.
+
+### Notebook con nomi di file contenenti caratteri non ASCII
+
+I notebook Jupyter utilizzabili nei cluster HDInsight Spark non devono contenere nei nomi di file caratteri non ASCII. Se si tenta di caricare tramite l'interfaccia utente Jupyter un file con un nome di file non ASCII, l'operazione si interromperà senza avvisi. Questo significa che Jupyter non consentirà di caricare il file, ma non genererà un errore visibile.
+
+### Errore durante il caricamento di notebook di maggiori dimensioni
 
 **Sintomo:**
 
-Potrebbe essere visualizzato l'errore **`Error loading notebook`** quando si caricano i notebook di maggiori dimensioni.
+Quando si caricano notebook di maggiori dimensioni, potrebbe comparire l'errore **`Error loading notebook`**.
 
 **Soluzione:**
 
@@ -66,12 +87,10 @@ Se viene visualizzato questo errore, non significa che i dati sono danneggiati o
 
 Per evitare questo errore in futuro, è necessario seguire alcune procedure consigliate:
 
-* È importante mantenere ridotte le dimensioni del notebook. L'output dei processi Spark inviato a Jupyter viene salvato in modo permanente nel notebook. Con Jupyter è in genere consigliabile evitare di eseguire `.collect()` su RDD o frame di dati di grandi dimensioni. Se si vuole visualizzare il contenuto di un RDD, considerare invece la possibilità di eseguire `.take()` o `.sample()` per evitare la crescita eccessiva dell'output.
+* È importante mantenere ridotte le dimensioni del notebook. L'output dei processi Spark inviato a Jupyter viene salvato in modo permanente nel notebook. Con Jupyter in genere è consigliabile evitare di eseguire `.collect()` su RDD o frame di dati di grandi dimensioni. Se si vuole visualizzare il contenuto di un RDD, considerare invece la possibilità di eseguire `.take()` o `.sample()` per evitare la crescita eccessiva dell'output.
 * Quando si salva un notebook, cancellare anche tutte le celle di output per ridurre le dimensioni.
 
-
-
-##L'avvio iniziale del notebook richiede più tempo del previsto 
+### L'avvio iniziale del notebook richiede più tempo del previsto 
 
 **Sintomo:**
 
@@ -81,7 +100,7 @@ La prima istruzione nel notebook di Jupyter tramite magic Spark potrebbe richied
  
 Ciò accade quando viene eseguita la prima cella di codice. In background viene avviata la configurazione della sessione e vengono impostati i contesti Spark, SQL e Hive. La prima istruzione viene eseguita dopo l'impostazione di questi contesti, dando l'impressione che l'esecuzione dell'istruzione impieghi molto tempo.
 
-##Timeout del notebook di Jupyter durante la creazione della sessione
+### Timeout del notebook di Jupyter durante la creazione della sessione
 
 **Sintomo:**
 
@@ -96,22 +115,13 @@ Quando il cluster Spark esaurisce le risorse, si verificherà il timeout dei ker
 
 2. Riavviare il notebook che si stava cercando di avviare. Ora dovrebbero essere disponibili risorse sufficienti per creare una sessione.
 
-## Problema di autorizzazioni nella directory log Spark 
+### Il ripristino del checkpoint potrebbe non riuscire
 
-**Sintomo:**
- 
-Quando hdiuser invia un processo con spark-submit, si verifica un errore java.io.FileNotFoundException: /var/log/spark/sparkdriver\_hdiuser.log (autorizzazione negata) e il log del driver non viene scritto.
-
-**Soluzione:**
- 
-1. Aggiungere hdiuser al gruppo Hadoop. 
-2. Indicare 777 autorizzazioni in /var/log/spark dopo la creazione del cluster. 
-3. Aggiornare il percorso del log Spark tramite Ambari in modo che corrisponda a una directory con 777 autorizzazioni.  
-4. Eseguire spark-submit come sudo. 
+È possibile creare i checkpoint nei notebook Jupyter per ripristinare una versione precedente del notebook. Se però lo stato corrente del notebook ha una query SQL con visualizzazione automatica, il ripristino di un checkpoint memorizzato in precedenza potrebbe provocare un errore.
 
 ##Vedere anche
 
 - [Panoramica: Apache Spark in Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
 - [Introduzione: eseguire il provisioning di Apache Spark in Azure HDInsight (Linux) ed eseguire query interattive usando Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

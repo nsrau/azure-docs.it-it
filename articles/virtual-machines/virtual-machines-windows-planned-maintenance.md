@@ -17,11 +17,13 @@
 	ms.date="01/05/2016"
 	ms.author="drewm"/>
 
-# Manutenzione pianificata per macchine virtuali Windows in Azure
+# Manutenzione pianificata per macchine virtuali in Azure
+
+
+Informazioni sulla manutenzione pianificata di Azure e su come può influire sulla disponibilità delle macchine virtuali Windows. Questo articolo è disponibile anche per le [macchine virtuali Linux](virtual-machines-linux-planned-maintenance.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Informazioni sulla manutenzione pianificata di Azure e su come può influire sulla disponibilità delle macchine virtuali Windows. È anche possibile leggere informazioni sulla [manutenzione pianificata per macchine virtuali Linux](virtual-machines-linux-planned-maintenance.md).
 
 ## Perché Azure esegue la manutenzione pianificata
 
@@ -33,4 +35,4 @@ Esistono due tipi di manutenzione che possono influire sulla disponibilità dell
 
 [AZURE.INCLUDE [virtual-machines-common-planned-maintenance](../../includes/virtual-machines-common-planned-maintenance.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

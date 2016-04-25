@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/10/2016"
+	ms.topic="article"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # Come fornire l'accesso remoto sicuro alle applicazioni locali
@@ -63,4 +63,4 @@ Si può fare molto di più con il proxy dell'applicazione:
 - [Iscriversi ad Azure come organizzazione](sign-up-organization.md)
 - [Identità di Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

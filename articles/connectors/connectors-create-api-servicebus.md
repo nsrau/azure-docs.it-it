@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Connettersi al bus di servizio di Azure per inviare e ricevere messaggi. È possibile eseguire varie azioni, ad esempio inviare alla coda, inviare all'argomento, ricevere dalla coda, ricevere dalla sottoscrizione, e così via.
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic su [Bus di servizio di Azure](../app-service-logic/app-service-logic-connector-azureservicebus.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 Con il bus di servizio di Azure è possibile:
 
@@ -51,22 +51,24 @@ L'API del bus di servizio di Azure include trigger e può essere usata come azio
 
 
 ## Creare una connessione al bus di servizio di Azure
-Per usare l'API del bus di servizio di Azure, creare prima di tutto una **connessione**, quindi indicare i dettagli di queste proprietà:
+Per usare l'API del bus di servizio di Azure, creare prima una **connessione**, quindi indicare i dettagli di queste proprietà:
 
 |Proprietà| Obbligatorio|Descrizione|
 | ---|---|---|
 |ConnectionString|Sì|Fornire una stringa di connessione per il bus di servizio di Azure|  
 
-Seguire questi passaggi per creare una **connessione** bus di servizio che sarà possibile usare nelle app per la logica:
+Seguire questi passaggi per creare una **connessione** del bus di servizio che sarà poi usato nell'app per la logica:
 
-1. Selezionare **Ricorrenza**
-2. Specificare una frequenza in **Frequency** e un intervallo in **Interval** ![Configurare il Bus di servizio][1] 
+1. Selezionare **Recurrence**
+2. Selezionare una **frequenza** e immettere un **intervallo** ![Configurare il Bus di servizio][1] 
 3. Selezionare **Add an action** ![Configurare il Bus di servizio][2]   
-4. Immettere **Bus di servizio** nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con Bus di servizio nel nome
+4. Immettere **Service Bus** nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con Service Bus nel nome
 5. Selezionare **Service Bus - Send message** ![Configurare il Bus di servizio][3]
-7. Specificare un nome e una stringa di connessione in **Connection name** e **Connection string**, quindi fare clic su **Create connection**: ![Configurare il Bus di servizio][4]
-7. Dopo aver creata la connessione, verrà visualizzata la finestra di dialogo **Invia messaggio**. Immettere tutte le informazioni necessarie per l'invio di un messaggio. ![Configurare il Bus di servizio][5]
-8. Selezionare **Salva** nel menu in alto per salvare il lavoro.    
+7. Specificare un nome e una stringa di connessione in **Connection name** e **Connection string**e quindi selezionare **Create connection**:
+![Configurare il Bus di servizio][4]
+7. Dopo aver creato la connessione, verrà visualizzata la finestra di dialogo **Send message**. Immettere tutte le informazioni necessarie per l'invio di un messaggio.
+![Configurare il Bus di servizio][5]
+8. Selezionare il pulsante **Salva** nel menu in alto per salvare i dati.    
 
 >[AZURE.TIP] È possibile usare questa connessione in altre app per la logica.
 
@@ -165,4 +167,4 @@ ContentTransferEncoding
 [5]: ./media/connectors-create-api-servicebus/connectionconfig5.png
 [6]: ./media/connectors-create-api-servicebus/connectionconfig6.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

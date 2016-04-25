@@ -4,13 +4,13 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="01/20/2016"
+	ms.date="04/11/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -23,26 +23,26 @@
 **Database singolo**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-import.md)
+- [Portale di Azure](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 - [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 - [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
 
 In questo articolo vengono fornite istruzioni per la creazione di un nuovo database SQL Azure da un file BACPAC utilizzando il [portale di Azure](https://portal.azure.com).
 
-Un BACPAC è un file con estensione bacpac che contiene lo schema del database e dati. Per ulteriori informazioni, vedere il pacchetto di Backup (con estensione bacpac) in [Applicazioni livello dati](https://msdn.microsoft.com/library/ee210546.aspx).
-
-Il database viene creato da un file BACPAC importato da un contenitore di BLOB di archiviazione di Azure. Se non si dispone di un file con estensione bacpac nell'archiviazione di Azure è possibile crearne uno seguendo i passaggi in [Creazione ed esportazione di un file BACPAC di un Database SQL di Azure](sql-database-export.md).
+Un BACPAC è un file con estensione bacpac che contiene lo schema del database e dati. Il database viene creato da un file BACPAC importato da un contenitore di BLOB di archiviazione di Azure. Se non si dispone di un file con estensione bacpac nell'archiviazione di Azure è possibile crearne uno seguendo i passaggi in [Creazione ed esportazione di un file BACPAC di un Database SQL di Azure](sql-database-export.md).
 
 
-> [AZURE.NOTE]Il database SQL di Azure crea automaticamente e conserva i backup per ogni database dell’utente che è possibile ripristinare. Per ulteriori informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
+> [AZURE.NOTE] Il database SQL di Azure crea automaticamente e conserva i backup per ogni database dell’utente che è possibile ripristinare. Per ulteriori informazioni, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
 
 Per importare un database SQL da un file bacpac è necessario quanto segue:
 
-- Una sottoscrizione di Azure. Se è necessaria una sottoscrizione ad Azure, fare semplicemente clic su **VERSIONE DI PROVA GRATUITA** nella parte superiore della pagina, quindi tornare e proseguire fino alla fine di questo articolo.
+- Una sottoscrizione di Azure. 
 - Un server V12 del Database SQL di Azure. Se non si dispone di un server V12, crearne uno seguendo i passaggi indicati in questo articolo: [Creare il primo database SQL di Azure](sql-database-get-started.md).
-- Un file con estensione bacpac del database che si desidera importare in un contenitore di BLOB dell’[account di archiviazione di Azure (classico)](storage-create-storage-account.md).
+- Un file BACPAC del database che si vuole importare in un contenitore BLOB dell'[account di archiviazione di Azure (standard)](../storage/storage-create-storage-account.md).
+
+***Importante***: quando si importa un file BACPAC dall'archivio BLOB di Azure, usare l'archiviazione standard. L'importazione di un file BACPAC dall'archiviazione Premium non è supportata.
 
 
 ## Selezionare il server che conterrà il database
@@ -50,10 +50,9 @@ Per importare un database SQL da un file bacpac è necessario quanto segue:
 Aprire il pannello di SQL Server per il database che si desidera importare:
 
 1.	Accedere al [portale di Azure](https://portal.azure.com).
-2.	Fare clic su **ESPLORA TUTTO**.
-3.	Fare clic su **SQL Server**.
-2.	Fare clic sul server in cui ripristinare il database.
-3.	Nel pannello di SQL Server fare clic su **Importa database** per aprire il pannello **Importa database**:
+2.	Fare clic su **SQL Server**.
+3.	Fare clic sul server in cui ripristinare il database.
+4.	Nel pannello di SQL Server fare clic su **Importa database** per aprire il pannello **Importa database**:
 
     ![importa database][1]
 
@@ -65,9 +64,9 @@ Aprire il pannello di SQL Server per il database che si desidera importare:
 
     ![selezionare un livello di prezzo][3]
 
-1.  Immettere un **NOME DEL DATABASE**.
-2.  Immettere l’ **account di accesso dell’amministratore del Server** e la **Password** per il server SQL di Azure in cui si sta importando il database.
-1.  Fare clic su **Crea** per creare il database dal BACPAC.
+1.  Immettere un **NOME DATABASE** per il database che verrà creato dal file BACPAC.
+2.  Scegliere il tipo di autenticazione e quindi specificare le informazioni di autenticazione per il server. 
+3.  Fare clic su **Crea** per creare il database dal BACPAC.
 
     ![creazione del database][4]
 
@@ -75,10 +74,9 @@ Facendo clic su **Crea** si invia una richiesta di importazione del database al 
 
 ## Monitorare lo stato dell’operazione di importazione
 
-2.	Fare clic su **ESPLORA TUTTO**.
-3.	Fare clic su **SQL Server**.
+1.	Fare clic su **SQL Server**.
 2.	Selezionare il server da ripristinare.
-3.	Nel pannello server SQL fare clic su **Cronologia importazione/esportazione**:
+3.	Nel pannello server SQL fare clic su **Cronologia importazioni/esportazioni**, nell'area Operazioni:
 
     ![cronologia importazione/esportazione][5] ![cronologia importazione/esportazione][6]
 
@@ -88,8 +86,7 @@ Facendo clic su **Crea** si invia una richiesta di importazione del database al 
 
 ## Verificare che il database sia disponibile nel server
 
-2.	Fare clic su **ESPLORA TUTTO**.
-3.	Fare clic su **database SQL** e verificare che il nuovo database sia **Online**.
+1.	Fare clic su **database SQL** e verificare che il nuovo database sia **Online**.
 
 
 
@@ -112,4 +109,4 @@ Facendo clic su **Crea** si invia una richiesta di importazione del database al 
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0413_2016-->

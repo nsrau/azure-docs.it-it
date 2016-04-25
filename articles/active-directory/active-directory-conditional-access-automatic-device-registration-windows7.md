@@ -45,7 +45,7 @@ Il programma di installazione crea nel sistema un'attività pianificata che vien
 Per annullare la registrazione dei dispositivi Windows 7 aggiunti a un dominio, disinstallare il pacchetto software per l'aggiunta all'area di lavoro dai dispositivi Windows 7 aggiunti a un dominio usando un sistema di distribuzione software, ad esempio System Center Configuration Manager.
 
 Aprire quindi un prompt dei comandi nel computer Windows 7 ed eseguire il comando seguente per annullare la registrazione del dispositivo:
-    
+
     %ProgramFiles%\Microsoft Workplace Join\AutoWorkplace.exe /leave
 
 >[AZURE.NOTE]
@@ -57,9 +57,7 @@ Nel registro eventi del computer Windows 7 verranno visualizzati i messaggi rela
 
 - [Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
 - [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration.md)
-- [Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows 10 aggiunti a un dominio](active-directory-azureadjoin-devices-group-policy.md)
 
- 
-
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,4 +1,4 @@
-<properties pageTitle="Esecuzione di Cassandra con Linux in Azure | Microsoft Azure" description="Come eseguire un cluster Cassandra in Linux in Macchine virtuali di Azure da un'app Node.js" services="virtual-machines-linux" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor="" azure-service-management"/>
+<properties pageTitle="Esecuzione di Cassandra con Linux in Azure | Microsoft Azure" description="Informazioni sull'esecuzione di un cluster Cassandra in Linux nelle macchine virtuali di Azure da un'app Node.js" services="virtual-machines-linux" documentationCenter="nodejs" authors="hanuk" manager="wpickett" editor="" azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines-linux" 
@@ -6,8 +6,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
-	ms.author="robmcm"/>
+	ms.date="04/12/2016" 
+	ms.author="hanuk;robmcm"/>
 
 # Esecuzione di Cassandra con Linux in Azure e accesso da Node.js 
 
@@ -457,7 +457,7 @@ Si noti che il keyspace creato nel passaggio 4 usa SimpleStrategy con replicatio
 Verrà sfruttata la distribuzione in un'area singola completata e si ripeterà lo stesso processo per l'installazione della seconda area. La differenza principale tra la distribuzione in un'area singola e in più aree è la configurazione del tunnel VPN per la comunicazione tra le aree. Si inizierà con l'installazione di rete, il provisioning delle macchine virtuali e la configurazione di Cassandra.
 
 ###Passaggio 1: Creare la rete virtuale nella seconda area
-Accedere al portale di Azure classico e creare una rete virtuale con gli attributi elencati nella tabella. Per i singoli passaggi del processo, vedere [Configurare una rete virtuale usando il portale di Azure classico](../virtual-network/virtual-networks-create-vnet.md).
+Accedere al portale di Azure classico e creare una rete virtuale con gli attributi elencati nella tabella. Per i singoli passaggi del processo, vedere [Configurare una rete virtuale usando il portale di Azure classico](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 <table>
 <tr><th>Nome attributo    </th><th>Valore	</th><th>Osservazioni</th></tr>
@@ -697,4 +697,4 @@ Microsoft Azure è una piattaforma flessibile che consente di eseguire software 
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

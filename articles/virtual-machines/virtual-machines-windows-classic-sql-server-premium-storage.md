@@ -37,7 +37,7 @@ In questo articolo sono fornite indicazioni per la migrazione di una macchina vi
 - Approcci di migrazione possibili.
 - Esempio end-to-end completo che mostra i passaggi di Azure, Windows e SQL Server per la migrazione di un'implementazione di AlwaysOn esistente.
 
-Per ottenere le informazioni più esaustive sull'utilizzo di SQL Server in Macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-overview.md).
+Per ottenere le informazioni più esaustive sull'utilizzo di SQL Server in Macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
 **Autore:** Daniel Sol **Revisori tecnici:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
@@ -402,8 +402,6 @@ Se si utilizzano pool di archiviazione di Windows nella macchina virtuale per un
 1. Copiare i backup completi e ripristinare con **NORECOVERY**.
 1. Copiare gli oggetti dipendenti esterni al database utente, ad esempio nomi di accesso e così via.
 1. Crea un nuovo servizio di carico bilanciamento interno (ILB) oppure utilizzare un servizio di bilanciamento del carico esterno (ELB) e quindi impostare gli endpoint con bilanciamento del carico in entrambi i nodi nuovi.
-
-
 > [AZURE.NOTE] Prima di continuare, verificare che tutti i nodi abbiano la configurazione dell'endpoint corretta
 
 1. Impedire all'utente/applicazione l’accesso a SQL Server (se si utilizzano pool di archiviazione).
@@ -1121,7 +1119,7 @@ Per aggiungere l'indirizzo IP, vedere l’[Appendice](#appendix-migrating-a-mult
 ## Risorse aggiuntive
 - [Archiviazione Premium di Azure](../storage/storage-premium-storage.md)
 - [Macchine virtuali](https://azure.microsoft.com/services/virtual-machines/)
-- [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-overview.md)
+- [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->
 [1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png
@@ -1150,4 +1148,4 @@ Per aggiungere l'indirizzo IP, vedere l’[Appendice](#appendix-migrating-a-mult
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

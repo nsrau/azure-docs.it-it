@@ -120,13 +120,13 @@ Questa procedura permette di integrare il tenant di Azure AD con l'istanza di Ac
   1.	Aggiungere i domini.
   2.	Installare ed eseguire Azure AD Connect. Installare Azure AD Connect seguendo le istruzioni seguenti, [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Verificare e gestire la sincronizzazione della directory. Le istruzioni per l'accesso Single Sign-On sono disponibili in questo passaggio.
-  >[AZURE.NOTE] Configurare la federazione con AD FS come descritto nel documento accessibile dal collegamento precedente.
-  >[AZURE.NOTE] Non è necessario configurare le funzionalità di anteprima.
-
-
+  
+  > [AZURE.NOTE] 
+  Configurare la federazione con AD FS come descritto nel documento accessibile dal collegamento precedente. Non è necessario configurare le funzionalità di anteprima.
 
 
 ## Aggiornare lo schema di Servizi di dominio Active Directory
+
 > [AZURE.NOTE]
 L'aggiornamento dello schema di Active Directory non può essere annullato. È quindi consigliabile eseguirlo prima in un ambiente di test.
 
@@ -136,6 +136,7 @@ L'aggiornamento dello schema di Active Directory non può essere annullato. È q
 4. Al prompt dei comandi passare alla directory adprep ed eseguire: **adprep.exe /forestprep**. Seguire le istruzioni visualizzate per completare l'aggiornamento dello schema.
 
 ## Preparare Active Directory per supportare i dispositivi
+
 >[AZURE.NOTE] Questa è un'operazione da eseguire una sola volta per preparare la foresta Active Directory per supportare i dispositivi. Per completare questa procedura è necessario accedere con autorizzazioni di amministratore dell'organizzazione e la foresta Active Directory deve avere lo schema di Windows Server 2012 R2..
 
 
@@ -189,7 +190,7 @@ Dove `yourdomainname` è il nome di dominio configurato con Azure Active Directo
 4. Quando richiesto, accedere con le proprie credenziali. Il dispositivo ora è aggiunto.
 
 ###Aggiungere un dispositivo Windows 7 con Registrazione dispositivo di Azure Active Directory
-Per registrare dispositivi Windows 7 aggiunti a un dominio, è necessario distribuire il pacchetto software di registrazione dispositivo. Il pacchetto software è denominato "Workplace Join for Windows 7" ed è disponibile per il download dal [sito Web Microsoft Connect](https://connect.microsoft.com/site1164). Le istruzioni per l'uso del pacchetto sono disponibili in [Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md).
+Per registrare dispositivi Windows 7 aggiunti a un dominio, è necessario distribuire il pacchetto software di registrazione dispositivo. Il pacchetto software è denominato "Workplace Join for Windows 7" ed è disponibile per il download nel [sito Web Microsoft Connect](https://connect.microsoft.com/site1164). Le istruzioni per l'uso del pacchetto sono disponibili in [Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md).
 
 ### Aggiungere un dispositivo Android con Registrazione dispositivo di Azure Active Directory
 
@@ -206,6 +207,7 @@ Per impostazione predefinita, gli oggetti dispositivo di cui viene eseguito il w
 Considerare lo scenario seguente: si crea un trust della relying party per l'applicazione in AD FS e si configura una regola di autorizzazione rilascio che consente solo dispositivi registrati. Ora solo i dispositivi registrati possono accedere all'applicazione. Per semplificare l'accesso degli utenti all'applicazione, si configura un messaggio di accesso negato personalizzato che include istruzioni su come aggiungere il dispositivo dell'utente. A questo punto gli utenti hanno un modo per registrare i propri dispositivi per accedere a un'applicazione.
 
 Nei passaggi seguenti viene mostrato come implementare questo scenario.
+
 >[AZURE.NOTE]
 Questa sezione presuppone che sia già stato configurato un trust della relying party per l'applicazione in AD FS.
 
@@ -250,4 +252,4 @@ A questo punto, quando gli utenti accedono all'applicazione da un dispositivo no
 
 - [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

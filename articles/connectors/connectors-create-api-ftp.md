@@ -22,7 +22,7 @@ Connettersi a un server FTP per gestire i file, ad esempio, caricare i file, eli
 
 - App per la logica
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore di FTP](../app-service-logic/app-service-logic-connector-ftp.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 Con FTP è possibile:
 
@@ -38,7 +38,7 @@ Per FTP sono disponibili i trigger e le azioni seguenti:
 
 Trigger | Azioni
 --- | ---
-<ul><li>Recupera un file aggiornato</li></ul> | <ul><li>Crea file</li><li>Copia file</li><li>Elimina file</li><li>Estrai cartella</li><li>Recupera contenuto di file</li><li>Recupera contenuto di file tramite percorso</li><li>Recupera metadati di file</li><li>Recupera metadati di file tramite percorso</li><li>Recupera un file aggiornato</li><li>Aggiorna file</li></ul>
+<ul><li>Ottiene un file aggiornato</li></ul> | <ul><li>Crea file</li><li>Copia file</li><li>Elimina file</li><li>Estrai cartella</li><li>Ottieni contenuto di file</li><li>Ottieni contenuto di file tramite percorso</li><li>Ottieni metadati di file</li><li>Ottieni metadati di file tramite percorso</li><li>Ottieni un file aggiornato</li><li>Aggiorna file</li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
@@ -51,7 +51,7 @@ Quando si aggiunge questa API alle app per la logica, immettere i valori seguent
 |Nome utente| Sì | Immettere il nome utente per la connessione al server FTP.|
 |Password | Sì | Immettere la password del nome utente.|
 
-Dopo aver creato la connessione immettere le proprietà di FTP, ad esempio file di origine o cartella di destinazione. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
+Dopo aver creato la connessione immettere le proprietà di FTP, ad esempio file di origine o cartella di destinazione. **Informazioni di riferimento sulle API REST** in questo articolo descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di FTP in altre app per la logica.
 
@@ -102,7 +102,7 @@ Elimina un file dal server FTP. ```DELETE: /datasets/default/files/{id}```
 |default|Operazione non riuscita.|
 
 ### Estrai cartella
-Estrae un file di archivio in una cartella del server FTP, ad esempio con estensione zip. ```POST: /datasets/default/extractFolderV2```
+Estrae un file di archivio in una cartella del server FTP, ad esempio un file con estensione zip. ```POST: /datasets/default/extractFolderV2```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -173,7 +173,7 @@ Recupera i metadati dei file dal server FTP tramite percorso. ```GET: /datasets/
 
 
 ### Ottieni un file aggiornato
-Recupera un file aggiornato. ```GET: /datasets/default/triggers/onupdatedfile```
+Ottiene un file aggiornato. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -247,4 +247,4 @@ Aggiorna un file nel server FTP. ```PUT: /datasets/default/files/{id}```
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

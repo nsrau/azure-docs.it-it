@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="04/07/2016" 
 	ms.author="billmath"/>
 
 # Domande frequenti su Azure Multi-Factor Authentication
@@ -153,13 +153,18 @@ Se si utilizza il Server di autenticazione a più fattori di Azure, i token OATH
 
 Pertanto, se i token ActiveIdentity sono token OATH TOTP ed è possibile ottenere il file di chiave privato in un file CSV che può essere importato nel Server di autenticazione a più fattori di Azure, sarà possibile utilizzarli. I token OATH possono essere usati con ADFS, con RADIUS quando il sistema client riesce ad elaborare le risposte di richiesta di accesso e con l'autenticazione basata su form di IIS.
 
-**D: È possibile usare il server di Azure MFA per proteggere Servizi terminal**
+**D: È possibile usare il server di Azure MFA per proteggere Servizi terminal?**
 
 Sì, ma se si usa Windows Server 2012 R2 o versioni successive, questa operazione può essere eseguita solo tramite un Gateway Desktop remoto.
 
 La modalità di associazione del server di Azure MFA al pacchetto di protezione LSA in Windows Server 2012 e versioni precedenti non funziona più in Windows Server 2012 R2 a causa di alcune modifiche alla sicurezza. Pertanto, per le versioni di Servizi terminal in Windows 2012 o versioni precedenti è possibile semplicemente seguire la procedura [per proteggere un'applicazione con l'autenticazione di Windows](multi-factor-authentication-get-started-server-windows.md#to-secure-an-application-with-windows-authentication-use-the-following-procedure).
 
 Se tuttavia si usa Windows Server 2012 R2, è necessario un Gateway Desktop remoto.
+
+**D: Perché si ricevono chiamate MFA da un chiamante anonimo dopo aver impostato l'ID chiamante?**
+
+In alcuni casi, quando vengono effettuate chiamate MFA tramite la rete telefonica pubblica, queste vengono indirizzate su un gestore che non supporta l'ID chiamante. Pertanto, l'ID chiamante non è garantito anche se il sistema MFA lo invia sempre.
+
 
 ## Errori
 
@@ -180,4 +185,4 @@ Attualmente, la verifica aggiuntiva di sicurezza può essere utilizzata solo con
 
 Una soluzione alternativa consiste nel disporre di un account utente separato per le operazioni correlate all'amministratore e un altro per le operazioni non correlate all’amministratore. In un secondo momento, è possibile collegare le cassette postali tra l'account amministratore e l'account non amministratore in modo da poter accedere ad outlook utilizzando l'account non amministratore. Per altre informazioni, vedere [Consentire ad un amministratore di aprire e visualizzare il contenuto della cassetta postale di un utente] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

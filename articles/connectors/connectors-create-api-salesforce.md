@@ -29,7 +29,7 @@ Connettersi a Salesforce per creare oggetti, recuperarli e così via. L'API di S
 
 &nbsp;
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic sul [connettore Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 Con Salesforce è possibile:
 
@@ -47,7 +47,7 @@ L'API di Salesforce include i trigger e le azioni seguenti.
 
 | Trigger | Azioni|
 | --- | --- |
-|<ul><li>Quando viene creato un oggetto</li><li>Quando viene modificato un oggetto</li></ul> | <ul><li>Crea oggetto</li><li>Ottieni oggetti</li><li>Quando viene creato un oggetto</li><li>Quando viene modificato un oggetto</li><li>Elimina oggetto</li><li>Ottieni oggetto</li><li>Ottieni tipi di oggetto (SObjects)</li><li>Aggiorna oggetto</li></ul>
+|<ul><li>When an object is created</li><li>When an object is modified</li></ul> | <ul><li>Create object</li><li>Get objects</li><li>When an object is created</li><li>When an object is modified</li><li>Delete object</li><li>Get object</li><li>Get object types (SObjects)</li><li>Update object</li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
@@ -58,7 +58,7 @@ Quando si aggiunge questa API alle app per la logica, è necessario autorizzare 
 1. Accedere all'account Salesforce.
 2. Consentire alle app per la logica di connettersi e usare l'account Salesforce. 
 
-Dopo aver creato la connessione immettere le proprietà di Salesforce, ad esempio nome tabella. Tali proprietà vengono descritte nelle **Informazioni di riferimento sulle API REST** in questo argomento.
+Dopo aver creato la connessione immettere le proprietà di Salesforce, ad esempio nome tabella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione in altre app per la logica.
 
@@ -266,4 +266,4 @@ Tornare all'[elenco di API](apis-list.md).
 [7]: ./media/connectors-create-api-salesforce/salesforce-create-app.png
 [8]: ./media/connectors-create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

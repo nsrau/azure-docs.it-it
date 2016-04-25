@@ -22,7 +22,7 @@ Connettersi a Facebook e pubblicare un post in una sequenza temporale, recuperar
 
 - App per la logica 
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore di Facebook](../app-service-logic/app-service-logic-connector-facebook.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 
 Con Facebook è possibile:
@@ -38,7 +38,7 @@ L'API di Facebook include i trigger e le azioni seguenti.
 
 | Trigger | Azioni|
 | --- | --- |
-| <ul><li>Quando nella sequenza temporale è presente un nuovo post</li></ul> |<ul><li>Recupera feed dalla sequenza temporale</li><li>Pubblica post nella sequenza temporale</li><li>Quando nella sequenza temporale è presente un nuovo post</li><li>Recupera feed della pagina</li><li>Recupera sequenza temporale utente</li><li>Pubblica post nella pagina</li></ul>
+| <ul><li>Quando nel diario è presente un nuovo post</li></ul> |<ul><li>Ottieni feed dal diario</li><li>Pubblica post nel diario</li><li>Quando nel diario è presente un nuovo post</li><li>Ottieni feed della pagina</li><li>Ottieni diario utente</li><li>Pubblica post nella pagina</li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
@@ -48,7 +48,7 @@ Quando si aggiunge questa API alle app per la logica, è necessario autorizzare 
 1. Accedere al proprio account Facebook
 2. Selezionare **Autorizza** e consentire alle app per la logica di connettersi e usare Facebook. 
 
-Dopo aver creato la connessione, immettere le proprietà di Facebook. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
+Dopo aver creato la connessione, immettere le proprietà di Facebook. **Informazioni di riferimento sulle API REST** in questo articolo descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di Facebook in altre app per la logica.
 
@@ -56,7 +56,7 @@ Dopo aver creato la connessione, immettere le proprietà di Facebook. Il **rifer
 Si applica alla versione 1.0.
 
 ### Ottieni feed dal diario
-Recupera i feed dalla sequenza temporale dell'utente connesso. ```GET: /me/feed```
+Ottiene i feed dal diario dell'utente connesso. ```GET: /me/feed```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -75,7 +75,7 @@ Recupera i feed dalla sequenza temporale dell'utente connesso. ```GET: /me/feed`
 
 
 ### Pubblica post nel diario
-Pubblica un messaggio di stato nella sequenza temporale dell'utente connesso. ```POST: /me/feed```
+Pubblica un messaggio di stato nel diario dell'utente connesso. ```POST: /me/feed```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -91,7 +91,7 @@ Pubblica un messaggio di stato nella sequenza temporale dell'utente connesso. ``
 
 
 ### Quando nel diario è presente un nuovo post
-Quando nella sequenza temporale dell'utente connesso è presente un nuovo post, attiva un nuovo flusso. ```GET: /trigger/me/feed```
+Quando nel diario dell'utente connesso è presente un nuovo post, attiva un nuovo flusso. ```GET: /trigger/me/feed```
 
 Non sono disponibili parametri.
 
@@ -105,7 +105,7 @@ Non sono disponibili parametri.
 
 
 ### Ottieni feed della pagina
-Recupera i post dal feed di una pagina specificata. ```GET: /{pageId}/feed```
+Ottiene i post dal feed di una pagina specificata. ```GET: /{pageId}/feed```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -124,7 +124,7 @@ Recupera i post dal feed di una pagina specificata. ```GET: /{pageId}/feed```
 
 
 ### Ottieni diario utente
-Recupera i post dalla sequenza temporale di un utente. ```GET: /{userId}/feed```
+Ottiene i post dal diario di un utente. ```GET: /{userId}/feed```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -144,7 +144,7 @@ Recupera i post dalla sequenza temporale di un utente. ```GET: /{userId}/feed```
 
 
 ### Pubblica post nella pagina
-Pubblica un messaggio in una pagina di Facebook con il nome dell'utente connesso. ```POST: /{pageId}/feed```
+Pubblica un messaggio in una pagina di Facebook come utente connesso. ```POST: /{pageId}/feed```
 
 | Nome|Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -435,4 +435,4 @@ I membri di questi gruppi hanno più probabilità di vedere questo post, gli alt
 
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

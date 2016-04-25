@@ -334,7 +334,7 @@ I passaggi descritti in questa sezione **riepilogano** l'installazione della mod
 
 1. Fare clic su **Avanti** nella pagina degli aggiornamenti del prodotto.
 
-1. Nella pagina **Tipo di installazione** selezionare **Esegui una nuova installazione di SQL Server ** e fare clic su **Avanti**.
+1. Nella pagina **Tipo di installazione** selezionare **Esegui una nuova installazione di SQL Server** e fare clic su **Avanti**.
 
 1. Nella pagina **Impostazione ruolo** fare clic su **Installazione funzionalità SQL Server**.
 
@@ -388,8 +388,8 @@ Questa sezione riepiloga gli endpoint della macchina virtuale di Microsoft Azure
 
 	|Port|Tipo|Descrizione|
 |---|---|---|
-|**80**|TCP|Accesso remoto al server di report (*). |
-|**1433**|TCP|SQL Server Management Studio (*).|
+|**80**|TCP|Accesso remoto al server di report (*). | 
+|**1433**|TCP|SQL Server Management Studio (*).| 
 |**1434**|UDP|Browser SQL Server. Necessario quando la macchina virtuale viene associata a un dominio.|
 |**2382**|TCP|Browser SQL Server.|
 |**2383**|TCP|Istanza predefinita di SQL Server Analysis Services e cluster delle istanze denominate.|
@@ -409,7 +409,7 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - Esaminare i criteri di supporto per il software server Microsoft utilizzato nell'ambiente di macchina virtuale di Azure. L'argomento seguente riepiloga il supporto per funzionalità quali BitLocker, Clustering di Failover e bilanciamento carico di rete. [Supporto di software server Microsoft per le macchine virtuali Microsoft Azure ](http://support.microsoft.com/kb/2721672).
 
-- [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-overview.md)
+- [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
 - [Macchine virtuali](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
@@ -417,7 +417,7 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Come collegare un disco dati a una macchina virtuale](virtual-machines-windows-classic-attach-disk.md)
 
-- [Migrazione di un database a SQL Server su una macchina virtuale di Azure](virtual-machines-windows-classic-migrate-sql.md)
+- [Migrazione di un database a SQL Server su una macchina virtuale di Azure](virtual-machines-windows-migrate-sql.md)
 
 - [Determinare la modalità Server di un'istanza di Analysis Services](https://msdn.microsoft.com/library/gg471594.aspx)
 
@@ -433,4 +433,4 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 
 - [Gestione del database SQL di Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

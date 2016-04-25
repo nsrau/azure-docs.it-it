@@ -24,13 +24,13 @@ In questo articolo viene illustrato come usare PowerShell per concedere agli ute
 
 ## Criteri come risorse
 
-Come descritto nell'articolo [Controllo degli accessi in base al ruolo di Azure](/role-based-access-control-configure.md), il Controllo degli accessi in base al ruolo (RBAC) consente la gestione specifica degli accessi delle risorse per Azure. Usando il Controllo degli accessi in base al ruolo di Azure, è possibile separare compiti all'interno del team DevOps e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
+Come descritto nell'articolo [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md), il controllo degli accessi in base al ruolo consente la gestione specifica degli accessi delle risorse per Azure. Usando il Controllo degli accessi in base al ruolo di Azure, è possibile separare compiti all'interno del team DevOps e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
 
-In Lab di sviluppo/test, un criterio è un tipo di risorsa che abilita l'azione del Controllo degli accessi in base al ruolo (RBAC) **Microsoft.DevTestLab/labs/policySets/policies/**. Ogni criterio Lab di sviluppo/test è una risorsa del tipo di risorsa Criterio e può essere assegnato come ambito a un ruolo RBAC.
+In Lab di sviluppo/test, un criterio è un tipo di risorsa che abilita l'azione del controllo degli accessi in base al ruolo **Microsoft.DevTestLab/labs/policySets/policies/**. Ogni criterio Lab di sviluppo/test è una risorsa del tipo di risorsa Criterio e può essere assegnato come ambito a un ruolo del controllo degli accessi in base al ruolo.
 
 Ad esempio, per concedere le autorizzazioni di lettura/scrittura agli utenti per il criterio **Allowed VM Sizes**, è possibile creare un ruolo personalizzato da usare con l'azione **Microsoft.DevTestLab/labs/policySets/policies/*** e assegnare gli utenti al ruolo nell'ambito di **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-Per altre informazioni sui ruoli personalizzati nel Controllo degli accessi in base al ruolo (RBAC), vedere la sezione [Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](/role-based-access-control-configure.md#custom-roles-in-azure-rbac) dell'articolo [Controllo degli accessi in base al ruolo di Azure](/role-based-access-control-configure.md).
+Per altre informazioni sui ruoli personalizzati nel controllo degli accessi in base al ruolo, vedere la sezione [Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) dell'articolo [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md).
 
 ##Creazione di un ruolo personalizzato Lab di sviluppo/test tramite PowerShell
 Per iniziare, leggere l'articolo seguente che descrive come installare e configurare i cmdlet PowerShell di Azure: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
@@ -95,4 +95,4 @@ Dopo aver concesso le autorizzazioni utente per specifici criteri Lab di svilupp
 
 - [Aggiungere una VM con elementi a un lab DevTest di Azure](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

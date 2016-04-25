@@ -936,7 +936,7 @@ XML OData
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
 |	filterId |	Identificatore univoco del filtro. |
-|	apiVersion | 1.0 |
+|	apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -953,7 +953,7 @@ Codice stato HTTP: 200
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-|	apiVersion | 1.0 |
+|	apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1032,7 +1032,7 @@ XML OData
 	</feed>
 
 ###8\.2. Ottenere il catalogo
-Recupera tutti gli elementi del catalogo.
+Recupera tutti gli elementi del catalogo. Il catalogo verrà recuperato una pagina alla volta. Se si desidera ottenere gli elementi con un indice specifico, è possibile usare il parametro odata $skip. Ad esempio se si desidera ottenere gli elementi a partire dalla posizione 100, aggiungere il parametro $skip=100 alla richiesta.
 
 | Metodo HTTP | URI |
 |:--------|:--------|
@@ -1041,7 +1041,7 @@ Recupera tutti gli elementi del catalogo.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	modelId |	Identificatore univoco del modello. |
-|	apiVersion | 1.0 |
+|	apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1354,7 +1354,7 @@ Questa sezione illustra come inviare eventi in tempo reale a Recommendations di 
 **Risposta**: Codice stato HTTP: 200
 
 ###9\.2. Elencare i file di dati di utilizzo del modello
-Recupera i metadati di tutti i file di dati di utilizzo del modello.
+Recupera i metadati di tutti i file di dati di utilizzo del modello. Il file di dati di utilizzo verrà recuperato una pagina alla volta. Ogni pagina contiene 100 elementi. Se si desidera ottenere gli elementi con un indice specifico, è possibile usare il parametro odata $skip. Ad esempio se si desidera ottenere gli elementi a partire dalla posizione 100, aggiungere il parametro $skip=100 alla richiesta.
 
 | Metodo HTTP | URI |
 |:--------|:--------|
@@ -1363,7 +1363,7 @@ Recupera i metadati di tutti i file di dati di utilizzo del modello.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 |	forModelId |	Identificatore univoco del modello. |
-|	apiVersion | 1.0 |
+|	apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1430,7 +1430,7 @@ Ottiene le statistiche di utilizzo.
 | startDate |	Data di inizio. Formato: aaaa/MM/ggTHH:mm:ss |
 | endDate |	Data di fine. Formato: aaaa/MM/ggTHH:mm:ss |
 | eventTypes |	Stringa con valori delimitati da virgole di tipi di evento specifici o Null per ottenere tutti gli eventi. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1513,7 +1513,7 @@ Recupera i primi 2 KB del contenuto del file di dati di utilizzo:
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | fileId |	Identificatore univoco del file di dati di utilizzo del modello. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1522,7 +1522,8 @@ Recupera i primi 2 KB del contenuto del file di dati di utilizzo:
 Codice stato HTTP: 200
 
 La risposta viene restituita in un formato di testo non elaborato:
-<pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+<pre>
+85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
@@ -1552,7 +1553,7 @@ Recupera l'intero contenuto del file. di dati di utilizzo.
 | mid |	Identificatore univoco del modello. |
 | fid |	Identificatore univoco del file di dati di utilizzo del modello. |
 | download | 1 |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1561,7 +1562,8 @@ Recupera l'intero contenuto del file. di dati di utilizzo.
 Codice stato HTTP: 200
 
 La risposta viene restituita in un formato di testo non elaborato:
-<pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+<pre>
+85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
@@ -1607,7 +1609,7 @@ Elimina il file di dati di utilizzo del modello specificato.
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | fileId | Identificatore univoco del file da eliminare. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1626,7 +1628,7 @@ Elimina tutti i file di dati di utilizzo del modello.
 | Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1648,7 +1650,7 @@ Recupera le informazioni sulle funzionalità, inclusa la classificazione per l'u
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 |samplingSize| Numero di valori da includere per ogni funzionalità, in base ai dati presenti nel catalogo. <br/>I valori possibili sono:<br> -1, tutti i campioni. <br>0, nessun campionamento. <br>N, restituisce N campioni per ogni nome di funzionalità.|
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1731,7 +1733,7 @@ Recupera le informazioni sulle funzionalità, inclusa la classificazione per una
 | modelId |	Identificatore univoco del modello. |
 |samplingSize| Numero di valori da includere per ogni funzionalità, in base ai dati presenti nel catalogo.<br/> I valori possibili sono:<br> -1, tutti i campioni. <br>0, nessun campionamento. <br>N, restituisce N campioni per ogni nome di funzionalità.|
 |rankBuildId| Identificatore univoco per la compilazione della classifica o -1 per l'ultima compilazione della classifica.|
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -1893,7 +1895,7 @@ La tabella seguente illustra i parametri per la compilazione di raccomandazioni.
 |:--------			|:--------								|
 | modelId |	Identificatore univoco del modello. |
 | userDescription | Identificatore testuale del catalogo. Tenere presente che, se si usano degli spazi, è necessario codificarli con il simbolo %20. Vedere l'esempio precedente.<br>Lunghezza massima: 50 |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | Se lasciato vuoto, la compilazione verrà eseguita con i parametri di compilazione predefiniti.<br><br>Per impostare i parametri di compilazione, inviarli in formato XML nel corpo come nell'esempio seguente. Per una spiegazione dei parametri, vedere la sezione "Parametri della compilazione".`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
@@ -3001,7 +3003,7 @@ Recupera tutte le notifiche relative a tutti i modelli o a un singolo modello.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | modelId | Parametro facoltativo. Se omesso, vengono restituite tutte le notifiche relative a tutti i modelli. <br>Valore valido: identificatore univoco del modello.|
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -3053,7 +3055,7 @@ Elimina tutte le notifiche di lettura relative a un modello.
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
 | modelId | Identificatore univoco del modello. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -3071,7 +3073,7 @@ Elimina tutte le notifiche relative a tutti i modelli.
 
 |	Nome parametro |	Valori validi |
 |:--------			|:--------								|
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 |||
 | Corpo della richiesta | Nessuno |
 
@@ -3086,4 +3088,4 @@ Codice stato HTTP: 200
 Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Web Internet, sono soggette a modifica senza preavviso.<br><br> Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta.<br><br> Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento.<br><br> © 2015 Microsoft. Tutti i diritti sono riservati.
  
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

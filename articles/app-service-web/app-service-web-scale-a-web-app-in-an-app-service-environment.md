@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="04/06/2016" 
 	ms.author="ccompy"/>
 
 # Ridimensionamento di app in un ambiente del servizio app #
@@ -31,13 +31,17 @@ L'amministratore dell'ambiente del servizio app può quindi assegnare le dimensi
 - selezione del pool di lavoro
 - numero di istanze
 
-Per modificare uno di questi elementi, usare l'interfaccia utente appropriata visualizzata per i piani di servizio app ospitati nell'ambiente del servizio app. Non è possibile aumentare il numero di risorse del piano ASP oltre il numero di risorse di calcolo disponibili nel pool di lavoro in cui si trova il piano ASP. Se sono necessarie altre risorse di calcolo nel pool di lavoro, è necessario chiedere all'amministratore dell'ambiente del servizio app di aggiungerle. Per informazioni sulla riconfigurazione dell'ambiente del servizio app, vedere [Come configurare un ambiente del servizio app][HowtoConfigureASE]. Può anche essere utile sfruttare le funzionalità di scalabilità automatica dell'ambiente del servizio app per aumentare la capacità in base alla pianificazione o alla metrica. Per altri dettagli sulla configurazione della scalabilità automatica per l'ambiente del servizio app, vedere [Come configurare la scalabilità automatica per un ambiente del servizio app][ASEAutoscale].
+Per modificare uno di questi elementi, usare l'interfaccia utente appropriata visualizzata per i piani di servizio app ospitati nell'ambiente del servizio app.
 
 ![][1]
 
+Non è possibile aumentare il numero di risorse del piano ASP oltre il numero di risorse di calcolo disponibili nel pool di lavoro in cui si trova il piano ASP. Se sono necessarie altre risorse di calcolo nel pool di lavoro, è necessario chiedere all'amministratore dell'ambiente del servizio app di aggiungerle. Per informazioni sulla riconfigurazione dell'ambiente del servizio app, vedere [Come configurare un ambiente del servizio app][HowtoConfigureASE]. Può anche essere utile sfruttare le funzionalità di scalabilità automatica dell'ambiente del servizio app per aumentare la capacità in base alla pianificazione o alla metrica. Per altri dettagli sulla configurazione della scalabilità automatica per l'ambiente del servizio app, vedere [Come configurare la scalabilità automatica per un ambiente del servizio app][ASEAutoscale].
+
+È possibile creare più piani del servizio app usando risorse di calcolo da diversi pool di lavoro oppure è possibile usare lo stesso pool di lavoro. Ad esempio, se il pool di lavoro 1 include (10) risorse di calcolo disponibili, è possibile scegliere di creare un piano del servizio app usando (6) risorse di calcolo e un secondo piano del servizio app che usa (4) risorse di calcolo.
+
 ### Ridimensionamento del numero di istanze ###
 
-Quando si crea per la prima volta l'app Web in un ambiente del servizio app, è consigliabile aggiungere almeno altre due istanze per garantire la tolleranza di errore.
+Quando si crea per la prima volta l'app Web in un ambiente del servizio app, il servizio viene avviato con una istanza. È quindi possibile aumentare il numero di istanze per offrire risorse di calcolo aggiuntive all'app.
 
 Se la capacità dell'ambiente del servizio app è sufficiente, questa operazione è abbastanza semplice. Passare al piano di servizio app che contiene i siti per cui aggiungere le istanze e selezionare Ridimensiona. Viene aperta l'interfaccia utente in cui è possibile impostare manualmente la scalabilità per il piano ASP o configurare le regole di scalabilità automatica per il piano ASP. Per ridimensionare manualmente l'app, è sufficiente impostare ***Ridimensiona di*** su ***numero di istanze immesso manualmente***. Trascinare quindi il dispositivo di scorrimento sulla quantità desiderata oppure immetterla nella casella accanto al dispositivo di scorrimento.
 
@@ -54,7 +58,7 @@ Come indicato in precedenza, è possibile accedere alla selezione del pool di la
 
 Prima di spostare il piano ASP da un pool di lavoro a un altro, è importante assicurarsi che la capacità disponibile per il piano ASP sia sufficiente. Nell'elenco dei pool di lavoro non è indicato solo il nome del pool di lavoro, ma è anche possibile vedere quanti processi di lavoro sono disponibili nel pool. Assicurarsi che il numero di istanze disponibili sia sufficiente per contenere il piano di servizio app. Se sono necessarie altre risorse di calcolo nel pool di lavoro a cui passare, chiedere all'amministratore dell'ambiente del servizio app di aggiungerle.
 
-> [AZURE.NOTE] Lo spostamento di un piano ASP da un pool di lavoro comporterà un riavvio delle app in tale piano ASP e di conseguenza un possibile periodo di inattività dell'app, la cui durata dipende dal tempo necessario per il riavvio delle app.
+> [AZURE.NOTE] Lo spostamento di un piano ASP da un pool di lavoro comporterà un avvio a freddo delle app in tale piano ASP. Ciò può provocare il rallentamento dell'esecuzione delle richieste, perché l'app viene avviata a freddo nelle nuove risorse di calcolo. L'avvio a freddo può essere evitato usando la [funzionalità di preparazione dell'applicazione][AppWarmup] nel servizio app di Azure. Il modulo di inizializzazione dell'applicazione illustrato nell'articolo è applicabile anche agli avvii a freddo, perché il processo di inizializzazione viene richiamato anche quando le app vengono avviate a freddo in nuove risorse di calcolo.
 
 ## Introduzione
 
@@ -78,5 +82,6 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
+[AppWarmup]: http://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

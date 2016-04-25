@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Monitoraggio delle prestazioni dell'applicazione web di Azure" 
-	description="Tempo di caricamento e risposta del grafico, informazioni sulle dipendenze e impostazione di avvisi sulle prestazioni." 
+<properties
+	pageTitle="Monitoraggio delle prestazioni dell'applicazione web di Azure"
+	description="Tempo di caricamento e risposta del grafico, informazioni sulle dipendenze e impostazione di avvisi sulle prestazioni."
 	services="azure-portal"
     documentationCenter="na"
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/23/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/23/2015"
 	ms.author="awills"/>
 
 # Monitoraggio delle prestazioni dell'applicazione web di Azure
@@ -49,14 +49,15 @@ Quando viene chiesto di effettuare l'accesso, usare le credenziali dell'account 
 
 È possibile testare la telemetria eseguendo l'app nel computer di sviluppo oppure è possibile proseguire e ripubblicarla.
 
-L’SDK fornisce un'API per [scrivere dati di telemetria personalizzati](../app-insights-api-custom-events-metrics.md) e tenere traccia dell'utilizzo.
+L’SDK fornisce un'API per [scrivere dati di telemetria personalizzati](../application-insights/app-insights-api-custom-events-metrics.md) e tenere traccia dell'utilizzo.
 
 ## Esplorare i dati
 
 Usare l'applicazione per un breve periodo di tempo per generare alcuni dati di telemetria.
 
 1. Nel pannello relativo all'app Web o alla macchina virtuale verrà quindi visualizzata l'estensione installata.
-2. Fare clic sulla riga che rappresenta l'applicazione per passare a tale provider: ![Selezione di Refresh](./media/insights-perf-analytics/06-overview.png)
+2. Fare clic sulla riga che rappresenta l'applicazione per passare a tale provider:
+![Selezione di Refresh](./media/insights-perf-analytics/06-overview.png)
 
 È inoltre possibile usare **Sfoglia** per passare direttamente al componente Application Insights o all’account New Relic usato.
 
@@ -69,7 +70,7 @@ Dopo aver visualizzato il pannello, per Application Insights, ad esempio, è pos
 
 ![Nella griglia, fare clic su una dipendenza per visualizzare le richieste correlate.](./media/insights-perf-analytics/08-requests.png)
 
-- Di seguito viene riportato un esempio che mostra la quantità di tempo trascorsa in una dipendenza SQL, inclusi il numero di chiamate SQL e le relative statistiche, ad esempio la durata media e la deviazione standard. 
+- Di seguito viene riportato un esempio che mostra la quantità di tempo trascorsa in una dipendenza SQL, inclusi il numero di chiamate SQL e le relative statistiche, ad esempio la durata media e la deviazione standard.
 
 ![](./media/insights-perf-analytics/01-example.png)
 
@@ -80,8 +81,7 @@ Dopo aver visualizzato il pannello, per Application Insights, ad esempio, è pos
 * [Monitorare le metriche di integrità del servizio](insights-how-to-customize-monitoring.md) per assicurarsi che il servizio sia disponibile e reattivo.
 * [Abilitare il monitoraggio e la diagnostica](insights-how-to-use-diagnostics.md) per raccogliere metriche dettagliate e ad alta frequenza sul servizio.
 * [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) ogni volta che si verificano eventi operativi o le metriche superano una soglia.
-* Usare [Application Insights per app JavaScript e pagine Web](../app-insights-web-track-usage.md) per ottenere l'analisi client sui browser che visitano una pagina Web.
-* [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
- 
+* Usare [Application Insights per app JavaScript e pagine Web](../application-insights/app-insights-web-track-usage.md) per ottenere l'analisi client sui browser che visitano una pagina Web.
+* [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

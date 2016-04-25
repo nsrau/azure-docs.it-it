@@ -22,22 +22,13 @@
 
 ##Panoramica
 
-Questa esercitazione è basata sull'[esercitazione Creare un'app per Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md), che deve essere completata per prima. In questa esercitazione si aggiungeranno notifiche push al progetto di creazione di un'app per Xamarin.iOS, in modo da attivare l'invio di una notifica push ogni volta che viene inserito un record. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Questa esercitazione è basata sull'esercitazione della [guida introduttiva di Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md) che deve essere completata per prima. In questa esercitazione si aggiungeranno notifiche push al progetto di creazione di un'app per Xamarin.iOS, in modo da attivare l'invio di una notifica push ogni volta che viene inserito un record. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all'[utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##Prerequisiti
 
-Per completare l'esercitazione, sono necessari gli elementi seguenti:
-
-* Un account Azure attivo. Se non si ha un account, è possibile iscriversi alla versione di valutazione gratuita di Azure e ottenere fino a un massimo di 10 backend di app per dispositivi mobili gratuite. Sarà possibile continuare a usarle anche dopo il termine del periodo di valutazione. Vedere [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-* Un computer Mac in cui sono state installate le versioni [Xamarin Studio] e [Xcode] 4.4 o versioni successive. È anche possibile eseguire l'app per Xamarin.iOS in Visual Studio su un computer Windows, ma la procedura è più complessa poiché è necessario connettersi a un computer Mac in rete che esegue l'host di compilazione Xamarin.iOS. Per informazioni su questa procedura, vedere la pagina relativa all'[installazione di Xamarin.iOS in Windows].
+* Completare l'esercitazione della [guida introduttiva di Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md).
 
 * Un dispositivo iOS fisico. Le notifiche push non sono supportate dal simulatore iOS.
-
-* Un’[Appartenenza all’Apple Developer Program](https://developer.apple.com/programs/ios/), necessaria per la registrazione con Servizio notifiche Push Apple (APNS)
-
-* Completare l'[esercitazione sulla guida introduttiva per Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md).
-
 
 ##Registrare l'app per le notifiche push nel portale per sviluppatori Apple
 
@@ -164,9 +155,5 @@ L'esercitazione è stata completata.
 <!-- Images. -->
 
 <!-- URLs. -->
-[Xamarin Studio]: http://xamarin.com/platform
-[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
-[installazione di Xamarin.iOS in Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -38,7 +38,9 @@ Per utilizzare l'applicazione dell'API JavaScript, è necessario creare innanzit
 ###Trigger
 È possibile creare un trigger che attiva il polling, in base a un intervallo definito dall'utente, da parte del servizio app per la logica. Se viene restituito contenuto, esegue l'app per la logica; in caso contrario, attende fino al successivo intervallo di polling per controllare di nuovo.
 
-Gli input per il trigger sono: - **Espressione JavaScript** - Espressione che verrà valutata. Viene richiamata in una funzione e deve restituire `false` quando non si vuole eseguire l'app per la logica. Può restituire qualsiasi altro valore quando si vuole eseguire l'app per la logica. È possibile usare il contenuto della risposta nelle azioni dell'app per la logica. - **Oggetto contesto** - Oggetto facoltativo che può essere passato al trigger. È possibile definire tutte le proprietà desiderate, ma l'entità di primo livello deve essere un oggetto, ad esempio`{ "bar" : 0}`.
+Gli input per il trigger sono:
+- **Espressione JavaScript**: espressione che viene valutata. Viene chiamata in una funzione e deve restituire `false` quando non si vuole eseguire l'app per la logica. Può restituire qualsiasi altro valore quando si vuole eseguire l'app per la logica. È possibile usare il contenuto della risposta nelle azioni dell'app per la logica.
+- **Oggetto contesto**: oggetto facoltativo che può essere passato nel trigger. È possibile definire tutte le proprietà desiderate, ma l'entità di primo livello deve essere un oggetto, ad esempio`{ "bar" : 0}`.
 
 Ad esempio, è possibile avere un semplice trigger che eseguirà l'app per la logica solo tra i valori :15 e :30 dell'ora:
 
@@ -50,9 +52,12 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 
 Analogamente, è possibile fornire un'azione da eseguire.
 
-Gli input per l'azione sono: - **Espressione JavaScript** - Espressione che verrà valutata. È necessario includere una `return`istruzione per visualizzare qualsiasi contenuto. -**Oggetto di contesto**-oggetto facoltativo che può essere passato all'interno del trigger. È possibile definire tutte le proprietà desiderate, ma l'entità di primo livello deve essere un oggetto, ad esempio`{ "bar" : 0}`.
+Gli input per l'azione sono:
+- **Espressione JavaScript**: espressione che viene valutata. È necessario includere l'istruzione `return` per visualizzare qualsiasi contenuto. 
+- **Oggetto contesto**: oggetto facoltativo che può essere passato nel trigger. È possibile definire tutte le proprietà desiderate, ma l'entità di primo livello deve essere un oggetto, ad esempio`{ "bar" : 0}`.
 
-Si supponga, ad esempio, di utilizzare il trigger di Office 365**nuovo messaggio di posta elettronica**. Che restituisce l'oggetto seguente:```
+Si supponga, ad esempio, di utilizzare il trigger di Office 365**nuovo messaggio di posta elettronica**. Che restituisce l'oggetto seguente:
+```
 {
 	...
 	"Attachments" : [
@@ -87,11 +92,11 @@ L'azione restituisce il JSON restituito dalla funzione. Pertanto, nell'app API Y
 ## Più vantaggi con il connettore
 Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale usando un'app per la logica. Vedere [Cosa sono le app per la logica?](app-service-logic-what-are-logic-apps.md)
 
-È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere l'articolo relativo alla [gestione e al monitoraggio delle app per le API e del connettore](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 <!--References -->
 
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

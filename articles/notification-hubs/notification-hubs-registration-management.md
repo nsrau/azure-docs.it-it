@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="04/11/2016"
 	ms.author="wesmc"/>
 
 # Gestione delle registrazioni
@@ -77,9 +77,9 @@ Un'installazione può contenere le proprietà seguenti. Per un elenco completo d
 
  
 
-È importante notare che le registrazioni e le installazioni, così come gli handle PNS che contengono, scadono. È possibile impostare la durata nell'hub di notifica, con un massimo di 90 giorni. A causa di questo limite, devono essere aggiornate periodicamente e non devono essere usate come l'unico archivio per informazioni importanti. La scadenza automatica semplifica inoltre la pulizia quando l'applicazione per dispositivi mobili viene disinstallata.
+È importante notare che le registrazioni e le installazioni non scadono più per impostazione predefinita.
 
-Le registrazioni e le installazioni devono contenere l'handle PNS più recente per ogni dispositivo/canale. Poiché gli handle PNS possono essere ottenuti solo in un'app client sul dispositivo, un modello consiste nell'eseguire la registrazione direttamente sul dispositivo con l'app client. D'altra parte, le considerazioni sulla sicurezza e la logica di business relativa ai tag potrebbero richiedere di gestire la registrazione del dispositivo nel back-end dell'app.
+Le registrazioni e le installazioni devono contenere un handle PNS valido per ogni dispositivo/canale. Poiché gli handle PNS possono essere ottenuti solo in un'app client sul dispositivo, un modello consiste nell'eseguire la registrazione direttamente sul dispositivo con l'app client. D'altra parte, le considerazioni sulla sicurezza e la logica di business relativa ai tag potrebbero richiedere di gestire la registrazione del dispositivo nel back-end dell'app.
 
 #### Modelli
 
@@ -241,7 +241,6 @@ Questi metodi creano o aggiornano una registrazione per il dispositivo in cui ve
 	}
 	catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 	{
-		// regId likely expired, delete from local storage and try again
 		settings.Remove("__NHRegistrationId");
 	}
 
@@ -330,4 +329,4 @@ Dal back-end dell'app è possibile eseguire operazioni CRUD di base sulle regist
 
 Il back-end deve gestire la concorrenza tra gli aggiornamenti delle registrazioni. Il bus di servizio offre il controllo della concorrenza ottimistica per la gestione delle registrazioni. A livello HTTP, questo viene implementato attraverso l'uso di ETag sulle operazioni di gestione delle registrazioni. Questa funzionalità viene usata in modo trasparente dagli SDK Microsoft, che generano un'eccezione se un aggiornamento viene rifiutato a causa della concorrenza. Il backend dell'app è responsabile della gestione di queste eccezioni e dei nuovi tentativi di aggiornamento, se necessario.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

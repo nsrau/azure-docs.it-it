@@ -46,7 +46,7 @@ Nell'esempio seguente viene mostrato come creare una macchina virtuale basata su
 
 	c. Al momento non aggiungere alcun endpoint.
 
-9.	Scegliere o creare un gruppo di risorse. Per ulteriori informazioni, vedere [Utilizzare il portale di Azure per gestire le risorse di Azure](../resource-group-portal.md).
+9.	Scegliere o creare un gruppo di risorse. Per ulteriori informazioni, vedere [Utilizzare il portale di Azure per gestire le risorse di Azure](../azure-portal/resource-group-portal.md).
 
 10. Scegliere una **Sottoscrizione**.
 
@@ -71,4 +71,4 @@ Seguire le istruzioni in [Creazione di una macchina virtuale Oracle WebLogic Ser
 
 [Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->
