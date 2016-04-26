@@ -3,7 +3,7 @@
    description="Introduzione alla connessione a SQL Data Warehouse e all'esecuzione di alcune query."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/28/2016"
+   ms.date="04/20/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Connettersi ed eseguire query con SQLCMD
@@ -83,4 +83,4 @@ Ora che è possibile connettersi ed eseguire query, provare a [connettersi con P
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

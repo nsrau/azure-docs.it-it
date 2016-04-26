@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Accedere a una macchina virtuale di Windows Server | Microsoft Azure"
-	description="Informazioni su come accedere a una VM Windows Server tramite il portale di Azure e il modello di distribuzione di gestione delle risorse."
+	pageTitle="Connettersi a una macchina virtuale Windows Server | Microsoft Azure"
+	description="Informazioni su come connettersi e accedere a una VM Windows Server usando il portale di Azure e il modello di distribuzione Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,33 +14,33 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/21/2016"
+	ms.date="04/14/2016"
 	ms.author="cynthn"/>
 
-# Come accedere a una macchina virtuale che esegue Windows Server 
+# Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows Server 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-connect-logon.md).
 
-Per avviare una sessione di Desktop remoto si userà il pulsante **Connetti** nel portale di Azure. Effettuare la connessione alla macchina virtuale, quindi accedere al sistema.
+Per avviare una sessione di Desktop remoto (RDP), si userà il pulsante **Connetti** nel portale di Azure. Effettuare la connessione alla macchina virtuale, quindi accedere al sistema.
 
 ## Connettersi alla macchina virtuale
 
 1. Accedere al [portale di Azure](https://portal.azure.com/), se questa operazione non è già stata eseguita.
 
-2.	Nel menu Hub, fare clic su **Macchine virtuali**.
+2.	Scegliere **Macchine virtuali** dal menu Hub.
 
 3.	Selezionare la macchina virtuale dall'elenco.
 
 4. Nel pannello della macchina virtuale fare clic su **Connetti**.
 
-	![Connettersi alla macchina virtuale](./media/virtual-machines-windows-connect-logon/preview-portal-connect.png)
+	![Screenshot del portale di Azure che illustra come connettersi alla VM.](./media/virtual-machines-windows-connect-logon/preview-portal-connect.png)
 
 ## Accesso alla macchina virtuale
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
-## Risoluzione dei problemi
 
-Se le istruzioni non sono sufficienti o non sono quelle necessarie, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). In questo articolo viene illustrato come diagnosticare e risolvere i problemi più comuni.
+## Passaggi successivi
 
-<!----HONumber=AcomDC_0323_2016-->
+In caso di problemi quando si cerca di eseguire la connessione, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). In questo articolo viene illustrato come diagnosticare e risolvere i problemi più comuni.
+
+<!---HONumber=AcomDC_0420_2016-->

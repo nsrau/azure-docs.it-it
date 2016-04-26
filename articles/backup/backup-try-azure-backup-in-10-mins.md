@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="04/09/2016"
+   ms.date="04/14/2016"
    ms.author="jimpark;"/>
 
 # Primi passi: eseguire il backup di file e cartelle da un server o client Windows in Azure
@@ -99,7 +99,7 @@ Ora che l'insieme di credenziali è stato creato e si è scaricato tutto, instal
 ## Passaggio 3: Installare e registrare l'agente di backup
 
 1. Fare doppio clic su **MARSagentinstaller.exe** nel percorso in cui è stato salvato.
-2. Completare l'Installazione guidata di Agente servizi di ripristino di Microsoft Azure. Per completare la procedura guidata, sarà necessario:
+2. Completare l'Installazione guidata di Agente servizi di ripristino di Microsoft Azure. Per completare la procedura guidata, è necessario:
     - Scegliere un percorso per la cartella di installazione e della cache.
     - Fornire le informazioni sul server proxy se si usa un server proxy per connettersi a Internet.
     - Se si usa un proxy autenticato, immettere il nome utente e la password.
@@ -129,7 +129,7 @@ Se l'agente di backup non è già aperto, è possibile trovarlo se si cerca Back
 
     ![Eseguire ora il backup di Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-4. Nella schermata **Conferma** fare clic su **Backup**. Il processo di backup continuerà in background se si chiude la procedura guidata prima che venga completato.
+4. Nella schermata **Conferma** fare clic su **Backup**. Se si chiude la procedura guidata prima che il processo di backup venga completato, l'esecuzione continuerà in background.
 
     Al termine del backup iniziale, la visualizzazione **Processi** nella console indica che il processo è stato completato.
 
@@ -142,4 +142,4 @@ Il backup dei file e delle cartelle è stato eseguito in Backup di Azure.
 - Ora che si è eseguito il backup dei file e delle cartelle, è possibile [gestire l'insieme di credenziali e i server](backup-azure-manage-windows-server.md).
 - Se è necessario ripristinare un backup, usare questo articolo per [ripristinare i file in un computer Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

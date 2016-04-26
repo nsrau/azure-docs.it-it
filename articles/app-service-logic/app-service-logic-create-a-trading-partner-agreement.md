@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Creazione di un accordo tra partner commerciali   
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 I partner commerciali sono le entità coinvolte nelle comunicazioni B2B. Quando due partner stabiliscono una relazione, questa è definita un *Contratto*. Il contratto definito si basa sulla comunicazione che i due partner vogliono ottenere ed è specifico del protocollo o del trasporto. I diversi protocolli e trasporti B2B supportati da Azure App Service includono:
 
@@ -79,4 +79,4 @@ Per creare accordi tra partner commerciali:
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

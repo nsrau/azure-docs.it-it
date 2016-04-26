@@ -23,13 +23,13 @@ Se non esiste già un account Microsoft Azure, selezionare uno dei collegamenti 
 
 Usando la [sottoscrizione esistente](https://account.windowsazure.com/Home/Index), seguire questa procedura per connettersi al portale di Azure.
 
-1. Aprire il browser preferito e connettersi al [portale di Azure](https://portal.azure.com/) all'indirizzo http://portal.azure.com/.
+1. Aprire il browser preferito e connettersi al [portale di Azure](https://portal.azure.com/).
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) all'indirizzo http://portal.azure.com/.
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Quando viene visualizzata la pagina di accesso, immettere le credenziali per la sottoscrizione
+1. Quando viene visualizzata la pagina di accesso, immettere le credenziali della sottoscrizione
 
    ![sign in](./media/azure-getting-started-portal-login/login.png)
    
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -103,6 +103,8 @@ Durante la creazione di un cluster HDInsight dal portale, sono disponibili le op
 
 ###Utilizzare l'interfaccia della riga di comando di Azure
 
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 Se è stata [installata e configurata l’interfaccia della riga di comando di Azure](../xplat-cli-install.md), il comando seguente può essere usato per un account di archiviazione e un contenitore.
 
 	azure storage account create <storageaccountname> --type LRS
@@ -300,4 +302,4 @@ Per altre informazioni, vedere:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

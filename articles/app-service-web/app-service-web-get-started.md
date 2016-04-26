@@ -65,13 +65,13 @@ Verrà ora distribuita un'app Web in Servizio app di Azure.
     
     Seguire le istruzioni per continuare l'accesso in un browser usando un account con la sottoscrizione di Azure.
 
-4. Creare la risorsa dell'app del servizio app in Azure con un nome app univoco con il comando successivo. L'URL dell'app Web sarà http://&lt;app_name>.azurewebsites.net.
+4. Creare la risorsa dell'app del servizio app in Azure con un nome app univoco con il comando successivo.
 
         azure site create --git <app_name>
       
     >[AZURE.NOTE] Se non sono mai state configurate credenziali di distribuzione per la sottoscrizione di Azure, verrà chiesto di crearle. Queste credenziali, e non le credenziali dell'account Azure, vengono usate dal servizio app solo per le distribuzioni Git e gli accessi FTP.
     
-    Non solo l'app viene creata in Azure ora, ma anche la directory corrente viene inizializzata da Git e connessa alla nuova app del servizio app come Git remoto. È possibile passare all'URL dell'app per visualizzare la pagina HTML predefinita, ma ora si inserirà invece il codice.
+    Ora l'app viene creata in Azure. La directory corrente viene inizializzata da Git e connessa alla nuova app del servizio app come Git remoto. È possibile passare all'URL dell'app, http://&lt;app_name>.azurewebsites.net, per visualizzare la pagina HTML predefinita. A questo punto, inserire il proprio codice.
 
 4. Distribuire il codice di esempio nella nuova app del servizio app nello stesso modo in cui si effettua il push del codice con Git:
 
@@ -79,7 +79,7 @@ Verrà ora distribuita un'app Web in Servizio app di Azure.
     
     >[AZURE.NOTE] Verrà chiesta la password di distribuzione. Se non si ha familiarità con il servizio app, specificare la password di distribuzione appena creata.
     
-    `git push` non solo inserisce il codice in Azure, ma attiva anche le attività di distribuzione nel motore di distribuzione. Se nella radice del progetto (repository) è presente un file package.json (Node.js) o requirements.txt (Python) o se nel progetto ASP.NET è presente un file packages.config, gli script di distribuzione ripristineranno automaticamente i pacchetti necessari. È anche possibile [abilitare l'estensione Composer](web-sites-php-mysql-deploy-use-git.md#composer) per elaborare automaticamente i file composer.json nell'app PHP.
+    `git push` non solo inserisce il codice in Azure, ma attiva anche le attività di distribuzione nel motore di distribuzione. Se nella radice del progetto (repository) è presente un file package.json (Node.js) o requirements.txt (Python) o se nel progetto ASP.NET è presente un file packages.config, gli script di distribuzione ripristinano automaticamente i pacchetti necessari. È anche possibile [abilitare l'estensione Composer](web-sites-php-mysql-deploy-use-git.md#composer) per elaborare automaticamente i file composer.json nell'app PHP.
 
 La distribuzione dell'app in Servizio app di Azure è stata completata.
 
@@ -109,7 +109,7 @@ Ora si accederà al portale di Azure per visualizzare ciò che è stato creato:
 
 2. Nella barra a sinistra fare clic su **Servizi app**.
 
-3. Fare clic sull'app del servizio app appena creata per aprirne il pannello nel portale. Si noterà che per praticità anche il pannello **Impostazioni** viene aperto per impostazione predefinita.
+3. Fare clic sull'app appena creata per aprire la relativa pagina, detta [pannello](../azure-portal-overview.md), nel portale. Per praticità anche il pannello **Impostazioni** viene aperto per impostazione predefinita.
 
     ![Visualizzazione nel portale della prima app in Servizio app di Azure](./media/app-service-web-get-started/portal-view.png)
 
@@ -139,4 +139,4 @@ In alternativa, è possibile trovare altri contenuti sull'intervallo di app che 
 - [Creare App per dispositivi mobili](/documentation/learning-paths/appservice-mobileapps/)
 - [Creare app per le API](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

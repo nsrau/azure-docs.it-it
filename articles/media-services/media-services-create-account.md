@@ -4,7 +4,7 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
 # Creare un account di Servizi multimediali di Azure
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-create-account.md)
+- [Portale](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
@@ -106,4 +106,4 @@ Quando si fa doppio clic sul nome dell'account, per impostazione predefinita vie
 
   [portale di Azure classico]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

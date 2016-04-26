@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Guida alla programmazione per Hub eventi di Azure | Microsoft Azure"
-   description="Descrive la programmazione con Hub eventi di Azure mediante Azure .NET SDK."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Guida alla programmazione per Hub eventi di Azure | Microsoft Azure"
+    description="Descrive la programmazione con Hub eventi di Azure mediante Azure .NET SDK."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="tbd"
+    ms.date="04/15/2016"
+    ms.author="sethm" />
 
 # Guida alla programmazione di Hub eventi
 
@@ -21,9 +21,9 @@ Questo argomento descrive la programmazione con Hub eventi di Azure mediante Azu
 
 ## Publisher di eventi
 
-L'invio di eventi a un hub eventi viene eseguito tramite una connessione AMQP 1.0 o HTTP POST. La scelta del protocollo da usare dipende dallo scenario specifico. Le connessioni AMQP 1.0 sono misurate come connessioni negoziate nel bus di servizio e sono più appropriate in scenari in cui sono frequenti volumi di messaggi più elevati e con requisiti di latenza inferiori, in quanto offrono un canale di messaggistica persistente.
+L'invio di eventi a un hub eventi viene eseguito tramite una connessione AMQP 1.0 o HTTP POST. La scelta del protocollo da usare dipende dallo scenario specifico. Le connessioni AMQP 1.0 sono misurate come connessioni negoziate nel bus di servizio e sono più appropriate in scenari in cui sono frequenti volumi di messaggi più elevati e con requisiti di latenza inferiori, perché offrono un canale di messaggistica persistente.
 
-Gli hub eventi vengono creati e gestiti mediante la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Quando si usano le API gestite da .NET, i costrutti primari per la pubblicazione dei dati in Hub eventi sono le classi [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) e [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) offre il canale di comunicazione AMQP tramite cui gli eventi vengono inviati all'hub eventi. La classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) rappresenta un evento e viene usata per pubblicare i messaggi in un hub eventi. Questa classe include il corpo, alcuni metadati e informazioni di intestazione sull'evento. Altre proprietà vengono aggiunte all'oggetto [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) quando passa attraverso un hub eventi.
+Gli hub eventi vengono creati e gestiti mediante la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Quando si usano le API gestite da .NET, i costrutti primari per la pubblicazione dei dati in Hub eventi sono le classi [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) e [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) offre il canale di comunicazione AMQP tramite il quale gli eventi vengono inviati all'hub eventi. La classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) rappresenta un evento e viene usata per pubblicare i messaggi in un hub eventi. Questa classe include il corpo, alcuni metadati e informazioni di intestazione sull'evento. Altre proprietà vengono aggiunte all'oggetto [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) quando passa attraverso un hub eventi.
 
 ## Introduzione
 
@@ -35,7 +35,7 @@ Install-Package WindowsAzure.ServiceBus
 
 ## Creare un hub eventi
 
-Usare la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) per creare hub eventi. Ad esempio:
+È possibile utilizzare la classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) per creare gli hub di eventi. Ad esempio:
 
 ```
 var manager = new Microsoft.ServiceBus.NamespaceManager("mynamespace.servicebus.windows.net");
@@ -83,9 +83,9 @@ var client = factory.CreateEventHubClient("MyEventHub");
 
 È importante notare che oggetti [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) aggiuntivi creati da un'istanza di factory di messaggistica riutilizzeranno la stessa connessione TCP sottostante. Di conseguenza, questi oggetti prevedono un limite sul lato client per la velocità effettiva. Il metodo [Create](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.create.aspx) riutilizza una singola factory di messaggistica. Se è necessario molto elevata velocità effettiva di un singolo mittente, è possibile creare più factory di messaggistica e un oggetto [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) factory di messaggistica.
 
-## Inviare eventi a un hub eventi
+## Inviare eventi a un Hub eventi
 
-Gli eventi vengono inviati a un hub eventi tramite la creazione di un'istanza [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) e l'invio di quest'ultima con il metodo [Send](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.send.aspx). Questo metodo accetta un singolo parametro dell'istanza di [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) e lo invia in modo sincrono a un hub eventi.
+Gli eventi vengono inviati a un Hub eventi tramite la creazione di un'istanza [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) e l'invio di quest'ultima con il metodo [Send](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.send.aspx). Questo metodo accetta un singolo parametro dell'istanza di [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) e lo invia in modo sincrono a un hub eventi.
 
 ## Serializzazione degli eventi
 
@@ -97,7 +97,7 @@ La classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.service
 
 ## Operazioni di invio di eventi in batch
 
-L'invio di eventi in batch può aumentare la velocità effettiva. Il metodo [SendBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.sendbatch.aspx) accetta un parametro **IEnumerable** di tipo [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) e invia l'intero batch come operazione atomica all'hub eventi.
+L'invio di eventi in batch può aumentare la velocità effettiva. Il metodo [SendBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.sendbatch.aspx) accetta un parametro **IEnumerable** di tipo[EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) e invia l'intero batch come operazione atomica all'Hub di eventi.
 
 ```
 public void SendBatch(IEnumerable<EventData> eventDataList);
@@ -162,7 +162,7 @@ Per usare la classe [EventProcessorHost](https://msdn.microsoft.com/library/azur
 
 - [ProcessEventsAsync](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.processeventsasync.aspx)
 
-Per avviare l'elaborazione di eventi, creare un'istanza [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) specificando i parametri appropriati per l'hub eventi. Chiamare quindi [RegisterEventProcessorAsync](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.registereventprocessorasync.aspx) per registrare l'implementazione di [IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) con il runtime. A questo punto, l'host tenta di acquisire un lease per ogni partizione nell'hub eventi mediante un algoritmo "greedy". Tali lease dureranno per un determinato intervallo di tempo e quindi devono essere rinnovati. Appena nuovi nodi, in questo caso istanze di lavoro, passano online, inviano prenotazioni di lease e nel tempo il carico passa tra i nodi man mano che ognuno tenta di acquisire più lease.
+Per avviare l'elaborazione di eventi, creare un'istanza [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) fornendo i parametri appropriati per l'Hub eventi. Chiamare quindi [RegisterEventProcessorAsync](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.registereventprocessorasync.aspx) per registrare l'implementazione di [IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) con il runtime. A questo punto, l'host tenta di acquisire un lease per ogni partizione nell'hub eventi mediante un algoritmo "greedy". Tali lease dureranno per un determinato intervallo di tempo e quindi devono essere rinnovati. Appena nuovi nodi, in questo caso istanze di lavoro, passano online, inviano prenotazioni di lease e nel tempo il carico passa tra i nodi man mano che ognuno tenta di acquisire più lease.
 
 ![Host processore di eventi](./media/event-hubs-programming-guide/IC759863.png)
 
@@ -172,7 +172,7 @@ La classe [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsof
 
 ## Revoca di publisher
 
-Oltre alle funzionalità di runtime avanzate di [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx), Hub eventi consente di revocare gli autori per impedire ad autori specifici di inviare eventi a un hub eventi. Queste funzionalità sono particolarmente utili in situazioni in cui il token di un autore è stato compromesso o un aggiornamento software sta causando un comportamento non appropriato. In queste situazioni, l'identità dell'autore, che fa parte del relativo token di firma di accesso condiviso, può essere bloccata impedendo la pubblicazione di eventi.
+Oltre alle funzionalità di runtime avanzate di [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx), Hub eventi consente anche di revocare i publisher per impedire a publisher specifici di inviare eventi a un hub eventi. Queste funzionalità sono particolarmente utili in situazioni in cui il token di un autore è stato compromesso o un aggiornamento software sta causando un comportamento non appropriato. In queste situazioni, l'identità dell'autore, che fa parte del relativo token di firma di accesso condiviso, può essere bloccata impedendo la pubblicazione di eventi.
 
 Per altre informazioni sulla revoca di publisher e su come eseguire l'invio a Hub eventi come publisher, vedere l'esempio relativo alla [pubblicazione sicura su larga scala in Hub eventi del bus di servizio](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 
@@ -185,4 +185,4 @@ Per altre informazioni sugli scenari di Hub eventi, visitare i collegamenti segu
 - [Esempi di codice di Hub eventi] (http://code.msdn.microsoft.com/site/search?query=eventhub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [Riferimento all'API dell'host processore di eventi](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

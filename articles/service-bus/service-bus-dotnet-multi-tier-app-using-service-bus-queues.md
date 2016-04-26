@@ -37,7 +37,7 @@ Nella schermata seguente è illustrata l'applicazione completata.
 
 ![][0]
 
-> [AZURE.NOTE]In Azure è inoltre disponibile la funzionalità della coda di archiviazione. Per ulteriori informazioni sulle code di archiviazione di Azure e sulle code del bus di servizio, vedere [Code di Azure e bus di servizio di Azure: confronto e contrapposizioni][sbqueuecomparison].
+> [AZURE.NOTE] In Azure è inoltre disponibile la funzionalità della coda di archiviazione. Per ulteriori informazioni sulle code di archiviazione di Azure e sulle code del bus di servizio, vedere [Code di Azure e bus di servizio di Azure: confronto e contrapposizioni][sbqueuecomparison].
 
 ## Informazioni generali sullo scenario: comunicazione tra ruoli
 
@@ -103,7 +103,7 @@ Il passaggio successivo consiste nel creare uno spazio dei nomi del servizio e n
 
 5.  Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato. Assicurarsi di usare lo stesso paese/area in cui verranno distribuite le risorse di calcolo. Verificare anche di aver selezionato **Messaggistica** nel campo **Tipo** dello spazio dei nomi e **Standard** nel campo **Livello di messaggistica**.
 
-    > [AZURE.IMPORTANT]Selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
+    > [AZURE.IMPORTANT] Selezionare la **stessa area** che si intende scegliere per la distribuzione dell'applicazione. In questo modo sarà possibile ottenere prestazioni ottimali.
 
 6.  Fare clic sul segno di spunta accanto a OK. A questo punto, lo spazio dei nomi servizio verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
@@ -479,7 +479,7 @@ Per altre informazioni sugli scenari multilivello o per informazioni su come dis
 
 * [Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure][mutitierstorage]  
 
-È consigliabile implementare il front-end di un'applicazione multilivello in un sito Web di Azure anziché in un servizio cloud di Azure. Per altre informazioni sulle differenze tra siti Web e servizi cloud, vedere [Modelli di esecuzione di Azure][executionmodels].
+È consigliabile implementare il front-end di un'applicazione multilivello in un sito Web di Azure anziché in un servizio cloud di Azure.
 
 Per implementare l'applicazione creata in questa esercitazione come progetto Web standard invece che come ruolo Web di un servizio cloud, attenersi alle procedure disponibili in questa esercitazione, apportando le modifiche seguenti:
 
@@ -543,6 +543,6 @@ Per informazioni su come distribuire il front-end in un sito Web di Azure, veder
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-  [executionmodels]: ../cloud-services/fundamentals-application-models.md
+  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0420_2016-->

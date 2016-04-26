@@ -24,7 +24,7 @@
 
 ## Panoramica
 
-Questa esercitazione illustra come creare un'applicazione .NET multilivello con un front-end MVC ASP.NET e come distribuirla in un [servizio cloud di Azure](fundamentals-application-models.md#CloudServices). L'applicazione usa il [database SQL di Azure](http://msdn.microsoft.com/library/azure/ee336279), il [servizio BLOB di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e il [Servizio di accodamento di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). È possibile [scaricare il progetto di Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da MSDN Code Gallery.
+Questa esercitazione illustra come creare un'applicazione .NET multilivello con un front-end MVC ASP.NET e come distribuirla in un [servizio cloud di Azure](cloud-services-choose-me.md). L'applicazione usa il [database SQL di Azure](http://msdn.microsoft.com/library/azure/ee336279), il [servizio BLOB di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e il [Servizio di accodamento di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). È possibile [scaricare il progetto di Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da MSDN Code Gallery.
 
 Questa esercitazione illustra come compilare ed eseguire localmente l'applicazione, come distribuirla in Azure ed eseguirla nel cloud e infine come creare un'applicazione completamente nuova. È possibile iniziare creando un'applicazione completamente nuova, quindi eseguire i passaggi relativi a test e distribuzione in un secondo momento, se si preferisce.
 
@@ -51,7 +51,7 @@ Questa esercitazione mostra come eseguire front-end e back-end in un servizio cl
 
 ## Prerequisiti
 
-Nell'esercitazione si presuppone che l'utente abbia familiarità con i [concetti di base relativi ai servizi cloud di Azure](fundamentals-application-models.md#CloudServices), ad esempio con la terminologia *ruolo Web* e *ruolo di lavoro*. Si presuppone anche che si sia in grado di usare progetti [MVC ASP.NET](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Form](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) in Visual Studio. L'applicazione di esempio usa MVC, ma la maggior parte dell'esercitazione è applicabile anche a Web Form.
+Nell'esercitazione si presuppone che l'utente abbia familiarità con i [concetti di base relativi ai servizi cloud di Azure](cloud-services-choose-me.md), ad esempio con la terminologia *ruolo Web* e *ruolo di lavoro*. Si presuppone anche che si sia in grado di usare progetti [MVC ASP.NET](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Form](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) in Visual Studio. L'applicazione di esempio usa MVC, ma la maggior parte dell'esercitazione è applicabile anche a Web Form.
 
 È possibile eseguire l'app localmente senza sottoscrizione di Azure, ma sarà necessaria una sottoscrizione per distribuire l'applicazione nel cloud. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) oppure [iscriversi per ottenere una versione di valutazione gratuita](/pricing/free-trial/?WT.mc_id=A55E3C668).
 
@@ -205,7 +205,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 6. Nell'elenco a discesa **Replica** scegliere **Localmente ridondante**.
 
-	Quando per un account di archiviazione è abilitata la replica geografica, il contenuto archiviato è replicato in un data center secondario per permettere il failover in tale posizione in caso di errore grave nella posizione primaria. La replica geografica può comportare costi aggiuntivi. Per gli account di test e di sviluppo si preferisce in genere non pagare per la replica geografica. Per altre informazioni, vedere la pagina relativa alla [creazione, gestione o eliminazione di un account di archiviazione](../storage-create-storage-account/#replication-options).
+	Quando per un account di archiviazione è abilitata la replica geografica, il contenuto archiviato è replicato in un data center secondario per permettere il failover in tale posizione in caso di errore grave nella posizione primaria. La replica geografica può comportare costi aggiuntivi. Per gli account di test e di sviluppo si preferisce in genere non pagare per la replica geografica. Per altre informazioni, vedere la pagina relativa alla [creazione, gestione o eliminazione di un account di archiviazione](../storage/storage-create-storage-account.md#replication-options).
 
 5. Fare clic su **Create Storage Account**.
 
@@ -869,4 +869,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Come gestire i servizi cloud](cloud-services-how-to-manage.md)
 * [Archiviazione di Azure](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

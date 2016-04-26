@@ -13,14 +13,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="03/25/2016"
+	ms.date="04/18/2016"
 	ms.author="kgremban"/>
 
 
 # Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure
 
 
-Creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo di Azure, se nessuno dei ruoli predefiniti soddisfa le esigenze di accesso specifiche. I ruoli personalizzati possono essere creati usando Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Analogamente ai ruoli predefiniti, i ruoli personalizzati possono essere assegnati a utenti, gruppi e applicazioni nell'ambito della sottoscrizione, del gruppo di risorse e delle risorse.
+Creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo di Azure, se nessuno dei ruoli predefiniti soddisfa le esigenze di accesso specifiche. I ruoli personalizzati possono essere creati usando [Azure PowerShell](role-based-access-control-manage-access-powershell.md), l'[interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md) e l'[API REST](role-based-access-control-manage-access-rest.md). Analogamente ai ruoli predefiniti, i ruoli personalizzati possono essere assegnati a utenti, gruppi e applicazioni nell'ambito della sottoscrizione, del gruppo di risorse e delle risorse.
 
 Ecco un esempio di ruolo personalizzato, che consente il monitoraggio e il riavvio di macchine virtuali:
 
@@ -69,7 +69,7 @@ Usare `Get-AzureRmProviderOperation` in PowerShell o `azure provider operations 
 ## NotActions
 Usare la proprietà **NotActions** se il set di operazioni che si vuole consentire viene più facilmente definito escludendo le operazioni con restrizioni. L'accesso concesso da un ruolo personalizzato viene calcolato sottraendo le operazioni **NotActions** dalle operazioni **Actions**.
 
-> [AZURE.NOTE] Se a un utente viene assegnato un ruolo che esclude un'operazione in **NotActions** viene assegnato un secondo ruolo che concede l'accesso alla stessa operazione, l'utente sarà autorizzato a eseguire l'operazione. **NotActions** non è una regola di negazione. È semplicemente un modo semplice per creare un set di operazioni consentite quando è necessario escludere operazioni specifiche.
+> [AZURE.NOTE] Se a un utente viene assegnato un ruolo che esclude un'operazione in **NotActions** e viene assegnato un secondo ruolo che concede l'accesso alla stessa operazione, l'utente sarà autorizzato a eseguire l'operazione. **NotActions** non è una regola di negazione. È semplicemente un modo semplice per creare un set di operazioni consentite quando è necessario escludere operazioni specifiche.
 
 ## AssignableScopes
 La proprietà **AssignableScopes** del ruolo personalizzato specifica gli ambiti, ovvero sottoscrizioni, gruppi di risorse o risorse, entro i quali il ruolo personalizzato è disponibile per l'assegnazione. È possibile rendere disponibile il ruolo personalizzato per l'assegnazione solo nelle sottoscrizioni o nei gruppi di risorse che lo richiedono, in modo da non complicare l'esperienza utente per le altre sottoscrizioni o gli altri gruppi di risorse.
@@ -87,16 +87,16 @@ La proprietà **AssignableScopes** del ruolo personalizzato controlla anche qual
 
 - È necessario specificare gli utenti autorizzati a creare un ruolo personalizzato. I ruoli Proprietario e Amministratore Accessi utenti di sottoscrizioni, gruppi di risorse e risorse possono quindi creare ruoli personalizzati da usare in questi ambiti. L'utente che crea il ruolo deve poter eseguire l'operazione `Microsoft.Authorization/roleDefinition/write` in tutte le proprietà **AssignableScopes** del ruolo.
 
-- È necessario specificare gli utenti autorizzati a modificare un ruolo personalizzato. I ruoli Proprietario e Amministratore Accessi utenti di sottoscrizioni, gruppi di risorse e risorse possono modificare i ruoli personalizzati in questi ambiti. Gli utenti devono poter eseguire l'operazione `Microsoft.Authorization/roleDefinition/write` in tutte le proprietà **AssignableScope**s di un ruolo personalizzato.
+- È necessario specificare gli utenti autorizzati a modificare un ruolo personalizzato. I ruoli Proprietario e Amministratore Accessi utenti di sottoscrizioni, gruppi di risorse e risorse possono modificare i ruoli personalizzati in questi ambiti. Gli utenti devono poter eseguire l'operazione `Microsoft.Authorization/roleDefinition/write` in tutte le proprietà **AssignableScopes** di un ruolo personalizzato.
 
 - Chi può visualizzare i ruoli personalizzati Tutti i ruoli predefiniti nel Controllo degli accessi in base al ruolo di Azure consentono la visualizzazione dei ruoli disponibili per l'assegnazione. Gli utenti che possono eseguire l'operazione `Microsoft.Authorization/roleDefinition/read` a livello di ambito possono visualizzare i ruoli del Controllo degli accessi in base al ruolo disponibili per l'assegnazione in tale ambito.
 
 ## Vedere anche
-- Introduzione al [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md) nel portale di Azure.
+- [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): introduzione alla funzionalità nel portale di Azure.
 - Informazioni su come gestire l'accesso con:
 	- [PowerShell](role-based-access-control-manage-access-powershell.md)
 	- [Interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md)
 	- [API REST](role-based-access-control-manage-access-rest.md)
-- [Creare un report della cronologia delle modifiche relative all'accesso](role-based-access-control-access-change-history-report.md)
+- [Ruoli predefiniti](role-based-access-built-in-roles.md): ottenere informazioni dettagliate sui ruoli predefiniti del Controllo degli accessi in base al ruolo.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

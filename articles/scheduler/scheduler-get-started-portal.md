@@ -1,6 +1,6 @@
 <properties
  pageTitle="Introduzione all'Utilità di pianificazione di Azure nel portale di Azure | Microsoft Azure"
- description=""
+ description="Introduzione all'Utilità di pianificazione di Azure nel portale di Azure"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -182,4 +182,4 @@ Il controllo degli accessi in base al ruolo di Azure consente una gestione degli
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->
