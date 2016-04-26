@@ -1,9 +1,9 @@
-L'inclusione delle funzionalità di calcolo, rete e archiviazione con Azure Resource Manager sostanzialmente consentirà di semplificare la distribuzione e la gestione di complesse applicazioni in esecuzione in IaaS. Molte applicazioni richiedono una combinazione di risorse, tra cui una rete virtuale, un account di archiviazione, una macchina virtuale e un'interfaccia di rete. Gestione risorse di Microsoft Azure offre la possibilità di creare un modello JSON per distribuire e gestire tutte queste risorse insieme come una singola applicazione.
 
 
-## Vantaggi dell’integrazione del calcolo, della rete e delle risorse di archiviazione in Gestione risorse di Microsoft Azure
 
-Gestione risorse di Microsoft Azure offre la possibilità di sfruttare facilmente i modelli di applicazione predefiniti o consente di creare un modello di applicazione per distribuire e gestire le risorse di calcolo, rete e archiviazione in Micorosft Azure. In questa sezione verranno esaminati i vantaggi della distribuzione delle risorse tramite Gestione risorse di Microsoft Azure.
+## Vantaggi dell'integrazione del calcolo, della rete e delle risorse di archiviazione nel modello di distribuzione Azure Resource Manager
+
+Il modello di distribuzione Azure Resource Manager offre la possibilità di sfruttare facilmente i modelli di applicazione predefiniti o consente di creare un modello di applicazione per distribuire e gestire le risorse di calcolo, rete e archiviazione in Azure. In questa sezione verranno esaminati i vantaggi della distribuzione delle risorse con il modello di distribuzione Azure Resource Manager.
 
 -	Complessità resa più semplice: creazione, integrazione e collaborazione in applicazioni complesse che possono includere l'intera gamma di risorse di Microsoft Azure (ad esempio siti Web, database SQL, macchine virtuali o reti virtuali) da un file di modello condivisibile
 -	Flessibilità di disporre distribuzioni ripetibili per amministratori di sistema, reparti di sviluppo e DevOps quando si utilizza lo stesso file di modello
@@ -15,7 +15,7 @@ Gestione risorse di Microsoft Azure offre la possibilità di sfruttare facilment
 
 ## Miglioramenti delle API di calcolo, rete e archiviazione in Gestione risorse di Microsoft Azure
 
-Oltre ai vantaggi indicati in precedenza, esistono alcuni miglioramenti significativi delle prestazioni nelle API rilasciate.
+Oltre ai vantaggi indicati in precedenza, esistono alcuni miglioramenti significativi delle prestazioni nelle API rilasciate:
 
 -	Abilitazione della distribuzione di macchine virtuali di grandi dimensioni e parallele
 -	Supporto per tre domini di errore nei set di disponibilità
@@ -83,7 +83,7 @@ Le quote per le macchine virtuali, reti virtuali e gli account di archiviazione 
 
 **È possibile continuare a utilizzare gli script automatizzati per il provisioning di macchine virtuali, reti virtuali, account di archiviazione e altrotramite le nuove API di Gestione risorse di Microsoft Azure?**
 
-Tutti gli script e le automazioni creati continueranno a funzionare per le macchine virtuali e le reti virtuali esistenti creati con la modalità di gestione dei servizi Microsoft Azure. Tuttavia, è necessario aggiornare gli script per utilizzare il nuovo schema per la creazione delle stesse risorse tramite la nuova modalità di Gestione risorse di Microsoft Azure. Ulteriori informazioni su come modificare i propri[script per l’interfaccia della riga di comando di Microsoft Azure](../articles/virtual-machines/virtual-machines-linux-cli-manage.md).
+Tutti gli script e le automazioni creati continueranno a funzionare per le macchine virtuali e le reti virtuali esistenti creati con la modalità di gestione dei servizi Microsoft Azure. Tuttavia, è necessario aggiornare gli script per utilizzare il nuovo schema per la creazione delle stesse risorse tramite la nuova modalità di Gestione risorse di Microsoft Azure.
 
 **Le reti virtuali create mediante le nuove API di Gestione risorse di Microsoft Azure possono essere connesse al circuito Express Route in uso?**
 
@@ -93,4 +93,4 @@ La funzionalità non è supportata al momento. Non è possibile connettere le re
 
 E’ possibile trovare un set completo di modelli iniziali in[modelli di Guida rapida di gestione risorse di Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

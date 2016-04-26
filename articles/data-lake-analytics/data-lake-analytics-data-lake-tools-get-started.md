@@ -28,7 +28,7 @@ U-SQL è un linguaggio estremamente scalabile e facilmente estendibile per la pr
 
 ###Prerequisiti
 
-- **Visual Studio 2015, Visual Studio 2013 Update 4 oppure Visual Studio 2012. Sono supportate le edizioni Enterprise (Ultimate/Premium), Professional e Community. L'edizione Express non è supportata. Visual Studio "15" non è attualmente supportato ma lo sarà a breve.** 
+- **Visual Studio 2015, Visual Studio 2013 Update 4 oppure Visual Studio 2012. Sono supportate le edizioni Enterprise (Ultimate/Premium), Professional e Community. L'edizione Express non è supportata. Visual Studio "15" non è attualmente supportato ma lo sarà a breve.**
 - **Microsoft Azure SDK per .NET versione 2.7.1 o successiva**. Installarlo usando il [programma di installazione della piattaforma Web](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Strumenti di Data Lake per Visual Studio](http://aka.ms/adltoolsvs)**.
 
@@ -129,12 +129,10 @@ I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altr
 		Per le entità seguenti vengono visualizzati il nome completato in modo automatico e i membri: Rowset, Classes, Databases, Schemas e User Defined Objects (UDO).
 
 		IntelliSense per le entità di catalogo (Databases, Schemas, Tables, UDO, e così via) è correlato all'account di calcolo personale. È possibile controllare l'account di calcolo, il database e lo schema attualmente attivi nella barra degli strumenti superiore e sostituirli tramite gli elenchi a discesa.
- 
-    - **Espandere le colonne con il simbolo dell'asterisco**
 
-        Cliccando a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto l'asterisco. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia rivolta verso il basso.  
+    - **Espandere le colonne con il simbolo dell'asterisco * **
 
-    	![Strumenti di Data Lake per Visual Studio espande l'asterisco](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        Cliccando a destra del simbolo *, verrà visualizzata una sottolineatura blu sotto l'asterisco. Passare il puntatore del mouse sulla sottolineatura blu e quindi fare clic sulla freccia rivolta verso il basso. ! [Strumenti di Data Lake per Visual Studio espande l'asterisco] (./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Fare clic su **Espandi colonne** e lo strumento sostituirà l'asterisco con i nomi di colonna.
 
@@ -363,4 +361,4 @@ Lo script di PowerShell seguente prepara automaticamente i dati di origine e un 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

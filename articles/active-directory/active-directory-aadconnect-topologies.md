@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="get-started-article"
-    ms.date="02/12/2016"
+    ms.date="04/14/2016"
     ms.author="andkjell"/>
 
 # Topologie per Azure AD Connect
@@ -110,6 +110,8 @@ In una topologia di foresta account-risorse, sono presenti una o più foreste di
 
 Questo scenario include una foresta che considera attendibili tutte le foreste di account. Questa foresta presenta in genere uno schema Active Directory esteso con Exchange e Lync. Tutti i servizi Exchange e Lync e altri servizi condivisi si trovano in questa foresta. Gli utenti hanno un account utente disabilitato in questa foresta e la cassetta postale è collegata alla foresta account.
 
+È anche supportato l'uso di più foreste di risorse. Questo potrebbe essere lo stato dopo una fusione. È previsto che un utente abbia un solo account disabilitato in una foresta di risorse.
+
 ## Considerazioni su Office 365 e sulle topologie
 Alcuni carichi di lavoro di Office 365 prevedono determinate restrizioni per le topologie supportate. Se si prevede di usarle, vedere le pagine relative alle topologie supportate di ogni carico di lavoro.
 
@@ -147,7 +149,10 @@ In questa topologia un server di sincronizzazione di AAD Connect è connesso a o
 
 In questa topologia non viene effettuata alcuna sincronizzazione dell'elenco di indirizzi globale (GALSync) tra le istanze delle directory di Azure AD. La Rubrica in Exchange Online e Skype for Business mostrerà quindi solo gli utenti che si trovano nella stessa directory.
 
-Questa topologia consente solo a una delle directory di Azure AD di abilitare la distribuzione ibrida di Exchange con l'istanza locale di Active Directory.
+Questa topologia presenta le restrizioni seguenti in scenari altrimenti supportati:
+
+- Solo una delle directory di Azure AD può abilitare la distribuzione ibrida di Exchange con l'istanza di Active Directory locale.
+- I dispositivi Windows 10 possono essere associati a una sola directory di Azure AD.
 
 Il requisito relativo a un set di oggetti a esclusione reciproca si applica anche al writeback. Alcune funzionalità di writeback non sono quindi supportate con questa topologia, perché presuppongono una singola configurazione locale. Sono inclusi:
 
@@ -177,4 +182,4 @@ Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD 
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

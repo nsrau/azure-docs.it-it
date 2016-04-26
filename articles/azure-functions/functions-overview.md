@@ -72,4 +72,4 @@ Un **piano di servizio app classico** consente di eseguire funzioni esattamente 
 
 [AZURE.INCLUDE [Segnalazione di problemi](../../includes/functions-reporting-issues.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/18/2016"
    ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
@@ -72,7 +72,7 @@ Per preparare un file di testo di esempio:
 
 Per individuare l'endpoint di servizio BLOB:
 
-1. Dal portale di Azure classico selezionare **Sfoglia** > **Account di archiviazione**.
+1. Dal portale di Azure selezionare **Sfoglia** > **Account di archiviazione**.
 2. Fare clic sull'account di archiviazione da usare.
 3. Nel pannello Account di archiviazione fare clic su BLOB.
 
@@ -86,7 +86,7 @@ Per individuare l'endpoint di servizio BLOB:
 
 Per individuare la chiave di archiviazione di Azure:
 
-1. Dalla schermata iniziale selezionare **Sfoglia** > **Account di archiviazione**.
+1. Dal portale di Azure selezionare **Sfoglia** > **Account di archiviazione**.
 2. Fare clic sull'account di archiviazione da usare.
 3. Selezionare **Tutte le impostazioni** > **Chiavi di accesso**.
 4. Fare clic sulla casella Copia per copiare una delle chiavi di accesso negli Appunti.
@@ -128,7 +128,7 @@ Per visualizzare il file caricato nell'archivio BLOB:
 
 In questa sezione viene creata una tabella esterna che definisce i dati di esempio.
 
-PolyBase usa le tabelle esterne per accedere ai dati nell'archivio BLOB di Azure o Hadoop. Poiché i dati non vengono archiviati in SQL Data Warehouse, PolyBase gestisce l'autenticazione per i dati esterni usando credenziali con ambito database.
+PolyBase usa le tabelle esterne per accedere ai dati nell'archivio BLOB di Azure. Poiché i dati non vengono archiviati in SQL Data Warehouse, PolyBase gestisce l'autenticazione per i dati esterni usando credenziali con ambito database.
 
 L'esempio in questo passaggio usa queste istruzioni Transact-SQL per creare una tabella esterna.
 
@@ -162,6 +162,7 @@ WITH
 
 
 -- C: Create an external data source
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
 -- LOCATION: Provide Azure storage account name and blob container name.
 -- CREDENTIAL: Provide the credential created in the previous step.
 
@@ -286,4 +287,4 @@ Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBa
 [Create Database Scoped Credential (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

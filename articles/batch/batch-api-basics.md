@@ -91,7 +91,7 @@ Quando si crea un pool, è possibile specificare gli attributi seguenti:
 	- Tutti i nodi in un pool devono avere le stesse dimensioni. Se è necessario eseguire applicazioni diverse con requisiti di sistema diversi e/o carichi diversi, è consigliabile creare pool separati.
 	- È possibile configurare tutte le [dimensioni dei nodi del servizio cloud][cloud_service_sizes] per un pool, ad eccezione di A0.
 
-- **Famiglia del sistema operativo** e **versione** in esecuzione nei nodi.
+- **Famiglia del sistema operativo** e **versione ** in esecuzione nei nodi.
 	- Come con i ruoli di lavoro all'interno di Servizi cloud, si possono specificare la *famiglia del sistema operativo* e la *versione del sistema operativo*. Per altre informazioni sui ruoli di lavoro, vedere la sezione [Informazioni sui servizi cloud][about_cloud_services] in *Opzioni di hosting di calcolo fornite da Azure*.
 	- La famiglia del sistema operativo determina anche le versioni di .NET installate con il sistema operativo.
 	- Analogamente ai ruoli di lavoro, è consigliabile specificare `*` per la versione del sistema operativo, così che i nodi vengano aggiornati automaticamente senza doversi occupare delle nuove versioni rilasciate. Il caso d'uso principale per la scelta di una versione specifica del sistema operativo consiste nell'assicurare il mantenimento della compatibilità delle applicazioni, abilitando l'esecuzione del test di compatibilità con le versioni precedenti prima di consentire l'aggiornamento della versione. Dopo la convalida, la versione del sistema operativo per il pool può essere aggiornata ed è possibile installare la nuova immagine del sistema operativo. Eventuali attività in esecuzione saranno interrotte e accodate di nuovo.
@@ -146,7 +146,7 @@ Oltre alle attività definite dall'utente per eseguire il calcolo in un nodo, il
 
 #### <a name="starttask"></a>Attività di avvio
 
-Associando un'**attività di avvio** a un pool, è possibile configurare l'ambiente operativo dei nodi, eseguendo azioni come l'installazione di software o l'avvio di processi in background. L'attività di avvio viene eseguita a ogni avvio di un nodo per tutto il tempo in cui questa rimane nel pool, incluso il momento in cui il nodo viene aggiunto al pool. Il vantaggio principale dell'attività di avvio consiste nel fatto che contiene tutte le informazioni necessarie per configurare i nodi di calcolo e installare le applicazioni necessarie per l'esecuzione dell'attività di processo. In questo modo, l'aumento del numero di nodi in un pool è semplice come quando si specifica il nuovo conteggio dei nodi di destinazione. Batch ha già tutte le informazioni necessarie per configurare i nuovi nodi e prepararli perché accettino le attività.
+Associando un'**attività di avvio ** a un pool, è possibile configurare l'ambiente operativo dei nodi, eseguendo azioni come l'installazione di software o l'avvio di processi in background. L'attività di avvio viene eseguita a ogni avvio di un nodo per tutto il tempo in cui questa rimane nel pool, incluso il momento in cui il nodo viene aggiunto al pool. Il vantaggio principale dell'attività di avvio consiste nel fatto che contiene tutte le informazioni necessarie per configurare i nodi di calcolo e installare le applicazioni necessarie per l'esecuzione dell'attività di processo. In questo modo, l'aumento del numero di nodi in un pool è semplice come quando si specifica il nuovo conteggio dei nodi di destinazione. Batch ha già tutte le informazioni necessarie per configurare i nuovi nodi e prepararli perché accettino le attività.
 
 Come per qualsiasi attività Batch, è possibile specificare un elenco di **file di risorse** in [Archiviazione di Azure][azure_storage], oltre a una **riga di comando** da eseguire. Azure Batch copierà prima di tutto i file da Archiviazione di Azure, quindi eseguirà la riga di comando. Per un'attività di avvio del pool, l'elenco di file include in genere il pacchetto o i file dell'applicazione, ma può anche includere dati di riferimento da usare in tutte le attività in esecuzione nei nodi di calcolo. La riga di comando dell'attività di avvio potrebbe eseguire uno script di PowerShell o eseguire un'operazione `robocopy`, ad esempio, copiare i file dell'applicazione nella cartella "condivisa", quindi eseguire successivamente un file MSI o `setup.exe`.
 
@@ -368,10 +368,10 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
-[about_cloud_services]: https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#tell-me-about-cloud-services
+[about_cloud_services]: ../cloud-services/cloud-services-choose-me.md
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
+[cloud_service_sizes]: ../cloud-services/cloud-services-sizes-specs.md
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
@@ -411,4 +411,4 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

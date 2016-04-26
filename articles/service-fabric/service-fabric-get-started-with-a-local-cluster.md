@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/26/2016"
+   ms.date="04/12/2016"
    ms.author="seanmck"/>
 
 # Introduzione alla distribuzione e all'aggiornamento di applicazioni nel cluster locale
@@ -84,7 +84,7 @@ In questa esercitazione si userà un'applicazione di esempio esistente, denomina
 
     ![Distribuzione di un'applicazione nel cluster locale][deploy-app-to-local-cluster]
 
-7. Per visualizzare l'applicazione in funzione, avviare il browser e passare a [http://localhost:8081/wordcount/index](http://localhost:8081/wordcount/index). Verrà visualizzata una schermata analoga alla seguente:
+7. Per visualizzare l'applicazione in funzione, avviare il browser e passare a [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). Verrà visualizzata una schermata analoga alla seguente:
 
     ![Interfaccia utente dell'applicazione distribuita][deployed-app-ui]
 
@@ -148,11 +148,11 @@ La nuova versione dell'applicazione conterà solo le parole che iniziano con una
 
     ![Stato dell'aggiornamento in PowerShell][ps-appupgradeprogress]
 
-3. Sarà più facile monitorare lo stato dell'aggiornamento da Service Fabric Explorer. Avviare una finestra del browser e passare all'indirizzo [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Fare clic su **Applications** nell'albero a sinistra e scegliere **Upgrades in Progress**.
+3. Sarà più facile monitorare lo stato dell'aggiornamento da Service Fabric Explorer. Avviare una finestra del browser e passare all'indirizzo [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Espandere **Applicazioni** nell'albero a sinistra, quindi scegliere **WordCount** e infine **fabric:/WordCount**. Nella scheda Informazioni di base verrà visualizzato lo stato dell'operazione di aggiornamento nei domini di aggiornamento del cluster.
 
     ![Stato dell'aggiornamento in Service Fabric Explorer][sfx-upgradeprogress]
 
-    Si noti che l'indicatore di Upgrade Progress rappresenta lo stato dell'aggiornamento all'interno dei domini di aggiornamento del cluster. Durante l'operazione di aggiornamento in ogni dominio vengono eseguiti controlli di integrità, per garantire che il comportamento dell'applicazione risulti corretto.
+    Durante l'operazione di aggiornamento in ogni dominio vengono eseguiti controlli di integrità, per garantire che il comportamento dell'applicazione risulti corretto.
 
 4. Se si esegue di nuovo la query precedente per il set di servizi inclusi nell'applicazione fabric:/WordCount, si noterà che la versione di WordCountService è cambiata, mentre la versione di WordCountWebService è rimasta uguale:
 
@@ -170,7 +170,7 @@ La nuova versione dell'applicazione conterà solo le parole che iniziano con una
 
 ## Passaggi successivi
 - Dopo aver distribuito e aggiornato alcune applicazioni precompilate, è possibile [provare a creare un'applicazione personalizzata in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
-- Tutte le azioni eseguite nel cluster locale durante questa esercitazione possono essere eseguite anche in un [cluster di Azure](service-fabric-cluster-creation-via-portal.md).
+- Tutte le azioni eseguite nel cluster locale nel corso di questa esercitazione, possono anche essere eseguite in un [cluster di Azure](service-fabric-cluster-creation-via-portal.md).
 - L'aggiornamento eseguito in questa esercitazione è molto semplice. Per altre informazioni sulle potenzialità e sulla flessibilità degli aggiornamenti di Service Fabric, vedere la [documentazione relativa all'aggiornamento](service-fabric-application-upgrade.md).
 
 <!-- Images -->
@@ -190,4 +190,4 @@ La nuova versione dell'applicazione conterà solo le parole che iniziano con una
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

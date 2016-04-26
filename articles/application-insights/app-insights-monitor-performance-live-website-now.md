@@ -159,7 +159,6 @@ Se l'applicazione invia una grande quantità di dati ed è in uso Application In
  -	`login.live.com:443`
 + Installazione:
  +	`packages.nuget.org:443`
- +	`appinsightsstatusmonitor.blob.core.windows.net:80`
 
 Questo elenco può variare nel tempo.
 
@@ -302,4 +301,4 @@ Se l'app Web è in Azure e si creano le risorse usando un modello di Azure Resou
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

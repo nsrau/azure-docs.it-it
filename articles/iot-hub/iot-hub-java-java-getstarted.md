@@ -54,7 +54,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 Infine, fare clic su **Impostazioni** nel pannello dell'hub IoT e quindi su **Messaggistica** nel pannello **Impostazioni**. Nel pannello **Messaggistica** prendere nota del **Nome compatibile con l'hub eventi** e dell'**Endpoint compatibile con l'hub eventi**. Questi valori serviranno quando si creerà l'applicazione **read-d2c-messages**.
 
-    ![][6]
+![][6]
 
 Si è appena creato l'hub IoT e si conoscono il nome host dell'hub IoT, la stringa di connessione dell'hub IoT, il nome compatibile con l'hub eventi e l'endpoint compatibile con l'hub eventi necessari per completare il resto dell'esercitazione.
 
@@ -111,4 +111,4 @@ In questa esercitazione si è configurato un nuovo hub IoT nel portale e quindi 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

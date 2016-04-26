@@ -1,4 +1,11 @@
-<properties pageTitle="Anteprima di Azure Active Directory B2C: Chiamare un'API Web da un'app iOS | Microsoft Azure" description="Questo articolo illustra come creare un'app iOS "To-Do List" che chiama un'API Web Node.js web tramite token di connessione OAuth 2.0. Sia l'app iOS che l'API Web usano Azure Active Directory B2C per gestire le identità utente e autenticare gli utenti." services="active-directory-b2c" documentationCenter="ios" authors="brandwe" manager="mbaldwin" editor=""/>
+<properties
+	pageTitle="Anteprima di Azure Active Directory B2C: Chiamare un'API Web da un'applicazione iOS | Microsoft Azure"
+	description="Questo articolo illustra come creare un'app iOS ";To-Do List"; che chiama un'API Web Node.js tramite token di connessione OAuth 2.0. Sia l'app iOS che l'API Web usano Azure Active Directory B2C per gestire le identità utente e autenticare gli utenti."
+	services="active-directory-b2c"
+	documentationCenter="ios"
+	authors="brandwe"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -31,7 +38,7 @@ Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant.
 
 Successivamente, è necessario creare un'app nella directory B2C. In questo modo Azure AD acquisisce le informazioni necessarie per comunicare in modo sicuro con l'app. Sia l'app che l'API Web sono rappresentate da un singolo **ID applicazione** in questo caso, perché includono un'app per la logica. Per creare un'app, seguire [questa procedura](active-directory-b2c-app-registration.md): Assicurarsi di:
 
-- Includere un'**app Web/API Web** nell'applicazione.
+- Includere un'**app Web o un'API Web** nell'applicazione.
 - Immettere `http://localhost:3000/auth/openid/return` come **URL di risposta**. Si tratta dell'URL predefinito per questo esempio di codice.
 - Creare un **segreto applicazione** per l'applicazione e prenderne nota. Sarà necessario più avanti.
 - Copiare l'**ID applicazione** assegnato all'app. Sarà necessario più avanti.
@@ -40,7 +47,7 @@ Successivamente, è necessario creare un'app nella directory B2C. In questo modo
 
 ## Creare i criteri
 
-In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory-b2c-reference-policies.md) specifici. Questa app contiene tre esperienze di identità: iscrizione, accesso e accesso con Facebook. È necessario creare i criteri per ogni tipo, come descritto nell'[articolo di riferimento per i criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
+In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory-b2c-reference-policies.md) specifici. Questa app contiene tre esperienze di identità: iscrizione, accesso e accesso con Facebook. È necessario creare un criterio per ogni tipo, come descritto nell'[articolo di riferimento per i criteri](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Durante la creazione dei tre criteri, assicurarsi di:
 
 - Scegliere il **Nome visualizzato** e gli attributi per l'iscrizione nei criteri di iscrizione.
 - Scegliere **Nome visualizzato** e **ID oggetto** come attestazioni dell'applicazione in tutti i criteri. È consentito scegliere anche altre attestazioni.
@@ -54,7 +61,7 @@ Si noti che questo articolo non illustra come usare i criteri appena creati. Per
 
 ## Scaricare il codice
 
-Il codice per questa esercitazione [è disponibile in GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). Per creare l'esempio passo dopo passo, è possibile [scaricare il progetto struttura come file ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip). È anche possibile clonare la struttura:
+Il codice per questa esercitazione è [disponibile in GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). Per creare l'esempio passo dopo passo, è possibile [scaricare il progetto struttura come file ZIP](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip). È anche possibile clonare la struttura:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS.git
@@ -253,15 +260,15 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 
 Il metodo è semplice. Accetta come input l'oggetto `samplesPolicyData` creato, l'elemento padre `ViewController` e un callback. Il callback verrà esaminato in modo più approfondito.
 
-- Si noti che `completionBlock` prevede `ADProfileInfo` come un tipo restituito tramite un oggetto `userInfo`. `ADProfileInfo` è il tipo che contiene tutte le risposte dal server, incluse le attestazioni.
+- Si noti che `completionBlock` prevede `ADProfileInfo` come tipo restituito tramite un oggetto `userInfo`. `ADProfileInfo` è il tipo che contiene tutte le risposte dal server, incluse le attestazioni.
 - Si noti anche che `readApplicationSettings` legge i dati forniti in `settings.plist`.
-- Il risultato finale è un metodo `getClaimsWithPolicyClearingCache` di grandi dimensioni. Questa è la chiamata ad ADAL per iOS vera e propria che è necessario scrivere e verrà approfondita più avanti in questo articolo.
+- L'ultimo elemento è un metodo `getClaimsWithPolicyClearingCache` di grandi dimensioni. Questa è la chiamata ad ADAL per iOS vera e propria che è necessario scrivere e verrà approfondita più avanti in questo articolo.
 
 Scrivere il metodo di grandi dimensioni `getClaimsWithPolicyClearingCache`. Date le dimensioni, il metodo richiede una sezione distinta.
 
 ### Creare la chiamata ad ADAL per iOS
 
-Dopo aver scaricato la struttura da GitHub, sono disponibili diverse chiamate per l'applicazione di esempio. I metodi seguono tutti il modello `get(Claims|Token)With<verb>ClearningCache`. L'uso delle convenzioni Objective C le rende molto simili alla lingua inglese. Ad esempio, "Ottieni un token con i parametri aggiuntivi da me forniti e cancella la cache" sarà `getTokenWithExtraParamsClearingCache()`.
+Dopo aver scaricato la struttura da GitHub, sono disponibili diverse chiamate per l'applicazione di esempio. Gli scheletri seguono tutti il modello `get(Claims|Token)With<verb>ClearningCache`. L'uso delle convenzioni Objective C le rende molto simili alla lingua inglese. Ad esempio, "Ottieni un token con i parametri aggiuntivi da me forniti e cancella la cache" sarà `getTokenWithExtraParamsClearingCache()`.
 
 Si scriverà "Ottieni attestazioni e un token con i criteri forniti e non cancellare la cache", ovvero `getClaimsWithPolicyClearingCache`. ADAL restituisce sempre un token, non è quindi necessario specificare "attestazioni e un token" nel metodo. Dal momento che a volte è necessario soltanto il token senza il sovraccarico dell'analisi delle attestazioni, nella struttura viene fornito un metodo senza attestazioni denominato `getTokenWithPolicyClearingCache`.
 
@@ -623,4 +630,4 @@ Per riferimento, l'esempio completo [viene fornito come file ZIP](https://github
 
 [Personalizzare l'esperienza utente per un'app B2C]()
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

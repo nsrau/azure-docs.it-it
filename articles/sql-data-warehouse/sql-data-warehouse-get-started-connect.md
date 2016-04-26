@@ -3,7 +3,7 @@
    description="Introduzione alla connessione a SQL Data Warehouse e all'esecuzione di alcune query."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="04/20/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Connettersi a SQL Data Warehouse con Visual Studio
 
@@ -110,4 +110,4 @@ Ora che è possibile connettersi ed eseguire una query, provare a [visualizzare 
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

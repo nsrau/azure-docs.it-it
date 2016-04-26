@@ -4,7 +4,7 @@
 	services="app-service\api"
 	documentationCenter="node"
 	authors="bradygaster"
-	manager="mohisri" 
+	manager="mohisri"
 	editor="tdykstra "/>
 
 <tags
@@ -243,4 +243,4 @@ A questo punto è stata creata e distribuita la prima app per le API usando Node
 
 Per basarsi su questo esempio, è possibile aggiungere codice ai gestori per archiviare i dati in un database o sul disco dell'istanza di app per le API. Ora che la distribuzione continua è stata attivata, modificare le funzionalità dell'app per le API ed estendere le modifiche è semplice come modificare il codice ed eseguirne il push all'archivio Git.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

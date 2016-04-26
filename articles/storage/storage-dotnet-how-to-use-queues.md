@@ -54,11 +54,13 @@ Aggiungere le istruzioni `using` seguenti all'inizio del file `program.cs`.
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
+### Analizzare la stringa di connessione
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Creare il client del servizio di accodamento
 
-La classe **CloudQueueClient** consente di recuperare le code archiviate nell'archivio code. Aggiungere il codice seguente al metodo **Main()**:
+La classe **CloudQueueClient** consente di recuperare le code archiviate nell'archivio code. Ecco come creare il client del servizio:
 
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
@@ -273,4 +275,4 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

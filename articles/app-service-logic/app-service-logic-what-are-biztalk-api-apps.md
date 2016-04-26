@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016" 
+	ms.date="04/20/2016" 
 	ms.author="mandia"/>
 
 # Cosa sono i connettori e le app per le API di BizTalk
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 I Servizi app di Azure sono creati in base a un principio di estendibilità e di connettività comune tramite le app per le API. Un *connettore* è un tipo di app per le API incentrato sulla connettività. I connettori, come qualsiasi altra app per le API, vengono usati dalle app Web, dalle app per dispositivi mobili e dalle app per la logica. I connettori facilitano la connessione ai servizi esistenti e aiutano a gestire l'autenticazione, a fornire il monitoraggio, l'analisi e molto altro.
 
@@ -48,4 +50,4 @@ Le regole di business incapsulano i criteri e le decisioni che controllano i pro
 Per un elenco completo di connettori e app per le API inclusi in ogni categoria, tra cui connettori Standard, EAI BizTalk, connettori Premium e così via, vedere [Elenco di connettori e app per le API](app-service-logic-connectors-list.md).
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

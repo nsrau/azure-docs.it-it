@@ -4,7 +4,7 @@
 	services="app-service\api"
 	documentationCenter="java"
 	authors="bradygaster"
-	manager="mohisri" 
+	manager="mohisri"
 	editor="tdykstra"/>
 
 <tags
@@ -295,4 +295,4 @@ Per approfondire questo esempio, è possibile acquisire informazioni su [Storage
 
 Per altre informazioni su come usare Java in Azure, vedere il [Centro per sviluppatori Java](/develop/java/).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->
