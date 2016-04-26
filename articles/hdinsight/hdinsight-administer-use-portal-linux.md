@@ -64,7 +64,7 @@ HDInsight è compatibile con una vasta gamma di componenti Hadoop. Per l'elenco 
 	
 	- **Impostazioni** e **Tutte le impostazioni**: visualizzano il pannello**Impostazioni** per il cluster, che consente di accedere a informazioni dettagliate sulla configurazione del cluster.
 	- **Dashboard**, **Dashboard del cluster** e **URL: sono modi per accedere al dashboard del cluster, che per i cluster basati su Linux è Ambari Web.
-- **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
+	- **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
 	- **Ridimensiona cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
 	- **Elimina**: elimina il cluster.
 	- **Avvio rapido (![icona cloud e thunderbolt = guida rapida](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
