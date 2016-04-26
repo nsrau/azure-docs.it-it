@@ -106,7 +106,8 @@ Per abilitare la sincronizzazione password, sono disponibili due opzioni:
 
 - Se si usano le impostazioni personalizzate quando si installa Azure AD Connect, la sincronizzazione password viene abilitata nella pagina di accesso dell'utente.
 
-<br> ![Abilitazione della sincronizzazione password](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png) <br>
+<br>
+![Abilitazione della sincronizzazione password](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png) <br>
 
 Se si sceglie di usare **Federazione tramite ADFS**, è anche possibile abilitare la sincronizzazione password come backup in caso di errore dell'infrastruttura AD FS. È inoltre possibile abilitarla se si prevede di usare Servizi di dominio Azure AD.
 

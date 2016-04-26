@@ -20,7 +20,7 @@
 
 # Distribuire un cluster del servizio contenitore di Azure
 
-Il servizio contenitore di Azure consente la distribuzione rapida delle soluzioni open source di clustering e orchestrazione dei contenitori più diffuse. Con il servizio contenitore di Azure è possibile distribuire cluster DC/OS e Docker Swarm usando i modelli di Azure Resource Manager o il portale di Azure. I cluster vengono distribuiti tramite set di scalabilità di macchine virtuali di Azure e sfruttano i vantaggi delle offerte di rete e di archiviazione di Azure. Per accedere al servizio contenitore di Azure è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+Il servizio contenitore di Azure consente la distribuzione rapida delle soluzioni open source di clustering e orchestrazione dei contenitori più diffuse. Con il servizio contenitore di Azure è possibile distribuire cluster DC/OS e Docker Swarm usando i modelli di Azure Resource Manager o il portale di Azure. I cluster vengono distribuiti tramite set di scalabilità di macchine virtuali di Azure e sfruttano i vantaggi delle offerte di rete e di archiviazione di Azure. Per accedere al servizio contenitore di Azure è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere una [versione di valutazione gratuita]( http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 Questo documento illustra come distribuire un cluster del servizio contenitore di Azure tramite il [portale di Azure](#creating-a-service-using-the-azure-portal), l'[interfaccia della riga di comando di Azure](#creating-a-service-using-the-azure-cli) e il [modulo di Azure PowerShell](#creating-a-service-using-powershell).
 
@@ -40,7 +40,7 @@ Immettere le seguenti informazioni:
 - Sottoscrizione: selezionare una sottoscrizione di Azure.
 - Gruppo di risorse: selezionare un gruppo di risorse esistente o crearne uno nuovo.
 - Località: selezionare un'area di Azure per la distribuzione del servizio contenitore di Azure.
-- Chiave pubblica SSH: aggiungere la chiave pubblica che verrà usata per l'autenticazione delle macchine virtuali nel servizio contenitore di Azure. È molto importante che questa chiave sia priva di interruzioni di riga e che includa il prefisso 'ssh-rsa' e il suffisso 'nomeutente@dominio'. Dovrà essere simile alla seguente, "**ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**". Per istruzioni sulla creazione di chiavi SSH, vedere gli articoli relativi a [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+- Chiave pubblica SSH: aggiungere la chiave pubblica che verrà usata per l'autenticazione delle macchine virtuali nel servizio contenitore di Azure. È molto importante che questa chiave sia priva di interruzioni di riga e che includa il prefisso 'ssh-rsa' e il suffisso 'nomeutente@dominio'. Dovrà essere simile alla seguente, "**ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**". Per istruzioni sulla creazione di chiavi SSH, vedere gli articoli relativi a [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
 
 Quando si è pronti a continuare, fare clic su **OK**.
 
@@ -82,12 +82,12 @@ Una volta completata la distribuzione, il cluster del servizio contenitore di Az
 
 ## Creare un servizio usando l'interfaccia della riga di comando di Azure
 
-Per creare un'istanza del servizio contenitore di Azure usando la riga di comando, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere una [versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). L'interfaccia della riga di comando di Azure deve essere installata e configurata.
+Per creare un'istanza del servizio contenitore di Azure usando la riga di comando, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere una [versione di valutazione gratuita]( http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). L'interfaccia della riga di comando di Azure deve essere installata e configurata.
 
 Per distribuire un cluster DC/OS o Docker Swarm, selezionare uno dei modelli di GitHub seguenti. Si noti che i modelli si equivalgono, differiscono unicamente nella selezione dell'agente di orchestrazione predefinito.
 
-* [Modello DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
-* [Modello Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Modello DC/OS]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [Modello Swarm]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Successivamente, assicurarsi che l'interfaccia della riga di comando di Azure sia collegata a una sottoscrizione di Azure. A questo scopo, è possibile eseguire questo comando:
 
@@ -142,12 +142,12 @@ Per visualizzare un file di parametri di esempio denominato `azuredeploy.paramet
 
 ## Creare un servizio usando PowerShell
 
-È anche possibile distribuire un cluster del servizio contenitore di Azure con PowerShell. Questo documento si basa sul [modulo Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/) versione 1.0.
+È anche possibile distribuire un cluster del servizio contenitore di Azure con PowerShell. Questo documento si basa sul [modulo Azure PowerShell]( https://azure.microsoft.com/blog/azps-1-0/) versione 1.0.
 
 Per distribuire un cluster DC/OS o Docker Swarm, selezionare uno dei modelli seguenti. Si noti che i modelli si equivalgono, differiscono unicamente nella selezione dell'agente di orchestrazione predefinito.
 
-* [Modello DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
-* [Modello Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Modello DC/OS]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [Modello Swarm]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Prima di creare un cluster nella sottoscrizione di Azure, verificare che la sessione di PowerShell sia stata registrata in Azure. A tale scopo, usare il comando `Get-AzureRMSubscription`:
 
