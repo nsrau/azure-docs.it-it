@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Novità della versione 12 del database SQL | Microsoft Azure" 
-	description="Descrive i motivi per cui i sistemi aziendali che usano il database SQL di Azure nel cloud otterranno vantaggi dall'aggiornamento alla versione 12." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Novità della versione 12 del database SQL | Microsoft Azure"
+	description="Descrive i motivi per cui i sistemi aziendali che usano il database SQL di Azure nel cloud otterranno vantaggi dall'aggiornamento alla versione 12."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jhubbard"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/21/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/21/2016"
 	ms.author="genemi"/>
 
 
@@ -37,10 +37,11 @@ Le informazioni più recenti sui limiti delle risorse per il Database SQL sono d
 ## Miglioramento della compatibilità delle applicazioni con SQL Server
 
 
-Migliorare la compatibilità con Microsoft SQL Server 2014 e gestirla man mano che vengono rilasciate nuove versioni di SQL Server era tra gli obiettivi chiave della versione 12 del database SQL. Tra le altre aree, la versione 12 raggiunge la parità con SQL Server nell'importante ambito della programmabilità. Ad esempio:
+Migliorare la compatibilità con Microsoft SQL Server 2014 e gestirla man mano che vengono rilasciate nuove versioni di SQL Server era tra gli obiettivi chiave della versione 12 del database SQL. Tra le altre aree, la versione 12 raggiunge la parità con SQL Server nell'importante ambito della programmabilità. ad esempio:
 
+- [Supporto JSON incorporato](https://msdn.microsoft.com/library/dn921897.aspx)
 
-- [Funzioni finestra](http://msdn.microsoft.com/library/ms189798.aspx) con [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+- [Funzioni finestra](http://msdn.microsoft.com/library/ms189798.aspx) con [OVER](http://msdn.microsoft.com/library/ms189461.aspx)
 
 - [Indici XML](http://msdn.microsoft.com/library/bb934097.aspx) e [indici XML selettivi](http://msdn.microsoft.com/library/jj670104.aspx)
 
@@ -166,4 +167,4 @@ Se ancora non si usa la versione 12, è possibile aggiornare il server logico se
 
 [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

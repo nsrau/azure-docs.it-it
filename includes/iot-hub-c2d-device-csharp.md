@@ -33,8 +33,8 @@ In questa sezione verrà modificata l'applicazione del dispositivo simulato crea
 > [AZURE.NOTE] Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione si consiglia di implementare criteri di nuovi tentativi (ad esempio backoff esponenziale), come indicato nell'articolo di MSDN [Gestione degli errori temporanei].
 
 <!-- Links -->
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
+[IoT Hub Developer Guide - C2D]: ../articles/iot-hub/iot-hub-devguide.md#c2d
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -3,7 +3,7 @@
     description="Informazioni su come configurare le query elastiche sui partizionamenti orizzontali."    
     services="sql-database"
     documentationCenter=""  
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="torsteng"/>
 
 <tags
@@ -192,31 +192,20 @@ Dopo aver definito l'origine dati esterna e le tabelle esterne, è ora possibile
 	where w_id > 100 and w_id < 200 
 	group by w_id, o_c_id 
  
-### 2\.2 Stored procedure SP\_ EXECUTE\_FANOUT 
+### 2\.2 Stored procedure per l'esecuzione remota di T-SQL
 
-La query elastica introduce anche una stored procedure che fornisce l'accesso diretto alle partizioni. La stored procedure è denominata sp\_execute\_fanout e accetta i parametri seguenti:
+La query elastica introduce anche una stored procedure che fornisce l'accesso diretto alle partizioni. La stored procedure è denominata sp\_execute\_remote e può essere usata per eseguire stored procedure remote o codice T-SQL su database remoti. È necessario specificare i seguenti parametri:
+* Nome dell'origine dati (nvarchar): il nome dell'origine dati esterna di tipo RDBMS. 
+* Query (nvarchar): la query T-SQL da eseguire in ogni partizione. 
+* Dichiarazione del parametro (nvarchar) - Facoltativo: stringa con definizioni del tipo di dati per i parametri usati nel parametro della query, ad esempio sp\_executesql. 
+* Elenco di valori dei parametri (facoltativo): elenco delimitato da virgole di valori dei parametri, ad esempio sp\_executesql.
 
-* Nome server (nvarchar): nome completo del server logico che ospita la mappa partizioni. 
-* Nome del database della mappa partizioni (nvarchar): nome del database della mappa partizioni. 
-* Nome utente (nvarchar): nome utente per l'accesso al database della mappa partizioni. 
-* Password (nvarchar): password per l'utente. 
-* Nome della mappa partizioni (nvarchar): nome della mappa partizioni da usare per la query. Il nome si trova nella tabella \_ShardManagement.ShardMapsGlobal e si tratta del nome predefinito usato durante la creazione di database con l'app di esempio disponibile in [Iniziare a utilizzare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md). Il nome predefinito nell'app è "CustomerIDShardMap".
-*  Query: query T-SQL da eseguire in ogni partizione. 
-*  Dichiarazione del parametro (nvarchar) - Facoltativo: stringa con definizioni del tipo di dati per i parametri usati nel parametro della query, ad esempio sp\_executesql. 
-*  Elenco di valori dei parametri - Facoltativo: elenco delimitato da virgole di valori dei parametri, ad esempio sp\_executesql.  
-
-sp\_execute\_fanout usa le informazioni sulla mappa partizioni fornite nei parametri di chiamata per eseguire l'istruzione T-SQL specificata in tutte le partizioni registrate nella mappa partizioni. Eventuali risultati vengono uniti mediante la semantica UNION ALL. Il risultato include anche la colonna "virtuale" aggiuntiva con il nome della partizione.
-
-Si noti che le stesse credenziali vengono utilizzate per connettersi al database di mappa di partizionamento e per le partizioni.
+La stored procedure sp\_execute\_remote usa l'origine dati esterna specificata nei parametri di chiamata per eseguire l'istruzione T-SQL inclusa nei database remoti. Usa le credenziali dell'origine dati esterna per connettersi al database di gestione shardmap e ai database remoti.
 
 Esempio:
 
-	sp_execute_fanout 
-		N'myserver.database.windows.net', 
-		N'ShardMapDb', 
-		N'myuser', 
-		N'MyPwd', 
-		N'ShardMap', 
+	EXEC sp_execute_remote
+		N'MyExtSrc',
 		N'select count(w_id) as foo from warehouse' 
 
 ## Connettività per gli strumenti  
@@ -241,4 +230,4 @@ Usare le normali stringhe di connessione di SQL Server per connettere l'applicaz
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

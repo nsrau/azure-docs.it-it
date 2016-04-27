@@ -52,7 +52,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 Infine, fare clic su **Impostazioni** nel pannello dell'hub IoT e quindi su **Messaggistica** nel pannello **Impostazioni**. Nel pannello **Messaggistica** prendere nota del **Nome compatibile con l'hub eventi** e dell'**Endpoint compatibile con l'hub eventi**. Questi valori serviranno quando si creerà l'applicazione **read-d2c-messages**.
 
-    ![][6]
+![][6]
 
 È stato creato l'hub IoT e sono disponibili il nome host dell'hub IoT, la stringa di connessione dell'hub IoT, il nome compatibile con l'hub eventi e l'endpoint compatibile con l'hub eventi, valori necessari per completare il resto dell'esercitazione.
 
@@ -73,7 +73,7 @@ A questo punto è possibile eseguire le applicazioni.
 
     ![][7]
 
-2. Eseguire questo comando al prompt dei comandi nella cartella **simulateddevice** per iniziare a inviare i dati di telemetria all'hub IoT:
+2. Eseguire questo comando al prompt dei comandi della cartella **simulateddevice** per iniziare a inviare dati di telemetria all'hub IoT:
 
     ```
     node SimulatedDevice.js
@@ -109,4 +109,4 @@ In questa esercitazione si è configurato un nuovo hub IoT nel portale e quindi 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

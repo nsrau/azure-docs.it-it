@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Abilitare la diagnostica nei servizi Cloud di Azure tramite PowerShell | Microsoft Azure" 
-	description="Informazioni su come abilitare la diagnostica per i servizi cloud tramite PowerShell" 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="sbtron" 
-	manager="" 
+<properties
+	pageTitle="Abilitare la diagnostica nei servizi Cloud di Azure tramite PowerShell | Microsoft Azure"
+	description="Informazioni su come abilitare la diagnostica per i servizi cloud tramite PowerShell"
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="sbtron"
+	manager=""
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="02/09/2016" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/09/2016"
 	ms.author="saurabh"/>
 
 
 # Abilitare la diagnostica nei servizi Cloud di Azure tramite PowerShell
 
-È possibile raccogliere dati di diagnostica come log delle applicazioni, contatore delle prestazioni ecc. da un servizio Cloud mediante l'estensione Diagnostica di Azure. Questo articolo descrive come abilitare l'estensione Diagnostica di Azure per un servizio Cloud tramite PowerShell. Per i prerequisiti necessari per questo articolo, vedere [Come installare e configurare Azure PowerShell](powershell-install-configure.md).
+È possibile raccogliere dati di diagnostica come log delle applicazioni, contatore delle prestazioni ecc. da un servizio Cloud mediante l'estensione Diagnostica di Azure. Questo articolo descrive come abilitare l'estensione Diagnostica di Azure per un servizio Cloud tramite PowerShell. Per i prerequisiti necessari per questo articolo, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 ## Abilitare l'estensione delle funzionalità di diagnostica come parte della distribuzione di un servizio Cloud
 
@@ -30,13 +30,13 @@ Nell'esempio seguente viene illustrato come abilitare la diagnostica per un serv
 	$service_name = "MyService"
 	$service_package = "CloudService.cspkg"
 	$service_config = "ServiceConfiguration.Cloud.cscfg"
-	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
+	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml"
 	$workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
 	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
 	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
-	 
-	New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig) 
+
+	New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig)
 
 Se il file di configurazione della diagnostica specifica un elemento StorageAccount con il nome di un account di archiviazione, il cmdlet New-AzureServiceDiagnosticsExtensionConfig userà automaticamente quell'account di archiviazione. A questo scopo, l'account di archiviazione deve trovarsi nella stessa sottoscrizione del servizio cloud da distribuire.
 
@@ -45,10 +45,10 @@ Da Azure SDK 2.6 in poi, i file di configurazione dell'estensione generati dall'
 	$service_name = "MyService"
 	$service_package = "C:\build\output\CloudService.cspkg"
 	$service_config = "C:\build\output\ServiceConfiguration.Cloud.cscfg"
-	
+
 	#Find the Extensions path based on service configuration file
 	$extensionsSearchPath = Join-Path -Path (Split-Path -Parent $service_config) -ChildPath "Extensions"
-	
+
 	$diagnosticsExtensions = Get-ChildItem -Path $extensionsSearchPath -Filter "PaaSDiagnostics.*.PubConfig.xml"
 	$diagnosticsConfigurations = @()
 	foreach ($extPath in $diagnosticsExtensions)
@@ -58,7 +58,7 @@ Da Azure SDK 2.6 in poi, i file di configurazione dell'estensione generati dall'
 	$roles = $extPath -split ".",0,"simplematch"
 	if ($roles -is [system.array] -and $roles.Length -gt 1)
 	    {
-	    $roleName = $roles[1] 
+	    $roleName = $roles[1]
 	    $x = 2
 	    while ($x -le $roles.Length)
 	        {
@@ -87,7 +87,7 @@ Se l'account di archiviazione di diagnostica si trova in una sottoscrizione dive
 
 	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
- 
+
 
 ## Abilitare l'estensione della diagnostica in un servizio Cloud esistente
 
@@ -95,18 +95,18 @@ Se l'account di archiviazione di diagnostica si trova in una sottoscrizione dive
 
 
 	$service_name = "MyService"
-	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
+	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml"
 	$workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
 	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
 	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
-	
-	Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagconfig,$workerrole_diagconfig) -ServiceName $service_name 
-	  
+
+	Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagconfig,$workerrole_diagconfig) -ServiceName $service_name
+
 
 ## Ottenere la configurazione di estensione della diagnostica corrente
 Utilizzare il cmdlet [Get AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589204.aspx) per ottenere la configurazione di diagnostica corrente per un servizio cloud.
-	
+
 	Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 
 ## Rimuovere l'estensione della diagnostica
@@ -127,4 +127,4 @@ Per rimuovere l'estensione della diagnostica da ogni singolo ruolo:
 - Lo [Schema di configurazione della diagnostica](https://msdn.microsoft.com/library/azure/dn782207.aspx) illustra le varie opzioni di configurazione xml per l'estensione della diagnostica.
 - Per informazioni su come abilitare l'estensione della diagnostica per le macchine virtuali, vedere [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Gestione risorse di Azure](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

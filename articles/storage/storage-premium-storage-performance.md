@@ -138,7 +138,8 @@ Questa tabella riepiloga tutti i fattori relativi alle prestazioni e i passaggi 
 ## Natura delle richieste I/O  
 Una richiesta I/O è un'unità di operazioni di input/output che verrà eseguita dall'applicazione. L'identificazione della natura delle richieste I/O, ovvero casuali o sequenziali, di lettura o scrittura, grandi o piccole, consentirà di determinare i requisiti relativi alle prestazioni per l'applicazione. È molto importante comprendere la natura delle richieste I/O, in modo da pendere le decisioni corrette durante la progettazione dell'infrastruttura dell'applicazione.
 
-La dimensione di I/O è uno dei fattori più importanti. Le dimensioni di I/O sono le dimensioni della richiesta di operazioni di input/output generata dall'applicazione. Le dimensioni di I/O hanno un impatto significativo sulle prestazioni, in particolare sui valori di IOPS e larghezza di banda che l'applicazione è in grado di ottenere. La formula seguente illustra la relazione tra IOPS, dimensioni di I/O e larghezza di banda/velocità effettiva. ![](media/storage-premium-storage-performance/image1.png)
+La dimensione di I/O è uno dei fattori più importanti. Le dimensioni di I/O sono le dimensioni della richiesta di operazioni di input/output generata dall'applicazione. Le dimensioni di I/O hanno un impatto significativo sulle prestazioni, in particolare sui valori di IOPS e larghezza di banda che l'applicazione è in grado di ottenere. La formula seguente illustra la relazione tra IOPS, dimensioni di I/O e larghezza di banda/velocità effettiva.
+![](media/storage-premium-storage-performance/image1.png)
 
 Alcune applicazioni consentono di modificare le relative dimensioni di I/O, mentre altre applicazioni non lo consentono. Ad esempio, SQL Server determina automaticamente le dimensioni di I/O ottimali e non fornisce agli utenti manopole per la modifica. D'altra parte, Oracle fornisce un parametro denominato [DB\_BLOCK\_SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815), che consente di configurare le dimensioni delle richieste I/O del database.
 
@@ -276,7 +277,7 @@ In Linux usare l'utilità MDADM per lo striping dei dischi. Per informazioni det
 Ad esempio, se una richiesta I/O generata dall'applicazione è maggiore della dimensione di striping del disco, il sistema di archiviazione la scrive oltre i limiti di unità di striping in più dischi. Quando è necessario accedere ai dati, occorrerà cercarli in più unità di striping per completare la richiesta. L'effetto cumulativo di questo comportamento può portare a una riduzione significativa delle prestazioni. D'altra parte, se la dimensione della richiesta I/O è minore della dimensione di striping ed è di tipo casuale, è possibile che le richieste I/P si concentrino sullo stesso disco, provocando un collo di bottiglia e danneggiando le prestazioni di I/O.
 
 
-Scegliere una dimensione di striping appropriata in base a tipo di carico di lavoro eseguito dall'applicazione. Per richieste I/O di piccole dimensioni e casuali, usare una dimensione di striping minore. Per richieste I/O di grandi dimensioni e sequenziali, usare una dimensione di striping maggiore. Esaminare le indicazioni relative alle dimensioni di striping per l'applicazione da eseguire nell'Archiviazione Premium. Per SQL Server configurare dimensioni di striping pari a 64 KB per carichi di lavoro OLTP e 256 KB per carichi di lavoro di tipo data warehouse. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-classic-sql-perf.md#disks-and-performance-considerations).
+Scegliere una dimensione di striping appropriata in base a tipo di carico di lavoro eseguito dall'applicazione. Per richieste I/O di piccole dimensioni e casuali, usare una dimensione di striping minore. Per richieste I/O di grandi dimensioni e sequenziali, usare una dimensione di striping maggiore. Esaminare le indicazioni relative alle dimensioni di striping per l'applicazione da eseguire nell'Archiviazione Premium. Per SQL Server configurare dimensioni di striping pari a 64 KB per carichi di lavoro OLTP e 256 KB per carichi di lavoro di tipo data warehouse. Per altre informazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-performance.md#disks-and-performance-considerations).
 
 
 >**Nota:** è possibile effettuare lo striping di un massimo di 32 dischi di Archiviazione Premium in una VM di serie DS e di 64 dischi di Archiviazione Premium in una VM di serie GS.
@@ -309,11 +310,13 @@ In genere, un'applicazione può ottenere una velocità effettiva massima con 8-1
 
 Ad esempio, in SQL Server l'impostazione del valore MAXDOP per una query su "4" indica a SQL Server che può usare al massimo quattro core per eseguire la query. SQL Server determinerà il valore migliore per la profondità della coda e il numero di core per l'esecuzione della query.
 
-*Profondità ottimale della coda* Un valore molto elevato per la coda può avere alcuni svantaggi. Se il valore della profondità della coda è troppo alto, l'applicazione proverà a effettuare un numero molto elevato di IOPS. A meno che un'applicazione non abbia dischi persistenti con un numero sufficiente di IOPS con provisioning, ciò può influire negativamente sulle latenze dell'applicazione. La formula seguente illustra la relazione tra IOPS, latenza e profondità della coda. ![](media/storage-premium-storage-performance/image6.png)
+*Profondità ottimale della coda* Un valore molto elevato per la coda può avere alcuni svantaggi. Se il valore della profondità della coda è troppo alto, l'applicazione proverà a effettuare un numero molto elevato di IOPS. A meno che un'applicazione non abbia dischi persistenti con un numero sufficiente di IOPS con provisioning, ciò può influire negativamente sulle latenze dell'applicazione. La formula seguente illustra la relazione tra IOPS, latenza e profondità della coda.
+![](media/storage-premium-storage-performance/image6.png)
 
 È consigliabile non configurare la profondità della coda su un valore elevato, specificando invece un valore ottimale, in grado di offrire un numero di IOPS sufficiente per l'applicazione, senza influire sulle latenze. Ad esempio, se la latenza dell'applicazione deve essere pari a 1 millisecondo, la profondità della coda necessaria per ottenere 5.000 IOPS sarà QD = 5000 x 0,001 = 5.
 
-*Profondità della coda per un volume con striping* Per un volume con striping è consigliabile mantenere una profondità della coda sufficientemente elevata da consentire a ogni disco di avere individualmente un picco di profondità della coda. Ad esempio, si consideri un'applicazione che effettua il push di una profondità della coda pari a 2 e lo striping include 4 dischi. Le due richieste I/O verranno trasmesse a due dischi e i due dischi rimanenti saranno inattivi. È quindi consigliabile configurare la profondità della coda in modo che tutti i dischi siano occupati. La formula seguente illustra come determinare la profondità della coda dei volumi con striping. ![](media/storage-premium-storage-performance/image7.png)
+*Profondità della coda per un volume con striping* Per un volume con striping è consigliabile mantenere una profondità della coda sufficientemente elevata da consentire a ogni disco di avere individualmente un picco di profondità della coda. Ad esempio, si consideri un'applicazione che effettua il push di una profondità della coda pari a 2 e lo striping include 4 dischi. Le due richieste I/O verranno trasmesse a due dischi e i due dischi rimanenti saranno inattivi. È quindi consigliabile configurare la profondità della coda in modo che tutti i dischi siano occupati. La formula seguente illustra come determinare la profondità della coda dei volumi con striping.
+![](media/storage-premium-storage-performance/image7.png)
 
 ## Limitazione  
 L'Archiviazione Premium di Azure effettua il provisioning di un numero specificato di IOPS e di velocità effettiva in base alle dimensioni delle VM e alle dimensioni dei dischi scelte. Ogni volta che l'applicazione prova a superare i limiti di IOPS o velocità effettiva che possono essere gestiti dalla VM o dal disco, l'Archiviazione Premium limiterà l'applicazione. Questo problema si manifesta sotto forma di una riduzione delle prestazioni dell'applicazione. Ciò può comportare una latenza più alta, una velocità effettiva minore o valori di IOPS più bassi. Se l'Archiviazione Premium non applica la limitazione, è possibile che si verifichi un errore irreversibile dell'applicazione a causa del superamento dei limiti delle risorse. Per evitare problemi di prestazioni dovuti alla limitazione, è necessario effettuare sempre il provisioning di un numero di risorse sufficiente per l'applicazione. Prendere in considerazione i concetti illustrati nelle sezioni precedenti relative alle dimensioni delle VM e dei dischi. Il benchmarking è il modo migliore per determinare le risorse necessarie per l'hosting dell'applicazione.
@@ -436,7 +439,8 @@ Eseguire il comando seguente per attivare il test FIO per 30 secondi:
 
 	sudo fio --runtime 30 fiowrite.ini
 
-Durante l'esecuzione del test, sarà possibile visualizzare il numero di operazioni IOPS di scrittura gestite dalla VM e dai dischi Premium. Come illustrato nell'esempio seguente, la VM DS14 fornisce il limite massimo di IOPS di scrittura pari a 50.000 IOPS. ![](media/storage-premium-storage-performance/image11.png)
+Durante l'esecuzione del test, sarà possibile visualizzare il numero di operazioni IOPS di scrittura gestite dalla VM e dai dischi Premium. Come illustrato nell'esempio seguente, la VM DS14 fornisce il limite massimo di IOPS di scrittura pari a 50.000 IOPS.
+![](media/storage-premium-storage-performance/image11.png)
 
 *IOPS massime di lettura* Creare il file processo con le specifiche seguenti per ottenere il valore massimo per le operazioni IOPS di lettura. Assegnare al file il nome "fioread.ini".
 
@@ -472,7 +476,8 @@ Eseguire il comando seguente per attivare il test FIO per 30 secondi:
 
 	sudo fio --runtime 30 fioread.ini
 
-Durante l'esecuzione del test, sarà possibile visualizzare il numero di operazioni IOPS di lettura gestite dalla VM e dai dischi Premium. Come illustrato nell'esempio seguente, la VM DS14 fornisce un valore superiore a 64.000 IOPS di lettura. Ciò dipende da una combinazione delle prestazioni del disco e della cache. ![](media/storage-premium-storage-performance/image12.png)
+Durante l'esecuzione del test, sarà possibile visualizzare il numero di operazioni IOPS di lettura gestite dalla VM e dai dischi Premium. Come illustrato nell'esempio seguente, la VM DS14 fornisce un valore superiore a 64.000 IOPS di lettura. Ciò dipende da una combinazione delle prestazioni del disco e della cache.
+![](media/storage-premium-storage-performance/image12.png)
 
 *IOPS massime di lettura e scrittura* Creare il file processo con le specifiche seguenti per ottenere il valore massimo per le operazioni IOPS combinate di lettura e scrittura. Assegnare al file il nome "fioreadwrite.ini".
 
@@ -525,7 +530,8 @@ Eseguire il comando seguente per attivare il test FIO per 30 secondi:
 
 	sudo fio --runtime 30 fioreadwrite.ini
 
-Durante l'esecuzione del test, sarà possibile visualizzare il numero di operazioni IOPS combinate di lettura e scrittura gestite dalla VM e dai dischi Premium. Come illustrato nell'esempio seguente, la VM DS14 fornisce un valore superiore a 100.000 IOPS combinate di lettura e scrittura. Ciò dipende da una combinazione delle prestazioni del disco e della cache. ![](media/storage-premium-storage-performance/image13.png)
+Durante l'esecuzione del test, sarà possibile visualizzare il numero di operazioni IOPS combinate di lettura e scrittura gestite dalla VM e dai dischi Premium. Come illustrato nell'esempio seguente, la VM DS14 fornisce un valore superiore a 100.000 IOPS combinate di lettura e scrittura. Ciò dipende da una combinazione delle prestazioni del disco e della cache.
+![](media/storage-premium-storage-performance/image13.png)
 
 *Velocità effettiva massima combinata* Per ottenere la velocità effettiva massima combinata di lettura e scrittura, usare una dimensione di blocco superiore e una profondità della coda elevata con più thread che eseguono letture e scritture. È possibile usare una dimensione di blocco pari a 64 KB e una profondità della coda pari a 128.
 
@@ -537,7 +543,7 @@ Altre informazioni sull'Archiviazione Premium di Azure:
 
 Per gli utenti di SQL Server sono disponibili articoli sulle procedure consigliate per le prestazioni per SQL Server:
 
-- [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-classic-sql-perf.md)
+- [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-sql-performance.md)
 - [L'Archiviazione Premium di Azure offre le prestazioni più elevate per SQL Server in VM di Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

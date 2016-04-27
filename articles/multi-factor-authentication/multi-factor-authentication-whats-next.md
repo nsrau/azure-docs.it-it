@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="04/07/2016" 
 	ms.author="billmath"/>
 
 # Configurazione di Azure Multi-Factor Authentication
@@ -36,7 +36,7 @@ Funzionalità| Descrizione| Argomenti trattati
 [Indirizzi IP attendibili](#trusted-ips)|Gli indirizzi IP attendibili sono una funzionalità di Multi-Factor Authentication che offre agli amministratori di un tenant gestito o federato la possibilità di ignorare Multi-Factor Authentication per gli utenti che accedono dalla rete Intranet locale dell'azienda.|Configurare e impostare gli indirizzi IP che non sono interessati da Multi-Factor Authentication	
 [Password dell'app](#app-passwords)|Le password dell'app consentono a un'applicazione che non è in grado di riconoscere Multi-Factor Authentication di ignorare questa funzionalità e continuare a lavorare.|Informazioni sulle password dell'app.
 [Memorizzazione di Multi-Factor Authentication per dispositivi e browser memorizzati](#remember-multi-factor-authentication-for-devices-users-trust)|Consente di memorizzare dispositivi per un determinato numero di giorni dopo che un utente ha effettuato correttamente l'accesso tramite MFA.|Informazioni sull'abilitazione di questa funzionalità e sull'impostazione del numero di giorni.
-[Metodi di verifica selezionabili (anteprima pubblica)](#selectable-verification-methods-public-preview)|Consente di scegliere i metodi di autenticazione disponibili per gli utenti.|Informazioni sull'abilitazione o disabilitazione di specifici metodi di autenticazione, ad esempio chiamate o SMS.
+[Metodi di verifica selezionabili](#selectable-verification-methods)|Consente di scegliere i metodi di autenticazione disponibili per gli utenti.|Informazioni sull'abilitazione o disabilitazione di specifici metodi di autenticazione, ad esempio chiamate o SMS.
 
 
 
@@ -98,9 +98,11 @@ Un bypass monouso consente a un utente di eseguire l'autenticazione una sola vol
 1.	Accedere a http://azure.microsoft.com
 2.	Passare al portale di gestione di MFA seguendo le istruzioni riportate nella parte superiore di questa pagina.
 3.	Nel portale di gestione di Azure Multi-Factor Authentication se viene visualizzato il nome del tenant o del provider di Azure MFA a sinistra con accanto un segno +, fare clic sul segno + per vedere i diversi gruppi di replica del server MFA e il gruppo predefinito di Azure. Fare clic sul gruppo appropriato.
-4.	In Amministrazione utenti fare clic su **Bypass monouso**. ![Cloud](./media/multi-factor-authentication-whats-next/create1.png)
+4.	In Amministrazione utenti fare clic su **Bypass monouso**.
+![Cloud](./media/multi-factor-authentication-whats-next/create1.png)
 5.	Nella pagina Bypass monouso fare clic su **Nuovo bypass monouso**.
-6.	Immettere il nome utente, il numero di secondi per il bypass, il motivo del bypass e fare clic su **Bypass**. ![Cloud](./media/multi-factor-authentication-whats-next/create2.png)
+6.	Immettere il nome utente, il numero di secondi per il bypass, il motivo del bypass e fare clic su **Bypass**.
+![Cloud](./media/multi-factor-authentication-whats-next/create2.png)
 7.	A questo punto, l'utente deve accedere prima della scadenza del bypass monouso.
 
 
@@ -134,10 +136,14 @@ Prima di iniziare, tenere presente quanto segue:
 2.	Accedere a http://azure.microsoft.com
 3.	Passare al portale di gestione di MFA seguendo le istruzioni riportate nella parte superiore di questa pagina.
 4.	Nel portale di gestione di Azure Multi-Factor Authentication, nella sezione Configura, fare clic su Messaggi vocali.
-5.	Nella sezione Messaggi vocali fare clic su **Nuovo messaggio vocale**. ![Cloud](./media/multi-factor-authentication-whats-next/custom1.png)
-6.	Nella pagina Configura: Nuovi messaggi vocali fare clic su **Gestisci file audio**. ![Cloud](./media/multi-factor-authentication-whats-next/custom2.png)
-7.	Nella pagina Configura: File audio fare clic su **Carica file audio**. ![Cloud](./media/multi-factor-authentication-whats-next/custom3.png)
-8.	In Configura: Carica file audio fare clic su **Sfoglia**, individuare il messaggio vocale e fare clic su **Apri**. ![Cloud](./media/multi-factor-authentication-whats-next/custom4.png)
+5.	Nella sezione Messaggi vocali fare clic su **Nuovo messaggio vocale**.
+![Cloud](./media/multi-factor-authentication-whats-next/custom1.png)
+6.	Nella pagina Configura: Nuovi messaggi vocali fare clic su **Gestisci file audio**.
+![Cloud](./media/multi-factor-authentication-whats-next/custom2.png)
+7.	Nella pagina Configura: File audio fare clic su **Carica file audio**.
+![Cloud](./media/multi-factor-authentication-whats-next/custom3.png)
+8.	In Configura: Carica file audio fare clic su **Sfoglia**, individuare il messaggio vocale e fare clic su **Apri**.
+![Cloud](./media/multi-factor-authentication-whats-next/custom4.png)
 9.	Aggiungere una descrizione e fare clic su Carica.
 10.	Al termine, verrà visualizzato un messaggio che indica che il file è stato caricato.
 11.	A sinistra fare clic su Messaggi vocali.
@@ -146,7 +152,8 @@ Prima di iniziare, tenere presente quanto segue:
 14.	Se questo messaggio è per un'applicazione specifica, specificarlo nella casella Applicazione.
 15.	In Tipo di messaggio selezionare il tipo di messaggio che verrà sostituito dal nuovo messaggio personalizzato.
 16.	Nell'elenco a discesa File audio selezionare il file audio.
-17.	Fare clic su **Crea**. Verrà visualizzato un messaggio che indica che è stato creato un messaggio vocale. ![Cloud](./media/multi-factor-authentication-whats-next/custom5.png)</center>
+17.	Fare clic su **Crea**. Verrà visualizzato un messaggio che indica che è stato creato un messaggio vocale.
+![Cloud](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
 
 
@@ -349,13 +356,14 @@ Tuttavia, poiché agli utenti viene consentito di memorizzare MFA per i disposit
 3. In Active Directory fare clic sulla directory per cui si desidera impostare la memorizzazione di Multi-Factor Authentication per i dispositivi.
 4. Per la directory selezionata fare clic su Configura.
 5. Nella sezione Multi-Factor Authentication fare clic su Gestisci impostazioni del servizio.
-6. Nella pagina Impostazioni servizio, nelle impostazioni di gestione dei dispositivi utente, selezionare o deselezionare **Consenti agli utenti di memorizzare l'autenticazione a più fattori nei dispositivi attendibili**. ![Memorizzare dispositivi](./media/multi-factor-authentication-whats-next/remember.png)
+6. Nella pagina Impostazioni servizio, nelle impostazioni di gestione dei dispositivi utente, selezionare o deselezionare **Consenti agli utenti di memorizzare l'autenticazione a più fattori nei dispositivi attendibili**.
+![Memorizzare dispositivi](./media/multi-factor-authentication-whats-next/remember.png)
 8. Impostare il numero di giorni per cui si vuole consentire la sospensione. Il valore predefinito è 14 giorni.
 9. Fare clic su Salva.
 10. Fare clic su Chiudi.
 
 
-## Metodi di verifica selezionabili (anteprima pubblica)
+## Metodi di verifica selezionabili
 È ora possibile scegliere i metodi di autenticazione disponibili per gli utenti quando si usa Azure Multi-Factor Authentication. Questa funzionalità è stata precedentemente disponibile solo nella versione del server locale. La tabella seguente fornisce una breve panoramica dei vari metodi di autenticazione che possono essere abilitati o disabilitati per gli utenti.
 
 Metodo|Descrizione
@@ -376,4 +384,4 @@ Metodo|Descrizione
 9. Fare clic su Salva.
 10. Fare clic su Chiudi.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

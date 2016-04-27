@@ -2,16 +2,17 @@
     pageTitle="Esercitazione: Integrazione di Azure Active Directory con Thoughtworks Mingle | Microsoft Azure" 
     description="Informazioni su come usare Thoughtworks Mingle con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora." 
     services="active-directory" 
-    authors="markusvi"  
-    documentationCenter="na" manager="stevenpo"/>
+    authors="jeevansd"  
+    documentationCenter="na" 
+     manager="stevenpo"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="04/06/2016" 
+    ms.author="jeedes" />
 
 #Esercitazione: Integrazione di Azure Active Directory con Thoughtworks Mingle
   
@@ -67,7 +68,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 ###Per configurare l'accesso Single Sign-On, eseguire la procedura seguente:
 
-1.  Nella pagina di integrazione dell’applicazione **Thoughtworks Mingle ** nel portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura Single Sign On **.
+1.  Nella pagina di integrazione dell’applicazione **Thoughtworks Mingle** nel portale di Azure AD fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura Single Sign On **.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "Configura accesso Single Sign-On")
 
@@ -128,7 +129,7 @@ Per consentire agli utenti di AAD di accedere, è necessario eseguirne il privis
     2.  In **Tipo di utente** selezionare **Base**.
     3.  Fare clic su **Crea questo profilo**.
 
->[AZURE.NOTE]È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Thoughtworks Mingle per eseguire il provisioning degli account utente di AAD.
+>[AZURE.NOTE] È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Thoughtworks Mingle per eseguire il provisioning degli account utente di AAD.
 
 ##Assegnazione degli utenti
   
@@ -148,4 +149,4 @@ Per testare la configurazione, è necessario concedere l'accesso all’applicazi
   
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per informazioni dettagliate sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

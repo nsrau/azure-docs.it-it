@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # Distribuire un'applicazione line-of-business a disponibilità elevata in Azure
@@ -91,6 +91,6 @@ Per altre informazioni sulla progettazione di carichi di lavoro IT per Azure, ve
 
 ## Passaggio successivo
 
-Per avviare la configurazione di questo carico di lavoro, andare alla [Fase 1: Configurare Azure](virtual-machines-windows-ps-lob-ph1.md).
+- Iniziare la configurazione di questo carico di lavoro dalla [Fase 1](virtual-machines-windows-ps-lob-ph1.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

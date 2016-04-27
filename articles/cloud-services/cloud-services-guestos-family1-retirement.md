@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Avviso di ritiro della famiglia di sistemi operativi guest 1 | Microsoft Azure" 
-   description="Fornisce informazioni sulla data in cui è stato effettuato il ritiro della famiglia di sistemi operativi guest 1 e su come stabilire se si è interessati" 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="yuemlu" 
-   manager="timlt" 
+<properties
+   pageTitle="Avviso di ritiro della famiglia di sistemi operativi guest 1 | Microsoft Azure"
+   description="Fornisce informazioni sulla data in cui è stato effettuato il ritiro della famiglia di sistemi operativi guest 1 e su come stabilire se si è interessati"
+   services="cloud-services"
+   documentationCenter="na"
+   authors="yuemlu"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
+   ms.workload="tbd"
    ms.date="12/07/2015"
    ms.author="yuemlu"/>
 
@@ -35,17 +35,17 @@ Per altre domande, visitare i [forum dei servizi cloud](http://social.msdn.micro
 
 I servizi cloud sono interessati se si verifica una delle seguenti condizioni:
 
-1. Nel file ServiceConfiguration.cscfg del servizio cloud è specificato esplicitamente il valore "osFamily = "1". 
+1. Nel file ServiceConfiguration.cscfg del servizio cloud è specificato esplicitamente il valore "osFamily = "1".
 2. Nel file ServiceConfiguration.cscfg per il servizio cloud non è specificato esplicitamente alcun valore per osFamily. Attualmente viene usato il valore predefinito "1" in questo caso.
 3. Il valore della famiglia di sistemi operativi guest indicato nel portale di Azure classico è "Windows Server 2008".
 
-Per trovare la famiglia di sistemi operativi in esecuzione sui servizi cloud, è possibile eseguire lo script seguente in Azure PowerShell, anche se prima è necessario [configurare Azure PowerShell](../install-configure-powershell.md). Per altre informazioni sullo script, vedere l'articolo relativo alla [fine vita della famiglia di sistemi operativi guest di Azure 1 di giugno 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
+Per trovare la famiglia di sistemi operativi in esecuzione sui servizi cloud, è possibile eseguire lo script seguente in Azure PowerShell, anche se prima è necessario [configurare Azure PowerShell](../powershell-install-configure.md). Per altre informazioni sullo script, vedere l'articolo relativo alla [fine vita della famiglia di sistemi operativi guest di Azure 1 di giugno 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
-    Select-AzureSubscription -SubscriptionName $subscription.SubscriptionName 
-    
-    $deployments=get-azureService | get-azureDeployment -ErrorAction Ignore | where {$_.SdkVersion -NE ""} 
+    Select-AzureSubscription -SubscriptionName $subscription.SubscriptionName
+
+    $deployments=get-azureService | get-azureDeployment -ErrorAction Ignore | where {$_.SdkVersion -NE ""}
 
     $deployments | ft @{Name="SubscriptionName";Expression={$subscription.SubscriptionName}}, ServiceName, SdkVersion, Slot, @{Name="osFamily";Expression={(select-xml -content $_.configuration -xpath "/ns:ServiceConfiguration/@osFamily" -namespace $namespace).node.value }}, osVersion, Status, URL
 }
@@ -65,13 +65,13 @@ Si consiglia di migrare i ruoli del servizio cloud a una delle famiglie di siste
 
 **Famiglia di sistemi operativi guest 3.x**: Windows Server 2012
 
-1. Assicurarsi che l'applicazione usi SDK 1.8 o versioni successive con .NET Framework 4.0 o 4.5. 
+1. Assicurarsi che l'applicazione usi SDK 1.8 o versioni successive con .NET Framework 4.0 o 4.5.
 2. Impostare l'attributo osFamily su "3" nel file ServiceConfiguration.cscfg, quindi ridistribuire il servizio cloud.
 
 
 **Famiglia di sistemi operativi guest 2.x**: Windows Server 2008 R2
 
-1. Assicurarsi che l'applicazione usi SDK 1.3 o versioni successive con .NET Framework 3.5 o 4.0. 
+1. Assicurarsi che l'applicazione usi SDK 1.3 o versioni successive con .NET Framework 3.5 o 4.0.
 2. Impostare l'attributo osFamily su "2" nel file ServiceConfiguration.cscfg, quindi ridistribuire il servizio cloud.
 
 
@@ -81,4 +81,4 @@ I servizi cloud per la famiglia di sistemi operativi guest 1 non sono più suppo
 ## Passaggi successivi
 Esaminare le [versioni del sistema operativo guest](cloud-services-guestos-update-matrix.md) più recenti.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

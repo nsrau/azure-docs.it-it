@@ -3,8 +3,8 @@
    description="Questa pagina descrive alcune limitazioni generali per il database SQL di Azure, oltre agli ambiti dell'interoperabilità e del supporto."
    services="sql-database"
    documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
+   authors="carlrabeler"
+   manager="jhubbard"
    editor="monicar" />
 <tags
    ms.service="sql-database"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/15/2016"
-   ms.author="jroth" />
+   ms.date="04/11/2016"
+   ms.author="carlrab" />
 
 # Limitazioni e linee guida generali per il database SQL di Azure
 
@@ -59,8 +59,8 @@ I nomi utente e di accesso non possono nemmeno contenere il carattere \\ (l'aute
 
 - Per le linee guida relative alla sicurezza, vedere [Linee guida e limitazioni per il database SQL di Azure](sql-database-security-guidelines.md).
 
-- Un altro ambito correlato è quello della compatibilità tra il database SQL di Azure e le versioni locali di SQL Server, ad esempio SQL Server 2014. La più recente versione V12 del database SQL di Azure ha apportato numerosi miglioramenti in quest'ambito. Per altri dettagli, vedere [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md).
+- Un altro ambito correlato è quello della compatibilità tra il database SQL di Azure e le versioni locali di SQL Server, ad esempio SQL Server 2014 e SQL Server 2016. La più recente versione V12 del database SQL di Azure ha apportato numerosi miglioramenti in quest'ambito. Per altri dettagli, vedere [Novità della versione 12 del database SQL](sql-database-v12-whats-new.md).
 
 - Per informazioni sulla disponibilità di driver e sul supporto per il database SQL, vedere [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

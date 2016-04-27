@@ -21,7 +21,7 @@
 La **versione di anteprima di Microsoft Power BI Embedded** consente di integrare report di Power BI in applicazioni Web o applicazioni mobili. In questo modo non è necessario compilare soluzioni personalizzate per visualizzare i dati degli utenti. Di seguito sono elencate alcune risorse utili per integrare i report di Power BI nelle app:
 
  -	[App Web dashboard di esempio](http://go.microsoft.com/fwlink/?LinkId=761493)
- -	[Riferimento all'API di Power BI Embedded](https://msdn.microsoft.com/library/mt711493.aspx)
+ -	[Riferimento all'API di Power BI Embedded](https://msdn.microsoft.com/library/mt712303.aspx)
  -	[.NET SDK Power BI Embedded (disponibile tramite NuGet)](http://go.microsoft.com/fwlink/?LinkId=746472)
 
 In questo articolo viene presentato l'**esempio d'introduzione a Power BI Embedded**. Per poter eseguire l'app Web di esempio, è prima necessario configurarla.
@@ -52,7 +52,7 @@ Di seguito viene spiegata la procedura di configurazione dell'ambiente di svilup
 
     ![](media\powerbi-embedded-get-started-sample\workspace-id.png)
 
-8. Per importare un file PBIX nell'**area di lavoro**, selezionare l'opzione **6. Import PBIX Desktop file into an existing workspace**. In mancanza di un file PBIX adatto, è possibile scaricare l'esempio [Analyzing Sales Data PBIX](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix).
+8. Per importare un file PBIX nell'**area di lavoro**, selezionare l'opzione **6. Import PBIX Desktop file into an existing workspace**. In mancanza di un file PBIX adatto, è possibile scaricare l'esempio [Retail Analysis PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
 
 9. Se richiesto, immettere un nome descrittivo per il **set di dati**.
 
@@ -86,7 +86,7 @@ Di seguito viene spiegato come configurare l'app Web di esempio.
     ```
 3. Eseguire l'applicazione Web **EmbedSample**.
 
-Dopo aver eseguito l'applicazione Web **EmbedSample**, il pannello di spostamento a sinistra conterrà un menu **Reports**. Per visualizzare il report che è stato importato, espandere il menu **Reports** e fare clic su un report. Se è stato ad esempio importato l'[esempio Analyzing Sales Data PBIX](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), l'app Web sarà simile alla seguente:
+Dopo aver eseguito l'applicazione Web **EmbedSample**, il pannello di spostamento a sinistra conterrà un menu **Reports**. Per visualizzare il report che è stato importato, espandere il menu **Reports** e fare clic su un report. Se è stato ad esempio importato l'[esempio Analyzing Sales Data PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), l'app Web sarà simile alla seguente:
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)
 
@@ -221,6 +221,20 @@ Dopo aver creato un **report**, viene usato un **IFrame** per incorporare il **r
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
+
+### Filtrare i report incorporati nell'applicazione
+
+È possibile filtrare un report incorporato tramite una sintassi dell'URL. A tale scopo, aggiungere un parametro della stringa di query all'URL iFrame src specificando il filtro. Di seguito è riportata la sintassi della query del filtro:
+
+```
+https://app.powerbi.com/reportEmbed
+?reportId=d2a0ea38-0694-4c70-9673-ee9655d54a4a&
+$filter={tableName/fieldName} eq '{fieldValue}'
+```
+
+> [AZURE.NOTE] {tableName/fieldName} non può includere spazi o caratteri speciali. {fieldValue} accetta un singolo valore categorico.
+
+
 ## Vedere anche
 
 - [Cos'è Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
@@ -228,4 +242,4 @@ Dopo aver creato un **report**, viene usato un **IFrame** per incorporare il **r
 - [Introduzione alla versione di anteprima di Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 - [Informazioni sul flusso dei token delle app in Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!----HONumber=AcomDC_0406_2016--->
+<!---HONumber=AcomDC_0413_2016-->

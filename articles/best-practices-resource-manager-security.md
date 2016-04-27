@@ -32,8 +32,8 @@ Macchine virtuali di Azure, Gestione risorse di Azure e Insieme di credenziali c
 - I modelli contengono solo i riferimenti URI ai segreti, ovvero i segreti effettivi non sono presenti nel repository di codice sorgente, configurazione o codice. In tal modo si impediscono gli attacchi di phishing chiave nei repository interni o esterni, ad esempio harvest-bot in GitHub.
 - I segreti memorizzati nell'insieme di credenziali chiave sono sotto il controllo RBAC completo di un operatore attendibile. Se l'operatore attendibile lascia la società o si trasferisce in un nuovo gruppo della società, non potrà più accedere alle chiavi che ha creato nell'insieme di credenziali.
 - Contesto completo di tutti gli asset:
-      - Modelli per distribuire le chiavi 
-      - Modelli per distribuire una macchina virtuale con riferimenti alle chiavi 
+      - Modelli per distribuire le chiavi
+      - Modelli per distribuire una macchina virtuale con riferimenti alle chiavi
       - Materiale chiave effettive nell'insieme di credenziali. Ogni modello, e l'azione, può essere in diversi ruoli RBAC per la separazione completa dei compiti.
 - Il caricamento dei segreti in una macchina virtuale in fase di distribuzione avviene tramite un canale diretto tra l'infrastruttura di Azure e l'insieme di credenziali chiave entro i confini del data center Microsoft. Una volta che le chiavi sono nell'insieme di credenziali chiave, non vedono mai 'luce' su un canale non attendibile all'esterno del data center.  
 - Gli insiemi di credenziali chiave sono sempre regionali e pertanto hanno sempre la località (e la sovranità) con le macchine virtuali. Non esistono insiemi di credenziali chiave globali.
@@ -172,11 +172,11 @@ Una combinazione di entità servizio e RBAC consente di soddisfare questi requis
 
 Molti scenari dispongono dei requisiti che specificano la modalità di controllo del traffico a una o più istanze di macchina virtuale nella rete virtuale. A tale scopo, è possibile usare un gruppo di sicurezza di rete come parte di una distribuzione di modello di Gestione risorse di Azure.
 
-Un gruppo di sicurezza di rete è un oggetto di primo livello associato alla sottoscrizione. Un NSG contiene le regole di controllo dell’accesso che consentono o negano il traffico alle istanze di macchina virtuale. Le regole di un gruppo di sicurezza di rete possono essere modificate in qualsiasi momento e le modifiche vengono applicate a tutte le istanze associate. Per usare un gruppo di sicurezza di rete, è necessario disporre di una rete virtuale associata a una regione (località). I gruppi di sicurezza di rete non sono compatibili con le reti virtuali associate a un gruppo di affinità. Se non si ha una rete virtuale regionale e si vuole controllare il traffico verso gli endpoint, vedere [Informazioni sugli elenchi di controllo di accesso di rete (ACL)](../virtual-network/virtual-networks-acl.md).
+Un gruppo di sicurezza di rete è un oggetto di primo livello associato alla sottoscrizione. Un NSG contiene le regole di controllo dell’accesso che consentono o negano il traffico alle istanze di macchina virtuale. Le regole di un gruppo di sicurezza di rete possono essere modificate in qualsiasi momento e le modifiche vengono applicate a tutte le istanze associate. Per usare un gruppo di sicurezza di rete, è necessario disporre di una rete virtuale associata a una regione (località). I gruppi di sicurezza di rete non sono compatibili con le reti virtuali associate a un gruppo di affinità. Se non si ha una rete virtuale regionale e si vuole controllare il traffico verso gli endpoint, vedere [Informazioni sugli elenchi di controllo di accesso di rete (ACL)](./virtual-network/virtual-networks-acl.md).
 
 È possibile associare un gruppo di sicurezza di rete a una macchina virtuale o a una subnet all'interno di una rete virtuale. Se è associato a una macchina virtuale, il gruppo di sicurezza di rete si applica a tutto il traffico inviato e ricevuto dall'istanza della macchina virtuale. Se è associato a una subnet della rete virtuale, si applica a tutto il traffico inviato e ricevuto da tutte le istanze di macchina virtuale della subnet. Una macchina virtuale o una subnet può essere associata a un solo gruppo di sicurezza di rete, ognuno dei quali può contenere un massimo di 200 regole. È possibile disporre di 100 gruppi di sicurezza di rete per sottoscrizione.
 
->[AZURE.NOTE]  Gli elenchi di controllo di accesso basati su endpoint e i gruppi di sicurezza di rete non sono supportati nella stessa istanza di macchina virtuale. Se si vuole usare un gruppo di sicurezza di rete ed è già presente un elenco di controllo di accesso basato su endpoint, rimuovere prima l'elenco di controllo di accesso. Per informazioni su come procedere, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
+>[AZURE.NOTE]  Gli elenchi di controllo di accesso basati su endpoint e i gruppi di sicurezza di rete non sono supportati nella stessa istanza di macchina virtuale. Se si vuole usare un gruppo di sicurezza di rete ed è già presente un elenco di controllo di accesso basato su endpoint, rimuovere prima l'elenco di controllo di accesso. Per informazioni su come procedere, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](./virtual-network/virtual-networks-acl-powershell.md).
 
 ### Come funzionano i gruppi di sicurezza di rete
 
@@ -292,7 +292,7 @@ I pacchetti vengono inoltrati attraverso una rete TCP/IP basata su una tabella d
   - Internet. Rappresenta il gateway Internet predefinito fornito dall'infrastruttura di Azure
   - Dispositivo virtuale. Rappresenta un dispositivo virtuale che aggiunto alla rete virtuale Azure.
   - NULL. Rappresenta un black hole. I pacchetti inoltrati a un black hole non verranno inoltrati affatto.
--	Valore Nexthop. Il valore di hop successivo contiene l'indirizzo IP per inoltrare i pacchetti. I valori di hop successivo sono consentiti solo nelle route dove il tipo di hop successivo è *dispositivo virtuale*. L'hop successivo deve trovarsi nella subnet (interfaccia locale del dispositivo virtuale in base all'ID di rete) e non in una subnet remota. 
+-	Valore Nexthop. Il valore di hop successivo contiene l'indirizzo IP per inoltrare i pacchetti. I valori di hop successivo sono consentiti solo nelle route dove il tipo di hop successivo è *dispositivo virtuale*. L'hop successivo deve trovarsi nella subnet (interfaccia locale del dispositivo virtuale in base all'ID di rete) e non in una subnet remota.
 
 ![Routing.](./media/best-practices-resource-manager-security/routing.png)
 
@@ -306,7 +306,7 @@ Ogni subnet creata in una rete virtuale viene associata automaticamente a una ta
 
 ### Route BGP
 
-Al momento della redazione di questo articolo, [ExpressRoute](expressroute/expressroute-introduction.md) non è ancora supportato nel [ Provider di risorse di rete](virtual-network/resource-groups-networking.md) per Gestione risorse di Azure. Se si dispone di una connessione ExpressRoute tra la rete locale e Azure, è possibile abilitare BGP a propagare le route dalla rete locale in Azure una volta che ExpressRoute è supportato dal provider di risorse di rete. Queste route BGP vengono utilizzate nello stesso modo come route predefinite e le route definite dall'utente in ogni subnet di Azure. Per ulteriori informazioni vedere [ExpressRoute Introduzione](expressroute/expressroute-introduction.md).
+Al momento della redazione di questo articolo, [ExpressRoute](./expressroute/expressroute-introduction.md) non è ancora supportato nel [ Provider di risorse di rete](virtual-network/resource-groups-networking.md) per Gestione risorse di Azure. Se si dispone di una connessione ExpressRoute tra la rete locale e Azure, è possibile abilitare BGP a propagare le route dalla rete locale in Azure una volta che ExpressRoute è supportato dal provider di risorse di rete. Queste route BGP vengono utilizzate nello stesso modo come route predefinite e le route definite dall'utente in ogni subnet di Azure. Per ulteriori informazioni vedere [ExpressRoute Introduzione](./expressroute/expressroute-introduction.md).
 
 >[AZURE.NOTE] Quando ExpressRoute sarà supportato dal provider di risorse di rete, sarà possibile configurare l'ambiente Azure per usare il tunneling forzato attraverso la rete locale tramite la creazione di una route definita dall’utente per la subnet 0.0.0.0/0 che usa il gateway VPN come hop successivo. Tuttavia, funziona solo se si utilizza un gateway VPN, non ExpressRoute. Per ExpressRoute, il tunneling forzato viene configurato tramite BGP.
 
@@ -336,7 +336,7 @@ Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere t
 ## Passaggi successivi
 - Per informazioni su come impostare le entità di sicurezza principali con l'accesso corretto per lavorare con le risorse nell'organizzazione, vedere [Autenticazione di un'entità servizio con Gestione risorse di Azure](resource-group-authenticate-service-principal.md)
 - Se è necessario bloccare l'accesso a una risorsa, è possibile utilizzare i blocchi di gestione. Vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md)
-- Per configurare routing e inoltro IP, vedere [Come creare route e abilitare l'inoltro dell'IP in Azure](virtual-network/virtual-networks-udr-how-to.md) 
-- Per una panoramica del controllo di accesso basato su ruoli, vedere [Controllo di accesso basato sui ruoli nel portale di Microsoft Azure](role-based-access-control-configure.md)
+- Per configurare routing e inoltro IP, vedere [Creare route definite dall'utente in Gestione risorse mediante un modello](./virtual-network/virtual-network-create-udr-arm-template.md)
+- Per una panoramica del controllo di accesso basato su ruoli, vedere [Controllo di accesso basato sui ruoli nel portale di Microsoft Azure](./active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/28/2016" 
 	ms.author="josephd"/>
 
 # Impostare un ambiente cloud ibrido simulato per i test (modalità di distribuzione classica)
@@ -79,7 +79,7 @@ Creare prima di tutto una nuova rete virtuale denominata TestVNET.
 	- Nella colonna **CIDR (conteggio indirizzi)** per TestSubnet fare clic su **/24 (256)**.
 7.	Fare clic sull'icona Completa. Attendere il completamento della creazione della rete virtuale prima di continuare.
 
-Usare quindi le istruzioni disponibili in [Come installare e configurare Azure PowerShell](../install-configure-powershell.md) per installare Azure PowerShell nel computer locale.
+Usare quindi le istruzioni disponibili in [Come installare e configurare Azure PowerShell](../powershell-install-configure.md) per installare Azure PowerShell nel computer locale.
 
 Creare quindi un nuovo servizio cloud per la rete virtuale TestVNET. È necessario selezionare un nome univoco. È ad esempio possibile specificare il nome **TestVNET-***UniqueSequence*, in cui *UniqueSequence* è un'abbreviazione dell'organizzazione. Se ad esempio il nome dell'organizzazione è Tailspin Toys, è possibile assegnare il nome **TestVNET-Tailspin** al servizio cloud.
 
@@ -225,7 +225,7 @@ L'ambiente cloud ibrido simulato è ora pronto per il testing.
 
 ## <a id="costs"></a>Ridurre al minimo i costi di esercizio dell'ambiente
 
-Per ridurre al minimo i costi di esecuzione delle macchine virtuali in questo ambiente, eseguire i test e le dimostrazioni necessari nel modo più rapido possibile, quindi eliminare o arrestare le macchine virtuali quando non sono in uso. È ad esempio possibile usare Automazione di Azure e un runbook per arrestare automaticamente le macchine virtuali nelle reti virtuali TestLab e Test\_VNET al termine di ogni giornata lavorativa. Per altre informazioni, vedere [Introduzione all'Automazione di Azure](../automation-create-runbook-from-samples.md). Quando si avviano di nuovo le macchine virtuali nella subnet Corpnet, avviare prima di tutto DC1.
+Per ridurre al minimo i costi di esecuzione delle macchine virtuali in questo ambiente, eseguire i test e le dimostrazioni necessari nel modo più rapido possibile, quindi eliminare o arrestare le macchine virtuali quando non sono in uso. È ad esempio possibile usare Automazione di Azure e un runbook per arrestare automaticamente le macchine virtuali nelle reti virtuali TestLab e Test\_VNET al termine di ogni giornata lavorativa. Quando si avviano di nuovo le macchine virtuali nella subnet Corpnet, avviare prima di tutto DC1.
 
 Un gateway VPN di Azure viene implementato come set di due macchine virtuali di Azure che comportano un costo monetario continuativo. Per informazioni dettagliate, vedere [Rete virtuale - Prezzi](https://azure.microsoft.com/pricing/details/virtual-network/). Per ridurre al minimo i costi dei due gateway VPN (uno per TestLab e uno per TestVNET), creare l'ambiente di test ed eseguire i test e le dimostrazioni necessari il più rapidamente possibile oppure eliminare i gateway eseguendo i passaggi seguenti.
  
@@ -261,4 +261,4 @@ Configurare quindi la chiave precondivisa in modo che entrambi i gateway usino l
 
 Nella pagina Rete del portale di gestione di Azure fare clic sulla rete virtuale **TestLab** e quindi su **Connetti** nella barra delle applicazioni. Attendere fino alla visualizzazione dello stato Connesso per la rete locale TestVNET.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

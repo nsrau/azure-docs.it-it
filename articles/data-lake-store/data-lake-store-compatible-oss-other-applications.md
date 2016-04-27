@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="Applicazioni Big Data compatibili con l'archivio Data Lake | Azure" 
-   description="Elenco di applicazioni open source di origine che funzionano con Archivio Data Lake di Azure" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Applicazioni Big Data compatibili con l'archivio Data Lake | Azure"
+   description="Elenco di applicazioni open source di origine che funzionano con Archivio Data Lake di Azure"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="02/03/2016"
    ms.author="nitinme"/>
 
 # Aprire le applicazioni Big Data di origine che funzionano con Archivio Data Lake di Azure
 
-Questo articolo elenca le applicazioni Big Data di origine che funzionano con Archivio Data Lake di Azure Per le applicazioni nella tabella seguente, sono supportate solo le versioni disponibili con la distribuzione elencata. Per informazioni su quali versioni di queste applicazioni sono disponibili con HDInsight, vedere [Controllo delle versioni della componente HDInsight](/hdinsight/hdinsight-component-versioning.md).
+Questo articolo elenca le applicazioni Big Data di origine che funzionano con Archivio Data Lake di Azure Per le applicazioni nella tabella seguente, sono supportate solo le versioni disponibili con la distribuzione elencata. Per informazioni su quali versioni di queste applicazioni sono disponibili con HDInsight, vedere [Controllo delle versioni della componente HDInsight](../hdinsight/hdinsight-component-versioning.md).
 
 
 | Software Open Source | Distribuzione |
@@ -39,6 +39,5 @@ Questo articolo elenca le applicazioni Big Data di origine che funzionano con Ar
 ## Vedere anche
 
 - [Panoramica dell’Archivio Data Lake di Azure](data-lake-store-overview.md)
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

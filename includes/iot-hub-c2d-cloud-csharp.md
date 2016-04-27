@@ -92,14 +92,14 @@ In questa sezione si modificherà l’app **SendCloudToDevice** per richiedere f
 
 <!-- Links -->
 
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
+[IoT Hub Developer Guide - C2D]: ../articles/iot-hub/iot-hub-devguide.md#c2d
 [pacchetto NuGet Azure IoT - Service SDK]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [Gestione degli errori temporanei]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Introduzione all’hub IoT]: iot-hub-csharp-csharp-getstarted.md
+[Introduzione all’hub IoT]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->
 [20]: ./media/iot-hub-c2d-cloud-csharp/create-identity-csharp1.png
 [21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

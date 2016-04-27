@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introduzione a Microsoft Power BI Embedded - Anteprima"
-   description="Introduzione a Microsoft Power BI Embedded - Anteprima"
+   description="Power BI Embedded, aggiungere report di Power BI interattivi nell'applicazione di Business Intelligence"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="04/18/2016"
    ms.author="derrickv"/>
 
 # Introduzione a Microsoft Power BI Embedded - Anteprima
@@ -58,7 +58,7 @@ La sezione successiva descrive come usare le **Chiavi di accesso** per generare 
 <a name="view-access-keys"/>
 ## Visualizzare le chiavi di accesso dell'API Power BI
 
-Le **Chiavi di accesso** sono tra le informazioni più importanti necessarie per chiamare le API REST Power BI. Vengono usate per generare i **token dell'app** che servono per autenticare le richieste delle API. Per visualizzare le **Chiavi di accesso**, fare clic su **Chiavi di accesso** nel pannello **Impostazioni**. Per altre informazioni sui **token dell'app**, vedere l'articolo relativo al [funzionamento dei token dell'app](power-bi-embedded-get-started-sample.md#key-flow).
+Le **Chiavi di accesso** sono tra le informazioni più importanti necessarie per chiamare le API REST Power BI. Vengono usate per generare i **token dell'app** che servono per autenticare le richieste delle API. Per visualizzare le **Chiavi di accesso**, fare clic su **Chiavi di accesso** nel pannello **Impostazioni**. Per altre informazioni sui **token delle app**, vedere l'articolo relativo al [funzionamento dei token delle app](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -74,7 +74,7 @@ Dopo aver creato un'istanza di Power BI per l'applicazione e le **Chiavi di acce
 
 ## Creare set di dati e report di Power BI da incorporare in un'app
 
-Dopo avere creato un'istanza di Power BI per l'applicazione e avere preso nota delle **Chiavi di accesso**, è necessario creare i set di dati e i report di Power BI da incorporare. I set di dati e i report possono essere creati con **Power BI Desktop**. È possibile scaricare [Power BI Desktop gratuitamente](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). In alternativa, per iniziare rapidamente, è possibile scaricare l'[esempio Retail Analysis PBIX](http://go.microsoft.com/fwlink/?LinkID=780547). Per altre informazioni su come usare **Power BI Desktop**, vedere l'articolo di [introduzione a Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+Dopo avere creato un'istanza di Power BI per l'applicazione e avere preso nota delle **Chiavi di accesso**, è necessario creare i set di dati e i report di Power BI da incorporare. I set di dati e i report possono essere creati con **Power BI Desktop**. È possibile scaricare [Power BI Desktop gratuitamente](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). In alternativa, per iniziare rapidamente, è possibile scaricare l'[esempio Retail Analysis PBIX](http://go.microsoft.com/fwlink/?LinkID=780547). Per altre informazioni su come usare **Power BI Desktop**, vedere l'articolo di [introduzione a Power BI Desktop](https://powerbi.microsoft.com/it-IT/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 **Power BI Desktop** consente di connettersi all'origine dati mediante l'importazione di una copia dei dati in **Power BI Desktop** o tramite la connessione diretta all'origine dati con **DirectQuery**.
 
@@ -107,4 +107,4 @@ Nei passaggi precedenti è stata creata una raccolta di aree di lavoro e i primi
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Prezzi di Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

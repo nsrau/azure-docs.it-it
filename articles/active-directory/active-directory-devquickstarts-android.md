@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Se si sta sviluppando un'applicazione desktop, Azure AD semplifica e facilita l'autenticazione degli utenti con gli account Active Directory. Consente inoltre all'applicazione di usare in modo sicuro qualsiasi API Web protetta da Azure AD, ad esempio le API di Office 365 o l'API di Azure.
+Se si sta sviluppando un'applicazione desktop, Azure AD semplifica e facilita l'autenticazione degli utenti tramite gli account Active Directory. Consente inoltre all'applicazione di usare in modo sicuro qualsiasi API Web protetta da Azure AD, ad esempio le API di Office 365 o l'API di Azure.
 
 Per i client Android che devono accedere a risorse protette, Azure AD fornisce Active Directory Authentication Library (ADAL). La funzione di ADAL è di permettere all'app di ottenere facilmente i token di accesso. Per far capire quanto è semplice, verrà compilata un'applicazione Android To-Do List che:
 
@@ -391,7 +391,7 @@ Il livello di registrazione viene impostato nel modo seguente:
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
- Tutti i messaggi di log vengono inviati a logcat, oltre agli eventuali callback di log personalizzati.
+ Tutti i messaggi di log vengono inviati a logcat, oltre agli eventuali callback di log personalizzati. 
  È possibile ottenere un log nel formato di file logcat come illustrato di seguito:
 
  ```
@@ -458,4 +458,4 @@ Informazioni su [Come abilitare l'accesso Single Sign-On tra app su Android usan
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

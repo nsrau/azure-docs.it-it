@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/06/2016"
 	ms.author="jahogg"/>
 
 # Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
@@ -25,6 +25,8 @@
 La diagnosi e la risoluzione dei problemi in un'applicazione distribuita ospitata in un ambiente cloud possono essere più complesse rispetto agli ambienti tradizionali. Le applicazioni possono essere distribuite in un'infrastruttura PaaS o IaaS, in locale, su un dispositivo mobile o in una combinazione di questi tipi di distribuzione. In genere, il traffico in rete dell'applicazione può passare su reti pubbliche e private e l'applicazione può usare più tecnologie di archiviazione, ad esempio tabelle, BLOB, code o file di Microsoft Azure oltre ad altri archivi di dati come i database relazionali e di documenti.
 
 Per gestire in modo efficace queste applicazioni, è necessario monitorarle attivamente e capire in che modo diagnosticare e risolvere i problemi correlati a tutti gli aspetti delle applicazioni e delle tecnologie dipendenti. L'utente dei servizi di archiviazione di Azure deve monitorare continuamente i servizi di archiviazione usati dall'applicazione per riscontrare eventuali cambiamenti inattesi nel comportamento, ad esempio tempi di risposta insolitamente lenti, e deve usare la registrazione per raccogliere dati più dettagliati e analizzare i problemi più in profondità. Le informazioni di diagnostica ottenute dal monitoraggio e dalla registrazione consentiranno di determinare la causa principale del problema riscontrato dall'applicazione. Sarà quindi possibile identificare il problema e determinare le misure appropriate per risolverlo. L'Archiviazione di Azure è uno dei principali servizi di Azure ed è un componente importante della maggior parte delle soluzioni distribuite dai client nell'infrastruttura Azure. Include funzionalità che consentono di semplificare le attività di monitoraggio, diagnostica e risoluzione dei problemi di archiviazione nelle applicazioni basate su cloud.
+
+> [AZURE.NOTE] Per gli account di archiviazione con un tipo di replica di archiviazione con ridondanza della zona (ZRS) al momento non sono abilitate le funzionalità di metrica e registrazione.
 
 Per una guida interattiva alla risoluzione dei problemi end-to-end in applicazioni di Archiviazione di Azure, vedere la pagina relativa alla [risoluzione dei problemi end-to-end usando Metriche e Registrazione di Archiviazione di Azure, AzCopy e Analizzatore messaggi](../storage-e2e-troubleshooting/).
 
@@ -87,15 +89,15 @@ La guida è destinata in particolare agli sviluppatori dei servizi online che us
 
 ### <a name="how-this-guide-is-organized"></a>Organizzazione di questa guida
 
-La sezione "[Monitoraggio del servizio di archiviazione]" descrive le modalità di controllo dell'integrità e delle prestazioni dei servizi di archiviazione di Azure tramite le metriche di Analisi archiviazione di Azure (metriche di archiviazione).
+La sezione "[Monitoraggio del servizio di archiviazione]" descrive le modalità di controllo dell'integrità e delle prestazioni dei servizi di archiviazione Azure tramite le metriche di Analisi archiviazione di Azure (metriche di archiviazione).
 
-La sezione "[Diagnosi dei problemi di archiviazione]" descrive in che modo vengono diagnosticati i problemi usando la funzione di registrazione di Analisi archiviazione di Azure (registrazione dell'archiviazione). Descrive anche in che modo si abilita la registrazione lato client usando gli strumenti di una libreria client come la libreria client di archiviazione per .NET o Azure SDK per Java.
+La sezione "[Diagnosi dei problemi di archiviazione]" descrive in che modo vengono diagnosticati i problemi utilizzando la funzione di registrazione di Analisi archiviazione di Azure (registrazione dell'archiviazione). Descrive anche in che modo si abilita la registrazione lato client usando gli strumenti di una libreria client come la libreria client di archiviazione per .NET o Azure SDK per Java.
 
 La sezione "[Traccia end-to-end]" descrive come si possono correlare le informazioni contenute in vari file di log e dati delle metriche.
 
 La sezione "[Guida alla risoluzione dei problemi]" fornisce indicazioni utili per identificare alcuni dei problemi relativi all'archiviazione che si riscontrano più di frequente.
 
-La sezione "[Appendici]" include informazioni sull'uso di altri strumenti quali Wireshark e Netmon per l'analisi dei dati dei pacchetti di rete, Fiddler per l'analisi dei messaggi HTTP/HTTPS e Microsoft Message Analyzer per la correlazione dei dati di log.
+La sezione "[Appendici]" include informazioni sull'utilizzo di altri strumenti quali Wireshark e Netmon per l'analisi dei dati dei pacchetti di rete, Fiddler per l'analisi dei messaggi HTTP/HTTPS e Microsoft Message Analyzer per la correlazione dei dati di log.
 
 
 ## <a name="monitoring-your-storage-service"></a>Monitoraggio del servizio di archiviazione
@@ -133,7 +135,7 @@ Benché il portale di Azure classico raccolga le informazioni sullo stato dall'i
 
 ### <a name="monitoring-capacity"></a>Monitoraggio della capacità
 
-Lo strumento Metriche di archiviazione memorizza solo le metriche di capacità per il servizio BLOB poiché gli oggetti BLOB normalmente raccolgono la proporzione maggiore di dati archiviati. Attualmente non è possibile usare Metriche di archiviazione per monitorare la capacità di tabelle e code. Questi dati sono contenuti nella tabella **$MetricsCapacityBlob** se è stato attivato il monitoraggio per il servizio BLOB. Le metriche di archiviazione registrano i dati una volta al giorno ed è possibile usare il valore di **RowKey** per determinare se la riga contiene un'entità che fa riferimento ai dati utente (valore **data**) o dati analitici (valore **analytics**). Ogni entità archiviata contiene informazioni sulla quantità di spazio di archiviazione usato (valore **Capacity** in byte) e il numero attuale di contenitori (**ContainerCount**) e di oggetti BLOB (**ObjectCount**) usati nell'account di archiviazione. Per ulteriori informazioni sulle metriche di capacità archiviate nella tabella **$MetricsCapacityBlob**, vedere <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Schema di tabella della metrica di Analisi di archiviazione</a> su MSDN.
+Lo strumento Metriche di archiviazione memorizza solo le metriche di capacità per il servizio BLOB poiché gli oggetti BLOB normalmente raccolgono la proporzione maggiore di dati archiviati. Attualmente non è possibile usare Metriche di archiviazione per monitorare la capacità di tabelle e code. Questi dati sono contenuti nella tabella **$MetricsCapacityBlob** se è stato attivato il monitoraggio per il servizio BLOB. Metriche di archiviazione registrano i dati una volta al giorno ed è possibile utilizzare il valore di **RowKey** per determinare se la riga contiene un'entità che fa riferimento ai dati utente (valore **data**) o dati analitici (valore **analytics**). Ogni entità archiviata contiene informazioni sulla quantità di spazio di archiviazione utilizzato (valore **Capacity** in byte) e il numero attuale di contenitori (**ContainerCount**) e oggetti BLOB (**ObjectCount**) utilizzati nell'account di archiviazione. Per ulteriori informazioni sulle metriche di capacità archiviate nella tabella **$MetricsCapacityBlob**, vedere <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Schema di tabella della metrica di Analisi di archiviazione</a> su MSDN.
 
 > [AZURE.NOTE] È necessario monitorare questi valori per essere avvisati tempestivamente quando si stanno raggiungendo i limiti di capacità dell'account di archiviazione. Nel portale di Azure classico, nella pagina **Monitor** dell'account di archiviazione, è possibile aggiungere regole di avviso per ricevere una notifica nel caso in cui l'archiviazione degli aggregati superi le soglie specificate o sia inferiore a esse.
 
@@ -153,8 +155,8 @@ La sezione "[Guida alla risoluzione dei problemi]" di questa guida descrive alcu
 
 Per monitorare le prestazioni dei servizi di archiviazione, è possibile usare le metriche seguenti estratte dalle tabelle delle metriche orarie e al minuto.
 
-- I valori in **AverageE2ELatency** e **AverageServerLatency** indicano il tempo medio impiegato dal servizio di archiviazione o dal tipo di operazione API per elaborare le richieste. **AverageE2ELatency** è una misura della latenza end-to-end che include il tempo impiegato a leggere la richiesta e inviare la risposta sommato al tempo impiegato per elaborare la richiesta. Include quindi la latenza di rete dopo che la richiesta raggiunge il servizio di archiviazione. **AverageServerLatency** è una misura del solo tempo di elaborazione ed esclude quindi qualsiasi latenza di rete relativa alla comunicazione con il client. Vedere la sezione "[Le metriche indicano un valore AverageE2ELatency alto e un valore AverageServerLatency basso]" più avanti in questa guida per sapere perché esiste una differenza significativa tra i due valori.
-- I valori nelle colonne **TotalIngress** e **TotalEgress** indicano il volume totale dei dati, in byte, in entrata e in uscita dal servizio di archiviazione o gestiti da un tipo specifico di operazione API.
+- I valori in **AverageE2ELatency** e **AverageServerLatency** indicano il tempo medio impiegato dal servizio di archiviazione o dal tipo di operazione API per elaborare le richieste. **AverageE2ELatency** è una misura della latenza end-to-end che include il tempo impiegato a leggere la richiesta e inviare la risposta sommato al tempo impiegato per elaborare la richiesta (di conseguenza include la latenza di rete quando la richiesta raggiunge il servizio di archiviazione); **AverageServerLatency** è una misura del tempo di elaborazione ed esclude quindi qualsiasi latenza di rete relativa alla comunicazione con il client. Vedere la sezione "[Le metriche indicano un valore AverageE2ELatency alto e un valore AverageServerLatency basso]" più avanti in questa guida per sapere perché esiste una differenza significativa tra i due valori.
+- I valori nelle colonne **TotalIngress** e **TotalEgress** indicano il volume totale dei dati, in byte, in entrata nel e in uscita dal servizio di archiviazione o gestiti da un tipo specifico di operazione API.
 - I valori presenti nella colonna **TotalRequests** indicano il numero totale di richieste ricevute dal servizio di archiviazione o dall'operazione API. **TotalRequests** è il numero totale di richieste ricevute dal servizio di archiviazione.
 
 In genere, questi valori vengono monitorati per verificare la presenza di eventuali cambiamenti che possono indicare l'esistenza di problemi da sottoporre ad analisi.
@@ -917,4 +919,4 @@ Al momento della redazione di questo documento Application Insights è disponibi
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

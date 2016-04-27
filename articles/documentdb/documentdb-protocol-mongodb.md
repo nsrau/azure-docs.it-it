@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Supporto del protocollo DocumentDB per MongoDB | Microsoft Azure" 
 	description="Informazioni sul supporto del protocollo DocumentDB per MongoDB, ora disponibile per l'anteprima." 
-	keywords="protocollo MongoDB, MongoDB"
+	keywords="protocollo MongoDB, MongoDB, database Mongo"
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="jhubbard" 
@@ -13,7 +13,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="03/31/2016" 
 	ms.author="stbaro"/>
 
@@ -36,11 +36,11 @@ Per richiedere l'accesso all'anteprima, eseguire questa procedura.
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **NUOVO**, su **Dati e archiviazione**, su **Visualizza tutto**, su **Altro** e infine su **DocumentDB - Supporto del protocollo per MongoDB**.
 
-	![Screenshot dei pannelli Marketplace e Dati e archiviazione, con l'opzione DocumentDB - Supporto del protocollo per MongoDB evidenziata](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
+	![Screenshot dei pannelli Marketplace e Dati e archiviazione, con l'opzione DocumentDB - Supporto del protocollo per MongoDB, database Mongo evidenziata](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
 
 3. In alternativa, cercare nella categoria **Dati e archiviazione** "protocollo DocumentDB".
 
-	![Screenshot dei pannelli per la ricerca in Marketplace e Dati e archiviazione, con l'opzione DocumentDB - Supporto del protocollo per MongoDB evidenziata](./media/documentdb-protocol-mongodb/marketplacegallery2.png)
+	![Screenshot dei pannelli di ricerca Marketplace e Dati e archiviazione, con l'opzione DocumentDB - Supporto del protocollo per MongoDB, database Mongo evidenziata](./media/documentdb-protocol-mongodb/marketplacegallery2.png)
 
 4. Fare clic su **Crea** per avviare il processo di iscrizione all'anteprima.
 
@@ -56,4 +56,4 @@ Per richiedere l'accesso all'anteprima, eseguire questa procedura.
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

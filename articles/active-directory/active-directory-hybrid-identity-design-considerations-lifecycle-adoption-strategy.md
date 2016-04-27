@@ -13,18 +13,18 @@
 	ms.devlang="na"
 	ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.workload="identity" 
+    ms.workload="identity"
 	ms.date="12/07/2015"
 	ms.author="femila"/>
 
 
-# Determinare la strategia di adozione del ciclo di vita della soluzione ibrida di gestione delle identità 
-In questa attività verrà definita la strategia di gestione delle identità in modo che la soluzione ibrida soddisfi i requisiti aziendali definiti in [Determinare le attività della gestione ibrida delle identità](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md).
+# Determinare la strategia di adozione del ciclo di vita della soluzione ibrida di gestione delle identità
+In questa attività verrà definita la strategia di gestione delle identità in modo che la soluzione ibrida soddisfi i requisiti aziendali definiti in [Determinare le attività della gestione ibrida delle identità](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
 
 
 Per definire le attività della gestione ibrida delle identità in base al ciclo di vita end-to-end presentato in precedenza in questo passaggio, è necessario valutare le opzioni disponibili per ogni fase del ciclo di vita.
 
-## Gestione e provisioning degli accessi 
+## Gestione e provisioning degli accessi
 Una buona soluzione di gestione degli accessi degli account consente di monitorare in modo accurato chi ha accesso a quali informazioni all'interno dell'organizzazione.
 
 Il controllo di accesso è una funzione critica di un sistema di provisioning centralizzato. Oltre a proteggere le informazioni sensibili, il controllo di accesso espone gli account esistenti con autorizzazioni non approvate o non più necessari. Per controllare gli account obsoleti, il sistema di provisioning collega le informazioni dell'account alle informazioni autorevoli relative agli utenti proprietari degli account. Le informazioni autorevoli sulle identità utente sono in genere mantenute nei database e nelle directory del reparto risorse umane.
@@ -40,7 +40,7 @@ Nelle aziende IT sofisticate gli account includono centinaia di parametri che de
 Il controllo degli accessi in base al ruolo usa i ruoli e i criteri di provisioning per valutare, testare e imporre regole e processi aziendali per concedere l'accesso agli utenti. Gli amministratori principali creano i criteri di provisioning, assegnano gli utenti ai ruoli e definiscono set di assegnazioni alle risorse per questi ruoli. Il controllo degli accessi in base al ruolo estende la soluzione di gestione delle identità per usare processi basati sul software e ridurre l'interazione manuale dell'utente nel processo di provisioning. Il controllo degli accessi in base al ruolo di Azure AD permette alla società di limitare la quantità di operazioni che possono essere eseguite da un soggetto una volta effettuato l'accesso al portale di gestione di Azure. L'uso del controllo degli accessi in base al ruolo per controllare gli accessi al portale, permette agli amministratori IT di delegare l'accesso tramite gli approcci di gestione dell'accesso seguenti:
 
 - **Assegnazione di ruolo basata su gruppo**: è possibile assegnare l'accesso ai gruppi di Azure AD che possono essere sincronizzati dall'istanza di Active Directory locale. Questo consente di sfruttare gli investimenti esistenti dell'organizzazione in termini di strumenti e processi per la gestione dei gruppi. È anche possibile usare la funzionalità di delega della gestione dei gruppi disponibile in Azure AD Premium.
-- **Uso dei ruoli predefiniti in Azure**: sono disponibili tre ruoli, proprietario, collaboratore e lettore, per garantire che utenti e gruppi siano autorizzati a eseguire solo le attività necessarie per svolgere il proprio lavoro. 
+- **Uso dei ruoli predefiniti in Azure**: sono disponibili tre ruoli, proprietario, collaboratore e lettore, per garantire che utenti e gruppi siano autorizzati a eseguire solo le attività necessarie per svolgere il proprio lavoro.
 - **Accesso granulare alle risorse**: è possibile assegnare ruoli a utenti e gruppi per una sottoscrizione, un gruppo di risorse o una singola risorsa di Azure specifica, ad esempio un sito Web o un database. In questo modo, è possibile fare in modo che gli utenti possano accedere a tutte le risorse necessarie e non abbiano accesso alle risorse che invece non devono gestire.
 
 ## Provisioning e altre opzioni di personalizzazione
@@ -60,7 +60,8 @@ La gestione delle licenze basata su gruppo in Azure AD consente agli amministrat
 ## Regolazione automatica dell'amministrazione degli utenti
 Quando l'azienda inizia a effettuare il provisioning delle risorse per tutte le organizzazioni interne, si implementa la funzionalità di regolazione automatica dell'amministrazione degli utenti. In questo caso, è possibile usufruire dei vantaggi derivanti dal provisioning degli utenti in tutta l'organizzazione. In questo ambiente, una modifica dello stato di un utente si riflette automaticamente nei diritti di accesso in tutta l'organizzazione e in tutte le aree geografiche. Consente di ridurre i costi di provisioning e semplificare i processi di accesso e approvazione. Permette di realizzare l'intero potenziale del controllo degli accessi in base al ruolo per la gestione degli accessi end-to-end nell'organizzazione. Favorisce la riduzione dei costi amministrativi tramite procedure automatizzate che regolamentano il provisioning degli utenti. Migliora la sicurezza grazie all'automazione dell'imposizione dei criteri di sicurezza, alla semplificazione e alla centralizzazione del ciclo di vita degli utenti e al provisioning delle risorse per grandi quantità di utenti.
 
->[AZURE.NOTE]Per altre informazioni, vedere Configurazione di Azure AD per la gestione self-service dell'accesso alle applicazioni
+>[AZURE.NOTE]
+Per altre informazioni, vedere Configurazione di Azure AD per la gestione self-service dell'accesso alle applicazioni
 
 I servizi di Azure AD basati su licenza o diritti funzionano attivando una sottoscrizione nel tenant di directory/servizio di Azure AD. Una volta attivata la sottoscrizione, le funzionalità del servizio possono essere gestite dagli amministratori della directory o del servizio e utilizzate dagli utenti con licenza. Per altre informazioni, vedere la sezione Come funzionano le licenze di Azure AD? Integrazione con altri provider di terze parti
 
@@ -69,7 +70,7 @@ Azure Active Directory offre autenticazione Single Sign-On e sicurezza avanzata 
 ## Definire la soluzione di gestione della sincronizzazione
 L'integrazione delle directory locali con Azure AD rende gli utenti più produttivi in quanto fornisce un'identità comune per accedere alle risorse cloud e locali. Con questa integrazione utenti e organizzazioni possono sfruttare i vantaggi seguenti:
 
-- Le organizzazioni possono fornire agli utenti un'identità ibrida comune per i servizi locali e basati sul cloud sfruttando Windows Server Active Directory per connettersi quindi ad Azure Active Directory. 
+- Le organizzazioni possono fornire agli utenti un'identità ibrida comune per i servizi locali e basati sul cloud sfruttando Windows Server Active Directory per connettersi quindi ad Azure Active Directory.
 - Gli amministratori possono fornire l'accesso condizionale in base alla risorsa dell'applicazione, al dispositivo e all'identità utente, al percorso di rete e all'autenticazione a più fattori.
 - Gli utenti possono fruttare la propria identità comune degli account in Azure AD per Office 365, Intune, app SaaS e applicazioni di terze parti.
 - Gli sviluppatori possono compilare applicazioni che sfruttano il modello di identità comune, integrando le applicazioni in Active Directory locale o in Azure per le applicazioni basate sul cloud.
@@ -87,10 +88,11 @@ Esaminare la tabella seguente per un confronto tra le opzioni di sincronizzazion
 | Basata sulla sincronizzazione (tramite DirSync o AAD Connect) | Gli utenti e i gruppi vengono sincronizzati nelle istanze locali e cloud <br> **Controllo dei criteri**: è possibile impostare i criteri degli account tramite Active Directory. L'amministratore può quindi gestire i criteri per le password, le restrizioni per le workstation, i controlli di blocco e altri elementi senza dover eseguire attività aggiuntive nel cloud. <br> **Controllo di accesso**: l'amministratore può limitare l'accesso al servizio cloud in modo che i servizi siano accessibili tramite l'ambiente aziendale, tramite server online o entrambi. <br> Diminuzione delle chiamate all'assistenza tecnica: se gli utenti devono ricordare un numero minore di password, è meno probabile che le dimentichino. <br> Sicurezza: le identità e le informazioni degli utenti sono protette perché tutti i server e i servizi usati per l'accesso Single Sign-On sono gestiti e controllati in locale. <br> Supporto dell'autenticazione avanzata: è possibile usare l'autenticazione avanzata, nota anche come autenticazione a due fattori, con il servizio cloud. In tal caso, però, sarà necessario usare l'accesso Single Sign-On. | |
 | Basata su federazione (tramite AD FS) | Abilitata tramite il servizio token di sicurezza. Quando si configura un servizio token di sicurezza per l'accesso Single Sign-On a un servizio Microsoft Cloud, si crea un trust federativo tra il servizio token di sicurezza locale e il dominio federato specificato nel tenant di Azure AD. <br> Consente agli utenti finali di usare lo stesso set di credenziali per accedere a più risorse <br>Gli utenti finali non devono gestire più set di credenziali, ma devono tuttavia fornire le credenziali a ognuna delle risorse partecipanti. Sono supportati gli scenari B2B e B2C. | Richiede personale specializzato per la distribuzione e la manutenzione di server AD FS locali dedicati. Sono previste limitazioni per l'uso dell'autenticazione avanzata nel caso in cui si intenda usare AD FS per il servizio token di sicurezza. Per altre informazioni, vedere [Configurazione delle opzioni avanzate per AD FS 2.0](http://go.microsoft.com/fwlink/?linkid=235649). |
 
->[AZURE.NOTE]Per altre informazioni, vedere [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
+>[AZURE.NOTE]
+Per altre informazioni, vedere [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
 
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0413_2016-->

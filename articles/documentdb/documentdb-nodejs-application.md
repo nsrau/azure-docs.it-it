@@ -4,7 +4,7 @@
 	keywords="Sviluppo di applicazioni, esercitazione sul database, informazioni su node.js, esercitazione su node.js, DocumentDB, Azure, Microsoft Azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
-	authors="ryancrawcour" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="02/03/2016" 
-	ms.author="ryancraw"/>
+	ms.date="04/18/2016" 
+	ms.author="andrl"/>
 
 # <a name="_Toc395783175"></a>Creare un'applicazione Web Node.js con DocumentDB
 
@@ -570,4 +570,4 @@ Per altre informazioni, vedere il [Centro per sviluppatori di Node. js](https://
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

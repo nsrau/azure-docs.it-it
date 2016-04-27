@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Gestire il controllo degli accessi in base al ruolo con Azure PowerShell | Microsoft Azure"
-	description="Come gestire il controllo degli accessi in base al ruolo con Azure PowerShell, incluso come ottenere elenchi dei ruoli, assegnare i ruoli ed eliminare le assegnazioni di ruoli."
+	description="Come gestire il controllo degli accessi in base al ruolo con Azure PowerShell, come elencare ruoli, assegnare ruoli ed eliminare assegnazioni di ruoli."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="02/29/2016"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # Gestire il controllo degli accessi in base al ruolo con Azure PowerShell
@@ -24,9 +24,15 @@
 - [API REST](role-based-access-control-manage-access-rest.md)
 
 
-## Elencare i ruoli Controllo degli accessi in base al ruolo
+Nel Portale di Azure e nell'API di Azure Resource Manager il controllo degli accessi in base al ruolo (RBAC, Role-Based Access Control) consente di gestire con estrema precisione l'accesso alla propria sottoscrizione. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
 
->[AZURE.IMPORTANT] Prima di usare i cmdlet descritti in questo articolo, è necessario [installare i cmdlet di Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell.
+Per poter usare PowerShell per gestire il controllo degli accessi in base al ruolo, è necessario avere i programmi seguenti:
+
+- Azure PowerShell 0.8.8 o versione successiva. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+
+- Cmdlet di Azure Resource Manager Installare i [cmdlet di Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell.
+
+## Elenco dei ruoli
 
 ### Elencare tutti i ruoli disponibili
 Per elencare i ruoli Controllo degli accessi in base al ruolo disponibili per l'assegnazione e controllare le operazioni a cui concedono l'accesso, usare:
@@ -42,23 +48,22 @@ Per elencare le azioni per un ruolo specifico, usare:
 
 ![Controllo degli accessi in base al ruolo di PowerShell - Get-AzureRmRoleDefinition per un ruolo specifico - Schermata](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition2.png)
 
-## Elencare l'accesso
-### Elencare tutte assegnazioni di ruoli nella sottoscrizione selezionata.
-Per elencare le assegnazioni dell'accesso per il controllo degli accessi in base al ruolo valide per la sottoscrizione, la risorsa o il gruppo di risorse specificato, usare:
+## Assegnazioni di accesso
+Per elencare le assegnazioni di accesso al controllo degli accessi in base al ruolo, usare:
 
     Get-AzureRmRoleAssignment
 
-###	Elencare le assegnazioni di ruoli valide per un gruppo di risorse
-Per elencare le assegnazioni dell'accesso per un gruppo di risorse, usare:
+###	Elencare le assegnazioni di ruolo in un ambito specifico
+È possibile elencare le assegnazioni di accesso in base a sottoscrizione, gruppo di risorse o risorsa specificati. Ad esempio, per elencare tutte le assegnazioni attive per una gruppo di risorse, usare:
 
     Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>
 
 ![Controllo degli accessi in base al ruolo di PowerShell - Get-AzureRmRoleDefinition per un gruppo di risorse - Schermata](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment1.png)
 
-### Elencare le assegnazioni di ruoli per un utente, inclusi quelli assegnati a gruppi di utenti
-Per elencare le assegnazioni dell'accesso per l'utente specificato, nonché per i gruppi di cui è membro l'utente, usare:
+### Elencare i ruoli assegnati ad un utente
+Per elencare tutti i ruoli assegnati a un utente specifico, compresi i ruoli assegnati ai gruppi ai quali appartiene, usare:
 
-    Get-AzureRmRoleAssignment -ExpandPrincipalGroups
+    Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups
 
 ![Controllo degli accessi in base al ruolo di PowerShell - Get-AzureRmRoleDefinition per un utente - Schermata](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment2.png)
 
@@ -69,29 +74,22 @@ Per elencare le assegnazioni dell'accesso per l'amministratore e i coamministrat
 
 ## Concedere l'accesso
 ### Cercare gli ID oggetto
-Per usare le sequenze di comandi seguenti, è necessario individuare prima di tutto gli ID oggetto. Si presuppone che l'ID della sottoscrizione in uso sia già noto. In caso contrario, vedere [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) su MSDN.
+Per assegnare un ruolo, è necessario identificare l'oggetto (utente, gruppo o applicazione) e l'ambito.
 
-#### Trovare l'ID oggetto per un gruppo di Azure AD
+Se non si conosce l'ID sottoscrizione, è possibile reperire tale informazione nel pannello **Sottoscrizioni** nel portale di Azure. In alternativa, vedere [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) su MSDN per sapere come richiederlo.
+
 Per ottenere l'ID oggetto per un gruppo di Azure AD, usare:
 
     Get-AzureRmADGroup -SearchString <group name in quotes>
 
-#### Trovare l'ID oggetto per un'entità servizio di Azure AD
-Per ottenere l'ID oggetto per un'entità servizio di Azure AD usare:
+Per ottenere l'ID oggetto per un'entità servizio di Azure AD, o applicazione, usare:
 
     Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
-
-### Assegnare un ruolo a un gruppo nell'ambito della sottoscrizione
-Per concedere l'accesso a un gruppo nell'ambito della sottoscrizione, usare:
-
-    New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
-
-![Controllo degli accessi in base al ruolo di PowerShell - New-AzureRmRoleAssignment - Schermata](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment1.png)
 
 ### Assegnare un ruolo a un'applicazione nell'ambito della sottoscrizione
 Per concedere l'accesso a un'applicazione nell'ambito della sottoscrizione, usare:
 
-    New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
+    New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name in quotes> -Scope <subscription id>
 
 ![Controllo degli accessi in base al ruolo di PowerShell - New-AzureRmRoleAssignment - Schermata](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
 
@@ -112,7 +110,7 @@ Per concedere l'accesso a un gruppo nell'ambito delle risorse, usare:
 ## Rimuovere un accesso
 Per rimuovere l'accesso per utenti, gruppi e applicazioni, usare:
 
-    Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription/subscription id>
+    Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
 
 ![Controllo degli accessi in base al ruolo di PowerShell - Remove-AzureRmRoleAssignment - Schermata](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
@@ -153,7 +151,7 @@ Nell'esempio seguente il ruolo personalizzato *Operatore macchina virtuale* non 
 
 ![Controllo degli accessi in base al ruolo di PowerShell - Get-AzureRmRoleDefinition - Schermata](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
-## Argomenti relativi a Controllo degli accessi in base al ruolo
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+## Vedere anche
+- [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

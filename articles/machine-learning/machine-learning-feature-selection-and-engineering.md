@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Progettazione e selezione di funzioni in Azure Machine Learning | Microsoft Azure" 
+	pageTitle="Progettazione e selezione di funzioni in Azure Machine Learning | Microsoft Azure"
 	description="Illustra le finalità della progettazione e della selezione di funzioni e fornisce esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning."
 	services="machine-learning"
 	documentationCenter=""
@@ -51,7 +51,7 @@ Il tipo di funzioni da creare per migliorare il set di dati durante il training 
 
 Quando si inizia a usare Azure Machine Learning, è più facile afferrare questo processo in modo concreto tramite gli esempi disponibili in Studio. Di seguito ne vengono presentati due:
 
-* Un esempio di regressione basato sulla [stima del numero di noleggi di biciclette](../machine-learning-sample-prediction-of-number-of-bike-rentals.md) in un esperimento controllato in cui sono noti i valori di destinazione.
+* Un esempio di regressione basato sulla [stima del numero di noleggi di biciclette](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) in un esperimento controllato in cui sono noti i valori di destinazione.
 * Un esempio di classificazione di data mining del testo tramite [Feature Hashing][feature-hashing].
 
 ### Esempio 1: Aggiunta di funzioni temporali per il modello di regressione ###
@@ -133,6 +133,5 @@ Si noti che non sempre è necessario eseguire la progettazione o la selezione de
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
- 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

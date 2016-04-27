@@ -67,7 +67,7 @@ Si tratta di una funzione Node che calcola il token dagli input `resourceUri, si
 
         // construct autorization string
         var token = "SharedAccessSignature sr=" + resourceUri + "&sig="
-        * base64UriEncoded + "&se=" + expires;
+        + base64UriEncoded + "&se=" + expires;
         if (policyName) token += "&skn="+policyName;
         // console.log("signature:" + token);
         return token;
@@ -181,4 +181,4 @@ Il risultato, che concede l'accesso in lettura a tutte le identità dispositivo,
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

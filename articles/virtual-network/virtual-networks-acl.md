@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Che cos'è un elenco di controllo di accesso di rete (ACL)"
    description="Informazioni sugli elenchi di controllo di accesso"
    services="virtual-network"
@@ -6,7 +6,7 @@
    authors="telmosampaio"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -21,7 +21,7 @@ Un elenco di controllo di accesso (ACL) di endpoint è un miglioramento della si
 
 > [AZURE.IMPORTANT] È consigliabile usare i gruppi di sicurezza di rete anziché gli elenchi di controllo di accesso di rete, laddove possibile. Per altre informazioni sui gruppi di accesso di rete, vedere l'articolo relativo alla [descrizione dei gruppi di accesso di rete](virtual-networks-nsg.md).
 
-Gli elenchi di controllo di accesso possono essere configurati tramite PowerShell o il portale di gestione. Per la configurazione di un elenco di controllo di accesso di rete tramite PowerShell, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](virtual-networks-acl-powershell.md). Se si intende configurare un elenco di controllo di accesso di rete tramite il portale di gestione, vedere [Come configurare gli endpoint a una macchina virtuale](../virtual-machines/virtual-machines-set-up-endpoints.md).
+Gli elenchi di controllo di accesso possono essere configurati tramite PowerShell o il portale di gestione. Per la configurazione di un elenco di controllo di accesso di rete tramite PowerShell, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](virtual-networks-acl-powershell.md). Se si intende configurare un elenco di controllo di accesso di rete tramite il portale di gestione, vedere [Come configurare gli endpoint a una macchina virtuale](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
 
 Con gli elenchi di controllo di accesso di rete, è possibile effettuare le operazioni seguenti:
 
@@ -99,4 +99,4 @@ Poiché è possibile specificare più regole per un endpoint, è necessario trov
 
 [Come gestire gli elenchi di controllo di accesso per gli endpoint tramite PowerShell](virtual-networks-acl-powershell.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

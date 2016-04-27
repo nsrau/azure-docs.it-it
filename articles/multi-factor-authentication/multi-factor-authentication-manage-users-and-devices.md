@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2016" 
+	ms.date="04/11/2016" 
 	ms.author="billmath"/>
 
 # Gestione delle impostazioni utente con Azure Multi-Factor Authentication nel cloud
@@ -22,7 +22,7 @@ Come amministratore, è possibile gestire le impostazioni relative all'utente e 
 
 - [Richiedere agli utenti selezionati di fornire di nuovo i metodi di contatto](#require-selected-users-to-provide-contact-methods-again)
 - [Eliminare le password per le app esistenti degli utenti](#delete-users-existing-app-passwords)
-- [Ripristinare Multi-Factor Authentication in tutti i dispositivi sospesi per un utente (anteprima pubblica)](#restore-mfa-on-all-suspended-devices-for-a-user)
+- [Ripristinare Multi-Factor Authentication in tutti i dispositivi sospesi per un utente](#restore-mfa-on-all-suspended-devices-for-a-user)
 
 
 
@@ -48,7 +48,8 @@ Questa impostazione impone all'utente di ripetere il processo di registrazione q
 5. Nella parte inferiore della pagina fare clic su Gestisci Multi-Factor Auth. Verrà visualizzata la pagina Multi-Factor Authentication.
 6. Individuare l'utente che si desidera gestire e inserire un segno di spunta nella casella situata accanto al nome. Potrebbe essere necessario modificare la visualizzazione nella parte superiore.
 7. A destra viene visualizzato il collegamento **Gestisci le impostazioni dell'utente**. quindi farvi clic.
-8. Inserire un segno di spunta in **Richiedere agli utenti selezionati di fornire di nuovo i metodi di contatto**. ![Fornire metodi di contatto](./media/multi-factor-authentication-manage-users-and-devices/reproofup.png)
+8. Inserire un segno di spunta in **Richiedere agli utenti selezionati di fornire di nuovo i metodi di contatto**.
+![Fornire metodi di contatto](./media/multi-factor-authentication-manage-users-and-devices/reproofup.png)
 10. Fare clic su Salva.
 11. Fare clic su Chiudi
 
@@ -65,7 +66,8 @@ Vengono eliminate tutte le password dell'app create da un utente. Le app non bas
 5. Nella parte inferiore della pagina fare clic su Gestisci Multi-Factor Auth. Verrà visualizzata la pagina Multi-Factor Authentication.
 6. Individuare l'utente che si desidera gestire e inserire un segno di spunta nella casella situata accanto al nome. Potrebbe essere necessario modificare la visualizzazione nella parte superiore.
 7. A destra viene visualizzato il collegamento **Gestisci le impostazioni dell'utente**. quindi farvi clic. 
-8. Inserire un segno di spunta in **Eliminare le password per le app esistenti degli utenti**. ![Eliminare password per le app](./media/multi-factor-authentication-manage-users-and-devices/deleteapppasswords.png)
+8. Inserire un segno di spunta in **Eliminare le password per le app esistenti degli utenti**.
+![Eliminare password per le app](./media/multi-factor-authentication-manage-users-and-devices/deleteapppasswords.png)
 10. Fare clic su Salva.
 10. Fare clic su Chiudi.
 
@@ -86,4 +88,4 @@ Gli amministratori hanno la possibilità di ripristinare Multi-Factor Authentica
 9. Fare clic su Salva.
 10. Fare clic su Chiudi.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

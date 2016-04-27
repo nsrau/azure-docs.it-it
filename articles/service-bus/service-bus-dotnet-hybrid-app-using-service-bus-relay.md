@@ -402,7 +402,7 @@ Eseguire l'applicazione per verificarne il funzionamento.
 
 ## Preparazione dell'applicazione per la distribuzione in Azure
 
-È possibile distribuire l'applicazione in un servizio cloud o un sito Web di Azure. Per altre informazioni sulle differenze tra siti Web e servizi cloud, vedere [Modelli di esecuzione di Azure][executionmodels]. Per informazioni su come distribuire l'applicazione in un sito Web di Azure, vedere [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure](https://azure.microsoft.com/develop/net/tutorials/get-started/). In questa sezione è illustrata la procedura dettagliata per distribuire l'applicazione in un servizio cloud di Azure.
+È possibile distribuire l'applicazione in un [servizio cloud][executionmodels] o in un [sito Web di Azure][azureweb]. Per informazioni su come distribuire l'applicazione in un sito Web di Azure, vedere [Distribuzione di un'applicazione Web ASP.NET in un sito Web di Azure](https://azure.microsoft.com/develop/net/tutorials/get-started/). In questa sezione è illustrata la procedura dettagliata per distribuire l'applicazione in un servizio cloud di Azure.
 
 Per distribuire l'applicazione a un servizio cloud, è necessario aggiungere alla soluzione un progetto di distribuzione del progetto servizio cloud. Il progetto di distribuzione contiene le informazioni di configurazione necessarie per la corretta esecuzione dell'applicazione nel cloud.
 
@@ -531,8 +531,6 @@ Il passaggio successivo consiste nel collegare il server dei prodotti locale con
 
     ![][37]
 
-Per altre informazioni sulle differenze tra siti Web e servizi cloud, vedere [Modelli di esecuzione di Azure][executionmodels].
-
 ## Arrestare ed eliminare l'applicazione
 
 Dopo aver distribuito l'applicazione, se necessario è possibile disabilitarla per creare e distribuire altre applicazioni entro il termine delle 750 ore mensili (31 giorni al mese) gratuite di tempo del server.
@@ -608,6 +606,7 @@ Per altre informazioni sul bus di servizio, vedere le risorse seguenti:
 
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
-  [executionmodels]: ../cloud-services/fundamentals-application-models.md
+  [executionmodels]: ../cloud-services/cloud-services-choose-me.md
+  [azureweb]: ../app-service-web/app-service-web-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

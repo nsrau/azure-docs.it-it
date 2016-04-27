@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Come gestire gli elenchi di controllo di accesso per gli endpoint tramite PowerShell"
    description="Informazioni su come gestire gli elenchi di controllo di accesso con PowerShell"
    services="virtual-network"
@@ -6,7 +6,7 @@
    authors="telmosampaio"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -17,7 +17,7 @@
 
 # Come gestire gli elenchi di controllo di accesso per gli endpoint tramite PowerShell
 
-È possibile creare e gestire gli elenchi di controllo di accesso di rete per gli endpoint tramite Azure PowerShell o nel portale di gestione. Questo argomento illustra le procedure per le attività comuni che è possibile eseguire per tali elenchi usando PowerShell. Per l'elenco dei cmdlet di Azure PowerShell, vedere l'articolo relativo ai [cmdlet di gestione di Azure](http://go.microsoft.com/fwlink/?LinkId=317721). Per altre informazioni sugli elenchi di controllo di accesso, vedere l'articolo relativo alla [definizione di un elenco di controllo di accesso di rete](virtual-networks-acl.md). Se si intende gestire i propri elenchi di controllo di accesso tramite il portale di gestione, vedere [Come configurare gli endpoint a una macchina virtuale](../virtual-machines/virtual-machines-set-up-endpoints.md).
+È possibile creare e gestire gli elenchi di controllo di accesso di rete per gli endpoint tramite Azure PowerShell o nel portale di gestione. Questo argomento illustra le procedure per le attività comuni che è possibile eseguire per tali elenchi usando PowerShell. Per l'elenco dei cmdlet di Azure PowerShell, vedere l'articolo relativo ai [cmdlet di gestione di Azure](http://go.microsoft.com/fwlink/?LinkId=317721). Per altre informazioni sugli elenchi di controllo di accesso, vedere l'articolo relativo alla [definizione di un elenco di controllo di accesso di rete](virtual-networks-acl.md). Se si intende gestire i propri elenchi di controllo di accesso tramite il portale di gestione, vedere [Come configurare gli endpoint a una macchina virtuale](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
 
 ## Gestire gli elenchi di controllo di accesso di rete tramite Azure PowerShell
 
@@ -71,7 +71,7 @@ L'esempio seguente illustra come creare un nuovo elenco di controllo di accesso 
 
 L'esempio seguente illustra come rimuovere una regola dell'elenco di controllo di accesso di rete. Per rimuovere una regola dell'elenco di controllo di accesso di rete con regole di autorizzazione per una subnet remota, aprire un'istanza di Azure PowerShell ISE. Copiare e incollare lo script seguente, configurandolo con valori personalizzati, e quindi eseguirlo.
 
-1. È innanzitutto necessario ottenere l'oggetto elenco di controllo di accesso (ACL) di rete per l'endpoint della macchina virtuale. Quindi si rimuoverà la regola dell'elenco di controllo di accesso. In questo caso, la si rimuoverà in base all'ID regola. In questo modo, dall'elenco di controllo di accesso verrà rimosso solo l'ID regola 0. L'oggetto ACL non verrà eliminato dall'endpoint della macchina virtuale. 
+1. È innanzitutto necessario ottenere l'oggetto elenco di controllo di accesso (ACL) di rete per l'endpoint della macchina virtuale. Quindi si rimuoverà la regola dell'elenco di controllo di accesso. In questo caso, la si rimuoverà in base all'ID regola. In questo modo, dall'elenco di controllo di accesso verrà rimosso solo l'ID regola 0. L'oggetto ACL non verrà eliminato dall'endpoint della macchina virtuale.
 
 		Get-AzureVM –ServiceName $serviceName –Name $vmName `
 		| Get-AzureAclConfig –EndpointName "web" `
@@ -95,4 +95,4 @@ In alcuni scenari potrebbe essere necessario rimuovere un oggetto ACL di rete da
 
 [Che cos'è un elenco di controllo di accesso di rete?](virtual-networks-acl.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

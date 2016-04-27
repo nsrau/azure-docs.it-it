@@ -167,6 +167,12 @@ I dati provengono da script nelle pagine Web.
 
 Vedere gli articoli relativi alla [telemetria di dipendenza](app-insights-asp-net-dependencies.md) e alla [telemetria delle eccezioni](app-insights-asp-net-exceptions.md).
 
+## Nessun dato sulle prestazioni
+
+I dati sulle prestazioni (CPU, velocità di IO e così via) sono disponibili per i [servizi Web Java](app-insights-java-collectd.md), [app desktop di Windows](app-insights-windows-desktop.md), [app e servizi Web IIS se si installa Status Monitor](app-insights-monitor-performance-live-website-now.md) e [servizi cloud di Azure](app-insights-azure.md), in Impostazioni, Server.
+
+I dati non sono disponibili per i siti Web di Azure.
+
 ## Dati del server non presenti dopo la pubblicazione dell'app nel server
 
 + Verificare di aver effettivamente copiato tutti i Microsoft. DLL ApplicationInsights al server, insieme a Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
@@ -183,7 +189,7 @@ Vedere gli articoli relativi alla [telemetria di dipendenza](app-insights-asp-ne
 
 ## Non sono presenti tutti i dati previsti
 
-Se l'applicazione invia una grande quantità di dati e si sta usando Application Insights SDK per ASP.NET 2.0.0-beta3 o versioni successive, la funzionalità di [campionamento adattivo](app-insights-sampling.md) può gestire e inviare solo una percentuale dei dati di telemetria.
+Se l'applicazione invia una grande quantità di dati ed è in uso l'SDK di Application Insights per ASP.NET 2.0.0 Beta3 o versioni successive, la funzionalità del [campionamento adattivo](app-insights-sampling.md) può operare e inviare solo una percentuale dei dati di telemetria.
 
 È possibile disabilitarla, ma non è consigliabile. Il campionamento è progettato in modo che i dati di telemetria correlati vengano trasmessi correttamente per scopi diagnostici.
 
@@ -199,4 +205,4 @@ Le dimensioni relative alla città, all'area, al paese e alla regione vengono de
 
 * [Forum di Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/it-IT/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Diagnostica proattiva quasi in tempo reale in Application Insights" 
-	description="La diagnostica proattiva quasi in tempo reale informa automaticamente l'utente se il tempo di risposta del server presenta un comportamento insolito. Non è necessaria alcuna configurazione." 
+	description="Avvisa su modelli di errore insoluti nell'app e fornisce analisi diagnostica. Non è necessaria alcuna configurazione." 
 	services="application-insights" 
     documentationCenter=""
 	authors="yorac" 
@@ -138,4 +138,4 @@ La diagnostica proattiva quasi in tempo reale integra altre funzionalità simili
 
 *L'invio di commenti e suggerimenti sarà molto apprezzato. Usare l'indirizzo di posta elettronica:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

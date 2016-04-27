@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="04/04/2016"
 	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Monitorare le app Web nel servizio app di Azure
@@ -201,7 +201,7 @@ Verranno scaricati i file di log per l'app Web specificata da **webappname** e v
 
 Le informazioni di log verranno visualizzate al prompt dei comandi o nella sessione di PowerShell, bash o terminal da cui viene eseguito il comando.
 
-> [AZURE.NOTE] Se il comando **azure**non è installato, vedere [Come usare l'interfaccia della riga di comando di Azure](../virtual-machines/virtual-machines-command-line-tools.md) per informazioni sull'installazione e la configurazione.
+> [AZURE.NOTE] Se il comando **azure**non è installato, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) per informazioni sull'installazione e sulla configurazione.
 
 ### Lettura dei file di log ###
 
@@ -286,6 +286,5 @@ Per ulteriori informazioni sul monitoraggio degli endpoint dell'app Web, vedere 
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
- 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

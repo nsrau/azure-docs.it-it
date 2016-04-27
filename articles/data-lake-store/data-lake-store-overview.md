@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="04/13/2016"
    ms.author="nitinme"/>
 
 # Panoramica dell’Archivio Data Lake di Azure
@@ -87,4 +87,4 @@ Vedere [Guida introduttiva all’utilizzo di Archivio Data Lake tramite il porta
 - [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Introduzione a Azure Data Lake Store utilizzando .NET SDK](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

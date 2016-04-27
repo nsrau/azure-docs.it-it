@@ -30,11 +30,11 @@ Di seguito sono descritte alcune delle opzioni per le raccolte di DocumentDB.
 
 ## Ottimizzare coerenza, disponibilità e latenza
 
-In base ai requisiti dell'applicazione, DocumentDB consente di ottimizzare il database e le raccolte e di compensare coerenza, disponibilità e latenza. A seconda dei livelli di coerenza di lettura richiesti dello scenario rispetto alla latenza di lettura e scrittura, è possibile scegliere un livello di coerenza per l'account del database. Per impostazione predefinita, DocumentDB consente anche l'indicizzazione sincrona per ogni operazione CRUD nella raccolta. Si tratta di un'altra opzione utile per controllare le prestazioni di lettura/scrittura di DocumentDB. Per altre informazioni su questo argomento, vedere l'articolo relativo a come [modificare i livelli di coerenza del database e delle query](../articles/documentdb-consistency-levels.md).
+In base ai requisiti dell'applicazione, DocumentDB consente di ottimizzare il database e le raccolte e di compensare coerenza, disponibilità e latenza. A seconda dei livelli di coerenza di lettura richiesti dello scenario rispetto alla latenza di lettura e scrittura, è possibile scegliere un livello di coerenza per l'account del database. Per impostazione predefinita, DocumentDB consente anche l'indicizzazione sincrona per ogni operazione CRUD nella raccolta. Si tratta di un'altra opzione utile per controllare le prestazioni di lettura/scrittura di DocumentDB. Per altre informazioni su questo argomento, vedere l'articolo relativo a come [modificare i livelli di coerenza del database e delle query](../documentdb/documentdb-consistency-levels.md).
 
 ## Scegliere un livello di prestazioni
 
-È possibile creare raccolte di DocumentDB a 3 diversi livelli di prestazioni (S1, S2 o S3), che determinano la velocità effettiva disponibile per le operazioni CRUD in una raccolta. Sulle prestazioni influiscono anche i livelli di indicizzazione/coerenza della raccolta. Per informazioni dettagliate su questi livelli di prestazioni, vedere [questo articolo](../articles/documentdb-performance-levels.md).
+È possibile creare raccolte di DocumentDB a 3 diversi livelli di prestazioni (S1, S2 o S3), che determinano la velocità effettiva disponibile per le operazioni CRUD in una raccolta. Sulle prestazioni influiscono anche i livelli di indicizzazione/coerenza della raccolta. Per informazioni dettagliate su questi livelli di prestazioni, vedere [questo articolo](../documentdb/documentdb-performance-levels.md).
 
 ## Upsert di Analisi di flusso
 
@@ -62,4 +62,4 @@ La creazione di DocumentDB come output in Analisi di flusso genera una richiesta
 -   **Chiave di partizione **: nome del campo negli eventi di output usato per specificare la chiave per il partizionamento dell'output tra le raccolte. Per l'output di una singola raccolta si può usare qualsiasi colonna di output arbitraria, ad esempio PartitionId.  
 -   **ID documento**: valore facoltativo. Il nome del campo negli eventi di output usato per specificare la chiave primaria su cui si basano le operazioni di inserimento o aggiornamento.  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

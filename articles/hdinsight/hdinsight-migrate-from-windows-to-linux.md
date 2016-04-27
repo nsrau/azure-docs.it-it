@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="03/28/2016"
+ms.date="04/07/2016"
 ms.author="larryfr"/>
 
 #Migrare da un cluster HDInsight basato su Windows a un cluster basato su Linux
@@ -21,6 +21,8 @@ ms.author="larryfr"/>
 Sebbene HDInsight basato su Windows rappresenti un modo semplice per usare Hadoop nel cloud, talvolta è necessario un cluster basato su Linux per usare gli strumenti e le tecnologie necessari per la propria soluzione. Molti elementi nell'ecosistema Hadoop vengono sviluppati in sistemi basati su Linux e alcuni di essi potrebbero non essere compatibili con HDInsight basato su Windows. Inoltre, molti libri, video e altre forme di materiale didattico prevedono che si usi un sistema Linux quando si lavora con Hadoop.
 
 Questo documento contiene informazioni dettagliate sulle differenze tra HDInsight in Windows e Linux e indicazioni su come eseguire la migrazione dei carichi di lavoro esistenti verso un cluster basato su Linux.
+
+> [AZURE.NOTE] Ubuntu 12.04.05 LTS è la distribuzione Linux usata per cluster HDInsight basati su Linux.
 
 ## Attività di migrazione
 
@@ -67,9 +69,9 @@ Esistono molti metodi per copiare dati e processi, ma i due metodi illustrati in
 
 3. Nel pannello Configurazione facoltativa selezionare **Account di archiviazione collegati**.
 
-4. Selezionare **Aggiungi una chiave di archiviazione** e, quando richiesto, selezionare l'account di archiviazione restituito dallo script PowerShell nel passaggio 1. Per chiudere i pannelli fare clic su **Seleziona** in ciascuno di essi. Al termine, creare il cluster.
+4. Selezionare **Aggiungi una chiave di archiviazione** e, quando richiesto, selezionare l'account di archiviazione restituito dallo script PowerShell nel passaggio 1. Fare clic su **Seleziona** in ogni pannello per chiuderli. Al termine, creare il cluster.
 
-5. Dopo aver creato il cluster, connettersi ad esso tramite **SSH.** Se non si ha dimestichezza con l'uso di SSH con HDInsight, vedere uno degli articoli seguenti.
+5. Dopo aver creato il cluster, connettersi ad esso tramite **SSH**. Se non si ha dimestichezza con l'uso di SSH con HDInsight, vedere uno degli articoli seguenti.
 
     * [Uso di SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
@@ -83,7 +85,7 @@ Esistono molti metodi per copiare dati e processi, ma i due metodi illustrati in
 
         hdfs dfs -mkdir -p /new/path/to/create
 
-    L'istruzione `-p` consente di creare tutte le directory nel percorso.
+    L'opzione `-p` consente di creare tutte le directory nel percorso.
 
 #### Copia diretta tra i BLOB di Archiviazione di Azure
 
@@ -91,7 +93,7 @@ In alternativa si può usare il cmdlet `Start-AzureStorageBlobCopy` di Azure Pow
 
 ##Tecnologie lato client
 
-In generale le tecnologie lato client, ad esempio [i cmdlet di Azure PowerShell](../powershell-install-configure.md), [Azure CLI](../xplat-cli-install.md) o [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) continuano a funzionare ugualmente con i cluster basati su Linux, poiché si basano su API REST che sono uguali in entrambi i tipi di SO del cluster.
+In generale le tecnologie lato client, ad esempio [i cmdlet di Azure PowerShell](../powershell-install-configure.md), l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) o [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) continuano a funzionare ugualmente con i cluster basati su Linux, perché si basano su API REST che sono uguali in entrambi i tipi di sistema operativo del cluster.
 
 ##Tecnologie lato server
 
@@ -110,7 +112,7 @@ Questa sezione illustra le differenze nella creazione del cluster.
 
 ### Utente SSH
 
-I cluster HDInsight basati su Linux usano il protocollo **Secure Shell (SSH)** per fornire l'accesso remoto ai nodi del cluster. A differenza dei cluster basati su Desktop remoto per Windows, la maggior parte dei client SSH non esperienza utente basata sull'interfaccia grafica, bensì un'interfaccia a riga di comando che consente di eseguire comandi nel cluster. Alcuni client (ad esempio [MobaXterm](http://mobaxterm.mobatek.net/)) offrono un browser grafico per il file system oltre a una riga di comando remota.
+I cluster HDInsight basati su Linux usano il protocollo **Secure Shell (SSH)** per fornire l'accesso remoto ai nodi del cluster. A differenza dei cluster basati su Desktop remoto per Windows, la maggior parte dei client SSH non esperienza utente basata sull'interfaccia grafica, bensì un'interfaccia a riga di comando che consente di eseguire comandi nel cluster. Alcuni client, ad esempio [MobaXterm](http://mobaxterm.mobatek.net/), offrono un browser grafico per il file system oltre a una riga di comando remota.
 
 Durante la creazione del cluster è necessario specificare un utente SSH e una **password** oppure un **certificato di chiave pubblica** per l'autenticazione.
 
@@ -132,9 +134,9 @@ Bootstrap per i cluster basati su Linux non offre questa funzionalità. Usare in
 
 ### Reti virtuali
 
-I cluster HDInsight basati su Windows funzionano soltanto con le reti virtuali classiche, mentre i cluster HDInsight basati su Linux richiedono le reti virtuali di gestione risorse. Se nella rete virtuale classica sono presenti risorse a cui si deve connettere il cluster HDInsight basato su Linux, vedere [Connessione di reti virtuali classiche a nuove reti virtuali](../virtual-network/virtual-networks-arm-asm-s2s.md).
+I cluster HDInsight basati su Windows funzionano soltanto con le reti virtuali classiche, mentre i cluster HDInsight basati su Linux richiedono le reti virtuali di gestione risorse. Se nella rete virtuale classica sono presenti risorse a cui si deve connettere il cluster HDInsight basato su Linux, vedere [Connessione di una rete virtuale classica a una rete virtuale di Azure Resource Manager](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
-Per altre informazioni sui requisiti di configurazione per usare le reti virtuali di Azure con HDInsight, vedere [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
+Per altre informazioni sui requisiti di configurazione per usare le reti virtuali di Azure con HDInsight, vedere [Estendere le funzionalità di HDInsight usando una rete virtuale](hdinsight-extend-hadoop-virtual-network.md).
 
 ##Gestione e monitoraggio
 
@@ -164,7 +166,7 @@ Il file system del cluster Linux è strutturato diversamente rispetto ai cluster
 | ----- | ----- |
 | Configurazione | `/etc`. Ad esempio, `/etc/hadoop/conf/core-site.xml` |
 | File di log | `/var/logs` |
-| Hortonworks Data Platform (HDP) | `/usr/hdp`. Qui sono presenti due directory: una è la versione HDP corrente (ad esempio `2.2.9.1-1`) e l'altra è `current`. La directory `current` contiene collegamenti simbolici a file e directory all'interno della directory del numero di versione e rappresenta un modo pratico per accedere ai file HDP, dato che il numero di versione cambia quando la versione HDP viene aggiornata. |
+| Hortonworks Data Platform (HDP) | `/usr/hdp`. Qui sono presenti due directory: una è la versione HDP corrente, ad esempio `2.2.9.1-1`, e l'altra è `current`. La directory `current` contiene collegamenti simbolici a file e directory all'interno della directory del numero di versione e rappresenta un modo pratico per accedere ai file HDP, dato che il numero di versione cambia quando la versione HDP viene aggiornata. |
 | hadoop-streaming.jar | `/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
 
 In genere, se si conosce il nome del file, è possibile usare il comando seguente da una sessione SSH per trovare il percorso del file:
@@ -236,7 +238,7 @@ Se si è certi che gli script non contengono stringhe con caratteri CR incorpora
         $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
         [IO.File]::WriteAllText($original_file, $text)
 
--   **Se nella memoria usata dal cluster sono già presenti script**, è possibile usare il comando seguente da una sessione SSH nel cluster basato su Linux per modificare lo script.
+-   **Se nella risorsa di archiviazione usata dal cluster sono già presenti script**, è possibile usare il comando seguente da una sessione SSH nel cluster basato su Linux per modificare lo script.
 
         hdfs dfs -get wasb:///path/to/script.py oldscript.py
         tr -d '\r' < oldscript.py > script.py
@@ -252,4 +254,4 @@ Se si è certi che gli script non contengono stringhe con caratteri CR incorpora
 
 -   [Gestire un cluster basato su Linux tramite Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

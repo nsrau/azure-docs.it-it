@@ -3,7 +3,7 @@
    description="Informazioni sul monitoraggio del carico di lavoro mediante DMV."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/29/2016"
+   ms.date="04/12/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitoraggio del carico di lavoro mediante DMV
@@ -132,6 +132,17 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 - Controllare la colonna *total\_elapsed\_time* per verificare se una distribuzione particolare richiede più tempo per lo spostamento dati rispetto alle altre.
 - Per la distribuzione con esecuzione prolungata, esaminare la colonna *rows\_processed* e controllare se il numero di righe spostato da tale distribuzione è significativamente più grande rispetto alle altre. In caso affermativo, questo potrebbe indicare asimmetria dei dati sottostanti.
 
+Se la query è in esecuzione, tramite [DBCC PDW\_SHOWEXECUTIONPLAN][] è possibile recuperare il piano di esecuzione di SQL Server per il passaggio DMS in esecuzione per una distribuzione particolare.
+
+```sql
+-- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
+-- Replace distribution_id and spid with values from previous query.
+
+DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
+
+```
+
+
 ## Analisi della differenza di dati
 
 Usare [DBCC PDW\_SHOWSPACEUSED][] per individuare lo spazio usato da una tabella.
@@ -143,7 +154,7 @@ DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
 
 Il risultato di questa query indicherà il numero di righe della tabella archiviato in ciascuna delle 60 distribuzioni del database. Per prestazioni ottimali, le righe nella tabella distribuita devono essere assegnate in modo uniforme a tutte le distribuzioni.
 
-Per ulteriori informazioni, vedere [struttura tabella][].
+Per altre informazioni, vedere la pagina su come [gestire la differenza di dati per le tabelle distribuite][] o sulla [progettazione di tabelle][].
 
 ## Passaggi successivi
 Per altre informazioni su Transact-SQL e sulle DMV (Dynamic Management View, vista a gestione dinamica), vedere la [panoramica dei riferimenti][]. Per altri suggerimenti sulla gestione di SQL Data Warehouse, vedere la [panoramica degli strumenti di gestione][].
@@ -152,8 +163,11 @@ Per altre informazioni su Transact-SQL e sulle DMV (Dynamic Management View, vis
 
 <!--Article references-->
 [panoramica degli strumenti di gestione]: sql-data-warehouse-overview-manage.md
-[struttura tabella]: sql-data-warehouse-develop-table-design.md
+[progettazione di tabelle]: sql-data-warehouse-develop-table-design.md
 [panoramica dei riferimenti]: sql-data-warehouse-overview-reference.md
+[gestire la differenza di dati per le tabelle distribuite]: sql-data-warehouse-manage-distributed-data-skew.md
+
+<!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
 [sys.dm\_pdw\_exec\_requests]: http://msdn.microsoft.com/library/mt203887.aspx
 [sys.dm\_pdw\_exec\_sessions]: http://msdn.microsoft.com/library/mt203883.aspx
@@ -162,6 +176,4 @@ Per altre informazioni su Transact-SQL e sulle DMV (Dynamic Management View, vis
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW\_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!--MSDN references-->
-
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

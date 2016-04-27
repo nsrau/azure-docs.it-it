@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Introduzione all'API di creazione report di Azure AD"
+   pageTitle="Introduzione all'API di creazione report di Azure AD | Microsoft Azure"
    description="Come iniziare a usare l'API di creazione report di Azure Active Directory"
    services="active-directory"
    documentationCenter=""
@@ -13,32 +13,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="04/07/2016"
    ms.author="dhanyahk"/>
 
 
-# Introduzione all'API di creazione report di Azure AD
+# Introduzione all'API di creazione report di Azure Active Directory
 
 *Questo documento fa parte della [guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).*
 
-Azure Active Directory offre un'ampia gamma di report di attività, sicurezza e controllo. I dati possono essere utilizzati tramite il portale di Azure ma possono risultare utili in molte altre applicazioni, ad esempio sistemi SIEM e strumenti di controllo o di business intelligence.
+Azure Active Directory (AD) offre un'ampia gamma di report di attività, sicurezza e controllo. I dati possono essere usati tramite il portale di Azure ma possono risultare utili in molte altre applicazioni, ad esempio sistemi SIEM e strumenti di controllo o di business intelligence.
 
-Le API di creazione report di Azure AD forniscono l'accesso ai dati a livello di codice tramite un set di API basate su REST che possono essere chiamate da vari linguaggi e strumenti di programmazione.
+Le [API di creazione report di Azure AD](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) offrono l'accesso ai dati a livello di codice tramite un set di API basate su REST che possono essere chiamate da diversi linguaggi e strumenti di programmazione.
 
 Questo articolo descrive come chiamare le API di creazione report di Azure AD tramite PowerShell. È possibile modificare lo script di PowerShell di esempio per accedere ai dati da qualsiasi report disponibile in formato JSON, XML o testo, a seconda delle esigenze dello scenario.
 
-Per usare questo esempio, sarà necessario un tenant [Azure Active Directory](active-directory-whatis.md).
+Per usare questo esempio, sarà necessario un tenant di [Azure Active Directory](active-directory-whatis.md).
 
 ## Creazione di un'applicazione in Azure AD per accedere alle API
 
-L'API di creazione report usa l'autenticazione [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) per autorizzare l'accesso alle API Web. Per accedere alle informazioni disponibili nella directory, è necessario creare un'applicazione nella propria istanza di Active Directory e concederle le autorizzazioni appropriate per accedere ai dati di AAD.
+L'API di creazione report usa l'autenticazione [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) per autorizzare l'accesso alle API Web. Per accedere alle informazioni della directory, è necessario creare un'applicazione nel tenant di Azure AD e assegnare all'applicazione le autorizzazioni appropriate per accedere ai dati di Azure AD.
 
 
 ### Creare un'applicazione
 - Passare al [portale di Azure classico](https://manage.windowsazure.com/).
-- Passare alla directory.
-- Passare alle applicazioni.
-- Nella barra inferiore fare clic su "Aggiungi".
+- Passare al tenant di Azure AD.
+- Passare alla scheda **Applicazioni**.
+- Nella barra inferiore fare clic su **Aggiungi**.
 	- Fare clic su "Aggiungi un'applicazione che l'organizzazione sta sviluppando".
 	- **Nome**: digitare un nome qualsiasi. È consigliabile usare un nome simile a "Applicazione API di creazione report".
 	- **Tipo**: selezionare "Applicazione Web e/o API Web".
@@ -48,7 +48,7 @@ L'API di creazione report usa l'autenticazione [OAuth](https://msdn.microsoft.co
 	- Fare clic sul segno di spunta per completare l'aggiunta dell'applicazione.
 
 ### Concedere all'applicazione le autorizzazioni per l'uso dell'API
-- Passare alla scheda Applicazioni.
+- Passare alla scheda **Applicazioni**.
 - Passare all'applicazione appena creata.
 - Fare clic sulla scheda **Configura**.
 - Nella sezione "Autorizzazioni per altre applicazioni":
@@ -61,7 +61,7 @@ L'API di creazione report usa l'autenticazione [OAuth](https://msdn.microsoft.co
 La procedura seguente illustra come ottenere l'ID client e il segreto client dell'applicazione. Sarà inoltre necessario conoscere il nome del tenant, che può essere il nome di dominio *.onmicrosoft.com o un nome di dominio personalizzato. Copiare i dati in una posizione separata. Saranno necessari per modificare lo script.
 
 #### ID client dell'applicazione
-- Passare alla scheda Applicazioni.
+- Passare alla scheda **Applicazioni**.
 - Passare all'applicazione appena creata.
 - Passare alla scheda **Configura**.
 - L'ID client dell'applicazione è visualizzato nel campo **ID client**.
@@ -182,17 +182,17 @@ Modificare uno degli script seguenti in modo che funzioni con la directory, sost
 ## Eseguire lo script
 Una volta modificato lo script, eseguirlo e verificare che vengano restituiti i dati corretti dal report degli eventi di controllo.
 
-Lo script restituisce l'elenco di tutti i report disponibili e restituisce l'output del report AccountProvisioningEvents nella finestra di PowerShell in formato JSON. Crea anche i file con lo stesso output in formato JSON, testo e XML. È possibile sperimentare ulteriormente modificando lo script inserendo commenti affinché restituisca i dati da altri report e rimuovere i commenti per i formati di output non necessari.
+Lo script visualizza l'elenco di tutti i report disponibili e restituisce l'output del report AccountProvisioningEvents nella finestra di PowerShell in formato JSON. Crea anche i file con lo stesso output in formato JSON, testo e XML. È possibile provare a modificare lo script per restituire i dati di altri report e rimuovere i commenti per i formati di output non necessari.
 
 ## Note
 
 - Non esiste alcun limite al numero di eventi restituiti da Azure AD Reporting API (utilizzando l’impaginazione OData).
-	- Per i limiti di conservazione sui dati dei report, consultare [Criteri di conservazione dei report](active-directory-reporting-retention.md).
+- Per i limiti di conservazione sui dati dei report, consultare [Criteri di conservazione dei report](active-directory-reporting-retention.md).
 
 
 ## Passaggi successivi
 - Per informazioni sui report di sicurezza, controllo e attività disponibili, vedere [Report di sicurezza, controllo e attività di Azure AD](active-directory-view-access-usage-reports.md)
 - Per informazioni dettagliate sul report di controllo, vedere [Eventi dei report di controllo di Azure AD](active-directory-reporting-audit-events.md)
-- Per informazioni dettagliate sul servizio REST dell'API Graph, vedere [Report ed eventi di Azure AD (anteprima)](https://msdn.microsoft.com/library/azure/mt126081.aspx)
+- Per informazioni dettagliate sul servizio REST dell'API Graph di Azure AD, vedere [Report ed eventi di Azure AD (anteprima)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

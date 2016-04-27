@@ -28,12 +28,6 @@ In questa esercitazione si aggiornerà il progetto client creato nell'esercitazi
 
 Per altre informazioni sulla funzionalità di sincronizzazione offline, vedere l'argomento [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
-## Requisiti
-
-* Visual Studio 2013
-* [Estensione Xamarin] **per Visual Studio o** [Xamarin Studio]
-* Completamento dell'esercitazione [Creare un'app Xamarin Android]. Questa esercitazione usa l'app completa descritta in tale esercitazione.
-
 ## Verificare il codice di sincronizzazione del client
 
 Il progetto client Xamarin scaricato dopo aver completato l'esercitazione [Creare un'app Xamarin Android] contiene già il codice che supporta la sincronizzazione offline mediante un database SQLite locale. Ecco un breve riepilogo degli elementi già inclusi nel codice dell'esercitazione. Per una panoramica concettuale della funzionalità, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
@@ -73,7 +67,9 @@ Il progetto client Xamarin scaricato dopo aver completato l'esercitazione [Crear
     Nel codice fornito viene eseguita una query su tutti i record presenti nella tabella `TodoItem` remota, ma è anche possibile filtrare i record passando un ID di query e una query a `PushAsync`. Per altre informazioni, vedere la sezione *Sincronizzazione incrementale* in [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
-	-->	
+	-->
+
+
 		// ToDoActivity.cs
         private async Task SyncAsync()
         {
@@ -170,8 +166,8 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 [How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
 
 [Xamarin Studio]: http://xamarin.com/download
-[Estensione Xamarin]: http://xamarin.com/visual-studio
+[Xamarin extension]: http://xamarin.com/visual-studio
 
 [Cloud Cover: sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

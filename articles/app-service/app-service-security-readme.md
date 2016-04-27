@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Sicurezza del servizio app di Azure" 
-	description="Informazioni sulla scalabilità delle app Web, per dispositivi mobili, per le API e per la logica nel servizio app di Azure." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="naziml" 
-	manager="yochayk" 
+<properties
+	pageTitle="Sicurezza del servizio app di Azure"
+	description="Informazioni sulla scalabilità delle app Web, per dispositivi mobili, per le API e per la logica nel servizio app di Azure."
+	services="app-service"
+	documentationCenter=""
+	authors="naziml"
+	manager="yochayk"
 	editor="wpickett"/>
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/10/2015" 
+<tags
+	ms.service="app-service"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/10/2015"
 	ms.author="naziml"/>
 
 # Sicurezza del servizio app di Azure
@@ -22,4 +22,4 @@ Servizi app di Azure è conforme ai principali standard di settore per sicurezza
 
 [AZURE.INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

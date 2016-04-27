@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Che cos'è il servizio Lab di sviluppo/test | Microsoft Azure"
 	description="Informazioni su come Lab di sviluppo/test può rendere più semplice creare, gestire e monitorare macchine virtuali di Azure"
 	services="devtest-lab,virtual-machines"
@@ -52,7 +52,7 @@ Gli **Elementi** vengono utilizzati per distribuire e configurare l'applicazione
 - Azioni che si desidera eseguire sulla macchina virtuale, ad esempio la clonazione di un archivio.
 - Applicazioni che si vuole testare.
 
-Gli elementi sono file JSON basati su Gestione risorse di Azure (ARM) che contengono istruzioni per eseguire la distribuzione e applicare la configurazione. Ulteriori informazioni su ARM nella [Panoramica di Gestione risorse di Azure](/resource-group-overview.md).
+Gli elementi sono file JSON basati su Gestione risorse di Azure (ARM) che contengono istruzioni per eseguire la distribuzione e applicare la configurazione. Ulteriori informazioni su ARM nella [Panoramica di Gestione risorse di Azure](../resource-group-overview.md).
 
 Gli **Archivi di elementi** sono archivi git in cui vengono archiviati gli elementi. È possibile aggiungere gli stessi archivi elementi a più lab all'interno dell'organizzazione consentendone il riutilizzo e la condivisione.
 
@@ -66,4 +66,4 @@ I **Criteri** consentono di controllare i costi nel lab. Ad esempio, è possibil
 
 Per iniziare ad utilizzare Lab di sviluppo e test, seguire l’esercitazione dettagliata [Creare un Lab di sviluppo e test di Azure](devtest-lab-create-lab.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

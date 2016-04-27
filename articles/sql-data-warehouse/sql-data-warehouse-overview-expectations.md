@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/12/2016"
-   ms.author="mausher;barbkess;sonyama;nicw"/>
+   ms.date="04/19/2016"
+   ms.author="nicw;barbkess;sonyama"/>
+
 
 # Aspettative di anteprima di SQL Data Warehouse
 
@@ -23,7 +24,8 @@ In questo articolo vengono descritte le funzionalità di anteprima SQL Data Ware
 Obiettivi per SQL Data Warehouse:
 
 - Prestazioni prevedibili e scalabilità lineare fino a petabyte di dati.
-- Elevata affidabilità per tutte le operazioni Data Warehouse, supportate da un contratto di servizio (SLA).
+- Affidabilità elevata per tutte le operazioni di data warehouse
+- Tempi minimi dal caricamento dei dati alle analisi sui dati per i dati relazionali e non relazionali
 
 Lavoreremo continuamente per raggiungere questi obiettivi prima di promuovere SQL Data Warehouse per la disponibilità generale.
 
@@ -36,11 +38,10 @@ Qualsiasi data warehouse ha 2 metriche delle prestazioni fondamentali:
 - Frequenza di caricamento. Il numero di record che possono essere caricati nel data warehouse al secondo. Misuriamo il numero di record che può essere importato tramite PolyBase dall'archiviazione Blob di Azure a una tabella con un indice columnstore cluster.
 - Velocità di acquisizione. Il numero di record che possono essere recuperati in sequenza dal data warehouse al secondo. Misuriamo il numero di record restituiti da una query su un indice columnstore cluster.
 
-
 Stiamo misurando alcuni miglioramenti importanti sulle prestazioni e presto condivideremo le frequenze previste. Durante il periodo di anteprima verranno apportati miglioramenti (ad esempio, aumento della compressione e della memorizzazione nella cache) per aumentare i tassi e per garantire una scalabilità prevedibile.
 
 
-## Affidabilità elevata supportata da un contratto di servizio
+## Affidabilità elevata
 
 ### Protezione dati
 
@@ -59,6 +60,11 @@ Gli snapshot vengono copiati in modo asincrono in un'area di Azure remota per as
 SQL Data Warehouse archivia i dati in uno o più nodi di calcolo che contengono alcuni dati utente e controllano l’esecuzione della query su tali dati. Come parte dell'architettura di elaborazione parallela massiva (MPP), le query vengono eseguite in parallelo tra i nodi di calcolo. SQL Data Warehouse rileva automaticamente e consente di ridurre gli errori del nodo di calcolo. Tuttavia, durante l'anteprima, un'operazione (ad esempio, il caricamento dei dati o query) può non riuscire a causa di errori del singolo nodo. Durante l'anteprima, stiamo predisponendo miglioramenti continui per completare con successo le operazioni nonostante gli errori di nodo.
 
 
+### Aggiornamenti e tempo di inattività
+
+Durante l'anteprima, SQL Data Warehouse verrà aggiornato periodicamente per aggiungere nuove funzionalità e installare aggiornamenti critici. Questi aggiornamenti possono comportare interruzioni del servizio e per il momento la pianificazione degli aggiornamenti non è prevedibile. Se questo processo causa troppe interruzioni del servizio, è consigliabile [creare un ticket di supporto][] per ricevere informazioni su una soluzione alternativa a questo processo.
+
+
 ## Passaggi successivi
 
 [Introduzione][] ad anteprima pubblica.
@@ -72,4 +78,4 @@ SQL Data Warehouse archivia i dati in uno o più nodi di calcolo che contengono 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -172,7 +172,7 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app pe
 
 * [Aggiungere notifiche push all'app](mobile-services-javascript-backend-windows-phone-get-started-push.md) <br/>Informazioni sull'invio di una notifica push di base all'app con Servizi mobili.
 
-* [Informazioni di riferimento sui concetti e sulle procedure di Servizi mobili con C#](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>Altre informazioni sull'uso di Servizi mobili con .NET.
+* [Informazioni di riferimento sui concetti e sulle procedure di Servizi mobili con C#](mobile-services-dotnet-how-to-use-client-library.md) <br/>Altre informazioni sull'uso di Servizi mobili con .NET.
 
 <!-- Anchors. -->
 [Download the Windows Phone 8 app project]: #download-app
@@ -196,4 +196,4 @@ Questa esercitazione ha illustrato le nozioni di base per consentire a un'app pe
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [sito degli esempi di codice di Developer Network]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

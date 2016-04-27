@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/06/2016"
+	ms.date="04/13/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # Informazioni su Backup di Azure
@@ -82,6 +82,30 @@ Essendo una soluzione di backup ibrida, Backup di Azure è costituita da più co
 | Backup di VM IaaS di Azure | Nell'anteprima pubblica | Nell'anteprima pubblica - VM Linux nel modello di distribuzione di Azure Resource Manager <br>(coerenza a livello di file system)<br><br>Sì per le VM Linux nel modello di distribuzione classica |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
+
+## Backup e ripristino di macchine virtuali di Archiviazione Premium
+
+Il servizio Backup di Azure ora protegge le macchine virtuali di Archiviazione Premium.
+
+### Backup di macchine virtuali di Archiviazione Premium
+
+Durante il backup di macchine virtuali di Archiviazione Premium, il servizio Backup crea un percorso di gestione temporanea nell'account di archiviazione Premium. Il percorso di gestione temporanea, denominato "AzureBackup-", è uguale alla dimensione totale dei dati dei dischi Premium collegati alla macchina virtuale.
+
+>[AZURE.NOTE] Non modificare in alcun modo il percorso di gestione temporanea.
+
+Al termine del processo di backup, il percorso di gestione temporanea viene eliminato. Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con gli altri [prezzi di Archiviazione Premium](../storage/storage-premium-storage.md#pricing-and-billing).
+
+### Ripristino di macchine virtuali di Archiviazione Premium
+
+Il processo tipo consiste nel ripristino di un punto di ripristino della macchina virtuale di Archiviazione Premium in Archiviazione Premium. Tuttavia, può risultare più economico ripristinare un punto di ripristino della macchina virtuale di Archiviazione Premium in Archiviazione Standard. Si può usare questo tipo di ripristino se è necessario un subset di file dalla macchina virtuale.
+
+Di seguito sono riportati i passaggi per ripristinare un punto di ripristino della macchina virtuale di Archiviazione Premium in Archiviazione Premium:
+
+1. [Ripristinare il punto di ripristino della macchina virtuale in Archiviazione Standard](backup-azure-restore-vms.md).
+2. [Copiare i dischi in Archiviazione Premium](../storage/storage-use-azcopy.md).
+3. [Creare la macchina virtuale IaaS di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+
 
 ## Funzionalità
 Le cinque tabelle seguenti forniscono un riepilogo di come viene gestita la funzionalità di backup in ogni componente.
@@ -170,7 +194,7 @@ L'agente di Backup di Azure offre una funzionalità di limitazione che consente 
 | Opzioni di conservazione | Giornaliera, settimanale, mensile, annuale | Giornaliera, settimanale, mensile, annuale | Giornaliera, settimanale, mensile, annuale |Giornaliera, settimanale, mensile, annuale |
 | Periodo di conservazione | Fino a 99 anni | Fino a 99 anni | Fino a 99 anni | Fino a 99 anni |
 | Punti di ripristino nell'insieme di credenziali di Backup | Senza limiti | Senza limiti | Senza limiti | Senza limiti |
-| Punti di ripristino nel disco locale | Non applicabile | 64 per i file server,<br><br>448 per i server applicazioni | 64 per i file server,<br><br>448 per i server applicazioni |Non applicabile |
+| Punti di ripristino nel disco locale | Non applicabile | 64 per i file server<br><br>448 per i server applicazioni | 64 per i file server<br><br>448 per i server applicazioni |Non applicabile |
 | Punti di ripristino su nastro | Non applicabile | Senza limiti | Non applicabile | Non applicabile |
 
 ## Informazioni sul file delle credenziali di insieme
@@ -211,4 +235,4 @@ Tali esercitazioni illustrano solo il percorso più diretto per il backup dei da
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

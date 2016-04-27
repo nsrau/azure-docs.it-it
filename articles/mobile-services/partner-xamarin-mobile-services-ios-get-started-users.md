@@ -36,7 +36,7 @@ Questa esercitazione descrive le operazioni di base per abilitare l'autenticazio
 
 Questa esercitazione è basata sul progetto di guida introduttiva per Servizi mobili. È inoltre necessario completare prima l'esercitazione [Introduzione a Servizi mobili].
 
-Per completare questa esercitazione, è necessario disporre di [Xamarin.iOS], XCode 6.0 e iOS 7.0 o versioni successive.
+Per completare questa esercitazione, è necessario avere [Xamarin Studio], XCode 6.0 e iOS 7.0 o versioni successive.
 
 ##<a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizi mobili
 
@@ -153,6 +153,6 @@ Nella prossima esercitazione, [Autorizzazione di utenti con script], il valore d
 [Get started with push notifications]: /develop/mobile/tutorials/-get-started-with-push-xamarin-ios
 [Autorizzazione di utenti con script]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [progetto di esempio completato]: http://go.microsoft.com/fwlink/p/?LinkId=331328
-[Xamarin.iOS]: http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

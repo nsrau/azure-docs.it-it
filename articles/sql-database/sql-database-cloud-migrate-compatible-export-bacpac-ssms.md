@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -40,7 +40,9 @@ In questo articolo viene illustrato come esportare un database SQL Server in un 
 
 4. Nell'esportazione guidata configurare l'esportazione per salvare il file BACPAC in un percorso sul disco locale o in un BLOB di Azure. Il file BACPAC esportato include sempre lo schema di database completo e, per impostazione predefinita, i dati di tutte le tabelle. Se si desidera escludere i dati da alcune o tutte le tabelle, utilizzare la scheda Avanzate. È ad esempio possibile scegliere di esportare solo i dati per le tabelle di riferimento, invece che da tutte le tabelle.
 
-	![Impostazioni di esportazione](./media/sql-database-cloud-migrate/MigrateUsingBACPAC02.png)
+***Importante***: quando si esporta un file con estensione BACPAC in un archivio BLOB di Azure, usare l'archiviazione standard. L'importazione di un file BACPAC dall'archiviazione Premium non è supportata.
+
+	![Export settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC02.png)
 
 ## Passaggio successivo: importare nel database SQL da un file BACPAC
 
@@ -49,4 +51,4 @@ In questo articolo viene illustrato come esportare un database SQL Server in un 
 - [Portale di Azure](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

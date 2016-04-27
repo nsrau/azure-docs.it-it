@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/08/2016"
+	ms.date="04/14/2016"
 	ms.author="nitinme"/>
 
 
-# Introduzione: creare cluster Apache Spark in Azure HDInsight (Linux) ed eseguire query interattive usando Spark SQL
+# Introduzione: creare cluster Apache Spark in HDInsight Linux ed eseguire query interattive usando Spark SQL (anteprima)
 
 Informazioni su come creare un cluster Apache Spark in HDInsight e quindi usare il notebook di [Jupyter](https://jupyter.org) per eseguire query interattive Spark SQL nel cluster Spark.
 
@@ -45,7 +45,7 @@ In questa sezione si crea un cluster HDInsight versione 3.3 (Spark versione 1.5.
 
 1. Fare clic sull'immagine seguente per aprire un modello di Gestione risorse di Azure nel portale di Azure.         
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/it-IT/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
     Il modello di Azure Resource Manager è disponibile in un contenitore BLOB pubblico, **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json*.
    
@@ -79,15 +79,15 @@ In questa sezione si crea un cluster HDInsight versione 3.3 (Spark versione 1.5.
 
 ## Eseguire query Spark SQL con un notebook di Jupyter
 
-In questa sezione è possibile usare un notebook Jupyter per eseguire query SQL Spark sul cluster Spark. Per impostazione predefinita il notebook di Jupyter comprende un kernel **Python2**. I cluster HDInsight Spark offrono due kernel aggiuntivi che è possibile usare con il notebook di Jupyter. Si tratta di:
+In questa sezione è possibile usare un notebook Jupyter per eseguire query SQL Spark sul cluster Spark. I cluster HDInsight Spark offrono due kernel aggiuntivi che è possibile usare con Jupyter Notebook. Si tratta di:
 
 * **PySpark** (per le applicazioni scritte in Python)
 * **Spark** (per le applicazioni scritte in Scala)
 
-In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) sono descritti in dettaglio i vantaggi dell'uso del kernel PySpark. Ecco, tuttavia, i principali vantaggi dell'uso del kernel PySpark:
+In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibili per Jupyter Notebook con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) sono descritti in dettaglio i vantaggi dell'uso del kernel PySpark. Ecco, tuttavia, i principali vantaggi dell'uso del kernel PySpark:
 
 * Non è necessario impostare i contesti per Spark e Hive. Questi vengono impostati automaticamente.
-* È possibile usare Magic di cella come `%%sql` per eseguire direttamente query SQL o Hive senza farle precedere da alcun frammento di codice.
+* È possibile usare Magic nella cella, ad esempio `%%sql` per eseguire direttamente query SQL o Hive senza anteporre frammenti di codice.
 * L'output delle query SQL o Hive viene visualizzato automaticamente.
 
 ### Creare un notebook di Jupyter con il kernel PySpark 
@@ -135,7 +135,7 @@ In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibil
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. Dato che si sta usando un kernel PySpark, ora è possibile eseguire direttamente una query SQL sulla tabella temporanea **hvac** appena creata usando la sintassi Magic `%%sql`. Per altre informazioni sul Magic `%%sql` e sugli altri Magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Dato che si sta usando un kernel PySpark, ora è possibile eseguire direttamente una query SQL sulla tabella temporanea **hvac** appena creata usando la sintassi Magic `%%sql`. Per altre informazioni sulla sintassi Magic `%%sql` e sulle altre sintassi Magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
@@ -206,4 +206,4 @@ In questo articolo si userà il kernel PySpark. Nell'articolo [Kernel disponibil
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

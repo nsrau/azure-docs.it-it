@@ -17,9 +17,9 @@
 	ms.date="01/06/2016"
 	ms.author="cynthn"/>
 
-# Come configurare gli endpoint in una macchina virtuale Linux classica in Azure
+# Come configurare gli endpoint in una macchina virtuale classica in Azure
 
-Tutte le macchine virtuali Linux create in Azure con il modello di distribuzione classico possono comunicare automaticamente mediante un canale di rete privato con altre macchine virtuali dello stesso servizio cloud o nella stessa rete virtuale. Tuttavia, i computer in Internet o altre reti virtuali richiedono gli endpoint per indirizzare il traffico di rete in ingresso a una macchina virtuale. Se si desiderano informazioni sugli endpoint nelle VM Windows, vedere [Come configurare gli endpoint in una macchina virtuale Windows classica in Azure](virtual-machines-windows-classic-setup-endpoints.md).
+Tutte le macchine virtuali Linux create in Azure con il modello di distribuzione classico possono comunicare automaticamente mediante un canale di rete privato con altre macchine virtuali dello stesso servizio cloud o nella stessa rete virtuale. Tuttavia, i computer in Internet o altre reti virtuali richiedono gli endpoint per indirizzare il traffico di rete in ingresso a una macchina virtuale. Questo articolo è disponibile anche per le [macchine virtuali Windows](virtual-machines-windows-classic-setup-endpoints.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
@@ -32,4 +32,4 @@ Quando si crea una macchina virtuale Linux nel portale di Azure classico, gli en
 
 * È anche possibile creare un endpoint di VM utilizzando l'interfaccia della riga di comando di Azure in [Modalità di gestione dei servizi](../virtual-machines-command-line-tools.md). Eseguire il comando **azure vm endpoint create**.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

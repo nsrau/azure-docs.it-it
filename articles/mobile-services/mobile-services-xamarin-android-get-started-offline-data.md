@@ -46,9 +46,9 @@ Questa esercitazione descrive le operazioni di base seguenti:
 
 Per completare questa esercitazione, è necessario disporre di:
 
-* Visual Studio con [estensione Xamarin] ** o ** [Xamarin Studio]
-* Esercitazione [Introduzione a Servizi mobili] completata
-
+* Visual Studio con Xamarin su Windows o Xamarin Studio su Mac OS X. Per istruzioni complete sull'installazione , vedere [Configurazione e installazione di Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
+* Esercitazione [Introduzione a Servizi mobili] completata.
+ 
 ## <a name="review-offline"></a>Esaminare il codice di sincronizzazione di Servizi mobili
 
 La sincronizzazione offline di Servizi mobili di Azure consente agli utenti finali di interagire con un database locale quando la rete non è accessibile. Per usare queste funzionalità nell'app, inizializzare `MobileServiceClient.SyncContext` in un archivio locale. Quindi, fare riferimento alla tabella tramite l'interfaccia di `IMobileServiceSyncTable`. Questa sezione illustra il codice correlato alla sincronizzazione offline in `ToDoActivity.cs`.
@@ -171,9 +171,6 @@ In questa sezione verrà effettuata la riconnessione dell'app al servizio mobile
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
-[Xamarin Studio]: http://xamarin.com/download
-[estensione Xamarin]: http://xamarin.com/visual-studio
-[NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 [portale di Azure classico]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,25 +1,27 @@
-You must create a VNet and a gateway subnet first, before working on the following tasks. See the article [Configure a Virtual Network using the classic portal](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) for more information.   
+Prima di eseguire le attività seguenti è necessario creare una rete virtuale e una subnet del gateway. Vedere l'articolo [Configurare una rete virtuale usando il portale classico](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) per altre informazioni.
 
-## Add a gateway
+## Aggiungere un gateway
 
-Use the command below to create a gateway. Be sure to substitute any values for your own.
+Usare il comando seguente per creare un gateway. Sostituire i valori presenti con i valori desiderati.
 
 	New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
 
-## Verify the gateway was created
+## Verificare che il gateway sia stato creato
 
-Use the command below to verify that the gateway has been created. This command also retrieves the gateway ID, which you need for other operations.
+Utilizzare il comando seguente per verificare che il gateway sia stato creato. Questo comando recupera l'ID del gateway, necessario per le altre operazioni.
 
 	Get-AzureVirtualNetworkGateway
 
-## Resize a gateway
+## Ridimensionare un gateway
 
-There are three [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). You can use the following command to change the Gateway SKU at any time.
+Sono disponibili tre [SKU del gateway](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). È possibile usare il comando seguente per modificare la SKU del gateway in qualsiasi momento.
 
 	Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 
-## Remove a gateway
+## Rimuovere un gateway
 
-Use the command below to remove a gateway
+Usare il comando seguente per rimuovere un gateway
 
 	Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
+
+<!---HONumber=AcomDC_0413_2016-->

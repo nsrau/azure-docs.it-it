@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # Carico di lavoro dell'applicazione line-of-business - Fase 3: Configurare l'infrastruttura di SQL Server
@@ -180,7 +180,7 @@ Il servizio SQL Server richiede una porta usata dai client per accedere al serve
 
 Per ognuna delle macchine virtuali SQL Server disconnettersi come amministratore locale.
 
-Per informazioni sull'ottimizzazione delle prestazioni di SQL Server in Azure, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-classic-sql-perf.md). È anche possibile disabilitare l'archiviazione con ridondanza geografica per l'account di archiviazione dell'applicazione line-of-business e usare gli spazi di archiviazione per ottimizzare gli IOPS.
+Per informazioni sull'ottimizzazione delle prestazioni di SQL Server in Azure, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md). È anche possibile disabilitare l'archiviazione con ridondanza geografica per l'account di archiviazione dell'applicazione line-of-business e usare gli spazi di archiviazione per ottimizzare gli IOPS.
 
 ## Configurare il server del nodo di maggioranza cluster
 
@@ -259,4 +259,4 @@ In questo diagramma viene visualizzata la configurazione risultante dal corretto
 
 - Seguire la [Fase 4](virtual-machines-windows-ps-lob-ph4.md) per continuare con la configurazione di questo carico di lavoro.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,10 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/23/2016" 
+	ms.date="04/16/2016" 
 	ms.author="MarkVi"/>
 
 # Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso
+
 
 Per evitare confusione, molte aziende vogliono applicare un aspetto coerente a tutti i siti Web e servizi che gestiscono. Azure Active Directory offre questa funzionalità permettendo di personalizzare l'aspetto delle pagine Web indicate di seguito, per poter includere il logo e le combinazioni di colori personalizzate dell'azienda:
 
@@ -35,7 +36,9 @@ Questo argomento illustra come personalizzare la pagina di accesso e il pannello
 
 ## Personalizzazione della pagina di accesso
 
-Di solito si usa la pagina di accesso se è necessario accedere con un browser alle app e ai servizi cloud sottoscritti dall'organizzazione. <br> Se sono state apportate modifiche alla pagina di accesso, è possibile che trascorra fino a un'ora prima che le modifiche vengano visualizzate.
+Di solito si usa la pagina di accesso se è necessario accedere con un browser alle app e ai servizi cloud sottoscritti dall'organizzazione.
+
+Se sono state apportate modifiche alla pagina di accesso, potrebbe trascorrere fino a un'ora prima che le modifiche vengano visualizzate.
 
 Una pagina di accesso personalizzata viene visualizzata quando si visita un servizio con un URL specifico del tenant, ad esempio https://outlook.com/**contoso**.com o https://mail.**contoso**.com.
 
@@ -43,30 +46,33 @@ Quando si visita un servizio con URL non specifici del tenant (ad esempio, https
 
 > [AZURE.NOTE]
 >
+
 - Il nome di dominio deve essere visualizzato come "Attivo" nella sezione **Active Directory** > **Directory** > **Domini** del portale di Azure classico dopo la configurazione della personalizzazione.
-- La personalizzazione della pagina di accesso non si applica alla pagina di accesso degli utenti di Microsoft. Se si accede con un account Microsoft personale (in precedenza chiamato Windows Live ID), è possibile visualizzare un elenco personalizzato di icone utente reso disponibile da Azure AD, ma le informazioni di personalizzazione distintive dell'organizzazione non vengono applicate alla pagina di accesso degli account Microsoft.
+
+- La personalizzazione della pagina di accesso non si applica alla pagina di accesso degli utenti di Microsoft. Se si accede con un account Microsoft personale, potrebbe essere visualizzato un elenco personalizzato di icone utente reso disponibile da Azure AD, ma le informazioni di personalizzazione dell'organizzazione non vengono applicate alla pagina di accesso degli account Microsoft.
 
 
 Se si vuole mostrare il marchio, i colori e altri elementi personalizzabili dell'azienda in questa pagina, vedere le immagini seguenti per capire la differenza tra le due esperienze.
 
-Lo screenshot seguente mostra un esempio della pagina di accesso di Office 365 su un computer desktop *prima* di una personalizzazione:
+Lo screenshot seguente mostra un esempio della pagina di accesso di Office 365 in un computer desktop **prima** di una personalizzazione:
 
 ![Pagina di accesso di Office 365 prima della personalizzazione][1]
 
-Dopo una personalizzazione, la pagina avrà un aspetto analogo al seguente:
+Lo screenshot seguente mostra un esempio della pagina di accesso di Office 365 in un computer desktop **dopo** una personalizzazione:
 
 ![Pagina di accesso di Office 365 dopo la personalizzazione][2]
 
-La schermata seguente mostra un esempio della pagina di accesso di Office 365 su un dispositivo mobile prima di una personalizzazione:
+La schermata seguente mostra un esempio della pagina di accesso di Office 365 in un dispositivo mobile **prima** di una personalizzazione:
 
 ![Pagina di accesso di Office 365 prima della personalizzazione][3]
 
-Dopo una personalizzazione, la pagina avrà un aspetto analogo al seguente:
+
+La schermata seguente mostra un esempio della pagina di accesso di Office 365 in un dispositivo mobile **dopo** una personalizzazione:
 
 ![Pagina di accesso di Office 365 dopo la personalizzazione][4]
 
 
-Quando si ridimensiona la finestra del browser, l'immagine di grandi dimensioni, come quella mostrata sopra, verrà quasi sempre ritagliata in base alle diverse proporzioni dello schermo. Tenendo presente questo aspetto, è consigliabile cercare di mantenere gli elementi visivi principali dell'immagine in modo che appaiano nell'angolo superiore sinistro (o superiore destro per le lingue da destra a sinistra). Questo è importante perché il ridimensionamento viene eseguito in genere dall'angolo inferiore destro verso quello superiore sinistro oppure dal basso verso l'alto.
+Quando si ridimensiona la finestra del browser, l'immagine di grandi dimensioni, come quella mostrata sopra, viene spesso ritagliata in base alle diverse proporzioni dello schermo. Tenendo presente questo aspetto, è consigliabile cercare di mantenere gli elementi visivi principali dell'immagine in modo che appaiano nell'angolo superiore sinistro (o superiore destro per le lingue da destra a sinistra). Questo è importante perché il ridimensionamento viene eseguito in genere dall'angolo inferiore destro verso quello superiore sinistro oppure dal basso verso l'alto.
 
 La figura seguente mostra il modo in cui l'immagine viene ritagliata quando si ridimensiona la finestra del browser verso sinistra:
 
@@ -84,16 +90,17 @@ Ecco gli elementi che è possibile personalizzare nella pagina di accesso:
 
  Elemento della pagina | Posizione nella pagina
 	------------- | -------------
-Logo banner | Visualizzato in alto a destra nella pagina. Sostituisce il logo normalmente visualizzato dal sito di destinazione cui si accede, ad esempio Office 365 o Azure.
-Immagine di grandi dimensioni/colore di sfondo | Visualizzati a sinistra nella pagina. Sostituisce l'immagine normalmente visualizzata dal sito di destinazione cui si accede. Il colore di sfondo può essere visualizzato al posto dell'immagine di grandi dimensioni in caso di connessioni con larghezza di banda ridotta o su schermi molto stretti.
+Logo banner | Visualizzato in alto a destra nella pagina. Sostituisce il logo visualizzato dal sito di destinazione a cui si accede, ad esempio Office 365 o Azure.
+Immagine di grandi dimensioni/colore di sfondo | Visualizzati a sinistra nella pagina. Sostituisce l'immagine visualizzata dal sito di destinazione a cui si accede. Il colore di sfondo può essere visualizzato al posto dell'immagine di grandi dimensioni in caso di connessioni con larghezza di banda ridotta o su schermi stretti.
 Testo pagina di accesso | Visualizzato sopra il piè di pagina quando è necessario fornire informazioni utili prima di un accesso con un account aziendale o dell'istituto di istruzione. Ad esempio, è possibile includere il numero di telefono dell'help desk o una nota legale.
 
 > [AZURE.NOTE]
-Tutti gli elementi sono facoltativi. Se, ad esempio, si specifica un logo del banner, ma nessuna immagine di grandi dimensioni, la pagina di accesso mostrerà il logo e l'immagine per il sito di destinazione, ovvero l'immagine dell'autostrada californiana di Office 365.
+Tutti gli elementi sono facoltativi. Se, ad esempio, si specifica un logo del banner senza immagine di grandi dimensioni, la pagina di accesso mostra il logo e l'immagine per il sito di destinazione, ovvero l'immagine dell'autostrada californiana di Office 365.
 
-È anche possibile localizzare tutti gli elementi della pagina. Dopo aver configurato un set di elementi di personalizzazione "predefinito", è possibile configurare anche altre versioni per impostazioni locali diverse. È anche possibile combinare e abbinare diversi elementi. Ad esempio, è possibile:
+È anche possibile localizzare tutti gli elementi della pagina. Dopo aver configurato un set di elementi di personalizzazione "predefinito", è possibile configurare altre versioni per impostazioni locali diverse. È anche possibile combinare e abbinare diversi elementi. Ad esempio, è possibile:
 
 - Creare un'immagine di grandi dimensioni "predefinita" adatta per tutte le impostazioni cultura, quindi creare versioni specifiche per l'inglese e il francese. Quando si impostano i browser su una di queste due lingue, viene visualizzata l'immagine specifica, mentre per tutte le altre lingue viene visualizzata l'illustrazione predefinita.
+
 - Configurare logo diversi per l'organizzazione, ad esempio una versione giapponese o ebraica.
 
 
@@ -109,9 +116,9 @@ La schermata seguente mostra un esempio di pagina del pannello di accesso dopo l
 
 ## Configurare la directory con informazioni personalizzate distintive dell'azienda
 
-È possibile configurare un set predefinito di elementi personalizzabili per ogni directory nel portale di Azure classico. Dopo avere salvato gli elementi predefiniti, un amministratore può anche scegliere di aggiungere versioni localizzate di ogni elemento per lingue/impostazioni locali diverse. Tutti gli elementi personalizzabili sono facoltativi.
+È possibile configurare un set predefinito di elementi personalizzabili per ogni directory nel portale di Azure classico. Dopo aver salvato gli elementi predefiniti, un amministratore può aggiungere versioni localizzate di ogni elemento per lingue/impostazioni locali diverse. Tutti gli elementi personalizzabili sono facoltativi.
 
-Se, ad esempio, si configura un logo del banner predefinito senza immagine di grandi dimensioni, nella pagina di accesso il logo apparirà nell'angolo superiore destro, indipendentemente da come viene visualizzata l'immagine predefinita del sito.
+Se, ad esempio, si configura un logo del banner predefinito senza immagine di grandi dimensioni, nella pagina di accesso il logo viene visualizzato nell'angolo superiore destro. Tuttavia, viene visualizzata l'immagine predefinita del sito.
 
 Si immagini la configurazione seguente:
 
@@ -128,7 +135,7 @@ Benché sia tecnicamente possibile configurare un set diverso per ogni lingua su
 2. Selezionare la directory da personalizzare.
 3. Sulla barra degli strumenti in alto fare clic su **Configura**.
 4. Fare clic su **Modifica personalizzazione**.
-4. Modificare gli elementi da personalizzare. Notare che tutti i campi sono facoltativi.
+4. Modificare gli elementi da personalizzare. Tutti i campi sono facoltativi.
 5. Fare clic su **Save**.
 
 Può trascorrere fino a un'ora prima che qualsiasi nuova modifica apportata per la personalizzazione della pagina di accesso venga visualizzata.
@@ -141,7 +148,7 @@ Può trascorrere fino a un'ora prima che qualsiasi nuova modifica apportata per 
 4. Fare clic su **Modifica personalizzazione**.
 2. Fare clic su **Aggiungi impostazioni di personalizzazione per una lingua specifica**.
 3. Selezionare la lingua per cui si vuole personalizzare il logo, quindi fare clic su **Avanti**.
-3. Modificare solo gli elementi per cui si vogliono configurare sostituzioni specifiche della lingua. Notare che tutti i campi sono facoltativi. Se un campo viene lasciato vuoto, al suo posto verrà visualizzato il valore personalizzato predefinito (o quello predefinito Microsoft se non è configurato alcun valore predefinito).
+3. Modificare solo gli elementi per cui si vogliono configurare sostituzioni specifiche della lingua. Tutti i campi sono facoltativi. Se un campo viene lasciato vuoto, al suo posto viene visualizzato il valore personalizzato predefinito oppure il valore predefinito Microsoft, se non è configurato alcun valore personalizzato predefinito.
 4. Fare clic su **Save**.
 
 **Per rimuovere informazioni personalizzate distintive della società dalla directory, seguire questa procedura:**
@@ -168,10 +175,12 @@ Può trascorrere fino a un'ora prima che qualsiasi nuova modifica apportata per 
 
 ## Test ed esempi
 
-È consigliabile provare con un tenant di prova prima di apportare modifiche nell'ambiente di produzione.<br> **Per verificare se la personalizzazione è stata applicata:**
+È consigliabile tentare con un tenant di prova prima di apportare modifiche nell'ambiente di produzione.
+
+**Per verificare se la personalizzazione è stata applicata:**
 
 1. Aprire una sessione del browser in incognito o InPrivate. 
-2. Visitare https://outlook.com/contoso.com, sostituendo contoso.com con il dominio personalizzato. 
+2. Passare a https://outlook.com/contoso.com, sostituendo contoso.com con il dominio personalizzato. 
 
 Questo metodo funziona con i domini simili a contoso.onmicrosoft.com.
 
@@ -188,13 +197,13 @@ Alcuni elementi personalizzabili in Azure AD prevedono più casi di utilizzo. I 
 
 Nome | Descrizione | Vincoli | Consigli
 	------------- | ------------- | ------------- | -------------
-Logo banner | Il logo del banner viene visualizzato nella pagina di accesso e nel pannello di accesso. | <p>JPG o PNG</p><p>60x280 pixel</p><p>10 KB</p> | <p>Usare il logo completo dell'organizzazione, inclusi il simbolo e il logotipo</p><p>Mantenere un'altezza inferiore a 30 pixel per evitare l'introduzione di barre di scorrimento nei dispositivi mobili</p><p>Mantenere una dimensione inferiore a 4 KB</p><p>Usare un file PNG trasparente (non dare per scontato che la pagina di accesso abbia sempre uno sfondo bianco)</p>
+Logo banner | Il logo del banner viene visualizzato nella pagina di accesso e nel pannello di accesso. | <p>JPG o PNG</p><p>60x280 pixel</p><p>10 KB</p> | <p>Usare il logo completo dell'organizzazione, inclusi il simbolo e il logotipo.</p><p>Mantenere un'altezza inferiore a 30 pixel per evitare l'introduzione di barre di scorrimento nei dispositivi mobili.</p><p>Mantenere una dimensione inferiore a 4 KB.</p><p>Usare un file PNG trasparente, non dare per scontato che la pagina di accesso abbia sempre uno sfondo bianco.</p>
 Logo icona | Attualmente non usato nella pagina di accesso. In futuro, potrebbe essere usato per sostituire il simbolo generico dell'account aziendale o dell'istituto di istruzione in punti diversi dell'esperienza. | <p>JPG o PNG</p><p>120x120 pixel</p><p>10 KB</p> | <p>Mantenere semplice (evitare testo troppo piccolo), in quanto l'immagine potrebbe essere ridimensionata fino al 50%
 </p> |
 Etichetta nome utente pagina di accesso | Attualmente non usata nella pagina di accesso. In futuro, questo testo potrebbe essere usato per sostituire la stringa generica dell'account aziendale o dell'istituto di istruzione in diversi punti dell'esperienza. Il testo può essere impostato su qualcosa come "Account Contoso" o "ID Contoso". | <p>Testo Unicode, fino a 50 caratteri</p><p>Solo testo normale (senza collegamenti o tag HTML)</p> | <p>Mantenere breve e semplice</p><p>Chiedere agli utenti in che modo chiamano in genere l'account aziendale o dell'istituto di istruzione ricevuto.</p>
 Testo pagina di accesso | Questo "boilerplate" appare sotto il modulo della pagina di accesso e può essere usato per comunicare istruzioni aggiuntive o indicazioni su come ottenere informazioni e supporto tecnico. | <p>Testo Unicode, fino a 256 caratteri</p><p>Testo normale (senza collegamenti o tag HTML)</p> | Mantenere il numero di caratteri inferiore a 250 (circa tre righe di testo)
-Illustrazione pagina di accesso | Questa illustrazione è un'immagine di grandi dimensioni visualizzata nella pagina di accesso, a sinistra del modulo della pagina di accesso. | <p>JPG o PNG</p><p>1420x1200 pixel</p><p>500 KB</p> | <p>1420x1200 pixel</p><p>Importante: mantenere il file quanto più piccolo possibile, idealmente meno di 200 KB. Se l'immagine è troppo grande, avrà impatto sulle prestazioni della pagina di accesso quando non è memorizzata nella cache</p><p>Questa immagine VERRÀ quasi sempre ritagliata, in base alle diverse proporzioni dello schermo. Mantenere gli elementi visivi principali nell'angolo superiore sinistro (superiore destro per le lingue da destra a sinistra), perché il ridimensionamento, man mano che la finestra del browser si riduce, avverrà dall'angolo inferiore destro verso l'angolo superiore sinistro.</p>
-Colore di sfondo della pagina di accesso | Il colore di sfondo della pagina di accesso viene usato nell'area a sinistra del modulo della pagina di accesso. Il colore è visibile anche quando non è presente alcuna immagine della pagina di accesso. | Deve essere un colore RGB in formato esadecimale (esempio: #FFFFFF) | <p>Il colore di sfondo può essere visualizzato al posto dell'immagine di grandi dimensioni in caso di connessioni con larghezza di banda ridotta</p><p>È consigliabile scegliere il colore primario del logo del banner</p>
+Illustrazione pagina di accesso | Questa illustrazione è un'immagine di grandi dimensioni visualizzata nella pagina di accesso, a sinistra del modulo della pagina di accesso. | <p>JPG o PNG</p><p>1420x1200 pixel</p><p>500 KB</p> | <p>1420x1200 pixel</p><p>Importante: mantenere il file quanto più piccolo possibile, idealmente meno di 200 KB. Se l'immagine è troppo grande, influisce negativamente sulle prestazioni della pagina di accesso quando non è memorizzata nella cache.</p><p>Questa immagine viene spesso ritagliata, in base alle diverse proporzioni dello schermo. Mantenere gli elementi visivi principali nell'angolo superiore sinistro (superiore destro per le lingue da destra a sinistra), perché man mano che la finestra del browser si riduce il ridimensionamento avviene dall'angolo inferiore destro verso l'angolo superiore sinistro.</p>
+Colore di sfondo della pagina di accesso | Il colore di sfondo della pagina di accesso viene usato nell'area a sinistra del modulo della pagina di accesso. | Deve essere un colore RGB in formato esadecimale (esempio: #FFFFFF) | <p>Il colore di sfondo può essere visualizzato al posto dell'immagine di grandi dimensioni in caso di connessioni con larghezza di banda ridotta.</p><p>È consigliabile scegliere il colore primario del logo del banner.</p>
 
 
 ## Passaggi successivi
@@ -212,4 +221,4 @@ Colore di sfondo della pagina di accesso | Il colore di sfondo della pagina di a
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

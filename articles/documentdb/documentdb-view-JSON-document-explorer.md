@@ -31,7 +31,7 @@ Questo articolo offre una panoramica di Esplora documenti di [Microsoft Azure Do
 
  	>[AZURE.NOTE] Esplora query viene visualizzato anche nei pannelli di database e raccolte.
 
-    Nel pannello **Esplora documenti** gli elenchi a discesa **Database** e **Raccolte** vengono precompilati a seconda del contesto in cui viene avviato Esplora query.
+    Nel pannello **Esplora documenti** gli elenchi a discesa **Database** e **Raccolte** vengono precompilati a seconda del contesto in cui viene avviato Esplora documenti.
 
 	![Screenshot del pannello Esplora documenti](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 
@@ -158,4 +158,4 @@ Per altre informazioni sulla grammatica SQL di DocumentDB supportata in Esplora 
 
 Anche il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) è una risorsa utile che assiste l'utente nell'apprendimento di DocumentDB.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

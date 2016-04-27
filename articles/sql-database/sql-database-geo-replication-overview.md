@@ -3,8 +3,8 @@
 	description="Questo argomento illustra la Replica geografica attiva per il database SQL e i relativi utilizzi."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="stevestein"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="03/07/2016"
-	ms.author="jroth" />
+	ms.author="sstein" />
 
 # Replica geografica attiva per il database SQL di Azure
 
@@ -66,4 +66,4 @@ A causa della latenza elevata delle reti WAN, per la copia continua viene usato 
 ## Passaggi successivi
 Per informazioni sulle altre funzionalità di continuità aziendale del database SQL, vedere [Panoramica della continuità aziendale](sql-database-business-continuity.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

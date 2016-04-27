@@ -38,7 +38,7 @@ Distribuire AD FS e connettersi ad Azure Active Directory con Azure Active Direc
 
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
         => issue(claim = c);
-    
+
 8. Fare clic su **OK** due volte per completare la finestra di dialogo.
 
 Configurare un riferimento aggiuntivo alla classe di autenticazione del trust della relying party di Azure Active Directory
@@ -47,7 +47,7 @@ Nel server federativo aprire una finestra di comando di Windows PowerShell e dig
 
 
   `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
-   
+
 Dove <RPObjectName> è il nome dell'oggetto relying party per l'oggetto trust della relying party di Azure Active Directory. Tale oggetto in genere è denominato Piattaforma delle identità di Microsoft Office 365.
 
 Criteri di autenticazione globali di AD FS
@@ -83,7 +83,7 @@ Ad esempio, se nell'organizzazione si usano due suffissi UPN denominati @contoso
 
 Configurare la registrazione automatica per i dispositivi Windows 7 e Windows 8.1 aggiunti a un dominio usando i collegamenti seguenti. Assicurarsi di aver completato i prerequisiti precedenti prima di continuare.
 
-* [Configurare la registrazione automatica per i dispositivi Windows 8.1 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+* [Configurare la registrazione automatica per i dispositivi Windows 8.1 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 
 * [Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
@@ -102,7 +102,7 @@ Per altre informazioni sulla distribuzione della registrazione dei dispositivi c
 
 - [Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
 - [Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
-- [Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Configurazione della registrazione automatica per i dispositivi appartenenti a un dominio di Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows 10 aggiunti a un dominio](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

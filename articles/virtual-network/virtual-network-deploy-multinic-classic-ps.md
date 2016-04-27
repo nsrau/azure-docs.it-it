@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Distribuire più macchine virtuali con funzionalità Multi-NIC mediante PowerShell nel modello di distribuzione classica | Microsoft Azure"
    description="Informazioni su come distribuire più macchine virtuali con funzionalità Multi-NIC con PowerShell nel modello di distribuzione classica"
    services="virtual-network"
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Poiché in questo momento non è possibile disporre di macchine virtuali con una singola scheda di interfaccia di rete e di macchine virtuali con più schede di interfaccia di rete nello stesso servizio cloud, i server back-end verranno implementati in un servizio cloud diverso rispetto a tutti gli altri componenti in uno scenario. La procedura seguente usa un servizio cloud denominato *IaaSStory* per la risorsa principale e *IaaSStory-BackEnd* per i server di back-end.
+Attualmente, non è possibile avere macchine virtuali con una singola scheda di rete e macchine virtuali con più schede di rete nello stesso servizio cloud. Per questo motivo, è necessario implementare i server back-end in un servizio cloud diverso rispetto a tutti gli altri componenti dello scenario. La procedura seguente usa un servizio cloud denominato *IaaSStory* per la risorsa principale e *IaaSStory-BackEnd* per i server di back-end.
 
 ## Prerequisiti
 
@@ -41,7 +41,7 @@ Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate d
 
 - **Subnet Back-end**. I server del database formeranno parte di una subnet distinta, per separare il traffico. Lo script seguente prevede che questa subnet sia presente in una rete virtuale denominata *WTestVnet*.
 - **Account di archiviazione per dischi dati**. Per migliorare le prestazioni, i dischi dati sui server di database utilizzano la tecnologia SSD (Solid State Drive), che richiede un account di archiviazione premium. Verificare la posizione di Azure che viene distribuita per supportare l'archiviazione premium.
-- **Set di disponibilità**. Tutti i server di database vengono aggiunti a un singolo set di disponibilità, per garantire che almeno una delle macchine virtuali sia attiva e in esecuzione durante la manutenzione. 
+- **Set di disponibilità**. Tutti i server di database vengono aggiunti a un singolo set di disponibilità, per garantire che almeno una delle macchine virtuali sia attiva e in esecuzione durante la manutenzione.
 
 ### Passaggio 1 - Avviare lo script
 
@@ -129,7 +129,7 @@ Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate d
 		    Add-AzureNetworkInterfaceConfig -Name ("RemoteAccessNIC"+$suffixNumber) `
 		        -SubnetName $backendSubnetName `
 		        -StaticVNetIPAddress ($ipAddressPrefix+(53+$suffixNumber)) `
-		        -VM $vmConfig 
+		        -VM $vmConfig
 
 6. Creare dischi di dati per ogni macchina virtuale.
 
@@ -138,7 +138,7 @@ Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate d
 		        -DiskSizeInGB $diskSize `
 		        -DiskLabel $dataDisk1Name `
 		        -LUN 0       
-		
+
 		    $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"   
 		    Add-AzureDataDisk -CreateNew -VM $vmConfig `
 		        -DiskSizeInGB $diskSize `
@@ -163,12 +163,12 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 		--------------------    -----------                          ---------------
 		New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
 		New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
-		                                                                            
+
 		WARNING: No deployment found in service: 'IaaSStory-Backend'.
 
 2. Compilare le informazioni necessarie nella richiesta di credenziali e fare clic su **OK**. Verrà visualizzato l'output seguente.
 
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded 
+		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

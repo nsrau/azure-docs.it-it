@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/12/2016"
+     ms.date="04/07/2016"
      ms.author="dobett"/>
 
 # Creare un hub IoT tramite PowerShell
@@ -58,7 +58,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 Utilizzare un modello JSON per creare un nuovo hub IoT nel gruppo di risorse. È anche possibile utilizzare un modello per apportare modifiche a un hub IoT esistente.
 
-1. Usare un editor di testo per creare un modello di Gestione risorse di Azure denominato **template.json** con la definizione di risorsa seguente per creare un nuovo hub IoT standard. Questo esempio aggiunge l'hub IoT nell'area **Stati Uniti orientali** e usa la versione dell'API **2016-02-03**. Questo modello prevede inoltre che il nome dell'hub IoT venga passato come un parametro denominato **hubName**.
+1. Usare un editor di testo per creare un modello di Gestione risorse di Azure denominato **template.json** con la definizione di risorsa seguente per creare un nuovo hub IoT standard. In questo esempio l'hub IoT viene aggiunto all'area **Stati Uniti orientali**, vengono creati due gruppi di consumer (**cg1** e **cg2**) sull'endpoint compatibile con Hub eventi e viene usata la versione **2016-02-03** dell'API. Questo modello prevede anche che il nome dell'hub IoT venga passato come un parametro denominato **hubName**.
 
     ```
     {
@@ -83,6 +83,22 @@ Utilizzare un modello JSON per creare un nuovo hub IoT nel gruppo di risorse. È
         "properties": {
           "location": "East US"
         }
+      },
+      {
+        "apiVersion": "2016-02-03",
+        "type": "Microsoft.Devices/IotHubs/eventhubEndpoints/ConsumerGroups",
+        "name": "[concat(parameters('hubName'), '/events/cg1')]",
+        "dependsOn": [
+          "[concat('Microsoft.Devices/Iothubs/', parameters('hubName'))]"
+        ]
+      },
+      {
+        "apiVersion": "2016-02-03",
+        "type": "Microsoft.Devices/IotHubs/eventhubEndpoints/ConsumerGroups",
+        "name": "[concat(parameters('hubName'), '/events/cg2')]",
+        "dependsOn": [
+          "[concat('Microsoft.Devices/Iothubs/', parameters('hubName'))]"
+        ]
       }
       ],
       "outputs": {
@@ -96,7 +112,7 @@ Utilizzare un modello JSON per creare un nuovo hub IoT nel gruppo di risorse. È
 
 2. Salvare il file di modello nel computer locale. Questo esempio presuppone che il file venga salvato in una cartella denominata **c:\\templates**.
 
-3. Eseguire il comando seguente per distribuire il nuovo hub IoT, passando il nome dell'hub IoT come parametro. In questo esempio, il nome dell'hub IoT è **myiothub**:
+3. Eseguire il comando seguente per distribuire il nuovo hub IoT, passando il nome dell'hub IoT come parametro. Il questo esempio, il nome dell'hub IoT è **myiothub**, che deve essere globalmente univoco.
 
     ```
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName myiothub
@@ -123,4 +139,4 @@ Dopo aver distribuito un hub IoT usando un modello di Gestione risorse di Azure 
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-powershell-arm]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

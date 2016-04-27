@@ -61,7 +61,7 @@ Per completare questa esercitazione, sono necessari gli elementi seguenti:
     using Newtonsoft.Json;
     ```
     
-7. In Program.cs aggiungere le seguenti variabili statiche sostituendo i valori dei segnaposto. Si è preso nota di **ApplicationId**, **SubscriptionId**, **TenantId** e **Password** in precedenza in questa esercitazione. **Nome gruppo di risorse** è il nome del gruppo di risorse che verrà utilizzato quando si crea l'hub IoT; può essere un gruppo di risorse preesistenti o uno nuovo. **Nome IoT Hub** è il nome dell'hub IoT che verrà creato, ad esempio **MyIoTHub**. **Nome distribuzione** è un nome per la distribuzione, ad esempio **Deployment\_01**.
+7. In Program.cs aggiungere le seguenti variabili statiche sostituendo i valori dei segnaposto. Si è preso nota di **ApplicationId**, **SubscriptionId**, **TenantId** e **Password** in precedenza in questa esercitazione. **Nome gruppo di risorse** è il nome del gruppo di risorse che verrà utilizzato quando si crea l'hub IoT; può essere un gruppo di risorse preesistenti o uno nuovo. **Nome IoT Hub** è il nome dell'hub IoT che verrà creato, ad esempio **MyIoTHub**, che deve essere globalmente univoco. **Nome distribuzione** è un nome per la distribuzione, ad esempio **Deployment\_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
@@ -183,4 +183,4 @@ Dopo aver distribuito un hub IoT mediante l'API REST, può essere opportuno otte
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

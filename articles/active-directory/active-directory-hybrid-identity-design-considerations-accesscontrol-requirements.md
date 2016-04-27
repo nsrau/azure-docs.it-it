@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.workload="identity" 
+    ms.workload="identity"
 	ms.date="12/07/2015"
 	ms.author="yuridio"/>
 
@@ -25,9 +25,10 @@ Durante la progettazione di una soluzione di identità ibrida, le aziende hanno 
 - Authorization
 - Controllo
 
-La sezione seguente descrive nel dettaglio gli aspetti relativi all'autenticazione e all'autorizzazione, mentre i concetti inerenti alla gestione e al controllo verranno discussi nell'ambito del ciclo di vita delle identità ibride. Per altre informazioni su queste funzionalità, leggere l'articolo sulle modalità per [determinare le attività di gestione delle identità ibride](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md).
+La sezione seguente descrive nel dettaglio gli aspetti relativi all'autenticazione e all'autorizzazione, mentre i concetti inerenti alla gestione e al controllo verranno discussi nell'ambito del ciclo di vita delle identità ibride. Per altre informazioni su queste funzionalità, leggere l'articolo sulle modalità per [determinare le attività di gestione delle identità ibride](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
 
->[AZURE.NOTE]Per altre informazioni su ciascuno dei pilastri, leggere l'articolo relativo ai [quattro pilastri dell'identità e alla gestione delle identità nell'era dell'IT ibrido](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx).
+>[AZURE.NOTE]
+Per altre informazioni su ciascuno dei pilastri, leggere l'articolo relativo ai [quattro pilastri dell'identità e alla gestione delle identità nell'era dell'IT ibrido](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx).
 
 ## Autenticazione e autorizzazione
 Sono disponibili vari scenari di autenticazione e autorizzazione, ciascuno dei quali presenta requisiti specifici a cui deve attenersi la soluzione di identità ibrida che l'azienda si appresta ad adottare. Gli scenari che prevedono comunicazioni B2B (Business-to-Business), ad esempio, comportano per gli amministratori IT la necessità di verificare che il metodo di autenticazione e autorizzazione usato dall'azienda consenta la comunicazione con i partner commerciali. Durante la definizione dei requisiti di autenticazione e autorizzazione, accertarsi quindi che venga fornita una risposta alle domande seguenti:
@@ -37,7 +38,9 @@ Sono disponibili vari scenari di autenticazione e autorizzazione, ciascuno dei q
  - In caso affermativo, sono già stati stabiliti i protocolli (SAML, OAuth, Kerberos, token o certificati) da usare per le connessioni tra le aziende?
 - La soluzione di identità ibrida che si intende adottare supporta tali protocolli?
 
-Altri aspetti importanti di cui tener conto sono la posizione dell'archivio di autenticazione che verrà usato dagli utenti e dai partner e il modello amministrativo adottato. Il modello può essere centralizzato, in cui le credenziali utente, i criteri e le attività di amministrazione vengono gestite centralmente in locale o nel cloud, oppure ibrido, in cui le credenziali utente, i criteri e le attività di amministrazione vengono gestite centralmente in locale e quindi replicate nel cloud.
+Altri aspetti importanti di cui tener conto sono la posizione dell'archivio di autenticazione che verrà usato dagli utenti e dai partner e il modello amministrativo adottato. Valutare i due modelli seguenti:
+- Centralizzato: in questo modello le credenziali dell'utente, i criteri e l'amministrazione possono essere centralizzati in locale o nel cloud.
+- Ibrido: in questo modello le credenziali dell'utente, i criteri e l'amministrazione verranno centralizzati in locale e replicati nel cloud.
 
 Il modello adottato da ogni azienda dipenderà dalle rispettive esigenze. È importante quindi rispondere alle domande seguenti per capire dove risiederà il sistema di gestione delle identità e scegliere la modalità amministrativa da usare.
 
@@ -53,14 +56,15 @@ Sebbene l'autenticazione e l'autorizzazione costituiscano elementi essenziali pe
 - Nell'azienda è presente più di utente con privilegi elevati per la gestione del sistema di identità?
  - In caso affermativo, è necessario che ogni utente disponga dello stesso livello di accesso?
 - È possibile che sia necessario delegare l'accesso ad altri utenti per la gestione di risorse specifiche?
- - In caso affermativo, con quale frequenza si verifica questa situazione? 
+ - In caso affermativo, con quale frequenza si verifica questa situazione?
 - L'azienda prevede di integrare funzionalità di controllo di accesso tra risorse locali e nel cloud?
 - L'azienda potrebbe limitare l'accesso alle risorse in base a determinate condizioni?
 - L'azienda si avvale di una o più applicazioni che richiedono un controllo di accesso personalizzato per alcune risorse?
  - In caso affermativo, dove si trovano tali app (in locale o nel cloud)?
  - In caso affermativo, dove si trovano le risorse interessate (in locale o nel cloud)?
- 
->[AZURE.NOTE]Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta alla base. L'articolo sulla [definizione della strategia di protezione dei dati](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) esamina le opzioni disponibili con i relativi vantaggi e svantaggi. Rispondendo a queste domande sarà più facile scegliere l'opzione migliore in base alle specifiche esigenze aziendali.
+
+>[AZURE.NOTE]
+Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta alla base. L'articolo sulla [definizione della strategia di protezione dei dati](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) esamina le opzioni disponibili con i relativi vantaggi e svantaggi. Rispondendo a queste domande sarà più facile scegliere l'opzione migliore in base alle specifiche esigenze aziendali.
 
 ## Passaggi successivi
 
@@ -69,4 +73,4 @@ Sebbene l'autenticazione e l'autorizzazione costituiscano elementi essenziali pe
 ## Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0413_2016-->

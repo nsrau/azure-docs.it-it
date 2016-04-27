@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="03/18/2016"
+ms.date="04/12/2016"
 ms.author="larryfr"/>
 
 #Vedere Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, ResourceManager, JobHistory, NameNode, Oozie e altre interfacce Web.
@@ -161,9 +161,9 @@ Dopo aver eseguito questa procedura, solo le richieste per gli URL contenenti la
 
 Una volta stabilito il cluster, utilizzare la procedura seguente per verificare che sia possibile accedere all’interfaccia utente del servizio dal web Ambari:
 
-1. Nel browser, passare a https://CLUSTERNAME.azurehdinsight.net, dove NOME DEL CLUSTER è il nome del cluster HDInsight.
-
-	Quando richiesto, immettere il nome dell'account amministratore (admin) e la password per il cluster. Può essere richiesto una seconda volta dall'interfaccia utente web di Ambari. In tal caso, è necessario immettere nuovamente le informazioni.
+1. Nel browser aprire http://headnodehost:8080. L'indirizzo `headnodehost` verrà inviato al cluster tramite il tunnel e verrà risolto nel nodo head in cui è in esecuzione Ambari. Quando richiesto, immettere il nome dell'account amministratore (admin) e la password per il cluster. Può essere richiesto una seconda volta dall'interfaccia utente web di Ambari. In tal caso, è necessario immettere nuovamente le informazioni.
+    
+    > [AZURE.NOTE] Quando si usa l'indirizzo http://headnodehost:8080 per connettersi al cluster, ci si connette direttamente tramite il tunnel al nodo head in cui è in esecuzione Ambari con HTTP e le comunicazioni sono protette tramite il tunnel SSH. Quando ci si connette a Internet senza tunnel, le comunicazioni sono protette tramite HTTPS. Per connettersi a Internet tramite HTTPS, usare https://CLUSTERNAME.azurehdinsight.net, in cui __CLUSTERNAME__ è il nome del cluster.
 
 2. Dall'interfaccia utente Web di Ambari, selezionare YARN dall'elenco a sinistra della pagina.
 
@@ -174,15 +174,14 @@ Una volta stabilito il cluster, utilizzare la procedura seguente per verificare 
 	![Immagine con il menu di collegamenti rapidi espanso](./media/hdinsight-linux-ambari-ssh-tunnel/yarnquicklinks.png)
 
 	> [AZURE.NOTE] Se si dispone di una connessione internet lenta o il nodo head è molto occupato, è possibile che venga visualizzato un indicatore di attesa invece di un menu quando si seleziona __collegamenti rapidi__. In tal caso, attendere un minuto o due affinché i dati vengano ricevuti dal server, poi riprovare con l'elenco.
-
-
-	> [AZURE.TIP] Se si dispone di un monitor con risoluzione inferiore o la finestra del browser non è ingrandita, alcune voci del menu dei __collegamenti rapidi__ possono essere tagliate dal lato destro dello schermo. In tal caso, espandere il menu utilizzando il mouse, poi utilizzare il tasto freccia destra per scorrere la schermata verso destra e visualizzare il resto del menu.
+    >
+	> Se si dispone di un monitor con risoluzione inferiore o la finestra del browser non è ingrandita, alcune voci del menu dei __collegamenti rapidi__ possono essere tagliate dal lato destro dello schermo. In tal caso, espandere il menu utilizzando il mouse, poi utilizzare il tasto freccia destra per scorrere la schermata verso destra e visualizzare il resto del menu.
 
 4. Verrà visualizzata una pagina simile alla seguente:
 
 	![Immagine dell'interfaccia utente di ResourceManager YARN](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
 
-	> [AZURE.TIP] Si noti l'URL della pagina. dovrebbe essere simile a \___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. Questo utilizza il nome di dominio interno completo (FQDN) del nodo e non è accessibile senza utilizzare un tunnel SSH.
+	> [AZURE.NOTE] Si noti l'URL della pagina. dovrebbe essere simile a \___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. Questo utilizza il nome di dominio interno completo (FQDN) del nodo e non è accessibile senza utilizzare un tunnel SSH.
 
 ##Passaggi successivi
 
@@ -196,4 +195,4 @@ Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguen
 
 * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

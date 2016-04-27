@@ -49,7 +49,7 @@ Questo articolo è incentrato sull'abilitazione e la configurazione dell'estensi
 
 ## Prerequisiti
 - Agente Linux di Microsoft Azure 2.0.6 o versioni successive. Si noti che la maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.0.6 o successive. È possibile eseguire **WAAgent -version** per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente alla 2.0.6, è possibile seguire queste [istruzioni](https://github.com/Azure/WALinuxAgent "istruzioni") per aggiornarla.
-- [Interfaccia della riga di comando di Azure](./xplat-cli-install.md). Seguire [queste linee guida](./xplat-cli-install.md) per configurare l'ambiente dell'interfaccia della riga di comando di Azure nella macchina virtuale. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile utilizzare il comando **azure** dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi) per accedere ai relativi comandi. Ad esempio, **set estensioni macchina virtuale di azure --guida** per informazioni dettagliate sull’utilizzo, **accesso azure** per accedere ad Azure, eseguire **elenco macchine virtuali di azure ** per elencare tutte le macchine virtuali presenti in Azure.
+- [Interfaccia della riga di comando di Azure](../xplat-cli-install.md). Seguire [queste linee guida](../xplat-cli-install.md) per configurare l'ambiente dell'interfaccia della riga di comando di Azure nella macchina virtuale. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile utilizzare il comando **azure** dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi) per accedere ai relativi comandi. Ad esempio, **set estensioni macchina virtuale di azure --guida** per informazioni dettagliate sull’utilizzo, **accesso azure** per accedere ad Azure, eseguire **elenco macchine virtuali di azure** per elencare tutte le macchine virtuali presenti in Azure.
 - Un account di archiviazione per archiviare i dati. Saranno necessari un nome di account di archiviazione e un tasto di scelta creati in precedenza per caricare i dati nella risorsa di archiviazione.
 
 
@@ -127,7 +127,7 @@ Passaggio 2. Eseguire **azure vm extension set vm\_name LinuxDiagnostic Microsof
 
 
 ## Esaminare i dati
-I dati delle prestazioni e della diagnostica vengono archiviati in una tabella di archiviazione di Azure. Vedere [questo articolo](storage-ruby-how-to-use-table-storage.md) per informazioni su come accedere ai dati nella tabella di archiviazione utilizzando gli script dell’interfaccia della riga di comando di Azure.
+I dati delle prestazioni e della diagnostica vengono archiviati in una tabella di archiviazione di Azure. Vedere [questo articolo](../storage/storage-ruby-how-to-use-table-storage.md) per informazioni su come accedere ai dati nella tabella di archiviazione utilizzando gli script dell’interfaccia della riga di comando di Azure.
 
 È anche possibile usare gli strumenti dell'interfaccia utente seguenti per accedere ai dati:
 
@@ -143,4 +143,4 @@ Se è stato abilitato fileCfg o perfCfg, specificati negli scenari 2 e 3, sarà 
 ## Problemi noti
 - Per la versione 2.0, le informazioni Rsyslog e il file di log specificato dal cliente sono accessibili solo tramite scripting.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="multiple"
-    ms.date="12/06/2015"
+    ms.date="04/07/2016"
     ms.author="cawa" />
 
 # Pubblicare un'applicazione in un cluster remoto tramite Visual Studio
@@ -40,7 +40,7 @@ Per impostazione predefinita, l'applicazione include due profili di pubblicazion
 
 Una cartella nel progetto dell'applicazione di Service Fabric denominata **ApplicationParameters** contiene i file XML per i valori dei parametri del manifesto dell'applicazione specificati dall'utente. I file manifesto dell'applicazione possono essere parametrizzati in modo che si possano usare diversi valori per le impostazioni di distribuzione. Per altre informazioni sulla parametrizzazione dell'applicazione, vedere l'articolo relativo alla [gestione di più ambienti in Service Fabric](service-fabric-manage-multiple-environment-app-configuration.md).
 
->[AZURE.NOTE]Per i servizi attore, è necessario compilare il progetto prima di tentare la modifica del file in un editor o tramite la finestra di dialogo di pubblicazione. Questo accade perché una parte dei file manifesto viene generata durante la compilazione.
+>[AZURE.NOTE] Per i servizi attore, è necessario compilare il progetto prima di tentare la modifica del file in un editor o tramite la finestra di dialogo di pubblicazione. Questo accade perché una parte dei file manifesto viene generata durante la compilazione.
 
 ## Pubblicare un'applicazione usando la finestra di dialogo per la pubblicazione dell'applicazione di Service Fabric
 
@@ -52,29 +52,29 @@ I passaggi seguenti illustrano come pubblicare un'applicazione usando la finestr
 
     Il file selezionato nell'elenco a discesa **Profilo di destinazione** si trova nella stessa posizione di tutte le impostazioni, ad eccezione di **Versioni manifesto**. È possibile riutilizzare un profilo esistente o crearne uno nuovo selezionando **<Gestione profili...>** nell'elenco a discesa **Profilo di destinazione**. Dopo aver scelto un profilo di pubblicazione, il relativo contenuto viene visualizzato nei campi corrispondenti della finestra di dialogo. Per salvare le modifiche in qualsiasi momento, scegliere il collegamento **Salva profilo**.
 
-2. Nella sezione **Connection endpoint**, specificare un endpoint di pubblicazione del cluster Service Fabric locale o remoto. Per aggiungere o modificare l'endpoint di connessione, scegliere il pulsante **Seleziona...**. Nella finestra di dialogo **Seleziona Service Fabric Cluster** vengono visualizzati gli endpoint di connessione disponibili del Service Fabric Cluster in cui è possibile eseguire la pubblicazione in base alle sottoscrizioni di Azure. Se non è già stato effettuato l'accesso a Visual Studio, verrà richiesto di farlo.
+2. Nella sezione **Connection endpoint**, specificare un endpoint di pubblicazione del cluster Service Fabric locale o remoto. Per aggiungere o modificare l'endpoint connessione, fare clic su **Endpoint connessione** dall'elenco a discesa. Nell'elenco vengono visualizzati gli endpoint di connessione disponibili del cluster Service Fabric in cui è possibile eseguire la pubblicazione in base alle sottoscrizioni di Azure. Se non è già stato effettuato l'accesso a Visual Studio, verrà richiesto di farlo.
 
     Usare la finestra di dialogo di selezione cluster per scegliere da un set di sottoscrizioni e cluster disponibili.
 
-    ![La finestra di dialogo **Select Service Fabric Cluster**][1]
+    ![La finestra di dialogo **Selezionare il cluster Service Fabric**][1]
 
-    >[AZURE.NOTE]Se si vuole pubblicare in un endpoint arbitrario (ad esempio un party cluster), vedere la sezione **Pubblicazione in un endpoint di cluster arbitrario** riportata di seguito.
+    >[AZURE.NOTE] Se si vuole pubblicare in un endpoint arbitrario (ad esempio un party cluster), vedere la sezione **Pubblicazione in un endpoint di cluster arbitrario** riportata di seguito.
 
-    Dopo aver scelto un endpoint, Visual Studio convalida la connessione al cluster dell'infrastruttura di servizi selezionato. Se il cluster non è sicuro, Visual Studio non può connettersi immediatamente al cluster. Tuttavia, se il cluster è sicuro, è necessario installare un certificato nel computer locale prima di procedere. Per altre informazioni, vedere l'articolo relativo alla [configurazione di connessioni protette](service-fabric-visualstudio-configure-secure-connections.md). Al termine, fare clic sul pulsante **OK**. Il cluster selezionato viene visualizzato nella finestra di dialogo **Publish Service Fabric Application**.
+    Dopo aver scelto un endpoint, Visual Studio convalida la connessione al cluster dell'infrastruttura di servizi selezionato. Se il cluster non è sicuro, Visual Studio non può connettersi immediatamente al cluster. Tuttavia, se il cluster è sicuro, è necessario installare un certificato nel computer locale prima di procedere. Per altre informazioni, vedere l'articolo relativo alla [configurazione di connessioni protette](service-fabric-visualstudio-configure-secure-connections.md). Al termine, fare clic sul pulsante **OK**. Il cluster selezionato viene visualizzato nella finestra di dialogo **Pubblica applicazione di Service Fabric**.
 
-3. Nell'elenco a discesa **Application Parameter File**, passare a un file di parametri dell'applicazione. Un file di parametri dell'applicazione contiene valori specificati dall'utente per i parametri nel file manifesto dell'applicazione. Per aggiungere o modificare un parametro, scegliere il pulsante **Modifica**. Immettere o modificare il valore del parametro nella griglia **Parametri**. Al termine, scegliere il pulsante **Salva**.
+3. Nel riquadro dell'elenco a discesa **Application Parameter File (File dei parametri dell'applicazione)**, cercare un file di parametri dell'applicazione. Un file di parametri dell'applicazione contiene valori specificati dall'utente per i parametri nel file manifesto dell'applicazione. Per aggiungere o modificare un parametro, scegliere il pulsante **Modifica**. Immettere o modificare il valore del parametro nella griglia **Parametri**. Al termine, scegliere il pulsante **Salva**.
 
     ![La finestra di dialogo **Modifica parametri**][2]
 
-4. Usare la casella di controllo **Upgrade the Application** per specificare se questa azione di pubblicazione è un aggiornamento. Le operazioni di pubblicazione di aggiornamento differiscono dalle normali operazioni di pubblicazione. Per un elenco delle differenze, vedere l'articolo relativo all'[aggiornamento di un'applicazione dell'infrastruttura di servizi](service-fabric-application-upgrade.md). Per configurare le impostazioni di aggiornamento, scegliere il collegamento **Configura impostazioni di aggiornamento**. Viene visualizzato l'editor del parametro di aggiornamento. Per altre informazioni sui parametri di aggiornamento, vedere l'articolo relativo alla [configurazione dell'aggiornamento di un'applicazione dell'infrastruttura di servizi](service-fabric-visualstudio-configure-upgrade.md).
+4. Usare la casella di controllo **Aggiorna l'applicazione** per specificare se questa azione di pubblicazione è un aggiornamento. Le operazioni di pubblicazione di aggiornamento differiscono dalle normali operazioni di pubblicazione. Per un elenco delle differenze, vedere l'articolo relativo all'[aggiornamento di un'applicazione dell'infrastruttura di servizi](service-fabric-application-upgrade.md). Per configurare le impostazioni di aggiornamento, scegliere il collegamento **Configura impostazioni di aggiornamento**. Viene visualizzato l'editor del parametro di aggiornamento. Per altre informazioni sui parametri di aggiornamento, vedere l'articolo relativo alla [configurazione dell'aggiornamento di un'applicazione dell'infrastruttura di servizi](service-fabric-visualstudio-configure-upgrade.md).
 
-5. Scegliere il pulsante **Manifest Versions…** per visualizzare la finestra di dialogo **Edit Versions**. Affinché l'aggiornamento sia effettivo, è necessario aggiornare le versioni del servizio e dell'applicazione. Per informazioni sull'impatto delle versioni manifesto del servizio e dell'applicazione su un processo di aggiornamento, vedere [Esercitazione sull'aggiornamento di un'applicazione di Infrastruttura di servizi tramite Visual Studio](service-fabric-application-upgrade-tutorial.md).
+5. Scegliere il pulsante **Versioni del manifesto...** per visualizzare la finestra di dialogo **Modifica versioni**. Affinché l'aggiornamento sia effettivo, è necessario aggiornare le versioni del servizio e dell'applicazione. Per informazioni sull'impatto delle versioni manifesto del servizio e dell'applicazione su un processo di aggiornamento, vedere [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric](service-fabric-application-upgrade-tutorial.md).
 
-    ![La finestra di dialogo **Edit Versions**][3]
+    ![La finestra di dialogo **Modifica versioni**][3]
 
     Se le versioni del servizio e dell'applicazione usano il controllo delle versioni semantico, ad esempio 1.0.0, o valori numerici in formato 1.0.0.0, selezionare l'opzione **Aggiorna automaticamente le versioni del servizio e dell'applicazione**. Se si seleziona questa opzione, i numeri di versione del servizio e dell'applicazione vengono aggiornati automaticamente ogni volta che viene aggiornata la versione di un codice, una configurazione o un pacchetto dati. Se si preferisce modificare le versioni manualmente, deselezionare la casella di controllo per disabilitare questa funzionalità.
 
-    >[AZURE.NOTE]Per visualizzare tutte le voci del pacchetto di un progetto attore, compilare innanzitutto il progetto in modo da generare le voci nei file manifesto del servizio.
+    >[AZURE.NOTE] Per visualizzare tutte le voci del pacchetto di un progetto attore, compilare innanzitutto il progetto in modo da generare le voci nei file manifesto del servizio.
 
 6. Dopo aver specificato tutte le impostazioni necessarie, scegliere il pulsante **Pubblica** per pubblicare l'applicazione nel cluster dell'infrastruttura di servizi selezionato. Le impostazioni specificate vengono applicate al processo di pubblicazione.
 
@@ -88,7 +88,7 @@ Se ci si connette a un cluster non protetto, è necessario unicamente l'endpoint
 <ClusterConnectionParameters ConnectionEndpoint="partycluster1.eastus.cloudapp.azure.com:19000" />
 ```
 
-  Se ci si connette a un cluster protetto, è necessario anche fornire i dettagli del certificato client dell'archivio locale da usare per l'autenticazione. Per ulteriori informazioni, vedere [Configurare connessioni protette a un cluster Service Fabric da Visual Studio](service-fabric-visualstudio-configure-secure-connections.md).
+  Se ci si connette a un cluster protetto, è necessario anche fornire i dettagli del certificato client dell'archivio locale da usare per l'autenticazione. Per altre informazioni, vedere [Configurare connessioni protette a un cluster Service Fabric da Visual Studio](service-fabric-visualstudio-configure-secure-connections.md).
 
   Dopo aver configurato il profilo di pubblicazione, è possibile farvi riferimento nella finestra di dialogo di pubblicazione come illustrato di seguito.
 
@@ -98,7 +98,7 @@ Se ci si connette a un cluster non protetto, è necessario unicamente l'endpoint
 
 ## Passaggi successivi
 
-Per scoprire come automatizzare il processo di pubblicazione in un ambiente di integrazione continua, vedere [Configurare l'integrazione continua per un'applicazione Service Fabric](service-fabric-set-up-continuous-integration.md).
+Per altre informazioni su come automatizzare il processo di pubblicazione in un ambiente di integrazione continua, vedere [Configurare l'integrazione continua per un'applicazione Service Fabric](service-fabric-set-up-continuous-integration.md).
 
 
 [0]: ./media/service-fabric-publish-app-remote-cluster/PublishDialog.png
@@ -107,4 +107,4 @@ Per scoprire come automatizzare il processo di pubblicazione in un ambiente di i
 [3]: ./media/service-fabric-publish-app-remote-cluster/EditVersions.png
 [4]: ./media/service-fabric-publish-app-remote-cluster/publish-to-party-cluster.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

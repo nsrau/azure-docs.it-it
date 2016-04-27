@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Raccolta di immagini di Azure Government" 
-   description="Questo articolo fornisce una panoramica generale sulla raccolta di immagini di Azure Government e le immagini incluse" 
-   services="Azure-Government" 
-   documentationCenter="" 
-   authors="joharve2" 
-   manager="chrisnie" 
+<properties
+   pageTitle="Raccolta di immagini di Azure Government"
+   description="Questo articolo fornisce una panoramica generale sulla raccolta di immagini di Azure Government e le immagini incluse"
+   services="Azure-Government"
+   documentationCenter=""
+   authors="joharve2"
+   manager="chrisnie"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="azure-government" 
+   ms.workload="azure-government"
    ms.date="05/20/2015"
    ms.author="jharve"/>
 
@@ -91,15 +91,15 @@ SUSE|SUSE Linux Enterprise Server 12|È possibile eseguire con sicurezza i caric
 
 Le risorse riportate di seguito forniscono ulteriori informazioni sulla distribuzione dalla raccolta immagini o per la creazione del proprio VHD. Fare riferimento alla <a href="../azure-government-developer-guide">Guida per sviluppatori di Azure Government</a> per scoprire le differenze di progettazione con endpoint usando Azure Government.
 
-###Altre risorse: 
+###Altre risorse:
 
-- [Distribuzione di una macchina virtuale di Windows](virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- [Distribuzione di una macchina virtuale di Windows](./virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-- [Distribuzione di una macchina virtuale di Linux](virtual-machines/virtual-machines-linux-cli-create.md)
+- [Distribuzione di una macchina virtuale di Linux](./virtual-machines/virtual-machines-linux-create-cli-complete.md)
 
-- [Domande frequenti sulle macchine virtuali](http://msdn.microsoft.com/library/azure/dn683781.aspx)
+- [Domande frequenti sulle macchine virtuali](./virtual-machines/virtual-machines-linux-classic-faq.md)
 
-- [Creare e caricare il proprio VHD](virtual-machines-create-upload-vhd-windows-server/)
+- [Creare e caricare il proprio VHD](./virtual-machines/virtual-machines-linux-about-disks-vhds.md/)
 
 - [Catturare un'immagine per la macchina virtuale di Linux](virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
@@ -114,8 +114,8 @@ Le risorse riportate di seguito forniscono ulteriori informazioni sulla distribu
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
-[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
+[Link 1 to another azure.microsoft.com documentation topic]: ./virtual-machines/virtual-machines-windows-hero-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: ./app-service-web/web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: ./storage/storage-whatis-account.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,15 +13,18 @@
 	ms.tgt_pltfrm="rest-api"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # Gestione del controllo degli accessi in base al ruolo con l'API REST
 
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [Interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md)
+- [API REST](role-based-access-control-manage-access-rest.md)
+
+Il controllo degli accessi in base al ruolo nel portale di Azure e nell'API di Azure Resource Manager consente di gestire l'accesso alle proprie sottoscrizioni e risorse a un livello estremamente dettagliato. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
+
 
 ## Elencare tutte le assegnazioni di ruolo
 
@@ -711,4 +714,4 @@ Codice di stato: 200
 
 ```
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

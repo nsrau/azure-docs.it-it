@@ -44,9 +44,29 @@ Selezionare le tabelle di cui si desidera abilitare l'estensione.
 |**Nome**|Consente di specificare il nome della colonna nella tabella.|
 |(nessun titolo)|Un simbolo all'interno di questa colonna generalmente indica che non è possibile abilitare la tabella selezionata per l'estensione a causa di un problema di blocco. È possibile che la tabella usi un tipo di dati non supportato. Passare il puntatore del mouse sul simbolo per visualizzare altre informazioni in una descrizione comando. Per altre informazioni, vedere l'articolo relativo alle [limitazioni della superficie di attacco e problemi di blocco per l'estensione database](sql-server-stretch-database-limitations.md).|
 |**Con estensione**|Indica se la tabella è già abilitata.|
+|**Migrazione**|In RC3 è possibile eseguire la migrazione di un'intera tabella (**Intera tabella**) o specificare un predicato del filtro basato sulla data nella procedura guidata. Per usare un predicato di filtro diverso per selezionare le righe per la migrazione, eseguire l'istruzione ALTER TABLE per specificare il predicato del filtro dopo essere usciti dalla procedura guidata. Per altre informazioni sul predicato del filtro, vedere [Usare un predicato del filtro per selezionare righe di cui eseguire la migrazione (estensione database)](sql-server-stretch-database-predicate-function.md). Per altre informazioni su come applicare il predicato, vedere [Abilitare Estensione database per una tabella](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 |**prime righe**|Consente di specificare il numero di righe nella tabella.|
 |**Dimensione (KB)**|Consente di specificare le dimensioni della tabella in KB.|
-|**Migrazione**|In CTP 3.1, fino a RC2, è possibile eseguire la migrazione solo di un'intera tabella con la procedura guidata. Se si desidera specificare un predicato per selezionare le righe da una tabella contenente dati attuali e cronologici, eseguire l'istruzione ALTER TABLE per specificare un predicato dopo aver chiuso la procedura guidata. Per altre informazioni, vedere l'articolo relativo all'[abilitazione del database per l'estensione per una tabella](sql-server-stretch-database-enable-table.md) o [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+
+## <a name="Filter"></a>Fornire facoltativamente un predicato del filtro basato sulla data
+
+Per fornire un predicato del filtro basato sulla data per selezionare le righe per la migrazione, eseguire queste operazioni nella pagina **Selezione tabelle**.
+
+1.  Nell'elenco **Selezionare le tabelle da estendere** fare clic su **Intera tabella** nella riga per la tabella. Viene aperta la finestra di dialogo **Seleziona righe da estendere**.
+
+    ![Definire un predicato del filtro basato sulla data][StretchWizardImage2a]
+
+2.  Nella finestra di dialogo **Seleziona righe da estendere** selezionare **Scegli righe**.
+
+3.  Nel campo **Nome** immettere un nome per il predicato del filtro.
+
+4.  Per la clausola **Where** selezionare una colonna data dalla tabella, selezionare un operatore e specificare un valore di data.
+
+5. Fare clic su **Controlla** per testare il predicato. Se il predicato restituisce risultati dalla tabella, ovvero se sono presenti righe per la migrazione che soddisfano la condizione, il test indica **Esito positivo**.
+
+6.  Fare clic su Operazione completata per tornare alla pagina **Selezione tabelle**.
+
+    ![Pagina Selezione tabelle dopo avere definito un predicato del filtro][StretchWizardImage2b]
 
 ## <a name="Configure"></a>Configurare la distribuzione di Azure
 
@@ -62,7 +82,7 @@ Selezionare le tabelle di cui si desidera abilitare l'estensione.
 
 4.  Specificare se si desidera usare un server esistente o creare un nuovo server Azure.
 
-    Se Active Directory in SQL Server è federata con Azure Active Directory, si può scegliere di usare un account del servizio federato per consentire a SQL Server di comunicare con il server Azure remoto. Per altre informazioni sui requisiti per questa opzione, vedere l'articolo relativo alle [opzioni ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx).
+    Se Active Directory in SQL Server è federata con Azure Active Directory, si può scegliere di usare un account del servizio federato per consentire a SQL Server di comunicare con il server Azure remoto. Per altre informazioni sui requisiti per questa opzione, vedere [Opzioni ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx).
 
 	-   **Creare un nuovo server**
 
@@ -84,14 +104,14 @@ Selezionare le tabelle di cui si desidera abilitare l'estensione.
 
 		![Pagina di selezione di un server di Azure esistente della procedura guidata di estensione database][StretchWizardImage5]
 
-## <a name="Credentials"></a>Credenziali protette
+## <a name="Credentials"></a>Proteggere le credenziali
 Immettere una password complessa per creare una chiave master del database o, se già presente, immettere la relativa password.
 
 È necessario disporre di una chiave master del database per proteggere le credenziali usate da estensione database per la connessione al database remoto.
 
 ![Pagina delle credenziali di sicurezza della procedura guidata di estensione database][StretchWizardImage6]
 
-Per altre informazioni sulla chiave master del database, vedere l'istruzione [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) e l'articolo [Creazione della chiave master di un database](https://msdn.microsoft.com/library/aa337551.aspx). Per altre informazioni sulle credenziali create dalla procedura guidata, vedere l'istruzione [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx).
+Per altre informazioni sulla chiave master del database, vedere l'istruzione [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) e l'articolo [Creare la chiave master di un database](https://msdn.microsoft.com/library/aa337551.aspx). Per altre informazioni sulle credenziali create dalla procedura guidata, vedere l'istruzione [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx).
 
 ## <a name="Network"></a>Selezionare l'indirizzo IP
 Usare l'indirizzo IP pubblico di SQL Server o immettere un intervallo di indirizzi IP per creare una regola del firewall in Azure che consenta a SQL Server di comunicare con il server Azure remoto.
@@ -108,21 +128,21 @@ Esaminare i valori immessi dall'utente e le opzioni selezionate nella procedura 
 ## <a name="Results"></a>Risultati
 Esaminare i risultati.
 
-Si può scegliere facoltativamente di selezionare **Monitoraggio** per avviare il monitoraggio dello stato della migrazione dei dati in Stretch Database Monitor. Per altre informazioni, vedere l'articolo [Monitoraggio e risoluzione dei problemi di migrazione dei dati (estensione database)](sql-server-stretch-database-monitor.md).
+Si può scegliere facoltativamente di selezionare **Monitoraggio** per avviare il monitoraggio dello stato della migrazione dei dati in Stretch Database Monitor. Per altre informazioni, vedere l'articolo [Monitorare e risolvere i problemi di migrazione dei dati (estensione database)](sql-server-stretch-database-monitor.md).
 
 ## <a name="KnownIssues"></a>Risoluzione dei problemi della procedura guidata
-**La procedura guidata di estensione database non viene eseguita correttamente.** La procedura guidata non viene eseguita correttamente quando l'estensione database non è ancora abilitata a livello di server e non si hanno le necessarie autorizzazioni di amministratore di sistema. Chiedere all'amministratore di sistema di abilitare l'estensione database nell'istanza del server locale, quindi eseguire nuovamente la procedura guidata. Per altre informazioni, vedere la sezione [Prerequisito: Autorizzazioni per abilitare l'estensione database sul server](sql-server-stretch-database-enable-database.md#EnableTSQLServer).
+**La procedura guidata di estensione database non viene eseguita correttamente.** La procedura guidata non viene eseguita correttamente quando l'estensione database non è ancora abilitata a livello di server e non si hanno le necessarie autorizzazioni di amministratore di sistema. Chiedere all'amministratore di sistema di abilitare l'estensione database nell'istanza del server locale, quindi eseguire nuovamente la procedura guidata. Per altre informazioni, vedere la sezione [Prerequisito: Autorizzazioni per abilitare Estensione database sul server](sql-server-stretch-database-enable-database.md#EnableTSQLServer).
 
 ## Passaggi successivi
 Abilitare tabelle aggiuntive per Database Estensione. Monitorare la migrazione dei dati e gestire tabelle e database con estensione abilitata.
 
--   [Abilitare l'estensione database per una tabella](sql-server-stretch-database-enable-table.md) per abilitare tabelle aggiuntive.
+-   [Abilitare Estensione database per una tabella](sql-server-stretch-database-enable-table.md) per abilitare tabelle aggiuntive.
 
--   [Monitorare l'estensione database](sql-server-stretch-database-monitor.md) per visualizzare lo stato della migrazione dei dati.
+-   [Monitorare Estensione database](sql-server-stretch-database-monitor.md) per visualizzare lo stato della migrazione dei dati.
 
--   [Sospendere e riprendere l'estensione database](sql-server-stretch-database-pause.md)
+-   [Sospendere e riprendere Database Estensione](sql-server-stretch-database-pause.md)
 
--   [Gestire e risolvere i problemi di estensione database](sql-server-stretch-database-manage.md)
+-   [Gestire e risolvere i problemi di Database Estensione](sql-server-stretch-database-manage.md)
 
 -   [Eseguire backup e ripristino di database con estensione abilitata](sql-server-stretch-database-backup.md)
 
@@ -134,6 +154,8 @@ Abilitare tabelle aggiuntive per Database Estensione. Monitorare la migrazione d
 
 [StretchWizardImage1]: ./media/sql-server-stretch-database-wizard/stretchwiz1.png
 [StretchWizardImage2]: ./media/sql-server-stretch-database-wizard/stretchwiz2.png
+[StretchWizardImage2a]: ./media/sql-server-stretch-database-wizard/stretchwiz2a.png
+[StretchWizardImage2b]: ./media/sql-server-stretch-database-wizard/stretchwiz2b.png
 [StretchWizardImage3]: ./media/sql-server-stretch-database-wizard/stretchwiz3.png
 [StretchWizardImage4]: ./media/sql-server-stretch-database-wizard/stretchwiz4.png
 [StretchWizardImage5]: ./media/sql-server-stretch-database-wizard/stretchwiz5.png
@@ -141,4 +163,4 @@ Abilitare tabelle aggiuntive per Database Estensione. Monitorare la migrazione d
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

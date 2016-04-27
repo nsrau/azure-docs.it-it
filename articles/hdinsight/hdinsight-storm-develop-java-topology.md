@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/29/2016"
+   ms.date="04/11/2016"
    ms.author="larryfr"/>
 
 #Sviluppare topologie basate su Java per un'applicazione di base per il conteggio di parole con Apache Storm e Maven in HDInsight
@@ -107,6 +107,7 @@ Per le topologie Storm, il <a href="http://mojo.codehaus.org/exec-maven-plugin/"
 	<plugin>
       <groupId>org.codehaus.mojo</groupId>
       <artifactId>exec-maven-plugin</artifactId>
+      <version>1.4.0</version>
       <executions>
         <execution>
         <goals>
@@ -130,6 +131,7 @@ Aggiungere quanto segue alla sezione `<plugins>` del file **pom.xml** per includ
 	<plugin>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.3</version>
       <configuration>
         <source>1.7</source>
         <target>1.7</target>
@@ -469,4 +471,4 @@ A questo punto, dopo aver appreso come creare una topologia Storm con Java, è p
 
 Per altri esempi di topologie Storm, vedere [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -102,8 +102,8 @@ Nome|Parte firma di accesso condiviso|Descrizione
 ---|---|---
 URI del BLOB|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt |Indirizzo del BLOB. Si noti che è vivamente consigliato l'uso di HTTPS.
 Versione dei servizi di archiviazione|sv=2015-04-05|Per i servizi di archiviazione della versione 2012-02-12 e successive questo parametro indica la versione da usare.
-Ora di inizio|st=2015-04-29T22%3A18%3A26Z|Specificata in un formato ISO 8601. Se si desidera che la firma di accesso condiviso sia immediatamente valida, omettere l'ora di inizio.
-Scadenza|se=2015-04-30T02%3A23%3A26Z|Specificata in un formato ISO 8601.
+Ora di inizio|st=2015-04-29T22%3A18%3A26Z|Specificata nell'ora UTC. Se si desidera che la firma di accesso condiviso sia immediatamente valida, omettere l'ora di inizio.
+Scadenza|se=2015-04-30T02%3A23%3A26Z|Specificata nell'ora UTC.
 Risorsa|sr=b|La risorsa è un BLOB.
 Autorizzazioni|sp=rw|Le autorizzazioni concesse dalla firma di accesso condiviso includono lettura (r) e scrittura (w).
 Intervallo IP|sip=168.1.5.60-168.1.5.70|Intervallo di indirizzi IP da cui verrà accettata una richiesta.
@@ -314,8 +314,8 @@ Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all
 - [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md)
 - [Gestire l'accesso in lettura anonimo a contenitori e BLOB](storage-manage-access-to-resources.md)
 - [Delega dell'accesso con una firma di accesso condiviso](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [Introduzione tabella e coda SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+- [Introduzione alla firma di accesso condiviso per tabelle e code](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -55,11 +55,13 @@ Aggiungere le istruzioni `using` seguenti all'inizio del file `program.cs`.
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
+### Analizzare la stringa di connessione
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Creare il client del servizio BLOB
 
-La classe **CloudBlobClient** consente di recuperare contenitori e BLOB archiviati nell'archivio BLOB. Aggiungere il codice seguente al metodo **Main()**:
+La classe **CloudBlobClient** consente di recuperare contenitori e BLOB archiviati nell'archivio BLOB. Ecco come creare il client del servizio:
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
@@ -87,8 +89,7 @@ In questo esempio viene creato un contenitore, nel caso in cui non esista già:
 Per impostazione predefinita, il nuovo contenitore è privato, ovvero è necessario specificare la chiave di accesso alle risorse di archiviazione per scaricare BLOB da questo contenitore. Se si desidera che i file all'interno del contenitore siano disponibili a tutti, è possibile impostare il contenitore come pubblico usando il codice seguente:
 
     container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess =
- 	    BlobContainerPublicAccessType.Blob });
+        new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
 I BLOB in un contenitore pubblico sono visibili a tutti gli utenti di Internet, tuttavia è possibile modificarli o eliminarli solo se è disponibile la chiave di accesso dell'account appropriata o una firma di accesso condiviso.
 
@@ -364,7 +365,6 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
 - [Come usare l'archiviazione file di Azure](storage-dotnet-how-to-use-files.md)
 - [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy)
 - [Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-- [Uso del database SQL da .NET (C#)](../sql-database/sql-database-dotnet-how-to-use.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -377,4 +377,4 @@ A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visita
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

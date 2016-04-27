@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="04/07/2016"
 	ms.author="genli"/>
 
 #  Domande frequenti su fatturazione e sottoscrizione di Azure
@@ -44,6 +44,8 @@ Questo articolo risponde ad alcune delle domande più frequenti relative alla fa
 - [Come si integrano i contratti di servizio di Azure con gli attuali contratti di licenza Microsoft per soluzioni locali?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
 **Sottoscrizioni**
+
+- [Non è possibile accedere al portale di Azure](#i-am-unable-to-log-in-to-the-azure-portal)
 
 - [Come si acquista il supporto tecnico di Azure?](#how-do-i-purchase-azure-support)
 
@@ -145,6 +147,14 @@ I contratti di servizio di Azure sono indipendenti dai contratti di licenza Micr
 
 ## Sottoscrizioni
 
+### Non è possibile accedere al portale di Azure
+
+L'articolo seguente consentirà di risolvere alcune cause comuni dei problemi di accesso.
+
+[Non è possibile accedere per gestire la sottoscrizione di Azure](billing-cannot-login-subscription.md)
+
+**Nota** Assicurarsi di accedere come amministratore corretto. Un amministratore account può accedere solo al [Centro account](https://account.windowsazure.com/), mentre gli amministratori del servizio (SA) e i coamministratori (CA) hanno accesso solo al [portale di Azure](https://portal.azure.com/) o al [portale di Azure classico](https://manage.windowsazure.com/).
+
 ### Come si acquista il supporto tecnico di Azure?
 I piani di supporto di Azure possono essere acquistati online o tramite un contratto Enterprise. I piani di supporto Developer, Standard o Professional Direct sono disponibili online nella pagina dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/). Per acquistare un piano di supporto, è necessario essere proprietari dell'account Microsoft Azure.
 
@@ -170,7 +180,7 @@ Quando si acquista un piano di supporto di Azure online, viene immediatamente ad
 
 Alla fine del periodo di validità di 6 mesi, i piani saranno rinnovati automaticamente per lo stesso piano di supporto di Azure per altri 6 mesi, con lo stesso metodo di pagamento. In qualità di proprietario di un account è possibile disattivare la funzionalità di rinnovo automatico tramite il [Centro account di Azure](https://account.windowsazure.com/Home/Index).
 
-Se non si vuole l'opzione di rinnovo automatico, accedi al [Centro account di Azure](https://account.windowsazure.com/Home/Index), selezionare il piano di supporto in questione, fare clic su "Modifica dettagli rinnovo" e deselezionare l'opzione predefinita di rinnovo automatico.
+Se non si vuole l'opzione di rinnovo automatico, accedere al [Centro account di Azure](https://account.windowsazure.com/Home/Index), selezionare il piano di supporto specifico, fare clic su "Modifica dettagli rinnovo" e deselezionare l'opzione predefinita di rinnovo automatico.
 
 ### Come è possibile annullare il piano di supporto di Azure?
 
@@ -258,4 +268,4 @@ Sì.
 
 Attualmente non si prevede di offrire Azure o il database SQL tramite SPLA.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

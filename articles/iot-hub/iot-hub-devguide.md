@@ -48,7 +48,7 @@ Ecco di seguito una descrizione degli endpoint:
     - *Invio di messaggi da dispositivo a cloud*. Usare questo endpoint per inviare messaggi da dispositivo a cloud. Per altre informazioni, vedere [Messaggistica da dispositivo a cloud](#d2c).
     - *Ricezione di messaggi da cloud a dispositivo*. Il dispositivo usa questo endpoint per ricevere messaggi da cloud a dispositivo specifici. Per altre informazioni, vedere [Messaggistica da cloud a dispositivo](#c2d).
 
-    Questi endpoint vengono esposti tramite i protocolli HTTP, [MQTT][lnk-mqtt] e [AMQP][lnk-amqp]. Si noti che AMQP è disponibile anche in [WebSocket][lnk-websockets] sulla porta 443.
+    Questi endpoint vengono esposti tramite i protocolli HTTP 1.1, [MQTT v3.1.1][lnk-mqtt] e [AMQP 1.0][lnk-amqp]. Si noti che AMQP è disponibile anche in [WebSocket][lnk-websockets] sulla porta 443.
 * **Endpoint di servizio**: ogni hub IoT espone un set di endpoint che il back-end dell'applicazione può usare per comunicare con i dispositivi. Questi endpoint vengono attualmente esposti solo tramite il protocollo [AMQP][lnk-amqp].
     - *Ricezione di messaggi da dispositivo a cloud*. Questo endpoint è compatibile con gli [hub eventi di Azure][lnk-event-hubs] e può essere usato da un servizio back-end per leggere tutti i messaggi da dispositivo a cloud inviati dai dispositivi. Per altre informazioni, vedere [Messaggistica da dispositivo a cloud](#d2c).
     - *Invio di messaggi da cloud a dispositivo e ricezione di acknowledgement di recapito*. Questi endpoint consentono al back-end dell'applicazione di inviare messaggi affidabili da cloud a dispositivo e di ricevere gli acknowledgment di recapito o di scadenza corrispondenti. Per altre informazioni, vedere [Messaggistica da cloud a dispositivo](#c2d).
@@ -68,7 +68,7 @@ Quando si usano gli SDK o le integrazioni del prodotto non compatibili con l'hub
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] A volte l'SDK richiede un valore per **Nome host** o **Spazio dei nomi**. In tal caso sarà necessario rimuovere lo schema dall'**Endpoint compatibile con l'hub eventi**. Ad esempio, se l'endpoint compatibile con l'hub eventi è **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, il **Nome host** sarà **iothub-ns-myiothub-1234.servicebus.windows.net** e lo **Spazio dei nomi** sarà **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Nel caso in cui l'SDK richieda un valore **Nome host** o **Spazio dei nomi**, rimuovere lo schema dall'**Endpoint compatibile con l'hub eventi**. Ad esempio, se l'endpoint compatibile con l'hub eventi è **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, il **Nome host** sarà **iothub-ns-myiothub-1234.servicebus.windows.net** e lo **Spazio dei nomi** sarà **iothub-ns-myiothub-1234**.
 
 È quindi possibile usare qualsiasi tipo di criteri di sicurezza di accesso condiviso con autorizzazioni **ServiceConnect** per la connessione all'hub eventi specificato.
 
@@ -338,7 +338,7 @@ L'hub IoT fornisce le primitive di messaggistica per comunicare:
 
 Le proprietà di base della funzionalità di messaggistica dell'hub IoT sono l'affidabilità e la durabilità dei messaggi. Ciò consente la resilienza in caso di connettività intermittente sul lato dispositivo e picchi di carico durante l'elaborazione degli eventi sul lato cloud. L'hub IoT implementa *almeno una volta* le garanzie di recapito per la messaggistica da dispositivo a cloud e da cloud a dispositivo.
 
-L'hub IoT supporta più protocolli per il dispositivo, ad esempio AMQP e HTTP/1. Per supportare l'interoperabilità senza problemi tra i protocolli, l'hub IoT definisce un formato di messaggio comune supportato da tutti i protocolli per il dispositivo.
+L'hub IoT supporta più protocolli per il dispositivo, ad esempio MQTT, AMQP e HTTP. Per supportare l'interoperabilità senza problemi tra i protocolli, l'hub IoT definisce un formato di messaggio comune supportato da tutti i protocolli per il dispositivo.
 
 ### Formato del messaggio <a id="messageformat"></a>
 
@@ -640,4 +640,4 @@ Al termine di questa panoramica dello sviluppo per l'hub IoT, è possibile usare
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

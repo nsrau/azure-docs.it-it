@@ -4,7 +4,7 @@
 	keywords="Sviluppo di applicazioni, esercitazione sul database, Python Flask, applicazione Web Python, sviluppo Web Python, DocumentDB, Azure, Microsoft Azure"
     services="documentdb"
     documentationCenter="python"
-    authors="ryancrawcour"
+    authors="aliuy"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
-    ms.author="ryancraw"/>
+    ms.date="04/18/2016"
+    ms.author="andrl"/>
 
 # Sviluppo di applicazioni Web Python Flask con DocumentDB
 
@@ -199,7 +199,7 @@ def create():
         message='You just created a new database, collection, and document.  Your old votes have been deleted')
 ```
 
-> [AZURE.TIP] Il metodo **CreateCollection** accetta un **RequestOptions** facoltativo come 3° parametro. Consente di specificare il tipo di offerta per la raccolta. Se non viene specificato alcun valore offerType, la raccolta verrà creata usando il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta di DocumentDB, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).
+> [AZURE.TIP] Il metodo **CreateCollection** accetta un **RequestOptions** facoltativo come 3ª parametro. Consente di specificare il tipo di offerta per la raccolta. Se non viene specificato alcun valore offerType, la raccolta verrà creata usando il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta di DocumentDB, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).
 
 
 ### Leggere database, raccolta, documento e inviare il form
@@ -433,4 +433,4 @@ Per altre esercitazioni su Python Flask, vedere [The Flask Mega-Tutorial, Part I
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

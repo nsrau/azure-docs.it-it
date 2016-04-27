@@ -32,7 +32,6 @@
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
 - __Visual Studio 2013 o 2015__
 
 ## Creare i cluster
@@ -365,4 +364,11 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+### Eseguire i processi
+
+- [Eseguire processi Hive con .NET SDK in HDInsight](hdinsight-hadoop-use-hive-dotnet-sdk.md)
+- [Eseguire processi Pig con .NET SDK in HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+- [Eseguire processi Sqoop con .NET SDK in HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+- [Eseguire processi Oozie in HDInsight](hdinsight-use-oozie.md)
+
+<!---HONumber=AcomDC_0413_2016-->

@@ -63,11 +63,11 @@ In questa sezione verrà modificata l’app console **SendCloudtoDevice** creata
 
 [Informazioni sull'archiviazione di Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
+[IoT Hub Developer Guide - C2D]: ../articles/iot-hub/iot-hub-devguide.md#c2d
 [Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Get started with IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

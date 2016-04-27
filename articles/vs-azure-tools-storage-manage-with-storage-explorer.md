@@ -158,7 +158,7 @@ Per controllare l'accesso ai contenitori BLOB, è possibile scegliere i comandi 
 	![][20]
 
 ## Passaggi successivi
-Per altre informazioni sulle funzionalità nei servizi di Archiviazione di Azure, vedere gli articoli in [Introduzione ad Archiviazione di Microsoft Azure](/storage/storage-introduction.md).
+Per altre informazioni sulle funzionalità nei servizi di Archiviazione di Azure, vedere gli articoli in [Introduzione ad Archiviazione di Microsoft Azure](./storage/storage-introduction.md).
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1c.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount2c.png
@@ -182,4 +182,4 @@ Per altre informazioni sulle funzionalità nei servizi di Archiviazione di Azure
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -92,7 +92,7 @@ Dopo aver creato la VM è possibile eseguire l'accesso tramite desktop remoto co
 
 Una volta creata la VM ed effettuato il provisioning, si è pronti per iniziare a usare gli strumenti installati e configurati nella VM. Sono disponibili riquadri del menu di avvio e icone del desktop per molti strumenti.
 
-## Come creare una password complessa nel server notebook di Jupyter 
+##Come creare una password complessa nel server notebook di Jupyter 
 
 Eseguire questo comando dal prompt dei comandi nella macchina virtuale per l'analisi scientifica dei dati per creare la password complessa per il server notebook di Jupyter installato nel computer.
 
@@ -150,4 +150,4 @@ Ecco alcuni passaggi successivi per continuare l'apprendimento e l'esplorazione.
 * Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando l'[analisi scientifica dei dati](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visitare [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) per esempi di Machine Learning e di analisi dei dati usando Cortana Intelligence Suite. Viene inoltre fornita un'icona sul desktop e nel menu di avvio della macchina virtuale per semplificare l'accesso 
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="04/07/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
@@ -51,7 +51,7 @@ Poiché SQL Data Warehouse separa il calcolo dall'archiviazione, tutti i dati ve
 
 ### Ripristino del database
 
-La funzionalità di ripristino del database è stata progettata per ripristinare il database da un punto precedente nel tempo. Il servizio Azure SQL Data Warehouse protegge tutti i database eseguendo snapshot di archiviazione automatica almeno ogni 8 ore e li conserva per 7 giorni in modo da fornire un set discreto di punti di ripristino. Questi backup vengono archiviati in Archiviazione di Azure RA-GRS e pertanto offrono ridondanza geografica per impostazione predefinita. Le funzionalità di backup e ripristino automatici sono disponibili senza spese aggiuntive e consentono di proteggere i database da un danneggiamento o un'eliminazione accidentale a costo zero. Per altre informazioni sul ripristino di database, vedere l'articolo relativo al [ripristino da un errore dell'utente][].
+La funzionalità di ripristino del database è stata progettata per ripristinare il database da un punto precedente nel tempo. Il servizio Azure SQL Data Warehouse protegge tutti i database eseguendo snapshot di archiviazione automatica almeno ogni 8 ore e li conserva per 7 giorni in modo da fornire un set discreto di punti di ripristino. Questi backup vengono archiviati in Archiviazione di Azure RA-GRS e pertanto offrono ridondanza geografica per impostazione predefinita. Le funzionalità di backup e ripristino automatici sono disponibili senza spese aggiuntive e consentono di proteggere i database da un danneggiamento o un'eliminazione accidentale a costo zero. Per altre informazioni sul ripristino di database, vedere l'articolo relativo al [ripristino da snapshot][].
 
 ### Ripristino geografico
 
@@ -68,7 +68,7 @@ Per altre informazioni sulle funzionalità di continuità aziendale di altre edi
 [Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
 [opzioni di ridondanza dell'archiviazione di Azure]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [panoramica sulla continuità aziendale di database SQL]: ../sql-database/sql-database-business-continuity.md
-[ripristino da un errore dell'utente]: sql-data-warehouse-business-continuity-recover-from-user-error.md
+[ripristino da snapshot]: sql-data-warehouse-backup-and-restore-from-snapshot.md
 
 <!--MSDN references-->
 [Create database restore request]: http://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -78,4 +78,4 @@ Per altre informazioni sulle funzionalità di continuità aziendale di altre edi
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

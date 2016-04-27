@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Opzioni di hosting di calcolo fornite da Azure" 
-	description="Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Macchine virtuali, Siti Web, Servizi cloud e altre opzioni." 
-	headerExpose="" 
-	footerExpose="" 
-	services="cloud-services,virtual-machines"
-	authors="Thraka" 
+<properties
+	pageTitle="Opzioni di hosting di calcolo fornite da Azure"
+	description="Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Macchine virtuali, Siti Web, Servizi cloud e altre opzioni."
+	headerExpose=""
+	footerExpose=""
+	services="cloud-services"
+	authors="Thraka"
 	documentationCenter=""
 	manager="timlt"/>
 
@@ -14,71 +14,50 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
-	ms.author="adegeo;cephalin;kathydav"/>
+	ms.date="03/28/2016" 
+	ms.author="adegeo"/>
 
 
+# Perché scegliere Servizi cloud o altro?
 
+Servizi cloud di Azure è la scelta giusta? In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applicazioni. Ognuno fornisce un diverso set di servizi, pertanto quello da scegliere dipende dalle attività che si tenta di eseguire.
 
-# Opzioni di hosting di calcolo fornite da Azure
+[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
-In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applicazioni. Ognuno fornisce un diverso set di servizi, pertanto quello da scegliere dipende dalle attività che si tenta di eseguire. In questo articolo vengono esaminate le varie opzioni, descrivendo ciascuna tecnologia e fornendo esempi di quando è opportuno usarla.
+<a name="tellmecs"></a>
+## Informazioni sui servizi cloud
 
-| Opzioni di calcolo | Destinatari |
-| ------------------ | --------   |
-| [Servizio app] | App per dispositivi mobili, app per le API, app per la logica e app Web scalabili per qualsiasi dispositivo |
-| [Servizi cloud] | App per cloud a più livelli scalabili e altamente disponibili con maggiore controllo del sistema operativo |
-| [Macchine virtuali] | Macchine virtuali Windows e Linux personalizzate con controllo completo del sistema operativo |
+Servizi cloud è un esempio di Platform-as-a-Service (PaaS). Analogamente al [servizio app](../app-service-web/app-service-web-overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, attendibili ed economicamente efficienti. Proprio come un servizio app, i servizi cloud sono ospitati su VM, tuttavia il controllo sulle VM è maggiore. È possibile installare il software personalizzato nelle macchine virtuali del servizio cloud ed accedervi in remoto.
 
-[AZURE.INCLUDE [content](../../includes/app-service-choose-me-content.md)]
+![cs\_diagram](./media/cloud-services-choose-me/diagram.png)
 
-[AZURE.INCLUDE [content](../../includes/cloud-services-choose-me-content.md)]
+Maggiore controllo significa anche minore semplicità d'uso. Pertanto, se non sono necessarie opzioni di controllo aggiuntive, in genere è più semplice e rapido creare ed eseguire un'applicazione Web, in esecuzione in App Web, in Servizio app rispetto a Servizi Cloud.
 
-[AZURE.INCLUDE [content](../../includes/virtual-machines-choose-me-content.md)]
+La tecnologia offre due opzioni leggermente diverse relative alle macchine virtuali, ovvero istanze di *ruoli Web* che eseguono una variante di Windows Server con IIS e istanze di *ruoli di lavoro* che eseguono la stessa variante di Windows Server senza IIS. Un'applicazione di Servizi cloud si basa su una combinazione di tali opzioni.
 
-## Altre opzioni
+In un servizio cloud sono disponibili tutte le combinazioni di queste due opzioni leggermente diverse di hosting di macchine virtuali:
 
-Azure inoltre offre altri modelli di hosting di calcolo per scopi più specifici, ad esempio:
+* **Ruolo Web**: esegue Windows Server con l'app Web automaticamente distribuita a IIS.
+  
+* **Ruolo di lavoro**: esegue Windows Server senza IIS.
 
-* [Servizi mobili](/services/mobile-services/)  
-  Ottimizzato per fornire un back-end del cloud per le app eseguite su dispositivi mobili.
-* [Batch](/services/batch/)  
-  Ottimizzato per l'elaborazione di volumi elevati di operazioni simili, idealmente carichi di lavoro che si prestano all'esecuzione di attività parallele su più computer.
-* [HDInsight (Hadoop)](/services/hdinsight/)  
-  Ottimizzato per l'esecuzione di processi [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) nei cluster Hadoop. 
+Ad esempio, un'applicazione semplice può usare solo un ruolo Web, mentre un'applicazione più complessa può usare un ruolo Web per la gestione delle richieste in arrivo dagli utenti, quindi passare il carico di lavoro generato da tali richieste a un ruolo di lavoro per l'elaborazione. Per tale comunicazione è possibile che venga usato il [bus di servizio](../service-bus/service-bus-fundamentals-hybrid-solutions.md) o il [servizio di accodamento di Azure](../storage/storage-introduction.md).
 
-## Scelta del modello da usare
+Come illustrato nella figura, tutte le macchine virtuali in una singola applicazione vengono eseguite nello stesso servizio cloud. Per questo motivo gli utenti accedono all'applicazione attraverso un indirizzo IP pubblico che esegue automaticamente il bilanciamento del carico delle richieste nelle macchine virtuali dell'applicazione. La piattaforma [scalerà e distribuirà](cloud-services-how-to-scale.md) le VM in un'applicazione di Servizi cloud, in modo da evitare un singolo punto di errore hardware.
 
-Tutti e tre i modelli di hosting di calcolo di Azure per scopi generici consentono di creare applicazioni scalabili e affidabili nel cloud. La scelta del modello da usare, pertanto,
+Anche se le applicazioni sono eseguite nelle macchine virtuali, è importante capire che Servizi cloud fornisce PaaS, non IaaS. La spiegazione seguente aiuta a comprendere meglio il concetto: una tecnologia IaaS, quale Macchine virtuali di Azure, consente di creare e configurare prima di tutto l'ambiente in cui verrà eseguita l'applicazione, quindi di distribuire l'applicazione in tale ambiente. L'utente ha la responsabilità di gestire questo ambiente, ad esempio distribuendo nuove versioni con patch del sistema operativo in ogni macchina virtuale. La tecnologia PaaS, invece, consente di procedere come se l'ambiente esistesse già. È sufficiente è distribuire l'applicazione. La gestione della piattaforma in cui viene eseguita l'applicazione, inclusa la distribuzione di nuove versioni del sistema operativo, non è a carico dell'utente.
 
-Servizio app è la scelta migliore per la maggior parte delle app Web. La distribuzione e la gestione sono integrate nella piattaforma ed è possibile scalare rapidamente i siti per gestire carichi di traffico elevato; inoltre, il bilanciamento del carico e la gestione del traffico predefiniti offrono disponibilità elevata. È possibile spostare facilmente siti esistenti in Servizio app con uno [strumento di migrazione online](https://www.migratetoazure.net/), usare un'app open source della raccolta di applicazioni Web oppure creare un nuovo sito tramite il framework e gli strumenti di propria scelta. La funzionalità [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) consente di aggiungere facilmente l'elaborazione di processi in background all'applicazione, nonché di eseguire un carico di lavoro di calcolo che non è un'app Web.
+## Scalabilità e gestione
+Con Servizi cloud le macchine virtuali non vengono create dall'utente, che si limita a fornire un file di configurazione che specifica ad Azure quante macchine virtuali di ogni tipo sono richieste, ad esempio **tre istanze del ruolo Web** e **due istanze del ruolo di lavoro**. Le macchine virtuali vengono poi create automaticamente dalla piattaforma. L'utente decide le [dimensioni](cloud-services-sizes-specs.md) delle macchine virtuali di supporto, ma non le crea esplicitamente. Se l'applicazione deve gestire un carico maggiore, è possibile richiedere macchine virtuali aggiuntive e tali istanze verranno create automaticamente da Azure. Se il carico diminuisce, è possibile chiudere tali istanze e interromperne il pagamento.
 
-Per esercitare un controllo maggiore sull'ambiente server Web, ad esempio poter accedere in remoto al server o configurare attività di avvio del server, Servizi cloud di Azure è in genere l'opzione migliore.
+Un'applicazione di Servizi cloud viene in genere resa disponibile agli utenti mediante un processo in due fasi. Prima di tutto lo sviluppatore [carica l'applicazione](cloud-services-how-to-create-deploy.md) nell'area di gestione temporanea della piattaforma. Quando lo sviluppatore è pronto per l'attivazione dell'applicazione, usa il portale di gestione di Azure per richiedere il passaggio in produzione. Il [passaggio dalla gestione temporanea alla produzione](cloud-services-nodejs-stage-application.md) può essere eseguito senza tempi di inattività, consentendo l'aggiornamento di un'applicazione in esecuzione a una nuova versione senza interferire con l'uso da parte degli utenti.
 
-Se è presente un'applicazione esistente la cui esecuzione in Siti Web di Azure o Servizi cloud di Azure richiederebbe modifiche sostanziali, è possibile scegliere Macchine virtuali di Azure allo scopo di semplificare la migrazione al cloud. Tuttavia, la corretta configurazione, la protezione e la gestione delle VM richiede molto più tempo e competenza IT rispetto a Siti Web di Azure e a Servizi cloud. Se si sta valutando la possibilità di usare Macchine virtuali di Azure, assicurarsi di tenere conto delle operazioni di manutenzione continua necessarie per le attività di applicazione di patch, aggiornamento e gestione relative all'ambiente di VM.
+## Monitoraggio
+Servizi cloud offre inoltre funzionalità di monitoraggio. Analogamente a Macchine virtuali di Azure, consente di rilevare un server fisico con errore e di riavviare in una nuova macchina le VM in esecuzione su tale server. Servizi cloud consente inoltre di rilevare errori di macchine virtuali e applicazioni, non solo errori hardware. A differenza di Macchine virtuali, dispone di un agente in ogni ruolo Web e di lavoro ed è quindi in grado di avviare nuove macchine virtuali e istanze di applicazione in caso di errori.
 
-In alcuni casi nessuna opzione singola è corretta ed è pertanto possibile combinare diverse opzioni. Ad esempio, si sta creando un'applicazione per la quale si desiderano i vantaggi a livello di gestione offerti dai ruoli Web di Servizi cloud ma è anche necessario usare SQL Server standard ospitato in una macchina virtuale per motivi di compatibilità o prestazioni.
-
-<!-- In this case, the best option is to combine compute hosting options, as the figure below shows.--
-
-<a name="fig4"></a>
-![07_CombineTechnologies][07_CombineTechnologies] 
- 
-**Figure: A single application can use multiple hosting options.**
-
-As the figure illustrates, the Cloud Services VMs run in a separate cloud service from the Virtual Machines VMs. Still, the two can communicate quite efficiently, so building an app this way is sometimes the best choice.
-[07_CombineTechnologies]: ./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png
-!-->
-
-[Servizio app]: #tellmeas
-[Macchine virtuali]: #tellmevm
-[Servizi cloud]: #tellmecs
+L'utilizzo della tecnologia PaaS da parte di Servizi cloud comporta anche altre implicazioni, ad esempio il fatto che le applicazioni basate su tale tecnologia devono essere scritte in modo da essere eseguite correttamente in caso di errore di istanze dei ruoli Web o di lavoro. A tale scopo, è necessario che lo stato di un'applicazione di Servizi cloud non venga salvato nel file system delle rispettive macchine virtuali. A differenza delle VM create tramite Macchine virtuali di Azure, le operazioni di scrittura effettuate nelle VM di Servizi cloud non sono persistenti. La persistenza è offerta solo dai dischi dati di Macchine virtuali. È pertanto necessario che tutti gli stati di un'applicazione di Servizi cloud vengano scritti esplicitamente in database SQL, BLOB, tabelle o altre tecnologie di archiviazione esterna. Le applicazioni create in questo modo risulteranno più scalabili e più resistenti agli errori, obiettivi essenziali di Servizi cloud.
 
 ## Passaggi successivi
+[Creare un'app del servizio cloud in .NET](cloud-services-dotnet-get-started.md) [Creare un'app del servizio cloud in Node.js](cloud-services-nodejs-develop-deploy-app.md) [Creare un'app del servizio cloud in PHP](../cloud-services-php-create-web-role.md) [Creare un'app del servizio cloud in Python](../cloud-services-python-ptvs.md)
 
-* [Confronto](../choose-web-site-cloud-service-vm/) tra Servizio app, Servizi cloud e Macchine virtuali
-* Informazioni su [Servizio app](../app-service-web-overview.md)
-* Informazioni su [Servizio cloud](services/cloud-services/)
-* Informazioni su [Macchine virtuali](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -28,13 +28,16 @@ Per usare il connettore Wait, è innanzitutto necessario creare un'istanza dell'
 Il connettore Wait può essere usato come azione. Non include trigger.
 
 ### Azione
-- Fare clic sul connettore Wait nel riquadro destro: ![Elenco di azioni][1]
+- Fare clic sul connettore Wait nel riquadro destro:
+![Elenco di azioni][1]
 - Il connettore Wait supporta due azioni: 
 	- Delay
 	- Delay Until
 	 
-- Selezionare *Delay*: ![Input relativo al ritardo][2]
-- Fornire gli input per l'azione e configurarla: ![Azione configurata][3]
+- Selezionare *Delay*:
+![Input relativo al ritardo][2]
+- Fornire gli input per l'azione e configurarla:
+![Azione configurata][3]
 
 Parametro|Tipo|Descrizione del parametro
 ---|---|---
@@ -48,11 +51,11 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere l'articolo relativo alla [gestione e al monitoraggio delle app per le API e del connettore](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 <!--References -->
 [1]: ./media/app-service-logic-wait/ListOfActions.PNG
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

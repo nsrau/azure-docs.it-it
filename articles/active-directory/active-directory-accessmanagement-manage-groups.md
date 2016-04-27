@@ -69,9 +69,12 @@ Questa attività può essere completata usando il portale dell'account di Office
 
 In Azure AD è molto facile configurare una semplice regola (una regola che esegue un solo confronto) per determinare quali utenti devono essere membri del gruppo. Se, ad esempio, un gruppo viene assegnato a un'applicazione SaaS e si configura una regola per aggiungere gli utenti con la posizione di "Rappresentante", tutti gli utenti nella directory di Azure AD con tale posizione avranno accesso a questa applicazione SaaS.
 
-> [AZURE.NOTE] È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365. In questo momento, le appartenenze ai gruppi annidati non sono supportate per l'assegnazione alle applicazioni in base al gruppo. Le appartenenze dinamiche ai gruppi richiedono che venga assegnata una licenza Azure AD Premium a
->- L'amministratore che gestisce la regola in un gruppo
->- Tutti gli utenti che vengono selezionati in base alla regola come membro del gruppo
+> [AZURE.NOTE] È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365. In questo momento, le appartenenze ai gruppi annidati non sono supportate per l'assegnazione alle applicazioni in base al gruppo.
+>
+> Le appartenenze dinamiche ai gruppi richiedono che venga assegnata una licenza Azure AD Premium a:
+> 
+> - L'amministratore che gestisce la regola in un gruppo
+> - Tutti gli utenti che vengono selezionati in base alla regola come membro del gruppo
 
 **Per abilitare l'appartenenza dinamica per un gruppo**
 
@@ -85,7 +88,7 @@ In Azure AD è molto facile configurare una semplice regola (una regola che eseg
 
 5. Selezionare una condizione (Non uguale a, Uguale a, Non inizia con, Inizia con, Non contiene, Contiene, Non corrispondente, Corrispondente) e quindi specificare un valore per la proprietà utente selezionata.
 
-Per informazioni su come creare regole *avanzate* (regole che possono contenere più confronti) per l'appartenenza dinamica a un gruppo, vedere [Uso di attributi per la creazione di regole avanzate](active-directory-accessmanagement-groups-with-advanced-rules.md).
+Per informazioni su come creare regole *avanzate*, che possono contenere più confronti, per l'appartenenza dinamica a un gruppo, vedere [Uso di attributi per la creazione di regole avanzate](active-directory-accessmanagement-groups-with-advanced-rules.md).
 
 ## Informazioni aggiuntive
 
@@ -99,4 +102,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

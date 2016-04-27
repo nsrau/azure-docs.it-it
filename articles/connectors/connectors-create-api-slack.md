@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Slack è uno strumento di comunicazione del team, che riunisce tutte le comunicazioni del team in un'unica posizione immediatamente disponibile e individuabile in qualsiasi luogo.
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic su [Slack](../app-service-logic/app-service-logic-connector-Slack.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 Con il connettore Slack è possibile:
 
@@ -42,23 +42,26 @@ Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per 
 |--- | ---|
 |PostMessage|Pubblicare un messaggio in un canale specificato.|
 ## Creare una connessione a Slack
-Per usare l'API di Slack, creare innanzitutto una **connessione**, quindi fornire i dettagli di queste proprietà:
+Per usare l'API di Slack, creare prima una **connessione**, quindi specificare i dettagli di queste proprietà:
 
 |Proprietà| Obbligatorio|Descrizione|
 | ---|---|---|
 |Token|Sì|Fornire le credenziali di Slack|
 
-Seguire questi passaggi per accedere a Slack e completare la configurazione della **connessione** Slack nell'app per la logica:
+Seguire questa procedura per accedere a Slack e completare la configurazione della **connessione** di Slack nell'app per la logica:
 
-1. Selezionare **Ricorrenza**
-2. Selezionare una **Frequenza** e immettere un **Intervallo**
+1. Selezionare **Recurrence**
+2. Selezionare una **frequenza** e immettere un **intervallo**
 3. Selezionare **Add an action** ![Configurare Slack][1]  
 4. Immettere Slack nella casella di ricerca e attendere che la ricerca restituisca tutte le voci con Slack nel nome
-5. Selezionare **Slack - Invia messaggio**
-6. Selezionare **Sign in to Slack**: ![Configurare Slack][2]
+5. Selezionare **Slack - Post message**
+6. Selezionare **Sign in to Slack**:
+![Configurare Slack][2]
 7. Specificare le credenziali di Slack per accedere e autorizzare l'applicazione ![Configurare Slack][3]  
-8. Si verrà reindirizzati alla pagina di accesso dell'organizzazione. Fare clic su **Authorize** per consentire a Slack a interagire con l'app per la logica: ![Configurare Slack][5] 
-9. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla tramite la configurazione della sezione **Slack - Recupera tutti i messaggi**. Aggiungere altri trigger e azioni necessari. ![Configurare Slack][6]
+8. Si verrà reindirizzati alla pagina di accesso dell'organizzazione. **Autorizzare** Slack a interagire con l'app per la logica:
+![Configurare Slack][5] 
+9. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla tramite la configurazione della sezione **Slack - Get all messages**. Aggiungere altri trigger e azioni necessari.
+![Configurare Slack][6]
 10. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.
 
 
@@ -142,7 +145,7 @@ Nessuna delle proprietà è obbligatoria.
 
 
 
- **PostOperationRequest**: indica una richiesta di pubblicazione per il connettore Yammer per la pubblicazione in Yammer
+ **PostOperationRequest**: indica una richiesta di pubblicazione del connettore Yammer per la pubblicazione in Yammer
 
 Proprietà obbligatorie per PostOperationRequest:
 
@@ -181,7 +184,7 @@ body
 
 
 
- **MessageList**: elenco di messaggi
+ **MessageList: **elenco di messaggi
 
 Proprietà obbligatorie per MessageList:
 
@@ -430,7 +433,7 @@ Nessuna delle proprietà è obbligatoria.
 
 ## Definizioni di oggetti: 
 
- **PostOperationResponse**: rappresenta la risposta dell'operazione di pubblicazione di Slack Connector per la pubblicazione in Slack
+ **PostOperationResponse**: rappresenta la risposta dell'operazione di pubblicazione del connettore Slack per la pubblicazione in Slack
 
 Proprietà obbligatorie per PostOperationResponse:
 
@@ -481,4 +484,4 @@ Nessuna delle proprietà è obbligatoria.
 [5]: ./media/connectors-create-api-slack/connectionconfig5.png
 [6]: ./media/connectors-create-api-slack/connectionconfig6.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

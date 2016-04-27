@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Distribuire le macchine virtuali con funzionalità Multi-NIC tramite l’interfaccia della riga di comando di Azure in Gestione risorse | Microsoft Azure"
    description="Informazioni su come distribuire le macchine virtuali con funzionalità Multi-NIC tramite l’interfaccia della riga di comando di Azure in Gestione risorse"
    services="virtual-network"
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Poiché in questo momento non è possibile disporre di macchine virtuali con una singola scheda di interfaccia di rete e di macchine virtuali con più schede di interfaccia di rete nello stesso gruppo di risorse, i server back-end verranno implementati in un gruppo di risorse diverso da quello di tutti gli altri componenti. La procedura seguente usa un gruppo di risorse denominato *IaaSStory* per il gruppo di risorse principale e *IaaSStory-BackEnd* per i server back-end.
+Attualmente, non è possibile avere macchine virtuali con una singola scheda di rete e macchine virtuali con più schede di rete nello stesso gruppo di risorse. Per questo motivo, è necessario implementare i server back-end in un gruppo di risorse diverso rispetto a tutti gli altri componenti. La procedura seguente usa un gruppo di risorse denominato *IaaSStory* per il gruppo di risorse principale e *IaaSStory-BackEnd* per i server back-end.
 
 ## Prerequisiti
 
@@ -47,7 +47,7 @@ Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate d
 
 - **Account di archiviazione per i dischi dati**. Per migliorare le prestazioni, i dischi dati sui server di database utilizzano la tecnologia SSD (Solid State Drive), che richiede un account di archiviazione premium. Verificare che la posizione di Azure distribuita supporti l'archiviazione premium.
 - **Schede di rete**. Ogni macchina virtuale ha due schede di rete, una per l'accesso al database e una per la gestione.
-- **Set di disponibilità**. Tutti i server di database vengono aggiunti a un singolo set di disponibilità, per garantire che almeno una delle macchine virtuali sia attiva e in esecuzione durante la manutenzione. 
+- **Set di disponibilità**. Tutti i server di database vengono aggiunti a un singolo set di disponibilità, per garantire che almeno una delle macchine virtuali sia attiva e in esecuzione durante la manutenzione.
 
 ### Passaggio 1 - avviare lo script
 
@@ -60,7 +60,7 @@ Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate d
 		vnetName="WTestVNet"
 		backendSubnetName="BackEnd"
 		remoteAccessNSGName="NSG-RemoteAccess"
-		
+
 2. Modificare i valori delle variabili indicate di seguito in base ai valori che si desidera usare per la distribuzione di back-end.
 
 		backendRGName="IaaSStory-Backend"
@@ -107,7 +107,7 @@ Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate d
 		azure storage account create $prmStorageAccountName \
 		    --resource-group $backendRGName \
 		    --location $location \
-			--type PLRS 
+			--type PLRS
 
 3. Creare un set di disponibilità per le macchine virtuali.
 
@@ -171,7 +171,7 @@ Le macchine virtuali di back-end dipendono dalla creazione di risorse elencate d
 		        --vhd-name $dataDiskName$suffixNumber-1.vhd \
 		        --size-in-gb $diskSize \
 		        --lun 0
-		
+
 		    azure vm disk attach-new --resource-group $backendRGName \
 		        --vm-name $vmNamePrefix$suffixNumber \        
 		        --storage-account-name $prmStorageAccountName \
@@ -330,4 +330,4 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

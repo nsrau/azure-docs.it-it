@@ -30,7 +30,7 @@ Connettersi a Office 365 Users per ottenere profili, cercare utenti e altro anco
 
 &nbsp;
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione dello schema 2014-12-01-preview, fare clic sull'[API di Office 365](../app-service-logic/app-service-logic-connector-office365.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 
 Con Office 365 Users è possibile:
@@ -39,7 +39,7 @@ Con Office 365 Users è possibile:
 - Usare azioni per ottenere i dipendenti diretti, il profilo utente di un manager e altro ancora. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, ottenere i dipendenti diretti di una persona e quindi sfruttare queste informazioni per aggiornare un database SQL Azure. 
 - Aggiungere l'API di Office 365 Users in PowerApps Enterprise in modo che gli utenti possano usarla nelle proprie app. 
 
-Per informazioni su come aggiungere un'API in PowerApps Enterprise, accedere alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Per informazioni su come aggiungere un'API in PowerApps Enterprise, vedere l'articolo relativo alla [registrazione di un'API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -49,7 +49,7 @@ Nell'API di Office 365 Users sono disponibili le azioni seguenti. Non sono dispo
 
 | Trigger | Azioni|
 | --- | --- |
-|Nessuno | <ul><li>Recupera manager</li><li>Recupera il mio profilo</li><li>Recupera i dipendenti diretti</li><li>Recupera profilo utente</li><li>Ricerca utenti</li></ul>|
+|Nessuno | <ul><li>Get manager</li><li>Get my profile</li><li>Get direct reports</li><li>Get user profile</li><li>Search for users</li></ul>|
 
 Tutte le API supportano dati nei formati JSON e XML.
 
@@ -204,4 +204,4 @@ Tornare all'[elenco di API](apis-list.md).
 [10]: ./media/connectors-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/connectors-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -31,15 +31,12 @@ Nella tabella seguente sono elencati tutti i connettori disponibili e le app per
 
 Nome | Descrizione
 --- | ---
-[Azure HDInsight](app-service-logic-connector-hdinsight.md) | Usare questo connettore per creare un cluster Hadoop in Azure e inviare diversi processi Hadoop e molto altro.
 [Bus di servizio di Azure](app-service-logic-connector-azureservicebus.md) | È possibile inviare messaggi da code e messaggi del bus di servizio e ricevere messaggi da code e sottoscrizioni del bus di servizio.
 [Bing Translator](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Utilizzare Bing per tradurre il testo in un'altra lingua.
-[Chatter](app-service-logic-connector-chatter.md) | Si connette a Chatter e può inviare e cercare messaggi e anche recuperare nuovi messaggi.
 [HTTP](app-service-logic-connector-http.md) | Il listener HTTP apre un endpoint che funge da server HTTP e resta in ascolto delle richieste HTTP o HTTPS in ingresso. L'azione HTTP non richiede un'app per le API ed è supportata in modo nativo all'interno delle app per la logica.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Il connettore Office 365 può inviare e ricevere messaggi di posta elettronica, gestire il calendario e gestire i contatti usando l'account Office 365.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | È possibile completare attività diverse, come ad esempio creare, aggiornare ed eseguire query su diverse entità di Intuit QuickBooks, ad esempio clienti, articoli, fatture e così via.
 [Slack](app-service-logic-connector-slack.md) | Si connette a Slack e invia messaggi ai canali Slack.
-[SugarCRM](app-service-logic-connector-sugarcrm.md) | Si connette a SugarCRM Online e può creare, aggiornare, leggere e molto altro con diversi tipi di moduli come account, contatti, e così via.
 [Wait](app-service-logic-connector-wait.md) | Usare questo connettore per ritardare l'esecuzione dell'app. È possibile ritardare l'applicazione per una durata specifica o fino a una determinata occorrenza in un momento specifico.
 
 
@@ -83,4 +80,4 @@ Diversi connettori forniscono i trigger per le app per la logica. Tali trigger s
 ## Altre informazioni su connettori e app per le API
 [Cosa sono i connettori e le app per le API di BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Uso di Gestione connessione ibrida nel servizio app di Azure](app-service-logic-hybrid-connection-manager.md) [Gestire e monitorare le app per le API e i connettori predefiniti](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

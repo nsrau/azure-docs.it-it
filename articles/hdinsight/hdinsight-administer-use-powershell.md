@@ -49,14 +49,8 @@ Sono disponibili due opzioni principali per l'installazione di Azure PowerShell.
 		Install-Module AzureRM
 		Install-AzureRM
 		
-		# Install the Azure Service Management module from PowerShell Gallery
-		Install-Module Azure
-		
 		# Import AzureRM modules for the given version manifest in the AzureRM module
 		Import-AzureRM
-		
-		# Import Azure Service Management module
-		Import-Module Azure
 
 	Per altre informazioni, vedere [Raccolta di PowerShell](https://www.powershellgallery.com/)
 
@@ -255,4 +249,4 @@ Vedere [Caricare dati in HDInsight][hdinsight-upload-data].
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

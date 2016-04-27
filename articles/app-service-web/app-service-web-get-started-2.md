@@ -20,7 +20,7 @@
 
 # Introduzione a Servizio app di Azure - Parte 2
 
-In [Introduzione a Servizio app di Azure](app-service-web-get-started.md) è stata distribuita un'app Web in Servizio app di Azure ed è stata eseguita la configurazione per ottenere gli aggiornamenti in modo rapido e semplice. In questo articolo viene illustrato come aggiungere alcune importanti funzionalità all'app distribuita per garantirne sempre la piena efficienza. In questo modo, si scoprirà che il servizio app, oltre a essere un provider di servizi di hosting per siti Web, fornisce alle app di qualità funzionalità di livello aziendale che permettono di dedicare la propria energia creativa a ciò che rende un'app accattivante per gli utenti, invece di dover soddisfare esigenze pratiche di sicurezza, scalabilità, prestazioni, gestione e così via.
+Nell'[introduzione al servizio app di Azure](app-service-web-get-started.md) è stata distribuita un'app Web nel servizio app di Azure. In questo articolo viene illustrato come aggiungere rapidamente alcune importanti funzionalità all'app distribuita. Il servizio app fornisce alle app di qualità funzionalità di livello aziendale che permettono di soddisfare esigenze pratiche di sicurezza, scalabilità, prestazioni, gestione e così via.
 
 In pochi clic si apprenderà come:
 
@@ -46,7 +46,7 @@ Verrà ora illustrato come sia facile aggiungere l'autenticazione all'app.
 
     Una volta applicata la modifica, l'icona a forma di campanella diventerà verde e verrà visualizzato un messaggio descrittivo.
 
-7. Nel pannello del portale dell'app fare clic sul collegamento **URL** (o su **Esplora** nella barra dei menu). Il collegamento è un indirizzo HTTP. ![Autenticazione: passare all'URL](./media/app-service-web-get-started/aad-login-browse-click.png) Dopo che l'app è stata aperta in una nuova scheda, nella casella URL vengono visualizzati diversi reindirizzamenti finché l'app passa infine a un indirizzo HTTPS. A questo punto si è già connessi all'account Microsoft con la sottoscrizione di Azure e con tale account si è automaticamente connessi all'app. ![Autenticazione: accesso effettuato](./media/app-service-web-get-started/aad-login-browse-http-postclick.png) Se quindi ora si apre una sessione non autenticata in un altro browser, quando si passa allo stesso URL, verrà visualizzata una schermata di accesso: ![Autenticazione: pagina di accesso](./media/app-service-web-get-started/aad-login-browse.png) Se non è mai stata eseguita alcuna operazione con Azure Active Directory, è possibile che la directory predefinita non includa alcun utente di Azure AD. In tal caso, l'unico account presente è probabilmente l'account Microsoft con la sottoscrizione di Azure. È per questo che prima è stato automaticamente eseguito l'accesso all'app nello stesso browser. È possibile usare lo stesso account Microsoft anche per accedere a questa pagina di accesso.
+7. Nel pannello del portale dell'app fare clic sul collegamento **URL** (o su **Esplora** nella barra dei menu). Il collegamento è un indirizzo HTTP. ![Autenticazione: passare all'URL](./media/app-service-web-get-started/aad-login-browse-click.png) Dopo che l'app è stata aperta in una nuova scheda, nella casella URL vengono visualizzati diversi reindirizzamenti finché l'app passa infine a un indirizzo HTTPS. A questo punto si è già eseguito l'accesso alla sottoscrizione di Azure e si viene autenticati automaticamente nell'app. ![Autenticazione: accesso effettuato](./media/app-service-web-get-started/aad-login-browse-http-postclick.png) Se quindi ora si apre una sessione non autenticata in un altro browser, quando si passa allo stesso URL, verrà visualizzata una schermata di accesso: ![Autenticazione: pagina di accesso](./media/app-service-web-get-started/aad-login-browse.png) Se non è mai stata eseguita alcuna operazione con Azure Active Directory, è possibile che la directory predefinita non includa alcun utente di Azure AD. In tal caso, l'unico account presente è probabilmente l'account Microsoft con la sottoscrizione di Azure. È per questo che prima è stato automaticamente eseguito l'accesso all'app nello stesso browser. È possibile usare lo stesso account Microsoft anche per accedere a questa pagina di accesso.
 
 Verrà eseguita l'autenticazione di tutto il traffico diretto al sito.
 
@@ -62,7 +62,7 @@ Poiché il servizio app offre una soluzione pronta all'uso per alcune comuni esi
 
 Ora l'app verrà ridimensionata. È possibile ridimensionare l'app del servizio app in due modi:
 
-- [Passare a un piano superiore](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): quando si passa a un piano superiore per un'app del servizio app, si modifica il piano tariffario. Il passaggio a un piano superiore offre una maggiore quantità di CPU, memoria, spazio su disco e funzionalità aggiuntive, ad esempio istanze di VM dedicate, ridimensionamento automatico, contratto di servizio con disponibilità garantita del 99,95%, domini personalizzati, certificati SSL personalizzati, slot di distribuzione, backup, ripristino e così via. I piani di livello superiore offrono altre funzionalità all'app del servizio app.  
+- [Passare a un piano superiore](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): quando si passa a un piano superiore per un'app del servizio app, si modifica il piano tariffario. Il passaggio a un piano superiore offre più CPU, più memoria e più spazio su disco. Offre anche funzionalità aggiuntive, come macchine virtuali dedicate, ridimensionamento automatico, disponibilità pari al 99,95%, certificati e domini personalizzati, slot di distribuzione, backup e così via. I piani di livello superiore offrono altre funzionalità all'app del servizio app.  
 - [Aumentare il numero di istanze](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): quando si aumenta il numero di istanze di un'app del servizio app, si modifica il numero di istanze di VM in cui viene eseguita l'app (o le app nello stesso piano di servizio app). Con il piano Standard o superiore, è possibile abilitare il ridimensionamento automatico delle istanze di VM in base alla metrica delle prestazioni. 
 
 Verrà ora configurato il ridimensionamento automatico per l'app.
@@ -73,13 +73,13 @@ Verrà ora configurato il ridimensionamento automatico per l'app.
 
     Il passaggio a un piano superiore è stato completato.
     
-    >[AZURE.IMPORTANT] Questo piano annullerà i crediti associati alla versione di valutazione gratuita. Se è disponibile un account a pagamento in base al consumo, la tariffa verrà addebitata sull'account.
+    >[AZURE.IMPORTANT] Questo piano esaurisce i crediti associati alla versione di valutazione gratuita. Se è disponibile un account a pagamento in base al consumo, la tariffa viene addebitata sull'account.
     
 3. Ora verrà configurato il ridimensionamento automatico. Nel pannello dell'app nel portale fare clic su **Impostazioni** > **Aumenta istanze**. ![Aumento del numero di istanze: pannello Impostazioni](./media/app-service-web-get-started/scale-out-settings.png)
 
-4. Impostare **Ridimensiona di** su **Percentuale CPU**. I dispositivi di scorrimento sotto l'elenco a discesa vengono modificati di conseguenza. Definire quindi un intervallo di **Istanze** compreso tra **1** e **2** e un **Intervallo di destinazione** compreso tra **40** e **80**. A questo scopo, digitare i valori nelle caselle o spostare i dispositivi di scorrimento. ![Aumento del numero di istanze: configurare il ridimensionamento automatico.](./media/app-service-web-get-started/scale-out-configure.png)
+4. Impostare **Ridimensiona di** su **Percentuale CPU**. I dispositivi di scorrimento sotto l'elenco a discesa vengono aggiornati di conseguenza. Definire quindi un intervallo di **Istanze** compreso tra **1** e **2** e un **Intervallo di destinazione** compreso tra **40** e **80**. A questo scopo, digitare i valori nelle caselle o spostare i dispositivi di scorrimento. ![Aumento del numero di istanze: configurare il ridimensionamento automatico.](./media/app-service-web-get-started/scale-out-configure.png)
     
-    In base a questa configurazione, l'app aumenterà automaticamente il numero di istanze quando l'utilizzo della CPU supererà l'80% e lo ridimensionerà quando l'utilizzo della CPU scenderà sotto il 40%.
+    In base a questa configurazione, l'app aumenta automaticamente il numero di istanze quando l'utilizzo della CPU supera l'80% e lo riduce quando l'utilizzo della CPU scende sotto il 40%.
     
 5. Fare clic su **Salva** nella barra dei menu.
 
@@ -109,7 +109,7 @@ Ora che l'app è configurata per il ridimensionamento automatico, che cosa accad
 
 Ora è possibile ricevere gli avvisi.
 
-Questa impostazione degli avvisi controllerà l'utilizzo della CPU ogni cinque minuti. Se tale valore supera il 90%, si riceverà un avviso di posta elettronica, come chiunque altro sia autorizzato. Per visualizzare tutte le persone autorizzate a ricevere gli avvisi, tornare al pannello dell'app nel portale e fare clic sul pulsante **Accesso**. ![Visualizzare chi riceve gli avvisi](./media/app-service-web-get-started/alert-rbac.png)
+Questa impostazione degli avvisi controlla l'utilizzo della CPU ogni cinque minuti. Se tale valore supera il 90%, si riceverà un avviso di posta elettronica, come chiunque altro sia autorizzato. Per visualizzare tutte le persone autorizzate a ricevere gli avvisi, tornare al pannello dell'app nel portale e fare clic sul pulsante **Accesso**. ![Visualizzare chi riceve gli avvisi](./media/app-service-web-get-started/alert-rbac.png)
 
 Si noterà che **Amministratori della sottoscrizione** è già impostato come **Proprietario** dell'app. Questo gruppo includerà anche l'amministratore account della sottoscrizione di Azure (ad esempio, la sottoscrizione di valutazione). Per altre informazioni sul controllo degli accessi in base al ruolo di Azure, vedere [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md).
 
@@ -127,4 +127,4 @@ Con l'app distribuita è possibile eseguire altre operazioni. Ecco un elenco par
 - [Accedere alle risorse locali](web-sites-hybrid-connection-get-started.md)
 - [Conoscere il funzionamento del servizio app](../app-service/app-service-how-works-readme.md) 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

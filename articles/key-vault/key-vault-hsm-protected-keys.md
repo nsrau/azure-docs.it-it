@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="04/07/2016"
 	ms.author="cabailey"/>
 #Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure
 
@@ -99,17 +99,65 @@ Non chiudere la finestra di Azure PowerShell.
 
 ###Passaggio 1.3: Scaricare il set di strumenti BYOK per l'insieme di credenziali delle chiavi di Azure
 
-Accedere all'Area download Microsoft e [scaricare il set di strumenti BYOK per l'insieme di credenziali delle chiavi di Azure](http://www.microsoft.com/download/details.aspx?id=45345) per la propria area geografica o istanza di Azure:
+Accedere all'Area download Microsoft e [scaricare il set di strumenti BYOK per l'insieme di credenziali delle chiavi di Azure](http://www.microsoft.com/download/details.aspx?id=45345) per la propria area geografica o istanza di Azure. Usare le informazioni seguenti per identificare il nome del pacchetto da scaricare e il relativo hash del pacchetto SHA-256:
 
-|Area geografica o istanza di Azure|Nome del pacchetto|Hash del pacchetto SHA-256|
-|---|---|---|
-|America del Nord|KeyVault-BYOK-Tools-UnitedStates.zip|D9FDA9F5A34E1388CD6C9138E5B75B7051FB7D6B11F087AFE0553DC85CCF0E36|
-|Europa|KeyVault-BYOK-Tools-Europe.zip|881DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3|
-|Asia|KeyVault-BYOK-Tools-AsiaPacific.zip|0C76967B3AC76687E4EA47EB96174EE6B25AB24E3114E28A90D9B93A2E6ABF6E|
-|America Latina|KeyVault-BYOK-Tools-LatinAmerica.zip|B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48|
-|Giappone|KeyVault-BYOK-Tools-Japan.zip|DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113|
-|Australia|KeyVault-BYOK-Tools-Australia.zip|8EBC69E58E809A67C036B50BB4F1130411AD87A7464E0D61A9E993C797915967|
-|[Azure Government](../../../../features/gov/)|KeyVault-BYOK-Tools-USGovCloud.zip|4DE9B33990099E4197ED67D786316F628E5218FC1EB0C24DCAD8A1851FD345B8|
+---
+
+**America del Nord:**
+
+KeyVault-BYOK-Tools-UnitedStates.zip
+
+D9FDA9F5A34E1388CD6C9138E5B75B7051FB7D6B11F087AFE0553DC85CCF0E36
+
+---
+
+**Europa:**
+
+KeyVault-BYOK-Tools-Europe.zip
+
+81DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3
+
+---
+
+**Asia:**
+
+KeyVault-BYOK-Tools-AsiaPacific.zip
+
+0C76967B3AC76687E4EA47EB96174EE6B25AB24E3114E28A90D9B93A2E6ABF6E
+
+---
+
+**America Latina:**
+
+KeyVault-BYOK-Tools-LatinAmerica.zip
+	
+B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48
+
+---
+
+**Giappone:**
+
+KeyVault-BYOK-Tools-Japan.zip
+
+DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113
+
+---
+
+**Australia:**
+
+KeyVault-BYOK-Tools-Australia.zip
+
+8EBC69E58E809A67C036B50BB4F1130411AD87A7464E0D61A9E993C797915967
+
+---
+
+[**Azure per enti pubblici:**](../../../../features/gov/)
+
+KeyVault-BYOK-Tools-USGovCloud.zip
+
+4DE9B33990099E4197ED67D786316F628E5218FC1EB0C24DCAD8A1851FD345B8
+
+---
 
 Per convalidare l'integrità del set di strumenti BYOK scaricato, nella sessione di Azure PowerShell usare il cmdlet [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx).
 
@@ -195,7 +243,7 @@ Per convalidare il pacchetto scaricato:
 	- Per l'Australia:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
-	- Per [Azure per enti pubblici](../../../../features/gov/), che usa l'istanza di Azure per il governo degli Stati Uniti:
+	- Per [Azure per enti pubblici](../../../../features/gov/), che usa l'istanza di Azure per il Governo degli Stati Uniti:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-USGOV-1 -w BYOK-SecurityWorld-pkg-USGOV-1
 
@@ -257,7 +305,7 @@ Per ridurre le autorizzazioni sulla chiave, in un prompt dei comandi eseguire un
 - Per l'Australia:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
-- Per [Azure Government](../../../../features/gov/), che usa l'istanza di Azure per il governo degli Stati Uniti:
+- Per [Azure per enti pubblici](../../../../features/gov/), che usa l'istanza di Azure per il Governo degli Stati Uniti:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1
 
@@ -301,7 +349,7 @@ Eseguire uno di questi comandi, in base all'area geografica o all'istanza di Azu
 - Per l'Australia:
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
-- Per [Azure Government](../../../../features/gov/), che usa l'istanza di Azure per il governo degli Stati Uniti:
+- Per [Azure per enti pubblici](../../../../features/gov/), che usa l'istanza di Azure per il Governo degli Stati Uniti:
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
@@ -330,6 +378,6 @@ Se il pacchetto viene caricato correttamente, verranno visualizzate le propriet�
 
 ##Passaggi successivi
 
-È ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere la sezione **Per usare un modulo di protezione hardware (HSM) ** nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md).
+È ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere la sezione **Per usare un modulo di protezione hardware (HSM)** nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

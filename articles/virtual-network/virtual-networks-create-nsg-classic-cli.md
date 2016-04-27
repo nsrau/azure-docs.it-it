@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Come creare gruppi di sicurezza di rete in modalità classica mediante l'interfaccia della riga di comando di Azure | Microsoft Azure"
    description="Informazioni su come creare e distribuire gruppi di sicurezza di rete in modalità classica mediante l'interfaccia della riga di comando di Azure"
    services="virtual-network"
@@ -8,7 +8,7 @@
    editor="tysonn"
    tags="azure-service-management"
 />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -32,7 +32,7 @@ I comandi di esempio dell'interfaccia della riga di comando di Azure riportati d
 ## Come creare il gruppo di sicurezza di rete per la subnet front-end
 Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base allo scenario precedente, seguire questa procedura.
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 
 2. Eseguire il comando **`azure config mode`** per passare alla modalità classica, come illustrato di seguito.
 
@@ -109,7 +109,7 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
 	- **-f (o --source-address-prefix)**. Prefisso dell'indirizzo di origine in CIDR o con tag predefiniti.
 	- **-o (o --source-port-range)**. Porta o intervallo di porte di origine.
 	- **-e (o --destination-address-prefix)**. Prefisso dell'indirizzo di destinazione in CIDR o con tag predefiniti.
-	- **-u (o --destination-port-range)**. Porta o intervallo di porte di destinazione.	
+	- **-u (o --destination-port-range)**. Porta o intervallo di porte di destinazione.
 
 5. Eseguire il comando **`azure network nsg rule create`** per creare una regola che consenta l'accesso alla porta 80 (HTTP) da Internet.
 
@@ -134,7 +134,7 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
 
 6. Eseguire il comando **`azure network nsg subnet add`** per collegare il gruppo di sicurezza di rete alla subnet front-end.
 
-		azure network nsg subnet add -a NSG-FrontEnd --vnet-name TestVNet --subnet-name FrontEnd 
+		azure network nsg subnet add -a NSG-FrontEnd --vnet-name TestVNet --subnet-name FrontEnd
 
 	Output previsto:
 
@@ -228,7 +228,7 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo 
 
 6. Eseguire il comando **`azure network nsg subnet add`** per collegare il gruppo di sicurezza di rete alla subnet back-end.
 
-		azure network nsg subnet add -a NSG-BackEnd --vnet-name TestVNet --subnet-name BackEnd 
+		azure network nsg subnet add -a NSG-BackEnd --vnet-name TestVNet --subnet-name BackEnd
 
 	Output previsto:
 
@@ -239,4 +239,4 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo 
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

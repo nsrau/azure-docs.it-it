@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="04/07/2016" 
 	ms.author="markusvi"/>
 
 
@@ -33,8 +33,8 @@ Questo argomento di navigazione contiene collegamenti ad altri argomenti sulla d
 ## Articoli sulle procedure
 
 - [Installare una nuova foresta Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md)
-- [Installare un controller di dominio Active Directory di replica nelle reti virtuali di Azure](../virtual-networks-install-replica-active-directory-domain-controller.md) 
-- [Configurazione di un ambiente cloud ibrido per l'esecuzione di test](../virtual-networks-setup-hybrid-cloud-environment-testing.md)
+- [Installare un controller di dominio Active Directory di replica nelle reti virtuali di Azure](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md) 
+- [Configurazione di un ambiente cloud ibrido per l'esecuzione di test](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
 
 ## Risorse aggiuntive
@@ -47,4 +47,4 @@ Questo argomento di navigazione contiene collegamenti ad altri argomenti sulla d
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0413_2016-->

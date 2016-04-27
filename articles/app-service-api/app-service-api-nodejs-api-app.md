@@ -4,7 +4,7 @@
 	services="app-service\api"
 	documentationCenter="node"
 	authors="bradygaster"
-	manager="mohisri" 
+	manager="mohisri"
 	editor="tdykstra "/>
 
 <tags
@@ -130,11 +130,11 @@ I comandi riportati di seguito devono essere eseguiti dalla riga di comando di N
 
     Eseguendo questo comando viene avviato il server HTTP Node.js e ha inizio la gestione dell'API.
 
-1. Quando si passa a ****http://localhost:8000/contacts** viene visualizzato l'output JSON dell'elenco contatti (o viene richiesto di scaricarlo, a seconda del browser).
+1. Quando si passa a **http://localhost:8000/contacts** viene visualizzato l'output JSON dell'elenco contatti (o viene richiesto di scaricarlo, a seconda del browser).
 
     ![Chiamata dell'API a tutti contatti](media/app-service-api-nodejs-api-app/all-contacts-api-call.png)
 
-1. Quando si passa a ****http://localhost:8000/contacts/2** viene visualizzato il contatto rappresentato da quel valore ID.
+1. Quando si passa a **http://localhost:8000/contacts/2** viene visualizzato il contatto rappresentato da quel valore ID.
 
     ![Chiamata dell'API a un contatto specifico](media/app-service-api-nodejs-api-app/specific-contact-api-call.png)
 
@@ -243,4 +243,4 @@ A questo punto è stata creata e distribuita la prima app per le API usando Node
 
 Per basarsi su questo esempio, è possibile aggiungere codice ai gestori per archiviare i dati in un database o sul disco dell'istanza di app per le API. Ora che la distribuzione continua è stata attivata, modificare le funzionalità dell'app per le API ed estendere le modifiche è semplice come modificare il codice ed eseguirne il push all'archivio Git.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

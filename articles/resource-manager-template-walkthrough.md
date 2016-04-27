@@ -89,7 +89,7 @@ Si noti che **name** è impostato sul valore di una variabile. Per questo modell
 
 Il valore specificato per **type** contiene sia il provider di risorse che il tipo di risorsa. Per i set di disponibilità, il provider di risorse è **Microsoft.Compute** e il tipo di risorsa è **availabilitySets**. Per ottenere l'elenco dei provider di risorse disponibili è possibile eseguire il comando PowerShell seguente:
 
-    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+    Get-AzureRmResourceProvider -ListAvailable
 
 In alternativa, se si usa l'interfaccia della riga di comando di Azure, è possibile eseguire il comando seguente:
 
@@ -103,7 +103,7 @@ Dato che in questo argomento si fa uso di account di archiviazione, macchine vir
 
 Per visualizzare i tipi di risorsa per un determinato provider, eseguire il comando PowerShell seguente:
 
-    PS C:\> (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 
 In alternativa, per l'interfaccia della riga di comando di Azure, il comando seguente restituisce i tipi disponibili in formato JSON e li salva in un file.
 
@@ -133,7 +133,7 @@ Il metodo di allocazione è impostato su **Dynamic**, ma è possibile impostarlo
 
 Per determinare **apiVersion**, il valore specificato corrisponde semplicemente alla versione dell'API REST da usare durante la creazione della risorsa. È quindi possibile esaminare la documentazione dell'API REST per quel tipo di risorsa. In alternativa, è possibile eseguire il comando PowerShell seguente per un determinato tipo.
 
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
 
 Che restituisce i valori seguenti:
 
@@ -503,4 +503,4 @@ Il modello è stato creato ed è pronto per la distribuzione.
 - Per altre informazioni sulla struttura del modello, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 - Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un gruppo di risorse con un modello di Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

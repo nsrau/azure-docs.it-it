@@ -3,9 +3,9 @@
 	description="Questa esercitazione illustra in modo dettagliato la procedura per la creazione di un listener del gruppo di disponibilità AlwaysOn in Azure accessibile esternamente mediante l'indirizzo IP virtuale pubblico del servizio cloud associato."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	authors="MikeRayMSFT"
+	manager="jhubbard"
+	editor=""
 	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines-windows"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="jroth" />
+	ms.date="04/05/2016"
+	ms.author="mikeray" />
 
 # Configurare un listener esterno per i gruppi di disponibilità AlwaysOn in Azure
 
@@ -27,7 +27,7 @@ Questo argomento illustra come configurare un listener per un gruppo di disponib
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
 
 
-Il gruppo di disponibilità può contenere repliche solo locali, solo di Azure oppure sia locali che di Azure per le configurazioni ibride. Le repliche di Azure possono trovarsi nella stessa area o in più aree grazie a più reti virtuali (VNet). I passaggi seguenti presuppongono che sia già stato [configurato un gruppo di disponibilità](virtual-machines-windows-classic-portal-sql-availability.md) ma che non sia stato configurato un listener.
+Il gruppo di disponibilità può contenere repliche solo locali, solo di Azure oppure sia locali che di Azure per le configurazioni ibride. Le repliche di Azure possono trovarsi nella stessa area o in più aree grazie a più reti virtuali (VNet). I passaggi seguenti presuppongono che sia già stato [configurato un gruppo di disponibilità](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md) ma che non sia stato configurato un listener.
 
 ## Linee guida e limitazioni per listener esterni
 
@@ -37,7 +37,7 @@ Occorre notare le linee guida seguenti relative al listener del gruppo di dispon
 
 - L'applicazione client deve trovarsi in un servizio cloud diverso rispetto a quello che contiene le VM del gruppo di disponibilità. Azure non supporta Direct Server Return con client e server residenti nello stesso servizio cloud.
 
-- Per impostazione predefinita, la procedura descritta in questo articolo descrive come configurare un listener per usare l'indirizzo IP virtuale (VIP) del servizio cloud. Tuttavia, è possibile riservare e creare più indirizzi VIP per il servizio cloud. In questo modo è possibile usare la procedura di questo articolo per creare più listener, ciascuno di essi associato a un indirizzo IP virtuale diverso. Per informazioni su come creare più indirizzi VIP, vedere [più indirizzi IP virtuali per il servizio cloud](load-balancer-multivip.md).
+- Per impostazione predefinita, la procedura descritta in questo articolo descrive come configurare un listener per usare l'indirizzo IP virtuale (VIP) del servizio cloud. Tuttavia, è possibile riservare e creare più indirizzi VIP per il servizio cloud. In questo modo è possibile usare la procedura di questo articolo per creare più listener, ciascuno di essi associato a un indirizzo IP virtuale diverso. Per informazioni su come creare più indirizzi VIP, vedere [più indirizzi IP virtuali per il servizio cloud](../load-balancer/load-balancer-multivip.md).
 
 - Se si sta creando un listener per un ambiente ibrido, la rete locale deve disporre di connettività a Internet pubblico oltre che al VPN da sito a sito con la rete virtuale di Azure. Quando nella subnet di Azure, il listener del gruppo di disponibilità è raggiungibile solo tramite indirizzo IP pubblico del rispettivo servizio cloud.
 
@@ -130,4 +130,4 @@ Se le repliche AlwaysOn si trovano in subnet diverse, i client devono specificar
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

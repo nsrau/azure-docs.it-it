@@ -6,7 +6,7 @@
 	authors="mmacy"
 	manager="timlt"
 	editor="" />
-	
+
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
@@ -15,7 +15,7 @@
 	ms.workload="big-compute"
 	ms.date="01/22/2016"
 	ms.author="marsma" />
-	
+
 # Ottimizzare l'utilizzo delle risorse di calcolo di Azure Batch con attività dei nodi simultanee
 
 In questo articolo si apprenderà come eseguire più attività contemporaneamente in ogni nodo di calcolo all'interno del pool di Azure Batch. L'abilitazione dell'esecuzione di attività simultanee nei nodi di calcolo di un pool consente di ottimizzare l'utilizzo delle risorse su un numero di nodi ridotto all'interno del pool. Per alcuni carichi di lavoro questo approccio consente di risparmiare tempo e denaro.
@@ -38,7 +38,7 @@ Invece di usare nodi Standard D1 con 1 core CPU, è possibile usare nodi Standar
 
 ## Abilitare l'esecuzione parallela di attività
 
-È possibile configurare i nodi di calcolo nella soluzione Batch per l'esecuzione di attività parallele a livello di pool. Con la libreria Batch .NET impostare la proprietà [CloudPool.MaxTasksPerComputeNode][maxtasks_net] durante la creazione del pool. Se si usa l'API Batch REST, impostare l'elemento [maxTasksPerNode][maxtasks_rest] nel corpo della richiesta durante la creazione del pool.
+È possibile configurare i nodi di calcolo nella soluzione Batch per l'esecuzione di attività parallele a livello di pool. Con la libreria Batch .NET impostare la proprietà [CloudPool.MaxTasksPerComputeNode][maxtasks_net] durante la creazione del pool. Se si usa l'API Batch REST, impostare l'elemento [maxTasksPerNode][rest_addpool] nel corpo della richiesta durante la creazione del pool.
 
 Con Azure Batch è possibile impostare il numero massimo di attività consentite per nodo fino a quattro volte (4x) il numero di core del nodo. Ad esempio se il pool è configurato con nodi di dimensioni "Large" (quattro core), è possibile impostare il valore di `maxTasksPerNode` su 16. Per informazioni dettagliate sul numero di core per ognuna delle dimensioni del nodo, vedere [Dimensioni dei servizi cloud](./../cloud-services/cloud-services-sizes-specs.md). Per altre informazioni sui limiti del servizio, vedere [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
 
@@ -56,27 +56,37 @@ Per comprendere l'importanza di questa funzionalità, si consideri il pool di no
 
 Questo frammento di codice dell'API [.NET di Batch][api_net] mostra una richiesta per creare un pool contenente quattro nodi di grandi dimensioni con un massimo di quattro attività per nodo. Specifica i criteri di pianificazione delle attività che definiscono le attività da inserire in ogni nodo prima di assegnarle a un altro nodo nel pool. Per altre informazioni sull'aggiunta di un pool con l'API .NET di Batch, vedere [BatchClient.PoolOperations.CreatePool][poolcreate_net].
 
-        CloudPool pool = batchClient.PoolOperations.CreatePool(poolId: "mypool",
-        													osFamily: "2",
-        													virtualMachineSize: "large",
-        													targetDedicated: 4);
-        pool.MaxTasksPerComputeNode = 4;
-        pool.TaskSchedulingPolicy = new TaskSchedulingPolicy(ComputeNodeFillType.Pack);
-        pool.Commit();
+```
+CloudPool pool =
+    batchClient.PoolOperations.CreatePool(
+        poolId: "mypool",
+		targetDedicated: 4
+		virtualMachineSize: "large",
+		cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+
+pool.MaxTasksPerComputeNode = 4;
+pool.TaskSchedulingPolicy = new TaskSchedulingPolicy(ComputeNodeFillType.Pack);
+pool.Commit();
+```
 
 ## Esempio per Batch REST
 
-Questo frammento di codice dell'API [REST di Batch][api_rest] mostra una richiesta per creare un pool contenente due nodi di grandi dimensioni con un massimo di quattro attività per nodo. Per altre informazioni sull'aggiunta di un pool con l'API REST, vedere [Aggiungere un pool a un account][maxtasks_rest].
+Questo frammento di codice dell'API [REST di Batch][api_rest] mostra una richiesta per creare un pool contenente due nodi di grandi dimensioni con un massimo di quattro attività per nodo. Per altre informazioni sull'aggiunta di un pool con l'API REST, vedere [Aggiungere un pool a un account][rest_addpool].
 
-        {
-          "id": "mypool",
-          "vmSize": "Large",
-          "osFamily": "2",
-          "targetOSVersion": "*",
-          "targetDedicated": 2,
-          "enableInterNodeCommunication": false,
-          "maxTasksPerNode": 4
-        }
+```
+{
+  "odata.metadata":"https://myaccount.myregion.batch.azure.com/$metadata#pools/@Element",
+  "id":"mypool",
+  "vmSize":"large",
+  "cloudServiceConfiguration": {
+    "osFamily":"4",
+    "targetOSVersion":"*",
+  }
+  "targetDedicated":2,
+  "maxTasksPerNode":4,
+  "enableInterNodeCommunication":true,
+}
+```
 
 > [AZURE.NOTE] L'elemento `maxTasksPerNode` e la proprietà [MaxTasksPerComputeNode][maxtasks_net] possono essere impostati solo al momento della creazione del pool e non possono essere modificati una volta che il pool è stato creato.
 
@@ -124,11 +134,11 @@ La seconda esecuzione dell'esempio illustra una diminuzione significativa nella 
 [fill_type]: https://msdn.microsoft.com/library/microsoft.azure.batch.common.computenodefilltype.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [maxtasks_net]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx
-[maxtasks_rest]: https://msdn.microsoft.com/library/azure/dn820174.aspx
+[rest_addpool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [parallel_tasks_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ParallelTasks
 [poolcreate_net]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
 [task_schedule]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudpool.taskschedulingpolicy.aspx
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

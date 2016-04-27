@@ -35,7 +35,9 @@
 
 OPPURE
 
-* [Azure CLI per Mac, Linux e Windows](../xplat-cli-install.md).
+* L'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ##Che cos'è SSH?
 
@@ -116,11 +118,11 @@ Per altre informazioni sull'uso di questo comando, vedere l'articolo [Provisioni
 
 Da una sessione terminal usare il comando SSH per la connessione al nodo head del cluster specificando l'indirizzo e il nome utente:
 
-* **Indirizzo SSH**. Per connettersi a un cluster tramite SSH è possibile usare due indirizzi:
+* **Indirizzo SSH**: per connettersi a un cluster tramite SSH è possibile usare due indirizzi:
 
-    * **Connessione al nodo head**: il nome del cluster, seguito da **-ssh.azurehdinsight.net**. Ad esempio, **mycluster-ssh.azurehdinsight.net**.
+    * **Connettersi al nodo head**: nome del cluster, seguito da **-ssh.azurehdinsight.net**. Ad esempio, **mycluster-ssh.azurehdinsight.net**.
     
-    * **Connessione al nodo edge**: se il cluster è Server R in HDInsight, contiene anche un nodo edge a cui è possibile accedere tramite **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, dove __CLUSTERNAME__ è il nome del cluster.
+    * **Connettersi al nodo perimetrale**: se il cluster è Server R in HDInsight, contiene anche un nodo perimetrale a cui è possibile accedere tramite **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, dove __CLUSTERNAME__ è il nome del cluster.
 
 * **Nome utente**: il nome utente SSH fornito durante la creazione del cluster.
 
@@ -243,4 +245,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

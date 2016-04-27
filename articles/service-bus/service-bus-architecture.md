@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Architettura del bus di servizio | Microsoft Azure"
-   description="Viene descritta l'architettura di elaborazione dei messaggi del bus di servizio di Azure."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Architettura del bus di servizio | Microsoft Azure"
+    description="Viene descritta l'architettura di elaborazione dei messaggi del bus di servizio di Azure."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="04/19/2016"
+    ms.author="sethm" />
 
 # Architettura del bus di servizio
 
@@ -29,13 +29,9 @@ Uno spazio dei nomi del bus di servizio è mappato a un'unità di scala. L'unit�
 
 - **Un set di nodi del broker di messaggistica.** I nodi del broker di messaggistica elaborano le richieste relative alle entità di messaggistica.
 
-- **Un set di nodi di notifica.** I nodi di notifica inviano notifiche push a tutti i dispositivi registrati.
-
 - **Un archivio del gateway.** Questo archivio contiene i dati per ogni entità definita nell'unità di scala. L'archivio del gateway viene implementato in un database SQL Azure.
 
-- **Numerosi archivi di messaggistica.** Gli archivi di messaggistica contengono i messaggi di tutte le code, gli argomenti e le sottoscrizioni definiti nell'unità di scala. Contiene inoltre tutti i dati di sottoscrizione. A meno che non siano abilitate le [entità di messaggistica partizionate](service-bus-partitioning.md), una coda o un argomento viene mappato a un archivio di messaggistica. Le sottoscrizioni vengono archiviate nello stesso archivio di messaggistica del relativo argomento padre. A eccezione del [livello di messaggistica Premium](service-bus-premium-messaging.md) del bus di servizio, gli archivi di messaggistica vengono implementati nei database SQL Azure.
-
-- **Archivi di registrazione multipli.** Gli archivi di registrazione contengono registrazioni dei dispositivi per tutti gli hub di notifica definiti nell'unità di scala. Gli archivi di registrazione vengono implementati nei database SQL Azure.
+- **Più archivi di messaggistica.** Gli archivi di messaggistica contengono i messaggi di tutte le code, gli argomenti e le sottoscrizioni definiti nell'unità di scala. Contiene inoltre tutti i dati di sottoscrizione. A meno che non siano abilitate le [entità di messaggistica partizionate](service-bus-partitioning.md), una coda o un argomento viene mappato a un archivio di messaggistica. Le sottoscrizioni vengono archiviate nello stesso archivio di messaggistica del relativo argomento padre. A eccezione del [livello di messaggistica Premium](service-bus-premium-messaging.md) del bus di servizio, gli archivi di messaggistica vengono implementati nei database SQL Azure.
 
 ## Contenitori
 
@@ -55,12 +51,6 @@ Quando viene stabilita la connessione di inoltro, i client possono scambiare mes
 
 ![Elaborazione delle richieste di inoltro in ingresso](./media/service-bus-architecture/IC690645.png)
 
-## Elaborazione delle richieste dell’hub di notifica in ingresso
-
-Quando un client invia una richiesta al bus di servizio, il servizio di bilanciamento del carico di Azure instrada la richiesta ai nodi del gateway. Se la richiesta è una registrazione del dispositivo per un hub di notifica esistente, il nodo del gateway scrive la registrazione nell'archivio di registrazione e invia una risposta al dispositivo chiamante. Se la richiesta è un messaggio di notifica, il nodo del gateway accoda il messaggio in una coda di notifica. Uno dei nodi di notifica elimina il messaggio dalla coda di notifica e invia il messaggio a tutti i dispositivi registrati nell'archivio di registrazione. Se un messaggio deve essere ricevuto da un numero elevato di dispositivi, più nodi di notifica partecipano all’invio dei messaggi ai dispositivi.
-
-![Elaborazione delle richieste dell’hub di notifica in ingresso](./media/service-bus-architecture/IC690646.png)
-
 ## Passaggi successivi
 
 A questo punto, dopo aver letto una panoramica del funzionamento del bus di servizio, visitare i collegamenti seguenti per iniziare:
@@ -69,4 +59,4 @@ A questo punto, dopo aver letto una panoramica del funzionamento del bus di serv
 - [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 - [Una soluzione di messaggistica accodata che usa le code del bus di servizio](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe" />
+	editor="" />
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 # Come utilizzare il plug-in slave Azure con il server per l'integrazione continua Hudson
@@ -204,4 +204,4 @@ In questa sezione si creerà un'attività di Hudson che verrà eseguita in un no
 
 Hudson creerà quindi un nodo slave utilizzando il modello creato nella sezione precedente ed eseguirà lo script specificato nell'istruzione di compilazione di questa attività.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

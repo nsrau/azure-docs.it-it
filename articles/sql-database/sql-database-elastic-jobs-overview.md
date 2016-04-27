@@ -2,8 +2,9 @@
 	pageTitle="Panoramica dei processi di database elastici | Microsoft Azure" 
 	description="Viene illustrato il servizio processo di database elastico" 
 	metaKeywords="azure sql database elastic databases" 
-	services="sql-database" documentationCenter=""  
-	manager="jeffreyg" 
+	services="sql-database" 
+    documentationCenter=""  
+	manager="jhubbard" 
 	authors="ddove"/>
 
 <tags 
@@ -124,4 +125,6 @@ Sono disponibili più tipi di attività di processo che eseguono l'esecuzione di
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0224_2016-->
+ 
+
+<!---HONumber=AcomDC_0413_2016-->

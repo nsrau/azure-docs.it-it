@@ -16,7 +16,7 @@
    ms.date="02/10/2016"
    ms.author="stepsic"/>
 
-# Uso del connettore Azure Resource e aggiunta all'app per la logica 
+# Uso del connettore Azure Resource e aggiunta all'app per la logica
 >[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
 
 Usare il connettore Azure Resource per gestire in modo semplice le risorse di Azure nell'app per la logica.
@@ -32,18 +32,18 @@ David Ebbo ha scritto un [interessante post di blog](http://blog.davidebbo.com/2
 ### Trigger
 Esistono due trigger che sono supportati nel connettore:
 
-Nome | Descrizione 
----- | ----------- 
-Si verifica l'evento | Si attiva quando si verifica un evento in una risorsa della sottoscrizione. 
+Nome | Descrizione
+---- | -----------
+Si verifica l'evento | Si attiva quando si verifica un evento in una risorsa della sottoscrizione.
 Metrica supera la soglia | Si attiva quando una metrica soddisfa una determinata soglia.
 
 ### Azione
 
 Analogamente, è possibile fornire un numero elevato di azioni nella sottoscrizione Azure:
- 
+
 In **Gruppi di risorse** è possibile:
 
-Nome | Descrizione 
+Nome | Descrizione
 ---- | -----------
 Elencare i gruppi di risorse | Elencare tutti i gruppi di risorse nella sottoscrizione.
 Ottenere un gruppo di risorse | Ottenere un gruppo di risorse con il relativo ID.
@@ -52,7 +52,7 @@ Eliminare un gruppo di risorse | Eliminare un gruppo di risorse.
 
 In **Risorse** è possibile:
 
-Nome | Descrizione 
+Nome | Descrizione
 ---- | -----------
 Elencare risorse | Elencare le risorse nella sottoscrizione in base ai diversi tipi di filtri.
 Ottenere una risorsa | Ottenere una singola risorsa in base al relativo ID risorsa.
@@ -62,13 +62,13 @@ Eliminare una risorsa | Eliminare una risorsa.
 
 In **Provider di risorse** è possibile:
 
-Nome | Descrizione 
+Nome | Descrizione
 ---- | -----------
 Elencare i provider di risorse | Elencare tutti i provider di risorse disponibili nella sottoscrizione.
 
 In **Distribuzioni del gruppo di risorse** è possibile:
 
-Nome | Descrizione 
+Nome | Descrizione
 ---- | -----------
 Elencare distribuzioni | Elencare tutte le distribuzioni in un gruppo di risorse.
 Ottenere una distribuzione | Ottenere una distribuzione del modello in base al relativo ID.
@@ -93,11 +93,9 @@ Dopo aver creato il connettore, è possibile aggiungerlo a un flusso aziendale u
 
 Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di riferimento su connettori e app per le API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-È anche possibile esaminare le statistiche relative alle prestazioni e controllare la sicurezza del connettore. Vedere l'articolo relativo alla [gestione e al monitoraggio delle app per le API e del connettore](../app-service-api/app-service-api-manage-in-portal.md).
-
 <!--References -->
 
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -22,7 +22,7 @@ Connettersi a un server SFTP per gestire i file. È possibile eseguire diverse a
 
 - App per la logica
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica. Per la versione schema 2014-12-01-preview, fare clic sul [connettore di SFTP](../app-service-logic/app-service-logic-connector-sftp.md).
+>[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2015-08-01-preview delle app per la logica.
 
 Con SFTP è possibile:
 
@@ -38,7 +38,7 @@ Per l'API di SFTP sono disponibili i trigger e le azioni seguenti:
 
 Trigger | Azioni
 --- | ---
-<ul><li>Quando un file viene creato o modificato</li></ul> | <ul><li>Crea file</li><li>Copia file</li><li>Elimina file</li><li>Estrai cartella</li><li>Recupera contenuto di file</li><li>Recupera contenuto di file tramite percorso</li><li>Recupera metadati di file</li><li>Recupera metadati di file tramite percorso</li><li>Aggiorna file</li><li>Quando un file viene creato o modificato </li></ul>
+<ul><li>Quando un file viene creato o modificato </li></ul> | <ul><li>Crea file</li><li>Copia file</li><li>Elimina file</li><li>Estrai in una cartella</li><li>Ottieni contenuto di file</li><li>Ottieni contenuto di file tramite percorso</li><li>Ottieni metadati di file</li><li>Ottieni metadati di file tramite</li><li>Aggiorna file</li><li>Quando un file viene creato o modificato </li></ul>
 
 Tutte le API supportano i dati nei formati JSON e XML.
 
@@ -53,7 +53,7 @@ Quando si aggiunge questa API alle app per la logica, immettere i valori seguent
 |Password | Sì | Immettere la password del nome utente.|
 |SSH Server Host Key Finger Print | Sì | Immettere l'ID digitale della chiave host pubblica per il server SSH. <br/><br/>In genere, la chiave viene fornita dall'amministratore del server. Per ottenere l'ID digitale della chiave è inoltre possibile usare gli strumenti ```WinSCP``` o ```ssh-keygen-g3 -F```. | 
 
-Dopo aver creato la connessione immettere le proprietà di SFTP, ad esempio il percorso del file o della cartella. Il **riferimento all'API REST** in questo argomento descrive tali proprietà.
+Dopo aver creato la connessione immettere le proprietà di SFTP, ad esempio il percorso del file o della cartella. **Informazioni di riferimento sulle API REST** in questo articolo descrive tali proprietà.
 
 >[AZURE.TIP] È possibile usare la stessa connessione di SFTP in altre app per la logica.
 
@@ -105,7 +105,7 @@ Elimina un file in SFTP. ```DELETE: /datasets/default/files/{id}```
 |default|Operazione non riuscita.|
 
 ### Estrai cartella
-Estrae un file di archivio in una cartella tramite SFTP, ad esempio con estensione zip. ```POST: /datasets/default/extractFolderV2```
+Estrae un file di archivio in una cartella tramite SFTP, ad esempio un file con estensione zip. ```POST: /datasets/default/extractFolderV2```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -120,7 +120,7 @@ Estrae un file di archivio in una cartella tramite SFTP, ad esempio con estensio
 |default|Operazione non riuscita.|
 
 ### Ottieni contenuto di file
-Recupera il contenuto dei file da SFTP tramite ID. ```GET: /datasets/default/files/{id}/content```
+Recupera i contenuti dei file da SFTP tramite ID. ```GET: /datasets/default/files/{id}/content```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -134,7 +134,7 @@ Recupera il contenuto dei file da SFTP tramite ID. ```GET: /datasets/default/fil
 
 
 ### Ottieni contenuto di file tramite percorso
-Recupera il contenuto dei file da SFTP tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera i contenuti dei file da SFTP tramite percorso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -191,7 +191,7 @@ Aggiorna il contenuto dei file tramite SFTP. ```PUT: /datasets/default/files/{id
 
 
 ### Quando un file viene creato o modificato 
-Quando un file viene modificato in SFTP, attiva un flusso. ```GET: /datasets/default/triggers/onupdatedfile```
+Attiva un flusso quando un file viene modificato in SFTP. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nome| Tipo di dati|Obbligatorio|Posizione|Valore predefinito|Descrizione|
 | ---|---|---|---|---|---|
@@ -250,4 +250,4 @@ Quando un file viene modificato in SFTP, attiva un flusso. ```GET: /datasets/def
 ## Passaggi successivi
 [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

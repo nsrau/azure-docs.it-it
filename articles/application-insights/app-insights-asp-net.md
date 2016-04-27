@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/06/2016" 
+	ms.date="04/14/2016" 
 	ms.author="awills"/>
 
 
@@ -179,7 +179,19 @@ Aprire la ricerca per esaminare le singole richieste e i relativi eventi associa
 
 Ora distribuire l'applicazione e osservare l'accumulo dei dati.
 
-Quando si esegue la modalità debug, la telemetria viene velocizzata nella pipeline, quindi i dati vengono visualizzati in pochi secondi. Quando si distribuisce l'app, i dati si accumulano più lentamente.
+### Live Stream
+
+Il corretto funzionamento di un'applicazione è rilevabile già nei primi minuti della distribuzione. Soprattutto quando si sostituisce una versione precedente, occorre verificare se le prestazioni sono migliorate. Se si verifica un problema, è consigliabile ripristinare la versione precedente.
+
+Live Stream consente la visualizzazione immediata di un set di metriche di prestazioni chiave. È progettato per permettere di osservare una ridistribuzione o una riconfigurazione.
+
+![Nel pannello Panoramica, fare clic su Live Stream](./media/app-insights-asp-net/45.png)
+
+A differenza di altri grafici relativi alle metriche, Live Stream mostra solo i dati di pochi minuti precedenti e non conserva i dati. La pipeline di aggregazione è minima e la visualizzazione viene aggiornata ogni secondo.
+
+Live Stream richiede l'SDK 2.1.0-beta1 o versione successiva.
+
+*Se Live Stream si blocca sulla pagina di configurazione, aggiornare il browser (F5).*
 
 #### Problemi del server di compilazione
 
@@ -234,4 +246,4 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->
