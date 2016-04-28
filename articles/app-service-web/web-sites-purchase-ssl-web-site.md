@@ -146,7 +146,7 @@ Questo passaggio descrive come eseguire la verifica della proprietà del dominio
             
             * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
                               
-            Ad esempio, per eseguire la convalida di un certificato con caratteri jolly con nome host ***.contosocertdemo.com** o ***.subdomain.contosocertdemo.com** e token di verifica del dominio **cAGgQrKc**, è necessario creare un record TXT in dzc.contosocertdemo.com con valore **cAGgQrKc.**
+            Ad esempio, per eseguire la convalida di un certificato con caratteri jolly con nome host * **.contosocertdemo.com** o * **.subdomain.contosocertdemo.com** e token di verifica del dominio **cAGgQrKc**, è necessario creare un record TXT in dzc.contosocertdemo.com con valore **cAGgQrKc.**
 
 
 ##<a name="bkmk_AssignCertificate"></a>Passaggio 3: Assegnare il certificato all'app del servizio app
