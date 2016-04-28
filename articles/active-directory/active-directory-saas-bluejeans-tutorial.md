@@ -76,7 +76,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Configura accesso Single Sign-On")
 
-3.  Nella casella di testo **URL di accesso BlueJeans** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**https://company.BlueJeans.com*" e quindi fare clic su **Avanti**.
+3.  Nella casella di testo **URL di accesso BlueJeans** della pagina **Configura URL app** digitare l'URL usando il modello seguente "**https://company.BlueJeans.com**" e quindi fare clic su **Avanti**.
 
     ![Configura URL app](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Configura URL app")
 
