@@ -203,4 +203,4 @@ I passaggi seguenti non sono necessari se si deve solo accedere alla macchina vi
 ##<a id="Next">Passaggi successivi
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!----HONumber=AcomDC_0413_2016-->
