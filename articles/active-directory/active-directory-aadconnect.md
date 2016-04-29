@@ -22,7 +22,7 @@ Azure AD Connect è lo strumento che permette di integrare il sistema di gestion
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
-> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.]( https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
+> [AZURE.IMPORTANT] [Azure AD Connect è il modo migliore per collegare la directory locale con Azure AD e Office 365. Questo è il momento giusto per eseguire l'aggiornamento ad Azure AD Connect dallo strumento di sincronizzazione di Windows Azure Active Directory (DirSync) o Azure AD Sync in quanto questi strumenti vengono deprecati e il supporto terminerà il 13 aprile 2017.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
 
 ![Cos'è Azure AD Connect](./media/active-directory-aadconnect/arch.png)
 
@@ -48,7 +48,7 @@ Azure Active Directory Connect è costituito da tre parti principali, ovvero i s
 
 ## Installare Azure AD Connect
 
-Il download per Azure AD Connect è disponibile nell'[Area download Microsoft]( http://go.microsoft.com/fwlink/?LinkId=615771).
+Il download per Azure AD Connect è disponibile nell'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 
 | Soluzione | Scenario |
