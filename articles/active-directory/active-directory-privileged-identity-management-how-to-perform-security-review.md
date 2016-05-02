@@ -1,6 +1,6 @@
 <properties
    pageTitle="Come eseguire una verifica della sicurezza | Microsoft Azure"
-   description="Informazioni su come aggiungere ruoli alle identità con privilegi con l'estensione Azure Privileged Identity Management."
+   description="Informazioni su come eseguire una verifica con l'applicazione Azure Privileged Identity Management."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -13,51 +13,40 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/17/2016"
+   ms.date="04/15/2016"
    ms.author="kgremban"/>
 
-# Azure AD Privileged Identity Management: Come eseguire una verifica della sicurezza
+# Come eseguire una verifica della sicurezza in Azure AD Privileged Identity Management
+
+Azure Active Directory (AD) Privileged Identity Management semplifica la gestione da parte delle aziende delle identità con privilegi e dell'accesso alle risorse in Azure AD e in altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.
+
+Se si è stati assegnati a un ruolo amministrativo, è possibile che l'amministratore della sicurezza dell'organizzazione richieda di eseguire regolarmente una verifica e confermare che il ruolo è ancora necessario. È possibile che si riceva un messaggio di posta elettronica contenente un collegamento o che si passi direttamente al [portale di Azure](https://portal.azure.com). Per eseguire una verifica automatica dei ruoli assegnati, seguire la procedura descritta in questo articolo.
+
+Per gli amministratori della sicurezza interessati alle verifiche della sicurezza sono disponibili altre informazioni in [Come avviare una verifica della sicurezza](active-directory-privileged-identity-management-how-to-start-security-review.md).
+
+## Aggiungere l'applicazione Privileged Identity Management
+
+Per eseguire la verifica, è possibile usare l'applicazione Azure AD Privileged Identity Management (PIM) nel [portale di Azure](https://portal.azure.com/). Se l'applicazione Azure AD Privileged Identity Management non è disponibile nel portale, seguire questa procedura per iniziare.
+
+1. Se non è già stato eseguito l'accesso, accedere al [portale di Azure](https://portal.azure.com/).
+2. Se l'organizzazione ha più directory, fare clic sul proprio nome utente nell'angolo superiore destro del portale di Azure e selezionare la directory da usare.
+3. Selezionare l'icona **Nuovo** nel riquadro di spostamento sinistro.
+4. Selezionare **Sicurezza e identità** dal menu.
+5. Selezionare **Azure AD Privileged Identity Management**.
+6. Lasciare selezionata l'opzione **Aggiungi al dashboard** e fare clic sul pulsante **Crea**. Verrà aperta l'applicazione Privileged Identity Management.
 
 
-È molto semplice esaminare l'accesso con privilegi dopo che è stata [avviata la revisione della sicurezza](active-directory-privileged-identity-management-how-to-start-security-review.md).
+## Approvare o negare l'accesso
 
-## Per i revisori: approvazione o rifiuto dell'accesso
+L'accesso non verrà modificato fino a quando [la verifica non è stata completata](active-directory-privileged-identity-management-how-to-complete-review.md). Questo processo prevede semplicemente la creazione di un elenco di controllo per coloro che desiderano modificare l'accesso per il ruolo. Dopo che è stato selezionato almeno un utente, vengono abilitati i pulsanti **Approva accesso** e **Nega accesso**.
 
-### Verifica personale
-1. Scegliere **Verifica l'accesso amministrativo** dal menu principale di PIM. Verrà visualizzato un elenco di revisioni della sicurezza.
-2. Selezionare nell'elenco gli **utenti** per i quali si desidera modificare l'accesso. NOTA: l'accesso verrà effettivamente modificato. Questo processo prevede semplicemente la creazione di un elenco di controllo per coloro che desiderano modificare l'accesso per il ruolo. Dopo che è stato selezionato almeno un utente, vengono abilitati i pulsanti **Approva accesso** e **Nega accesso**.
-3. Fare clic su **Approva accesso** o **Nega accesso** per gli utenti selezionati. Verrà visualizzata una notifica nel menu principale del portale di Azure e l'elenco di revisioni verrà eliminato. Chiudere il pannello **Rivedi ruoli Azure Active Directory**.
+1. Nell'applicazione PIM fare clic su **Verifica l'accesso amministrativo** nel menu principale. Verrà visualizzato un elenco di revisioni della sicurezza.
+2. Selezionare nell'elenco gli **utenti** per i quali si desidera modificare l'accesso.
+3. Fare clic su **Approva accesso** o **Nega accesso** per gli utenti selezionati. Verrà visualizzata una notifica nel menu principale del portale di Azure e i nomi selezionati non saranno più visualizzati nell'elenco delle verifiche. Sarà possibile visualizzarli nuovamente modificando l'opzione di filtro. Chiudere il pannello **Rivedi ruoli Azure Active Directory**.
 
-### Revisione self-service
-1. L'utente riceverà un messaggio di posta elettronica che indica che è necessaria la revisione dell'accesso. Il messaggio di posta elettronica conterrà un collegamento per l'accesso al portale di Azure.
-2. Dopo aver avuto accesso al portale, l'utente potrà approvare o negare il proprio accesso facendo clic sui pulsanti **Approva accesso** o **Nega accesso**. Il nome dell'utente verrà rimosso dall'elenco.
-
-## Per i responsabili delle verifiche: gestione delle verifiche della sicurezza
-
-## Completamento o arresto di una verifica
-1. Passare al dashboard di PIM.
-2. Selezionare la verifica della sicurezza che si vuole completare nell'elenco **Verifiche della sicurezza**. Verrà visualizzato il pannello con i dettagli della verifica della sicurezza.
-3. Fare clic su **Interrompi verifica** per completare o arrestare la verifica. La verifica verrà archiviata e il pannello verrà rimosso.
-
-## Esportazione di una verifica
-È possibile esportare una verifica per l'uso con Excel o un altro programma che supporta i file CSV.
-
-1. Passare al dashboard di PIM.
-2. Fare clic sulla sezione **Verifiche della sicurezzaa** del dashboard. Verrà visualizzato il pannello **Verifiche della sicurezza**.
-3. Fare clic sulla verifica della sicurezza che si vuole esportare. Verrà visualizzato il pannello con i dettagli della verifica della sicurezza.
-4. Fare clic sul pulsante **Esporta**. Verrà avviato il download di un file CSV.
-
-## Eliminazione di una verifica
-
-> [AZURE.WARNING] Non verrà visualizzato un avviso prima dell'eliminazione. Accertarsi quindi di *volere* effettivamente eliminare la verifica.
-
-1. Tornare al dashboard di PIM.
-2. Fare clic sulla sezione **Revisioni sicurezza** del dashboard. Verrà visualizzato il pannello **Revisioni sicurezza**.
-3. Fare clic sulla revisione della sicurezza che si desidera eliminare. Verrà visualizzato il pannello con i dettagli della revisione della sicurezza.
-4. Fare clic sul pulsante **Elimina**.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Passaggi successivi
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

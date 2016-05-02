@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,25 +13,40 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # BizTalk Flat File Encoder
 
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Usare il connettore BizTalk Flat File Encoder per l'interoperabilità tra i dati dei file flat (ad esempio file Excel o con estensione csv) e i dati XML. Può convertire un'istanza specifica di file flat in XML e viceversa.
 
 ##Uso di BizTalk Flat File Encoder
-Per usare BizTalk Flat File Encoder, è prima di tutto necessario creare un'istanza dell'app per le API BizTalk Flat File Encoder. È possibile eseguire questa operazione inline durante la creazione di un'app per la logica o tramite la selezione dell'app per le API BizTalk Flat File Encoder da Azure Marketplace. Di seguito sono riportati i passaggi per creare un'app per le API BizTalk Flat File Encoder da Azure Marketplace: 1. Accedere al portale di Azure (http://portal.azure.com) 2. Selezionare Nuovo > Marketplace > Tutto 3. Cercare "BizTalk Flat File Encoder" nella casella di ricerca 4. Selezionare BizTalk Flat File Encoder dall'elenco di risultati 5. Selezionare "Crea", quindi specificare un nome e gli altri dettagli necessari 6. Selezionare "Crea". Si verrà reindirizzati alla pagina iniziale in cui è possibile visualizzare lo stato di avanzamento della creazione. Questa operazione può richiedere alcuni minuti. Al termine, si riceverà una notifica.
+Per usare BizTalk Flat File Encoder, è prima di tutto necessario creare un'istanza dell'app per le API BizTalk Flat File Encoder. È possibile eseguire questa operazione inline durante la creazione di un'app per la logica o tramite la selezione dell'app per le API BizTalk Flat File Encoder da Azure Marketplace. Di seguito sono riportati i passaggi per creare un'app per le API BizTalk Flat File Encoder da Azure Marketplace:
+1. Accedere al portale di Azure (http://portal.azure.com)  
+2. Selezionare Nuovo > Marketplace > Tutto  
+3. Cercare "BizTalk Flat File Encoder" nella casella di ricerca  
+4. Selezionare BizTalk Flat File Encoder nell'elenco dei risultati  
+5. Selezionare "Crea", quindi specificare un nome e gli altri dettagli necessari  
+6. Selezionare "Crea". Si verrà reindirizzati alla pagina iniziale in cui è possibile visualizzare lo stato di avanzamento della creazione. Questa operazione può richiedere alcuni minuti. Al termine, si riceverà una notifica.  
 
 ###Configurare BizTalk Flat File Encoder
 Dopo aver creato l'app per le API, è possibile avviarla direttamente dalla pagina iniziale del portale di Azure o dall'area di progettazione durante la creazione di un'app per la logica.
 
-Per avviarla dalla pagina iniziale di Azure, è possibile cercarla digitandone il nome assegnato a BizTalk Flat File Encoder al momento della creazione. A questo scopo: 1. Immettere il nome di BizTalk Flat File Encoder nella casella di ricerca nel portale di Azure e avviare la ricerca 2. Successivamente, selezionare BizTalk Flat File Encoder dall'elenco. Viene aperto il pannello dell'app per le API in cui è possibile configurare l'app per le API BizTalk Flat File Encoder. Per avviare la configurazione, è opportuno aggiungere uno schema: 1. Selezionare il componente "Schemi" ![Parte relativa agli schemi di BizTalk Flat File Encoder][2] 2. Selezionare "Aggiungi nuovo" nel pannello Schemi visualizzato ![Elenco di azioni di BizTalk Flat File Encoder][7] 3. Selezionare una delle tre opzioni per fornire lo schema. Le opzioni sono CARICA NUOVO SCHEMA, GENERA DA JSON e GENERA DA FILE FLAT ![Elenco di azioni di BizTalk Flat File Encoder][8] 4. Seguire la procedura per fornire lo schema, in base alla selezione nel passaggio precedente. Si noterà che lo schema è stato caricato: ![Elenco di azioni di BizTalk Flat File Encoder][9]
+Per avviarla dalla pagina iniziale di Azure, è possibile cercarla digitandone il nome assegnato a BizTalk Flat File Encoder al momento della creazione. A questo scopo:
+1. Immettere il nome di BizTalk Flat File Encoder nella casella di ricerca nel portale di Azure e avviare la ricerca  
+2. Successivamente, selezionare BizTalk Flat File Encoder dall'elenco. Viene aperto il pannello dell'app per le API in cui è possibile configurare l'app per le API BizTalk Flat File Encoder. Per avviare la configurazione, è necessario aggiungere uno schema:  
+1. Selezionare il componente "Schemi" ![Parte relativa agli schemi di BizTalk Flat File Encoder][2]  
+2. Nel pannello Schemi visualizzato selezionare "Aggiungi nuovo" ![Elenco di azioni di BizTalk Flat File Encoder][7]  
+3. Selezionare una delle tre opzioni per fornire lo schema. Le opzioni sono CARICA NUOVO SCHEMA, GENERA DA JSON e GENERA DA FILE FLAT ![Elenco di azioni di BizTalk Flat File Encoder][8]  
+4. Seguire la procedura per fornire lo schema, in base alla selezione nel passaggio precedente. Si noterà che lo schema è stato caricato: ![Elenco di azioni di BizTalk Flat File Encoder][9]
 
 ###Uso di BizTalk Flat File Encoder nell'area di progettazione
-Dopo aver configurato Biztalk Flat File Encoder, è possibile usarlo in un'app per la logica. Per iniziare, creare una nuova app per la logica o avviarne una creata in precedenza e attenersi alla procedura seguente: 1. Nella scheda 'Start logic' fare clic su 'Run this logic manually'. 2. Selezionare l'app per le API BizTalk Flat File Encoder creata in precedenza nella raccolta (è possibile trovare il connettore BizTalk Flat File Encoder creato nell'elenco delle app per le API a destra della schermata.). 3. Selezionare la freccia destra nera. Vengono presentate le due operazioni disponibili (da file flat a XML e da XML a file flat): ![Elenco di azioni di BizTalk Flat File Encoder][1] ![Elenco di azioni di BizTalk Flat File Encoder][4]
+Dopo aver configurato Biztalk Flat File Encoder, è possibile usarlo in un'app per la logica. Per iniziare, creare una nuova app per la logica o avviarne una creata in precedenza e attenersi alla procedura seguente:
+1. Nella scheda 'Start logic' fare clic su 'Run this logic manually'.  
+2. Selezionare l'app per le API BizTalk Flat File Encoder creata in precedenza nella raccolta (è possibile trovare il connettore BizTalk Flat File Encoder creato nell'elenco delle app per le API a destra della schermata.).  
+3. Selezionare la freccia destra nera. Vengono presentate le due operazioni disponibili (da file flat a XML e da XML a file flat): ![Elenco di azioni di BizTalk Flat File Encoder][1] ![Elenco di azioni di BizTalk Flat File Encoder][4]
 
 Seguire i passaggi seguenti in base all'operazione selezionata
 
@@ -71,4 +86,4 @@ L'azione restituisce l'output sotto forma di stringa - File flat. XML di output 
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

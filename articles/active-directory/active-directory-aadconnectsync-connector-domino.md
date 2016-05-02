@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="04/20/2016"
    ms.author="andkjell"/>
 
 # Documentazione tecnica sul connettore Lotus Domino
@@ -112,9 +112,9 @@ Nella pagina delle funzionalità installare solo quelle di Lotus Notes richieste
 
 ![Notes2](./media/active-directory-aadconnectsync-connector-domino/notes2.png)
 
-**Nota:** è necessario avviare Lotus Notes una volta con un utente presente nello stesso server dell'account che verrà usato come account del servizio del connettore.
+**Nota:** è necessario avviare Lotus Notes una volta con un utente presente nello stesso server dell'account che verrà usato come account del servizio del connettore. Assicurarsi anche di chiudere il client Lotus Notes nel server. Il client non può essere in esecuzione mentre il connettore tenta di connettersi al server Domino.
 
-### Creare un connettore
+### Create Connector
 
 Per creare un connettore Lotus Domino, in **Synchronization Service** selezionare **Management Agent** e quindi **Create**. Selezionare il connettore **Lotus Domino (Microsoft)**.
 
@@ -539,4 +539,4 @@ Esistono diverse modalità in Domino per estendere lo schema in modo che venga v
 
 -	Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

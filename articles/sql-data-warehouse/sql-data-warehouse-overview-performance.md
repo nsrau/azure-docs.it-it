@@ -3,7 +3,7 @@
    description="Introduzione alle funzionalità per le prestazioni e la scalabilità di SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="TwoUnder"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/03/2016"
-   ms.author="mausher;barbkess;jrj;nicw;sonyama"/>
+   ms.author="barbkess;sonyama"/>
 
 # Panoramica delle prestazioni e della scalabilità
 Allestendo il proprio data warehouse nel cloud, non è più necessario occuparsi dei problemi hardware di base. Sono ormai passati i tempi in cui occorreva individuare il tipo di processori, la quantità di memoria o il tipo di archiviazione appropriati per garantire prestazioni ottimali nel data warehouse. SQL Data Warehouse invece chiede semplicemente con quale velocità si intende elaborare i dati.
@@ -83,4 +83,4 @@ Per alcune indicazioni sulla creazione della soluzione SQL Data Warehouse, veder
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
- pageTitle="Come gestire la scadenza del contenuto del servizio cloud nella rete per la distribuzione di contenuti (rete CDN) di Azure"
- description=""
+ pageTitle="Come gestire la scadenza dei contenuti del servizio cloud nella rete CDN di Azure | Microsoft Azure"
+ description="Spiega come gestire la scadenza dei contenuti del servizio cloud nella rete CDN di Azure"
  services="cdn"
  documentationCenter=".NET"
  authors="camsoper"
@@ -12,10 +12,10 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="02/25/2016" 
+ ms.date="02/25/2016"
  ms.author="casoper"/>
 
-#Come gestire la scadenza del contenuto del servizio cloud nella rete per la distribuzione di contenuti (rete CDN) di Azure
+# Come gestire la scadenza del contenuto del servizio cloud nella rete per la distribuzione di contenuti (rete CDN) di Azure
 
 Gli oggetti per cui è più utile la memorizzazione nella cache della rete CDN di Azure sono quelli cui si accede di frequente per tutta la loro durata (TTL). Un oggetto resta nella cache per tutto il TTL e viene quindi aggiornato dal servizio cloud allo scadere di tale periodo. Il processo viene quindi ripetuto.
 
@@ -50,4 +50,4 @@ Ad esempio, per memorizzare nella cache il contenuto per un'ora, aggiungere il c
 
 [Come gestire la scadenza del contenuto dei BLOB nella rete per la distribuzione di contenuti (rete CDN) di Azure](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

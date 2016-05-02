@@ -14,11 +14,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="04/14/2016"
 	ms.author="cjiang"/>
 
 # La carta di credito non viene accettata quando si tenta iscriversi ad Azure
 Questo articolo illustra le cause più comuni dei problemi relativi all'iscrizione con una carta di credito o di debito.
+
+[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
 ## Sono disponibili altre opzioni per pagare oltre a una carta di credito o di debito?
 Le opzioni di pagamento per Azure includono:
@@ -31,6 +33,7 @@ Le opzioni di pagamento per Azure includono:
 - I fornitori di carte di credito/debito accettati variano in base al paese.
 
 Suggerimenti:
+
 - Non utilizzare una carta di credito/debito prepagata o virtuale.
 - Se il pagamento o l'attivazione ha esito negativo, provare a usare una carta di credito valida e supportata alternativa.
 - Assicurarsi che il metodo di pagamento sia attivo e che la banca non blocchi le transazioni in linea per i criteri di sicurezza.
@@ -43,26 +46,33 @@ Suggerimenti:
 - Contattare la propria banca per correggere eventuali problemi di ortografia o di altro tipo relativi alle informazioni sulla carta.
 
 Suggerimenti:
+
 - Fornire sempre informazioni accurate all'iscrizione, perché i dettagli del profilo vengono usati anche per generare gli estratti conto.
 
 ## Le informazioni relative al profilo dell'account sono corrette e complete?
+
 - Il proprietario dell'account deve inserire tutte le informazioni richieste durante l'iscrizione per identificare la persona proprietaria dell'account e consentire l'emissione di estratti conto corretti quando necessario.
 - Gli esempi di campi non corretti o incompleti includono: nome o cognome mancante, numero di telefono errato, caratteri non standard (speciali).
 
 Suggerimenti:
-- Controllare ogni campo del profilo al momento dell'iscrizione o nell'[impostazione del profilo](https://account.windowsazure.com/Profile/) se è già stato creato un account Azure.
+
+- Controllare ogni campo nel profilo al momento dell'iscrizione o nell'[impostazione del profilo](https://account.windowsazure.com/Profile/) se è già stato creato un account Azure.
 - Fornire sempre informazioni accurate, perché i dettagli del profilo vengono usati anche per generare gli estratti conto.
 
 ## Si sta tentando di attivare un piano con vantaggi di Azure, ad esempio MSDN, BizSpark o MPN?  
 Verificare tramite il canale del programma dei vantaggi se si è idonei al piano scelto:
+
 - MSDN:
-  - Verificare lo stato di idoneità nella [pagina dell'account MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
+
+  - Verificare lo stato di idoneità nella [pagina dell'account MSDN](https://msdn.microsoft.com/subscriptions/manage/deult.aspx).
   - Se non è possibile verificare lo stato, contattare i [centri del Servizio clienti per abbonamenti MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx)
 - MPN
-  - Accedere al [portale MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) e verificare lo stato di idoneità. È possibile usufruire di vantaggi aggiuntivi se si dispone delle [competenze Cloud Platform](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx) appropriate.
+
+  - Accedere al [portale MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) e verificare lo stato di idoneità. È possibile usufruire di vantaggi aggiuntivi se si hanno le [competenze Cloud Platform](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx) appropriate.
   - Se non è possibile verificare lo stato, contattare il [supporto tecnico di MPN](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).
 - BizSpark:
-  - Accedere al [portale BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two) e verificare lo stato di idoneità per BizSpark e BizSpark Plus. Se non è possibile verificare lo stato, contattare il supporto di BizSpark con un messaggio di posta elettronica facendo clic su [Contatta il team di BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
+
+  - Accedere al [portale di BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two) e verificare lo stato di idoneità per BizSpark e BizSpark Plus. Se non è possibile verificare lo stato, contattare il supporto di BizSpark con un messaggio di posta elettronica facendo clic su [Contatta il team di BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
 
 Suggerimenti:
 
@@ -75,7 +85,7 @@ Suggerimenti:
 
 Se l'attivazione di una versione di valutazione gratuita non riesce perché è già stata attivata una sottoscrizione di Azure in passato, usare un altro piano di Azure disponibile elencato nei [Dettagli delle offerte per Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) invece del piano di valutazione gratuita di Azure.
 
-## Contattare il supporto di Azure
-Se continua a verificarsi un problema di iscrizione dopo aver eseguito i passaggi di risoluzione dei problemi, contattare il [supporto di Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409).
+## Passaggi successivi
+Per qualsiasi domanda sulla fatturazione o la sottoscrizione di Microsoft Azure, vedere le [Domande frequenti su fatturazione e sottoscrizione di Azure](billing-subscription-faq.md#what-payment-options-do-i-have-in-purchasing-azure).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

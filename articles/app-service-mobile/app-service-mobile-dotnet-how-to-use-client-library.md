@@ -30,7 +30,7 @@ La documentazione di riferimento per il client SDK è disponibile qui: [Riferime
 
 ##<a name="setup"></a>Installazione e prerequisiti
 
-Si presuppone che si abbia già creato e pubblicato il progetto di back-end di App per dispositivi mobili, che include a una tabella. Nel codice usato in questo argomento la tabella è denominata `TodoItem` e si presenta con le colonne seguenti: `Id`, `Text` e `Complete`. Si tratta della stessa tabella creata durante l'esercitazione di [introduzione alle app per dispositivi mobili]
+Si presuppone che si sia già creato e pubblicato il progetto di back-end di App per dispositivi mobili, che include almeno una tabella. Nel codice usato in questo argomento la tabella è denominata `TodoItem` e si presenta con le colonne seguenti: `Id`, `Text` e `Complete`. Si tratta della stessa tabella creata durante l'esercitazione di [introduzione alle app per dispositivi mobili]
 
 Il tipo sul lato client tipizzato in C# è il seguente:
 
@@ -109,7 +109,8 @@ Questa sezione descrive come eseguire query nel back-end di App per dispositivi 
 
 Il codice seguente illustra come filtrare i dati includendo una clausola `Where` in una query. Restituisce tutti gli elementi da `todoTable` per i quali la proprietà `Complete` è uguale a `false`. La funzione [Where] applica un predicato di filtro di riga alla query sulla tabella.
 
-	// This query filters out completed TodoItems and items without a timestamp.
+	// This query filters out completed TodoItems and
+	// items without a timestamp.
 	List<TodoItem> items = await todoTable
 	   .Where(todoItem => todoItem.Complete == false)
 	   .ToListAsync();
@@ -129,7 +130,7 @@ La funzione passata al metodo `Where` può avere un numero di condizioni arbitra
 	// This query filters out completed TodoItems where Text isn't null
 	List<TodoItem> items = await todoTable
 	   .Where(todoItem => todoItem.Complete == false
-		   && todoItem.Text != null)
+		    && todoItem.Text != null)
 	   .ToListAsync();
 
 Viene convertita in una query SQL da un SDK del server simile al seguente:
@@ -442,7 +443,7 @@ Sono supportati due flussi di autenticazione, un _flusso server_ e un _flusso cl
 In entrambi i casi è necessario effettuare la registrazione dell'app con il provider di identità. Il provider di identità fornirà un ID client e un segreto client. È quindi necessario configurare l'autenticazione o l'autorizzazione del servizio app di Azure con l'ID client e il segreto client forniti dal provider di identità. Per altre informazioni, seguire le istruzioni dettagliate dell'esercitazione [Aggiungere l'autenticazione all'app].
 
 ###<a name="serverflow"></a>Flusso server
-Dopo aver effettuato la registrazione del provider di identità, è sufficiente eseguire una chiamata a MobileServiceCleint.[LoginAsync method] con il valore [MobileServiceAuthenticationProvider] del provider. Ad esempio, con il codice seguente viene avviato un accesso al flusso server mediante Facebook.
+Dopo aver eseguito la registrazione del provider di identità, chiamare MobileServiceClient.[metodo LoginAsync] con il valore [MobileServiceAuthenticationProvider] del provider. Ad esempio, con il codice seguente viene avviato un accesso al flusso server mediante Facebook.
 
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
@@ -736,7 +737,7 @@ Per ottenere questo valore:
 1. In Esplora soluzioni di Visual Studio, fare clic con il pulsante destro del mouse sul progetto app di Windows Store, quindi scegliere **Store** > **Associa applicazione a Store**.
 2. Nella procedura guidata fare clic su **Avanti**, accedere con l'account Microsoft, immettere un nome per l'app in **Riserva nuovo nome applicazione** e quindi fare clic su **Riserva**.
 3. Dopo la creazione della registrazione dell'app, selezionare il nuovo nome dell'app, fare clic su **Avanti** e quindi su **Associa**. Le informazioni di registrazione a Windows Store necessarie verranno aggiunte al manifesto dell'applicazione.
-4. Accedere al [Windows Dev Center] con l'account Microsoft. In **App personali ** fare clic sulla registrazione dell'app appena creata.
+4. Accedere al [Windows Dev Center] con l'account Microsoft. In **App personali** fare clic sulla registrazione dell'app appena creata.
 5. Fare clic su **Gestione dell’app** > **Identità dell’app**, e poi scorrere fino a trovare il **SID pacchetto**.
 
 In molti casi il SID pacchetto questo viene considerato come un URI e sarà necessario usare _ms-app: / /_ come schema. Prendere nota della versione del SID pacchetto formato tramite la concatenazione di questo valore come prefisso.
@@ -912,4 +913,4 @@ Per supportare lo scenario specifico dell'app, potrebbe essere necessario person
 [SymbolSource]: http://www.symbolsource.org/
 [istruzioni di SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

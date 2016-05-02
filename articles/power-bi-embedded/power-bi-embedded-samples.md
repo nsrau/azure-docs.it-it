@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Esempio introduttivo"
-   description="Esempio introduttivo"
+   pageTitle="Esempi di Power BI Embedded"
+   description="Esempi di Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -34,4 +34,4 @@
 - [Cos'è Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Introduzione alla versione di anteprima di Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

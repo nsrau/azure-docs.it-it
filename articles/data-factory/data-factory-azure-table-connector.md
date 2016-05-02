@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Spostare dati da e verso le tabelle di Azure mediante Data factory di Azure
@@ -402,7 +402,7 @@ Proprietà | Descrizione | Valori consentiti | Obbligatorio
 azureTableDefaultPartitionKeyValue | Valore predefinito della chiave di partizione che può essere usato dal sink. | Valore stringa. | No 
 azureTablePartitionKeyName | Nome della colonna specificato dall'utente, i cui valori di colonna vengono usati come chiave di partizione. Se non specificato, AzureTableDefaultPartitionKeyValue viene usato come chiave di partizione. | Nome colonna. | No |
 azureTableRowKeyName | Nome della colonna specificato dall'utente, i cui valori di colonna vengono usati come chiave di riga. Se non specificato, usare un GUID per ogni riga. | Nome colonna. | No  
-azureTableInsertType | La modalità per inserire dati in tabelle di Azure. | unione<br/>sostituzione | No 
+azureTableInsertType | Modalità di inserimento dei dati in una tabella di Azure.<br/><br/>Questa proprietà verifica se per le righe esistenti nella tabella di output con chiavi di partizione e di riga corrispondenti i valori verranno sostituiti o uniti. <br/><br/>Vedere gli argomenti [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) per informazioni sul funzionamento delle impostazioni di unione e sostituzione. <br/><br> Si noti che le impostazioni vengono applicate a livello di riga, non a livello di tabella, e che nessuna delle due opzioni elimina le righe della tabella di output che non esistono nell'input. | merge (impostazione predefinita)<br/>replace | No 
 writeBatchSize | Inserisce dati nella tabella di Azure quando viene raggiunto il writeBatchSize o writeBatchTimeout. | Numero intero compreso tra 1 e 100 (unità = conteggio righe) | No. (Predefinito = 100) 
 writeBatchTimeout | Inserisce i dati nella tabella di Azure quando viene raggiunto writeBatchSize o writeBatchTimeout | (Unità = intervallo di tempo)Esempio: "00:20:00" (20 minuti). | No. (il valore predefinito è il timeout del client di archiviazione pari a 90 secondi)
 
@@ -526,4 +526,7 @@ In questo caso Data Factory eseguirà automaticamente la conversione del tipo in
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+## Ottimizzazione delle prestazioni  
+Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzarle, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
+
+<!---HONumber=AcomDC_0420_2016-->

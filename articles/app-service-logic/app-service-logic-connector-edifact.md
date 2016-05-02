@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Uso del connettore BizTalk Edifact e aggiunta all'app per la logica  
->[AZURE.NOTE] Questa versione dell'articolo si applica alla versione dello schema 2014-12-01-preview delle app per la logica.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Usare il servizio Edifact per ricevere e inviare messaggi mediante il protocollo Edifact nelle comunicazioni B2B (Business to Business). Edifact è anche noto come ASC Edifact (Accredited Standards Committee Edifact) ed è ampiamente usato in vari settori.
 
@@ -54,7 +55,7 @@ Il connettore Edifact può essere usato come trigger o come azione.
 ### Azione
 - Fare clic su Edifact Connector nel riquadro destro:  
 ![Impostazioni di azione][7]
-- Fare clic su ->:  
+- Fare clic su ->:
 ![Elenco di azioni][8]
 - Il connettore Edifact supporta molte azioni. Selezionare *Encode*:  
 ![Input di Encode][9]
@@ -99,4 +100,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

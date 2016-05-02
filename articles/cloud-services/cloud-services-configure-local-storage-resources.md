@@ -1,6 +1,6 @@
 <properties
-pageTitle="Configurare le risorse di archiviazione locale nei servizi Cloud di Azure"
-description=""
+pageTitle="Configurare le risorse di archiviazione locale nei servizi cloud di Azure | Microsoft Azure"
+description="Informazioni sulla configurazione delle risorse di archiviazione locale nei servizi cloud di Azure"
 services="cloud-services"
 documentationCenter=""
 authors="cristy"
@@ -56,7 +56,7 @@ Il seguente file di definizione del servizio mostra due risorse di archiviazione
 
 Per ulteriori informazioni sui file di definizione del servizio, vedere [Schema di definizione dei servizi di Azure (file .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
 
-> [AZURE.NOTE]Se si utilizzano gli strumenti di Azure per Microsoft Visual Studio, è possibile definire una risorsa di archiviazione locale all'interno delle pagine **Properties** per il ruolo. Per ulteriori informazioni, vedere [Configurazione dell'applicazione Azure con Visual Studio](https://msdn.microsoft.com/library/ee405486.aspx).
+> [AZURE.NOTE] Se si utilizzano gli strumenti di Azure per Microsoft Visual Studio, è possibile definire una risorsa di archiviazione locale all'interno delle pagine **Properties** per il ruolo. Per ulteriori informazioni, vedere [Configurazione dell'applicazione Azure con Visual Studio](https://msdn.microsoft.com/library/ee405486.aspx).
 
 ## Accesso a una risorsa di archiviazione locale a livello di programmazione
 
@@ -104,4 +104,4 @@ Il codice in esecuzione un'istanza del ruolo può accedere a una risorsa di arch
 
 - [Configurare un servizio cloud per Azure](https://msdn.microsoft.com/library/azure/hh124108.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0420_2016-->

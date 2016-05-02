@@ -13,12 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="03/23/2016"
+   ms.date="04/18/2016"
    ms.author="yuemlu"/>
 
 # Sistema operativo guest di Azure 
 
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+
+## Sistema operativo guest di aprile 
+
+| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-037 | [3148531] | Aggiornamento cumulativo della sicurezza per Internet Explorer | 4\.31, 3.38, 2.50 | 12 aprile 2016 |  
+| MS16-039 | [3148522] | Aggiornamento della sicurezza per il componente grafico Microsoft | 4\.31, 3.38, 2.50 | 12 aprile 2016 | 
+| MS16-040 | [3148541] | Aggiornamento della sicurezza per Microsoft XML Core Service | 4\.31, 3.38, 2.50 | 12 aprile 2016 | 
+| MS16-044 | [3146706] | Aggiornamento della sicurezza per Windows OLE | 4\.31, 3.38, 2.50 | 12 aprile 2016 | 
+| MS16-045 | [3143118] | Aggiornamento della sicurezza per Windows Hyper-V | 4\.31, 3.38 | 12 aprile 2016 | 
+| MS16-047 | [3148527] | Aggiornamento della sicurezza per il protocollo remoto di gestione degli account di sicurezza | 4\.31, 3.38, 2.50 | 12 aprile 2016 | 
+| MS16-048 | [3148528] | Aggiornamento della sicurezza per CSRSS | 4\.31, 3.38 | 12 aprile 2016 | 
 
 ## Sistema operativo guest di marzo 
 
@@ -256,6 +269,14 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [2999802][2999802] | In Windows vengono stampate linee a tinta unita invece che linee tratteggiate | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 | N/D | [2896881][2896881] | È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows | 4\.15, 3.22, 2.34 | 13 gennaio 2015 |
 
+[3148531]: http://support.microsoft.com/kb/3148531
+[3148522]: http://support.microsoft.com/kb/3148522
+[3148541]: http://support.microsoft.com/kb/3148541
+[3146706]: http://support.microsoft.com/kb/3146706
+[3143118]: http://support.microsoft.com/kb/3143118
+[3148527]: http://support.microsoft.com/kb/3148527
+[3148528]: http://support.microsoft.com/kb/3148528
+
 
 [3142015]: http://support.microsoft.com/kb/3142015
 [3143148]: http://support.microsoft.com/kb/3143148
@@ -432,4 +453,4 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

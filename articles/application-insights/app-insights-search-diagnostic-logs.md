@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="04/08/2016" 
 	ms.author="awills"/>
  
 # Log, eccezioni e diagnostica personalizzata per ASP.NET in Application Insights
@@ -241,11 +241,11 @@ Quando si leggono i log di diagnostica, è probabile che il codice sorgente sia 
 Invece di aggiungere la proprietà separatamente a ogni chiamata di eccezione, è possibile impostare le informazioni nel contesto predefinito.
 
     // Telemetry initializer class
-    public class MyTelemetryInitializer : IContextInitializer
+    public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (TelemetryContext context)
+        public void Initialize (ITelemetry telemetry)
         {
-            context.Properties["AppVersion"] = "v2.1";
+            telemetry.Properties["AppVersion"] = "v2.1";
         }
     }
 
@@ -254,7 +254,7 @@ Nell'inizializzatore di app, ad esempio Global.asax.cs, procedere come segue:
     protected void Application_Start()
     {
         // ...
-        TelemetryConfiguration.Active.ContextInitializers
+        TelemetryConfiguration.Active.TelemetryInitializers
         .Add(new MyTelemetryInitializer());
     }
 
@@ -305,4 +305,4 @@ Se l'applicazione invia una grande quantità di dati e si sta utilizzando la ver
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

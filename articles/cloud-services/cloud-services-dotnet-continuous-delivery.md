@@ -24,7 +24,7 @@ Per agevolare tali operazioni è inoltre disponibile Visual Studio Team Services
 
 Prima di iniziare, pubblicare l'applicazione da Visual Studio. Questo garantisce che tutte le risorse siano disponibili e inizializzate quando si tenta di automatizzare il processo di pubblicazione.
 
-## Passaggio 1: Configurare il server di compilazione
+## 1: Configurare il server di compilazione
 
 Prima di creare un pacchetto di Azure usando MSBuild, è necessario installare il software e gli strumenti necessari nel server di compilazione.
 
@@ -38,7 +38,7 @@ L'installazione di Visual Studio nel server di compilazione non è necessaria. S
 	In un computer in cui è installato Visual Studio questo file si trova nella directory C:\\Programmi(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications. Copiare il file nella stessa cartella del server di compilazione.
 5.  Installare gli [strumenti di Azure per Visual Studio](https://www.visualstudio.com/features/azure-tools-vs.aspx).
 
-## Passaggio 2: Compilare un pacchetto usando i comandi MSBuild
+## 2: Compilare un pacchetto usando i comandi MSBuild
 
 Questa sezione descrive come creare un comando MSBuild per compilare un pacchetto di Azure. Eseguire questo passaggio nel server di compilazione per verificare che tutto sia configurato correttamente e che il comando MSBuild abbia l'effetto desiderato. È possibile aggiungere questa riga di comando agli script di compilazione esistenti nel server di compilazione oppure è possibile usare la riga di comando in una definizione di compilazione di TFS, come descritto nella sezione successiva. Per altre informazioni sui parametri della riga di comando e su MSBuild, vedere [Riferimenti alla riga di comando di MSBuild](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
 
@@ -75,7 +75,7 @@ Questa sezione descrive come creare un comando MSBuild per compilare un pacchett
 
     Una volta creata e testata una riga di comando di MSBuild appropriata per compilare i progetti e combinarli in un pacchetto di Azure, è possibile aggiungere tale riga di comando agli script di compilazione. Se il server di compilazione usa script personalizzati, questo processo dipende dalle specifiche del processo personalizzato di compilazione. Se si usa TFS come ambiente di compilazione, è possibile seguire le istruzioni nel prossimo passaggio per aggiungere la compilazione del pacchetto di Azure al proprio processo di compilazione.
 
-## Passaggio 3: Compilare un pacchetto usando TFS Team Build
+## 3: Compilare un pacchetto usando TFS Team Build
 
 Se si dispone di Team Foundation Server (TFS) configurato come controller di compilazione, e il server di compilazione è impostato come computer di compilazione TFS, è possibile configurare facoltativamente una compilazione automatica per il pacchetto Azure. Per informazioni su come configurare e usare Team Foundation Server come sistema di compilazione, vedere [Scalare orizzontalmente il sistema di compilazione][]. In particolare, nella procedura seguente si presuppone che il server di compilazione sia stato configurato come descritto in [Distribuire e configurare un server di compilazione][] e che siano stati creati un progetto team e un progetto servizio cloud nel progetto team.
 
@@ -101,11 +101,11 @@ Per configurare TFS per la compilazione di pacchetti Azure, eseguire la procedur
 
 5.  Verificare l'esito del passaggio di compilazione archiviando una modifica al progetto o inserire in coda una nuova compilazione. Per inserire in coda una nuova compilazione, in Team Explorer fare clic con il pulsante destro del mouse su **Tutte le definizioni di compilazione**, quindi scegliere **Accoda nuova compilazione**.
 
-## Passaggio 4: Pubblicare un pacchetto usando uno script di PowerShell
+## 4: Pubblicare un pacchetto usando uno script PowerShell
 
 In questa sezione viene descritto come creare uno script di Windows PowerShell che pubblicherà l'output del pacchetto dell'app per cloud in Azure usando parametri facoltativi. Questo script può essere chiamato dopo il passaggio di compilazione nell'automazione della compilazione personalizzata. È possibile chiamare lo script anche da attività del flusso di lavoro del modello di processo in Visual Studio TFS Team Build.
 
-1.  Installare i [cmdlet di Azure PowerShell][] (0.6.1 o versione successiva). Durante la fase di installazione dei cmdlet, scegliere l'installazione come snap-in. Si noti che questa versione ufficialmente supportata sostituisce la versione precedente offerta tramite CodePlex, anche se le versioni precedenti sono state numerate 2.x.x.
+1.  Installare i [cmdlet di Azure PowerShell][] \(0.6.1 o versione successiva). Durante la fase di installazione dei cmdlet, scegliere l'installazione come snap-in. Si noti che questa versione ufficialmente supportata sostituisce la versione precedente offerta tramite CodePlex, anche se le versioni precedenti sono state numerate 2.x.x.
 
 2.  Avviare Azure PowerShell usando il menu o la pagina Start. Con l'avvio in questa modalità, verranno caricati i cmdlet di Azure PowerShell.
 
@@ -179,7 +179,7 @@ In questa sezione viene descritto come creare uno script di Windows PowerShell c
 
     >[AZURE.IMPORTANT] se vengono rilevate distribuzioni esistenti, lo script le elimina o le sostituisce per impostazione predefinita. Questo è necessario per consentire il recapito continuo da automazioni in cui non è possibile visualizzare richieste utente/operatore.
 
-## Passaggio 5: Pubblicare un pacchetto usando TFS Team Build
+## 5: Pubblicare un pacchetto usando TFS Team Build
 
 In questo passaggio facoltativo si collega TFS Team Build con lo script creato nel passaggio 4, che gestisce la pubblicazione della compilazione del pacchetto in Azure. Questo comporta la modifica del modello di processo usato dalla definizione di compilazione in modo che venga eseguita un'attività di pubblicazione al termine del flusso di lavoro. L'attività di pubblicazione eseguirà il comando PowerShell passando i parametri dalla compilazione. L'output delle destinazioni di MSBuild e dello script di pubblicazione verrà inviato all'output standard della compilazione.
 
@@ -333,7 +333,7 @@ In questo passaggio facoltativo si collega TFS Team Build con lo script creato n
 
     3.  PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
 
-    4.  ServiceName = 'mycloudservicename' * Qui usare il nome del servizio cloud appropriato*
+    4.  ServiceName = 'mycloudservicename' *Qui usare il nome del servizio cloud appropriato*
 
     5.  Environment = 'Staging'
 
@@ -573,4 +573,4 @@ Per abilitare il debug remoto durante l'uso della distribuzione continua, vedere
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="Gestire gli account di Servizi multimediali di Azure con PowerShell" 
 	description="Informazioni su come gestire gli account di Servizi multimediali di Azure con i cmdlet di PowerShell." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
 #Gestire gli account di Servizi multimediali di Azure con PowerShell
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-create-account.md)
+- [Portale](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
@@ -122,4 +122,4 @@ Per eliminare l'account di Servizi multimediali di Azure, usare il cmdlet [Remov
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

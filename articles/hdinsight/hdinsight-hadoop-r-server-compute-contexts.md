@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Opzioni del contesto di calcolo per Server R in HDInsight Premium | Azure"
-   description="Informazioni sulle varie opzioni di contesto di calcolo disponibili per gli utenti con Server R in HDInsight Premium"
+   pageTitle="Opzioni del contesto di calcolo per R Server su HDInsight (anteprima) | Azure"
+   description="Informazioni sulle varie opzioni di contesto di calcolo disponibili per gli utenti con Server R su HDInsight (anteprima)"
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -18,9 +18,9 @@
    ms.author="jeffstok"
 />
 
-# Opzioni del contesto di calcolo per Server R in HDInsight Premium
+#Opzioni del contesto di calcolo per R Server su HDInsight (anteprima)
 
-Server R in HDInsight Spark offre le funzionalità più recenti per l'analisi basata su R usando i dati archiviati in HDFS in un contenitore nell'account di archiviazione [BLOB di Azure](../storage/storage-introduction.md "Archivio BLOB di Azure") o nel file system locale di Linux. Dato che Server R si basa su R open source, le applicazioni basate su R che vengono compilate possono sfruttare gli oltre 8000 pacchetti R open source disponibili, nonché le routine in [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "ScaleR di Revolution Analytics"), il pacchetto di analisi dei Big Data di Microsoft incluso in Server R. Il nodo edge dei cluster Premium offre una comoda destinazione per la connessione al cluster e l'esecuzione degli script R. Con un nodo edge è possibile eseguire funzioni distribuite parallelizzate di ScaleR nei core del server del nodo edge o tra i nodi del cluster tramite l'uso di contesti di calcolo Hadoop MapReduce o Spark di ScaleR.
+Server R su HDInsight (anteprima) offre le funzionalità più recenti per l'analisi basata su R usando i dati archiviati in HDFS in un contenitore nell'account di archiviazione [BLOB di Azure](../storage/storage-introduction.md "Archivio BLOB di Azure") o nel file system locale di Linux. Dato che Server R si basa su R open source, le applicazioni basate su R che vengono compilate possono sfruttare gli oltre 8000 pacchetti R open source disponibili, nonché le routine in [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "ScaleR di Revolution Analytics"), il pacchetto di analisi dei Big Data di Microsoft incluso in Server R. Il nodo edge dei cluster Premium offre una comoda destinazione per la connessione al cluster e l'esecuzione degli script R. Con un nodo edge è possibile eseguire funzioni distribuite parallelizzate di ScaleR nei core del server del nodo edge o tra i nodi del cluster tramite l'uso di contesti di calcolo Hadoop MapReduce o Spark di ScaleR.
 
 ## Contesti di calcolo per un nodo edge
 
@@ -77,6 +77,6 @@ Dopo aver visto come creare un nuovo cluster HDInsight che include Server R e le
 - [Articolo contenente una panoramica su Server R in Hadoop](hdinsight-hadoop-r-server-overview.md).
 - [Articolo introduttivo relativo a Server R su Hadoop](hdinsight-hadoop-r-server-get-started.md).
 - [Articolo relativo all'installazione di RStudio Server in HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md).
-- [Articolo relativo alle opzioni di Archiviazione di Azure per Server R in HDInsight Premium](hdinsight-hadoop-r-server-storage.md).
+- [Opzioni di Archiviazione di Azure per R Server in HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

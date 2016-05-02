@@ -4,7 +4,7 @@
    services=""
    documentationCenter="Azure"
    authors="erihur"
-   manager="kareni"
+   manager="stevenpo"
    editor=""
    tags="billing"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/22/2016"
+   ms.date="04/13/2016"
    ms.author="erihur"/>
 
 
@@ -33,28 +33,13 @@ Per altre informazioni sul consumo e sui piani tariffari, vedere la [pagina rela
 
 <!-- *NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*-->
 
-<!-- Below section commented out as a new "right nav" floating bar is created for each article and is no longer necessary to have this section.
-
-## Content:
-
-This topic helps you with the following tasks when reading your bill.
-
--  View or Download a Bill for Azure
--  Customer Information
--  Understand the Invoice Summary
--  Understand the Current Charges
--  Footer Information
--  Understand the Additional Information
--  Understand Detailed Usage Charges
--  Analyze Daily Usage Data -->
-
 ### Visualizzare o scaricare una fattura per Microsoft Azure:
 
-Nel [portale di utilizzo e fatturazione](https://account.windowsazure.com/subscriptions) è possibile visualizzare le fatture correnti e scaricare le fatture precedenti.
+Nel [portale degli account di Azure](https://account.windowsazure.com/subscriptions) è possibile visualizzare le fatture correnti e scaricare quelle passate.
 
 Per visualizzare o scaricare una fattura:
 
-1. Accedere al [portale di utilizzo e fatturazione](https://account.windowsazure.com/subscriptions) usando l'ID dell'account Microsoft o l'ID dell'account aziendale o dell'istituto di istruzione.
+1. Accedere al [portale degli account](https://account.windowsazure.com/subscriptions) usando l'ID dell'account Microsoft o l'ID dell'account aziendale o dell'istituto di istruzione.
 
 2. Fare clic sulla sottoscrizione per cui si vogliono visualizzare i dettagli e l'utilizzo.
 
@@ -78,7 +63,7 @@ Per visualizzare o scaricare una fattura:
     ![Riepilogo - cronologia fatturazione 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
 
 
-***Importante:*** *gli addebiti elencati negli estratti conto per i clienti internazionali sono solo a scopo di valutazione, perché le banche hanno costi diversi per i tassi di conversione.*
+***Importante:*** *gli addebiti elencati negli estratti conto per i clienti internazionali sono solo a scopo di valutazione, poiché le banche hanno costi diversi per i tassi di conversione.*
 
 
 Di seguito sono fornite alcune istruzioni di esempio per due differenti offerte disponibili in Microsoft Azure.
@@ -90,9 +75,9 @@ Offerta dell'impegno | Spesa detratta dall'impegno prepagato | [File di esempio]
 
 
 
-## Intestazione - Informazioni sul cliente
+## Informazioni sull'account
 
-La sezione relativa alle informazioni sul cliente identifica le informazioni pertinenti relative all'utilizzo e al profilo dell'utente specifico. ![intestazione](./media/billing-understand-your-bill/Header.png)
+La sezione relativa alle informazioni sull'account identifica le informazioni pertinenti relative all'uso e al profilo dell'utente. ![intestazione](./media/billing-understand-your-bill/Header.png)
 
 ### N. fattura
 Identificatore univoco della fattura per scopi di registrazione.
@@ -104,13 +89,13 @@ Intervallo di tempo durante il quale è avvenuto l'utilizzo.
 Data in cui è stata generata la fattura.
 
 ### Metodo di pagamento
-Tipo di pagamento usato per l'account (fattura o carta di credito).
+Tipo di pagamento usato per l'account, ovvero addebito con fattura o carta di credito.
 
 ### Indirizzo di fatturazione
 Indirizzo per i pagamenti per Microsoft Azure.
 
 ### Offerta di sottoscrizione
-Tipo di offerta di sottoscrizione acquistata, ad esempio con pagamento in base al consumo, Visual Studio Enterprise con MSDN e così via.
+Tipo di offerta di sottoscrizione che è stato acquistato, ossia pagamento in base al consumo, BizSpark Plus, Azure Pass e così via.
 
 ### Indirizzo di posta elettronica proprietario account
 Indirizzo di posta elettronica dell'account associato all'account Microsoft Azure.
@@ -118,11 +103,11 @@ Indirizzo di posta elettronica dell'account associato all'account Microsoft Azur
 
 
 ## Comprendere il riepilogo della fattura
-La sezione relativa al riepilogo della fattura riassume le transazioni avvenute dall'ultima fattura e gli addebiti sull'attuale utilizzo.
+La sezione relativa al **riepilogo della fattura** riassume le transazioni avvenute dall'ultima fattura e gli addebiti per l'uso attuali.
 
 ![riepilogo fattura](./media/billing-understand-your-bill/InvoiceSummary.png)
 
-Nella sezione della fattura relativa a saldi, pagamenti e crediti sono riepilogate le transazioni dall'ultima fattura.
+Nella sezione della fattura relativa a saldo precedente, pagamenti e saldo in sospeso sono riepilogate le transazioni avvenute dall'ultima fattura.
 
 ### Saldo precedente
 Il saldo precedente è l'importo totale dovuto nell'ultima fattura.
@@ -137,7 +122,7 @@ Eventuali rettifiche della fattura (crediti o saldi) applicate all'account dopo 
 ## Comprendere gli addebiti attuali
 La sezione Costi attuali della fattura contiene informazioni dettagliate sui costi mensili. I collegamenti sono organizzati nelle sottosezioni seguenti.
 
-### Costi di utilizzo
+### Addebiti per utilizzo
 Gli addebiti per l'utilizzo corrispondono agli addebiti mensili totali per una sottoscrizione. Questi costi vengono addebitati in modo posticipato per l'utilizzo del mese precedente.
 
 ### Sconti
@@ -154,8 +139,8 @@ La pagina delle informazioni aggiuntive contiene riferimenti ad altre risorse ut
 
 ![informazioni aggiuntive](./media/billing-understand-your-bill/AdditionalInformation.png)
 
-### Dati sull'utilizzo dettagliati
-Un collegamento all'interno della descrizione inclusa nella sezione dei dati sull'utilizzo dettagliati permette di passare al portale di utilizzo e fatturazione di Azure in cui è possibile visualizzare i dati sull'utilizzo dettagliati per questa sottoscrizione. Sono ora disponibili due versioni disponibili per il download: **versione 1 CSV**, che contiene i campi di utilizzo e la convenzione di denominazione precedente e **versione 2 CSV**, che contiene i nomi descrittivi del cliente per ognuna delle categorie e altri campi che consentiranno di comprendere quali servizi di Microsoft Azure si utilizzano.
+### Uso dettagliato
+Un collegamento nella descrizione inclusa nell'**Uso dettagliato** consente di accedere al portale degli account in cui è possibile visualizzare i dettagli dell'uso per la sottoscrizione. Sono ora disponibili due versioni disponibili per il download: **versione 1 CSV**, che contiene i campi di utilizzo e la convenzione di denominazione precedente e **versione 2 CSV**, che contiene i nomi descrittivi del cliente per ognuna delle categorie e altri campi che consentiranno di comprendere quali servizi di Microsoft Azure si utilizzano. Si noti che nella versione 1 del file con estensione csv non sono presenti dettagli di Azure Resource Manager. Le informazioni di Azure Resource Manager sono reperibili nella versione 2 del file con estensione csv.
 
 ### Informazioni aggiuntive e risorse utili
 Questa sezione contiene collegamenti a semplici domande relative alle dimensioni delle istanze di calcolo e agli addebiti di SQL DB, nonché collegamenti utili per rispondere ad altre domande.
@@ -163,10 +148,10 @@ Questa sezione contiene collegamenti a semplici domande relative alle dimensioni
 ### Venduto a
 Prepopolato con l'indirizzo del profilo associato all'account.
 
-### Istruzioni di pagamento
+### Istruzioni per il pagamento
 Questa sezione contiene le istruzioni di pagamento relative a dove inviare assegni, assegni urgenti o bonifici se è stato scelto il metodo di pagamento con fattura.
 
-## Comprendere gli addebiti basati sui dati sull'utilizzo dettagliati
+## Comprendere gli addebiti basati sull'uso dettagliato
 
 Come parte dell'impegno volto a consentire ai clienti di gestire facilmente l'utilizzo di Azure, è stato migliorato il file di utilizzo di download che segnala l'uso e i costi dei servizi di Azure. Il collegamento per il download contiene due versioni del file di utilizzo: **versione 1**, che utilizza il formato preesistente; **versione 2**, che include informazioni aggiuntive e nomi di colonna aggiornati nella sezione dedicata all’utilizzo giornaliero.
 
@@ -191,7 +176,7 @@ Tariffa dell'impegno | Tariffa dell'impegno | Contiene la tariffa dell'impegno b
 Tariffa | Tariffa | Indica la tariffa addebitata per ogni unità fatturabile.
 Valore | Valore | Indica il risultato della moltiplicazione della colonna Fatturabile per la colonna Tariffa. Se la quantità consumata non supera quella inclusa, in questa colonna non viene visualizzato alcun importo.
 
-## Analizzare i dati di utilizzo giornaliero
+## Analizzare i dati sull'uso giornaliero
 In base all'utilizzo, potrebbero essere presenti migliaia di righe relative ai dati sull'utilizzo giornaliero. Se si desidera analizzare i dati, fare clic su **Scarica utilizzo** e scegliere una versione di file variabile delimitato da virgole (CSV) per visualizzare i dati di utilizzo giornaliero per il periodo di fatturazione appropriato. È possibile scaricare un file CSV di esempio per ciascuna versione di seguito come riferimento.
 
  NOME | DOWNLOAD |
@@ -267,4 +252,4 @@ Passare alla sezione **Gestire account, sottoscrizioni e ruoli amministrativi** 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

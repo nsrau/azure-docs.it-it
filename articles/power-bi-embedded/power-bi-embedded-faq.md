@@ -1,6 +1,6 @@
 <properties
    pageTitle="Domande frequenti"
-   description="Domande frequenti"
+   description="Domande frequenti su Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -91,7 +91,7 @@
 
 16.	**Come funziona l'autenticazione degli utenti con Power BI Embedded?**
 
-    Il servizio Power BI Embedded usa token di applicazione per l'autenticazione e l'autorizzazione anziché usare l'autenticazione esplicita dell'utente finale. Nel modello con token di applicazione è l'applicazione a gestire l'autenticazione e l'autorizzazione degli utenti finali. Quindi l'applicazione crea e invia i token di applicazione al nostro servizio richiedendo di fatto il rendering del report. Questo modello non richiede che l'applicazione usi Azure Active Directory per l'autenticazione e l'autorizzazione dell'utente, sebbene sia possibile. Per altre informazioni sui token di applicazione, vedere la pagina della documentazione relativa ai [token di applicazione](https://azure.microsoft.com/documentation/articles/power-bi-embedded-get-started-sample/#key-flow).
+    Il servizio Power BI Embedded usa token di applicazione per l'autenticazione e l'autorizzazione anziché usare l'autenticazione esplicita dell'utente finale. Nel modello con token di applicazione è l'applicazione a gestire l'autenticazione e l'autorizzazione degli utenti finali. Quindi l'applicazione crea e invia i token di applicazione al nostro servizio richiedendo di fatto il rendering del report. Questo modello non richiede che l'applicazione usi Azure Active Directory per l'autenticazione e l'autorizzazione dell'utente, sebbene sia possibile. Per altre informazioni sui token di applicazione, vedere la pagina della documentazione relativa ai [token di applicazione](https://azure.microsoft.com//documentation/articles/power-bi-embedded-get-started-sample/#key-flow).
 
 17.	**Quali origini dati sono supportate attualmente con Power BI Embedded?**
 
@@ -101,7 +101,7 @@
 
     Nel modello di Power BI Embedded non c'è lo specifico requisito che i clienti si trovino in tenant di Azure Active Directory (Azure AD). È possibile scegliere di richiedere o meno Azure AD per i clienti. Di conseguenza, l'architettura dell'applicazione e l'infrastruttura sono gli elementi che determineranno il modello di tenancy richiesto per Power BI Embedded.
 
-    Gli sviluppatori/dipendenti che lavorano all'applicazione dovranno avere un account utente di Azure AD per poter gestire la sottoscrizione di Azure e le raccolte di aree di lavoro mediante il Portale di Azure. Le API a livello di codice che consentono agli sviluppatori di importare report, modificare stringhe di connessione e ottenere URL incorporati usano invece i token di applicazione per l'autenticazione e perciò non richiedono Azure AD. Informazioni dettagliate su come usare le API e il Portale di Azure sono disponibili alla [pagina della documentazione su Power BI Embedded in Azure.com](https://azure.microsoft.com/documentation/services/power-bi-embedded/).
+    Gli sviluppatori/dipendenti che lavorano all'applicazione dovranno avere un account utente di Azure AD per poter gestire la sottoscrizione di Azure e le raccolte di aree di lavoro mediante il Portale di Azure. Le API a livello di codice che consentono agli sviluppatori di importare report, modificare stringhe di connessione e ottenere URL incorporati usano invece i token di applicazione per l'autenticazione e perciò non richiedono Azure AD. Informazioni dettagliate su come usare le API e il Portale di Azure sono disponibili alla [pagina della documentazione su Power BI Embedded in Azure.com](https://azure.microsoft.com//documentation/services/power-bi-embedded/).
 
 19.	**Altre informazioni**
 
@@ -116,4 +116,4 @@
 - [Cos'è Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Introduzione all'anteprima di Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

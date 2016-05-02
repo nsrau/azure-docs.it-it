@@ -20,9 +20,9 @@
 
 Informazioni su come pianificare il provisioning di cluster HDInsight.
 
-[AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Effettuare il provisioning di cluster Hadoop in HDInsight](hdinsight-provision-clusters.md) 
+> [AZURE.WARNING] La procedura descritta in questo documento usa il portale di Azure classico e le versioni precedenti di Azure PowerShell e dell'interfaccia della riga di comando di Azure. Non è consigliabile eseguire questa procedura. Usare invece il portale di Azure e le versioni più recenti di Azure PowerShell e dell'interfaccia della riga di comando di Azure. Per una versione di questo documento basata sul portale di Azure e sulle versioni più recenti di Azure PowerShell e dell'interfaccia della riga di comando di Azure, vedere [Eseguire il provisioning dei cluster Hadoop in HDInsight](hdinsight-provision-clusters.md)
+>
+> Per una spiegazione dei vantaggi del portale di Azure, vedere il [portale di Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
 
 **Prerequisiti:**
 
@@ -48,8 +48,8 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 - **Sistema operativo**
 
 	È possibile eseguire il provisioning di cluster HDInsight in uno dei due sistemi operativi seguenti:
-	- **HDInsight in Windows (Windows Server 2012 R2 Datacenter)**:
-	- **HDInsight in Linux (Ubuntu 12.04 LTS for Linux)**: HDInsight consente di configurare cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). 
+	- **HDInsight su Windows (Windows Server 2012 R2 Datacenter)**:
+	- **HDInsight su Linux (Ubuntu 12.04 LTS for Linux)**: HDInsight consente di configurare i cluster Linux in Azure. Se si ha familiarità con Linux o Unix, è infatti possibile configurare un cluster Linux eseguendo la migrazione da una soluzione Hadoop basata su Linux esistente oppure è possibile scegliere di integrarsi facilmente con i componenti dell'ecosistema Hadoop sviluppati per Linux. Per altre informazioni, vedere l'articolo di [introduzione all'uso di Hadoop su Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). 
 
 
 - **Versione HDInsight**
@@ -231,7 +231,7 @@ L'uso di script durante il provisioning consente di installare componenti aggiun
 
 	![Diagramma di una configurazione da punto a sito](./media/hdinsight-provision-clusters-v1/hdinsight-vnet-point-to-site.png)
 
-Per informazioni sull'uso di HDInsight con una rete virtuale, inclusi i requisiti di configurazione specifici per la rete virtuale, vedere [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
+Per informazioni sull'uso di HDInsight con una rete virtuale, inclusi i requisiti di configurazione specifici per la rete virtuale, vedere l'articolo su come [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ## Strumenti per il provisioning
 
@@ -442,12 +442,9 @@ Durante il provisioning di un cluster è possibile usare le altre opzioni di con
 
 > [AZURE.NOTE] A partire da 29/8/2014 non è più possibile associare l'interfaccia della riga di comando di Azure a una rete virtuale di Azure.
 
-Un'altra opzione per effettuare il provisioning di un cluster HDInsight è l'interfaccia della riga di comando di Azure. L'interfaccia della riga di comando di Azure viene implementata in Node.js. Può essere usato in tutte le piattaforme che supportano Node.js, inclusi Windows, Mac e Linux. È possibile installare l'interfaccia della riga di comando dai percorsi seguenti:
+Un'altra opzione per effettuare il provisioning di un cluster HDInsight è l'interfaccia della riga di comando di Azure. L'interfaccia della riga di comando di Azure viene implementata in Node.js. Può essere usato in tutte le piattaforme che supportano Node.js, inclusi Windows, Mac e Linux.
 
-- **Node.js SDK** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
-- **Interfaccia della riga di comando** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
-
-Per una guida generale sull'uso dell'interfaccia della riga di comando di Azure, vedere l'articolo sull'[interfaccia del la riga di comando di Azure per Mac, Linux e Windows](../xplat-cli-install.md).
+Per una guida generale sull'uso dell'interfaccia della riga di comando di Azure, vedere [Interfaccia della riga di comando di Azure](../xplat-cli-install.md).
 
 Le istruzioni seguenti illustrano come installare la riga di comando Azure in Linux e Windows e quindi come usare la riga di comando per effettuare il provisioning di un cluster.
 
@@ -535,7 +532,7 @@ L'interfaccia della riga di comando di Azure può essere installata tramite NPM 
 
 **Per installare l'interfaccia della riga di comando di Azure tramite Windows Installer**
 
-1.	Passare a ****http://azure.microsoft.com/downloads/**.
+1.	Passare a **http://azure.microsoft.com/downloads/**.
 2.	Scorrere verso il basso fino alla sezione **Strumenti da riga di comando** e quindi fare clic sul collegamento relativo all'**interfaccia della riga di comando di Azure** e seguire l'Installazione guidata piattaforma Web.
 
 **Per scaricare e importare impostazioni di pubblicazione**
@@ -817,4 +814,4 @@ In questo articolo si sono appresi vari modi per effettuare il provisioning di u
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

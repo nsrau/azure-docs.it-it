@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="04/18/2016"
 	ms.author="tarcher"/>
 
 # Aggiungere proprietari e utenti di un lab di sviluppo e test
@@ -24,11 +24,9 @@
 
 L'accesso a un lab di sviluppo e test è controllato dal Controllo di accesso in base al ruolo (RBAC) di Azure. Cercare [Controllo degli accessi in base al ruolo (RBAC)](https://azure.microsoft.com/searchresults?query=Role%20Based%20Access%20Control%20%28RBAC%29) nel portale di anteprima di Azure per altre informazioni.
 
-È possibile concedere l'accesso al lab di sviluppo e test tramite due ruoli:
+Per concedere l'accesso al lab, si possono usare due ruoli:
 
- - **Proprietario**: gli utenti assegnati al ruolo **proprietario** a livello di sottoscrizione di Azure hanno accesso completo al lab, inclusi gestione e funzioni di monitoraggio.
-
-     > [AZURE.NOTE] I ruoli **Proprietario** assegnati a livelli RBAC invece che a livello di sottoscrizione non sono supportati in lab di sviluppo e test. L’assegnazione di un utente al ruolo **Proprietario** nel lab di sviluppo e test non è supportata.
+ - **Proprietario**: gli utenti assegnati al ruolo **proprietario** a livello di lab hanno accesso completo al lab, incluse le funzioni di gestione e monitoraggio. Il ruolo **proprietario** assegnato a livello di lab non concede agli utenti le autorizzazioni per accedere alle risorse nella sottoscrizione fuori dall'ambito del lab. Gli utenti assegnati al ruolo **proprietario** a livello di sottoscrizione di Azure usufruiscono automaticamente dei diritti del ruolo **proprietario** per qualsiasi lab creato nella sottoscrizione.
 
  -  **Utente di Lab di sviluppo e test**: gli utenti assegnati al ruolo**utente di Lab di sviluppo e test** può creare, aggiornare ed eliminare le macchine virtuali nel lab specificato. Gli utenti possono essere *interni* (un membro di Azure Active Directory per la sottoscrizione), o *esterni* (un utente che non è un membro di Azure AD, ad esempio un membro di un'organizzazione partner).
 	-  Un ruolo **utente di Lab di sviluppo e test** deve essere assegnato tramite il riquadro **Aggiungi utenti** del lab.
@@ -103,4 +101,4 @@ Per aggiungere un utente di Lab di sviluppo e test nel lab, seguire questi passa
 
 	1. Il pannello **Utenti** mostra ruoli e utenti aggiunti.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="11/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Utilizzo dell’estensione di script personalizzato per VM Linux con modelli di Azure Resource Manager
@@ -47,7 +47,7 @@ Definire la seguente risorsa di estensione nella sezione delle risorse del model
       }
     }
     }
-    
+
 Nell’esempio precedente, sostituire l'URL di file e il nome del file con le proprie impostazioni.
 
 Dopo aver creato il modello, è possibile distribuirlo usando l'interfaccia della riga di comando di Azure.
@@ -56,4 +56,4 @@ Consultare l’esempio seguente per configurare applicazioni in una macchina vir
 
 * [Estensione di script personalizzato in una VM Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

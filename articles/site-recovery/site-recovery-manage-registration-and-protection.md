@@ -31,7 +31,7 @@ Per inviare commenti o domande, è possibile usare la parte inferiore di questo 
 Per annullare la registrazione di un server VMM da un insieme di credenziali, eliminare il server nella scheda **Server** del portale di Azure Site Recovery. Si noti che:
 
 -  **Server VMM connesso**: è consigliabile annullare la registrazione del server VMM quando è connesso ad Azure. Ciò garantisce che le impostazioni nel server VMM locale e i server ad esso VMM associati (i server VMM che contengono cloud mappati ai cloud sul server da eliminare) vengano rimosse correttamente. Si consiglia di rimuovere un server non connesso solo in caso di problema di connettività permanente.
-- **Server VMM non connesso**: se il server VMM non è connesso quando viene eliminato, è necessario eseguire uno script per eseguire la pulizia manualmente. Lo script è disponibile nella [Raccolta Microsoft](https://gallery.technet.microsoft.com/scriptcenter/Cleanup-Script-for-Windows-95101439). Prendere nota dell'ID di VMM del server per completare il processo di pulizia manuale.
+- **Server VMM non connesso**: se il server VMM non è connesso quando viene eliminato, è necessario eseguire uno script per eseguire la pulizia manualmente. Lo script è disponibile nella [Raccolta Microsoft](http://aka.ms/asr-cleanup-script-vmm). Prendere nota dell'ID di VMM del server per completare il processo di pulizia manuale.
 - **Server VMM in cluster**: se si desidera annullare la registrazione di un server VMM distribuito in un cluster, procedere nel modo seguente:
 
 	- Se il server è connesso, eliminare il server VMM connesso nella scheda **Server**. Per disinstallare il Provider nel server, accedere a ogni nodo del cluster e disinstallarlo dal Pannello di controllo. Eseguire lo script di pulizia a cui si fa riferimento nella sezione precedente in tutti i nodi passivi del cluster per eliminare le voci di registrazione.
@@ -220,4 +220,4 @@ Se si desidera arrestare la protezione di una macchina virtuale VMware o un serv
 	
 		![Rimuovere le opzioni](./media/site-recovery-manage-registration-and-protection/remove-vm.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

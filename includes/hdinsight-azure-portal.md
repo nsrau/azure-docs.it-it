@@ -1,7 +1,7 @@
 ##Portale di Azure e portale di anteprima di Azure
 
-> [AZURE.IMPORTANT] I passaggi descritti in questo documento usano il portale di Azure. Per la creazione di nuovi servizi, Microsoft consiglia di usare il portale di anteprima di Azure. Per una spiegazione dei vantaggi del portale di anteprima, vedere [DevOps è ancora più straordinario](https://azure.microsoft.com/overview/preview-portal/).
+> [AZURE.IMPORTANT] I passaggi descritti in questo documento usano il portale di Azure classico. Per la creazione di nuovi servizi, Microsoft non consiglia di usare il portale classico. Per una spiegazione dei vantaggi del portale di Azure, vedere il [portale di Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
 
-Per una versione di questo documento che usa il portale di anteprima di Azure, vedere il collegamento seguente:
+Per una versione di questo documento che usa il portale di Azure, vedere il collegamento seguente:
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

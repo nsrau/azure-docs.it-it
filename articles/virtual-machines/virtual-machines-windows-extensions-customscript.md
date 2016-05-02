@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="11/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Utilizzo dell’estensione di script personalizzato per VM Windows con modelli di Azure Resource Manager
@@ -38,7 +38,8 @@ Definire la seguente risorsa nella sezione delle risorse del modello
        "properties": {
            "publisher": "Microsoft.Compute",
            "type": "CustomScriptExtension",
-           "typeHandlerVersion": "1.4",
+           "typeHandlerVersion": "1.7",
+           "autoUpgradeMinorVersion":true,
            "settings": {
                "fileUris": [
                "http://Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
@@ -47,7 +48,7 @@ Definire la seguente risorsa nella sezione delle risorse del modello
          }
        }
      }
-     
+
 Nell’esempio precedente, sostituire l'URL di file e il nome del file con le proprie impostazioni.
 
 Dopo aver creato il modello, è possibile distribuirlo usando Azure PowerShell.
@@ -56,4 +57,4 @@ Consultare l’esempio seguente per configurare applicazioni in una macchina vir
 
 * [Estensione di script personalizzato in una VM Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

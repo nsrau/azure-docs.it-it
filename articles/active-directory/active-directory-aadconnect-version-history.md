@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/12/2016"
+   ms.date="04/20/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Cronologia delle versioni
@@ -22,11 +22,13 @@ Il team di Azure Active Directory aggiorna regolarmente Azure AD Connect con nuo
 
 Lo scopo di questo articolo è consentire agli utenti di esaminare le versioni rilasciate e verificare l'opportunità di effettuare l'aggiornamento alla versione più recente.
 
-Collegamenti correlati:
+Di seguito è riportato l'elenco degli argomenti correlati:
 
-- Metodi per [eseguire l'aggiornamento da una versione precedente alla versione più recente](active-directory-aadconnect-upgrade-previous-version.md) di Azure AD Connect.
-- Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](active-directory-aadconnect-accounts-permissions.md#upgrade)
-- [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+| Argomento | |
+| --------- | --------- |
+| Passaggi da eseguire per l'aggiornamento da Azure AD Connect | Metodi per [eseguire l'aggiornamento da una versione precedente alla versione più recente](active-directory-aadconnect-upgrade-previous-version.md) di Azure AD Connect. |
+| Autorizzazioni necessarie | Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](active-directory-aadconnect-accounts-permissions.md#upgrade) |
+| Download| [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
 
 ## 1\.1.130.0
 Data di rilascio: aprile 2016
@@ -34,7 +36,8 @@ Data di rilascio: aprile 2016
 **Nuove funzionalità:**
 
 - Aggiunto il supporto per gli attributi multivalore alle [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md).
-- Aggiunto il supporto per altre varianti di configurazione per l'[aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md) da considerare idoneo per l'aggiornamento.
+- Aggiunto il supporto per altre varianti di configurazione dell'[aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md) da considerare idonee per l'aggiornamento.
+- Aggiunta di alcuni cmdlet per l'[utilità di pianificazione personalizzata](active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler).
 
 ## 1\.1.119.0
 Data di rilascio: marzo 2016
@@ -70,7 +73,7 @@ Data di rilascio: febbraio 2016
 
 **Funzionalità passate dal livello di anteprima al livello di disponibilità generale:**
 
-- [Writeback dispositivi](active-directory-aadconnect-feature-device-writeback.md).
+- [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md).
 - [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md).
 
 **Nuove funzionalità di anteprima:**
@@ -265,4 +268,4 @@ Data di rilascio: settembre 2014
 ## Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -8,7 +8,7 @@ VM per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md)|2
 Letture API Gestione risorse|15000 all'ora|15000 all'ora
 Scritture API Gestione risorse|1200 all'ora|1200 all'ora
 Dimensioni delle richieste API di gestione delle risorse|4194304 byte|4194304 byte
-[Servizi cloud](../articles/cloud-services/fundamentals-application-models.md#tellmecs) per sottoscrizione|Deprecato<sup>3</sup>|Deprecato<sup>3</sup>
+[Servizi cloud](../articles/cloud-services/cloud-services-choose-me.md) per sottoscrizione|Deprecato<sup>3</sup>|Deprecato<sup>3</sup>
 [Gruppi di affinità](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per sottoscrizione|Deprecato<sup>3</sup>|Deprecato<sup>3</sup>
 
 <sup>1</sup>I limiti predefiniti variano in base al tipo di categoria di offerta, ad esempio Versione di valutazione gratuita, Pagamento in base al consumo e così via.
@@ -17,4 +17,4 @@ Dimensioni delle richieste API di gestione delle risorse|4194304 byte|4194304 by
 
 <sup>3</sup>Queste funzionalità non sono più necessarie con i gruppi di risorse di Azure e Gestione risorse di Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

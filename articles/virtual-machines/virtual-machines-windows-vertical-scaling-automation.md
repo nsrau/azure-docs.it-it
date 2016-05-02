@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Scalabilità verticale di macchine virtuali di Azure tramite Automazione di Azure | Microsoft Azure"
-	description="Come eseguire la scalabilità verticale di una macchina virtuale in risposta agli avvisi di monitoraggio tramite Automazione di Azure"
-	services="virtual-machines"
+	description="Come eseguire la scalabilità verticale di una macchina virtuale Windows in risposta agli avvisi di monitoraggio tramite Automazione di Azure"
+	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="singhkay"
 	manager="drewm"
@@ -9,9 +9,9 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/29/2016"
@@ -53,27 +53,9 @@ Per eseguire questa operazione, seguire questa procedura:
 
 ## Configurare Automazione di Azure per l'accesso alle macchine virtuali
 
-In questa sezione verranno eseguite queste attività:
+La prima operazione da eseguire è creare l'account di Automazione di Azure che ospiterà i runbook usati per ridimensionare le istanze del set di scalabilità VM. Il servizio Automazione ha introdotto di recente la funzionalità "Account RunAs", che semplifica molto l'impostazione dell'entità servizio per l'esecuzione automatica di runbook per conto dell'utente. Altre informazioni sono disponibili nell'articolo seguente.
 
-* Creare un utente in Active Directory
-* Creare un oggetto AutomationPSCredential con le informazioni di accesso dell'utente
-* Configurare l'utente per l'accesso alle risorse nella sottoscrizione
-
-Prima di iniziare a eseguire i runbook di Automazione di Azure nella sottoscrizione, è necessario consentire l'accesso alla sottoscrizione ad Automazione di Azure. Questa operazione viene eseguita mediante la creazione di un altro utente in Active Directory. È quindi necessario creare un oggetto AutomationPSCredential che consente all'utente di eseguire l'autenticazione in Azure ed eseguire i comandi PowerShell per ridimensionare la macchina virtuale.
-
-Una procedura dettagliata per la creazione di un utente e di un oggetto AutomationPSCredential è disponibile nell'articolo seguente:
-
-* [Configurazione di Automazione di Azure](../automation/automation-configuring.md)
-
-Dopo la creazione di un utente è necessario renderlo coamministratore per le risorse classiche e assegnargli il ruolo di "Proprietario" per le risorse di Azure Resource Manager.
-
-Affinché possa accedere alle risorse classiche, l'utente deve essere aggiunto come coamministratore nel portale classico.
-
-![Coamministratore portale precedente](./media/virtual-machines-vertical-scaling-automation/old-portal-automation-user.png)
-
-È necessario usare il portale di Azure per consentire all'utente di accedere alle macchine virtuali di Azure Resource Manager.
-
-![Amministratore nuovo portale](./media/virtual-machines-vertical-scaling-automation/new-portal-automation-user.png)
+* [Autenticare runbook con account RunAs di Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## Importare i runbook di scalabilità verticale di Automazione di Azure nella sottoscrizione
 
@@ -108,4 +90,4 @@ Assicurarsi di copiare il webhook prima di chiudere la finestra di dialogo del w
 
 ![Aggiunta di un avviso alla macchina virtuale 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="04/20/2016"
 	ms.author="andkjell"/>
 
 
@@ -53,12 +53,16 @@ Per istruzioni su come eseguire un aggiornamento sul posto da DirSync ad Azure A
 [Azure Active Directory Connect: in-place upgrade from legacy tools (Azure Active Directory Connect: aggiornamento sul posto dagli strumenti legacy)](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools) ![aggiornamento sul posto](./media/active-directory-aadconnect-dirsync-deprecated/inplaceupgrade.png)
 
 ## Domande frequenti
+**D: È stata ricevuta una notifica di posta elettronica dal team di Azure e/o un messaggio dal Centro messaggi di Office 365 anche se si usa Connect.** La notifica è stata inviata anche agli utenti di Azure AD Connect con numero di build 1.0.*.0 e rilascio precedente all'1.1. Si consiglia ai clienti di rimanere aggiornati con le versioni di Azure AD Connect. La funzionalità di [aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md) del rilascio 1.1 consente di avere sempre l'ultima versione di Azure AD Connect.
+
 **D: DirSync/Azure AD Sync smetteranno di funzionare il 13 aprile 2017?** No. La data di dismissione della comunicazione di questi strumenti Azure AD verrà annunciata in un secondo momento. Quando disponibile, questa informazione sarà visualizzata in questo argomento.
 
-**D: E per quanto riguarda il connettore Azure AD per FIM/MIM?** Al momento, per il connettore di Azure AD per FIM/MIM **non** è prevista la deprecazione. Si tratta di un **blocco della funzionalità**: non viene aggiunta alcuna nuova funzionalità e non si riceveranno correzioni dei bug. Microsoft consiglia ai clienti che ne fanno uso di pianificare la transizione ad Azure AD Connect. È consigliabile non avviare nuove distribuzioni tramite questo strumento. Nel futuro il connettore verrà deprecato.
+**D: Da quali versioni di DirSync è possibile eseguire l'aggiornamento?** È supportato l'aggiornamento da qualsiasi versione di DirSync attualmente in uso.
+
+**D: E per quanto riguarda il connettore Azure AD per FIM/MIM?** Azure AD Connector per FIM/MIM **non** è stato dichiarato obsoleto. Si tratta di un **blocco delle funzionalità**: non viene aggiunta alcuna nuova funzionalità e non vengono effettuate correzioni dei bug. Microsoft consiglia ai clienti che ne fanno uso di pianificare la transizione ad Azure AD Connect. È consigliabile non avviare nuove distribuzioni tramite questo strumento. Nel futuro il connettore verrà deprecato.
 
 ## Risorse aggiuntive
 
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

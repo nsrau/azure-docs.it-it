@@ -3,8 +3,8 @@
 	description="Questo argomento fornisce una panoramica dei codec e dei formati del flusso di lavoro Premium del codificatore multimediale" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erik43" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016"  
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"    
+	ms.author="juliako;anilmur"/>
 
 #Codec e formati del flusso di lavoro Premium del codificatore multimediale
 
@@ -138,4 +138,4 @@ Se il video di input non contiene i sottotitoli codificati, l'asset di output co
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

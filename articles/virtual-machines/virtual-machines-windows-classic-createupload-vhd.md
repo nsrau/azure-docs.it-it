@@ -14,17 +14,15 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="04/15/2016"
 	ms.author="cynthn"/>
 
 # Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse.
-
-
 Questo articolo illustra come caricare un disco rigido virtuale (VHD, Virtual Hard Disk) con un sistema operativo in modo da poterlo usare come immagine in base alla quale creare macchine virtuali. Per informazioni dettagliate sui dischi e sui dischi rigidi virtuali in Microsoft Azure, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](virtual-machines-linux-about-disks-vhds.md).
 
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modello Gestione risorse. È anche possibile [acquisire](virtual-machines-windows-capture-image.md) e [caricare](virtual-machines-windows-upload-image.md) una macchina virtuale usando il modello di Resource Manager.
 
 ## Prerequisiti
 
@@ -152,9 +150,9 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
 	Dove:
 	- **BlobStorageURL** è l'URL dell'account di archiviazione.
-	- **YourImagesFolder** è il contenitore all'interno dell'archivio BLOB in cui si vuole archiviare le immagini.
-	- **VHDName** è il nome da visualizzare nel portale di Azure classico per identificare il disco rigido virtuale.
-	- **PathToVHDFile** è il percorso completo e il nome del file VHD.
+	- **YourImagesFolder** è il contenitore all'interno dell'archiviazione BLOB in cui si vogliono archiviare le immagini.
+	- **VHDName** è il nome che si vuole visualizzare nel portale di Azure classico per identificare il disco rigido virtuale.
+	- **PathToVHDFile** rappresenta il percorso completo e il nome del file con estensione vhd.
 
 	![Add-AzureVHD di PowerShell](./media/virtual-machines-windows-classic-createupload-vhd/powershell_upload_vhd.png)
 
@@ -192,7 +190,7 @@ Per altre informazioni sul cmdlet Add-AzureVhd, vedere [Add-AzureVhd](http://msd
 
 	![immagine personalizzata](./media/virtual-machines-windows-classic-createupload-vhd/vm_custom_image.png)
 
-	La nuova immagine è ora disponibile in **Immagini personali** quando si crea una macchina virtuale. Per istruzioni, vedere l'articolo relativo alla [creazione di una macchina virtuale personalizzata](virtual-machines-windows-classic-createportal.md).
+	La nuova immagine è ora disponibile in **Immagini personali** quando si crea una macchina virtuale. Per istruzioni, vedere [Creare una macchina virtuale personalizzata](virtual-machines-windows-classic-createportal.md).
 
 	![creazione di una macchina virtuale in base a un'immagine personalizzata](./media/virtual-machines-windows-classic-createupload-vhd/create_vm_custom_image.png)
 
@@ -205,4 +203,4 @@ Per altre informazioni sul cmdlet Add-AzureVhd, vedere [Add-AzureVhd](http://msd
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Utilizzo di Desktop remoto con i ruoli Azure
 
 Usando Azure SDK e Servizi Desktop remoto, è possibile accedere ai ruoli di Azure e alle macchine virtuali ospitate da Azure. In Visual Studio è possibile configurare Servizi Desktop remoto da un progetto Azure. Per abilitare Servizi Desktop remoto, è necessario creare un progetto di lavoro contenente uno o più ruoli e quindi pubblicarlo in Azure.
 
->[AZURE.IMPORTANT]Accedere a un ruolo di Azure solo per la risoluzione dei problemi o lo sviluppo. Lo scopo di ogni macchina virtuale è eseguire un ruolo specifico nell'applicazione di Azure e non eseguire altre applicazioni client. Se si vuole usare Azure per ospitare una macchina virtuale che è possibile usare per qualsiasi scopo, vedere Accesso alle macchine virtuali di Azure da Esplora server.
+>[AZURE.IMPORTANT] Accedere a un ruolo di Azure solo per la risoluzione dei problemi o lo sviluppo. Lo scopo di ogni macchina virtuale è eseguire un ruolo specifico nell'applicazione di Azure e non eseguire altre applicazioni client. Se si vuole usare Azure per ospitare una macchina virtuale che è possibile usare per qualsiasi scopo, vedere Accesso alle macchine virtuali di Azure da Esplora server.
 
 ## Per abilitare e usare Desktop remoto per un ruolo di Azure
 
@@ -41,7 +41,7 @@ Usando Azure SDK e Servizi Desktop remoto, è possibile accedere ai ruoli di Azu
 
     Se si sceglie un certificato esistente, ignorare i passaggi seguenti.
 
-    >[AZURE.NOTE]I certificati necessari per una connessione Desktop remoto sono diversi da quelli usati per altre operazioni di Azure. Il certificato di accesso remoto deve avere una chiave privata.
+    >[AZURE.NOTE] I certificati necessari per una connessione Desktop remoto sono diversi da quelli usati per altre operazioni di Azure. Il certificato di accesso remoto deve avere una chiave privata.
 
     Verrà visualizzata la finestra di dialogo **Crea certificato**.
 
@@ -51,11 +51,11 @@ Usando Azure SDK e Servizi Desktop remoto, è possibile accedere ai ruoli di Azu
     
         Non è possibile usare un account esistente. Non specificare l'amministratore come nome utente per il nuovo account.
 
-        >[AZURE.NOTE]Se la password non soddisfa i requisiti di complessità necessari, accanto alla casella di testo della password viene visualizzata un'icona rossa. La password deve includere lettere maiuscole e minuscole, numeri o simboli.
+        >[AZURE.NOTE] Se la password non soddisfa i requisiti di complessità necessari, accanto alla casella di testo della password viene visualizzata un'icona rossa. La password deve includere lettere maiuscole e minuscole, numeri o simboli.
 
     1. Scegliere una data di scadenza dell'account, dopo la quale le connessioni Desktop remoto verranno bloccate.
 
-    1. Dopo aver immesso tutte le informazioni necessarie, premere il pulsante **OK**.
+    1. Dopo aver fornito tutte le informazioni necessarie, scegliere il pulsante **OK**.
     
         Verranno aggiunte diverse impostazioni che abilitano i servizi di accesso remoto ai file con estensione cscfg e csdef.
 
@@ -67,7 +67,7 @@ Usando Azure SDK e Servizi Desktop remoto, è possibile accedere ai ruoli di Azu
 
 Dopo aver pubblicato il servizio cloud in Azure, è possibile usare Esplora Server per accedere alle macchine virtuali ospitate da Azure.
 
-1. In Esplora server, espandere il nodo **Azure** e quindi espandere il nodo di un servizio cloud e uno dei relativi ruoli per visualizzare un elenco di istanze.
+1. In Esplora server espandere il nodo **Azure** e quindi espandere il nodo di un servizio cloud e uno dei relativi ruoli per visualizzare un elenco di istanze.
 
 1. Aprire il menu di scelta rapida di un nodo dell'istanza e quindi scegliere **Connessione tramite desktop remoto**.
 
@@ -75,4 +75,4 @@ Dopo aver pubblicato il servizio cloud in Azure, è possibile usare Esplora Serv
 
 1. Immettere il nome utente e la password creati in precedenza. L'accesso alla sessione remota è stato completato.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

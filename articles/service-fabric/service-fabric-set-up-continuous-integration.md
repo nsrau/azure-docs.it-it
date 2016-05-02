@@ -246,11 +246,22 @@ Per installare Azure PowerShell, seguire la procedura nella sezione precedente "
 
 >[AZURE.NOTE] La definizione di compilazione creata a partire da queste istruzioni non supporta più compilazioni simultanee, anche se in computer diversi. Questo perché ogni compilazione si contenderebbe lo stesso gruppo di risorse/cluster. Per eseguire più agenti di compilazione, sarà necessario modificare le istruzioni o gli script seguenti per evitare interferenze.
 
-### Aggiungere gli script di integrazione continua al controllo del codice sorgente per l'applicazione
+### Aggiungere un modello Azure Resource Manager per Service Fabric all'applicazione
 
-1.	Estrarre [ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6) in una cartella di questo computer. Copiare il contenuto di `Powershell\Automation` in una cartella qualsiasi nel controllo del codice sorgente.
+1. Scaricare `azuredeploy.json` e `azuredeploy.parameters.json` da [questo esempio](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad).
 
-2.	Archiviare i file risultanti.
+2. Aprire `azuredeploy.parameters.json` e modificare i parametri seguenti:
+
+    |Parametro|Valore|
+    |---|---|
+    |clusterLocation|Deve corrispondere al percorso dell'insieme di credenziali delle chiavi. Esempio: `westus`|
+    |clusterName|Deve corrispondere al nome DNS del certificato. Ad esempio, se il nome DNS del certificato è `mycluster.westus.cloudapp.net`, `clusterName` deve essere `mycluster`.|
+    |adminPassword|8-123 caratteri, con almeno 3 dei tipi di carattere seguenti: maiuscoli, minuscoli, numerici, speciali.|
+    |certificateThumbprint|Dall'output di `CreateAndUpload-Certificate.ps1`|
+    |sourceVaultValue|Dall'output di `CreateAndUpload-Certificate.ps1`|
+    |certificateUrlvalue|Dall'output di `CreateAndUpload-Certificate.ps1`|
+
+3. Aggiungere i nuovi file al controllo del codice sorgente ed eseguire il push in VSTS.
 
 ### Creare la definizione di compilazione
 
@@ -274,21 +285,6 @@ Per installare Azure PowerShell, seguire la procedura nella sezione precedente "
     |---|---|---|---|
     |BuildConfiguration|Release||X|
     |BuildPlatform|x64|||
-    |ServicePrincipalPassword|Password usata durante la creazione dell'entità servizio.|X||
-    |ServicePrincipalId|Dall'output dello script usato per creare l'entità servizio.|||
-    |ServicePrincipalTenantId|Dall'output dello script usato per creare l'entità servizio.|||
-    |ServicePrincipalSubscriptionId|Dall'output dello script usato per creare l'entità servizio.|||
-    |ServiceFabricCertificateThumbprint|Dall'output di CreateAndUpload-Certificate.ps1|||
-    |ServiceFabricKeyVaultId|Dall'output di CreateAndUpload-Certificate.ps1|||
-    |ServiceFabricCertificateSecretId|Dall'output di CreateAndUpload-Certificate.ps1|||
-    |ServiceFabricClusterName|Deve corrispondere al nome DNS del certificato.|||
-    |ServiceFabricClusterResourceGroupName|Qualsiasi nome.|||
-    |ServiceFabricClusterLocation|Deve corrispondere al percorso dell'insieme di credenziali delle chiavi.|||
-    |ServiceFabricClusterAdminPassword|8-123 caratteri, con almeno 3 dei tipi di carattere seguenti: maiuscoli, minuscoli, numerici, speciali.|X||
-    |ServiceFabricClusterResourceGroupTemplateFilePath|`<path/to/extracted/automation/scripts/ArmTemplate-Full-3xVM-Secure.json>`|||
-    |ServiceFabricPublishProfilePath|`<path/to/your/publish/profiles/MyPublishProfile.xml>` L'endpoint connessione nel profilo di pubblicazione sarà ignorato. Verrà invece usato l'endpoint connessione del cluster temporaneo.|||
-    |ServiceFabricDeploymentScriptPath|`<path/to/Deploy-FabricApplication.ps1>`|||
-    |ServiceFabricApplicationProjectPath|`<path/to/your/fabric/application/project/folder>` Deve essere la cartella che contiene il file SFPROJ.||||
 
 3.  Salvare la definizione di compilazione e assegnare un nome. È possibile modificare questo nome in seguito.
 
@@ -296,9 +292,9 @@ Per installare Azure PowerShell, seguire la procedura nella sezione precedente "
 
 1. Nella scheda **Compilazione** scegliere il comando **Aggiungi istruzione di compilazione**.
 
-2. Scegliere **Pacchetto** > **Programma di installazione NuGet**.
+2. Scegliere **Pacchetto** > **Programma di installazione NuGet**
 
-3. Scegliere l'icona a forma di penna accanto al nome dell'istruzione di compilazione e rinominarla in **Ripristina pacchetti NuGet**.
+3. Scegliere l'icona a forma di matita accanto al nome dell'istruzione di compilazione e rinominare l'istruzione **Ripristina pacchetti NuGet**.
 
 4. Scegliere il pulsante **…** accanto al campo **Soluzione** e quindi selezionare il file SLN.
 
@@ -306,108 +302,115 @@ Per installare Azure PowerShell, seguire la procedura nella sezione precedente "
 
 ### Aggiungere un passaggio "Compilazione"
 
-1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione**.
+1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione...**.
 
 2.	Selezionare **Compila** > **MSBuild**.
 
-3.	Selezionare l'icona a forma di penna accanto al nome dell'istruzione di compilazione e quindi rinominarla in **Compilazione**.
+3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominare l'istruzione **Compilazione**.
 
-4.	Scegliere il pulsante **…** accanto al campo **Soluzione** e quindi selezionare il file SLN.
+4. Selezionare questi valori:
 
-5.	Immettere `$(BuildPlatform)` per **Piattaforma**.
+    |Nome dell'impostazione|Valore|
+    |---|---|
+    |Soluzione|Fare clic sul pulsante **...** e selezionare il file `.sln` per la soluzione.|
+    |Piattaforma|`$(BuildPlatform)`|
+    |Configurazione|`$(BuildConfiguration)`|
 
-6.	Immettere `$(BuildConfiguration)` per **Configurazione**.
-
-7.	Selezionare la casella di controllo **Ripristina pacchetti NuGet**, se non è già selezionata.
-
-8.	Salvare la definizione di compilazione.
+5.	Salvare la definizione di compilazione.
 
 ### Aggiungere un passaggio "Pacchetto"
 
-1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione**.
+1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione...**.
 
 2.	Selezionare **Compila** > **MSBuild**.
 
-3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominarla in **Pacchetto**.
+3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominare l'istruzione **Pacchetto**.
 
-4.	Scegliere il pulsante **…** accanto al campo **Soluzione** e quindi selezionare il file SFPROJ del progetto di applicazione.
+4. Selezionare questi valori:
 
-5.	Immettere `$(BuildPlatform)` per **Piattaforma**.
+    |Nome dell'impostazione|Valore|
+    |---|---|
+    |Soluzione|Fare clic sul pulsante **...** e selezionare il file del progetto applicazione `.sfproj`.|
+    |Piattaforma|`$(BuildPlatform)`|
+    |Configurazione|`$(BuildConfiguration)`|
+    |Argomenti MSBuild|`/t:Package`|
 
-6.	Immettere `$(BuildConfiguration)` per **Configurazione**.
-
-7.	Immettere `/t:Package` per **Argomenti MSBuild**.
-
-8.	Deselezionare la casella di controllo **Ripristina pacchetti NuGet**, se non è già deselezionata.
-
-9.	Salvare la definizione di compilazione.
+5.	Salvare la definizione di compilazione.
 
 ### Aggiungere il passaggio "Rimuovere il gruppo di risorse cluster"
 
 Se una compilazione precedente non si è pulita automaticamente al termine dell'esecuzione, ad esempio perché è stata annullata prima di poter eseguire la pulizia, è possibile che un gruppo di risorse esistente entri in conflitto con quello nuovo. Per evitare conflitti, pulire gli eventuali gruppi di risorse rimasti e le risorse associate prima di crearne uno nuovo.
 
-1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione**.
+1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione...**.
+
+2.	Selezionare **Distribuisci** > **Distribuzione gruppo di risorse di Azure**.
+
+3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominare l'istruzione **Rimuovere il gruppo di risorse cluster**.
+
+4. Selezionare questi valori:
+
+    |Nome dell'impostazione|Valore|
+    |---|---|
+    |AzureConnectionType|**Gestione risorse di Azure**|
+    |Sottoscrizione di Azure Resource Manager|Selezionare l'endpoint di connessione che è stato creato nella sezione relativa alla **creazione di un'entità servizio**.|
+    |Azione|**Elimina gruppo di risorse**|
+    |Gruppo di risorse|Immettere un qualsiasi nome che non sia già stato usato. Nel passaggio successivo sarà necessario usare lo stesso nome.|
+
+5.	Salvare la definizione di compilazione.
+
+### Aggiungere il passaggio "Effettuare il provisioning in un cluster sicuro"
+
+1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione...**.
+
+2.	Selezionare **Distribuisci** > **Distribuzione gruppo di risorse di Azure**.
+
+3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominare l'istruzione **Effettuare il provisioning in un cluster sicuro**.
+
+4. Selezionare questi valori:
+
+    |Nome dell'impostazione|Valore|
+    |---|---|
+    |AzureConnectionType|**Gestione risorse di Azure**|
+    |Sottoscrizione di Azure Resource Manager|Selezionare l'endpoint di connessione che è stato creato nella sezione relativa alla **creazione di un'entità servizio**.|
+    |Azione|**Creare o aggiornare un gruppo di risorse**|
+    |Gruppo di risorse|Deve corrispondere al nome usato nel passaggio precedente.|
+    |Località|Deve corrispondere al percorso dell'insieme di credenziali delle chiavi.|
+    |Modello|Fare clic sul pulsante **...** e selezionare `azuredeploy.json`|
+    |Parametri del modello|Fare clic sul pulsante **...** e selezionare `azuredeploy.parameters.json`|
+
+5.	Salvare la definizione di compilazione.
+
+### Aggiungere un passaggio "Distribuzione"
+
+1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione...**.
 
 2.	Selezionare **Utilità** > **PowerShell**.
 
-3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominarla in **Rimuovere il gruppo di risorse cluster**.
+3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominare l'istruzione **Distribuzione**.
 
-4.	Selezionare il comando **…** accanto a **Nome file dello script**. Passare al percorso in cui sono stati estratti gli script di automazione e quindi selezionare **Remove-ClusterResourceGroup.ps1**.
+4. Selezionare questi valori:
 
-5.	Per **Argomenti** immettere `-ServicePrincipalPassword "$(ServicePrincipalPassword)"`.
+    |Nome dell'impostazione|Valore|
+    |---|---|
+    |Tipo|**File Path**|
+    |Nome file di script|Fare clic sul pulsante **...** e passare alla directory **Script** all'interno del progetto applicazione. Selezionare `Deploy-FabricApplication.ps1`.|
+    |Argomenti|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
-6.	Salvare la definizione di compilazione.
-
-### Aggiungere il passaggio "Effettuare il provisioning e distribuire in un cluster sicuro"
-
-1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione**.
-
-2.	Selezionare **Utilità** > **PowerShell**.
-
-3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominarla in **Effettuare il provisioning e distribuire in un cluster sicuro**.
-
-4.	Scegliere il pulsante **…** accanto a **Nome file dello script**. Passare al percorso in cui sono stati estratti gli script di automazione e quindi selezionare **ProvisionAndDeploy-SecureCluster.ps1**.
-
-5.	Per **Argomenti** immettere `-ServicePrincipalPassword "$(ServicePrincipalPassword)" -ServiceFabricClusterAdminPassword "$(ServiceFabricClusterAdminPassword)"`.
-
-6.	Salvare la definizione di compilazione.
-
-### Aggiungere il passaggio "Rimuovere il gruppo di risorse cluster"
-
-A questo punto il cluster temporaneo è completato e occorre quindi pulirlo. In caso contrario continueranno a essere addebitati i costi corrispondenti. Questo passaggio rimuove il gruppo di risorse, che rimuove il cluster e tutte le altre risorse nel gruppo.
-
->[AZURE.NOTE] Esiste una differenza tra questo passaggio e il passaggio "Rimuovere il gruppo di risorse cluster" precedente: in questo caso deve essere selezionata l'opzione **Esegui sempre**.
-
-1.	Nella scheda **Compilazione** selezionare il comando **Aggiungi istruzione di compilazione**.
-
-2.	Selezionare **Utilità** > **PowerShell**.
-
-3.	Selezionare l'icona a forma di matita accanto al nome dell'istruzione di compilazione e quindi rinominarla in **Rimuovere il gruppo di risorse cluster**.
-
-4.	Scegliere il pulsante **…** accanto a **Nome file dello script**. Passare al percorso in cui sono stati estratti gli script di automazione e quindi selezionare **RemoveClusterResourceGroup.ps1**.
-
-5.	Per **Argomenti** immettere `-ServicePrincipalPassword "$(ServicePrincipalPassword)`".
-
-6.	In **Opzioni di controllo** selezionare la casella di controllo **Esegui sempre**.
-
-7.	Salvare la definizione di compilazione.
+5.	Salvare la definizione di compilazione.
 
 ### Prova
 
 Selezionare **Accoda compilazione** per avviare una compilazione. Le compilazioni vengono attivate anche al momento del push o dell'archiviazione.
 
-
 ## Soluzioni alternative
 
 Le istruzioni precedenti creano un nuovo cluster per ogni compilazione e lo rimuovono al termine dell'operazione. Se invece si preferisce che ogni compilazione esegua l'aggiornamento di un'applicazione, in un cluster esistente, seguire questa procedura:
 
-1.	Creare manualmente un cluster di test tramite il portale di Azure o Azure PowerShell. Per questa operazione è possibile fare riferimento allo script `ProvisionAndDeploy-SecureCluster.ps1`.
+1.	Creare manualmente un cluster di test tramite il portale di Azure o Azure PowerShell seguendo [queste istruzioni](service-fabric-cluster-creation-via-portal.md).
 
 2.	Configurare il profilo di pubblicazione per supportare l'aggiornamento dell'applicazione seguendo [queste istruzioni](service-fabric-visualstudio-configure-upgrade.md).
 
-3.	Sostituire l'istruzione **Effettuare il provisioning e distribuire al cluster sicuro** con un'istruzione che chiama direttamente Deploy-FabricApplication.ps1 e la passa al profilo di pubblicazione.
-
-4.	Rimuovere entrambe le istruzioni di compilazione **Rimuovere il gruppo di risorse cluster** dalla definizione di compilazione.
+4.	Rimuovere le istruzioni di compilazione **Rimuovere il gruppo di risorse cluster** e **Provisioning del cluster** dalla definizione di compilazione.
 
 ## Passaggi successivi
 
@@ -417,4 +420,4 @@ Per sapere di più sull'integrazione continua con applicazioni di Service Fabric
  - [Articolo sulla distribuzione di un agente di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
  - [Articolo sulla creazione e configurazione di una definizione di compilazione](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

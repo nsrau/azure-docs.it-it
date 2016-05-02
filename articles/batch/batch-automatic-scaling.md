@@ -13,20 +13,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="01/08/2016"
+	ms.date="04/18/2016"
 	ms.author="marsma"/>
 
 # Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch
 
-Se si usa il ridimensionamento automatico in Azure Batch, è possibile aggiungere o rimuovere dinamicamente i nodi di calcolo in un pool di Batch durante l'esecuzione del processo, per adeguare automaticamente la potenza di elaborazione usata dall'applicazione. Questo adeguamento automatico può far risparmiare tempo e denaro.
+Con il ridimensionamento automatico, il servizio Azure Batch può aggiungere o rimuovere in modo dinamico i nodi di calcolo in un pool in base ai parametri definiti dall'utente. Ciò consente di regolare automaticamente la quantità di risorse di calcolo usate dall'applicazione, facendo potenzialmente risparmiare tempo e denaro.
 
-È possibile abilitare il ridimensionamento automatico in un pool di nodi di calcolo associando una *formula di ridimensionamento automatico* al pool, ad esempio con il metodo [PoolOperations.EnableAutoScale][net_enableautoscale] nella libreria [Batch .NET](batch-dotnet-get-started.md). Il servizio Batch usa quindi questa formula per determinare il numero di nodi di calcolo necessari per eseguire il carico di lavoro. Il numero di nodi di calcolo nel pool, che tiene conto campioni di dati di metrica del servizio raccolti periodicamente, viene modificato a intervalli configurabili, in base alla formula associata.
+È possibile abilitare il ridimensionamento automatico in un pool di nodi di calcolo associandolo a una *formula di ridimensionamento automatico* definita dall'utente, ad esempio con il metodo [PoolOperations.EnableAutoScale][net_enableautoscale] nella libreria [Batch .NET](batch-dotnet-get-started.md). Il servizio Batch usa quindi questa formula per determinare il numero di nodi di calcolo necessari per eseguire il carico di lavoro. Batch tiene conto dei campioni di dati di metrica del servizio raccolti periodicamente e modifica il numero di nodi di calcolo nel pool a intervalli configurabili, in base alla formula associata.
 
 È possibile abilitare il ridimensionamento automatico al momento della creazione di un pool o in un pool esistente. Si può anche modificare una formula esistente in un pool abilitato per la "scalabilità automatica". Batch consente di valutare le formule prima di assegnarle ai pool e di monitorare lo stato delle esecuzioni del ridimensionamento automatico.
 
 ## Formule di ridimensionamento automatico
 
-Una formula di ridimensionamento automatico è un valore stringa che contiene una o più istruzioni assegnate all'elemento [autoScaleFormula][rest_autoscaleformula] di un pool (API Batch REST) o alla proprietà [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (API Batch .NET). Queste formule vengono definite dall'utente. Quando sono assegnate a un pool determinano il numero di nodi di calcolo disponibili nel pool per l'intervallo di elaborazione successivo. Altre informazioni sugli intervalli sono disponibili più avanti. La stringa della formula, le cui dimensioni non possono superare 8 KB, può includere fino a 100 istruzioni separate da punti e virgola, nonché interruzioni di riga e commenti.
+Una formula di ridimensionamento automatico è un valore stringa definito dall'utente che contiene una o più istruzioni ed è assegnato all'elemento [autoScaleFormula][rest_autoscaleformula] di un pool (Batch REST) o alla proprietà [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). Quando le formule sono assegnate a un pool, vengono usate dal servizio Batch per determinare il numero di nodi di calcolo disponibili nel pool per l'intervallo di elaborazione successivo. Altre informazioni sugli intervalli sono disponibili più avanti. La stringa della formula, le cui dimensioni non possono superare 8 KB, può includere fino a 100 istruzioni separate da punti e virgola, nonché interruzioni di riga e commenti.
 
 È possibile paragonare le formule di ridimensionamento automatico all'uso di un "linguaggio" di ridimensionamento automatico di Batch. Le istruzioni nella formula sono espressioni in formato libero, possono includere variabili definite dal sistema e dall'utente, nonché costanti. Possono eseguire diverse operazioni su questi valori usando funzioni, operatori e tipi predefiniti. Ad esempio, un'istruzione può avere il formato seguente:
 
@@ -39,7 +39,7 @@ VAR₀ = Expression₀(system-defined variables);
 VAR₁ = Expression₁(system-defined variables, VAR₀);
 ```
 
-Se si usano le istruzioni nella formula, l'obiettivo è arrivare a un numero di nodi di calcolo in cui deve essere ridimensionato il pool, ovvero il numero di **destinazione** dei **nodi dedicati**. Questo numero può essere maggiore, minore o uguale al numero attuale di nodi nel pool. Batch valuta la formula di ridimensionamento automatico del pool secondo un intervallo specifico. Gli [intervalli di ridimensionamento automatico](#interval) sono illustrati di seguito. Regolerà quindi il numero di destinazione dei nodi nel pool in base al numero specificato dalla formula al momento della valutazione.
+Con queste istruzioni nella formula, l'obiettivo è arrivare a un numero di nodi di calcolo in cui deve essere ridimensionato il pool, ovvero il numero di **destinazione** dei **nodi dedicati**. Questo numero può essere maggiore, minore o uguale al numero attuale di nodi nel pool. Batch valuta la formula di ridimensionamento automatico del pool secondo un intervallo specifico. Gli [intervalli di ridimensionamento automatico](#automatic-scaling-interval) sono illustrati di seguito. Regolerà quindi il numero di destinazione dei nodi nel pool in base al numero specificato dalla formula al momento della valutazione.
 
 Come semplice esempio, questa formula di ridimensionamento automatico di due righe specifica che il numero di nodi deve essere adeguato in base al numero di attività attive, con un massimo di 10 nodi di calcolo:
 
@@ -50,7 +50,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 Le sezioni successive dell'articolo illustrano le diverse entità che costituiranno le formule di ridimensionamento automatico, ad esempio variabili, operatori, operazioni e funzioni. Si scoprirà come ottenere varie metriche relative ad attività e a risorse di calcolo all'interno di Batch. È possibile usare queste metriche adeguare in modo intelligente il numero di nodi del pool in base all'utilizzo delle risorse e allo stato delle attività. Verrà quindi illustrato come costruire una formula e abilitare il ridimensionamento automatico in un pool con le API Batch REST e Batch .NET, concludendo con alcune formule di esempio.
 
-> [AZURE.NOTE] Ogni account Azure Batch è limitato a un numero massimo di nodi di calcolo che può essere usato per l'elaborazione. Il servizio Batch crea nodi solo fino al raggiungimento di questo limite e quindi potrebbe non raggiungere il numero di destinazione specificato da una formula. Per istruzioni su come visualizzare e aumentare le quote dell'account, vedere [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
+> [AZURE.IMPORTANT] Ogni account Azure Batch è limitato a un numero massimo di nodi di calcolo che può essere usato per l'elaborazione. Il servizio Batch crea nodi solo fino al raggiungimento di questo limite e quindi potrebbe non raggiungere il numero di destinazione specificato da una formula. Per istruzioni su come visualizzare e aumentare le quote dell'account, vedere [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
 
 ## <a name="variables"></a>Variabili
 
@@ -186,166 +186,37 @@ Questi sono i **tipi** supportati in una formula:
 
 Queste **operazioni** sono consentite sui tipi elencati sopra.
 
-<table>
-  <tr>
-    <th>Operazione</th>
-    <th>Operatori consentiti</th>
-  </tr>
-  <tr>
-    <td>double &lt;operatore> double => double</td>
-    <td>+, -, *, /</td>
-  </tr>
-  <tr>
-    <td>double &lt;operatore> timeinterval => timeinterval</td>
-    <td>*</td>
-  </tr>
-  <tr>
-    <td>doubleVec &lt;operatore> double => doubleVec</td>
-    <td>+, -, *, /</td>
-  </tr>
-  <tr>
-    <td>doubleVec &lt;operatore> doubleVec => doubleVec</td>
-    <td>+, -, *, /</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operatore> double => timeinterval</td>
-    <td>*, /</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operatore> timeinterval => timeinterval</td>
-    <td>+, -</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operatore> timestamp => timestamp</td>
-    <td>+</td>
-  </tr>
-  <tr>
-    <td>timestamp &lt;operatore> timeinterval => timestamp</td>
-    <td>+</td>
-  </tr>
-  <tr>
-    <td>timestamp &lt;operatore> timestamp => timeinterval</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>&lt;operatore>double => double</td>
-    <td>-, !</td>
-  </tr>
-  <tr>
-    <td>&lt;operatore>timeinterval => timeinterval</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>double &lt;operatore> double => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>string &lt;operatore> string => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>timestamp &lt;operatore> timestamp => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operatore> timeinterval => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>double &lt;operatore> double => double</td>
-    <td>&amp;&amp;, ||</td>
-  </tr>
-  <tr>
-    <td>testare solo double (diverso da zero è true, zero è false)</td>
-    <td>? :</td>
-  </tr>
-</table>
+| Operazione | Operatori supportati | Tipo di risultato |
+| ------------------------------------- | --------------------- | ------------- |
+| Double *operatore* double | +, -, *, / | double | | double *operatore* timeinterval | * | timeinterval | | doubleVec *operatore* double | +, -, *, / | doubleVec | | doubleVec *operatore* doubleVec | +, -, *, / | doubleVec | | timeinterval *operatore* double | *, / | timeinterval | | timeinterval *operatore* timeinterval | +, - | timeinterval | | timeinterval *operatore* timestamp | + | timestamp | | timestamp *operatore* timeinterval | + | timestamp | | timestamp *operatore* timestamp | - | timeinterval | | *operatore*double | -, ! | double | | *operatore*timeinterval | - | timeinterval | | double *operatore* double | <, <=, ==, >=, >, != | double | | string *operatore* string | <, <=, ==, >=, >, != | double | | timestamp *operatore* timestamp | <, <=, ==, >=, >, != | double | | timeinterval *operatore* timeinterval | <, <=, ==, >=, >, != | double | | double *operatore* double | &&, || | double |
+
+Durante il test di un valore double con un operatore ternario (`double ? statement1 : statement2`), diverso da zero è **true** e zero è **false**.
 
 ## Funzioni
 
 Queste **funzioni** predefinite sono disponibili per consentire la definizione di una formula di ridimensionamento automatico.
 
-<table>
-  <tr>
-    <th>Funzione</th>
-    <th>Descrizione</th>
-  </tr>
-  <tr>
-    <td>double <b>avg</b>(doubleVecList)</td>
-    <td>Restituisce il valore medio per tutti i valori in doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>len</b>(doubleVecList)</td>
-    <td>Restituisce la lunghezza del vettore creato da doubleVecList.</td>
-  <tr>
-    <td>double <b>lg</b>(double)</td>
-    <td>Restituisce il logaritmo in base 2 di double.</td>
-  </tr>
-  <tr>
-    <td>doubleVec <b>lg</b>(doubleVecList)</td>
-    <td>Restituisce il logaritmo in base 2 a livello di componente di doubleVecList. vec(double) deve essere passato in modo esplicito per il singolo parametro double. In caso contrario viene usata la versione double lg(double).</td>
-  </tr>
-  <tr>
-    <td>double <b>ln</b>(double)</td>
-    <td>Restituisce il logaritmo naturale di double.</td>
-  </tr>
-  <tr>
-    <td>doubleVec <b>ln</b>(doubleVecList)</td>
-    <td>Restituisce il logaritmo in base 2 a livello di componente di doubleVecList. vec(double) deve essere passato in modo esplicito per il singolo parametro double. In caso contrario viene usata la versione double lg(double).</td>
-  </tr>
-  <tr>
-    <td>double <b>log</b>(double)</td>
-    <td>Restituisce il logaritmo in base 10 di double.</td>
-  </tr>
-  <tr>
-    <td>doubleVec <b>log</b>(doubleVecList)</td>
-    <td>Restituisce il logaritmo in base 10 a livello di componente di doubleVecList. vec(double) deve essere passato in modo esplicito per il singolo parametro double. In caso contrario, viene usata la versione double log(double).</td>
-  </tr>
-  <tr>
-    <td>double <b>max</b>(doubleVecList)</td>
-    <td>Restituisce il valore massimo in doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>min</b>(doubleVecList)</td>
-    <td>Restituisce il valore minimo in doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>norm</b>(doubleVecList)</td>
-    <td>Restituisce la norma 2 del vettore creato da doubleVecList.
-  </tr>
-  <tr>
-    <td>double <b>percentile</b>(doubleVec v, double p)</td>
-    <td>Restituisce l'elemento percentile del vettore v.</td>
-  </tr>
-  <tr>
-    <td>double <b>rand</b>()</td>
-    <td>Restituisce un valore casuale compreso tra 0,0 e 1,0.</td>
-  </tr>
-  <tr>
-    <td>double <b>range</b>(doubleVecList)</td>
-    <td>Restituisce la differenza tra i valori minimo e massimo in doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>std</b>(doubleVecList)</td>
-    <td>Restituisce la deviazione standard del campione dei valori in doubleVecList.</td>
-  </tr>
-  <tr>
-    <td><b>stop</b>()</td>
-    <td>Arresta la valutazione dell'espressione per il ridimensionamento automatico.</td>
-  </tr>
-  <tr>
-    <td>double <b>sum</b>(doubleVecList)</td>
-    <td>Restituisce la somma di tutti i componenti di doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>timestamp <b>time</b>(string dateTime="")</td>
-    <td>Restituisce il timestamp dell'ora corrente se non vengono passati parametri oppure il timestamp della stringa dateTime, se è stata passata. I formati dateTime supportati sono W3C-DTF e RFC 1123.</td>
-  </tr>
-  <tr>
-    <td>double <b>val</b>(doubleVec v, double i)</td>
-    <td>Restituisce il valore dell'elemento nella posizione i nel vettore v con un indice iniziale pari a zero.</td>
-  </tr>
-</table>
+| Funzione | Tipo restituito | Descrizione
+| --------------------------------- | ------------- | --------- |
+| avg(doubleVecList) | double | Restituisce il valore medio per tutti i valori in doubleVecList.
+| len(doubleVecList) | double | Restituisce la lunghezza del vettore creato da doubleVecList.
+| lg(double) | double | Restituisce il logaritmo in base 2 di double.
+| lg(doubleVecList) | doubleVec | Restituisce il logaritmo in base 2 a livello di componente di doubleVecList. vec(double) deve essere passato in modo esplicito per il parametro. In caso contrario viene usata la versione double lg(double).
+| ln(double) | double | Restituisce il logaritmo naturale di double.
+| ln(doubleVecList) | doubleVec | Restituisce il logaritmo in base 2 a livello di componente di doubleVecList. vec(double) deve essere passato in modo esplicito per il parametro. In caso contrario viene usata la versione double lg(double).
+| log(double) | double | Restituisce il logaritmo in base 10 di double.
+| log(doubleVecList) | doubleVec | Restituisce il logaritmo in base 10 a livello di componente di doubleVecList. vec(double) deve essere passato in modo esplicito per il singolo parametro double. In caso contrario, viene usata la versione double log(double).
+| max(doubleVecList) | double | Restituisce il valore massimo in doubleVecList.
+| min(doubleVecList) | double | Restituisce il valore minimo in doubleVecList.
+| norm(doubleVecList) | double | Restituisce la norma 2 del vettore creato da doubleVecList.
+| percentile(doubleVec v, double p) | double | Restituisce l'elemento percentile del vettore v.
+| rand() | double | Restituisce un valore casuale compreso tra 0,0 e 1,0.
+| range(doubleVecList) | double | Restituisce la differenza tra i valori minimo e massimo in doubleVecList.
+| std(doubleVecList) | double | Restituisce la deviazione standard del campione dei valori in doubleVecList.
+| stop() | | Arresta la valutazione dell'espressione per il ridimensionamento automatico.
+| sum(doubleVecList) | double | Restituisce la somma di tutti i componenti di doubleVecList.
+| time(string dateTime="") | timestamp | Restituisce il timestamp dell'ora corrente se non vengono passati parametri oppure il timestamp della stringa dateTime, se è stata passata. I formati dateTime supportati sono W3C-DTF e RFC 1123.
+| val(doubleVec v, double i) | double | Restituisce il valore dell'elemento nella posizione i nel vettore v con un indice iniziale pari a zero.
 
 Alcune delle funzioni descritte nella tabella precedente possono accettare un elenco come argomento. L'elenco con valori delimitati da virgole è una combinazione qualsiasi di *double* e *doubleVec*. Ad esempio:
 
@@ -432,7 +303,7 @@ Per maggiore sicurezza, è possibile fare in modo che la valutazione di una form
 
 A causa del ritardo nella disponibilità dei campioni citato in precedenza, è anche importante specificare sempre un intervallo di tempo con un'ora di inizio antecedente di almeno un minuto. La propagazione dei campioni attraverso il sistema richiede infatti un minuto circa, quindi i campioni nell'intervallo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` spesso non saranno disponibili. Anche in questo caso, è possibile usare il parametro percentuale di `GetSample()` per imporre uno specifico requisito di percentuale dei campioni.
 
-> [AZURE.IMPORTANT] È **consigliabile** **evitare di basarsi *solo* su `GetSample(1)` nelle formule di ridimensionamento automatico**. Infatti `GetSample(1)` indica essenzialmente al servizio Batch, di rendere disponibile l'ultimo campione disponibile, indipendentemente da quanto tempo fa è stato ottenuto. Essendo solo un singolo campione, che potrebbe anche non essere recente, potrebbe non essere rappresentativo dell'immagine più ampia dello stato recente di attività o risorse. Se si usa `GetSample(1)`, accertarsi che faccia parte di un'istruzione di dimensioni maggiori e non sia il solo punto dati su cui si basa la formula.
+> [AZURE.IMPORTANT] È **consigliabile** **evitare di basarsi *solo* su `GetSample(1)` nelle formule di ridimensionamento automatico**. Infatti `GetSample(1)` indica essenzialmente al servizio Batch di rendere disponibile l'ultimo campione disponibile, indipendentemente da quanto tempo fa è stato ottenuto. Essendo solo un singolo campione, che potrebbe anche non essere recente, potrebbe non essere rappresentativo dell'immagine più ampia dello stato recente di attività o risorse. Se si usa `GetSample(1)`, accertarsi che faccia parte di un'istruzione di dimensioni maggiori e non sia il solo punto dati su cui si basa la formula.
 
 ## Metrica
 
@@ -517,7 +388,7 @@ Per abilitare il ridimensionamento automatico durante la creazione di un pool, u
 
 > [AZURE.IMPORTANT] Se si crea un pool abilitato per il ridimensionamento automatico usando una delle tecniche descritte sopra, il parametro *targetDedicated* per il pool **non** deve essere specificato. Si noti anche che per ridimensionare manualmente un pool abilitato per il ridimensionamento automatico, ad esempio con [BatchClient.PoolOperations.ResizePool,][net_poolops_resizepool] è necessario **disabilitare** prima di tutto il ridimensionamento automatico nel pool e quindi ridimensionarlo.
 
-Il frammento di codice seguente illustra la creazione di un pool abilitato per il ridimensionamento automatico ([CloudPool][net_cloudpool]) usando la libreria [Batch .NET][net_api]. La formula di ridimensionamento automatico del pool imposta il numero di destinazione dei nodi su 5 il lunedì e su 1 per tutti gli altri giorni della settimana. Inoltre, l'intervallo per il ridimensionamento automatico è impostato su 30 minuti. Vedere [Intervallo di ridimensionamento automatico](#interval) di seguito. In questo e in altri frammenti di codice C# in questo articolo "myBatchClient" è un'istanza correttamente inizializzata di [BatchClient][net_batchclient].
+Il frammento di codice seguente illustra la creazione di un pool abilitato per il ridimensionamento automatico ([CloudPool][net_cloudpool]) usando la libreria [Batch .NET][net_api]. La formula di ridimensionamento automatico del pool imposta il numero di destinazione dei nodi su 5 il lunedì e su 1 per tutti gli altri giorni della settimana. Inoltre, l'intervallo per il ridimensionamento automatico è impostato su 30 minuti. Vedere [Intervallo di ridimensionamento automatico](#automatic-scaling-interval) di seguito. In questo e in altri frammenti di codice C# in questo articolo "myBatchClient" è un'istanza correttamente inizializzata di [BatchClient][net_batchclient].
 
 ```
 CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
@@ -527,7 +398,7 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-### <a name="interval"></a>Intervallo di ridimensionamento automatico
+### Intervallo di ridimensionamento automatico
 
 Per impostazione predefinita, il servizio Batch adegua le dimensioni di un pool in base alla relativa formula di ridimensionamento automatico ogni **15 minuti**. Questo intervallo è tuttavia configurabile usando le proprietà del pool seguenti:
 
@@ -703,16 +574,9 @@ La formula nel frammento di codice precedente:
 
 ## Passaggi successivi
 
-1. Potrebbe essere necessario accedere al nodo di calcolo per poter valutare completamente l'efficienza dell'applicazione. Per sfruttare i vantaggi dell'accesso remoto, è necessario aggiungere un account utente al nodo di calcolo a cui si vuole accedere e recuperare un file RDP (Remote Desktop Protocol) per quel nodo.
-    - Aggiungere l'account utente in uno dei modi seguenti:
-        * [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx): questo cmdlet di PowerShell accetta il nome del pool, il nome del nodo di calcolo, il nome dell'account e la password come parametri.
-        * [BatchClient.PoolOperations.CreateComputeNodeUser](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createcomputenodeuser.aspx): questo metodo .NET crea un'istanza della classe [ComputeNodeUser](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.aspx) in cui è possibile impostare il nome dell'account e la password per il nodo di calcolo. Viene quindi chiamato [ComputeNodeUser.Commit](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.commit.aspx) sull'istanza per creare l'utente in quel nodo.
-        * [Aggiungere un account utente a un nodo](https://msdn.microsoft.com/library/dn820137.aspx): il nome del pool del nodo di calcolo vengono specificati nell'URI. il nome dell'account e la password vengono inviati al nodo nel corpo di questa richiesta dell'API REST.
-    - Recuperare il file RDP:
-        * [BatchClient.PoolOperations.GetRDPFile](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getrdpfile.aspx): questo metodo .NET richiede l'ID del pool, l'ID del nodo e il nome del file RDP da creare.
-        * [Recuperare un file RDP (Remote Desktop Protocol) da un nodo](https://msdn.microsoft.com/library/dn820120.aspx): questa richiesta dell'API REST richiede il nome del pool e il nome del nodo di calcolo. La risposta include il contenuto del file RDP.
-        * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx): questo cmdlet di PowerShell recupera il file RDP dal nodo di calcolo specificato e lo salva nel percorso di file specificato oppure in un flusso.
-2.	Alcune applicazioni producono grandi quantità di dati che possono essere difficili da elaborare. L'esecuzione di [query di elenco efficienti](batch-efficient-list-queries.md) è uno dei modi per risolvere questa difficoltà.
+* [Ottimizzare l'utilizzo delle risorse di calcolo di Azure Batch con attività dei nodi simultanee](batch-parallel-node-tasks.md) contiene informazioni dettagliate su come è possibile eseguire più attività contemporaneamente sui nodi di calcolo nel pool. Oltre al ridimensionamento automatico, questa funzionalità può contribuire a ridurre la durata del processo per alcuni carichi di lavoro, riducendo i costi.
+
+* Per ottimizzare ulteriormente l'efficienza, assicurarsi che l'applicazione Batch esegua query sul servizio Batch in modo ottimale. In [Eseguire query sul servizio Azure Batch in modo efficiente](batch-efficient-list-queries.md) si apprenderà come limitare la quantità dei dati trasmessi in rete quando si esegue una query sullo stato di migliaia di nodi di calcolo o attività.
 
 [net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_batchclient]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
@@ -728,4 +592,4 @@ La formula nel frammento di codice precedente:
 [rest_autoscaleinterval]: https://msdn.microsoft.com/it-IT/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

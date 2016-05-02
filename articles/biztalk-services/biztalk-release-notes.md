@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Note sulla versione per Servizi BizTalk di Azure | Servizi BizTalk di Microsoft Azure" 
-	description="" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="msftman" 
-	manager="erikre" 
+<properties
+	pageTitle="Note sulla versione per Servizi BizTalk di Azure | Servizi BizTalk di Microsoft Azure"
+	description="Elenca i problemi noti per i servizi BizTalk di Azure" 
+	services="biztalk-services"
+	documentationCenter=""
+	authors="msftman"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/29/2016" 
+<tags
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/29/2016"
 	ms.author="deonhe"/>
 
 # Note sulla versione per Servizi BizTalk di Azure
@@ -151,7 +151,7 @@ Provare a usare certificati basati su identificazione personale nel progetto di 
 
 **Soluzione alternativa**. Aggiornare il certificato nel progetto di Servizi BizTalk e ridistribuire il progetto.
 
-**Scenario 2: Uso di comportamenti basati su nomi per identificare i certificati allo scopo di proteggere il trasferimento di messaggi da un bridge a un endpoint di servizio** 
+**Scenario 2: Uso di comportamenti basati su nomi per identificare i certificati allo scopo di proteggere il trasferimento di messaggi da un bridge a un endpoint di servizio**
 
 Provare a usare comportamenti basati su nomi per identificare i certificati nel progetto di Servizi BizTalk. Si aggiorna il certificato nel portale di Servizi BizTalk, ma non si aggiorna il progetto di Servizi BizTalk di conseguenza. In uno scenario di questo tipo è possibile che il bridge continui a elaborare i messaggi perché nella cache del canale possono ancora essere presenti i dati del certificato precedente. Quando questi dati non sono più presenti, l'elaborazione dei messaggi ha esito negativo.
 
@@ -193,6 +193,4 @@ In tutto il documento i termini "pipeline" e "bridge" sono stati usati in modo i
 
 [Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
-
-
+<!---HONumber=AcomDC_0420_2016-->

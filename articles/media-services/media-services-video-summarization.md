@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/18/2016"   
+	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;"/>
 
 #Uso delle anteprime video multimediali di Azure per creare un riepilogo video
@@ -269,6 +269,8 @@ Il programma seguente illustra come:
 
 ##Collegamenti correlati
 
-[Panoramica di Analisi Servizi multimediali di Azure](media-services-analytics-overview.md)
+[Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

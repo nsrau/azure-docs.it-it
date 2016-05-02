@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/18/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Configurazione delle credenziali per l'autenticazione denominate
@@ -27,7 +27,7 @@ Per l'autenticazione in Azure sono richiesti i seguenti elementi.
 
 - Un certificato X.509 v3 valido
 
->[AZURE.NOTE]La lunghezza della chiave del certificato X.509 v3 deve essere di almeno 2048 bit. Azure rifiuterà qualsiasi certificato che non soddisfa questo requisito o che sia non valido.
+>[AZURE.NOTE] La lunghezza della chiave del certificato X.509 v3 deve essere di almeno 2048 bit. Azure rifiuterà qualsiasi certificato che non soddisfa questo requisito o che sia non valido.
 
 Visual Studio usa l'ID sottoscrizione e i dati del certificato come credenziali. Nel file di sottoscrizione (file con estensione publishsettings), che contiene una chiave pubblica per il certificato, viene fatto riferimento alle credenziali appropriate. Il file di sottoscrizione può contenere le credenziali per più di una sottoscrizione.
 
@@ -35,7 +35,7 @@ Visual Studio usa l'ID sottoscrizione e i dati del certificato come credenziali.
 
 Se si vuole creare un certificato, vedere le istruzioni contenute in [Creare e caricare un certificato di gestione per Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx), quindi caricare manualmente il certificato nel portale di gestione.
 
->[AZURE.NOTE]Le credenziali richieste da Visual Studio per gestire i servizi cloud non sono le stesse necessarie per autenticare una richiesta per i servizi di archiviazione di Azure.
+>[AZURE.NOTE] Le credenziali richieste da Visual Studio per gestire i servizi cloud non sono le stesse necessarie per autenticare una richiesta per i servizi di archiviazione di Azure.
 
 ## Modificare o esportare le credenziali di autenticazione in Visual Studio
 
@@ -53,7 +53,7 @@ La procedura riportata di seguito presuppone che sia visualizzata la finestra di
 
 1. Fare clic su **Copia il percorso completo**. Il percorso del certificato (file con estensione cer) viene copiato negli Appunti.
 
-    >[AZURE.IMPORTANT]Per pubblicare l'applicazione Azure da Visual Studio, è necessario caricare questo certificato nel portale di gestione.
+    >[AZURE.IMPORTANT] Per pubblicare l'applicazione Azure da Visual Studio, è necessario caricare questo certificato nel portale di gestione.
 
 1. Per caricare il certificato al Portale di gestione di Azure:
 
@@ -71,4 +71,4 @@ La procedura riportata di seguito presuppone che sia visualizzata la finestra di
 
     1. Incollare il percorso completo del file con estensione cer appena creato e digitare la password specificata.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

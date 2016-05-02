@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/12/2016"
+   ms.date="04/14/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitoraggio del carico di lavoro mediante DMV
@@ -142,30 +142,16 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 
 ```
 
-
-## Analisi della differenza di dati
-
-Usare [DBCC PDW\_SHOWSPACEUSED][] per individuare lo spazio usato da una tabella.
-
-```sql
--- Find data skew for a distributed table
-DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
-```
-
-Il risultato di questa query indicherà il numero di righe della tabella archiviato in ciascuna delle 60 distribuzioni del database. Per prestazioni ottimali, le righe nella tabella distribuita devono essere assegnate in modo uniforme a tutte le distribuzioni.
-
-Per altre informazioni, vedere la pagina su come [gestire la differenza di dati per le tabelle distribuite][] o sulla [progettazione di tabelle][].
-
 ## Passaggi successivi
-Per altre informazioni su Transact-SQL e sulle DMV (Dynamic Management View, vista a gestione dinamica), vedere la [panoramica dei riferimenti][]. Per altri suggerimenti sulla gestione di SQL Data Warehouse, vedere la [panoramica degli strumenti di gestione][].
+Per altre informazioni su Transact-SQL e sulle viste a gestione dinamica (DMV), vedere la [panoramica dei riferimenti][]. Per altri suggerimenti sulla gestione di SQL Data Warehouse, vedere la [panoramica degli strumenti di gestione][].
 
 <!--Image references-->
 
 <!--Article references-->
 [panoramica degli strumenti di gestione]: sql-data-warehouse-overview-manage.md
-[progettazione di tabelle]: sql-data-warehouse-develop-table-design.md
+[table design]: sql-data-warehouse-develop-table-design.md
 [panoramica dei riferimenti]: sql-data-warehouse-overview-reference.md
-[gestire la differenza di dati per le tabelle distribuite]: sql-data-warehouse-manage-distributed-data-skew.md
+[manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
 
 <!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -174,6 +160,6 @@ Per altre informazioni su Transact-SQL e sulle DMV (Dynamic Management View, vis
 [sys.dm\_pdw\_request\_steps]: http://msdn.microsoft.com/library/mt203913.aspx
 [sys.dm\_pdw\_sql\_requests]: http://msdn.microsoft.com/library/mt203889.aspx
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
-[DBCC PDW\_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
+[DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure" 
+	pageTitle="Come registrare gli eventi in Hub eventi di Azure in Gestione API di Azure | Microsoft Azure" 
 	description="Informazioni su come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/15/2016" 
 	ms.author="sdanie"/>
 
 # Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure
@@ -71,12 +71,14 @@ Specificare il corpo della richiesta usando il modello seguente.
       "credentials" : {
         "name" : "Name of the Event Hub from the Azure Classic Portal",
         "connectionString" : "Endpoint=Event Hub Sender connection string"
-        }
+        },
+        "isBuffered": "true | false"
     }
 
 -	`type` deve essere impostato su `AzureEventHub`.
 -	`description` fornisce una descrizione facoltativa del logger e può essere una stringa di lunghezza zero, se lo si desidera.
 -	`credentials` contiene i valori `name` e `connectionString` di Hub eventi di Azure.
+-	`isBuffered` determina se i record del logger vengono memorizzati nel buffer prima della pubblicazione. Questa proprietà è facoltativa e il valore predefinito è `true`. Quando i record vengono memorizzati nel buffer, vengono inviati in Hub eventi ogni 15 secondi oppure ogni volta che il buffer riceve 256 KB di messaggi.
 
 Quando si esegue la richiesta, se viene creato il logger, verrà visualizzato un codice di stato `201 Created`.
 
@@ -133,4 +135,4 @@ Fare clic su **Salva** per salvare la configurazione aggiornata dei criteri. Il 
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

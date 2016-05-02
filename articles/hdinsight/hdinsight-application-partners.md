@@ -1,5 +1,12 @@
-<properties pageTitle="Partner delle applicazioni HDInsight | Microsoft Azure" description="I clienti possono individuare e distribuire in modo semplice e rapido applicazioni Big Data assieme a cluster HDInsight dall'interno del portale di provisioning." services="hdinsight" documentationCenter="na" authors="pablissima" manager="paulettm="" tags=""/>
-<tags 
+<properties
+	pageTitle="Partner delle applicazioni HDInsight | Microsoft Azure" 
+	description="I clienti ora possono individuare e distribuire con facilità l'applicazione Big Data con i cluster HDInsight direttamente dal portale di provisioning."
+	services="hdinsight" 
+	documentationCenter="na" 
+	authors="pablissima" 
+	manager="paulettm" 
+	tags=""/>
+<tags
 	ms.service="hdinsight"
 	ms.devlang="na"
 	ms.topic="article"
@@ -31,7 +38,13 @@ http://bluetalon.com/
 
 Con RedPoint, sia gli analisti che gli amministratori di database, accomunati dall'uso dei database tradizionali, possono ora usare con estrema facilità i dati archiviati in Hadoop. Non sono richieste nuove competenze o capacità. Non ci sarà più bisogno delle piattaforme MapReduce, Hive e Pig grazie all'interfaccia utente grafica di RedPoint e all'architettura YARN (certificata su Hadoop 2.0 da Hortonworks).
 
-Con RedPoint: - Tutte le funzioni di qualità e integrazione dei dati possono essere eseguite nel cluster Hadoop, ovvero ELT (Extract, Load, Transform), pulizia, corrispondenza, eliminazione dei duplicati, unione/rimozione, manutenzione, analisi, partizionamento, aggiunta, standardizzazione degli indirizzi, creazione e manutenzione di chiavi, monitoraggio, notifica - Non viene usato il framework MapReduce e pertanto non è richiesta alcuna competenza specifica - I processi di qualità e integrazione dei dati vengono eseguiti in RedPoint con la stessa efficienza, e in alcuni casi con un'efficienza maggiore rispetto alle soluzioni basate su MapReduce - I dati non devono essere trasferiti da Hadoop per l'elaborazione, l'analisi, il reporting o altre operazioni - Non è necessario installare alcun software specifico nel cluster; RedPoint rispetta la definizione di priorità dei task di YARN anziché cercare di usare le risorse di calcolo nel cluster - Gli utenti sono in grado di gestire i dati archiviati sia nei repository tradizionali che nei repository Hadoop con un unico prodotto, riuscendo anche a usare dati provenienti da ambienti distinti oppure eseguire la migrazione dei dati tra ambienti diversi
+Con RedPoint:
+-  Tutte le funzioni di qualità e integrazione dei dati possono essere eseguite nel cluster Hadoop, ovvero ELT (Extract, Load, Transform), pulizia, corrispondenza, eliminazione dei duplicati, unione/rimozione, manutenzione, analisi, partizionamento, aggiunta, standardizzazione degli indirizzi, creazione e manutenzione di chiavi, automazione, monitoraggio, notifica  
+-  Non viene usato il framework MapReduce e pertanto non è richiesta alcuna competenza specifica  
+-  I processi di qualità e integrazione dei dati vengono eseguiti in RedPoint con la stessa efficienza, e in alcuni casi con un'efficienza maggiore rispetto alle soluzioni basate su MapReduce  
+-  I dati non devono essere trasferiti da Hadoop per l'elaborazione, l'analisi, la creazione di report o altre operazioni  
+-  Non è necessario installare alcun software specifico nel cluster; RedPoint rispetta la definizione di priorità delle attività di YARN anziché competere per le risorse di calcolo nel cluster  
+-  Gli utenti sono in grado di gestire i dati archiviati sia nei repository tradizionali che nei repository Hadoop con un unico prodotto, riuscendo anche a usare dati provenienti da ambienti distinti oppure eseguire la migrazione dei dati tra ambienti diversi
 
 Per altre informazioni, vedere le risorse elencate sul lato destro di questa pagina.
 
@@ -41,4 +54,4 @@ RedPoint ha ottenuto il massimo punteggio possibile nei sondaggi di valutazione 
 
 ![](media/hdinsight-application-partners/kyvos8.png) Kyvos è impegnata a sfruttare tutte le potenzialità dell'analisi Big Data grazie a una tecnologia unica al mondo, ovvero "OLAP su Hadoop". Questa tecnologia consente di creare cubi a livello locale in Hadoop con scalabilità lineare, eliminando le limitazioni delle soluzioni OLAP tradizionali e consentendo di eseguire analisi multidimensionali interattive sui Big Data. Gli utenti possono visualizzare, esplorare e analizzare i dati in modo interattivo in Hadoop senza alcun bisogno di programmazione.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

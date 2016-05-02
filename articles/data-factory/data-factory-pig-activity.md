@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Attività di Pig
@@ -186,4 +186,12 @@ Per impostare i parametri per lo script Pig, seguire questa procedura:
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-<!---HONumber=AcomDC_0302_2016-->
+
+## Vedere anche
+- [Attività Hive](data-factory-hive-activity.md)
+- [Attività MapReduce](data-factory-map-reduce.md)
+- [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+- [Chiamare i programmi Spark](data-factory-spark.md)
+- [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+
+<!---HONumber=AcomDC_0420_2016-->

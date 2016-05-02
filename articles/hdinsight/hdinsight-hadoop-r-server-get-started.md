@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introduzione a R Server su HDInsight | Azure"
-   description="Informazioni sulla creazione di un Apache Spark nel cluster HDInsight (Hadoop) che include R Server e sull'invio di uno script R nel cluster."
+   pageTitle="Introduzione a R Server su HDInsight (anteprima) | Azure"
+   description="Informazioni sulla creazione di un cluster Apache Spark su HDInsight (anteprima) che include R Server e sull'invio di uno script R nel cluster."
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -17,9 +17,9 @@
    ms.date="03/25/2016"
    ms.author="jeffstok"/>
 
-# Introduzione all'uso di R Server su HDInsight
+#Introduzione all'uso di R Server su HDInsight (anteprima)
 
-L'offerta di livello Premium per HDInsight include R Server come parte del cluster HDInsight. In questo modo gli script R possono usare MapReduce e Spark per eseguire i calcoli distribuiti. In questo documento si apprenderà come creare un nuovo R Server in HDInsight e come eseguire uno script R che illustra l'uso di Spark per i calcoli R distribuiti.
+L'offerta del piano Premium per HDInsight include R Server su HDInsight (anteprima). In questo modo gli script R possono usare MapReduce e Spark per eseguire i calcoli distribuiti. In questo documento si apprenderà come creare un nuovo R Server in HDInsight e come eseguire uno script R che illustra l'uso di Spark per i calcoli R distribuiti.
 
 ![Diagramma del flusso di lavoro del documento](./media/hdinsight-getting-started-with-r/rgettingstarted.png)
 
@@ -39,11 +39,11 @@ L'offerta di livello Premium per HDInsight include R Server come parte del clust
 
 ## Creare il cluster
 
-> [AZURE.NOTE] La procedura descritta in questo documento crea un R Server in HDInsight mediante informazioni di configurazione di base. Per altre impostazioni di configurazione del cluster (ad esempio l'uso di account di archiviazione aggiuntivi, di una rete virtuale di Azure o la creazione di un metastore per Hive), vedere [Creare cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md).
+> [AZURE.NOTE] La procedura descritta in questo documento crea un R Server in HDInsight mediante informazioni di configurazione di base. Per altre impostazioni di configurazione del cluster (ad esempio l'uso di account di archiviazione aggiuntivi, di una Rete virtuale di Azure o la creazione di un metastore per Hive), vedere [Creare cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Selezionare __NUOVO__, __Dati + Analisi__, quindi selezionare __HDInsight__.
+2. Selezionare __NUOVO__, __Dati e analisi__, quindi selezionare __HDInsight__.
 
     ![Immagine della creazione di un nuovo cluster](./media/hdinsight-getting-started-with-r/newcluster.png)
 
@@ -51,7 +51,7 @@ L'offerta di livello Premium per HDInsight include R Server come parte del clust
 
     ![Selezione del nome del cluster e della sottoscrizione](./media/hdinsight-getting-started-with-r/clustername.png)
 
-4. Scegliere __Seleziona il tipo di cluster__. Nel pannello __Tipo di cluster__, selezionare le seguenti opzioni:
+4. Scegliere __Selezionare il tipo di cluster__. Nel pannello __Tipo di cluster__, selezionare le seguenti opzioni:
 
     * __Tipo di cluster__: R Server su Spark
     
@@ -77,7 +77,7 @@ L'offerta di livello Premium per HDInsight include R Server come parte del clust
     
     ![Pannello Credenziali](./media/hdinsight-getting-started-with-r/clustercredentials.png)
 
-7. Selezionare **Origine dati** per selezionare un'origine dati per il cluster. Selezionare un account di archiviazione esistente scegliendo __Seleziona account di archiviazione__ e quindi selezionare l'account oppure creare un nuovo account usando il link __Nuovo__ nella sezione __Seleziona account di archiviazione__.
+7. Selezionare **Origine dati** per selezionare un'origine dati per il cluster. Selezionare un account di archiviazione esistente scegliendo __Selezionare l’account di archiviazione__ e quindi selezionare l'account oppure creare un nuovo account usando il link __Nuovo__ nella sezione __Selezionare l’account di archiviazione__.
 
     Se si seleziona __Nuovo__, è necessario immettere un nome per il nuovo account di archiviazione. Se il nome viene accettato, verrà visualizzato un segno di spunta verde.
 
@@ -287,7 +287,7 @@ Le azioni di script sono script Bash usati per apportare modifiche di configuraz
 
     * __Nome__: un nome descrittivo per identificare lo script
     * __URI di script Bash__: http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh
-    * __Intestazione__: questa opzione dovrebbe essere __deselezionata__
+    * __Head__: questa opzione dovrebbe essere __deselezionata__
     * __Ruolo di lavoro__: questa opzione dovrebbe essere __selezionata__
     * __Zookeeper__: questa opzione dovrebbe essere __deselezionata__
     * __Parametri__: i pacchetti R da installare. Ad esempio, `bitops stringr arules`
@@ -322,4 +322,4 @@ Entrambi i modelli creano un nuovo cluster HDInsight e un account di archiviazio
 
 Per informazioni generali sull'uso dei modelli ARM, vedere [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

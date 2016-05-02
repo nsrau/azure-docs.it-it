@@ -1,6 +1,6 @@
 <properties
  pageTitle="Autenticazione in uscita dell'Utilità di pianificazione"
- description=""
+ description="Autenticazione in uscita dell'Utilità di pianificazione"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -120,4 +120,4 @@ Quando viene inviata una richiesta con le informazioni di autenticazione, la ris
 
  [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

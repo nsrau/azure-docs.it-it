@@ -123,7 +123,7 @@ Se è stato aggiunto il codice di concatenazione di stringa disponibile in quest
 
 ![][14]
 
-## 5: Apportare modifiche e confrontare le prestazioni
+## 4: Apportare modifiche e confrontare le prestazioni
 
 È anche possibile confrontare le prestazioni prima e dopo la modifica del codice. Arrestare il processo in esecuzione e modificare il codice per sostituire l'operazione di concatenazione di stringa usando StringBuilder:
 
@@ -186,4 +186,4 @@ La strumentazione dei file binari di Azure nell'emulatore non è supportata nel 
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

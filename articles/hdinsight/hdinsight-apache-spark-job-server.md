@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Server dei processi Spark sui cluster Azure HDInsight (Windows)
+# Server processi Spark per i cluster Azure HDInsight basati su Windows (anteprima)
 
 > [AZURE.NOTE] HDInsight fornisce ora i cluster Spark su Linux, che utilizzano Livy per inviare i processi in modalità remota a un cluster Spark. Per informazioni sull'utilizzo di Livy con i cluster HDInsight Spark su Linux, vedere [Inviare processi Spark in modalità remota utilizzando Livy con cluster Spark in HIDnsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md).
 
@@ -84,4 +84,4 @@ Esempio:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

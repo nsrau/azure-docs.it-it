@@ -81,6 +81,8 @@ Fare clic su un avviso per visualizzarne i dettagli completi.
 
 ## Configurare gli avvisi 
 
+È possibile disabilitare la diagnostica proattiva, modificare i destinatari di posta elettronica, creare un webhook o scegliere messaggi di avviso più dettagliati.
+
 Aprire la pagina degli avvisi. La funzionalità di diagnostica attiva è disponibile insieme agli eventuali avvisi impostati manualmente e si può vedere se attualmente si trova in uno stato di avviso.
 
 ![Nella pagina Panoramica fare clic sul riquadro Avvisi. In alternativa, in qualsiasi pagina di Metrica fare clic su pulsante Avvisi.](./media/app-insights-nrt-proactive-diagnostics/021.png)
@@ -91,6 +93,16 @@ Fare clic sull'avviso per configurarlo.
 
 Si noti che è possibile disabilitare la diagnostica attiva, ma non eliminarla (o crearne un'altra).
 
+
+#### Avvisi dettagliati
+
+Se si sceglie di ricevere un'analisi dettagliata, il messaggio di posta elettronica conterrà un maggior numero di informazioni di diagnostica. A volte è possibile individuare il problema basandosi solo sui dati contenuti nel messaggio di posta elettronica.
+
+Esiste un rischio limitato che un avviso più dettagliato possa contenere informazioni riservate poiché include i messaggi di eccezione e di traccia. Ciò si verifica tuttavia soltanto se il codice permette l'inserimento di informazioni riservate in tali messaggi.
+
+Di seguito è riportato un esempio di avviso dettagliato:
+
+![Configurazione](./media/app-insights-nrt-proactive-diagnostics/060.png)
 
 ## Qual è la differenza
 
@@ -138,4 +150,4 @@ La diagnostica proattiva quasi in tempo reale integra altre funzionalità simili
 
 *L'invio di commenti e suggerimenti sarà molto apprezzato. Usare l'indirizzo di posta elettronica:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

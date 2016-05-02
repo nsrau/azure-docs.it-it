@@ -1,6 +1,6 @@
 <properties
    pageTitle="Informazioni sul flusso dei token delle app in Power BI Embedded"
-   description="Informazioni sul flusso dei token delle app in Power BI Embedded"
+   description="Power BI Embedded -Informazioni sul flusso dei token delle app per autenticazione e autorizzazione"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -56,4 +56,4 @@ Dopo che **Power BI Embedded** invia un report all'utente, l'utente può visuali
 - [Scenari comuni della versione di anteprima di Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Introduzione alla versione di anteprima di Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->
