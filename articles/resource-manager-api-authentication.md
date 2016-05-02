@@ -67,7 +67,7 @@ Iniziare registrando l'app Web con Azure Active Directory (AD). La registrazione
 L'argomento [Creare un'applicazione e un'entità servizio di Active Directory tramite il portale](resource-group-create-service-principal-portal.md) illustra tutti i passaggi necessari per configurare l'applicazione. Vedere tale argomento quando si crea un'applicazione con le proprietà seguenti:
 
 - Applicazione Web denominata **CloudSense**
-- URL di accesso e URI ID app nel formato ****http://{domain_name_of_your_directory}/{name_of_the_app}**.
+- URL di accesso e URI ID app nel formato **http://{domain_name_of_your_directory}/{name_of_the_app}**.
 - Chiave di autenticazione per l'accesso all'applicazione
 - Autorizzazione delegata **Access Azure Service Management** per **Azure Service Management API**. Lasciare l'impostazione predefinita **Enable single sign-on and read user's profile** per **Azure Active Directory**.
 - Applicazione multi-tenant

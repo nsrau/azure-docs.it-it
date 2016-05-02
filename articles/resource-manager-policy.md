@@ -97,7 +97,7 @@ Le condizioni vengono create usando campi e origini. Un campo rappresenta le pro
 
 Sono supportati i campi e le origini seguenti:
 
-Campi: **nome**, **tipologia**, **tipo**, **percorso**, **tag**, **tag.*** e ** alias proprietà**.
+Campi: **nome**, **tipologia**, **tipo**, **percorso**, **tag**, **tag.*** e **alias proprietà**.
 
 Origini: **action**.
 

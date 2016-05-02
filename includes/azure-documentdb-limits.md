@@ -1,5 +1,5 @@
 =======
-Entità|Quota (offerta Standard)
+Entità| Quota (offerta Standard)
 ---|---
 Account di database*|50
 Dimensione massima dell'archivio documenti per ogni account database* |1 TB (o superiore su richiesta)

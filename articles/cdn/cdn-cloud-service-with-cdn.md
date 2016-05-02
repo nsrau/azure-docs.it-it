@@ -177,7 +177,7 @@ Quando si passa a **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**,
 -	Qualsiasi controller/azione
 -	Se la stringa di query viene abilitata sull'endpoint della rete CDN, qualsiasi URL con stringhe di query
 
-In effetti, con la configurazione precedente, è possibile ospitare l’intero servizio cloud da **http://*&lt;cdnName>*.azureedge.net/**. Se si passa a ****http://camservice.azureedge.net/**, si ottiene il risultato dell’azione da Home/Index.
+In effetti, con la configurazione precedente, è possibile ospitare l’intero servizio cloud da **http://*&lt;cdnName>*.azureedge.net/**. Se si passa a **http://camservice.azureedge.net/**, si ottiene il risultato dell’azione da Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 

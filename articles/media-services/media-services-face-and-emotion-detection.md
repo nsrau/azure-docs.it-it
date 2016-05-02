@@ -20,7 +20,7 @@
 
 ##Panoramica
 
-Il processore di contenuti multimediali **Rilevamento multimediale volti di Azure ** consente di contare, monitorare i movimenti e persino di valutare la partecipazione e le reazioni del pubblico in base alle espressioni del volto. Questo servizio contiene due funzionalità:
+Il processore di contenuti multimediali **Rilevamento multimediale volti di Azure** consente di contare, monitorare i movimenti e persino di valutare la partecipazione e le reazioni del pubblico in base alle espressioni del volto. Questo servizio contiene due funzionalità:
 
 - **Rilevamento volti**
 

@@ -109,7 +109,7 @@ La chiave univoca che consente di unire trip\_data e trip\_fare è composta dai 
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
-È anche possibile passare a ******https://CLUSTERNAME.azurehdinsight.net/jupyter*** per accedere a Jupyter Notebook. Sarà necessaria la password dell'account amministratore accedere al notebook.
+È anche possibile passare a ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** per accedere a Jupyter Notebook. Sarà necessaria la password dell'account amministratore accedere al notebook.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 

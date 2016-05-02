@@ -72,7 +72,7 @@ Dopo aver installato la funzionalità Strumenti per server DNS nella macchina vi
 
 2. Fare clic su **DNS** per avviare la console di gestione DNS.
 
-3. Nella finestra di dialogo **Connessione al server DNS** fare clic sull'opzione ** Il computer seguente** e immettere il nome di dominio DNS del dominio gestito (ad esempio, "contoso100.com").
+3. Nella finestra di dialogo **Connessione al server DNS** fare clic sull'opzione **Il computer seguente** e immettere il nome di dominio DNS del dominio gestito (ad esempio, "contoso100.com").
 
     ![Console DNS - connettersi al dominio](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 

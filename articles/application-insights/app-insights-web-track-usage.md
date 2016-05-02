@@ -119,7 +119,7 @@ Se l'app raggruppa gli utenti in account, è anche possibile passare un identifi
 Gli ID utente e account non devono contenere spazi o i caratteri `,;=|`.
 
 
-In [Esplora metriche](app-insights-metrics-explorer.md) è possibile creare un grafico di **utenti autenticati ** e **account**.
+In [Esplora metriche](app-insights-metrics-explorer.md) è possibile creare un grafico di **utenti autenticati** e **account**.
 
 ## Traffico sintetico
 

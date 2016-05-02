@@ -58,7 +58,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
     * **-u**: il nome utente e la password usati per autenticare la richiesta.
     * **-G**: indica che si tratta di una richiesta GET.
 
-    L'inizio dell'URL, ****https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sarà lo stesso per tutte le richieste. Il percorso, **/status**, indica che la richiesta deve restituire lo stato di WebHCat (noto anche come Templeton) per il server.
+    L'inizio dell'URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sarà lo stesso per tutte le richieste. Il percorso, **/status**, indica che la richiesta deve restituire lo stato di WebHCat (noto anche come Templeton) per il server.
 
 2. Usare il seguente codice per inviare un processo Pig Latin al cluster:
 
@@ -88,7 +88,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 ##<a id="results"></a>Visualizzare risultati
 
-Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso ****wasb:///example/pigcurl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/pigcur** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
+Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso **wasb:///example/pigcurl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/pigcur** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
 
 È possibile elencare e scaricare questi file usando l'[Interfaccia della riga di comando di Azure](../xplat-cli-install.md). Ad esempio, per elencare i file contenuti in **example/pigcurl**, usare il comando seguente:
 

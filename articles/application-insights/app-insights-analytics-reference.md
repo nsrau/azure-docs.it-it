@@ -946,7 +946,7 @@ Restituisce una stima del numero di valori distinct di *Expr* nel gruppo. Per vi
 *Accuracy*, se specificato, controlla il rapporto tra velocità e accuratezza.
 
  * `0` = il calcolo meno accurato e più veloce.
- * `1` il valore predefinito che bilancia accuratezza e tempi di calcolo; errore dello 0,8% circa.
+ * `1` = il valore predefinito che bilancia accuratezza e tempi di calcolo; errore dello 0,8% circa.
  * `2` = il calcolo più accurato e più lento; errore dello 0,4% circa.
 
 **Esempio**
@@ -1263,7 +1263,17 @@ Si noti che esistono altri modi per ottenere questo risultato:
 || |
 |---|-------------|
 | + | Aggiungi |
-| - | Sottrai | | * | Moltiplica | | / | Dividi | | % | Modulo | || |`<` |Minore |`<=`|Minore o uguale a |`>` |Maggiore |`>=`|Maggiore o uguale a |`<>`|Non uguale a |`!=`|Non uguale a
+| - | Sottrai |
+| * | Moltiplica |
+| / | Dividi |
+| % | Modulo |
+||
+|`<` |Minore
+|`<=`|Minore o uguale a
+|`>` |Maggiore
+|`>=`|Maggiore o uguale a
+|`<>`|Non uguale a
+|`!=`|Non uguale a
 
 
 

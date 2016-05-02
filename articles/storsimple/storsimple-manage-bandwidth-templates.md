@@ -64,7 +64,7 @@ Per creare un nuovo modello di larghezza di banda, attenersi alla procedura segu
    3. Dall'elenco a discesa, selezionare l'opzione **Ora di inizio**. Si tratta dell'orario relativo all'inizio della pianificazione.
    4. Dall'elenco a discesa, selezionare l'opzione **Ora di fine**. Si tratta dell'orario relativo all'interruzione della pianificazione.
    
-         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
+         > [AZURE.NOTE] Le pianificazioni sovrapposte non sono consentite. Se gli orari di inizio e di fine sono sovrapposti con altre pianificazioni, verrà visualizzato un messaggio di errore.
 
    5. Specificare **Velocità larghezza di banda**. Si tratta della larghezza di banda espressa in megabit al secondo (Mbps) utilizzata dal dispositivo StorSimple nelle operazioni che coinvolgono il cloud. Specificare un numero compreso tra 1 e 1000 per questo campo.
    
@@ -85,7 +85,7 @@ Eseguire la procedura seguente per modificare un modello di larghezza di banda.
 2. Nella finestra di dialogo **Aggiungi/modifica modello di larghezza di banda**:
 
    1. Dall'elenco a discesa **Modello**, selezionare un modello di larghezza di banda che si desidera modificare.
-   2. Completare le modifiche. È possibile modificare qualsiasi impostazione esistente.
+   2. Completare le modifiche. (È possibile modificare qualsiasi impostazione esistente.)
    3. Fare clic sull’icona del segno di spunta ![Icona del segno di spunta](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). Nella pagina Configura del servizio, il modello modificato viene visualizzato nell'elenco relativo ai modelli di larghezza di banda.
 
 3. Per salvare le modifiche, fare clic su **Salva** nella parte inferiore della pagina. Fare clic su **Sì**, quando viene richiesta la conferma.
@@ -170,6 +170,6 @@ Seguire queste procedure consigliate relative al dispositivo StorSimple:
 
 ## Passaggi successivi
 
-Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Ulteriori informazioni sull’[utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 
 <!---HONumber=AcomDC_0420_2016-->
